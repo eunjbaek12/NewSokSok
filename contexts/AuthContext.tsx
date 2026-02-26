@@ -80,7 +80,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [persist]);
 
   return (
-    <AuthContext.Provider
+    <AuthContext
       value={{
         authMode: authState.mode,
         user: authState.user,
@@ -91,7 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </AuthContext.Provider>
+    </AuthContext>
   );
 }
 

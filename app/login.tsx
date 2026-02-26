@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
-  Pressable,
   StyleSheet,
   Platform,
-  ActivityIndicator,
   Alert,
 } from 'react-native';
 import { router } from 'expo-router';
@@ -13,6 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '@/contexts/AuthContext';
+import { Button } from '@/components/ui/Button';
 
 const GOOGLE_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID || '';
 
@@ -109,20 +108,17 @@ export default function LoginScreen() {
         </View>
 
         <View style={styles.buttonsSection}>
-          <Pressable
+          <Button
             onPress={handleGoogleLogin}
+            loading={loading === 'google'}
             disabled={loading !== null}
-            style={[styles.googleBtn, loading === 'google' && styles.btnDisabled]}
-          >
-            {loading === 'google' ? (
-              <ActivityIndicator size="small" color="#4285F4" />
-            ) : (
-              <>
-                <Ionicons name="logo-google" size={20} color="#4285F4" />
-                <Text style={styles.googleBtnText}>Google로 로그인</Text>
-              </>
-            )}
-          </Pressable>
+            variant="outline"
+            icon="logo-google"
+            iconColor="#4285F4"
+            title="Google로 로그인"
+            style={styles.googleBtn}
+            textStyle={styles.googleBtnText}
+          />
           <Text style={styles.googleSubtext}>다른 기기에서도 단어장을 동기화할 수 있어요</Text>
 
           <View style={styles.divider}>
@@ -131,20 +127,16 @@ export default function LoginScreen() {
             <View style={styles.dividerLine} />
           </View>
 
-          <Pressable
+          <Button
             onPress={handleGuestLogin}
+            loading={loading === 'guest'}
             disabled={loading !== null}
-            style={[styles.guestBtn, loading === 'guest' && styles.btnDisabled]}
-          >
-            {loading === 'guest' ? (
-              <ActivityIndicator size="small" color="#FFFFFF" />
-            ) : (
-              <>
-                <Ionicons name="phone-portrait-outline" size={20} color="#FFFFFF" />
-                <Text style={styles.guestBtnText}>바로 시작하기</Text>
-              </>
-            )}
-          </Pressable>
+            variant="primary"
+            icon="phone-portrait-outline"
+            title="바로 시작하기"
+            style={styles.guestBtn}
+            textStyle={styles.guestBtnText}
+          />
           <Text style={styles.guestSubtext}>
             회원가입 없이 이 기기에서 바로 사용할 수 있어요
           </Text>

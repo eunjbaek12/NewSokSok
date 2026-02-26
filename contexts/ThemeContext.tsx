@@ -53,9 +53,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }), [mode, colors, isDark, toggleTheme, setThemeMode]);
 
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeContext value={value}>
       {children}
-    </ThemeContext.Provider>
+    </ThemeContext>
   );
 }
 

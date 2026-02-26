@@ -257,9 +257,9 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   }), [lists, loading, refreshData, createList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
 
   return (
-    <VocabContext.Provider value={value}>
+    <VocabContext value={value}>
       {children}
-    </VocabContext.Provider>
+    </VocabContext>
   );
 }
 

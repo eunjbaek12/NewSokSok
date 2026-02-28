@@ -728,19 +728,6 @@ export default function DashboardScreen() {
               Smart Review System Active
             </Text>
           </View>
-          <Pressable
-            onPress={() => {
-              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              toggleTheme();
-            }}
-            style={[styles.themeToggle, { backgroundColor: colors.surfaceSecondary }]}
-          >
-            <Ionicons
-              name={isDark ? 'sunny-outline' : 'moon-outline'}
-              size={20}
-              color={colors.text}
-            />
-          </Pressable>
         </View>
       </View>
 

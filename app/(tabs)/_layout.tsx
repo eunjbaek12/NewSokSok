@@ -17,7 +17,7 @@ function NativeTabLayout() {
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="theme">
         <Icon sf={{ default: "sparkles", selected: "sparkles" }} />
-        <Label>AI Theme</Label>
+        <Label>Curation</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="settings">
         <Icon sf={{ default: "gearshape", selected: "gearshape.fill" }} />
@@ -70,7 +70,7 @@ function ClassicTabLayout() {
       <Tabs.Screen
         name="theme"
         options={{
-          title: "AI Theme",
+          title: "Curation",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? "sparkles" : "sparkles-outline"} size={24} color={color} />
           ),

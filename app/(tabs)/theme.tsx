@@ -1,477 +1,220 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  Pressable,
-  Platform,
-  StyleSheet,
-  FlatList,
-  ActivityIndicator,
-  Alert,
-  ScrollView,
-  Modal,
-} from 'react-native';
-import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { router } from 'expo-router';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
-import { generateThemeWords, isGeminiAvailable } from '@/lib/translation-api';
-import { AIWordResult } from '@/lib/types';
+import { CURATED_THEMES, CuratedTheme } from '@/lib/curation-data';
 
-const CHIP_BATCHES = [
-  ['Travel English', 'IT Interview', 'Business Email', 'Medical Terms', 'K-Pop Fandom'],
-  ['Yoga Poses', 'Startup Lingo', 'Cooking Verbs', 'Hotel Check-in', 'Dating Phrases'],
-];
-
-const DIFFICULTIES = [
-  { key: 'Beginner', label: '초급' },
-  { key: 'Intermediate', label: '중급' },
-  { key: 'Advanced', label: '고급' },
-];
-const WORD_COUNTS = [20, 30, 40, 50, 60, 70, 80, 90, 100];
-
-const NEW_LIST_ID = '__new__';
-
-export default function ThemeTabScreen() {
+export default function CurationTabScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { lists, createList, addBatchWords } = useVocab();
+  const { createCuratedList } = useVocab();
 
-  const [theme, setTheme] = useState('');
-  const [results, setResults] = useState<AIWordResult[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
+  const [selectedTheme, setSelectedTheme] = useState<CuratedTheme | null>(null);
   const [saving, setSaving] = useState(false);
-  const [chipBatch, setChipBatch] = useState(0);
-  const [difficulty, setDifficulty] = useState('Intermediate');
-  const [wordCount, setWordCount] = useState(20);
-  const [hasGemini, setHasGemini] = useState(false);
-  const [targetListId, setTargetListId] = useState(NEW_LIST_ID);
-  const [listPickerOpen, setListPickerOpen] = useState(false);
-  const [toastVisible, setToastVisible] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
+
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const bottomInset = Platform.OS === 'web' ? 84 + 34 : 84;
 
-  useEffect(() => {
-    isGeminiAvailable().then(setHasGemini);
-  }, []);
+  const handleToggleViewMode = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    setViewMode((prev) => (prev === 'detailed' ? 'compact' : 'detailed'));
+  };
 
-  const selectedList = useMemo(() => {
-    if (targetListId === NEW_LIST_ID) return null;
-    return lists.find(l => l.id === targetListId) || null;
-  }, [targetListId, lists]);
+  const handleSelectTheme = (theme: CuratedTheme) => {
+    Haptics.selectionAsync();
+    setSelectedTheme(theme);
+  };
 
-  const existingWordsForDedup = useMemo(() => {
-    if (!selectedList) return [];
-    return selectedList.words.map(w => w.term);
-  }, [selectedList]);
+  const handleBack = () => {
+    Haptics.selectionAsync();
+    setSelectedTheme(null);
+  };
 
-  const targetLabel = useMemo(() => {
-    if (targetListId === NEW_LIST_ID) return '새 단어장 생성';
-    const found = lists.find(l => l.id === targetListId);
-    return found ? found.title : '새 단어장 생성';
-  }, [targetListId, lists]);
-
-  const handleGenerate = useCallback(async () => {
-    const trimmed = theme.trim();
-    if (!trimmed) return;
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setLoading(true);
-    setResults([]);
-    try {
-      const words = await generateThemeWords(trimmed, difficulty, wordCount, existingWordsForDedup);
-      if (words.length === 0) {
-        Alert.alert('No Results', 'No words found for this theme. Try a different topic.');
-      }
-      setResults(words);
-    } catch {
-      Alert.alert('Error', 'Failed to generate words. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  }, [theme, difficulty, wordCount, existingWordsForDedup]);
-
-  const handleSave = useCallback(async () => {
-    if (results.length === 0) return;
+  const handleMasterTheme = async (theme: CuratedTheme) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setSaving(true);
     try {
-      let savedName = '';
-      let savedListId = '';
-      if (targetListId === NEW_LIST_ID) {
-        const trimmed = theme.trim();
-        savedName = trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
-        const newList = await createList(savedName);
-        await addBatchWords(newList.id, results);
-        savedListId = newList.id;
-      } else {
-        savedName = targetLabel;
-        savedListId = targetListId;
-        await addBatchWords(targetListId, results);
-      }
-      setResults([]);
-      setTheme('');
+      const newList = await createCuratedList(theme.title, theme.icon, theme.words);
       setSaving(false);
+      setSelectedTheme(null);
       router.replace('/');
       setTimeout(() => {
-        router.push({ pathname: '/list/[id]', params: { id: savedListId } });
-      }, 50);
+        router.push({ pathname: '/list/[id]', params: { id: newList.id } });
+      }, 100);
     } catch (e: any) {
-      if (e?.message === 'DUPLICATE_LIST') {
-        Alert.alert('중복된 이름', '같은 이름의 단어장이 이미 있습니다. 기존 단어장을 선택하거나 다른 테마를 입력해 주세요.');
-      } else {
-        Alert.alert('Error', 'Failed to save the list. Please try again.');
-      }
       setSaving(false);
+      if (e?.message === 'DUPLICATE_LIST') {
+        alert('이 테마와 동일한 이름의 단어장이 이미 존재합니다.');
+      } else {
+        alert('테마를 추가하는 중 오류가 발생했습니다.');
+      }
     }
-  }, [results, theme, targetListId, targetLabel, createList, addBatchWords]);
+  };
 
-  const handleRefreshChips = useCallback(() => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    setChipBatch((prev) => (prev === 0 ? 1 : 0));
-  }, []);
+  if (selectedTheme) {
+    return (
+      <View style={[styles.container, { backgroundColor: colors.background }]}>
+        <ScrollView contentContainerStyle={{ paddingBottom: bottomInset + 80 }} showsVerticalScrollIndicator={false}>
+          <View style={[styles.detailHero, { backgroundColor: colors.surfaceSecondary, paddingTop: topInset + 16 }]}>
+            <Pressable onPress={handleBack} style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)' }]}>
+              <Ionicons name="arrow-back" size={24} color={colors.text} />
+            </Pressable>
 
-  const handleChipPress = useCallback((label: string) => {
-    Haptics.selectionAsync();
-    setTheme(label);
-  }, []);
-
-  const handleBack = useCallback(() => {
-    setResults([]);
-  }, []);
-
-  const renderWordCard = useCallback(
-    ({ item }: { item: AIWordResult }) => (
-      <View
-        style={[
-          styles.wordCard,
-          { backgroundColor: colors.surface, shadowColor: colors.cardShadow },
-        ]}
-      >
-        <Text style={[styles.wordTerm, { color: colors.text }]}>{item.term}</Text>
-        <Text style={[styles.wordDefinition, { color: colors.textSecondary }]}>
-          {item.definition}
-        </Text>
-        <Text style={[styles.wordMeaning, { color: colors.primary }]}>{item.meaningKr}</Text>
-      </View>
-    ),
-    [colors],
-  );
-
-  const showResults = results.length > 0;
-  const disabled = loading || !theme.trim();
-
-  return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={[styles.header, { paddingTop: topInset + 12 }]}>
-        {showResults ? (
-          <Pressable onPress={handleBack} hitSlop={12}>
-            <Ionicons name="chevron-back" size={26} color={colors.text} />
-          </Pressable>
-        ) : (
-          <View style={{ width: 26 }} />
-        )}
-        <Text style={[styles.headerTitle, { color: colors.text }]}>AI Theme Generator</Text>
-        <View style={{ width: 26 }} />
-      </View>
-
-      {!showResults && !loading && (
-        <ScrollView
-          style={styles.scrollBody}
-          contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomInset + 20 }]}
-          showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps="handled"
-        >
-          <View style={styles.heroSection}>
-            <View style={[styles.heroIconWrap, { backgroundColor: colors.primaryLight }]}>
-              <Ionicons name="sparkles" size={28} color={colors.primary} />
-            </View>
-            <Text style={[styles.heroTitle, { color: colors.text }]}>
-              What do you want to learn?
-            </Text>
-            <Text style={[styles.heroSubtitle, { color: colors.textSecondary }]}>
-              Enter a topic, and AI will create a custom vocabulary list just for you.
-            </Text>
-          </View>
-
-          <View style={styles.inputSection}>
-            <View
-              style={[
-                styles.inputContainer,
-                { backgroundColor: colors.surface, borderColor: colors.border },
-              ]}
-            >
-              <Ionicons name="search-outline" size={20} color={colors.textTertiary} />
-              <TextInput
-                style={[styles.textInput, { color: colors.text }]}
-                placeholder="Enter a theme (e.g., food, travel)"
-                placeholderTextColor={colors.textTertiary}
-                value={theme}
-                onChangeText={setTheme}
-                autoCapitalize="none"
-                autoCorrect={false}
-                returnKeyType="search"
-                onSubmitEditing={handleGenerate}
-                editable={!loading}
-              />
-            </View>
-          </View>
-
-          <View style={styles.optionsSection}>
-            <Text style={[styles.optionLabel, { color: colors.textSecondary }]}>난이도</Text>
-            <View style={styles.optionRow}>
-              {DIFFICULTIES.map((d) => (
-                <Pressable
-                  key={d.key}
-                  onPress={() => { Haptics.selectionAsync(); setDifficulty(d.key); }}
-                  style={[
-                    styles.optionChip,
-                    {
-                      backgroundColor: difficulty === d.key ? colors.primary : colors.surfaceSecondary,
-                      borderColor: difficulty === d.key ? colors.primary : colors.border,
-                    },
-                  ]}
-                >
-                  <Text
-                    style={[
-                      styles.optionChipText,
-                      { color: difficulty === d.key ? '#FFFFFF' : colors.text },
-                    ]}
-                  >
-                    {d.label}
-                  </Text>
-                </Pressable>
-              ))}
+            <View style={styles.heroContent}>
+              <Text style={styles.heroIcon}>{selectedTheme.icon}</Text>
             </View>
 
-            <Text style={[styles.optionLabel, { color: colors.textSecondary, marginTop: 16 }]}>
-              단어 수
-            </Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              <View style={styles.optionRow}>
-                {WORD_COUNTS.map((c) => (
-                  <Pressable
-                    key={c}
-                    onPress={() => { Haptics.selectionAsync(); setWordCount(c); }}
-                    style={[
-                      styles.optionChip,
-                      {
-                        backgroundColor: wordCount === c ? colors.accent : colors.surfaceSecondary,
-                        borderColor: wordCount === c ? colors.accent : colors.border,
-                      },
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.optionChipText,
-                        { color: wordCount === c ? '#FFFFFF' : colors.text },
-                      ]}
-                    >
-                      {c}개
-                    </Text>
-                  </Pressable>
-                ))}
+            <View style={styles.heroTextContainer}>
+              <View style={styles.heroBadges}>
+                <View style={[styles.badge, { backgroundColor: colors.primary }]}>
+                  <Text style={[styles.badgeText, { color: '#FFF' }]}>{selectedTheme.category}</Text>
+                </View>
+                <View style={[styles.badge, { backgroundColor: 'rgba(255,255,255,0.3)' }]}>
+                  <Text style={[styles.badgeText, { color: colors.text }]}>LV. {selectedTheme.level}</Text>
+                </View>
               </View>
-            </ScrollView>
-
-            <Text style={[styles.optionLabel, { color: colors.textSecondary, marginTop: 16 }]}>
-              저장할 단어장
-            </Text>
-            <Pressable
-              onPress={() => setListPickerOpen(true)}
-              style={[
-                styles.listPickerBtn,
-                { backgroundColor: colors.surface, borderColor: colors.border },
-              ]}
-            >
-              <Ionicons
-                name={targetListId === NEW_LIST_ID ? 'add-circle-outline' : 'book-outline'}
-                size={20}
-                color={colors.primary}
-              />
-              <Text style={[styles.listPickerBtnText, { color: colors.text }]} numberOfLines={1}>
-                {targetLabel}
-              </Text>
-              <Ionicons name="chevron-down" size={18} color={colors.textTertiary} />
-            </Pressable>
-            {selectedList && selectedList.words.length > 0 && (
-              <Text style={[styles.dedupNote, { color: colors.textSecondary }]}>
-                기존 {selectedList.words.length}개 단어와 중복 없이 생성됩니다
-              </Text>
-            )}
-          </View>
-
-          <View style={styles.generateSection}>
-            <Pressable
-              onPress={handleGenerate}
-              disabled={disabled}
-              style={[
-                styles.generateBtn,
-                { backgroundColor: disabled ? colors.surfaceSecondary : colors.primary },
-              ]}
-            >
-              <Text
-                style={[
-                  styles.generateBtnText,
-                  { color: disabled ? colors.textTertiary : '#FFFFFF' },
-                ]}
-              >
-                단어 생성하기
-              </Text>
-            </Pressable>
-          </View>
-
-          <View style={styles.chipsSection}>
-            <View style={styles.chipsSectionHeader}>
-              <Text style={[styles.chipsSectionTitle, { color: colors.text }]}>Popular Themes</Text>
-              <Pressable onPress={handleRefreshChips} hitSlop={8}>
-                <Ionicons name="refresh" size={20} color={colors.textSecondary} />
-              </Pressable>
+              <Text style={[styles.detailTitle, { color: colors.text }]}>{selectedTheme.title}</Text>
+              <Text style={[styles.detailDesc, { color: colors.textSecondary }]}>{selectedTheme.description}</Text>
             </View>
-            <View style={styles.chipsWrap}>
-              {CHIP_BATCHES[chipBatch].map((label) => (
-                <Pressable
-                  key={label}
-                  onPress={() => handleChipPress(label)}
-                  style={[
-                    styles.chip,
-                    { backgroundColor: colors.surfaceSecondary, borderColor: colors.border },
-                  ]}
-                >
-                  <Text style={[styles.chipText, { color: colors.text }]}>{label}</Text>
-                </Pressable>
-              ))}
+          </View>
+
+          <View style={[styles.detailBody, { backgroundColor: colors.background }]}>
+            <Text style={[styles.sectionTitle, { color: colors.text, borderBottomColor: colors.borderLight }]}>테마 학습 정보</Text>
+
+            <View style={styles.statsGrid}>
+              <View style={[styles.statBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+                <Text style={[styles.statLabel, { color: colors.textTertiary }]}>TOTAL WORDS</Text>
+                <Text style={[styles.statValue, { color: colors.text }]}>{selectedTheme.count}</Text>
+              </View>
+              <View style={[styles.statBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+                <Text style={[styles.statLabel, { color: colors.textTertiary }]}>EXPERTISE</Text>
+                <Text style={[styles.statValue, { color: colors.primary }]}>{selectedTheme.level}</Text>
+              </View>
+            </View>
+
+            <View style={[styles.guideBox, { backgroundColor: colors.primaryLight, borderColor: colors.primary }]}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+                <Ionicons name="sparkles" size={16} color={colors.primary} />
+                <Text style={[styles.guideTitle, { color: colors.primary }]}>학습 가이드</Text>
+              </View>
+              <Text style={[styles.guideText, { color: colors.text }]}>
+                이 테마를 리스트에 등록하면 {selectedTheme.count}개의 실전 전문 어휘를 홈 화면에서 관리하고 학습할 수 있습니다.
+              </Text>
             </View>
           </View>
         </ScrollView>
-      )}
 
-      {loading && (
-        <View style={styles.loadingState}>
-          <ActivityIndicator size="large" color={colors.primary} />
-          <Text style={[styles.loadingText, { color: colors.textSecondary }]}>
-            {wordCount}개 단어를 찾고 있습니다...
-          </Text>
-        </View>
-      )}
-
-      {showResults && (
-        <FlatList
-          data={results}
-          renderItem={renderWordCard}
-          keyExtractor={(item, index) => `${item.term}-${index}`}
-          contentContainerStyle={[styles.listContent, { paddingBottom: bottomInset + 80 }]}
-          showsVerticalScrollIndicator={false}
-          scrollEnabled={results.length > 0}
-          ListHeaderComponent={
-            <Text style={[styles.resultCount, { color: colors.textSecondary }]}>
-              {results.length}개 단어 생성됨
-            </Text>
-          }
-        />
-      )}
-
-      {showResults && (
-        <View style={[styles.saveBar, { paddingBottom: bottomInset + 8 }]}>
+        <View style={[styles.masterBar, { paddingBottom: bottomInset + 8, backgroundColor: colors.surface }]}>
           <Pressable
-            onPress={handleSave}
+            onPress={() => handleMasterTheme(selectedTheme)}
             disabled={saving}
-            style={[styles.saveBtn, { backgroundColor: colors.primary }]}
+            style={[styles.masterBtn, { backgroundColor: colors.primary }]}
           >
             {saving ? (
               <ActivityIndicator size="small" color="#FFFFFF" />
             ) : (
               <>
-                <Ionicons name="add-circle-outline" size={22} color="#FFFFFF" />
-                <Text style={styles.saveBtnText}>
-                  {targetListId === NEW_LIST_ID
-                    ? '새 단어장으로 저장'
-                    : `"${targetLabel}"에 추가`}
-                </Text>
+                <Ionicons name="checkmark-circle" size={24} color="#FFFFFF" />
+                <Text style={styles.masterBtnText}>이 테마 마스터하기</Text>
               </>
             )}
           </Pressable>
         </View>
-      )}
+      </View>
+    );
+  }
 
-      {toastVisible && (
-        <View style={styles.toastContainer} pointerEvents="none">
-          <View style={[styles.toast, { backgroundColor: colors.text }]}>
-            <Ionicons name="checkmark-circle" size={20} color={colors.background} />
-            <Text style={[styles.toastText, { color: colors.background }]}>{toastMessage}</Text>
-          </View>
+  return (
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <View style={[styles.header, { paddingTop: topInset + 12 }]}>
+        <View>
+          <Text style={[styles.headerTitle, { color: colors.text }]}>큐레이션</Text>
+          <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]}>전문가가 엄선한 명품 테마 💎</Text>
         </View>
-      )}
+        <View style={styles.headerActions}>
+          <Pressable
+            onPress={handleToggleViewMode}
+            style={[styles.actionBtn, { backgroundColor: colors.surface, borderColor: colors.border }]}
+          >
+            <Ionicons name={viewMode === 'detailed' ? 'list' : 'grid'} size={22} color={colors.textSecondary} />
+          </Pressable>
+          <Pressable style={[styles.actionBtn, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+            <Ionicons name="search" size={22} color={colors.textSecondary} />
+          </Pressable>
+        </View>
+      </View>
 
-      <Modal
-        visible={listPickerOpen}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setListPickerOpen(false)}
+      <ScrollView
+        contentContainerStyle={[
+          styles.listContainer,
+          { paddingBottom: bottomInset + 20 },
+          viewMode === 'compact' && { flexDirection: 'column', gap: 12 }
+        ]}
       >
-        <Pressable
-          style={styles.pickerOverlay}
-          onPress={() => setListPickerOpen(false)}
-        >
-          <View style={[styles.pickerContainer, { backgroundColor: colors.surface }]}>
-            <Text style={[styles.pickerTitle, { color: colors.text }]}>저장할 단어장 선택</Text>
-            <ScrollView style={styles.pickerScroll} showsVerticalScrollIndicator={false}>
-              <Pressable
-                onPress={() => {
-                  Haptics.selectionAsync();
-                  setTargetListId(NEW_LIST_ID);
-                  setListPickerOpen(false);
-                }}
-                style={[styles.pickerItem, { borderBottomColor: colors.border }]}
-              >
-                <Ionicons
-                  name={targetListId === NEW_LIST_ID ? 'radio-button-on' : 'radio-button-off'}
-                  size={22}
-                  color={targetListId === NEW_LIST_ID ? colors.primary : colors.textTertiary}
-                />
-                <View style={styles.pickerItemContent}>
-                  <Text style={[styles.pickerItemTitle, { color: colors.text }]}>새 단어장 생성</Text>
-                  <Text style={[styles.pickerItemSub, { color: colors.textSecondary }]}>
-                    테마 이름으로 새 단어장을 만듭니다
-                  </Text>
-                </View>
-              </Pressable>
-              {lists.map((list) => (
-                <Pressable
-                  key={list.id}
-                  onPress={() => {
-                    Haptics.selectionAsync();
-                    setTargetListId(list.id);
-                    setListPickerOpen(false);
-                  }}
-                  style={[styles.pickerItem, { borderBottomColor: colors.border }]}
-                >
-                  <Ionicons
-                    name={targetListId === list.id ? 'radio-button-on' : 'radio-button-off'}
-                    size={22}
-                    color={targetListId === list.id ? colors.primary : colors.textTertiary}
-                  />
-                  <View style={styles.pickerItemContent}>
-                    <Text style={[styles.pickerItemTitle, { color: colors.text }]}>{list.title}</Text>
-                    <Text style={[styles.pickerItemSub, { color: colors.textSecondary }]}>
-                      {list.words.length}개 단어
+        {CURATED_THEMES.map((theme) => (
+          <Pressable
+            key={theme.id}
+            onPress={() => handleSelectTheme(theme)}
+            style={({ pressed }) => [
+              styles.themeCard,
+              { backgroundColor: colors.surface, borderColor: colors.borderLight },
+              viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact,
+              pressed && { opacity: 0.95, transform: [{ scale: 0.98 }] }
+            ]}
+          >
+            <View style={[
+              styles.cardIconBox,
+              { backgroundColor: colors.surfaceSecondary },
+              viewMode === 'detailed' ? styles.iconBoxDetailed : styles.iconBoxCompact
+            ]}>
+              <Text style={{ fontSize: viewMode === 'detailed' ? 32 : 24 }}>{theme.icon}</Text>
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <View style={styles.cardHeader}>
+                <Text style={[styles.cardTitle, { color: colors.text }, viewMode === 'compact' && { fontSize: 16 }]} numberOfLines={1}>
+                  {theme.title}
+                </Text>
+                <Text style={[styles.cardLevel, { color: colors.textTertiary }]}>{theme.level}</Text>
+              </View>
+
+              {viewMode === 'detailed' && (
+                <>
+                  <View style={[styles.cardDescBox, { backgroundColor: colors.surfaceSecondary }]}>
+                    <Text style={[styles.cardDesc, { color: colors.textSecondary }]} numberOfLines={2}>
+                      "{theme.description}"
                     </Text>
                   </View>
-                </Pressable>
-              ))}
-            </ScrollView>
-            <Pressable
-              onPress={() => setListPickerOpen(false)}
-              style={[styles.pickerCloseBtn, { backgroundColor: colors.surfaceSecondary }]}
-            >
-              <Text style={[styles.pickerCloseBtnText, { color: colors.text }]}>닫기</Text>
-            </Pressable>
-          </View>
-        </Pressable>
-      </Modal>
+                  <View style={styles.cardFooter}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                      <Ionicons name="sparkles" size={12} color={colors.accent} />
+                      <Text style={[styles.cardCount, { color: colors.primary }]}>{theme.count} 단어 수록</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+                      <Text style={[styles.cardViewMore, { color: colors.primary }]}>상세보기</Text>
+                      <Ionicons name="chevron-forward" size={14} color={colors.primary} />
+                    </View>
+                  </View>
+                </>
+              )}
+
+              {viewMode === 'compact' && (
+                <View style={styles.cardFooterCompact}>
+                  <Text style={[styles.cardCountCompact, { color: colors.textTertiary }]}>
+                    {theme.count} 단어 • {theme.category}
+                  </Text>
+                  <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+                </View>
+              )}
+            </View>
+          </Pressable>
+        ))}
+      </ScrollView>
     </View>
   );
 }
@@ -482,191 +225,122 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingBottom: 12,
-  },
-  headerTitle: { fontSize: 18, fontFamily: 'Inter_700Bold' },
-  scrollBody: { flex: 1 },
-  scrollContent: { paddingBottom: 32 },
-  heroSection: {
-    alignItems: 'center',
-    paddingHorizontal: 32,
-    paddingTop: 16,
+    paddingHorizontal: 24,
     paddingBottom: 20,
-    gap: 10,
   },
-  heroIconWrap: {
-    width: 52,
-    height: 52,
-    borderRadius: 14,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 2,
-  },
-  heroTitle: { fontSize: 20, fontFamily: 'Inter_700Bold', textAlign: 'center' },
-  heroSubtitle: {
-    fontSize: 14,
-    fontFamily: 'Inter_400Regular',
-    textAlign: 'center',
-    lineHeight: 20,
-  },
-  inputSection: { paddingHorizontal: 16, paddingBottom: 16 },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderRadius: 14,
-    borderWidth: 1,
-    paddingHorizontal: 14,
-    gap: 10,
-    height: 50,
-  },
-  textInput: {
-    flex: 1,
-    fontSize: 16,
-    fontFamily: 'Inter_400Regular',
-    height: '100%',
-  },
-  optionsSection: { paddingHorizontal: 16, paddingBottom: 16 },
-  optionLabel: {
-    fontSize: 13,
-    fontFamily: 'Inter_600SemiBold',
-    textTransform: 'uppercase' as const,
-    letterSpacing: 0.5,
-    marginBottom: 8,
-  },
-  optionRow: { flexDirection: 'row' as const, gap: 8 },
-  optionChip: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 10,
-    borderWidth: 1,
-  },
-  optionChipText: { fontSize: 14, fontFamily: 'Inter_500Medium' },
-  listPickerBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  headerTitle: { fontSize: 28, fontFamily: 'Inter_700Bold', letterSpacing: -0.5 },
+  headerSubtitle: { fontSize: 14, fontFamily: 'Inter_500Medium', marginTop: 4 },
+  headerActions: { flexDirection: 'row', gap: 8 },
+  actionBtn: {
+    width: 44,
+    height: 44,
     borderRadius: 12,
     borderWidth: 1,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    gap: 10,
-  },
-  listPickerBtnText: { flex: 1, fontSize: 15, fontFamily: 'Inter_500Medium' },
-  dedupNote: {
-    fontSize: 12,
-    fontFamily: 'Inter_400Regular',
-    marginTop: 6,
-    paddingLeft: 4,
-  },
-  generateSection: { paddingHorizontal: 16, paddingBottom: 20 },
-  generateBtn: {
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 14,
-    borderRadius: 14,
-    gap: 8,
   },
-  generateBtnText: { fontSize: 16, fontFamily: 'Inter_600SemiBold' },
-  chipsSection: { paddingHorizontal: 16, gap: 12 },
-  chipsSectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  chipsSectionTitle: { fontSize: 15, fontFamily: 'Inter_600SemiBold' },
-  chipsWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  chip: {
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: 20,
+  listContainer: { paddingHorizontal: 24, gap: 20 },
+  themeCard: {
+    borderRadius: 24,
     borderWidth: 1,
-  },
-  chipText: { fontSize: 14, fontFamily: 'Inter_500Medium' },
-  loadingState: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 16,
-  },
-  loadingText: { fontSize: 15, fontFamily: 'Inter_500Medium' },
-  resultCount: { fontSize: 13, fontFamily: 'Inter_500Medium', marginBottom: 8 },
-  listContent: { paddingHorizontal: 16, paddingBottom: 16, gap: 10 },
-  wordCard: {
-    borderRadius: 14,
-    padding: 16,
-    gap: 6,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 1,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  wordTerm: { fontSize: 18, fontFamily: 'Inter_700Bold' },
-  wordDefinition: { fontSize: 14, fontFamily: 'Inter_400Regular', lineHeight: 20 },
-  wordMeaning: { fontSize: 15, fontFamily: 'Inter_600SemiBold' },
-  saveBar: { position: 'absolute', bottom: 0, left: 0, right: 0, paddingHorizontal: 24, paddingTop: 12 },
-  saveBtn: {
     flexDirection: 'row',
+    gap: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  cardDetailed: { padding: 20 },
+  cardCompact: { padding: 16, alignItems: 'center' },
+  cardIconBox: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16,
-    borderRadius: 14,
-    gap: 8,
   },
-  saveBtnText: { fontSize: 17, fontFamily: 'Inter_600SemiBold', color: '#FFFFFF' },
-  toastContainer: {
+  iconBoxDetailed: { width: 64, height: 64, borderRadius: 20 },
+  iconBoxCompact: { width: 48, height: 48, borderRadius: 16 },
+  cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
+  cardTitle: { flex: 1, fontSize: 18, fontFamily: 'Inter_700Bold' },
+  cardLevel: { fontSize: 11, fontFamily: 'Inter_700Bold', letterSpacing: 1 },
+  cardDescBox: { padding: 12, borderRadius: 16, marginBottom: 16 },
+  cardDesc: { fontSize: 13, fontFamily: 'Inter_400Regular', fontStyle: 'italic', lineHeight: 20 },
+  cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  cardCount: { fontSize: 11, fontFamily: 'Inter_700Bold', letterSpacing: 0.5 },
+  cardViewMore: { fontSize: 12, fontFamily: 'Inter_700Bold' },
+  cardFooterCompact: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 4 },
+  cardCountCompact: { fontSize: 11, fontFamily: 'Inter_600SemiBold', letterSpacing: 0.5 },
+
+  detailHero: {
+    height: 320,
+    position: 'relative',
+    padding: 24,
+    justifyContent: 'flex-end',
+  },
+  backBtn: {
     position: 'absolute',
-    top: 120,
+    top: 60,
+    left: 24,
+    width: 44,
+    height: 44,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+  },
+  heroContent: {
+    position: 'absolute',
+    inset: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    opacity: 0.1,
+  },
+  heroIcon: {
+    fontSize: 140,
+  },
+  heroTextContainer: { zIndex: 1 },
+  heroBadges: { flexDirection: 'row', gap: 8, marginBottom: 12 },
+  badge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 8 },
+  badgeText: { fontSize: 10, fontFamily: 'Inter_700Bold', letterSpacing: 1 },
+  detailTitle: { fontSize: 28, fontFamily: 'Inter_700Bold', marginBottom: 12 },
+  detailDesc: { fontSize: 14, fontFamily: 'Inter_500Medium', lineHeight: 22 },
+
+  detailBody: {
+    flex: 1,
+    padding: 24,
+    marginTop: -24,
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
+    minHeight: 400,
+  },
+  sectionTitle: { fontSize: 20, fontFamily: 'Inter_700Bold', borderBottomWidth: 1, paddingBottom: 16, marginBottom: 24 },
+  statsGrid: { flexDirection: 'row', gap: 16, marginBottom: 24 },
+  statBox: { flex: 1, padding: 20, borderRadius: 24, borderWidth: 1 },
+  statLabel: { fontSize: 10, fontFamily: 'Inter_700Bold', letterSpacing: 1, marginBottom: 8 },
+  statValue: { fontSize: 24, fontFamily: 'Inter_700Bold' },
+  guideBox: { padding: 20, borderRadius: 24, borderWidth: 1 },
+  guideTitle: { fontSize: 15, fontFamily: 'Inter_700Bold' },
+  guideText: { fontSize: 13, fontFamily: 'Inter_500Medium', lineHeight: 22 },
+
+  masterBar: {
+    position: 'absolute',
+    bottom: 0,
     left: 0,
     right: 0,
-    alignItems: 'center',
-    zIndex: 999,
-  },
-  toast: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderRadius: 12,
+    paddingHorizontal: 24,
+    paddingTop: 16,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 8,
-    elevation: 6,
+    shadowOffset: { width: 0, height: -4 },
+    shadowOpacity: 0.05,
+    shadowRadius: 12,
+    elevation: 10,
   },
-  toastText: { fontSize: 15, fontFamily: 'Inter_600SemiBold' },
-  pickerOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  pickerContainer: {
-    width: '100%',
-    maxWidth: 400,
-    maxHeight: '70%',
-    borderRadius: 16,
-    padding: 20,
-  },
-  pickerTitle: { fontSize: 17, fontFamily: 'Inter_700Bold', marginBottom: 16 },
-  pickerScroll: { maxHeight: 300 },
-  pickerItem: {
+  masterBtn: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 18,
+    borderRadius: 20,
     gap: 12,
-    paddingVertical: 14,
-    borderBottomWidth: StyleSheet.hairlineWidth,
   },
-  pickerItemContent: { flex: 1, gap: 2 },
-  pickerItemTitle: { fontSize: 15, fontFamily: 'Inter_500Medium' },
-  pickerItemSub: { fontSize: 12, fontFamily: 'Inter_400Regular' },
-  pickerCloseBtn: {
-    marginTop: 16,
-    paddingVertical: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  pickerCloseBtnText: { fontSize: 15, fontFamily: 'Inter_600SemiBold' },
+  masterBtnText: { fontSize: 18, fontFamily: 'Inter_700Bold', color: '#FFFFFF' },
 });

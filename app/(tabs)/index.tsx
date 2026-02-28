@@ -30,16 +30,6 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { VocaList } from '@/lib/types';
 
-const THEME_CHIPS = [
-  'Travel English',
-  'IT Interview',
-  'Business Email',
-  'Medical Terms',
-  'K-Pop Fandom',
-  'Cooking Verbs',
-  'Startup Lingo',
-];
-
 function getRelativeTime(timestamp?: number): string {
   if (!timestamp) return 'Never';
   const now = Date.now();
@@ -140,6 +130,15 @@ function ReviewBadge({ colorKey, label, colors }: { colorKey: string; label: str
   );
 }
 
+function CuratedBadge({ colors }: { colors: any }) {
+  return (
+    <View style={[styles.badge, { backgroundColor: colors.primaryLight, flexDirection: 'row', alignItems: 'center', gap: 4 }]}>
+      <Ionicons name="sparkles" size={10} color={colors.primary} />
+      <Text style={[styles.badgeText, { color: colors.primary }]}>CURATED</Text>
+    </View>
+  );
+}
+
 function ListCard({
   item,
   colors,
@@ -184,15 +183,21 @@ function ListCard({
     >
       <View style={styles.cardTopRow}>
         <View style={styles.cardTitleArea}>
-          <Text style={[styles.cardTitle, { color: colors.text }]} numberOfLines={1}>
-            {item.title}
-          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+            {item.icon && (
+              <Text style={{ fontSize: 16 }}>{item.icon}</Text>
+            )}
+            <Text style={[styles.cardTitle, { color: colors.text, flexShrink: 1 }]} numberOfLines={1}>
+              {item.title}
+            </Text>
+          </View>
           <Text style={[styles.lastStudied, { color: colors.textTertiary }]}>
             Last studied: {relativeTime}
           </Text>
         </View>
         <View style={styles.cardActions}>
-          <ReviewBadge colorKey={reviewStatus.colorKey} label={reviewStatus.label} colors={colors} />
+          {item.isCurated && <CuratedBadge colors={colors} />}
+          {!item.isCurated && <ReviewBadge colorKey={reviewStatus.colorKey} label={reviewStatus.label} colors={colors} />}
           <Pressable
             onPress={handleContextMenu}
             hitSlop={8}
@@ -222,40 +227,6 @@ function ListCard({
         </Text>
       </View>
     </Pressable>
-  );
-}
-
-function ThemeChips({ colors }: { colors: any }) {
-  return (
-    <View style={styles.themesSection}>
-      <Text style={[styles.themesTitle, { color: colors.text }]}>Popular Themes</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.chipsRow}
-      >
-        {THEME_CHIPS.map((chip) => (
-          <Pressable
-            key={chip}
-            onPress={() => {
-              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              router.push({ pathname: '/theme-generator', params: { initialTheme: chip } });
-            }}
-            style={({ pressed }) => [
-              styles.chip,
-              {
-                backgroundColor: colors.surfaceSecondary,
-                borderColor: colors.border,
-                opacity: pressed ? 0.7 : 1,
-              },
-            ]}
-          >
-            <Ionicons name="sparkles-outline" size={14} color={colors.primary} />
-            <Text style={[styles.chipText, { color: colors.text }]}>{chip}</Text>
-          </Pressable>
-        ))}
-      </ScrollView>
-    </View>
   );
 }
 
@@ -705,22 +676,14 @@ export default function DashboardScreen() {
           <Ionicons name="add" size={20} color="#FFFFFF" />
           <Text style={styles.emptyButtonText}>Create Wordbook</Text>
         </Pressable>
-        <Pressable
-          onPress={() => router.push('/theme-generator')}
-          style={styles.aiLink}
-        >
-          <Ionicons name="sparkles-outline" size={16} color={colors.accent} />
-          <Text style={[styles.aiLinkText, { color: colors.accent }]}>Create with AI</Text>
-        </Pressable>
       </View>
     ),
     [colors, handleCreateList]
   );
 
   const renderFooter = useCallback(() => {
-    if (visibleLists.length === 0) return null;
-    return <ThemeChips colors={colors} />;
-  }, [visibleLists.length, colors]);
+    return null;
+  }, []);
 
   const renderHeader = useCallback(() => {
     if (visibleLists.length === 0) return null;

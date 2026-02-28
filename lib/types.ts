@@ -14,6 +14,8 @@ export interface VocaList {
   isVisible: boolean;
   createdAt: number;
   lastStudiedAt?: number;
+  isCurated?: boolean;
+  icon?: string;
 }
 
 export interface StudyResult {

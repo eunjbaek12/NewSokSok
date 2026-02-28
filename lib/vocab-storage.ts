@@ -119,6 +119,30 @@ export async function createList(title: string): Promise<VocaList> {
   return newList;
 }
 
+export async function createCuratedList(title: string, icon: string, words: Omit<Word, 'id' | 'isMemorized'>[]): Promise<VocaList> {
+  const lists = await getLists();
+
+  const copiedWords: Word[] = words.map(w => ({
+    id: generateId(),
+    ...w,
+    isMemorized: false,
+  }));
+
+  const newList: VocaList = {
+    id: generateId(),
+    title,
+    words: copiedWords,
+    isVisible: true,
+    createdAt: Date.now(),
+    lastStudiedAt: Date.now(),
+    isCurated: true,
+    icon,
+  };
+  lists.unshift(newList);
+  await saveLists(lists);
+  return newList;
+}
+
 export async function updateList(id: string, updates: Partial<Omit<VocaList, 'id' | 'words'>>): Promise<VocaList | null> {
   const lists = await getLists();
   const index = lists.findIndex(l => l.id === id);

@@ -13,6 +13,7 @@ interface VocabContextValue {
   loading: boolean;
   refreshData: () => Promise<void>;
   createList: (title: string) => Promise<VocaList>;
+  createCuratedList: (title: string, icon: string, words: Omit<Word, 'id' | 'isMemorized'>[]) => Promise<VocaList>;
   updateList: (id: string, updates: Partial<Omit<VocaList, 'id' | 'words'>>) => Promise<void>;
   deleteList: (id: string) => Promise<void>;
   toggleVisibility: (id: string) => Promise<void>;
@@ -129,6 +130,18 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     return newList;
   }, [refreshData, debouncedSync]);
 
+  const createCuratedList = useCallback(async (title: string, icon: string, words: Omit<Word, 'id' | 'isMemorized'>[]) => {
+    const current = await Storage.getLists();
+    const trimmed = title.trim().toLowerCase();
+    if (current.some(l => l.title.trim().toLowerCase() === trimmed)) {
+      throw new Error('DUPLICATE_LIST');
+    }
+    const newList = await Storage.createCuratedList(title, icon, words);
+    await refreshData();
+    debouncedSync();
+    return newList;
+  }, [refreshData, debouncedSync]);
+
   const updateList = useCallback(async (id: string, updates: Partial<Omit<VocaList, 'id' | 'words'>>) => {
     await Storage.updateList(id, updates);
     await refreshData();
@@ -236,6 +249,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     loading,
     refreshData,
     createList,
+    createCuratedList,
     updateList,
     deleteList,
     toggleVisibility,
@@ -254,7 +268,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     studyResults,
     setStudyResults,
     clearStudyResults,
-  }), [lists, loading, refreshData, createList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
+  }), [lists, loading, refreshData, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
 
   return (
     <VocabContext value={value}>

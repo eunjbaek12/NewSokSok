@@ -21,15 +21,9 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
+import WordDetailModal, { WordModalMode } from '@/components/WordDetailModal';
 
-type FilterTab = 'all' | 'learning' | 'memorized';
-
-interface EditForm {
-  term: string;
-  meaningKr: string;
-  definition: string;
-  exampleEn: string;
-}
+type FilterStatus = 'all' | 'learning' | 'memorized';
 
 const STUDY_MODES = [
   { key: 'flashcards', icon: 'albums-outline' as const, label: 'Flashcard', pathname: '/flashcards/[id]' as const },
@@ -46,21 +40,23 @@ export default function ListDetailScreen() {
     lists,
     getWordsForList,
     renameList,
-    deleteWord,
     deleteWords,
     toggleMemorized,
     refreshData,
     updateWord,
   } = useVocab();
 
-  const [filter, setFilter] = useState<FilterTab>('all');
+  const [filterStarred, setFilterStarred] = useState<boolean>(false);
+  const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
-  const [editForm, setEditForm] = useState<EditForm>({ term: '', meaningKr: '', definition: '', exampleEn: '' });
   const [speakingWordId, setSpeakingWordId] = useState<string | null>(null);
+
+  // Modal State
+  const [isWordModalVisible, setWordModalVisible] = useState(false);
+  const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
+  const [modalMode, setModalMode] = useState<WordModalMode>('read');
   const [refreshing, setRefreshing] = useState(false);
-  const [saving, setSaving] = useState(false);
 
   const list = lists.find(l => l.id === id);
   const allWords = getWordsForList(id!);
@@ -69,12 +65,16 @@ export default function ListDetailScreen() {
 
   const learningWords = useMemo(() => allWords.filter(w => !w.isMemorized), [allWords]);
   const memorizedWords = useMemo(() => allWords.filter(w => w.isMemorized), [allWords]);
+  const starredWords = useMemo(() => allWords.filter(w => w.isStarred), [allWords]);
 
   const filteredWords = useMemo(() => {
-    if (filter === 'learning') return learningWords;
-    if (filter === 'memorized') return memorizedWords;
-    return allWords;
-  }, [filter, allWords, learningWords, memorizedWords]);
+    return allWords.filter(w => {
+      if (filterStarred && !w.isStarred) return false;
+      if (filterStatus === 'learning' && w.isMemorized) return false;
+      if (filterStatus === 'memorized' && !w.isMemorized) return false;
+      return true;
+    });
+  }, [filterStarred, filterStatus, allWords]);
 
   const progress = useMemo(() => {
     const total = allWords.length;
@@ -119,8 +119,10 @@ export default function ListDetailScreen() {
   }, [list, renameList]);
 
   const handleAddWord = useCallback(() => {
-    router.push({ pathname: '/add-word', params: { listId: id! } });
-  }, [id]);
+    setSelectedWordId(null);
+    setModalMode('add');
+    setWordModalVisible(true);
+  }, []);
 
   const enterEditMode = useCallback((wordId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -166,41 +168,15 @@ export default function ListDetailScreen() {
     );
   }, [selectedIds, id, deleteWords, exitEditMode]);
 
-  const openWordDetail = useCallback((word: Word) => {
-    setSelectedWordId(word.id);
-    setEditForm({
-      term: word.term,
-      meaningKr: word.meaningKr,
-      definition: word.definition,
-      exampleEn: word.exampleEn,
-    });
-  }, []);
-
-  const closeWordDetail = useCallback(() => {
-    setSelectedWordId(null);
-    setEditForm({ term: '', meaningKr: '', definition: '', exampleEn: '' });
-  }, []);
-
-  const handleSaveWord = useCallback(async () => {
-    if (!selectedWordId || !id) return;
-    setSaving(true);
-    await updateWord(id, selectedWordId, {
-      term: editForm.term,
-      definition: editForm.definition,
-      meaningKr: editForm.meaningKr,
-      exampleEn: editForm.exampleEn,
-    });
-    setSaving(false);
-    closeWordDetail();
-  }, [selectedWordId, id, editForm, updateWord, closeWordDetail]);
-
   const handleCardPress = useCallback((word: Word) => {
     if (editMode) {
       toggleSelection(word.id);
     } else {
-      openWordDetail(word);
+      setSelectedWordId(word.id);
+      setModalMode('read');
+      setWordModalVisible(true);
     }
-  }, [editMode, toggleSelection, openWordDetail]);
+  }, [editMode, toggleSelection]);
 
   const handleCardLongPress = useCallback((word: Word) => {
     if (!editMode) {
@@ -208,15 +184,11 @@ export default function ListDetailScreen() {
     }
   }, [editMode, enterEditMode]);
 
-  const selectedWord = useMemo(() => {
-    if (!selectedWordId) return null;
-    return allWords.find(w => w.id === selectedWordId) ?? null;
-  }, [selectedWordId, allWords]);
 
   const renderWordCard = useCallback(({ item }: { item: Word }) => {
     const isSpeaking = speakingWordId === item.id;
     const isSelected = editMode && selectedIds.has(item.id);
-    const borderColor = item.isMemorized ? colors.success : colors.primary;
+    const borderColor = item.isStarred ? '#FFD700' : (item.isMemorized ? colors.success : colors.primary);
 
     return (
       <Pressable
@@ -242,6 +214,25 @@ export default function ListDetailScreen() {
               />
             </View>
           )}
+
+          {/* 1. 별표 (가장 왼쪽) - 항상 표시되며 클릭 시 상태 토글 */}
+          <Pressable
+            onPress={(e) => {
+              e.stopPropagation();
+              Haptics.selectionAsync();
+              updateWord(id!, item.id, { isStarred: !item.isStarred });
+            }}
+            hitSlop={8}
+            style={styles.starBtn}
+          >
+            <Ionicons
+              name={item.isStarred ? 'star' : 'star-outline'}
+              size={22}
+              color={item.isStarred ? '#FFD700' : colors.textTertiary}
+            />
+          </Pressable>
+
+          {/* 2. 단어와 뜻 (중앙, 왼쪽 정렬) */}
           <View style={styles.cardTextArea}>
             <Text
               style={[
@@ -254,7 +245,10 @@ export default function ListDetailScreen() {
             </Text>
             <Text style={[styles.meaningText, { color: colors.textSecondary }]}>{item.meaningKr}</Text>
           </View>
+
+          {/* 우측 아이콘 영역 */}
           <View style={styles.cardActions}>
+            {/* 3. 스피커 (단어 바로 다음 우측 부분) */}
             <Pressable
               onPress={(e) => {
                 e.stopPropagation();
@@ -269,6 +263,8 @@ export default function ListDetailScreen() {
                 color={isSpeaking ? colors.primary : colors.textSecondary}
               />
             </Pressable>
+
+            {/* 4. 학습 상태 (가장 우측) */}
             <Pressable
               onPress={(e) => {
                 e.stopPropagation();
@@ -290,38 +286,78 @@ export default function ListDetailScreen() {
     );
   }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, id]);
 
-  const renderFilterTabs = () => {
-    const tabs: { key: FilterTab; label: string; count: number }[] = [
-      { key: 'all', label: 'All', count: allWords.length },
-      { key: 'learning', label: 'Learning', count: learningWords.length },
-      { key: 'memorized', label: 'Memorized', count: memorizedWords.length },
-    ];
+  const renderFilterHeader = () => {
+    const cycleStatus = () => {
+      setFilterStatus(prev => {
+        if (prev === 'all') return 'learning';
+        if (prev === 'learning') return 'memorized';
+        return 'all';
+      });
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    };
+
+    const toggleStarredFilter = () => {
+      setFilterStarred(prev => !prev);
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    };
+
+    let statusIconName: React.ComponentProps<typeof Ionicons>['name'] = 'filter-outline';
+    let statusIconColor = colors.textTertiary;
+    let statusLabel = 'All';
+
+    if (filterStatus === 'learning') {
+      statusIconName = 'ellipse-outline'; // Or something that means "in progress"
+      statusIconColor = colors.primary;
+      statusLabel = 'Learning';
+    } else if (filterStatus === 'memorized') {
+      statusIconName = 'checkmark-circle';
+      statusIconColor = colors.success;
+      statusLabel = 'Memorized';
+    }
 
     return (
-      <View style={[styles.filterRow, { borderBottomColor: colors.borderLight }]}>
-        {tabs.map(tab => {
-          const active = filter === tab.key;
-          return (
+      <View style={[styles.visualFilterHeader, { borderBottomColor: colors.borderLight }]}>
+        <View style={styles.cardContent}>
+          {/* Header for Star (Left) */}
+          <Pressable
+            onPress={toggleStarredFilter}
+            hitSlop={8}
+            style={styles.starBtn}
+          >
+            <Ionicons
+              name={filterStarred ? 'star' : 'star-outline'}
+              size={22}
+              color={filterStarred ? '#FFD700' : colors.textTertiary}
+            />
+          </Pressable>
+
+          {/* Header for Center (Title/Info) */}
+          <View style={styles.cardTextArea}>
+            <Text style={[styles.filterCenterText, { color: colors.textSecondary }]}>
+              {filterStarred ? 'Starred ' : 'All '}({filteredWords.length})
+            </Text>
+          </View>
+
+          {/* Header for Right Side (Speaker space + Status Filter) */}
+          <View style={[styles.cardActions, { minWidth: 60, justifyContent: 'flex-end', paddingRight: 4 }]}>
+            {/* Invisible placeholder for speaker alignment, though not strictly necessary if flexbox is used. */}
+
             <Pressable
-              key={tab.key}
-              onPress={() => setFilter(tab.key)}
-              style={[
-                styles.filterTab,
-                active && { borderBottomColor: colors.primary, borderBottomWidth: 2 },
-              ]}
+              onPress={cycleStatus}
+              hitSlop={8}
+              style={[styles.memorizeBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]}
             >
-              <Text
-                style={[
-                  styles.filterTabText,
-                  { color: active ? colors.primary : colors.textSecondary },
-                  active && styles.filterTabTextActive,
-                ]}
-              >
-                {tab.label} ({tab.count})
+              <Text style={{ fontSize: 11, fontFamily: 'Inter_600SemiBold', color: statusIconColor, textTransform: 'uppercase' }}>
+                {statusLabel}
               </Text>
+              <Ionicons
+                name={statusIconName}
+                size={24}
+                color={statusIconColor}
+              />
             </Pressable>
-          );
-        })}
+          </View>
+        </View>
       </View>
     );
   };
@@ -333,7 +369,9 @@ export default function ListDetailScreen() {
           key={mode.key}
           onPress={() => {
             if (studyDisabled) return;
-            router.push({ pathname: mode.pathname, params: { id: id!, filter } });
+            // Map the new filter state to standard strings for study modes if needed, 
+            // or pass them separately. For now just pass filterStatus as 'filter' to keep compatibility.
+            router.push({ pathname: mode.pathname, params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
           }}
           style={[styles.studyBtn, studyDisabled && styles.studyBtnDisabled]}
         >
@@ -350,8 +388,7 @@ export default function ListDetailScreen() {
 
   const renderListHeader = () => (
     <View>
-      {renderFilterTabs()}
-      {renderStudyButtons()}
+      {renderFilterHeader()}
     </View>
   );
 
@@ -452,92 +489,26 @@ export default function ListDetailScreen() {
 
       <Pressable
         onPress={handleAddWord}
-        style={[styles.fab, { backgroundColor: colors.primary, bottom: insets.bottom + 24 }]}
+        style={[styles.fab, { backgroundColor: colors.primary, bottom: insets.bottom + 100 }]}
       >
         <Ionicons name="add" size={28} color="#FFFFFF" />
       </Pressable>
 
-      <Modal
-        visible={selectedWordId !== null}
-        transparent
-        animationType="fade"
-        onRequestClose={closeWordDetail}
-      >
-        <KeyboardAvoidingView
-          style={styles.modalOverlay}
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        >
-          <Pressable style={[styles.modalBackdrop, { backgroundColor: colors.overlay }]} onPress={closeWordDetail} />
-          <View style={[styles.modalContent, { backgroundColor: colors.surface }]}>
-            <View style={styles.modalHeader}>
-              <View style={styles.modalTitleRow}>
-                <Text style={[styles.modalWordTitle, { color: colors.text }]} numberOfLines={1}>
-                  {editForm.term || selectedWord?.term}
-                </Text>
-                <Pressable
-                  onPress={() => selectedWord && handleSpeak(selectedWord)}
-                  hitSlop={8}
-                >
-                  <Ionicons name="volume-medium-outline" size={24} color={colors.primary} />
-                </Pressable>
-              </View>
-              <Pressable onPress={closeWordDetail} hitSlop={12} style={styles.modalCloseBtn}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
+      <WordDetailModal
+        visible={isWordModalVisible}
+        mode={modalMode}
+        listId={id as string}
+        wordId={selectedWordId}
+        onClose={() => setWordModalVisible(false)}
+        onModeChange={(newMode) => setModalMode(newMode)}
+      />
 
-            <ScrollView style={styles.modalBody} keyboardShouldPersistTaps="handled">
-              <Text style={[styles.fieldLabel, { color: colors.textSecondary }]}>Term</Text>
-              <TextInput
-                style={[styles.fieldInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-                value={editForm.term}
-                onChangeText={(t) => setEditForm(prev => ({ ...prev, term: t }))}
-                placeholderTextColor={colors.textTertiary}
-                placeholder="English word"
-              />
-
-              <Text style={[styles.fieldLabel, { color: colors.textSecondary }]}>Korean Meaning</Text>
-              <TextInput
-                style={[styles.fieldInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-                value={editForm.meaningKr}
-                onChangeText={(t) => setEditForm(prev => ({ ...prev, meaningKr: t }))}
-                placeholderTextColor={colors.textTertiary}
-                placeholder="Korean meaning"
-              />
-
-              <Text style={[styles.fieldLabel, { color: colors.textSecondary }]}>Definition</Text>
-              <TextInput
-                style={[styles.fieldInput, styles.fieldInputMulti, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-                value={editForm.definition}
-                onChangeText={(t) => setEditForm(prev => ({ ...prev, definition: t }))}
-                placeholderTextColor={colors.textTertiary}
-                placeholder="English definition"
-                multiline
-                numberOfLines={3}
-              />
-
-              <Text style={[styles.fieldLabel, { color: colors.textSecondary }]}>Example Sentence</Text>
-              <TextInput
-                style={[styles.fieldInput, styles.fieldInputMulti, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-                value={editForm.exampleEn}
-                onChangeText={(t) => setEditForm(prev => ({ ...prev, exampleEn: t }))}
-                placeholderTextColor={colors.textTertiary}
-                placeholder="Example sentence in English"
-                multiline
-                numberOfLines={3}
-              />
-            </ScrollView>
-
-            <Pressable
-              onPress={handleSaveWord}
-              style={[styles.saveBtn, { backgroundColor: colors.primary, opacity: saving ? 0.6 : 1 }]}
-              disabled={saving}
-            >
-              <Text style={styles.saveBtnText}>{saving ? 'Saving...' : 'Save'}</Text>
-            </Pressable>
-          </View>
-        </KeyboardAvoidingView>
-      </Modal>
+      {/* Fixed bottom bar for Study Features */}
+      {!editMode && (
+        <View style={[styles.bottomBarContainer, { paddingBottom: insets.bottom || 16, backgroundColor: colors.background, borderTopColor: colors.borderLight }]}>
+          {renderStudyButtons()}
+        </View>
+      )}
     </View>
   );
 }
@@ -585,24 +556,15 @@ const styles = StyleSheet.create({
     minWidth: 70,
     textAlign: 'right',
   },
-  filterRow: {
-    flexDirection: 'row',
+  visualFilterHeader: {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingHorizontal: 16,
+    paddingVertical: 4,
+    backgroundColor: 'transparent',
   },
-  filterTab: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 2,
-    borderBottomColor: 'transparent',
-  },
-  filterTabText: {
+  filterCenterText: {
     fontSize: 13,
-    fontFamily: 'Inter_500Medium',
-  },
-  filterTabTextActive: {
     fontFamily: 'Inter_600SemiBold',
+    marginLeft: 4,
   },
   studyRow: {
     flexDirection: 'row',
@@ -697,6 +659,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Inter_400Regular',
   },
+  starBtn: {
+    padding: 4,
+    marginRight: 4,
+  },
   fab: {
     position: 'absolute',
     right: 20,
@@ -710,6 +676,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 8,
     elevation: 6,
+  },
+  bottomBarContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -3 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 10,
   },
   modalOverlay: {
     flex: 1,

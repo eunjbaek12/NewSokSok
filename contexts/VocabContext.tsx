@@ -20,11 +20,11 @@ interface VocabContextValue {
   renameList: (id: string, newTitle: string) => Promise<void>;
   mergeLists: (sourceId: string, targetId: string, deleteSource: boolean) => Promise<void>;
   addWord: (listId: string, wordData: Omit<Word, 'id' | 'isMemorized'>) => Promise<Word>;
-  addBatchWords: (listId: string, aiWords: AIWordResult[]) => Promise<Word[]>;
+  addBatchWords: (listId: string, wordsData: Array<Partial<Omit<Word, 'id' | 'createdAt' | 'updatedAt' | 'listId'>> & { term: string, meaningKr: string }>) => Promise<Word[]>;
   updateWord: (listId: string, wordId: string, updates: Partial<Omit<Word, 'id'>>) => Promise<void>;
-  deleteWord: (listId: string, wordId: string) => Promise<void>;
   deleteWords: (listId: string, wordIds: string[]) => Promise<void>;
   toggleMemorized: (listId: string, wordId: string, forceStatus?: boolean) => Promise<void>;
+  toggleStarred: (listId: string, wordId: string, forceStatus?: boolean) => Promise<void>;
   getWordsForList: (listId: string) => Word[];
   getListProgress: (listId: string) => { total: number; memorized: number; percent: number };
   reorderLists: (orderedIds: string[]) => Promise<void>;
@@ -76,7 +76,9 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       if (!res.ok) return;
       const data = await res.json();
       if (data.lists && Array.isArray(data.lists) && data.lists.length > 0) {
-        await Storage.saveLists(data.lists);
+        // Sync logic for Phase 2: For now, we'll just ignore or carefully merge
+        // A full remote list replacement requires a specialized SQLite query.
+        console.log('Received lists from cloud, sync implementation pending in Phase 2.');
       } else {
         const localLists = await Storage.getLists();
         if (localLists.length > 0) {
@@ -101,13 +103,50 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    if (authMode === 'google' && user?.id) {
-      loadCloudData().then(() => refreshData());
-    } else {
-      refreshData();
+  const loadCloudCurations = useCallback(async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/curations`);
+      if (!res.ok) return;
+
+      const remoteCurations = await res.json();
+      if (Array.isArray(remoteCurations) && remoteCurations.length > 0) {
+        const localLists = await Storage.getLists();
+
+        // Basic sync: Add curation if the title doesn't exist locally
+        for (const remoteCuration of remoteCurations) {
+          const existsLocally = localLists.some(l => l.title === remoteCuration.title && l.isCurated);
+          if (!existsLocally) {
+            const words = Array.isArray(remoteCuration.words) ? remoteCuration.words : [];
+            // Map backend 'curated_words' shape to our local 'Word' shape
+            const mappedWords = words.map((w: any) => ({
+              term: w.term,
+              definition: w.definition,
+              exampleEn: w.exampleEn,
+              meaningKr: w.meaningKr
+            }));
+            await Storage.createCuratedList(remoteCuration.title, remoteCuration.icon || '✨', mappedWords);
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to load curations from cloud:', e);
     }
-  }, [authMode, user?.id]);
+  }, []);
+
+  useEffect(() => {
+    // 1. First ensure the SQLite DB is seeded if it's completely empty
+    Storage.initSeedDataIfEmpty().then(() => {
+      // 2. Fetch Global Curations
+      loadCloudCurations().then(() => {
+        // 3. Then proceed with normal cloud sync or local refresh
+        if (authMode === 'google' && user?.id) {
+          loadCloudData().then(() => refreshData());
+        } else {
+          refreshData();
+        }
+      });
+    });
+  }, [authMode, user?.id, loadCloudCurations, loadCloudData, refreshData]);
 
   const withSync = useCallback(<T,>(fn: () => Promise<T>) => {
     return async (): Promise<T> => {
@@ -184,8 +223,8 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     return newWord;
   }, [refreshData, debouncedSync]);
 
-  const addBatchWords = useCallback(async (listId: string, aiWords: AIWordResult[]) => {
-    const words = await Storage.addBatchWords(listId, aiWords);
+  const addBatchWords = useCallback(async (listId: string, wordsData: Array<Partial<Omit<Word, 'id' | 'createdAt' | 'updatedAt' | 'listId'>> & { term: string, meaningKr: string }>) => {
+    const words = await Storage.addBatchWords(listId, wordsData);
     await refreshData();
     debouncedSync();
     return words;
@@ -211,6 +250,12 @@ export function VocabProvider({ children }: { children: ReactNode }) {
 
   const toggleMemorized = useCallback(async (listId: string, wordId: string, forceStatus?: boolean) => {
     await Storage.toggleMemorized(listId, wordId, forceStatus);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
+  const toggleStarred = useCallback(async (listId: string, wordId: string, forceStatus?: boolean) => {
+    await Storage.toggleStarred(listId, wordId, forceStatus);
     await refreshData();
     debouncedSync();
   }, [refreshData, debouncedSync]);
@@ -258,9 +303,9 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     addWord,
     addBatchWords,
     updateWord,
-    deleteWord,
     deleteWords,
     toggleMemorized,
+    toggleStarred,
     getWordsForList,
     getListProgress,
     reorderLists: reorderListsFn,
@@ -268,12 +313,12 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     studyResults,
     setStudyResults,
     clearStudyResults,
-  }), [lists, loading, refreshData, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
+  }), [lists, loading, refreshData, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
 
   return (
-    <VocabContext value={value}>
+    <VocabContext.Provider value={value}>
       {children}
-    </VocabContext>
+    </VocabContext.Provider>
   );
 }
 

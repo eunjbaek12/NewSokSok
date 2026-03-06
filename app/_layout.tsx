@@ -44,9 +44,6 @@ export default function RootLayout() {
                     <Stack.Screen
                       name="add-word"
                       options={{
-                        presentation: "formSheet",
-                        sheetAllowedDetents: [0.75],
-                        sheetGrabberVisible: true,
                         headerShown: false,
                       }}
                     />
@@ -61,6 +58,14 @@ export default function RootLayout() {
                         sheetAllowedDetents: [0.85],
                         sheetGrabberVisible: true,
                         headerShown: false,
+                      }}
+                    />
+                    <Stack.Screen
+                      name="search-modal"
+                      options={{
+                        presentation: "fullScreenModal",
+                        headerShown: false,
+                        animation: 'slide_from_bottom',
                       }}
                     />
                     <Stack.Screen name="shadowing/[id]" options={{ headerShown: false, gestureEnabled: false }} />

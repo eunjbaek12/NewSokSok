@@ -7,9 +7,20 @@ import {
   generateMoreWords,
 } from "./gemini";
 import { registerAuthRoutes } from "./auth";
+import { storage } from "./storage";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   registerAuthRoutes(app);
+
+  app.get("/api/curations", async (_req: Request, res: Response) => {
+    try {
+      const curations = await storage.getCurations();
+      res.json(curations);
+    } catch (error) {
+      console.error("Failed to fetch curations:", error);
+      res.status(500).json({ error: "Failed to fetch curations" });
+    }
+  });
 
   app.get("/api/ai/status", (_req: Request, res: Response) => {
     res.json({ available: isGeminiAvailable() });

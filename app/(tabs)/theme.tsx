@@ -6,16 +6,19 @@ import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
-import { CURATED_THEMES, CuratedTheme } from '@/lib/curation-data';
+import { VocaList } from '@/lib/types';
 
 export default function CurationTabScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { createCuratedList } = useVocab();
+  const { lists, createCuratedList } = useVocab();
 
   const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
-  const [selectedTheme, setSelectedTheme] = useState<CuratedTheme | null>(null);
+  const [selectedTheme, setSelectedTheme] = useState<VocaList | null>(null);
   const [saving, setSaving] = useState(false);
+
+  // Get curated themes from SQLite lists
+  const curatedThemes = lists.filter(l => l.isCurated);
 
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const bottomInset = Platform.OS === 'web' ? 84 + 34 : 84;
@@ -25,7 +28,7 @@ export default function CurationTabScreen() {
     setViewMode((prev) => (prev === 'detailed' ? 'compact' : 'detailed'));
   };
 
-  const handleSelectTheme = (theme: CuratedTheme) => {
+  const handleSelectTheme = (theme: VocaList) => {
     Haptics.selectionAsync();
     setSelectedTheme(theme);
   };
@@ -35,11 +38,14 @@ export default function CurationTabScreen() {
     setSelectedTheme(null);
   };
 
-  const handleMasterTheme = async (theme: CuratedTheme) => {
+  const handleMasterTheme = async (theme: VocaList) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setSaving(true);
     try {
-      const newList = await createCuratedList(theme.title, theme.icon, theme.words);
+      // In SQLite offline-first, the curated list is ALREADY in the DB.
+      // Easiest is to duplicate it as a personal list or just mark it visible/adopted.
+      // Let's create a duplicate of it for their personal study.
+      const newList = await createCuratedList(theme.title + ' (My Copy)', theme.icon || '📚', theme.words);
       setSaving(false);
       setSelectedTheme(null);
       router.replace('/');
@@ -72,14 +78,10 @@ export default function CurationTabScreen() {
             <View style={styles.heroTextContainer}>
               <View style={styles.heroBadges}>
                 <View style={[styles.badge, { backgroundColor: colors.primary }]}>
-                  <Text style={[styles.badgeText, { color: '#FFF' }]}>{selectedTheme.category}</Text>
-                </View>
-                <View style={[styles.badge, { backgroundColor: 'rgba(255,255,255,0.3)' }]}>
-                  <Text style={[styles.badgeText, { color: colors.text }]}>LV. {selectedTheme.level}</Text>
+                  <Text style={[styles.badgeText, { color: '#FFF' }]}>Curated</Text>
                 </View>
               </View>
               <Text style={[styles.detailTitle, { color: colors.text }]}>{selectedTheme.title}</Text>
-              <Text style={[styles.detailDesc, { color: colors.textSecondary }]}>{selectedTheme.description}</Text>
             </View>
           </View>
 
@@ -89,11 +91,7 @@ export default function CurationTabScreen() {
             <View style={styles.statsGrid}>
               <View style={[styles.statBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
                 <Text style={[styles.statLabel, { color: colors.textTertiary }]}>TOTAL WORDS</Text>
-                <Text style={[styles.statValue, { color: colors.text }]}>{selectedTheme.count}</Text>
-              </View>
-              <View style={[styles.statBox, { backgroundColor: colors.surface, borderColor: colors.border }]}>
-                <Text style={[styles.statLabel, { color: colors.textTertiary }]}>EXPERTISE</Text>
-                <Text style={[styles.statValue, { color: colors.primary }]}>{selectedTheme.level}</Text>
+                <Text style={[styles.statValue, { color: colors.text }]}>{selectedTheme.words.length}</Text>
               </View>
             </View>
 
@@ -103,7 +101,7 @@ export default function CurationTabScreen() {
                 <Text style={[styles.guideTitle, { color: colors.primary }]}>학습 가이드</Text>
               </View>
               <Text style={[styles.guideText, { color: colors.text }]}>
-                이 테마를 리스트에 등록하면 {selectedTheme.count}개의 실전 전문 어휘를 홈 화면에서 관리하고 학습할 수 있습니다.
+                이 테마를 리스트에 등록하면 {selectedTheme.words.length}개의 어휘를 홈 화면에서 관리하고 학습할 수 있습니다.
               </Text>
             </View>
           </View>
@@ -156,64 +154,67 @@ export default function CurationTabScreen() {
           viewMode === 'compact' && { flexDirection: 'column', gap: 12 }
         ]}
       >
-        {CURATED_THEMES.map((theme) => (
-          <Pressable
-            key={theme.id}
-            onPress={() => handleSelectTheme(theme)}
-            style={({ pressed }) => [
-              styles.themeCard,
-              { backgroundColor: colors.surface, borderColor: colors.borderLight },
-              viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact,
-              pressed && { opacity: 0.95, transform: [{ scale: 0.98 }] }
-            ]}
-          >
-            <View style={[
-              styles.cardIconBox,
-              { backgroundColor: colors.surfaceSecondary },
-              viewMode === 'detailed' ? styles.iconBoxDetailed : styles.iconBoxCompact
-            ]}>
-              <Text style={{ fontSize: viewMode === 'detailed' ? 32 : 24 }}>{theme.icon}</Text>
-            </View>
-
-            <View style={{ flex: 1 }}>
-              <View style={styles.cardHeader}>
-                <Text style={[styles.cardTitle, { color: colors.text }, viewMode === 'compact' && { fontSize: 16 }]} numberOfLines={1}>
-                  {theme.title}
-                </Text>
-                <Text style={[styles.cardLevel, { color: colors.textTertiary }]}>{theme.level}</Text>
+        {curatedThemes.length === 0 ? (
+          <View style={{ padding: 40, alignItems: 'center' }}>
+            <Ionicons name="sparkles-outline" size={48} color={colors.textTertiary} />
+            <Text style={{ marginTop: 16, color: colors.textSecondary, fontFamily: 'Inter_500Medium' }}>
+              준비된 큐레이션 테마가 없습니다.
+            </Text>
+          </View>
+        ) : (
+          curatedThemes.map((theme) => (
+            <Pressable
+              key={theme.id}
+              onPress={() => handleSelectTheme(theme)}
+              style={({ pressed }) => [
+                styles.themeCard,
+                { backgroundColor: colors.surface, borderColor: colors.borderLight },
+                viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact,
+                pressed && { opacity: 0.95, transform: [{ scale: 0.98 }] }
+              ]}
+            >
+              <View style={[
+                styles.cardIconBox,
+                { backgroundColor: colors.surfaceSecondary },
+                viewMode === 'detailed' ? styles.iconBoxDetailed : styles.iconBoxCompact
+              ]}>
+                <Text style={{ fontSize: viewMode === 'detailed' ? 32 : 24 }}>{theme.icon}</Text>
               </View>
 
-              {viewMode === 'detailed' && (
-                <>
-                  <View style={[styles.cardDescBox, { backgroundColor: colors.surfaceSecondary }]}>
-                    <Text style={[styles.cardDesc, { color: colors.textSecondary }]} numberOfLines={2}>
-                      "{theme.description}"
-                    </Text>
-                  </View>
-                  <View style={styles.cardFooter}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                      <Ionicons name="sparkles" size={12} color={colors.accent} />
-                      <Text style={[styles.cardCount, { color: colors.primary }]}>{theme.count} 단어 수록</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
-                      <Text style={[styles.cardViewMore, { color: colors.primary }]}>상세보기</Text>
-                      <Ionicons name="chevron-forward" size={14} color={colors.primary} />
-                    </View>
-                  </View>
-                </>
-              )}
-
-              {viewMode === 'compact' && (
-                <View style={styles.cardFooterCompact}>
-                  <Text style={[styles.cardCountCompact, { color: colors.textTertiary }]}>
-                    {theme.count} 단어 • {theme.category}
+              <View style={{ flex: 1 }}>
+                <View style={styles.cardHeader}>
+                  <Text style={[styles.cardTitle, { color: colors.text }, viewMode === 'compact' && { fontSize: 16 }]} numberOfLines={1}>
+                    {theme.title}
                   </Text>
-                  <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
                 </View>
-              )}
-            </View>
-          </Pressable>
-        ))}
+
+                {viewMode === 'detailed' && (
+                  <>
+                    <View style={styles.cardFooter}>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                        <Ionicons name="sparkles" size={12} color={colors.accent} />
+                        <Text style={[styles.cardCount, { color: colors.primary }]}>{theme.words.length} 단어 수록</Text>
+                      </View>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+                        <Text style={[styles.cardViewMore, { color: colors.primary }]}>상세보기</Text>
+                        <Ionicons name="chevron-forward" size={14} color={colors.primary} />
+                      </View>
+                    </View>
+                  </>
+                )}
+
+                {viewMode === 'compact' && (
+                  <View style={styles.cardFooterCompact}>
+                    <Text style={[styles.cardCountCompact, { color: colors.textTertiary }]}>
+                      {theme.words.length} 단어 • Curated
+                    </Text>
+                    <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+                  </View>
+                )}
+              </View>
+            </Pressable>
+          ))
+        )}
       </ScrollView>
     </View>
   );

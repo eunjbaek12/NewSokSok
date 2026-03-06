@@ -3,8 +3,11 @@ export interface Word {
   term: string;
   definition: string;
   exampleEn: string;
+  exampleKr?: string;
   meaningKr: string;
   isMemorized: boolean;
+  isStarred: boolean;
+  tags: string[];
 }
 
 export interface VocaList {
@@ -31,11 +34,14 @@ export interface AutoFillResult {
   definition: string;
   meaningKr: string;
   exampleEn: string;
+  exampleKr?: string;
 }
 
 export interface AIWordResult {
   term: string;
   definition: string;
   exampleEn: string;
+  exampleKr?: string;
   meaningKr: string;
+  tags?: string[];
 }

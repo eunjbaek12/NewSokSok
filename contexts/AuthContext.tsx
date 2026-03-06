@@ -46,7 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           const parsed = JSON.parse(stored) as AuthState;
           setAuthState(parsed);
         }
-      } catch {}
+      } catch { }
       setLoading(false);
     })();
   }, []);
@@ -80,7 +80,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [persist]);
 
   return (
-    <AuthContext
+    <AuthContext.Provider
       value={{
         authMode: authState.mode,
         user: authState.user,
@@ -91,7 +91,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </AuthContext>
+    </AuthContext.Provider>
   );
 }
 

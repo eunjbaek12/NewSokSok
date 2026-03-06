@@ -143,16 +143,34 @@ function ListCard({
   item,
   colors,
   getListProgress,
+  getWordsForList,
   onOpenMenu,
 }: {
   item: VocaList;
   colors: any;
   getListProgress: (id: string) => { total: number; memorized: number; percent: number };
+  getWordsForList: (id: string) => any[];
   onOpenMenu: (list: VocaList) => void;
 }) {
   const progress = getListProgress(item.id);
   const reviewStatus = getReviewStatus(item.lastStudiedAt);
   const relativeTime = getRelativeTime(item.lastStudiedAt);
+
+  const topTags = React.useMemo(() => {
+    const words = getWordsForList(item.id);
+    const counts: Record<string, number> = {};
+    for (const w of words) {
+      if (w.tags) {
+        for (const t of w.tags) {
+          counts[t] = (counts[t] || 0) + 1;
+        }
+      }
+    }
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(entry => entry[0]);
+  }, [item.id, getWordsForList]);
 
   const handlePress = () => {
     router.push({ pathname: '/list/[id]', params: { id: item.id } });
@@ -212,6 +230,16 @@ function ListCard({
       </View>
 
       <ProgressBar percent={progress.percent} colors={colors} />
+
+      {topTags.length > 0 && (
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
+          {topTags.map((tag, idx) => (
+            <View key={idx} style={{ backgroundColor: colors.surfaceSecondary, paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 }}>
+              <Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: 'Inter_500Medium' }}>#{tag}</Text>
+            </View>
+          ))}
+        </View>
+      )}
 
       <View style={styles.cardFooter}>
         <Text style={[styles.wordCountText, { color: colors.textSecondary }]}>
@@ -372,6 +400,7 @@ export default function DashboardScreen() {
     deleteList,
     toggleVisibility,
     getListProgress,
+    getWordsForList,
     renameList,
     mergeLists,
     reorderLists,
@@ -622,6 +651,21 @@ export default function DashboardScreen() {
     }
 
     const newIdMap = new Map<string, string>();
+    let pendingCreateId: string | null = null;
+
+    // IF there's unsubmitted text in the input box, treat it as a new list
+    const trimmedNew = newListName.trim();
+    if (trimmedNew) {
+      const allTitles = managedLists.filter(l => !deletedIds.has(l.id)).map(l => {
+        const renamed = renamedMap.get(l.id);
+        return (renamed || l.title).trim().toLowerCase();
+      });
+      if (!allTitles.includes(trimmedNew.toLowerCase())) {
+        const created = await createList(trimmedNew);
+        pendingCreateId = created.id;
+      }
+    }
+
     for (const ml of managedLists) {
       if (ml.isNew) {
         const created = await createList(ml.title);
@@ -634,14 +678,20 @@ export default function DashboardScreen() {
       .map(l => l.isNew ? newIdMap.get(l.id)! : l.id)
       .filter(Boolean);
 
+    // If an implicit list was created, put it at the top
+    if (pendingCreateId) {
+      finalOrder.unshift(pendingCreateId);
+    }
+
     if (finalOrder.length > 0) {
       await reorderLists(finalOrder);
     }
 
     await refreshData();
     setManageOpen(false);
+    setNewListName('');
     setEditingId(null);
-  }, [managedLists, deletedIds, renamedMap, visibilityMap, lists, deleteList, renameList, toggleVisibility, createList, reorderLists, refreshData]);
+  }, [managedLists, deletedIds, renamedMap, visibilityMap, lists, deleteList, renameList, toggleVisibility, createList, reorderLists, refreshData, newListName]);
 
   const handleCreateList = useCallback(() => {
     openManageModal();
@@ -653,10 +703,11 @@ export default function DashboardScreen() {
         item={item}
         colors={colors}
         getListProgress={getListProgress}
+        getWordsForList={getWordsForList}
         onOpenMenu={handleOpenMenu}
       />
     ),
-    [colors, getListProgress, handleOpenMenu]
+    [colors, getListProgress, getWordsForList, handleOpenMenu]
   );
 
   const renderEmpty = useCallback(
@@ -686,24 +737,39 @@ export default function DashboardScreen() {
   }, []);
 
   const renderHeader = useCallback(() => {
-    if (visibleLists.length === 0) return null;
     return (
-      <View style={styles.sectionHeader}>
-        <View style={styles.sectionTitleRow}>
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>My Wordbooks</Text>
-          <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
-            <Text style={[styles.countBadgeText, { color: colors.primary }]}>
-              {visibleLists.length}
-            </Text>
-          </View>
-        </View>
+      <View style={{ gap: 16, marginBottom: 12 }}>
         <Pressable
-          onPress={openManageModal}
-          hitSlop={8}
-          style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
+          onPress={() => router.push('/search-modal')}
+          style={({ pressed }) => [
+            styles.searchTrigger,
+            { backgroundColor: colors.surface, borderColor: colors.borderLight },
+            pressed && { opacity: 0.7 }
+          ]}
         >
-          <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
+          <Ionicons name="search" size={20} color={colors.textTertiary} />
+          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>단어, 뜻, 태그로 통합 검색...</Text>
         </Pressable>
+
+        {visibleLists.length > 0 && (
+          <View style={styles.sectionHeader}>
+            <View style={styles.sectionTitleRow}>
+              <Text style={[styles.sectionTitle, { color: colors.text }]}>My Wordbooks</Text>
+              <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
+                <Text style={[styles.countBadgeText, { color: colors.primary }]}>
+                  {visibleLists.length}
+                </Text>
+              </View>
+            </View>
+            <Pressable
+              onPress={openManageModal}
+              hitSlop={8}
+              style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
+            >
+              <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
+            </Pressable>
+          </View>
+        )}
       </View>
     );
   }, [visibleLists.length, colors, openManageModal]);
@@ -1096,6 +1162,24 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  searchTrigger: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    borderRadius: 16,
+    borderWidth: 1,
+    gap: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  searchTriggerText: {
+    fontSize: 15,
+    fontFamily: 'Inter_400Regular',
   },
   sectionHeader: {
     flexDirection: 'row',

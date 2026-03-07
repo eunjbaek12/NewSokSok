@@ -247,7 +247,21 @@ export async function addBatchWords(
     for (const data of bulkData) {
       await db.runAsync(
         `INSERT INTO words (id, listId, term, definition, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [data.id, listId, data.term, data.definition, data.meaningKr, data.exampleEn, data.exampleKr || null, JSON.stringify(data.tags), data.isMemorized ? 1 : 0, data.isStarred ? 1 : 0, (data as any).position, (data as any).createdAt, (data as any).updatedAt]
+        [
+          data.id,
+          listId,
+          data.term ?? '',
+          data.definition ?? '',
+          data.meaningKr ?? '',
+          data.exampleEn ?? '',
+          data.exampleKr || null,
+          JSON.stringify(data.tags ?? []),
+          data.isMemorized ? 1 : 0,
+          data.isStarred ? 1 : 0,
+          (data as any).position,
+          (data as any).createdAt,
+          (data as any).updatedAt
+        ]
       );
     }
     await db.runAsync(

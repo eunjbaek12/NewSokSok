@@ -5,70 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/Button';
 
-// Gemini API 연동을 위한 유틸리티 함수
-const fetchWordsFromImage = async (base64Image: string) => {
-    // Expo 클라이언트 사이드에서 환경변수를 읽으려면 'EXPO_PUBLIC_' 접두사가 반드시 필요합니다.
-    const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
-    if (!GEMINI_API_KEY) {
-        throw new Error('EXPO_PUBLIC_GEMINI_API_KEY 환경 변수가 설정되어 있지 않습니다. .env 파일을 확인해주세요.');
-    }
-
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
-
-    const payload = {
-        contents: [
-            {
-                parts: [
-                    { text: "이미지에서 모르는 영단어들을 찾아내고, 각 단어의 [단어, 뜻, 예문]을 JSON 배열 형태로 응답해줘. 응답은 오직 배열만 반환해야 해. JSON 포맷: [{\"word\": \"단어\", \"meaning\": \"뜻\", \"exampleSentence\": \"예문\"}]" },
-                    {
-                        inlineData: {
-                            mimeType: "image/jpeg",
-                            data: base64Image
-                        }
-                    }
-                ]
-            }
-        ],
-        generationConfig: {
-            temperature: 0.1,
-            responseMimeType: "application/json",
-        }
-    };
-
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-
-    if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Gemini API Error details:", errorText);
-
-        let errorMessage = 'API 호출에 실패했습니다.';
-        try {
-            const errJson = JSON.parse(errorText);
-            if (errJson.error && errJson.error.message) {
-                errorMessage = errJson.error.message;
-            }
-        } catch (e) {
-            // parsing failed, ignore
-        }
-
-        throw new Error(`API 오류: ${errorMessage}`);
-    }
-
-    const data = await response.json();
-    const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!textResponse) throw new Error('결과를 파싱할 수 없습니다.');
-
-    try {
-        return JSON.parse(textResponse);
-    } catch (e) {
-        console.error("JSON 파싱 에러:", textResponse);
-        throw new Error("API 응답이 올바른 JSON 형식이 아닙니다.");
-    }
-};
+import { fetchWordsFromImage } from '@/lib/gemini-api';
 
 type ScannedWord = {
     id: string;

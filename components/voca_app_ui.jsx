@@ -2,48 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Text, Pressable, StyleSheet, ActivityIndicator, Alert, ScrollView, TextInput, Image } from 'react-native';
 import { Camera } from 'lucide-react-native'; // Assuming lucide-react-native is used for icons
 
-// Gemini API 연동을 위한 유틸리티 함수 (실제 프로젝트 환경에 맞게 fetch 경로나 SDK 사용)
-const fetchWordsFromImage = async (base64Image) => {
-    const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY || 'YOUR_API_KEY_HERE';
-    // Note: 2025년 9월 preview 모델 사용 (gemini-2.5-flash-preview-09-2025)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
-
-    const payload = {
-        contents: [
-            {
-                parts: [
-                    { text: "이미지에서 모르는 영단어들을 찾아내고, 각 단어의 [단어, 뜻, 예문]을 JSON 배열 형태로 응답해줘. JSON 포맷: [{\"word\": \"단어\", \"meaning\": \"뜻\", \"exampleSentence\": \"예문\"}]" },
-                    {
-                        inlineData: {
-                            mimeType: "image/jpeg",
-                            data: base64Image
-                        }
-                    }
-                ]
-            }
-        ],
-        generationConfig: {
-            temperature: 0.1,
-            responseMimeType: "application/json",
-        }
-    };
-
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-
-    if (!response.ok) {
-        throw new Error('API 호출에 실패했습니다.');
-    }
-
-    const data = await response.json();
-    const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!textResponse) throw new Error('결과를 파싱할 수 없습니다.');
-
-    return JSON.parse(textResponse);
-};
+import { fetchWordsFromImage } from '@/lib/gemini-api';
 
 export default function VocaAppUI({ onSaveWords }) {
     const [isScanning, setIsScanning] = useState(false);

@@ -15,7 +15,7 @@ function NativeTabLayout() {
         <Icon sf={{ default: "book", selected: "book.fill" }} />
         <Label>Home</Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="theme">
+      <NativeTabs.Trigger name="curation">
         <Icon sf={{ default: "sparkles", selected: "sparkles" }} />
         <Label>Curation</Label>
       </NativeTabs.Trigger>
@@ -68,7 +68,7 @@ function ClassicTabLayout() {
         }}
       />
       <Tabs.Screen
-        name="theme"
+        name="curation"
         options={{
           title: "Curation",
           tabBarIcon: ({ color, focused }) => (

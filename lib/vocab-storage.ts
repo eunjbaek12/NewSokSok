@@ -127,7 +127,18 @@ export async function createCuratedList(title: string, icon: string, words: Omit
     for (const w of words) {
       await db.runAsync(
         `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [generateId(), id, w.term, w.definition, w.exampleEn, w.exampleKr || null, w.meaningKr, 0, 0, JSON.stringify([])]
+        [
+          generateId(),
+          id,
+          w.term ?? '',
+          w.definition ?? '',
+          w.exampleEn ?? '',
+          w.exampleKr || null,
+          w.meaningKr ?? '',
+          0,
+          0,
+          JSON.stringify([])
+        ]
       );
     }
   });
@@ -197,7 +208,18 @@ export async function addWord(
   await db.withTransactionAsync(async () => {
     await db.runAsync(
       `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [newWord.id, listId, newWord.term, newWord.definition, newWord.exampleEn, newWord.exampleKr || null, newWord.meaningKr, 0, 0, JSON.stringify(newWord.tags)]
+      [
+        newWord.id,
+        listId,
+        newWord.term ?? '',
+        newWord.definition ?? '',
+        newWord.exampleEn ?? '',
+        newWord.exampleKr || null,
+        newWord.meaningKr ?? '',
+        0,
+        0,
+        JSON.stringify(newWord.tags ?? [])
+      ]
     );
     await db.runAsync(
       `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
@@ -377,7 +399,18 @@ export async function mergeLists(
     for (const w of wordsToAdd) {
       await db.runAsync(
         `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [generateId(), targetId, w.term, w.definition, w.exampleEn, w.exampleKr || null, w.meaningKr, 0, 0, JSON.stringify(w.tags || [])]
+        [
+          generateId(),
+          targetId,
+          w.term ?? '',
+          w.definition ?? '',
+          w.exampleEn ?? '',
+          w.exampleKr || null,
+          w.meaningKr ?? '',
+          0,
+          0,
+          JSON.stringify(w.tags || [])
+        ]
       );
     }
 

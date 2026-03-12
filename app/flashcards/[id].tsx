@@ -23,8 +23,8 @@ function CardFront({ word, colors, rotation }: { word: Word; colors: any; rotati
   return (
     <Animated.View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }, frontStyle]}>
       <Text style={[styles.cardWord, { color: colors.text }]}>{word.term}</Text>
-      <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
-        <Ionicons name="volume-medium-outline" size={28} color={colors.primary} />
+      <Pressable onPress={(e) => { e.stopPropagation(); speak(word.term); }} hitSlop={12} style={styles.speakerBtn}>
+        <Ionicons name="volume-medium" size={32} color={colors.primary} />
       </Pressable>
     </Animated.View>
   );
@@ -46,8 +46,8 @@ function CardBack({ word, colors, rotation }: { word: Word; colors: any; rotatio
       {word.exampleEn ? (
         <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
       ) : null}
-      <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
-        <Ionicons name="volume-medium-outline" size={28} color={colors.primary} />
+      <Pressable onPress={(e) => { e.stopPropagation(); speak(word.term); }} hitSlop={12} style={styles.speakerBtn}>
+        <Ionicons name="volume-medium" size={32} color={colors.primary} />
       </Pressable>
     </Animated.View>
   );
@@ -228,6 +228,7 @@ const styles = StyleSheet.create({
   },
   speakerBtn: {
     padding: 8,
+    marginTop: 20,
   },
   bottomBar: {
     flexDirection: 'row',

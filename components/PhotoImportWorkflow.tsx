@@ -209,6 +209,14 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
     // 초기 업로드 옵션 화면
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
+            <View style={[styles.header, { borderBottomColor: colors.borderLight }]}>
+                <Pressable onPress={onClose} hitSlop={8}>
+                    <Ionicons name="arrow-back" size={24} color={colors.text} />
+                </Pressable>
+                <Text style={[styles.title, { color: colors.text }]}>사진으로 옵션</Text>
+                <View style={{ width: 24 }} />
+            </View>
+
             <View style={styles.placeholderContainer}>
                 <View style={[styles.placeholderIconContainer, { backgroundColor: colors.primaryLight }]}>
                     <Ionicons name="camera-outline" size={48} color={colors.primary} />

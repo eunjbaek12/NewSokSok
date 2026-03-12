@@ -29,7 +29,6 @@ const STUDY_MODES = [
   { key: 'flashcards', icon: 'albums-outline' as const, label: 'Flashcard', pathname: '/flashcards/[id]' as const },
   { key: 'quiz', icon: 'help-circle-outline' as const, label: 'Quiz', pathname: '/quiz/[id]' as const },
   { key: 'examples', icon: 'document-text-outline' as const, label: 'Examples', pathname: '/examples/[id]' as const },
-  { key: 'shadowing', icon: 'mic-outline' as const, label: 'Shadowing', pathname: '/shadowing/[id]' as const },
 ];
 
 export default function ListDetailScreen() {
@@ -449,6 +448,15 @@ export default function ListDetailScreen() {
               <Ionicons name="trash-outline" size={24} color={colors.error} />
             </Pressable>
           )}
+          {!editMode && (
+            <Pressable
+              onPress={() => router.push({ pathname: '/autoplay/[id]' as const, params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } })}
+              hitSlop={12}
+              style={{ marginLeft: 'auto' }}
+            >
+              <Ionicons name="play-circle" size={28} color={colors.primary} />
+            </Pressable>
+          )}
         </View>
 
         {!editMode && (
@@ -479,6 +487,7 @@ export default function ListDetailScreen() {
         ListEmptyComponent={renderEmpty}
         contentContainerStyle={[
           styles.listContent,
+          { paddingBottom: insets.bottom + 160 },
           filteredWords.length === 0 && styles.listContentEmpty,
         ]}
         scrollEnabled={filteredWords.length > 0}

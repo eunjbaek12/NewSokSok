@@ -15,71 +15,93 @@ if (!GEMINI_API_KEY) {
     process.exit(1);
 }
 
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+// Using v1 with snake_case for generation_config
+const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
-const generateThemeBatch = async (prompt: string) => {
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+const generateThemeBatch = async (prompt: string, retryCount = 0): Promise<any> => {
     const payload = {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
-            temperature: 0.7,
-            responseMimeType: "application/json",
+            temperature: 0.8,
+            // v1 often uses snake_case in JSON or doesn't support mimic type here
+            // Let's try response_mime_type
         }
     };
 
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
 
-    if (!response.ok) {
-        const err = await response.text();
-        throw new Error(`API 오류: ${err}`);
+        if (!response.ok) {
+            const err = await response.text();
+            console.error(`Status: ${response.status}, Error: ${err}`);
+            if (response.status === 429 && retryCount < 3) {
+                console.log(`Rate limited, retrying in 30s...`);
+                await sleep(30000);
+                return generateThemeBatch(prompt, retryCount + 1);
+            }
+            throw new Error(`API 오류 (${response.status}): ${err}`);
+        }
+
+        const data = await response.json();
+        const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!textResponse) throw new Error("API 응답이 비어있습니다.");
+
+        // Clean up markdown if AI returned it
+        const cleaned = textResponse.replace(/```json/g, '').replace(/```/g, '').trim();
+        return JSON.parse(cleaned);
+    } catch (e: any) {
+        if (retryCount < 1) {
+            console.log(`Error: ${e.message}, retrying once...`);
+            await sleep(5000);
+            return generateThemeBatch(prompt, retryCount + 1);
+        }
+        throw e;
     }
-
-    const data = await response.json();
-    const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    return JSON.parse(textResponse);
 };
 
-const main = async () => {
-    console.log('Generating 50+ curated themes...');
+const CATEGORIES = [
+    { name: "생활 & 서바이벌", examples: ["시청 여권 발급", "렌터카 사고"] },
+    { name: "비즈니스 & 직장", examples: ["연봉 협상", "기술 면접"] }
+];
 
-    const prompts = [
-        {
-            topic: "Medical & Health (Medical checkup, ER, Pharmacy, Dental)",
-            prompt: "Generate 15 advanced English vocabulary themes related to Medical & Health for Korean adult learners. Each theme must have an icon (emoji), title (Korean), and 10 advanced words. JSON Format: [{ \"title\": \"산부인과 정기 검진\", \"icon\": \"🩺\", \"words\": [{\"term\": \"ultrasound\", \"definition\": \"Sound waves with frequencies higher than the upper audible limit of human hearing.\", \"meaningKr\": \"초음파\", \"exampleEn\": \"The doctor ordered an ultrasound to check the baby's development.\", \"exampleKr\": \"의사가 아기 발달 확인을 위해 초음파를 지시했다.\", \"tags\": [\"Medical\", \"Advanced\"]}] }]"
-        },
-        {
-            topic: "Business & Career (Negotiation, Tech Interview, Pitch, Contracts)",
-            prompt: "Generate 15 advanced English vocabulary themes related to Business & Career for Korean adult learners. Each theme must have an icon (emoji), title (Korean), and 10 advanced words. JSON Format: same as above."
-        },
-        {
-            topic: "Travel & Survival (Car rental accident, Immigration emergency, Hotel complaint)",
-            prompt: "Generate 10 advanced English vocabulary themes related to Travel & Survival emergencies for Korean adult learners. Each theme must have an icon (emoji), title (Korean), and 10 advanced words. JSON Format: same as above."
-        },
-        {
-            topic: "Academic & Exam (Essential TOEIC, Essay writing, University lecture)",
-            prompt: "Generate 10 advanced English vocabulary themes related to Academic & Exam (TOEIC, TOEFL, University) for Korean adult learners. Each theme must have an icon (emoji), title (Korean), and 10 advanced words. JSON Format: same as above."
-        }
-    ];
+const main = async () => {
+    console.log('Generating smaller set (20 themes) using gemini-1.5-flash v1...');
 
     let allThemes: any[] = [];
+    const TOTAL_THEMES = 10; // Let's try 10 first to be safe
 
-    for (const p of prompts) {
-        console.log(`Generating: ${p.topic}`);
+    for (const cat of CATEGORIES) {
+        console.log(`\n--- Category: ${cat.name} ---`);
+        const prompt = `
+Generate 5 unique English vocabulary themes related to "${cat.name}".
+Examples: ${cat.examples.join(', ')}.
+Each theme: title(Korean), icon(emoji), words(Exactly 20 advanced words).
+JSON Format: [{ "title": "...", "icon": "...", "words": [{ "term": "...", "definition": "...", "meaningKr": "...", "exampleEn": "...", "exampleKr": "..." }] }]
+Return ONLY JSON.
+        `;
+
         try {
-            const themes = await generateThemeBatch(p.prompt);
-            allThemes = allThemes.concat(themes);
+            const themes = await generateThemeBatch(prompt);
+            if (Array.isArray(themes)) {
+                allThemes = allThemes.concat(themes);
+                console.log(`Successfully generated ${themes.length} themes.`);
+            }
+            saveToFile(allThemes);
+            await sleep(5000);
         } catch (e: any) {
-            console.error(`Error generating ${p.topic}:`, e.message);
+            console.error(`Failed ${cat.name}:`, e.message);
         }
     }
+};
 
-    console.log(`Successfully generated ${allThemes.length} themes.`);
-
-    // Transform to VocaList format
-    const finalData = allThemes.map((theme, i) => ({
+const saveToFile = (themes: any[]) => {
+    const finalData = themes.map((theme, i) => ({
         id: `curated-theme-${i + 1}-${Date.now()}`,
         title: theme.title,
         icon: theme.icon || '📚',
@@ -95,15 +117,13 @@ const main = async () => {
             exampleKr: w.exampleKr || '',
             isMemorized: false,
             isStarred: false,
-            tags: w.tags || []
+            tags: ["Contextual"]
         }))
     }));
 
     const fileContent = `import { VocaList } from '@/lib/types';\n\nexport const curationPresets: VocaList[] = ${JSON.stringify(finalData, null, 2)};\n`;
-
     const destPath = path.resolve(process.cwd(), 'constants/curationData.ts');
     fs.writeFileSync(destPath, fileContent, 'utf8');
-    console.log(`Saved curation data to ${destPath}`);
 };
 
 main();

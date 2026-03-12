@@ -12,7 +12,7 @@ interface ButtonProps extends ComponentProps<typeof Pressable> {
     loading?: boolean;
     style?: ViewStyle | ViewStyle[];
     textStyle?: TextStyle | TextStyle[];
-    ref?: React.Ref<typeof View>;
+    ref?: React.Ref<View>;
 }
 
 export function Button({

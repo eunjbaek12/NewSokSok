@@ -9,14 +9,9 @@ import { useVocab } from '@/contexts/VocabContext';
 import { VocaList, Word } from '@/lib/types';
 // This assumes constants/curationData exists and exports curationPresets
 import { curationPresets } from '@/constants/curationData';
-import { getAuth, signInAnonymously } from 'firebase/auth';
-import { getFirestore, doc, setDoc } from 'firebase/Firestore';
-import { app } from '@/lib/firebaseConfig';
-import { APP_ID } from '@/lib/db'; // Make sure this is exported or we can just use EXPO_PUBLIC_APP_ID
+// Removed firebase & Firestore imports since we use VocabContext
 
-// Type hack for firestore 
-const db = getFirestore(app);
-const auth = getAuth(app);
+import { VocabProvider } from '@/contexts/VocabContext'; // ensure useVocab works
 
 // Simple fetch for AI if lib/gemini-api.ts doesn't have text generation yet
 const generateAIWords = async (query: string): Promise<Word[]> => {
@@ -66,10 +61,9 @@ export default function CurationScreen() {
     const [saving, setSaving] = useState(false);
     const [generating, setGenerating] = useState(false);
 
-    // Authenticate as guest silently
-    useEffect(() => {
-        signInAnonymously(auth).catch(console.error);
-    }, []);
+    const { createCuratedList } = useVocab();
+
+    // Context from useVocab will handle cloud/local sync internally. 
 
     const filteredThemes = curationPresets.filter(t => t.title.toLowerCase().includes(searchQuery.toLowerCase()));
 
@@ -106,29 +100,27 @@ export default function CurationScreen() {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         setSaving(true);
         try {
-            if (!auth.currentUser) await signInAnonymously(auth);
-            const userId = auth.currentUser?.uid;
-            if (!userId) throw new Error('사용자 인증 실패');
-
-            const appId = process.env.EXPO_PUBLIC_APP_ID || 'soksok-app';
-
-            // Save to user's Firestore myWords subcollection
-            const wordRef = doc(db, `artifacts/${appId}/users/${userId}/myWords`, theme.id);
-            await setDoc(wordRef, {
-                listId: theme.id,
-                title: theme.title,
-                icon: theme.icon || '✨',
-                words: theme.words,
-                savedAt: Date.now()
-            }, { merge: true });
+            await createCuratedList(theme.title, theme.icon || '✨', theme.words.map(w => ({
+                term: w.term,
+                meaningKr: w.meaningKr,
+                definition: w.definition,
+                exampleEn: w.exampleEn,
+                exampleKr: w.exampleKr,
+                isStarred: false,
+                tags: w.tags || []
+            })));
 
             alert('나의 단어장에 성공적으로 저장되었습니다!');
             setSelectedTheme(null);
             // Optional: navigate home or to lists route
             // router.replace('/');
         } catch (e: any) {
-            alert('저장하는 중 오류가 발생했습니다.');
-            console.error(e);
+            if (e.message === 'DUPLICATE_LIST') {
+                alert('이미 같은 이름의 단어장이 존재합니다.');
+            } else {
+                alert('저장하는 중 오류가 발생했습니다.');
+                console.error(e);
+            }
         } finally {
             setSaving(false);
         }

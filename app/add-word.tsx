@@ -11,7 +11,7 @@ import {
     Linking,
     TextInput,
 } from 'react-native';
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams, router, useNavigation } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
@@ -62,6 +62,18 @@ export default function AddWordScreen() {
             setExampleEn(existingWord.exampleEn);
         }
     }, [existingWord, setTerm, setDefinition, setMeaningKr, setExampleEn]);
+
+    const navigation = useNavigation();
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('beforeRemove', (e) => {
+            if (!isEditing && inputMode !== 'manual') {
+                e.preventDefault();
+                setInputMode('manual');
+            }
+        });
+        return unsubscribe;
+    }, [navigation, inputMode, isEditing]);
 
     const handleOpenListPicker = () => {
         setShowNewListInput(false);

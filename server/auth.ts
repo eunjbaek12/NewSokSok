@@ -1,5 +1,5 @@
 import type { Express, Request, Response, NextFunction } from 'express';
-import pool from './db';
+import { pool } from './db';
 
 export interface CloudUser {
   id: string;

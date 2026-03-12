@@ -50,7 +50,8 @@ export default function RootLayout() {
                     <Stack.Screen name="study-select/[id]" options={{ headerShown: false }} />
                     <Stack.Screen name="flashcards/[id]" options={{ headerShown: false, gestureEnabled: false }} />
                     <Stack.Screen name="quiz/[id]" options={{ headerShown: false, gestureEnabled: false }} />
-                    <Stack.Screen name="examples/[id]" options={{ headerShown: false, gestureEnabled: false }} />
+                    <Stack.Screen name="examples/[id]" options={{ headerShown: false, gestureEnabled: false, fullScreenGestureEnabled: false }} />
+                    <Stack.Screen name="autoplay/[id]" options={{ headerShown: false, gestureEnabled: false }} />
                     <Stack.Screen
                       name="theme-generator"
                       options={{

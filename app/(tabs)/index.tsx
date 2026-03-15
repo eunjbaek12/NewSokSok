@@ -779,7 +779,7 @@ export default function DashboardScreen() {
         {visibleLists.length > 0 && (
           <View style={styles.sectionHeader}>
             <View style={styles.sectionTitleRow}>
-              <Text style={[styles.sectionTitle, { color: colors.text }]}>My Wordbooks</Text>
+              <Text style={[styles.sectionTitle, { color: colors.text }]}>나의 단어장</Text>
               <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
                 <Text style={[styles.countBadgeText, { color: colors.primary }]}>
                   {visibleLists.length}

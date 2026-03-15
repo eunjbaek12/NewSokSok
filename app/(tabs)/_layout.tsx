@@ -38,8 +38,8 @@ function ClassicTabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: isDark ? "#4B96FF" : "#3182F6",
-        tabBarInactiveTintColor: isDark ? "#6B7684" : "#8B95A1",
+        tabBarActiveTintColor: isDark ? "#4B96FF" : "#FFFFFF",
+        tabBarInactiveTintColor: isDark ? "#6B7684" : "rgba(255, 255, 255, 0.5)",
         tabBarShowLabel: true,
         tabBarLabelStyle: {
           fontSize: 12, // Increased size
@@ -49,7 +49,7 @@ function ClassicTabLayout() {
         },
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(225, 231, 238, 0.8)", // Glass effect base
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(40, 50, 65, 0.92)", // Solid anchor color for light mode
           borderTopWidth: 0.5,
           borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
           elevation: 8,
@@ -80,7 +80,7 @@ function ClassicTabLayout() {
         tabBarBackground: () => (
           <BlurView
             intensity={80}
-            tint={isDark ? "dark" : "light"}
+            tint={isDark ? "dark" : "dark"} // Dark blur for both to maintain anchor weight
             style={[StyleSheet.absoluteFill, { borderTopLeftRadius: 24, borderTopRightRadius: 24, overflow: 'hidden' }]}
           />
         ),

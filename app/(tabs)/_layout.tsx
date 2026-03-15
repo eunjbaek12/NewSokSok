@@ -43,13 +43,13 @@ function ClassicTabLayout() {
         tabBarShowLabel: true,
         tabBarLabelStyle: {
           fontSize: 12, // Increased size
-          fontFamily: 'Pretendard_600SemiBold',
+          fontFamily: 'Pretendard_700Bold',
           marginTop: 8, // Increased gap
           paddingBottom: 4,
         },
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(248, 249, 250, 0.85)", // Glass effect base
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(225, 231, 238, 0.8)", // Glass effect base
           borderTopWidth: 0.5,
           borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
           elevation: 8,

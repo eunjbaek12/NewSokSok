@@ -143,12 +143,14 @@ function CuratedBadge({ colors }: { colors: any }) {
 function ListCard({
   item,
   colors,
+  isDark,
   getListProgress,
   getWordsForList,
   onOpenMenu,
 }: {
   item: VocaList;
   colors: any;
+  isDark: boolean;
   getListProgress: (id: string) => { total: number; memorized: number; percent: number };
   getWordsForList: (id: string) => any[];
   onOpenMenu: (list: VocaList) => void;
@@ -194,7 +196,7 @@ function ListCard({
         styles.card,
         {
           backgroundColor: colors.surface,
-          borderColor: colors.borderLight,
+          borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.1)',
           shadowColor: colors.cardShadow,
           opacity: pressed ? 0.92 : 1,
         },
@@ -724,6 +726,7 @@ export default function DashboardScreen() {
       <ListCard
         item={item}
         colors={colors}
+        isDark={isDark}
         getListProgress={getListProgress}
         getWordsForList={getWordsForList}
         onOpenMenu={handleOpenMenu}
@@ -1256,10 +1259,10 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
-    shadowRadius: 8,
-    elevation: 3,
+    shadowRadius: 10,
+    elevation: 4,
   },
   cardTopRow: {
     flexDirection: 'row',

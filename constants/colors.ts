@@ -4,7 +4,7 @@ const Colors = {
     primaryLight: '#E8F0FE',
     accent: '#FF6B35',
     accentLight: '#FFF0EB',
-    background: '#E1E7EE',
+    background: '#D8E0E9',
     surface: '#FFFFFF',
     surfaceSecondary: '#EBEEF2',
     text: '#191F28',
@@ -21,7 +21,7 @@ const Colors = {
     tint: '#3182F6',
     tabIconDefault: '#ADB5BD',
     tabIconSelected: '#3182F6',
-    cardShadow: 'rgba(0, 0, 0, 0.04)',
+    cardShadow: 'rgba(25, 31, 40, 0.08)',
     overlay: 'rgba(0, 0, 0, 0.4)',
   },
   dark: {

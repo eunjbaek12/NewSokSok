@@ -17,26 +17,27 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
+import { BlurView } from 'expo-blur';
 import WordDetailModal, { WordModalMode } from '@/components/WordDetailModal';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
 
 const STUDY_MODES = [
-  { key: 'flashcards', icon: 'albums-outline' as const, label: '카드 학습', pathname: '/flashcards/[id]' as const },
-  { key: 'quiz', icon: 'checkbox-outline' as const, label: '퀴즈', pathname: '/quiz/[id]' as const },
-  { key: 'examples', icon: 'document-text-outline' as const, label: '예문 학습', pathname: '/examples/[id]' as const },
+  { key: 'flashcards', icon: 'layers-outline' as const, label: '카드 학습', pathname: '/flashcards/[id]' as const },
+  { key: 'quiz', icon: 'create-outline' as const, label: '퀴즈', pathname: '/quiz/[id]' as const },
+  { key: 'examples', icon: 'chatbubbles-outline' as const, label: '예문 학습', pathname: '/examples/[id]' as const },
 ];
 
 export default function ListDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const insets = useSafeAreaInsets();
-  const { colors } = useTheme();
+  const { colors, isDark } = useTheme();
   const {
     lists,
     getWordsForList,
@@ -366,27 +367,77 @@ export default function ListDetailScreen() {
     );
   };
 
-  const renderStudyButtons = () => (
-    <View style={styles.studyRow}>
-      {STUDY_MODES.map(mode => (
+  const renderStudyButtons = () => {
+    const iconColor = isDark ? "#6B7684" : "#8B95A1";
+    const activeColor = isDark ? "#4B96FF" : "#3182F6";
+
+    return (
+      <View style={styles.studyRow}>
         <Pressable
-          key={mode.key}
           onPress={() => {
             if (studyDisabled) return;
-            router.push({ pathname: mode.pathname, params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
+            router.push({ pathname: '/flashcards/[id]', params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
           }}
-          style={[styles.studyBtn, studyDisabled && styles.studyBtnDisabled]}
+          style={({ pressed }) => [
+            styles.studyBtn,
+            studyDisabled && styles.studyBtnDisabled,
+            pressed && { opacity: 0.7 }
+          ]}
         >
-          <View style={[styles.studyIconCircle, { backgroundColor: studyDisabled ? colors.surfaceSecondary : colors.primaryLight }]}>
-            <Ionicons name={mode.icon} size={24} color={studyDisabled ? colors.textTertiary : colors.primary} />
+          <View style={styles.iconBox}>
+            <View style={{ position: 'relative', width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
+              <Ionicons name="card-outline" size={22} color={iconColor} />
+              <View style={{ position: 'absolute', right: -2, bottom: -2, backgroundColor: isDark ? "#1E1F21" : "#F8F9FA", borderRadius: 6 }}>
+                <Ionicons name="sync" size={10} color={iconColor} />
+              </View>
+            </View>
           </View>
-          <Text style={[styles.studyLabel, { color: studyDisabled ? colors.textTertiary : colors.textSecondary }]}>
-            {mode.label}
-          </Text>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>카드학습</Text>
         </Pressable>
-      ))}
-    </View>
-  );
+
+        <Pressable
+          onPress={() => {
+            if (studyDisabled) return;
+            router.push({ pathname: '/quiz/[id]', params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
+          }}
+          style={({ pressed }) => [
+            styles.studyBtn,
+            studyDisabled && styles.studyBtnDisabled,
+            pressed && { opacity: 0.7 }
+          ]}
+        >
+          <View style={styles.iconBox}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={{ fontSize: 16, color: iconColor, fontWeight: '600' }}>?</Text>
+              <Ionicons name="checkmark" size={14} color={iconColor} style={{ marginLeft: -2, marginTop: 4 }} />
+            </View>
+          </View>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>단어퀴즈</Text>
+        </Pressable>
+
+        <Pressable
+          onPress={() => {
+            if (studyDisabled) return;
+            router.push({ pathname: '/examples/[id]', params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
+          }}
+          style={({ pressed }) => [
+            styles.studyBtn,
+            studyDisabled && styles.studyBtnDisabled,
+            pressed && { opacity: 0.7 }
+          ]}
+        >
+          <View style={styles.iconBox}>
+            <View style={{ gap: 2, alignItems: 'center' }}>
+              <View style={{ width: 14, height: 1.5, backgroundColor: iconColor }} />
+              <View style={{ width: 14, height: 1.5, backgroundColor: iconColor }} />
+              <Text style={{ fontSize: 8, color: iconColor, marginTop: -2, fontWeight: '900' }}>___</Text>
+            </View>
+          </View>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>문장완성</Text>
+        </Pressable>
+      </View>
+    );
+  };
 
   const renderListHeader = () => (
     <View>
@@ -490,7 +541,7 @@ export default function ListDetailScreen() {
         ListEmptyComponent={renderEmpty}
         contentContainerStyle={[
           styles.listContent,
-          { paddingBottom: insets.bottom + 120 },
+          { paddingBottom: insets.bottom + 140 },
           filteredWords.length === 0 && styles.listContentEmpty,
         ]}
         scrollEnabled={filteredWords.length > 0}
@@ -518,10 +569,19 @@ export default function ListDetailScreen() {
       {/* Fixed bottom bar for Study Features */}
       {!editMode && (
         <View style={[styles.bottomBarContainer, {
-          backgroundColor: colors.surface,
-          bottom: insets.bottom,
-          borderTopColor: colors.borderLight
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(248, 249, 250, 0.85)",
+          bottom: 0,
+          height: 64 + insets.bottom,
+          paddingBottom: insets.bottom,
+          borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
+          borderTopWidth: 0.5,
+          overflow: 'hidden',
         }]}>
+          <BlurView
+            intensity={80}
+            tint={isDark ? "dark" : "light"}
+            style={StyleSheet.absoluteFill}
+          />
           {renderStudyButtons()}
         </View>
       )}
@@ -591,30 +651,29 @@ const styles = StyleSheet.create({
   },
   studyRow: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    gap: 24,
-    height: 64, // Unified height
+    justifyContent: 'space-around',
+    paddingHorizontal: 0,
+    height: 64,
     alignItems: 'center',
   },
   studyBtn: {
+    flex: 1,
     alignItems: 'center',
-    gap: 6,
+    justifyContent: 'center',
   },
   studyBtnDisabled: {
     opacity: 0.5,
   },
-  studyIconCircle: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+  iconBox: {
+    width: 24,
+    height: 24,
     alignItems: 'center',
     justifyContent: 'center',
   },
   studyLabel: {
     fontSize: 12,
     fontFamily: 'Pretendard_600SemiBold',
+    marginTop: 8,
   },
   listContent: {
     paddingHorizontal: 16,
@@ -706,7 +765,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    height: 64, // Standardized 64px
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
     borderTopWidth: StyleSheet.hairlineWidth,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -6 },

@@ -194,12 +194,21 @@ function ListCard({
         styles.card,
         {
           backgroundColor: colors.surface,
-          borderColor: colors.borderLight,
+          borderColor: colors.border,
           shadowColor: colors.cardShadow,
           opacity: pressed ? 0.92 : 1,
         },
       ]}
     >
+      <View
+        style={[
+          styles.accentBar,
+          {
+            backgroundColor: progress.percent === 100 ? colors.success : colors.primary,
+            opacity: progress.percent > 0 ? 0.8 : 0.2
+          }
+        ]}
+      />
       <View style={styles.cardTopRow}>
         <View style={styles.cardTitleArea}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
@@ -1260,6 +1269,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 8,
     elevation: 3,
+    overflow: 'hidden',
+  },
+  accentBar: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 3,
   },
   cardTopRow: {
     flexDirection: 'row',

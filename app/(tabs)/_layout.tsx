@@ -38,68 +38,84 @@ function ClassicTabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: colors.primary,
-        tabBarInactiveTintColor: colors.tabIconDefault,
+        tabBarActiveTintColor: isDark ? "#4B96FF" : "#3182F6",
+        tabBarInactiveTintColor: isDark ? "#6B7684" : "#8B95A1",
+        tabBarShowLabel: true,
+        tabBarLabelStyle: {
+          fontSize: 12, // Increased size
+          fontFamily: 'Pretendard_600SemiBold',
+          marginTop: 8, // Increased gap
+          paddingBottom: 4,
+        },
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: colors.surface,
-          borderTopWidth: StyleSheet.hairlineWidth,
-          borderTopColor: colors.border,
-          elevation: 20,
-          height: 64, // Unified height
-          bottom: insets.bottom, // Lift above system bar
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(248, 249, 250, 0.85)", // Glass effect base
+          borderTopWidth: 0.5,
+          borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
+          elevation: 8,
+          height: 64 + insets.bottom,
+          bottom: 0,
           left: 0,
           right: 0,
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
           shadowColor: "#000",
-          shadowOffset: { width: 0, height: -4 },
+          shadowOffset: { width: 0, height: -2 },
           shadowOpacity: 0.1,
-          shadowRadius: 8,
-          paddingBottom: 0,
+          shadowRadius: 4,
+          paddingBottom: insets.bottom,
         },
         tabBarItemStyle: {
           height: 64,
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingTop: 8, // Adjusted for spacing
         },
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontFamily: 'Pretendard_600SemiBold',
-          marginBottom: 10,
+        tabBarIconStyle: {
+          width: 24,
+          height: 24,
+          justifyContent: 'center',
+          alignItems: 'center',
         },
-        tabBarBackground: () =>
-          isIOS ? (
-            <BlurView
-              intensity={100}
-              tint={isDark ? "dark" : "light"}
-              style={StyleSheet.absoluteFill}
-            />
-          ) : isWeb ? (
-            <View style={[StyleSheet.absoluteFill, { backgroundColor: colors.surface }]} />
-          ) : null,
+        tabBarBackground: () => (
+          <BlurView
+            intensity={80}
+            tint={isDark ? "dark" : "light"}
+            style={[StyleSheet.absoluteFill, { borderTopLeftRadius: 24, borderTopRightRadius: 24, overflow: 'hidden' }]}
+          />
+        ),
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "홈",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? "home" : "home-outline"} size={28} color={color} />
+          tabBarLabel: "홈",
+          tabBarIcon: ({ color }) => (
+            <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
+              <Ionicons name="home-outline" size={24} color={color} style={{ fontWeight: '200' }} />
+            </View>
           ),
         }}
       />
       <Tabs.Screen
         name="curation"
         options={{
-          title: "단어 모음",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? "albums" : "albums-outline"} size={28} color={color} />
+          tabBarLabel: "모음집",
+          tabBarIcon: ({ color }) => (
+            <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
+              <Ionicons name="cloud-outline" size={24} color={color} />
+            </View>
           ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: "설정",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? "settings" : "settings-outline"} size={28} color={color} />
+          tabBarLabel: "설정",
+          tabBarIcon: ({ color }) => (
+            <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
+              <Ionicons name="settings-outline" size={24} color={color} />
+            </View>
           ),
         }}
       />

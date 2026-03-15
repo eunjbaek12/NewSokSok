@@ -9,16 +9,16 @@ import { queryClient } from "@/lib/query-client";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { VocabProvider } from "@/contexts/VocabContext";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from "@expo-google-fonts/inter";
+import { useFonts } from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
+    Pretendard_400Regular: require("../assets/fonts/Pretendard-Regular.otf"),
+    Pretendard_500Medium: require("../assets/fonts/Pretendard-Medium.otf"),
+    Pretendard_600SemiBold: require("../assets/fonts/Pretendard-SemiBold.otf"),
+    Pretendard_700Bold: require("../assets/fonts/Pretendard-Bold.otf"),
   });
 
   useEffect(() => {

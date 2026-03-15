@@ -116,10 +116,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 14,
+        borderRadius: 12,
         gap: 8,
     },
     text: {
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'Pretendard_600SemiBold',
     },
 });

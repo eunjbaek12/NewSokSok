@@ -18,6 +18,9 @@ export const curated_themes = pgTable("curated_themes", {
   icon: text("icon"),
   category: text("category"),
   level: text("level"),
+  isUserShared: boolean("is_user_shared").default(false),
+  creatorName: text("creator_name"),
+  downloadCount: integer("download_count").default(0),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow()
 });

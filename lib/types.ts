@@ -19,6 +19,9 @@ export interface VocaList {
   lastStudiedAt?: number;
   isCurated?: boolean;
   icon?: string;
+  isUserShared?: boolean;
+  creatorName?: string;
+  downloadCount?: number;
 }
 
 export interface StudyResult {

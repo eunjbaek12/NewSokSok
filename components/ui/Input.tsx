@@ -79,14 +79,14 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 12,
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'Pretendard_600SemiBold',
         letterSpacing: 0.8,
     },
     inputWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 12,
         paddingHorizontal: 14,
     },
     leftIcon: {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingVertical: 12,
         fontSize: 16,
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
     },
     multilineInput: {
         minHeight: 80,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     },
     errorText: {
         fontSize: 12,
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
         marginTop: 2,
         paddingLeft: 4,
     },

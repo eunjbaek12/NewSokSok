@@ -7,21 +7,22 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 function NativeTabLayout() {
   return (
     <NativeTabs>
       <NativeTabs.Trigger name="index">
-        <Icon sf={{ default: "book", selected: "book.fill" }} />
-        <Label>Home</Label>
+        <Icon sf={{ default: "house", selected: "house.fill" }} />
+        <Label>홈</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="curation">
-        <Icon sf={{ default: "sparkles", selected: "sparkles" }} />
-        <Label>Curation</Label>
+        <Icon sf={{ default: "square.stack", selected: "square.stack.fill" }} />
+        <Label>단어 모음</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="settings">
         <Icon sf={{ default: "gearshape", selected: "gearshape.fill" }} />
-        <Label>Settings</Label>
+        <Label>설정</Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   );
@@ -29,6 +30,7 @@ function NativeTabLayout() {
 
 function ClassicTabLayout() {
   const { colors, isDark } = useTheme();
+  const insets = useSafeAreaInsets();
   const isWeb = Platform.OS === "web";
   const isIOS = Platform.OS === "ios";
 
@@ -40,11 +42,27 @@ function ClassicTabLayout() {
         tabBarInactiveTintColor: colors.tabIconDefault,
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isIOS ? "transparent" : colors.surface,
-          borderTopWidth: isWeb ? 1 : 0,
+          backgroundColor: colors.surface,
+          borderTopWidth: StyleSheet.hairlineWidth,
           borderTopColor: colors.border,
-          elevation: 0,
-          ...(isWeb ? { height: 84 } : {}),
+          elevation: 20,
+          height: 64, // Unified height
+          bottom: insets.bottom, // Lift above system bar
+          left: 0,
+          right: 0,
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: -4 },
+          shadowOpacity: 0.1,
+          shadowRadius: 8,
+          paddingBottom: 0,
+        },
+        tabBarItemStyle: {
+          height: 64,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontFamily: 'Pretendard_600SemiBold',
+          marginBottom: 10,
         },
         tabBarBackground: () =>
           isIOS ? (
@@ -61,27 +79,27 @@ function ClassicTabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "홈",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? "book" : "book-outline"} size={24} color={color} />
+            <Ionicons name={focused ? "home" : "home-outline"} size={28} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="curation"
         options={{
-          title: "Curation",
+          title: "단어 모음",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? "sparkles" : "sparkles-outline"} size={24} color={color} />
+            <Ionicons name={focused ? "albums" : "albums-outline"} size={28} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Settings",
+          title: "설정",
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? "settings" : "settings-outline"} size={24} color={color} />
+            <Ionicons name={focused ? "settings" : "settings-outline"} size={28} color={color} />
           ),
         }}
       />

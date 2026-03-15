@@ -340,20 +340,20 @@ export default function FlashcardsScreen() {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
         <Ionicons name="albums-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
-        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Inter_600SemiBold', textAlign: 'center', marginBottom: 8 }}>학습할 단어가 없습니다</Text>
+        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>학습할 단어가 없습니다</Text>
         <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>선택한 필터나 중요 표시(⭐)에 맞는 단어가 없습니다. 설정을 확인해 주세요.</Text>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <Pressable
             onPress={() => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: '#FFF', fontFamily: 'Inter_600SemiBold' }}>설정 변경</Text>
+            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>설정 변경</Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
             style={{ backgroundColor: colors.surfaceSecondary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: colors.text, fontFamily: 'Inter_600SemiBold' }}>뒤로 가기</Text>
+            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
           </Pressable>
         </View>
 
@@ -589,7 +589,7 @@ const styles = StyleSheet.create({
   },
   progressText: {
     fontSize: 14,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   progressBarBg: {
     height: 4,
@@ -633,17 +633,17 @@ const styles = StyleSheet.create({
   },
   cardWord: {
     fontSize: 36,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     textAlign: 'center',
   },
   cardMeaning: {
     fontSize: 32,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     textAlign: 'center',
   },
   cardExample: {
     fontSize: 16,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     textAlign: 'center',
     fontStyle: 'italic',
     lineHeight: 24,
@@ -685,7 +685,7 @@ const styles = StyleSheet.create({
   },
   indicatorText: {
     fontSize: 24,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     textTransform: 'uppercase',
   },
   bottomBar: {
@@ -698,18 +698,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 14,
-    borderRadius: 14,
+    borderRadius: 12,
     gap: 8,
   },
   reviewBtn: {},
   gotItBtn: {},
   actionBtnText: {
     fontSize: 18,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
   },
   actionBtnSubtext: {
     fontSize: 10,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     textTransform: 'uppercase',
     marginTop: -2,
   },
@@ -719,8 +719,8 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   settingsSheet: {
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     padding: 24,
     paddingBottom: Platform.OS === 'ios' ? 40 : 24,
     maxHeight: '80%',
@@ -733,14 +733,14 @@ const styles = StyleSheet.create({
   },
   settingsTitle: {
     fontSize: 20,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
   },
   settingSection: {
     marginBottom: 20,
   },
   sectionTitle: {
     fontSize: 13,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     marginBottom: 12,
@@ -753,13 +753,13 @@ const styles = StyleSheet.create({
   filterTab: {
     flex: 1,
     paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: 'center',
     borderWidth: 1,
   },
   filterTabText: {
     fontSize: 14,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   settingRow: {
     flexDirection: 'row',
@@ -772,7 +772,7 @@ const styles = StyleSheet.create({
   },
   settingLabel: {
     fontSize: 16,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
   divider: {
     height: 1,

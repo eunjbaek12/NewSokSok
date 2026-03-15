@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
         width: '100%',
         maxWidth: 400,
         maxHeight: '80%',
-        borderRadius: 16,
-        padding: 20,
+        borderRadius: 20,
+        padding: 24,
     },
     header: {
         flexDirection: 'row',
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 17,
-        fontFamily: 'Inter_700Bold',
+        fontFamily: 'Pretendard_700Bold',
     },
     scroll: {
         maxHeight: 350,
@@ -128,20 +128,20 @@ const styles = StyleSheet.create({
     },
     optionTitle: {
         fontSize: 15,
-        fontFamily: 'Inter_500Medium',
+        fontFamily: 'Pretendard_500Medium',
     },
     optionSub: {
         fontSize: 12,
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
     },
     closeBtn: {
         marginTop: 16,
-        paddingVertical: 12,
-        borderRadius: 10,
+        paddingVertical: 14,
+        borderRadius: 12,
         alignItems: 'center',
     },
     closeBtnText: {
         fontSize: 15,
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'Pretendard_600SemiBold',
     },
 });

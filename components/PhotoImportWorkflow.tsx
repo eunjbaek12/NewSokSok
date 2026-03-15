@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 17,
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'Pretendard_600SemiBold',
     },
     subheader: {
         padding: 16,
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: 14,
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
     },
     placeholderContainer: {
         alignItems: 'center',
@@ -300,12 +300,12 @@ const styles = StyleSheet.create({
     },
     placeholderTitle: {
         fontSize: 20,
-        fontFamily: 'Inter_700Bold',
+        fontFamily: 'Pretendard_700Bold',
         textAlign: 'center'
     },
     placeholderDesc: {
         fontSize: 15,
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
         textAlign: 'center',
         lineHeight: 22,
         marginBottom: 20
@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
     },
     actionBtnText: {
         fontSize: 16,
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'Pretendard_600SemiBold',
     },
     loadingOverlay: {
         ...StyleSheet.absoluteFillObject,
@@ -337,12 +337,12 @@ const styles = StyleSheet.create({
     loadingText: {
         marginTop: 16,
         fontSize: 16,
-        fontFamily: 'Inter_600SemiBold',
+        fontFamily: 'Pretendard_600SemiBold',
     },
     loadingSubText: {
         marginTop: 8,
         fontSize: 13,
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
         textAlign: 'center',
     },
     listContainer: {
@@ -369,20 +369,20 @@ const styles = StyleSheet.create({
     inputBold: {
         flex: 1,
         fontSize: 18,
-        fontFamily: 'Inter_700Bold',
+        fontFamily: 'Pretendard_700Bold',
         borderBottomWidth: 1,
         paddingBottom: 8,
         marginRight: 10,
     },
     input: {
         fontSize: 15,
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
         borderBottomWidth: 1,
         paddingVertical: 8,
         marginBottom: 8,
     },
     exampleInput: {
-        fontFamily: 'Inter_400Regular',
+        fontFamily: 'Pretendard_400Regular',
         fontStyle: 'italic',
         borderBottomWidth: 0,
         marginBottom: 0,

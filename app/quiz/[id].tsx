@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useMemo, useEffect } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,6 +7,7 @@ import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { Word, StudyResult } from '@/lib/types';
+import { speak } from '@/lib/tts';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -18,30 +19,86 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 export default function QuizScreen() {
-  const { id, filter } = useLocalSearchParams<{ id: string; filter?: string }>();
+  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType } = useLocalSearchParams<{
+    id: string;
+    filter?: string;
+    isStarred?: string;
+    quizType?: string;
+  }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { getWordsForList, setStudyResults, toggleMemorized } = useVocab();
+  const { getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
 
-  const [studyWords] = useState(() => {
-    const all = getWordsForList(id!);
-    if (filter === 'learning') return all.filter(w => !w.isMemorized);
-    if (filter === 'memorized') return all.filter(w => w.isMemorized);
-    return all;
+  // Settings State
+  const [settingsVisible, setSettingsVisible] = useState(false);
+  const [settings, setSettings] = useState({
+    filter: (filter || 'all') as 'all' | 'learning' | 'memorized',
+    isStarred: initialIsStarred === 'true',
+    quizType: (initialQuizType || 'term-to-meaning') as 'meaning-to-term' | 'term-to-meaning',
   });
+
+  const [studyWords, setStudyWords] = useState<Word[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
+  // Sync initial search params with settings
+  useEffect(() => {
+    if (filter && filter !== settings.filter) {
+      setSettings(s => ({ ...s, filter: filter as any }));
+    }
+    if (initialIsStarred !== undefined) {
+      const isStarredBool = initialIsStarred === 'true';
+      if (isStarredBool !== settings.isStarred) {
+        setSettings(s => ({ ...s, isStarred: isStarredBool }));
+      }
+    }
+    if (initialQuizType && initialQuizType !== settings.quizType) {
+      setSettings(s => ({ ...s, quizType: initialQuizType as any }));
+    }
+  }, [filter, initialIsStarred, initialQuizType]);
+
+  // Initialize and filter words
+  useEffect(() => {
+    let all = getWordsForList(id!);
+
+    if (settings.isStarred) {
+      all = all.filter(w => w.isStarred);
+    }
+
+    if (settings.filter === 'learning') {
+      all = all.filter(w => !w.isMemorized);
+    } else if (settings.filter === 'memorized') {
+      all = all.filter(w => w.isMemorized);
+    }
+
+    // Shuffle
+    all = shuffleArray(all);
+
+    setStudyWords(all);
+    setCurrentIndex(0);
+    setSelectedAnswer(null);
+    setIsCorrect(null);
+    results.current = [];
+  }, [id, getWordsForList, settings.filter, settings.isStarred]);
+
   const currentWord = studyWords[currentIndex];
+
+  const handleToggleStar = useCallback(async (wordId: string) => {
+    setStudyWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    await toggleStarred(id!, wordId);
+  }, [id, toggleStarred]);
 
   const choices = useMemo(() => {
     if (!currentWord) return [];
-    const distractors = shuffleArray(studyWords.filter(w => w.id !== currentWord.id)).slice(0, 3);
+    // Distractors from ALL available words in this list for better variety
+    const distractors = shuffleArray(getWordsForList(id!).filter(w => w.id !== currentWord.id)).slice(0, 3);
     return shuffleArray([currentWord, ...distractors]);
-  }, [currentIndex]);
+  }, [currentIndex, currentWord, id, getWordsForList]);
 
   const handleAnswer = useCallback(async (word: Word) => {
     if (selectedAnswer !== null) return;
@@ -63,13 +120,32 @@ export default function QuizScreen() {
     const timer = setTimeout(async () => {
       if (currentIndex >= studyWords.length - 1) {
         const finalResults = results.current;
-        for (const r of finalResults) {
-          if (r.gotIt && !r.word.isMemorized) {
-            await toggleMemorized(id!, r.word.id);
-          }
+        const memorizedWords = finalResults
+          .filter(r => r.gotIt && !r.word.isMemorized)
+          .map(r => r.word.id);
+
+        const failedWords = finalResults
+          .filter(r => !r.gotIt && r.word.isMemorized)
+          .map(r => r.word.id);
+
+        if (memorizedWords.length > 0) {
+          await setWordsMemorized(id!, memorizedWords, true);
+        }
+        if (failedWords.length > 0) {
+          await setWordsMemorized(id!, failedWords, false);
         }
         setStudyResults(finalResults);
-        router.replace('/study-results');
+        router.replace({
+          pathname: '/study-results',
+          params: {
+            id,
+            mode: 'quiz',
+            duration: Date.now() - startTime.current,
+            isStarred: settings.isStarred ? 'true' : 'false',
+            sessionFilter: settings.filter,
+            quizType: settings.quizType
+          }
+        });
         return;
       }
       setCurrentIndex(prev => prev + 1);
@@ -77,19 +153,127 @@ export default function QuizScreen() {
       setIsCorrect(null);
     }, 1000);
     return () => clearTimeout(timer);
-  }, [selectedAnswer, currentIndex, studyWords.length, setStudyResults, toggleMemorized, id]);
+  }, [selectedAnswer, currentIndex, studyWords.length, setStudyResults, setWordsMemorized, id]);
 
   const handleClose = useCallback(() => {
     router.back();
   }, []);
 
-  if (!currentWord) {
+  if (studyWords.length === 0) {
     return (
-      <View style={[styles.container, { backgroundColor: colors.background }]}>
-        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100 }}>No words to study</Text>
+      <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
+        <Ionicons name="help-circle-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
+        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>문항이 없습니다</Text>
+        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>선택한 조건에 맞는 단어가 없습니다. 설정을 확인해 주세요.</Text>
+        <View style={{ flexDirection: 'row', gap: 12 }}>
+          <Pressable
+            onPress={() => setSettingsVisible(true)}
+            style={{ backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
+          >
+            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>설정 변경</Text>
+          </Pressable>
+          <Pressable
+            onPress={handleClose}
+            style={{ backgroundColor: colors.surfaceSecondary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
+          >
+            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
+          </Pressable>
+        </View>
+        {renderSettingsModal()}
       </View>
     );
   }
+
+  function renderSettingsModal() {
+    return (
+      <Modal visible={settingsVisible} transparent animationType="fade" onRequestClose={() => setSettingsVisible(false)}>
+        <Pressable style={styles.modalOverlay} onPress={() => setSettingsVisible(false)}>
+          <Pressable style={[styles.settingsSheet, { backgroundColor: colors.surface }]} onPress={e => e.stopPropagation()}>
+            <View style={styles.settingsHeader}>
+              <Text style={[styles.settingsTitle, { color: colors.text }]}>퀴즈 설정</Text>
+              <Pressable onPress={() => setSettingsVisible(false)} hitSlop={8}>
+                <Ionicons name="close" size={24} color={colors.textSecondary} />
+              </Pressable>
+            </View>
+
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={styles.settingSection}>
+                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>출제 대상</Text>
+                <View style={styles.filterGroup}>
+                  {(['all', 'learning', 'memorized'] as const).map(f => (
+                    <Pressable
+                      key={f}
+                      onPress={() => setSettings(s => ({ ...s, filter: f }))}
+                      style={[
+                        styles.filterTab,
+                        {
+                          backgroundColor: settings.filter === f ? colors.primary : colors.surfaceSecondary,
+                          borderColor: settings.filter === f ? colors.primary : colors.borderLight
+                        }
+                      ]}
+                    >
+                      <Text style={[styles.filterTabText, { color: settings.filter === f ? '#FFF' : colors.textSecondary }]}>
+                        {f === 'all' ? '전체' : f === 'learning' ? '미암기' : '암기'}
+                      </Text>
+                    </Pressable>
+                  ))}
+                </View>
+
+                <View style={styles.settingRow}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기(⭐)만 보기</Text>
+                  <Switch
+                    value={settings.isStarred}
+                    onValueChange={v => setSettings(s => ({ ...s, isStarred: v }))}
+                    trackColor={{ true: colors.primary }}
+                  />
+                </View>
+              </View>
+
+              <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
+
+              <View style={styles.settingSection}>
+                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>문제 옵션</Text>
+
+                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12 }]}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>퀴즈 유형</Text>
+                  <View style={styles.filterGroup}>
+                    <Pressable
+                      onPress={() => setSettings(s => ({ ...s, quizType: 'meaning-to-term' }))}
+                      style={[
+                        styles.filterTab,
+                        {
+                          backgroundColor: settings.quizType === 'meaning-to-term' ? colors.primary : colors.surfaceSecondary,
+                          borderColor: settings.quizType === 'meaning-to-term' ? colors.primary : colors.borderLight
+                        }
+                      ]}
+                    >
+                      <Text style={[styles.filterTabText, { color: settings.quizType === 'meaning-to-term' ? '#FFF' : colors.textSecondary }]}>뜻 → 단어</Text>
+                    </Pressable>
+                    <Pressable
+                      onPress={() => setSettings(s => ({ ...s, quizType: 'term-to-meaning' }))}
+                      style={[
+                        styles.filterTab,
+                        {
+                          backgroundColor: settings.quizType === 'term-to-meaning' ? colors.primary : colors.surfaceSecondary,
+                          borderColor: settings.quizType === 'term-to-meaning' ? colors.primary : colors.borderLight
+                        }
+                      ]}
+                    >
+                      <Text style={[styles.filterTabText, { color: settings.quizType === 'term-to-meaning' ? '#FFF' : colors.textSecondary }]}>단어 → 뜻</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
+            </ScrollView>
+          </Pressable>
+        </Pressable>
+      </Modal>
+    );
+  }
+
+  // Determine question and choice texts based on quizType
+  const questionContent = settings.quizType === 'meaning-to-term' ? currentWord.meaningKr : currentWord.term;
+  const getChoiceText = (w: Word) => settings.quizType === 'meaning-to-term' ? w.term : w.meaningKr;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -110,14 +294,32 @@ export default function QuizScreen() {
             />
           </View>
         </View>
-        <Pressable onPress={handleClose} hitSlop={12}>
-          <Ionicons name="close" size={28} color={colors.textSecondary} />
-        </Pressable>
+        <View style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+            <Ionicons name="settings-outline" size={26} color={colors.textSecondary} />
+          </Pressable>
+          <Pressable onPress={handleClose} hitSlop={12}>
+            <Ionicons name="close" size={28} color={colors.textSecondary} />
+          </Pressable>
+        </View>
       </View>
 
       <View style={styles.questionArea}>
-        <Text style={[styles.questionLabel, { color: colors.textSecondary }]}>Which word means:</Text>
-        <Text style={[styles.questionText, { color: colors.text }]}>{currentWord.meaningKr}</Text>
+        <View style={styles.questionHeader}>
+          <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
+            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={24} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+          </Pressable>
+        </View>
+        <Text style={[styles.questionText, { color: colors.text }]}>{questionContent}</Text>
+        <Pressable
+          onPress={() => speak(currentWord.term)}
+          hitSlop={12}
+          style={styles.speakerBtn}
+        >
+          {({ pressed }) => (
+            <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
+          )}
+        </Pressable>
       </View>
 
       <View style={[styles.choicesArea, { paddingBottom: insets.bottom + 24 }]}>
@@ -157,7 +359,7 @@ export default function QuizScreen() {
                 },
               ]}
             >
-              <Text style={[styles.choiceText, { color: textColor }]}>{choice.term}</Text>
+              <Text style={[styles.choiceText, { color: textColor }]}>{getChoiceText(choice)}</Text>
               {iconName && (
                 <Ionicons name={iconName} size={24} color={textColor} />
               )}
@@ -165,6 +367,8 @@ export default function QuizScreen() {
           );
         })}
       </View>
+
+      {renderSettingsModal()}
     </View>
   );
 }
@@ -186,7 +390,7 @@ const styles = StyleSheet.create({
   },
   progressText: {
     fontSize: 14,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   progressBarBg: {
     height: 4,
@@ -206,11 +410,23 @@ const styles = StyleSheet.create({
   },
   questionLabel: {
     fontSize: 16,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
+  },
+  questionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  starBtn: {
+    padding: 4,
+  },
+  speakerBtn: {
+    padding: 8,
+    marginTop: 8,
   },
   questionText: {
     fontSize: 28,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     textAlign: 'center',
     lineHeight: 38,
   },
@@ -224,12 +440,75 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 18,
     paddingHorizontal: 20,
-    borderRadius: 14,
+    borderRadius: 12,
     borderWidth: 1.5,
   },
   choiceText: {
     fontSize: 18,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     flex: 1,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'flex-end',
+  },
+  settingsSheet: {
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 24,
+    paddingBottom: Platform.OS === 'ios' ? 40 : 24,
+    maxHeight: '80%',
+  },
+  settingsHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  settingsTitle: {
+    fontSize: 20,
+    fontFamily: 'Pretendard_700Bold',
+  },
+  settingSection: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_600SemiBold',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginBottom: 12,
+  },
+  filterGroup: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 8,
+  },
+  filterTab: {
+    flex: 1,
+    paddingVertical: 10,
+    borderRadius: 12,
+    alignItems: 'center',
+    borderWidth: 1,
+  },
+  filterTabText: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  settingRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
+  },
+  settingLabel: {
+    fontSize: 16,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  divider: {
+    height: 1,
+    marginVertical: 4,
+    marginBottom: 20,
   },
 });

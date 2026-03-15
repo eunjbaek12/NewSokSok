@@ -223,7 +223,8 @@ export async function addWord(
     );
     await db.runAsync(
       `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-      [Date.now(), listId]
+      Date.now(),
+      listId
     );
   });
 
@@ -288,7 +289,8 @@ export async function addBatchWords(
     }
     await db.runAsync(
       `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-      [Date.now(), listId]
+      Date.now(),
+      listId
     );
   });
 
@@ -319,12 +321,13 @@ export async function updateWord(
     await db.withTransactionAsync(async () => {
       await db.runAsync(
         `UPDATE words SET ${setClauses.join(', ')} WHERE id = ?`,
-        values
+        ...values
       );
       // touch list lastStudiedAt? optional but consistent with AsyncStore logic although maybe slow for every word edit
       await db.runAsync(
         `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-        [Date.now(), listId]
+        Date.now(),
+        listId
       );
     });
   }
@@ -337,14 +340,14 @@ export async function updateWord(
 
 export async function deleteWord(listId: string, wordId: string): Promise<void> {
   const db = await getDb();
-  await db.runAsync('DELETE FROM words WHERE id = ?', [wordId]);
+  await db.runAsync('DELETE FROM words WHERE id = ?', wordId);
 }
 
 export async function deleteWords(listId: string, wordIds: string[]): Promise<void> {
   const db = await getDb();
   if (wordIds.length === 0) return;
   const placeholders = wordIds.map(() => '?').join(',');
-  await db.runAsync(`DELETE FROM words WHERE id IN (${placeholders})`, wordIds);
+  await db.runAsync(`DELETE FROM words WHERE id IN (${placeholders})`, ...wordIds);
 }
 
 export async function toggleMemorized(
@@ -352,14 +355,18 @@ export async function toggleMemorized(
   wordId: string,
   forceStatus?: boolean
 ): Promise<void> {
+  if (!wordId || !listId) {
+    console.error('toggleMemorized: Missing id', { wordId, listId });
+    return;
+  }
   const db = await getDb();
   await db.withTransactionAsync(async () => {
     if (forceStatus !== undefined) {
-      await db.runAsync('UPDATE words SET isMemorized = ? WHERE id = ?', [forceStatus ? 1 : 0, wordId]);
+      await db.runAsync('UPDATE words SET isMemorized = ? WHERE id = ?', forceStatus ? 1 : 0, wordId);
     } else {
-      await db.runAsync('UPDATE words SET isMemorized = CASE WHEN isMemorized = 1 THEN 0 ELSE 1 END WHERE id = ?', [wordId]);
+      await db.runAsync('UPDATE words SET isMemorized = CASE WHEN isMemorized = 1 THEN 0 ELSE 1 END WHERE id = ?', wordId);
     }
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, [Date.now(), listId]);
+    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
   });
 }
 
@@ -368,14 +375,18 @@ export async function toggleStarred(
   wordId: string,
   forceStatus?: boolean
 ): Promise<void> {
+  if (!wordId || !listId) {
+    console.error('toggleStarred: Missing id', { wordId, listId });
+    return;
+  }
   const db = await getDb();
   await db.withTransactionAsync(async () => {
     if (forceStatus !== undefined) {
-      await db.runAsync('UPDATE words SET isStarred = ? WHERE id = ?', [forceStatus ? 1 : 0, wordId]);
+      await db.runAsync('UPDATE words SET isStarred = ? WHERE id = ?', forceStatus ? 1 : 0, wordId);
     } else {
-      await db.runAsync('UPDATE words SET isStarred = CASE WHEN isStarred = 1 THEN 0 ELSE 1 END WHERE id = ?', [wordId]);
+      await db.runAsync('UPDATE words SET isStarred = CASE WHEN isStarred = 1 THEN 0 ELSE 1 END WHERE id = ?', wordId);
     }
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, [Date.now(), listId]);
+    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
   });
 }
 
@@ -414,10 +425,10 @@ export async function mergeLists(
       );
     }
 
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, [Date.now(), targetId]);
+    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), targetId);
 
     if (deleteSource) {
-      await db.runAsync('DELETE FROM lists WHERE id = ?', [sourceId]);
+      await db.runAsync('DELETE FROM lists WHERE id = ?', sourceId);
     }
   });
 }
@@ -438,12 +449,37 @@ export async function reorderLists(orderedIds: string[]): Promise<void> {
     for (let i = 0; i < orderedIds.length; i++) {
       const id = orderedIds[i];
       const newTime = now + ((orderedIds.length - i) * 1000);
-      await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', [newTime, id]);
+      await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', newTime, id);
     }
   });
 }
 
 export async function updateStudyTime(listId: string): Promise<void> {
   const db = await getDb();
-  await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', [Date.now(), listId]);
+  await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), listId);
+}
+
+export async function setWordsMemorized(
+  listId: string,
+  wordIds: string[],
+  isMemorized: boolean
+): Promise<void> {
+  if (!listId || wordIds.length === 0) return;
+
+  const db = await getDb();
+  const status = isMemorized ? 1 : 0;
+  const placeholders = wordIds.map(() => '?').join(',');
+
+  await db.withTransactionAsync(async () => {
+    await db.runAsync(
+      `UPDATE words SET isMemorized = ? WHERE id IN (${placeholders})`,
+      status,
+      ...wordIds
+    );
+    await db.runAsync(
+      `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
+      Date.now(),
+      listId
+    );
+  });
 }

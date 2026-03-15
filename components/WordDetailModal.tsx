@@ -18,6 +18,7 @@ import { useVocab } from '@/contexts/VocabContext';
 import { useAddWord } from '@/hooks/useAddWord';
 import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
+import { Word } from '@/lib/types';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -26,6 +27,8 @@ interface WordDetailModalProps {
     mode: WordModalMode;
     listId: string;
     wordId?: string | null;
+    word?: Word | null;
+    readOnly?: boolean;
     onClose: () => void;
     onModeChange?: (mode: WordModalMode) => void;
 }
@@ -35,6 +38,8 @@ export default function WordDetailModal({
     mode,
     listId,
     wordId,
+    word,
+    readOnly = false,
     onClose,
     onModeChange,
 }: WordDetailModalProps) {
@@ -42,7 +47,7 @@ export default function WordDetailModal({
     const { getWordsForList, toggleStarred } = useVocab();
 
     const isEditing = wordId !== undefined && wordId !== null;
-    const existingWord = isEditing ? getWordsForList(listId).find(w => w.id === wordId) : null;
+    const existingWord = word || (isEditing ? getWordsForList(listId).find(w => w.id === wordId) : null);
 
     const {
         term, setTerm,
@@ -123,11 +128,13 @@ export default function WordDetailModal({
     };
 
     const switchToEdit = () => {
+        if (readOnly) return;
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         if (onModeChange) onModeChange('edit');
     };
 
     const handleToggleStar = async () => {
+        if (readOnly) return;
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         if (mode === 'read' && wordId) {
             setIsStarred(!isStarred);
@@ -176,7 +183,7 @@ export default function WordDetailModal({
                         { backgroundColor: colors.surface, borderColor: colors.border },
                         multiline && { minHeight: 80, justifyContent: 'flex-start' }
                     ]}>
-                        <Text style={[styles.fieldText, { color: isCore ? colors.primary : colors.text, fontSize: isCore ? 16 : 15, fontFamily: isCore ? 'Inter_600SemiBold' : 'Inter_400Regular' }]}>
+                        <Text style={[styles.fieldText, { color: isCore ? colors.primary : colors.text, fontSize: isCore ? 16 : 15, fontFamily: isCore ? 'Pretendard_600SemiBold' : 'Pretendard_400Regular' }]}>
                             {value || '-'}
                         </Text>
                     </Pressable>
@@ -210,18 +217,22 @@ export default function WordDetailModal({
                             </Pressable>
 
                             <Text style={[styles.topBarTitle, { color: colors.text }]}>
-                                {mode === 'add' ? '새 단어 추가' : mode === 'edit' ? '단어 수정' : '상세 보기'}
+                                {readOnly ? '' : (mode === 'add' ? '새 단어 추가' : mode === 'edit' ? '단어 수정' : '상세 보기')}
                             </Text>
 
-                            {mode === 'read' ? (
-                                <Pressable onPress={switchToEdit} hitSlop={8} style={styles.topBtn}>
-                                    <Text style={[styles.topBarSave, { color: colors.primary }]}>편집</Text>
-                                </Pressable>
-                            ) : (
-                                <Pressable onPress={onSave} hitSlop={8} disabled={isPendingSave} style={styles.topBtn}>
-                                    <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave ? 0.5 : 1 }]}>저장</Text>
-                                </Pressable>
-                            )}
+                            <View style={styles.topBtn}>
+                                {mode === 'read' ? (
+                                    !readOnly && (
+                                        <Pressable onPress={switchToEdit} hitSlop={8}>
+                                            <Text style={[styles.topBarSave, { color: colors.primary }]}>편집</Text>
+                                        </Pressable>
+                                    )
+                                ) : (
+                                    <Pressable onPress={onSave} hitSlop={8} disabled={isPendingSave}>
+                                        <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave ? 0.5 : 1 }]}>저장</Text>
+                                    </Pressable>
+                                )}
+                            </View>
                         </View>
 
                         {/* Content Body */}
@@ -341,7 +352,7 @@ export default function WordDetailModal({
                                             ))}
                                         </View>
                                     ) : (
-                                        mode === 'read' && <Text style={{ color: colors.textTertiary, fontFamily: 'Inter_400Regular', fontSize: 14, marginLeft: 4 }}>태그 없음</Text>
+                                        mode === 'read' && <Text style={{ color: colors.textTertiary, fontFamily: 'Pretendard_400Regular', fontSize: 14, marginLeft: 4 }}>태그 없음</Text>
                                     )}
                                 </View>
 
@@ -382,7 +393,7 @@ const styles = StyleSheet.create({
     modalContent: {
         width: '100%',
         height: '100%',
-        borderRadius: 16,
+        borderRadius: 20,
         overflow: 'hidden',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 8 },
@@ -403,34 +414,34 @@ const styles = StyleSheet.create({
         minWidth: 44,
         alignItems: 'center',
     },
-    topBarCancel: { fontSize: 16, fontFamily: 'Inter_400Regular' },
-    topBarTitle: { fontSize: 17, fontFamily: 'Inter_600SemiBold' },
-    topBarSave: { fontSize: 16, fontFamily: 'Inter_700Bold' },
+    topBarCancel: { fontSize: 16, fontFamily: 'Pretendard_400Regular' },
+    topBarTitle: { fontSize: 17, fontFamily: 'Pretendard_600SemiBold' },
+    topBarSave: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
     scrollContent: { padding: 20, paddingBottom: 40 },
     wordSection: { marginBottom: 20 },
     wordTitleRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 12 },
-    wordInputText: { fontSize: 26, fontFamily: 'Inter_700Bold', paddingVertical: 8, letterSpacing: -0.5 },
-    wordInput: { flex: 1, fontSize: 24, fontFamily: 'Inter_700Bold', paddingVertical: 8, borderBottomWidth: 2, letterSpacing: -0.5 },
-    analyzeBtn: { alignSelf: 'flex-start', paddingHorizontal: 14, paddingVertical: 6, borderRadius: 8, marginTop: 12 },
+    wordInputText: { fontSize: 26, fontFamily: 'Pretendard_700Bold', paddingVertical: 8, letterSpacing: -0.5 },
+    wordInput: { flex: 1, fontSize: 24, fontFamily: 'Pretendard_700Bold', paddingVertical: 8, borderBottomWidth: 2, letterSpacing: -0.5 },
+    analyzeBtn: { alignSelf: 'flex-start', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, marginTop: 12 },
     fieldsContainer: { gap: 16 },
     fieldWrapper: { marginBottom: 4 },
-    fieldLabel: { fontSize: 11, fontFamily: 'Inter_600SemiBold', marginBottom: 6, letterSpacing: 0.5, marginLeft: 2 },
-    fieldInput: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 16, paddingVertical: 14, fontSize: 15, fontFamily: 'Inter_400Regular', textAlignVertical: 'center' },
-    fieldText: { fontSize: 15, fontFamily: 'Inter_400Regular', lineHeight: 22 },
+    fieldLabel: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', marginBottom: 6, letterSpacing: 0.5, marginLeft: 2 },
+    fieldInput: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 14, fontSize: 15, fontFamily: 'Pretendard_400Regular', textAlignVertical: 'center' },
+    fieldText: { fontSize: 15, fontFamily: 'Pretendard_400Regular', lineHeight: 22 },
     readFieldPressable: {
         paddingVertical: 6,
         paddingHorizontal: 2,
         borderRadius: 6,
     },
     exampleGroup: { padding: 12, borderRadius: 12, gap: 16, marginHorizontal: -4 },
-    errorText: { fontSize: 12, fontFamily: 'Inter_400Regular', marginTop: 4, marginLeft: 4 },
+    errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 4, marginLeft: 4 },
     tagsContainer: { marginTop: 8 },
-    tagsLabel: { fontSize: 11, fontFamily: 'Inter_600SemiBold', marginBottom: 8, marginLeft: 4, letterSpacing: 0.5 },
+    tagsLabel: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', marginBottom: 8, marginLeft: 4, letterSpacing: 0.5 },
     tagInputRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 12 },
-    tagInput: { flex: 1, borderWidth: 1, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 12, fontSize: 15, fontFamily: 'Inter_400Regular' },
+    tagInput: { flex: 1, borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, fontSize: 15, fontFamily: 'Pretendard_400Regular' },
     addTagBtn: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
     tagsFlexBox: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-    tagChip: { flexDirection: 'row', alignItems: 'center', paddingVertical: 6, paddingLeft: 10, paddingRight: 6, borderRadius: 16, gap: 4 },
-    tagChipText: { fontSize: 13, fontFamily: 'Inter_500Medium' },
+    tagChip: { flexDirection: 'row', alignItems: 'center', paddingVertical: 6, paddingLeft: 10, paddingRight: 6, borderRadius: 12, gap: 4 },
+    tagChipText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
     tagChipClose: { marginLeft: 2 },
 });

@@ -19,6 +19,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
+import { useScrollToTop } from '@react-navigation/native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -31,22 +32,22 @@ import { useVocab } from '@/contexts/VocabContext';
 import { VocaList } from '@/lib/types';
 
 function getRelativeTime(timestamp?: number): string {
-  if (!timestamp) return 'Never';
+  if (!timestamp) return '학습 기록 없음';
   const now = Date.now();
   const diff = now - timestamp;
-  if (diff < 60 * 1000) return 'Just now';
-  if (diff < 60 * 60 * 1000) return `${Math.floor(diff / (60 * 1000))}m ago`;
-  if (diff < 24 * 60 * 60 * 1000) return `${Math.floor(diff / (60 * 60 * 1000))}h ago`;
+  if (diff < 60 * 1000) return '방금 전';
+  if (diff < 60 * 60 * 1000) return `${Math.floor(diff / (60 * 1000))}분 전`;
+  if (diff < 24 * 60 * 60 * 1000) return `${Math.floor(diff / (60 * 60 * 1000))}시간 전`;
   const days = Math.floor(diff / (24 * 60 * 60 * 1000));
-  if (days === 1) return 'Yesterday';
-  return `${days} days ago`;
+  if (days === 1) return '어제';
+  return `${days}일 전`;
 }
 
 function getReviewStatus(lastStudiedAt?: number): { label: string; colorKey: string } {
-  if (!lastStudiedAt) return { label: 'New', colorKey: 'new' };
+  if (!lastStudiedAt) return { label: '새로운 학습', colorKey: 'new' };
   const diff = Date.now() - lastStudiedAt;
   const days = diff / (24 * 60 * 60 * 1000);
-  if (days >= 7) return { label: 'Weekly Review', colorKey: 'weekly' };
+  if (days >= 7) return { label: '복습 필요', colorKey: 'weekly' };
   if (days >= 3) return { label: '3-Day Review', colorKey: 'threeDay' };
   if (days >= 1) return { label: 'Daily Review', colorKey: 'daily' };
   return { label: 'Learned', colorKey: 'learned' };
@@ -235,7 +236,7 @@ function ListCard({
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
           {topTags.map((tag, idx) => (
             <View key={idx} style={{ backgroundColor: colors.surfaceSecondary, paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 }}>
-              <Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: 'Inter_500Medium' }}>#{tag}</Text>
+              <Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: 'Pretendard_500Medium' }}>#{tag}</Text>
             </View>
           ))}
         </View>
@@ -392,6 +393,9 @@ function ManageRowItem({
 export default function DashboardScreen() {
   const insets = useSafeAreaInsets();
   const { colors, isDark, toggleTheme } = useTheme();
+
+  const scrollRef = useRef<FlatList>(null);
+  useScrollToTop(scrollRef);
   const {
     lists,
     loading,
@@ -404,9 +408,11 @@ export default function DashboardScreen() {
     renameList,
     mergeLists,
     reorderLists,
+    shareList,
   } = useVocab();
 
   const [menuList, setMenuList] = useState<VocaList | null>(null);
+  const [sharing, setSharing] = useState(false);
   const [manageOpen, setManageOpen] = useState(false);
   const [managedLists, setManagedLists] = useState<ManagedList[]>([]);
   const [newListName, setNewListName] = useState('');
@@ -462,6 +468,22 @@ export default function DashboardScreen() {
     setRenameValue('');
     setRenameTargetList(null);
   }, [renameTargetList, renameValue, renameList]);
+
+  const handleMenuShare = useCallback(async () => {
+    if (!menuList) return;
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setSharing(true);
+    try {
+      await shareList(menuList.id);
+      Alert.alert('공유 완료', `"${menuList.title}" 단어장이 성공적으로 공유되었습니다!`);
+    } catch (e: any) {
+      Alert.alert('공유 실패', e.message || '단어장을 공유하는 중 오류가 발생했습니다.');
+      console.error(e);
+    } finally {
+      setSharing(false);
+      handleCloseMenu();
+    }
+  }, [menuList, shareList, handleCloseMenu]);
 
   const handleRenameClose = useCallback(() => {
     setRenameModalOpen(false);
@@ -798,6 +820,7 @@ export default function DashboardScreen() {
       </View>
 
       <FlatList
+        ref={scrollRef}
         data={visibleLists}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
@@ -853,6 +876,21 @@ export default function DashboardScreen() {
                 <Ionicons name="close" size={24} color={colors.textSecondary} />
               </Pressable>
             </View>
+
+            <Pressable
+              onPress={handleMenuShare}
+              disabled={sharing}
+              style={({ pressed }) => [styles.menuItem, { opacity: pressed || sharing ? 0.6 : 1 }]}
+            >
+              {sharing ? (
+                <ActivityIndicator size="small" color={colors.primary} style={{ marginRight: 6 }} />
+              ) : (
+                <Ionicons name="share-social-outline" size={22} color={colors.primary} />
+              )}
+              <Text style={[styles.menuItemText, { color: colors.primary }]}>단어장 공유하기</Text>
+            </Pressable>
+
+            <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
 
             <Pressable
               onPress={handleMenuMerge}
@@ -1148,12 +1186,12 @@ const styles = StyleSheet.create({
   },
   greeting: {
     fontSize: 26,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     letterSpacing: -0.5,
   },
   subtitle: {
     fontSize: 14,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     marginTop: 4,
   },
   themeToggle: {
@@ -1179,7 +1217,7 @@ const styles = StyleSheet.create({
   },
   searchTriggerText: {
     fontSize: 15,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   sectionHeader: {
     flexDirection: 'row',
@@ -1194,7 +1232,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   countBadge: {
     paddingHorizontal: 10,
@@ -1203,7 +1241,7 @@ const styles = StyleSheet.create({
   },
   countBadgeText: {
     fontSize: 13,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   listContent: {
     paddingHorizontal: 20,
@@ -1214,7 +1252,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   card: {
-    borderRadius: 14,
+    borderRadius: 20,
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
@@ -1234,11 +1272,11 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 17,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   lastStudied: {
     fontSize: 12,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     marginTop: 4,
   },
   cardActions: {
@@ -1253,7 +1291,7 @@ const styles = StyleSheet.create({
   },
   badgeText: {
     fontSize: 11,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   menuBtn: {
     padding: 4,
@@ -1276,11 +1314,11 @@ const styles = StyleSheet.create({
   },
   wordCountText: {
     fontSize: 12,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   percentText: {
     fontSize: 13,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   themesSection: {
     marginTop: 16,
@@ -1288,7 +1326,7 @@ const styles = StyleSheet.create({
   },
   themesTitle: {
     fontSize: 18,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     marginBottom: 12,
   },
   chipsRow: {
@@ -1306,7 +1344,7 @@ const styles = StyleSheet.create({
   },
   chipText: {
     fontSize: 13,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
   emptyContainer: {
     alignItems: 'center',
@@ -1323,12 +1361,12 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 20,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     marginBottom: 8,
   },
   emptySubtitle: {
     fontSize: 15,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     textAlign: 'center',
     marginBottom: 24,
   },
@@ -1343,7 +1381,7 @@ const styles = StyleSheet.create({
   emptyButtonText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   aiLink: {
     flexDirection: 'row',
@@ -1353,7 +1391,7 @@ const styles = StyleSheet.create({
   },
   aiLinkText: {
     fontSize: 14,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
   fab: {
     position: 'absolute',
@@ -1394,7 +1432,7 @@ const styles = StyleSheet.create({
   },
   menuTitle: {
     fontSize: 18,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     flex: 1,
     marginRight: 12,
   },
@@ -1414,7 +1452,7 @@ const styles = StyleSheet.create({
   },
   menuItemText: {
     fontSize: 16,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
   menuDivider: {
     height: StyleSheet.hairlineWidth,
@@ -1445,7 +1483,7 @@ const styles = StyleSheet.create({
   },
   manageTitle: {
     fontSize: 20,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     textAlign: 'center',
   },
   manageAddRow: {
@@ -1462,7 +1500,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 12,
     fontSize: 15,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   manageAddBtn: {
     width: 42,
@@ -1481,7 +1519,7 @@ const styles = StyleSheet.create({
   },
   duplicateErrorText: {
     fontSize: 13,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
   manageListScroll: {
     maxHeight: 340,
@@ -1508,7 +1546,7 @@ const styles = StyleSheet.create({
   },
   manageName: {
     fontSize: 15,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
     flexShrink: 1,
   },
   manageNewBadge: {
@@ -1518,7 +1556,7 @@ const styles = StyleSheet.create({
   },
   manageNewBadgeText: {
     fontSize: 10,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   manageEditInput: {
     flex: 1,
@@ -1527,7 +1565,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     paddingHorizontal: 10,
     fontSize: 15,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
   manageRowActions: {
     flexDirection: 'row',
@@ -1540,7 +1578,7 @@ const styles = StyleSheet.create({
   },
   manageEmptyText: {
     fontSize: 14,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   manageFooter: {
     flexDirection: 'row',
@@ -1557,7 +1595,7 @@ const styles = StyleSheet.create({
   },
   manageFooterBtnText: {
     fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   renameSheet: {
     width: '90%',
@@ -1577,11 +1615,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 14,
     fontSize: 16,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   deleteConfirmText: {
     fontSize: 15,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     lineHeight: 22,
     paddingHorizontal: 20,
     marginTop: 4,
@@ -1600,7 +1638,7 @@ const styles = StyleSheet.create({
   },
   renameBtnText: {
     fontSize: 15,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
   mergeSheet: {
     width: '90%',
@@ -1616,7 +1654,7 @@ const styles = StyleSheet.create({
   },
   mergeSubtitle: {
     fontSize: 14,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     paddingHorizontal: 20,
     marginBottom: 12,
   },
@@ -1638,7 +1676,7 @@ const styles = StyleSheet.create({
   },
   mergeOptionText: {
     fontSize: 15,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
     flex: 1,
   },
   mergeHiddenBadge: {
@@ -1651,6 +1689,6 @@ const styles = StyleSheet.create({
   },
   mergeHiddenText: {
     fontSize: 10,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
 });

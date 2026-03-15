@@ -104,3 +104,31 @@ describe('Vocab Storage - addWord', () => {
         }
     });
 });
+
+describe('Vocab Storage - setWordsMemorized', () => {
+    let listId: string;
+    let wordIds: string[] = [];
+
+    beforeAll(async () => {
+        await getDb();
+        const lists = await getLists();
+        listId = lists[0].id;
+
+        // Add two words
+        const w1 = await addWord(listId, { term: 'Word1', meaningKr: '뜻1', isStarred: false } as any);
+        const w2 = await addWord(listId, { term: 'Word2', meaningKr: '뜻2', isStarred: false } as any);
+        wordIds = [w1.id, w2.id];
+    });
+
+    it('should update multiple words to memorized status in one batch', async () => {
+        const { setWordsMemorized } = require('../lib/vocab-storage');
+        await setWordsMemorized(listId, wordIds, true);
+
+        const lists = await getLists();
+        const targetList = lists.find((l: any) => l.id === listId);
+        const words = targetList?.words.filter((w: any) => wordIds.includes(w.id));
+
+        expect(words).toHaveLength(2);
+        expect(words?.every((w: any) => w.isMemorized)).toBe(true);
+    });
+});

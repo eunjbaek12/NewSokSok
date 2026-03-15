@@ -10,29 +10,29 @@ import { useVocab } from '@/contexts/VocabContext';
 const STUDY_MODES = [
   {
     key: 'flashcards' as const,
-    title: 'Flashcards',
-    description: 'Flip cards to memorize',
+    title: '카드 학습',
+    description: '카드를 뒤집으며 암기하기',
     icon: 'albums-outline' as const,
     pathname: '/flashcards/[id]' as const,
   },
   {
-    key: 'quiz' as const,
-    title: 'Quiz',
-    description: 'Test with multiple choice',
-    icon: 'help-circle-outline' as const,
+    key: 'quiz',
+    title: '퀴즈',
+    description: '4지선다형으로 실력 점검',
+    icon: 'checkbox-outline' as const,
     pathname: '/quiz/[id]' as const,
   },
   {
-    key: 'examples' as const,
-    title: 'Examples',
-    description: 'Learn from context',
+    key: 'examples',
+    title: '예문 학습',
+    description: '문맥 속에서 단어 익히기',
     icon: 'document-text-outline' as const,
     pathname: '/examples/[id]' as const,
   },
   {
     key: 'shadowing' as const,
-    title: 'Shadowing',
-    description: 'Listen and repeat',
+    title: '동시 발음',
+    description: '듣고 따라하며 익히기',
     icon: 'mic-outline' as const,
     pathname: '/shadowing/[id]' as const,
   },
@@ -54,7 +54,7 @@ export default function StudySelectScreen() {
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const disabled = listWords.length < 2;
 
-  const filterLabel = filter === 'learning' ? 'Learning' : filter === 'memorized' ? 'Memorized' : 'All';
+  const filterLabel = filter === 'learning' ? '미암기' : filter === 'memorized' ? '암기 완료' : '전체';
 
   const handleSelectMode = useCallback((pathname: string) => {
     if (disabled) return;
@@ -65,7 +65,7 @@ export default function StudySelectScreen() {
   if (!list) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background }]}>
-        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100 }}>List not found</Text>
+        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100, fontFamily: 'Pretendard_500Medium' }}>단어장을 찾을 수 없습니다</Text>
       </View>
     );
   }
@@ -91,7 +91,7 @@ export default function StudySelectScreen() {
           <View style={[styles.warningBanner, { backgroundColor: colors.warningLight }]}>
             <Ionicons name="alert-circle" size={18} color={colors.warning} />
             <Text style={[styles.warningText, { color: colors.warning }]}>
-              Add at least 2 words to start studying
+              학습을 시작하려면 단어를 2개 이상 추가해주세요
             </Text>
           </View>
         )}
@@ -159,12 +159,12 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 20,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     flex: 1,
   },
   wordCount: {
     fontSize: 13,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     marginTop: 4,
     marginLeft: 40,
   },
@@ -177,15 +177,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     padding: 12,
-    borderRadius: 10,
+    borderRadius: 12,
   },
   warningText: {
     fontSize: 13,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
     flex: 1,
   },
   modeCard: {
-    borderRadius: 16,
+    borderRadius: 20,
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.3,
     shadowRadius: 12,
@@ -210,10 +210,10 @@ const styles = StyleSheet.create({
   },
   modeTitle: {
     fontSize: 20,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
   },
   modeDescription: {
     fontSize: 14,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
 });

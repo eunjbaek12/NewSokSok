@@ -12,6 +12,8 @@ import {
   TextInput,
   KeyboardAvoidingView,
   ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -26,9 +28,9 @@ import WordDetailModal, { WordModalMode } from '@/components/WordDetailModal';
 type FilterStatus = 'all' | 'learning' | 'memorized';
 
 const STUDY_MODES = [
-  { key: 'flashcards', icon: 'albums-outline' as const, label: 'Flashcard', pathname: '/flashcards/[id]' as const },
-  { key: 'quiz', icon: 'help-circle-outline' as const, label: 'Quiz', pathname: '/quiz/[id]' as const },
-  { key: 'examples', icon: 'document-text-outline' as const, label: 'Examples', pathname: '/examples/[id]' as const },
+  { key: 'flashcards', icon: 'albums-outline' as const, label: '카드 학습', pathname: '/flashcards/[id]' as const },
+  { key: 'quiz', icon: 'checkbox-outline' as const, label: '퀴즈', pathname: '/quiz/[id]' as const },
+  { key: 'examples', icon: 'document-text-outline' as const, label: '예문 학습', pathname: '/examples/[id]' as const },
 ];
 
 export default function ListDetailScreen() {
@@ -41,6 +43,7 @@ export default function ListDetailScreen() {
     renameList,
     deleteWords,
     toggleMemorized,
+    toggleStarred,
     refreshData,
     updateWord,
   } = useVocab();
@@ -215,21 +218,22 @@ export default function ListDetailScreen() {
           )}
 
           {/* 1. 별표 (가장 왼쪽) - 항상 표시되며 클릭 시 상태 토글 */}
-          <Pressable
+          <TouchableOpacity
             onPress={(e) => {
               e.stopPropagation();
               Haptics.selectionAsync();
-              updateWord(id!, item.id, { isStarred: !item.isStarred });
+              toggleStarred(id!, item.id);
             }}
-            hitSlop={8}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
             style={styles.starBtn}
+            activeOpacity={0.6}
           >
             <Ionicons
               name={item.isStarred ? 'star' : 'star-outline'}
               size={22}
               color={item.isStarred ? '#FFD700' : colors.textTertiary}
             />
-          </Pressable>
+          </TouchableOpacity>
 
           {/* 2. 단어와 뜻 (중앙, 왼쪽 정렬) */}
           <View style={styles.cardTextArea}>
@@ -264,26 +268,27 @@ export default function ListDetailScreen() {
             </Pressable>
 
             {/* 4. 학습 상태 (가장 우측) */}
-            <Pressable
+            <TouchableOpacity
               onPress={(e) => {
                 e.stopPropagation();
                 Haptics.selectionAsync();
                 toggleMemorized(id!, item.id);
               }}
-              hitSlop={8}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               style={styles.memorizeBtn}
+              activeOpacity={0.6}
             >
               <Ionicons
                 name={item.isMemorized ? 'checkmark-circle' : 'checkmark-circle-outline'}
                 size={24}
                 color={item.isMemorized ? colors.success : colors.textTertiary}
               />
-            </Pressable>
+            </TouchableOpacity>
           </View>
         </View>
       </Pressable>
     );
-  }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, id]);
+  }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, toggleStarred, id]);
 
   const renderFilterHeader = () => {
     const cycleStatus = () => {
@@ -316,7 +321,7 @@ export default function ListDetailScreen() {
 
     return (
       <View style={[styles.visualFilterHeader, { borderBottomColor: colors.borderLight }]}>
-        <View style={styles.cardContent}>
+        <View style={styles.filterContent}>
           {/* Header for Star (Left) */}
           <Pressable
             onPress={toggleStarredFilter}
@@ -346,12 +351,12 @@ export default function ListDetailScreen() {
               hitSlop={8}
               style={[styles.memorizeBtn, { flexDirection: 'row', alignItems: 'center', gap: 4 }]}
             >
-              <Text style={{ fontSize: 11, fontFamily: 'Inter_600SemiBold', color: statusIconColor, textTransform: 'uppercase' }}>
+              <Text style={{ fontSize: 11, fontFamily: 'Pretendard_600SemiBold', color: statusIconColor, textTransform: 'uppercase' }}>
                 {statusLabel}
               </Text>
               <Ionicons
                 name={statusIconName}
-                size={24}
+                size={20}
                 color={statusIconColor}
               />
             </Pressable>
@@ -362,20 +367,18 @@ export default function ListDetailScreen() {
   };
 
   const renderStudyButtons = () => (
-    <View style={[styles.studyRow, { backgroundColor: colors.background }]}>
+    <View style={styles.studyRow}>
       {STUDY_MODES.map(mode => (
         <Pressable
           key={mode.key}
           onPress={() => {
             if (studyDisabled) return;
-            // Map the new filter state to standard strings for study modes if needed, 
-            // or pass them separately. For now just pass filterStatus as 'filter' to keep compatibility.
             router.push({ pathname: mode.pathname, params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
           }}
           style={[styles.studyBtn, studyDisabled && styles.studyBtnDisabled]}
         >
           <View style={[styles.studyIconCircle, { backgroundColor: studyDisabled ? colors.surfaceSecondary : colors.primaryLight }]}>
-            <Ionicons name={mode.icon} size={20} color={studyDisabled ? colors.textTertiary : colors.primary} />
+            <Ionicons name={mode.icon} size={24} color={studyDisabled ? colors.textTertiary : colors.primary} />
           </View>
           <Text style={[styles.studyLabel, { color: studyDisabled ? colors.textTertiary : colors.textSecondary }]}>
             {mode.label}
@@ -404,7 +407,7 @@ export default function ListDetailScreen() {
   if (!list) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background }]}>
-        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100, fontFamily: 'Inter_500Medium' }}>
+        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100, fontFamily: 'Pretendard_500Medium' }}>
           List not found
         </Text>
       </View>
@@ -487,7 +490,7 @@ export default function ListDetailScreen() {
         ListEmptyComponent={renderEmpty}
         contentContainerStyle={[
           styles.listContent,
-          { paddingBottom: insets.bottom + 160 },
+          { paddingBottom: insets.bottom + 120 },
           filteredWords.length === 0 && styles.listContentEmpty,
         ]}
         scrollEnabled={filteredWords.length > 0}
@@ -498,7 +501,7 @@ export default function ListDetailScreen() {
 
       <Pressable
         onPress={handleAddWord}
-        style={[styles.fab, { backgroundColor: colors.primary, bottom: insets.bottom + 100 }]}
+        style={[styles.fab, { backgroundColor: colors.primary, bottom: insets.bottom + 84 }]}
       >
         <Ionicons name="add" size={28} color="#FFFFFF" />
       </Pressable>
@@ -514,7 +517,11 @@ export default function ListDetailScreen() {
 
       {/* Fixed bottom bar for Study Features */}
       {!editMode && (
-        <View style={[styles.bottomBarContainer, { paddingBottom: insets.bottom || 16, backgroundColor: colors.background, borderTopColor: colors.borderLight }]}>
+        <View style={[styles.bottomBarContainer, {
+          backgroundColor: colors.surface,
+          bottom: insets.bottom,
+          borderTopColor: colors.borderLight
+        }]}>
           {renderStudyButtons()}
         </View>
       )}
@@ -541,7 +548,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 20,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
   },
   progressContainer: {
     marginTop: 10,
@@ -561,26 +568,35 @@ const styles = StyleSheet.create({
   },
   progressText: {
     fontSize: 12,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
     minWidth: 70,
     textAlign: 'right',
   },
   visualFilterHeader: {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingVertical: 4,
+    paddingVertical: 2,
     backgroundColor: 'transparent',
+  },
+  filterContent: {
+    flexDirection: 'row',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    gap: 12,
+    alignItems: 'center',
   },
   filterCenterText: {
     fontSize: 13,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     marginLeft: 4,
   },
   studyRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingVertical: 14,
+    paddingVertical: 10,
     paddingHorizontal: 16,
-    gap: 20,
+    gap: 24,
+    height: 64, // Unified height
+    alignItems: 'center',
   },
   studyBtn: {
     alignItems: 'center',
@@ -597,20 +613,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   studyLabel: {
-    fontSize: 11,
-    fontFamily: 'Inter_500Medium',
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   listContent: {
     paddingHorizontal: 16,
     paddingBottom: 100,
   },
   listContentEmpty: {
-    flex: 1,
-    justifyContent: 'center',
+    flexGrow: 1,
   },
   card: {
-    borderRadius: 12,
-    marginBottom: 10,
+    borderRadius: 20,
+    marginBottom: 12,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 1,
     shadowRadius: 6,
@@ -631,14 +646,14 @@ const styles = StyleSheet.create({
   },
   wordText: {
     fontSize: 17,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
   },
   wordTextMemorized: {
     textDecorationLine: 'line-through',
   },
   meaningText: {
     fontSize: 14,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
   },
   cardActions: {
     flexDirection: 'row',
@@ -654,6 +669,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   emptyContainer: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
@@ -661,12 +677,12 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 18,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     marginTop: 8,
   },
   emptySubtitle: {
     fontSize: 14,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   starBtn: {
     padding: 4,
@@ -688,15 +704,16 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    bottom: 0,
     left: 0,
     right: 0,
+    height: 64, // Standardized 64px
     borderTopWidth: StyleSheet.hairlineWidth,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -3 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 10,
+    shadowOffset: { width: 0, height: -6 },
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 20,
+    justifyContent: 'center',
   },
   modalOverlay: {
     flex: 1,
@@ -709,7 +726,7 @@ const styles = StyleSheet.create({
   modalContent: {
     width: '90%',
     maxWidth: 420,
-    borderRadius: 16,
+    borderRadius: 20,
     maxHeight: '80%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 8 },
@@ -734,7 +751,7 @@ const styles = StyleSheet.create({
   },
   modalWordTitle: {
     fontSize: 22,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     flexShrink: 1,
   },
   modalCloseBtn: {
@@ -746,19 +763,19 @@ const styles = StyleSheet.create({
   },
   fieldLabel: {
     fontSize: 12,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     marginTop: 14,
     marginBottom: 6,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   fieldInput: {
-    borderRadius: 10,
+    borderRadius: 12,
     borderWidth: 1,
     paddingHorizontal: 14,
     paddingVertical: 10,
     fontSize: 15,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   fieldInputMulti: {
     minHeight: 64,
@@ -775,6 +792,6 @@ const styles = StyleSheet.create({
   saveBtnText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
 });

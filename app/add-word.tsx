@@ -150,7 +150,7 @@ export default function AddWordScreen() {
                 disabled={!newListName.trim()}
                 style={[styles.pickerNewBtn, { backgroundColor: newListName.trim() ? colors.primary : colors.surfaceSecondary }]}
             >
-                <Text style={{ color: newListName.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: 14, fontFamily: 'Inter_600SemiBold' }}>
+                <Text style={{ color: newListName.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: 14, fontFamily: 'Pretendard_600SemiBold' }}>
                     Create
                 </Text>
             </Pressable>
@@ -174,7 +174,7 @@ export default function AddWordScreen() {
                 {!selectedListId ? (
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                         <Ionicons name="warning-outline" size={48} color={colors.warning} style={{ marginBottom: 16 }} />
-                        <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Inter_500Medium', textAlign: 'center' }}>
+                        <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Pretendard_500Medium', textAlign: 'center' }}>
                             먼저 단어장을 선택해주세요.
                         </Text>
                         <Button
@@ -200,7 +200,7 @@ export default function AddWordScreen() {
                 {!selectedListId ? (
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                         <Ionicons name="warning-outline" size={48} color={colors.warning} style={{ marginBottom: 16 }} />
-                        <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Inter_500Medium', textAlign: 'center' }}>
+                        <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Pretendard_500Medium', textAlign: 'center' }}>
                             먼저 단어장을 선택해주세요.
                         </Text>
                         <Button
@@ -427,40 +427,40 @@ export default function AddWordScreen() {
 const styles = StyleSheet.create({
     container: { flex: 1 },
     topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 14, borderBottomWidth: StyleSheet.hairlineWidth },
-    topBarCancel: { fontSize: 16, fontFamily: 'Inter_400Regular' },
-    topBarTitle: { fontSize: 17, fontFamily: 'Inter_600SemiBold' },
-    topBarSave: { fontSize: 16, fontFamily: 'Inter_700Bold' },
+    topBarCancel: { fontSize: 16, fontFamily: 'Pretendard_400Regular' },
+    topBarTitle: { fontSize: 17, fontFamily: 'Pretendard_600SemiBold' },
+    topBarSave: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
     inputModeTabBar: { flexDirection: 'row', padding: 4, borderRadius: 12, marginBottom: 20 },
-    inputModeTab: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 10, borderRadius: 10, gap: 6 },
+    inputModeTab: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 10, borderRadius: 12, gap: 6 },
     inputModeTabActive: { shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, shadowRadius: 4, elevation: 2 },
-    inputModeTabText: { fontSize: 14, fontFamily: 'Inter_600SemiBold' },
+    inputModeTabText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
     placeholderContainer: { alignItems: 'center', justifyContent: 'center', paddingVertical: 40, paddingHorizontal: 10, gap: 16 },
     placeholderIconContainer: { width: 80, height: 80, borderRadius: 40, alignItems: 'center', justifyContent: 'center', marginBottom: 8 },
-    placeholderTitle: { fontSize: 18, fontFamily: 'Inter_700Bold', textAlign: 'center' },
-    placeholderDesc: { fontSize: 14, fontFamily: 'Inter_400Regular', textAlign: 'center', lineHeight: 22, marginBottom: 10 },
+    placeholderTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
+    placeholderDesc: { fontSize: 14, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 22, marginBottom: 10 },
     scrollContent: { padding: 20, paddingBottom: 40 },
-    listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 10, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 20, gap: 8 },
-    listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Inter_500Medium' },
+    listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 20, gap: 8 },
+    listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 20 },
-    wordInput: { fontSize: 24, fontFamily: 'Inter_700Bold', paddingVertical: 12, borderBottomWidth: 2 },
-    analyzeBtn: { alignSelf: 'flex-start', paddingHorizontal: 16, paddingVertical: 8, borderRadius: 8, marginTop: 12 },
+    wordInput: { fontSize: 24, fontFamily: 'Pretendard_700Bold', paddingVertical: 12, borderBottomWidth: 2 },
+    analyzeBtn: { alignSelf: 'flex-start', paddingHorizontal: 16, paddingVertical: 10, borderRadius: 12, marginTop: 12 },
     tabBar: { flexDirection: 'row', borderBottomWidth: StyleSheet.hairlineWidth, marginBottom: 20 },
     tab: { flex: 1, alignItems: 'center', paddingVertical: 12 },
-    tabText: { fontSize: 14, fontFamily: 'Inter_600SemiBold' },
+    tabText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
     fieldsContainer: { gap: 16 },
-    errorText: { fontSize: 12, fontFamily: 'Inter_400Regular', marginTop: 2 },
+    errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
     dictionaryContainer: { gap: 16 },
     dictionaryHeader: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
-    dictionaryTitle: { fontSize: 17, fontFamily: 'Inter_600SemiBold' },
-    dictionaryDesc: { fontSize: 14, fontFamily: 'Inter_400Regular', lineHeight: 20, marginBottom: 18 },
+    dictionaryTitle: { fontSize: 17, fontFamily: 'Pretendard_600SemiBold' },
+    dictionaryDesc: { fontSize: 14, fontFamily: 'Pretendard_400Regular', lineHeight: 20, marginBottom: 18 },
     dictionaryButtons: { gap: 10 },
     toastContainer: { position: 'absolute', bottom: 100, left: 0, right: 0, alignItems: 'center', zIndex: 999 },
-    toast: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 12, borderRadius: 24, gap: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.15, shadowRadius: 12, elevation: 6 },
-    toastText: { fontSize: 15, fontFamily: 'Inter_600SemiBold' },
+    toast: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 12, borderRadius: 12, gap: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.15, shadowRadius: 12, elevation: 6 },
+    toastText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     pickerHiddenBadge: { paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, marginLeft: 8 },
     pickerNewRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 8, gap: 8, borderTopWidth: StyleSheet.hairlineWidth },
-    pickerNewInput: { flex: 1, height: 40, borderWidth: 1, borderRadius: 8, paddingHorizontal: 12, fontSize: 15, fontFamily: 'Inter_400Regular' },
-    pickerNewBtn: { height: 40, paddingHorizontal: 16, borderRadius: 8, justifyContent: 'center', alignItems: 'center' },
-    pickerOptionText: { fontSize: 15, fontFamily: 'Inter_500Medium' },
-    pickerOption: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 14, borderBottomWidth: StyleSheet.hairlineWidth, paddingHorizontal: 8, borderRadius: 8 },
+    pickerNewInput: { flex: 1, height: 44, borderWidth: 1, borderRadius: 12, paddingHorizontal: 12, fontSize: 15, fontFamily: 'Pretendard_400Regular' },
+    pickerNewBtn: { height: 44, paddingHorizontal: 16, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
+    pickerOptionText: { fontSize: 15, fontFamily: 'Pretendard_500Medium' },
+    pickerOption: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 14, borderBottomWidth: StyleSheet.hairlineWidth, paddingHorizontal: 8, borderRadius: 12 },
 });

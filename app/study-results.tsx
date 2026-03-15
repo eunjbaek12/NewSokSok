@@ -1,22 +1,40 @@
 import React, { useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, FlatList } from 'react-native';
-import { router } from 'expo-router';
+import { View, Text, Pressable, Platform, StyleSheet, ScrollView } from 'react-native';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
-import { StudyResult } from '@/lib/types';
 
 export default function StudyResultsScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { studyResults, clearStudyResults } = useVocab();
+  const { id, mode, duration, isStarred, sessionFilter, quizType } = useLocalSearchParams<{
+    id: string;
+    mode: string;
+    duration: string;
+    isStarred: string;
+    sessionFilter: string;
+    quizType: string;
+  }>();
+
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
   const gotItResults = useMemo(() => studyResults.filter(r => r.gotIt), [studyResults]);
   const reviewResults = useMemo(() => studyResults.filter(r => !r.gotIt), [studyResults]);
   const allCorrect = reviewResults.length === 0 && gotItResults.length > 0;
+  const accuracy = studyResults.length > 0 ? Math.round((gotItResults.length / studyResults.length) * 100) : 0;
+
+  const formatDuration = (ms: string | undefined) => {
+    if (!ms) return '0s';
+    const seconds = Math.floor(parseInt(ms) / 1000);
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    if (m > 0) return `${m}m ${s}s`;
+    return `${s}s`;
+  };
 
   useEffect(() => {
     if (studyResults.length > 0) {
@@ -33,106 +51,108 @@ export default function StudyResultsScreen() {
     router.dismissAll();
   };
 
-  const handleRetry = () => {
+  const handleRetryAll = () => {
     clearStudyResults();
-    router.back();
+    router.replace({
+      pathname: `/${mode}/${id}` as any,
+      params: { isStarred, filter: sessionFilter, quizType }
+    });
   };
 
-  const renderWordItem = ({ item }: { item: StudyResult }) => (
-    <View style={[styles.wordRow, { borderBottomColor: colors.borderLight }]}>
-      <Text style={[styles.wordItemText, { color: colors.text }]}>{item.word.term}</Text>
-      <Text style={[styles.meaningItemText, { color: colors.textSecondary }]}>{item.word.meaningKr}</Text>
-    </View>
-  );
-
-  const renderHeader = () => (
-    <View style={styles.headerContent}>
-      <View style={[styles.scoreCircle, { borderColor: allCorrect ? colors.success : colors.primary }]}>
-        <Text style={[styles.scoreNum, { color: allCorrect ? colors.success : colors.text }]}>
-          {gotItResults.length}
-        </Text>
-        <View style={[styles.scoreDivider, { backgroundColor: allCorrect ? colors.success : colors.border }]} />
-        <Text style={[styles.scoreTotal, { color: colors.textSecondary }]}>{studyResults.length}</Text>
-      </View>
-
-      <Text style={[styles.title, { color: colors.text }]}>Study Complete</Text>
-
-      {allCorrect && (
-        <Text style={[styles.congratsText, { color: colors.success }]}>
-          Perfect score! All words mastered.
-        </Text>
-      )}
-
-      {gotItResults.length > 0 && (
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <View style={[styles.sectionDot, { backgroundColor: colors.success }]} />
-            <Text style={[styles.sectionTitle, { color: colors.text }]}>
-              Got it ({gotItResults.length})
-            </Text>
-          </View>
-          {gotItResults.map((item) => (
-            <View key={item.word.id} style={[styles.wordRow, { borderBottomColor: colors.borderLight }]}>
-              <Text style={[styles.wordItemText, { color: colors.text }]}>{item.word.term}</Text>
-              <Text style={[styles.meaningItemText, { color: colors.textSecondary }]}>{item.word.meaningKr}</Text>
-            </View>
-          ))}
-        </View>
-      )}
-
-      {reviewResults.length > 0 && (
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <View style={[styles.sectionDot, { backgroundColor: colors.warning }]} />
-            <Text style={[styles.sectionTitle, { color: colors.text }]}>
-              Review ({reviewResults.length})
-            </Text>
-          </View>
-          {reviewResults.map((item) => (
-            <View key={item.word.id} style={[styles.wordRow, { borderBottomColor: colors.borderLight }]}>
-              <Text style={[styles.wordItemText, { color: colors.text }]}>{item.word.term}</Text>
-              <Text style={[styles.meaningItemText, { color: colors.textSecondary }]}>{item.word.meaningKr}</Text>
-            </View>
-          ))}
-        </View>
-      )}
-    </View>
-  );
+  const handleRetryUnmemorized = () => {
+    clearStudyResults();
+    // Navigate with a filter to show only unmemorized (learning) words
+    router.replace({
+      pathname: `/${mode}/${id}` as any,
+      params: { filter: 'learning', isStarred, quizType }
+    });
+  };
 
   if (studyResults.length === 0) {
     return (
-      <View style={[styles.container, { backgroundColor: colors.background }]}>
-        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100 }}>No results</Text>
+      <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
+        <Ionicons name="alert-circle-outline" size={64} color={colors.textTertiary} />
+        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 16, fontSize: 18, fontFamily: 'Pretendard_600SemiBold' }}>결과 정보가 없습니다</Text>
+        <Pressable onPress={() => router.back()} style={{ marginTop: 24, backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 24, borderRadius: 12 }}>
+          <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
+        </Pressable>
       </View>
     );
   }
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <FlatList
-        data={[]}
-        renderItem={renderWordItem}
-        ListHeaderComponent={renderHeader}
-        contentContainerStyle={[styles.listContent, { paddingTop: topInset + 24 }]}
-        scrollEnabled={!!studyResults.length}
-      />
+      <ScrollView contentContainerStyle={[styles.content, { paddingTop: topInset + 40, paddingBottom: 160 }]}>
+        <View style={styles.header}>
+          <View style={[styles.statusIcon, { backgroundColor: allCorrect ? colors.successLight : colors.primaryLight }]}>
+            <Ionicons
+              name={allCorrect ? 'trophy' : 'checkmark-circle'}
+              size={48}
+              color={allCorrect ? colors.success : colors.primary}
+            />
+          </View>
+          <Text style={[styles.title, { color: colors.text }]}>Study Complete!</Text>
+          <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
+            {allCorrect ? 'Perfect score! All words mastered.' : 'Great job! Keep it up.'}
+          </Text>
+        </View>
+
+        <View style={[styles.statsContainer, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }]}>
+          <View style={styles.statsRow}>
+            <View style={styles.statItem}>
+              <Text style={[styles.statValue, { color: colors.text }]}>{accuracy}%</Text>
+              <Text style={[styles.statLabel, { color: colors.textTertiary }]}>정답률</Text>
+            </View>
+            <View style={[styles.statDivider, { backgroundColor: colors.borderLight }]} />
+            <View style={styles.statItem}>
+              <Text style={[styles.statValue, { color: colors.text }]}>{formatDuration(duration)}</Text>
+              <Text style={[styles.statLabel, { color: colors.textTertiary }]}>소요 시간</Text>
+            </View>
+          </View>
+
+          <View style={[styles.statDividerH, { backgroundColor: colors.borderLight }]} />
+
+          <View style={styles.summaryRow}>
+            <View style={styles.summaryBox}>
+              <View style={[styles.dot, { backgroundColor: colors.success }]} />
+              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>Got it:</Text>
+              <Text style={[styles.summaryValue, { color: colors.success }]}>{gotItResults.length}</Text>
+            </View>
+            <View style={styles.summaryBox}>
+              <View style={[styles.dot, { backgroundColor: colors.warning }]} />
+              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>Review:</Text>
+              <Text style={[styles.summaryValue, { color: colors.warning }]}>{reviewResults.length}</Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
 
       <View style={[styles.bottomBar, { paddingBottom: insets.bottom + 20, backgroundColor: colors.background }]}>
-        {reviewResults.length > 0 && (
+        <View style={styles.retryGroup}>
           <Pressable
-            onPress={handleRetry}
-            style={[styles.actionBtn, styles.retryBtn, { borderColor: colors.primary }]}
+            onPress={handleRetryAll}
+            style={[styles.retryBtn, { borderColor: colors.primary }]}
           >
-            <Ionicons name="refresh-outline" size={22} color={colors.primary} />
-            <Text style={[styles.actionBtnText, { color: colors.primary }]}>Retry</Text>
+            <Ionicons name="refresh-outline" size={20} color={colors.primary} />
+            <Text style={[styles.retryBtnText, { color: colors.primary }]}>전체 다시 학습</Text>
           </Pressable>
-        )}
+
+          {reviewResults.length > 0 && (
+            <Pressable
+              onPress={handleRetryUnmemorized}
+              style={[styles.retryBtn, { borderColor: colors.warning, flex: 1.2 }]}
+            >
+              <Ionicons name="repeat-outline" size={20} color={colors.warning} />
+              <Text style={[styles.retryBtnText, { color: colors.warning }]}>못 외운 단어만 학습</Text>
+            </Pressable>
+          )}
+        </View>
+
         <Pressable
           onPress={handleDone}
-          style={[styles.actionBtn, styles.doneBtn, { backgroundColor: colors.primary }]}
+          style={[styles.doneBtn, { backgroundColor: colors.primary }]}
         >
-          <Ionicons name="checkmark" size={22} color="#FFFFFF" />
-          <Text style={[styles.actionBtnText, { color: '#FFFFFF' }]}>Done</Text>
+          <Text style={[styles.doneBtnText, { color: '#FFFFFF' }]}>학습 종료</Text>
         </Pressable>
       </View>
     </View>
@@ -143,107 +163,139 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  listContent: {
-    paddingHorizontal: 20,
-    paddingBottom: 120,
-  },
-  headerContent: {
+  content: {
+    paddingHorizontal: 24,
     alignItems: 'center',
-    gap: 16,
   },
-  scoreCircle: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    borderWidth: 4,
+  header: {
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+  statusIcon: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 2,
-  },
-  scoreNum: {
-    fontSize: 36,
-    fontFamily: 'Inter_700Bold',
-  },
-  scoreDivider: {
-    width: 40,
-    height: 2,
-    borderRadius: 1,
-  },
-  scoreTotal: {
-    fontSize: 20,
-    fontFamily: 'Inter_600SemiBold',
+    marginBottom: 20,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
+      },
+      android: {
+        elevation: 4,
+      },
+    }),
   },
   title: {
-    fontSize: 24,
-    fontFamily: 'Inter_700Bold',
+    fontSize: 28,
+    fontFamily: 'Pretendard_700Bold',
+    marginBottom: 8,
   },
-  congratsText: {
+  subtitle: {
     fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_500Medium',
     textAlign: 'center',
   },
-  section: {
+  statsContainer: {
     width: '100%',
-    marginTop: 8,
+    borderRadius: 20,
+    padding: 24,
+    elevation: 8,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
   },
-  sectionHeader: {
+  statsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingVertical: 12,
+  },
+  statItem: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  statValue: {
+    fontSize: 24,
+    fontFamily: 'Pretendard_700Bold',
+    marginBottom: 4,
+  },
+  statLabel: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  statDivider: {
+    width: 1,
+    height: 40,
+  },
+  statDividerH: {
+    height: 1,
+    width: '100%',
+    marginVertical: 16,
+  },
+  summaryRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingTop: 8,
+  },
+  summaryBox: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    marginBottom: 8,
   },
-  sectionDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
   },
-  sectionTitle: {
-    fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
-  },
-  wordRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 4,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  wordItemText: {
-    fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
-    flex: 1,
-  },
-  meaningItemText: {
+  summaryText: {
     fontSize: 14,
-    fontFamily: 'Inter_400Regular',
-    textAlign: 'right',
+    fontFamily: 'Pretendard_500Medium',
+  },
+  summaryValue: {
+    fontSize: 18,
+    fontFamily: 'Pretendard_700Bold',
   },
   bottomBar: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
-    flexDirection: 'row',
     paddingHorizontal: 24,
-    paddingTop: 16,
-    gap: 16,
+    paddingTop: 20,
+    gap: 12,
   },
-  actionBtn: {
+  retryGroup: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  retryBtn: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 14,
+    borderRadius: 14,
+    borderWidth: 1.5,
+    gap: 6,
+  },
+  retryBtnText: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  doneBtn: {
+    width: '100%',
     paddingVertical: 16,
     borderRadius: 14,
-    gap: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  retryBtn: {
-    borderWidth: 2,
-  },
-  doneBtn: {},
-  actionBtnText: {
+  doneBtnText: {
     fontSize: 17,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_700Bold',
   },
 });

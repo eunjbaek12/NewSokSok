@@ -155,7 +155,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FAFBFC',
+    backgroundColor: '#F2F4F6',
   },
   content: {
     flex: 1,
@@ -172,11 +172,11 @@ const styles = StyleSheet.create({
   logoCircle: {
     width: 80,
     height: 80,
-    borderRadius: 24,
-    backgroundColor: '#6C5CE7',
+    borderRadius: 20,
+    backgroundColor: '#3182F6',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#6C5CE7',
+    shadowColor: '#3182F6',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
     shadowRadius: 16,
@@ -184,21 +184,21 @@ const styles = StyleSheet.create({
   },
   appName: {
     fontSize: 32,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     color: '#1A1A2E',
     letterSpacing: -1,
   },
   appNameEn: {
     fontSize: 14,
-    fontFamily: 'Inter_500Medium',
-    color: '#6C5CE7',
+    fontFamily: 'Pretendard_500Medium',
+    color: '#3182F6',
     marginTop: 4,
     letterSpacing: 2,
     textTransform: 'uppercase',
   },
   tagline: {
     fontSize: 15,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     color: '#8E8EA0',
     marginTop: 12,
   },
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   },
   featureText: {
     fontSize: 15,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
     color: '#3A3A50',
   },
   buttonsSection: {
@@ -246,12 +246,12 @@ const styles = StyleSheet.create({
   },
   googleBtnText: {
     fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     color: '#3A3A50',
   },
   googleSubtext: {
     fontSize: 12,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     color: '#8E8EA0',
     textAlign: 'center',
     marginTop: 8,
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
   },
   dividerText: {
     fontSize: 13,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     color: '#8E8EA0',
   },
   guestBtn: {
@@ -278,18 +278,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#6C5CE7',
-    borderRadius: 14,
+    backgroundColor: '#3182F6',
+    borderRadius: 12,
     paddingVertical: 16,
   },
   guestBtnText: {
     fontSize: 16,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     color: '#FFFFFF',
   },
   guestSubtext: {
     fontSize: 12,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     color: '#8E8EA0',
     textAlign: 'center',
     marginTop: 8,
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 11,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     color: '#B0B0C0',
     textAlign: 'center',
   },

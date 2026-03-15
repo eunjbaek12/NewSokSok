@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 28,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'Pretendard_700Bold',
     letterSpacing: -0.5,
   },
   scrollContent: {
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontSize: 13,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
     textTransform: 'uppercase',
     letterSpacing: 0.8,
     marginTop: 20,
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   section: {
-    borderRadius: 14,
+    borderRadius: 20,
     borderWidth: 1,
     overflow: 'hidden',
   },
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
   iconCircle: {
     width: 34,
     height: 34,
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -217,17 +217,17 @@ const styles = StyleSheet.create({
   },
   rowTitle: {
     fontSize: 16,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'Pretendard_500Medium',
     flexShrink: 1,
   },
   rowSubtitle: {
     fontSize: 12,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
     marginTop: 2,
   },
   rowValue: {
     fontSize: 15,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: 'Pretendard_400Regular',
   },
   cloudBadge: {
     flexDirection: 'row',
@@ -235,10 +235,10 @@ const styles = StyleSheet.create({
     gap: 4,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 8,
+    borderRadius: 12,
   },
   cloudBadgeText: {
     fontSize: 11,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Pretendard_600SemiBold',
   },
 });

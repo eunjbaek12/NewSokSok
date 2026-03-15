@@ -672,7 +672,7 @@ const styles = StyleSheet.create({
   },
   studyLabel: {
     fontSize: 12,
-    fontFamily: 'Pretendard_600SemiBold',
+    fontFamily: 'Pretendard_700Bold',
     marginTop: 8,
   },
   listContent: {

@@ -1272,7 +1272,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 17,
-    fontFamily: 'Pretendard_600SemiBold',
+    fontFamily: 'Pretendard_700Bold',
   },
   lastStudied: {
     fontSize: 12,

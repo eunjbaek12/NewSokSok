@@ -4,7 +4,7 @@ const Colors = {
     primaryLight: '#E8F0FE',
     accent: '#FF6B35',
     accentLight: '#FFF0EB',
-    background: '#F2F4F6',
+    background: '#E1E7EE',
     surface: '#FFFFFF',
     surfaceSecondary: '#EBEEF2',
     text: '#191F28',

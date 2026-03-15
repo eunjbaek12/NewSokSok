@@ -763,7 +763,7 @@ export default function DashboardScreen() {
 
   const renderHeader = useCallback(() => {
     return (
-      <View style={{ gap: 16, marginBottom: 12 }}>
+      <View style={{ gap: 16 }}>
         <Pressable
           onPress={() => router.push('/search-modal')}
           style={({ pressed }) => [
@@ -1234,7 +1234,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   sectionTitle: {
-    fontSize: 22,
+    fontSize: 20,
     fontFamily: 'Pretendard_700Bold',
     letterSpacing: -0.3,
   },

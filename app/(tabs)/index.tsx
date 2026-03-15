@@ -1234,8 +1234,9 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontFamily: 'Pretendard_600SemiBold',
+    fontSize: 22,
+    fontFamily: 'Pretendard_700Bold',
+    letterSpacing: -0.3,
   },
   countBadge: {
     paddingHorizontal: 10,

@@ -368,7 +368,7 @@ export default function ListDetailScreen() {
   };
 
   const renderStudyButtons = () => {
-    const iconColor = isDark ? "#6B7684" : "#8B95A1";
+    const iconColor = isDark ? "#6B7684" : "#6B7684";
     const activeColor = isDark ? "#4B96FF" : "#3182F6";
 
     return (
@@ -569,7 +569,7 @@ export default function ListDetailScreen() {
       {/* Fixed bottom bar for Study Features */}
       {!editMode && (
         <View style={[styles.bottomBarContainer, {
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(248, 249, 250, 0.85)",
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.92)",
           bottom: 0,
           height: 64 + insets.bottom,
           paddingBottom: insets.bottom,

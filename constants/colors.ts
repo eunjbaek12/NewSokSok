@@ -21,7 +21,7 @@ const Colors = {
     tint: '#3182F6',
     tabIconDefault: '#ADB5BD',
     tabIconSelected: '#3182F6',
-    cardShadow: 'rgba(0, 0, 0, 0.1)',
+    cardShadow: 'rgba(0, 0, 0, 0.04)',
     overlay: 'rgba(0, 0, 0, 0.4)',
   },
   dark: {

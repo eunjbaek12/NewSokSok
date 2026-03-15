@@ -569,7 +569,7 @@ export default function ListDetailScreen() {
       {/* Fixed bottom bar for Study Features */}
       {!editMode && (
         <View style={[styles.bottomBarContainer, {
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.92)",
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.75)",
           bottom: 0,
           height: 64 + insets.bottom,
           paddingBottom: insets.bottom,

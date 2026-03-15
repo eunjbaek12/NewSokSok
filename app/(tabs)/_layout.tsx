@@ -49,7 +49,7 @@ function ClassicTabLayout() {
         },
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.92)", // Medium blue-gray anchor
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.75)", // Increased transparency
           borderTopWidth: 0.5,
           borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
           elevation: 8,

@@ -25,6 +25,8 @@ import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
 import { BlurView } from 'expo-blur';
 import WordDetailModal, { WordModalMode } from '@/components/WordDetailModal';
+import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
+import { Snackbar } from '@/components/ui/Snackbar';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
 
@@ -46,8 +48,24 @@ export default function ListDetailScreen() {
     toggleMemorized,
     toggleStarred,
     refreshData,
+    addBatchWords,
     updateWord,
+    copyWords,
+    moveWords,
   } = useVocab();
+
+  // Snackbar & Undo State
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarActionLabel, setSnackbarActionLabel] = useState<string | undefined>(undefined);
+  const [lastAction, setLastAction] = useState<{
+    type: 'delete' | 'move' | 'copy';
+    wordIds: string[];
+    backupWords?: any[];
+    sourceListId?: string;
+    targetListId?: string;
+    targetListName?: string;
+  } | null>(null);
 
   const [filterStarred, setFilterStarred] = useState<boolean>(false);
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
@@ -60,6 +78,10 @@ export default function ListDetailScreen() {
   const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
   const [modalMode, setModalMode] = useState<WordModalMode>('read');
   const [refreshing, setRefreshing] = useState(false);
+
+  // Copy/Move State
+  const [isPickerVisible, setPickerVisible] = useState(false);
+  const [pickerMode, setPickerMode] = useState<'copy' | 'move'>('copy');
 
   const list = lists.find(l => l.id === id);
   const allWords = getWordsForList(id!);
@@ -153,23 +175,115 @@ export default function ListDetailScreen() {
   const handleBatchDelete = useCallback(async () => {
     if (selectedIds.size === 0) return;
     const count = selectedIds.size;
+    const wordIds = Array.from(selectedIds);
+    const backupWords = allWords.filter(w => wordIds.includes(w.id));
+
     Alert.alert(
-      `Delete ${count} ${count === 1 ? 'word' : 'words'}?`,
-      'This action cannot be undone.',
+      `선택한 ${count}개의 단어를 삭제하시겠습니까?`,
+      '이 작업은 되돌릴 수 있지만, 다시 추가하는 방식으로 복구됩니다.',
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: '취소', style: 'cancel' },
         {
-          text: 'Delete',
+          text: '삭제',
           style: 'destructive',
           onPress: async () => {
             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-            await deleteWords(id!, Array.from(selectedIds));
+            await deleteWords(id!, wordIds);
+
+            setLastAction({
+              type: 'delete',
+              wordIds,
+              backupWords,
+              sourceListId: id,
+            });
+            setSnackbarMessage(`${count}개의 단어가 삭제되었습니다.`);
+            setSnackbarActionLabel('실행 취소');
+            setSnackbarVisible(true);
+
             exitEditMode();
           },
         },
       ]
     );
-  }, [selectedIds, id, deleteWords, exitEditMode]);
+  }, [selectedIds, id, deleteWords, exitEditMode, allWords]);
+
+  const handleCopyPress = useCallback(() => {
+    if (selectedIds.size === 0) return;
+    setPickerMode('copy');
+    setPickerVisible(true);
+  }, [selectedIds]);
+
+  const handleMovePress = useCallback(() => {
+    if (selectedIds.size === 0) return;
+    setPickerMode('move');
+    setPickerVisible(true);
+  }, [selectedIds]);
+
+  const handleListSelect = useCallback(async (targetListId: string) => {
+    setPickerVisible(false);
+    const wordIds = Array.from(selectedIds);
+    const targetList = lists.find(l => l.id === targetListId);
+    const count = wordIds.length;
+
+    if (pickerMode === 'copy') {
+      await copyWords(targetListId, wordIds);
+      setLastAction({
+        type: 'copy',
+        wordIds,
+        targetListId,
+        targetListName: targetList?.title,
+      });
+      setSnackbarMessage(`${count}개의 단어가 ${targetList?.title}로 복사되었습니다.`);
+      setSnackbarActionLabel(undefined); // Copy undo is complex (ids change)
+    } else {
+      await moveWords(targetListId, wordIds);
+      setLastAction({
+        type: 'move',
+        wordIds,
+        sourceListId: id,
+        targetListId,
+        targetListName: targetList?.title,
+      });
+      setSnackbarMessage(`${count}개의 단어가 ${targetList?.title}로 이동되었습니다.`);
+      setSnackbarActionLabel('실행 취소');
+    }
+
+    setSnackbarVisible(true);
+    exitEditMode();
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+  }, [pickerMode, selectedIds, copyWords, moveWords, exitEditMode, lists, id]);
+
+  const handleUndo = useCallback(async () => {
+    if (!lastAction) return;
+
+    try {
+      if (lastAction.type === 'delete' && lastAction.backupWords && lastAction.sourceListId) {
+        await addBatchWords(lastAction.sourceListId, lastAction.backupWords);
+        setSnackbarMessage('삭제가 취소되어 단어들이 복구되었습니다.');
+      } else if (lastAction.type === 'move' && lastAction.sourceListId && lastAction.wordIds) {
+        await moveWords(lastAction.sourceListId, lastAction.wordIds);
+        setSnackbarMessage('이동이 취소되어 단어들이 원래 단어장으로 돌아왔습니다.');
+      }
+
+      setSnackbarActionLabel(undefined);
+      setSnackbarVisible(true);
+      setLastAction(null);
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    } catch (e) {
+      Alert.alert('오류', '실행 취소 중 문제가 발생했습니다.');
+    }
+  }, [lastAction, addBatchWords, moveWords]);
+
+  const pickerOptions = useMemo((): PickerOption[] => {
+    return lists
+      .filter(l => l.id !== id)
+      .map(l => ({
+        id: l.id,
+        title: l.title,
+        subtitle: `${l.words.length} words`,
+        icon: 'book-outline'
+      }));
+  }, [lists, id]);
 
   const handleCardPress = useCallback((word: Word) => {
     if (editMode) {
@@ -467,7 +581,7 @@ export default function ListDetailScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.surface, borderBottomColor: colors.border }]}>
+      <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
         <View style={styles.headerRow}>
           {editMode ? (
             <Pressable onPress={exitEditMode} hitSlop={12}>
@@ -494,13 +608,29 @@ export default function ListDetailScreen() {
           )}
 
           {editMode && (
-            <Pressable
-              onPress={handleBatchDelete}
-              hitSlop={12}
-              style={{ opacity: selectedIds.size === 0 ? 0.4 : 1 }}
-            >
-              <Ionicons name="trash-outline" size={24} color={colors.error} />
-            </Pressable>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+              <Pressable
+                onPress={handleCopyPress}
+                hitSlop={12}
+                style={{ opacity: selectedIds.size === 0 ? 0.4 : 1 }}
+              >
+                <Ionicons name="copy-outline" size={24} color={colors.primary} />
+              </Pressable>
+              <Pressable
+                onPress={handleMovePress}
+                hitSlop={12}
+                style={{ opacity: selectedIds.size === 0 ? 0.4 : 1 }}
+              >
+                <Ionicons name="git-branch-outline" size={24} color={colors.primary} />
+              </Pressable>
+              <Pressable
+                onPress={handleBatchDelete}
+                hitSlop={12}
+                style={{ opacity: selectedIds.size === 0 ? 0.4 : 1 }}
+              >
+                <Ionicons name="trash-outline" size={24} color={colors.error} />
+              </Pressable>
+            </View>
           )}
           {!editMode && (
             <Pressable
@@ -566,6 +696,14 @@ export default function ListDetailScreen() {
         onModeChange={(newMode) => setModalMode(newMode)}
       />
 
+      <ModalPicker
+        visible={isPickerVisible}
+        onClose={() => setPickerVisible(false)}
+        title={pickerMode === 'copy' ? '단어 복사' : '단어 이동'}
+        options={pickerOptions}
+        onSelect={handleListSelect}
+      />
+
       {/* Fixed bottom bar for Study Features */}
       {!editMode && (
         <View style={[styles.bottomBarContainer, {
@@ -585,6 +723,15 @@ export default function ListDetailScreen() {
           {renderStudyButtons()}
         </View>
       )}
+
+      <Snackbar
+        visible={snackbarVisible}
+        message={snackbarMessage}
+        actionLabel={snackbarActionLabel}
+        onAction={handleUndo}
+        onDismiss={() => setSnackbarVisible(false)}
+        topOffset={insets.top + (Platform.OS === 'ios' ? 10 : 20)}
+      />
     </View>
   );
 }
@@ -595,7 +742,7 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 16,
-    paddingBottom: 12,
+    paddingBottom: 0,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   headerRow: {

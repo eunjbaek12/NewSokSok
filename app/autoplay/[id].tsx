@@ -23,9 +23,9 @@ export default function AutoPlayScreen() {
     const { id, filter, isStarred } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string }>();
     const insets = useSafeAreaInsets();
     const { colors } = useTheme();
-    const { getWordsForList } = useVocab();
+    const { getWordsForList, toggleStarred } = useVocab();
 
-    const [words] = useState(() => {
+    const [words, setWords] = useState(() => {
         let all = getWordsForList(id!);
         if (isStarred === 'true') {
             all = all.filter(w => w.isStarred);
@@ -109,6 +109,12 @@ export default function AutoPlayScreen() {
             }
         }
     };
+
+    const handleToggleStar = useCallback(async (wordId: string) => {
+        setWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+        await toggleStarred(id!, wordId);
+    }, [id, toggleStarred]);
 
     const goToPrev = useCallback(() => {
         if (currentIndex > 0) {
@@ -204,6 +210,13 @@ export default function AutoPlayScreen() {
             <GestureDetector gesture={panGesture}>
                 <Animated.View style={[styles.cardContainer, cardStyle]}>
                     <Pressable onPress={handleCardClick} style={({ pressed }) => [styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, opacity: pressed ? 0.95 : 1 }]}>
+                        <Pressable
+                            onPress={(e) => { e.stopPropagation(); handleToggleStar(currentWord.id); }}
+                            hitSlop={12}
+                            style={styles.starBtn}
+                        >
+                            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={20} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+                        </Pressable>
                         {settings.showTerm && (
                             <>
                                 {settings.showPos && currentWord.pos && (
@@ -478,5 +491,12 @@ const styles = StyleSheet.create({
     topPosBadgeText: {
         fontSize: 12,
         fontFamily: 'Pretendard_600SemiBold',
+    },
+    starBtn: {
+        position: 'absolute',
+        right: 16,
+        top: 16,
+        padding: 8,
+        zIndex: 10,
     },
 });

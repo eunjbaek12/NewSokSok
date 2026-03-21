@@ -25,7 +25,6 @@ import { useVocab } from '@/contexts/VocabContext';
 import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
 import { BlurView } from 'expo-blur';
-import WordDetailModal, { WordModalMode } from '@/components/WordDetailModal';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import { Snackbar } from '@/components/ui/Snackbar';
 
@@ -75,9 +74,6 @@ export default function ListDetailScreen() {
   const [speakingWordId, setSpeakingWordId] = useState<string | null>(null);
 
   // Modal State
-  const [isWordModalVisible, setWordModalVisible] = useState(false);
-  const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
-  const [modalMode, setModalMode] = useState<WordModalMode>('read');
   const [refreshing, setRefreshing] = useState(false);
 
   // Copy/Move State
@@ -147,10 +143,8 @@ export default function ListDetailScreen() {
   }, [list, renameList]);
 
   const handleAddWord = useCallback(() => {
-    setSelectedWordId(null);
-    setModalMode('add');
-    setWordModalVisible(true);
-  }, []);
+    router.push({ pathname: '/add-word', params: { listId: id } });
+  }, [id]);
 
   const enterEditMode = useCallback((wordId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -330,11 +324,9 @@ export default function ListDetailScreen() {
     if (editMode) {
       toggleSelection(word.id);
     } else {
-      setSelectedWordId(word.id);
-      setModalMode('read');
-      setWordModalVisible(true);
+      router.push({ pathname: '/add-word', params: { listId: id, wordId: word.id } });
     }
-  }, [editMode, toggleSelection]);
+  }, [editMode, toggleSelection, id]);
 
   const handleCardLongPress = useCallback((word: Word) => {
     if (!editMode) {
@@ -763,15 +755,6 @@ export default function ListDetailScreen() {
           <Ionicons name="add" size={28} color="#FFFFFF" />
         </Pressable>
       )}
-
-      <WordDetailModal
-        visible={isWordModalVisible}
-        mode={modalMode}
-        listId={id as string}
-        wordId={selectedWordId}
-        onClose={() => setWordModalVisible(false)}
-        onModeChange={(newMode) => setModalMode(newMode)}
-      />
 
       <ModalPicker
         visible={isPickerVisible}

@@ -341,6 +341,9 @@ export default function ExamplesScreen() {
 
       <View style={styles.contentArea}>
         <View style={[styles.exampleCard, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }]}>
+          <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
+            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={20} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+          </Pressable>
           {currentWord.exampleEn ? (
             <View style={{ gap: 12, alignItems: 'center' }}>
               <HighlightedSentence
@@ -489,8 +492,9 @@ const styles = StyleSheet.create({
   starBtn: {
     padding: 8,
     position: 'absolute',
-    right: -40,
-    top: -4,
+    right: 16,
+    top: 16,
+    zIndex: 10,
   },
   wordInfo: {
     alignItems: 'center',

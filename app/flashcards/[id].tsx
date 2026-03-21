@@ -47,7 +47,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos }: { 
       frontStyle
     ]}>
       <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
-        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={28} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
+        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
       </Pressable>
 
       {showPos && word.pos && (
@@ -99,7 +99,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
       backStyle
     ]}>
       <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
-        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={28} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
+        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
       </Pressable>
 
       <View style={styles.termWrapper}>
@@ -500,6 +500,32 @@ export default function FlashcardsScreen() {
                     trackColor={{ true: colors.primary }}
                   />
                 </View>
+
+                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12, marginTop: 4 }]}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>학습 단위</Text>
+                  <View style={styles.filterGroup}>
+                    {['all', 10, 20, 30].map(size => {
+                      const isActive = studySettings.studyBatchSize === size;
+                      return (
+                        <Pressable
+                          key={size}
+                          onPress={() => updateStudySettings({ studyBatchSize: size as 'all' | 10 | 20 | 30 })}
+                          style={[
+                            styles.filterTab,
+                            {
+                              backgroundColor: isActive ? colors.primary : colors.surfaceSecondary,
+                              borderColor: isActive ? colors.primary : colors.borderLight
+                            }
+                          ]}
+                        >
+                          <Text style={[styles.filterTabText, { color: isActive ? '#FFF' : colors.textSecondary }]}>
+                            {size === 'all' ? '전체' : `${size}개`}
+                          </Text>
+                        </Pressable>
+                      )
+                    })}
+                  </View>
+                </View>
               </View>
 
               <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
@@ -525,31 +551,6 @@ export default function FlashcardsScreen() {
                   />
                 </View>
 
-                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12 }]}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>학습 단위</Text>
-                  <View style={styles.filterGroup}>
-                    {['all', 10, 20, 30].map(size => {
-                      const isActive = studySettings.studyBatchSize === size;
-                      return (
-                        <Pressable
-                          key={size}
-                          onPress={() => updateStudySettings({ studyBatchSize: size as 'all' | 10 | 20 | 30 })}
-                          style={[
-                            styles.filterTab,
-                            {
-                              backgroundColor: isActive ? colors.primary : colors.surfaceSecondary,
-                              borderColor: isActive ? colors.primary : colors.borderLight
-                            }
-                          ]}
-                        >
-                          <Text style={[styles.filterTabText, { color: isActive ? '#FFF' : colors.textSecondary }]}>
-                            {size === 'all' ? '전체' : `${size}개`}
-                          </Text>
-                        </Pressable>
-                      )
-                    })}
-                  </View>
-                </View>
               </View>
 
               <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
@@ -925,10 +926,8 @@ const styles = StyleSheet.create({
   },
   starBtn: {
     position: 'absolute',
-    top: 24,
-    left: 0,
-    right: 0,
-    alignItems: 'center',
+    top: 16,
+    right: 16,
     padding: 8,
     zIndex: 10,
   },

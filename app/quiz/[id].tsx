@@ -365,7 +365,7 @@ export default function QuizScreen() {
       <View style={styles.questionArea}>
         <View style={styles.questionHeader}>
           <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
-            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={24} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={20} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
           </Pressable>
         </View>
 
@@ -502,9 +502,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_500Medium',
   },
   questionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    zIndex: 10,
   },
   starBtn: {
     padding: 4,

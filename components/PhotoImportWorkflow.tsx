@@ -213,7 +213,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                 <Pressable onPress={onClose} hitSlop={8}>
                     <Ionicons name="arrow-back" size={24} color={colors.text} />
                 </Pressable>
-                <Text style={[styles.title, { color: colors.text }]}>사진으로 옵션</Text>
+                <Text style={[styles.title, { color: colors.text }]}>사진 스캔으로 추가</Text>
                 <View style={{ width: 24 }} />
             </View>
 

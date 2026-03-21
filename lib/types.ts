@@ -2,6 +2,8 @@ export interface Word {
   id: string;
   term: string;
   definition: string;
+  phonetic?: string;
+  pos?: string;
   exampleEn: string;
   exampleKr?: string;
   meaningKr: string;
@@ -17,6 +19,7 @@ export interface VocaList {
   isVisible: boolean;
   createdAt: number;
   lastStudiedAt?: number;
+  position?: number;
   isCurated?: boolean;
   icon?: string;
   isUserShared?: boolean;
@@ -38,6 +41,9 @@ export interface AutoFillResult {
   meaningKr: string;
   exampleEn: string;
   exampleKr?: string;
+  mnemonic?: string;
+  pos?: string;
+  phonetic?: string;
 }
 
 export interface AIWordResult {
@@ -46,5 +52,6 @@ export interface AIWordResult {
   exampleEn: string;
   exampleKr?: string;
   meaningKr: string;
+  mnemonic?: string;
   tags?: string[];
 }

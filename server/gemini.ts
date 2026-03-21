@@ -25,7 +25,13 @@ export async function analyzeWord(word: string): Promise<AIWordResult> {
   const ai = getAIClient();
   const response = await ai.models.generateContent({
     model: MODEL_NAME,
-    contents: `Analyze the English word "${word}". Provide a simple English definition, one English example sentence, and the Korean meaning.`,
+    contents: `Analyze the English word "${word}". Provide:
+      1. A simple English definition.
+      2. One English example sentence.
+      3. The Korean meaning.
+      4. A "mnemonic" (암기법) to help remember the word easily.
+      5. The part of speech (pos, e.g., noun, verb).
+      6. The phonetic transcription (발음기호).`,
     config: {
       responseMimeType: "application/json",
       responseSchema: {
@@ -35,8 +41,11 @@ export async function analyzeWord(word: string): Promise<AIWordResult> {
           definition: { type: Type.STRING },
           exampleEn: { type: Type.STRING },
           meaningKr: { type: Type.STRING },
+          mnemonic: { type: Type.STRING },
+          pos: { type: Type.STRING },
+          phonetic: { type: Type.STRING },
         },
-        required: ["term", "definition", "exampleEn", "meaningKr"],
+        required: ["term", "definition", "exampleEn", "meaningKr", "mnemonic", "pos", "phonetic"],
       },
     },
   });

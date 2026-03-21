@@ -6,8 +6,10 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
+import { useSettings } from '@/contexts/SettingsContext';
 import { Word, StudyResult } from '@/lib/types';
 import { speak } from '@/lib/tts';
+import BatchResultOverlay from '@/components/BatchResultOverlay';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -28,6 +30,7 @@ export default function QuizScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
+  const { studySettings, updateStudySettings } = useSettings();
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
@@ -35,10 +38,13 @@ export default function QuizScreen() {
     filter: (filter || 'all') as 'all' | 'learning' | 'memorized',
     isStarred: initialIsStarred === 'true',
     quizType: (initialQuizType || 'term-to-meaning') as 'meaning-to-term' | 'term-to-meaning',
+    showPos: true,
   });
 
   const [studyWords, setStudyWords] = useState<Word[]>([]);
+  const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showBatchOverlay, setShowBatchOverlay] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const startTime = useRef(Date.now());
@@ -80,12 +86,20 @@ export default function QuizScreen() {
 
     setStudyWords(all);
     setCurrentIndex(0);
+    setCurrentBatchIndex(0);
     setSelectedAnswer(null);
     setIsCorrect(null);
     results.current = [];
-  }, [id, getWordsForList, settings.filter, settings.isStarred]);
+  }, [id, getWordsForList, settings.filter, settings.isStarred, studySettings.studyBatchSize]);
 
-  const currentWord = studyWords[currentIndex];
+  const batchSizeNum = studySettings.studyBatchSize === 'all' ? (studyWords.length || 1) : studySettings.studyBatchSize;
+  const currentBatchWords = React.useMemo(() => {
+    if (studyWords.length === 0) return [];
+    const start = currentBatchIndex * batchSizeNum;
+    return studyWords.slice(start, start + batchSizeNum);
+  }, [studyWords, currentBatchIndex, batchSizeNum]);
+
+  const currentWord = currentBatchWords[currentIndex];
 
   const handleToggleStar = useCallback(async (wordId: string) => {
     setStudyWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));
@@ -118,34 +132,13 @@ export default function QuizScreen() {
   useEffect(() => {
     if (selectedAnswer === null) return;
     const timer = setTimeout(async () => {
-      if (currentIndex >= studyWords.length - 1) {
-        const finalResults = results.current;
-        const memorizedWords = finalResults
-          .filter(r => r.gotIt && !r.word.isMemorized)
-          .map(r => r.word.id);
-
-        const failedWords = finalResults
-          .filter(r => !r.gotIt && r.word.isMemorized)
-          .map(r => r.word.id);
-
-        if (memorizedWords.length > 0) {
-          await setWordsMemorized(id!, memorizedWords, true);
+      if (currentIndex >= currentBatchWords.length - 1) {
+        const nextStart = (currentBatchIndex + 1) * batchSizeNum;
+        if (nextStart < studyWords.length) {
+          setShowBatchOverlay(true);
+        } else {
+          finishSession();
         }
-        if (failedWords.length > 0) {
-          await setWordsMemorized(id!, failedWords, false);
-        }
-        setStudyResults(finalResults);
-        router.replace({
-          pathname: '/study-results',
-          params: {
-            id,
-            mode: 'quiz',
-            duration: Date.now() - startTime.current,
-            isStarred: settings.isStarred ? 'true' : 'false',
-            sessionFilter: settings.filter,
-            quizType: settings.quizType
-          }
-        });
         return;
       }
       setCurrentIndex(prev => prev + 1);
@@ -153,7 +146,37 @@ export default function QuizScreen() {
       setIsCorrect(null);
     }, 1000);
     return () => clearTimeout(timer);
-  }, [selectedAnswer, currentIndex, studyWords.length, setStudyResults, setWordsMemorized, id]);
+  }, [selectedAnswer, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length]);
+
+  const finishSession = async () => {
+    const finalResults = results.current;
+    const memorizedWords = finalResults
+      .filter(r => r.gotIt && !r.word.isMemorized)
+      .map(r => r.word.id);
+
+    const failedWords = finalResults
+      .filter(r => !r.gotIt && r.word.isMemorized)
+      .map(r => r.word.id);
+
+    if (memorizedWords.length > 0) {
+      await setWordsMemorized(id!, memorizedWords, true);
+    }
+    if (failedWords.length > 0) {
+      await setWordsMemorized(id!, failedWords, false);
+    }
+    setStudyResults(finalResults);
+    router.replace({
+      pathname: '/study-results',
+      params: {
+        id,
+        mode: 'quiz',
+        duration: Date.now() - startTime.current,
+        isStarred: settings.isStarred ? 'true' : 'false',
+        sessionFilter: settings.filter,
+        quizType: settings.quizType
+      }
+    });
+  };
 
   const handleClose = useCallback(() => {
     router.back();
@@ -220,6 +243,15 @@ export default function QuizScreen() {
                 </View>
 
                 <View style={styles.settingRow}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
+                  <Switch
+                    value={settings.showPos}
+                    onValueChange={v => setSettings(s => ({ ...s, showPos: v }))}
+                    trackColor={{ true: colors.primary }}
+                  />
+                </View>
+
+                <View style={styles.settingRow}>
                   <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기(⭐)만 보기</Text>
                   <Switch
                     value={settings.isStarred}
@@ -263,6 +295,32 @@ export default function QuizScreen() {
                     </Pressable>
                   </View>
                 </View>
+
+                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12 }]}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>학습 단위</Text>
+                  <View style={styles.filterGroup}>
+                    {['all', 10, 20, 30].map(size => {
+                      const isActive = studySettings.studyBatchSize === size;
+                      return (
+                        <Pressable
+                          key={size}
+                          onPress={() => updateStudySettings({ studyBatchSize: size as 'all' | 10 | 20 | 30 })}
+                          style={[
+                            styles.filterTab,
+                            {
+                              backgroundColor: isActive ? colors.primary : colors.surfaceSecondary,
+                              borderColor: isActive ? colors.primary : colors.borderLight
+                            }
+                          ]}
+                        >
+                          <Text style={[styles.filterTabText, { color: isActive ? '#FFF' : colors.textSecondary }]}>
+                            {size === 'all' ? '전체' : `${size}개`}
+                          </Text>
+                        </Pressable>
+                      )
+                    })}
+                  </View>
+                </View>
               </View>
             </ScrollView>
           </Pressable>
@@ -280,7 +338,7 @@ export default function QuizScreen() {
       <View style={[styles.topBar, { paddingTop: topInset + 12 }]}>
         <View style={styles.progressArea}>
           <Text style={[styles.progressText, { color: colors.textSecondary }]}>
-            {currentIndex + 1} / {studyWords.length}
+            {currentIndex + 1} / {currentBatchWords.length}
           </Text>
           <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
             <View
@@ -288,7 +346,7 @@ export default function QuizScreen() {
                 styles.progressBarFill,
                 {
                   backgroundColor: colors.primary,
-                  width: `${((currentIndex + 1) / studyWords.length) * 100}%`,
+                  width: `${((currentIndex + 1) / currentBatchWords.length) * 100}%`,
                 },
               ]}
             />
@@ -310,6 +368,13 @@ export default function QuizScreen() {
             <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={24} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
           </Pressable>
         </View>
+
+        {settings.showPos && currentWord.pos && (
+          <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
+            <Text style={[styles.topPosBadgeText, { color: colors.primary }]}>{currentWord.pos}</Text>
+          </View>
+        )}
+
         <Text style={[styles.questionText, { color: colors.text }]}>{questionContent}</Text>
         <Pressable
           onPress={() => speak(currentWord.term)}
@@ -369,6 +434,30 @@ export default function QuizScreen() {
       </View>
 
       {renderSettingsModal()}
+      <BatchResultOverlay
+        visible={showBatchOverlay}
+        completedCount={results.current.length}
+        totalCount={studyWords.length}
+        isLastBatch={(currentBatchIndex + 1) * batchSizeNum >= studyWords.length}
+        onNextBatch={() => {
+          setCurrentBatchIndex(prev => prev + 1);
+          setCurrentIndex(0);
+          setSelectedAnswer(null);
+          setIsCorrect(null);
+          setShowBatchOverlay(false);
+        }}
+        onRetryBatch={() => {
+          setCurrentIndex(0);
+          setSelectedAnswer(null);
+          setIsCorrect(null);
+          setShowBatchOverlay(false);
+          results.current = results.current.slice(0, results.current.length - currentBatchWords.length);
+        }}
+        onFinish={() => {
+          setShowBatchOverlay(false);
+          finishSession();
+        }}
+      />
     </View>
   );
 }
@@ -429,6 +518,28 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_700Bold',
     textAlign: 'center',
     lineHeight: 38,
+  },
+  cardInfoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: -4,
+    marginBottom: 4,
+  },
+  posBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  posBadgeText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  phoneticText: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_400Regular',
   },
   choicesArea: {
     paddingHorizontal: 20,
@@ -510,5 +621,17 @@ const styles = StyleSheet.create({
     height: 1,
     marginVertical: 4,
     marginBottom: 20,
+  },
+  topPosBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
+  },
+  topPosBadgeText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
   },
 });

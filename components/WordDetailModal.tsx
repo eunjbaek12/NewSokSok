@@ -53,6 +53,8 @@ export default function WordDetailModal({
         term, setTerm,
         definition, setDefinition,
         meaningKr, setMeaningKr,
+        phonetic, setPhonetic,
+        pos, setPos,
         exampleEn, setExampleEn,
         exampleKr, setExampleKr,
         isStarred, setIsStarred,
@@ -72,6 +74,8 @@ export default function WordDetailModal({
             setTerm(existingWord.term);
             setDefinition(existingWord.definition);
             setMeaningKr(existingWord.meaningKr);
+            setPhonetic(existingWord.phonetic || '');
+            setPos(existingWord.pos || '');
             setExampleEn(existingWord.exampleEn);
             setExampleKr(existingWord.exampleKr || '');
             setTags(existingWord.tags || []);
@@ -82,6 +86,8 @@ export default function WordDetailModal({
             setTerm('');
             setDefinition('');
             setMeaningKr('');
+            setPhonetic('');
+            setPos('');
             setExampleEn('');
             setExampleKr('');
             setTags([]);
@@ -115,6 +121,8 @@ export default function WordDetailModal({
                 setTerm(existingWord.term);
                 setDefinition(existingWord.definition);
                 setMeaningKr(existingWord.meaningKr);
+                setPhonetic(existingWord.phonetic || '');
+                setPos(existingWord.pos || '');
                 setExampleEn(existingWord.exampleEn);
                 setExampleKr(existingWord.exampleKr || '');
                 setTags(existingWord.tags || []);
@@ -262,6 +270,46 @@ export default function WordDetailModal({
                                         <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? "#FFD700" : colors.textTertiary} />
                                     </Pressable>
                                 </View>
+
+                                {(phonetic || pos || mode !== 'read') && (
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: -4, marginBottom: 8 }}>
+                                        {mode === 'read' ? (
+                                            <>
+                                                {pos ? (
+                                                    <View style={[styles.posBadge, { backgroundColor: colors.primaryLight }]}>
+                                                        <Text style={[styles.posBadgeText, { color: colors.primary }]}>{pos}</Text>
+                                                    </View>
+                                                ) : null}
+                                                {phonetic ? (
+                                                    <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{phonetic}/</Text>
+                                                ) : null}
+                                            </>
+                                        ) : (
+                                            <View style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>발음 기호</Text>
+                                                    <TextInput
+                                                        style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
+                                                        value={phonetic}
+                                                        onChangeText={setPhonetic}
+                                                        placeholder="발음 기호"
+                                                        placeholderTextColor={colors.textTertiary}
+                                                    />
+                                                </View>
+                                                <View style={{ flex: 1 }}>
+                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>품사</Text>
+                                                    <TextInput
+                                                        style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
+                                                        value={pos}
+                                                        onChangeText={setPos}
+                                                        placeholder="품사 (예: n., v.)"
+                                                        placeholderTextColor={colors.textTertiary}
+                                                    />
+                                                </View>
+                                            </View>
+                                        )}
+                                    </View>
+                                )}
                                 {mode !== 'read' && errors.term && <Text style={[styles.errorText, { color: colors.error }]}>Word is required</Text>}
 
                                 {mode !== 'read' && (
@@ -444,4 +492,27 @@ const styles = StyleSheet.create({
     tagChip: { flexDirection: 'row', alignItems: 'center', paddingVertical: 6, paddingLeft: 10, paddingRight: 6, borderRadius: 12, gap: 4 },
     tagChipText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
     tagChipClose: { marginLeft: 2 },
+    posBadge: {
+        paddingHorizontal: 8,
+        paddingVertical: 2,
+        borderRadius: 6,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    posBadgeText: {
+        fontSize: 12,
+        fontFamily: 'Pretendard_600SemiBold',
+    },
+    phoneticText: {
+        fontSize: 14,
+        fontFamily: 'Pretendard_400Regular',
+    },
+    smallInput: {
+        borderWidth: 1,
+        borderRadius: 8,
+        paddingHorizontal: 12,
+        paddingVertical: 8,
+        fontSize: 14,
+        fontFamily: 'Pretendard_400Regular',
+    },
 });

@@ -29,6 +29,8 @@ interface VocabContextValue {
   addBatchWords: (listId: string, wordsData: Array<Partial<Omit<Word, 'id' | 'createdAt' | 'updatedAt' | 'listId'>> & { term: string, meaningKr: string }>) => Promise<Word[]>;
   updateWord: (listId: string, wordId: string, updates: Partial<Omit<Word, 'id'>>) => Promise<void>;
   deleteWords: (listId: string, wordIds: string[]) => Promise<void>;
+  copyWords: (targetListId: string, wordIds: string[]) => Promise<void>;
+  moveWords: (targetListId: string, wordIds: string[]) => Promise<void>;
   toggleMemorized: (listId: string, wordId: string, forceStatus?: boolean) => Promise<void>;
   toggleStarred: (listId: string, wordId: string, forceStatus?: boolean) => Promise<void>;
   setWordsMemorized: (listId: string, wordIds: string[], isMemorized: boolean) => Promise<void>;
@@ -267,6 +269,18 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     debouncedSync();
   }, [refreshData, debouncedSync]);
 
+  const copyWords = useCallback(async (targetListId: string, wordIds: string[]) => {
+    await Storage.copyWords(targetListId, wordIds);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
+  const moveWords = useCallback(async (targetListId: string, wordIds: string[]) => {
+    await Storage.moveWords(targetListId, wordIds);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
   const toggleMemorized = useCallback(async (listId: string, wordId: string, forceStatus?: boolean) => {
     await Storage.toggleMemorized(listId, wordId, forceStatus);
     await refreshData();
@@ -331,6 +345,8 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     addBatchWords,
     updateWord,
     deleteWords,
+    copyWords,
+    moveWords,
     toggleMemorized,
     toggleStarred,
     setWordsMemorized,

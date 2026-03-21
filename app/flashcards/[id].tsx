@@ -1,5 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView } from 'react-native';
+import { BlurView } from 'expo-blur';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,10 +19,12 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
+import { useSettings } from '@/contexts/SettingsContext';
 import { speak } from '@/lib/tts';
 import { Word, StudyResult } from '@/lib/types';
+import BatchResultOverlay from '@/components/BatchResultOverlay';
 
-function CardFront({ word, colors, rotation, onToggleStar }: { word: Word; colors: any; rotation: SharedValue<number>, onToggleStar: (id: string) => void }) {
+function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean }) {
   const frontStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [0, 180]);
     return {
@@ -32,21 +36,46 @@ function CardFront({ word, colors, rotation, onToggleStar }: { word: Word; color
   });
 
   return (
-    <Animated.View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }, frontStyle]}>
+    <Animated.View style={[
+      styles.card,
+      {
+        backgroundColor: colors.surface + 'F2',
+        shadowColor: colors.cardShadow,
+        borderColor: colors.borderLight,
+        borderWidth: 1,
+      },
+      frontStyle
+    ]}>
       <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
         <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={28} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
       </Pressable>
+
+      {showPos && word.pos && (
+        <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
+          <Text style={[styles.topPosBadgeText, { color: colors.primary }]}>{word.pos}</Text>
+        </View>
+      )}
+
       <Text style={[styles.cardWord, { color: colors.text }]}>{word.term}</Text>
+
+      {word.phonetic && (
+        <View style={styles.cardInfoRow}>
+          <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{word.phonetic}/</Text>
+        </View>
+      )}
+
       <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
         {({ pressed }) => (
           <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
         )}
       </Pressable>
+
+      <Text style={[styles.hintText, { color: colors.textTertiary }]}>탭하여 뜻 보기</Text>
     </Animated.View>
   );
 }
 
-function CardBack({ word, colors, rotation, onToggleStar, showMeaning, showExample }: { word: Word; colors: any; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean }) {
+function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, showExample, showExampleKr, showPhonetic, showPos }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean, showExampleKr: boolean, showPhonetic: boolean, showPos: boolean }) {
   const backStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [180, 360]);
     return {
@@ -58,10 +87,36 @@ function CardBack({ word, colors, rotation, onToggleStar, showMeaning, showExamp
   });
 
   return (
-    <Animated.View style={[styles.card, styles.cardBack, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }, backStyle]}>
+    <Animated.View style={[
+      styles.card,
+      styles.cardBack,
+      {
+        backgroundColor: colors.surface + 'F2',
+        shadowColor: colors.cardShadow,
+        borderColor: colors.borderLight,
+        borderWidth: 1,
+      },
+      backStyle
+    ]}>
       <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
         <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={28} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
       </Pressable>
+
+      <View style={styles.termWrapper}>
+        {showPos && word.pos && (
+          <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight, marginBottom: 6, paddingVertical: 1, paddingHorizontal: 6 }]}>
+            <Text style={[styles.topPosBadgeText, { color: colors.primary, fontSize: 10 }]}>{word.pos}</Text>
+          </View>
+        )}
+        <Text style={[styles.cardBackTerm, { color: colors.textSecondary }]}>{word.term}</Text>
+      </View>
+
+      <LinearGradient
+        colors={['transparent', colors.border, 'transparent']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={styles.gradientDivider}
+      />
 
       {showMeaning ? (
         <Text style={[styles.cardMeaning, { color: colors.text }]}>{word.meaningKr}</Text>
@@ -69,8 +124,19 @@ function CardBack({ word, colors, rotation, onToggleStar, showMeaning, showExamp
         <Text style={[styles.cardMeaning, { color: colors.textSecondary, opacity: 0.3 }]}>[뜻 숨김]</Text>
       )}
 
+      {showPhonetic && word.phonetic && (
+        <View style={styles.cardInfoRow}>
+          <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{word.phonetic}/</Text>
+        </View>
+      )}
+
       {showExample && word.exampleEn ? (
-        <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
+        <View style={[styles.cardExampleBox, { backgroundColor: colors.surfaceSecondary }]}>
+          <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
+          {showExampleKr && word.exampleKr ? (
+            <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
+          ) : null}
+        </View>
       ) : null}
 
       <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
@@ -85,8 +151,10 @@ function CardBack({ word, colors, rotation, onToggleStar, showMeaning, showExamp
 export default function FlashcardsScreen() {
   const { id, filter, isStarred: initialIsStarred } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string }>();
   const insets = useSafeAreaInsets();
-  const { colors } = useTheme();
-  const { getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
+  const { colors, isDark } = useTheme();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
+  const { studySettings, updateStudySettings } = useSettings();
+  const list = lists.find(l => l.id === id);
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
@@ -95,12 +163,17 @@ export default function FlashcardsScreen() {
     isStarred: initialIsStarred === 'true',
     showMeaning: true,
     showExample: true,
+    showExampleKr: true,
+    showPhonetic: true,
+    showPos: true,
     autoPlaySound: true,
     shuffle: false,
   });
 
   const [studyWords, setStudyWords] = useState<Word[]>([]);
+  const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showBatchOverlay, setShowBatchOverlay] = useState(false);
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
 
@@ -111,7 +184,7 @@ export default function FlashcardsScreen() {
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const SWIPE_THRESHOLD = 100;
 
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -154,17 +227,26 @@ export default function FlashcardsScreen() {
       lastSettingsRef.current.id !== id ||
       lastSettingsRef.current.filter !== settings.filter ||
       lastSettingsRef.current.isStarred !== settings.isStarred ||
-      lastSettingsRef.current.shuffle !== settings.shuffle;
+      lastSettingsRef.current.shuffle !== settings.shuffle ||
+      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
 
     if (coreFilterChanged) {
       setCurrentIndex(0);
+      setCurrentBatchIndex(0);
       results.current = [];
       rotation.value = 0;
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize };
     }
-  }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle, id]);
+  }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle, studySettings.studyBatchSize]);
 
-  const currentWord = studyWords[currentIndex];
+  const batchSizeNum = studySettings.studyBatchSize === 'all' ? (studyWords.length || 1) : studySettings.studyBatchSize;
+  const currentBatchWords = React.useMemo(() => {
+    if (studyWords.length === 0) return [];
+    const start = currentBatchIndex * batchSizeNum;
+    return studyWords.slice(start, start + batchSizeNum);
+  }, [studyWords, currentBatchIndex, batchSizeNum]);
+
+  const currentWord = currentBatchWords[currentIndex];
 
   const handleToggleStar = useCallback(async (wordId: string) => {
     setStudyWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));
@@ -181,33 +263,14 @@ export default function FlashcardsScreen() {
     Haptics.impactAsync(gotIt ? Haptics.ImpactFeedbackStyle.Medium : Haptics.ImpactFeedbackStyle.Light);
     results.current.push({ word: currentWord, gotIt });
 
-    if (currentIndex >= studyWords.length - 1) {
-      const finalResults = results.current;
-      const memorizedWords = finalResults
-        .filter(r => r.gotIt && !r.word.isMemorized)
-        .map(r => r.word.id);
+    if (currentIndex >= currentBatchWords.length - 1) {
+      const nextStart = (currentBatchIndex + 1) * batchSizeNum;
 
-      const failedWords = finalResults
-        .filter(r => !r.gotIt && r.word.isMemorized)
-        .map(r => r.word.id);
-
-      if (memorizedWords.length > 0) {
-        await setWordsMemorized(id!, memorizedWords, true);
+      if (nextStart < studyWords.length) {
+        setShowBatchOverlay(true);
+      } else {
+        finishSession();
       }
-      if (failedWords.length > 0) {
-        await setWordsMemorized(id!, failedWords, false);
-      }
-      setStudyResults(finalResults);
-      router.replace({
-        pathname: '/study-results',
-        params: {
-          id,
-          mode: 'flashcards',
-          duration: Date.now() - startTime.current,
-          isStarred: settings.isStarred ? 'true' : 'false',
-          sessionFilter: settings.filter
-        }
-      });
       return;
     }
 
@@ -216,12 +279,41 @@ export default function FlashcardsScreen() {
 
     // Auto play sound for next word if enabled
     if (settings.autoPlaySound) {
-      const nextWord = studyWords[currentIndex + 1];
+      const nextWord = currentBatchWords[currentIndex + 1];
       if (nextWord) {
         speak(nextWord.term);
       }
     }
-  }, [currentWord, currentIndex, studyWords, rotation, setStudyResults, setWordsMemorized, id, settings.autoPlaySound]);
+  }, [currentWord, currentIndex, currentBatchWords, rotation, setStudyResults, setWordsMemorized, id, settings.autoPlaySound, currentBatchIndex, batchSizeNum, studyWords.length]);
+
+  const finishSession = async () => {
+    const finalResults = results.current;
+    const memorizedWords = finalResults
+      .filter(r => r.gotIt && !r.word.isMemorized)
+      .map(r => r.word.id);
+
+    const failedWords = finalResults
+      .filter(r => !r.gotIt && r.word.isMemorized)
+      .map(r => r.word.id);
+
+    if (memorizedWords.length > 0) {
+      await setWordsMemorized(id!, memorizedWords, true);
+    }
+    if (failedWords.length > 0) {
+      await setWordsMemorized(id!, failedWords, false);
+    }
+    setStudyResults(finalResults);
+    router.replace({
+      pathname: '/study-results',
+      params: {
+        id,
+        mode: 'flashcards',
+        duration: Date.now() - startTime.current,
+        isStarred: settings.isStarred ? 'true' : 'false',
+        sessionFilter: settings.filter
+      }
+    });
+  };
 
   const onSwipeComplete = useCallback((direction: 'left' | 'right') => {
     handleNext(direction === 'right');
@@ -432,6 +524,32 @@ export default function FlashcardsScreen() {
                     trackColor={{ true: colors.primary }}
                   />
                 </View>
+
+                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12 }]}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>학습 단위</Text>
+                  <View style={styles.filterGroup}>
+                    {['all', 10, 20, 30].map(size => {
+                      const isActive = studySettings.studyBatchSize === size;
+                      return (
+                        <Pressable
+                          key={size}
+                          onPress={() => updateStudySettings({ studyBatchSize: size as 'all' | 10 | 20 | 30 })}
+                          style={[
+                            styles.filterTab,
+                            {
+                              backgroundColor: isActive ? colors.primary : colors.surfaceSecondary,
+                              borderColor: isActive ? colors.primary : colors.borderLight
+                            }
+                          ]}
+                        >
+                          <Text style={[styles.filterTabText, { color: isActive ? '#FFF' : colors.textSecondary }]}>
+                            {size === 'all' ? '전체' : `${size}개`}
+                          </Text>
+                        </Pressable>
+                      )
+                    })}
+                  </View>
+                </View>
               </View>
 
               <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
@@ -449,10 +567,37 @@ export default function FlashcardsScreen() {
                 </View>
 
                 <View style={styles.settingRow}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
+                  <Switch
+                    value={settings.showPos}
+                    onValueChange={v => setSettings(s => ({ ...s, showPos: v }))}
+                    trackColor={{ true: colors.primary }}
+                  />
+                </View>
+
+                <View style={styles.settingRow}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>발음기호 표시</Text>
+                  <Switch
+                    value={settings.showPhonetic}
+                    onValueChange={v => setSettings(s => ({ ...s, showPhonetic: v }))}
+                    trackColor={{ true: colors.primary }}
+                  />
+                </View>
+
+                <View style={styles.settingRow}>
                   <Text style={[styles.settingLabel, { color: colors.text }]}>예문 표시</Text>
                   <Switch
                     value={settings.showExample}
                     onValueChange={v => setSettings(s => ({ ...s, showExample: v }))}
+                    trackColor={{ true: colors.primary }}
+                  />
+                </View>
+
+                <View style={styles.settingRow}>
+                  <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석 표시</Text>
+                  <Switch
+                    value={settings.showExampleKr}
+                    onValueChange={v => setSettings(s => ({ ...s, showExampleKr: v }))}
                     trackColor={{ true: colors.primary }}
                   />
                 </View>
@@ -466,30 +611,38 @@ export default function FlashcardsScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={[styles.topBar, { paddingTop: topInset + 12 }]}>
-        <View style={styles.progressArea}>
-          <Text style={[styles.progressText, { color: colors.textSecondary }]}>
-            {currentIndex + 1} / {studyWords.length}
-          </Text>
+      <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
+        <View style={styles.headerRow}>
+          <Pressable onPress={handleClose} hitSlop={12}>
+            <Ionicons name="chevron-back" size={24} color={colors.text} />
+          </Pressable>
+
+          <View style={styles.titleArea}>
+            <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
+              {list?.title || '플래시카드'}
+            </Text>
+          </View>
+
+          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+            <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
+          </Pressable>
+        </View>
+
+        <View style={styles.progressContainer}>
           <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
             <View
               style={[
                 styles.progressBarFill,
                 {
                   backgroundColor: colors.primary,
-                  width: `${((currentIndex + 1) / studyWords.length) * 100}%`,
+                  width: `${((currentIndex + 1) / currentBatchWords.length) * 100}%`,
                 },
               ]}
             />
           </View>
-        </View>
-        <View style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
-          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
-            <Ionicons name="settings-outline" size={24} color={colors.textSecondary} />
-          </Pressable>
-          <Pressable onPress={handleClose} hitSlop={12}>
-            <Ionicons name="close" size={26} color={colors.textSecondary} />
-          </Pressable>
+          <Text style={[styles.progressText, { color: colors.textTertiary }]}>
+            {currentIndex + 1} / {currentBatchWords.length}
+          </Text>
         </View>
       </View>
 
@@ -511,14 +664,18 @@ export default function FlashcardsScreen() {
         <GestureDetector gesture={panGesture}>
           <Animated.View style={[styles.cardContainer, animatedCardStyle]}>
             <Pressable style={{ flex: 1, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} onPress={handleFlip}>
-              <CardFront word={currentWord} colors={colors} rotation={rotation} onToggleStar={handleToggleStar} />
+              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={settings.showPos} />
               <CardBack
                 word={currentWord}
                 colors={colors}
+                isDark={isDark}
                 rotation={rotation}
                 onToggleStar={handleToggleStar}
                 showMeaning={settings.showMeaning}
                 showExample={settings.showExample}
+                showExampleKr={settings.showExampleKr}
+                showPhonetic={settings.showPhonetic}
+                showPos={settings.showPos}
               />
             </Pressable>
           </Animated.View>
@@ -534,15 +691,17 @@ export default function FlashcardsScreen() {
             style={({ pressed }) => [
               styles.actionBtn,
               {
-                backgroundColor: pressed ? colors.warningLight : colors.warningLight,
-                opacity: pressed ? 0.7 : 1
+                backgroundColor: pressed ? colors.warning + '33' : colors.warning + '1A', // 20% or 10% opacity
+                borderColor: colors.warning + '33',
+                borderWidth: 1,
               }
             ]}
           >
-            <Ionicons name="chevron-back" size={24} color={colors.warning} />
+            <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
+            <Ionicons name="chevron-back" size={22} color={colors.warning} />
             <View>
               <Text style={[styles.actionBtnText, { color: colors.warning }]}>Review</Text>
-              <Text style={[styles.actionBtnSubtext, { color: colors.warning, opacity: 0.4 }]}>Swipe Left</Text>
+              <Text style={[styles.actionBtnSubtext, { color: colors.warning, opacity: 0.5 }]}>Swipe Left</Text>
             </View>
           </Pressable>
         </Animated.View>
@@ -553,21 +712,52 @@ export default function FlashcardsScreen() {
             style={({ pressed }) => [
               styles.actionBtn,
               {
-                backgroundColor: pressed ? colors.primaryLight : colors.primaryLight,
-                opacity: pressed ? 0.7 : 1
+                backgroundColor: pressed ? colors.primary + '33' : colors.primary + '1A',
+                borderColor: colors.primary + '33',
+                borderWidth: 1,
               }
             ]}
           >
+            <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
             <View style={{ alignItems: 'flex-end' }}>
               <Text style={[styles.actionBtnText, { color: colors.primary }]}>Got it</Text>
-              <Text style={[styles.actionBtnSubtext, { color: colors.primary, opacity: 0.4 }]}>Swipe Right</Text>
+              <Text style={[styles.actionBtnSubtext, { color: colors.primary, opacity: 0.5 }]}>Swipe Right</Text>
             </View>
-            <Ionicons name="chevron-forward" size={24} color={colors.primary} />
+            <Ionicons name="chevron-forward" size={22} color={colors.primary} />
           </Pressable>
         </Animated.View>
       </View>
 
       {renderSettingsModal()}
+      <BatchResultOverlay
+        visible={showBatchOverlay}
+        completedCount={results.current.length}
+        totalCount={studyWords.length}
+        isLastBatch={(currentBatchIndex + 1) * batchSizeNum >= studyWords.length}
+        onNextBatch={() => {
+          setCurrentBatchIndex(prev => prev + 1);
+          setCurrentIndex(0);
+          rotation.value = 0;
+          setShowBatchOverlay(false);
+          // Auto play sound for first word of new batch
+          if (settings.autoPlaySound) {
+            const nextStart = (currentBatchIndex + 1) * batchSizeNum;
+            const nextWord = studyWords[nextStart];
+            if (nextWord) speak(nextWord.term);
+          }
+        }}
+        onRetryBatch={() => {
+          setCurrentIndex(0);
+          rotation.value = 0;
+          setShowBatchOverlay(false);
+          // Remove results for this batch so they aren't duplicated
+          results.current = results.current.slice(0, results.current.length - currentBatchWords.length);
+        }}
+        onFinish={() => {
+          setShowBatchOverlay(false);
+          finishSession();
+        }}
+      />
     </View>
   );
 }
@@ -576,29 +766,45 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  topBar: {
+  header: {
+    paddingHorizontal: 16,
+    paddingBottom: 0,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingBottom: 12,
     gap: 12,
   },
-  progressArea: {
+  titleArea: {
     flex: 1,
-    gap: 6,
   },
-  progressText: {
-    fontSize: 14,
-    fontFamily: 'Pretendard_600SemiBold',
+  headerTitle: {
+    fontSize: 20,
+    fontFamily: 'Pretendard_700Bold',
+  },
+  progressContainer: {
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingBottom: 12,
   },
   progressBarBg: {
-    height: 4,
-    borderRadius: 2,
+    flex: 1,
+    height: 6,
+    borderRadius: 3,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
-    borderRadius: 2,
+    borderRadius: 3,
+  },
+  progressText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_500Medium',
+    minWidth: 60,
+    textAlign: 'right',
   },
   cardArea: {
     flex: 1,
@@ -617,24 +823,58 @@ const styles = StyleSheet.create({
   card: {
     position: 'absolute',
     width: '100%',
-    minHeight: 280,
-    borderRadius: 20,
+    minHeight: 400,
+    borderRadius: 12,
     padding: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowOffset: { width: 0, height: 8 },
+    shadowOffset: { width: 0, height: 12 },
     shadowOpacity: 1,
-    shadowRadius: 16,
-    elevation: 8,
-    gap: 20,
+    shadowRadius: 20,
+    elevation: 12,
+    gap: 12,
   },
   cardBack: {
     position: 'absolute',
+    paddingTop: 100,
   },
   cardWord: {
     fontSize: 36,
     fontFamily: 'Pretendard_700Bold',
     textAlign: 'center',
+  },
+  cardInfoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: -8,
+  },
+  posBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  posBadgeText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  topPosBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
+  },
+  topPosBadgeText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  phoneticText: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_400Regular',
   },
   cardMeaning: {
     fontSize: 32,
@@ -648,14 +888,47 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     lineHeight: 24,
   },
+  cardExampleKr: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_400Regular',
+    textAlign: 'center',
+    marginTop: 8,
+    lineHeight: 20,
+  },
+  cardExampleBox: {
+    borderRadius: 12,
+    padding: 16,
+    width: '100%',
+  },
+  cardBackTerm: {
+    fontSize: 18,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  termWrapper: {
+    alignItems: 'center',
+  },
+  gradientDivider: {
+    width: 200,
+    height: 1.5,
+    opacity: 0.8,
+  },
+  hintText: {
+    position: 'absolute',
+    bottom: 24,
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
+    opacity: 0.7,
+  },
   speakerBtn: {
     padding: 8,
-    marginTop: 20,
+    marginTop: 10,
   },
   starBtn: {
     position: 'absolute',
-    top: 20,
-    right: 20,
+    top: 24,
+    left: 0,
+    right: 0,
+    alignItems: 'center',
     padding: 8,
     zIndex: 10,
   },
@@ -699,19 +972,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 14,
     borderRadius: 12,
-    gap: 8,
+    gap: 10,
+    overflow: 'hidden',
   },
-  reviewBtn: {},
-  gotItBtn: {},
   actionBtnText: {
-    fontSize: 18,
-    fontFamily: 'Pretendard_700Bold',
+    fontSize: 17,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   actionBtnSubtext: {
-    fontSize: 10,
+    fontSize: 9,
     fontFamily: 'Pretendard_600SemiBold',
     textTransform: 'uppercase',
-    marginTop: -2,
+    marginTop: -1,
   },
   modalOverlay: {
     flex: 1,

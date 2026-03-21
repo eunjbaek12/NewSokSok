@@ -125,6 +125,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/dict/naver", async (req: Request, res: Response) => {
+    try {
+      const { query } = req.query;
+      if (!query || typeof query !== "string") {
+        return res.status(400).json({ error: "query is required" });
+      }
+
+      const url = `https://en.dict.naver.com/api3/enko/search?query=${encodeURIComponent(query.trim())}&m=pc&lang=ko`;
+
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+          'Referer': 'https://en.dict.naver.com/',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Accept': 'application/json, text/javascript, */*; q=0.01',
+          'Alldict-Locale': 'ko'
+        }
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        console.error(`Naver API error: ${response.status} ${response.statusText}`, text);
+        return res.status(response.status).json({ error: `Naver API error: ${response.statusText}` });
+      }
+
+      const data = await response.json();
+      res.json(data);
+    } catch (error: any) {
+      console.error("Naver proxy error:", error?.message);
+      res.status(500).json({ error: "Failed to fetch from Naver" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -49,39 +49,39 @@ function ClassicTabLayout() {
         },
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.75)", // Increased transparency
-          borderTopWidth: 0.5,
-          borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.75)",
+          borderWidth: 0.5,
+          borderColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
           elevation: 8,
-          height: 64 + insets.bottom,
-          bottom: 0,
+          height: 64,
+          bottom: Math.max(insets.bottom, 16),
           left: 0,
           right: 0,
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
+          borderRadius: 32,
           shadowColor: "#000",
-          shadowOffset: { width: 0, height: -2 },
+          shadowOffset: { width: 0, height: 4 },
           shadowOpacity: 0.1,
-          shadowRadius: 4,
-          paddingBottom: insets.bottom,
+          shadowRadius: 12,
+          paddingBottom: 0,
         },
         tabBarItemStyle: {
           height: 64,
           justifyContent: 'center',
           alignItems: 'center',
-          paddingTop: 8, // Adjusted for spacing
+          paddingTop: 0,
         },
         tabBarIconStyle: {
           width: 24,
           height: 24,
           justifyContent: 'center',
           alignItems: 'center',
+          marginTop: 4,
         },
         tabBarBackground: () => (
           <BlurView
             intensity={80}
-            tint={isDark ? "dark" : "light"} // Revert to light blur for the medium tone
-            style={[StyleSheet.absoluteFill, { borderTopLeftRadius: 24, borderTopRightRadius: 24, overflow: 'hidden' }]}
+            tint={isDark ? "dark" : "light"}
+            style={[StyleSheet.absoluteFill, { borderRadius: 32, overflow: 'hidden' }]}
           />
         ),
       }}

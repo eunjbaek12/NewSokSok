@@ -35,7 +35,7 @@ export function Card({
 
 const styles = StyleSheet.create({
     card: {
-        borderRadius: 20,
+        borderRadius: 12,
         padding: 20,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 1,

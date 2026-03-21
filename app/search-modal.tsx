@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
     noTagsBox: { flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 100, gap: 12 },
     noTagsText: { fontSize: 15, fontFamily: 'Pretendard_400Regular' },
     resultsContent: { padding: 16, gap: 12 },
-    resultCard: { padding: 16, borderRadius: 20, borderWidth: 1, gap: 6 },
+    resultCard: { padding: 16, borderRadius: 12, borderWidth: 1, gap: 6 },
     resultHeaderRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
     resultTerm: { fontSize: 18, fontFamily: 'Pretendard_700Bold' },
     listBadge: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 12, gap: 4, maxWidth: '50%' },

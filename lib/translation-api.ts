@@ -43,9 +43,12 @@ export async function autoFillWord(term: string): Promise<AutoFillResult> {
           definition: data.definition || '',
           meaningKr: data.meaningKr || '',
           exampleEn: data.exampleEn || '',
+          mnemonic: data.mnemonic || '',
+          pos: data.pos || '',
+          phonetic: data.phonetic || '',
         };
       }
-    } catch {}
+    } catch { }
   }
 
   const [dictResult, translationResult] = await Promise.allSettled([
@@ -64,6 +67,8 @@ export async function autoFillWord(term: string): Promise<AutoFillResult> {
     definition: dict.definition,
     meaningKr,
     exampleEn: dict.exampleEn,
+    pos: dict.pos,
+    phonetic: dict.phonetic,
   };
 }
 
@@ -81,7 +86,7 @@ async function translateToKorean(word: string): Promise<string> {
 
 async function getDictionaryData(
   word: string
-): Promise<{ definition: string; exampleEn: string }> {
+): Promise<{ definition: string; exampleEn: string; pos?: string; phonetic?: string }> {
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Dictionary lookup failed');
@@ -89,26 +94,35 @@ async function getDictionaryData(
 
   let definition = '';
   let exampleEn = '';
+  let pos = '';
+  let phonetic = '';
 
   if (Array.isArray(data) && data.length > 0) {
-    for (const entry of data) {
-      if (entry.meanings) {
-        for (const meaning of entry.meanings) {
-          if (meaning.definitions) {
-            for (const def of meaning.definitions) {
-              if (!definition && def.definition) {
-                definition = def.definition;
-              }
-              if (!exampleEn && def.example) {
-                exampleEn = def.example;
-              }
-              if (definition && exampleEn) break;
+    const entry = data[0];
+
+    // Phonetic extraction
+    if (entry.phonetics && Array.isArray(entry.phonetics)) {
+      const p = entry.phonetics.find((ph: any) => ph.text);
+      if (p) phonetic = p.text.replace(/\//g, ''); // Remove slashes
+    }
+
+    if (entry.meanings) {
+      const posSet = new Set<string>();
+      for (const meaning of entry.meanings) {
+        if (meaning.partOfSpeech) posSet.add(meaning.partOfSpeech);
+
+        if (meaning.definitions) {
+          for (const def of meaning.definitions) {
+            if (!definition && def.definition) {
+              definition = def.definition;
+            }
+            if (!exampleEn && def.example) {
+              exampleEn = def.example;
             }
           }
-          if (definition && exampleEn) break;
         }
       }
-      if (definition && exampleEn) break;
+      pos = Array.from(posSet).join(', ');
     }
 
     if (!exampleEn && definition) {
@@ -116,7 +130,7 @@ async function getDictionaryData(
     }
   }
 
-  return { definition, exampleEn };
+  return { definition, exampleEn, pos, phonetic };
 }
 
 export async function generateThemeWords(
@@ -145,7 +159,7 @@ export async function generateThemeWords(
         const data = await res.json();
         return data.words || [];
       }
-    } catch {}
+    } catch { }
   }
 
   try {
@@ -238,6 +252,6 @@ export async function generateMoreWords(
     if (res.ok) {
       return await res.json();
     }
-  } catch {}
+  } catch { }
   return [];
 }

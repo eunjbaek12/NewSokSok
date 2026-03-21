@@ -127,7 +127,7 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
 
                     <TextInput
                         style={[styles.textArea, { backgroundColor: colors.surface, color: colors.text, borderColor: colors.border }]}
-                        placeholder={`단어\t뜻\t정의\t예문\t예문해석\t태그1,태그2\nWord\t단어\tDefinition\tExample\t해석\ttag1\n...붙여넣기...`}
+                        placeholder={`단어\t뜻\t정의\t예문\t예문해석\t태그1,태그2\napple\t사과\tround fruit\tI love apples\t나는 사과를 좋아해\t과일\n...붙여넣기...`}
                         placeholderTextColor={colors.border}
                         multiline
                         textAlignVertical="top"

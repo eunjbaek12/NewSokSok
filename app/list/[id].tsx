@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import {
   View,
   Text,
@@ -14,8 +14,9 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
+  BackHandler,
 } from 'react-native';
-import { useLocalSearchParams, router } from 'expo-router';
+import { useLocalSearchParams, router, useNavigation } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -85,10 +86,12 @@ export default function ListDetailScreen() {
 
   const list = lists.find(l => l.id === id);
   const allWords = getWordsForList(id!);
+  const navigation = useNavigation();
 
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
   const learningWords = useMemo(() => allWords.filter(w => !w.isMemorized), [allWords]);
+
   const memorizedWords = useMemo(() => allWords.filter(w => w.isMemorized), [allWords]);
   const starredWords = useMemo(() => allWords.filter(w => w.isStarred), [allWords]);
 
@@ -160,6 +163,32 @@ export default function ListDetailScreen() {
     setSelectedIds(new Set());
   }, []);
 
+  useEffect(() => {
+    // Android hardware back button handler
+    const onBackPress = () => {
+      if (editMode) {
+        exitEditMode();
+        return true;
+      }
+      return false;
+    };
+
+    // iOS/General navigation handler (swipe back, etc.)
+    const unsubscribe = navigation.addListener('beforeRemove', (e) => {
+      if (editMode) {
+        e.preventDefault();
+        exitEditMode();
+      }
+    });
+
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+    return () => {
+      backHandler.remove();
+      unsubscribe();
+    };
+  }, [navigation, editMode, exitEditMode]);
+
   const toggleSelection = useCallback((wordId: string) => {
     setSelectedIds(prev => {
       const next = new Set(prev);
@@ -171,6 +200,18 @@ export default function ListDetailScreen() {
       return next;
     });
   }, []);
+
+  const toggleSelectAll = useCallback(() => {
+    const allFilteredVisibleAreSelected = filteredWords.every(w => selectedIds.has(w.id));
+    if (allFilteredVisibleAreSelected) {
+      // 모든 필터링된 단어가 선택되어 있다면 -> 모두 해제
+      setSelectedIds(new Set());
+    } else {
+      // 그렇지 않다면 -> 현재 필터링된 모든 단어를 선택
+      setSelectedIds(new Set(filteredWords.map(w => w.id)));
+    }
+    Haptics.selectionAsync();
+  }, [filteredWords, selectedIds]);
 
   const handleBatchDelete = useCallback(async () => {
     if (selectedIds.size === 0) return;
@@ -406,6 +447,39 @@ export default function ListDetailScreen() {
   }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, toggleStarred, id]);
 
   const renderFilterHeader = () => {
+    if (editMode) {
+      const allSelected = filteredWords.length > 0 && filteredWords.every(w => selectedIds.has(w.id));
+      return (
+        <View style={[styles.visualFilterHeader, { borderBottomColor: colors.borderLight }]}>
+          <Pressable
+            onPress={toggleSelectAll}
+            style={styles.filterContent}
+          >
+            {/* 전체 선택 체크박스 (별표 필터 위치) */}
+            <View style={styles.starBtn}>
+              <Ionicons
+                name={allSelected ? 'checkbox' : 'square-outline'}
+                size={22}
+                color={allSelected ? colors.primary : colors.textTertiary}
+              />
+            </View>
+
+            {/* 전체 선택 텍스트 (중앙 제목 위치) */}
+            <View style={styles.cardTextArea}>
+              <Text style={[styles.filterCenterText, { color: colors.textSecondary }]}>
+                전체 선택 ({selectedIds.size}/{filteredWords.length})
+              </Text>
+            </View>
+
+            {/* 우측 보정용 공간 (상태 필터 위치) */}
+            <View style={[styles.cardActions, { minWidth: 60, justifyContent: 'flex-end', paddingRight: 4 }]}>
+              {/* 비워둠: 높이 및 균형 유지 */}
+            </View>
+          </Pressable>
+        </View>
+      );
+    }
+
     const cycleStatus = () => {
       setFilterStatus(prev => {
         if (prev === 'all') return 'learning';
@@ -643,31 +717,32 @@ export default function ListDetailScreen() {
           )}
         </View>
 
-        {!editMode && (
-          <View style={styles.progressContainer}>
-            <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
-              <View
-                style={[
-                  styles.progressBarFill,
-                  {
-                    backgroundColor: colors.success,
-                    width: `${progress.percent}%`,
-                  },
-                ]}
-              />
-            </View>
-            <Text style={[styles.progressText, { color: colors.textTertiary }]}>
-              {progress.memorized}/{progress.total} ({progress.percent}%)
-            </Text>
+        <View
+          style={[styles.progressContainer, { opacity: editMode ? 0 : 1 }]}
+          pointerEvents={editMode ? 'none' : 'auto'}
+        >
+          <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
+            <View
+              style={[
+                styles.progressBarFill,
+                {
+                  backgroundColor: colors.success,
+                  width: `${progress.percent}%`,
+                },
+              ]}
+            />
           </View>
-        )}
+          <Text style={[styles.progressText, { color: colors.textTertiary }]}>
+            {progress.memorized}/{progress.total} ({progress.percent}%)
+          </Text>
+        </View>
       </View>
 
       <FlatList
         data={filteredWords}
         keyExtractor={(item) => item.id}
         renderItem={renderWordCard}
-        ListHeaderComponent={editMode ? undefined : renderListHeader}
+        ListHeaderComponent={renderListHeader}
         ListEmptyComponent={renderEmpty}
         contentContainerStyle={[
           styles.listContent,
@@ -680,12 +755,14 @@ export default function ListDetailScreen() {
         }
       />
 
-      <Pressable
-        onPress={handleAddWord}
-        style={[styles.fab, { backgroundColor: colors.primary, bottom: insets.bottom + 84 }]}
-      >
-        <Ionicons name="add" size={28} color="#FFFFFF" />
-      </Pressable>
+      {!editMode && (
+        <Pressable
+          onPress={handleAddWord}
+          style={[styles.fab, { backgroundColor: colors.primary, bottom: insets.bottom + 84 }]}
+        >
+          <Ionicons name="add" size={28} color="#FFFFFF" />
+        </Pressable>
+      )}
 
       <WordDetailModal
         visible={isWordModalVisible}
@@ -708,17 +785,25 @@ export default function ListDetailScreen() {
       {!editMode && (
         <View style={[styles.bottomBarContainer, {
           backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.75)",
-          bottom: 0,
-          height: 64 + insets.bottom,
-          paddingBottom: insets.bottom,
-          borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
-          borderTopWidth: 0.5,
-          overflow: 'hidden',
+          bottom: Math.max(insets.bottom, 16),
+          left: 0,
+          right: 0,
+          height: 64,
+          borderRadius: 32,
+          borderWidth: 0.5,
+          borderColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
+          paddingBottom: 0,
+          overflow: 'visible', // Visible to allow shadow to show
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.1,
+          shadowRadius: 12,
+          elevation: 8,
         }]}>
           <BlurView
             intensity={80}
             tint={isDark ? "dark" : "light"}
-            style={StyleSheet.absoluteFill}
+            style={[StyleSheet.absoluteFill, { borderRadius: 32, overflow: 'hidden' }]}
           />
           {renderStudyButtons()}
         </View>
@@ -830,7 +915,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   card: {
-    borderRadius: 20,
+    borderRadius: 12,
     marginBottom: 12,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 1,
@@ -910,16 +995,11 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    left: 0,
-    right: 0,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    borderTopWidth: StyleSheet.hairlineWidth,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -6 },
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    elevation: 20,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 8,
     justifyContent: 'center',
   },
   modalOverlay: {

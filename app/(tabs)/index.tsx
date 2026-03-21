@@ -43,33 +43,6 @@ function getRelativeTime(timestamp?: number): string {
   return `${days}일 전`;
 }
 
-function getReviewStatus(lastStudiedAt?: number): { label: string; colorKey: string } {
-  if (!lastStudiedAt) return { label: '새로운 학습', colorKey: 'new' };
-  const diff = Date.now() - lastStudiedAt;
-  const days = diff / (24 * 60 * 60 * 1000);
-  if (days >= 7) return { label: '복습 필요', colorKey: 'weekly' };
-  if (days >= 3) return { label: '3-Day Review', colorKey: 'threeDay' };
-  if (days >= 1) return { label: 'Daily Review', colorKey: 'daily' };
-  return { label: 'Learned', colorKey: 'learned' };
-}
-
-function getBadgeColors(colorKey: string, colors: any): { bg: string; text: string } {
-  switch (colorKey) {
-    case 'new':
-      return { bg: colors.successLight, text: colors.success };
-    case 'learned':
-      return { bg: colors.surfaceSecondary, text: colors.textSecondary };
-    case 'daily':
-      return { bg: colors.warningLight, text: colors.warning };
-    case 'threeDay':
-      return { bg: colors.accentLight, text: colors.accent };
-    case 'weekly':
-      return { bg: colors.errorLight, text: colors.error };
-    default:
-      return { bg: colors.surfaceSecondary, text: colors.textSecondary };
-  }
-}
-
 function ProgressBar({ percent, colors }: { percent: number; colors: any }) {
   const animWidth = useRef(new RNAnimated.Value(0)).current;
 
@@ -101,41 +74,25 @@ function ProgressBar({ percent, colors }: { percent: number; colors: any }) {
   );
 }
 
-function ReviewBadge({ colorKey, label, colors }: { colorKey: string; label: string; colors: any }) {
-  const badgeColors = getBadgeColors(colorKey, colors);
-  const opacity = useSharedValue(1);
-
-  useEffect(() => {
-    if (colorKey === 'weekly') {
-      opacity.value = withRepeat(
-        withSequence(
-          withTiming(0.5, { duration: 1200 }),
-          withTiming(1, { duration: 1200 })
-        ),
-        -1,
-        false
-      );
-    } else {
-      opacity.value = 1;
-    }
-  }, [colorKey]);
-
-  const animStyle = useAnimatedStyle(() => ({
-    opacity: opacity.value,
-  }));
-
-  return (
-    <Animated.View style={[styles.badge, { backgroundColor: badgeColors.bg }, animStyle]}>
-      <Text style={[styles.badgeText, { color: badgeColors.text }]}>{label}</Text>
-    </Animated.View>
-  );
+interface StatusBadgeProps {
+  type: 'learning' | 'completed' | 'curated';
 }
 
-function CuratedBadge({ colors }: { colors: any }) {
+function StatusBadge({ type }: StatusBadgeProps) {
+  const config = {
+    learning: { label: '학습 중', text: '#3182F6', bg: '#EBF4FF' },
+    completed: { label: '완료', text: '#8B95A1', bg: '#F2F4F6' },
+    curated: { label: '모음', text: '#8E5AFF', bg: '#F4EFFF' },
+  };
+
+  const { label, text, bg } = config[type];
+
   return (
-    <View style={[styles.badge, { backgroundColor: colors.primaryLight, flexDirection: 'row', alignItems: 'center', gap: 4 }]}>
-      <Ionicons name="sparkles" size={10} color={colors.primary} />
-      <Text style={[styles.badgeText, { color: colors.primary }]}>CURATED</Text>
+    <View style={[styles.badge, { backgroundColor: bg }]}>
+      {type === 'curated' && (
+        <Ionicons name="sparkles" size={10} color={text} style={{ marginRight: 4 }} />
+      )}
+      <Text style={[styles.badgeText, { color: text }]}>{label}</Text>
     </View>
   );
 }
@@ -156,8 +113,13 @@ function ListCard({
   onOpenMenu: (list: VocaList) => void;
 }) {
   const progress = getListProgress(item.id);
-  const reviewStatus = getReviewStatus(item.lastStudiedAt);
   const relativeTime = getRelativeTime(item.lastStudiedAt);
+
+  const statusType = React.useMemo(() => {
+    if (item.isCurated) return 'curated';
+    if (progress.percent === 100 && progress.total > 0) return 'completed';
+    return 'learning';
+  }, [item.isCurated, progress.percent, progress.total]);
 
   const topTags = React.useMemo(() => {
     const words = getWordsForList(item.id);
@@ -217,8 +179,7 @@ function ListCard({
           </Text>
         </View>
         <View style={styles.cardActions}>
-          {item.isCurated && <CuratedBadge colors={colors} />}
-          {!item.isCurated && <ReviewBadge colorKey={reviewStatus.colorKey} label={reviewStatus.label} colors={colors} />}
+          <StatusBadge type={statusType} />
           <Pressable
             onPress={handleContextMenu}
             hitSlop={8}
@@ -855,7 +816,7 @@ export default function DashboardScreen() {
             {
               backgroundColor: colors.primary,
               opacity: pressed ? 0.85 : 1,
-              bottom: Platform.OS === 'web' ? 100 : 90,
+              bottom: insets.bottom + 84,
             },
           ]}
         >
@@ -1256,7 +1217,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   card: {
-    borderRadius: 20,
+    borderRadius: 12,
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
@@ -1292,6 +1253,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   badgeText: {
     fontSize: 11,

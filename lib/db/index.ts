@@ -88,6 +88,29 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase> {
                         currentVersion = 4;
                     }
 
+                    // Version 4 to 5
+                    if (currentVersion === 4) {
+                        try {
+                            await dbInstance!.execAsync('ALTER TABLE words ADD COLUMN phonetic TEXT;');
+                            await dbInstance!.execAsync('ALTER TABLE words ADD COLUMN pos TEXT;');
+                        } catch (e) {
+                            console.log('Columns phonetic or pos might already exist.', e);
+                        }
+                        currentVersion = 5;
+                    }
+
+                    // Version 5 to 6
+                    if (currentVersion === 5) {
+                        try {
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN position INTEGER DEFAULT 0;');
+                            // Initialize position with lastStudiedAt to preserve current order
+                            await dbInstance!.execAsync('UPDATE lists SET position = lastStudiedAt;');
+                        } catch (e) {
+                            console.log('Column position might already exist.', e);
+                        }
+                        currentVersion = 6;
+                    }
+
                     await dbInstance!.execAsync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
                 });
             }

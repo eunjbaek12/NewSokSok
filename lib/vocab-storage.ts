@@ -14,7 +14,7 @@ export async function getLists(): Promise<VocaList[]> {
 
   // 1. Fetch all lists
   const listsRows = await db.getAllAsync<any>(
-    'SELECT * FROM lists ORDER BY lastStudiedAt DESC'
+    'SELECT * FROM lists ORDER BY position DESC, createdAt DESC'
   );
 
   // 2. Fetch all words
@@ -30,6 +30,8 @@ export async function getLists(): Promise<VocaList[]> {
         id: w.id,
         term: w.term,
         definition: w.definition,
+        phonetic: w.phonetic,
+        pos: w.pos,
         exampleEn: w.exampleEn,
         exampleKr: w.exampleKr,
         meaningKr: w.meaningKr,
@@ -44,6 +46,7 @@ export async function getLists(): Promise<VocaList[]> {
       isVisible: Boolean(row.isVisible),
       createdAt: row.createdAt,
       lastStudiedAt: row.lastStudiedAt,
+      position: row.position,
       isCurated: Boolean(row.isCurated),
       icon: row.icon || undefined,
       words: listWords,
@@ -74,21 +77,21 @@ export async function initSeedDataIfEmpty(): Promise<void> {
     );
 
     await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [generateId(), defaultListId, 'Serendipity', 'The occurrence of events by chance in a happy way', 'We found the cafe by serendipity.', '우리는 우연히 그 카페를 찾았다.', '뜻밖의 행운', 0, 0, JSON.stringify(['행운', '우연'])]
+      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [generateId(), defaultListId, 'Serendipity', 'The occurrence of events by chance in a happy way', 'ˌserənˈdipədē', 'noun', 'We found the cafe by serendipity.', '우리는 우연히 그 카페를 찾았다.', '뜻밖의 행운', 0, 0, JSON.stringify(['행운', '우연'])]
     );
 
     await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [generateId(), defaultListId, 'Resilience', 'The capacity to recover quickly from difficulties', 'He showed great resilience after the failure.', '그는 실패 후 놀라운 회복력을 보여주었다.', '회복력', 0, 0, JSON.stringify(['멘탈', '회복'])]
+      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [generateId(), defaultListId, 'Resilience', 'The capacity to recover quickly from difficulties', 'riˈzilyəns', 'noun', 'He showed great resilience after the failure.', '그는 실패 후 놀라운 회복력을 보여주었다.', '회복력', 0, 0, JSON.stringify(['멘탈', '회복'])]
     );
 
     await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [generateId(), defaultListId, 'Consistency', 'Conformity in the application of something', 'Consistency is key to success.', '일관성은 성공의 열쇠이다.', '일관성', 0, 0, JSON.stringify(['습관'])]
+      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [generateId(), defaultListId, 'Consistency', 'Conformity in the application of something', 'kənˈsistənsē', 'noun', 'Consistency is key to success.', '일관성은 성공의 열쇠이다.', '일관성', 0, 0, JSON.stringify(['습관'])]
     );
   }
 }
@@ -99,8 +102,8 @@ export async function createList(title: string): Promise<VocaList> {
   const now = Date.now();
 
   await db.runAsync(
-    `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt) VALUES (?, ?, ?, ?, ?)`,
-    [id, title, 1, now, now]
+    `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position) VALUES (?, ?, ?, ?, ?, ?)`,
+    [id, title, 1, now, now, now]
   );
 
   return {
@@ -110,6 +113,7 @@ export async function createList(title: string): Promise<VocaList> {
     isVisible: true,
     createdAt: now,
     lastStudiedAt: now,
+    position: now,
   };
 }
 
@@ -120,8 +124,8 @@ export async function createCuratedList(title: string, icon: string, words: Omit
 
   await db.withTransactionAsync(async () => {
     await db.runAsync(
-      `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [id, title, 1, now, now, 1, icon]
+      `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [id, title, 1, now, now, 1, icon, now]
     );
 
     for (const w of words) {
@@ -207,12 +211,14 @@ export async function addWord(
 
   await db.withTransactionAsync(async () => {
     await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         newWord.id,
         listId,
         newWord.term ?? '',
         newWord.definition ?? '',
+        newWord.phonetic ?? null,
+        newWord.pos ?? null,
         newWord.exampleEn ?? '',
         newWord.exampleKr || null,
         newWord.meaningKr ?? '',
@@ -221,6 +227,7 @@ export async function addWord(
         JSON.stringify(newWord.tags ?? [])
       ]
     );
+    // touch list lastStudiedAt? We keep it but it won't affect order now as we order by position
     await db.runAsync(
       `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
       Date.now(),
@@ -252,6 +259,8 @@ export async function addBatchWords(
     term: w.term,
     meaningKr: w.meaningKr,
     definition: w.definition || '',
+    phonetic: w.phonetic || '',
+    pos: w.pos || '',
     exampleEn: w.exampleEn || '',
     exampleKr: w.exampleKr || '',
     tags: w.tags || [],
@@ -269,12 +278,14 @@ export async function addBatchWords(
   await db.withTransactionAsync(async () => {
     for (const data of bulkData) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           data.id,
           listId,
           data.term ?? '',
           data.definition ?? '',
+          data.phonetic ?? null,
+          data.pos ?? null,
           data.meaningKr ?? '',
           data.exampleEn ?? '',
           data.exampleKr || null,
@@ -287,6 +298,7 @@ export async function addBatchWords(
         ]
       );
     }
+    // We update lastStudiedAt for history, but position remains unchanged so order is preserved
     await db.runAsync(
       `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
       Date.now(),
@@ -309,6 +321,8 @@ export async function updateWord(
 
   if (updates.term !== undefined) { setClauses.push('term = ?'); values.push(updates.term); }
   if (updates.definition !== undefined) { setClauses.push('definition = ?'); values.push(updates.definition); }
+  if (updates.phonetic !== undefined) { setClauses.push('phonetic = ?'); values.push(updates.phonetic); }
+  if (updates.pos !== undefined) { setClauses.push('pos = ?'); values.push(updates.pos); }
   if (updates.exampleEn !== undefined) { setClauses.push('exampleEn = ?'); values.push(updates.exampleEn); }
   if (updates.exampleKr !== undefined) { setClauses.push('exampleKr = ?'); values.push(updates.exampleKr); }
   if (updates.meaningKr !== undefined) { setClauses.push('meaningKr = ?'); values.push(updates.meaningKr); }
@@ -324,6 +338,7 @@ export async function updateWord(
         ...values
       );
       // touch list lastStudiedAt? optional but consistent with AsyncStore logic although maybe slow for every word edit
+      // update list record for sync/last activity tracking
       await db.runAsync(
         `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
         Date.now(),
@@ -445,11 +460,11 @@ export async function reorderLists(orderedIds: string[]): Promise<void> {
 
   const now = Date.now();
   await db.withTransactionAsync(async () => {
-    // Reverse iterating to give highest time to first item in orderedIds
+    // Reverse iterating to give highest position to first item in orderedIds
     for (let i = 0; i < orderedIds.length; i++) {
       const id = orderedIds[i];
-      const newTime = now + ((orderedIds.length - i) * 1000);
-      await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', newTime, id);
+      const newPos = now + ((orderedIds.length - i) * 1000);
+      await db.runAsync('UPDATE lists SET position = ? WHERE id = ?', newPos, id);
     }
   });
 }
@@ -481,5 +496,57 @@ export async function setWordsMemorized(
       Date.now(),
       listId
     );
+  });
+}
+
+export async function copyWords(targetListId: string, wordIds: string[]): Promise<void> {
+  const db = await getDb();
+  if (wordIds.length === 0) return;
+
+  const placeholders = wordIds.map(() => '?').join(',');
+  const sourceWords = await db.getAllAsync<any>(
+    `SELECT * FROM words WHERE id IN (${placeholders})`,
+    ...wordIds
+  );
+
+  await db.withTransactionAsync(async () => {
+    for (const w of sourceWords) {
+      await db.runAsync(
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position) 
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          generateId(),
+          targetListId,
+          w.term,
+          w.definition,
+          w.phonetic,
+          w.pos,
+          w.meaningKr,
+          w.exampleEn,
+          w.exampleKr,
+          0, // copied words start as not memorized
+          0, // and not starred
+          w.tags,
+          Date.now() // default position
+        ]
+      );
+    }
+    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), targetListId);
+  });
+}
+
+export async function moveWords(targetListId: string, wordIds: string[]): Promise<void> {
+  const db = await getDb();
+  if (wordIds.length === 0) return;
+
+  const placeholders = wordIds.map(() => '?').join(',');
+  await db.withTransactionAsync(async () => {
+    await db.runAsync(
+      `UPDATE words SET listId = ?, position = ? WHERE id IN (${placeholders})`,
+      targetListId,
+      Date.now(),
+      ...wordIds
+    );
+    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), targetListId);
   });
 }

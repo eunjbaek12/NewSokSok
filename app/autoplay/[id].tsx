@@ -43,6 +43,7 @@ export default function AutoPlayScreen() {
     const [settings, setSettings] = useState({
         showTerm: true,
         showMeaning: true,
+        showPos: true,
         showExample: true,
         showExampleKr: true,
         autoPlaySound: true,
@@ -204,9 +205,16 @@ export default function AutoPlayScreen() {
                 <Animated.View style={[styles.cardContainer, cardStyle]}>
                     <Pressable onPress={handleCardClick} style={({ pressed }) => [styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, opacity: pressed ? 0.95 : 1 }]}>
                         {settings.showTerm && (
-                            <Text style={[styles.wordText, { color: colors.text }]} numberOfLines={2}>
-                                {currentWord.term}
-                            </Text>
+                            <>
+                                {settings.showPos && currentWord.pos && (
+                                    <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
+                                        <Text style={[styles.topPosBadgeText, { color: colors.primary }]}>{currentWord.pos}</Text>
+                                    </View>
+                                )}
+                                <Text style={[styles.wordText, { color: colors.text }]} numberOfLines={2}>
+                                    {currentWord.term}
+                                </Text>
+                            </>
                         )}
 
                         <Pressable
@@ -294,6 +302,10 @@ export default function AutoPlayScreen() {
                         <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
                             <Text style={{ color: colors.text, fontSize: 16 }}>뜻 표시</Text>
                             <Switch value={settings.showMeaning} onValueChange={v => setSettings(s => ({ ...s, showMeaning: v }))} trackColor={{ true: colors.primary }} />
+                        </View>
+                        <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
+                            <Text style={{ color: colors.text, fontSize: 16 }}>품사 표시</Text>
+                            <Switch value={settings.showPos} onValueChange={v => setSettings(s => ({ ...s, showPos: v }))} trackColor={{ true: colors.primary }} />
                         </View>
                         <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
                             <Text style={{ color: colors.text, fontSize: 16 }}>예문 표시</Text>
@@ -454,5 +466,17 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 20,
         borderRadius: 12,
+    },
+    topPosBadge: {
+        paddingHorizontal: 8,
+        paddingVertical: 2,
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 8,
+    },
+    topPosBadgeText: {
+        fontSize: 12,
+        fontFamily: 'Pretendard_600SemiBold',
     },
 });

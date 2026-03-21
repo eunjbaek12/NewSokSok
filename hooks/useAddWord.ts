@@ -2,17 +2,20 @@ import { useState, useTransition } from 'react';
 import * as Haptics from 'expo-haptics';
 import { useVocab } from '@/contexts/VocabContext';
 import { autoFillWord } from '@/lib/translation-api';
+import { searchNaverDict } from '@/lib/naver-dict-api';
 
-export function useAddWord(listId?: string, wordId?: string, existingWord?: any) {
+export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any) {
     const { addWord, updateWord } = useVocab();
 
-    const [term, setTerm] = useState(existingWord?.term || '');
-    const [definition, setDefinition] = useState(existingWord?.definition || '');
-    const [exampleEn, setExampleEn] = useState(existingWord?.exampleEn || '');
-    const [exampleKr, setExampleKr] = useState(existingWord?.exampleKr || '');
-    const [meaningKr, setMeaningKr] = useState(existingWord?.meaningKr || '');
-    const [tags, setTags] = useState<string[]>(existingWord?.tags || []);
-    const [isStarred, setIsStarred] = useState<boolean>(existingWord?.isStarred || false);
+    const [term, setTerm] = useState(initialState?.term ?? existingWord?.term ?? '');
+    const [definition, setDefinition] = useState(initialState?.definition ?? existingWord?.definition ?? '');
+    const [exampleEn, setExampleEn] = useState(initialState?.exampleEn ?? existingWord?.exampleEn ?? '');
+    const [exampleKr, setExampleKr] = useState(initialState?.exampleKr ?? existingWord?.exampleKr ?? '');
+    const [meaningKr, setMeaningKr] = useState(initialState?.meaningKr ?? existingWord?.meaningKr ?? '');
+    const [phonetic, setPhonetic] = useState(initialState?.phonetic ?? existingWord?.phonetic ?? '');
+    const [pos, setPos] = useState(initialState?.pos ?? existingWord?.pos ?? '');
+    const [tags, setTags] = useState<string[]>(initialState?.tags ?? existingWord?.tags ?? []);
+    const [isStarred, setIsStarred] = useState<boolean>(initialState?.isStarred ?? existingWord?.isStarred ?? false);
 
     const [errors, setErrors] = useState<{ term?: boolean; meaningKr?: boolean }>({});
 
@@ -25,9 +28,24 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any)
         startAutoFill(async () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
             try {
+                // Try Naver Dictionary first
+                const naverResult = await searchNaverDict(term.trim());
+                if (naverResult) {
+                    if (naverResult.meaningKr) setMeaningKr(naverResult.meaningKr);
+                    if (naverResult.definition) setDefinition(naverResult.definition);
+                    if (naverResult.phonetic) setPhonetic(naverResult.phonetic);
+                    if (naverResult.pos) setPos(naverResult.pos);
+                    if (naverResult.exampleEn) setExampleEn(naverResult.exampleEn);
+                    if (naverResult.exampleKr) setExampleKr(naverResult.exampleKr);
+                    return;
+                }
+
+                // Fallback to AI Analysis
                 const result = await autoFillWord(term.trim());
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
+                if (result.phonetic) setPhonetic(result.phonetic);
+                if (result.pos) setPos(result.pos);
                 if (result.exampleEn) setExampleEn(result.exampleEn);
                 if (result.exampleKr) setExampleKr(result.exampleKr);
             } catch {
@@ -54,6 +72,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any)
                     await updateWord(listId, wordId, {
                         term: term.trim(),
                         definition: definition.trim(),
+                        phonetic: phonetic.trim(),
+                        pos: pos.trim(),
                         meaningKr: meaningKr.trim(),
                         exampleEn: exampleEn.trim(),
                         exampleKr: exampleKr.trim(),
@@ -71,6 +91,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any)
                     await addWord(selectedListId, {
                         term: savedTerm,
                         definition: definition.trim(),
+                        phonetic: phonetic.trim(),
+                        pos: pos.trim(),
                         exampleEn: exampleEn.trim(),
                         exampleKr: exampleKr.trim(),
                         meaningKr: meaningKr.trim(),
@@ -81,6 +103,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any)
                     // Reset states
                     setTerm('');
                     setDefinition('');
+                    setPhonetic('');
+                    setPos('');
                     setMeaningKr('');
                     setExampleEn('');
                     setExampleKr('');
@@ -101,12 +125,15 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any)
         term, setTerm,
         definition, setDefinition,
         meaningKr, setMeaningKr,
+        phonetic, setPhonetic,
+        pos, setPos,
         exampleEn, setExampleEn,
         exampleKr, setExampleKr,
         isStarred, setIsStarred,
         tags, setTags,
         errors, setErrors,
         handleAutoFill,
+        startAutoFill,
         handleSaveWord,
         isPendingFill,
         isPendingSave,

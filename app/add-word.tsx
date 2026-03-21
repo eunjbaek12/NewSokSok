@@ -77,7 +77,6 @@ const DraggableFieldItem = ({
     const startY = useSharedValue(0);
     const scale = useSharedValue(1);
 
-    // index가 바뀌어도 현재 활성화된(gesture 중인) worklet에서 최신 index를 참조할 수 있도록 SharedValue 사용
     const currentIndex = useSharedValue(index);
     useEffect(() => {
         currentIndex.value = index;
@@ -87,26 +86,24 @@ const DraggableFieldItem = ({
 
     const gesture = Gesture.Pan()
         .enabled(!isFixed)
-        .activateAfterLongPress(100) // 100ms 지연
+        .activateAfterLongPress(100)
         .onStart((e) => {
             isDragging.value = true;
             startY.value = translateY.value;
-            lastSwapY.value = 0; // 초기화
-            scale.value = 1; // 크기 조절 애니메이션 완전 제거
+            lastSwapY.value = 0;
+            scale.value = 1.02; // 약간 떠오르는 효과
             runOnJS(Haptics.impactAsync)(Haptics.ImpactFeedbackStyle.Light);
         })
         .onUpdate((e) => {
             translateY.value = startY.value + e.translationY - lastSwapY.value;
 
-            const threshold = 44; // 행 높이에 맞춰 임계값 설정
+            const threshold = 40; // 항목 높이가 줄어들었으므로 조정
             const dy = e.translationY - lastSwapY.value;
 
-            // 아래로 이동
             if (dy > threshold && currentIndex.value < totalCount - 1) {
                 runOnJS(onSwap)(currentIndex.value, currentIndex.value + 1);
                 lastSwapY.value += threshold;
             }
-            // 위로 이동
             else if (dy < -threshold && currentIndex.value > 0) {
                 runOnJS(onSwap)(currentIndex.value, currentIndex.value - 1);
                 lastSwapY.value -= threshold;
@@ -114,55 +111,62 @@ const DraggableFieldItem = ({
         })
         .onEnd(() => {
             isDragging.value = false;
-            scale.value = 1;
-            translateY.value = withTiming(0, { duration: 150 }); // 스프링 대신 타이밍으로 차분하게 복구
-        })
-        .onFinalize(() => {
-            // 제스처가 강제 취소되어도 초기화되도록 보장
-            isDragging.value = false;
-            scale.value = 1;
-            translateY.value = withTiming(0, { duration: 150 });
+            scale.value = withTiming(1);
+            translateY.value = withSpring(0);
         });
 
     const animatedStyle = useAnimatedStyle(() => ({
         transform: [
             { translateY: translateY.value },
+            { scale: scale.value }
         ],
         zIndex: isDragging.value ? 1000 : 1,
-        backgroundColor: 'transparent', // 배경색 없음
-        shadowOpacity: 0, // 그림자 완전 제거
-        shadowRadius: 0,
-        elevation: 0, // 안드로이드 그림자 완전 제거
-        opacity: isFixed ? 0.4 : 1,
+        backgroundColor: isDragging.value ? colors.surface : (isVisible ? colors.primary + '08' : 'transparent'),
+        borderColor: isDragging.value ? colors.primary : (isVisible ? colors.primary + '40' : colors.borderLight),
+        borderStyle: isDragging.value ? 'dashed' : 'solid',
+        borderWidth: isVisible || isDragging.value ? 1.5 : 1,
+        shadowOpacity: isDragging.value ? 0.1 : 0,
+        shadowRadius: 10,
+        elevation: isDragging.value ? 5 : 0,
+        opacity: isFixed ? 0.6 : 1,
     }));
 
     return (
         <Animated.View
-            layout={Layout.duration(200)} // 스프링 이펙트(출렁임) 대신 일정한 속도로 차분하게 이동
-            style={[styles.settingsRowCompact, animatedStyle, { borderBottomColor: colors.borderLight }]}
+            layout={Layout.duration(200)}
+            style={[styles.settingsRowCompact, animatedStyle, { borderRadius: 12, marginBottom: 2, paddingHorizontal: 4 }]}
         >
             <GestureDetector gesture={gesture}>
-                <View style={{ paddingLeft: 14, paddingRight: 16, paddingVertical: 10 }}>
+                <View style={{ paddingLeft: 10, paddingRight: 10, paddingVertical: 6 }}>
                     <Ionicons
                         name="reorder-four-outline"
-                        size={22}
-                        color={isFixed ? colors.textTertiary : colors.primary}
+                        size={20}
+                        color={isFixed ? colors.textTertiary : (isDragging.value ? colors.primary : colors.textSecondary)}
                     />
                 </View>
             </GestureDetector>
 
-            <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
-                <Text style={[styles.settingsRowText, { color: isFixed ? colors.textTertiary : colors.text, fontSize: 15 }]}>
-                    {label}
-                </Text>
-            </View>
+            <Pressable
+                onPress={isFixed ? undefined : onToggle}
+                style={{ flex: 1, flexDirection: 'row', alignItems: 'center', height: '100%' }}
+                disabled={isFixed}
+            >
+                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                    <Text style={[styles.settingsRowText, { color: isFixed ? colors.textTertiary : colors.text, fontSize: 14, fontFamily: isVisible ? 'Pretendard_600SemiBold' : 'Pretendard_500Medium' }]}>
+                        {label}
+                    </Text>
+                    {isFixed && (
+                        <View style={{ backgroundColor: colors.surfaceSecondary, paddingHorizontal: 5, paddingVertical: 1, borderRadius: 4, marginLeft: 6 }}>
+                            <Text style={{ fontSize: 9, color: colors.textTertiary, fontFamily: 'Pretendard_600SemiBold' }}>필수</Text>
+                        </View>
+                    )}
+                </View>
 
-            <Pressable onPress={isFixed ? undefined : onToggle} hitSlop={12} disabled={isFixed}>
-                <View style={{ width: 44, alignItems: 'flex-end', justifyContent: 'center', paddingVertical: 10, paddingRight: 8 }}>
+                <View style={{ width: 40, alignItems: 'flex-end', justifyContent: 'center', paddingRight: 8 }}>
                     <Ionicons
                         name={isVisible ? "checkbox" : "square-outline"}
                         size={22}
-                        color={isFixed ? colors.border : (isVisible ? colors.primary : colors.textTertiary)}
+                        color={isVisible ? colors.primary : colors.border}
                     />
                 </View>
             </Pressable>
@@ -305,6 +309,41 @@ export default function AddWordScreen() {
     const [toastVisible, setToastVisible] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
     const [tagInput, setTagInput] = useState('');
+    const [isApplying, setIsApplying] = useState(false);
+
+    const selectedFieldsCount = useMemo(() => {
+        let count = 2; // term, meaningKr
+        if (tempSettings.showPos) count++;
+        if (tempSettings.showPhonetic) count++;
+        if (tempSettings.showDefinition) count++;
+        if (tempSettings.showExample) count++;
+        if (tempSettings.showTags) count++;
+        return count;
+    }, [tempSettings]);
+
+    const modalTranslateY = useSharedValue(0);
+    const modalGesture = Gesture.Pan()
+        .onUpdate((e) => {
+            if (e.translationY > 0) {
+                modalTranslateY.value = e.translationY;
+            }
+        })
+        .onEnd((e) => {
+            if (e.translationY > 100 || e.velocityY > 500) {
+                runOnJS(setFieldSettingsOpen)(false);
+            }
+            modalTranslateY.value = withSpring(0, { damping: 20, stiffness: 200 });
+        });
+
+    const modalAnimatedStyle = useAnimatedStyle(() => ({
+        transform: [{ translateY: modalTranslateY.value }]
+    }));
+
+    useEffect(() => {
+        if (fieldSettingsOpen) {
+            modalTranslateY.value = 0;
+        }
+    }, [fieldSettingsOpen]);
 
     useEffect(() => {
         if (!isEditing && inputMode === 'manual' && !fieldSettingsOpen) {
@@ -321,22 +360,28 @@ export default function AddWordScreen() {
     };
 
     const handleApplySettings = async () => {
-        await updateInputSettings(tempSettings);
-        setFieldSettingsOpen(false);
+        setIsApplying(true);
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
 
-        // 화면을 즉시 갱신하기 위해 router.replace 사용 (presentation mode 등 네이티브 설정 반영)
-        // 현재 경로와 파라미터를 유지하면서 다시 로드
-        router.replace({
-            pathname: '/add-word',
-            params: {
+        // 시각적 피드백을 위해 약간의 지연
+        setTimeout(async () => {
+            await updateInputSettings(tempSettings);
+            setFieldSettingsOpen(false);
+            setIsApplying(false);
+
+            // wordId가 없을 경우 파라미터에서 제외하여 문자열 "null" 전달 방지
+            const params: any = {
                 listId: selectedListId,
-                wordId: wordId,
                 initialMode: tempSettings.addWordMode,
-                // 기존 입력 중이던 값이 있다면 draft로 전달하여 복구 가능하게 함
                 draft: JSON.stringify({ term, meaningKr, definition, exampleEn, exampleKr, tags, pos, phonetic })
-            }
-        });
+            };
+            if (wordId) params.wordId = wordId;
+
+            router.replace({
+                pathname: '/add-word',
+                params
+            });
+        }, 500);
     };
 
     const handleCancelSettings = () => {
@@ -559,265 +604,290 @@ export default function AddWordScreen() {
         );
     }
 
+    const currentMode = fieldSettingsOpen ? tempSettings.addWordMode : inputSettings.addWordMode;
+
     return (
-        <View style={[styles.container, { backgroundColor: colors.background }]}>
-            <View style={[
-                styles.topBar,
-                {
-                    borderBottomColor: colors.borderLight,
-                    paddingTop: (fieldSettingsOpen ? tempSettings.addWordMode : inputSettings.addWordMode) === 'full' ? Math.max(insets.top, 4) : 8,
-                    paddingBottom: (fieldSettingsOpen ? tempSettings.addWordMode : inputSettings.addWordMode) === 'full' ? 6 : 8
-                }
-            ]}>
-                <Pressable onPress={() => router.back()} hitSlop={8}>
-                    <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>취소</Text>
-                </Pressable>
-                <Text style={[styles.topBarTitle, { color: colors.text }]}>
-                    {isEditing ? '단어 편집' : '단어 추가'}
-                </Text>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Pressable onPress={() => setFieldSettingsOpen(true)} hitSlop={12} style={{ padding: 6 }}>
-                        <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
-                    </Pressable>
-                </View>
-            </View>
-
-            <ScrollView
-                style={{ flex: 1 }}
-                contentContainerStyle={styles.scrollContent}
-                keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false}
+        <View style={[
+            styles.container,
+            currentMode === 'popup' ? {
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'rgba(0,0,0,0.4)'
+            } : { backgroundColor: colors.background }
+        ]}>
+            <Animated.View
+                layout={Layout.duration(300)}
+                style={[
+                    currentMode === 'popup' ? {
+                        width: '92%',
+                        height: '84%',
+                        maxHeight: 700,
+                        backgroundColor: colors.background,
+                        borderRadius: 24,
+                        overflow: 'hidden',
+                        shadowColor: '#000',
+                        shadowOffset: { width: 0, height: 10 },
+                        shadowOpacity: 0.25,
+                        shadowRadius: 20,
+                        elevation: 10,
+                    } : { flex: 1, backgroundColor: colors.background }
+                ]}
             >
-                {!isEditing && (
-                    <Pressable
-                        onPress={handleOpenListPicker}
-                        style={[styles.listSelector, { backgroundColor: colors.surface, borderColor: selectedListId ? colors.border : colors.error }]}
-                    >
-                        <Ionicons name="folder-outline" size={18} color={selectedListId ? colors.textSecondary : colors.error} />
-                        <Text style={[styles.listSelectorText, { color: selectedListId ? colors.text : colors.textTertiary }]} numberOfLines={1}>
-                            {selectedListTitle}
-                        </Text>
-                        <Ionicons name="chevron-down" size={16} color={colors.textTertiary} />
+                <View style={[
+                    styles.topBar,
+                    {
+                        borderBottomColor: colors.borderLight,
+                        paddingTop: currentMode === 'full' ? Math.max(insets.top, 4) : 16,
+                        paddingBottom: currentMode === 'full' ? 6 : 12
+                    }
+                ]}>
+                    <Pressable onPress={() => router.back()} hitSlop={8}>
+                        <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>취소</Text>
                     </Pressable>
-                )}
-
-
-
-                {(isEditing || inputMode === 'manual') && (
-                    <>
-                        <View style={styles.fieldsContainer}>
-                            {sortedFieldOrder.map((fieldId) => {
-                                if (fieldId === 'term') {
-                                    return (
-                                        <View key="term" style={styles.wordSection}>
-                                            <View style={styles.wordInputWrapper}>
-                                                <TextInput
-                                                    ref={termInputRef}
-                                                    style={[styles.wordInput, { color: colors.text, borderColor: errors.term ? colors.error : colors.border }]}
-                                                    placeholder="단어 입력"
-                                                    placeholderTextColor={colors.textTertiary}
-                                                    value={term}
-                                                    onChangeText={(t) => {
-                                                        setTerm(t);
-                                                        if (errors.term) setErrors(e => ({ ...e, term: false }));
-                                                    }}
-                                                    autoFocus={!isEditing}
-                                                    autoCapitalize="none"
-                                                    autoCorrect={false}
-                                                    returnKeyType="search"
-                                                    onSubmitEditing={handleSearch}
-                                                    blurOnSubmit={false}
-                                                />
-                                                <View style={styles.searchActions}>
-                                                    <Pressable
-                                                        onPress={handleSearch}
-                                                        disabled={!term.trim() || isPendingFill}
-                                                        style={styles.searchIconButton}
-                                                    >
-                                                        {isPendingFill ? (
-                                                            <ActivityIndicator size="small" color={colors.primary} />
-                                                        ) : (
-                                                            <Ionicons
-                                                                name="search-outline"
-                                                                size={22}
-                                                                color={term.trim() ? colors.primary : colors.textTertiary}
-                                                            />
-                                                        )}
-                                                    </Pressable>
-                                                    <Pressable
-                                                        onPress={() => setEnginePickerOpen(true)}
-                                                        style={styles.moreIconButton}
-                                                    >
-                                                        <Ionicons
-                                                            name="ellipsis-horizontal"
-                                                            size={20}
-                                                            color={colors.textTertiary}
-                                                        />
-                                                    </Pressable>
-                                                </View>
-                                            </View>
-                                            {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>단어를 입력해주세요</Text>}
-                                        </View>
-                                    );
-                                }
-
-                                if (fieldId === 'meaningKr') {
-                                    return (
-                                        <Input
-                                            key="meaningKr"
-                                            label="한국어 뜻"
-                                            placeholder="한국어 뜻 입력"
-                                            value={meaningKr}
-                                            onChangeText={(t: string) => { setMeaningKr(t); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
-                                            error={errors.meaningKr ? "뜻을 입력해주세요" : undefined}
-                                        />
-                                    );
-                                }
-
-                                if (fieldId === 'pos' && inputSettings.showPos) {
-                                    return (
-                                        <Animated.View key="pos" entering={FadeIn} exiting={FadeOut} layout={Layout}>
-                                            <Input
-                                                label="품사"
-                                                placeholder="품사 입력 (예: noun, v)"
-                                                value={pos}
-                                                onChangeText={setPos}
-                                            />
-                                        </Animated.View>
-                                    );
-                                }
-
-                                if (fieldId === 'phonetic' && inputSettings.showPhonetic) {
-                                    return (
-                                        <Animated.View key="phonetic" entering={FadeIn} exiting={FadeOut} layout={Layout}>
-                                            <Input
-                                                label="발음기호"
-                                                placeholder="발음기호 입력"
-                                                value={phonetic}
-                                                onChangeText={setPhonetic}
-                                            />
-                                        </Animated.View>
-                                    );
-                                }
-
-                                if (fieldId === 'example' && inputSettings.showExample) {
-                                    return (
-                                        <Animated.View key="example" entering={FadeIn} exiting={FadeOut} layout={Layout} style={{ gap: 16 }}>
-                                            <Input
-                                                label="예문"
-                                                placeholder="예문 입력"
-                                                value={exampleEn}
-                                                onChangeText={setExampleEn}
-                                                multiline
-                                                style={{ fontStyle: 'italic' }}
-                                            />
-                                            <Input
-                                                label="예문 해석"
-                                                placeholder="한국어 예문 해석"
-                                                value={exampleKr}
-                                                onChangeText={setExampleKr}
-                                                multiline
-                                            />
-                                        </Animated.View>
-                                    );
-                                }
-
-                                if (fieldId === 'definition' && inputSettings.showDefinition) {
-                                    return (
-                                        <Animated.View key="definition" entering={FadeIn} exiting={FadeOut} layout={Layout}>
-                                            <Input
-                                                label="영문 정의"
-                                                placeholder="영문 정의 입력"
-                                                value={definition}
-                                                onChangeText={setDefinition}
-                                                multiline
-                                            />
-                                        </Animated.View>
-                                    );
-                                }
-
-                                if (fieldId === 'tags' && inputSettings.showTags) {
-                                    return (
-                                        <Animated.View key="tags" entering={FadeIn} exiting={FadeOut} layout={Layout} style={styles.tagsContainer}>
-                                            <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>태그</Text>
-                                            <View style={styles.tagInputRow}>
-                                                <TextInput
-                                                    style={[styles.tagInput, { color: colors.text, borderColor: colors.border, backgroundColor: colors.surface }]}
-                                                    placeholder="태그 입력 (쉼표/공백 구분)"
-                                                    placeholderTextColor={colors.textTertiary}
-                                                    value={tagInput}
-                                                    onChangeText={setTagInput}
-                                                    onSubmitEditing={handleAddTag}
-                                                    returnKeyType="done"
-                                                    autoCapitalize="none"
-                                                />
-                                                <Pressable
-                                                    onPress={handleAddTag}
-                                                    disabled={!tagInput.trim()}
-                                                    style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primary : colors.surfaceSecondary }]}
-                                                >
-                                                    <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
-                                                </Pressable>
-                                            </View>
-
-                                            {tags.length > 0 && (
-                                                <View style={styles.tagsFlexBox}>
-                                                    {tags.map((t, idx) => (
-                                                        <View key={`${t}-${idx}`} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
-                                                            <Text style={[styles.tagChipText, { color: colors.text }]}>#{t}</Text>
-                                                            <Pressable onPress={() => handleRemoveTag(t)} hitSlop={6} style={styles.tagChipClose}>
-                                                                <Ionicons name="close-circle" size={16} color={colors.textTertiary} />
-                                                            </Pressable>
-                                                        </View>
-                                                    ))}
-                                                </View>
-                                            )}
-                                        </Animated.View>
-                                    );
-                                }
-
-                                return null;
-                            })}
-                        </View>
-                    </>
-                )}
-
-                {/* inputMode === 'photo' is currently handled as full screen replacement above, 
-                 so this block acts as a fallback or is hidden. Handled directly via PhotoImportWorkflow */}
-
-            </ScrollView>
-
-            {
-                (isEditing || inputMode === 'manual') && (
-                    <Animated.View style={[
-                        styles.fabContainer,
-                        animatedFabStyle,
-                        { bottom: Math.max(insets.bottom, 20) + 20 }
-                    ]}>
-                        <Pressable
-                            onPress={onSave}
-                            disabled={isPendingSave}
-                            style={({ pressed }) => [
-                                styles.fabButton,
-                                {
-                                    backgroundColor: colors.primary,
-                                    opacity: isPendingSave || pressed ? 0.8 : 1,
-                                    shadowColor: colors.primary,
-                                }
-                            ]}
-                        >
-                            {isPendingSave ? (
-                                <ActivityIndicator color="#fff" size="small" />
-                            ) : (
-                                <>
-                                    <Ionicons name="checkmark" size={20} color="#fff" />
-                                    <Text style={styles.fabText}>저장</Text>
-                                </>
-                            )}
+                    <Text style={[styles.topBarTitle, { color: colors.text }]}>
+                        {isEditing ? '단어 편집' : '단어 추가'}
+                    </Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Pressable onPress={() => setFieldSettingsOpen(true)} hitSlop={12} style={{ padding: 6 }}>
+                            <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
                         </Pressable>
-                    </Animated.View>
-                )
-            }
+                    </View>
+                </View>
+
+                <ScrollView
+                    style={{ flex: 1 }}
+                    contentContainerStyle={styles.scrollContent}
+                    keyboardShouldPersistTaps="handled"
+                    showsVerticalScrollIndicator={false}
+                >
+                    {!isEditing && (
+                        <Pressable
+                            onPress={handleOpenListPicker}
+                            style={[styles.listSelector, { backgroundColor: colors.surface, borderColor: selectedListId ? colors.border : colors.error }]}
+                        >
+                            <Ionicons name="folder-outline" size={18} color={selectedListId ? colors.textSecondary : colors.error} />
+                            <Text style={[styles.listSelectorText, { color: selectedListId ? colors.text : colors.textTertiary }]} numberOfLines={1}>
+                                {selectedListTitle}
+                            </Text>
+                            <Ionicons name="chevron-down" size={16} color={colors.textTertiary} />
+                        </Pressable>
+                    )}
+
+
+
+                    {(isEditing || inputMode === 'manual') && (
+                        <>
+                            <View style={styles.fieldsContainer}>
+                                {sortedFieldOrder.map((fieldId) => {
+                                    if (fieldId === 'term') {
+                                        return (
+                                            <View key="term" style={styles.wordSection}>
+                                                <View style={styles.wordInputWrapper}>
+                                                    <TextInput
+                                                        ref={termInputRef}
+                                                        style={[styles.wordInput, { color: colors.text, borderColor: errors.term ? colors.error : colors.border }]}
+                                                        placeholder="단어 입력"
+                                                        placeholderTextColor={colors.textTertiary}
+                                                        value={term}
+                                                        onChangeText={(t) => {
+                                                            setTerm(t);
+                                                            if (errors.term) setErrors(e => ({ ...e, term: false }));
+                                                        }}
+                                                        autoFocus={!isEditing}
+                                                        autoCapitalize="none"
+                                                        autoCorrect={false}
+                                                        returnKeyType="search"
+                                                        onSubmitEditing={handleSearch}
+                                                        blurOnSubmit={false}
+                                                    />
+                                                    <View style={styles.searchActions}>
+                                                        <Pressable
+                                                            onPress={handleSearch}
+                                                            disabled={!term.trim() || isPendingFill}
+                                                            style={styles.searchIconButton}
+                                                        >
+                                                            {isPendingFill ? (
+                                                                <ActivityIndicator size="small" color={colors.primary} />
+                                                            ) : (
+                                                                <Ionicons
+                                                                    name="search-outline"
+                                                                    size={22}
+                                                                    color={term.trim() ? colors.primary : colors.textTertiary}
+                                                                />
+                                                            )}
+                                                        </Pressable>
+                                                        <Pressable
+                                                            onPress={() => setEnginePickerOpen(true)}
+                                                            style={styles.moreIconButton}
+                                                        >
+                                                            <Ionicons
+                                                                name="ellipsis-horizontal"
+                                                                size={20}
+                                                                color={colors.textTertiary}
+                                                            />
+                                                        </Pressable>
+                                                    </View>
+                                                </View>
+                                                {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>단어를 입력해주세요</Text>}
+                                            </View>
+                                        );
+                                    }
+
+                                    if (fieldId === 'meaningKr') {
+                                        return (
+                                            <Input
+                                                key="meaningKr"
+                                                label="한국어 뜻"
+                                                placeholder="한국어 뜻 입력"
+                                                value={meaningKr}
+                                                onChangeText={(t: string) => { setMeaningKr(t); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                                error={errors.meaningKr ? "뜻을 입력해주세요" : undefined}
+                                            />
+                                        );
+                                    }
+
+                                    if (fieldId === 'pos' && inputSettings.showPos) {
+                                        return (
+                                            <Animated.View key="pos" entering={FadeIn} exiting={FadeOut} layout={Layout}>
+                                                <Input
+                                                    label="품사"
+                                                    placeholder="품사 입력 (예: noun, v)"
+                                                    value={pos}
+                                                    onChangeText={setPos}
+                                                />
+                                            </Animated.View>
+                                        );
+                                    }
+
+                                    if (fieldId === 'phonetic' && inputSettings.showPhonetic) {
+                                        return (
+                                            <Animated.View key="phonetic" entering={FadeIn} exiting={FadeOut} layout={Layout}>
+                                                <Input
+                                                    label="발음기호"
+                                                    placeholder="발음기호 입력"
+                                                    value={phonetic}
+                                                    onChangeText={setPhonetic}
+                                                />
+                                            </Animated.View>
+                                        );
+                                    }
+
+                                    if (fieldId === 'example' && inputSettings.showExample) {
+                                        return (
+                                            <Animated.View key="example" entering={FadeIn} exiting={FadeOut} layout={Layout} style={{ gap: 16 }}>
+                                                <Input
+                                                    label="예문"
+                                                    placeholder="예문 입력"
+                                                    value={exampleEn}
+                                                    onChangeText={setExampleEn}
+                                                    multiline
+                                                    style={{ fontStyle: 'italic' }}
+                                                />
+                                                <Input
+                                                    label="예문 해석"
+                                                    placeholder="한국어 예문 해석"
+                                                    value={exampleKr}
+                                                    onChangeText={setExampleKr}
+                                                    multiline
+                                                />
+                                            </Animated.View>
+                                        );
+                                    }
+
+                                    if (fieldId === 'definition' && inputSettings.showDefinition) {
+                                        return (
+                                            <Animated.View key="definition" entering={FadeIn} exiting={FadeOut} layout={Layout}>
+                                                <Input
+                                                    label="영문 정의"
+                                                    placeholder="영문 정의 입력"
+                                                    value={definition}
+                                                    onChangeText={setDefinition}
+                                                    multiline
+                                                />
+                                            </Animated.View>
+                                        );
+                                    }
+
+                                    if (fieldId === 'tags' && inputSettings.showTags) {
+                                        return (
+                                            <Animated.View key="tags" entering={FadeIn} exiting={FadeOut} layout={Layout} style={styles.tagsContainer}>
+                                                <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>태그</Text>
+                                                <View style={styles.tagInputRow}>
+                                                    <TextInput
+                                                        style={[styles.tagInput, { color: colors.text, borderColor: colors.border, backgroundColor: colors.surface }]}
+                                                        placeholder="태그 입력 (쉼표/공백 구분)"
+                                                        placeholderTextColor={colors.textTertiary}
+                                                        value={tagInput}
+                                                        onChangeText={setTagInput}
+                                                        onSubmitEditing={handleAddTag}
+                                                        returnKeyType="done"
+                                                        autoCapitalize="none"
+                                                    />
+                                                    <Pressable
+                                                        onPress={handleAddTag}
+                                                        disabled={!tagInput.trim()}
+                                                        style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primary : colors.surfaceSecondary }]}
+                                                    >
+                                                        <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
+                                                    </Pressable>
+                                                </View>
+
+                                                {tags.length > 0 && (
+                                                    <View style={styles.tagsFlexBox}>
+                                                        {tags.map((t, idx) => (
+                                                            <View key={`${t}-${idx}`} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
+                                                                <Text style={[styles.tagChipText, { color: colors.text }]}>#{t}</Text>
+                                                                <Pressable onPress={() => handleRemoveTag(t)} hitSlop={6} style={styles.tagChipClose}>
+                                                                    <Ionicons name="close-circle" size={16} color={colors.textTertiary} />
+                                                                </Pressable>
+                                                            </View>
+                                                        ))}
+                                                    </View>
+                                                )}
+                                            </Animated.View>
+                                        );
+                                    }
+
+                                    return null;
+                                })}
+                            </View>
+                        </>
+                    )}
+
+                </ScrollView>
+
+                {
+                    (isEditing || inputMode === 'manual') && (
+                        <Animated.View style={[
+                            styles.fabContainer,
+                            animatedFabStyle,
+                            { bottom: currentMode === 'popup' ? 20 : Math.max(insets.bottom, 20) + 20 }
+                        ]}>
+                            <Pressable
+                                onPress={onSave}
+                                disabled={isPendingSave}
+                                style={({ pressed }) => [
+                                    styles.fabButton,
+                                    {
+                                        backgroundColor: colors.primary,
+                                        opacity: isPendingSave || pressed ? 0.8 : 1,
+                                        shadowColor: colors.primary,
+                                    }
+                                ]}
+                            >
+                                {isPendingSave ? (
+                                    <ActivityIndicator color="#fff" size="small" />
+                                ) : (
+                                    <>
+                                        <Ionicons name="checkmark" size={20} color="#fff" />
+                                        <Text style={styles.fabText}>저장</Text>
+                                    </>
+                                )}
+                            </Pressable>
+                        </Animated.View>
+                    )
+                }
+            </Animated.View>
 
             {
                 toastVisible && (
@@ -849,70 +919,116 @@ export default function AddWordScreen() {
             <Modal
                 visible={fieldSettingsOpen}
                 transparent
-                animationType="fade"
+                animationType="slide"
                 onRequestClose={() => setFieldSettingsOpen(false)}
             >
                 <GestureHandlerRootView style={{ flex: 1 }}>
                     <Pressable style={styles.modalOverlay} onPress={() => setFieldSettingsOpen(false)}>
-                        <Pressable style={[styles.modalContainer, { backgroundColor: colors.surface }]}>
-                            <View style={styles.modalHeader}>
-                                <Text style={[styles.modalTitle, { color: colors.text }]}>입력 항목 설정</Text>
-                                <Pressable onPress={() => setFieldSettingsOpen(false)} hitSlop={12}>
-                                    <Ionicons name="close" size={24} color={colors.textSecondary} />
-                                </Pressable>
-                            </View>
+                        <GestureDetector gesture={modalGesture}>
+                            <Animated.View
+                                entering={FadeIn.duration(200)}
+                                style={[styles.modalContainer, { backgroundColor: colors.surface }, modalAnimatedStyle]}
+                            >
+                                <View style={{ alignItems: 'center', marginBottom: 8, marginTop: -12, paddingVertical: 6 }}>
+                                    <View style={{ width: 36, height: 4, borderRadius: 2, backgroundColor: colors.border, opacity: 0.5 }} />
+                                </View>
 
-                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-                                <Text style={[styles.settingsSectionTitle, { marginBottom: 0 }]}>전체 화면 모드</Text>
+                                <View style={styles.modalHeader}>
+                                    <Text style={[styles.modalTitle, { color: colors.text }]}>입력 항목 설정</Text>
+                                    <Pressable onPress={() => setFieldSettingsOpen(false)} hitSlop={12} style={{ backgroundColor: colors.surfaceSecondary, padding: 6, borderRadius: 20 }}>
+                                        <Ionicons name="close" size={20} color={colors.textSecondary} />
+                                    </Pressable>
+                                </View>
+
                                 <Pressable
                                     onPress={() => setTempSettings(s => ({ ...s, addWordMode: s.addWordMode === 'full' ? 'popup' : 'full' }))}
                                     style={{
-                                        width: 48,
-                                        height: 26,
-                                        borderRadius: 13,
-                                        backgroundColor: tempSettings.addWordMode === 'full' ? colors.primary : colors.surfaceSecondary,
-                                        padding: 2,
-                                        justifyContent: 'center'
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 8,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
                                     }}
                                 >
-                                    <Animated.View style={{
-                                        width: 22,
-                                        height: 22,
-                                        borderRadius: 11,
-                                        backgroundColor: '#fff',
-                                        transform: [{ translateX: tempSettings.addWordMode === 'full' ? 22 : 0 }]
-                                    }} />
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Ionicons name="expand-outline" size={18} color={colors.primary} />
+                                        <Text style={[styles.settingsSectionTitle, { marginBottom: 0, color: colors.primary, fontSize: 13 }]}>전체 화면 모드</Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            width: 40,
+                                            height: 22,
+                                            borderRadius: 11,
+                                            backgroundColor: tempSettings.addWordMode === 'full' ? colors.primary : colors.border,
+                                            padding: 2,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <View style={{
+                                            width: 18,
+                                            height: 18,
+                                            borderRadius: 9,
+                                            backgroundColor: '#fff',
+                                            transform: [{ translateX: tempSettings.addWordMode === 'full' ? 18 : 0 }]
+                                        }} />
+                                    </View>
                                 </Pressable>
-                            </View>
 
-                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8, marginTop: 12 }}>
-                                <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary }}>항목명</Text>
-                                <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, width: 40, textAlign: 'right' }}>보기</Text>
-                            </View>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6, paddingHorizontal: 4 }}>
+                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>항목명</Text>
+                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>표시</Text>
+                                </View>
 
-                            <View style={{ maxHeight: 400 }}>
-                                <DraggableFieldList
-                                    settings={tempSettings}
-                                    onUpdate={setTempSettings}
-                                    colors={colors}
-                                />
-                            </View>
+                                <View style={{ maxHeight: 380, paddingBottom: 12 }}>
+                                    <DraggableFieldList
+                                        settings={tempSettings}
+                                        onUpdate={setTempSettings}
+                                        colors={colors}
+                                    />
+                                </View>
 
-                            <View style={{ flexDirection: 'row', gap: 12, marginTop: 24 }}>
-                                <Pressable
-                                    onPress={handleCancelSettings}
-                                    style={[styles.modalActionBtn, { backgroundColor: colors.surfaceSecondary, flex: 1 }]}
-                                >
-                                    <Text style={[styles.modalActionBtnText, { color: colors.textSecondary }]}>취소</Text>
-                                </Pressable>
-                                <Pressable
-                                    onPress={handleApplySettings}
-                                    style={[styles.modalActionBtn, { backgroundColor: colors.primary, flex: 1 }]}
-                                >
-                                    <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>적용</Text>
-                                </Pressable>
-                            </View>
-                        </Pressable>
+                                <View style={{ flexDirection: 'row', gap: 12, marginTop: 12 }}>
+                                    <Pressable
+                                        onPress={handleCancelSettings}
+                                        style={[styles.modalActionBtn, { backgroundColor: colors.surfaceSecondary, flex: 1, height: 48 }]}
+                                    >
+                                        <Text style={[styles.modalActionBtnText, { color: colors.textSecondary }]}>취소</Text>
+                                    </Pressable>
+                                    <Pressable
+                                        onPress={handleApplySettings}
+                                        disabled={isApplying}
+                                        style={[
+                                            styles.modalActionBtn,
+                                            {
+                                                backgroundColor: isApplying ? colors.success : colors.primary,
+                                                flex: 1,
+                                                height: 48,
+                                                flexDirection: 'row',
+                                                gap: 8
+                                            }
+                                        ]}
+                                    >
+                                        {isApplying ? (
+                                            <>
+                                                <Ionicons name="checkmark" size={20} color="#fff" />
+                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>적용됨</Text>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>적용</Text>
+                                                <View style={{ backgroundColor: 'rgba(255,255,255,0.2)', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10 }}>
+                                                    <Text style={{ color: '#fff', fontSize: 12, fontFamily: 'Pretendard_700Bold' }}>{selectedFieldsCount}</Text>
+                                                </View>
+                                            </>
+                                        )}
+                                    </Pressable>
+                                </View>
+                            </Animated.View>
+                        </GestureDetector>
                     </Pressable>
                 </GestureHandlerRootView>
             </Modal>
@@ -926,7 +1042,7 @@ export default function AddWordScreen() {
                 onSelect={handleSelectList}
                 footer={pickerFooter}
             />
-        </View>
+        </View >
     );
 }
 
@@ -972,33 +1088,34 @@ const styles = StyleSheet.create({
     modalOverlay: {
         flex: 1,
         backgroundColor: 'rgba(0,0,0,0.5)',
-        justifyContent: 'flex-end', // 하단 배치를 위해 변경
+        justifyContent: 'center',
         alignItems: 'center',
-        padding: 16, // 좌우 여백 축소
-        paddingBottom: Platform.OS === 'ios' ? 40 : 24, // 한 손 조작을 위한 하단 여백
+        padding: 20,
     },
     modalContainer: {
-        width: '100%',
-        maxWidth: 420,
+        width: '94%',
+        maxWidth: 400,
         backgroundColor: '#fff',
-        borderRadius: 28,
-        padding: 24,
-        paddingBottom: 32,
+        borderRadius: 24,
+        padding: 16,
+        paddingTop: 10,
+        paddingBottom: 16,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: -10 },
-        shadowOpacity: 0.1,
-        shadowRadius: 20,
-        elevation: 20,
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.15,
+        shadowRadius: 24,
+        elevation: 24,
     },
     modalHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 24,
+        marginBottom: 12,
     },
     modalTitle: {
-        fontSize: 18,
+        fontSize: 19,
         fontFamily: 'Pretendard_700Bold',
+        letterSpacing: -0.5,
     },
     settingsSectionTitle: {
         fontSize: 13,
@@ -1045,8 +1162,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingVertical: 4, // 너무 좁지 않게 살짝 여백 복구
-        borderBottomWidth: StyleSheet.hairlineWidth,
+        paddingVertical: 2,
     },
     settingsRowText: {
         fontSize: 14,

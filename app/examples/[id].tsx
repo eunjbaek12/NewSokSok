@@ -60,6 +60,7 @@ export default function ExamplesScreen() {
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -93,25 +94,32 @@ export default function ExamplesScreen() {
     }
 
     setStudyWords(all);
-    setCurrentIndex(0);
-    setSelectedAnswer(null);
-    setIsCorrect(null);
-    results.current = [];
+
+    // Only reset index if core filters changed, not on every word content update
+    const coreFilterChanged =
+      lastSettingsRef.current.id !== id ||
+      lastSettingsRef.current.filter !== settings.filter ||
+      lastSettingsRef.current.isStarred !== settings.isStarred ||
+      lastSettingsRef.current.shuffle !== settings.shuffle;
+
+    if (coreFilterChanged) {
+      setCurrentIndex(0);
+      setSelectedAnswer(null);
+      setIsCorrect(null);
+      results.current = [];
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle };
+    }
   }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle]);
 
   const currentWord = studyWords[currentIndex];
 
-  const handleToggleStar = useCallback(async (wordId: string) => {
-    setStudyWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    await toggleStarred(id!, wordId);
-  }, [id, toggleStarred]);
+
 
   const choices = useMemo(() => {
     if (!currentWord) return [];
     const distractors = shuffleArray(getWordsForList(id!).filter(w => w.id !== currentWord.id)).slice(0, 3);
     return shuffleArray([currentWord, ...distractors]);
-  }, [currentIndex, currentWord, id, getWordsForList]);
+  }, [currentIndex, currentWord?.id, id, getWordsForList]);
 
   const handleAnswer = useCallback(async (word: Word) => {
     if (selectedAnswer !== null) return;
@@ -341,9 +349,6 @@ export default function ExamplesScreen() {
 
       <View style={styles.contentArea}>
         <View style={[styles.exampleCard, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }]}>
-          <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
-            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={20} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
-          </Pressable>
           {currentWord.exampleEn ? (
             <View style={{ gap: 12, alignItems: 'center' }}>
               <HighlightedSentence

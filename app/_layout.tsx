@@ -63,9 +63,7 @@ function AppStack() {
       <Stack.Screen
         name="add-word"
         options={{
-          presentation: inputSettings.addWordMode === 'popup' ? "formSheet" : "card",
-          sheetAllowedDetents: inputSettings.addWordMode === 'popup' ? [0.9] : undefined,
-          sheetGrabberVisible: inputSettings.addWordMode === 'popup',
+          presentation: "fullScreenModal",
           headerShown: false,
         }}
       />

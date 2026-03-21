@@ -50,6 +50,7 @@ export default function QuizScreen() {
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -85,12 +86,22 @@ export default function QuizScreen() {
     all = shuffleArray(all);
 
     setStudyWords(all);
-    setCurrentIndex(0);
-    setCurrentBatchIndex(0);
-    setSelectedAnswer(null);
-    setIsCorrect(null);
-    results.current = [];
-  }, [id, getWordsForList, settings.filter, settings.isStarred, studySettings.studyBatchSize]);
+
+    // Only reset index if core filters changed, not on every word content update (like star toggle)
+    const coreFilterChanged =
+      lastSettingsRef.current.id !== id ||
+      lastSettingsRef.current.filter !== settings.filter ||
+      lastSettingsRef.current.isStarred !== settings.isStarred ||
+      lastSettingsRef.current.quizType !== settings.quizType ||
+      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
+
+    if (coreFilterChanged) {
+      setCurrentIndex(0);
+      setCurrentBatchIndex(0);
+      results.current = [];
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize };
+    }
+  }, [id, getWordsForList, settings.filter, settings.isStarred, settings.quizType, studySettings.studyBatchSize]);
 
   const batchSizeNum = studySettings.studyBatchSize === 'all' ? (studyWords.length || 1) : studySettings.studyBatchSize;
   const currentBatchWords = React.useMemo(() => {
@@ -112,7 +123,7 @@ export default function QuizScreen() {
     // Distractors from ALL available words in this list for better variety
     const distractors = shuffleArray(getWordsForList(id!).filter(w => w.id !== currentWord.id)).slice(0, 3);
     return shuffleArray([currentWord, ...distractors]);
-  }, [currentIndex, currentWord, id, getWordsForList]);
+  }, [currentIndex, currentWord?.id, id, getWordsForList]);
 
   const handleAnswer = useCallback(async (word: Word) => {
     if (selectedAnswer !== null) return;

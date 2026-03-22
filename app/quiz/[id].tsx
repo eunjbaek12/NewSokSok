@@ -10,6 +10,7 @@ import { useSettings } from '@/contexts/SettingsContext';
 import { Word, StudyResult } from '@/lib/types';
 import { speak } from '@/lib/tts';
 import BatchResultOverlay from '@/components/BatchResultOverlay';
+import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -29,26 +30,39 @@ export default function QuizScreen() {
   }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
   const { studySettings, updateStudySettings } = useSettings();
+  const list = lists.find(l => l.id === id);
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
-  const [settings, setSettings] = useState({
+  const [settings, setSettings] = useState<StudySettings>({
     filter: (filter || 'all') as 'all' | 'learning' | 'memorized',
     isStarred: initialIsStarred === 'true',
     quizType: (initialQuizType || 'term-to-meaning') as 'meaning-to-term' | 'term-to-meaning',
     showPos: true,
   });
 
+  const applySettings = useCallback((newSettings: StudySettings, newBatchSize: number | 'all') => {
+    setSettings(newSettings);
+    if (newBatchSize !== studySettings.studyBatchSize) {
+      updateStudySettings({ studyBatchSize: newBatchSize as any });
+    }
+    setSettingsVisible(false);
+  }, [studySettings.studyBatchSize, updateStudySettings]);
+
   const [studyWords, setStudyWords] = useState<Word[]>([]);
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const currentIndexRef = useRef(currentIndex);
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
   const [showBatchOverlay, setShowBatchOverlay] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [answers, setAnswers] = useState<Record<number, { selected: string; isCorrect: boolean }>>({});
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
+  const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize });
 
@@ -82,11 +96,6 @@ export default function QuizScreen() {
       all = all.filter(w => w.isMemorized);
     }
 
-    // Shuffle
-    all = shuffleArray(all);
-
-    setStudyWords(all);
-
     // Only reset index if core filters changed, not on every word content update (like star toggle)
     const coreFilterChanged =
       lastSettingsRef.current.id !== id ||
@@ -95,11 +104,24 @@ export default function QuizScreen() {
       lastSettingsRef.current.quizType !== settings.quizType ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
 
-    if (coreFilterChanged) {
+    if (coreFilterChanged || isInitialLoad.current) {
+      // Shuffle only when core settings change or initial load
+      all = shuffleArray(all);
       setCurrentIndex(0);
       setCurrentBatchIndex(0);
+      setAnswers({});
+      choicesMapRef.current = {};
       results.current = [];
       lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize };
+      setStudyWords(all);
+      isInitialLoad.current = false;
+    } else {
+      // Just update existing words to reflect content changes (like star toggle)
+      // without changing the current order and interrupting the quiz.
+      setStudyWords(prev => {
+        const newMap = new Map(all.map(w => [w.id, w]));
+        return prev.map(w => newMap.has(w.id) ? newMap.get(w.id)! : w);
+      });
     }
   }, [id, getWordsForList, settings.filter, settings.isStarred, settings.quizType, studySettings.studyBatchSize]);
 
@@ -118,18 +140,31 @@ export default function QuizScreen() {
     await toggleStarred(id!, wordId);
   }, [id, toggleStarred]);
 
+  const choicesMapRef = useRef<Record<string, Word[]>>({});
+
   const choices = useMemo(() => {
     if (!currentWord) return [];
-    // Distractors from ALL available words in this list for better variety
-    const distractors = shuffleArray(getWordsForList(id!).filter(w => w.id !== currentWord.id)).slice(0, 3);
-    return shuffleArray([currentWord, ...distractors]);
-  }, [currentIndex, currentWord?.id, id, getWordsForList]);
+
+    // Check if we already generated stable distractors for this exact question ID
+    if (choicesMapRef.current[currentWord.id]) {
+      // Return cached choices, but substitute the currentWord to reflect any recent changes (like isStarred)
+      return choicesMapRef.current[currentWord.id].map(c => c.id === currentWord.id ? currentWord : c);
+    }
+
+    // Generate new distractors
+    const allListWords = getWordsForList(id!);
+    const distractors = shuffleArray(allListWords.filter(w => w.id !== currentWord.id)).slice(0, 3);
+    const newChoices = shuffleArray([currentWord, ...distractors]);
+
+    choicesMapRef.current[currentWord.id] = newChoices;
+    return newChoices;
+  }, [currentIndex, currentWord, id, getWordsForList]);
 
   const handleAnswer = useCallback(async (word: Word) => {
-    if (selectedAnswer !== null) return;
+    if (answers[currentIndex]) return;
     const correct = word.id === currentWord.id;
-    setSelectedAnswer(word.id);
-    setIsCorrect(correct);
+
+    setAnswers(prev => ({ ...prev, [currentIndex]: { selected: word.id, isCorrect: correct } }));
 
     if (correct) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
@@ -137,27 +172,24 @@ export default function QuizScreen() {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
     }
 
-    results.current.push({ word: currentWord, gotIt: correct });
-  }, [selectedAnswer, currentWord]);
+    const globalIndex = currentBatchIndex * batchSizeNum + currentIndex;
+    results.current[globalIndex] = { word: currentWord, gotIt: correct };
 
-  useEffect(() => {
-    if (selectedAnswer === null) return;
-    const timer = setTimeout(async () => {
-      if (currentIndex >= currentBatchWords.length - 1) {
-        const nextStart = (currentBatchIndex + 1) * batchSizeNum;
-        if (nextStart < studyWords.length) {
-          setShowBatchOverlay(true);
+    setTimeout(() => {
+      if (currentIndexRef.current === currentIndex) {
+        if (currentIndex >= currentBatchWords.length - 1) {
+          const nextStart = (currentBatchIndex + 1) * batchSizeNum;
+          if (nextStart < studyWords.length) {
+            setShowBatchOverlay(true);
+          } else {
+            finishSession();
+          }
         } else {
-          finishSession();
+          setCurrentIndex(prev => prev + 1);
         }
-        return;
       }
-      setCurrentIndex(prev => prev + 1);
-      setSelectedAnswer(null);
-      setIsCorrect(null);
     }, 1000);
-    return () => clearTimeout(timer);
-  }, [selectedAnswer, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length]);
+  }, [answers, currentIndex, currentWord, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length]);
 
   const finishSession = async () => {
     const finalResults = results.current;
@@ -213,130 +245,15 @@ export default function QuizScreen() {
             <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
           </Pressable>
         </View>
-        {renderSettingsModal()}
+        <StudySettingsModal
+          visible={settingsVisible}
+          mode="quiz"
+          initialSettings={settings}
+          initialBatchSize={studySettings.studyBatchSize}
+          onClose={() => setSettingsVisible(false)}
+          onApply={applySettings}
+        />
       </View>
-    );
-  }
-
-  function renderSettingsModal() {
-    return (
-      <Modal visible={settingsVisible} transparent animationType="fade" onRequestClose={() => setSettingsVisible(false)}>
-        <Pressable style={styles.modalOverlay} onPress={() => setSettingsVisible(false)}>
-          <Pressable style={[styles.settingsSheet, { backgroundColor: colors.surface }]} onPress={e => e.stopPropagation()}>
-            <View style={styles.settingsHeader}>
-              <Text style={[styles.settingsTitle, { color: colors.text }]}>퀴즈 설정</Text>
-              <Pressable onPress={() => setSettingsVisible(false)} hitSlop={8}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
-
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>출제 대상</Text>
-                <View style={styles.filterGroup}>
-                  {(['all', 'learning', 'memorized'] as const).map(f => (
-                    <Pressable
-                      key={f}
-                      onPress={() => setSettings(s => ({ ...s, filter: f }))}
-                      style={[
-                        styles.filterTab,
-                        {
-                          backgroundColor: settings.filter === f ? colors.primary : colors.surfaceSecondary,
-                          borderColor: settings.filter === f ? colors.primary : colors.borderLight
-                        }
-                      ]}
-                    >
-                      <Text style={[styles.filterTabText, { color: settings.filter === f ? '#FFF' : colors.textSecondary }]}>
-                        {f === 'all' ? '전체' : f === 'learning' ? '미암기' : '암기'}
-                      </Text>
-                    </Pressable>
-                  ))}
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
-                  <Switch
-                    value={settings.showPos}
-                    onValueChange={v => setSettings(s => ({ ...s, showPos: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기(⭐)만 보기</Text>
-                  <Switch
-                    value={settings.isStarred}
-                    onValueChange={v => setSettings(s => ({ ...s, isStarred: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-              </View>
-
-              <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
-
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>문제 옵션</Text>
-
-                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12 }]}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>퀴즈 유형</Text>
-                  <View style={styles.filterGroup}>
-                    <Pressable
-                      onPress={() => setSettings(s => ({ ...s, quizType: 'meaning-to-term' }))}
-                      style={[
-                        styles.filterTab,
-                        {
-                          backgroundColor: settings.quizType === 'meaning-to-term' ? colors.primary : colors.surfaceSecondary,
-                          borderColor: settings.quizType === 'meaning-to-term' ? colors.primary : colors.borderLight
-                        }
-                      ]}
-                    >
-                      <Text style={[styles.filterTabText, { color: settings.quizType === 'meaning-to-term' ? '#FFF' : colors.textSecondary }]}>뜻 → 단어</Text>
-                    </Pressable>
-                    <Pressable
-                      onPress={() => setSettings(s => ({ ...s, quizType: 'term-to-meaning' }))}
-                      style={[
-                        styles.filterTab,
-                        {
-                          backgroundColor: settings.quizType === 'term-to-meaning' ? colors.primary : colors.surfaceSecondary,
-                          borderColor: settings.quizType === 'term-to-meaning' ? colors.primary : colors.borderLight
-                        }
-                      ]}
-                    >
-                      <Text style={[styles.filterTabText, { color: settings.quizType === 'term-to-meaning' ? '#FFF' : colors.textSecondary }]}>단어 → 뜻</Text>
-                    </Pressable>
-                  </View>
-                </View>
-
-                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12 }]}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>학습 단위</Text>
-                  <View style={styles.filterGroup}>
-                    {['all', 10, 20, 30].map(size => {
-                      const isActive = studySettings.studyBatchSize === size;
-                      return (
-                        <Pressable
-                          key={size}
-                          onPress={() => updateStudySettings({ studyBatchSize: size as 'all' | 10 | 20 | 30 })}
-                          style={[
-                            styles.filterTab,
-                            {
-                              backgroundColor: isActive ? colors.primary : colors.surfaceSecondary,
-                              borderColor: isActive ? colors.primary : colors.borderLight
-                            }
-                          ]}
-                        >
-                          <Text style={[styles.filterTabText, { color: isActive ? '#FFF' : colors.textSecondary }]}>
-                            {size === 'all' ? '전체' : `${size}개`}
-                          </Text>
-                        </Pressable>
-                      )
-                    })}
-                  </View>
-                </View>
-              </View>
-            </ScrollView>
-          </Pressable>
-        </Pressable>
-      </Modal>
     );
   }
 
@@ -346,11 +263,24 @@ export default function QuizScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={[styles.topBar, { paddingTop: topInset + 12 }]}>
-        <View style={styles.progressArea}>
-          <Text style={[styles.progressText, { color: colors.textSecondary }]}>
-            {currentIndex + 1} / {currentBatchWords.length}
-          </Text>
+      <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
+        <View style={styles.headerRow}>
+          <Pressable onPress={handleClose} hitSlop={12}>
+            <Ionicons name="chevron-back" size={24} color={colors.text} />
+          </Pressable>
+
+          <View style={styles.titleArea}>
+            <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
+              {list?.title || '퀴즈'}
+            </Text>
+          </View>
+
+          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+            <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
+          </Pressable>
+        </View>
+
+        <View style={styles.progressContainer}>
           <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
             <View
               style={[
@@ -362,89 +292,135 @@ export default function QuizScreen() {
               ]}
             />
           </View>
-        </View>
-        <View style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
-          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
-            <Ionicons name="settings-outline" size={26} color={colors.textSecondary} />
-          </Pressable>
-          <Pressable onPress={handleClose} hitSlop={12}>
-            <Ionicons name="close" size={28} color={colors.textSecondary} />
-          </Pressable>
+          <Text style={[styles.progressText, { color: colors.textTertiary }]}>
+            {currentIndex + 1} / {currentBatchWords.length}
+          </Text>
         </View>
       </View>
 
-      <View style={styles.questionArea}>
-        <View style={styles.questionHeader}>
-          <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
-            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={20} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
-          </Pressable>
-        </View>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingBottom: insets.bottom + 40,
+          paddingTop: 24,
+          gap: 32,
+          justifyContent: 'space-between'
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.cardArea}>
+          <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
+            <View style={styles.questionHeader}>
+              <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
+                <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+              </Pressable>
+            </View>
 
-        {settings.showPos && currentWord.pos && (
-          <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
-            <Text style={[styles.topPosBadgeText, { color: colors.primary }]}>{currentWord.pos}</Text>
-          </View>
-        )}
+            {settings.showPos && currentWord.pos && (
+              <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
+                <Text style={[styles.topPosBadgeText, { color: colors.primary }]}>{currentWord.pos}</Text>
+              </View>
+            )}
 
-        <Text style={[styles.questionText, { color: colors.text }]}>{questionContent}</Text>
-        <Pressable
-          onPress={() => speak(currentWord.term)}
-          hitSlop={12}
-          style={styles.speakerBtn}
-        >
-          {({ pressed }) => (
-            <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
-          )}
-        </Pressable>
-      </View>
-
-      <View style={[styles.choicesArea, { paddingBottom: insets.bottom + 24 }]}>
-        {choices.map((choice) => {
-          const isSelected = selectedAnswer === choice.id;
-          const isCorrectAnswer = choice.id === currentWord.id;
-          const showCorrect = selectedAnswer !== null && isCorrectAnswer;
-          const showWrong = isSelected && !isCorrect;
-
-          let bgColor = colors.surface;
-          let borderColor = colors.border;
-          let textColor = colors.text;
-          let iconName: keyof typeof Ionicons.glyphMap | null = null;
-
-          if (showCorrect) {
-            bgColor = colors.successLight;
-            borderColor = colors.success;
-            textColor = colors.success;
-            iconName = 'checkmark-circle';
-          } else if (showWrong) {
-            bgColor = colors.errorLight;
-            borderColor = colors.error;
-            textColor = colors.error;
-            iconName = 'close-circle';
-          }
-
-          return (
+            <Text style={[styles.questionText, { color: colors.text }]}>{questionContent}</Text>
             <Pressable
-              key={choice.id}
-              onPress={() => handleAnswer(choice)}
-              disabled={selectedAnswer !== null}
-              style={[
-                styles.choiceBtn,
-                {
-                  backgroundColor: bgColor,
-                  borderColor: borderColor,
-                },
-              ]}
+              onPress={() => speak(currentWord.term)}
+              hitSlop={12}
+              style={styles.speakerBtn}
             >
-              <Text style={[styles.choiceText, { color: textColor }]}>{getChoiceText(choice)}</Text>
-              {iconName && (
-                <Ionicons name={iconName} size={24} color={textColor} />
+              {({ pressed }) => (
+                <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
               )}
             </Pressable>
-          );
-        })}
-      </View>
+          </View>
+        </View>
 
-      {renderSettingsModal()}
+        <View style={styles.choicesArea}>
+          {choices.map((choice, index) => {
+            const currentAnswer = answers[currentIndex];
+            const isSelected = currentAnswer?.selected === choice.id;
+            const isCorrectAnswer = choice.id === currentWord.id;
+            const showCorrect = currentAnswer && isCorrectAnswer;
+            const showWrong = isSelected && !currentAnswer?.isCorrect;
+
+            let bgColor = colors.surface;
+            let borderColor = colors.borderLight;
+            let textColor = colors.text;
+            let iconName: keyof typeof Ionicons.glyphMap | null = null;
+            let badgeTextColor = colors.textSecondary;
+
+            if (showCorrect) {
+              bgColor = colors.primaryLight;
+              borderColor = colors.primary;
+              textColor = colors.primary;
+              iconName = 'checkmark-circle';
+              badgeTextColor = colors.primary;
+            } else if (showWrong) {
+              bgColor = colors.warningLight;
+              borderColor = colors.warning;
+              textColor = colors.warning;
+              iconName = 'close-circle';
+              badgeTextColor = colors.warning;
+            } else if (currentAnswer && !isCorrectAnswer) {
+              textColor = colors.textSecondary;
+              badgeTextColor = colors.textTertiary;
+            }
+
+            return (
+              <Pressable
+                key={choice.id}
+                onPress={() => handleAnswer(choice)}
+                disabled={!!currentAnswer}
+                style={[
+                  styles.choiceBtn,
+                  {
+                    backgroundColor: bgColor,
+                    borderColor: borderColor,
+                  },
+                ]}
+              >
+                <View style={styles.choiceIndexBadge}>
+                  <Text style={[styles.choiceIndexText, { color: badgeTextColor }]}>{['A', 'B', 'C', 'D'][index]}.</Text>
+                </View>
+                <Text style={[styles.choiceText, { color: textColor }]}>{getChoiceText(choice)}</Text>
+                {iconName && (
+                  <Ionicons name={iconName} size={24} color={textColor} />
+                )}
+              </Pressable>
+            );
+          })}
+        </View>
+
+        <View style={styles.navFooter}>
+          <Pressable
+            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }, currentIndex === 0 && { opacity: 0.4 }]}
+            disabled={currentIndex === 0}
+            onPress={() => setCurrentIndex(prev => prev - 1)}
+          >
+            <Ionicons name="chevron-back" size={20} color={colors.text} />
+            <Text style={[styles.navBtnText, { color: colors.text }]}>이전</Text>
+          </Pressable>
+
+          <Pressable
+            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }, currentIndex >= currentBatchWords.length - 1 && { opacity: 0.4 }]}
+            disabled={currentIndex >= currentBatchWords.length - 1}
+            onPress={() => setCurrentIndex(prev => prev + 1)}
+          >
+            <Text style={[styles.navBtnText, { color: colors.text }]}>다음</Text>
+            <Ionicons name="chevron-forward" size={20} color={colors.text} />
+          </Pressable>
+        </View>
+      </ScrollView>
+
+      <StudySettingsModal
+        visible={settingsVisible}
+        mode="quiz"
+        initialSettings={settings}
+        initialBatchSize={studySettings.studyBatchSize}
+        onClose={() => setSettingsVisible(false)}
+        onApply={applySettings}
+      />
       <BatchResultOverlay
         visible={showBatchOverlay}
         completedCount={results.current.length}
@@ -453,14 +429,12 @@ export default function QuizScreen() {
         onNextBatch={() => {
           setCurrentBatchIndex(prev => prev + 1);
           setCurrentIndex(0);
-          setSelectedAnswer(null);
-          setIsCorrect(null);
+          setAnswers({});
           setShowBatchOverlay(false);
         }}
         onRetryBatch={() => {
           setCurrentIndex(0);
-          setSelectedAnswer(null);
-          setIsCorrect(null);
+          setAnswers({});
           setShowBatchOverlay(false);
           results.current = results.current.slice(0, results.current.length - currentBatchWords.length);
         }}
@@ -477,40 +451,62 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  topBar: {
+  header: {
+    paddingHorizontal: 16,
+    paddingBottom: 0,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingBottom: 12,
     gap: 12,
   },
-  progressArea: {
+  titleArea: {
     flex: 1,
-    gap: 6,
   },
-  progressText: {
-    fontSize: 14,
-    fontFamily: 'Pretendard_600SemiBold',
+  headerTitle: {
+    fontSize: 20,
+    fontFamily: 'Pretendard_700Bold',
+  },
+  progressContainer: {
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingBottom: 12,
   },
   progressBarBg: {
-    height: 4,
-    borderRadius: 2,
+    flex: 1,
+    height: 6,
+    borderRadius: 3,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
-    borderRadius: 2,
+    borderRadius: 3,
   },
-  questionArea: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 32,
-    gap: 12,
-  },
-  questionLabel: {
-    fontSize: 16,
+  progressText: {
+    fontSize: 12,
     fontFamily: 'Pretendard_500Medium',
+    minWidth: 60,
+    textAlign: 'right',
+  },
+  cardArea: {
+    alignItems: 'center',
+    paddingHorizontal: 24,
+  },
+  card: {
+    width: '100%',
+    borderRadius: 12,
+    padding: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 12,
+    gap: 12,
+    minHeight: 280,
   },
   questionHeader: {
     position: 'absolute',
@@ -555,21 +551,48 @@ const styles = StyleSheet.create({
   },
   choicesArea: {
     paddingHorizontal: 20,
-    gap: 12,
+    gap: 8,
   },
   choiceBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 18,
-    paddingHorizontal: 20,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
     borderRadius: 12,
     borderWidth: 1.5,
   },
   choiceText: {
     fontSize: 18,
-    fontFamily: 'Pretendard_600SemiBold',
+    fontFamily: 'Pretendard_500Medium',
     flex: 1,
+  },
+  choiceIndexBadge: {
+    width: 24,
+    justifyContent: 'center',
+    marginRight: 4,
+  },
+  choiceIndexText: {
+    fontSize: 18,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  navFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  navBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    gap: 4,
+  },
+  navBtnText: {
+    fontSize: 16,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   modalOverlay: {
     flex: 1,

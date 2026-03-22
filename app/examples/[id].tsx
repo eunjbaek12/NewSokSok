@@ -6,8 +6,11 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
+import { useSettings } from '@/contexts/SettingsContext';
 import { speak } from '@/lib/tts';
 import { Word, StudyResult } from '@/lib/types';
+import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
+import BatchResultOverlay from '@/components/BatchResultOverlay';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -18,7 +21,7 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a;
 }
 
-function HighlightedSentence({ sentence, term, primaryColor, textColor }: { sentence: string; term: string; primaryColor: string; textColor: string }) {
+function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean }) {
   const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
   const parts = sentence.split(regex);
 
@@ -26,7 +29,11 @@ function HighlightedSentence({ sentence, term, primaryColor, textColor }: { sent
     <Text style={[styles.exampleText, { color: textColor }]}>
       {parts.map((part, i) =>
         regex.test(part) ? (
-          <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>_____</Text>
+          showTerm ? (
+            <Text key={i} style={[styles.highlightedWord, { color: primaryColor, textDecorationLine: 'underline' }]}>{part}</Text>
+          ) : (
+            <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>_____</Text>
+          )
         ) : (
           <Text key={i}>{part}</Text>
         )
@@ -40,10 +47,11 @@ export default function ExamplesScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
+  const { studySettings, updateStudySettings } = useSettings();
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
-  const [settings, setSettings] = useState({
+  const [settings, setSettings] = useState<StudySettings>({
     filter: (filter || 'all') as 'all' | 'learning' | 'memorized',
     isStarred: initialIsStarred === 'true',
     showTerm: true,
@@ -53,14 +61,25 @@ export default function ExamplesScreen() {
     shuffle: false,
   });
 
+  const applySettings = useCallback((newSettings: StudySettings, newBatchSize: number | 'all') => {
+    setSettings(newSettings);
+    if (newBatchSize !== studySettings.studyBatchSize) {
+      updateStudySettings({ studyBatchSize: newBatchSize as any });
+    }
+    setSettingsVisible(false);
+  }, [studySettings.studyBatchSize, updateStudySettings]);
+
   const [studyWords, setStudyWords] = useState<Word[]>([]);
+  const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showBatchOverlay, setShowBatchOverlay] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
+  const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -100,18 +119,34 @@ export default function ExamplesScreen() {
       lastSettingsRef.current.id !== id ||
       lastSettingsRef.current.filter !== settings.filter ||
       lastSettingsRef.current.isStarred !== settings.isStarred ||
-      lastSettingsRef.current.shuffle !== settings.shuffle;
+      lastSettingsRef.current.shuffle !== settings.shuffle ||
+      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
 
-    if (coreFilterChanged) {
+    if (coreFilterChanged || isInitialLoad.current) {
       setCurrentIndex(0);
+      setCurrentBatchIndex(0);
       setSelectedAnswer(null);
       setIsCorrect(null);
       results.current = [];
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize };
+      setStudyWords(all);
+      isInitialLoad.current = false;
+    } else {
+      setStudyWords(prev => {
+        const newMap = new Map(all.map(w => [w.id, w]));
+        return prev.map(w => newMap.has(w.id) ? newMap.get(w.id)! : w);
+      });
     }
-  }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle]);
+  }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle, studySettings.studyBatchSize]);
 
-  const currentWord = studyWords[currentIndex];
+  const batchSizeNum = studySettings.studyBatchSize === 'all' ? (studyWords.length || 1) : studySettings.studyBatchSize;
+  const currentBatchWords = React.useMemo(() => {
+    if (studyWords.length === 0) return [];
+    const start = currentBatchIndex * batchSizeNum;
+    return studyWords.slice(start, start + batchSizeNum);
+  }, [studyWords, currentBatchIndex, batchSizeNum]);
+
+  const currentWord = currentBatchWords[currentIndex];
 
 
 
@@ -139,33 +174,13 @@ export default function ExamplesScreen() {
   useEffect(() => {
     if (selectedAnswer === null) return;
     const timer = setTimeout(async () => {
-      if (currentIndex >= studyWords.length - 1) {
-        const finalResults = results.current;
-        const memorizedWords = finalResults
-          .filter(r => r.gotIt && !r.word.isMemorized)
-          .map(r => r.word.id);
-
-        const failedWords = finalResults
-          .filter(r => !r.gotIt && r.word.isMemorized)
-          .map(r => r.word.id);
-
-        if (memorizedWords.length > 0) {
-          await setWordsMemorized(id!, memorizedWords, true);
+      if (currentIndex >= currentBatchWords.length - 1) {
+        const nextStart = (currentBatchIndex + 1) * batchSizeNum;
+        if (nextStart < studyWords.length) {
+          setShowBatchOverlay(true);
+        } else {
+          finishSession();
         }
-        if (failedWords.length > 0) {
-          await setWordsMemorized(id!, failedWords, false);
-        }
-        setStudyResults(finalResults);
-        router.replace({
-          pathname: '/study-results',
-          params: {
-            id,
-            mode: 'examples',
-            duration: Date.now() - startTime.current,
-            isStarred: settings.isStarred ? 'true' : 'false',
-            sessionFilter: settings.filter
-          }
-        });
         return;
       }
       setCurrentIndex(prev => prev + 1);
@@ -173,11 +188,55 @@ export default function ExamplesScreen() {
       setIsCorrect(null);
     }, 1000);
     return () => clearTimeout(timer);
-  }, [selectedAnswer, currentIndex, studyWords.length, setStudyResults, setWordsMemorized, id]);
+  }, [selectedAnswer, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length]);
+
+  const finishSession = async () => {
+    const finalResults = results.current;
+    const memorizedWords = finalResults
+      .filter(r => r.gotIt && !r.word.isMemorized)
+      .map(r => r.word.id);
+
+    const failedWords = finalResults
+      .filter(r => !r.gotIt && r.word.isMemorized)
+      .map(r => r.word.id);
+
+    if (memorizedWords.length > 0) {
+      await setWordsMemorized(id!, memorizedWords, true);
+    }
+    if (failedWords.length > 0) {
+      await setWordsMemorized(id!, failedWords, false);
+    }
+    setStudyResults(finalResults);
+    router.replace({
+      pathname: '/study-results',
+      params: {
+        id,
+        mode: 'examples',
+        duration: Date.now() - startTime.current,
+        isStarred: settings.isStarred ? 'true' : 'false',
+        sessionFilter: settings.filter
+      }
+    });
+  };
 
   const handleClose = useCallback(() => {
     router.back();
   }, []);
+
+  const handleNextBatch = () => {
+    setCurrentBatchIndex(prev => prev + 1);
+    setCurrentIndex(0);
+    setShowBatchOverlay(false);
+  };
+
+  const handleRetryBatch = () => {
+    setCurrentIndex(0);
+    setShowBatchOverlay(false);
+    // Remove results from current batch to retry
+    const startIdx = currentBatchIndex * batchSizeNum;
+    const currentBatchWordIds = new Set(studyWords.slice(startIdx, startIdx + batchSizeNum).map(w => w.id));
+    results.current = results.current.filter(r => !currentBatchWordIds.has(r.word.id));
+  };
 
   const handleSpeak = useCallback(() => {
     if (currentWord?.exampleEn) {
@@ -205,116 +264,15 @@ export default function ExamplesScreen() {
             <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
           </Pressable>
         </View>
-        {renderSettingsModal()}
+        <StudySettingsModal
+          visible={settingsVisible}
+          mode="examples"
+          initialSettings={settings}
+          initialBatchSize={studySettings.studyBatchSize}
+          onClose={() => setSettingsVisible(false)}
+          onApply={applySettings}
+        />
       </View>
-    );
-  }
-
-  function renderSettingsModal() {
-    return (
-      <Modal visible={settingsVisible} transparent animationType="fade" onRequestClose={() => setSettingsVisible(false)}>
-        <Pressable style={styles.modalOverlay} onPress={() => setSettingsVisible(false)}>
-          <Pressable style={[styles.settingsSheet, { backgroundColor: colors.surface }]} onPress={e => e.stopPropagation()}>
-            <View style={styles.settingsHeader}>
-              <Text style={[styles.settingsTitle, { color: colors.text }]}>예문 학습 설정</Text>
-              <Pressable onPress={() => setSettingsVisible(false)} hitSlop={8}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
-
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>출제 대상</Text>
-                <View style={styles.filterGroup}>
-                  {(['all', 'learning', 'memorized'] as const).map(f => (
-                    <Pressable
-                      key={f}
-                      onPress={() => setSettings(s => ({ ...s, filter: f }))}
-                      style={[
-                        styles.filterTab,
-                        {
-                          backgroundColor: settings.filter === f ? colors.primary : colors.surfaceSecondary,
-                          borderColor: settings.filter === f ? colors.primary : colors.borderLight
-                        }
-                      ]}
-                    >
-                      <Text style={[styles.filterTabText, { color: settings.filter === f ? '#FFF' : colors.textSecondary }]}>
-                        {f === 'all' ? '전체' : f === 'learning' ? '미암기' : '암기'}
-                      </Text>
-                    </Pressable>
-                  ))}
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기(⭐)만 보기</Text>
-                  <Switch
-                    value={settings.isStarred}
-                    onValueChange={v => setSettings(s => ({ ...s, isStarred: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-              </View>
-
-              <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
-
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 옵션</Text>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>문장 섞기 (Shuffle)</Text>
-                  <Switch
-                    value={settings.shuffle}
-                    onValueChange={v => setSettings(s => ({ ...s, shuffle: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>자동 음성 재생</Text>
-                  <Switch
-                    value={settings.autoPlaySound}
-                    onValueChange={v => setSettings(s => ({ ...s, autoPlaySound: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-              </View>
-
-              <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
-
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>표시 설정</Text>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>영단어 표시</Text>
-                  <Switch
-                    value={settings.showTerm}
-                    onValueChange={v => setSettings(s => ({ ...s, showTerm: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>한글 뜻 표시</Text>
-                  <Switch
-                    value={settings.showMeaning}
-                    onValueChange={v => setSettings(s => ({ ...s, showMeaning: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석 표시</Text>
-                  <Switch
-                    value={settings.showExampleKr}
-                    onValueChange={v => setSettings(s => ({ ...s, showExampleKr: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-              </View>
-            </ScrollView>
-          </Pressable>
-        </Pressable>
-      </Modal>
     );
   }
 
@@ -323,7 +281,7 @@ export default function ExamplesScreen() {
       <View style={[styles.topBar, { paddingTop: topInset + 12 }]}>
         <View style={styles.progressArea}>
           <Text style={[styles.progressText, { color: colors.textSecondary }]}>
-            {currentIndex + 1} / {studyWords.length}
+            {(currentBatchIndex * batchSizeNum) + currentIndex + 1} / {studyWords.length}
           </Text>
           <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
             <View
@@ -331,7 +289,7 @@ export default function ExamplesScreen() {
                 styles.progressBarFill,
                 {
                   backgroundColor: colors.primary,
-                  width: `${((currentIndex + 1) / studyWords.length) * 100}%`,
+                  width: `${(((currentBatchIndex * batchSizeNum) + currentIndex + 1) / studyWords.length) * 100}%`,
                 },
               ]}
             />
@@ -356,6 +314,7 @@ export default function ExamplesScreen() {
                 term={currentWord.term}
                 primaryColor={colors.primary}
                 textColor={colors.text}
+                showTerm={settings.showTerm}
               />
               {settings.showExampleKr && currentWord.exampleKr && isCorrect !== null && (
                 <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
@@ -418,8 +377,24 @@ export default function ExamplesScreen() {
         </View>
       </View>
 
+      <StudySettingsModal
+        visible={settingsVisible}
+        mode="examples"
+        initialSettings={settings}
+        initialBatchSize={studySettings.studyBatchSize}
+        onClose={() => setSettingsVisible(false)}
+        onApply={applySettings}
+      />
 
-      {renderSettingsModal()}
+      <BatchResultOverlay
+        visible={showBatchOverlay}
+        completedCount={Math.min((currentBatchIndex + 1) * batchSizeNum, studyWords.length)}
+        totalCount={studyWords.length}
+        isLastBatch={((currentBatchIndex + 1) * batchSizeNum) >= studyWords.length}
+        onNextBatch={handleNextBatch}
+        onRetryBatch={handleRetryBatch}
+        onFinish={finishSession}
+      />
     </View>
   );
 }
@@ -553,68 +528,5 @@ const styles = StyleSheet.create({
   actionBtnText: {
     fontSize: 17,
     fontFamily: 'Pretendard_600SemiBold',
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
-  },
-  settingsSheet: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 24,
-    paddingBottom: Platform.OS === 'ios' ? 40 : 24,
-    maxHeight: '80%',
-  },
-  settingsHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  settingsTitle: {
-    fontSize: 20,
-    fontFamily: 'Pretendard_700Bold',
-  },
-  settingSection: {
-    marginBottom: 20,
-  },
-  sectionTitle: {
-    fontSize: 13,
-    fontFamily: 'Pretendard_600SemiBold',
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: 12,
-  },
-  filterGroup: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 16,
-  },
-  filterTab: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: 12,
-    alignItems: 'center',
-    borderWidth: 1,
-  },
-  filterTabText: {
-    fontSize: 14,
-    fontFamily: 'Pretendard_600SemiBold',
-  },
-  settingRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 12,
-  },
-  settingLabel: {
-    fontSize: 16,
-    fontFamily: 'Pretendard_500Medium',
-  },
-  divider: {
-    height: 1,
-    marginVertical: 4,
-    marginBottom: 20,
   },
 });

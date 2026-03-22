@@ -229,7 +229,7 @@ interface ManagedList {
   isVisible: boolean;
 }
 
-const MANAGE_ROW_HEIGHT = 50;
+const MANAGE_ROW_HEIGHT = 46;
 
 function ManageRowItem({
   ml,
@@ -298,7 +298,15 @@ function ManageRowItem({
     <RNAnimated.View
       style={[
         styles.manageRow,
-        { borderBottomColor: colors.borderLight, transform: [{ translateY }], zIndex: 100 },
+        {
+          transform: [{ translateY }],
+          zIndex: 100,
+          backgroundColor: ml.isVisible ? colors.primary + '08' : 'transparent',
+          borderColor: ml.isVisible ? colors.primary + '40' : colors.borderLight,
+          borderWidth: ml.isVisible ? 1.5 : 1,
+          borderRadius: 12,
+          marginBottom: 6,
+        },
       ]}
     >
       <View {...panResponder.panHandlers} style={styles.manageDragHandle}>
@@ -307,7 +315,7 @@ function ManageRowItem({
 
       {editingId === ml.id ? (
         <TextInput
-          style={[styles.manageEditInput, { color: colors.text, borderColor: colors.primary, backgroundColor: colors.surfaceSecondary }]}
+          style={[styles.manageEditInput, { color: colors.text, backgroundColor: colors.surfaceSecondary }]}
           value={editingName}
           onChangeText={onChangeEditingName}
           onBlur={onFinishRename}
@@ -326,7 +334,7 @@ function ManageRowItem({
           </Text>
           {ml.isNew && (
             <View style={[styles.manageNewBadge, { backgroundColor: colors.successLight }]}>
-              <Text style={[styles.manageNewBadgeText, { color: colors.success }]}>New</Text>
+              <Text style={[styles.manageNewBadgeText, { color: colors.success }]}>새로운</Text>
             </View>
           )}
         </Pressable>
@@ -616,11 +624,23 @@ export default function DashboardScreen() {
   const handleApplyManage = useCallback(async () => {
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
 
+    // If we're currently editing a name, capture it as a pending rename
+    const finalRenamedMap = new Map(renamedMap);
+    if (editingId) {
+      const trimmed = editingName.trim();
+      if (trimmed) {
+        const original = lists.find(l => l.id === editingId);
+        if (original && original.title !== trimmed) {
+          finalRenamedMap.set(editingId, trimmed);
+        }
+      }
+    }
+
     for (const id of deletedIds) {
       await deleteList(id);
     }
 
-    for (const [id, newTitle] of renamedMap) {
+    for (const [id, newTitle] of finalRenamedMap) {
       if (!deletedIds.has(id)) {
         await renameList(id, newTitle);
       }
@@ -642,7 +662,7 @@ export default function DashboardScreen() {
     const trimmedNew = newListName.trim();
     if (trimmedNew) {
       const allTitles = managedLists.filter(l => !deletedIds.has(l.id)).map(l => {
-        const renamed = renamedMap.get(l.id);
+        const renamed = finalRenamedMap.get(l.id);
         return (renamed || l.title).trim().toLowerCase();
       });
       if (!allTitles.includes(trimmedNew.toLowerCase())) {
@@ -676,7 +696,7 @@ export default function DashboardScreen() {
     setManageOpen(false);
     setNewListName('');
     setEditingId(null);
-  }, [managedLists, deletedIds, renamedMap, visibilityMap, lists, deleteList, renameList, toggleVisibility, createList, reorderLists, refreshData, newListName]);
+  }, [managedLists, deletedIds, renamedMap, visibilityMap, lists, deleteList, renameList, toggleVisibility, createList, reorderLists, refreshData, newListName, editingId, editingName]);
 
   const handleCreateList = useCallback(() => {
     openManageModal();
@@ -861,7 +881,7 @@ export default function DashboardScreen() {
               style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
             >
               <Ionicons name="arrow-forward-outline" size={22} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>Send to Wordbook</Text>
+              <Text style={[styles.menuItemText, { color: colors.text }]}>단어장으로 보내기</Text>
             </Pressable>
 
             <Pressable
@@ -869,7 +889,7 @@ export default function DashboardScreen() {
               style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
             >
               <Ionicons name="pencil-outline" size={22} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>Rename</Text>
+              <Text style={[styles.menuItemText, { color: colors.text }]}>이름 변경</Text>
             </Pressable>
 
             <Pressable
@@ -877,7 +897,7 @@ export default function DashboardScreen() {
               style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
             >
               <Ionicons name="eye-off-outline" size={22} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>Hide</Text>
+              <Text style={[styles.menuItemText, { color: colors.text }]}>숨기기</Text>
             </Pressable>
 
             <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
@@ -887,7 +907,7 @@ export default function DashboardScreen() {
               style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
             >
               <Ionicons name="trash-outline" size={22} color={colors.error} />
-              <Text style={[styles.menuItemText, { color: colors.error }]}>Delete</Text>
+              <Text style={[styles.menuItemText, { color: colors.error }]}>삭제</Text>
             </Pressable>
           </Pressable>
         </Pressable>
@@ -902,13 +922,13 @@ export default function DashboardScreen() {
         <View style={[styles.manageOverlay, { backgroundColor: colors.overlay }]}>
           <View style={[styles.manageSheet, { backgroundColor: colors.surface }]}>
             <View style={styles.manageHeader}>
-              <Text style={[styles.manageTitle, { color: colors.text }]}>Manage Wordbooks</Text>
+              <Text style={[styles.manageTitle, { color: colors.text }]}>나의 단어장 관리</Text>
             </View>
 
             <View style={[styles.manageAddRow, { borderBottomColor: colors.borderLight }]}>
               <TextInput
                 style={[styles.manageAddInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-                placeholder="New workbook name"
+                placeholder="새로운 단어장 이름"
                 placeholderTextColor={colors.textTertiary}
                 value={newListName}
                 onChangeText={(t) => { setNewListName(t); if (duplicateError) setDuplicateError(''); }}
@@ -933,7 +953,7 @@ export default function DashboardScreen() {
               </View>
             )}
 
-            <ScrollView style={styles.manageListScroll} showsVerticalScrollIndicator={false}>
+            <ScrollView style={styles.manageListScroll} contentContainerStyle={{ paddingBottom: 24 }} showsVerticalScrollIndicator={false}>
               {managedLists.map((ml, index) => (
                 <ManageRowItem
                   key={ml.id}
@@ -955,7 +975,7 @@ export default function DashboardScreen() {
               {managedLists.length === 0 && (
                 <View style={styles.manageEmpty}>
                   <Text style={[styles.manageEmptyText, { color: colors.textTertiary }]}>
-                    No wordbooks. Add one above.
+                    단어장이 없습니다. 위에서 추가해 보세요.
                   </Text>
                 </View>
               )}
@@ -966,13 +986,13 @@ export default function DashboardScreen() {
                 onPress={closeManageModal}
                 style={[styles.manageFooterBtn, { backgroundColor: colors.surfaceSecondary }]}
               >
-                <Text style={[styles.manageFooterBtnText, { color: colors.text }]}>Close</Text>
+                <Text style={[styles.manageFooterBtnText, { color: colors.text }]}>닫기</Text>
               </Pressable>
               <Pressable
                 onPress={handleApplyManage}
                 style={[styles.manageFooterBtn, { backgroundColor: colors.primary }]}
               >
-                <Text style={[styles.manageFooterBtnText, { color: '#FFFFFF' }]}>Apply</Text>
+                <Text style={[styles.manageFooterBtnText, { color: '#FFFFFF' }]}>적용</Text>
               </Pressable>
             </View>
           </View>
@@ -988,7 +1008,7 @@ export default function DashboardScreen() {
         <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleRenameClose}>
           <Pressable style={[styles.renameSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
             <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>Rename Wordbook</Text>
+              <Text style={[styles.menuTitle, { color: colors.text }]}>단어장 이름 변경</Text>
               <Pressable onPress={handleRenameClose} hitSlop={12} style={styles.menuCloseBtn}>
                 <Ionicons name="close" size={24} color={colors.textSecondary} />
               </Pressable>
@@ -1001,7 +1021,7 @@ export default function DashboardScreen() {
               autoFocus
               returnKeyType="done"
               selectTextOnFocus
-              placeholder="Wordbook name"
+              placeholder="단어장 이름"
               placeholderTextColor={colors.textTertiary}
             />
             <View style={styles.renameActions}>
@@ -1009,14 +1029,14 @@ export default function DashboardScreen() {
                 onPress={handleRenameClose}
                 style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>Cancel</Text>
+                <Text style={[styles.renameBtnText, { color: colors.text }]}>취소</Text>
               </Pressable>
               <Pressable
                 onPress={handleRenameSubmit}
                 disabled={!renameValue.trim()}
                 style={[styles.renameBtn, { backgroundColor: renameValue.trim() ? colors.primary : colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary }]}>Rename</Text>
+                <Text style={[styles.renameBtnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary }]}>변경</Text>
               </Pressable>
             </View>
           </Pressable>
@@ -1067,13 +1087,13 @@ export default function DashboardScreen() {
         <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleMergeClose}>
           <Pressable style={[styles.mergeSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
             <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>Send to Wordbook</Text>
+              <Text style={[styles.menuTitle, { color: colors.text }]}>단어장으로 보내기</Text>
               <Pressable onPress={handleMergeClose} hitSlop={12} style={styles.menuCloseBtn}>
                 <Ionicons name="close" size={24} color={colors.textSecondary} />
               </Pressable>
             </View>
             <Text style={[styles.mergeSubtitle, { color: colors.textSecondary }]}>
-              Send words from &quot;{mergeSourceList?.title}&quot; to:
+              &quot;{mergeSourceList?.title}&quot;에서 다음 단어장으로 보내기:
             </Text>
             <ScrollView style={styles.mergeListScroll} showsVerticalScrollIndicator={false}>
               {lists
@@ -1102,7 +1122,7 @@ export default function DashboardScreen() {
                       {!l.isVisible && (
                         <View style={[styles.mergeHiddenBadge, { backgroundColor: colors.surfaceSecondary }]}>
                           <Ionicons name="eye-off-outline" size={12} color={colors.textTertiary} />
-                          <Text style={[styles.mergeHiddenText, { color: colors.textTertiary }]}>Hidden</Text>
+                          <Text style={[styles.mergeHiddenText, { color: colors.textTertiary }]}>숨김</Text>
                         </View>
                       )}
                     </View>
@@ -1114,14 +1134,14 @@ export default function DashboardScreen() {
                 onPress={handleMergeClose}
                 style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>Close</Text>
+                <Text style={[styles.renameBtnText, { color: colors.text }]}>닫기</Text>
               </Pressable>
               <Pressable
                 onPress={handleMergeSubmit}
                 disabled={!mergeTargetId}
                 style={[styles.renameBtn, { backgroundColor: mergeTargetId ? colors.primary : colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary }]}>Send</Text>
+                <Text style={[styles.renameBtnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary }]}>보내기</Text>
               </Pressable>
             </View>
           </Pressable>
@@ -1490,14 +1510,16 @@ const styles = StyleSheet.create({
   },
   manageListScroll: {
     maxHeight: 340,
+    paddingTop: 8,
   },
   manageRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    gap: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginHorizontal: 12,
+    gap: 8,
+    borderWidth: 1,
   },
   manageDragHandle: {
     paddingVertical: 8,
@@ -1529,7 +1551,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 36,
     borderRadius: 8,
-    borderWidth: 1.5,
+    borderWidth: 0,
     paddingHorizontal: 10,
     fontSize: 15,
     fontFamily: 'Pretendard_500Medium',

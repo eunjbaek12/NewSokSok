@@ -23,6 +23,7 @@ import { useSettings } from '@/contexts/SettingsContext';
 import { speak } from '@/lib/tts';
 import { Word, StudyResult } from '@/lib/types';
 import BatchResultOverlay from '@/components/BatchResultOverlay';
+import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
 
 function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean }) {
   const frontStyle = useAnimatedStyle(() => {
@@ -158,7 +159,7 @@ export default function FlashcardsScreen() {
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
-  const [settings, setSettings] = useState({
+  const [settings, setSettings] = useState<StudySettings>({
     filter: (filter || 'all') as 'all' | 'learning' | 'memorized',
     isStarred: initialIsStarred === 'true',
     showMeaning: true,
@@ -170,12 +171,21 @@ export default function FlashcardsScreen() {
     shuffle: false,
   });
 
+  const applySettings = useCallback((newSettings: StudySettings, newBatchSize: number | 'all') => {
+    setSettings(newSettings);
+    if (newBatchSize !== studySettings.studyBatchSize) {
+      updateStudySettings({ studyBatchSize: newBatchSize as any });
+    }
+    setSettingsVisible(false);
+  }, [studySettings.studyBatchSize, updateStudySettings]);
+
   const [studyWords, setStudyWords] = useState<Word[]>([]);
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showBatchOverlay, setShowBatchOverlay] = useState(false);
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
+  const isInitialLoad = useRef(true);
 
   const rotation = useSharedValue(0);
   const translateX = useSharedValue(0);
@@ -215,13 +225,6 @@ export default function FlashcardsScreen() {
       all = all.filter(w => w.isMemorized);
     }
 
-    // Apply Shuffle
-    if (settings.shuffle) {
-      all = [...all].sort(() => Math.random() - 0.5);
-    }
-
-    setStudyWords(all);
-
     // Only reset index if core filters changed, not on Every word content update
     const coreFilterChanged =
       lastSettingsRef.current.id !== id ||
@@ -230,12 +233,25 @@ export default function FlashcardsScreen() {
       lastSettingsRef.current.shuffle !== settings.shuffle ||
       lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
 
-    if (coreFilterChanged) {
+    if (coreFilterChanged || isInitialLoad.current) {
+      // Apply Shuffle only when core settings change or on initial load
+      if (settings.shuffle) {
+        all = [...all].sort(() => Math.random() - 0.5);
+      }
       setCurrentIndex(0);
       setCurrentBatchIndex(0);
       results.current = [];
       rotation.value = 0;
       lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize };
+      setStudyWords(all);
+      isInitialLoad.current = false;
+    } else {
+      // Just update existing words to reflect content changes (like star toggle)
+      // without changing the current order and interrupting the learning.
+      setStudyWords(prev => {
+        const newMap = new Map(all.map(w => [w.id, w]));
+        return prev.map(w => newMap.has(w.id) ? newMap.get(w.id)! : w);
+      });
     }
   }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle, studySettings.studyBatchSize]);
 
@@ -450,163 +466,15 @@ export default function FlashcardsScreen() {
         </View>
 
         {/* 설정 모달 (단어 없을 때도 필요) */}
-        {renderSettingsModal()}
+        <StudySettingsModal
+          visible={settingsVisible}
+          mode="flashcard"
+          initialSettings={settings}
+          initialBatchSize={studySettings.studyBatchSize}
+          onClose={() => setSettingsVisible(false)}
+          onApply={applySettings}
+        />
       </View>
-    );
-  }
-
-  function renderSettingsModal() {
-    return (
-      <Modal visible={settingsVisible} transparent animationType="fade" onRequestClose={() => setSettingsVisible(false)}>
-        <Pressable style={styles.modalOverlay} onPress={() => setSettingsVisible(false)}>
-          <Pressable style={[styles.settingsSheet, { backgroundColor: colors.surface }]} onPress={e => e.stopPropagation()}>
-            <View style={styles.settingsHeader}>
-              <Text style={[styles.settingsTitle, { color: colors.text }]}>플래시카드 설정</Text>
-              <Pressable onPress={() => setSettingsVisible(false)} hitSlop={8}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
-
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>출제 대상</Text>
-                <View style={styles.filterGroup}>
-                  {(['all', 'learning', 'memorized'] as const).map(f => (
-                    <Pressable
-                      key={f}
-                      onPress={() => setSettings(s => ({ ...s, filter: f }))}
-                      style={[
-                        styles.filterTab,
-                        {
-                          backgroundColor: settings.filter === f ? colors.primary : colors.surfaceSecondary,
-                          borderColor: settings.filter === f ? colors.primary : colors.borderLight
-                        }
-                      ]}
-                    >
-                      <Text style={[styles.filterTabText, { color: settings.filter === f ? '#FFF' : colors.textSecondary }]}>
-                        {f === 'all' ? '전체' : f === 'learning' ? '미암기' : '암기'}
-                      </Text>
-                    </Pressable>
-                  ))}
-                </View>
-
-                <View style={styles.settingRow}>
-                  <View style={styles.settingLabelArea}>
-                    <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기(⭐)만 보기</Text>
-                  </View>
-                  <Switch
-                    value={settings.isStarred}
-                    onValueChange={v => setSettings(s => ({ ...s, isStarred: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={[styles.settingRow, { flexDirection: 'column', alignItems: 'flex-start', gap: 12, marginTop: 4 }]}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>학습 단위</Text>
-                  <View style={styles.filterGroup}>
-                    {['all', 10, 20, 30].map(size => {
-                      const isActive = studySettings.studyBatchSize === size;
-                      return (
-                        <Pressable
-                          key={size}
-                          onPress={() => updateStudySettings({ studyBatchSize: size as 'all' | 10 | 20 | 30 })}
-                          style={[
-                            styles.filterTab,
-                            {
-                              backgroundColor: isActive ? colors.primary : colors.surfaceSecondary,
-                              borderColor: isActive ? colors.primary : colors.borderLight
-                            }
-                          ]}
-                        >
-                          <Text style={[styles.filterTabText, { color: isActive ? '#FFF' : colors.textSecondary }]}>
-                            {size === 'all' ? '전체' : `${size}개`}
-                          </Text>
-                        </Pressable>
-                      )
-                    })}
-                  </View>
-                </View>
-              </View>
-
-              <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
-
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 옵션</Text>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>단어 섞기 (Shuffle)</Text>
-                  <Switch
-                    value={settings.shuffle}
-                    onValueChange={v => setSettings(s => ({ ...s, shuffle: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>자동 음성 재생</Text>
-                  <Switch
-                    value={settings.autoPlaySound}
-                    onValueChange={v => setSettings(s => ({ ...s, autoPlaySound: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-              </View>
-
-              <View style={[styles.divider, { backgroundColor: colors.borderLight }]} />
-
-              <View style={styles.settingSection}>
-                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>카드 뒷면 표시</Text>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>뜻 표시</Text>
-                  <Switch
-                    value={settings.showMeaning}
-                    onValueChange={v => setSettings(s => ({ ...s, showMeaning: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
-                  <Switch
-                    value={settings.showPos}
-                    onValueChange={v => setSettings(s => ({ ...s, showPos: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>발음기호 표시</Text>
-                  <Switch
-                    value={settings.showPhonetic}
-                    onValueChange={v => setSettings(s => ({ ...s, showPhonetic: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>예문 표시</Text>
-                  <Switch
-                    value={settings.showExample}
-                    onValueChange={v => setSettings(s => ({ ...s, showExample: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-
-                <View style={styles.settingRow}>
-                  <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석 표시</Text>
-                  <Switch
-                    value={settings.showExampleKr}
-                    onValueChange={v => setSettings(s => ({ ...s, showExampleKr: v }))}
-                    trackColor={{ true: colors.primary }}
-                  />
-                </View>
-              </View>
-            </ScrollView>
-          </Pressable>
-        </Pressable>
-      </Modal>
     );
   }
 
@@ -665,18 +533,18 @@ export default function FlashcardsScreen() {
         <GestureDetector gesture={panGesture}>
           <Animated.View style={[styles.cardContainer, animatedCardStyle]}>
             <Pressable style={{ flex: 1, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} onPress={handleFlip}>
-              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={settings.showPos} />
+              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} />
               <CardBack
                 word={currentWord}
                 colors={colors}
                 isDark={isDark}
                 rotation={rotation}
                 onToggleStar={handleToggleStar}
-                showMeaning={settings.showMeaning}
-                showExample={settings.showExample}
-                showExampleKr={settings.showExampleKr}
-                showPhonetic={settings.showPhonetic}
-                showPos={settings.showPos}
+                showMeaning={!!settings.showMeaning}
+                showExample={!!settings.showExample}
+                showExampleKr={!!settings.showExampleKr}
+                showPhonetic={!!settings.showPhonetic}
+                showPos={!!settings.showPos}
               />
             </Pressable>
           </Animated.View>
@@ -729,7 +597,14 @@ export default function FlashcardsScreen() {
         </Animated.View>
       </View>
 
-      {renderSettingsModal()}
+      <StudySettingsModal
+        visible={settingsVisible}
+        mode="flashcard"
+        initialSettings={settings}
+        initialBatchSize={studySettings.studyBatchSize}
+        onClose={() => setSettingsVisible(false)}
+        onApply={applySettings}
+      />
       <BatchResultOverlay
         visible={showBatchOverlay}
         completedCount={results.current.length}
@@ -987,68 +862,124 @@ const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   settingsSheet: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 24,
-    paddingBottom: Platform.OS === 'ios' ? 40 : 24,
-    maxHeight: '80%',
+    borderRadius: 24,
+    padding: 12,
+    width: '88%',
+    maxHeight: '85%',
   },
   settingsHeader: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 12,
+    position: 'relative',
   },
   settingsTitle: {
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: 'Pretendard_700Bold',
   },
-  settingSection: {
-    marginBottom: 20,
+  closeBtn: {
+    position: 'absolute',
+    right: 0,
+    padding: 4,
+    backgroundColor: 'rgba(0,0,0,0.05)',
+    borderRadius: 20,
+  },
+  settingsCard: {
+    borderRadius: 12,
+    padding: 8,
+    marginBottom: 8,
   },
   sectionTitle: {
-    fontSize: 13,
+    fontSize: 11,
     fontFamily: 'Pretendard_600SemiBold',
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: 12,
+    marginBottom: 6,
+    marginLeft: 4,
   },
-  filterGroup: {
+  segmentedControl: {
     flexDirection: 'row',
-    gap: 8,
-    marginBottom: 16,
+    borderRadius: 8,
+    padding: 2,
   },
-  filterTab: {
+  segmentedTab: {
     flex: 1,
-    paddingVertical: 10,
-    borderRadius: 12,
+    paddingVertical: 6,
+    borderRadius: 6,
     alignItems: 'center',
-    borderWidth: 1,
+    justifyContent: 'center',
   },
-  filterTabText: {
-    fontSize: 14,
+  segmentedTabActive: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
+    elevation: 2,
+  },
+  segmentedTabText: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  segmentedTabTextActive: {
     fontFamily: 'Pretendard_600SemiBold',
   },
   settingRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 12,
+    paddingVertical: 0,
   },
-  settingLabelArea: {
-    flex: 1,
+  settingRowContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  iconContainer: {
+    width: 24,
+    height: 24,
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   settingLabel: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'Pretendard_500Medium',
   },
   divider: {
     height: 1,
-    marginVertical: 4,
-    marginBottom: 20,
+    marginVertical: 6,
+  },
+  bottomButtons: {
+    flexDirection: 'row',
+    gap: 8,
+    paddingTop: 8,
+  },
+  btnCancel: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnCancelText: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  btnApply: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 10,
+    backgroundColor: '#4A7DFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnApplyText: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_600SemiBold',
+    color: '#FFF',
   },
 });
 

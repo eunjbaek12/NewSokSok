@@ -22,11 +22,12 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 export default function QuizScreen() {
-  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType } = useLocalSearchParams<{
+  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, ids } = useLocalSearchParams<{
     id: string;
     filter?: string;
     isStarred?: string;
     quizType?: string;
+    ids?: string;
   }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
@@ -64,7 +65,7 @@ export default function QuizScreen() {
   const results = useRef<StudyResult[]>([]);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -86,14 +87,22 @@ export default function QuizScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (settings.isStarred) {
-      all = all.filter(w => w.isStarred);
-    }
+    if (ids) {
+      const idList = ids.split(',');
+      all = all.filter(w => idList.includes(w.id));
+      // Re-sort according to the ids string if it's there
+      const idMap = new Map(idList.map((id, index) => [id, index]));
+      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    } else {
+      if (settings.isStarred) {
+        all = all.filter(w => w.isStarred);
+      }
 
-    if (settings.filter === 'learning') {
-      all = all.filter(w => !w.isMemorized);
-    } else if (settings.filter === 'memorized') {
-      all = all.filter(w => w.isMemorized);
+      if (settings.filter === 'learning') {
+        all = all.filter(w => !w.isMemorized);
+      } else if (settings.filter === 'memorized') {
+        all = all.filter(w => w.isMemorized);
+      }
     }
 
     // Only reset index if core filters changed, not on every word content update (like star toggle)
@@ -102,17 +111,20 @@ export default function QuizScreen() {
       lastSettingsRef.current.filter !== settings.filter ||
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.quizType !== settings.quizType ||
-      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
+      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
+      lastSettingsRef.current.ids !== ids;
 
     if (coreFilterChanged || isInitialLoad.current) {
-      // Shuffle only when core settings change or initial load
-      all = shuffleArray(all);
+      // Shuffle only when core settings change or initial load, AND NOT when repeating a specific snapshot ids
+      if (!ids) {
+        all = shuffleArray(all);
+      }
       setCurrentIndex(0);
       setCurrentBatchIndex(0);
       setAnswers({});
       choicesMapRef.current = {};
       results.current = [];
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids };
       setStudyWords(all);
       isInitialLoad.current = false;
     } else {
@@ -302,10 +314,9 @@ export default function QuizScreen() {
         style={{ flex: 1 }}
         contentContainerStyle={{
           flexGrow: 1,
-          paddingBottom: insets.bottom + 40,
-          paddingTop: 24,
-          gap: 32,
-          justifyContent: 'space-between'
+          paddingTop: 0,
+          paddingBottom: 0,
+          justifyContent: 'space-evenly'
         }}
         showsVerticalScrollIndicator={false}
       >
@@ -411,6 +422,8 @@ export default function QuizScreen() {
             <Ionicons name="chevron-forward" size={20} color={colors.text} />
           </Pressable>
         </View>
+
+        <View style={{ height: Math.max(insets.bottom, 20) }} />
       </ScrollView>
 
       <StudySettingsModal
@@ -443,13 +456,14 @@ export default function QuizScreen() {
           finishSession();
         }}
       />
-    </View>
+    </View >
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    overflow: 'hidden',
   },
   header: {
     paddingHorizontal: 16,
@@ -492,8 +506,9 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   cardArea: {
-    alignItems: 'center',
+    flex: 1,
     paddingHorizontal: 24,
+    justifyContent: 'center',
   },
   card: {
     width: '100%',
@@ -581,6 +596,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
+    marginTop: 8,
   },
   navBtn: {
     flexDirection: 'row',

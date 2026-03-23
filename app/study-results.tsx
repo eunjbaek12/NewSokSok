@@ -52,19 +52,21 @@ export default function StudyResultsScreen() {
   };
 
   const handleRetryAll = () => {
+    const sessionIds = studyResults.map(r => r.word.id).join(',');
     clearStudyResults();
     router.replace({
       pathname: `/${mode}/${id}` as any,
-      params: { isStarred, filter: sessionFilter, quizType }
+      params: { isStarred, filter: sessionFilter, quizType, ids: sessionIds }
     });
   };
 
   const handleRetryUnmemorized = () => {
+    const failedIds = reviewResults.map(r => r.word.id).join(',');
     clearStudyResults();
-    // Navigate with a filter to show only unmemorized (learning) words
+    // Navigate with ids to maintain the session snapshot of failed words
     router.replace({
       pathname: `/${mode}/${id}` as any,
-      params: { filter: 'learning', isStarred, quizType }
+      params: { isStarred, quizType, ids: failedIds }
     });
   };
 

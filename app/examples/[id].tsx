@@ -21,7 +21,7 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a;
 }
 
-function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm = true }: { sentence: string; term: string; primaryColor: string; textColor: string; showTerm?: boolean }) {
+function HighlightedSentence({ sentence, term, meaning, primaryColor, textColor, showTerm = true, showHint = false, onPressBlank, isDark, colors }: { sentence: string; term: string; meaning: string; primaryColor: string; textColor: string; showTerm?: boolean; showHint?: boolean; onPressBlank?: () => void; isDark: boolean; colors: any }) {
   const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
   const parts = sentence.split(regex);
 
@@ -30,9 +30,34 @@ function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm
       {parts.map((part, i) =>
         regex.test(part) ? (
           showTerm ? (
-            <Text key={i} style={[styles.highlightedWord, { color: primaryColor, textDecorationLine: 'underline' }]}>{part}</Text>
+            <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>{part}</Text>
           ) : (
-            <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>_____</Text>
+            (() => {
+              const hintBg = isDark ? '#3D3D29' : '#FFF9C4'; // Soft yellow for hint
+              const defaultBg = isDark ? colors.surfaceSecondary : '#F3F4F6';
+              const child = (
+                <View key={i} style={[
+                  styles.blankBox,
+                  {
+                    backgroundColor: showHint ? hintBg : defaultBg,
+                    borderColor: showHint ? (isDark ? '#856404' : '#FFEE58') : (isDark ? colors.border : '#E5E7EB'),
+                    minWidth: showHint ? 60 : 40,
+                  }
+                ]}>
+                  <Text style={[styles.blankText, { color: showHint ? (isDark ? '#FDE68A' : '#856404') : (isDark ? colors.textTertiary : '#9CA3AF') }]}>
+                    {showHint ? meaning : '?'}
+                  </Text>
+                </View>
+              );
+              if (onPressBlank) {
+                return (
+                  <Pressable key={i} onPress={onPressBlank} hitSlop={8}>
+                    {child}
+                  </Pressable>
+                );
+              }
+              return child;
+            })()
           )
         ) : (
           <Text key={i}>{part}</Text>
@@ -43,18 +68,19 @@ function HighlightedSentence({ sentence, term, primaryColor, textColor, showTerm
 }
 
 export default function ExamplesScreen() {
-  const { id, filter, isStarred: initialIsStarred } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string }>();
+  const { id, filter, isStarred: initialIsStarred, ids } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string }>();
   const insets = useSafeAreaInsets();
-  const { colors } = useTheme();
-  const { getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
+  const { colors, isDark } = useTheme();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
   const { studySettings, updateStudySettings } = useSettings();
+  const list = lists.find(l => l.id === id);
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [settings, setSettings] = useState<StudySettings>({
     filter: (filter || 'all') as 'all' | 'learning' | 'memorized',
     isStarred: initialIsStarred === 'true',
-    showTerm: true,
+    showTerm: false,
     showMeaning: true,
     showExampleKr: true,
     autoPlaySound: true,
@@ -72,14 +98,22 @@ export default function ExamplesScreen() {
   const [studyWords, setStudyWords] = useState<Word[]>([]);
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const currentIndexRef = useRef(currentIndex);
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
+
   const [showBatchOverlay, setShowBatchOverlay] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [batchAnswers, setBatchAnswers] = useState<Record<number, { selectedId: string; isCorrect: boolean }>>({});
+  const [isNewAnswer, setIsNewAnswer] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -98,37 +132,44 @@ export default function ExamplesScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    if (settings.isStarred) {
-      all = all.filter(w => w.isStarred);
+    if (ids) {
+      const idList = ids.split(',');
+      all = all.filter(w => idList.includes(w.id));
+      const idMap = new Map(idList.map((id, index) => [id, index]));
+      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    } else {
+      if (settings.isStarred) {
+        all = all.filter(w => w.isStarred);
+      }
+
+      if (settings.filter === 'learning') {
+        all = all.filter(w => !w.isMemorized);
+      } else if (settings.filter === 'memorized') {
+        all = all.filter(w => w.isMemorized);
+      }
     }
 
-    if (settings.filter === 'learning') {
-      all = all.filter(w => !w.isMemorized);
-    } else if (settings.filter === 'memorized') {
-      all = all.filter(w => w.isMemorized);
-    }
-
-    if (settings.shuffle) {
-      all = [...all].sort(() => Math.random() - 0.5);
-    }
-
-    setStudyWords(all);
-
-    // Only reset index if core filters changed, not on every word content update
+    // Only reset index if core filters changed, not on every word content update (like star toggle)
     const coreFilterChanged =
       lastSettingsRef.current.id !== id ||
       lastSettingsRef.current.filter !== settings.filter ||
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.shuffle !== settings.shuffle ||
-      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
+      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
+      lastSettingsRef.current.ids !== ids;
 
     if (coreFilterChanged || isInitialLoad.current) {
+      if (settings.shuffle && !ids) {
+        all = [...all].sort(() => Math.random() - 0.5);
+      }
       setCurrentIndex(0);
       setCurrentBatchIndex(0);
       setSelectedAnswer(null);
       setIsCorrect(null);
+      setBatchAnswers({});
+      setIsNewAnswer(false);
       results.current = [];
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
       setStudyWords(all);
       isInitialLoad.current = false;
     } else {
@@ -148,12 +189,24 @@ export default function ExamplesScreen() {
 
   const currentWord = currentBatchWords[currentIndex];
 
+  const handleToggleStar = useCallback(async (wordId: string) => {
+    setStudyWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    await toggleStarred(id!, wordId);
+  }, [id, toggleStarred]);
 
+  const choicesMapRef = useRef<Record<string, Word[]>>({});
 
   const choices = useMemo(() => {
     if (!currentWord) return [];
-    const distractors = shuffleArray(getWordsForList(id!).filter(w => w.id !== currentWord.id)).slice(0, 3);
-    return shuffleArray([currentWord, ...distractors]);
+    if (choicesMapRef.current[currentWord.id]) {
+      return choicesMapRef.current[currentWord.id].map(c => c.id === currentWord.id ? currentWord : c);
+    }
+    const allListWords = getWordsForList(id!);
+    const distractors = shuffleArray(allListWords.filter(w => w.id !== currentWord.id)).slice(0, 3);
+    const newChoices = shuffleArray([currentWord, ...distractors]);
+    choicesMapRef.current[currentWord.id] = newChoices;
+    return newChoices;
   }, [currentIndex, currentWord?.id, id, getWordsForList]);
 
   const handleAnswer = useCallback(async (word: Word) => {
@@ -161,6 +214,8 @@ export default function ExamplesScreen() {
     const correct = word.id === currentWord.id;
     setSelectedAnswer(word.id);
     setIsCorrect(correct);
+    setBatchAnswers(prev => ({ ...prev, [currentIndex]: { selectedId: word.id, isCorrect: correct } }));
+    setIsNewAnswer(true);
 
     if (correct) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
@@ -169,26 +224,35 @@ export default function ExamplesScreen() {
     }
 
     results.current.push({ word: currentWord, gotIt: correct });
-  }, [selectedAnswer, currentWord]);
+  }, [selectedAnswer, currentWord, currentIndex]);
 
   useEffect(() => {
-    if (selectedAnswer === null) return;
+    if (selectedAnswer === null || !isNewAnswer) return;
     const timer = setTimeout(async () => {
-      if (currentIndex >= currentBatchWords.length - 1) {
-        const nextStart = (currentBatchIndex + 1) * batchSizeNum;
-        if (nextStart < studyWords.length) {
-          setShowBatchOverlay(true);
+      if (currentIndexRef.current === currentIndex) {
+        if (currentIndex >= currentBatchWords.length - 1) {
+          const nextStart = (currentBatchIndex + 1) * batchSizeNum;
+          if (nextStart < studyWords.length) {
+            setShowBatchOverlay(true);
+          } else {
+            finishSession();
+          }
         } else {
-          finishSession();
+          const nextIndex = currentIndex + 1;
+          const nextAnswer = batchAnswers[nextIndex];
+          setCurrentIndex(nextIndex);
+          setSelectedAnswer(nextAnswer ? nextAnswer.selectedId : null);
+          setIsCorrect(nextAnswer ? nextAnswer.isCorrect : null);
+          setIsNewAnswer(false);
         }
-        return;
       }
-      setCurrentIndex(prev => prev + 1);
-      setSelectedAnswer(null);
-      setIsCorrect(null);
     }, 1000);
     return () => clearTimeout(timer);
-  }, [selectedAnswer, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length]);
+  }, [selectedAnswer, isNewAnswer, currentIndex, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length, batchAnswers]);
+
+  useEffect(() => {
+    setShowHint(false);
+  }, [currentIndex, currentBatchIndex]);
 
   const finishSession = async () => {
     const finalResults = results.current;
@@ -222,21 +286,6 @@ export default function ExamplesScreen() {
   const handleClose = useCallback(() => {
     router.back();
   }, []);
-
-  const handleNextBatch = () => {
-    setCurrentBatchIndex(prev => prev + 1);
-    setCurrentIndex(0);
-    setShowBatchOverlay(false);
-  };
-
-  const handleRetryBatch = () => {
-    setCurrentIndex(0);
-    setShowBatchOverlay(false);
-    // Remove results from current batch to retry
-    const startIdx = currentBatchIndex * batchSizeNum;
-    const currentBatchWordIds = new Set(studyWords.slice(startIdx, startIdx + batchSizeNum).map(w => w.id));
-    results.current = results.current.filter(r => !currentBatchWordIds.has(r.word.id));
-  };
 
   const handleSpeak = useCallback(() => {
     if (currentWord?.exampleEn) {
@@ -278,80 +327,118 @@ export default function ExamplesScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={[styles.topBar, { paddingTop: topInset + 12 }]}>
-        <View style={styles.progressArea}>
-          <Text style={[styles.progressText, { color: colors.textSecondary }]}>
-            {(currentBatchIndex * batchSizeNum) + currentIndex + 1} / {studyWords.length}
-          </Text>
+      <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
+        <View style={styles.headerRow}>
+          <Pressable onPress={handleClose} hitSlop={12}>
+            <Ionicons name="chevron-back" size={24} color={colors.text} />
+          </Pressable>
+
+          <View style={styles.titleArea}>
+            <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
+              {list?.title || '문장완성'}
+            </Text>
+          </View>
+
+          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+            <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
+          </Pressable>
+        </View>
+
+        <View style={styles.progressContainer}>
           <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
             <View
               style={[
                 styles.progressBarFill,
                 {
                   backgroundColor: colors.primary,
-                  width: `${(((currentBatchIndex * batchSizeNum) + currentIndex + 1) / studyWords.length) * 100}%`,
+                  width: `${((currentIndex + 1) / currentBatchWords.length) * 100}%`,
                 },
               ]}
             />
           </View>
-        </View>
-        <View style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
-          <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
-            <Ionicons name="settings-outline" size={26} color={colors.textSecondary} />
-          </Pressable>
-          <Pressable onPress={handleClose} hitSlop={12}>
-            <Ionicons name="close" size={28} color={colors.textSecondary} />
-          </Pressable>
+          <Text style={[styles.progressText, { color: colors.textTertiary }]}>
+            {currentIndex + 1} / {currentBatchWords.length}
+          </Text>
         </View>
       </View>
 
-      <View style={styles.contentArea}>
-        <View style={[styles.exampleCard, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }]}>
-          {currentWord.exampleEn ? (
-            <View style={{ gap: 12, alignItems: 'center' }}>
-              <HighlightedSentence
-                sentence={currentWord.exampleEn}
-                term={currentWord.term}
-                primaryColor={colors.primary}
-                textColor={colors.text}
-                showTerm={settings.showTerm}
-              />
-              {settings.showExampleKr && currentWord.exampleKr && isCorrect !== null && (
-                <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
-              )}
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingTop: 0,
+          paddingBottom: 0,
+          justifyContent: 'space-evenly'
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.cardArea}>
+          <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
+            <View style={styles.questionHeader}>
+              <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
+                <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+              </Pressable>
             </View>
-          ) : (
-            <Text style={[styles.noExample, { color: colors.textTertiary }]}>No example sentence available</Text>
-          )}
-          <Pressable onPress={handleSpeak} hitSlop={12} style={styles.speakerBtn}>
-            {({ pressed }) => (
-              <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
+
+            {currentWord.exampleEn ? (
+              <View style={{ gap: 12, alignItems: 'center', width: '100%' }}>
+                <HighlightedSentence
+                  sentence={currentWord.exampleEn}
+                  term={currentWord.term}
+                  meaning={currentWord.meaningKr || '뜻 정보 없음'}
+                  primaryColor={colors.primary}
+                  textColor={colors.text}
+                  showTerm={settings.showTerm || selectedAnswer !== null}
+                  showHint={showHint}
+                  onPressBlank={() => setShowHint(prev => !prev)}
+                  isDark={isDark}
+                  colors={colors}
+                />
+
+                {settings.showExampleKr && currentWord.exampleKr && selectedAnswer !== null && (
+                  <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
+                )}
+              </View>
+            ) : (
+              <Text style={[styles.noExample, { color: colors.textTertiary }]}>No example sentence available</Text>
             )}
-          </Pressable>
+
+            <Pressable onPress={handleSpeak} hitSlop={12} style={styles.speakerBtn}>
+              {({ pressed }) => (
+                <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
+              )}
+            </Pressable>
+          </View>
         </View>
 
         <View style={styles.choicesArea}>
-          {choices.map((choice: Word) => {
+          {choices.map((choice: Word, index) => {
             const isSelected = selectedAnswer === choice.id;
             const isCorrectAnswer = choice.id === currentWord.id;
             const showCorrect = selectedAnswer !== null && isCorrectAnswer;
             const showWrong = isSelected && !isCorrect;
 
             let bgColor = colors.surface;
-            let borderColor = colors.border;
+            let borderColor = colors.borderLight;
             let textColor = colors.text;
             let iconName: keyof typeof Ionicons.glyphMap | null = null;
+            let badgeTextColor = colors.textSecondary;
 
             if (showCorrect) {
-              bgColor = colors.successLight;
-              borderColor = colors.success;
-              textColor = colors.success;
+              bgColor = colors.primaryLight;
+              borderColor = colors.primary;
+              textColor = colors.primary;
               iconName = 'checkmark-circle';
+              badgeTextColor = colors.primary;
             } else if (showWrong) {
-              bgColor = colors.errorLight;
-              borderColor = colors.error;
-              textColor = colors.error;
+              bgColor = colors.warningLight;
+              borderColor = colors.warning;
+              textColor = colors.warning;
               iconName = 'close-circle';
+              badgeTextColor = colors.warning;
+            } else if (selectedAnswer && !isCorrectAnswer) {
+              textColor = colors.textSecondary;
+              badgeTextColor = colors.textTertiary;
             }
 
             return (
@@ -367,6 +454,9 @@ export default function ExamplesScreen() {
                   },
                 ]}
               >
+                <View style={styles.choiceIndexBadge}>
+                  <Text style={[styles.choiceIndexText, { color: badgeTextColor }]}>{['A', 'B', 'C', 'D'][index]}.</Text>
+                </View>
                 <Text style={[styles.choiceText, { color: textColor }]}>{choice.term}</Text>
                 {iconName && (
                   <Ionicons name={iconName} size={24} color={textColor} />
@@ -375,7 +465,43 @@ export default function ExamplesScreen() {
             );
           })}
         </View>
-      </View>
+
+        <View style={styles.navFooter}>
+          <Pressable
+            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }, currentIndex === 0 && { opacity: 0.4 }]}
+            disabled={currentIndex === 0}
+            onPress={() => {
+              const prevIndex = currentIndex - 1;
+              const prevAnswer = batchAnswers[prevIndex];
+              setCurrentIndex(prevIndex);
+              setSelectedAnswer(prevAnswer ? prevAnswer.selectedId : null);
+              setIsCorrect(prevAnswer ? prevAnswer.isCorrect : null);
+              setIsNewAnswer(false);
+            }}
+          >
+            <Ionicons name="chevron-back" size={20} color={colors.text} />
+            <Text style={[styles.navBtnText, { color: colors.text }]}>이전</Text>
+          </Pressable>
+
+          <Pressable
+            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }, currentIndex >= currentBatchWords.length - 1 && { opacity: 0.4 }]}
+            disabled={currentIndex >= currentBatchWords.length - 1}
+            onPress={() => {
+              const nextIndex = currentIndex + 1;
+              const nextAnswer = batchAnswers[nextIndex];
+              setCurrentIndex(nextIndex);
+              setSelectedAnswer(nextAnswer ? nextAnswer.selectedId : null);
+              setIsCorrect(nextAnswer ? nextAnswer.isCorrect : null);
+              setIsNewAnswer(false);
+            }}
+          >
+            <Text style={[styles.navBtnText, { color: colors.text }]}>다음</Text>
+            <Ionicons name="chevron-forward" size={20} color={colors.text} />
+          </Pressable>
+        </View>
+
+        <View style={{ height: Math.max(insets.bottom, 20) }} />
+      </ScrollView>
 
       <StudySettingsModal
         visible={settingsVisible}
@@ -388,12 +514,31 @@ export default function ExamplesScreen() {
 
       <BatchResultOverlay
         visible={showBatchOverlay}
-        completedCount={Math.min((currentBatchIndex + 1) * batchSizeNum, studyWords.length)}
+        completedCount={results.current.length}
         totalCount={studyWords.length}
-        isLastBatch={((currentBatchIndex + 1) * batchSizeNum) >= studyWords.length}
-        onNextBatch={handleNextBatch}
-        onRetryBatch={handleRetryBatch}
-        onFinish={finishSession}
+        isLastBatch={(currentBatchIndex + 1) * batchSizeNum >= studyWords.length}
+        onNextBatch={() => {
+          setCurrentBatchIndex(prev => prev + 1);
+          setCurrentIndex(0);
+          setSelectedAnswer(null);
+          setIsCorrect(null);
+          setBatchAnswers({});
+          setIsNewAnswer(false);
+          setShowBatchOverlay(false);
+        }}
+        onRetryBatch={() => {
+          setCurrentIndex(0);
+          setSelectedAnswer(null);
+          setIsCorrect(null);
+          setBatchAnswers({});
+          setIsNewAnswer(false);
+          setShowBatchOverlay(false);
+          results.current = results.current.slice(0, results.current.length - currentBatchWords.length);
+        }}
+        onFinish={() => {
+          setShowBatchOverlay(false);
+          finishSession();
+        }}
       />
     </View>
   );
@@ -402,63 +547,109 @@ export default function ExamplesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    overflow: 'hidden',
   },
-  topBar: {
+  header: {
+    paddingHorizontal: 16,
+    paddingBottom: 0,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingBottom: 12,
     gap: 12,
   },
-  progressArea: {
+  titleArea: {
     flex: 1,
-    gap: 6,
   },
-  progressText: {
-    fontSize: 14,
-    fontFamily: 'Pretendard_600SemiBold',
+  headerTitle: {
+    fontSize: 20,
+    fontFamily: 'Pretendard_700Bold',
+  },
+  progressContainer: {
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingBottom: 12,
   },
   progressBarBg: {
-    height: 4,
-    borderRadius: 2,
+    flex: 1,
+    height: 6,
+    borderRadius: 3,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
-    borderRadius: 2,
+    borderRadius: 3,
   },
-  contentArea: {
+  progressText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_500Medium',
+    minWidth: 60,
+    textAlign: 'right',
+  },
+  cardArea: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     paddingHorizontal: 24,
-    gap: 32,
+    justifyContent: 'center',
   },
-  exampleCard: {
+  card: {
     width: '100%',
-    borderRadius: 20,
-    padding: 28,
+    borderRadius: 12,
+    padding: 32,
     alignItems: 'center',
-    shadowOffset: { width: 0, height: 8 },
+    justifyContent: 'center',
+    shadowOffset: { width: 0, height: 12 },
     shadowOpacity: 1,
-    shadowRadius: 16,
-    elevation: 8,
-    gap: 20,
+    shadowRadius: 20,
+    elevation: 12,
+    gap: 12,
+    minHeight: 280,
+  },
+  questionHeader: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    zIndex: 10,
+  },
+  starBtn: {
+    padding: 4,
+  },
+  speakerBtn: {
+    padding: 8,
+    marginTop: 8,
   },
   exampleText: {
-    fontSize: 22,
+    fontSize: 24,
     fontFamily: 'Pretendard_500Medium',
     textAlign: 'center',
     lineHeight: 34,
   },
   exampleKrText: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
     textAlign: 'center',
-    lineHeight: 24,
+    lineHeight: 20,
   },
   highlightedWord: {
     fontFamily: 'Pretendard_700Bold',
+    textDecorationLine: 'underline',
+  },
+  blankBox: {
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    marginHorizontal: 4,
+    minHeight: 34,
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 6,
+  },
+  blankText: {
+    fontSize: 16,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   noExample: {
     fontSize: 16,
@@ -466,67 +657,50 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textAlign: 'center',
   },
-  speakerBtn: {
-    padding: 8,
-  },
-  starBtn: {
-    padding: 8,
-    position: 'absolute',
-    right: 16,
-    top: 16,
-    zIndex: 10,
-  },
-  wordInfo: {
-    alignItems: 'center',
-    gap: 6,
-    minHeight: 60,
-  },
-  wordText: {
-    fontSize: 24,
-    fontFamily: 'Pretendard_700Bold',
-  },
   choicesArea: {
-    width: '100%',
-    gap: 12,
+    paddingHorizontal: 20,
+    gap: 8,
   },
   choiceBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: 12,
     borderWidth: 1.5,
   },
   choiceText: {
     fontSize: 18,
-    fontFamily: 'Pretendard_600SemiBold',
+    fontFamily: 'Pretendard_500Medium',
     flex: 1,
   },
-  meaningText: {
+  choiceIndexBadge: {
+    width: 24,
+    justifyContent: 'center',
+    marginRight: 4,
+  },
+  choiceIndexText: {
     fontSize: 18,
     fontFamily: 'Pretendard_500Medium',
   },
-  bottomBar: {
+  navFooter: {
     flexDirection: 'row',
-    paddingHorizontal: 24,
-    gap: 16,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    marginTop: 8,
   },
-  actionBtn: {
-    flex: 1,
+  navBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 16,
-    borderRadius: 14,
-    gap: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    gap: 4,
   },
-  reviewBtn: {
-    borderWidth: 2,
-  },
-  gotItBtn: {},
-  actionBtnText: {
-    fontSize: 17,
+  navBtnText: {
+    fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
   },
 });

@@ -16,11 +16,26 @@ export interface StudySettings {
     sentenceBatchSize: number | 'all';
 }
 
+export interface AutoPlaySettings {
+    filter: 'all' | 'learning' | 'memorized';
+    isStarred: boolean;
+    showTerm: boolean;
+    showMeaning: boolean;
+    showPos: boolean;
+    showExample: boolean;
+    showExampleKr: boolean;
+    autoPlaySound: boolean;
+    delay: '1s' | '2s' | '3s';
+    shuffle: boolean;
+}
+
 interface SettingsContextType {
     inputSettings: InputSettings;
     updateInputSettings: (updates: Partial<InputSettings>) => Promise<void>;
     studySettings: StudySettings;
     updateStudySettings: (updates: Partial<StudySettings>) => Promise<void>;
+    autoPlaySettings: AutoPlaySettings;
+    updateAutoPlaySettings: (updates: Partial<AutoPlaySettings>) => Promise<void>;
     isLoading: boolean;
 }
 
@@ -39,14 +54,29 @@ const DEFAULT_STUDY_SETTINGS: StudySettings = {
     sentenceBatchSize: 'all',
 };
 
+const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = {
+    filter: 'all',
+    isStarred: false,
+    showTerm: true,
+    showMeaning: true,
+    showPos: true,
+    showExample: true,
+    showExampleKr: true,
+    autoPlaySound: true,
+    delay: '2s',
+    shuffle: false,
+};
+
 const SETTINGS_KEY = '@soksok_user_input_settings';
 const STUDY_SETTINGS_KEY = '@soksok_user_study_settings';
+const AUTOPLAY_SETTINGS_KEY = '@soksok_user_autoplay_settings';
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
     const [inputSettings, setInputSettings] = useState<InputSettings>(DEFAULT_INPUT_SETTINGS);
     const [studySettings, setStudySettings] = useState<StudySettings>(DEFAULT_STUDY_SETTINGS);
+    const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(DEFAULT_AUTOPLAY_SETTINGS);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -55,14 +85,20 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
     const loadSettings = async () => {
         try {
-            const [savedInput, savedStudy] = await Promise.all([
+            const [savedInput, savedStudy, savedAutoPlay] = await Promise.all([
                 AsyncStorage.getItem(SETTINGS_KEY),
-                AsyncStorage.getItem(STUDY_SETTINGS_KEY)
+                AsyncStorage.getItem(STUDY_SETTINGS_KEY),
+                AsyncStorage.getItem(AUTOPLAY_SETTINGS_KEY)
             ]);
 
             if (savedStudy) {
                 const parsedStudy = JSON.parse(savedStudy);
                 setStudySettings({ ...DEFAULT_STUDY_SETTINGS, ...parsedStudy });
+            }
+
+            if (savedAutoPlay) {
+                const parsedAutoPlay = JSON.parse(savedAutoPlay);
+                setAutoPlaySettings({ ...DEFAULT_AUTOPLAY_SETTINGS, ...parsedAutoPlay });
             }
 
             if (savedInput) {
@@ -130,8 +166,26 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    const updateAutoPlaySettings = async (updates: Partial<AutoPlaySettings>) => {
+        try {
+            const newSettings = { ...autoPlaySettings, ...updates };
+            setAutoPlaySettings(newSettings);
+            await AsyncStorage.setItem(AUTOPLAY_SETTINGS_KEY, JSON.stringify(newSettings));
+        } catch (e) {
+            console.error('Failed to save autoplay settings', e);
+        }
+    };
+
     return (
-        <SettingsContext.Provider value={{ inputSettings, updateInputSettings, studySettings, updateStudySettings, isLoading }}>
+        <SettingsContext.Provider value={{
+            inputSettings,
+            updateInputSettings,
+            studySettings,
+            updateStudySettings,
+            autoPlaySettings,
+            updateAutoPlaySettings,
+            isLoading
+        }}>
             {children}
         </SettingsContext.Provider>
     );

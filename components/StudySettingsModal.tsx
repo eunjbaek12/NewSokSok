@@ -1,7 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Modal } from 'react-native';
+import { ScrollView, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
+import Animated, { useAnimatedStyle, withTiming, interpolateColor } from 'react-native-reanimated';
 import { useTheme } from '@/contexts/ThemeContext';
+
+const CustomToggle = ({ value, onValueChange, activeColor = '#4A7DFF' }: { value: boolean, onValueChange: (v: boolean) => void, activeColor?: string }) => {
+    const { colors, isDark } = useTheme();
+
+    const animatedStyle = useAnimatedStyle(() => {
+        return {
+            transform: [{ translateX: withTiming(value ? 14 : 0, { duration: 200 }) }],
+        };
+    });
+
+    const trackStyle = useAnimatedStyle(() => {
+        return {
+            backgroundColor: withTiming(value ? activeColor : (isDark ? '#374151' : '#E5E7EB'), { duration: 200 }),
+        };
+    });
+
+    return (
+        <Pressable onPress={() => onValueChange(!value)} style={{ padding: 4 }}>
+            <Animated.View style={[{
+                width: 30,
+                height: 16,
+                borderRadius: 8,
+                justifyContent: 'center',
+                paddingHorizontal: 2,
+            }, trackStyle]}>
+                <Animated.View style={[{
+                    width: 12,
+                    height: 12,
+                    borderRadius: 6,
+                    backgroundColor: '#FFF',
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 1 },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 1,
+                    elevation: 1,
+                }, animatedStyle]} />
+            </Animated.View>
+        </Pressable>
+    );
+};
 
 export interface StudySettings {
     filter: 'all' | 'learning' | 'memorized';
@@ -18,11 +60,13 @@ export interface StudySettings {
     quizType?: 'meaning-to-term' | 'term-to-meaning';
     // Examples specific
     showTerm?: boolean;
+    // Autoplay specific
+    delay?: '1s' | '2s' | '3s';
 }
 
 interface StudySettingsModalProps {
     visible: boolean;
-    mode: 'flashcard' | 'quiz' | 'examples';
+    mode: 'flashcard' | 'quiz' | 'examples' | 'autoplay';
     initialSettings: StudySettings;
     initialBatchSize: number | 'all';
     onClose: () => void;
@@ -58,360 +102,342 @@ export default function StudySettingsModal({
 
     return (
         <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-            <Pressable style={styles.modalOverlay} onPress={onClose}>
-                <Pressable style={[styles.settingsSheet, { backgroundColor: isDark ? colors.background : '#F3F4F6' }]} onPress={e => e.stopPropagation()}>
-                    <View style={styles.settingsHeader}>
-                        <Text style={[styles.settingsTitle, { color: colors.text }]}>
-                            {mode === 'flashcard' ? '플래시카드 설정' : mode === 'quiz' ? '퀴즈 설정' : '문장완성 설정'}
-                        </Text>
-                        <Pressable onPress={onClose} hitSlop={8} style={styles.closeBtn}>
-                            <Ionicons name="close" size={20} color={colors.textSecondary} />
-                        </Pressable>
-                    </View>
+            <GestureHandlerRootView style={{ flex: 1 }}>
+                <View style={styles.modalOverlay}>
+                    <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
+                    <Pressable
+                        style={[styles.settingsSheet, { backgroundColor: isDark ? colors.background : '#F3F4F6' }]}
+                        onPress={(e) => e.stopPropagation()}
+                    >
+                        <View style={styles.settingsHeader}>
+                            <Text style={[styles.settingsTitle, { color: colors.text }]}>
+                                {mode === 'flashcard' ? '플래시카드 설정' : mode === 'quiz' ? '퀴즈 설정' : mode === 'examples' ? '문장완성 설정' : '자동재생 설정'}
+                            </Text>
+                            <Pressable onPress={onClose} hitSlop={8} style={styles.closeBtn}>
+                                <Ionicons name="close" size={20} color={colors.textSecondary} />
+                            </Pressable>
+                        </View>
 
-                    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 8 }}>
-                        {/* 공통: 출제 대상 */}
-                        <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                            <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>출제 대상</Text>
+                        <ScrollView
+                            showsVerticalScrollIndicator={false}
+                            style={styles.settingsScrollView}
+                            contentContainerStyle={{ paddingBottom: 8 }}
+                            scrollEventThrottle={16}
+                            keyboardShouldPersistTaps="handled"
+                        >
+                            {/* 공통: 출제 대상 */}
+                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>출제 대상</Text>
 
-                            <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
-                                {(['all', 'learning', 'memorized'] as const).map(f => {
-                                    const isActive = tempSettings.filter === f;
-                                    return (
-                                        <Pressable
-                                            key={f}
-                                            onPress={() => updateSetting('filter', f)}
-                                            style={[
-                                                styles.segmentedTab,
-                                                isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
-                                            ]}
-                                        >
-                                            <Text style={[
-                                                isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                { color: isActive ? '#4A7DFF' : colors.textSecondary }
-                                            ]}>
-                                                {f === 'all' ? '전체' : f === 'learning' ? '미암기' : '암기'}
-                                            </Text>
-                                        </Pressable>
-                                    );
-                                })}
-                            </View>
-
-                            <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                            <View style={styles.settingRow}>
-                                <View style={styles.settingRowContent}>
-                                    <View style={[styles.iconContainer, { backgroundColor: isDark ? '#1E2A4F' : '#EAF0FF' }]}>
-                                        <Ionicons name="star-outline" size={16} color="#4A7DFF" />
-                                    </View>
-                                    <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기만 보기</Text>
+                                <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
+                                    {(['all', 'learning', 'memorized'] as const).map(f => {
+                                        const isActive = tempSettings.filter === f;
+                                        return (
+                                            <Pressable
+                                                key={f}
+                                                onPress={() => updateSetting('filter', f)}
+                                                style={[
+                                                    styles.segmentedTab,
+                                                    isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                ]}
+                                            >
+                                                <Text style={[
+                                                    isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
+                                                    { color: isActive ? '#4A7DFF' : colors.textSecondary }
+                                                ]}>
+                                                    {f === 'all' ? '전체' : f === 'learning' ? '미암기' : '암기'}
+                                                </Text>
+                                            </Pressable>
+                                        );
+                                    })}
                                 </View>
-                                <Switch
-                                    value={tempSettings.isStarred}
-                                    onValueChange={v => updateSetting('isStarred', v)}
-                                    trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                    thumbColor="#FFF"
-                                />
+
+                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+
+                                <View style={styles.settingRow}>
+                                    <View style={styles.settingRowContent}>
+                                        <View style={styles.iconContainer}>
+                                            <Ionicons name="star-outline" size={16} color="#4A7DFF" />
+                                        </View>
+                                        <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기만 보기</Text>
+                                    </View>
+                                    <CustomToggle
+                                        value={tempSettings.isStarred}
+                                        onValueChange={v => updateSetting('isStarred', v)}
+                                    />
+                                </View>
+
+                                {/* 품사 표시는 플래시카드는 카드 뒷면에, 퀴즈는 여기에? 플래시카드/퀴즈 구조상 퀴즈는 공통 출제 대상 쪽에 있었음. 플래시카드처럼 퀴즈도 여기서 처리. */}
+                                {mode === 'quiz' && (
+                                    <>
+                                        <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                        <View style={styles.settingRow}>
+                                            <View style={styles.settingRowContent}>
+                                                <View style={styles.iconContainer}>
+                                                    <Ionicons name="text-outline" size={16} color="#10B981" />
+                                                </View>
+                                                <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
+                                            </View>
+                                            <CustomToggle
+                                                value={!!tempSettings.showPos}
+                                                onValueChange={v => updateSetting('showPos', v)}
+                                            />
+                                        </View>
+                                    </>
+                                )}
                             </View>
 
-                            {/* 품사 표시는 플래시카드는 카드 뒷면에, 퀴즈는 여기에? 플래시카드/퀴즈 구조상 퀴즈는 공통 출제 대상 쪽에 있었음. 플래시카드처럼 퀴즈도 여기서 처리. */}
-                            {mode === 'quiz' && (
-                                <>
-                                    <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                            {/* 공통: 학습 단위 */}
+                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 단위</Text>
+                                <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
+                                    {['all', 10, 20, 30].map(size => {
+                                        const isActive = tempBatchSize === size;
+                                        return (
+                                            <Pressable
+                                                key={size}
+                                                onPress={() => setTempBatchSize(size as 'all' | 10 | 20 | 30)}
+                                                style={[
+                                                    styles.segmentedTab,
+                                                    isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                ]}
+                                            >
+                                                <Text style={[
+                                                    isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
+                                                    { color: isActive ? '#4A7DFF' : colors.textSecondary }
+                                                ]}>
+                                                    {size === 'all' ? '전체' : `${size}개`}
+                                                </Text>
+                                            </Pressable>
+                                        );
+                                    })}
+                                </View>
+                            </View>
+
+                            {/* 플래시카드, 문장완성, 자동재생 공통: 학습 옵션 */}
+                            {(mode === 'flashcard' || mode === 'examples' || mode === 'autoplay') && (
+                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 옵션</Text>
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
-                                            <View style={[styles.iconContainer, { backgroundColor: isDark ? '#1C3325' : '#E8F8E8' }]}>
-                                                <Ionicons name="text-outline" size={16} color="#10B981" />
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="shuffle-outline" size={16} color="#9333EA" />
                                             </View>
-                                            <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>
+                                                {mode === 'examples' ? '문장 섞기 (Shuffle)' : '단어 섞기 (Shuffle)'}
+                                            </Text>
                                         </View>
-                                        <Switch
-                                            value={!!tempSettings.showPos}
-                                            onValueChange={v => updateSetting('showPos', v)}
-                                            trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                            thumbColor="#FFF"
+                                        <CustomToggle
+                                            value={!!tempSettings.shuffle}
+                                            onValueChange={v => updateSetting('shuffle', v)}
                                         />
                                     </View>
-                                </>
+
+                                    <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+
+                                    <View style={styles.settingRow}>
+                                        <View style={styles.settingRowContent}>
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="volume-high-outline" size={16} color="#FF5722" />
+                                            </View>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>자동 음성 재생</Text>
+                                        </View>
+                                        <CustomToggle
+                                            value={!!tempSettings.autoPlaySound}
+                                            onValueChange={v => updateSetting('autoPlaySound', v)}
+                                        />
+                                    </View>
+
+                                    {mode === 'autoplay' && (
+                                        <>
+                                            <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                            <View style={styles.settingRow}>
+                                                <View style={styles.settingRowContent}>
+                                                    <View style={styles.iconContainer}>
+                                                        <Ionicons name="time-outline" size={16} color="#F59E0B" />
+                                                    </View>
+                                                    <Text style={[styles.settingLabel, { color: colors.text }]}>다음 단어 딜레이</Text>
+                                                </View>
+                                                <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6', flex: 1, marginLeft: 16 }]}>
+                                                    {(['1s', '2s', '3s'] as const).map(d => {
+                                                        const isActive = tempSettings.delay === d;
+                                                        return (
+                                                            <Pressable
+                                                                key={d}
+                                                                onPress={() => updateSetting('delay', d)}
+                                                                style={[
+                                                                    styles.segmentedTab,
+                                                                    isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                                ]}
+                                                            >
+                                                                <Text style={[
+                                                                    isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
+                                                                    { color: isActive ? '#4A7DFF' : colors.textSecondary }
+                                                                ]}>
+                                                                    {d}
+                                                                </Text>
+                                                            </Pressable>
+                                                        );
+                                                    })}
+                                                </View>
+                                            </View>
+                                        </>
+                                    )}
+                                </View>
                             )}
+
+                            {/* 플래시카드 및 자동재생 공통: 카드 뒷면 표시 */}
+                            {(mode === 'flashcard' || mode === 'autoplay') && (
+                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>표시 설정</Text>
+
+
+
+                                    <View style={styles.settingRow}>
+                                        <View style={styles.settingRowContent}>
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="text-outline" size={16} color="#10B981" />
+                                            </View>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>품사</Text>
+                                        </View>
+                                        <CustomToggle
+                                            value={!!tempSettings.showPos}
+                                            onValueChange={v => updateSetting('showPos', v)}
+                                        />
+                                    </View>
+
+                                    {(mode === 'flashcard' || mode === 'autoplay') && (
+                                        <>
+                                            <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                            <View style={styles.settingRow}>
+                                                <View style={styles.settingRowContent}>
+                                                    <View style={styles.iconContainer}>
+                                                        <Ionicons name="headset-outline" size={16} color="#F59E0B" />
+                                                    </View>
+                                                    <Text style={[styles.settingLabel, { color: colors.text }]}>발음기호</Text>
+                                                </View>
+                                                <CustomToggle
+                                                    value={!!tempSettings.showPhonetic}
+                                                    onValueChange={v => updateSetting('showPhonetic', v)}
+                                                />
+                                            </View>
+                                        </>
+                                    )}
+
+                                    <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+
+                                    <View style={styles.settingRow}>
+                                        <View style={styles.settingRowContent}>
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="chatbubble-outline" size={16} color="#EC4899" />
+                                            </View>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>예문</Text>
+                                        </View>
+                                        <CustomToggle
+                                            value={!!tempSettings.showExample}
+                                            onValueChange={v => updateSetting('showExample', v)}
+                                        />
+                                    </View>
+
+                                    <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+
+                                    <View style={styles.settingRow}>
+                                        <View style={styles.settingRowContent}>
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="language-outline" size={16} color="#14B8A6" />
+                                            </View>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석</Text>
+                                        </View>
+                                        <CustomToggle
+                                            value={!!tempSettings.showExampleKr}
+                                            onValueChange={v => updateSetting('showExampleKr', v)}
+                                        />
+                                    </View>
+                                </View>
+                            )}
+
+                            {/* 문장완성 전용: 표시 설정 */}
+                            {mode === 'examples' && (
+                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>표시 설정</Text>
+
+                                    <View style={styles.settingRow}>
+                                        <View style={styles.settingRowContent}>
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="language-outline" size={16} color="#F59E0B" />
+                                            </View>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석</Text>
+                                        </View>
+                                        <CustomToggle
+                                            value={!!tempSettings.showExampleKr}
+                                            onValueChange={v => updateSetting('showExampleKr', v)}
+                                        />
+                                    </View>
+                                </View>
+                            )}
+
+                            {/* 퀴즈 전용: 문제 옵션 */}
+                            {mode === 'quiz' && (
+                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>문제 옵션</Text>
+
+                                    <View style={styles.settingRow}>
+                                        <View style={styles.settingRowContent}>
+                                            <View style={styles.iconContainer}>
+                                                <Ionicons name="swap-horizontal-outline" size={16} color="#9333EA" />
+                                            </View>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>퀴즈 유형</Text>
+                                        </View>
+                                        <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6', flex: 1, marginLeft: 16 }]}>
+                                            <Pressable
+                                                onPress={() => updateSetting('quizType', 'meaning-to-term')}
+                                                style={[
+                                                    styles.segmentedTab,
+                                                    tempSettings.quizType === 'meaning-to-term' && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                ]}
+                                            >
+                                                <Text style={[
+                                                    tempSettings.quizType === 'meaning-to-term' ? styles.segmentedTabTextActive : styles.segmentedTabText,
+                                                    { color: tempSettings.quizType === 'meaning-to-term' ? '#4A7DFF' : colors.textSecondary }
+                                                ]}>뜻 → 단어</Text>
+                                            </Pressable>
+                                            <Pressable
+                                                onPress={() => updateSetting('quizType', 'term-to-meaning')}
+                                                style={[
+                                                    styles.segmentedTab,
+                                                    tempSettings.quizType === 'term-to-meaning' && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                ]}
+                                            >
+                                                <Text style={[
+                                                    tempSettings.quizType === 'term-to-meaning' ? styles.segmentedTabTextActive : styles.segmentedTabText,
+                                                    { color: tempSettings.quizType === 'term-to-meaning' ? '#4A7DFF' : colors.textSecondary }
+                                                ]}>단어 → 뜻</Text>
+                                            </Pressable>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+
+                        </ScrollView>
+
+                        <View style={styles.bottomButtons}>
+                            <Pressable
+                                style={[styles.btnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
+                                onPress={onClose}
+                            >
+                                <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>취소</Text>
+                            </Pressable>
+
+                            <Pressable
+                                style={styles.btnApply}
+                                onPress={handleApply}
+                            >
+                                <Text style={styles.btnApplyText}>적용</Text>
+                            </Pressable>
                         </View>
-
-                        {/* 공통: 학습 단위 */}
-                        <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                            <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 단위</Text>
-                            <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
-                                {['all', 10, 20, 30].map(size => {
-                                    const isActive = tempBatchSize === size;
-                                    return (
-                                        <Pressable
-                                            key={size}
-                                            onPress={() => setTempBatchSize(size as 'all' | 10 | 20 | 30)}
-                                            style={[
-                                                styles.segmentedTab,
-                                                isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
-                                            ]}
-                                        >
-                                            <Text style={[
-                                                isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                { color: isActive ? '#4A7DFF' : colors.textSecondary }
-                                            ]}>
-                                                {size === 'all' ? '전체' : `${size}개`}
-                                            </Text>
-                                        </Pressable>
-                                    );
-                                })}
-                            </View>
-                        </View>
-
-                        {/* 플래시카드 및 문장완성 공통: 학습 옵션 */}
-                        {(mode === 'flashcard' || mode === 'examples') && (
-                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 옵션</Text>
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#2D1E40' : '#F3E8FF' }]}>
-                                            <Ionicons name="shuffle-outline" size={16} color="#9333EA" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>
-                                            {mode === 'examples' ? '문장 섞기 (Shuffle)' : '단어 섞기 (Shuffle)'}
-                                        </Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.shuffle}
-                                        onValueChange={v => updateSetting('shuffle', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#402422' : '#FFEBE5' }]}>
-                                            <Ionicons name="volume-high-outline" size={16} color="#FF5722" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>자동 음성 재생</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.autoPlaySound}
-                                        onValueChange={v => updateSetting('autoPlaySound', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-                            </View>
-                        )}
-
-                        {/* 플래시카드 전용: 카드 뒷면 표시 */}
-                        {mode === 'flashcard' && (
-                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>카드 뒷면 표시</Text>
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#1E2A4F' : '#EAF0FF' }]}>
-                                            <Ionicons name="eye-outline" size={16} color="#4A7DFF" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>뜻 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showMeaning}
-                                        onValueChange={v => updateSetting('showMeaning', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#1C3325' : '#E8F8E8' }]}>
-                                            <Ionicons name="text-outline" size={16} color="#10B981" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showPos}
-                                        onValueChange={v => updateSetting('showPos', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#3D2817' : '#FFF3E0' }]}>
-                                            <Ionicons name="headset-outline" size={16} color="#F59E0B" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>발음기호 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showPhonetic}
-                                        onValueChange={v => updateSetting('showPhonetic', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#3D1C2A' : '#FFE8F3' }]}>
-                                            <Ionicons name="chatbubble-outline" size={16} color="#EC4899" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>예문 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showExample}
-                                        onValueChange={v => updateSetting('showExample', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#173130' : '#E0F7F6' }]}>
-                                            <Ionicons name="language-outline" size={16} color="#14B8A6" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showExampleKr}
-                                        onValueChange={v => updateSetting('showExampleKr', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-                            </View>
-                        )}
-
-                        {/* 문장완성 전용: 표시 설정 */}
-                        {mode === 'examples' && (
-                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>힌트 표시</Text>
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#1E2A4F' : '#EAF0FF' }]}>
-                                            <Ionicons name="text-outline" size={16} color="#4A7DFF" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>영단어 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showTerm}
-                                        onValueChange={v => updateSetting('showTerm', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#1C3325' : '#E8F8E8' }]}>
-                                            <Ionicons name="eye-outline" size={16} color="#10B981" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>한글 뜻 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showMeaning}
-                                        onValueChange={v => updateSetting('showMeaning', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#3D2817' : '#FFF3E0' }]}>
-                                            <Ionicons name="language-outline" size={16} color="#F59E0B" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석 표시</Text>
-                                    </View>
-                                    <Switch
-                                        value={!!tempSettings.showExampleKr}
-                                        onValueChange={v => updateSetting('showExampleKr', v)}
-                                        trackColor={{ true: '#4A7DFF', false: isDark ? colors.border : '#E5E7EB' }}
-                                        thumbColor="#FFF"
-                                    />
-                                </View>
-                            </View>
-                        )}
-
-                        {/* 퀴즈 전용: 문제 옵션 */}
-                        {mode === 'quiz' && (
-                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>문제 옵션</Text>
-
-                                <View style={styles.settingRow}>
-                                    <View style={styles.settingRowContent}>
-                                        <View style={[styles.iconContainer, { backgroundColor: isDark ? '#2D1E40' : '#F3E8FF' }]}>
-                                            <Ionicons name="swap-horizontal-outline" size={16} color="#9333EA" />
-                                        </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>퀴즈 유형</Text>
-                                    </View>
-                                    <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6', flex: 1, marginLeft: 16 }]}>
-                                        <Pressable
-                                            onPress={() => updateSetting('quizType', 'meaning-to-term')}
-                                            style={[
-                                                styles.segmentedTab,
-                                                tempSettings.quizType === 'meaning-to-term' && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
-                                            ]}
-                                        >
-                                            <Text style={[
-                                                tempSettings.quizType === 'meaning-to-term' ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                { color: tempSettings.quizType === 'meaning-to-term' ? '#4A7DFF' : colors.textSecondary }
-                                            ]}>뜻 → 단어</Text>
-                                        </Pressable>
-                                        <Pressable
-                                            onPress={() => updateSetting('quizType', 'term-to-meaning')}
-                                            style={[
-                                                styles.segmentedTab,
-                                                tempSettings.quizType === 'term-to-meaning' && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
-                                            ]}
-                                        >
-                                            <Text style={[
-                                                tempSettings.quizType === 'term-to-meaning' ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                { color: tempSettings.quizType === 'term-to-meaning' ? '#4A7DFF' : colors.textSecondary }
-                                            ]}>단어 → 뜻</Text>
-                                        </Pressable>
-                                    </View>
-                                </View>
-                            </View>
-                        )}
-
-                    </ScrollView>
-
-                    <View style={styles.bottomButtons}>
-                        <Pressable
-                            style={[styles.btnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
-                            onPress={onClose}
-                        >
-                            <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>취소</Text>
-                        </Pressable>
-
-                        <Pressable
-                            style={styles.btnApply}
-                            onPress={handleApply}
-                        >
-                            <Text style={styles.btnApplyText}>적용</Text>
-                        </Pressable>
-                    </View>
-
-                </Pressable>
-            </Pressable>
+                    </Pressable>
+                </View>
+            </GestureHandlerRootView>
         </Modal>
     );
 }
@@ -435,14 +461,20 @@ const styles = StyleSheet.create({
         shadowRadius: 20,
         elevation: 10,
         overflow: 'hidden',
-        paddingTop: 8,
+        paddingTop: 6,
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    settingsScrollView: {
+        flexShrink: 1,
+        flexGrow: 0,
     },
     settingsHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 16,
-        paddingVertical: 8,
+        height: 48,
     },
     settingsTitle: {
         fontSize: 15,
@@ -455,13 +487,14 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     settingsCard: {
-        marginHorizontal: 10,
-        marginBottom: 6,
+        marginHorizontal: 12,
+        marginBottom: 8,
         borderRadius: 12,
-        padding: 8,
+        paddingHorizontal: 14,
+        paddingVertical: 5,
     },
     sectionTitle: {
-        fontSize: 11,
+        fontSize: 10,
         fontFamily: 'Pretendard_600SemiBold',
         marginBottom: 4,
         marginLeft: 2,
@@ -473,7 +506,7 @@ const styles = StyleSheet.create({
     },
     segmentedTab: {
         flex: 1,
-        paddingVertical: 4,
+        paddingVertical: 6,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 6,
@@ -497,7 +530,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingVertical: 0,
+        minHeight: 34,
     },
     settingRowContent: {
         flexDirection: 'row',
@@ -507,7 +540,6 @@ const styles = StyleSheet.create({
     iconContainer: {
         width: 20,
         height: 20,
-        borderRadius: 4,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -517,15 +549,14 @@ const styles = StyleSheet.create({
     },
     divider: {
         height: 1,
-        marginVertical: 4,
+        marginVertical: 0,
     },
     bottomButtons: {
         flexDirection: 'row',
-        paddingHorizontal: 12,
-        paddingVertical: 8,
-        gap: 6,
-        borderTopWidth: 1,
-        borderTopColor: 'rgba(150,150,150,0.1)',
+        paddingHorizontal: 16,
+        paddingTop: 8,
+        paddingBottom: 14,
+        gap: 8,
     },
     btnCancel: {
         flex: 1,

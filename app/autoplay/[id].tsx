@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, StyleSheet, Pressable, Platform, Dimensions, Modal, Switch } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,12 +10,16 @@ import Animated, {
     useAnimatedStyle,
     withSpring,
     runOnJS,
-    withTiming
+    withTiming,
+    interpolate,
+    Extrapolation
 } from 'react-native-reanimated';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
+import { useSettings } from '@/contexts/SettingsContext';
 import { speak } from '@/lib/tts';
+import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.2;
@@ -22,8 +27,10 @@ const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.2;
 export default function AutoPlayScreen() {
     const { id, filter, isStarred } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string }>();
     const insets = useSafeAreaInsets();
-    const { colors } = useTheme();
-    const { getWordsForList, toggleStarred } = useVocab();
+    const { colors, isDark } = useTheme();
+    const { lists, getWordsForList, toggleStarred } = useVocab();
+    const { studySettings, updateStudySettings, autoPlaySettings, updateAutoPlaySettings } = useSettings();
+    const list = lists.find(l => l.id === id);
 
     const [words, setWords] = useState(() => {
         let all = getWordsForList(id!);
@@ -40,20 +47,69 @@ export default function AutoPlayScreen() {
     const [isRevealed, setIsRevealed] = useState(false);
 
     const [settingsVisible, setSettingsVisible] = useState(false);
-    const [settings, setSettings] = useState({
-        showTerm: true,
-        showMeaning: true,
-        showPos: true,
-        showExample: true,
-        showExampleKr: true,
-        autoPlaySound: true,
-        delay: '2s' as '1s' | '2s' | '3s'
+    const [settings, setSettings] = useState<StudySettings>({
+        ...autoPlaySettings,
+        filter: (filter || autoPlaySettings.filter) as 'all' | 'learning' | 'memorized',
+        isStarred: isStarred === 'true' || autoPlaySettings.isStarred,
     });
 
     const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
     const translateX = useSharedValue(0);
     const opacity = useSharedValue(1);
+    const revealProgress = useSharedValue(0);
+
+    useEffect(() => {
+        revealProgress.value = withTiming(isRevealed ? 1 : 0, { duration: 400 });
+    }, [isRevealed]);
+
+    const isInitialLoad = useRef(true);
+    const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle });
+
+    useEffect(() => {
+        let all = getWordsForList(id!);
+
+        if (settings.isStarred) {
+            all = all.filter(w => w.isStarred);
+        }
+
+        if (settings.filter === 'learning') {
+            all = all.filter(w => !w.isMemorized);
+        } else if (settings.filter === 'memorized') {
+            all = all.filter(w => w.isMemorized);
+        }
+
+        const coreFilterChanged =
+            lastSettingsRef.current.id !== id ||
+            lastSettingsRef.current.filter !== settings.filter ||
+            lastSettingsRef.current.isStarred !== settings.isStarred ||
+            lastSettingsRef.current.shuffle !== settings.shuffle;
+
+        if (coreFilterChanged || isInitialLoad.current) {
+            if (settings.shuffle) {
+                all = [...all].sort(() => Math.random() - 0.5);
+            }
+            setCurrentIndex(0);
+            translateX.value = 0;
+            lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle };
+            setWords(all);
+            isInitialLoad.current = false;
+        } else {
+            setWords(prev => {
+                const newMap = new Map(all.map(w => [w.id, w]));
+                return prev.map(w => newMap.has(w.id) ? newMap.get(w.id)! : w);
+            });
+        }
+    }, [id, getWordsForList, settings.filter, settings.isStarred, settings.shuffle]);
+
+    const applySettings = useCallback((newSettings: StudySettings, newBatchSize: number | 'all') => {
+        setSettings(newSettings);
+        updateAutoPlaySettings(newSettings as any); // Persist settings
+        if (newBatchSize !== studySettings.studyBatchSize) {
+            updateStudySettings({ studyBatchSize: newBatchSize as any });
+        }
+        setSettingsVisible(false);
+    }, [studySettings.studyBatchSize, updateStudySettings, updateAutoPlaySettings]);
 
     const currentWord = words[currentIndex] || null;
 
@@ -62,6 +118,23 @@ export default function AutoPlayScreen() {
         transform: [{ translateX: translateX.value }],
         opacity: opacity.value,
     }));
+
+    const wordAnimatedStyle = useAnimatedStyle(() => {
+        const translateY = interpolate(revealProgress.value, [0, 1], [0, -80], Extrapolation.CLAMP);
+        const scale = interpolate(revealProgress.value, [0, 1], [1, 0.6], Extrapolation.CLAMP);
+        return {
+            transform: [{ translateY }, { scale }],
+        };
+    });
+
+    const contentAnimatedStyle = useAnimatedStyle(() => {
+        const opacity = interpolate(revealProgress.value, [0, 0.4, 1], [0, 0, 1], Extrapolation.CLAMP);
+        const translateY = interpolate(revealProgress.value, [0, 1], [20, 0], Extrapolation.CLAMP);
+        return {
+            opacity,
+            transform: [{ translateY }],
+        };
+    });
 
     const goToNext = useCallback(() => {
         if (currentIndex < words.length - 1) {
@@ -179,98 +252,118 @@ export default function AutoPlayScreen() {
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
             {/* Header */}
-            <View style={[styles.header, { paddingTop: topInset + 12 }]}>
-                <Text style={[styles.progressText, { color: colors.textSecondary }]}>
-                    {currentIndex + 1} / {words.length}
-                </Text>
-                <View style={{ flexDirection: 'row', gap: 16, alignItems: 'center' }}>
-                    <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
-                        <Ionicons name="settings-outline" size={26} color={colors.textSecondary} />
-                    </Pressable>
+            <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
+                <View style={styles.headerRow}>
                     <Pressable onPress={handleClose} hitSlop={12}>
-                        <Ionicons name="close" size={28} color={colors.textSecondary} />
+                        <Ionicons name="chevron-back" size={24} color={colors.text} />
+                    </Pressable>
+
+                    <View style={styles.titleArea}>
+                        <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
+                            {list?.title || '자동재생'}
+                        </Text>
+                    </View>
+
+                    <Pressable onPress={() => setSettingsVisible(true)} hitSlop={12}>
+                        <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
                     </Pressable>
                 </View>
-            </View>
 
-            {/* Progress Bar */}
-            <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary, marginHorizontal: 16 }]}>
-                <View
-                    style={[
-                        styles.progressBarFill,
-                        {
-                            backgroundColor: colors.primary,
-                            width: `${Math.max(0, Math.min(100, ((currentIndex + 1) / words.length) * 100))}%`,
-                        },
-                    ]}
-                />
+                <View style={styles.progressContainer}>
+                    <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
+                        <View
+                            style={[
+                                styles.progressBarFill,
+                                {
+                                    backgroundColor: colors.primary,
+                                    width: `${Math.max(0, Math.min(100, ((currentIndex + 1) / words.length) * 100))}%`,
+                                },
+                            ]}
+                        />
+                    </View>
+                    <Text style={[styles.progressText, { color: colors.textTertiary }]}>
+                        {currentIndex + 1} / {words.length}
+                    </Text>
+                </View>
             </View>
 
             {/* Card Area */}
             <GestureDetector gesture={panGesture}>
                 <Animated.View style={[styles.cardContainer, cardStyle]}>
-                    <Pressable onPress={handleCardClick} style={({ pressed }) => [styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, opacity: pressed ? 0.95 : 1 }]}>
+                    <Pressable onPress={handleCardClick} style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
                         <Pressable
                             onPress={(e) => { e.stopPropagation(); handleToggleStar(currentWord.id); }}
                             hitSlop={12}
                             style={styles.starBtn}
                         >
-                            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={20} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+                            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
                         </Pressable>
-                        {settings.showTerm && (
-                            <>
-                                {settings.showPos && currentWord.pos && (
-                                    <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
-                                        <Text style={[styles.topPosBadgeText, { color: colors.primary }]}>{currentWord.pos}</Text>
-                                    </View>
-                                )}
-                                <Text style={[styles.wordText, { color: colors.text }]} numberOfLines={2}>
-                                    {currentWord.term}
-                                </Text>
-                            </>
-                        )}
 
-                        <Pressable
-                            onPress={(e) => { e.stopPropagation(); speak(currentWord.term); }}
-                            hitSlop={12}
-                            style={styles.speakerBtn}
-                        >
-                            {({ pressed }) => (
-                                <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
+                        {/* Word Area */}
+                        <Animated.View style={[styles.wordArea, wordAnimatedStyle]}>
+                            {settings.showPos && currentWord.pos && (
+                                <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
+                                    <Text style={[styles.topPosBadgeText, { color: colors.primary }]}>{currentWord.pos}</Text>
+                                </View>
                             )}
-                        </Pressable>
+                            <Text style={[styles.wordText, { color: colors.text }]} numberOfLines={2}>
+                                {currentWord.term}
+                            </Text>
+                            {settings.showPhonetic && currentWord.phonetic && (
+                                <Text style={[styles.phoneticText, { color: colors.textTertiary }]}>
+                                    /{currentWord.phonetic}/
+                                </Text>
+                            )}
 
-                        <View style={{ flex: 1, minHeight: 120, alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                            {isRevealed && (
-                                <>
-                                    {settings.showMeaning && (
-                                        <Text style={[styles.meaningText, { color: colors.primary, marginBottom: 12, textAlign: 'center' }]} numberOfLines={3}>
-                                            {currentWord.meaningKr}
-                                        </Text>
-                                    )}
-                                    {settings.showExample && !!currentWord.exampleEn && (
-                                        <Text style={[styles.exampleText, { color: colors.textSecondary, textAlign: 'center' }]}>
-                                            {currentWord.exampleEn}
-                                        </Text>
-                                    )}
+                            <Pressable
+                                onPress={(e) => { e.stopPropagation(); speak(currentWord.term); }}
+                                hitSlop={12}
+                                style={styles.speakerBtn}
+                            >
+                                {({ pressed }) => (
+                                    <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
+                                )}
+                            </Pressable>
+                        </Animated.View>
+
+                        {/* Content Area */}
+                        <Animated.View style={[styles.contentArea, contentAnimatedStyle]}>
+                            <LinearGradient
+                                colors={['transparent', colors.border, 'transparent']}
+                                start={{ x: 0, y: 0 }}
+                                end={{ x: 1, y: 0 }}
+                                style={styles.gradientDivider}
+                            />
+
+                            {settings.showMeaning && (
+                                <Text style={[styles.meaningText, { color: colors.text }]} numberOfLines={3}>
+                                    {currentWord.meaningKr}
+                                </Text>
+                            )}
+
+                            {(settings.showExample && !!currentWord.exampleEn) && (
+                                <View style={[styles.exampleBox, { backgroundColor: colors.surfaceSecondary }]}>
+                                    <Text style={[styles.exampleText, { color: colors.textSecondary }]}>
+                                        {currentWord.exampleEn}
+                                    </Text>
                                     {settings.showExampleKr && !!currentWord.exampleKr && (
-                                        <Text style={[styles.exampleKrText, { color: colors.textTertiary, marginTop: 4, textAlign: 'center' }]}>
+                                        <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>
                                             {currentWord.exampleKr}
                                         </Text>
                                     )}
-                                </>
+                                </View>
                             )}
-                        </View>
+                        </Animated.View>
                     </Pressable>
                 </Animated.View>
             </GestureDetector>
 
             {/* Controls */}
-            <View style={[styles.controlsArea, { paddingBottom: insets.bottom + 40 }]}>
-                <Pressable onPress={goToPrev} disabled={currentIndex === 0} hitSlop={20}>
+            <View style={[styles.controlsArea, { paddingBottom: insets.bottom + 40, borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth }]}>
+                <Pressable onPress={goToPrev} disabled={currentIndex === 0} hitSlop={20} style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }]}>
                     <Ionicons
                         name="play-skip-back"
-                        size={40}
+                        size={24}
                         color={currentIndex === 0 ? colors.textTertiary : colors.text}
                     />
                 </Pressable>
@@ -282,79 +375,29 @@ export default function AutoPlayScreen() {
                 >
                     <Ionicons
                         name={isPlaying ? "pause" : "play"}
-                        size={40}
+                        size={32}
                         color="#FFF"
-                        style={{ marginLeft: isPlaying ? 0 : 4 }}
+                        style={{ marginLeft: isPlaying ? 0 : 2 }}
                     />
                 </Pressable>
 
-                <Pressable onPress={goToNext} disabled={currentIndex === words.length - 1} hitSlop={20}>
+                <Pressable onPress={goToNext} disabled={currentIndex === words.length - 1} hitSlop={20} style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }]}>
                     <Ionicons
                         name="play-skip-forward"
-                        size={40}
+                        size={24}
                         color={currentIndex === words.length - 1 ? colors.textTertiary : colors.text}
                     />
                 </Pressable>
             </View>
 
-            {/* Settings Modal */}
-            <Modal visible={settingsVisible} transparent animationType="fade" onRequestClose={() => setSettingsVisible(false)}>
-                <Pressable style={styles.modalOverlay} onPress={() => setSettingsVisible(false)}>
-                    <Pressable style={[styles.settingsSheet, { backgroundColor: colors.surface }]} onPress={e => e.stopPropagation()}>
-                        <View style={styles.settingsHeader}>
-                            <Text style={[styles.settingsTitle, { color: colors.text }]}>자동재생 설정</Text>
-                            <Pressable onPress={() => setSettingsVisible(false)} hitSlop={8}>
-                                <Ionicons name="close" size={24} color={colors.textSecondary} />
-                            </Pressable>
-                        </View>
-
-                        <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
-                            <Text style={{ color: colors.text, fontSize: 16 }}>단어 표시</Text>
-                            <Switch value={settings.showTerm} onValueChange={v => setSettings(s => ({ ...s, showTerm: v }))} trackColor={{ true: colors.primary }} />
-                        </View>
-                        <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
-                            <Text style={{ color: colors.text, fontSize: 16 }}>뜻 표시</Text>
-                            <Switch value={settings.showMeaning} onValueChange={v => setSettings(s => ({ ...s, showMeaning: v }))} trackColor={{ true: colors.primary }} />
-                        </View>
-                        <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
-                            <Text style={{ color: colors.text, fontSize: 16 }}>품사 표시</Text>
-                            <Switch value={settings.showPos} onValueChange={v => setSettings(s => ({ ...s, showPos: v }))} trackColor={{ true: colors.primary }} />
-                        </View>
-                        <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
-                            <Text style={{ color: colors.text, fontSize: 16 }}>예문 표시</Text>
-                            <Switch value={settings.showExample} onValueChange={v => setSettings(s => ({ ...s, showExample: v }))} trackColor={{ true: colors.primary }} />
-                        </View>
-                        <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
-                            <Text style={{ color: colors.text, fontSize: 16 }}>예문 해석 표시</Text>
-                            <Switch value={settings.showExampleKr} onValueChange={v => setSettings(s => ({ ...s, showExampleKr: v }))} trackColor={{ true: colors.primary }} />
-                        </View>
-                        <View style={[styles.settingRow, { borderBottomColor: colors.borderLight }]}>
-                            <Text style={{ color: colors.text, fontSize: 16 }}>자동 음성 재생</Text>
-                            <Switch value={settings.autoPlaySound} onValueChange={v => setSettings(s => ({ ...s, autoPlaySound: v }))} trackColor={{ true: colors.primary }} />
-                        </View>
-
-                        <View style={[styles.settingRow, { borderBottomWidth: 0, flexDirection: 'column', alignItems: 'flex-start', gap: 12, marginTop: 4 }]}>
-                            <Text style={{ color: colors.text, fontSize: 16 }}>다음 단어 딜레이</Text>
-                            <View style={{ flexDirection: 'row', gap: 12 }}>
-                                {(['1s', '2s', '3s'] as const).map(time => (
-                                    <Pressable
-                                        key={time}
-                                        onPress={() => setSettings(s => ({ ...s, delay: time }))}
-                                        style={[
-                                            styles.delayBtn,
-                                            { backgroundColor: settings.delay === time ? colors.primary : colors.surfaceSecondary }
-                                        ]}
-                                    >
-                                        <Text style={{ color: settings.delay === time ? '#FFF' : colors.text, fontFamily: 'Pretendard_600SemiBold' }}>
-                                            {time}
-                                        </Text>
-                                    </Pressable>
-                                ))}
-                            </View>
-                        </View>
-                    </Pressable>
-                </Pressable>
-            </Modal>
+            <StudySettingsModal
+                visible={settingsVisible}
+                mode="autoplay"
+                initialSettings={settings}
+                initialBatchSize={studySettings.studyBatchSize}
+                onClose={() => setSettingsVisible(false)}
+                onApply={applySettings}
+            />
         </View>
     );
 }
@@ -364,121 +407,144 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
         paddingHorizontal: 16,
-        paddingBottom: 16,
+        paddingBottom: 0,
+        borderBottomWidth: StyleSheet.hairlineWidth,
     },
-    progressText: {
-        fontSize: 16,
-        fontFamily: 'Pretendard_600SemiBold',
+    headerRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 12,
+    },
+    titleArea: {
+        flex: 1,
+    },
+    headerTitle: {
+        fontSize: 20,
+        fontFamily: 'Pretendard_700Bold',
+    },
+    progressContainer: {
+        marginTop: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        paddingBottom: 12,
     },
     progressBarBg: {
-        height: 4,
-        borderRadius: 2,
+        flex: 1,
+        height: 6,
+        borderRadius: 3,
         overflow: 'hidden',
     },
     progressBarFill: {
         height: '100%',
-        borderRadius: 2,
+        borderRadius: 3,
+    },
+    progressText: {
+        fontSize: 12,
+        fontFamily: 'Pretendard_500Medium',
+        minWidth: 60,
+        textAlign: 'right',
     },
     cardContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 24,
+        paddingHorizontal: 24, // 플래시카드와 동일하게 (24px)
     },
     card: {
         width: '100%',
-        minHeight: 350,
-        borderRadius: 20,
+        minHeight: 450, // 플래시카드와 비슷하게 최소 높이 상향
+        borderRadius: 16,
         padding: 32,
         alignItems: 'center',
         justifyContent: 'center',
         shadowOffset: { width: 0, height: 12 },
         shadowOpacity: 1,
-        shadowRadius: 24,
+        shadowRadius: 20,
         elevation: 12,
+        overflow: 'hidden',
+    },
+    wordArea: {
+        position: 'absolute',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+    },
+    contentArea: {
+        position: 'absolute',
+        bottom: 32,
+        width: '100%',
+        alignItems: 'center',
+        paddingHorizontal: 32,
     },
     wordText: {
-        fontSize: 40,
+        fontSize: 36, // 플래시카드(36)와 일치
         fontFamily: 'Pretendard_700Bold',
         textAlign: 'center',
         marginBottom: 8,
     },
     meaningText: {
-        fontSize: 28,
-        fontFamily: 'Pretendard_600SemiBold',
+        fontSize: 32, // 플래시카드(32)와 일치
+        fontFamily: 'Pretendard_700Bold',
         textAlign: 'center',
+        marginBottom: 20,
     },
     speakerBtn: {
         padding: 8,
-        marginBottom: 16,
+        marginTop: 8,
     },
     controlsArea: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 40,
+        gap: 32,
         paddingHorizontal: 24,
+        paddingTop: 24,
     },
     playPauseBtn: {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
+        width: 64,
+        height: 64,
+        borderRadius: 32,
         alignItems: 'center',
         justifyContent: 'center',
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 8 },
-        shadowOpacity: 0.2,
-        shadowRadius: 12,
-        elevation: 8,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        elevation: 4,
+    },
+    navBtn: {
+        width: 48,
+        height: 48,
+        borderRadius: 24,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    exampleBox: {
+        width: '100%',
+        padding: 16,
+        borderRadius: 12,
+        marginTop: 8,
     },
     exampleText: {
         fontSize: 16,
-        fontFamily: 'Pretendard_500Medium',
-        lineHeight: 22,
-        paddingHorizontal: 12,
+        fontFamily: 'Pretendard_400Regular',
+        lineHeight: 24,
+        textAlign: 'center',
+        fontStyle: 'italic',
     },
     exampleKrText: {
         fontSize: 14,
         fontFamily: 'Pretendard_400Regular',
         lineHeight: 20,
-        paddingHorizontal: 12,
+        marginTop: 8,
+        textAlign: 'center',
     },
-    modalOverlay: {
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        justifyContent: 'flex-end',
-    },
-    settingsSheet: {
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-        padding: 24,
-        paddingBottom: Platform.OS === 'ios' ? 40 : 24,
-    },
-    settingsHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 20,
-    },
-    settingsTitle: {
-        fontSize: 20,
-        fontFamily: 'Pretendard_700Bold',
-    },
-    settingRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: 14,
-        borderBottomWidth: StyleSheet.hairlineWidth,
-    },
-    delayBtn: {
-        paddingVertical: 8,
-        paddingHorizontal: 20,
-        borderRadius: 12,
+    gradientDivider: {
+        width: '100%',
+        height: 1,
+        marginBottom: 24,
     },
     topPosBadge: {
         paddingHorizontal: 8,
@@ -486,17 +552,23 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 8,
+        marginBottom: 12,
     },
     topPosBadgeText: {
         fontSize: 12,
         fontFamily: 'Pretendard_600SemiBold',
     },
+    phoneticText: {
+        fontSize: 18,
+        fontFamily: 'Pretendard_400Regular',
+        marginTop: -4,
+        marginBottom: 4,
+    },
     starBtn: {
         position: 'absolute',
         right: 16,
         top: 16,
-        padding: 8,
+        padding: 4,
         zIndex: 10,
     },
 });

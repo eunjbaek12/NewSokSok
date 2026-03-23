@@ -110,6 +110,17 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
           </View>
         )}
         <Text style={[styles.cardBackTerm, { color: colors.textSecondary }]}>{word.term}</Text>
+
+        <View style={styles.cardInfoRowInline}>
+          {showPhonetic && word.phonetic && (
+            <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14 }]}>/{word.phonetic}/</Text>
+          )}
+          <Pressable onPress={() => speak(word.term)} hitSlop={12}>
+            {({ pressed }) => (
+              <Ionicons name="volume-medium-outline" size={22} color={pressed ? colors.primary : colors.textTertiary} />
+            )}
+          </Pressable>
+        </View>
       </View>
 
       <LinearGradient
@@ -125,12 +136,6 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
         <Text style={[styles.cardMeaning, { color: colors.textSecondary, opacity: 0.3 }]}>[뜻 숨김]</Text>
       )}
 
-      {showPhonetic && word.phonetic && (
-        <View style={styles.cardInfoRow}>
-          <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{word.phonetic}/</Text>
-        </View>
-      )}
-
       {showExample && word.exampleEn ? (
         <View style={[styles.cardExampleBox, { backgroundColor: colors.surfaceSecondary }]}>
           <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
@@ -139,18 +144,12 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
           ) : null}
         </View>
       ) : null}
-
-      <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
-        {({ pressed }) => (
-          <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
-        )}
-      </Pressable>
     </Animated.View>
   );
 }
 
 export default function FlashcardsScreen() {
-  const { id, filter, isStarred: initialIsStarred } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string }>();
+  const { id, filter, isStarred: initialIsStarred, ids } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
@@ -194,7 +193,7 @@ export default function FlashcardsScreen() {
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const SWIPE_THRESHOLD = 100;
 
-  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize });
+  const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids });
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -213,16 +212,24 @@ export default function FlashcardsScreen() {
   useEffect(() => {
     let all = getWordsForList(id!);
 
-    // Apply Star filter
-    if (settings.isStarred) {
-      all = all.filter(w => w.isStarred);
-    }
+    if (ids) {
+      const idList = ids.split(',');
+      all = all.filter(w => idList.includes(w.id));
+      // Sort to match the order in ids parameter if possible, or just keep original
+      const idMap = new Map(idList.map((id, index) => [id, index]));
+      all.sort((a, b) => (idMap.get(a.id) ?? 0) - (idMap.get(b.id) ?? 0));
+    } else {
+      // Apply Star filter
+      if (settings.isStarred) {
+        all = all.filter(w => w.isStarred);
+      }
 
-    // Apply Status filter
-    if (settings.filter === 'learning') {
-      all = all.filter(w => !w.isMemorized);
-    } else if (settings.filter === 'memorized') {
-      all = all.filter(w => w.isMemorized);
+      // Apply Status filter
+      if (settings.filter === 'learning') {
+        all = all.filter(w => !w.isMemorized);
+      } else if (settings.filter === 'memorized') {
+        all = all.filter(w => w.isMemorized);
+      }
     }
 
     // Only reset index if core filters changed, not on Every word content update
@@ -231,18 +238,19 @@ export default function FlashcardsScreen() {
       lastSettingsRef.current.filter !== settings.filter ||
       lastSettingsRef.current.isStarred !== settings.isStarred ||
       lastSettingsRef.current.shuffle !== settings.shuffle ||
-      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize;
+      lastSettingsRef.current.batchSize !== studySettings.studyBatchSize ||
+      lastSettingsRef.current.ids !== ids;
 
     if (coreFilterChanged || isInitialLoad.current) {
       // Apply Shuffle only when core settings change or on initial load
-      if (settings.shuffle) {
+      if (settings.shuffle && !ids) {
         all = [...all].sort(() => Math.random() - 0.5);
       }
       setCurrentIndex(0);
       setCurrentBatchIndex(0);
       results.current = [];
       rotation.value = 0;
-      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize };
+      lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
       setStudyWords(all);
       isInitialLoad.current = false;
     } else {
@@ -724,6 +732,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     marginTop: -8,
+  },
+  cardInfoRowInline: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: 4,
   },
   posBadge: {
     paddingHorizontal: 8,

@@ -16,13 +16,12 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
-import { useSettings } from '@/contexts/SettingsContext';
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const { colors, isDark, toggleTheme } = useTheme();
   const { authMode, user, logout } = useAuth();
-  const { inputSettings, updateInputSettings } = useSettings();
+
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
 
@@ -133,60 +132,7 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>입력 설정 (Add Word)</Text>
-        <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-          <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
-            <View style={styles.rowLeft}>
-              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-                <Ionicons name="book-outline" size={18} color={colors.primary} />
-              </View>
-              <View>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>영문 정의</Text>
-                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>영영사전 정의 필드 표시</Text>
-              </View>
-            </View>
-            <Switch
-              value={inputSettings.showDefinition}
-              onValueChange={(val) => updateInputSettings({ showDefinition: val })}
-              trackColor={{ false: colors.surfaceSecondary, true: colors.primary }}
-              thumbColor="#FFFFFF"
-            />
-          </View>
-          <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
-            <View style={styles.rowLeft}>
-              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-                <Ionicons name="chatbox-outline" size={18} color={colors.primary} />
-              </View>
-              <View>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>예문</Text>
-                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>예문 및 해석 필드 표시</Text>
-              </View>
-            </View>
-            <Switch
-              value={inputSettings.showExample}
-              onValueChange={(val) => updateInputSettings({ showExample: val })}
-              trackColor={{ false: colors.surfaceSecondary, true: colors.primary }}
-              thumbColor="#FFFFFF"
-            />
-          </View>
-          <View style={styles.row}>
-            <View style={styles.rowLeft}>
-              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-                <Ionicons name="pricetags-outline" size={18} color={colors.primary} />
-              </View>
-              <View>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>태그</Text>
-                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>단어 분류 태그 표시</Text>
-              </View>
-            </View>
-            <Switch
-              value={inputSettings.showTags}
-              onValueChange={(val) => updateInputSettings({ showTags: val })}
-              trackColor={{ false: colors.surfaceSecondary, true: colors.primary }}
-              thumbColor="#FFFFFF"
-            />
-          </View>
-        </View>
+
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>About</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>

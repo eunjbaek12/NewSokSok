@@ -6,7 +6,7 @@ const Colors = {
     secondaryLight: '#F4EFFF',
     accent: '#FF6B35',
     accentLight: '#FFF0EB',
-    background: '#D8E0E9',
+    background: '#F0F4FF',
     surface: '#F8FAFC',
     surfaceSecondary: '#EBEEF2',
     text: '#191F28',

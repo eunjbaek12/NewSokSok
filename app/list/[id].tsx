@@ -123,13 +123,13 @@ export default function ListDetailScreen() {
   const handleEditTitle = useCallback(() => {
     if (!list) return;
     if (Platform.OS === 'web') {
-      const newName = prompt('Rename list', list.title);
+      const newName = prompt('단어장 이름 변경', list.title);
       if (newName && newName.trim()) {
         renameList(list.id, newName.trim());
       }
     } else {
       Alert.prompt(
-        'Rename list',
+        '단어장 이름 변경',
         '',
         (newName) => {
           if (newName && newName.trim()) {

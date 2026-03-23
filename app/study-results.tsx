@@ -93,9 +93,9 @@ export default function StudyResultsScreen() {
               color={allCorrect ? colors.success : colors.primary}
             />
           </View>
-          <Text style={[styles.title, { color: colors.text }]}>Study Complete!</Text>
+          <Text style={[styles.title, { color: colors.text }]}>학습 완료!</Text>
           <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-            {allCorrect ? 'Perfect score! All words mastered.' : 'Great job! Keep it up.'}
+            {allCorrect ? '완벽해요! 모든 단어를 마스터했습니다.' : '잘했어요! 계속 이 페이스로 진행해보세요.'}
           </Text>
         </View>
 
@@ -117,12 +117,12 @@ export default function StudyResultsScreen() {
           <View style={styles.summaryRow}>
             <View style={styles.summaryBox}>
               <View style={[styles.dot, { backgroundColor: colors.success }]} />
-              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>Got it:</Text>
+              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>외웠어요:</Text>
               <Text style={[styles.summaryValue, { color: colors.success }]}>{gotItResults.length}</Text>
             </View>
             <View style={styles.summaryBox}>
               <View style={[styles.dot, { backgroundColor: colors.warning }]} />
-              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>Review:</Text>
+              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>복습 필요:</Text>
               <Text style={[styles.summaryValue, { color: colors.warning }]}>{reviewResults.length}</Text>
             </View>
           </View>

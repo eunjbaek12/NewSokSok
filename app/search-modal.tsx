@@ -132,7 +132,7 @@ export default function SearchModalScreen() {
                 {item.isTagMatch && (
                     <View style={[styles.tagMatchBadge, { backgroundColor: colors.primaryLight }]}>
                         <Ionicons name="pricetag-outline" size={12} color={colors.primary} />
-                        <Text style={[styles.tagMatchText, { color: colors.primary }]}>Tag Match</Text>
+                        <Text style={[styles.tagMatchText, { color: colors.primary }]}>태그 일치</Text>
                     </View>
                 )}
 

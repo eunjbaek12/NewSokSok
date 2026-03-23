@@ -239,9 +239,9 @@ export default function AutoPlayScreen() {
     if (!currentWord) {
         return (
             <View style={[styles.container, { backgroundColor: colors.background, alignItems: 'center', justifyContent: 'center' }]}>
-                <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>No words available for playback.</Text>
+                <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>재생할 단어가 없습니다.</Text>
                 <Pressable onPress={handleClose} style={{ marginTop: 20 }}>
-                    <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>Go Back</Text>
+                    <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
                 </Pressable>
             </View>
         );

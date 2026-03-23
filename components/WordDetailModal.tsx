@@ -310,7 +310,7 @@ export default function WordDetailModal({
                                         )}
                                     </View>
                                 )}
-                                {mode !== 'read' && errors.term && <Text style={[styles.errorText, { color: colors.error }]}>Word is required</Text>}
+                                {mode !== 'read' && errors.term && <Text style={[styles.errorText, { color: colors.error }]}>단어를 입력해주세요</Text>}
 
                                 {mode !== 'read' && (
                                     <Button

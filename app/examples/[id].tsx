@@ -400,7 +400,7 @@ export default function ExamplesScreen() {
                 )}
               </View>
             ) : (
-              <Text style={[styles.noExample, { color: colors.textTertiary }]}>No example sentence available</Text>
+              <Text style={[styles.noExample, { color: colors.textTertiary }]}>예문이 없습니다</Text>
             )}
 
             <Pressable onPress={handleSpeak} hitSlop={12} style={styles.speakerBtn}>

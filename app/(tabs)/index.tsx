@@ -175,7 +175,7 @@ function ListCard({
             </Text>
           </View>
           <Text style={[styles.lastStudied, { color: colors.textTertiary }]}>
-            Last studied: {relativeTime}
+            마지막 학습: {relativeTime}
           </Text>
         </View>
         <View style={styles.cardActions}>
@@ -207,7 +207,7 @@ function ListCard({
 
       <View style={styles.cardFooter}>
         <Text style={[styles.wordCountText, { color: colors.textSecondary }]}>
-          {progress.memorized} / {progress.total} Words
+          {progress.memorized} / {progress.total} 단어
         </Text>
         <Text
           style={[
@@ -467,7 +467,7 @@ export default function DashboardScreen() {
     const targets = lists.filter((l) => l.id !== menuList.id);
     if (targets.length === 0) {
       handleCloseMenu();
-      Alert.alert('No Target', 'There are no other wordbooks to send words to.');
+      Alert.alert('대상 없음', '단어를 보낼 다른 단어장이 없습니다.');
       return;
     }
     setMergeSourceList(menuList);
@@ -722,16 +722,16 @@ export default function DashboardScreen() {
         <View style={[styles.emptyIconCircle, { backgroundColor: colors.primaryLight }]}>
           <Ionicons name="library-outline" size={48} color={colors.primary} />
         </View>
-        <Text style={[styles.emptyTitle, { color: colors.text }]}>No wordbooks yet</Text>
+        <Text style={[styles.emptyTitle, { color: colors.text }]}>단어장이 없습니다</Text>
         <Text style={[styles.emptySubtitle, { color: colors.textSecondary }]}>
-          Create your first vocabulary wordbook to get started
+          첫 번째 단어장을 만들어 학습을 시작해보세요
         </Text>
         <Pressable
           onPress={handleCreateList}
           style={[styles.emptyButton, { backgroundColor: colors.primary }]}
         >
           <Ionicons name="add" size={20} color="#FFFFFF" />
-          <Text style={styles.emptyButtonText}>Create Wordbook</Text>
+          <Text style={styles.emptyButtonText}>단어장 만들기</Text>
         </Pressable>
       </View>
     ),
@@ -794,10 +794,10 @@ export default function DashboardScreen() {
         <View style={styles.headerRow}>
           <View style={{ flex: 1 }}>
             <Text style={[styles.greeting, { color: colors.text }]}>
-              Hello, <Text style={{ color: colors.primary }}>Learner</Text>
+              안녕하세요, <Text style={{ color: colors.primary }}>학습자</Text>
             </Text>
             <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-              Smart Review System Active
+              스마트 복습 시스템 활성화
             </Text>
           </View>
         </View>

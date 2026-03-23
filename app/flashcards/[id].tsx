@@ -527,14 +527,14 @@ export default function FlashcardsScreen() {
         <Animated.View style={[styles.indicator, styles.leftIndicator, reviewIndicatorStyle]}>
           <View style={[styles.indicatorBox, { borderColor: colors.warning }]}>
             <Ionicons name="arrow-back" size={32} color={colors.warning} />
-            <Text style={[styles.indicatorText, { color: colors.warning }]}>REVIEW</Text>
+            <Text style={[styles.indicatorText, { color: colors.warning }]}>복습</Text>
           </View>
         </Animated.View>
 
         <Animated.View style={[styles.indicator, styles.rightIndicator, gotItIndicatorStyle]}>
           <View style={[styles.indicatorBox, { borderColor: colors.primary }]}>
             <Ionicons name="arrow-forward" size={32} color={colors.primary} />
-            <Text style={[styles.indicatorText, { color: colors.primary }]}>GOT IT</Text>
+            <Text style={[styles.indicatorText, { color: colors.primary }]}>외웠어요</Text>
           </View>
         </Animated.View>
 

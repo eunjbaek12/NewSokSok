@@ -54,14 +54,14 @@ export default function SettingsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <Text style={[styles.headerTitle, { color: colors.text }]}>Settings</Text>
+        <Text style={[styles.headerTitle, { color: colors.text }]}>설정</Text>
       </View>
 
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>Account</Text>
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>계정</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
             <View style={styles.rowLeft}>
@@ -109,7 +109,7 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>Appearance</Text>
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>화면</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={styles.row}>
             <View style={styles.rowLeft}>
@@ -117,9 +117,9 @@ export default function SettingsScreen() {
                 <Ionicons name="moon-outline" size={18} color={colors.primary} />
               </View>
               <View>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>Dark Mode</Text>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>다크 모드</Text>
                 <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
-                  {isDark ? 'Dark' : 'Light'} theme active
+                  {isDark ? '다크' : '라이트'} 테마 사용 중
                 </Text>
               </View>
             </View>
@@ -134,14 +134,14 @@ export default function SettingsScreen() {
 
 
 
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>About</Text>
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>정보</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
             <View style={styles.rowLeft}>
               <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
                 <Ionicons name="information-circle-outline" size={18} color={colors.primary} />
               </View>
-              <Text style={[styles.rowTitle, { color: colors.text }]}>App Name</Text>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>앱 이름</Text>
             </View>
             <Text style={[styles.rowValue, { color: colors.textSecondary }]}>SokSok Voca</Text>
           </View>
@@ -150,7 +150,7 @@ export default function SettingsScreen() {
               <View style={[styles.iconCircle, { backgroundColor: colors.successLight }]}>
                 <Ionicons name="code-slash-outline" size={18} color={colors.success} />
               </View>
-              <Text style={[styles.rowTitle, { color: colors.text }]}>Version</Text>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>버전</Text>
             </View>
             <Text style={[styles.rowValue, { color: colors.textSecondary }]}>1.0.0</Text>
           </View>

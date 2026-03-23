@@ -79,10 +79,12 @@ interface StatusBadgeProps {
 }
 
 function StatusBadge({ type }: StatusBadgeProps) {
+  const { colors } = useTheme();
+
   const config = {
-    learning: { label: '학습 중', text: '#3182F6', bg: '#EBF4FF' },
-    completed: { label: '완료', text: '#8B95A1', bg: '#F2F4F6' },
-    curated: { label: '모음', text: '#8E5AFF', bg: '#F4EFFF' },
+    learning: { label: '학습 중', text: colors.primary, bg: colors.primaryLight },
+    completed: { label: '완료', text: colors.textTertiary, bg: colors.borderLight },
+    curated: { label: '모음', text: colors.secondary, bg: colors.secondaryLight },
   };
 
   const { label, text, bg } = config[type];

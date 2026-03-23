@@ -2,6 +2,8 @@ const Colors = {
   light: {
     primary: '#3182F6',
     primaryLight: '#E8F0FE',
+    secondary: '#8E5AFF',
+    secondaryLight: '#F4EFFF',
     accent: '#FF6B35',
     accentLight: '#FFF0EB',
     background: '#D8E0E9',
@@ -27,6 +29,8 @@ const Colors = {
   dark: {
     primary: '#4B96FF',
     primaryLight: '#1E3A5F',
+    secondary: '#A78BFA',
+    secondaryLight: '#2D1558',
     accent: '#FF8F5E',
     accentLight: '#3D2517',
     background: '#121212',

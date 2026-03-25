@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, Pressable, Platform, Dimensions, Modal, Switch } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, router } from 'expo-router';
@@ -11,6 +11,7 @@ import Animated, {
     withSpring,
     runOnJS,
     withTiming,
+    withRepeat,
     interpolate,
     Extrapolation
 } from 'react-native-reanimated';
@@ -20,6 +21,7 @@ import { useVocab } from '@/contexts/VocabContext';
 import { useSettings } from '@/contexts/SettingsContext';
 import { speak } from '@/lib/tts';
 import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
+import TimerRing from '@/components/ui/TimerRing';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.2;
@@ -46,6 +48,8 @@ export default function AutoPlayScreen() {
     const [isPlaying, setIsPlaying] = useState(true);
     const [isRevealed, setIsRevealed] = useState(false);
 
+    const [isComplete, setIsComplete] = useState(false);
+    const [ringResetKey, setRingResetKey] = useState(0);
     const [settingsVisible, setSettingsVisible] = useState(false);
     const [settings, setSettings] = useState<StudySettings>({
         ...autoPlaySettings,
@@ -55,12 +59,23 @@ export default function AutoPlayScreen() {
 
     const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
+    const delayMs = useMemo(() =>
+        settings.delay === '1s' ? 1000 : settings.delay === '3s' ? 3000 : 2000,
+        [settings.delay]
+    );
+
     const translateX = useSharedValue(0);
     const opacity = useSharedValue(1);
     const revealProgress = useSharedValue(0);
+    const tapHintOpacity = useSharedValue(1);
 
     useEffect(() => {
         revealProgress.value = withTiming(isRevealed ? 1 : 0, { duration: 400 });
+        if (!isRevealed) {
+            tapHintOpacity.value = withRepeat(withTiming(0.2, { duration: 900 }), -1, true);
+        } else {
+            tapHintOpacity.value = withTiming(0, { duration: 150 });
+        }
     }, [isRevealed]);
 
     const isInitialLoad = useRef(true);
@@ -120,19 +135,22 @@ export default function AutoPlayScreen() {
     }));
 
     const wordAnimatedStyle = useAnimatedStyle(() => {
-        const translateY = interpolate(revealProgress.value, [0, 1], [0, -80], Extrapolation.CLAMP);
-        const scale = interpolate(revealProgress.value, [0, 1], [1, 0.6], Extrapolation.CLAMP);
+        const wordOpacity = interpolate(revealProgress.value, [0, 0.5], [1, 0], Extrapolation.CLAMP);
+        const scale = interpolate(revealProgress.value, [0, 1], [1, 0.92], Extrapolation.CLAMP);
         return {
-            transform: [{ translateY }, { scale }],
+            opacity: wordOpacity,
+            transform: [{ scale }],
         };
     });
 
+    const tapHintAnimatedStyle = useAnimatedStyle(() => ({
+        opacity: tapHintOpacity.value,
+    }));
+
     const contentAnimatedStyle = useAnimatedStyle(() => {
-        const opacity = interpolate(revealProgress.value, [0, 0.4, 1], [0, 0, 1], Extrapolation.CLAMP);
-        const translateY = interpolate(revealProgress.value, [0, 1], [20, 0], Extrapolation.CLAMP);
+        const contentOpacity = interpolate(revealProgress.value, [0.4, 1], [0, 1], Extrapolation.CLAMP);
         return {
-            opacity,
-            transform: [{ translateY }],
+            opacity: contentOpacity,
         };
     });
 
@@ -148,6 +166,7 @@ export default function AutoPlayScreen() {
         } else {
             // End of list
             setIsPlaying(false);
+            setIsComplete(true);
         }
     }, [currentIndex, words.length, translateX]);
 
@@ -159,7 +178,7 @@ export default function AutoPlayScreen() {
             await speak(currentWord.term);
         }
 
-        const delayMs = settings.delay === '1s' ? 1000 : settings.delay === '3s' ? 3000 : 2000;
+        setRingResetKey(k => k + 1);
 
         timerRef.current = setTimeout(() => {
             setIsRevealed(true);
@@ -172,10 +191,10 @@ export default function AutoPlayScreen() {
 
     const handleCardClick = () => {
         if (!isRevealed) {
+            tapHintOpacity.value = 0;
             setIsRevealed(true);
             if (timerRef.current) clearTimeout(timerRef.current);
             if (isPlaying) {
-                const delayMs = settings.delay === '1s' ? 1000 : settings.delay === '3s' ? 3000 : 2000;
                 timerRef.current = setTimeout(() => {
                     goToNext();
                 }, delayMs) as unknown as NodeJS.Timeout;
@@ -215,6 +234,16 @@ export default function AutoPlayScreen() {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         setIsPlaying(!isPlaying);
     };
+
+    const handleRestart = useCallback(() => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+        setIsComplete(false);
+        setCurrentIndex(0);
+        setIsRevealed(false);
+        setIsPlaying(true);
+        setRingResetKey(k => k + 1);
+        translateX.value = 0;
+    }, [translateX]);
 
     const handleClose = () => {
         if (timerRef.current) clearTimeout(timerRef.current);
@@ -288,6 +317,33 @@ export default function AutoPlayScreen() {
             </View>
 
             {/* Card Area */}
+            {isComplete ? (
+                <View style={styles.completionContainer}>
+                    <View style={[styles.completionCard, { backgroundColor: colors.surface, shadowColor: colors.cardShadow }]}>
+                        <View style={[styles.completionIconCircle, { backgroundColor: colors.successLight }]}>
+                            <Ionicons name="checkmark" size={48} color={colors.success} />
+                        </View>
+                        <Text style={[styles.completionTitle, { color: colors.text }]}>완료!</Text>
+                        <Text style={[styles.completionStat, { color: colors.textSecondary }]}>
+                            {words.length}개 단어 학습 완료
+                        </Text>
+                        <View style={styles.completionButtons}>
+                            <Pressable
+                                style={[styles.completionBtn, { backgroundColor: colors.surfaceSecondary }]}
+                                onPress={handleRestart}
+                            >
+                                <Text style={[styles.completionBtnText, { color: colors.text }]}>다시 시작</Text>
+                            </Pressable>
+                            <Pressable
+                                style={[styles.completionBtn, { backgroundColor: colors.primary }]}
+                                onPress={handleClose}
+                            >
+                                <Text style={[styles.completionBtnText, { color: '#FFF' }]}>나가기</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            ) : (
             <GestureDetector gesture={panGesture}>
                 <Animated.View style={[styles.cardContainer, cardStyle]}>
                     <Pressable onPress={handleCardClick} style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
@@ -324,10 +380,16 @@ export default function AutoPlayScreen() {
                                     <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
                                 )}
                             </Pressable>
+                            <Animated.View style={tapHintAnimatedStyle}>
+                                <Text style={[styles.tapHintText, { color: colors.textSecondary }]}>탭하여 확인</Text>
+                            </Animated.View>
                         </Animated.View>
 
                         {/* Content Area */}
                         <Animated.View style={[styles.contentArea, contentAnimatedStyle]}>
+                            <Text style={[styles.backWordText, { color: colors.text }]} numberOfLines={2}>
+                                {currentWord.term}
+                            </Text>
                             <LinearGradient
                                 colors={['transparent', colors.border, 'transparent']}
                                 start={{ x: 0, y: 0 }}
@@ -357,35 +419,56 @@ export default function AutoPlayScreen() {
                     </Pressable>
                 </Animated.View>
             </GestureDetector>
+            )}
 
             {/* Controls */}
-            <View style={[styles.controlsArea, { paddingBottom: insets.bottom + 40, borderTopColor: colors.border, borderTopWidth: StyleSheet.hairlineWidth }]}>
-                <Pressable onPress={goToPrev} disabled={currentIndex === 0} hitSlop={20} style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }]}>
+            <View style={[styles.controlsArea, { paddingBottom: insets.bottom + 40 }]}>
+                <LinearGradient
+                    colors={[colors.background + '00', colors.background]}
+                    style={styles.controlsGradient}
+                    pointerEvents="none"
+                />
+                <Pressable onPress={goToPrev} disabled={currentIndex === 0} hitSlop={20} style={[styles.navBtn, { borderColor: colors.border }]}>
                     <Ionicons
                         name="play-skip-back"
                         size={24}
-                        color={currentIndex === 0 ? colors.textTertiary : colors.text}
+                        color={currentIndex === 0 ? colors.textTertiary : colors.textSecondary}
                     />
                 </Pressable>
 
-                <Pressable
-                    onPress={togglePlayPause}
-                    style={[styles.playPauseBtn, { backgroundColor: colors.primary }]}
-                    hitSlop={12}
-                >
-                    <Ionicons
-                        name={isPlaying ? "pause" : "play"}
-                        size={32}
-                        color="#FFF"
-                        style={{ marginLeft: isPlaying ? 0 : 2 }}
-                    />
-                </Pressable>
+                <View style={styles.playBtnWrapper}>
+                    <TimerRing
+                        isPlaying={isPlaying}
+                        totalDuration={1500 + delayMs}
+                        resetKey={ringResetKey}
+                        size={72}
+                        strokeWidth={4}
+                        color={colors.primary}
+                        bgColor={colors.surfaceSecondary}
+                    >
+                        <Pressable
+                            onPress={togglePlayPause}
+                            style={[styles.playPauseBtn, { backgroundColor: colors.primary }]}
+                            hitSlop={12}
+                        >
+                            <Ionicons
+                                name={isPlaying ? "pause" : "play"}
+                                size={32}
+                                color="#FFF"
+                                style={{ marginLeft: isPlaying ? 0 : 2 }}
+                            />
+                        </Pressable>
+                    </TimerRing>
+                    <Text style={[styles.delayLabel, { color: colors.textTertiary }]}>
+                        {settings.delay || '2s'} 후 다음
+                    </Text>
+                </View>
 
-                <Pressable onPress={goToNext} disabled={currentIndex === words.length - 1} hitSlop={20} style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }]}>
+                <Pressable onPress={goToNext} disabled={currentIndex === words.length - 1} hitSlop={20} style={[styles.navBtn, { borderColor: colors.border }]}>
                     <Ionicons
                         name="play-skip-forward"
                         size={24}
-                        color={currentIndex === words.length - 1 ? colors.textTertiary : colors.text}
+                        color={currentIndex === words.length - 1 ? colors.textTertiary : colors.textSecondary}
                     />
                 </Pressable>
             </View>
@@ -473,10 +556,9 @@ const styles = StyleSheet.create({
     },
     contentArea: {
         position: 'absolute',
-        bottom: 32,
         width: '100%',
         alignItems: 'center',
-        paddingHorizontal: 32,
+        paddingHorizontal: 12,
     },
     wordText: {
         fontSize: 36, // 플래시카드(36)와 일치
@@ -501,6 +583,18 @@ const styles = StyleSheet.create({
         gap: 32,
         paddingHorizontal: 24,
         paddingTop: 24,
+        position: 'relative',
+    },
+    controlsGradient: {
+        position: 'absolute',
+        top: -32,
+        left: 0,
+        right: 0,
+        height: 32,
+    },
+    playBtnWrapper: {
+        alignItems: 'center',
+        gap: 6,
     },
     playPauseBtn: {
         width: 64,
@@ -510,35 +604,40 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.1,
+        shadowOpacity: 0.2,
         shadowRadius: 8,
-        elevation: 4,
+        elevation: 6,
+    },
+    delayLabel: {
+        fontSize: 11,
+        fontFamily: 'Pretendard_500Medium',
     },
     navBtn: {
-        width: 48,
-        height: 48,
-        borderRadius: 24,
+        width: 52,
+        height: 52,
+        borderRadius: 26,
         alignItems: 'center',
         justifyContent: 'center',
+        borderWidth: 1.5,
     },
     exampleBox: {
         width: '100%',
-        padding: 16,
+        padding: 20,
         borderRadius: 12,
-        marginTop: 8,
+        marginTop: 12,
     },
     exampleText: {
-        fontSize: 16,
+        fontSize: 17,
         fontFamily: 'Pretendard_400Regular',
-        lineHeight: 24,
+        lineHeight: 27,
         textAlign: 'center',
         fontStyle: 'italic',
     },
     exampleKrText: {
-        fontSize: 14,
+        fontSize: 15,
         fontFamily: 'Pretendard_400Regular',
-        lineHeight: 20,
-        marginTop: 8,
+        lineHeight: 23,
+        marginTop: 10,
         textAlign: 'center',
     },
     gradientDivider: {
@@ -567,8 +666,70 @@ const styles = StyleSheet.create({
     starBtn: {
         position: 'absolute',
         right: 16,
-        top: 16,
-        padding: 4,
+        top: 20,
+        padding: 8,
         zIndex: 10,
+    },
+    tapHintText: {
+        fontSize: 13,
+        fontFamily: 'Pretendard_500Medium',
+        marginTop: 16,
+        letterSpacing: 0.3,
+    },
+    backWordText: {
+        fontSize: 22,
+        fontFamily: 'Pretendard_600SemiBold',
+        textAlign: 'center',
+        marginBottom: 16,
+        opacity: 0.6,
+    },
+    completionContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 24,
+    },
+    completionCard: {
+        width: '100%',
+        borderRadius: 16,
+        padding: 40,
+        alignItems: 'center',
+        shadowOffset: { width: 0, height: 12 },
+        shadowOpacity: 1,
+        shadowRadius: 20,
+        elevation: 12,
+    },
+    completionIconCircle: {
+        width: 88,
+        height: 88,
+        borderRadius: 44,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 20,
+    },
+    completionTitle: {
+        fontSize: 32,
+        fontFamily: 'Pretendard_700Bold',
+        marginBottom: 8,
+    },
+    completionStat: {
+        fontSize: 16,
+        fontFamily: 'Pretendard_500Medium',
+        marginBottom: 32,
+    },
+    completionButtons: {
+        flexDirection: 'row',
+        gap: 12,
+        width: '100%',
+    },
+    completionBtn: {
+        flex: 1,
+        paddingVertical: 14,
+        borderRadius: 12,
+        alignItems: 'center',
+    },
+    completionBtnText: {
+        fontSize: 15,
+        fontFamily: 'Pretendard_600SemiBold',
     },
 });

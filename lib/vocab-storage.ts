@@ -38,6 +38,9 @@ export async function getLists(): Promise<VocaList[]> {
         isMemorized: Boolean(w.isMemorized),
         isStarred: Boolean(w.isStarred),
         tags: w.tags ? JSON.parse(w.tags) : [],
+        createdAt: w.createdAt ?? 0,
+        updatedAt: w.updatedAt ?? 0,
+        wrongCount: w.wrongCount ?? 0,
       }));
 
     return {
@@ -130,7 +133,7 @@ export async function createCuratedList(title: string, icon: string, words: Omit
 
     for (const w of words) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           id,
@@ -141,7 +144,8 @@ export async function createCuratedList(title: string, icon: string, words: Omit
           w.meaningKr ?? '',
           0,
           0,
-          JSON.stringify([])
+          JSON.stringify([]),
+          now,
         ]
       );
     }
@@ -201,17 +205,19 @@ export async function addWord(
   wordData: Omit<Word, 'id' | 'isMemorized'>
 ): Promise<Word> {
   const db = await getDb();
+  const now = Date.now();
   const newWord: Word = {
     id: generateId(),
     ...wordData,
     tags: wordData.tags || [],
     isMemorized: false,
     isStarred: false,
+    createdAt: now,
   };
 
   await db.withTransactionAsync(async () => {
     await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         newWord.id,
         listId,
@@ -224,7 +230,8 @@ export async function addWord(
         newWord.meaningKr ?? '',
         0,
         0,
-        JSON.stringify(newWord.tags ?? [])
+        JSON.stringify(newWord.tags ?? []),
+        now,
       ]
     );
     // touch list lastStudiedAt? We keep it but it won't affect order now as we order by position
@@ -421,10 +428,11 @@ export async function mergeLists(
   const wordsToAdd = sourceList.words
     .filter(w => !existingTerms.has(w.term.toLowerCase()));
 
+  const mergeNow = Date.now();
   await db.withTransactionAsync(async () => {
     for (const w of wordsToAdd) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           targetId,
@@ -435,12 +443,13 @@ export async function mergeLists(
           w.meaningKr ?? '',
           0,
           0,
-          JSON.stringify(w.tags || [])
+          JSON.stringify(w.tags || []),
+          mergeNow,
         ]
       );
     }
 
-    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), targetId);
+    await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, mergeNow, targetId);
 
     if (deleteSource) {
       await db.runAsync('DELETE FROM lists WHERE id = ?', sourceId);
@@ -509,11 +518,12 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
     ...wordIds
   );
 
+  const copyNow = Date.now();
   await db.withTransactionAsync(async () => {
     for (const w of sourceWords) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position) 
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position, createdAt)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           targetListId,
@@ -527,11 +537,12 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
           0, // copied words start as not memorized
           0, // and not starred
           w.tags,
-          Date.now() // default position
+          copyNow, // default position
+          copyNow, // createdAt = copy time
         ]
       );
     }
-    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), targetListId);
+    await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', copyNow, targetListId);
   });
 }
 
@@ -549,4 +560,14 @@ export async function moveWords(targetListId: string, wordIds: string[]): Promis
     );
     await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), targetListId);
   });
+}
+
+export async function incrementWrongCount(wordIds: string[]): Promise<void> {
+  if (wordIds.length === 0) return;
+  const db = await getDb();
+  const placeholders = wordIds.map(() => '?').join(',');
+  await db.runAsync(
+    `UPDATE words SET wrongCount = wrongCount + 1 WHERE id IN (${placeholders})`,
+    ...wordIds
+  );
 }

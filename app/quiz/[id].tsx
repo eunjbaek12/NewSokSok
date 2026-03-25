@@ -31,7 +31,7 @@ export default function QuizScreen() {
   }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, incrementWrongCount } = useVocab();
   const { studySettings, updateStudySettings } = useSettings();
   const list = lists.find(l => l.id === id);
 
@@ -213,11 +213,16 @@ export default function QuizScreen() {
       .filter(r => !r.gotIt && r.word.isMemorized)
       .map(r => r.word.id);
 
+    const wrongWordIds = finalResults.filter(r => !r.gotIt).map(r => r.word.id);
+
     if (memorizedWords.length > 0) {
       await setWordsMemorized(id!, memorizedWords, true);
     }
     if (failedWords.length > 0) {
       await setWordsMemorized(id!, failedWords, false);
+    }
+    if (wrongWordIds.length > 0) {
+      await incrementWrongCount(wrongWordIds);
     }
     setStudyResults(finalResults);
     router.replace({

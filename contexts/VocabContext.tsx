@@ -34,6 +34,7 @@ interface VocabContextValue {
   toggleMemorized: (listId: string, wordId: string, forceStatus?: boolean) => Promise<void>;
   toggleStarred: (listId: string, wordId: string, forceStatus?: boolean) => Promise<void>;
   setWordsMemorized: (listId: string, wordIds: string[], isMemorized: boolean) => Promise<void>;
+  incrementWrongCount: (wordIds: string[]) => Promise<void>;
   getWordsForList: (listId: string) => Word[];
   getListProgress: (listId: string) => { total: number; memorized: number; percent: number };
   reorderLists: (orderedIds: string[]) => Promise<void>;
@@ -299,6 +300,12 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     debouncedSync();
   }, [refreshData, debouncedSync]);
 
+  const incrementWrongCount = useCallback(async (wordIds: string[]) => {
+    await Storage.incrementWrongCount(wordIds);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
   const getWordsForList = useCallback((listId: string) => {
     const list = lists.find(l => l.id === listId);
     return list ? list.words : [];
@@ -350,6 +357,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     toggleMemorized,
     toggleStarred,
     setWordsMemorized,
+    incrementWrongCount,
     getWordsForList,
     getListProgress,
     reorderLists: reorderListsFn,
@@ -357,7 +365,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     studyResults,
     setStudyResults,
     clearStudyResults,
-  }), [lists, loading, refreshData, fetchCloudCurations, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
+  }), [lists, loading, refreshData, fetchCloudCurations, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
 
   return (
     <VocabContext.Provider value={value}>

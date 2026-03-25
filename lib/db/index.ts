@@ -111,6 +111,16 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase> {
                         currentVersion = 6;
                     }
 
+                    // Version 6 to 7
+                    if (currentVersion === 6) {
+                        try {
+                            await dbInstance!.execAsync('ALTER TABLE words ADD COLUMN wrongCount INTEGER DEFAULT 0;');
+                        } catch (e) {
+                            console.log('Column wrongCount might already exist.', e);
+                        }
+                        currentVersion = 7;
+                    }
+
                     await dbInstance!.execAsync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
                 });
             }

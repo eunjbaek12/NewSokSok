@@ -10,6 +10,10 @@ export interface Word {
   isMemorized: boolean;
   isStarred: boolean;
   tags: string[];
+  createdAt?: number;
+  updatedAt?: number;
+  wrongCount?: number;
+  sourceListId?: string;
 }
 
 export interface VocaList {

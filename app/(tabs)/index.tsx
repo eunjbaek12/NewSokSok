@@ -14,12 +14,14 @@ import {
   TextInput,
   PanResponder,
   Animated as RNAnimated,
+  useWindowDimensions,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
+import { BlurView } from 'expo-blur';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -30,6 +32,7 @@ import Animated, {
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { VocaList } from '@/lib/types';
+import ScrollIndicator from '@/components/ui/ScrollIndicator';
 
 function getRelativeTime(timestamp?: number): string {
   if (!timestamp) return '학습 기록 없음';
@@ -112,7 +115,7 @@ function ListCard({
   isDark: boolean;
   getListProgress: (id: string) => { total: number; memorized: number; percent: number };
   getWordsForList: (id: string) => any[];
-  onOpenMenu: (list: VocaList) => void;
+  onOpenMenu: (list: VocaList, pos: { x: number; y: number; width: number; height: number }) => void;
 }) {
   const progress = getListProgress(item.id);
   const relativeTime = getRelativeTime(item.lastStudiedAt);
@@ -143,9 +146,13 @@ function ListCard({
     router.push({ pathname: '/list/[id]', params: { id: item.id } });
   };
 
+  const menuBtnRef = useRef<View>(null);
+
   const handleContextMenu = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    onOpenMenu(item);
+    menuBtnRef.current?.measure((x, y, width, height, pageX, pageY) => {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      onOpenMenu(item, { x: pageX, y: pageY, width, height });
+    });
   };
 
   const handleLongPress = () => {
@@ -183,14 +190,15 @@ function ListCard({
         <View style={styles.cardActions}>
           <StatusBadge type={statusType} />
           <Pressable
+            ref={menuBtnRef}
             onPress={handleContextMenu}
             hitSlop={8}
             style={({ pressed }) => [
               styles.menuBtn,
-              { opacity: pressed ? 0.5 : 1 },
+              { opacity: pressed ? 0.4 : 0.55 },
             ]}
           >
-            <Ionicons name="ellipsis-vertical" size={18} color={colors.textTertiary} />
+            <Ionicons name="ellipsis-vertical" size={16} color={colors.textTertiary} />
           </Pressable>
         </View>
       </View>
@@ -369,6 +377,9 @@ export default function DashboardScreen() {
 
   const scrollRef = useRef<FlatList>(null);
   useScrollToTop(scrollRef);
+  const scrollY = useRef(new RNAnimated.Value(0)).current;
+  const [listContentHeight, setListContentHeight] = useState(0);
+  const [listVisibleHeight, setListVisibleHeight] = useState(0);
   const {
     lists,
     loading,
@@ -384,7 +395,10 @@ export default function DashboardScreen() {
     shareList,
   } = useVocab();
 
+  const { width: screenWidth, height: screenHeight } = useWindowDimensions();
   const [menuList, setMenuList] = useState<VocaList | null>(null);
+  type MenuPos = { x: number; y: number; width: number; height: number };
+  const [menuPos, setMenuPos] = useState<MenuPos | null>(null);
   const [sharing, setSharing] = useState(false);
   const [manageOpen, setManageOpen] = useState(false);
   const [managedLists, setManagedLists] = useState<ManagedList[]>([]);
@@ -404,16 +418,49 @@ export default function DashboardScreen() {
   const [mergeTargetId, setMergeTargetId] = useState<string | null>(null);
   const [mergeSourceList, setMergeSourceList] = useState<VocaList | null>(null);
 
+  // FAB 애니메이션 제어 (트리거 방식)
+  const fabAnim = useRef(new RNAnimated.Value(0)).current;
+  const isTopBtnVisible = useRef(false);
+
+  useEffect(() => {
+    const listener = scrollY.addListener(({ value }) => {
+      const shouldShow = value > 300;
+      if (shouldShow !== isTopBtnVisible.current) {
+        isTopBtnVisible.current = shouldShow;
+        RNAnimated.spring(fabAnim, {
+          toValue: shouldShow ? 1 : 0,
+          useNativeDriver: true,
+          tension: 60,
+          friction: 8,
+        }).start();
+      }
+    });
+    return () => scrollY.removeListener(listener);
+  }, [scrollY, fabAnim]);
+
   const topPadding = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const bottomPadding = Platform.OS === 'web' ? 120 + 34 : 120;
   const visibleLists = lists.filter((l) => l.isVisible);
 
-  const handleOpenMenu = useCallback((list: VocaList) => {
+  const POPUP_WIDTH = 192;
+  const POPUP_ESTIMATED_HEIGHT = 250;
+  const popupLeft = menuPos
+    ? Math.max(8, Math.min(menuPos.x + menuPos.width - POPUP_WIDTH, screenWidth - POPUP_WIDTH - 8))
+    : 0;
+  const popupTop = menuPos
+    ? (menuPos.y + menuPos.height + 4 + POPUP_ESTIMATED_HEIGHT > screenHeight - 40
+      ? menuPos.y - POPUP_ESTIMATED_HEIGHT - 4
+      : menuPos.y + menuPos.height + 4)
+    : 0;
+
+  const handleOpenMenu = useCallback((list: VocaList, pos: { x: number; y: number; width: number; height: number }) => {
     setMenuList(list);
+    setMenuPos(pos);
   }, []);
 
   const handleCloseMenu = useCallback(() => {
     setMenuList(null);
+    setMenuPos(null);
   }, []);
 
   const handleMenuRename = useCallback(() => {
@@ -726,7 +773,7 @@ export default function DashboardScreen() {
         </View>
         <Text style={[styles.emptyTitle, { color: colors.text }]}>단어장이 없습니다</Text>
         <Text style={[styles.emptySubtitle, { color: colors.textSecondary }]}>
-          첫 번째 단어장을 만들어 학습을 시작해보세요
+          나만의 단어장을 만들거나{'\n'}모음집에서 단어를 가져와보세요
         </Text>
         <Pressable
           onPress={handleCreateList}
@@ -734,6 +781,15 @@ export default function DashboardScreen() {
         >
           <Ionicons name="add" size={20} color="#FFFFFF" />
           <Text style={styles.emptyButtonText}>단어장 만들기</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => router.navigate('/(tabs)/curation')}
+          style={styles.emptySecondaryLink}
+        >
+          <Ionicons name="sparkles-outline" size={14} color={colors.secondary} />
+          <Text style={[styles.emptySecondaryText, { color: colors.secondary }]}>
+            모음집 구경하기
+          </Text>
         </Pressable>
       </View>
     ),
@@ -746,38 +802,24 @@ export default function DashboardScreen() {
 
   const renderHeader = useCallback(() => {
     return (
-      <View style={{ gap: 16 }}>
-        <Pressable
-          onPress={() => router.push('/search-modal')}
-          style={({ pressed }) => [
-            styles.searchTrigger,
-            { backgroundColor: colors.surface, borderColor: colors.borderLight },
-            pressed && { opacity: 0.7 }
-          ]}
-        >
-          <Ionicons name="search" size={20} color={colors.textTertiary} />
-          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>단어, 뜻, 태그로 통합 검색...</Text>
-        </Pressable>
-
-        {visibleLists.length > 0 && (
-          <View style={styles.sectionHeader}>
-            <View style={styles.sectionTitleRow}>
-              <Text style={[styles.sectionTitle, { color: colors.text }]}>나의 단어장</Text>
-              <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
-                <Text style={[styles.countBadgeText, { color: colors.primary }]}>
-                  {visibleLists.length}
-                </Text>
-              </View>
+      <View style={styles.sectionHeader}>
+        <View style={styles.sectionTitleRow}>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>나의 단어장</Text>
+          {visibleLists.length > 0 && (
+            <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
+              <Text style={[styles.countBadgeText, { color: colors.primary }]}>
+                {visibleLists.length}
+              </Text>
             </View>
-            <Pressable
-              onPress={openManageModal}
-              hitSlop={8}
-              style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
-            >
-              <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
-            </Pressable>
-          </View>
-        )}
+          )}
+        </View>
+        <Pressable
+          onPress={openManageModal}
+          hitSlop={8}
+          style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
+        >
+          <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
+        </Pressable>
       </View>
     );
   }, [visibleLists.length, colors, openManageModal]);
@@ -805,45 +847,134 @@ export default function DashboardScreen() {
         </View>
       </View>
 
-      <FlatList
-        ref={scrollRef}
-        data={visibleLists}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={[
-          styles.listContent,
-          { paddingBottom: bottomPadding },
-          visibleLists.length === 0 && styles.listContentEmpty,
-        ]}
-        ListHeaderComponent={renderHeader}
-        ListEmptyComponent={renderEmpty}
-        ListFooterComponent={renderFooter}
-        refreshControl={
-          <RefreshControl
-            refreshing={false}
-            onRefresh={refreshData}
-            tintColor={colors.primary}
-            colors={[colors.primary]}
-          />
-        }
-        showsVerticalScrollIndicator={false}
-        scrollEnabled={visibleLists.length > 0}
-      />
-
-      {visibleLists.length > 0 && (
+      <View style={{ flex: 1 }}>
         <Pressable
-          onPress={() => router.push('/add-word')}
+          onPress={() => router.push('/search-modal')}
           style={({ pressed }) => [
-            styles.fab,
-            {
-              backgroundColor: colors.primary,
-              opacity: pressed ? 0.85 : 1,
-              bottom: insets.bottom + 84,
-            },
+            styles.searchTrigger,
+            { backgroundColor: colors.surface, borderColor: colors.borderLight, marginHorizontal: 20, marginBottom: 8 },
+            pressed && { opacity: 0.7 }
           ]}
         >
-          <Ionicons name="add" size={28} color="#FFFFFF" />
+          <Ionicons name="search" size={20} color={colors.textTertiary} />
+          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>단어, 뜻, 태그로 통합 검색...</Text>
         </Pressable>
+        <FlatList
+          ref={scrollRef}
+          data={visibleLists}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={[
+            styles.listContent,
+            { paddingBottom: bottomPadding },
+            visibleLists.length === 0 && styles.listContentEmpty,
+          ]}
+          ListHeaderComponent={renderHeader}
+          ListEmptyComponent={renderEmpty}
+          ListFooterComponent={renderFooter}
+          refreshControl={
+            <RefreshControl
+              refreshing={false}
+              onRefresh={refreshData}
+              tintColor={colors.primary}
+              colors={[colors.primary]}
+            />
+          }
+          showsVerticalScrollIndicator={false}
+          scrollEnabled={visibleLists.length > 0}
+          onScroll={RNAnimated.event(
+            [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+            { useNativeDriver: false }
+          )}
+          scrollEventThrottle={16}
+          onContentSizeChange={(_, h) => setListContentHeight(h)}
+          onLayout={(e) => setListVisibleHeight(e.nativeEvent.layout.height)}
+        />
+        <ScrollIndicator
+          scrollY={scrollY}
+          contentHeight={listContentHeight}
+          visibleHeight={listVisibleHeight}
+        />
+      </View>
+
+      {visibleLists.length > 0 && (
+        <View style={{ position: 'absolute', right: 20, bottom: insets.bottom + 84, alignItems: 'center' }}>
+          {/* 단어 추가 버튼 (FAB) */}
+          <RNAnimated.View
+            style={{
+              transform: [{
+                translateY: fabAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -64],
+                })
+              }],
+              zIndex: 2,
+            }}
+          >
+            <Pressable
+              onPress={() => router.push('/add-word')}
+              style={({ pressed }) => [
+                styles.fab,
+                {
+                  position: 'relative',
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: colors.primary,
+                  opacity: pressed ? 0.85 : 1,
+                },
+              ]}
+            >
+              <Ionicons name="add" size={28} color="#FFFFFF" />
+            </Pressable>
+          </RNAnimated.View>
+
+          {/* 위로 가기 버튼 */}
+          <RNAnimated.View
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              opacity: fabAnim,
+              transform: [{
+                scale: fabAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0.7, 1],
+                })
+              }],
+              zIndex: 1,
+            }}
+            pointerEvents="box-none"
+          >
+            <Pressable
+              onPress={() => {
+                scrollRef.current?.scrollToOffset({ offset: 0, animated: true });
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              }}
+              style={({ pressed }) => [
+                styles.fab,
+                {
+                  position: 'relative',
+                  right: 0,
+                  bottom: 0,
+                  width: 48,
+                  height: 48,
+                  borderRadius: 24,
+                  backgroundColor: isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.9)',
+                  borderWidth: 1,
+                  borderColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+                  opacity: pressed ? 0.7 : 1,
+                  shadowOpacity: 0.15,
+                },
+              ]}
+            >
+              {Platform.OS === 'ios' && (
+                <View style={[StyleSheet.absoluteFill, { borderRadius: 24, overflow: 'hidden' }]}>
+                  <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
+                </View>
+              )}
+              <Ionicons name="arrow-up" size={24} color={colors.text} />
+            </Pressable>
+          </RNAnimated.View>
+        </View>
       )}
 
       <Modal
@@ -852,26 +983,33 @@ export default function DashboardScreen() {
         animationType="fade"
         onRequestClose={handleCloseMenu}
       >
-        <Pressable style={styles.menuOverlay} onPress={handleCloseMenu}>
-          <Pressable style={[styles.menuSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
-            <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]} numberOfLines={1}>
-                {menuList?.title}
-              </Text>
-              <Pressable onPress={handleCloseMenu} hitSlop={12} style={styles.menuCloseBtn}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
+        <Pressable style={styles.popupOverlay} onPress={handleCloseMenu}>
+          <View style={[styles.popupMenu, { backgroundColor: colors.surface, top: popupTop, left: popupLeft }]}>
+            <Pressable
+              onPress={handleMenuRename}
+              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+            >
+              <Ionicons name="pencil-outline" size={16} color={colors.text} />
+              <Text style={[styles.menuItemText, { color: colors.text }]}>이름 변경</Text>
+            </Pressable>
+
+            <Pressable
+              onPress={handleMenuMerge}
+              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+            >
+              <Ionicons name="albums-outline" size={16} color={colors.text} />
+              <Text style={[styles.menuItemText, { color: colors.text }]}>단어장으로 보내기</Text>
+            </Pressable>
 
             <Pressable
               onPress={handleMenuShare}
               disabled={sharing}
-              style={({ pressed }) => [styles.menuItem, { opacity: pressed || sharing ? 0.6 : 1 }]}
+              style={({ pressed }) => [styles.menuItem, (pressed || sharing) && { backgroundColor: colors.surfaceSecondary }]}
             >
               {sharing ? (
-                <ActivityIndicator size="small" color={colors.primary} style={{ marginRight: 6 }} />
+                <ActivityIndicator size="small" color={colors.primary} />
               ) : (
-                <Ionicons name="share-social-outline" size={22} color={colors.primary} />
+                <Ionicons name="share-social-outline" size={16} color={colors.primary} />
               )}
               <Text style={[styles.menuItemText, { color: colors.primary }]}>단어장 공유하기</Text>
             </Pressable>
@@ -879,39 +1017,21 @@ export default function DashboardScreen() {
             <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
 
             <Pressable
-              onPress={handleMenuMerge}
-              style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
-            >
-              <Ionicons name="arrow-forward-outline" size={22} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>단어장으로 보내기</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={handleMenuRename}
-              style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
-            >
-              <Ionicons name="pencil-outline" size={22} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>이름 변경</Text>
-            </Pressable>
-
-            <Pressable
               onPress={handleMenuHide}
-              style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
+              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
             >
-              <Ionicons name="eye-off-outline" size={22} color={colors.text} />
+              <Ionicons name="eye-off-outline" size={16} color={colors.textSecondary} />
               <Text style={[styles.menuItemText, { color: colors.text }]}>숨기기</Text>
             </Pressable>
 
-            <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
-
             <Pressable
               onPress={handleMenuDelete}
-              style={({ pressed }) => [styles.menuItem, { opacity: pressed ? 0.6 : 1 }]}
+              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
             >
-              <Ionicons name="trash-outline" size={22} color={colors.error} />
+              <Ionicons name="trash-outline" size={16} color={colors.error} />
               <Text style={[styles.menuItemText, { color: colors.error }]}>삭제</Text>
             </Pressable>
-          </Pressable>
+          </View>
         </Pressable>
       </Modal>
 
@@ -1236,7 +1356,6 @@ const styles = StyleSheet.create({
   },
   listContentEmpty: {
     flexGrow: 1,
-    justifyContent: 'center',
   },
   card: {
     borderRadius: 12,
@@ -1336,6 +1455,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_500Medium',
   },
   emptyContainer: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 40,
@@ -1372,6 +1492,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
   },
+  emptySecondaryLink: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    marginTop: 16,
+    paddingVertical: 4,
+  },
+  emptySecondaryText: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_500Medium',
+  },
   aiLink: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -1396,20 +1527,25 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 6,
   },
+  popupOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.08)',
+  },
+  popupMenu: {
+    position: 'absolute',
+    width: 192,
+    borderRadius: 12,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.18,
+    shadowRadius: 12,
+    elevation: 10,
+  },
   menuOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.4)',
     justifyContent: 'flex-end',
-  },
-  menuSheet: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingBottom: 40,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 16,
-    elevation: 10,
   },
   menuHeader: {
     flexDirection: 'row',
@@ -1435,18 +1571,18 @@ const styles = StyleSheet.create({
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 14,
-    paddingHorizontal: 20,
-    paddingVertical: 14,
+    gap: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
   },
   menuItemText: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'Pretendard_500Medium',
   },
   menuDivider: {
     height: StyleSheet.hairlineWidth,
-    marginHorizontal: 20,
-    marginVertical: 4,
+    marginHorizontal: 0,
+    marginVertical: 2,
   },
   manageOverlay: {
     flex: 1,

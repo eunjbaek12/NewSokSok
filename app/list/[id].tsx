@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import React, { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   BackHandler,
+  Animated,
 } from 'react-native';
 import { useLocalSearchParams, router, useNavigation } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -27,8 +28,10 @@ import { Word } from '@/lib/types';
 import { BlurView } from 'expo-blur';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import { Snackbar } from '@/components/ui/Snackbar';
+import FastScrollHandle from '@/components/ui/FastScrollHandle';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
+type SortOrder = 'newest' | 'az' | 'za' | 'wrong';
 
 const STUDY_MODES = [
   { key: 'flashcards', icon: 'layers-outline' as const, label: '카드 학습', pathname: '/flashcards/[id]' as const },
@@ -69,12 +72,19 @@ export default function ListDetailScreen() {
 
   const [filterStarred, setFilterStarred] = useState<boolean>(false);
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [speakingWordId, setSpeakingWordId] = useState<string | null>(null);
 
   // Modal State
   const [refreshing, setRefreshing] = useState(false);
+
+  // Scroll indicator + fast scroll handle
+  const flatListRef = useRef<FlatList>(null);
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const [listContentHeight, setListContentHeight] = useState(0);
+  const [listVisibleHeight, setListVisibleHeight] = useState(0);
 
   // Copy/Move State
   const [isPickerVisible, setPickerVisible] = useState(false);
@@ -84,6 +94,26 @@ export default function ListDetailScreen() {
   const allWords = getWordsForList(id!);
   const navigation = useNavigation();
 
+  // FAB 애니메이션 제어 (트리거 방식)
+  const fabAnim = useRef(new Animated.Value(0)).current;
+  const isTopBtnVisible = useRef(false);
+
+  useEffect(() => {
+    const listener = scrollY.addListener(({ value }) => {
+      const shouldShow = value > 300;
+      if (shouldShow !== isTopBtnVisible.current) {
+        isTopBtnVisible.current = shouldShow;
+        Animated.spring(fabAnim, {
+          toValue: shouldShow ? 1 : 0,
+          useNativeDriver: true,
+          tension: 60,
+          friction: 8,
+        }).start();
+      }
+    });
+    return () => scrollY.removeListener(listener);
+  }, [scrollY, fabAnim]);
+
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
   const learningWords = useMemo(() => allWords.filter(w => !w.isMemorized), [allWords]);
@@ -92,13 +122,25 @@ export default function ListDetailScreen() {
   const starredWords = useMemo(() => allWords.filter(w => w.isStarred), [allWords]);
 
   const filteredWords = useMemo(() => {
-    return allWords.filter(w => {
+    const filtered = allWords.filter(w => {
       if (filterStarred && !w.isStarred) return false;
       if (filterStatus === 'learning' && w.isMemorized) return false;
       if (filterStatus === 'memorized' && !w.isMemorized) return false;
       return true;
     });
-  }, [filterStarred, filterStatus, allWords]);
+
+    const sorted = [...filtered];
+    if (sortOrder === 'az') {
+      sorted.sort((a, b) => a.term.localeCompare(b.term, 'en', { sensitivity: 'base' }));
+    } else if (sortOrder === 'za') {
+      sorted.sort((a, b) => b.term.localeCompare(a.term, 'en', { sensitivity: 'base' }));
+    } else if (sortOrder === 'wrong') {
+      sorted.sort((a, b) => (b.wrongCount ?? 0) - (a.wrongCount ?? 0));
+    } else {
+      sorted.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
+    }
+    return sorted;
+  }, [filterStarred, filterStatus, sortOrder, allWords]);
 
   const progress = useMemo(() => {
     const total = allWords.length;
@@ -107,6 +149,24 @@ export default function ListDetailScreen() {
   }, [allWords, memorizedWords]);
 
   const studyDisabled = filteredWords.length < 2;
+
+  /** Returns a display label for the item at the given index (for FastScrollHandle bubble) */
+  const getSectionLabel = useCallback((itemIndex: number): string => {
+    const word = filteredWords[Math.min(itemIndex, filteredWords.length - 1)];
+    if (!word) return '';
+    if (sortOrder === 'az' || sortOrder === 'za') {
+      return word.term[0]?.toUpperCase() ?? '#';
+    }
+    if (sortOrder === 'wrong') {
+      const count = word.wrongCount ?? 0;
+      return count > 0 ? `×${count}` : '정답';
+    }
+    // newest by createdAt
+    const ts = word.createdAt || word.updatedAt || 0;
+    if (!ts) return '날짜 없음';
+    const d = new Date(ts);
+    return `${d.getFullYear()}년 ${d.getMonth() + 1}월`;
+  }, [filteredWords, sortOrder]);
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
@@ -399,6 +459,15 @@ export default function ListDetailScreen() {
 
           {/* 우측 아이콘 영역 */}
           <View style={styles.cardActions}>
+            {/* 오답 횟수 배지 */}
+            {(item.wrongCount ?? 0) > 0 && (
+              <View style={[styles.wrongBadge, { backgroundColor: colors.errorLight }]}>
+                <Text style={[styles.wrongBadgeText, { color: colors.error }]}>
+                  ×{item.wrongCount}
+                </Text>
+              </View>
+            )}
+
             {/* 3. 스피커 (단어 바로 다음 우측 부분) */}
             <Pressable
               onPress={(e) => {
@@ -481,6 +550,23 @@ export default function ListDetailScreen() {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     };
 
+    const cycleSort = () => {
+      setSortOrder(prev =>
+        prev === 'newest' ? 'az' : prev === 'az' ? 'za' : prev === 'za' ? 'wrong' : 'newest'
+      );
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    };
+
+    const sortLabel =
+      sortOrder === 'az' ? '사전순' :
+      sortOrder === 'za' ? '역순' :
+      sortOrder === 'wrong' ? '오답순' : '최신순';
+    const sortIconName: React.ComponentProps<typeof Ionicons>['name'] =
+      sortOrder === 'az' ? 'arrow-down-outline' :
+      sortOrder === 'za' ? 'arrow-up-outline' :
+      sortOrder === 'wrong' ? 'alert-circle-outline' : 'time-outline';
+    const sortIsActive = sortOrder !== 'newest';
+
     const toggleStarredFilter = () => {
       setFilterStarred(prev => !prev);
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -516,12 +602,17 @@ export default function ListDetailScreen() {
             />
           </Pressable>
 
-          {/* Header for Center (Title/Info) */}
-          <View style={styles.cardTextArea}>
-            <Text style={[styles.filterCenterText, { color: colors.textSecondary }]}>
-              {filterStarred ? 'Starred ' : 'All '}({filteredWords.length})
+          {/* Header for Center (Sort Toggle) */}
+          <Pressable
+            onPress={cycleSort}
+            hitSlop={8}
+            style={[styles.cardTextArea, { flexDirection: 'row', alignItems: 'center', gap: 4 }]}
+          >
+            <Ionicons name={sortIconName} size={13} color={sortIsActive ? colors.primary : colors.textSecondary} />
+            <Text style={[styles.filterCenterText, { color: sortIsActive ? colors.primary : colors.textSecondary }]}>
+              {sortLabel} ({filteredWords.length})
             </Text>
-          </View>
+          </Pressable>
 
           {/* Header for Right Side (Speaker space + Status Filter) */}
           <View style={[styles.cardActions, { minWidth: 60, justifyContent: 'flex-end', paddingRight: 4 }]}>
@@ -627,19 +718,28 @@ export default function ListDetailScreen() {
 
   const renderEmpty = useCallback(() => (
     <View style={styles.emptyContainer}>
-      <Ionicons name="book-outline" size={64} color={colors.textTertiary} />
-      <Text style={[styles.emptyTitle, { color: colors.textSecondary }]}>No words yet</Text>
-      <Text style={[styles.emptySubtitle, { color: colors.textTertiary }]}>
-        Tap + to add your first word
+      <View style={[styles.emptyIconCircle, { backgroundColor: colors.primaryLight }]}>
+        <Ionicons name="book-outline" size={40} color={colors.primary} />
+      </View>
+      <Text style={[styles.emptyTitle, { color: colors.text }]}>아직 단어가 없어요</Text>
+      <Text style={[styles.emptySubtitle, { color: colors.textSecondary }]}>
+        단어를 추가하면 플래시카드, 퀴즈, 문장 완성으로{'\n'}학습할 수 있어요
       </Text>
+      <Pressable
+        onPress={handleAddWord}
+        style={[styles.emptyButton, { backgroundColor: colors.primary }]}
+      >
+        <Ionicons name="add" size={18} color="#FFFFFF" />
+        <Text style={styles.emptyButtonText}>첫 단어 추가하기</Text>
+      </Pressable>
     </View>
-  ), [colors]);
+  ), [colors, handleAddWord]);
 
   if (!list) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background }]}>
         <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100, fontFamily: 'Pretendard_500Medium' }}>
-          List not found
+          단어장을 찾을 수 없습니다
         </Text>
       </View>
     );
@@ -730,30 +830,116 @@ export default function ListDetailScreen() {
         </View>
       </View>
 
-      <FlatList
-        data={filteredWords}
-        keyExtractor={(item) => item.id}
-        renderItem={renderWordCard}
-        ListHeaderComponent={renderListHeader}
-        ListEmptyComponent={renderEmpty}
-        contentContainerStyle={[
-          styles.listContent,
-          { paddingBottom: insets.bottom + 140 },
-          filteredWords.length === 0 && styles.listContentEmpty,
-        ]}
-        scrollEnabled={filteredWords.length > 0}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />
-        }
-      />
+      <View style={{ flex: 1 }}>
+        <FlatList
+          ref={flatListRef}
+          data={filteredWords}
+          keyExtractor={(item) => item.id}
+          renderItem={renderWordCard}
+          ListHeaderComponent={renderListHeader}
+          ListEmptyComponent={renderEmpty}
+          contentContainerStyle={[
+            styles.listContent,
+            { paddingBottom: insets.bottom + 100 },
+            filteredWords.length === 0 && styles.listContentEmpty,
+          ]}
+          scrollEnabled={filteredWords.length > 0}
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />
+          }
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+            { useNativeDriver: false }
+          )}
+          scrollEventThrottle={16}
+          onContentSizeChange={(_, h) => setListContentHeight(h)}
+          onLayout={(e) => setListVisibleHeight(e.nativeEvent.layout.height)}
+        />
+        <FastScrollHandle
+          scrollY={scrollY}
+          contentHeight={listContentHeight}
+          visibleHeight={listVisibleHeight}
+          itemCount={filteredWords.length}
+          getSectionLabel={getSectionLabel}
+          onScrollTo={(offset) => flatListRef.current?.scrollToOffset({ offset, animated: false })}
+        />
+      </View>
 
       {!editMode && (
-        <Pressable
-          onPress={handleAddWord}
-          style={[styles.fab, { backgroundColor: colors.primary, bottom: insets.bottom + 84 }]}
-        >
-          <Ionicons name="add" size={28} color="#FFFFFF" />
-        </Pressable>
+        <View style={{ position: 'absolute', right: 20, bottom: insets.bottom + 80, alignItems: 'center' }}>
+          {/* 단어 추가 버튼 (FAB) */}
+          <Animated.View
+            style={{
+              transform: [{
+                translateY: fabAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -64],
+                })
+              }],
+              zIndex: 2,
+            }}
+          >
+            <Pressable
+              onPress={handleAddWord}
+              style={({ pressed }) => [
+                styles.fab,
+                {
+                  position: 'relative',
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: colors.primary,
+                  opacity: pressed ? 0.85 : 1,
+                },
+              ]}
+            >
+              <Ionicons name="add" size={28} color="#FFFFFF" />
+            </Pressable>
+          </Animated.View>
+
+          {/* 위로 가기 버튼 */}
+          <Animated.View
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              opacity: fabAnim,
+              transform: [{
+                scale: fabAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0.7, 1],
+                })
+              }],
+              zIndex: 1,
+            }}
+            pointerEvents="box-none"
+          >
+            <Pressable
+              onPress={() => {
+                flatListRef.current?.scrollToOffset({ offset: 0, animated: true });
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              }}
+              style={({ pressed }) => [
+                styles.fab,
+                {
+                  position: 'relative',
+                  right: 0,
+                  bottom: 0,
+                  width: 48,
+                  height: 48,
+                  borderRadius: 24,
+                  backgroundColor: isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.9)',
+                  borderWidth: 1,
+                  borderColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+                  opacity: pressed ? 0.7 : 1,
+                  shadowOpacity: 0.15,
+                },
+              ]}
+            >
+              <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
+              <Ionicons name="arrow-up" size={24} color={colors.text} />
+            </Pressable>
+          </Animated.View>
+        </View>
       )}
 
       <ModalPicker
@@ -767,26 +953,24 @@ export default function ListDetailScreen() {
       {/* Fixed bottom bar for Study Features */}
       {!editMode && (
         <View style={[styles.bottomBarContainer, {
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.85)" : "rgba(180, 200, 220, 0.75)",
-          bottom: Math.max(insets.bottom, 16),
+          backgroundColor: isDark ? "rgba(30, 31, 33, 0.95)" : "rgba(255, 255, 255, 0.95)",
+          bottom: 0,
           left: 0,
           right: 0,
-          height: 64,
-          borderRadius: 32,
-          borderWidth: 0.5,
-          borderColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
-          paddingBottom: 0,
-          overflow: 'visible', // Visible to allow shadow to show
+          height: 64 + insets.bottom,
+          borderTopWidth: 0.5,
+          borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
+          paddingBottom: insets.bottom,
           shadowColor: "#000",
-          shadowOffset: { width: 0, height: 4 },
+          shadowOffset: { width: 0, height: -2 },
           shadowOpacity: 0.1,
-          shadowRadius: 12,
+          shadowRadius: 4,
           elevation: 8,
         }]}>
           <BlurView
             intensity={80}
             tint={isDark ? "dark" : "light"}
-            style={[StyleSheet.absoluteFill, { borderRadius: 32, overflow: 'hidden' }]}
+            style={StyleSheet.absoluteFill}
           />
           {renderStudyButtons()}
         </View>
@@ -938,6 +1122,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 4,
   },
+  wrongBadge: {
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  wrongBadgeText: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
   memorizeBtn: {
     justifyContent: 'center',
     padding: 4,
@@ -946,17 +1141,41 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
+    paddingHorizontal: 40,
     paddingBottom: 60,
   },
+  emptyIconCircle: {
+    width: 88,
+    height: 88,
+    borderRadius: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
   emptyTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Pretendard_600SemiBold',
-    marginTop: 8,
+    marginBottom: 8,
   },
   emptySubtitle: {
     fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
+    textAlign: 'center',
+    lineHeight: 22,
+    marginBottom: 24,
+  },
+  emptyButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 22,
+    paddingVertical: 13,
+    borderRadius: 12,
+  },
+  emptyButtonText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   starBtn: {
     padding: 4,

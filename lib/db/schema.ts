@@ -1,4 +1,4 @@
-export const SCHEMA_VERSION = 6;
+export const SCHEMA_VERSION = 7;
 
 export const INIT_QUERIES = [
   // 리스트(단어장) 보관 테이블
@@ -30,6 +30,7 @@ export const INIT_QUERIES = [
     position INTEGER DEFAULT 0,
     createdAt INTEGER DEFAULT 0,
     updatedAt INTEGER DEFAULT 0,
+    wrongCount INTEGER DEFAULT 0,
     FOREIGN KEY (listId) REFERENCES lists(id) ON DELETE CASCADE
   );`,
 

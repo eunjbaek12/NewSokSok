@@ -94,6 +94,7 @@ export default function StudySettingsModal({
 
     const handleApply = () => {
         onApply(tempSettings, tempBatchSize);
+        onClose();
     };
 
     const updateSetting = <K extends keyof StudySettings>(key: K, value: StudySettings[K]) => {
@@ -425,7 +426,7 @@ export default function StudySettingsModal({
                                 style={[styles.btnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
                                 onPress={onClose}
                             >
-                                <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>취소</Text>
+                                <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>닫기</Text>
                             </Pressable>
 
                             <Pressable

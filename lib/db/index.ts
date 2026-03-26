@@ -121,6 +121,21 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase> {
                         currentVersion = 7;
                     }
 
+                    // Version 7 to 8
+                    if (currentVersion === 7) {
+                        try {
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN planTotalDays INTEGER DEFAULT 0;');
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN planCurrentDay INTEGER DEFAULT 1;');
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN planWordsPerDay INTEGER DEFAULT 10;');
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN planStartedAt INTEGER;');
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN planUpdatedAt INTEGER;');
+                            await dbInstance!.execAsync('ALTER TABLE words ADD COLUMN assignedDay INTEGER;');
+                        } catch (e) {
+                            console.log('Plan columns might already exist.', e);
+                        }
+                        currentVersion = 8;
+                    }
+
                     await dbInstance!.execAsync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
                 });
             }

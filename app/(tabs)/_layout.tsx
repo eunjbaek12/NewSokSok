@@ -16,6 +16,10 @@ function NativeTabLayout() {
         <Icon sf={{ default: "house", selected: "house.fill" }} />
         <Label>홈</Label>
       </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="vocab-lists">
+        <Icon sf={{ default: "books.vertical", selected: "books.vertical.fill" }} />
+        <Label>단어장</Label>
+      </NativeTabs.Trigger>
       <NativeTabs.Trigger name="curation">
         <Icon sf={{ default: "square.stack", selected: "square.stack.fill" }} />
         <Label>단어 모음</Label>
@@ -94,6 +98,23 @@ function ClassicTabLayout() {
               <Ionicons name="home-outline" size={24} color={color} style={{ fontWeight: '200' }} />
             </View>
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="vocab-lists"
+        options={{
+          tabBarLabel: "단어장",
+          tabBarIcon: ({ color }) => (
+            <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
+              <Ionicons name="library-outline" size={24} color={color} />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="custom-study"
+        options={{
+          href: null,
         }}
       />
       <Tabs.Screen

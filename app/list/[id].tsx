@@ -25,6 +25,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
+import { computePlanStatus, groupWordsByDay } from '@/lib/plan-engine';
 import { BlurView } from 'expo-blur';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import { Snackbar } from '@/components/ui/Snackbar';
@@ -40,7 +41,7 @@ const STUDY_MODES = [
 ];
 
 export default function ListDetailScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, day: initialDay } = useLocalSearchParams<{ id: string; day?: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const {
@@ -76,6 +77,12 @@ export default function ListDetailScreen() {
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [speakingWordId, setSpeakingWordId] = useState<string | null>(null);
+  const [selectedDay, setSelectedDay] = useState<number | null>(null);
+
+  // Initialize selectedDay from route param
+  useEffect(() => {
+    if (initialDay) setSelectedDay(parseInt(initialDay, 10));
+  }, []);
 
   // Modal State
   const [refreshing, setRefreshing] = useState(false);
@@ -93,6 +100,13 @@ export default function ListDetailScreen() {
   const list = lists.find(l => l.id === id);
   const allWords = getWordsForList(id!);
   const navigation = useNavigation();
+
+  const planStatus = useMemo(
+    () => list ? computePlanStatus(list, allWords, Date.now()) : 'none',
+    [list, allWords]
+  );
+  const hasPlan = planStatus !== 'none';
+  const daySections = useMemo(() => groupWordsByDay(allWords), [allWords]);
 
   // FAB 애니메이션 제어 (트리거 방식)
   const fabAnim = useRef(new Animated.Value(0)).current;
@@ -126,6 +140,7 @@ export default function ListDetailScreen() {
       if (filterStarred && !w.isStarred) return false;
       if (filterStatus === 'learning' && w.isMemorized) return false;
       if (filterStatus === 'memorized' && !w.isMemorized) return false;
+      if (selectedDay !== null && w.assignedDay !== selectedDay) return false;
       return true;
     });
 
@@ -140,7 +155,7 @@ export default function ListDetailScreen() {
       sorted.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
     }
     return sorted;
-  }, [filterStarred, filterStatus, sortOrder, allWords]);
+  }, [filterStarred, filterStatus, sortOrder, allWords, selectedDay]);
 
   const progress = useMemo(() => {
     const total = allWords.length;
@@ -507,6 +522,54 @@ export default function ListDetailScreen() {
     );
   }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, toggleStarred, id]);
 
+  const renderDayTabs = () => {
+    if (!hasPlan) return null;
+    return (
+      <View style={[styles.dayTabBar, { borderBottomColor: colors.borderLight }]}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.dayTabBarContent}
+        >
+          <Pressable
+            onPress={() => { setSelectedDay(null); Haptics.selectionAsync(); }}
+            style={[
+              styles.dayTab,
+              { backgroundColor: selectedDay === null ? colors.primary : colors.surfaceSecondary },
+            ]}
+          >
+            <Text style={[styles.dayTabText, {
+              color: selectedDay === null ? '#FFFFFF' : colors.textSecondary,
+            }]}>전체</Text>
+          </Pressable>
+          {daySections.filter(s => s.day > 0).map(section => {
+            const isActive = selectedDay === section.day;
+            const dayMem = section.data.filter(w => w.isMemorized).length;
+            return (
+              <Pressable
+                key={section.day}
+                onPress={() => { setSelectedDay(section.day); Haptics.selectionAsync(); }}
+                style={[
+                  styles.dayTab,
+                  { backgroundColor: isActive ? colors.primary : colors.surfaceSecondary },
+                ]}
+              >
+                <Text style={[styles.dayTabText, {
+                  color: isActive ? '#FFFFFF' : colors.textSecondary,
+                }]}>Day {section.day}</Text>
+                {!isActive && (
+                  <Text style={[styles.dayTabCount, { color: colors.textTertiary }]}>
+                    {dayMem}/{section.data.length}
+                  </Text>
+                )}
+              </Pressable>
+            );
+          })}
+        </ScrollView>
+      </View>
+    );
+  };
+
   const renderFilterHeader = () => {
     if (editMode) {
       const allSelected = filteredWords.length > 0 && filteredWords.every(w => selectedIds.has(w.id));
@@ -831,6 +894,7 @@ export default function ListDetailScreen() {
       </View>
 
       <View style={{ flex: 1 }}>
+        {renderDayTabs()}
         <FlatList
           ref={flatListRef}
           data={filteredWords}
@@ -1030,6 +1094,31 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_500Medium',
     minWidth: 70,
     textAlign: 'right',
+  },
+  dayTabBar: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  dayTabBarContent: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    gap: 8,
+    alignItems: 'center',
+  },
+  dayTab: {
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderRadius: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  dayTabText: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  dayTabCount: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_400Regular',
   },
   visualFilterHeader: {
     borderBottomWidth: StyleSheet.hairlineWidth,

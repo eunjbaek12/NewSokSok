@@ -41,6 +41,7 @@ export async function getLists(): Promise<VocaList[]> {
         createdAt: w.createdAt ?? 0,
         updatedAt: w.updatedAt ?? 0,
         wrongCount: w.wrongCount ?? 0,
+        assignedDay: w.assignedDay ?? null,
       }));
 
     return {
@@ -53,6 +54,11 @@ export async function getLists(): Promise<VocaList[]> {
       isCurated: Boolean(row.isCurated),
       icon: row.icon || undefined,
       words: listWords,
+      planTotalDays: row.planTotalDays ?? 0,
+      planCurrentDay: row.planCurrentDay ?? 1,
+      planWordsPerDay: row.planWordsPerDay ?? 10,
+      planStartedAt: row.planStartedAt ?? undefined,
+      planUpdatedAt: row.planUpdatedAt ?? undefined,
     };
   });
 
@@ -172,6 +178,26 @@ export async function updateList(id: string, updates: Partial<Omit<VocaList, 'id
   if (updates.lastStudiedAt !== undefined) {
     setClauses.push('lastStudiedAt = ?');
     values.push(updates.lastStudiedAt);
+  }
+  if (updates.planTotalDays !== undefined) {
+    setClauses.push('planTotalDays = ?');
+    values.push(updates.planTotalDays);
+  }
+  if (updates.planCurrentDay !== undefined) {
+    setClauses.push('planCurrentDay = ?');
+    values.push(updates.planCurrentDay);
+  }
+  if (updates.planWordsPerDay !== undefined) {
+    setClauses.push('planWordsPerDay = ?');
+    values.push(updates.planWordsPerDay);
+  }
+  if (updates.planStartedAt !== undefined) {
+    setClauses.push('planStartedAt = ?');
+    values.push(updates.planStartedAt);
+  }
+  if (updates.planUpdatedAt !== undefined) {
+    setClauses.push('planUpdatedAt = ?');
+    values.push(updates.planUpdatedAt);
   }
 
   if (setClauses.length > 0) {
@@ -569,5 +595,43 @@ export async function incrementWrongCount(wordIds: string[]): Promise<void> {
   await db.runAsync(
     `UPDATE words SET wrongCount = wrongCount + 1 WHERE id IN (${placeholders})`,
     ...wordIds
+  );
+}
+
+export async function savePlan(
+  listId: string,
+  wordsPerDay: number,
+  assignedDays: Array<{ wordId: string; day: number }>,
+  totalDays: number
+): Promise<void> {
+  const db = await getDb();
+  const now = Date.now();
+  await db.withTransactionAsync(async () => {
+    await db.runAsync(
+      `UPDATE lists SET planTotalDays = ?, planCurrentDay = 1, planWordsPerDay = ?, planStartedAt = ?, planUpdatedAt = ? WHERE id = ?`,
+      [totalDays, wordsPerDay, now, now, listId]
+    );
+    for (const { wordId, day } of assignedDays) {
+      await db.runAsync('UPDATE words SET assignedDay = ? WHERE id = ?', [day, wordId]);
+    }
+  });
+}
+
+export async function clearPlan(listId: string): Promise<void> {
+  const db = await getDb();
+  await db.withTransactionAsync(async () => {
+    await db.runAsync(
+      `UPDATE lists SET planTotalDays = 0, planCurrentDay = 1, planWordsPerDay = 10, planStartedAt = NULL, planUpdatedAt = NULL WHERE id = ?`,
+      [listId]
+    );
+    await db.runAsync('UPDATE words SET assignedDay = NULL WHERE listId = ?', [listId]);
+  });
+}
+
+export async function updatePlanProgress(listId: string, currentDay: number): Promise<void> {
+  const db = await getDb();
+  await db.runAsync(
+    'UPDATE lists SET planCurrentDay = ?, planUpdatedAt = ? WHERE id = ?',
+    [currentDay, Date.now(), listId]
   );
 }

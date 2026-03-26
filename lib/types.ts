@@ -1,3 +1,5 @@
+export type PlanStatus = 'none' | 'in-progress' | 'completed' | 'overdue' | 'inactive';
+
 export interface Word {
   id: string;
   term: string;
@@ -14,6 +16,7 @@ export interface Word {
   updatedAt?: number;
   wrongCount?: number;
   sourceListId?: string;
+  assignedDay?: number | null;
 }
 
 export interface VocaList {
@@ -29,6 +32,11 @@ export interface VocaList {
   isUserShared?: boolean;
   creatorName?: string;
   downloadCount?: number;
+  planTotalDays?: number;
+  planCurrentDay?: number;
+  planWordsPerDay?: number;
+  planStartedAt?: number;
+  planUpdatedAt?: number;
 }
 
 export interface StudyResult {

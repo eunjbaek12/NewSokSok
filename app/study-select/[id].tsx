@@ -39,7 +39,7 @@ const STUDY_MODES = [
 ];
 
 export default function StudySelectScreen() {
-  const { id, filter } = useLocalSearchParams<{ id: string; filter?: string }>();
+  const { id, filter, ids } = useLocalSearchParams<{ id: string; filter?: string; ids?: string }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { lists, getWordsForList } = useVocab();
@@ -47,10 +47,14 @@ export default function StudySelectScreen() {
   const list = lists.find(l => l.id === id);
   const allWords = getWordsForList(id!);
   const listWords = React.useMemo(() => {
+    if (ids) {
+      const idSet = new Set(ids.split(','));
+      return allWords.filter(w => idSet.has(w.id));
+    }
     if (filter === 'learning') return allWords.filter(w => !w.isMemorized);
     if (filter === 'memorized') return allWords.filter(w => w.isMemorized);
     return allWords;
-  }, [allWords, filter]);
+  }, [allWords, filter, ids]);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const disabled = listWords.length < 2;
 
@@ -59,8 +63,8 @@ export default function StudySelectScreen() {
   const handleSelectMode = useCallback((pathname: string) => {
     if (disabled) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    router.push({ pathname: pathname as any, params: { id: id!, filter: filter || 'all' } });
-  }, [disabled, id, filter]);
+    router.push({ pathname: pathname as any, params: { id: id!, filter: filter || 'all', ...(ids ? { ids } : {}) } });
+  }, [disabled, id, filter, ids]);
 
   if (!list) {
     return (

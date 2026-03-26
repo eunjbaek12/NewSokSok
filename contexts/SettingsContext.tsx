@@ -29,6 +29,13 @@ export interface AutoPlaySettings {
     shuffle: boolean;
 }
 
+export interface CustomStudySettings {
+    useAllLists: boolean;
+    selectedListIds: string[];
+    wordFilter: 'all' | 'learning' | 'wrongCount' | 'recent' | 'starred';
+    studyMode: 'flashcard' | 'quiz';
+}
+
 interface SettingsContextType {
     inputSettings: InputSettings;
     updateInputSettings: (updates: Partial<InputSettings>) => Promise<void>;
@@ -36,6 +43,8 @@ interface SettingsContextType {
     updateStudySettings: (updates: Partial<StudySettings>) => Promise<void>;
     autoPlaySettings: AutoPlaySettings;
     updateAutoPlaySettings: (updates: Partial<AutoPlaySettings>) => Promise<void>;
+    customStudySettings: CustomStudySettings;
+    updateCustomStudySettings: (updates: Partial<CustomStudySettings>) => Promise<void>;
     isLoading: boolean;
 }
 
@@ -67,9 +76,17 @@ const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = {
     shuffle: false,
 };
 
+const DEFAULT_CUSTOM_STUDY_SETTINGS: CustomStudySettings = {
+    useAllLists: true,
+    selectedListIds: [],
+    wordFilter: 'all',
+    studyMode: 'flashcard',
+};
+
 const SETTINGS_KEY = '@soksok_user_input_settings';
 const STUDY_SETTINGS_KEY = '@soksok_user_study_settings';
 const AUTOPLAY_SETTINGS_KEY = '@soksok_user_autoplay_settings';
+const CUSTOM_STUDY_KEY = '@soksok_custom_study_settings';
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
@@ -77,6 +94,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     const [inputSettings, setInputSettings] = useState<InputSettings>(DEFAULT_INPUT_SETTINGS);
     const [studySettings, setStudySettings] = useState<StudySettings>(DEFAULT_STUDY_SETTINGS);
     const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(DEFAULT_AUTOPLAY_SETTINGS);
+    const [customStudySettings, setCustomStudySettings] = useState<CustomStudySettings>(DEFAULT_CUSTOM_STUDY_SETTINGS);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -85,10 +103,11 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
     const loadSettings = async () => {
         try {
-            const [savedInput, savedStudy, savedAutoPlay] = await Promise.all([
+            const [savedInput, savedStudy, savedAutoPlay, savedCustomStudy] = await Promise.all([
                 AsyncStorage.getItem(SETTINGS_KEY),
                 AsyncStorage.getItem(STUDY_SETTINGS_KEY),
-                AsyncStorage.getItem(AUTOPLAY_SETTINGS_KEY)
+                AsyncStorage.getItem(AUTOPLAY_SETTINGS_KEY),
+                AsyncStorage.getItem(CUSTOM_STUDY_KEY),
             ]);
 
             if (savedStudy) {
@@ -99,6 +118,11 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             if (savedAutoPlay) {
                 const parsedAutoPlay = JSON.parse(savedAutoPlay);
                 setAutoPlaySettings({ ...DEFAULT_AUTOPLAY_SETTINGS, ...parsedAutoPlay });
+            }
+
+            if (savedCustomStudy) {
+                const parsedCustomStudy = JSON.parse(savedCustomStudy);
+                setCustomStudySettings({ ...DEFAULT_CUSTOM_STUDY_SETTINGS, ...parsedCustomStudy });
             }
 
             if (savedInput) {
@@ -176,6 +200,16 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    const updateCustomStudySettings = async (updates: Partial<CustomStudySettings>) => {
+        try {
+            const newSettings = { ...customStudySettings, ...updates };
+            setCustomStudySettings(newSettings);
+            await AsyncStorage.setItem(CUSTOM_STUDY_KEY, JSON.stringify(newSettings));
+        } catch (e) {
+            console.error('Failed to save custom study settings', e);
+        }
+    };
+
     return (
         <SettingsContext.Provider value={{
             inputSettings,
@@ -184,6 +218,8 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             updateStudySettings,
             autoPlaySettings,
             updateAutoPlaySettings,
+            customStudySettings,
+            updateCustomStudySettings,
             isLoading
         }}>
             {children}

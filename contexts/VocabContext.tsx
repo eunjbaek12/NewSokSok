@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState, useMemo, useCallback, useEffect, useRef, ReactNode } from 'react';
 import Constants from 'expo-constants';
-import { VocaList, Word, StudyResult, AIWordResult } from '@/lib/types';
+import { VocaList, Word, StudyResult, AIWordResult, PlanStatus } from '@/lib/types';
 import * as Storage from '@/lib/vocab-storage';
+import * as PlanEngine from '@/lib/plan-engine';
 import { useAuth } from '@/contexts/AuthContext';
 
 const debuggerHost = Constants.expoConfig?.hostUri;
@@ -42,6 +43,11 @@ interface VocabContextValue {
   studyResults: StudyResult[];
   setStudyResults: (results: StudyResult[]) => void;
   clearStudyResults: () => void;
+  setupPlan: (listId: string, wordsPerDay: number) => Promise<void>;
+  rechunkPlan: (listId: string, wordsPerDay: number) => Promise<void>;
+  clearPlan: (listId: string) => Promise<void>;
+  updatePlanProgress: (listId: string, currentDay: number) => Promise<void>;
+  getPlanStatus: (listId: string) => PlanStatus;
 }
 
 const VocabContext = createContext<VocabContextValue | null>(null);
@@ -307,6 +313,9 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   }, [refreshData, debouncedSync]);
 
   const getWordsForList = useCallback((listId: string) => {
+    if (listId === '__custom__') {
+      return lists.filter(l => l.isVisible).flatMap(l => l.words);
+    }
     const list = lists.find(l => l.id === listId);
     return list ? list.words : [];
   }, [lists]);
@@ -334,6 +343,44 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   const clearStudyResults = useCallback(() => {
     setStudyResults([]);
   }, []);
+
+  const setupPlan = useCallback(async (listId: string, wordsPerDay: number) => {
+    const allLists = await Storage.getLists();
+    const list = allLists.find(l => l.id === listId);
+    if (!list) return;
+    const { assignments, totalDays } = PlanEngine.generatePlan(list.words, wordsPerDay);
+    await Storage.savePlan(listId, wordsPerDay, assignments, totalDays);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
+  const rechunkPlan = useCallback(async (listId: string, wordsPerDay: number) => {
+    const allLists = await Storage.getLists();
+    const list = allLists.find(l => l.id === listId);
+    if (!list) return;
+    const { assignments, totalDays } = PlanEngine.rechunkPlan(list.words, wordsPerDay);
+    await Storage.savePlan(listId, wordsPerDay, assignments, totalDays);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
+  const clearPlan = useCallback(async (listId: string) => {
+    await Storage.clearPlan(listId);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
+  const updatePlanProgress = useCallback(async (listId: string, currentDay: number) => {
+    await Storage.updatePlanProgress(listId, currentDay);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
+  const getPlanStatus = useCallback((listId: string): PlanStatus => {
+    const list = lists.find(l => l.id === listId);
+    if (!list) return 'none';
+    return PlanEngine.computePlanStatus(list, list.words, Date.now());
+  }, [lists]);
 
   const value = useMemo(() => ({
     lists,
@@ -365,7 +412,12 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     studyResults,
     setStudyResults,
     clearStudyResults,
-  }), [lists, loading, refreshData, fetchCloudCurations, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults]);
+    setupPlan,
+    rechunkPlan,
+    clearPlan,
+    updatePlanProgress,
+    getPlanStatus,
+  }), [lists, loading, refreshData, fetchCloudCurations, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults, setupPlan, rechunkPlan, clearPlan, updatePlanProgress, getPlanStatus]);
 
   return (
     <VocabContext.Provider value={value}>

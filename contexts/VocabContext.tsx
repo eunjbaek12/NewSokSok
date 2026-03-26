@@ -25,7 +25,7 @@ interface VocabContextValue {
   toggleVisibility: (id: string) => Promise<void>;
   renameList: (id: string, newTitle: string) => Promise<void>;
   mergeLists: (sourceId: string, targetId: string, deleteSource: boolean) => Promise<void>;
-  shareList: (listId: string) => Promise<void>;
+  shareList: (listId: string, options?: { force?: boolean; updateId?: string }) => Promise<void>;
   addWord: (listId: string, wordData: Omit<Word, 'id' | 'isMemorized'>) => Promise<Word>;
   addBatchWords: (listId: string, wordsData: Array<Partial<Omit<Word, 'id' | 'createdAt' | 'updatedAt' | 'listId'>> & { term: string, meaningKr: string }>) => Promise<Word[]>;
   updateWord: (listId: string, wordId: string, updates: Partial<Omit<Word, 'id'>>) => Promise<void>;
@@ -211,7 +211,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     debouncedSync();
   }, [refreshData, debouncedSync]);
 
-  const shareList = useCallback(async (listId: string) => {
+  const shareList = useCallback(async (listId: string, options?: { force?: boolean; updateId?: string }) => {
     const list = lists.find(l => l.id === listId);
     if (!list) throw new Error('List not found');
 
@@ -220,6 +220,9 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       icon: list.icon || '✨',
       isUserShared: true,
       creatorName: user?.displayName || 'Anonymous',
+      creatorId: user?.id || null,
+      sourceLanguage: list.sourceLanguage || 'en',
+      targetLanguage: list.targetLanguage || 'ko',
     };
 
     const words = list.words.map(w => ({
@@ -229,12 +232,33 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       exampleEn: w.exampleEn,
     }));
 
-    console.log(`Sharing list to: ${API_BASE}/api/curations`);
-    const res = await fetch(`${API_BASE}/api/curations`, {
+    if (options?.updateId) {
+      const res = await fetch(`${API_BASE}/api/curations/${options.updateId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ theme, words }),
+      });
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || `HTTP ${res.status}`);
+      }
+      return;
+    }
+
+    const forceParam = options?.force ? '?force=true' : '';
+    const res = await fetch(`${API_BASE}/api/curations${forceParam}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ theme, words }),
     });
+
+    if (res.status === 409) {
+      const data = await res.json();
+      const err = new Error('DUPLICATE_SHARE') as any;
+      err.existingId = data.existingId;
+      err.existingTitle = data.existingTitle;
+      throw err;
+    }
 
     if (!res.ok) {
       const errorData = await res.json().catch(() => ({}));

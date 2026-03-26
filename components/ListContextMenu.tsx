@@ -27,7 +27,7 @@ interface ListContextMenuProps {
   onDeleteList: (id: string) => Promise<void>;
   onToggleVisibility: (id: string) => Promise<void>;
   onMergeLists: (sourceId: string, targetId: string, deleteSource: boolean) => Promise<void>;
-  onShareList: (listId: string) => Promise<void>;
+  onShareList: (listId: string, options?: { force?: boolean; updateId?: string }) => Promise<void>;
 }
 
 export default function ListContextMenu({
@@ -104,11 +104,46 @@ export default function ListContextMenu({
     try {
       await onShareList(menuList.id);
       Alert.alert('공유 완료', `"${menuList.title}" 단어장이 성공적으로 공유되었습니다!`);
+      onClose();
     } catch (e: any) {
-      Alert.alert('공유 실패', e.message || '단어장을 공유하는 중 오류가 발생했습니다.');
+      if (e.message === 'DUPLICATE_SHARE') {
+        onClose();
+        Alert.alert(
+          '이미 공유된 단어장',
+          `"${menuList.title}" 단어장이 이미 공유되어 있습니다. 어떻게 하시겠습니까?`,
+          [
+            { text: '취소', style: 'cancel' },
+            {
+              text: '새로 만들기',
+              onPress: async () => {
+                try {
+                  await onShareList(menuList.id, { force: true });
+                  Alert.alert('공유 완료', '새로운 공유 단어장이 생성되었습니다.');
+                } catch (err: any) {
+                  Alert.alert('공유 실패', err.message || '오류가 발생했습니다.');
+                }
+              },
+            },
+            {
+              text: '업데이트',
+              style: 'default',
+              onPress: async () => {
+                try {
+                  await onShareList(menuList.id, { updateId: e.existingId });
+                  Alert.alert('업데이트 완료', '기존 공유 단어장이 업데이트되었습니다.');
+                } catch (err: any) {
+                  Alert.alert('업데이트 실패', err.message || '오류가 발생했습니다.');
+                }
+              },
+            },
+          ],
+        );
+      } else {
+        Alert.alert('공유 실패', e.message || '단어장을 공유하는 중 오류가 발생했습니다.');
+        onClose();
+      }
     } finally {
       setSharing(false);
-      onClose();
     }
   }, [menuList, onShareList, onClose]);
 

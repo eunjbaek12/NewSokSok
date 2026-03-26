@@ -1,19 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, KeyboardAvoidingView, BackHandler } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { VocaList, Word } from '@/lib/types';
-// This assumes constants/curationData exists and exports curationPresets
 import { curationPresets } from '@/constants/curationData';
+import { SUPPORTED_LANGUAGES, getLanguageFlag } from '@/constants/languages';
 import WordDetailModal from '@/components/WordDetailModal';
-// Removed firebase & Firestore imports since we use VocabContext
-
-import { VocabProvider } from '@/contexts/VocabContext'; // ensure useVocab works
 
 // Simple fetch for AI if lib/gemini-api.ts doesn't have text generation yet
 const generateAIWords = async (query: string): Promise<Word[]> => {
@@ -80,6 +76,7 @@ export default function CurationScreen() {
     const [detailWord, setDetailWord] = useState<Word | null>(null);
     const [activeTab, setActiveTab] = useState<'official' | 'community'>('official');
     const [communityThemes, setCommunityThemes] = useState<VocaList[]>([]);
+    const [languageFilter, setLanguageFilter] = useState<string>('all');
 
     const { createCuratedList, fetchCloudCurations } = useVocab();
 
@@ -119,7 +116,43 @@ export default function CurationScreen() {
     }, [selectedTheme, detailWord]);
 
     const sourceThemes = activeTab === 'official' ? curationPresets : communityThemes;
-    const filteredThemes = sourceThemes.filter(t => t.title.toLowerCase().includes(searchQuery.toLowerCase()));
+    const filteredThemes = useMemo(() => sourceThemes.filter(t => {
+        const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesLang = languageFilter === 'all' || t.sourceLanguage === languageFilter;
+        return matchesSearch && matchesLang;
+    }), [sourceThemes, searchQuery, languageFilter]);
+
+    const langFilterChips = useMemo(() => [
+        { code: 'all', label: '전체' },
+        ...SUPPORTED_LANGUAGES.map(l => ({ code: l.code, label: l.label })),
+    ], []);
+
+    const getLevelStyle = (level?: string) => {
+        switch (level) {
+            case 'beginner': return { label: '초급', bg: '#DCFCE7', color: '#16A34A' };
+            case 'intermediate': return { label: '중급', bg: '#DBEAFE', color: '#2563EB' };
+            case 'advanced': return { label: '고급', bg: '#FEE2E2', color: '#DC2626' };
+            default: return null;
+        }
+    };
+
+    const getTopTags = (theme: VocaList): string[] => {
+        const counts: Record<string, number> = {};
+        for (const w of theme.words) {
+            if (w.tags) {
+                for (const t of w.tags) {
+                    counts[t] = (counts[t] || 0) + 1;
+                }
+            }
+        }
+        if (theme.category && !counts[theme.category]) {
+            counts[theme.category] = theme.words.length;
+        }
+        return Object.entries(counts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3)
+            .map(e => e[0]);
+    };
 
     const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
     const bottomInset = Platform.OS === 'web' ? 84 + 34 : 84;
@@ -249,7 +282,7 @@ export default function CurationScreen() {
                         </Pressable>
                     </View>
 
-                    <View style={{ paddingHorizontal: 24, paddingBottom: 16 }}>
+                    <View style={{ paddingHorizontal: 24, paddingBottom: 12 }}>
                         <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
                             <Ionicons name="search" size={20} color={colors.textTertiary} />
                             <TextInput
@@ -267,29 +300,89 @@ export default function CurationScreen() {
                         </View>
                     </View>
 
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.langChipContainer}>
+                        {langFilterChips.map(chip => {
+                            const isActive = languageFilter === chip.code;
+                            return (
+                                <Pressable
+                                    key={chip.code}
+                                    onPress={() => { Haptics.selectionAsync(); setLanguageFilter(chip.code); }}
+                                    style={[styles.langChip, { backgroundColor: isActive ? colors.primary : colors.surfaceSecondary }]}
+                                >
+                                    <Text style={[styles.langChipText, { color: isActive ? '#FFF' : colors.textSecondary }]}>{chip.label}</Text>
+                                </Pressable>
+                            );
+                        })}
+                    </ScrollView>
+
                     <ScrollView ref={scrollRef} contentContainerStyle={[{ paddingHorizontal: 24, paddingBottom: bottomInset + 100 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}>
-                        {filteredThemes.map(theme => (
-                            <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
-                                <View style={[styles.cardIconBox, { backgroundColor: colors.surfaceSecondary }, viewMode === 'detailed' ? styles.iconBoxDetailed : styles.iconBoxCompact]}>
-                                    <Text style={{ fontSize: viewMode === 'detailed' ? 32 : 24 }}>{theme.icon}</Text>
-                                </View>
-                                <View style={{ flex: 1 }}>
-                                    <View style={styles.cardHeader}>
-                                        <Text style={[styles.cardTitle, { color: colors.text }]} numberOfLines={1}>{theme.title}</Text>
+                        {filteredThemes.map(theme => {
+                            const levelStyle = getLevelStyle(theme.level);
+                            const tags = getTopTags(theme);
+                            const srcFlag = getLanguageFlag(theme.sourceLanguage || 'en');
+                            const tgtFlag = getLanguageFlag(theme.targetLanguage || 'ko');
+                            const srcCode = (theme.sourceLanguage || 'en').toUpperCase();
+                            const tgtCode = (theme.targetLanguage || 'ko').toUpperCase();
+
+                            return (
+                                <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
+                                    <View style={[styles.cardIconBox, { backgroundColor: colors.surfaceSecondary }, viewMode === 'detailed' ? styles.iconBoxDetailed : styles.iconBoxCompact]}>
+                                        <Text style={{ fontSize: viewMode === 'detailed' ? 32 : 24 }}>{theme.icon}</Text>
                                     </View>
-                                    {viewMode === 'detailed' ? (
-                                        <View style={styles.cardFooter}>
-                                            <Text style={[styles.cardCount, { color: colors.primary }]}>{theme.words.length} 단어 수록</Text>
-                                            {theme.creatorName && (
-                                                <Text style={{ fontSize: 11, color: colors.textTertiary }}>by {theme.creatorName}</Text>
+                                    <View style={{ flex: 1 }}>
+                                        <View style={styles.cardHeader}>
+                                            <Text style={[styles.cardTitle, { color: colors.text }]} numberOfLines={1}>{theme.title}</Text>
+                                            {levelStyle && (
+                                                <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
+                                                    <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
+                                                </View>
                                             )}
                                         </View>
-                                    ) : (
-                                        <Text style={[{ fontSize: 11, color: colors.textTertiary, marginTop: 4 }]}>{theme.words.length} 단어</Text>
-                                    )}
-                                </View>
-                            </Pressable>
-                        ))}
+                                        {viewMode === 'detailed' && (
+                                            <>
+                                                {tags.length > 0 && (
+                                                    <View style={styles.tagRow}>
+                                                        {tags.map(tag => (
+                                                            <View key={tag} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
+                                                                <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{tag}</Text>
+                                                            </View>
+                                                        ))}
+                                                    </View>
+                                                )}
+                                                {theme.description && (
+                                                    <Text style={[styles.cardDesc, { color: colors.textSecondary }]} numberOfLines={1}>{theme.description}</Text>
+                                                )}
+                                                <Text style={[styles.langPair, { color: colors.textTertiary }]}>
+                                                    {srcFlag} {srcCode} → {tgtFlag} {tgtCode}
+                                                </Text>
+                                                <View style={styles.cardFooter}>
+                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{theme.words.length} 단어 수록</Text>
+                                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                                        {theme.creatorName && (
+                                                            <Text style={{ fontSize: 11, color: colors.textTertiary }}>by {theme.creatorName}</Text>
+                                                        )}
+                                                        {activeTab === 'community' && (theme.downloadCount ?? 0) > 0 && (
+                                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+                                                                <Ionicons name="download-outline" size={12} color={colors.textTertiary} />
+                                                                <Text style={{ fontSize: 11, color: colors.textTertiary }}>{theme.downloadCount}</Text>
+                                                            </View>
+                                                        )}
+                                                    </View>
+                                                </View>
+                                            </>
+                                        )}
+                                        {viewMode === 'compact' && (
+                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 }}>
+                                                <Text style={{ fontSize: 11, color: colors.textTertiary }}>{theme.words.length} 단어</Text>
+                                                {tags.length > 0 && (
+                                                    <Text style={{ fontSize: 10, color: colors.textTertiary }}>#{tags[0]}</Text>
+                                                )}
+                                            </View>
+                                        )}
+                                    </View>
+                                </Pressable>
+                            );
+                        })}
 
                         {filteredThemes.length === 0 && (
                             <View style={{ alignItems: 'center', marginVertical: 40 }}>
@@ -344,8 +437,18 @@ const styles = StyleSheet.create({
     iconBoxCompact: { width: 48, height: 48, borderRadius: 12 },
     cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
     cardTitle: { flex: 1, fontSize: 18, fontFamily: 'Pretendard_700Bold' },
+    levelBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10, marginLeft: 8 },
+    levelBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
+    tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 4 },
+    tagChip: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 6 },
+    tagText: { fontSize: 11, fontFamily: 'Pretendard_500Medium' },
+    cardDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 6 },
+    langPair: { fontSize: 11, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
     cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 },
     cardCount: { fontSize: 11, fontFamily: 'Pretendard_700Bold', letterSpacing: 0.5 },
+    langChipContainer: { paddingHorizontal: 24, paddingTop: 4, paddingBottom: 16, flexDirection: 'row' },
+    langChip: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8 },
+    langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
     fallbackBar: { position: 'absolute', bottom: 0, left: 0, right: 0, paddingHorizontal: 24, paddingTop: 16, borderTopWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
     fallbackText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
     fallbackBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 16, paddingVertical: 10, borderRadius: 12 },

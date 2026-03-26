@@ -94,6 +94,39 @@ export function computeCurrentDay(words: Word[]): number {
   return sortedDays[sortedDays.length - 1];
 }
 
+export type StudyState = 'needs-study' | 'studying' | 'completed';
+
+export interface DayStudyStatus {
+  displayDay: number;
+  state: StudyState;
+  dayMemorized: number;
+  dayTotal: number;
+}
+
+/**
+ * Computes the study status for a plan card on the home screen.
+ * - displayDay: the Day number to show on the chip (last studied or current)
+ * - state: 'needs-study' (0% memorized), 'studying' (<50%), 'completed' (>=50%)
+ * - dayMemorized/dayTotal: word counts for the display day
+ */
+export function computeDayStudyStatus(list: VocaList, words: Word[]): DayStudyStatus {
+  const displayDay = list.planCurrentDay ?? computeCurrentDay(words);
+  const dayWords = words.filter(w => w.assignedDay === displayDay);
+  const dayTotal = dayWords.length;
+  const dayMemorized = dayWords.filter(w => w.isMemorized).length;
+
+  let state: StudyState;
+  if (dayTotal === 0 || dayMemorized === 0) {
+    state = 'needs-study';
+  } else if (dayMemorized / dayTotal < 0.5) {
+    state = 'studying';
+  } else {
+    state = 'completed';
+  }
+
+  return { displayDay, state, dayMemorized, dayTotal };
+}
+
 /**
  * Groups words into sections by assignedDay for SectionList rendering.
  * Words with no assignedDay go into a day=0 bucket.

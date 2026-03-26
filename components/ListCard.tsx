@@ -152,27 +152,22 @@ export default function ListCard({
           style={({ pressed }) => [
             styles.planActionButton,
             {
-              backgroundColor: planStatus === 'none' ? colors.primaryLight
-                : planStatus === 'in-progress' ? colors.primary
-                : planStatus === 'completed' ? colors.successLight
-                : colors.warningLight,
+              backgroundColor: planStatus === 'completed'
+                ? colors.surfaceSecondary
+                : planStatus === 'overdue'
+                  ? colors.warningLight
+                  : colors.primary,
               opacity: pressed ? 0.85 : 1,
             },
           ]}
           hitSlop={4}
         >
-          <Ionicons
-            name={planStatus === 'none' ? 'calendar-outline'
-              : planStatus === 'completed' ? 'refresh-outline' : 'play-outline'}
-            size={16}
-            color={planStatus === 'none' ? colors.primary
-              : planStatus === 'in-progress' ? '#FFFFFF'
-              : planStatus === 'completed' ? colors.success : colors.warning}
-          />
           <Text style={[styles.planActionButtonText, {
-            color: planStatus === 'none' ? colors.primary
-              : planStatus === 'in-progress' ? '#FFFFFF'
-              : planStatus === 'completed' ? colors.success : colors.warning,
+            color: planStatus === 'completed'
+              ? colors.textSecondary
+              : planStatus === 'overdue'
+                ? colors.warning
+                : '#FFFFFF',
           }]}>
             {planStatus === 'none' ? '학습계획'
               : planStatus === 'completed' ? '복습하기' : '학습하기'}
@@ -255,14 +250,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_600SemiBold',
   },
   planActionButton: {
-    width: 76,
-    borderRadius: 14,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 4,
   },
   planActionButtonText: {
-    fontSize: 11,
+    fontSize: 12,
     fontFamily: 'Pretendard_600SemiBold',
   },
 });

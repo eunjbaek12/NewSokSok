@@ -112,12 +112,6 @@ function ClassicTabLayout() {
         }}
       />
       <Tabs.Screen
-        name="custom-study"
-        options={{
-          href: null,
-        }}
-      />
-      <Tabs.Screen
         name="curation"
         options={{
           tabBarLabel: "모음집",

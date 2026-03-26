@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -15,25 +15,60 @@ import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
-import { useSettings } from '@/contexts/SettingsContext';
-import { computePlanStatus, computeCurrentDay } from '@/lib/plan-engine';
-import ProgressBar from '@/components/ui/ProgressBar';
+import type { CustomStudySettings } from '@/contexts/SettingsContext';
+import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/lib/plan-engine';
+import type { PlanStatus } from '@/lib/types';
+import CustomStudyModal from '@/components/CustomStudyModal';
+
+function getStudyStateConfig(state: StudyState) {
+  switch (state) {
+    case 'needs-study':
+      return { label: '학습필요', bgColor: 'warningLight' as const, textColor: 'warning' as const, actionLabel: '학습하기' };
+    case 'studying':
+      return { label: '학습중', bgColor: 'primaryLight' as const, textColor: 'primary' as const, actionLabel: '이어서 학습' };
+    case 'completed':
+      return { label: '학습완료', bgColor: 'successLight' as const, textColor: 'success' as const, actionLabel: '추가학습' };
+  }
+}
 
 export default function DashboardScreen() {
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
-  const { lists, loading, getListProgress } = useVocab();
-  const { updateCustomStudySettings } = useSettings();
+  const { lists, loading, clearPlan } = useVocab();
+  const [filterMode, setFilterMode] = useState<'all' | 'studying' | 'completed'>('all');
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [showCustomStudy, setShowCustomStudy] = useState(false);
+  const [customStudyPresetFilter, setCustomStudyPresetFilter] = useState<CustomStudySettings['wordFilter'] | undefined>();
 
   const topPadding = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const bottomPadding = Platform.OS === 'web' ? 120 + 34 : 120;
 
-  const activePlans = useMemo(() => {
+  const planItems = useMemo(() => {
+    const now = Date.now();
+    const STATUS_ORDER: Record<string, number> = { 'in-progress': 0, overdue: 1, inactive: 2 };
     return lists
       .filter(l => l.isVisible)
-      .filter(l => computePlanStatus(l, l.words, Date.now()) === 'in-progress')
-      .sort((a, b) => (b.planUpdatedAt ?? 0) - (a.planUpdatedAt ?? 0));
+      .map(l => ({
+        list: l,
+        status: computePlanStatus(l, l.words, now) as PlanStatus,
+        dayStatus: computeDayStudyStatus(l, l.words),
+      }))
+      .filter(p => p.status === 'in-progress' || p.status === 'overdue' || p.status === 'inactive')
+      .sort((a, b) => {
+        const diff = (STATUS_ORDER[a.status] ?? 9) - (STATUS_ORDER[b.status] ?? 9);
+        if (diff !== 0) return diff;
+        return (b.list.planUpdatedAt ?? 0) - (a.list.planUpdatedAt ?? 0);
+      });
   }, [lists]);
+
+  const activeItems = useMemo(() => planItems.filter(p => p.status === 'in-progress'), [planItems]);
+  const staleItems = useMemo(() => planItems.filter(p => p.status !== 'in-progress'), [planItems]);
+
+  const filteredActive = useMemo(() => {
+    if (filterMode === 'studying') return activeItems.filter(p => p.dayStatus.state !== 'completed');
+    if (filterMode === 'completed') return activeItems.filter(p => p.dayStatus.state === 'completed');
+    return activeItems;
+  }, [activeItems, filterMode]);
 
   const wrongWordCount = useMemo(() => {
     return lists
@@ -53,20 +88,21 @@ export default function DashboardScreen() {
 
   const handleCustomStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    router.push('/(tabs)/custom-study');
+    setCustomStudyPresetFilter(undefined);
+    setShowCustomStudy(true);
   }, []);
 
-  const handleWrongWordStudy = useCallback(async () => {
+  const handleWrongWordStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    await updateCustomStudySettings({ useAllLists: true, wordFilter: 'wrongCount' });
-    router.push('/(tabs)/custom-study');
-  }, [updateCustomStudySettings]);
+    setCustomStudyPresetFilter('wrongCount');
+    setShowCustomStudy(true);
+  }, []);
 
-  const handleStarredWordStudy = useCallback(async () => {
+  const handleStarredWordStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    await updateCustomStudySettings({ useAllLists: true, wordFilter: 'starred' });
-    router.push('/(tabs)/custom-study');
-  }, [updateCustomStudySettings]);
+    setCustomStudyPresetFilter('starred');
+    setShowCustomStudy(true);
+  }, []);
 
   const handlePlanPress = useCallback((listId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -132,12 +168,11 @@ export default function DashboardScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
                 style={styles.quickCardGradient}
-              >
-                <View style={[styles.quickCardIconBg, { backgroundColor: 'rgba(255,255,255,0.2)' }]}>
-                  <Ionicons name="flash" size={20} color="#FFFFFF" />
-                </View>
-                <Text style={styles.quickCardLabelWhite}>맞춤 학습</Text>
-              </LinearGradient>
+              />
+              <View style={styles.quickCardIconWrap}>
+                <Ionicons name="flash" size={24} color="#FFFFFF" />
+              </View>
+              <Text style={styles.quickCardLabelWhite}>맞춤 학습</Text>
             </Pressable>
 
             {/* 오답 정복 */}
@@ -157,19 +192,15 @@ export default function DashboardScreen() {
                 },
               ]}
             >
-              <View style={[styles.quickCardIconBg, {
-                backgroundColor: wrongWordCount > 0
-                  ? (isDark ? 'rgba(248,81,73,0.2)' : 'rgba(239,68,68,0.12)')
-                  : colors.surfaceSecondary,
-              }]}>
-                <Ionicons name="alert-circle" size={20} color={wrongWordCount > 0 ? colors.error : colors.textTertiary} />
+              <View style={styles.quickCardIconWrap}>
+                <Ionicons name="alert-circle" size={24} color={wrongWordCount > 0 ? colors.error : colors.textTertiary} />
+                {wrongWordCount > 0 && (
+                  <View style={[styles.quickCardBadge, { backgroundColor: colors.error }]}>
+                    <Text style={styles.quickCardBadgeText}>{wrongWordCount}</Text>
+                  </View>
+                )}
               </View>
               <Text style={[styles.quickCardLabel, { color: colors.text }]}>오답 정복</Text>
-              {wrongWordCount > 0 && (
-                <View style={[styles.quickCardBadge, { backgroundColor: colors.error }]}>
-                  <Text style={styles.quickCardBadgeText}>{wrongWordCount}</Text>
-                </View>
-              )}
             </Pressable>
 
             {/* 별표 학습 */}
@@ -189,114 +220,288 @@ export default function DashboardScreen() {
                 },
               ]}
             >
-              <View style={[styles.quickCardIconBg, {
-                backgroundColor: starredWordCount > 0
-                  ? (isDark ? 'rgba(245,158,11,0.2)' : 'rgba(245,158,11,0.12)')
-                  : colors.surfaceSecondary,
-              }]}>
-                <Ionicons name="star" size={20} color={starredWordCount > 0 ? colors.warning : colors.textTertiary} />
+              <View style={styles.quickCardIconWrap}>
+                <Ionicons name="star" size={24} color={starredWordCount > 0 ? colors.warning : colors.textTertiary} />
+                {starredWordCount > 0 && (
+                  <View style={[styles.quickCardBadge, { backgroundColor: colors.warning }]}>
+                    <Text style={styles.quickCardBadgeText}>{starredWordCount}</Text>
+                  </View>
+                )}
               </View>
               <Text style={[styles.quickCardLabel, { color: colors.text }]}>별표 학습</Text>
-              {starredWordCount > 0 && (
-                <View style={[styles.quickCardBadge, { backgroundColor: colors.warning }]}>
-                  <Text style={styles.quickCardBadgeText}>{starredWordCount}</Text>
-                </View>
-              )}
             </Pressable>
           </View>
 
           {/* Active Plans Section */}
           <View style={styles.section}>
+            {/* Section Header: Title + Count + Filters + Collapse */}
             <View style={styles.sectionHeaderRow}>
-              <Text style={[styles.sectionTitle, { color: colors.text }]}>학습 중인 단어장</Text>
-              {activePlans.length > 0 && (
-                <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
-                  <Text style={[styles.countBadgeText, { color: colors.primary }]}>
-                    {activePlans.length}
-                  </Text>
-                </View>
-              )}
+              <View style={styles.sectionHeaderLeft}>
+                <Text style={[styles.sectionTitle, { color: colors.text }]}>학습 중인 단어장</Text>
+                {activeItems.length > 0 && (
+                  <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
+                    <Text style={[styles.countBadgeText, { color: colors.primary }]}>
+                      {activeItems.length}
+                    </Text>
+                  </View>
+                )}
+              </View>
+              <View style={styles.sectionHeaderRight}>
+                {activeItems.length > 0 && !isCollapsed && (
+                  <View style={styles.filterChipRow}>
+                    {([['all', '전체'], ['studying', '학습중'], ['completed', '학습완료']] as const).map(([key, label]) => (
+                      <Pressable
+                        key={key}
+                        onPress={() => {
+                          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                          setFilterMode(key);
+                        }}
+                        style={[
+                          styles.filterChip,
+                          {
+                            backgroundColor: filterMode === key ? colors.primary : colors.surfaceSecondary,
+                          },
+                        ]}
+                      >
+                        <Text style={[
+                          styles.filterChipText,
+                          { color: filterMode === key ? '#FFFFFF' : colors.textSecondary },
+                        ]}>
+                          {label}
+                        </Text>
+                      </Pressable>
+                    ))}
+                  </View>
+                )}
+                {planItems.length > 0 && (
+                  <Pressable
+                    onPress={() => {
+                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                      setIsCollapsed(prev => !prev);
+                    }}
+                    hitSlop={8}
+                  >
+                    <Ionicons
+                      name={isCollapsed ? 'chevron-down' : 'chevron-up'}
+                      size={20}
+                      color={colors.textTertiary}
+                    />
+                  </Pressable>
+                )}
+              </View>
             </View>
 
-            {activePlans.length > 0 ? (
-              activePlans.map((list) => {
-                const progress = getListProgress(list.id);
-                const currentDay = computeCurrentDay(list.words);
-                return (
-                  <Pressable
-                    key={list.id}
-                    onPress={() => handlePlanPress(list.id)}
-                    style={({ pressed }) => [
-                      styles.planCard,
-                      {
-                        backgroundColor: colors.surface,
-                        borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.08)',
-                        shadowColor: colors.cardShadow,
-                        opacity: pressed ? 0.92 : 1,
-                      },
-                    ]}
-                  >
-                    <View style={styles.planCardTop}>
-                      <View style={styles.planCardTitleArea}>
-                        {list.icon && (
-                          <Text style={{ fontSize: 18 }}>{list.icon}</Text>
-                        )}
-                        <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
-                          {list.title}
-                        </Text>
+            {/* Cards (hidden when collapsed) */}
+            {!isCollapsed && (
+              <>
+                {/* In-progress plan cards */}
+                {filteredActive.map(({ list, dayStatus }) => {
+                  const statusConfig = getStudyStateConfig(dayStatus.state);
+                  return (
+                    <Pressable
+                      key={list.id}
+                      onPress={() => handlePlanPress(list.id)}
+                      style={({ pressed }) => [
+                        styles.planCard,
+                        {
+                          backgroundColor: colors.surface,
+                          borderColor: dayStatus.state === 'completed'
+                            ? (isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)')
+                            : (isDark ? colors.border : 'rgba(49,130,246,0.08)'),
+                          shadowColor: colors.cardShadow,
+                          opacity: pressed ? 0.92 : 1,
+                        },
+                      ]}
+                    >
+                      <View style={styles.planCardTop}>
+                        <View style={styles.planCardTitleArea}>
+                          {list.icon && (
+                            <Text style={{ fontSize: 18 }}>{list.icon}</Text>
+                          )}
+                          <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
+                            {list.title}
+                          </Text>
+                        </View>
+                        <View style={styles.planCardChips}>
+                          <View style={[styles.dayBadge, { backgroundColor: colors.primaryLight }]}>
+                            <Text style={[styles.dayBadgeText, { color: colors.primary }]}>
+                              Day {dayStatus.displayDay}
+                            </Text>
+                          </View>
+                          <View style={[styles.statusChip, { backgroundColor: colors[statusConfig.bgColor] }]}>
+                            <Text style={[styles.statusChipText, { color: colors[statusConfig.textColor] }]}>
+                              {statusConfig.label}
+                            </Text>
+                          </View>
+                        </View>
                       </View>
-                      <View style={[styles.dayBadge, { backgroundColor: colors.primaryLight }]}>
-                        <Text style={[styles.dayBadgeText, { color: colors.primary }]}>
-                          Day {currentDay}
+                      <View style={styles.planCardBottom}>
+                        <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                          Day {dayStatus.displayDay}: {dayStatus.dayMemorized}/{dayStatus.dayTotal} 암기
                         </Text>
+                        <Pressable
+                          onPress={(e) => {
+                            e.stopPropagation();
+                            handlePlanPress(list.id);
+                          }}
+                          style={({ pressed }) => [
+                            styles.actionButton,
+                            {
+                              backgroundColor: dayStatus.state === 'completed'
+                                ? colors.surfaceSecondary
+                                : colors.primary,
+                              opacity: pressed ? 0.85 : 1,
+                            },
+                          ]}
+                        >
+                          <Text style={[
+                            styles.actionButtonText,
+                            {
+                              color: dayStatus.state === 'completed'
+                                ? colors.textSecondary
+                                : '#FFFFFF',
+                            },
+                          ]}>
+                            {statusConfig.actionLabel}
+                          </Text>
+                        </Pressable>
+                      </View>
+                    </Pressable>
+                  );
+                })}
+
+                {/* Overdue / Inactive plan cards */}
+                {staleItems.map(({ list, dayStatus, status }) => {
+                  const staleLabel = status === 'overdue' ? '기간만료' : '중단됨';
+                  const staleBg = status === 'overdue' ? colors.errorLight : colors.warningLight;
+                  const staleColor = status === 'overdue' ? colors.error : colors.warning;
+                  const staleBorder = status === 'overdue'
+                    ? (isDark ? 'rgba(248,81,73,0.2)' : 'rgba(239,68,68,0.15)')
+                    : (isDark ? 'rgba(210,153,34,0.2)' : 'rgba(245,158,11,0.15)');
+                  return (
+                    <View
+                      key={list.id}
+                      style={[
+                        styles.planCard,
+                        {
+                          backgroundColor: colors.surface,
+                          borderColor: staleBorder,
+                          shadowColor: colors.cardShadow,
+                        },
+                      ]}
+                    >
+                      <View style={styles.planCardTop}>
+                        <View style={styles.planCardTitleArea}>
+                          {list.icon && (
+                            <Text style={{ fontSize: 18 }}>{list.icon}</Text>
+                          )}
+                          <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
+                            {list.title}
+                          </Text>
+                        </View>
+                        <View style={styles.planCardChips}>
+                          <View style={[styles.dayBadge, { backgroundColor: colors.primaryLight }]}>
+                            <Text style={[styles.dayBadgeText, { color: colors.primary }]}>
+                              Day {dayStatus.displayDay}
+                            </Text>
+                          </View>
+                          <View style={[styles.statusChip, { backgroundColor: staleBg }]}>
+                            <Text style={[styles.statusChipText, { color: staleColor }]}>
+                              {staleLabel}
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
+                      <View style={styles.planCardBottom}>
+                        <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                          Day {dayStatus.displayDay}: {dayStatus.dayMemorized}/{dayStatus.dayTotal} 암기
+                        </Text>
+                        <View style={styles.staleActionRow}>
+                          <Pressable
+                            onPress={() => {
+                              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                              clearPlan(list.id);
+                            }}
+                            style={({ pressed }) => [
+                              styles.actionButton,
+                              {
+                                backgroundColor: colors.surface,
+                                borderWidth: 1,
+                                borderColor: colors.border,
+                                opacity: pressed ? 0.85 : 1,
+                              },
+                            ]}
+                          >
+                            <Text style={[styles.actionButtonText, { color: colors.error }]}>
+                              학습 종료
+                            </Text>
+                          </Pressable>
+                          <Pressable
+                            onPress={() => handlePlanPress(list.id)}
+                            style={({ pressed }) => [
+                              styles.actionButton,
+                              {
+                                backgroundColor: colors.primary,
+                                opacity: pressed ? 0.85 : 1,
+                              },
+                            ]}
+                          >
+                            <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
+                              다시 학습
+                            </Text>
+                          </Pressable>
+                        </View>
                       </View>
                     </View>
-                    <View style={styles.planCardBottom}>
-                      <View style={{ flex: 1 }}>
-                        <ProgressBar percent={progress.percent} colors={colors} />
-                      </View>
-                      <Text style={[styles.planPercent, {
-                        color: progress.percent === 100 ? colors.success : colors.primary,
-                      }]}>
-                        {progress.percent}%
-                      </Text>
-                    </View>
-                    <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
-                      {progress.memorized} / {progress.total} 단어 암기
+                  );
+                })}
+
+                {/* Empty state */}
+                {planItems.length === 0 && (
+                  <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
+                    <Ionicons name="rocket-outline" size={40} color={colors.textTertiary} />
+                    <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>
+                      아직 진행 중인 학습 계획이 없어요
                     </Text>
-                  </Pressable>
-                );
-              })
-            ) : (
-              <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
-                <Ionicons name="rocket-outline" size={40} color={colors.textTertiary} />
-                <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>
-                  아직 진행 중인 학습 계획이 없어요
-                </Text>
-                <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>
-                  단어장 탭에서 학습 계획을 세워보세요!
-                </Text>
-                <Pressable
-                  onPress={() => {
-                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                    router.navigate('/(tabs)/vocab-lists' as any);
-                  }}
-                  style={({ pressed }) => [
-                    styles.emptyPlansLink,
-                    { backgroundColor: colors.primaryLight, opacity: pressed ? 0.8 : 1 },
-                  ]}
-                >
-                  <Ionicons name="library-outline" size={16} color={colors.primary} />
-                  <Text style={[styles.emptyPlansLinkText, { color: colors.primary }]}>
-                    단어장으로 이동
+                    <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>
+                      단어장 탭에서 학습 계획을 세워보세요!
+                    </Text>
+                    <Pressable
+                      onPress={() => {
+                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                        router.navigate('/(tabs)/vocab-lists' as any);
+                      }}
+                      style={({ pressed }) => [
+                        styles.emptyPlansLink,
+                        { backgroundColor: colors.primaryLight, opacity: pressed ? 0.8 : 1 },
+                      ]}
+                    >
+                      <Ionicons name="library-outline" size={16} color={colors.primary} />
+                      <Text style={[styles.emptyPlansLinkText, { color: colors.primary }]}>
+                        단어장으로 이동
+                      </Text>
+                    </Pressable>
+                  </View>
+                )}
+
+                {/* Filtered empty state */}
+                {planItems.length > 0 && filteredActive.length === 0 && staleItems.length === 0 && (
+                  <Text style={[styles.filterEmptyText, { color: colors.textTertiary }]}>
+                    {filterMode === 'completed' ? '학습 완료한 단어장이 없어요' : '학습이 필요한 단어장이 없어요'}
                   </Text>
-                </Pressable>
-              </View>
+                )}
+              </>
             )}
           </View>
 
         </View>
       </ScrollView>
+
+      <CustomStudyModal
+        visible={showCustomStudy}
+        onClose={() => setShowCustomStudy(false)}
+        initialFilter={customStudyPresetFilter}
+      />
     </View>
   );
 }
@@ -359,32 +564,22 @@ const styles = StyleSheet.create({
   },
   quickCard: {
     flex: 1,
+    aspectRatio: 1,
     borderRadius: 16,
     borderWidth: 1,
     borderColor: 'transparent',
-    overflow: 'hidden',
-    minHeight: 100,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 6,
   },
   quickCardGradient: {
+    ...StyleSheet.absoluteFillObject,
     borderRadius: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 8,
-    width: '100%',
-    minHeight: 100,
   },
-  quickCardIconBg: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 8,
+  quickCardIconWrap: {
+    position: 'relative',
+    marginBottom: 6,
   },
   quickCardLabelWhite: {
     fontSize: 13,
@@ -399,17 +594,17 @@ const styles = StyleSheet.create({
   },
   quickCardBadge: {
     position: 'absolute',
-    top: 8,
-    right: 8,
-    minWidth: 20,
-    height: 20,
-    borderRadius: 10,
+    top: -6,
+    right: -10,
+    minWidth: 18,
+    height: 18,
+    borderRadius: 9,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 5,
+    paddingHorizontal: 4,
   },
   quickCardBadgeText: {
-    fontSize: 11,
+    fontSize: 10,
     fontFamily: 'Pretendard_700Bold',
     color: '#FFFFFF',
   },
@@ -421,8 +616,18 @@ const styles = StyleSheet.create({
   sectionHeaderRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'space-between',
     marginBottom: 12,
+  },
+  sectionHeaderLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  sectionHeaderRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
   },
   sectionTitle: {
     fontSize: 18,
@@ -439,6 +644,21 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_600SemiBold',
   },
 
+  // Filter Chips
+  filterChipRow: {
+    flexDirection: 'row',
+    gap: 4,
+  },
+  filterChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 10,
+  },
+  filterChipText: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+
   // Plan Card
   planCard: {
     borderRadius: 20,
@@ -446,7 +666,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderWidth: 1,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
+    shadowOpacity: 0.08,
     shadowRadius: 8,
     elevation: 3,
   },
@@ -461,12 +681,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
     flex: 1,
-    marginRight: 12,
+    marginRight: 8,
   },
   planCardTitle: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
     flexShrink: 1,
+  },
+  planCardChips: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
   },
   dayBadge: {
     paddingHorizontal: 10,
@@ -477,21 +702,42 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'Pretendard_700Bold',
   },
+  statusChip: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 10,
+  },
+  statusChipText: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
   planCardBottom: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-  },
-  planPercent: {
-    fontSize: 14,
-    fontFamily: 'Pretendard_700Bold',
-    minWidth: 38,
-    textAlign: 'right',
+    justifyContent: 'space-between',
   },
   planWordCount: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  actionButton: {
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 12,
+  },
+  actionButtonText: {
     fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  staleActionRow: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  filterEmptyText: {
+    fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
-    marginTop: 6,
+    textAlign: 'center',
+    paddingVertical: 20,
   },
 
   // Empty Plans

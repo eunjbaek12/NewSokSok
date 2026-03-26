@@ -136,6 +136,28 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase> {
                         currentVersion = 8;
                     }
 
+                    // Version 8 to 9: 다중 언어 지원 (lists)
+                    if (currentVersion === 8) {
+                        try {
+                            await dbInstance!.execAsync("ALTER TABLE lists ADD COLUMN sourceLanguage TEXT DEFAULT 'en';");
+                            await dbInstance!.execAsync("ALTER TABLE lists ADD COLUMN targetLanguage TEXT DEFAULT 'ko';");
+                        } catch (e) {
+                            console.log('Language columns might already exist.', e);
+                        }
+                        currentVersion = 9;
+                    }
+
+                    // Version 9 to 10: 다중 언어 지원 (words)
+                    if (currentVersion === 9) {
+                        try {
+                            await dbInstance!.execAsync("ALTER TABLE words ADD COLUMN sourceLang TEXT DEFAULT 'en';");
+                            await dbInstance!.execAsync("ALTER TABLE words ADD COLUMN targetLang TEXT DEFAULT 'ko';");
+                        } catch (e) {
+                            console.log('Language columns on words might already exist.', e);
+                        }
+                        currentVersion = 10;
+                    }
+
                     await dbInstance!.execAsync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
                 });
             }

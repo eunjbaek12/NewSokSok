@@ -4,7 +4,7 @@ import { useVocab } from '@/contexts/VocabContext';
 import { autoFillWord } from '@/lib/translation-api';
 import { searchNaverDict } from '@/lib/naver-dict-api';
 
-export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any) {
+export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any, sourceLang: string = 'en', targetLang: string = 'ko') {
     const { addWord, updateWord } = useVocab();
 
     const [term, setTerm] = useState(initialState?.term ?? existingWord?.term ?? '');
@@ -28,8 +28,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         startAutoFill(async () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
             try {
-                // Try Naver Dictionary first
-                const naverResult = await searchNaverDict(term.trim());
+                // Try Naver Dictionary first (supported language pairs only)
+                const naverResult = await searchNaverDict(term.trim(), sourceLang, targetLang);
                 if (naverResult) {
                     if (naverResult.meaningKr) setMeaningKr(naverResult.meaningKr);
                     if (naverResult.definition) setDefinition(naverResult.definition);
@@ -41,7 +41,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 }
 
                 // Fallback to AI Analysis
-                const result = await autoFillWord(term.trim());
+                const result = await autoFillWord(term.trim(), sourceLang, targetLang);
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
                 if (result.phonetic) setPhonetic(result.phonetic);
@@ -79,6 +79,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                         exampleKr: exampleKr.trim(),
                         isStarred,
                         tags,
+                        sourceLang,
+                        targetLang,
                     });
                     onSuccess(term.trim());
                 } else {
@@ -98,6 +100,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                         meaningKr: meaningKr.trim(),
                         isStarred,
                         tags,
+                        sourceLang,
+                        targetLang,
                     });
 
                     // Reset states

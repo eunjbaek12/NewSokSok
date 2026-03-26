@@ -21,17 +21,28 @@ export function isGeminiAvailable(): boolean {
   return !!process.env.GEMINI_API_KEY;
 }
 
-export async function analyzeWord(word: string): Promise<AIWordResult> {
+function getFullLanguageName(code: string): string {
+  const map: Record<string, string> = {
+    en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese',
+  };
+  return map[code] || code;
+}
+
+export async function analyzeWord(word: string, sourceLang: string = 'en', targetLang: string = 'ko'): Promise<AIWordResult> {
   const ai = getAIClient();
+  const srcName = getFullLanguageName(sourceLang);
+  const tgtName = getFullLanguageName(targetLang);
+
   const response = await ai.models.generateContent({
     model: MODEL_NAME,
-    contents: `Analyze the English word "${word}". Provide:
-      1. A simple English definition.
-      2. One English example sentence.
-      3. The Korean meaning.
-      4. A "mnemonic" (암기법) to help remember the word easily.
+    contents: `Analyze the ${srcName} word/phrase "${word}". Provide:
+      1. A simple definition in ${srcName}.
+      2. One example sentence in ${srcName}.
+      3. The meaning translated into ${tgtName}.
+      4. A "mnemonic" (암기법) to help remember the word easily, written in ${tgtName}.
       5. The part of speech (pos, e.g., noun, verb).
-      6. The phonetic transcription (발음기호).`,
+      6. The phonetic transcription (발음기호).
+      7. A translation of the example sentence in ${tgtName}.`,
     config: {
       responseMimeType: "application/json",
       responseSchema: {
@@ -40,6 +51,7 @@ export async function analyzeWord(word: string): Promise<AIWordResult> {
           term: { type: Type.STRING },
           definition: { type: Type.STRING },
           exampleEn: { type: Type.STRING },
+          exampleKr: { type: Type.STRING },
           meaningKr: { type: Type.STRING },
           mnemonic: { type: Type.STRING },
           pos: { type: Type.STRING },

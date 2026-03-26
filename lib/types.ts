@@ -17,6 +17,8 @@ export interface Word {
   wrongCount?: number;
   sourceListId?: string;
   assignedDay?: number | null;
+  sourceLang?: string;
+  targetLang?: string;
 }
 
 export interface VocaList {
@@ -37,6 +39,11 @@ export interface VocaList {
   planWordsPerDay?: number;
   planStartedAt?: number;
   planUpdatedAt?: number;
+  category?: string;
+  level?: string;
+  description?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
 }
 
 export interface StudyResult {

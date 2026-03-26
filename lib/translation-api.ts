@@ -23,7 +23,7 @@ export async function isGeminiAvailable(): Promise<boolean> {
   return _geminiAvailable;
 }
 
-export async function autoFillWord(term: string): Promise<AutoFillResult> {
+export async function autoFillWord(term: string, sourceLang: string = 'en', targetLang: string = 'ko'): Promise<AutoFillResult> {
   const trimmed = term.trim().toLowerCase();
   if (!trimmed) {
     return { definition: '', meaningKr: '', exampleEn: '' };
@@ -35,7 +35,7 @@ export async function autoFillWord(term: string): Promise<AutoFillResult> {
       const res = await fetch(`${API_BASE}/api/ai/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: trimmed }),
+        body: JSON.stringify({ word: trimmed, sourceLang, targetLang }),
       });
       if (res.ok) {
         const data = await res.json();
@@ -43,6 +43,7 @@ export async function autoFillWord(term: string): Promise<AutoFillResult> {
           definition: data.definition || '',
           meaningKr: data.meaningKr || '',
           exampleEn: data.exampleEn || '',
+          exampleKr: data.exampleKr || '',
           mnemonic: data.mnemonic || '',
           pos: data.pos || '',
           phonetic: data.phonetic || '',
@@ -51,17 +52,20 @@ export async function autoFillWord(term: string): Promise<AutoFillResult> {
     } catch { }
   }
 
-  const [dictResult, translationResult] = await Promise.allSettled([
-    getDictionaryData(trimmed),
-    translateToKorean(trimmed),
-  ]);
+  // Fallback: Dictionary API only works for English source words
+  const fallbacks: Promise<any>[] = [
+    translateWord(trimmed, sourceLang, targetLang),
+  ];
+  if (sourceLang === 'en') {
+    fallbacks.push(getDictionaryData(trimmed));
+  }
 
-  const dict =
-    dictResult.status === 'fulfilled'
-      ? dictResult.value
-      : { definition: '', exampleEn: '' };
-  const meaningKr =
-    translationResult.status === 'fulfilled' ? translationResult.value : '';
+  const results = await Promise.allSettled(fallbacks);
+
+  const meaningKr = results[0].status === 'fulfilled' ? results[0].value : '';
+  const dict = (sourceLang === 'en' && results[1]?.status === 'fulfilled')
+    ? results[1].value
+    : { definition: '', exampleEn: '' };
 
   return {
     definition: dict.definition,
@@ -72,8 +76,8 @@ export async function autoFillWord(term: string): Promise<AutoFillResult> {
   };
 }
 
-async function translateToKorean(word: string): Promise<string> {
-  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|ko`;
+async function translateWord(word: string, from: string = 'en', to: string = 'ko'): Promise<string> {
+  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=${from}|${to}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Translation failed');
   const data = await res.json();
@@ -199,7 +203,7 @@ export async function generateThemeWords(
         const wordStr = candidate.word as string;
         const [dictResult, transResult] = await Promise.allSettled([
           getDictionaryData(wordStr),
-          translateToKorean(wordStr),
+          translateWord(wordStr),
         ]);
 
         const dict =

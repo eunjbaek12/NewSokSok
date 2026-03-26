@@ -1,13 +1,17 @@
 import { fetch } from 'expo/fetch';
 import { AutoFillResult } from './types';
+import { getNaverDictCode } from '@/constants/languages';
 
 const API_BASE = process.env.EXPO_PUBLIC_DOMAIN
     ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
     : 'http://localhost:5000';
 
-export async function searchNaverDict(term: string): Promise<AutoFillResult | null> {
+export async function searchNaverDict(term: string, sourceLang: string = 'en', targetLang: string = 'ko'): Promise<AutoFillResult | null> {
     const trimmed = term.trim().toLowerCase();
     if (!trimmed) return null;
+
+    const dictCode = getNaverDictCode(sourceLang, targetLang);
+    if (!dictCode) return null; // Unsupported language pair for Naver
 
     const tryFetch = async (url: string, isProxy = false) => {
         const headers: Record<string, string> = {
@@ -38,14 +42,18 @@ export async function searchNaverDict(term: string): Promise<AutoFillResult | nu
 
         // 1. Try Proxy first (More reliable for CSRF/Headers)
         try {
-            data = await tryFetch(`${API_BASE}/api/dict/naver?query=${encodeURIComponent(trimmed)}`, true);
+            data = await tryFetch(`${API_BASE}/api/dict/naver?query=${encodeURIComponent(trimmed)}&dictCode=${dictCode}`, true);
         } catch (e) {
             console.warn("Proxy fetch failed, falling back to direct...");
         }
 
         // 2. Try Direct if proxy failed or returned null
         if (!data) {
-            const directUrl = `https://en.dict.naver.com/api3/enko/search?query=${encodeURIComponent(trimmed)}&m=pc&lang=ko`;
+            let subdomain = 'en';
+            if (dictCode.startsWith('ja') || dictCode === 'koja') subdomain = 'ja';
+            else if (dictCode.startsWith('zh') || dictCode === 'kozh') subdomain = 'zh';
+            else if (dictCode.startsWith('ko')) subdomain = 'korean';
+            const directUrl = `https://${subdomain}.dict.naver.com/api3/${dictCode}/search?query=${encodeURIComponent(trimmed)}&m=pc&lang=ko`;
             data = await tryFetch(directUrl, false);
         }
 

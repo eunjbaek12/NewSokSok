@@ -43,15 +43,49 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Theme title is required" });
       }
 
+      const force = req.query.force === 'true';
+      if (!force && theme.creatorId) {
+        const existing = await storage.findDuplicateCuration(theme.creatorId, theme.title);
+        if (existing) {
+          return res.status(409).json({
+            error: 'DUPLICATE_CURATION',
+            existingId: existing.id,
+            existingTitle: existing.title,
+            message: '같은 이름의 공유 단어장이 이미 존재합니다.',
+          });
+        }
+      }
+
       const newCuration = await storage.createCuration(theme, words || []);
       console.log("Successfully created curation:", newCuration.id);
-      res.json(newCuration);
+      res.status(201).json(newCuration);
     } catch (error: any) {
       console.error("CURATION_CREATE_ERROR:", error);
       res.status(500).json({
         error: "CURATION_CREATE_FAILURE",
         details: error?.message || String(error)
       });
+    }
+  });
+
+  app.put("/api/curations/:id", async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const { theme, words } = req.body;
+      if (!theme || !theme.creatorId) {
+        return res.status(400).json({ error: "Theme and creatorId are required" });
+      }
+      const updated = await storage.updateCuration(id, theme.creatorId, theme, words || []);
+      res.json(updated);
+    } catch (error: any) {
+      if (error.message === 'Unauthorized') {
+        return res.status(403).json({ error: "Not authorized to update this curation" });
+      }
+      if (error.message === 'Curation not found') {
+        return res.status(404).json({ error: "Curation not found" });
+      }
+      console.error("CURATION_UPDATE_ERROR:", error);
+      res.status(500).json({ error: "Failed to update curation" });
     }
   });
 
@@ -64,11 +98,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!isGeminiAvailable()) {
         return res.status(503).json({ error: "Gemini API key not configured" });
       }
-      const { word } = req.body;
+      const { word, sourceLang, targetLang } = req.body;
       if (!word || typeof word !== "string") {
         return res.status(400).json({ error: "word is required" });
       }
-      const result = await analyzeWord(word.trim());
+      const result = await analyzeWord(word.trim(), sourceLang || 'en', targetLang || 'ko');
       res.json(result);
     } catch (error: any) {
       console.error("AI analyze error:", error?.message);
@@ -127,17 +161,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.get("/api/dict/naver", async (req: Request, res: Response) => {
     try {
-      const { query } = req.query;
+      const { query, dictCode } = req.query;
       if (!query || typeof query !== "string") {
         return res.status(400).json({ error: "query is required" });
       }
 
-      const url = `https://en.dict.naver.com/api3/enko/search?query=${encodeURIComponent(query.trim())}&m=pc&lang=ko`;
+      const code = (typeof dictCode === 'string' && dictCode) || 'enko';
+      // Determine subdomain based on dict code
+      let subdomain = 'en';
+      if (code.startsWith('ja') || code === 'koja') subdomain = 'ja';
+      else if (code.startsWith('zh') || code === 'kozh') subdomain = 'zh';
+      else if (code.startsWith('ko')) subdomain = 'korean';
+
+      const url = `https://${subdomain}.dict.naver.com/api3/${code}/search?query=${encodeURIComponent(query.trim())}&m=pc&lang=ko`;
 
       const response = await fetch(url, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-          'Referer': 'https://en.dict.naver.com/',
+          'Referer': `https://${subdomain}.dict.naver.com/`,
           'X-Requested-With': 'XMLHttpRequest',
           'Accept': 'application/json, text/javascript, */*; q=0.01',
           'Alldict-Locale': 'ko'

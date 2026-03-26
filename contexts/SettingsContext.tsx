@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import type { LanguageCode } from '@/constants/languages';
 
 export interface InputSettings {
     showDefinition: boolean;
@@ -9,6 +10,8 @@ export interface InputSettings {
     showPhonetic: boolean;
     addWordMode: 'popup' | 'full';
     fieldOrder: string[];
+    sourceLang: LanguageCode;
+    targetLang: LanguageCode;
 }
 
 export interface StudySettings {
@@ -32,6 +35,7 @@ export interface AutoPlaySettings {
 export interface CustomStudySettings {
     useAllLists: boolean;
     selectedListIds: string[];
+    selectedDaysByList: Record<string, number[] | 'all'>;
     wordFilter: 'all' | 'learning' | 'wrongCount' | 'recent' | 'starred';
     studyMode: 'flashcard' | 'quiz';
 }
@@ -56,6 +60,8 @@ const DEFAULT_INPUT_SETTINGS: InputSettings = {
     showPhonetic: true,
     addWordMode: 'popup',
     fieldOrder: ['term', 'meaningKr', 'pos', 'phonetic', 'definition', 'example', 'tags'],
+    sourceLang: 'en',
+    targetLang: 'ko',
 };
 
 const DEFAULT_STUDY_SETTINGS: StudySettings = {
@@ -79,6 +85,7 @@ const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = {
 const DEFAULT_CUSTOM_STUDY_SETTINGS: CustomStudySettings = {
     useAllLists: true,
     selectedListIds: [],
+    selectedDaysByList: {},
     wordFilter: 'all',
     studyMode: 'flashcard',
 };

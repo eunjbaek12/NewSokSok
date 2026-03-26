@@ -31,6 +31,7 @@ import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
 import { searchNaverDict } from '@/lib/naver-dict-api';
 import { useSettings } from '@/contexts/SettingsContext';
+import { SUPPORTED_LANGUAGES, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
     FadeOut,
@@ -176,12 +177,14 @@ const DraggableFieldItem = ({
 
 const DraggableFieldList = ({ settings, onUpdate, colors }: { settings: any, onUpdate: (s: any) => void, colors: any }) => {
     // 모든 필드를 포함하되, term과 meaningKr은 isFixed 처리
+    const sourceLang = (settings.sourceLang || 'en') as LanguageCode;
+    const targetLang = (settings.targetLang || 'ko') as LanguageCode;
     const labels: Record<string, string> = {
         term: '단어 입력',
-        meaningKr: '한국어 뜻',
+        meaningKr: getMeaningLabel(targetLang),
         pos: '품사',
         phonetic: '발음기호',
-        definition: '영문 정의',
+        definition: getDefinitionLabel(sourceLang),
         example: '예문 및 해석',
         tags: '태그',
     };
@@ -254,6 +257,8 @@ export default function AddWordScreen() {
     const isEditing = !!wordId;
     const existingWord = isEditing && listId ? getWordsForList(listId).find(w => w.id === wordId) : null;
 
+    const { inputSettings, updateInputSettings } = useSettings();
+
     const {
         term, setTerm,
         definition, setDefinition,
@@ -269,9 +274,8 @@ export default function AddWordScreen() {
         handleSaveWord,
         isPendingFill,
         isPendingSave,
-    } = useAddWord(listId, wordId, existingWord, draftState);
+    } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang);
 
-    const { inputSettings, updateInputSettings } = useSettings();
     const [fieldSettingsOpen, setFieldSettingsOpen] = useState(false);
     const [tempSettings, setTempSettings] = useState(inputSettings);
 
@@ -310,6 +314,8 @@ export default function AddWordScreen() {
     const [toastMessage, setToastMessage] = useState('');
     const [tagInput, setTagInput] = useState('');
     const [isApplying, setIsApplying] = useState(false);
+    const [sourceLangPickerOpen, setSourceLangPickerOpen] = useState(false);
+    const [targetLangPickerOpen, setTargetLangPickerOpen] = useState(false);
 
     const selectedFieldsCount = useMemo(() => {
         let count = 2; // term, meaningKr
@@ -686,7 +692,7 @@ export default function AddWordScreen() {
                                                     <TextInput
                                                         ref={termInputRef}
                                                         style={[styles.wordInput, { color: colors.text, borderColor: errors.term ? colors.error : colors.border }]}
-                                                        placeholder="단어 입력"
+                                                        placeholder={getPlaceholderText(inputSettings.sourceLang)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
                                                         onChangeText={(t) => {
@@ -737,8 +743,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Input
                                                 key="meaningKr"
-                                                label="한국어 뜻"
-                                                placeholder="한국어 뜻 입력"
+                                                label={getMeaningLabel(inputSettings.targetLang)}
+                                                placeholder={`${getMeaningLabel(inputSettings.targetLang)} 입력`}
                                                 value={meaningKr}
                                                 onChangeText={(t: string) => { setMeaningKr(t); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
                                                 error={errors.meaningKr ? "뜻을 입력해주세요" : undefined}
@@ -784,8 +790,8 @@ export default function AddWordScreen() {
                                                     style={{ fontStyle: 'italic' }}
                                                 />
                                                 <Input
-                                                    label="예문 해석"
-                                                    placeholder="한국어 예문 해석"
+                                                    label={getExampleTranslationLabel(inputSettings.targetLang)}
+                                                    placeholder={getExampleTranslationLabel(inputSettings.targetLang)}
                                                     value={exampleKr}
                                                     onChangeText={setExampleKr}
                                                     multiline
@@ -798,8 +804,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Animated.View key="definition" entering={FadeIn} exiting={FadeOut} layout={Layout}>
                                                 <Input
-                                                    label="영문 정의"
-                                                    placeholder="영문 정의 입력"
+                                                    label={getDefinitionLabel(inputSettings.sourceLang)}
+                                                    placeholder={`${getDefinitionLabel(inputSettings.sourceLang)} 입력`}
                                                     value={definition}
                                                     onChangeText={setDefinition}
                                                     multiline
@@ -978,6 +984,58 @@ export default function AddWordScreen() {
                                     </View>
                                 </Pressable>
 
+                                {/* 입력 언어 (출발어) */}
+                                <Pressable
+                                    onPress={() => setSourceLangPickerOpen(true)}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 8,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
+                                    }}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Text style={{ fontSize: 16 }}>🔤</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>입력 언어</Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.sourceLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.sourceLang)}</Text>
+                                        <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
+                                    </View>
+                                </Pressable>
+
+                                {/* 뜻 언어 (도착어) */}
+                                <Pressable
+                                    onPress={() => setTargetLangPickerOpen(true)}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 12,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
+                                    }}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Text style={{ fontSize: 16 }}>🎯</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>뜻 언어</Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.targetLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.targetLang)}</Text>
+                                        <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
+                                    </View>
+                                </Pressable>
+
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6, paddingHorizontal: 4 }}>
                                     <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>항목명</Text>
                                     <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>표시</Text>
@@ -1041,6 +1099,36 @@ export default function AddWordScreen() {
                 selectedValue={selectedListId}
                 onSelect={handleSelectList}
                 footer={pickerFooter}
+            />
+
+            {/* 입력 언어 선택 */}
+            <ModalPicker
+                visible={sourceLangPickerOpen}
+                onClose={() => setSourceLangPickerOpen(false)}
+                title="입력 언어 선택"
+                options={SUPPORTED_LANGUAGES
+                    .filter(l => l.code !== tempSettings.targetLang)
+                    .map(l => ({ id: l.code, label: `${l.flag} ${l.label}` }))}
+                selectedValue={tempSettings.sourceLang}
+                onSelect={(code: string) => {
+                    setTempSettings(s => ({ ...s, sourceLang: code as LanguageCode }));
+                    setSourceLangPickerOpen(false);
+                }}
+            />
+
+            {/* 뜻 언어 선택 */}
+            <ModalPicker
+                visible={targetLangPickerOpen}
+                onClose={() => setTargetLangPickerOpen(false)}
+                title="뜻 언어 선택"
+                options={SUPPORTED_LANGUAGES
+                    .filter(l => l.code !== tempSettings.sourceLang)
+                    .map(l => ({ id: l.code, label: `${l.flag} ${l.label}` }))}
+                selectedValue={tempSettings.targetLang}
+                onSelect={(code: string) => {
+                    setTempSettings(s => ({ ...s, targetLang: code as LanguageCode }));
+                    setTargetLangPickerOpen(false);
+                }}
             />
         </View >
     );

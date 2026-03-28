@@ -11,6 +11,7 @@ import { speak } from '@/lib/tts';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
 import BatchResultOverlay from '@/components/BatchResultOverlay';
+import { useTranslation } from 'react-i18next';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -71,6 +72,7 @@ export default function ExamplesScreen() {
   const { id, filter, isStarred: initialIsStarred, ids } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
+  const { t } = useTranslation();
   const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
   const { studySettings, updateStudySettings } = useSettings();
   const list = lists.find(l => l.id === id);
@@ -297,20 +299,20 @@ export default function ExamplesScreen() {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
         <Ionicons name="document-text-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
-        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>학습할 예문이 없습니다</Text>
-        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>선택한 조건에 맞는 단어가 없습니다. 설정을 확인해 주세요.</Text>
+        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>{t('examples.noExamples')}</Text>
+        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>{t('examples.noExamplesDesc')}</Text>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <Pressable
             onPress={() => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>설정 변경</Text>
+            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
             style={{ backgroundColor: colors.surfaceSecondary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
+            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
           </Pressable>
         </View>
         <StudySettingsModal
@@ -335,7 +337,7 @@ export default function ExamplesScreen() {
 
           <View style={styles.titleArea}>
             <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
-              {list?.title || '문장완성'}
+              {list?.title || t('examples.title')}
             </Text>
           </View>
 
@@ -385,7 +387,7 @@ export default function ExamplesScreen() {
                 <HighlightedSentence
                   sentence={currentWord.exampleEn}
                   term={currentWord.term}
-                  meaning={currentWord.meaningKr || '뜻 정보 없음'}
+                  meaning={currentWord.meaningKr || t('examples.noMeaning')}
                   primaryColor={colors.primary}
                   textColor={colors.text}
                   showTerm={settings.showTerm || selectedAnswer !== null}
@@ -400,7 +402,7 @@ export default function ExamplesScreen() {
                 )}
               </View>
             ) : (
-              <Text style={[styles.noExample, { color: colors.textTertiary }]}>예문이 없습니다</Text>
+              <Text style={[styles.noExample, { color: colors.textTertiary }]}>{t('examples.noExample')}</Text>
             )}
 
             <Pressable onPress={handleSpeak} hitSlop={12} style={styles.speakerBtn}>
@@ -480,7 +482,7 @@ export default function ExamplesScreen() {
             }}
           >
             <Ionicons name="chevron-back" size={20} color={colors.text} />
-            <Text style={[styles.navBtnText, { color: colors.text }]}>이전</Text>
+            <Text style={[styles.navBtnText, { color: colors.text }]}>{t('common.previous')}</Text>
           </Pressable>
 
           <Pressable
@@ -495,7 +497,7 @@ export default function ExamplesScreen() {
               setIsNewAnswer(false);
             }}
           >
-            <Text style={[styles.navBtnText, { color: colors.text }]}>다음</Text>
+            <Text style={[styles.navBtnText, { color: colors.text }]}>{t('common.next')}</Text>
             <Ionicons name="chevron-forward" size={20} color={colors.text} />
           </Pressable>
         </View>

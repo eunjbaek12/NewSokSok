@@ -13,6 +13,7 @@ import {
     Modal,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { useAddWord } from '@/hooks/useAddWord';
@@ -43,6 +44,7 @@ export default function WordDetailModal({
     onClose,
     onModeChange,
 }: WordDetailModalProps) {
+    const { t } = useTranslation();
     const { colors } = useTheme();
     const { getWordsForList, toggleStarred } = useVocab();
 
@@ -110,7 +112,7 @@ export default function WordDetailModal({
                 }
             },
             () => {
-                Alert.alert("오류", "단어를 저장하는 중 문제가 발생했습니다.");
+                Alert.alert(t('common.error'), t('wordDetail.saveError'));
             }
         );
     };
@@ -220,24 +222,24 @@ export default function WordDetailModal({
                         <View style={[styles.topBar, { borderBottomColor: colors.borderLight }]}>
                             <Pressable onPress={handleCancel} hitSlop={8} style={styles.topBtn}>
                                 <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>
-                                    {mode === 'read' ? '닫기' : '취소'}
+                                    {mode === 'read' ? t('common.close') : t('common.cancel')}
                                 </Text>
                             </Pressable>
 
                             <Text style={[styles.topBarTitle, { color: colors.text }]}>
-                                {readOnly ? '' : (mode === 'add' ? '새 단어 추가' : mode === 'edit' ? '단어 수정' : '상세 보기')}
+                                {readOnly ? '' : (mode === 'add' ? t('wordDetail.addWord') : mode === 'edit' ? t('wordDetail.editWord') : t('wordDetail.viewWord'))}
                             </Text>
 
                             <View style={styles.topBtn}>
                                 {mode === 'read' ? (
                                     !readOnly && (
                                         <Pressable onPress={switchToEdit} hitSlop={8}>
-                                            <Text style={[styles.topBarSave, { color: colors.primary }]}>편집</Text>
+                                            <Text style={[styles.topBarSave, { color: colors.primary }]}>{t('common.edit')}</Text>
                                         </Pressable>
                                     )
                                 ) : (
                                     <Pressable onPress={onSave} hitSlop={8} disabled={isPendingSave}>
-                                        <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave ? 0.5 : 1 }]}>저장</Text>
+                                        <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave ? 0.5 : 1 }]}>{t('common.save')}</Text>
                                     </Pressable>
                                 )}
                             </View>
@@ -255,7 +257,7 @@ export default function WordDetailModal({
                                     ) : (
                                         <TextInput
                                             style={[styles.wordInput, { color: colors.text, borderBottomColor: errors.term ? colors.error : colors.border }]}
-                                            placeholder="단어 입력"
+                                            placeholder={t('wordDetail.wordInput')}
                                             placeholderTextColor={colors.textTertiary}
                                             value={term}
                                             onChangeText={(t) => {
@@ -287,22 +289,22 @@ export default function WordDetailModal({
                                         ) : (
                                             <View style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
                                                 <View style={{ flex: 1 }}>
-                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>발음 기호</Text>
+                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>{t('wordDetail.phonetic')}</Text>
                                                     <TextInput
                                                         style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
                                                         value={phonetic}
                                                         onChangeText={setPhonetic}
-                                                        placeholder="발음 기호"
+                                                        placeholder={t('wordDetail.phonetic')}
                                                         placeholderTextColor={colors.textTertiary}
                                                     />
                                                 </View>
                                                 <View style={{ flex: 1 }}>
-                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>품사</Text>
+                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>{t('wordDetail.posLabel')}</Text>
                                                     <TextInput
                                                         style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
                                                         value={pos}
                                                         onChangeText={setPos}
-                                                        placeholder="품사 (예: n., v.)"
+                                                        placeholder={t('wordDetail.posPlaceholder')}
                                                         placeholderTextColor={colors.textTertiary}
                                                     />
                                                 </View>
@@ -310,12 +312,12 @@ export default function WordDetailModal({
                                         )}
                                     </View>
                                 )}
-                                {mode !== 'read' && errors.term && <Text style={[styles.errorText, { color: colors.error }]}>단어를 입력해주세요</Text>}
+                                {mode !== 'read' && errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('wordDetail.enterWord')}</Text>}
 
                                 {mode !== 'read' && (
                                     <Button
                                         variant={term.trim() && !isPendingFill ? 'primary' : 'secondary'}
-                                        title="AI 뜻/예문 자동 완성"
+                                        title={t('wordDetail.aiAutoComplete')}
                                         icon="sparkles-outline"
                                         iconColor={term.trim() ? colors.background : colors.textTertiary}
                                         loading={isPendingFill}
@@ -329,16 +331,16 @@ export default function WordDetailModal({
 
                             <View style={styles.fieldsContainer}>
                                 <EditableField
-                                    label="한국어 뜻 (필수)"
-                                    placeholder="단어의 뜻을 적어주세요"
+                                    label={t('wordDetail.meaningRequired')}
+                                    placeholder={t('wordDetail.meaningPlaceholder')}
                                     value={meaningKr}
-                                    onChangeText={(t: string) => { setMeaningKr(t); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
-                                    error={errors.meaningKr ? "Meaning is required" : undefined}
+                                    onChangeText={(v: string) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                    error={errors.meaningKr ? t('wordDetail.enterWord') : undefined}
                                     isCore
                                 />
                                 <EditableField
-                                    label="영영사전 정의"
-                                    placeholder="영어 정의를 적어주세요"
+                                    label={t('wordDetail.definitionLabel')}
+                                    placeholder={t('wordDetail.definitionPlaceholder')}
                                     value={definition}
                                     onChangeText={setDefinition}
                                     multiline
@@ -346,15 +348,15 @@ export default function WordDetailModal({
 
                                 <View style={[styles.exampleGroup, { backgroundColor: mode === 'read' ? 'transparent' : colors.surfaceSecondary }]}>
                                     <EditableField
-                                        label="예문"
-                                        placeholder="예문을 적어주세요"
+                                        label={t('wordDetail.exampleLabel')}
+                                        placeholder={t('wordDetail.examplePlaceholder')}
                                         value={exampleEn}
                                         onChangeText={setExampleEn}
                                         multiline
                                     />
                                     <EditableField
-                                        label="예문 해석"
-                                        placeholder="한국어 예문 해석"
+                                        label={t('wordDetail.translationLabel')}
+                                        placeholder={t('wordDetail.translationPlaceholder')}
                                         value={exampleKr}
                                         onChangeText={setExampleKr}
                                         multiline
@@ -362,13 +364,13 @@ export default function WordDetailModal({
                                 </View>
 
                                 <View style={styles.tagsContainer}>
-                                    <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>태그 (TAGS)</Text>
+                                    <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>{t('wordDetail.tagsLabel')}</Text>
 
                                     {mode !== 'read' && (
                                         <View style={styles.tagInputRow}>
                                             <TextInput
                                                 style={[styles.tagInput, { color: colors.text, borderColor: colors.border, backgroundColor: colors.surface }]}
-                                                placeholder="태그 입력 (쉼표나 띄어쓰기로 구분)"
+                                                placeholder={t('wordDetail.tagsPlaceholder')}
                                                 placeholderTextColor={colors.textTertiary}
                                                 value={tagInput}
                                                 onChangeText={setTagInput}
@@ -400,7 +402,7 @@ export default function WordDetailModal({
                                             ))}
                                         </View>
                                     ) : (
-                                        mode === 'read' && <Text style={{ color: colors.textTertiary, fontFamily: 'Pretendard_400Regular', fontSize: 14, marginLeft: 4 }}>태그 없음</Text>
+                                        mode === 'read' && <Text style={{ color: colors.textTertiary, fontFamily: 'Pretendard_400Regular', fontSize: 14, marginLeft: 4 }}>{t('wordDetail.noTags')}</Text>
                                     )}
                                 </View>
 
@@ -410,7 +412,7 @@ export default function WordDetailModal({
                                             onPress={() => { if (term.trim()) Linking.openURL(`https://en.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`); }}
                                             disabled={!term.trim()}
                                             icon="language-outline"
-                                            title="네이버 어학사전 검색"
+                                            title={t('wordDetail.naverDict')}
                                             style={{ backgroundColor: term.trim() ? '#03C75A' : colors.surfaceSecondary, paddingVertical: 10 }}
                                         />
                                     </View>

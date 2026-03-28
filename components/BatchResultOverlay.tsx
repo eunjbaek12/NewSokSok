@@ -9,6 +9,7 @@ import Animated, {
     withTiming,
     withDelay,
 } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import * as Haptics from 'expo-haptics';
 
@@ -32,6 +33,7 @@ export default function BatchResultOverlay({
     onFinish,
 }: BatchResultOverlayProps) {
     const { colors, isDark } = useTheme();
+    const { t } = useTranslation();
 
     const scale = useSharedValue(0.8);
     const opacity = useSharedValue(0);
@@ -87,18 +89,18 @@ export default function BatchResultOverlay({
                     </View>
 
                     <Text style={[styles.title, { color: colors.text }]}>
-                        수고하셨습니다!
+                        {t('batchResult.greatJob')}
                     </Text>
                     <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-                        현재까지 {completedCount}단어를 학습했습니다.
+                        {t('batchResult.wordsStudied', { count: completedCount })}
                     </Text>
 
                     {/* Progress Bar */}
                     <View style={styles.progressSection}>
                         <View style={styles.progressLabels}>
-                            <Text style={[styles.progressText, { color: colors.textTertiary }]}>진행도</Text>
+                            <Text style={[styles.progressText, { color: colors.textTertiary }]}>{t('batchResult.progress')}</Text>
                             <Text style={[styles.progressText, { color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }]}>
-                                {completedCount} / {totalCount}
+                                {t('batchResult.progressCount', { completed: completedCount, total: totalCount })}
                             </Text>
                         </View>
                         <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
@@ -119,7 +121,7 @@ export default function BatchResultOverlay({
                                     { backgroundColor: colors.primary, opacity: pressed ? 0.8 : 1 },
                                 ]}
                             >
-                                <Text style={styles.primaryButtonText}>다음 세트 학습하기</Text>
+                                <Text style={styles.primaryButtonText}>{t('batchResult.nextSet')}</Text>
                                 <Ionicons name="arrow-forward" size={20} color="#FFF" style={{ marginLeft: 4 }} />
                             </Pressable>
                         ) : null}
@@ -136,7 +138,7 @@ export default function BatchResultOverlay({
                         >
                             <Ionicons name="refresh" size={20} color={colors.textSecondary} style={{ marginRight: 6 }} />
                             <Text style={[styles.secondaryButtonText, { color: colors.textSecondary }]}>
-                                이번 세트 다시 하기
+                                {t('batchResult.retrySet')}
                             </Text>
                         </Pressable>
 
@@ -151,7 +153,7 @@ export default function BatchResultOverlay({
                             ]}
                         >
                             <Text style={[styles.tertiaryButtonText, { color: colors.textTertiary }]}>
-                                학습 종료하기
+                                {t('batchResult.endStudy')}
                             </Text>
                         </Pressable>
                     </View>

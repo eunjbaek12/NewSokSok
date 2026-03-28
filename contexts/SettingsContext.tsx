@@ -40,6 +40,8 @@ export interface CustomStudySettings {
     studyMode: 'flashcard' | 'quiz';
 }
 
+export type DashboardFilterMode = 'studying' | 'completed';
+
 interface SettingsContextType {
     inputSettings: InputSettings;
     updateInputSettings: (updates: Partial<InputSettings>) => Promise<void>;
@@ -49,6 +51,8 @@ interface SettingsContextType {
     updateAutoPlaySettings: (updates: Partial<AutoPlaySettings>) => Promise<void>;
     customStudySettings: CustomStudySettings;
     updateCustomStudySettings: (updates: Partial<CustomStudySettings>) => Promise<void>;
+    dashboardFilterMode: DashboardFilterMode;
+    updateDashboardFilter: (mode: DashboardFilterMode) => Promise<void>;
     isLoading: boolean;
 }
 
@@ -94,6 +98,7 @@ const SETTINGS_KEY = '@soksok_user_input_settings';
 const STUDY_SETTINGS_KEY = '@soksok_user_study_settings';
 const AUTOPLAY_SETTINGS_KEY = '@soksok_user_autoplay_settings';
 const CUSTOM_STUDY_KEY = '@soksok_custom_study_settings';
+const DASHBOARD_FILTER_KEY = '@soksok_dashboard_filter';
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
@@ -102,6 +107,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     const [studySettings, setStudySettings] = useState<StudySettings>(DEFAULT_STUDY_SETTINGS);
     const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(DEFAULT_AUTOPLAY_SETTINGS);
     const [customStudySettings, setCustomStudySettings] = useState<CustomStudySettings>(DEFAULT_CUSTOM_STUDY_SETTINGS);
+    const [dashboardFilterMode, setDashboardFilterMode] = useState<DashboardFilterMode>('studying');
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -110,11 +116,12 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
     const loadSettings = async () => {
         try {
-            const [savedInput, savedStudy, savedAutoPlay, savedCustomStudy] = await Promise.all([
+            const [savedInput, savedStudy, savedAutoPlay, savedCustomStudy, savedDashboardFilter] = await Promise.all([
                 AsyncStorage.getItem(SETTINGS_KEY),
                 AsyncStorage.getItem(STUDY_SETTINGS_KEY),
                 AsyncStorage.getItem(AUTOPLAY_SETTINGS_KEY),
                 AsyncStorage.getItem(CUSTOM_STUDY_KEY),
+                AsyncStorage.getItem(DASHBOARD_FILTER_KEY),
             ]);
 
             if (savedStudy) {
@@ -130,6 +137,10 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             if (savedCustomStudy) {
                 const parsedCustomStudy = JSON.parse(savedCustomStudy);
                 setCustomStudySettings({ ...DEFAULT_CUSTOM_STUDY_SETTINGS, ...parsedCustomStudy });
+            }
+
+            if (savedDashboardFilter && ['studying', 'completed'].includes(savedDashboardFilter)) {
+                setDashboardFilterMode(savedDashboardFilter as DashboardFilterMode);
             }
 
             if (savedInput) {
@@ -217,6 +228,15 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    const updateDashboardFilter = async (mode: DashboardFilterMode) => {
+        try {
+            setDashboardFilterMode(mode);
+            await AsyncStorage.setItem(DASHBOARD_FILTER_KEY, mode);
+        } catch (e) {
+            console.error('Failed to save dashboard filter', e);
+        }
+    };
+
     return (
         <SettingsContext.Provider value={{
             inputSettings,
@@ -227,6 +247,8 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             updateAutoPlaySettings,
             customStudySettings,
             updateCustomStudySettings,
+            dashboardFilterMode,
+            updateDashboardFilter,
             isLoading
         }}>
             {children}

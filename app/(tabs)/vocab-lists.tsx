@@ -16,6 +16,7 @@ import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
 import { BlurView } from 'expo-blur';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { VocaList } from '@/lib/types';
@@ -26,6 +27,7 @@ import ListContextMenu from '@/components/ListContextMenu';
 
 export default function VocabListsScreen() {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const { colors, isDark } = useTheme();
 
   const scrollRef = useRef<FlatList>(null);
@@ -110,16 +112,16 @@ export default function VocabListsScreen() {
         <View style={[styles.emptyIconCircle, { backgroundColor: colors.primaryLight }]}>
           <Ionicons name="library-outline" size={48} color={colors.primary} />
         </View>
-        <Text style={[styles.emptyTitle, { color: colors.text }]}>단어장이 없습니다</Text>
+        <Text style={[styles.emptyTitle, { color: colors.text }]}>{t('vocabLists.emptyTitle')}</Text>
         <Text style={[styles.emptySubtitle, { color: colors.textSecondary }]}>
-          나만의 단어장을 만들거나{'\n'}모음집에서 단어를 가져와보세요
+          {t('vocabLists.emptySubtitle')}
         </Text>
         <Pressable
           onPress={openManageModal}
           style={[styles.emptyButton, { backgroundColor: colors.primary }]}
         >
           <Ionicons name="add" size={20} color="#FFFFFF" />
-          <Text style={styles.emptyButtonText}>단어장 만들기</Text>
+          <Text style={styles.emptyButtonText}>{t('vocabLists.createList')}</Text>
         </Pressable>
         <Pressable
           onPress={() => router.navigate('/(tabs)/curation')}
@@ -127,53 +129,37 @@ export default function VocabListsScreen() {
         >
           <Ionicons name="sparkles-outline" size={14} color={colors.secondary} />
           <Text style={[styles.emptySecondaryText, { color: colors.secondary }]}>
-            모음집 구경하기
+            {t('vocabLists.browseCuration')}
           </Text>
         </Pressable>
       </View>
     ),
-    [colors, openManageModal]
+    [colors, openManageModal, t]
   );
 
   const renderHeader = useCallback(() => {
     return (
-      <>
-        {/* Search trigger */}
-        <Pressable
-          onPress={() => router.push('/search-modal')}
-          style={({ pressed }) => [
-            styles.searchTrigger,
-            { backgroundColor: colors.surface, borderColor: colors.borderLight },
-            pressed && { opacity: 0.7 },
-          ]}
-        >
-          <Ionicons name="search" size={20} color={colors.textTertiary} />
-          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>단어, 뜻, 태그로 통합 검색...</Text>
-        </Pressable>
-
-        {/* Section header */}
-        <View style={styles.sectionHeader}>
-          <View style={styles.sectionTitleRow}>
-            <Text style={[styles.sectionTitle, { color: colors.text }]}>나의 단어장</Text>
-            {visibleLists.length > 0 && (
-              <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
-                <Text style={[styles.countBadgeText, { color: colors.primary }]}>
-                  {visibleLists.length}
-                </Text>
-              </View>
-            )}
-          </View>
-          <Pressable
-            onPress={openManageModal}
-            hitSlop={8}
-            style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
-          >
-            <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
-          </Pressable>
+      <View style={styles.sectionHeader}>
+        <View style={styles.sectionTitleRow}>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
+          {visibleLists.length > 0 && (
+            <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
+              <Text style={[styles.countBadgeText, { color: colors.primary }]}>
+                {visibleLists.length}
+              </Text>
+            </View>
+          )}
         </View>
-      </>
+        <Pressable
+          onPress={openManageModal}
+          hitSlop={8}
+          style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
+        >
+          <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
+        </Pressable>
+      </View>
     );
-  }, [visibleLists.length, colors, openManageModal]);
+  }, [visibleLists.length, colors, openManageModal, t]);
 
   if (loading) {
     return (
@@ -187,7 +173,22 @@ export default function VocabListsScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       {/* Header */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <Text style={[styles.headerTitle, { color: colors.text }]}>나의 단어장</Text>
+        <Text style={[styles.headerTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
+      </View>
+
+      {/* Fixed Search Bar */}
+      <View style={[styles.searchBarWrapper, { backgroundColor: colors.background }]}>
+        <Pressable
+          onPress={() => router.push('/search-modal')}
+          style={({ pressed }) => [
+            styles.searchTrigger,
+            { backgroundColor: colors.surface, borderColor: colors.borderLight },
+            pressed && { opacity: 0.7 },
+          ]}
+        >
+          <Ionicons name="search" size={20} color={colors.textTertiary} />
+          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>{t('vocabLists.searchPlaceholder')}</Text>
+        </Pressable>
       </View>
 
       <View style={{ flex: 1 }}>
@@ -353,6 +354,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_700Bold',
     letterSpacing: -0.5,
   },
+  searchBarWrapper: {
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+  },
   searchTrigger: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -361,7 +366,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     gap: 10,
-    marginBottom: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,

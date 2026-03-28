@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, StyleSheet, Pressable, TextInput, ScrollView, Alert, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as DocumentPicker from 'expo-document-picker';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { parseImportedText, ParsedWord } from '@/utils/importParser';
@@ -17,6 +18,7 @@ interface BatchImportWorkflowProps {
 
 export default function BatchImportWorkflow({ listId, onClose }: BatchImportWorkflowProps) {
     const { colors } = useTheme();
+    const { t } = useTranslation();
     const { addBatchWords } = useVocab();
     const router = useRouter();
 
@@ -45,14 +47,14 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
             }
         } catch (e) {
             console.warn('Error reading file:', e);
-            Alert.alert('파일 읽기 오류', 'CSV 파일을 읽는 중 문제가 발생했습니다.');
+            Alert.alert(t('batchImport.fileReadError'), t('batchImport.fileReadErrorMessage'));
         }
     };
 
     const handleNextStage = () => {
         const parsed = parseImportedText(rawText);
         if (parsed.length === 0) {
-            Alert.alert('안내', '입력된 데이터가 없거나 올바르지 않습니다.');
+            Alert.alert(t('common.notice'), t('batchImport.noData'));
             return;
         }
         setParsedData(parsed);
@@ -82,7 +84,7 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
     const handleSubmit = async () => {
         const dataToSubmit = parsedData.filter(d => d.isValid);
         if (dataToSubmit.length === 0) {
-            Alert.alert('안내', '저장할 수 있는 유효한 단어가 없습니다.');
+            Alert.alert(t('common.notice'), t('batchImport.noValidWords'));
             return;
         }
 
@@ -94,7 +96,7 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
             onClose(); // Returns to previous screen
         } catch (e) {
             console.error(e);
-            Alert.alert('오류', '단어 저장 중 오류가 발생했습니다.');
+            Alert.alert(t('common.error'), t('batchImport.saveError'));
             setIsSubmitting(false);
         }
     };
@@ -107,7 +109,7 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                     <Ionicons name={stage === 'preview' ? "arrow-back" : "close"} size={24} color={colors.text} />
                 </Pressable>
                 <Text style={[styles.headerTitle, { color: colors.text }]}>
-                    {stage === 'input' ? '단어 일괄 추가' : '미리보기 및 확인'}
+                    {stage === 'input' ? t('batchImport.title') : t('batchImport.previewTitle')}
                 </Text>
                 <View style={styles.headerSpacer} />
             </View>
@@ -118,16 +120,16 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                     <View style={[styles.infoBox, { backgroundColor: colors.surfaceSecondary }]}>
                         <Ionicons name="information-circle" size={20} color={colors.primary} />
                         <Text style={[styles.infoText, { color: colors.textSecondary }]}>
-                            엑셀/스프레드시트에서 데이터를 복사하여 아래에 붙여넣거나 CSV 파일을 업로드하세요.
+                            {t('batchImport.instructions')}
                         </Text>
                     </View>
                     <Text style={[styles.formatText, { color: colors.textTertiary }]}>
-                        형식: 단어 | 뜻 | 영문정의 | 예문 | 예문해석 | 태그
+                        {t('batchImport.format')}
                     </Text>
 
                     <TextInput
                         style={[styles.textArea, { backgroundColor: colors.surface, color: colors.text, borderColor: colors.border }]}
-                        placeholder={`단어\t뜻\t정의\t예문\t예문해석\t태그1,태그2\napple\t사과\tround fruit\tI love apples\t나는 사과를 좋아해\t과일\n...붙여넣기...`}
+                        placeholder={t('batchImport.textareaPlaceholder')}
                         placeholderTextColor={colors.border}
                         multiline
                         textAlignVertical="top"
@@ -138,7 +140,7 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                     <View style={styles.btnRow}>
                         <Pressable onPress={handleFileUpload} style={[styles.uploadBtn, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}>
                             <Ionicons name="document-text-outline" size={20} color={colors.text} />
-                            <Text style={[styles.uploadBtnText, { color: colors.text }]}>CSV 업로드</Text>
+                            <Text style={[styles.uploadBtnText, { color: colors.text }]}>{t('batchImport.csvUpload')}</Text>
                         </Pressable>
                         <Pressable
                             onPress={handleNextStage}
@@ -148,7 +150,7 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                                 { backgroundColor: rawText.trim() ? colors.primary : colors.surfaceSecondary }
                             ]}
                         >
-                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? colors.background : colors.textTertiary }]}>다음</Text>
+                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? colors.background : colors.textTertiary }]}>{t('common.next')}</Text>
                             <Ionicons name="arrow-forward" size={18} color={rawText.trim() ? colors.background : colors.textTertiary} />
                         </Pressable>
                     </View>
@@ -159,9 +161,9 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
             {stage === 'preview' && (
                 <View style={styles.previewContainer}>
                     <View style={[styles.statsRow, { backgroundColor: colors.surfaceSecondary }]}>
-                        <Text style={[styles.statsText, { color: colors.textSecondary }]}>총 {parsedData.length}개</Text>
-                        <Text style={[styles.statsText, { color: colors.success }]}>유효: {validCount}개</Text>
-                        {invalidCount > 0 && <Text style={[styles.statsText, { color: colors.error }]}>오류: {invalidCount}개</Text>}
+                        <Text style={[styles.statsText, { color: colors.textSecondary }]}>{t('batchImport.totalCount', { count: parsedData.length })}</Text>
+                        <Text style={[styles.statsText, { color: colors.success }]}>{t('batchImport.validCount', { count: validCount })}</Text>
+                        {invalidCount > 0 && <Text style={[styles.statsText, { color: colors.error }]}>{t('batchImport.invalidCount', { count: invalidCount })}</Text>}
                     </View>
 
                     <ScrollView contentContainerStyle={styles.previewScroll} keyboardShouldPersistTaps="handled">
@@ -189,14 +191,14 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                                             style={[styles.inlineInput, { color: colors.text, borderBottomColor: item.term ? colors.borderLight : colors.error }]}
                                             value={item.term}
                                             onChangeText={(t) => updateField(item.id, 'term', t)}
-                                            placeholder="단어 (필수)"
+                                            placeholder={t('batchImport.wordRequired')}
                                             placeholderTextColor={colors.error}
                                         />
                                         <TextInput
                                             style={[styles.inlineInput, { color: colors.text, borderBottomColor: item.meaningKr ? colors.borderLight : colors.error }]}
                                             value={item.meaningKr}
                                             onChangeText={(t) => updateField(item.id, 'meaningKr', t)}
-                                            placeholder="뜻 (필수)"
+                                            placeholder={t('batchImport.meaningRequired')}
                                             placeholderTextColor={colors.error}
                                         />
                                     </View>
@@ -204,11 +206,11 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                                         style={[styles.inlineInputFull, { color: colors.textSecondary, borderBottomColor: colors.borderLight }]}
                                         value={item.exampleEn}
                                         onChangeText={(t) => updateField(item.id, 'exampleEn', t)}
-                                        placeholder="예문 (선택)"
+                                        placeholder={t('batchImport.exampleOptional')}
                                         placeholderTextColor={colors.textTertiary}
                                     />
                                     {item.tags.length > 0 && (
-                                        <Text style={[styles.tagPreview, { color: colors.primary }]}>태그: {item.tags.join(', ')}</Text>
+                                        <Text style={[styles.tagPreview, { color: colors.primary }]}>{t('batchImport.tagsLabel', { tags: item.tags.join(', ') })}</Text>
                                     )}
                                 </View>
                             </View>
@@ -228,7 +230,7 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                                 <ActivityIndicator color={colors.background} />
                             ) : (
                                 <Text style={[styles.submitBtnText, { color: (validCount > 0) ? colors.background : colors.textTertiary }]}>
-                                    {validCount}개의 단어 일괄 저장
+                                    {t('batchImport.batchSave', { count: validCount })}
                                 </Text>
                             )}
                         </Pressable>

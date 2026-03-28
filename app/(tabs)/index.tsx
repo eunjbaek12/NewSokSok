@@ -7,27 +7,30 @@ import {
   Pressable,
   Platform,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
-import type { CustomStudySettings } from '@/contexts/SettingsContext';
+import { useSettings, type CustomStudySettings } from '@/contexts/SettingsContext';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/lib/plan-engine';
 import type { PlanStatus } from '@/lib/types';
 import CustomStudyModal from '@/components/CustomStudyModal';
+import ProgressBar from '@/components/ui/ProgressBar';
 
-function getStudyStateConfig(state: StudyState) {
+function getStudyStateConfig(state: StudyState, t: (key: string) => string) {
   switch (state) {
     case 'needs-study':
-      return { label: '학습필요', bgColor: 'warningLight' as const, textColor: 'warning' as const, actionLabel: '학습하기' };
+      return { label: t('home.needsStudy'), bgColor: 'warningLight' as const, textColor: 'warning' as const, actionLabel: t('home.needsStudyAction') };
     case 'studying':
-      return { label: '학습중', bgColor: 'primaryLight' as const, textColor: 'primary' as const, actionLabel: '이어서 학습' };
+      return { label: t('home.studying'), bgColor: 'primaryLight' as const, textColor: 'primary' as const, actionLabel: t('home.studyingAction') };
     case 'completed':
-      return { label: '학습완료', bgColor: 'successLight' as const, textColor: 'success' as const, actionLabel: '추가학습' };
+      return { label: t('home.completed'), bgColor: 'successLight' as const, textColor: 'success' as const, actionLabel: t('home.completedAction') };
   }
 }
 
@@ -35,8 +38,8 @@ export default function DashboardScreen() {
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const { lists, loading, clearPlan } = useVocab();
-  const [filterMode, setFilterMode] = useState<'all' | 'studying' | 'completed'>('all');
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const { t } = useTranslation();
+  const { dashboardFilterMode: filterMode, updateDashboardFilter } = useSettings();
   const [showCustomStudy, setShowCustomStudy] = useState(false);
   const [customStudyPresetFilter, setCustomStudyPresetFilter] = useState<CustomStudySettings['wordFilter'] | undefined>();
 
@@ -127,10 +130,10 @@ export default function DashboardScreen() {
         {/* 0: Header / Greeting */}
         <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
           <Text style={[styles.greeting, { color: colors.text }]}>
-            안녕하세요, <Text style={{ color: colors.primary }}>학습자</Text>
+            {t('home.greeting')} <Text style={{ color: colors.primary }}>{t('home.learner')}</Text>
           </Text>
           <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-            오늘도 열심히 공부해봐요
+            {t('home.subtitle')}
           </Text>
         </View>
 
@@ -149,7 +152,7 @@ export default function DashboardScreen() {
           >
             <Ionicons name="search" size={20} color={colors.textTertiary} />
             <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>
-              단어, 뜻, 태그로 검색...
+              {t('home.searchPlaceholder')}
             </Text>
           </Pressable>
         </View>
@@ -172,7 +175,7 @@ export default function DashboardScreen() {
               <View style={styles.quickCardIconWrap}>
                 <Ionicons name="flash" size={24} color="#FFFFFF" />
               </View>
-              <Text style={styles.quickCardLabelWhite}>맞춤 학습</Text>
+              <Text style={styles.quickCardLabelWhite}>{t('home.customStudy')}</Text>
             </Pressable>
 
             {/* 오답 정복 */}
@@ -200,7 +203,7 @@ export default function DashboardScreen() {
                   </View>
                 )}
               </View>
-              <Text style={[styles.quickCardLabel, { color: colors.text }]}>오답 정복</Text>
+              <Text style={[styles.quickCardLabel, { color: colors.text }]}>{t('home.wrongWords')}</Text>
             </Pressable>
 
             {/* 별표 학습 */}
@@ -228,7 +231,7 @@ export default function DashboardScreen() {
                   </View>
                 )}
               </View>
-              <Text style={[styles.quickCardLabel, { color: colors.text }]}>별표 학습</Text>
+              <Text style={[styles.quickCardLabel, { color: colors.text }]}>{t('home.starredWords')}</Text>
             </Pressable>
           </View>
 
@@ -237,7 +240,7 @@ export default function DashboardScreen() {
             {/* Section Header: Title + Count + Filters + Collapse */}
             <View style={styles.sectionHeaderRow}>
               <View style={styles.sectionHeaderLeft}>
-                <Text style={[styles.sectionTitle, { color: colors.text }]}>학습 중인 단어장</Text>
+                <Text style={[styles.sectionTitle, { color: colors.text }]}>{t('home.studyingLists')}</Text>
                 {activeItems.length > 0 && (
                   <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
                     <Text style={[styles.countBadgeText, { color: colors.primary }]}>
@@ -247,14 +250,14 @@ export default function DashboardScreen() {
                 )}
               </View>
               <View style={styles.sectionHeaderRight}>
-                {activeItems.length > 0 && !isCollapsed && (
+                {activeItems.length > 0 && (
                   <View style={styles.filterChipRow}>
-                    {([['all', '전체'], ['studying', '학습중'], ['completed', '학습완료']] as const).map(([key, label]) => (
+                    {([['studying', t('home.filterStudying')], ['completed', t('home.filterCompleted')]] as const).map(([key, label]) => (
                       <Pressable
                         key={key}
                         onPress={() => {
                           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                          setFilterMode(key);
+                          updateDashboardFilter(key);
                         }}
                         style={[
                           styles.filterChip,
@@ -273,30 +276,14 @@ export default function DashboardScreen() {
                     ))}
                   </View>
                 )}
-                {planItems.length > 0 && (
-                  <Pressable
-                    onPress={() => {
-                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                      setIsCollapsed(prev => !prev);
-                    }}
-                    hitSlop={8}
-                  >
-                    <Ionicons
-                      name={isCollapsed ? 'chevron-down' : 'chevron-up'}
-                      size={20}
-                      color={colors.textTertiary}
-                    />
-                  </Pressable>
-                )}
               </View>
             </View>
 
-            {/* Cards (hidden when collapsed) */}
-            {!isCollapsed && (
+            {/* Cards */}
               <>
                 {/* In-progress plan cards */}
                 {filteredActive.map(({ list, dayStatus }) => {
-                  const statusConfig = getStudyStateConfig(dayStatus.state);
+                  const statusConfig = getStudyStateConfig(dayStatus.state, t);
                   return (
                     <Pressable
                       key={list.id}
@@ -333,12 +320,51 @@ export default function DashboardScreen() {
                               {statusConfig.label}
                             </Text>
                           </View>
+                          <Pressable
+                            onPress={(e) => {
+                              e.stopPropagation();
+                              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                              const isCompleted = dayStatus.state === 'completed';
+                              Alert.alert(
+                                isCompleted ? t('home.endPlanTitle') : t('home.stopStudyTitle'),
+                                isCompleted ? t('home.endPlanMessage') : t('home.stopStudyMessage'),
+                                [
+                                  { text: t('common.cancel'), style: 'cancel' },
+                                  {
+                                    text: t('common.confirm'),
+                                    style: 'destructive',
+                                    onPress: () => {
+                                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                      clearPlan(list.id);
+                                    },
+                                  },
+                                ],
+                              );
+                            }}
+                            style={({ pressed }) => [
+                              styles.closeButton,
+                              { opacity: pressed ? 0.5 : 0.6 },
+                            ]}
+                            hitSlop={8}
+                          >
+                            <Ionicons name="close" size={18} color={colors.textTertiary} />
+                          </Pressable>
                         </View>
                       </View>
                       <View style={styles.planCardBottom}>
-                        <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
-                          Day {dayStatus.displayDay}: {dayStatus.dayMemorized}/{dayStatus.dayTotal} 암기
-                        </Text>
+                        <View style={styles.planCardBottomLeft}>
+                          <ProgressBar percent={dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0} colors={colors} />
+                          <View style={styles.planStatsRow}>
+                            <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                              {t('home.dayProgress', { day: dayStatus.displayDay, memorized: dayStatus.dayMemorized, total: dayStatus.dayTotal })}
+                            </Text>
+                            <Text style={[styles.planStatsPercent, {
+                              color: dayStatus.dayTotal > 0 && dayStatus.dayMemorized === dayStatus.dayTotal ? colors.success : colors.primary,
+                            }]}>
+                              {dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0}%
+                            </Text>
+                          </View>
+                        </View>
                         <Pressable
                           onPress={(e) => {
                             e.stopPropagation();
@@ -372,7 +398,7 @@ export default function DashboardScreen() {
 
                 {/* Overdue / Inactive plan cards */}
                 {staleItems.map(({ list, dayStatus, status }) => {
-                  const staleLabel = status === 'overdue' ? '기간만료' : '중단됨';
+                  const staleLabel = status === 'overdue' ? t('home.expired') : t('home.inactive');
                   const staleBg = status === 'overdue' ? colors.errorLight : colors.warningLight;
                   const staleColor = status === 'overdue' ? colors.error : colors.warning;
                   const staleBorder = status === 'overdue'
@@ -413,9 +439,19 @@ export default function DashboardScreen() {
                         </View>
                       </View>
                       <View style={styles.planCardBottom}>
-                        <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
-                          Day {dayStatus.displayDay}: {dayStatus.dayMemorized}/{dayStatus.dayTotal} 암기
-                        </Text>
+                        <View style={styles.planCardBottomLeft}>
+                          <ProgressBar percent={dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0} colors={colors} />
+                          <View style={styles.planStatsRow}>
+                            <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                              {t('home.dayProgress', { day: dayStatus.displayDay, memorized: dayStatus.dayMemorized, total: dayStatus.dayTotal })}
+                            </Text>
+                            <Text style={[styles.planStatsPercent, {
+                              color: dayStatus.dayTotal > 0 && dayStatus.dayMemorized === dayStatus.dayTotal ? colors.success : colors.primary,
+                            }]}>
+                              {dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0}%
+                            </Text>
+                          </View>
+                        </View>
                         <View style={styles.staleActionRow}>
                           <Pressable
                             onPress={() => {
@@ -433,7 +469,7 @@ export default function DashboardScreen() {
                             ]}
                           >
                             <Text style={[styles.actionButtonText, { color: colors.error }]}>
-                              학습 종료
+                              {t('home.endStudy')}
                             </Text>
                           </Pressable>
                           <Pressable
@@ -447,7 +483,7 @@ export default function DashboardScreen() {
                             ]}
                           >
                             <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
-                              다시 학습
+                              {t('home.restartStudy')}
                             </Text>
                           </Pressable>
                         </View>
@@ -461,10 +497,10 @@ export default function DashboardScreen() {
                   <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
                     <Ionicons name="rocket-outline" size={40} color={colors.textTertiary} />
                     <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>
-                      아직 진행 중인 학습 계획이 없어요
+                      {t('home.emptyTitle')}
                     </Text>
                     <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>
-                      단어장 탭에서 학습 계획을 세워보세요!
+                      {t('home.emptySubtitle')}
                     </Text>
                     <Pressable
                       onPress={() => {
@@ -478,7 +514,7 @@ export default function DashboardScreen() {
                     >
                       <Ionicons name="library-outline" size={16} color={colors.primary} />
                       <Text style={[styles.emptyPlansLinkText, { color: colors.primary }]}>
-                        단어장으로 이동
+                        {t('home.goToVocabLists')}
                       </Text>
                     </Pressable>
                   </View>
@@ -487,11 +523,10 @@ export default function DashboardScreen() {
                 {/* Filtered empty state */}
                 {planItems.length > 0 && filteredActive.length === 0 && staleItems.length === 0 && (
                   <Text style={[styles.filterEmptyText, { color: colors.textTertiary }]}>
-                    {filterMode === 'completed' ? '학습 완료한 단어장이 없어요' : '학습이 필요한 단어장이 없어요'}
+                    {filterMode === 'completed' ? t('home.noCompletedLists') : t('home.noStudyingLists')}
                   </Text>
                 )}
               </>
-            )}
           </View>
 
         </View>
@@ -693,6 +728,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 6,
   },
+  closeButton: {
+    marginLeft: 'auto',
+    padding: 2,
+  },
   dayBadge: {
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -713,8 +752,23 @@ const styles = StyleSheet.create({
   },
   planCardBottom: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'stretch',
+    gap: 12,
+    marginTop: 8,
+  },
+  planCardBottomLeft: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  planStatsRow: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 6,
+  },
+  planStatsPercent: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   planWordCount: {
     fontSize: 13,

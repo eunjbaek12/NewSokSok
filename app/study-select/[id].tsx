@@ -1,44 +1,22 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { View, Text, Pressable, Platform, StyleSheet, ScrollView } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 
-const STUDY_MODES = [
-  {
-    key: 'flashcards' as const,
-    title: '카드 학습',
-    description: '카드를 뒤집으며 암기하기',
-    icon: 'layers-outline' as const,
-    pathname: '/flashcards/[id]' as const,
-  },
-  {
-    key: 'quiz' as const,
-    title: '퀴즈',
-    description: '객관식 문제로 실력 점검하기',
-    icon: 'create-outline' as const,
-    pathname: '/quiz/[id]' as const,
-  },
-  {
-    key: 'examples' as const,
-    title: '예문 학습',
-    description: '예문 속에서 단어 활용 익히기',
-    icon: 'chatbubbles-outline' as const,
-    pathname: '/examples/[id]' as const,
-  },
-  {
-    key: 'shadowing' as const,
-    title: '동시 발음',
-    description: '듣고 따라하며 익히기',
-    icon: 'mic-outline' as const,
-    pathname: '/shadowing/[id]' as const,
-  },
+const STUDY_MODES_BASE = [
+  { key: 'flashcards' as const, icon: 'layers-outline' as const, pathname: '/flashcards/[id]' as const },
+  { key: 'quiz' as const, icon: 'create-outline' as const, pathname: '/quiz/[id]' as const },
+  { key: 'examples' as const, icon: 'chatbubbles-outline' as const, pathname: '/examples/[id]' as const },
+  { key: 'shadowing' as const, icon: 'mic-outline' as const, pathname: '/shadowing/[id]' as const },
 ];
 
 export default function StudySelectScreen() {
+  const { t } = useTranslation();
   const { id, filter, ids } = useLocalSearchParams<{ id: string; filter?: string; ids?: string }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
@@ -58,7 +36,13 @@ export default function StudySelectScreen() {
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const disabled = listWords.length < 2;
 
-  const filterLabel = filter === 'learning' ? '미암기' : filter === 'memorized' ? '암기 완료' : '전체';
+  const studyModes = useMemo(() => STUDY_MODES_BASE.map(m => ({
+    ...m,
+    title: t(`studySelect.${m.key}Title`),
+    description: t(`studySelect.${m.key}Desc`),
+  })), [t]);
+
+  const filterLabel = filter === 'learning' ? t('studySelect.filterUnmemorized') : filter === 'memorized' ? t('studySelect.filterMemorized') : t('studySelect.filterAll');
 
   const handleSelectMode = useCallback((pathname: string) => {
     if (disabled) return;
@@ -69,7 +53,7 @@ export default function StudySelectScreen() {
   if (!list) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background }]}>
-        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100, fontFamily: 'Pretendard_500Medium' }}>단어장을 찾을 수 없습니다</Text>
+        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100, fontFamily: 'Pretendard_500Medium' }}>{t('studySelect.listNotFound')}</Text>
       </View>
     );
   }
@@ -86,7 +70,7 @@ export default function StudySelectScreen() {
           </Text>
         </View>
         <Text style={[styles.wordCount, { color: colors.textSecondary }]}>
-          {filterLabel} · {listWords.length}개 단어
+          {t('studySelect.wordInfo', { filter: filterLabel, count: listWords.length })}
         </Text>
       </View>
 
@@ -95,12 +79,12 @@ export default function StudySelectScreen() {
           <View style={[styles.warningBanner, { backgroundColor: colors.warningLight }]}>
             <Ionicons name="alert-circle" size={18} color={colors.warning} />
             <Text style={[styles.warningText, { color: colors.warning }]}>
-              학습을 시작하려면 단어를 2개 이상 추가해주세요
+              {t('studySelect.minWordsRequired')}
             </Text>
           </View>
         )}
 
-        {STUDY_MODES.map((mode, index) => {
+        {studyModes.map((mode, index) => {
           const isAccent = index === 1;
           const cardBg = disabled
             ? colors.surfaceSecondary

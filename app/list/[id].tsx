@@ -26,6 +26,7 @@ import { useVocab } from '@/contexts/VocabContext';
 import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
 import { computePlanStatus, groupWordsByDay } from '@/lib/plan-engine';
+import { useTranslation } from 'react-i18next';
 import { BlurView } from 'expo-blur';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import { Snackbar } from '@/components/ui/Snackbar';
@@ -34,13 +35,8 @@ import FastScrollHandle from '@/components/ui/FastScrollHandle';
 type FilterStatus = 'all' | 'learning' | 'memorized';
 type SortOrder = 'newest' | 'az' | 'za' | 'wrong';
 
-const STUDY_MODES = [
-  { key: 'flashcards', icon: 'layers-outline' as const, label: '카드 학습', pathname: '/flashcards/[id]' as const },
-  { key: 'quiz', icon: 'create-outline' as const, label: '퀴즈', pathname: '/quiz/[id]' as const },
-  { key: 'examples', icon: 'chatbubbles-outline' as const, label: '예문 학습', pathname: '/examples/[id]' as const },
-];
-
 export default function ListDetailScreen() {
+  const { t } = useTranslation();
   const { id, day: initialDay } = useLocalSearchParams<{ id: string; day?: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
@@ -174,14 +170,14 @@ export default function ListDetailScreen() {
     }
     if (sortOrder === 'wrong') {
       const count = word.wrongCount ?? 0;
-      return count > 0 ? `×${count}` : '정답';
+      return count > 0 ? `×${count}` : t('list.filterCorrect');
     }
     // newest by createdAt
     const ts = word.createdAt || word.updatedAt || 0;
-    if (!ts) return '날짜 없음';
+    if (!ts) return '';
     const d = new Date(ts);
-    return `${d.getFullYear()}년 ${d.getMonth() + 1}월`;
-  }, [filteredWords, sortOrder]);
+    return t('list.dateSectionLabel', { year: d.getFullYear(), month: d.getMonth() + 1 });
+  }, [filteredWords, sortOrder, t]);
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
@@ -198,13 +194,13 @@ export default function ListDetailScreen() {
   const handleEditTitle = useCallback(() => {
     if (!list) return;
     if (Platform.OS === 'web') {
-      const newName = prompt('단어장 이름 변경', list.title);
+      const newName = prompt(t('list.renameTitle'), list.title);
       if (newName && newName.trim()) {
         renameList(list.id, newName.trim());
       }
     } else {
       Alert.prompt(
-        '단어장 이름 변경',
+        t('list.renameTitle'),
         '',
         (newName) => {
           if (newName && newName.trim()) {
@@ -289,12 +285,12 @@ export default function ListDetailScreen() {
     const backupWords = allWords.filter(w => wordIds.includes(w.id));
 
     Alert.alert(
-      `선택한 ${count}개의 단어를 삭제하시겠습니까?`,
-      '이 작업은 되돌릴 수 있지만, 다시 추가하는 방식으로 복구됩니다.',
+      t('list.deleteWordsConfirm', { count }),
+      t('list.deleteWordsDesc'),
       [
-        { text: '취소', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: '삭제',
+          text: t('common.delete'),
           style: 'destructive',
           onPress: async () => {
             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
@@ -306,8 +302,8 @@ export default function ListDetailScreen() {
               backupWords,
               sourceListId: id,
             });
-            setSnackbarMessage(`${count}개의 단어가 삭제되었습니다.`);
-            setSnackbarActionLabel('실행 취소');
+            setSnackbarMessage(t('list.wordsDeleted', { count }));
+            setSnackbarActionLabel(t('common.undo'));
             setSnackbarVisible(true);
 
             exitEditMode();
@@ -343,7 +339,7 @@ export default function ListDetailScreen() {
         targetListId,
         targetListName: targetList?.title,
       });
-      setSnackbarMessage(`${count}개의 단어가 ${targetList?.title}로 복사되었습니다.`);
+      setSnackbarMessage(t('list.wordsCopied', { count, listName: targetList?.title }));
       setSnackbarActionLabel(undefined); // Copy undo is complex (ids change)
     } else {
       await moveWords(targetListId, wordIds);
@@ -354,8 +350,8 @@ export default function ListDetailScreen() {
         targetListId,
         targetListName: targetList?.title,
       });
-      setSnackbarMessage(`${count}개의 단어가 ${targetList?.title}로 이동되었습니다.`);
-      setSnackbarActionLabel('실행 취소');
+      setSnackbarMessage(t('list.wordsMoved', { count, listName: targetList?.title }));
+      setSnackbarActionLabel(t('common.undo'));
     }
 
     setSnackbarVisible(true);
@@ -369,10 +365,10 @@ export default function ListDetailScreen() {
     try {
       if (lastAction.type === 'delete' && lastAction.backupWords && lastAction.sourceListId) {
         await addBatchWords(lastAction.sourceListId, lastAction.backupWords);
-        setSnackbarMessage('삭제가 취소되어 단어들이 복구되었습니다.');
+        setSnackbarMessage(t('list.deleteUndone'));
       } else if (lastAction.type === 'move' && lastAction.sourceListId && lastAction.wordIds) {
         await moveWords(lastAction.sourceListId, lastAction.wordIds);
-        setSnackbarMessage('이동이 취소되어 단어들이 원래 단어장으로 돌아왔습니다.');
+        setSnackbarMessage(t('list.moveUndone'));
       }
 
       setSnackbarActionLabel(undefined);
@@ -380,7 +376,7 @@ export default function ListDetailScreen() {
       setLastAction(null);
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     } catch (e) {
-      Alert.alert('오류', '실행 취소 중 문제가 발생했습니다.');
+      Alert.alert(t('common.error'), t('list.undoError'));
     }
   }, [lastAction, addBatchWords, moveWords]);
 
@@ -540,7 +536,7 @@ export default function ListDetailScreen() {
           >
             <Text style={[styles.dayTabText, {
               color: selectedDay === null ? '#FFFFFF' : colors.textSecondary,
-            }]}>전체</Text>
+            }]}>{t('list.filterAll')}</Text>
           </Pressable>
           {daySections.filter(s => s.day > 0).map(section => {
             const isActive = selectedDay === section.day;
@@ -591,7 +587,7 @@ export default function ListDetailScreen() {
             {/* 전체 선택 텍스트 (중앙 제목 위치) */}
             <View style={styles.cardTextArea}>
               <Text style={[styles.filterCenterText, { color: colors.textSecondary }]}>
-                전체 선택 ({selectedIds.size}/{filteredWords.length})
+                {t('list.selectAllCount', { selected: selectedIds.size, total: filteredWords.length })}
               </Text>
             </View>
 
@@ -621,9 +617,9 @@ export default function ListDetailScreen() {
     };
 
     const sortLabel =
-      sortOrder === 'az' ? '사전순' :
-      sortOrder === 'za' ? '역순' :
-      sortOrder === 'wrong' ? '오답순' : '최신순';
+      sortOrder === 'az' ? t('list.sortAlpha') :
+      sortOrder === 'za' ? t('list.sortReverse') :
+      sortOrder === 'wrong' ? t('list.sortWrong') : t('list.sortRecent');
     const sortIconName: React.ComponentProps<typeof Ionicons>['name'] =
       sortOrder === 'az' ? 'arrow-down-outline' :
       sortOrder === 'za' ? 'arrow-up-outline' :
@@ -637,16 +633,16 @@ export default function ListDetailScreen() {
 
     let statusIconName: React.ComponentProps<typeof Ionicons>['name'] = 'filter-outline';
     let statusIconColor = colors.textTertiary;
-    let statusLabel = 'All';
+    let statusLabel = t('list.filterAll');
 
     if (filterStatus === 'learning') {
       statusIconName = 'ellipse-outline'; // Or something that means "in progress"
       statusIconColor = colors.primary;
-      statusLabel = 'Learning';
+      statusLabel = t('list.filterLearning');
     } else if (filterStatus === 'memorized') {
       statusIconName = 'checkmark-circle';
       statusIconColor = colors.success;
-      statusLabel = 'Memorized';
+      statusLabel = t('list.filterMemorized');
     }
 
     return (
@@ -726,7 +722,7 @@ export default function ListDetailScreen() {
               </View>
             </View>
           </View>
-          <Text style={[styles.studyLabel, { color: iconColor }]}>카드학습</Text>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>{t('studySelect.flashcardsTitle')}</Text>
         </Pressable>
 
         <Pressable
@@ -746,7 +742,7 @@ export default function ListDetailScreen() {
               <Ionicons name="checkmark" size={14} color={iconColor} style={{ marginLeft: -2, marginTop: 4 }} />
             </View>
           </View>
-          <Text style={[styles.studyLabel, { color: iconColor }]}>단어퀴즈</Text>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>{t('studySelect.quizTitle')}</Text>
         </Pressable>
 
         <Pressable
@@ -767,7 +763,7 @@ export default function ListDetailScreen() {
               <Text style={{ fontSize: 8, color: iconColor, marginTop: -2, fontWeight: '900' }}>___</Text>
             </View>
           </View>
-          <Text style={[styles.studyLabel, { color: iconColor }]}>문장완성</Text>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>{t('examples.title')}</Text>
         </Pressable>
       </View>
     );
@@ -784,16 +780,16 @@ export default function ListDetailScreen() {
       <View style={[styles.emptyIconCircle, { backgroundColor: colors.primaryLight }]}>
         <Ionicons name="book-outline" size={40} color={colors.primary} />
       </View>
-      <Text style={[styles.emptyTitle, { color: colors.text }]}>아직 단어가 없어요</Text>
+      <Text style={[styles.emptyTitle, { color: colors.text }]}>{t('vocabLists.emptyTitle')}</Text>
       <Text style={[styles.emptySubtitle, { color: colors.textSecondary }]}>
-        단어를 추가하면 플래시카드, 퀴즈, 문장 완성으로{'\n'}학습할 수 있어요
+        {t('vocabLists.emptySubtitle')}
       </Text>
       <Pressable
         onPress={handleAddWord}
         style={[styles.emptyButton, { backgroundColor: colors.primary }]}
       >
         <Ionicons name="add" size={18} color="#FFFFFF" />
-        <Text style={styles.emptyButtonText}>첫 단어 추가하기</Text>
+        <Text style={styles.emptyButtonText}>{t('addWord.addWordTitle')}</Text>
       </Pressable>
     </View>
   ), [colors, handleAddWord]);
@@ -802,7 +798,7 @@ export default function ListDetailScreen() {
     return (
       <View style={[styles.container, { backgroundColor: colors.background }]}>
         <Text style={{ color: colors.text, textAlign: 'center', marginTop: 100, fontFamily: 'Pretendard_500Medium' }}>
-          단어장을 찾을 수 없습니다
+          {t('studySelect.listNotFound')}
         </Text>
       </View>
     );
@@ -825,7 +821,7 @@ export default function ListDetailScreen() {
           {editMode ? (
             <View style={styles.titlePressable}>
               <Text style={[styles.headerTitle, { color: colors.text }]}>
-                {selectedIds.size} Selected
+                {t('list.selectedCount', { count: selectedIds.size })}
               </Text>
             </View>
           ) : (
@@ -1009,7 +1005,7 @@ export default function ListDetailScreen() {
       <ModalPicker
         visible={isPickerVisible}
         onClose={() => setPickerVisible(false)}
-        title={pickerMode === 'copy' ? '단어 복사' : '단어 이동'}
+        title={pickerMode === 'copy' ? t('list.copyToList') : t('list.moveToList')}
         options={pickerOptions}
         onSelect={handleListSelect}
       />

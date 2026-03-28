@@ -16,6 +16,7 @@ import Animated, {
     Extrapolation
 } from 'react-native-reanimated';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { useSettings } from '@/contexts/SettingsContext';
@@ -28,6 +29,7 @@ const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.2;
 
 export default function AutoPlayScreen() {
     const { id, filter, isStarred } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string }>();
+    const { t } = useTranslation();
     const insets = useSafeAreaInsets();
     const { colors, isDark } = useTheme();
     const { lists, getWordsForList, toggleStarred } = useVocab();
@@ -268,9 +270,9 @@ export default function AutoPlayScreen() {
     if (!currentWord) {
         return (
             <View style={[styles.container, { backgroundColor: colors.background, alignItems: 'center', justifyContent: 'center' }]}>
-                <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>재생할 단어가 없습니다.</Text>
+                <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('autoplay.noWords')}</Text>
                 <Pressable onPress={handleClose} style={{ marginTop: 20 }}>
-                    <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
+                    <Text style={{ color: colors.primary, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
                 </Pressable>
             </View>
         );
@@ -289,7 +291,7 @@ export default function AutoPlayScreen() {
 
                     <View style={styles.titleArea}>
                         <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
-                            {list?.title || '자동재생'}
+                            {list?.title || t('autoplay.title')}
                         </Text>
                     </View>
 
@@ -323,22 +325,22 @@ export default function AutoPlayScreen() {
                         <View style={[styles.completionIconCircle, { backgroundColor: colors.successLight }]}>
                             <Ionicons name="checkmark" size={48} color={colors.success} />
                         </View>
-                        <Text style={[styles.completionTitle, { color: colors.text }]}>완료!</Text>
+                        <Text style={[styles.completionTitle, { color: colors.text }]}>{t('autoplay.complete')}</Text>
                         <Text style={[styles.completionStat, { color: colors.textSecondary }]}>
-                            {words.length}개 단어 학습 완료
+                            {t('autoplay.wordsComplete', { count: words.length })}
                         </Text>
                         <View style={styles.completionButtons}>
                             <Pressable
                                 style={[styles.completionBtn, { backgroundColor: colors.surfaceSecondary }]}
                                 onPress={handleRestart}
                             >
-                                <Text style={[styles.completionBtnText, { color: colors.text }]}>다시 시작</Text>
+                                <Text style={[styles.completionBtnText, { color: colors.text }]}>{t('autoplay.restart')}</Text>
                             </Pressable>
                             <Pressable
                                 style={[styles.completionBtn, { backgroundColor: colors.primary }]}
                                 onPress={handleClose}
                             >
-                                <Text style={[styles.completionBtnText, { color: '#FFF' }]}>나가기</Text>
+                                <Text style={[styles.completionBtnText, { color: '#FFF' }]}>{t('autoplay.exit')}</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -381,7 +383,7 @@ export default function AutoPlayScreen() {
                                 )}
                             </Pressable>
                             <Animated.View style={tapHintAnimatedStyle}>
-                                <Text style={[styles.tapHintText, { color: colors.textSecondary }]}>탭하여 확인</Text>
+                                <Text style={[styles.tapHintText, { color: colors.textSecondary }]}>{t('autoplay.tapToCheck')}</Text>
                             </Animated.View>
                         </Animated.View>
 
@@ -460,7 +462,7 @@ export default function AutoPlayScreen() {
                         </Pressable>
                     </TimerRing>
                     <Text style={[styles.delayLabel, { color: colors.textTertiary }]}>
-                        {settings.delay || '2s'} 후 다음
+                        {t('autoplay.nextAfterDelay', { delay: settings.delay || '2s' })}
                     </Text>
                 </View>
 

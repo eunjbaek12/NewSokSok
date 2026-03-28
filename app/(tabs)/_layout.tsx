@@ -5,34 +5,37 @@ import { BlurView } from "expo-blur";
 import { Platform, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 function NativeTabLayout() {
+  const { t } = useTranslation();
   return (
     <NativeTabs>
       <NativeTabs.Trigger name="index">
         <Icon sf={{ default: "house", selected: "house.fill" }} />
-        <Label>홈</Label>
+        <Label>{t('tabs.home')}</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="vocab-lists">
         <Icon sf={{ default: "books.vertical", selected: "books.vertical.fill" }} />
-        <Label>단어장</Label>
+        <Label>{t('tabs.vocabLists')}</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="curation">
         <Icon sf={{ default: "square.stack", selected: "square.stack.fill" }} />
-        <Label>단어 모음</Label>
+        <Label>{t('tabs.curation')}</Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="settings">
         <Icon sf={{ default: "gearshape", selected: "gearshape.fill" }} />
-        <Label>설정</Label>
+        <Label>{t('tabs.settings')}</Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   );
 }
 
 function ClassicTabLayout() {
+  const { t } = useTranslation();
   const { colors, isDark } = useTheme();
   const insets = useSafeAreaInsets();
   const isWeb = Platform.OS === "web";
@@ -92,7 +95,7 @@ function ClassicTabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarLabel: "홈",
+          tabBarLabel: t('tabs.home'),
           tabBarIcon: ({ color }) => (
             <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
               <Ionicons name="home-outline" size={24} color={color} style={{ fontWeight: '200' }} />
@@ -103,7 +106,7 @@ function ClassicTabLayout() {
       <Tabs.Screen
         name="vocab-lists"
         options={{
-          tabBarLabel: "단어장",
+          tabBarLabel: t('tabs.vocabLists'),
           tabBarIcon: ({ color }) => (
             <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
               <Ionicons name="library-outline" size={24} color={color} />
@@ -114,7 +117,7 @@ function ClassicTabLayout() {
       <Tabs.Screen
         name="curation"
         options={{
-          tabBarLabel: "모음집",
+          tabBarLabel: t('tabs.curation'),
           tabBarIcon: ({ color }) => (
             <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
               <Ionicons name="cloud-outline" size={24} color={color} />
@@ -125,7 +128,7 @@ function ClassicTabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          tabBarLabel: "설정",
+          tabBarLabel: t('tabs.settings'),
           tabBarIcon: ({ color }) => (
             <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
               <Ionicons name="settings-outline" size={24} color={color} />

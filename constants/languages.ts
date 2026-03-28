@@ -1,52 +1,42 @@
 export const SUPPORTED_LANGUAGES = [
-  { code: 'en', label: '영어', flag: '🇺🇸' },
-  { code: 'ko', label: '한국어', flag: '🇰🇷' },
-  { code: 'ja', label: '일본어', flag: '🇯🇵' },
-  { code: 'zh', label: '중국어', flag: '🇨🇳' },
+  { code: 'en', flag: '🇺🇸' },
+  { code: 'ko', flag: '🇰🇷' },
+  { code: 'ja', flag: '🇯🇵' },
+  { code: 'zh', flag: '🇨🇳' },
 ] as const;
 
 export type LanguageCode = typeof SUPPORTED_LANGUAGES[number]['code'];
-
-export function getLanguageLabel(code: string): string {
-  return SUPPORTED_LANGUAGES.find(l => l.code === code)?.label ?? code.toUpperCase();
-}
 
 export function getLanguageFlag(code: string): string {
   return SUPPORTED_LANGUAGES.find(l => l.code === code)?.flag ?? '🌐';
 }
 
-export function getPlaceholderText(sourceLang: LanguageCode): string {
-  const map: Record<LanguageCode, string> = {
-    en: 'Enter a word',
-    ko: '단어를 입력하세요',
-    ja: '単語を入力',
-    zh: '输入单词',
-  };
-  return map[sourceLang] || 'Enter a word';
+/** Returns localized language name using i18n. Falls back to uppercase code. */
+export function getLanguageLabel(code: string, t: (key: string) => string): string {
+  return t(`languages.${code}`) || code.toUpperCase();
 }
 
-export function getMeaningLabel(targetLang: LanguageCode): string {
-  const map: Record<LanguageCode, string> = {
-    ko: '한국어 뜻',
-    en: '영어 뜻',
-    ja: '일본어 뜻',
-    zh: '중국어 뜻',
-  };
-  return map[targetLang] || `${getLanguageLabel(targetLang)} 뜻`;
+/** Returns the input placeholder text for the given source language. */
+export function getPlaceholderText(sourceLang: LanguageCode, t: (key: string) => string): string {
+  return t(`languages.placeholder.${sourceLang}`) || 'Enter a word';
 }
 
-export function getDefinitionLabel(sourceLang: LanguageCode): string {
-  const map: Record<LanguageCode, string> = {
-    en: '영문 정의',
-    ko: '한국어 정의',
-    ja: '일본어 정의',
-    zh: '중국어 정의',
-  };
-  return map[sourceLang] || `${getLanguageLabel(sourceLang)} 정의`;
+/** Returns localized label for the meaning field. */
+export function getMeaningLabel(targetLang: LanguageCode, t: (key: string, opts?: any) => string): string {
+  const lang = getLanguageLabel(targetLang, t);
+  return t('languages.meaningLabel', { lang });
 }
 
-export function getExampleTranslationLabel(targetLang: LanguageCode): string {
-  return `${getLanguageLabel(targetLang)} 해석`;
+/** Returns localized label for the definition field. */
+export function getDefinitionLabel(sourceLang: LanguageCode, t: (key: string, opts?: any) => string): string {
+  const lang = getLanguageLabel(sourceLang, t);
+  return t('languages.definitionLabel', { lang });
+}
+
+/** Returns localized label for the example translation field. */
+export function getExampleTranslationLabel(targetLang: LanguageCode, t: (key: string, opts?: any) => string): string {
+  const lang = getLanguageLabel(targetLang, t);
+  return t('languages.translationLabel', { lang });
 }
 
 export function getNaverDictCode(sourceLang: string, targetLang: string): string | null {

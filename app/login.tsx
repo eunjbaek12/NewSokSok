@@ -10,6 +10,7 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/Button';
 
@@ -17,6 +18,7 @@ const GOOGLE_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID || '';
 
 export default function LoginScreen() {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const { loginAsGuest, loginWithGoogle } = useAuth();
   const [loading, setLoading] = useState<'google' | 'guest' | null>(null);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
@@ -25,8 +27,8 @@ export default function LoginScreen() {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     if (!GOOGLE_CLIENT_ID) {
       Alert.alert(
-        'Google 로그인 준비 중',
-        'Google 로그인은 아직 설정 중입니다. 먼저 "바로 시작하기"를 이용해 주세요.',
+        t('login.googleNotReady'),
+        t('login.googleNotReadyMessage'),
       );
       return;
     }
@@ -60,7 +62,7 @@ export default function LoginScreen() {
         setLoading(null);
       }
     } catch {
-      Alert.alert('로그인 실패', 'Google 로그인에 실패했습니다. 다시 시도해 주세요.');
+      Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
       setLoading(null);
     }
   };
@@ -81,9 +83,9 @@ export default function LoginScreen() {
               <Ionicons name="book" size={40} color="#FFFFFF" />
             </View>
           </View>
-          <Text style={styles.appName}>쏙쏙 보카</Text>
-          <Text style={styles.appNameEn}>SokSok Voca</Text>
-          <Text style={styles.tagline}>AI로 만드는 나만의 영어 단어장</Text>
+          <Text style={styles.appName}>{t('login.appName')}</Text>
+          <Text style={styles.appNameEn}>{t('login.appNameEn')}</Text>
+          <Text style={styles.tagline}>{t('login.tagline')}</Text>
         </View>
 
         <View style={styles.featuresSection}>
@@ -91,19 +93,19 @@ export default function LoginScreen() {
             <View style={styles.featureDot}>
               <Ionicons name="sparkles" size={16} color="#6C5CE7" />
             </View>
-            <Text style={styles.featureText}>AI 테마 단어장 자동 생성</Text>
+            <Text style={styles.featureText}>{t('login.featureAI')}</Text>
           </View>
           <View style={styles.featureRow}>
             <View style={styles.featureDot}>
               <Ionicons name="card-outline" size={16} color="#6C5CE7" />
             </View>
-            <Text style={styles.featureText}>플래시카드 & 퀴즈 학습</Text>
+            <Text style={styles.featureText}>{t('login.featureFlashcard')}</Text>
           </View>
           <View style={styles.featureRow}>
             <View style={styles.featureDot}>
               <Ionicons name="volume-high-outline" size={16} color="#6C5CE7" />
             </View>
-            <Text style={styles.featureText}>쉐도잉 & 발음 연습</Text>
+            <Text style={styles.featureText}>{t('login.featureShadowing')}</Text>
           </View>
         </View>
 
@@ -115,15 +117,15 @@ export default function LoginScreen() {
             variant="outline"
             icon="logo-google"
             iconColor="#4285F4"
-            title="Google로 로그인"
+            title={t('login.googleLogin')}
             style={styles.googleBtn}
             textStyle={styles.googleBtnText}
           />
-          <Text style={styles.googleSubtext}>다른 기기에서도 단어장을 동기화할 수 있어요</Text>
+          <Text style={styles.googleSubtext}>{t('login.googleSubtext')}</Text>
 
           <View style={styles.divider}>
             <View style={styles.dividerLine} />
-            <Text style={styles.dividerText}>또는</Text>
+            <Text style={styles.dividerText}>{t('common.or')}</Text>
             <View style={styles.dividerLine} />
           </View>
 
@@ -133,19 +135,19 @@ export default function LoginScreen() {
             disabled={loading !== null}
             variant="primary"
             icon="phone-portrait-outline"
-            title="바로 시작하기"
+            title={t('login.guestStart')}
             style={styles.guestBtn}
             textStyle={styles.guestBtnText}
           />
           <Text style={styles.guestSubtext}>
-            회원가입 없이 이 기기에서 바로 사용할 수 있어요
+            {t('login.guestSubtext')}
           </Text>
         </View>
       </View>
 
       <View style={[styles.footer, { paddingBottom: Platform.OS === 'web' ? 34 + 16 : insets.bottom + 16 }]}>
         <Text style={styles.footerText}>
-          계속하면 서비스 이용약관에 동의하는 것으로 간주합니다
+          {t('login.terms')}
         </Text>
       </View>
     </View>

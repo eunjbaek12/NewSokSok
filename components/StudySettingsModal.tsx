@@ -3,6 +3,7 @@ import { View, Text, Pressable, Platform, StyleSheet, Modal } from 'react-native
 import { ScrollView, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { useAnimatedStyle, withTiming, interpolateColor } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const CustomToggle = ({ value, onValueChange, activeColor = '#4A7DFF' }: { value: boolean, onValueChange: (v: boolean) => void, activeColor?: string }) => {
@@ -82,6 +83,7 @@ export default function StudySettingsModal({
     onApply,
 }: StudySettingsModalProps) {
     const { colors, isDark } = useTheme();
+    const { t } = useTranslation();
     const [tempSettings, setTempSettings] = useState<StudySettings>(initialSettings);
     const [tempBatchSize, setTempBatchSize] = useState<number | 'all'>(initialBatchSize);
 
@@ -112,7 +114,7 @@ export default function StudySettingsModal({
                     >
                         <View style={styles.settingsHeader}>
                             <Text style={[styles.settingsTitle, { color: colors.text }]}>
-                                {mode === 'flashcard' ? '플래시카드 설정' : mode === 'quiz' ? '퀴즈 설정' : mode === 'examples' ? '문장완성 설정' : '자동재생 설정'}
+                                {mode === 'flashcard' ? t('studySettings.flashcardsSettings') : mode === 'quiz' ? t('studySettings.quizSettings') : mode === 'examples' ? t('studySettings.examplesSettings') : t('studySettings.autoplaySettings')}
                             </Text>
                             <Pressable onPress={onClose} hitSlop={8} style={styles.closeBtn}>
                                 <Ionicons name="close" size={20} color={colors.textSecondary} />
@@ -128,7 +130,7 @@ export default function StudySettingsModal({
                         >
                             {/* 공통: 출제 대상 */}
                             <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>출제 대상</Text>
+                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.targetWords')}</Text>
 
                                 <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
                                     {(['all', 'learning', 'memorized'] as const).map(f => {
@@ -146,7 +148,7 @@ export default function StudySettingsModal({
                                                     isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
                                                     { color: isActive ? '#4A7DFF' : colors.textSecondary }
                                                 ]}>
-                                                    {f === 'all' ? '전체' : f === 'learning' ? '미암기' : '암기'}
+                                                    {f === 'all' ? t('studySettings.all') : f === 'learning' ? t('studySettings.unmemorized') : t('studySettings.memorized')}
                                                 </Text>
                                             </Pressable>
                                         );
@@ -160,7 +162,7 @@ export default function StudySettingsModal({
                                         <View style={styles.iconContainer}>
                                             <Ionicons name="star-outline" size={16} color="#4A7DFF" />
                                         </View>
-                                        <Text style={[styles.settingLabel, { color: colors.text }]}>즐겨찾기만 보기</Text>
+                                        <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.starredOnly')}</Text>
                                     </View>
                                     <CustomToggle
                                         value={tempSettings.isStarred}
@@ -177,7 +179,7 @@ export default function StudySettingsModal({
                                                 <View style={styles.iconContainer}>
                                                     <Ionicons name="text-outline" size={16} color="#10B981" />
                                                 </View>
-                                                <Text style={[styles.settingLabel, { color: colors.text }]}>품사 표시</Text>
+                                                <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.showPos')}</Text>
                                             </View>
                                             <CustomToggle
                                                 value={!!tempSettings.showPos}
@@ -190,7 +192,7 @@ export default function StudySettingsModal({
 
                             {/* 공통: 학습 단위 */}
                             <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 단위</Text>
+                                <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.studyUnit')}</Text>
                                 <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
                                     {['all', 10, 20, 30].map(size => {
                                         const isActive = tempBatchSize === size;
@@ -207,7 +209,7 @@ export default function StudySettingsModal({
                                                     isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
                                                     { color: isActive ? '#4A7DFF' : colors.textSecondary }
                                                 ]}>
-                                                    {size === 'all' ? '전체' : `${size}개`}
+                                                    {size === 'all' ? t('studySettings.all') : t('studySettings.nPerSet', { size })}
                                                 </Text>
                                             </Pressable>
                                         );
@@ -218,14 +220,14 @@ export default function StudySettingsModal({
                             {/* 플래시카드, 문장완성, 자동재생 공통: 학습 옵션 */}
                             {(mode === 'flashcard' || mode === 'examples' || mode === 'autoplay') && (
                                 <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 옵션</Text>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.studyOptions')}</Text>
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
                                                 <Ionicons name="shuffle-outline" size={16} color="#9333EA" />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>
-                                                {mode === 'examples' ? '문장 섞기 (Shuffle)' : '단어 섞기 (Shuffle)'}
+                                                {mode === 'examples' ? t('studySettings.shuffleSentences') : t('studySettings.shuffleWords')}
                                             </Text>
                                         </View>
                                         <CustomToggle
@@ -241,7 +243,7 @@ export default function StudySettingsModal({
                                             <View style={styles.iconContainer}>
                                                 <Ionicons name="volume-high-outline" size={16} color="#FF5722" />
                                             </View>
-                                            <Text style={[styles.settingLabel, { color: colors.text }]}>자동 음성 재생</Text>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.autoSound')}</Text>
                                         </View>
                                         <CustomToggle
                                             value={!!tempSettings.autoPlaySound}
@@ -257,7 +259,7 @@ export default function StudySettingsModal({
                                                     <View style={styles.iconContainer}>
                                                         <Ionicons name="time-outline" size={16} color="#F59E0B" />
                                                     </View>
-                                                    <Text style={[styles.settingLabel, { color: colors.text }]}>다음 단어 딜레이</Text>
+                                                    <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.nextDelay')}</Text>
                                                 </View>
                                                 <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6', flex: 1, marginLeft: 16 }]}>
                                                     {(['1s', '2s', '3s'] as const).map(d => {
@@ -290,7 +292,7 @@ export default function StudySettingsModal({
                             {/* 플래시카드 및 자동재생 공통: 카드 뒷면 표시 */}
                             {(mode === 'flashcard' || mode === 'autoplay') && (
                                 <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>표시 설정</Text>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.displaySettings')}</Text>
 
 
 
@@ -299,7 +301,7 @@ export default function StudySettingsModal({
                                             <View style={styles.iconContainer}>
                                                 <Ionicons name="text-outline" size={16} color="#10B981" />
                                             </View>
-                                            <Text style={[styles.settingLabel, { color: colors.text }]}>품사</Text>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.pos')}</Text>
                                         </View>
                                         <CustomToggle
                                             value={!!tempSettings.showPos}
@@ -315,7 +317,7 @@ export default function StudySettingsModal({
                                                     <View style={styles.iconContainer}>
                                                         <Ionicons name="headset-outline" size={16} color="#F59E0B" />
                                                     </View>
-                                                    <Text style={[styles.settingLabel, { color: colors.text }]}>발음기호</Text>
+                                                    <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.phonetic')}</Text>
                                                 </View>
                                                 <CustomToggle
                                                     value={!!tempSettings.showPhonetic}
@@ -332,7 +334,7 @@ export default function StudySettingsModal({
                                             <View style={styles.iconContainer}>
                                                 <Ionicons name="chatbubble-outline" size={16} color="#EC4899" />
                                             </View>
-                                            <Text style={[styles.settingLabel, { color: colors.text }]}>예문</Text>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.example')}</Text>
                                         </View>
                                         <CustomToggle
                                             value={!!tempSettings.showExample}
@@ -347,7 +349,7 @@ export default function StudySettingsModal({
                                             <View style={styles.iconContainer}>
                                                 <Ionicons name="language-outline" size={16} color="#14B8A6" />
                                             </View>
-                                            <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석</Text>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.exampleTranslation')}</Text>
                                         </View>
                                         <CustomToggle
                                             value={!!tempSettings.showExampleKr}
@@ -360,14 +362,14 @@ export default function StudySettingsModal({
                             {/* 문장완성 전용: 표시 설정 */}
                             {mode === 'examples' && (
                                 <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>표시 설정</Text>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.displaySettings')}</Text>
 
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
                                                 <Ionicons name="language-outline" size={16} color="#F59E0B" />
                                             </View>
-                                            <Text style={[styles.settingLabel, { color: colors.text }]}>예문 해석</Text>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.exampleTranslation')}</Text>
                                         </View>
                                         <CustomToggle
                                             value={!!tempSettings.showExampleKr}
@@ -380,14 +382,14 @@ export default function StudySettingsModal({
                             {/* 퀴즈 전용: 문제 옵션 */}
                             {mode === 'quiz' && (
                                 <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>문제 옵션</Text>
+                                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.questionOptions')}</Text>
 
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
                                                 <Ionicons name="swap-horizontal-outline" size={16} color="#9333EA" />
                                             </View>
-                                            <Text style={[styles.settingLabel, { color: colors.text }]}>퀴즈 유형</Text>
+                                            <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.quizType')}</Text>
                                         </View>
                                         <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6', flex: 1, marginLeft: 16 }]}>
                                             <Pressable
@@ -400,7 +402,7 @@ export default function StudySettingsModal({
                                                 <Text style={[
                                                     tempSettings.quizType === 'meaning-to-term' ? styles.segmentedTabTextActive : styles.segmentedTabText,
                                                     { color: tempSettings.quizType === 'meaning-to-term' ? '#4A7DFF' : colors.textSecondary }
-                                                ]}>뜻 → 단어</Text>
+                                                ]}>{t('studySettings.meaningToWord')}</Text>
                                             </Pressable>
                                             <Pressable
                                                 onPress={() => updateSetting('quizType', 'term-to-meaning')}
@@ -412,7 +414,7 @@ export default function StudySettingsModal({
                                                 <Text style={[
                                                     tempSettings.quizType === 'term-to-meaning' ? styles.segmentedTabTextActive : styles.segmentedTabText,
                                                     { color: tempSettings.quizType === 'term-to-meaning' ? '#4A7DFF' : colors.textSecondary }
-                                                ]}>단어 → 뜻</Text>
+                                                ]}>{t('studySettings.wordToMeaning')}</Text>
                                             </Pressable>
                                         </View>
                                     </View>
@@ -426,14 +428,14 @@ export default function StudySettingsModal({
                                 style={[styles.btnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
                                 onPress={onClose}
                             >
-                                <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>닫기</Text>
+                                <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>{t('common.close')}</Text>
                             </Pressable>
 
                             <Pressable
                                 style={styles.btnApply}
                                 onPress={handleApply}
                             >
-                                <Text style={styles.btnApplyText}>적용</Text>
+                                <Text style={styles.btnApplyText}>{t('common.apply')}</Text>
                             </Pressable>
                         </View>
                     </Pressable>

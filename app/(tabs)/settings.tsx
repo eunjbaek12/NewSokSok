@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -14,16 +14,24 @@ import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLocale } from '@/contexts/LocaleContext';
+import { UI_LOCALES } from '@/i18n';
+import { ModalPicker } from '@/components/ui/ModalPicker';
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const { colors, isDark, toggleTheme } = useTheme();
   const { authMode, user, logout } = useAuth();
-
+  const { locale, setLocale } = useLocale();
+  const [showLangPicker, setShowLangPicker] = useState(false);
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
+
+  const currentLangLabel = UI_LOCALES.find((l) => l.code === locale)?.nativeLabel ?? locale;
 
   const handleToggleTheme = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -32,14 +40,14 @@ export default function SettingsScreen() {
 
   const handleLogout = () => {
     Alert.alert(
-      '로그아웃',
+      t('settings.logoutTitle'),
       authMode === 'google'
-        ? '로그아웃하면 로그인 화면으로 돌아갑니다. 클라우드 데이터는 보관됩니다.'
-        : '로그아웃하면 로그인 화면으로 돌아갑니다.',
+        ? t('settings.logoutMessageGoogle')
+        : t('settings.logoutMessageGuest'),
       [
-        { text: '취소', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: '로그아웃',
+          text: t('settings.logout'),
           style: 'destructive',
           onPress: () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -54,14 +62,14 @@ export default function SettingsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <Text style={[styles.headerTitle, { color: colors.text }]}>설정</Text>
+        <Text style={[styles.headerTitle, { color: colors.text }]}>{t('settings.title')}</Text>
       </View>
 
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>계정</Text>
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.account')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
             <View style={styles.rowLeft}>
@@ -83,19 +91,19 @@ export default function SettingsScreen() {
                 <Text style={[styles.rowTitle, { color: colors.text }]}>
                   {authMode === 'google' && user?.displayName
                     ? user.displayName
-                    : '게스트 사용자'}
+                    : t('settings.guestUser')}
                 </Text>
                 <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
                   {authMode === 'google' && user?.email
                     ? user.email
-                    : '로컬 저장소 사용 중'}
+                    : t('settings.localStorageInUse')}
                 </Text>
               </View>
             </View>
             {authMode === 'google' && (
               <View style={[styles.cloudBadge, { backgroundColor: colors.successLight }]}>
                 <Ionicons name="cloud-done-outline" size={14} color={colors.success} />
-                <Text style={[styles.cloudBadgeText, { color: colors.success }]}>동기화</Text>
+                <Text style={[styles.cloudBadgeText, { color: colors.success }]}>{t('settings.sync')}</Text>
               </View>
             )}
           </View>
@@ -104,12 +112,12 @@ export default function SettingsScreen() {
               <View style={[styles.iconCircle, { backgroundColor: '#FEE2E2' }]}>
                 <Ionicons name="log-out-outline" size={18} color="#EF4444" />
               </View>
-              <Text style={[styles.rowTitle, { color: '#EF4444' }]}>로그아웃</Text>
+              <Text style={[styles.rowTitle, { color: '#EF4444' }]}>{t('settings.logout')}</Text>
             </View>
           </Pressable>
         </View>
 
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>화면</Text>
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.display')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={styles.row}>
             <View style={styles.rowLeft}>
@@ -117,9 +125,9 @@ export default function SettingsScreen() {
                 <Ionicons name="moon-outline" size={18} color={colors.primary} />
               </View>
               <View>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>다크 모드</Text>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.darkMode')}</Text>
                 <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
-                  {isDark ? '다크' : '라이트'} 테마 사용 중
+                  {t('settings.themeInUse', { theme: isDark ? t('settings.dark') : t('settings.light') })}
                 </Text>
               </View>
             </View>
@@ -132,16 +140,36 @@ export default function SettingsScreen() {
           </View>
         </View>
 
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.language')}</Text>
+        <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <Pressable
+            style={styles.row}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              setShowLangPicker(true);
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="globe-outline" size={18} color={colors.primary} />
+              </View>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.appLanguage')}</Text>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+              <Text style={[styles.rowValue, { color: colors.textSecondary }]}>{currentLangLabel}</Text>
+              <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+            </View>
+          </Pressable>
+        </View>
 
-
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>정보</Text>
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.info')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
             <View style={styles.rowLeft}>
               <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
                 <Ionicons name="information-circle-outline" size={18} color={colors.primary} />
               </View>
-              <Text style={[styles.rowTitle, { color: colors.text }]}>앱 이름</Text>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.appName')}</Text>
             </View>
             <Text style={[styles.rowValue, { color: colors.textSecondary }]}>SokSok Voca</Text>
           </View>
@@ -150,7 +178,7 @@ export default function SettingsScreen() {
               <View style={[styles.iconCircle, { backgroundColor: colors.successLight }]}>
                 <Ionicons name="code-slash-outline" size={18} color={colors.success} />
               </View>
-              <Text style={[styles.rowTitle, { color: colors.text }]}>버전</Text>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.version')}</Text>
             </View>
             <Text style={[styles.rowValue, { color: colors.textSecondary }]}>1.0.0</Text>
           </View>
@@ -158,6 +186,23 @@ export default function SettingsScreen() {
 
         <View style={{ height: 100 }} />
       </ScrollView>
+
+      <ModalPicker
+        visible={showLangPicker}
+        onClose={() => setShowLangPicker(false)}
+        title={t('settings.appLanguage')}
+        options={UI_LOCALES.map((l) => ({
+          id: l.code,
+          title: l.nativeLabel,
+          subtitle: l.flag,
+        }))}
+        selectedValue={locale}
+        onSelect={(id) => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          setLocale(id as any);
+          setShowLangPicker(false);
+        }}
+      />
     </View>
   );
 }

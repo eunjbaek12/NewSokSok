@@ -24,8 +24,9 @@ import { speak } from '@/lib/tts';
 import { Word, StudyResult } from '@/lib/types';
 import BatchResultOverlay from '@/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
+import { useTranslation } from 'react-i18next';
 
-function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean }) {
+function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean, t: (key: string) => string }) {
   const frontStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [0, 180]);
     return {
@@ -71,12 +72,12 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos }: { 
         )}
       </Pressable>
 
-      <Text style={[styles.hintText, { color: colors.textTertiary }]}>탭하여 뜻 보기</Text>
+      <Text style={[styles.hintText, { color: colors.textTertiary }]}>{t('flashcards.tapToReveal')}</Text>
     </Animated.View>
   );
 }
 
-function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, showExample, showExampleKr, showPhonetic, showPos }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean, showExampleKr: boolean, showPhonetic: boolean, showPos: boolean }) {
+function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, showExample, showExampleKr, showPhonetic, showPos, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean, showExampleKr: boolean, showPhonetic: boolean, showPos: boolean, t: (key: string) => string }) {
   const backStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [180, 360]);
     return {
@@ -133,7 +134,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
       {showMeaning ? (
         <Text style={[styles.cardMeaning, { color: colors.text }]}>{word.meaningKr}</Text>
       ) : (
-        <Text style={[styles.cardMeaning, { color: colors.textSecondary, opacity: 0.3 }]}>[뜻 숨김]</Text>
+        <Text style={[styles.cardMeaning, { color: colors.textSecondary, opacity: 0.3 }]}>{t('flashcards.meaningHidden')}</Text>
       )}
 
       {showExample && word.exampleEn ? (
@@ -152,7 +153,8 @@ export default function FlashcardsScreen() {
   const { id, filter, isStarred: initialIsStarred, ids } = useLocalSearchParams<{ id: string; filter?: string; isStarred?: string; ids?: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
-  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, incrementWrongCount } = useVocab();
+  const { t } = useTranslation();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount } = useVocab();
   const { studySettings, updateStudySettings } = useSettings();
   const list = lists.find(l => l.id === id);
 
@@ -321,6 +323,9 @@ export default function FlashcardsScreen() {
       .map(r => r.word.id);
 
     const wrongWordIds = finalResults.filter(r => !r.gotIt).map(r => r.word.id);
+    const correctWordIds = finalResults
+      .filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0)
+      .map(r => r.word.id);
 
     if (memorizedWords.length > 0) {
       await setWordsMemorized(id!, memorizedWords, true);
@@ -330,6 +335,9 @@ export default function FlashcardsScreen() {
     }
     if (wrongWordIds.length > 0) {
       await incrementWrongCount(wrongWordIds);
+    }
+    if (correctWordIds.length > 0) {
+      await resetWrongCount(correctWordIds);
     }
     setStudyResults(finalResults);
     router.replace({
@@ -461,20 +469,20 @@ export default function FlashcardsScreen() {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
         <Ionicons name="albums-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
-        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>학습할 단어가 없습니다</Text>
-        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>선택한 필터나 중요 표시(⭐)에 맞는 단어가 없습니다. 설정을 확인해 주세요.</Text>
+        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>{t('flashcards.noWords')}</Text>
+        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>{t('flashcards.noWordsDesc')}</Text>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <Pressable
             onPress={() => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>설정 변경</Text>
+            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
             style={{ backgroundColor: colors.surfaceSecondary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
+            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
           </Pressable>
         </View>
 
@@ -501,7 +509,7 @@ export default function FlashcardsScreen() {
 
           <View style={styles.titleArea}>
             <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
-              {list?.title || '플래시카드'}
+              {list?.title || t('flashcards.title')}
             </Text>
           </View>
 
@@ -532,21 +540,21 @@ export default function FlashcardsScreen() {
         <Animated.View style={[styles.indicator, styles.leftIndicator, reviewIndicatorStyle]}>
           <View style={[styles.indicatorBox, { borderColor: colors.warning }]}>
             <Ionicons name="arrow-back" size={32} color={colors.warning} />
-            <Text style={[styles.indicatorText, { color: colors.warning }]}>복습</Text>
+            <Text style={[styles.indicatorText, { color: colors.warning }]}>{t('flashcards.review')}</Text>
           </View>
         </Animated.View>
 
         <Animated.View style={[styles.indicator, styles.rightIndicator, gotItIndicatorStyle]}>
           <View style={[styles.indicatorBox, { borderColor: colors.primary }]}>
             <Ionicons name="arrow-forward" size={32} color={colors.primary} />
-            <Text style={[styles.indicatorText, { color: colors.primary }]}>외웠어요</Text>
+            <Text style={[styles.indicatorText, { color: colors.primary }]}>{t('flashcards.memorized')}</Text>
           </View>
         </Animated.View>
 
         <GestureDetector gesture={panGesture}>
           <Animated.View style={[styles.cardContainer, animatedCardStyle]}>
             <Pressable style={{ flex: 1, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} onPress={handleFlip}>
-              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} />
+              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} t={t} />
               <CardBack
                 word={currentWord}
                 colors={colors}
@@ -558,6 +566,7 @@ export default function FlashcardsScreen() {
                 showExampleKr={!!settings.showExampleKr}
                 showPhonetic={!!settings.showPhonetic}
                 showPos={!!settings.showPos}
+                t={t}
               />
             </Pressable>
           </Animated.View>

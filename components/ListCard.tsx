@@ -3,22 +3,23 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { VocaList, Word } from '@/lib/types';
 import { computePlanStatus } from '@/lib/plan-engine';
 import ProgressBar from '@/components/ui/ProgressBar';
 import StatusBadge, { StatusBadgeType } from '@/components/ui/StatusBadge';
 
-export function getRelativeTime(timestamp?: number): string {
-  if (!timestamp) return '학습 기록 없음';
+export function getRelativeTime(timestamp: number | undefined, t: (key: string, opts?: any) => string): string {
+  if (!timestamp) return t('listCard.noStudyRecord');
   const now = Date.now();
   const diff = now - timestamp;
-  if (diff < 60 * 1000) return '방금 전';
-  if (diff < 60 * 60 * 1000) return `${Math.floor(diff / (60 * 1000))}분 전`;
-  if (diff < 24 * 60 * 60 * 1000) return `${Math.floor(diff / (60 * 60 * 1000))}시간 전`;
+  if (diff < 60 * 1000) return t('listCard.justNow');
+  if (diff < 60 * 60 * 1000) return t('listCard.minutesAgo', { count: Math.floor(diff / (60 * 1000)) });
+  if (diff < 24 * 60 * 60 * 1000) return t('listCard.hoursAgo', { count: Math.floor(diff / (60 * 60 * 1000)) });
   const days = Math.floor(diff / (24 * 60 * 60 * 1000));
-  if (days === 1) return '어제';
-  return `${days}일 전`;
+  if (days === 1) return t('listCard.yesterday');
+  return t('listCard.daysAgo', { count: days });
 }
 
 interface ListCardProps {
@@ -35,8 +36,9 @@ export default function ListCard({
   onOpenMenu,
 }: ListCardProps) {
   const { colors, isDark } = useTheme();
+  const { t } = useTranslation();
   const progress = getListProgress(item.id);
-  const relativeTime = getRelativeTime(item.lastStudiedAt);
+  const relativeTime = getRelativeTime(item.lastStudiedAt, t);
 
   const planStatus = React.useMemo(
     () => computePlanStatus(item, item.words, Date.now()),
@@ -111,7 +113,7 @@ export default function ListCard({
             </Text>
           </View>
           <Text style={[styles.lastStudied, { color: colors.textTertiary }]}>
-            마지막 학습: {relativeTime}
+            {t('listCard.lastStudy', { time: relativeTime })}
           </Text>
         </View>
         <View style={styles.cardActions}>
@@ -135,7 +137,7 @@ export default function ListCard({
           <ProgressBar percent={progress.percent} colors={colors} />
           <View style={styles.planStatsRow}>
             <Text style={[styles.planStatsText, { color: colors.textSecondary }]}>
-              {progress.memorized} / {progress.total} 단어
+              {t('listCard.wordProgress', { memorized: progress.memorized, total: progress.total })}
             </Text>
             <Text style={[styles.planStatsPercent, {
               color: progress.percent === 100 ? colors.success : colors.primary,
@@ -169,8 +171,8 @@ export default function ListCard({
                 ? colors.warning
                 : '#FFFFFF',
           }]}>
-            {planStatus === 'none' ? '학습계획'
-              : planStatus === 'completed' ? '복습하기' : '학습하기'}
+            {planStatus === 'none' ? t('listCard.planLabel')
+              : planStatus === 'completed' ? t('listCard.reviewAction') : t('listCard.studyAction')}
           </Text>
         </Pressable>
       </View>

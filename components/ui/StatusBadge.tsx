@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 
 export type StatusBadgeType = 'learning' | 'completed' | 'curated' | 'plan-progress' | 'plan-done' | 'plan-overdue' | 'plan-inactive';
@@ -11,15 +12,16 @@ interface StatusBadgeProps {
 
 export default function StatusBadge({ type }: StatusBadgeProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   const config: Record<StatusBadgeType, { label: string; text: string; bg: string }> = {
-    learning: { label: '학습 중', text: colors.primary, bg: colors.primaryLight },
-    completed: { label: '완료', text: colors.textTertiary, bg: colors.borderLight },
-    curated: { label: '모음', text: colors.secondary, bg: colors.secondaryLight },
-    'plan-progress': { label: '진행중', text: colors.primary, bg: colors.primaryLight },
-    'plan-done': { label: '완료', text: colors.success, bg: colors.successLight },
-    'plan-overdue': { label: '기간만료', text: colors.error, bg: colors.errorLight },
-    'plan-inactive': { label: '중단됨', text: colors.warning, bg: colors.warningLight },
+    learning: { label: t('status.studying'), text: colors.primary, bg: colors.primaryLight },
+    completed: { label: t('status.completed'), text: colors.textTertiary, bg: colors.borderLight },
+    curated: { label: t('status.curated'), text: colors.secondary, bg: colors.secondaryLight },
+    'plan-progress': { label: t('status.planInProgress'), text: colors.primary, bg: colors.primaryLight },
+    'plan-done': { label: t('status.planCompleted'), text: colors.success, bg: colors.successLight },
+    'plan-overdue': { label: t('status.planExpired'), text: colors.error, bg: colors.errorLight },
+    'plan-inactive': { label: t('status.planInactive'), text: colors.warning, bg: colors.warningLight },
   };
 
   const { label, text, bg } = config[type];

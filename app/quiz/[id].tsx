@@ -11,6 +11,7 @@ import { Word, StudyResult } from '@/lib/types';
 import { speak } from '@/lib/tts';
 import BatchResultOverlay from '@/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
+import { useTranslation } from 'react-i18next';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -31,7 +32,8 @@ export default function QuizScreen() {
   }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, incrementWrongCount } = useVocab();
+  const { t } = useTranslation();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount } = useVocab();
   const { studySettings, updateStudySettings } = useSettings();
   const list = lists.find(l => l.id === id);
 
@@ -214,6 +216,9 @@ export default function QuizScreen() {
       .map(r => r.word.id);
 
     const wrongWordIds = finalResults.filter(r => !r.gotIt).map(r => r.word.id);
+    const correctWordIds = finalResults
+      .filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0)
+      .map(r => r.word.id);
 
     if (memorizedWords.length > 0) {
       await setWordsMemorized(id!, memorizedWords, true);
@@ -223,6 +228,9 @@ export default function QuizScreen() {
     }
     if (wrongWordIds.length > 0) {
       await incrementWrongCount(wrongWordIds);
+    }
+    if (correctWordIds.length > 0) {
+      await resetWrongCount(correctWordIds);
     }
     setStudyResults(finalResults);
     router.replace({
@@ -246,20 +254,20 @@ export default function QuizScreen() {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
         <Ionicons name="help-circle-outline" size={64} color={colors.textTertiary} style={{ marginBottom: 16 }} />
-        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>문항이 없습니다</Text>
-        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>선택한 조건에 맞는 단어가 없습니다. 설정을 확인해 주세요.</Text>
+        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', textAlign: 'center', marginBottom: 8 }}>{t('quiz.noQuestions')}</Text>
+        <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 24, paddingHorizontal: 40 }}>{t('quiz.noQuestionsDesc')}</Text>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <Pressable
             onPress={() => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>설정 변경</Text>
+            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
             style={{ backgroundColor: colors.surfaceSecondary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
+            <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
           </Pressable>
         </View>
         <StudySettingsModal
@@ -288,7 +296,7 @@ export default function QuizScreen() {
 
           <View style={styles.titleArea}>
             <Text style={[styles.headerTitle, { color: colors.text }]} numberOfLines={1}>
-              {list?.title || '퀴즈'}
+              {list?.title || t('quiz.title')}
             </Text>
           </View>
 
@@ -415,7 +423,7 @@ export default function QuizScreen() {
             onPress={() => setCurrentIndex(prev => prev - 1)}
           >
             <Ionicons name="chevron-back" size={20} color={colors.text} />
-            <Text style={[styles.navBtnText, { color: colors.text }]}>이전</Text>
+            <Text style={[styles.navBtnText, { color: colors.text }]}>{t('common.previous')}</Text>
           </Pressable>
 
           <Pressable
@@ -423,7 +431,7 @@ export default function QuizScreen() {
             disabled={currentIndex >= currentBatchWords.length - 1}
             onPress={() => setCurrentIndex(prev => prev + 1)}
           >
-            <Text style={[styles.navBtnText, { color: colors.text }]}>다음</Text>
+            <Text style={[styles.navBtnText, { color: colors.text }]}>{t('common.next')}</Text>
             <Ionicons name="chevron-forward" size={20} color={colors.text} />
           </Pressable>
         </View>

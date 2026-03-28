@@ -18,6 +18,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { useAddWord } from '@/hooks/useAddWord';
@@ -55,6 +56,7 @@ type InputMode = 'manual' | 'photo' | 'excel';
 const DraggableFieldItem = ({
     id,
     label,
+    requiredLabel,
     index,
     totalCount,
     isVisible,
@@ -65,6 +67,7 @@ const DraggableFieldItem = ({
 }: {
     id: string;
     label: string;
+    requiredLabel: string;
     index: number;
     totalCount: number;
     isVisible: boolean;
@@ -158,7 +161,7 @@ const DraggableFieldItem = ({
                     </Text>
                     {isFixed && (
                         <View style={{ backgroundColor: colors.surfaceSecondary, paddingHorizontal: 5, paddingVertical: 1, borderRadius: 4, marginLeft: 6 }}>
-                            <Text style={{ fontSize: 9, color: colors.textTertiary, fontFamily: 'Pretendard_600SemiBold' }}>필수</Text>
+                            <Text style={{ fontSize: 9, color: colors.textTertiary, fontFamily: 'Pretendard_600SemiBold' }}>{requiredLabel}</Text>
                         </View>
                     )}
                 </View>
@@ -175,18 +178,18 @@ const DraggableFieldItem = ({
     );
 };
 
-const DraggableFieldList = ({ settings, onUpdate, colors }: { settings: any, onUpdate: (s: any) => void, colors: any }) => {
+const DraggableFieldList = ({ settings, onUpdate, colors, t }: { settings: any, onUpdate: (s: any) => void, colors: any, t: (key: string, opts?: any) => string }) => {
     // 모든 필드를 포함하되, term과 meaningKr은 isFixed 처리
     const sourceLang = (settings.sourceLang || 'en') as LanguageCode;
     const targetLang = (settings.targetLang || 'ko') as LanguageCode;
     const labels: Record<string, string> = {
-        term: '단어 입력',
-        meaningKr: getMeaningLabel(targetLang),
-        pos: '품사',
-        phonetic: '발음기호',
-        definition: getDefinitionLabel(sourceLang),
-        example: '예문 및 해석',
-        tags: '태그',
+        term: t('addWord.wordInput'),
+        meaningKr: getMeaningLabel(targetLang, t),
+        pos: t('addWord.pos'),
+        phonetic: t('addWord.phonetic'),
+        definition: getDefinitionLabel(sourceLang, t),
+        example: t('addWord.exampleAndTranslation'),
+        tags: t('addWord.tags'),
     };
 
     const handleSwap = (from: number, to: number) => {
@@ -208,6 +211,7 @@ const DraggableFieldList = ({ settings, onUpdate, colors }: { settings: any, onU
                         key={id}
                         id={id}
                         label={labels[id]}
+                        requiredLabel={t('addWord.required')}
                         index={index}
                         totalCount={settings.fieldOrder.length}
                         isVisible={
@@ -239,6 +243,7 @@ const DraggableFieldList = ({ settings, onUpdate, colors }: { settings: any, onU
 export default function AddWordScreen() {
     const termInputRef = React.useRef<TextInput>(null);
     const { listId, wordId } = useLocalSearchParams<{ listId: string; wordId?: string }>();
+    const { t } = useTranslation();
     const { colors } = useTheme();
     const insets = useSafeAreaInsets();
     const { lists, getWordsForList, createList, addWord } = useVocab();
@@ -458,7 +463,7 @@ export default function AddWordScreen() {
                 if (isEditing) {
                     router.back();
                 } else {
-                    setToastMessage(`"${savedTerm}" 추가 완료!`);
+                    setToastMessage(t('addWord.addedComplete', { term: savedTerm }));
                     setToastVisible(true);
                     setTimeout(() => setToastVisible(false), 1200);
 
@@ -485,12 +490,12 @@ export default function AddWordScreen() {
             setListPickerOpen(false);
         } catch (e: any) {
             if (e?.message === 'DUPLICATE_LIST') {
-                Alert.alert('중복된 이름', `"${trimmed}" 단어장이 이미 있습니다. 다른 이름을 사용해 주세요.`);
+                Alert.alert(t('addWord.duplicateName'), t('addWord.duplicateNameMessage', { name: trimmed }));
             }
         }
     };
 
-    const selectedListTitle = lists.find(l => l.id === selectedListId)?.title || '단어장 고르기';
+    const selectedListTitle = lists.find(l => l.id === selectedListId)?.title || t('addWord.selectList');
 
     const pickerOptions: PickerOption[] = lists.map(l => ({
         id: l.id,
@@ -506,7 +511,7 @@ export default function AddWordScreen() {
         <View style={[styles.pickerNewRow, { borderColor: colors.border }]}>
             <TextInput
                 style={[styles.pickerNewInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-                placeholder="새 단어장 이름"
+                placeholder={t('addWord.newListName')}
                 placeholderTextColor={colors.textTertiary}
                 value={newListName}
                 onChangeText={setNewListName}
@@ -520,7 +525,7 @@ export default function AddWordScreen() {
                 style={[styles.pickerNewBtn, { backgroundColor: newListName.trim() ? colors.primary : colors.surfaceSecondary }]}
             >
                 <Text style={{ color: newListName.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: 14, fontFamily: 'Pretendard_600SemiBold' }}>
-                    만들기
+                    {t('common.create')}
                 </Text>
             </Pressable>
         </View>
@@ -531,7 +536,7 @@ export default function AddWordScreen() {
         >
             <Ionicons name="add-circle-outline" size={20} color={colors.primary} />
             <Text style={[styles.pickerOptionText, { color: colors.primary }]}>
-                + 새 단어장 만들기
+                {t('addWord.createNewList')}
             </Text>
         </Pressable>
     );
@@ -544,10 +549,10 @@ export default function AddWordScreen() {
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                         <Ionicons name="warning-outline" size={48} color={colors.warning} style={{ marginBottom: 16 }} />
                         <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Pretendard_500Medium', textAlign: 'center' }}>
-                            먼저 단어장을 선택해주세요.
+                            {t('addWord.selectListFirst')}
                         </Text>
                         <Button
-                            title="단어장 선택하기"
+                            title={t('addWord.selectListButton')}
                             onPress={() => setInputMode('manual')}
                             style={{ marginTop: 20 }}
                         />
@@ -570,10 +575,10 @@ export default function AddWordScreen() {
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                         <Ionicons name="warning-outline" size={48} color={colors.warning} style={{ marginBottom: 16 }} />
                         <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Pretendard_500Medium', textAlign: 'center' }}>
-                            먼저 단어장을 선택해주세요.
+                            {t('addWord.selectListFirst')}
                         </Text>
                         <Button
-                            title="단어장 선택하기"
+                            title={t('addWord.selectListButton')}
                             onPress={() => setInputMode('manual')}
                             style={{ marginTop: 20 }}
                         />
@@ -599,7 +604,7 @@ export default function AddWordScreen() {
                                 }
                             }
                             if (addedCount > 0) {
-                                setToastMessage(`${addedCount}개 추출 단어 저장 완료!`);
+                                setToastMessage(t('addWord.batchSaveComplete', { count: addedCount }));
                                 setToastVisible(true);
                                 setTimeout(() => setToastVisible(false), 2000);
                             }
@@ -648,10 +653,10 @@ export default function AddWordScreen() {
                     }
                 ]}>
                     <Pressable onPress={() => router.back()} hitSlop={8}>
-                        <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>취소</Text>
+                        <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>{t('common.cancel')}</Text>
                     </Pressable>
                     <Text style={[styles.topBarTitle, { color: colors.text }]}>
-                        {isEditing ? '단어 편집' : '단어 추가'}
+                        {isEditing ? t('addWord.editWord') : t('addWord.addWordTitle')}
                     </Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Pressable onPress={() => setFieldSettingsOpen(true)} hitSlop={12} style={{ padding: 6 }}>
@@ -692,7 +697,7 @@ export default function AddWordScreen() {
                                                     <TextInput
                                                         ref={termInputRef}
                                                         style={[styles.wordInput, { color: colors.text, borderColor: errors.term ? colors.error : colors.border }]}
-                                                        placeholder={getPlaceholderText(inputSettings.sourceLang)}
+                                                        placeholder={getPlaceholderText(inputSettings.sourceLang, t)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
                                                         onChangeText={(t) => {
@@ -734,7 +739,7 @@ export default function AddWordScreen() {
                                                         </Pressable>
                                                     </View>
                                                 </View>
-                                                {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>단어를 입력해주세요</Text>}
+                                                {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('addWord.enterWordError')}</Text>}
                                             </View>
                                         );
                                     }
@@ -743,11 +748,11 @@ export default function AddWordScreen() {
                                         return (
                                             <Input
                                                 key="meaningKr"
-                                                label={getMeaningLabel(inputSettings.targetLang)}
-                                                placeholder={`${getMeaningLabel(inputSettings.targetLang)} 입력`}
+                                                label={getMeaningLabel(inputSettings.targetLang, t)}
+                                                placeholder={getMeaningLabel(inputSettings.targetLang, t)}
                                                 value={meaningKr}
-                                                onChangeText={(t: string) => { setMeaningKr(t); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
-                                                error={errors.meaningKr ? "뜻을 입력해주세요" : undefined}
+                                                onChangeText={(v: string) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                                error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
                                             />
                                         );
                                     }
@@ -756,8 +761,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Animated.View key="pos" entering={FadeIn} exiting={FadeOut} layout={Layout}>
                                                 <Input
-                                                    label="품사"
-                                                    placeholder="품사 입력 (예: noun, v)"
+                                                    label={t('addWord.pos')}
+                                                    placeholder={t('addWord.pos')}
                                                     value={pos}
                                                     onChangeText={setPos}
                                                 />
@@ -769,8 +774,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Animated.View key="phonetic" entering={FadeIn} exiting={FadeOut} layout={Layout}>
                                                 <Input
-                                                    label="발음기호"
-                                                    placeholder="발음기호 입력"
+                                                    label={t('addWord.phonetic')}
+                                                    placeholder={t('addWord.phonetic')}
                                                     value={phonetic}
                                                     onChangeText={setPhonetic}
                                                 />
@@ -782,16 +787,16 @@ export default function AddWordScreen() {
                                         return (
                                             <Animated.View key="example" entering={FadeIn} exiting={FadeOut} layout={Layout} style={{ gap: 16 }}>
                                                 <Input
-                                                    label="예문"
-                                                    placeholder="예문 입력"
+                                                    label={t('addWord.exampleLabel')}
+                                                    placeholder={t('addWord.exampleLabel')}
                                                     value={exampleEn}
                                                     onChangeText={setExampleEn}
                                                     multiline
                                                     style={{ fontStyle: 'italic' }}
                                                 />
                                                 <Input
-                                                    label={getExampleTranslationLabel(inputSettings.targetLang)}
-                                                    placeholder={getExampleTranslationLabel(inputSettings.targetLang)}
+                                                    label={getExampleTranslationLabel(inputSettings.targetLang, t)}
+                                                    placeholder={getExampleTranslationLabel(inputSettings.targetLang, t)}
                                                     value={exampleKr}
                                                     onChangeText={setExampleKr}
                                                     multiline
@@ -804,8 +809,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Animated.View key="definition" entering={FadeIn} exiting={FadeOut} layout={Layout}>
                                                 <Input
-                                                    label={getDefinitionLabel(inputSettings.sourceLang)}
-                                                    placeholder={`${getDefinitionLabel(inputSettings.sourceLang)} 입력`}
+                                                    label={getDefinitionLabel(inputSettings.sourceLang, t)}
+                                                    placeholder={getDefinitionLabel(inputSettings.sourceLang, t)}
                                                     value={definition}
                                                     onChangeText={setDefinition}
                                                     multiline
@@ -817,11 +822,11 @@ export default function AddWordScreen() {
                                     if (fieldId === 'tags' && inputSettings.showTags) {
                                         return (
                                             <Animated.View key="tags" entering={FadeIn} exiting={FadeOut} layout={Layout} style={styles.tagsContainer}>
-                                                <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>태그</Text>
+                                                <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>{t('addWord.tags')}</Text>
                                                 <View style={styles.tagInputRow}>
                                                     <TextInput
                                                         style={[styles.tagInput, { color: colors.text, borderColor: colors.border, backgroundColor: colors.surface }]}
-                                                        placeholder="태그 입력 (쉼표/공백 구분)"
+                                                        placeholder={t('addWord.tags')}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={tagInput}
                                                         onChangeText={setTagInput}
@@ -886,7 +891,7 @@ export default function AddWordScreen() {
                                 ) : (
                                     <>
                                         <Ionicons name="checkmark" size={20} color="#fff" />
-                                        <Text style={styles.fabText}>저장</Text>
+                                        <Text style={styles.fabText}>{t('common.save')}</Text>
                                     </>
                                 )}
                             </Pressable>
@@ -909,10 +914,10 @@ export default function AddWordScreen() {
             <ModalPicker
                 visible={enginePickerOpen}
                 onClose={() => setEnginePickerOpen(false)}
-                title="입력 방식 선택"
+                title={t('addWord.inputModeTitle')}
                 options={[
-                    { id: 'photo', title: '사진 스캔' },
-                    { id: 'excel', title: '엑셀 업로드' },
+                    { id: 'photo', title: t('addWord.photoScan') },
+                    { id: 'excel', title: t('addWord.excelUpload') },
                 ]}
                 selectedValue={undefined}
                 onSelect={(id: string) => {
@@ -940,7 +945,7 @@ export default function AddWordScreen() {
                                 </View>
 
                                 <View style={styles.modalHeader}>
-                                    <Text style={[styles.modalTitle, { color: colors.text }]}>입력 항목 설정</Text>
+                                    <Text style={[styles.modalTitle, { color: colors.text }]}>{t('addWord.fieldSettings')}</Text>
                                     <Pressable onPress={() => setFieldSettingsOpen(false)} hitSlop={12} style={{ backgroundColor: colors.surfaceSecondary, padding: 6, borderRadius: 20 }}>
                                         <Ionicons name="close" size={20} color={colors.textSecondary} />
                                     </Pressable>
@@ -962,7 +967,7 @@ export default function AddWordScreen() {
                                 >
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                                         <Ionicons name="expand-outline" size={18} color={colors.primary} />
-                                        <Text style={[styles.settingsSectionTitle, { marginBottom: 0, color: colors.primary, fontSize: 13 }]}>전체 화면 모드</Text>
+                                        <Text style={[styles.settingsSectionTitle, { marginBottom: 0, color: colors.primary, fontSize: 13 }]}>{t('addWord.fullscreenMode')}</Text>
                                     </View>
                                     <View
                                         style={{
@@ -1001,11 +1006,11 @@ export default function AddWordScreen() {
                                 >
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                                         <Text style={{ fontSize: 16 }}>🔤</Text>
-                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>입력 언어</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.inputLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
                                         <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.sourceLang)}</Text>
-                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.sourceLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.sourceLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>
                                 </Pressable>
@@ -1027,18 +1032,18 @@ export default function AddWordScreen() {
                                 >
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                                         <Text style={{ fontSize: 16 }}>🎯</Text>
-                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>뜻 언어</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.meaningLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
                                         <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.targetLang)}</Text>
-                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.targetLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.targetLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>
                                 </Pressable>
 
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6, paddingHorizontal: 4 }}>
-                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>항목명</Text>
-                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>표시</Text>
+                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>{t('addWord.fieldName')}</Text>
+                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>{t('addWord.display')}</Text>
                                 </View>
 
                                 <View style={{ maxHeight: 380, paddingBottom: 12 }}>
@@ -1046,6 +1051,7 @@ export default function AddWordScreen() {
                                         settings={tempSettings}
                                         onUpdate={setTempSettings}
                                         colors={colors}
+                                        t={t}
                                     />
                                 </View>
 
@@ -1054,7 +1060,7 @@ export default function AddWordScreen() {
                                         onPress={handleCancelSettings}
                                         style={[styles.modalActionBtn, { backgroundColor: colors.surfaceSecondary, flex: 1, height: 48 }]}
                                     >
-                                        <Text style={[styles.modalActionBtnText, { color: colors.textSecondary }]}>취소</Text>
+                                        <Text style={[styles.modalActionBtnText, { color: colors.textSecondary }]}>{t('common.cancel')}</Text>
                                     </Pressable>
                                     <Pressable
                                         onPress={handleApplySettings}
@@ -1073,11 +1079,11 @@ export default function AddWordScreen() {
                                         {isApplying ? (
                                             <>
                                                 <Ionicons name="checkmark" size={20} color="#fff" />
-                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>적용됨</Text>
+                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>{t('addWord.applied')}</Text>
                                             </>
                                         ) : (
                                             <>
-                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>적용</Text>
+                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>{t('common.apply')}</Text>
                                                 <View style={{ backgroundColor: 'rgba(255,255,255,0.2)', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10 }}>
                                                     <Text style={{ color: '#fff', fontSize: 12, fontFamily: 'Pretendard_700Bold' }}>{selectedFieldsCount}</Text>
                                                 </View>
@@ -1094,7 +1100,7 @@ export default function AddWordScreen() {
             <ModalPicker
                 visible={listPickerOpen}
                 onClose={() => setListPickerOpen(false)}
-                title="단어장 고르기"
+                title={t('addWord.selectList')}
                 options={pickerOptions}
                 selectedValue={selectedListId}
                 onSelect={handleSelectList}
@@ -1105,10 +1111,10 @@ export default function AddWordScreen() {
             <ModalPicker
                 visible={sourceLangPickerOpen}
                 onClose={() => setSourceLangPickerOpen(false)}
-                title="입력 언어 선택"
+                title={t('addWord.inputLanguageSelect')}
                 options={SUPPORTED_LANGUAGES
                     .filter(l => l.code !== tempSettings.targetLang)
-                    .map(l => ({ id: l.code, label: `${l.flag} ${l.label}` }))}
+                    .map(l => ({ id: l.code, label: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
                 selectedValue={tempSettings.sourceLang}
                 onSelect={(code: string) => {
                     setTempSettings(s => ({ ...s, sourceLang: code as LanguageCode }));
@@ -1120,10 +1126,10 @@ export default function AddWordScreen() {
             <ModalPicker
                 visible={targetLangPickerOpen}
                 onClose={() => setTargetLangPickerOpen(false)}
-                title="뜻 언어 선택"
+                title={t('addWord.meaningLanguageSelect')}
                 options={SUPPORTED_LANGUAGES
                     .filter(l => l.code !== tempSettings.sourceLang)
-                    .map(l => ({ id: l.code, label: `${l.flag} ${l.label}` }))}
+                    .map(l => ({ id: l.code, label: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
                 selectedValue={tempSettings.targetLang}
                 onSelect={(code: string) => {
                     setTempSettings(s => ({ ...s, targetLang: code as LanguageCode }));

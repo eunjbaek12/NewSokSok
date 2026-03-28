@@ -13,12 +13,14 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { Word } from '@/lib/types';
 import * as Haptics from 'expo-haptics';
 
 export default function SearchModalScreen() {
+    const { t } = useTranslation();
     const router = useRouter();
     const { colors } = useTheme();
     const insets = useSafeAreaInsets();
@@ -132,7 +134,7 @@ export default function SearchModalScreen() {
                 {item.isTagMatch && (
                     <View style={[styles.tagMatchBadge, { backgroundColor: colors.primaryLight }]}>
                         <Ionicons name="pricetag-outline" size={12} color={colors.primary} />
-                        <Text style={[styles.tagMatchText, { color: colors.primary }]}>태그 일치</Text>
+                        <Text style={[styles.tagMatchText, { color: colors.primary }]}>{t('search.tagMatch')}</Text>
                     </View>
                 )}
 
@@ -158,7 +160,7 @@ export default function SearchModalScreen() {
                         <Ionicons name="search" size={20} color={colors.textTertiary} />
                         <TextInput
                             style={[styles.searchInput, { color: colors.text }]}
-                            placeholder="단어, 뜻, 태그 검색..."
+                            placeholder={t('search.placeholder')}
                             placeholderTextColor={colors.textTertiary}
                             value={query}
                             onChangeText={setQuery}
@@ -173,7 +175,7 @@ export default function SearchModalScreen() {
                         )}
                     </View>
                     <Pressable onPress={() => router.back()} hitSlop={10}>
-                        <Text style={[styles.cancelText, { color: colors.textSecondary }]}>취소</Text>
+                        <Text style={[styles.cancelText, { color: colors.textSecondary }]}>{t('common.cancel')}</Text>
                     </Pressable>
                 </View>
 
@@ -193,7 +195,7 @@ export default function SearchModalScreen() {
                             ]}
                         >
                             <Ionicons name={starredOnly ? "star" : "star-outline"} size={14} color={starredOnly ? "#FFD700" : colors.textSecondary} />
-                            <Text style={[styles.filterChipText, { color: starredOnly ? colors.text : colors.textSecondary }]}>중요 단어</Text>
+                            <Text style={[styles.filterChipText, { color: starredOnly ? colors.text : colors.textSecondary }]}>{t('search.starred')}</Text>
                         </Pressable>
 
                         <View style={{ width: 1, backgroundColor: colors.borderLight, marginVertical: 6, marginHorizontal: 2 }} />
@@ -208,7 +210,7 @@ export default function SearchModalScreen() {
                                 }
                             ]}
                         >
-                            <Text style={[styles.filterChipText, { color: selectedListId === null ? colors.background : colors.textSecondary }]}>전체 단어장</Text>
+                            <Text style={[styles.filterChipText, { color: selectedListId === null ? colors.background : colors.textSecondary }]}>{t('search.allLists')}</Text>
                         </Pressable>
 
                         {lists.map(item => {
@@ -239,7 +241,7 @@ export default function SearchModalScreen() {
                 <View style={styles.emptyStateContainer}>
                     {topTags.length > 0 ? (
                         <View style={styles.recommendationBox}>
-                            <Text style={[styles.recommendTitle, { color: colors.textSecondary }]}>많이 찾는 태그</Text>
+                            <Text style={[styles.recommendTitle, { color: colors.textSecondary }]}>{t('search.popularTags')}</Text>
                             <View style={styles.tagWrap}>
                                 {topTags.map(t => (
                                     <Pressable
@@ -260,7 +262,7 @@ export default function SearchModalScreen() {
                     ) : (
                         <View style={styles.noTagsBox}>
                             <Ionicons name="search-outline" size={48} color={colors.border} />
-                            <Text style={[styles.noTagsText, { color: colors.textTertiary }]}>검색어를 입력해보세요.</Text>
+                            <Text style={[styles.noTagsText, { color: colors.textTertiary }]}>{t('search.enterQuery')}</Text>
                         </View>
                     )}
                 </View>
@@ -272,7 +274,7 @@ export default function SearchModalScreen() {
                     contentContainerStyle={[styles.resultsContent, { paddingBottom: insets.bottom + 20 }]}
                     ListEmptyComponent={
                         <View style={styles.noTagsBox}>
-                            <Text style={[styles.noTagsText, { color: colors.textTertiary }]}>검색 결과가 없습니다.</Text>
+                            <Text style={[styles.noTagsText, { color: colors.textTertiary }]}>{t('search.noResults')}</Text>
                         </View>
                     }
                 />
@@ -288,8 +290,8 @@ const styles = StyleSheet.create({
     searchBox: { flex: 1, flexDirection: 'row', alignItems: 'center', height: 44, borderRadius: 12, paddingHorizontal: 12, gap: 8 },
     searchInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_400Regular' },
     cancelText: { fontSize: 16, fontFamily: 'Pretendard_500Medium' },
-    filterScrollerWrap: { marginHorizontal: -16 },
-    filterContent: { paddingHorizontal: 16, gap: 8 },
+    filterScrollerWrap: { marginHorizontal: -16, height: 52 },
+    filterContent: { paddingHorizontal: 16, paddingVertical: 8, gap: 8, alignItems: 'center' },
     filterChip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, borderWidth: 1 },
     filterChipText: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     emptyStateContainer: { flex: 1, padding: 20 },

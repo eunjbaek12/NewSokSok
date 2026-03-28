@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { VocaList } from '@/lib/types';
 
@@ -51,6 +52,7 @@ function ManageRowItem({
   onDelete: (id: string, isNew: boolean) => void;
   onReorder: (from: number, to: number) => void;
 }) {
+  const { t } = useTranslation();
   const translateY = useRef(new Animated.Value(0)).current;
   const indexRef = useRef(index);
   const totalRef = useRef(totalCount);
@@ -127,7 +129,7 @@ function ManageRowItem({
           </Text>
           {ml.isNew && (
             <View style={[styles.manageNewBadge, { backgroundColor: colors.successLight }]}>
-              <Text style={[styles.manageNewBadgeText, { color: colors.success }]}>새로운</Text>
+              <Text style={[styles.manageNewBadgeText, { color: colors.success }]}>{t('manage.newLabel')}</Text>
             </View>
           )}
         </Pressable>
@@ -178,6 +180,7 @@ export default function ManageModal({
   refreshData,
 }: ManageModalProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const [managedLists, setManagedLists] = useState<ManagedList[]>([]);
   const [newListName, setNewListName] = useState('');
   const [duplicateError, setDuplicateError] = useState('');
@@ -208,7 +211,7 @@ export default function ManageModal({
     });
     if (allTitles.includes(trimmed.toLowerCase())) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-      setDuplicateError(`"${trimmed}" 단어장이 이미 있습니다.`);
+      setDuplicateError(t('manage.duplicateMessage', { name: trimmed }));
       return;
     }
     setDuplicateError('');
@@ -268,7 +271,7 @@ export default function ManageModal({
         });
       if (otherTitles.includes(trimmed.toLowerCase())) {
         Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-        setDuplicateError(`"${trimmed}" 단어장이 이미 있습니다.`);
+        setDuplicateError(t('manage.duplicateMessage', { name: trimmed }));
         return;
       }
       setDuplicateError('');
@@ -370,13 +373,13 @@ export default function ManageModal({
       <View style={[styles.manageOverlay, { backgroundColor: colors.overlay }]}>
         <View style={[styles.manageSheet, { backgroundColor: colors.surface }]}>
           <View style={styles.manageHeader}>
-            <Text style={[styles.manageTitle, { color: colors.text }]}>나의 단어장 관리</Text>
+            <Text style={[styles.manageTitle, { color: colors.text }]}>{t('manage.title')}</Text>
           </View>
 
           <View style={[styles.manageAddRow, { borderBottomColor: colors.borderLight }]}>
             <TextInput
               style={[styles.manageAddInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-              placeholder="새로운 단어장 이름"
+              placeholder={t('manage.newListPlaceholder')}
               placeholderTextColor={colors.textTertiary}
               value={newListName}
               onChangeText={(t) => { setNewListName(t); if (duplicateError) setDuplicateError(''); }}
@@ -423,7 +426,7 @@ export default function ManageModal({
             {managedLists.length === 0 && (
               <View style={styles.manageEmpty}>
                 <Text style={[styles.manageEmptyText, { color: colors.textTertiary }]}>
-                  단어장이 없습니다. 위에서 추가해 보세요.
+                  {t('manage.emptyMessage')}
                 </Text>
               </View>
             )}
@@ -434,13 +437,13 @@ export default function ManageModal({
               onPress={onClose}
               style={[styles.manageFooterBtn, { backgroundColor: colors.surfaceSecondary }]}
             >
-              <Text style={[styles.manageFooterBtnText, { color: colors.text }]}>닫기</Text>
+              <Text style={[styles.manageFooterBtnText, { color: colors.text }]}>{t('common.close')}</Text>
             </Pressable>
             <Pressable
               onPress={handleApplyManage}
               style={[styles.manageFooterBtn, { backgroundColor: colors.primary }]}
             >
-              <Text style={[styles.manageFooterBtnText, { color: '#FFFFFF' }]}>적용</Text>
+              <Text style={[styles.manageFooterBtnText, { color: '#FFFFFF' }]}>{t('common.apply')}</Text>
             </Pressable>
           </View>
         </View>

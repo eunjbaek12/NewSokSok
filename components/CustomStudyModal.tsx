@@ -10,6 +10,7 @@ import { ScrollView, GestureHandlerRootView } from 'react-native-gesture-handler
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { useSettings, type CustomStudySettings } from '@/contexts/SettingsContext';
@@ -31,28 +32,31 @@ interface CustomStudyModalProps {
   initialFilter?: CustomStudySettings['wordFilter'];
 }
 
-const FILTER_OPTIONS: { key: CustomStudySettings['wordFilter']; label: string }[] = [
-  { key: 'all', label: '전체' },
-  { key: 'learning', label: '미암기' },
-  { key: 'wrongCount', label: '오답 위주' },
-  { key: 'recent', label: '최근 추가' },
-  { key: 'starred', label: '별표' },
-];
+const FILTER_OPTION_KEYS: CustomStudySettings['wordFilter'][] = ['all', 'learning', 'wrongCount', 'recent', 'starred'];
 
 export default function CustomStudyModal({ visible, onClose, initialFilter }: CustomStudyModalProps) {
   const { colors, isDark } = useTheme();
+  const { t } = useTranslation();
   const { lists } = useVocab();
   const { customStudySettings: settings, updateCustomStudySettings } = useSettings();
   const [showListPicker, setShowListPicker] = useState(false);
+
+  const filterOptions = useMemo(() => [
+    { key: 'all' as const, label: t('customStudy.filterAll') },
+    { key: 'learning' as const, label: t('customStudy.filterUnmemorized') },
+    { key: 'wrongCount' as const, label: t('customStudy.filterWrong') },
+    { key: 'recent' as const, label: t('customStudy.filterRecent') },
+    { key: 'starred' as const, label: t('customStudy.filterStarred') },
+  ], [t]);
 
   const visibleLists = useMemo(() => lists.filter(l => l.isVisible), [lists]);
 
   // 바로가기 프리셋 적용
   useEffect(() => {
-    if (visible && initialFilter) {
+    if (visible && initialFilter && settings.wordFilter !== initialFilter) {
       updateCustomStudySettings({ wordFilter: initialFilter });
     }
-  }, [visible, initialFilter, updateCustomStudySettings]);
+  }, [visible, initialFilter, settings.wordFilter, updateCustomStudySettings]);
 
   // 삭제된 단어장 ID 자동 정리
   useEffect(() => {
@@ -118,16 +122,16 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
 
   // 학습 범위 요약 텍스트
   const rangeSummary = useMemo(() => {
-    if (settings.useAllLists || settings.selectedListIds.length === 0) {
-      return '전체 단어장';
+    if (settings.useAllLists) {
+      return t('customStudy.allLists');
     }
     const selectedNames = visibleLists
       .filter(l => settings.selectedListIds.includes(l.id))
       .map(l => l.title);
-    if (selectedNames.length === 0) return '미선택';
+    if (selectedNames.length === 0) return t('customStudy.noneSelected');
     if (selectedNames.length === 1) return selectedNames[0];
-    return `${selectedNames[0]} 외 ${selectedNames.length - 1}개`;
-  }, [settings.useAllLists, settings.selectedListIds, visibleLists]);
+    return t('customStudy.selectedLists', { first: selectedNames[0], rest: selectedNames.length - 1 });
+  }, [settings.useAllLists, settings.selectedListIds, visibleLists, t]);
 
   const noLists = visibleLists.length === 0;
 
@@ -142,7 +146,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
           >
             {/* 헤더 */}
             <View style={styles.header}>
-              <Text style={[styles.title, { color: colors.text }]}>맞춤 학습</Text>
+              <Text style={[styles.title, { color: colors.text }]}>{t('customStudy.title')}</Text>
               <Pressable onPress={onClose} hitSlop={8} style={styles.closeBtn}>
                 <Ionicons name="close" size={20} color={colors.textSecondary} />
               </Pressable>
@@ -152,7 +156,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
               <View style={styles.emptyContainer}>
                 <Ionicons name="book-outline" size={40} color={colors.textTertiary} />
                 <Text style={[styles.emptyText, { color: colors.textSecondary }]}>
-                  단어장이 없습니다.
+                  {t('customStudy.noLists')}
                 </Text>
               </View>
             ) : (
@@ -164,7 +168,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
                 >
                   {/* 학습 모드 */}
                   <View style={[styles.card, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 모드</Text>
+                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('customStudy.studyMode')}</Text>
                     <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
                       {(['flashcard', 'quiz'] as const).map(mode => {
                         const isActive = settings.studyMode === mode;
@@ -181,7 +185,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
                               isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
                               { color: isActive ? colors.primary : colors.textSecondary },
                             ]}>
-                              {mode === 'flashcard' ? '플래시카드' : '객관식 퀴즈'}
+                              {mode === 'flashcard' ? t('customStudy.flashcards') : t('customStudy.quiz')}
                             </Text>
                           </Pressable>
                         );
@@ -191,7 +195,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
 
                   {/* 학습 범위 */}
                   <View style={[styles.card, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>학습 범위</Text>
+                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('customStudy.studyScope')}</Text>
                     <Pressable
                       onPress={() => setShowListPicker(true)}
                       style={({ pressed }) => [styles.rangeRow, pressed && { opacity: 0.6 }]}
@@ -205,9 +209,9 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
 
                   {/* 단어 필터 */}
                   <View style={[styles.card, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>단어 필터</Text>
+                    <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('customStudy.wordFilter')}</Text>
                     <View style={styles.chipRow}>
-                      {FILTER_OPTIONS.map(opt => {
+                      {filterOptions.map(opt => {
                         const isActive = settings.wordFilter === opt.key;
                         return (
                           <Pressable
@@ -246,7 +250,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
                       styles.wordCountText,
                       { color: wordCount > 0 ? colors.primary : colors.textTertiary },
                     ]}>
-                      {wordCount > 0 ? `${wordCount}개 단어` : '해당 조건의 단어가 없습니다'}
+                      {wordCount > 0 ? t('customStudy.wordCount', { count: wordCount }) : t('customStudy.noMatchingWords')}
                     </Text>
                   </View>
                   <View style={styles.btnRow}>
@@ -254,7 +258,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
                       style={[styles.btnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
                       onPress={onClose}
                     >
-                      <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>닫기</Text>
+                      <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>{t('common.close')}</Text>
                     </Pressable>
                     <Pressable
                       style={[styles.btnStart, { backgroundColor: wordCount > 0 ? colors.primary : colors.borderLight }]}
@@ -262,7 +266,7 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
                       disabled={wordCount === 0}
                     >
                       <Text style={[styles.btnStartText, { color: wordCount > 0 ? '#FFF' : colors.textTertiary }]}>
-                        학습 시작
+                        {t('customStudy.startStudy')}
                       </Text>
                       {wordCount > 0 && <Ionicons name="arrow-forward" size={16} color="#FFF" />}
                     </Pressable>
@@ -280,7 +284,8 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
           selectedListIds={settings.useAllLists ? visibleLists.map(l => l.id) : settings.selectedListIds}
           selectedDaysByList={settings.selectedDaysByList}
           onApply={(listIds, daysByList) => {
-            const isAll = listIds.length === visibleLists.length;
+            const isAll = listIds.length === visibleLists.length &&
+              listIds.every(id => !daysByList[id] || daysByList[id] === 'all');
             updateCustomStudySettings({
               useAllLists: isAll,
               selectedListIds: isAll ? [] : listIds,

@@ -4,10 +4,12 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 
 export default function StudyResultsScreen() {
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { studyResults, clearStudyResults } = useVocab();
@@ -74,9 +76,9 @@ export default function StudyResultsScreen() {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
         <Ionicons name="alert-circle-outline" size={64} color={colors.textTertiary} />
-        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 16, fontSize: 18, fontFamily: 'Pretendard_600SemiBold' }}>결과 정보가 없습니다</Text>
+        <Text style={{ color: colors.text, textAlign: 'center', marginTop: 16, fontSize: 18, fontFamily: 'Pretendard_600SemiBold' }}>{t('studyResults.noResults')}</Text>
         <Pressable onPress={() => router.back()} style={{ marginTop: 24, backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 24, borderRadius: 12 }}>
-          <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>뒤로 가기</Text>
+          <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
         </Pressable>
       </View>
     );
@@ -93,9 +95,9 @@ export default function StudyResultsScreen() {
               color={allCorrect ? colors.success : colors.primary}
             />
           </View>
-          <Text style={[styles.title, { color: colors.text }]}>학습 완료!</Text>
+          <Text style={[styles.title, { color: colors.text }]}>{t('studyResults.complete')}</Text>
           <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-            {allCorrect ? '완벽해요! 모든 단어를 마스터했습니다.' : '잘했어요! 계속 이 페이스로 진행해보세요.'}
+            {allCorrect ? t('studyResults.perfectMessage') : t('studyResults.goodMessage')}
           </Text>
         </View>
 
@@ -103,12 +105,12 @@ export default function StudyResultsScreen() {
           <View style={styles.statsRow}>
             <View style={styles.statItem}>
               <Text style={[styles.statValue, { color: colors.text }]}>{accuracy}%</Text>
-              <Text style={[styles.statLabel, { color: colors.textTertiary }]}>정답률</Text>
+              <Text style={[styles.statLabel, { color: colors.textTertiary }]}>{t('studyResults.accuracy')}</Text>
             </View>
             <View style={[styles.statDivider, { backgroundColor: colors.borderLight }]} />
             <View style={styles.statItem}>
               <Text style={[styles.statValue, { color: colors.text }]}>{formatDuration(duration)}</Text>
-              <Text style={[styles.statLabel, { color: colors.textTertiary }]}>소요 시간</Text>
+              <Text style={[styles.statLabel, { color: colors.textTertiary }]}>{t('studyResults.duration')}</Text>
             </View>
           </View>
 
@@ -117,12 +119,12 @@ export default function StudyResultsScreen() {
           <View style={styles.summaryRow}>
             <View style={styles.summaryBox}>
               <View style={[styles.dot, { backgroundColor: colors.success }]} />
-              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>외웠어요:</Text>
+              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>{t('studyResults.memorized')}</Text>
               <Text style={[styles.summaryValue, { color: colors.success }]}>{gotItResults.length}</Text>
             </View>
             <View style={styles.summaryBox}>
               <View style={[styles.dot, { backgroundColor: colors.warning }]} />
-              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>복습 필요:</Text>
+              <Text style={[styles.summaryText, { color: colors.textSecondary }]}>{t('studyResults.needsReview')}</Text>
               <Text style={[styles.summaryValue, { color: colors.warning }]}>{reviewResults.length}</Text>
             </View>
           </View>
@@ -136,7 +138,7 @@ export default function StudyResultsScreen() {
             style={[styles.retryBtn, { borderColor: colors.primary }]}
           >
             <Ionicons name="refresh-outline" size={20} color={colors.primary} />
-            <Text style={[styles.retryBtnText, { color: colors.primary }]}>전체 다시 학습</Text>
+            <Text style={[styles.retryBtnText, { color: colors.primary }]}>{t('studyResults.restudyAll')}</Text>
           </Pressable>
 
           {reviewResults.length > 0 && (
@@ -145,7 +147,7 @@ export default function StudyResultsScreen() {
               style={[styles.retryBtn, { borderColor: colors.warning, flex: 1.2 }]}
             >
               <Ionicons name="repeat-outline" size={20} color={colors.warning} />
-              <Text style={[styles.retryBtnText, { color: colors.warning }]}>못 외운 단어만 학습</Text>
+              <Text style={[styles.retryBtnText, { color: colors.warning }]}>{t('studyResults.restudyWrong')}</Text>
             </Pressable>
           )}
         </View>
@@ -154,7 +156,7 @@ export default function StudyResultsScreen() {
           onPress={handleDone}
           style={[styles.doneBtn, { backgroundColor: colors.primary }]}
         >
-          <Text style={[styles.doneBtnText, { color: '#FFFFFF' }]}>학습 종료</Text>
+          <Text style={[styles.doneBtnText, { color: '#FFFFFF' }]}>{t('studyResults.endStudy')}</Text>
         </Pressable>
       </View>
     </View>

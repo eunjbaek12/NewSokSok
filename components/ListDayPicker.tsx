@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { groupWordsByDay } from '@/lib/plan-engine';
 import type { VocaList } from '@/lib/types';
@@ -30,6 +31,7 @@ export default function ListDayPicker({
   onApply,
 }: ListDayPickerProps) {
   const { colors, isDark } = useTheme();
+  const { t } = useTranslation();
 
   // 로컬 임시 state
   const [tempListIds, setTempListIds] = useState<string[]>([]);
@@ -44,7 +46,27 @@ export default function ListDayPicker({
     }
   }, [visible, selectedListIds, selectedDaysByList]);
 
-  const isAllSelected = tempListIds.length === lists.length;
+  // 각 리스트별 Day 섹션 캐시
+  const daySectionsMap = useMemo(() => {
+    const map: Record<string, { day: number; count: number }[]> = {};
+    for (const list of lists) {
+      if (list.planTotalDays && list.planTotalDays > 0) {
+        const sections = groupWordsByDay(list.words);
+        map[list.id] = sections
+          .filter(s => s.day > 0)
+          .map(s => ({ day: s.day, count: s.data.length }));
+      }
+    }
+    return map;
+  }, [lists]);
+
+  const isAllSelected = lists.length > 0 && tempListIds.length === lists.length && lists.every(list => {
+    const sections = daySectionsMap[list.id];
+    if (sections && sections.length > 0) {
+      return tempDaysByList[list.id] === 'all';
+    }
+    return true;
+  });
 
   const toggleAll = () => {
     if (isAllSelected) {
@@ -87,43 +109,46 @@ export default function ListDayPicker({
   };
 
   const toggleDay = (listId: string, day: number, totalDays: number[]) => {
-    setTempDaysByList(prev => {
-      const current = prev[listId];
-      if (current === 'all' || !current) {
-        // 전체에서 하나를 해제 → 나머지만 선택
-        return { ...prev, [listId]: totalDays.filter(d => d !== day) };
+    const current = tempDaysByList[listId];
+    if (current === 'all' || !current) {
+      setTempDaysByList(prev => ({ ...prev, [listId]: totalDays.filter(d => d !== day) }));
+      return;
+    }
+    if (current.includes(day)) {
+      const next = current.filter(d => d !== day);
+      if (next.length === 0) {
+        setTempListIds(prev => prev.filter(id => id !== listId));
+        setTempDaysByList(prev => {
+          const nextDays = { ...prev };
+          delete nextDays[listId];
+          return nextDays;
+        });
+      } else {
+        setTempDaysByList(prev => ({ ...prev, [listId]: next }));
       }
-      if (current.includes(day)) {
-        const next = current.filter(d => d !== day);
-        return { ...prev, [listId]: next.length === 0 ? 'all' : next };
-      }
-      const next = [...current, day];
-      return { ...prev, [listId]: next.length === totalDays.length ? 'all' : next };
-    });
+      return;
+    }
+    const next = [...current, day];
+    setTempDaysByList(prev => ({ ...prev, [listId]: next.length === totalDays.length ? 'all' : next }));
   };
 
   const selectAllDays = (listId: string) => {
-    setTempDaysByList(prev => ({ ...prev, [listId]: 'all' }));
+    if (tempDaysByList[listId] === 'all') {
+      setTempListIds(prev => prev.filter(id => id !== listId));
+      setTempDaysByList(prev => {
+        const next = { ...prev };
+        delete next[listId];
+        return next;
+      });
+    } else {
+      setTempDaysByList(prev => ({ ...prev, [listId]: 'all' }));
+    }
   };
 
   const handleApply = () => {
     onApply(tempListIds, tempDaysByList);
     onClose();
   };
-
-  // 각 리스트별 Day 섹션 캐시
-  const daySectionsMap = useMemo(() => {
-    const map: Record<string, { day: number; count: number }[]> = {};
-    for (const list of lists) {
-      if (list.planTotalDays && list.planTotalDays > 0) {
-        const sections = groupWordsByDay(list.words);
-        map[list.id] = sections
-          .filter(s => s.day > 0)
-          .map(s => ({ day: s.day, count: s.data.length }));
-      }
-    }
-    return map;
-  }, [lists]);
 
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
@@ -132,7 +157,7 @@ export default function ListDayPicker({
         <View style={[styles.container, { backgroundColor: isDark ? colors.background : '#F3F4F6' }]}>
           {/* 헤더 */}
           <View style={styles.header}>
-            <Text style={[styles.title, { color: colors.text }]}>학습 범위 선택</Text>
+            <Text style={[styles.title, { color: colors.text }]}>{t('dayPicker.title')}</Text>
             <Pressable onPress={onClose} hitSlop={8} style={styles.closeBtn}>
               <Ionicons name="close" size={20} color={colors.textSecondary} />
             </Pressable>
@@ -143,6 +168,7 @@ export default function ListDayPicker({
             onPress={toggleAll}
             style={[styles.allRow, { backgroundColor: isDark ? colors.surface : '#FFF', marginHorizontal: 12, borderRadius: 10, marginBottom: 6 }]}
           >
+            <Text style={[styles.allText, { color: colors.text }]}>{t('dayPicker.selectAll')}</Text>
             <View style={[
               styles.checkbox,
               {
@@ -152,7 +178,6 @@ export default function ListDayPicker({
             ]}>
               {isAllSelected && <Ionicons name="checkmark" size={12} color="#FFF" />}
             </View>
-            <Text style={[styles.allText, { color: colors.text }]}>전체 선택</Text>
           </Pressable>
 
           <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -163,23 +188,13 @@ export default function ListDayPicker({
               const daySections = daySectionsMap[list.id] || [];
               const daySelection = tempDaysByList[list.id];
               const allDayNums = daySections.map(s => s.day);
+              
+              const isIndeterminate = selected && hasDays && daySelection !== 'all' && Array.isArray(daySelection) && daySelection.length > 0;
 
               return (
                 <View key={list.id} style={[styles.listItem, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
-                  <View style={styles.listRow}>
-                    <Pressable
-                      onPress={() => toggleList(list.id)}
-                      style={styles.listRowLeft}
-                    >
-                      <View style={[
-                        styles.checkbox,
-                        {
-                          backgroundColor: selected ? colors.primary : 'transparent',
-                          borderColor: selected ? colors.primary : colors.border,
-                        },
-                      ]}>
-                        {selected && <Ionicons name="checkmark" size={12} color="#FFF" />}
-                      </View>
+                  <Pressable style={styles.listRow} onPress={() => toggleList(list.id)}>
+                    <View style={styles.listRowLeft}>
                       {list.icon ? (
                         <Text style={styles.listIcon}>{list.icon}</Text>
                       ) : (
@@ -190,20 +205,32 @@ export default function ListDayPicker({
                           {list.title}
                         </Text>
                         <Text style={[styles.listCount, { color: colors.textTertiary }]}>
-                          {list.words.length}개
+                          {t('common.nWords', { count: list.words.length })}
                         </Text>
                       </View>
-                    </Pressable>
-                    {hasDays && selected && (
-                      <Pressable onPress={() => toggleExpand(list.id)} hitSlop={8} style={styles.expandBtn}>
-                        <Ionicons
-                          name={expanded ? 'chevron-up' : 'chevron-down'}
-                          size={16}
-                          color={colors.textTertiary}
-                        />
-                      </Pressable>
-                    )}
-                  </View>
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                      {hasDays && selected && (
+                        <Pressable onPress={(e) => { e.stopPropagation(); toggleExpand(list.id); }} hitSlop={8} style={styles.expandBtn}>
+                          <Ionicons
+                            name={expanded ? 'chevron-up' : 'chevron-down'}
+                            size={16}
+                            color={colors.textTertiary}
+                          />
+                        </Pressable>
+                      )}
+                      <View style={[
+                        styles.checkbox,
+                        {
+                          backgroundColor: isIndeterminate ? (colors.primaryLight ?? `${colors.primary}20`) : (selected ? colors.primary : 'transparent'),
+                          borderColor: selected ? colors.primary : colors.border,
+                        },
+                      ]}>
+                        {!isIndeterminate && selected && <Ionicons name="checkmark" size={12} color="#FFF" />}
+                        {isIndeterminate && <Ionicons name="remove" size={12} color={colors.primary} />}
+                      </View>
+                    </View>
+                  </Pressable>
 
                   {/* Day 칩 */}
                   {hasDays && selected && expanded && (
@@ -221,7 +248,7 @@ export default function ListDayPicker({
                         <Text style={[
                           styles.dayChipText,
                           { color: daySelection === 'all' ? colors.primary : colors.textSecondary },
-                        ]}>전체</Text>
+                        ]}>{t('dayPicker.allWords')}</Text>
                       </Pressable>
                       {daySections.map(section => {
                         const isDayActive = daySelection === 'all' || (Array.isArray(daySelection) && daySelection.includes(section.day));
@@ -241,10 +268,10 @@ export default function ListDayPicker({
                               styles.dayChipText,
                               { color: isDayActive ? colors.primary : colors.textSecondary },
                             ]}>
-                              Day{section.day}
+                              {t('dayPicker.dayLabel', { day: section.day })}
                             </Text>
                             <Text style={[styles.dayChipCount, { color: isDayActive ? colors.primary : colors.textTertiary }]}>
-                              {section.count}
+                              {t('dayPicker.countLabel', { count: section.count })}
                             </Text>
                           </Pressable>
                         );
@@ -259,7 +286,7 @@ export default function ListDayPicker({
           {/* 적용 버튼 */}
           <View style={styles.footer}>
             <Pressable style={[styles.applyBtn, { backgroundColor: colors.primary }]} onPress={handleApply}>
-              <Text style={styles.applyBtnText}>적용</Text>
+              <Text style={styles.applyBtnText}>{t('common.apply')}</Text>
             </Pressable>
           </View>
         </View>
@@ -314,6 +341,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   allText: {
+    flex: 1,
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
   },

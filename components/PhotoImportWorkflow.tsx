@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Alert, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/Button';
 
@@ -23,6 +24,7 @@ interface PhotoImportWorkflowProps {
 
 export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: PhotoImportWorkflowProps) {
     const { colors } = useTheme();
+    const { t } = useTranslation();
     const [isScanning, setIsScanning] = useState(false);
     const [scannedWords, setScannedWords] = useState<ScannedWord[]>([]);
     const [isSaving, setIsSaving] = useState(false);
@@ -30,7 +32,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
     const handleCameraPress = async () => {
         const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
         if (permissionResult.granted === false) {
-            Alert.alert("권한 필요", "사진을 찍기 위해 카메라 권한이 필요합니다.");
+            Alert.alert(t('photoImport.cameraPermission'), t('photoImport.cameraPermissionMessage'));
             return;
         }
 
@@ -50,7 +52,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
     const handleGalleryPress = async () => {
         const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (permissionResult.granted === false) {
-            Alert.alert("권한 필요", "사진을 선택하기 위해 갤러리 권한이 필요합니다.");
+            Alert.alert(t('photoImport.galleryPermission'), t('photoImport.galleryPermissionMessage'));
             return;
         }
 
@@ -74,7 +76,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
             const words = await fetchWordsFromImage(base64Image);
 
             if (!Array.isArray(words) || words.length === 0) {
-                Alert.alert('알림', '이미지에서 단어를 찾지 못했습니다.');
+                Alert.alert(t('common.notice'), t('photoImport.noWordsFound'));
                 return;
             }
 
@@ -88,7 +90,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
             setScannedWords(wordsWithIds);
         } catch (error: any) {
             console.error(error);
-            Alert.alert('오류', error.message || '단어를 인식하는 중 문제가 발생했습니다.');
+            Alert.alert(t('common.error'), error.message || t('photoImport.saveError'));
         } finally {
             setIsScanning(false);
         }
@@ -106,7 +108,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
 
     const handleFinalSave = async () => {
         if (scannedWords.length === 0) {
-            Alert.alert('알림', '저장할 단어가 없습니다.');
+            Alert.alert(t('common.notice'), t('photoImport.noWordsToSave'));
             return;
         }
 
@@ -122,10 +124,10 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
             // Success - clear and close
             setScannedWords([]);
             onClose();
-            Alert.alert('성공', `${scannedWords.length}개의 단어가 추가되었습니다.`);
+            Alert.alert(t('common.success'), t('photoImport.wordsAdded', { count: scannedWords.length }));
         } catch (error) {
             console.error(error);
-            Alert.alert('오류', '단어 저장 중 문제가 발생했습니다.');
+            Alert.alert(t('common.error'), t('photoImport.saveError'));
         } finally {
             setIsSaving(false);
         }
@@ -139,13 +141,13 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                     <Pressable onPress={() => setScannedWords([])} hitSlop={8}>
                         <Ionicons name="arrow-back" size={24} color={colors.text} />
                     </Pressable>
-                    <Text style={[styles.title, { color: colors.text }]}>단어 확인 및 수정</Text>
+                    <Text style={[styles.title, { color: colors.text }]}>{t('photoImport.reviewTitle')}</Text>
                     <View style={{ width: 24 }} />
                 </View>
 
                 <View style={styles.subheader}>
                     <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-                        총 {scannedWords.length}개의 단어를 찾았습니다. 틀린 부분을 수정하거나 제외할 수 있습니다.
+                        {t('photoImport.reviewDesc', { count: scannedWords.length })}
                     </Text>
                 </View>
 
@@ -157,7 +159,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                                     style={[styles.inputBold, { color: colors.text, borderBottomColor: colors.border }]}
                                     value={item.word}
                                     onChangeText={(val) => updateWord(item.id, 'word', val)}
-                                    placeholder="단어"
+                                    placeholder={t('photoImport.wordLabel')}
                                     placeholderTextColor={colors.textTertiary}
                                 />
                                 <Pressable onPress={() => removeWord(item.id)} hitSlop={8}>
@@ -169,7 +171,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                                 style={[styles.input, { color: colors.text, borderBottomColor: colors.border }]}
                                 value={item.meaning}
                                 onChangeText={(val) => updateWord(item.id, 'meaning', val)}
-                                placeholder="뜻"
+                                placeholder={t('photoImport.meaningLabel')}
                                 placeholderTextColor={colors.textTertiary}
                             />
 
@@ -177,7 +179,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                                 style={[styles.input, styles.exampleInput, { color: colors.textSecondary }]}
                                 value={item.exampleSentence}
                                 onChangeText={(val) => updateWord(item.id, 'exampleSentence', val)}
-                                placeholder="예문"
+                                placeholder={t('photoImport.exampleLabel')}
                                 placeholderTextColor={colors.textTertiary}
                                 multiline
                             />
@@ -187,14 +189,14 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
 
                 <View style={[styles.footer, { backgroundColor: colors.background, borderTopColor: colors.borderLight }]}>
                     <Button
-                        title="취소"
+                        title={t('common.cancel')}
                         variant="secondary"
                         onPress={() => setScannedWords([])}
                         style={{ flex: 1 }}
                         disabled={isSaving}
                     />
                     <Button
-                        title="최종 저장하기"
+                        title={t('photoImport.finalSave')}
                         variant="primary"
                         onPress={handleFinalSave}
                         style={{ flex: 2 }}
@@ -213,7 +215,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                 <Pressable onPress={onClose} hitSlop={8}>
                     <Ionicons name="arrow-back" size={24} color={colors.text} />
                 </Pressable>
-                <Text style={[styles.title, { color: colors.text }]}>사진 스캔으로 추가</Text>
+                <Text style={[styles.title, { color: colors.text }]}>{t('photoImport.title')}</Text>
                 <View style={{ width: 24 }} />
             </View>
 
@@ -221,9 +223,9 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                 <View style={[styles.placeholderIconContainer, { backgroundColor: colors.primaryLight }]}>
                     <Ionicons name="camera-outline" size={48} color={colors.primary} />
                 </View>
-                <Text style={[styles.placeholderTitle, { color: colors.text }]}>사진으로 단어 추가</Text>
+                <Text style={[styles.placeholderTitle, { color: colors.text }]}>{t('photoImport.mainTitle')}</Text>
                 <Text style={[styles.placeholderDesc, { color: colors.textSecondary }]}>
-                    교재나 단어장 사진을 찍으면 AI가 자동으로 단어와 뜻을 추출하여 단어장에 추가해줍니다.
+                    {t('photoImport.mainDesc')}
                 </Text>
 
                 <View style={styles.actionButtons}>
@@ -233,7 +235,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                         disabled={isScanning}
                     >
                         <Ionicons name="camera" size={24} color={colors.primary} />
-                        <Text style={[styles.actionBtnText, { color: colors.text }]}>사진 촬영하기</Text>
+                        <Text style={[styles.actionBtnText, { color: colors.text }]}>{t('photoImport.takePhoto')}</Text>
                     </Pressable>
 
                     <Pressable
@@ -242,7 +244,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                         disabled={isScanning}
                     >
                         <Ionicons name="images" size={24} color={colors.primary} />
-                        <Text style={[styles.actionBtnText, { color: colors.text }]}>앨범에서 선택</Text>
+                        <Text style={[styles.actionBtnText, { color: colors.text }]}>{t('photoImport.fromAlbum')}</Text>
                     </Pressable>
                 </View>
             </View>
@@ -251,8 +253,8 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
             {isScanning && (
                 <View style={[styles.loadingOverlay, { backgroundColor: colors.background + 'CC' }]}>
                     <ActivityIndicator size="large" color={colors.primary} />
-                    <Text style={[styles.loadingText, { color: colors.primary }]}>AI가 단어를 분석 중입니다...</Text>
-                    <Text style={[styles.loadingSubText, { color: colors.textSecondary }]}>사진의 글자가 많을수록 오래 걸릴 수 있어요.</Text>
+                    <Text style={[styles.loadingText, { color: colors.primary }]}>{t('photoImport.analyzing')}</Text>
+                    <Text style={[styles.loadingSubText, { color: colors.textSecondary }]}>{t('photoImport.analyzingDesc')}</Text>
                 </View>
             )}
         </View>

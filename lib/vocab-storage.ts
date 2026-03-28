@@ -612,6 +612,16 @@ export async function incrementWrongCount(wordIds: string[]): Promise<void> {
   );
 }
 
+export async function resetWrongCount(wordIds: string[]): Promise<void> {
+  if (wordIds.length === 0) return;
+  const db = await getDb();
+  const placeholders = wordIds.map(() => '?').join(',');
+  await db.runAsync(
+    `UPDATE words SET wrongCount = 0 WHERE id IN (${placeholders})`,
+    ...wordIds
+  );
+}
+
 export async function savePlan(
   listId: string,
   wordsPerDay: number,

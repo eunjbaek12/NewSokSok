@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { VocaList } from '@/lib/types';
 
@@ -42,6 +43,7 @@ export default function ListContextMenu({
   onShareList,
 }: ListContextMenuProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
 
   const [sharing, setSharing] = useState(false);
@@ -81,7 +83,7 @@ export default function ListContextMenu({
         await onRenameList(renameTargetList.id, trimmed);
       } catch (e: any) {
         if (e?.message === 'DUPLICATE_LIST') {
-          Alert.alert('중복된 이름', `"${trimmed}" 단어장이 이미 있습니다. 다른 이름을 사용해 주세요.`);
+          Alert.alert(t('contextMenu.duplicateName'), t('contextMenu.duplicateNameMessage', { name: trimmed }));
           return;
         }
       }
@@ -103,43 +105,43 @@ export default function ListContextMenu({
     setSharing(true);
     try {
       await onShareList(menuList.id);
-      Alert.alert('공유 완료', `"${menuList.title}" 단어장이 성공적으로 공유되었습니다!`);
+      Alert.alert(t('contextMenu.shareSuccess'), t('contextMenu.shareSuccessMessage', { name: menuList.title }));
       onClose();
     } catch (e: any) {
       if (e.message === 'DUPLICATE_SHARE') {
         onClose();
         Alert.alert(
-          '이미 공유된 단어장',
-          `"${menuList.title}" 단어장이 이미 공유되어 있습니다. 어떻게 하시겠습니까?`,
+          t('contextMenu.alreadyShared'),
+          t('contextMenu.alreadySharedMessage', { name: menuList.title }),
           [
-            { text: '취소', style: 'cancel' },
+            { text: t('common.cancel'), style: 'cancel' },
             {
-              text: '새로 만들기',
+              text: t('contextMenu.createNew'),
               onPress: async () => {
                 try {
                   await onShareList(menuList.id, { force: true });
-                  Alert.alert('공유 완료', '새로운 공유 단어장이 생성되었습니다.');
+                  Alert.alert(t('contextMenu.shareSuccess'), t('contextMenu.newShareCreated'));
                 } catch (err: any) {
-                  Alert.alert('공유 실패', err.message || '오류가 발생했습니다.');
+                  Alert.alert(t('contextMenu.shareFailed'), err.message || t('common.error'));
                 }
               },
             },
             {
-              text: '업데이트',
+              text: t('common.update'),
               style: 'default',
               onPress: async () => {
                 try {
                   await onShareList(menuList.id, { updateId: e.existingId });
-                  Alert.alert('업데이트 완료', '기존 공유 단어장이 업데이트되었습니다.');
+                  Alert.alert(t('contextMenu.updateComplete'), t('contextMenu.updateCompleteMessage'));
                 } catch (err: any) {
-                  Alert.alert('업데이트 실패', err.message || '오류가 발생했습니다.');
+                  Alert.alert(t('contextMenu.updateFailed'), err.message || t('common.error'));
                 }
               },
             },
           ],
         );
       } else {
-        Alert.alert('공유 실패', e.message || '단어장을 공유하는 중 오류가 발생했습니다.');
+        Alert.alert(t('contextMenu.shareFailed'), e.message || t('contextMenu.shareError'));
         onClose();
       }
     } finally {
@@ -152,7 +154,7 @@ export default function ListContextMenu({
     const targets = lists.filter((l) => l.id !== menuList.id);
     if (targets.length === 0) {
       onClose();
-      Alert.alert('대상 없음', '단어를 보낼 다른 단어장이 없습니다.');
+      Alert.alert(t('contextMenu.noTarget'), t('contextMenu.noTargetMessage'));
       return;
     }
     setMergeSourceList(menuList);
@@ -218,7 +220,7 @@ export default function ListContextMenu({
               style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
             >
               <Ionicons name="pencil-outline" size={16} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>이름 변경</Text>
+              <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.rename')}</Text>
             </Pressable>
 
             <Pressable
@@ -226,7 +228,7 @@ export default function ListContextMenu({
               style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
             >
               <Ionicons name="albums-outline" size={16} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>단어장으로 보내기</Text>
+              <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.sendToList')}</Text>
             </Pressable>
 
             <Pressable
@@ -239,7 +241,7 @@ export default function ListContextMenu({
               ) : (
                 <Ionicons name="share-social-outline" size={16} color={colors.primary} />
               )}
-              <Text style={[styles.menuItemText, { color: colors.primary }]}>단어장 공유하기</Text>
+              <Text style={[styles.menuItemText, { color: colors.primary }]}>{t('contextMenu.share')}</Text>
             </Pressable>
 
             <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
@@ -249,7 +251,7 @@ export default function ListContextMenu({
               style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
             >
               <Ionicons name="eye-off-outline" size={16} color={colors.textSecondary} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>숨기기</Text>
+              <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.hide')}</Text>
             </Pressable>
 
             <Pressable
@@ -257,7 +259,7 @@ export default function ListContextMenu({
               style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
             >
               <Ionicons name="trash-outline" size={16} color={colors.error} />
-              <Text style={[styles.menuItemText, { color: colors.error }]}>삭제</Text>
+              <Text style={[styles.menuItemText, { color: colors.error }]}>{t('common.delete')}</Text>
             </Pressable>
           </View>
         </Pressable>
@@ -273,7 +275,7 @@ export default function ListContextMenu({
         <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleRenameClose}>
           <Pressable style={[styles.renameSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
             <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>단어장 이름 변경</Text>
+              <Text style={[styles.menuTitle, { color: colors.text }]}>{t('contextMenu.renameTitle')}</Text>
               <Pressable onPress={handleRenameClose} hitSlop={12} style={styles.menuCloseBtn}>
                 <Ionicons name="close" size={24} color={colors.textSecondary} />
               </Pressable>
@@ -286,7 +288,7 @@ export default function ListContextMenu({
               autoFocus
               returnKeyType="done"
               selectTextOnFocus
-              placeholder="단어장 이름"
+              placeholder={t('contextMenu.listNameLabel')}
               placeholderTextColor={colors.textTertiary}
             />
             <View style={styles.renameActions}>
@@ -294,14 +296,14 @@ export default function ListContextMenu({
                 onPress={handleRenameClose}
                 style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>취소</Text>
+                <Text style={[styles.renameBtnText, { color: colors.text }]}>{t('common.cancel')}</Text>
               </Pressable>
               <Pressable
                 onPress={handleRenameSubmit}
                 disabled={!renameValue.trim()}
                 style={[styles.renameBtn, { backgroundColor: renameValue.trim() ? colors.primary : colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary }]}>변경</Text>
+                <Text style={[styles.renameBtnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary }]}>{t('common.change')}</Text>
               </Pressable>
             </View>
           </Pressable>
@@ -318,26 +320,26 @@ export default function ListContextMenu({
         <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleDeleteClose}>
           <Pressable style={[styles.renameSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
             <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>단어장 삭제</Text>
+              <Text style={[styles.menuTitle, { color: colors.text }]}>{t('contextMenu.deleteTitle')}</Text>
               <Pressable onPress={handleDeleteClose} hitSlop={12} style={styles.menuCloseBtn}>
                 <Ionicons name="close" size={24} color={colors.textSecondary} />
               </Pressable>
             </View>
             <Text style={[styles.deleteConfirmText, { color: colors.textSecondary }]}>
-              &quot;{deleteTargetList?.title}&quot;을(를) 삭제하시겠습니까?{'\n'}이 작업은 되돌릴 수 없습니다.
+              {t('contextMenu.deleteConfirm', { name: deleteTargetList?.title })}
             </Text>
             <View style={styles.renameActions}>
               <Pressable
                 onPress={handleDeleteClose}
                 style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>취소</Text>
+                <Text style={[styles.renameBtnText, { color: colors.text }]}>{t('common.cancel')}</Text>
               </Pressable>
               <Pressable
                 onPress={handleDeleteConfirm}
                 style={[styles.renameBtn, { backgroundColor: '#FF3B30' }]}
               >
-                <Text style={[styles.renameBtnText, { color: '#FFFFFF' }]}>삭제</Text>
+                <Text style={[styles.renameBtnText, { color: '#FFFFFF' }]}>{t('common.delete')}</Text>
               </Pressable>
             </View>
           </Pressable>
@@ -354,13 +356,13 @@ export default function ListContextMenu({
         <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleMergeClose}>
           <Pressable style={[styles.mergeSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
             <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>단어장으로 보내기</Text>
+              <Text style={[styles.menuTitle, { color: colors.text }]}>{t('contextMenu.sendTitle')}</Text>
               <Pressable onPress={handleMergeClose} hitSlop={12} style={styles.menuCloseBtn}>
                 <Ionicons name="close" size={24} color={colors.textSecondary} />
               </Pressable>
             </View>
             <Text style={[styles.mergeSubtitle, { color: colors.textSecondary }]}>
-              &quot;{mergeSourceList?.title}&quot;에서 다음 단어장으로 보내기:
+              {t('contextMenu.sendDesc', { name: mergeSourceList?.title })}
             </Text>
             <ScrollView style={styles.mergeListScroll} showsVerticalScrollIndicator={false}>
               {lists
@@ -389,7 +391,7 @@ export default function ListContextMenu({
                       {!l.isVisible && (
                         <View style={[styles.mergeHiddenBadge, { backgroundColor: colors.surfaceSecondary }]}>
                           <Ionicons name="eye-off-outline" size={12} color={colors.textTertiary} />
-                          <Text style={[styles.mergeHiddenText, { color: colors.textTertiary }]}>숨김</Text>
+                          <Text style={[styles.mergeHiddenText, { color: colors.textTertiary }]}>{t('contextMenu.hidden')}</Text>
                         </View>
                       )}
                     </View>
@@ -401,14 +403,14 @@ export default function ListContextMenu({
                 onPress={handleMergeClose}
                 style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>닫기</Text>
+                <Text style={[styles.renameBtnText, { color: colors.text }]}>{t('common.close')}</Text>
               </Pressable>
               <Pressable
                 onPress={handleMergeSubmit}
                 disabled={!mergeTargetId}
                 style={[styles.renameBtn, { backgroundColor: mergeTargetId ? colors.primary : colors.surfaceSecondary }]}
               >
-                <Text style={[styles.renameBtnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary }]}>보내기</Text>
+                <Text style={[styles.renameBtnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary }]}>{t('common.send')}</Text>
               </Pressable>
             </View>
           </Pressable>

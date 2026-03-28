@@ -15,6 +15,7 @@ import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { PlanStatus, Word } from '@/lib/types';
@@ -37,7 +38,8 @@ interface BannerConfig {
 function getBannerConfig(
   status: PlanStatus,
   list: any,
-  colors: any
+  colors: any,
+  t: (key: string, options?: any) => string
 ): BannerConfig {
   const remaining =
     list?.planStartedAt && list?.planTotalDays
@@ -56,40 +58,40 @@ function getBannerConfig(
         icon: 'calendar-outline',
         bgColor: colors.primaryLight,
         iconColor: colors.primary,
-        message: `학습 진행 중`,
-        subMessage: `${remaining}일 남음 · 총 ${list?.planTotalDays ?? 0}일 계획`,
+        message: t('plan.studyInProgress'),
+        subMessage: t('plan.daysRemaining', { remaining, totalDays: list?.planTotalDays ?? 0 }),
       };
     case 'completed':
       return {
         icon: 'trophy-outline',
         bgColor: colors.successLight,
         iconColor: colors.success,
-        message: '모든 단어 암기 완료!',
-        subMessage: '전체 랜덤 복습으로 기억을 강화해보세요',
+        message: t('plan.allMemorized'),
+        subMessage: t('plan.allMemorizedDesc'),
       };
     case 'overdue':
       return {
         icon: 'alert-circle-outline',
         bgColor: colors.errorLight,
         iconColor: colors.error,
-        message: '학습 기간이 만료되었습니다',
-        subMessage: '남은 단어를 집중 학습해보세요',
+        message: t('plan.expired'),
+        subMessage: t('plan.expiredDesc'),
       };
     case 'inactive':
       return {
         icon: 'pause-circle-outline',
         bgColor: colors.warningLight,
         iconColor: colors.warning,
-        message: '7일 이상 학습하지 않았습니다',
-        subMessage: '학습 계획을 재설정하여 다시 시작해보세요',
+        message: t('plan.inactiveTitle'),
+        subMessage: t('plan.inactiveDesc'),
       };
     default:
       return {
         icon: 'calendar-number-outline',
         bgColor: colors.surfaceSecondary,
         iconColor: colors.textTertiary,
-        message: '암기 계획이 없습니다',
-        subMessage: '하루 목표를 설정하고 체계적으로 학습해보세요',
+        message: t('plan.noPlan'),
+        subMessage: t('plan.noPlanDesc'),
       };
   }
 }
@@ -141,6 +143,7 @@ function WordPlanCard({ word, onToggle, colors }: WordPlanCardProps) {
 
 export default function PlanScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const {
@@ -184,8 +187,8 @@ export default function PlanScreen() {
   }, [planStatus, words.length, suggested]);
 
   const banner = useMemo(
-    () => getBannerConfig(planStatus, list, colors),
-    [planStatus, list, colors]
+    () => getBannerConfig(planStatus, list, colors, t),
+    [planStatus, list, colors, t]
   );
 
   // Build list of all days + "미배정" (-1) at the end
@@ -311,19 +314,19 @@ export default function PlanScreen() {
   }, [id, planStatus, viewingDay, viewingWords, updatePlanProgress, handleOpenSetup]);
 
   const actionLabel = useMemo(() => {
-    if (planStatus === 'none') return '암기 계획 만들기';
-    if (planStatus === 'completed') return '전체 랜덤 복습';
-    if (viewingDay === -1) return '계획에 포함하기';
-    if (planStatus === 'inactive') return '학습 계획 재설정하기';
-    return `Day ${viewingDay} 학습 시작`;
-  }, [planStatus, viewingDay]);
+    if (planStatus === 'none') return t('plan.createPlan');
+    if (planStatus === 'completed') return t('plan.randomReview');
+    if (viewingDay === -1) return t('plan.includeInPlan');
+    if (planStatus === 'inactive') return t('plan.resetPlan');
+    return t('plan.startDay', { day: viewingDay });
+  }, [planStatus, viewingDay, t]);
 
   // ─── Render ─────────────────────────────────────────────────────────
 
   if (!list) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, paddingTop: insets.top }]}>
-        <Text style={[styles.errorText, { color: colors.textSecondary }]}>단어장을 찾을 수 없습니다.</Text>
+        <Text style={[styles.errorText, { color: colors.textSecondary }]}>{t('plan.listNotFound')}</Text>
       </View>
     );
   }
@@ -342,7 +345,7 @@ export default function PlanScreen() {
           <Ionicons name="chevron-back" size={24} color={colors.text} />
         </Pressable>
         <View style={styles.headerCenter}>
-          <Text style={[styles.headerTitle, { color: colors.text }]}>암기 계획</Text>
+          <Text style={[styles.headerTitle, { color: colors.text }]}>{t('plan.title')}</Text>
           <Text style={[styles.headerSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
             {list.title}
           </Text>
@@ -376,7 +379,7 @@ export default function PlanScreen() {
         <View style={[styles.progressRow, { borderColor: colors.borderLight }]}>
           <Text style={[styles.progressText, { color: colors.textSecondary }]}>
             <Text style={[styles.progressCount, { color: colors.text }]}>{completedWords}</Text>
-            {'/' + words.length + ' 암기 완료'}
+            {t('plan.memorizedProgress', { total: words.length })}
           </Text>
           <View style={[styles.progressBar, { backgroundColor: colors.surfaceSecondary }]}>
             <View
@@ -408,12 +411,12 @@ export default function PlanScreen() {
           </Pressable>
           <View style={styles.dayNavCenter}>
             <Text style={[styles.dayNavTitle, { color: colors.text }]}>
-              {viewingDay === -1 ? '미배정' : `Day ${viewingDay}`}
+              {viewingDay === -1 ? t('plan.unassigned') : t('plan.dayLabel', { day: viewingDay })}
             </Text>
             <Text style={[styles.dayNavSub, { color: colors.textTertiary }]}>
               {viewingDay === -1
-                ? `${viewingWords.length}개 단어`
-                : `${viewingMemorized}/${viewingWords.length} 암기`}
+                ? t('plan.wordsCount', { count: viewingWords.length })
+                : t('plan.memorizedCount', { memorized: viewingMemorized, total: viewingWords.length })}
             </Text>
           </View>
           <Pressable
@@ -434,19 +437,19 @@ export default function PlanScreen() {
       {planStatus === 'none' ? (
         <View style={styles.emptyState}>
           <Ionicons name="calendar-number-outline" size={60} color={colors.textTertiary} />
-          <Text style={[styles.emptyTitle, { color: colors.text }]}>암기 계획이 없습니다</Text>
+          <Text style={[styles.emptyTitle, { color: colors.text }]}>{t('plan.emptyNoPlan')}</Text>
           <Text style={[styles.emptyDesc, { color: colors.textSecondary }]}>
             {words.length > 0
-              ? `단어 ${words.length}개를 체계적으로 학습할 계획을 만들어보세요.`
-              : '먼저 단어장에 단어를 추가해주세요.'}
+              ? t('plan.emptyCreatePlanDesc', { count: words.length })
+              : t('plan.emptyAddWordsFirst')}
           </Text>
         </View>
       ) : planStatus === 'completed' ? (
         <View style={styles.completedState}>
           <Ionicons name="trophy" size={56} color={colors.success} />
-          <Text style={[styles.completedTitle, { color: colors.text }]}>학습 완료!</Text>
+          <Text style={[styles.completedTitle, { color: colors.text }]}>{t('plan.studyComplete')}</Text>
           <Text style={[styles.completedDesc, { color: colors.textSecondary }]}>
-            모든 단어를 암기했습니다.{'\n'}랜덤 복습으로 기억을 강화해보세요.
+            {t('plan.studyCompleteDesc')}
           </Text>
         </View>
       ) : viewingDay === -1 ? (
@@ -462,12 +465,12 @@ export default function PlanScreen() {
               style={[styles.includeBtn, { borderColor: colors.primary }]}
             >
               <Ionicons name="add-circle-outline" size={18} color={colors.primary} />
-              <Text style={[styles.includeBtnText, { color: colors.primary }]}>계획에 포함하기 (재설정)</Text>
+              <Text style={[styles.includeBtnText, { color: colors.primary }]}>{t('plan.includeInPlanReset')}</Text>
             </Pressable>
           }
           ListEmptyComponent={
             <View style={styles.dayEmptyState}>
-              <Text style={[styles.dayEmptyText, { color: colors.textTertiary }]}>미배정된 단어가 없습니다</Text>
+              <Text style={[styles.dayEmptyText, { color: colors.textTertiary }]}>{t('plan.noUnassignedWords')}</Text>
             </View>
           }
           contentContainerStyle={{ paddingBottom: insets.bottom + 120, paddingTop: 8 }}
@@ -482,7 +485,7 @@ export default function PlanScreen() {
           ListEmptyComponent={
             <View style={styles.dayEmptyState}>
               <Text style={[styles.dayEmptyText, { color: colors.textTertiary }]}>
-                이 Day에 배정된 단어가 없습니다
+                {t('plan.noDayWords')}
               </Text>
             </View>
           }
@@ -525,16 +528,16 @@ export default function PlanScreen() {
             <View style={[styles.modalHandle, { backgroundColor: colors.border }]} />
 
             <Text style={[styles.modalTitle, { color: colors.text }]}>
-              {planStatus === 'none' ? '암기 계획 만들기' : '학습 계획 재설정'}
+              {planStatus === 'none' ? t('plan.createPlanTitle') : t('plan.resetPlanTitle')}
             </Text>
             <Text style={[styles.modalDesc, { color: colors.textSecondary }]}>
               {planStatus === 'inactive' || planStatus === 'overdue'
-                ? `미암기 단어 ${words.filter(w => !w.isMemorized).length}개를 새로 배분합니다.`
-                : `총 ${words.length}개 단어를 하루 학습량에 맞게 나눕니다.`}
+                ? t('plan.resetDesc', { count: words.filter(w => !w.isMemorized).length })
+                : t('plan.createDesc', { count: words.length })}
             </Text>
 
             <View style={[styles.inputRow, { borderColor: colors.border, backgroundColor: colors.background }]}>
-              <Text style={[styles.inputLabel, { color: colors.textSecondary }]}>하루 학습량</Text>
+              <Text style={[styles.inputLabel, { color: colors.textSecondary }]}>{t('plan.dailyAmount')}</Text>
               <TextInput
                 style={[styles.input, { color: colors.text }]}
                 value={wordsPerDayInput}
@@ -544,13 +547,13 @@ export default function PlanScreen() {
                 placeholderTextColor={colors.textTertiary}
                 selectTextOnFocus
               />
-              <Text style={[styles.inputUnit, { color: colors.textTertiary }]}>개/일</Text>
+              <Text style={[styles.inputUnit, { color: colors.textTertiary }]}>{t('plan.wordsPerDay')}</Text>
             </View>
 
             <View style={[styles.previewBox, { backgroundColor: colors.primaryLight }]}>
               <Ionicons name="calendar-outline" size={18} color={colors.primary} />
               <Text style={[styles.previewText, { color: colors.primary }]}>
-                총 {previewDays}일 계획 · 하루 {parsedWordsPerDay}개
+                {t('plan.planSummary', { days: previewDays, perDay: parsedWordsPerDay })}
               </Text>
             </View>
 
@@ -562,7 +565,7 @@ export default function PlanScreen() {
                   { borderColor: colors.border, opacity: pressed ? 0.7 : 1 },
                 ]}
               >
-                <Text style={[styles.modalBtnOutlineText, { color: colors.textSecondary }]}>취소</Text>
+                <Text style={[styles.modalBtnOutlineText, { color: colors.textSecondary }]}>{t('common.cancel')}</Text>
               </Pressable>
               <Pressable
                 onPress={handleConfirmSetup}
@@ -575,7 +578,7 @@ export default function PlanScreen() {
                 {isSubmitting ? (
                   <ActivityIndicator color="#fff" size="small" />
                 ) : (
-                  <Text style={styles.modalBtnPrimaryText}>계획 시작</Text>
+                  <Text style={styles.modalBtnPrimaryText}>{t('plan.startPlan')}</Text>
                 )}
               </Pressable>
             </View>

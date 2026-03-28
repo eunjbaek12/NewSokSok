@@ -10,8 +10,10 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { VocabProvider } from "@/contexts/VocabContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { SettingsProvider } from "@/contexts/SettingsContext";
+import { LocaleProvider } from "@/contexts/LocaleContext";
 import { useFonts } from "expo-font";
 import { useSettings } from "@/contexts/SettingsContext";
+import "@/i18n";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -34,19 +36,21 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ErrorBoundary>
-        <QueryClientProvider client={queryClient}>
-          <AuthProvider>
-            <SettingsProvider>
-              <ThemeProvider>
-                <VocabProvider>
-                  <GestureHandlerRootView style={{ flex: 1 }}>
-                    <AppStack />
-                  </GestureHandlerRootView>
-                </VocabProvider>
-              </ThemeProvider>
-            </SettingsProvider>
-          </AuthProvider>
-        </QueryClientProvider>
+        <LocaleProvider>
+          <QueryClientProvider client={queryClient}>
+            <AuthProvider>
+              <SettingsProvider>
+                <ThemeProvider>
+                  <VocabProvider>
+                    <GestureHandlerRootView style={{ flex: 1 }}>
+                      <AppStack />
+                    </GestureHandlerRootView>
+                  </VocabProvider>
+                </ThemeProvider>
+              </SettingsProvider>
+            </AuthProvider>
+          </QueryClientProvider>
+        </LocaleProvider>
       </ErrorBoundary>
     </SafeAreaProvider>
   );

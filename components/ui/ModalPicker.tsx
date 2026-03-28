@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Pressable, View, Text, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 
 export interface PickerOption {
@@ -31,6 +32,7 @@ export function ModalPicker({
     footer,
 }: ModalPickerProps) {
     const { colors } = useTheme();
+    const { t } = useTranslation();
 
     return (
         <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
@@ -77,7 +79,7 @@ export function ModalPicker({
                         onPress={onClose}
                         style={[styles.closeBtn, { backgroundColor: colors.surfaceSecondary }]}
                     >
-                        <Text style={[styles.closeBtnText, { color: colors.text }]}>닫기</Text>
+                        <Text style={[styles.closeBtnText, { color: colors.text }]}>{t('common.close')}</Text>
                     </Pressable>
                 </View>
             </Pressable>

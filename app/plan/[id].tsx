@@ -159,6 +159,7 @@ export default function PlanScreen() {
   const [wordsPerDayInput, setWordsPerDayInput] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [viewingDay, setViewingDay] = useState<number>(0); // 0 = not initialized
+  const [selectedMode, setSelectedMode] = useState<string | null>(null);
 
   const list = useMemo(() => lists.find(l => l.id === id), [lists, id]);
   const words = list?.words ?? [];
@@ -177,6 +178,11 @@ export default function PlanScreen() {
       setViewingDay(autoCurrentDay);
     }
   }, [planStatus, autoCurrentDay, viewingDay]);
+
+  // Reset selected mode when viewing day changes
+  useEffect(() => {
+    setSelectedMode(null);
+  }, [viewingDay]);
 
   // Auto-open setup modal if no plan
   useEffect(() => {
@@ -303,15 +309,16 @@ export default function PlanScreen() {
     }
 
     const targetWords = viewingWords.filter(w => !w.isMemorized);
+    const targetIds = targetWords.map(w => w.id).join(',');
+    const destination = selectedMode ?? '/study-select/[id]';
+
+    await updatePlanProgress(id, viewingDay);
     if (targetWords.length < 2) {
-      // This day is done → fallback to all unmemorized
-      router.push({ pathname: '/study-select/[id]', params: { id, filter: 'learning' } });
+      router.push({ pathname: destination as any, params: { id, filter: 'learning' } });
     } else {
-      await updatePlanProgress(id, viewingDay); // Update planUpdatedAt
-      const ids = targetWords.map(w => w.id).join(',');
-      router.push({ pathname: '/study-select/[id]', params: { id, filter: 'learning', ids } });
+      router.push({ pathname: destination as any, params: { id, filter: 'learning', ids: targetIds } });
     }
-  }, [id, planStatus, viewingDay, viewingWords, updatePlanProgress, handleOpenSetup]);
+  }, [id, planStatus, viewingDay, viewingWords, selectedMode, updatePlanProgress, handleOpenSetup]);
 
   const actionLabel = useMemo(() => {
     if (planStatus === 'none') return t('plan.createPlan');
@@ -320,6 +327,13 @@ export default function PlanScreen() {
     if (planStatus === 'inactive') return t('plan.resetPlan');
     return t('plan.startDay', { day: viewingDay });
   }, [planStatus, viewingDay, t]);
+
+  const showModeButtons = (planStatus === 'in-progress' || planStatus === 'overdue') && viewingDay !== -1;
+
+  const handleSelectMode = useCallback((pathname: string) => {
+    Haptics.selectionAsync();
+    setSelectedMode(prev => prev === pathname ? null : pathname);
+  }, []);
 
   // ─── Render ─────────────────────────────────────────────────────────
 
@@ -473,7 +487,7 @@ export default function PlanScreen() {
               <Text style={[styles.dayEmptyText, { color: colors.textTertiary }]}>{t('plan.noUnassignedWords')}</Text>
             </View>
           }
-          contentContainerStyle={{ paddingBottom: insets.bottom + 120, paddingTop: 8 }}
+          contentContainerStyle={{ paddingBottom: insets.bottom + (showModeButtons ? 180 : 120), paddingTop: 8 }}
         />
       ) : (
         <FlatList
@@ -489,12 +503,41 @@ export default function PlanScreen() {
               </Text>
             </View>
           }
-          contentContainerStyle={{ paddingBottom: insets.bottom + 120, paddingTop: 8 }}
+          contentContainerStyle={{ paddingBottom: insets.bottom + (showModeButtons ? 180 : 120), paddingTop: 8 }}
         />
       )}
 
       {/* Bottom Action Button */}
       <View style={[styles.bottomBar, { paddingBottom: insets.bottom + 16 }]}>
+        {showModeButtons && (
+          <View style={styles.modeButtonsRow}>
+            {[
+              { icon: 'layers-outline', labelKey: 'studySelect.flashcardsTitle', pathname: '/flashcards/[id]' },
+              { icon: 'create-outline', labelKey: 'studySelect.quizTitle', pathname: '/quiz/[id]' },
+              { icon: 'chatbubbles-outline', labelKey: 'studySelect.examplesTitle', pathname: '/examples/[id]' },
+            ].map(({ icon, labelKey, pathname }) => {
+              const isSelected = selectedMode === pathname;
+              return (
+                <Pressable
+                  key={pathname}
+                  onPress={() => handleSelectMode(pathname)}
+                  style={({ pressed }) => [
+                    styles.modeBtn,
+                    {
+                      backgroundColor: isSelected ? colors.primaryLight : colors.surface,
+                      borderWidth: isSelected ? 1.5 : 0,
+                      borderColor: colors.primary,
+                      opacity: pressed ? 0.8 : 1,
+                    },
+                  ]}
+                >
+                  <Ionicons name={icon as any} size={20} color={colors.primary} />
+                  <Text style={[styles.modeBtnText, { color: isSelected ? colors.primary : colors.text }]}>{t(labelKey)}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+        )}
         <Pressable
           onPress={handleActionButton}
           style={({ pressed }) => [
@@ -809,6 +852,24 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 16,
     right: 16,
+  },
+  modeButtonsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 10,
+  },
+  modeBtn: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    borderRadius: 16,
+    gap: 4,
+  },
+  modeBtnText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
+    letterSpacing: -0.2,
   },
   actionBtn: {
     borderRadius: 28,

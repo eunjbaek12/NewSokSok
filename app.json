@@ -38,7 +38,14 @@
       ],
       "expo-font",
       "expo-web-browser",
-      "expo-sqlite"
+      "expo-sqlite",
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Allow SokSok Voca to use the microphone for voice input.",
+          "speechRecognitionPermission": "Allow SokSok Voca to use speech recognition for voice input."
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

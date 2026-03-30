@@ -45,15 +45,11 @@ export default function ListCard({
     [item]
   );
 
-  const statusType = React.useMemo((): StatusBadgeType => {
+  const statusType = React.useMemo((): StatusBadgeType | null => {
+    if (planStatus !== 'none') return 'learning';
     if (item.isCurated) return 'curated';
-    if (planStatus === 'in-progress') return 'plan-progress';
-    if (planStatus === 'completed') return 'plan-done';
-    if (planStatus === 'overdue') return 'plan-overdue';
-    if (planStatus === 'inactive') return 'plan-inactive';
-    if (progress.percent === 100 && progress.total > 0) return 'completed';
-    return 'learning';
-  }, [item.isCurated, planStatus, progress.percent, progress.total]);
+    return null;
+  }, [planStatus, item.isCurated]);
 
   const topTags = React.useMemo(() => {
     const words = getWordsForList(item.id);
@@ -108,7 +104,7 @@ export default function ListCard({
             {item.icon && (
               <Text style={{ fontSize: 16 }}>{item.icon}</Text>
             )}
-            <Text style={[styles.cardTitle, { color: colors.text, flexShrink: 1 }]} numberOfLines={1}>
+            <Text style={[styles.cardTitle, { color: colors.text, flexShrink: 1 }]} numberOfLines={2}>
               {item.title}
             </Text>
           </View>
@@ -117,7 +113,7 @@ export default function ListCard({
           </Text>
         </View>
         <View style={styles.cardActions}>
-          <StatusBadge type={statusType} />
+          {statusType && <StatusBadge type={statusType} />}
           <Pressable
             ref={menuBtnRef}
             onPress={handleContextMenu}
@@ -133,54 +129,23 @@ export default function ListCard({
       </View>
 
       <View style={styles.planActionRow}>
-        <View style={styles.planActionLeft}>
-          <ProgressBar percent={progress.percent} colors={colors} />
-          <View style={styles.planStatsRow}>
-            <Text style={[styles.planStatsText, { color: colors.textSecondary }]}>
-              {t('listCard.wordProgress', { memorized: progress.memorized, total: progress.total })}
-            </Text>
-            <Text style={[styles.planStatsPercent, {
-              color: progress.percent === 100 ? colors.success : colors.primary,
-            }]}>
-              {progress.percent}%
-            </Text>
-          </View>
-        </View>
-        <Pressable
-          onPress={(e) => {
-            e.stopPropagation?.();
-            router.push({ pathname: '/plan/[id]', params: { id: item.id } });
-          }}
-          style={({ pressed }) => [
-            styles.planActionButton,
-            {
-              backgroundColor: planStatus === 'completed'
-                ? colors.surfaceSecondary
-                : planStatus === 'overdue'
-                  ? colors.warningLight
-                  : colors.primary,
-              opacity: pressed ? 0.85 : 1,
-            },
-          ]}
-          hitSlop={4}
-        >
-          <Text style={[styles.planActionButtonText, {
-            color: planStatus === 'completed'
-              ? colors.textSecondary
-              : planStatus === 'overdue'
-                ? colors.warning
-                : '#FFFFFF',
-          }]}>
-            {planStatus === 'none' ? t('listCard.planLabel')
-              : planStatus === 'completed' ? t('listCard.reviewAction') : t('listCard.studyAction')}
+        <ProgressBar percent={progress.percent} colors={colors} />
+        <View style={styles.planStatsRow}>
+          <Text style={[styles.planStatsText, { color: colors.textSecondary }]}>
+            {t('listCard.wordProgress', { memorized: progress.memorized, total: progress.total })}
           </Text>
-        </Pressable>
+          <Text style={[styles.planStatsPercent, {
+            color: progress.percent === 100 ? colors.success : colors.primary,
+          }]}>
+            {progress.percent}%
+          </Text>
+        </View>
       </View>
 
       {topTags.length > 0 && (
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 12 }}>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4, marginTop: 8 }}>
           {topTags.map((tag, idx) => (
-            <View key={idx} style={{ backgroundColor: colors.surfaceSecondary, paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4 }}>
+            <View key={idx} style={{ backgroundColor: colors.surfaceSecondary, paddingHorizontal: 5, paddingVertical: 1, borderRadius: 4 }}>
               <Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: 'Pretendard_500Medium' }}>#{tag}</Text>
             </View>
           ))}
@@ -228,14 +193,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   planActionRow: {
-    flexDirection: 'row',
-    alignItems: 'stretch',
-    gap: 12,
     marginTop: 12,
-  },
-  planActionLeft: {
-    flex: 1,
-    justifyContent: 'center',
   },
   planStatsRow: {
     flexDirection: 'row',
@@ -249,17 +207,6 @@ const styles = StyleSheet.create({
   },
   planStatsPercent: {
     fontSize: 13,
-    fontFamily: 'Pretendard_600SemiBold',
-  },
-  planActionButton: {
-    paddingHorizontal: 14,
-    paddingVertical: 7,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  planActionButtonText: {
-    fontSize: 12,
     fontFamily: 'Pretendard_600SemiBold',
   },
 });

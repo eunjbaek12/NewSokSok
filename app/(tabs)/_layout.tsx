@@ -1,14 +1,40 @@
 import { isLiquidGlassAvailable } from "expo-glass-effect";
-import { Tabs, Redirect } from "expo-router";
+import { Tabs, Redirect, router } from "expo-router";
 import { NativeTabs, Icon, Label } from "expo-router/unstable-native-tabs";
 import { BlurView } from "expo-blur";
-import { Platform, StyleSheet, View } from "react-native";
+import { Platform, Pressable, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+function AddWordTabButton() {
+  const { colors } = useTheme();
+  return (
+    <Pressable
+      onPress={() => router.push('/add-word')}
+      style={({ pressed }) => ({
+        top: -20,
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        backgroundColor: colors.primary,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+        elevation: 12,
+        opacity: pressed ? 0.85 : 1,
+      })}
+    >
+      <Ionicons name="add" size={32} color="#FFFFFF" />
+    </Pressable>
+  );
+}
 
 function NativeTabLayout() {
   const { t } = useTranslation();
@@ -38,8 +64,6 @@ function ClassicTabLayout() {
   const { t } = useTranslation();
   const { colors, isDark } = useTheme();
   const insets = useSafeAreaInsets();
-  const isWeb = Platform.OS === "web";
-  const isIOS = Platform.OS === "ios";
 
   return (
     <Tabs
@@ -49,9 +73,9 @@ function ClassicTabLayout() {
         tabBarInactiveTintColor: isDark ? "#6B7684" : "#6B7684",
         tabBarShowLabel: true,
         tabBarLabelStyle: {
-          fontSize: 12, // Increased size
+          fontSize: 12,
           fontFamily: 'Pretendard_700Bold',
-          marginTop: 8, // Increased gap
+          marginTop: 8,
           paddingBottom: 4,
         },
         tabBarStyle: {
@@ -69,6 +93,7 @@ function ClassicTabLayout() {
           shadowOffset: { width: 0, height: -2 },
           shadowOpacity: 0.1,
           shadowRadius: 4,
+          overflow: 'visible',
         },
         tabBarItemStyle: {
           height: 64,
@@ -98,7 +123,7 @@ function ClassicTabLayout() {
           tabBarLabel: t('tabs.home'),
           tabBarIcon: ({ color }) => (
             <View style={{ width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
-              <Ionicons name="home-outline" size={24} color={color} style={{ fontWeight: '200' }} />
+              <Ionicons name="home-outline" size={24} color={color} />
             </View>
           ),
         }}
@@ -112,6 +137,19 @@ function ClassicTabLayout() {
               <Ionicons name="library-outline" size={24} color={color} />
             </View>
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="add-action"
+        options={{
+          tabBarLabel: () => null,
+          tabBarIcon: () => null,
+          tabBarButton: () => <AddWordTabButton />,
+        }}
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault();
+          },
         }}
       />
       <Tabs.Screen

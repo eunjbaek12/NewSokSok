@@ -108,8 +108,11 @@ export interface DayStudyStatus {
  * - displayDay: the Day number to show on the chip (last studied or current)
  * - state: 'needs-study' (0% memorized), 'studying' (<50%), 'completed' (>=50%)
  * - dayMemorized/dayTotal: word counts for the display day
+ *
+ * If today's day is completed and planUpdatedAt was on a previous calendar day,
+ * automatically advances to the next day.
  */
-export function computeDayStudyStatus(list: VocaList, words: Word[]): DayStudyStatus {
+export function computeDayStudyStatus(list: VocaList, words: Word[], now: number = Date.now()): DayStudyStatus {
   const displayDay = list.planCurrentDay ?? computeCurrentDay(words);
   const dayWords = words.filter(w => w.assignedDay === displayDay);
   const dayTotal = dayWords.length;
@@ -122,6 +125,34 @@ export function computeDayStudyStatus(list: VocaList, words: Word[]): DayStudySt
     state = 'studying';
   } else {
     state = 'completed';
+  }
+
+  // 오늘 학습이 완료됐고, planUpdatedAt이 이전 날짜라면 다음 Day로 자동 전환
+  if (state === 'completed' && list.planUpdatedAt) {
+    const lastDate = new Date(list.planUpdatedAt);
+    const todayDate = new Date(now);
+    const isNewDay =
+      lastDate.getFullYear() !== todayDate.getFullYear() ||
+      lastDate.getMonth() !== todayDate.getMonth() ||
+      lastDate.getDate() !== todayDate.getDate();
+
+    if (isNewDay) {
+      const nextDay = displayDay + 1;
+      const nextDayWords = words.filter(w => w.assignedDay === nextDay);
+      if (nextDayWords.length > 0) {
+        const nextMemorized = nextDayWords.filter(w => w.isMemorized).length;
+        const nextTotal = nextDayWords.length;
+        let nextState: StudyState;
+        if (nextMemorized === 0) {
+          nextState = 'needs-study';
+        } else if (nextMemorized / nextTotal < 0.5) {
+          nextState = 'studying';
+        } else {
+          nextState = 'completed';
+        }
+        return { displayDay: nextDay, state: nextState, dayMemorized: nextMemorized, dayTotal: nextTotal };
+      }
+    }
   }
 
   return { displayDay, state, dayMemorized, dayTotal };

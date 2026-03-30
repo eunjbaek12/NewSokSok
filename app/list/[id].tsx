@@ -25,7 +25,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
-import { computePlanStatus, groupWordsByDay } from '@/lib/plan-engine';
+import { computePlanStatus } from '@/lib/plan-engine';
 import { useTranslation } from 'react-i18next';
 import { BlurView } from 'expo-blur';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
@@ -37,7 +37,7 @@ type SortOrder = 'newest' | 'az' | 'za' | 'wrong';
 
 export default function ListDetailScreen() {
   const { t } = useTranslation();
-  const { id, day: initialDay } = useLocalSearchParams<{ id: string; day?: string }>();
+  const { id } = useLocalSearchParams<{ id: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const {
@@ -73,12 +73,7 @@ export default function ListDetailScreen() {
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [speakingWordId, setSpeakingWordId] = useState<string | null>(null);
-  const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
-  // Initialize selectedDay from route param
-  useEffect(() => {
-    if (initialDay) setSelectedDay(parseInt(initialDay, 10));
-  }, []);
 
   // Modal State
   const [refreshing, setRefreshing] = useState(false);
@@ -102,7 +97,6 @@ export default function ListDetailScreen() {
     [list, allWords]
   );
   const hasPlan = planStatus !== 'none';
-  const daySections = useMemo(() => groupWordsByDay(allWords), [allWords]);
 
   // FAB 애니메이션 제어 (트리거 방식)
   const fabAnim = useRef(new Animated.Value(0)).current;
@@ -136,7 +130,6 @@ export default function ListDetailScreen() {
       if (filterStarred && !w.isStarred) return false;
       if (filterStatus === 'learning' && w.isMemorized) return false;
       if (filterStatus === 'memorized' && !w.isMemorized) return false;
-      if (selectedDay !== null && w.assignedDay !== selectedDay) return false;
       return true;
     });
 
@@ -151,7 +144,7 @@ export default function ListDetailScreen() {
       sorted.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
     }
     return sorted;
-  }, [filterStarred, filterStatus, sortOrder, allWords, selectedDay]);
+  }, [filterStarred, filterStatus, sortOrder, allWords]);
 
   const progress = useMemo(() => {
     const total = allWords.length;
@@ -518,54 +511,6 @@ export default function ListDetailScreen() {
     );
   }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, toggleStarred, id]);
 
-  const renderDayTabs = () => {
-    if (!hasPlan) return null;
-    return (
-      <View style={[styles.dayTabBar, { borderBottomColor: colors.borderLight }]}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.dayTabBarContent}
-        >
-          <Pressable
-            onPress={() => { setSelectedDay(null); Haptics.selectionAsync(); }}
-            style={[
-              styles.dayTab,
-              { backgroundColor: selectedDay === null ? colors.primary : colors.surfaceSecondary },
-            ]}
-          >
-            <Text style={[styles.dayTabText, {
-              color: selectedDay === null ? '#FFFFFF' : colors.textSecondary,
-            }]}>{t('list.filterAll')}</Text>
-          </Pressable>
-          {daySections.filter(s => s.day > 0).map(section => {
-            const isActive = selectedDay === section.day;
-            const dayMem = section.data.filter(w => w.isMemorized).length;
-            return (
-              <Pressable
-                key={section.day}
-                onPress={() => { setSelectedDay(section.day); Haptics.selectionAsync(); }}
-                style={[
-                  styles.dayTab,
-                  { backgroundColor: isActive ? colors.primary : colors.surfaceSecondary },
-                ]}
-              >
-                <Text style={[styles.dayTabText, {
-                  color: isActive ? '#FFFFFF' : colors.textSecondary,
-                }]}>Day {section.day}</Text>
-                {!isActive && (
-                  <Text style={[styles.dayTabCount, { color: colors.textTertiary }]}>
-                    {dayMem}/{section.data.length}
-                  </Text>
-                )}
-              </Pressable>
-            );
-          })}
-        </ScrollView>
-      </View>
-    );
-  };
-
   const renderFilterHeader = () => {
     if (editMode) {
       const allSelected = filteredWords.length > 0 && filteredWords.every(w => selectedIds.has(w.id));
@@ -765,6 +710,23 @@ export default function ListDetailScreen() {
           </View>
           <Text style={[styles.studyLabel, { color: iconColor }]}>{t('examples.title')}</Text>
         </Pressable>
+
+        <Pressable
+          onPress={() => {
+            if (studyDisabled) return;
+            router.push({ pathname: '/autoplay/[id]', params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } });
+          }}
+          style={({ pressed }) => [
+            styles.studyBtn,
+            studyDisabled && styles.studyBtnDisabled,
+            pressed && { opacity: 0.7 }
+          ]}
+        >
+          <View style={styles.iconBox}>
+            <Ionicons name="play-circle" size={22} color={iconColor} />
+          </View>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>{t('autoplay.title')}</Text>
+        </Pressable>
       </View>
     );
   };
@@ -859,11 +821,13 @@ export default function ListDetailScreen() {
           )}
           {!editMode && (
             <Pressable
-              onPress={() => router.push({ pathname: '/autoplay/[id]' as const, params: { id: id!, filter: filterStatus, isStarred: filterStarred ? 'true' : 'false' } })}
+              onPress={() => router.push({ pathname: '/plan/[id]', params: { id: id! } })}
               hitSlop={12}
               style={{ marginLeft: 'auto' }}
             >
-              <Ionicons name="play-circle" size={28} color={colors.primary} />
+              <Text style={[styles.planHeaderBtn, { color: colors.primary }]}>
+                {hasPlan ? t('list.planView') : t('list.planCreate')}
+              </Text>
             </Pressable>
           )}
         </View>
@@ -890,7 +854,6 @@ export default function ListDetailScreen() {
       </View>
 
       <View style={{ flex: 1 }}>
-        {renderDayTabs()}
         <FlatList
           ref={flatListRef}
           data={filteredWords}
@@ -1091,30 +1054,9 @@ const styles = StyleSheet.create({
     minWidth: 70,
     textAlign: 'right',
   },
-  dayTabBar: {
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  dayTabBarContent: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    gap: 8,
-    alignItems: 'center',
-  },
-  dayTab: {
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-  },
-  dayTabText: {
-    fontSize: 13,
-    fontFamily: 'Pretendard_500Medium',
-  },
-  dayTabCount: {
-    fontSize: 11,
-    fontFamily: 'Pretendard_400Regular',
+  planHeaderBtn: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   visualFilterHeader: {
     borderBottomWidth: StyleSheet.hairlineWidth,

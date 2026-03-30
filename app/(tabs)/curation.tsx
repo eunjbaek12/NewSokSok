@@ -443,7 +443,7 @@ export default function CurationScreen() {
                         </Pressable>
                     </View>
 
-                    <View style={{ paddingHorizontal: 24, paddingBottom: 12 }}>
+                    <View style={{ paddingHorizontal: 24, paddingBottom: 6 }}>
                         <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
                             <Ionicons name="search" size={20} color={colors.textTertiary} />
                             <TextInput
@@ -476,7 +476,7 @@ export default function CurationScreen() {
                         })}
                     </ScrollView>
 
-                    <ScrollView ref={scrollRef} style={{ flex: 1 }} contentContainerStyle={[{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: bottomInset + 100 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}>
+                    <ScrollView ref={scrollRef} style={{ flex: 1 }} contentContainerStyle={[{ paddingHorizontal: 24, paddingTop: 4, paddingBottom: bottomInset + 100 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}>
                         {filteredThemes.map(theme => {
                             const levelStyle = getLevelStyle(theme.level);
                             const tags = getTopTags(theme);
@@ -487,12 +487,12 @@ export default function CurationScreen() {
 
                             return (
                                 <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
-                                    <View style={[styles.cardIconBox, { backgroundColor: colors.surfaceSecondary }, viewMode === 'detailed' ? styles.iconBoxDetailed : styles.iconBoxCompact]}>
-                                        <Text style={{ fontSize: viewMode === 'detailed' ? 32 : 24 }}>{theme.icon}</Text>
-                                    </View>
                                     <View style={{ flex: 1 }}>
                                         <View style={styles.cardHeader}>
-                                            <Text style={[styles.cardTitle, { color: colors.text }]} numberOfLines={1}>{theme.title}</Text>
+                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1 }}>
+                                                {theme.icon && <Text style={{ fontSize: 16 }}>{theme.icon}</Text>}
+                                                <Text style={[styles.cardTitle, { color: colors.text, flex: 1 }]} numberOfLines={1}>{theme.title}</Text>
+                                            </View>
                                             {levelStyle && (
                                                 <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
                                                     <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
@@ -606,14 +606,11 @@ const styles = StyleSheet.create({
     tabContainer: { flexDirection: 'row', paddingHorizontal: 24, marginBottom: 16, borderBottomWidth: 1, borderBottomColor: '#E5E5E5' },
     tabButton: { flex: 1, paddingVertical: 12, alignItems: 'center' },
     tabText: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
-    themeCard: { borderRadius: 20, borderWidth: 1, flexDirection: 'row', gap: 16, marginBottom: 16 },
-    cardDetailed: { padding: 24 },
-    cardCompact: { padding: 16, alignItems: 'center', marginBottom: 0 },
-    cardIconBox: { alignItems: 'center', justifyContent: 'center' },
-    iconBoxDetailed: { width: 64, height: 64, borderRadius: 20 },
-    iconBoxCompact: { width: 48, height: 48, borderRadius: 12 },
+    themeCard: { borderRadius: 16, borderWidth: 1, marginBottom: 12 },
+    cardDetailed: { padding: 16 },
+    cardCompact: { padding: 12, marginBottom: 0 },
     cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
-    cardTitle: { flex: 1, fontSize: 18, fontFamily: 'Pretendard_700Bold' },
+    cardTitle: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
     levelBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10, marginLeft: 8 },
     levelBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
     tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 4 },
@@ -623,7 +620,7 @@ const styles = StyleSheet.create({
     langPair: { fontSize: 11, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
     cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 },
     cardCount: { fontSize: 11, fontFamily: 'Pretendard_700Bold', letterSpacing: 0.5 },
-    langChipContainer: { paddingHorizontal: 24, paddingVertical: 8, flexDirection: 'row', alignItems: 'center' },
+    langChipContainer: { paddingHorizontal: 24, paddingVertical: 2, flexDirection: 'row', alignItems: 'center' },
     langChip: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8 },
     langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
     fallbackBar: { position: 'absolute', bottom: 0, left: 0, right: 0, paddingHorizontal: 24, paddingTop: 16, borderTopWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },

@@ -25,6 +25,15 @@ export default function LoginScreen() {
 
   const handleGoogleLogin = async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+
+    if (Platform.OS !== 'web') {
+      Alert.alert(
+        t('login.googleNotReady'),
+        t('login.googleNotReadyMessage'),
+      );
+      return;
+    }
+
     if (!GOOGLE_CLIENT_ID) {
       Alert.alert(
         t('login.googleNotReady'),
@@ -39,7 +48,7 @@ export default function LoginScreen() {
       const WebBrowser = await import('expo-web-browser');
       WebBrowser.maybeCompleteAuthSession();
 
-      const redirectUri = AuthSession.makeRedirectUri({ scheme: 'soksok-voca' });
+      const redirectUri = AuthSession.makeRedirectUri();
       const discovery = {
         authorizationEndpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
         tokenEndpoint: 'https://oauth2.googleapis.com/token',

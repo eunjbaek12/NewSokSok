@@ -75,7 +75,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!theme || !theme.creatorId) {
         return res.status(400).json({ error: "Theme and creatorId are required" });
       }
-      const updated = await storage.updateCuration(id, theme.creatorId, theme, words || []);
+      const updated = await storage.updateCuration(Array.isArray(id) ? id[0] : id, theme.creatorId, theme, words || []);
       res.json(updated);
     } catch (error: any) {
       if (error.message === 'Unauthorized') {

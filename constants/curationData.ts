@@ -23,7 +23,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "\"점점 더 기묘해지네!\" 앨리스가 외쳤다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Literature", "Classic"]
+        "tags": [
+          "Literature",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-1-1742305947000",
@@ -34,7 +37,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그녀는 토끼 굴에 빠져 순수한 상상의 세계로 들어갔다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Idiom", "Literature"]
+        "tags": [
+          "Idiom",
+          "Literature"
+        ]
       },
       {
         "id": "word-alice-2-1742305947000",
@@ -45,7 +51,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "원더랜드의 캐릭터들은 모두 완전히 제정신이 아니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Idiom", "Classic"]
+        "tags": [
+          "Idiom",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-3-1742305947000",
@@ -56,7 +65,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "전부 말도 안 되는 소리지만 읽기에는 즐겁다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Literature"]
+        "tags": [
+          "Basic",
+          "Literature"
+        ]
       },
       {
         "id": "word-alice-4-1742305947000",
@@ -67,7 +79,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 게임에서 이긴 뒤 입이 귀에 걸리도록 웃으며 앉아 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Idiom", "Literature"]
+        "tags": [
+          "Idiom",
+          "Literature"
+        ]
       },
       {
         "id": "word-alice-5-1742305947000",
@@ -78,7 +93,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "마법 같은 몸 크기의 변화는 가여운 앨리스를 당혹스럽게 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-6-1742305947000",
@@ -89,7 +107,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "저 하얀 토끼는 뭔가 아주 이상한 구석이 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Vocabulary"]
+        "tags": [
+          "Basic",
+          "Vocabulary"
+        ]
       },
       {
         "id": "word-alice-7-1742305947000",
@@ -100,7 +121,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "앨리스의 모험은 그녀가 하얀 토끼를 따라가면서 시작되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-8-1742305947000",
@@ -111,7 +135,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이상한 나라에서는 모든 것이 가능하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Classic", "Place"]
+        "tags": [
+          "Classic",
+          "Place"
+        ]
       },
       {
         "id": "word-alice-9-1742305947000",
@@ -122,7 +149,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "하트 여왕이 '저들의 목을 쳐라!'라고 외쳤다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Idiom", "Classic"]
+        "tags": [
+          "Idiom",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-10-1742305947000",
@@ -133,7 +163,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "코커스 경주에서는 모두가 이기고 모두가 상을 받아야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Literature", "Classic"]
+        "tags": [
+          "Literature",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-11-1742305947000",
@@ -144,7 +177,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "산쥐는 모자 장수와 3월 토끼 사이에서 깊이 잠들어 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-12-1742305947000",
@@ -155,7 +191,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "가짜 거북은 자신의 이야기를 하며 깊은 한숨을 쉬었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-13-1742305947000",
@@ -166,7 +205,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "바닷가재 카드리유 춤에 함께하시겠습니까?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Culture", "Classic"]
+        "tags": [
+          "Culture",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-14-1742305947000",
@@ -177,7 +219,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사형 집행인은 체셔 고양이의 떠 있는 머리를 보고 당황해 보였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-15-1742305947000",
@@ -188,7 +233,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "하트 잭이 타르트를 훔쳐서 멀리 달아났다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Food", "Classic"]
+        "tags": [
+          "Food",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-16-1742305947000",
@@ -199,7 +247,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "선고가 먼저, 평결은 나중에!",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Law", "Essential"]
+        "tags": [
+          "Law",
+          "Essential"
+        ]
       },
       {
         "id": "word-alice-17-1742305947000",
@@ -210,7 +261,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "첫 번째 증인은 미친 모자 장수였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Law", "Essential"]
+        "tags": [
+          "Law",
+          "Essential"
+        ]
       },
       {
         "id": "word-alice-18-1742305947000",
@@ -221,7 +275,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "배심원단은 다양한 작은 동물들과 새들로 구성되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Law", "Essential"]
+        "tags": [
+          "Law",
+          "Essential"
+        ]
       },
       {
         "id": "word-alice-19-1742305947000",
@@ -232,7 +289,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "왜 까마귀는 책상과 같을까? 그것은 답이 없는 수수께끼였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-20-1742305947000",
@@ -243,7 +303,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 이상한 나라에서는 항상 차 마시는 시간이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Culture", "Basic"]
+        "tags": [
+          "Culture",
+          "Basic"
+        ]
       },
       {
         "id": "word-alice-21-1742305947000",
@@ -254,7 +317,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "애벌레는 버섯 위에 앉아 물담배를 피우고 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-22-1742305947000",
@@ -265,7 +331,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "버섯의 한쪽 면은 당신을 더 크게 만들 것이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-23-1742305947000",
@@ -276,7 +345,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "앨리스는 살아있는 플라밍고를 크로켓 말렛으로 사용했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-24-1742305947000",
@@ -287,7 +359,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고슴도치들이 크로켓 공으로 사용되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-25-1742305947000",
@@ -298,7 +373,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "하트 잭이 왕과 여왕 앞에 섰다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-26-1742305947000",
@@ -309,7 +387,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "체셔 고양이는 천천히 사라지며 미소만을 남겼다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-27-1742305947000",
@@ -320,7 +401,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "내 말에 토 달지 마! 공작부인이 소리쳤다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Verb", "Intermediate"]
+        "tags": [
+          "Verb",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-alice-28-1742305947000",
@@ -331,7 +415,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그들은 당밀 우물 바닥에서 살았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Food", "Classic"]
+        "tags": [
+          "Food",
+          "Classic"
+        ]
       },
       {
         "id": "word-alice-29-1742305947000",
@@ -342,7 +429,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 모든 것이 그저 황금빛 오후의 꿈이었을까?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       }
     ]
   },
@@ -368,7 +458,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "셜록 홈즈는 그의 뛰어난 추론 능력으로 유명하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Detective", "Logic"]
+        "tags": [
+          "Detective",
+          "Logic"
+        ]
       },
       {
         "id": "word-sherlock-1-1742305947000",
@@ -379,7 +472,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "\"기초적인 거라네, 왓슨 군,\" 홈즈가 말했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Classic", "Basic"]
+        "tags": [
+          "Classic",
+          "Basic"
+        ]
       },
       {
         "id": "word-sherlock-2-1742305947000",
@@ -390,7 +486,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그들은 범인이 남겼을지도 모르는 단서를 찾기 위해 방을 뒤졌다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Detective", "Crime"]
+        "tags": [
+          "Detective",
+          "Crime"
+        ]
       },
       {
         "id": "word-sherlock-3-1742305947000",
@@ -401,7 +500,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "경찰은 의문의 실종 사건에 대해 수사를 시작했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Formal"]
+        "tags": [
+          "Vocabulary",
+          "Formal"
+        ]
       },
       {
         "id": "word-sherlock-4-1742305947000",
@@ -412,7 +514,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "용의자는 범행 당일 밤에 대한 확실한 알리바이가 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Law", "Crime"]
+        "tags": [
+          "Law",
+          "Crime"
+        ]
       },
       {
         "id": "word-sherlock-5-1742305947000",
@@ -423,7 +528,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "\"자네는 보고는 있지만, 관찰은 하지 않는군,\" 홈즈가 왓슨에게 언급했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Verb", "Logic"]
+        "tags": [
+          "Verb",
+          "Logic"
+        ]
       },
       {
         "id": "word-sherlock-6-1742305947000",
@@ -434,7 +542,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "'얼룩끈의 비밀'은 전형적인 밀실 미스터리이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Classic", "Genre"]
+        "tags": [
+          "Classic",
+          "Genre"
+        ]
       },
       {
         "id": "word-sherlock-7-1742305947000",
@@ -445,7 +556,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "셜록 홈즈는 세계 유일의 공식 고문 탐정이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Title", "Classic"]
+        "tags": [
+          "Title",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-8-1742305947000",
@@ -456,7 +570,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 유명한 탐정은 베이커가 221B번지에 살았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Place", "Classic"]
+        "tags": [
+          "Place",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-9-1742305947000",
@@ -467,7 +584,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "왓슨 박사는 셜록의 충실한 동료이자 전기 작가였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-10-1742305947000",
@@ -478,7 +598,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "범죄자는 진흙 위에 몇 개의 발자국을 남겼다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Law", "Crime"]
+        "tags": [
+          "Law",
+          "Crime"
+        ]
       },
       {
         "id": "word-sherlock-11-1742305947000",
@@ -489,7 +612,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "주요 용의자는 살인 사건 당시의 알리바이가 없었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Law", "Crime"]
+        "tags": [
+          "Law",
+          "Crime"
+        ]
       },
       {
         "id": "word-sherlock-12-1742305947000",
@@ -500,7 +626,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그렇게 이상한 범죄 뒤에 숨겨진 동기는 무엇이었을까?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Psychology", "Crime"]
+        "tags": [
+          "Psychology",
+          "Crime"
+        ]
       },
       {
         "id": "word-sherlock-13-1742305947000",
@@ -511,7 +640,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정황 증거는 매우 오해를 불러일으킬 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Law", "Essential"]
+        "tags": [
+          "Law",
+          "Essential"
+        ]
       },
       {
         "id": "word-sherlock-14-1742305947000",
@@ -522,7 +654,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "홈즈는 커다란 돋보기로 카펫을 조사했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Tool", "Classic"]
+        "tags": [
+          "Tool",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-15-1742305947000",
@@ -533,7 +668,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "홈즈는 변장의 달인이어서 늙은 선원으로 나타나기도 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Verb", "Classic"]
+        "tags": [
+          "Verb",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-16-1742305947000",
@@ -544,7 +682,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "모리아티는 런던에서 가장 위험한 악당이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Crime"]
+        "tags": [
+          "Basic",
+          "Crime"
+        ]
       },
       {
         "id": "word-sherlock-17-1742305947000",
@@ -555,7 +696,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "모리아티 교수는 범죄계의 나폴레옹이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-18-1742305947000",
@@ -566,7 +710,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "발자국 하나가 종종 전체 이야기를 말해준다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Detective"]
+        "tags": [
+          "Basic",
+          "Detective"
+        ]
       },
       {
         "id": "word-sherlock-19-1742305947000",
@@ -577,7 +724,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "홈즈는 사건을 해결하기 위해 초기 과학 수사 기법을 사용했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Science", "Detective"]
+        "tags": [
+          "Science",
+          "Detective"
+        ]
       },
       {
         "id": "word-sherlock-20-1742305947000",
@@ -588,7 +738,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "춤추는 사람 인형은 영리한 암호 시스템이었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Advanced", "Logic"]
+        "tags": [
+          "Advanced",
+          "Logic"
+        ]
       },
       {
         "id": "word-sherlock-21-1742305947000",
@@ -599,7 +752,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그의 추론 과정은 논리적이고 결점이 없었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Logic", "Advanced"]
+        "tags": [
+          "Logic",
+          "Advanced"
+        ]
       },
       {
         "id": "word-sherlock-22-1742305947000",
@@ -610,7 +766,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "데이터가 있기도 전에 이론을 세우는 것은 중대한 실수다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Logic", "Intermediate"]
+        "tags": [
+          "Logic",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-sherlock-23-1742305947000",
@@ -621,7 +780,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 사건은 내가 다룬 것 중 가장 어려운 축에 속한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Detective"]
+        "tags": [
+          "Basic",
+          "Detective"
+        ]
       },
       {
         "id": "word-sherlock-24-1742305947000",
@@ -632,7 +794,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "바스커빌의 개가 황무지에 나타났다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-25-1742305947000",
@@ -643,7 +808,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "주홍색 연구는 첫 번째 홈즈 소설이었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Color", "Classic"]
+        "tags": [
+          "Color",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-26-1742305947000",
@@ -654,7 +822,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "홈즈는 보헤미아 국왕으로부터 긴급한 전보를 받았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Culture", "Classic"]
+        "tags": [
+          "Culture",
+          "Classic"
+        ]
       },
       {
         "id": "word-sherlock-27-1742305947000",
@@ -665,7 +836,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "레스트레이드는 스코틀랜드 야드 전문가들 중 최고다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Place", "Law"]
+        "tags": [
+          "Place",
+          "Law"
+        ]
       },
       {
         "id": "word-sherlock-28-1742305947000",
@@ -676,7 +850,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "때때로 직관은 빠른 관찰의 결과일 뿐이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Psychology", "Advanced"]
+        "tags": [
+          "Psychology",
+          "Advanced"
+        ]
       },
       {
         "id": "word-sherlock-29-1742305947000",
@@ -687,7 +864,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "길고 마른 그림자가 창문 블라인드에 나타났다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Vocabulary"]
+        "tags": [
+          "Basic",
+          "Vocabulary"
+        ]
       }
     ]
   },
@@ -853,7 +1033,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 급성 복통으로 병원에 입원했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-11-1772897778269",
@@ -864,7 +1047,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "만성적인 스트레스는 다양한 건강 문제로 이어질 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-12-1772897778269",
@@ -875,7 +1061,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "간호사는 4시간마다 환자의 활력 징후를 기록했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Essential"]
+        "tags": [
+          "Medical",
+          "Essential"
+        ]
       },
       {
         "id": "word-0-13-1772897778269",
@@ -886,7 +1075,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고열이 있는 어린이에게 열성 경련이 나타날 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-0-14-1772897778269",
@@ -897,7 +1089,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자는 현재 열이 없으며 상태가 안정되고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-0-15-1772897778269",
@@ -908,7 +1103,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "전신 권태감은 종종 바이러스 감염의 첫 번째 징후이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-0-16-1772897778269",
@@ -919,7 +1117,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그녀의 주요 호소 증상은 몇 주 동안 지속된 기침이었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Essential"]
+        "tags": [
+          "Medical",
+          "Essential"
+        ]
       },
       {
         "id": "word-0-17-1772897778269",
@@ -930,7 +1131,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정확한 진단을 위해 철저한 신체 검진이 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-18-1772897778269",
@@ -941,7 +1145,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "흉부 타진은 폐의 체액을 식별하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-0-19-1772897778269",
@@ -952,7 +1159,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "최초 시진 결과 환자의 팔에 피부 병변이 발견되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-20-1772897778269",
@@ -963,7 +1173,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "감염이 전신으로 퍼져 여러 장기에 영향을 미쳤다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-0-21-1772897778269",
@@ -974,7 +1187,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "통증은 허리 아래 부위에 국소적으로 나타났다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-22-1772897778269",
@@ -985,7 +1201,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "실험실 검사 결과는 내일 나옵니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-23-1772897778269",
@@ -996,7 +1215,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의사는 골절 여부를 확인하기 위해 영상 검사를 지시했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-24-1772897778269",
@@ -1007,7 +1229,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자에게 중요한 과거 병력이 있습니까?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Essential"]
+        "tags": [
+          "Medical",
+          "Essential"
+        ]
       },
       {
         "id": "word-0-25-1772897778269",
@@ -1018,7 +1243,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "심장병의 강한 가족력은 위험을 증가시킨다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Essential"]
+        "tags": [
+          "Medical",
+          "Essential"
+        ]
       },
       {
         "id": "word-0-26-1772897778269",
@@ -1029,7 +1257,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사회력에는 흡연 및 음주 습관과 같은 정보가 포함됩니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-0-27-1772897778269",
@@ -1040,7 +1271,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의사는 신체 검진 결과 후 계통적 문진을 수행했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-0-28-1772897778269",
@@ -1051,7 +1285,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정상 체온은 일반적으로 섭씨 36.5도 정도이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-0-29-1772897778269",
@@ -1062,7 +1299,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고혈압은 심장병의 주요 위험 요인이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       }
     ]
   },
@@ -1228,7 +1468,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "운동선수들은 강도 높은 훈련으로 인해 휴식기 서맥이 나타날 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-1-11-1772897778269",
@@ -1239,7 +1482,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "스트레스와 카페인은 일시적인 빈맥을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-1-12-1772897778269",
@@ -1250,7 +1496,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자는 운동 중 심장 두근거림을 호소했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-13-1772897778269",
@@ -1261,7 +1510,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "발목 부종은 심장이나 신장 문제의 징후일 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-1-14-1772897778269",
@@ -1272,7 +1524,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "울혈성 심부전은 장기적인 관리가 필요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Essential"]
+        "tags": [
+          "Medical",
+          "Essential"
+        ]
       },
       {
         "id": "word-1-15-1772897778269",
@@ -1283,7 +1538,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의사는 정기 검진 중 희미한 심잡음을 감지했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-1-16-1772897778269",
@@ -1294,7 +1552,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "심한 협착증에는 판막 교체 수술이 필요할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-17-1772897778269",
@@ -1305,7 +1566,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "대동맥은 인체에서 가장 큰 동맥이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-18-1772897778269",
@@ -1316,7 +1580,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "좌심실은 신체의 나머지 부분으로 혈액을 공급한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-19-1772897778269",
@@ -1327,7 +1594,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "혈액은 우심방과 좌심방을 통해 심장으로 들어온다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-20-1772897778269",
@@ -1338,7 +1608,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "동맥경화는 종종 노화 및 고혈압과 관련이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-1-21-1772897778269",
@@ -1349,7 +1622,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "저밀도 지질단백질(LDL)은 종종 '나쁜' 콜레스테롤로 불린다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-22-1772897778269",
@@ -1360,7 +1636,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "혈액 검사를 통해 중성지방 수치를 측정할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-1-23-1772897778269",
@@ -1371,7 +1650,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "플라크 축적은 동맥을 좁게 만들거나 막을 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-24-1772897778269",
@@ -1382,7 +1664,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "심정지 상태의 사람에게는 즉각적인 심폐소생술이 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Essential"]
+        "tags": [
+          "Medical",
+          "Essential"
+        ]
       },
       {
         "id": "word-1-25-1772897778269",
@@ -1393,7 +1678,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "비상 상황을 대비해 누구나 심폐소생술 방법을 배워야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Essential"]
+        "tags": [
+          "Medical",
+          "Essential"
+        ]
       },
       {
         "id": "word-1-26-1772897778269",
@@ -1404,7 +1692,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 인공심박동기를 이식하는 수술을 받았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-1-27-1772897778269",
@@ -1415,7 +1706,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "혈류 개선을 위해 그의 관상동맥에 스텐트가 설치되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-1-28-1772897778269",
@@ -1426,7 +1720,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정맥 주사는 때때로 주사 부위에 정맥염을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-1-29-1772897778269",
@@ -1437,7 +1734,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "파열된 동맥류는 생명을 위협하는 응급 상황이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       }
     ]
   },
@@ -1603,7 +1903,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자는 치료 종료 6개월 후 재발을 경험했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-2-11-1772897778269",
@@ -1614,7 +1917,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "병기 설정은 의사가 암에 대한 최선의 치료 계획을 결정하는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-2-12-1772897778269",
@@ -1625,7 +1931,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "종양 등급 설정은 암이 얼마나 빨리 자랄 수 있는지에 대한 정보를 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-2-13-1772897778269",
@@ -1636,7 +1945,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "PSA는 전립선암 선별 검사에 사용되는 흔한 종양 표지자이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-2-14-1772897778269",
@@ -1647,7 +1959,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "외과의는 암 전이 여부를 확인하기 위해 여러 개의 림프절을 제거했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-2-15-1772897778269",
@@ -1658,7 +1973,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그녀는 모든 암 세포가 제거되었는지 확인하기 위해 보조 요법을 받았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-2-16-1772897778269",
@@ -1669,7 +1987,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "양성 신생물은 일반적으로 생명을 위협하지 않는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-2-17-1772897778269",
@@ -1680,7 +2001,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "기저세포암은 흔한 형태의 피부암이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-2-18-1772897778269",
@@ -1691,7 +2015,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "골육종은 종종 젊은 사람들에게 영향을 미치는 뼈 육종의 일종이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-2-19-1772897778269",
@@ -1702,7 +2029,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "백혈병은 백혈구 생성에 영향을 미친다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-2-20-1772897778269",
@@ -1713,7 +2043,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "호지킨 림프종은 특정 유형의 림프계 암이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-2-21-1772897778269",
@@ -1724,7 +2057,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "유전적 돌연변이는 때때로 암 발생으로 이어질 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-2-22-1772897778269",
@@ -1735,7 +2071,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "유방조영술은 유방암 선별 검사에 사용된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-2-23-1772897778269",
@@ -1746,7 +2085,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "표적 치료는 전통적인 화학요법보다 부작용이 적을 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-2-24-1772897778269",
@@ -1757,7 +2099,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정밀 의료는 적절한 환자에게 적기에 적절한 치료를 제공하는 것을 목표로 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-2-25-1772897778269",
@@ -1768,7 +2113,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "유전성 암 가족력이 있는 가족에게는 유전자 상담이 권장된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-2-26-1772897778269",
@@ -1779,7 +2127,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 유형의 암에 대한 5년 생존율이 크게 개선되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-2-27-1772897778269",
@@ -1790,7 +2141,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "생검 보고서에서 악성 세포의 존재가 확인되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-2-28-1772897778269",
@@ -1801,7 +2155,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "전이성 암은 종종 치료하기 더 어렵다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-2-29-1772897778269",
@@ -1812,7 +2169,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "방사선 종양 전문의가 방사선 치료 세션을 계획할 것입니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -1978,7 +2338,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "알츠하이머병은 고령자에게 발생하는 치매의 가장 흔한 원인이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-11-1772897778269",
@@ -1989,7 +2352,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "파킨슨병은 신체의 경직과 움직임의 둔화를 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-12-1772897778269",
@@ -2000,7 +2366,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "다발성 경화증은 시력 상실과 피로를 포함한 광범위한 잠재적 증상을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-3-13-1772897778269",
@@ -2011,7 +2380,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "적절한 약물을 통해 많은 뇌전증 환자들이 발작 없는 삶을 살 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-3-14-1772897778269",
@@ -2022,7 +2394,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그녀는 어둡고 조용한 방에 있어야 할 정도의 심한 편두통을 앓고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-15-1772897778269",
@@ -2033,7 +2408,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "운동선수들은 머리 부상 후 종종 뇌진탕 검사를 받는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-16-1772897778269",
@@ -2044,7 +2422,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "삼차신경통은 갑작스럽고 심한 얼굴 통증을 유발한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-3-17-1772897778269",
@@ -2055,7 +2436,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 사고로 그는 다리에 영구적인 마비가 남았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-18-1772897778269",
@@ -2066,7 +2450,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "편마비는 뇌의 한쪽 반구에 영향을 미치는 뇌졸중의 흔한 결과이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-3-19-1772897778269",
@@ -2077,7 +2464,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "운동은 해마의 신경 발생을 자극하는 것으로 밝혀졌다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-3-20-1772897778269",
@@ -2088,7 +2478,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신호는 시냅스를 통해 뉴런 사이에 전달된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-3-21-1772897778269",
@@ -2099,7 +2492,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "미엘린 초의 손상은 신경 신호 전달을 방해할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-3-22-1772897778269",
@@ -2110,7 +2506,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의사는 작은 망치로 그의 무릎 반사를 테스트했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-23-1772897778269",
@@ -2121,7 +2520,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "안정 시 떨림은 파킨슨병의 전형적인 증상이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-24-1772897778269",
@@ -2132,7 +2534,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "세균성 수막염은 즉각적인 치료가 필요한 심각한 질환이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-3-25-1772897778269",
@@ -2143,7 +2548,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "뇌파 검사는 뇌전증 및 기타 뇌 질환을 진단하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-3-26-1772897778269",
@@ -2154,7 +2562,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "MRI 스캔은 뇌의 내부 구조에 대한 명확한 그림을 제공했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-27-1772897778269",
@@ -2165,7 +2576,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "수막염을 배제하기 위해 요추 천자(척추 천자)가 필요했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-3-28-1772897778269",
@@ -2176,7 +2590,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "감각 뉴런은 신체에서 뇌로 정보를 전달한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-3-29-1772897778269",
@@ -2187,7 +2604,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "운동 뉴런은 근육 움직임을 조절하는 역할을 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -2353,7 +2773,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "담즙은 신체가 지방을 분해하고 흡수하는 것을 돕는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-11-1772897778269",
@@ -2364,7 +2787,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "담석은 우상복부에 심한 통증을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-4-12-1772897778269",
@@ -2375,7 +2801,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고섬유질 식단은 변비를 예방하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-13-1772897778269",
@@ -2386,7 +2815,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "설사를 할 때는 수분을 유지하는 것이 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-14-1772897778269",
@@ -2397,7 +2829,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "멀미는 종종 강한 메스꺼움을 유발한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-15-1772897778269",
@@ -2408,7 +2843,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "심한 식중독은 지속적인 구토로 이어질 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-16-1772897778269",
@@ -2419,7 +2857,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "특정 음식은 식후에 불편한 복부 팽만감을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-17-1772897778269",
@@ -2430,7 +2871,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "콩과 양배추는 창자 내 가스를 증가시키는 것으로 알려져 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-18-1772897778269",
@@ -2441,7 +2885,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "연동 운동은 소화관을 통해 음식을 이동시킨다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-4-19-1772897778269",
@@ -2452,7 +2899,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "운동은 신진대사를 촉진하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-20-1772897778269",
@@ -2463,7 +2913,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "비타민과 미네랄은 신체에 필수적인 영양소이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-21-1772897778269",
@@ -2474,7 +2927,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "소장은 영양소 흡수의 주요 장소이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-22-1772897778269",
@@ -2485,7 +2941,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "대부분의 소화는 소장에서 일어난다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-23-1772897778269",
@@ -2496,7 +2955,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "대장은 수분을 흡수하고 대변을 형성한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-24-1772897778269",
@@ -2507,7 +2969,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "50세 이상의 사람들에게는 결장암(대장암) 선별 검사가 권장된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-25-1772897778269",
@@ -2518,7 +2983,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "직장은 대변이 배출될 준비가 될 때까지 보관한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-26-1772897778269",
@@ -2529,7 +2997,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "간은 화학 물질을 해독하고 약물을 대사한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-27-1772897778269",
@@ -2540,7 +3011,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "담낭(쓸개)을 제거한 후에도 건강한 삶을 살 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-28-1772897778269",
@@ -2551,7 +3025,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "췌장은 혈당을 조절하기 위해 인슐린을 생산한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-4-29-1772897778269",
@@ -2562,7 +3039,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "음식을 영양소로 분해하기 위해 소화 효소가 필요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -2728,7 +3208,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "코르티솔 수치는 일반적으로 스트레스에 반응하여 상승한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-5-11-1772897778269",
@@ -2739,7 +3222,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "에피네프린 주사는 심한 알레르기 반응 중에 생명을 구할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-5-12-1772897778269",
@@ -2750,7 +3236,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "에스트로겐 수치는 월경 주기 동안 변동한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-5-13-1772897778269",
@@ -2761,7 +3250,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "테스토스테론은 근육량과 골밀도에 중요한 역할을 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-5-14-1772897778269",
@@ -2772,7 +3264,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "갑상선은 호르몬을 생산하기 위해 요오드가 필요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-5-15-1772897778269",
@@ -2783,7 +3278,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "부갑상선은 혈액 내 칼슘의 적절한 균형을 유지하는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-5-16-1772897778269",
@@ -2794,7 +3292,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "송과체는 빛과 어둠에 반응하여 수면-각성 주기를 조절한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-5-17-1772897778269",
@@ -2805,7 +3306,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "글루카곤은 혈당 수치가 너무 낮을 때 이를 높이는 작용을 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-5-18-1772897778269",
@@ -2816,7 +3320,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "내분비계는 신체 항상성을 유지하는 데 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-5-19-1772897778269",
@@ -2827,7 +3334,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사춘기 동안의 호르몬 변화는 신체적, 감정적 성장을 이끈다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-5-20-1772897778269",
@@ -2838,7 +3348,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "폐경의 증상으로는 안면 홍조와 수면 장애가 있을 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-5-21-1772897778269",
@@ -2849,7 +3362,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "만성 고혈당증은 심각한 건강 합병증을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-5-22-1772897778269",
@@ -2860,7 +3376,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "당뇨병 환자는 갑작스러운 저혈당 에피소드를 피하도록 주의해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-5-23-1772897778269",
@@ -2871,7 +3390,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "갑상선종은 갑상선이 제대로 기능하지 않고 있다는 신호일 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-5-24-1772897778269",
@@ -2882,7 +3404,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "폐경 후 여성은 골다공증 발생 위험이 더 높다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-5-25-1772897778269",
@@ -2893,7 +3418,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "안드로겐은 남성과 여성 모두에게서 발견되지만, 수치는 다르다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-5-26-1772897778269",
@@ -2904,7 +3432,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어떤 사람들은 시차 적응을 돕기 위해 멜라토닌 보충제를 복용한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-5-27-1772897778269",
@@ -2915,7 +3446,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "임신과 수유 중에 프롤락틴 수치가 증가한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-5-28-1772897778269",
@@ -2926,7 +3460,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "옥시토신은 사회적 유대감에서의 역할 때문에 종종 '사랑의 호르몬'으로 불린다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-5-29-1772897778269",
@@ -2937,7 +3474,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "내분비계는 신체 기능을 유지하기 위해 신경계와 함께 작동한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       }
     ]
   },
@@ -3103,7 +3643,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "면역 요법은 암 치료의 혁명적인 접근 방식이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-11-1772897778269",
@@ -3114,7 +3657,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "체액성 면역은 병원균과 싸우기 위한 항체 생성을 포함한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-12-1772897778269",
@@ -3125,7 +3671,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "세포 매개성 면역은 바이러스 감염을 방어하는 데 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-13-1772897778269",
@@ -3136,7 +3685,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "림프계는 신체의 면역 방어에 중요한 역할을 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-14-1772897778269",
@@ -3147,7 +3699,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "비장은 혈액을 거르고 특정 유형의 박테리아와 싸우는 것을 돕는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-15-1772897778269",
@@ -3158,7 +3713,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "골수는 적혈구, 백혈구 및 혈소판을 생산한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-6-16-1772897778269",
@@ -3169,7 +3727,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "백혈구는 면역계의 주요 세포이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-17-1772897778269",
@@ -3180,7 +3741,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "대식세포는 세포 찌꺼기와 병원균을 집어삼키고 소화한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-18-1772897778269",
@@ -3191,7 +3755,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사이토카인은 면역 반응에서 화학적 메신저 역할을 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-19-1772897778269",
@@ -3202,7 +3769,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "히스타민 방출은 알레르기와 관련된 많은 증상을 유발한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-20-1772897778269",
@@ -3213,7 +3783,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "땅콩 알레르기는 때때로 심각한 아나필락시스 에피소드를 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-21-1772897778269",
@@ -3224,7 +3797,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "피부와 점막은 우리의 선천 면역의 일부이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-22-1772897778269",
@@ -3235,7 +3811,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "적응 면역은 특정 질병에 대해 오래 지속되는 보호를 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-23-1772897778269",
@@ -3246,7 +3825,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "식균 작용은 감염을 치료하는 핵심 메커니즘이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-24-1772897778269",
@@ -3257,7 +3839,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "알레르기는 환경 물질에 대한 과민 반응의 한 형태이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-25-1772897778269",
@@ -3268,7 +3853,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "부어오른 림프절은 근처의 감염 징후일 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-6-26-1772897778269",
@@ -3279,7 +3867,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "T 림프구는 감염된 세포를 식별하고 파괴하는 것을 돕는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-27-1772897778269",
@@ -3290,7 +3881,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "B 림프구는 특정 병원균을 표적으로 삼을 수 있는 항체를 생성한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-6-28-1772897778269",
@@ -3301,7 +3895,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "혈청에서 특정 항체의 존재 여부를 검사할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-6-29-1772897778269",
@@ -3312,7 +3909,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "인터페론은 신체의 면역계가 바이러스 및 암과 싸우는 것을 돕는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       }
     ]
   },
@@ -3478,7 +4078,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "표피는 방수 장벽을 제공하고 우리의 피부톤을 만든다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-11-1772897778269",
@@ -3489,7 +4092,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "진피는 피부에 힘과 탄력을 주는 콜라겐과 엘라스틴을 포함하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-12-1772897778269",
@@ -3500,7 +4106,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "피하 지방은 체온 조절을 돕는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-13-1772897778269",
@@ -3511,7 +4120,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "모낭의 감염이나 염증을 모낭염이라고 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-14-1772897778269",
@@ -3522,7 +4134,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "과도하게 활발한 피지선은 지성 피부와 여드름을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-15-1772897778269",
@@ -3533,7 +4148,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "땀샘은 증발을 통해 신체를 냉각시키는 것을 돕는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-16-1772897778269",
@@ -3544,7 +4162,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "멜라닌은 자외선 방사의 해로운 영향으로부터 어느 정도 보호를 해준다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-17-1772897778269",
@@ -3555,7 +4176,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "케라틴은 피부를 질기고 방수가 되게 만든다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-18-1772897778269",
@@ -3566,7 +4190,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 새 신발 때문에 뒤꿈치에 아픈 물집이 생겼다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-19-1772897778269",
@@ -3577,7 +4204,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "기타 연주자들은 종종 손가락 끝에 굳은살이 생긴다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-20-1772897778269",
@@ -3588,7 +4218,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "모양이나 색이 변하는 점은 피부과 전문의의 검사를 받아야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-21-1772897778269",
@@ -3599,7 +4232,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "피부가 밝은 많은 아이들이 여름 동안 주근깨가 생긴다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-22-1772897778269",
@@ -3610,7 +4246,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "수술로 인해 그의 복부에 작은 흉터가 남았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-23-1772897778269",
@@ -3621,7 +4260,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사마귀는 흔하며 대개 일반 의약품으로 치료할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-7-24-1772897778269",
@@ -3632,7 +4274,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "불규칙한 피부 색소 침착은 햇빛 손상이나 호르몬 변화로 인해 발생할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-25-1772897778269",
@@ -3643,7 +4288,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "피부 발진을 치료하기 위해 국소용 크림이 처방되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-26-1772897778269",
@@ -3654,7 +4302,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "무좀은 발 피부에 생기는 흔한 진균 감염이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-27-1772897778269",
@@ -3665,7 +4316,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "알레르기 반응 후에 갑작스러운 두드러기 발진이 뒤따랐다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-7-28-1772897778269",
@@ -3676,7 +4330,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "여드름은 많은 십대들에게 영향을 미치는 염증성 피부 질환이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-7-29-1772897778269",
@@ -3687,7 +4344,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어떤 사람들은 벌에 쏘였을 때 심한 알레르기 반응을 보인다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       }
     ]
   },
@@ -3853,7 +4513,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "척추뼈 골절은 심한 허리 통증을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-11-1772897778269",
@@ -3864,7 +4527,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "대퇴골은 인체에서 가장 길고 강한 뼈이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-12-1772897778269",
@@ -3875,7 +4541,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "무릎은 신체에서 가장 큰 관절이며 부상을 입기 쉽다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-8-13-1772897778269",
@@ -3886,7 +4555,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어깨 탈구는 관절을 재설정하기 위해 즉각적인 의학적 조치가 필요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-14-1772897778269",
@@ -3897,7 +4569,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "류머티즘은 아침에 만성 통증과 경직을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-15-1772897778269",
@@ -3908,7 +4583,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어깨의 점액낭염은 팔을 들어 올릴 때 통증을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-8-16-1772897778269",
@@ -3919,7 +4597,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사무직 종사자들은 반복적인 타이핑으로 인해 수근관 증후군을 자주 겪는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-17-1772897778269",
@@ -3930,7 +4611,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "좋은 자세를 유지하는 것은 척추 건강에 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-8-18-1772897778269",
@@ -3941,7 +4625,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 수년간 무거운 물건을 들어 올린 후 만성 요추 통증에 시달렸다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-19-1772897778269",
@@ -3952,7 +4639,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "경추증은 목 관절의 노화와 관련된 흔한 질환이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-20-1772897778269",
@@ -3963,7 +4653,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "흉추는 척추의 중간 부분에 위치한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-21-1772897778269",
@@ -3974,7 +4667,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "골반 골절은 종종 장기적인 회복이 필요한 심각한 부상이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-22-1772897778269",
@@ -3985,7 +4681,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "인간의 골격은 206개의 뼈로 구성되어 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-8-23-1772897778269",
@@ -3996,7 +4695,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "장기간의 침상 안정은 다리의 심각한 근위축을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-8-24-1772897778269",
@@ -4007,7 +4709,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "근육 비대는 보디빌더들의 흔한 목표이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-8-25-1772897778269",
@@ -4018,7 +4723,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 강렬한 운동 후에 다리에 근육 경련을 겪었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-8-26-1772897778269",
@@ -4029,7 +4737,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "물리 치료는 수술 후 전체 관절 가동 범위를 회복하는 것을 목표로 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-27-1772897778269",
@@ -4040,7 +4751,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "척추 측만증은 흔히 정기적인 학교 건강 검진 중에 발견된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-28-1772897778269",
@@ -4051,7 +4765,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "발목 인대 파열은 제대로 치유되는 데 몇 주가 걸릴 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-8-29-1772897778269",
@@ -4062,7 +4779,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "근골격계는 주요 혈관을 보호하고 이동을 가능하게 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       }
     ]
   },
@@ -4228,7 +4948,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "도파민은 뇌의 보상 시스템과 관련이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-11-1772897778269",
@@ -4239,7 +4962,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "낮은 수준의 세로토닌은 종종 우울증과 연결된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-12-1772897778269",
@@ -4250,7 +4976,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고소 공포증은 높이에 대한 극심한 두려움이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-13-1772897778269",
@@ -4261,7 +4990,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "OCD의 흔한 증상으로는 과도한 청소나 손 씻기가 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-9-14-1772897778269",
@@ -4272,7 +5004,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "전투에서 돌아온 군인들은 PTSD에 시달릴 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-9-15-1772897778269",
@@ -4283,7 +5018,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의사는 그녀에게 새로운 종류의 항우울제를 처방했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-9-16-1772897778269",
@@ -4294,7 +5032,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "기분 조절제는 종종 양극성 장애를 치료하는 데 사용된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-9-17-1772897778269",
@@ -4305,7 +5046,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "일부 조현병 유형에서는 환청이 흔하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-9-18-1772897778269",
@@ -4316,7 +5060,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자는 피해 망상에 시달렸다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-9-19-1772897778269",
@@ -4327,7 +5074,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "높은 수준의 스트레스는 종종 일시적인 불면증을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-20-1772897778269",
@@ -4338,7 +5088,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "알코올 중독은 화학적 중독의 흔한 형태이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-21-1772897778269",
@@ -4349,7 +5102,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "과장된 자기 중요성은 나르시시즘의 핵심 특징이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-9-22-1772897778269",
@@ -4360,7 +5116,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "공감은 환자를 효과적으로 상담하는 데 필수적인 기술이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-23-1772897778269",
@@ -4371,7 +5130,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회복 탄력성을 기르는 것은 사람들이 외상에 더 잘 대처하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-9-24-1772897778269",
@@ -4382,7 +5144,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정신 질환을 둘러싼 사회적 낙인은 사람들이 도움을 청하는 것을 막을 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-9-25-1772897778269",
@@ -4393,7 +5158,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신경 다양성 개념은 자폐증이나 ADHD와 같은 상태에 대한 수용을 촉진한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-9-26-1772897778269",
@@ -4404,7 +5172,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "진지한 마음챙김 수련은 스트레스 수준을 크게 낮출 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-27-1772897778269",
@@ -4415,7 +5186,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어떤 약물은 일시적인 희열감을 유발할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-9-28-1772897778269",
@@ -4426,7 +5200,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "조증 에피소드 동안 사람은 충동적인 행동을 할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-9-29-1772897778269",
@@ -4437,7 +5214,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "강박 행위는 종종 기저의 불안이나 강박 관념에 의해 유발된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -4603,7 +5383,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "아스피린과 이부프로펜은 흔히 사용되는 진통제이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-11-1772897778269",
@@ -4614,7 +5397,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의사는 박테리아 감염에 대해 항생제를 처방했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-10-12-1772897778269",
@@ -4625,7 +5411,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "항히스타민제는 알레르기로 인한 재채기와 가려움증을 줄이는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-13-1772897778269",
@@ -4636,7 +5425,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "항염증제는 관절염과 같은 질환을 치료하는 데 사용된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-14-1772897778269",
@@ -4647,7 +5439,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "간은 약물 대사의 주요 장기이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-15-1772897778269",
@@ -4658,7 +5453,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "약물 흡수 속도는 음식과 함께 복용하느냐에 따라 달라질 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-16-1772897778269",
@@ -4669,7 +5467,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신장 기능은 많은 약물의 효율적인 배설에 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-17-1772897778269",
@@ -4680,7 +5481,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정맥 투여는 일반적으로 100%의 생체 이용률을 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-10-18-1772897778269",
@@ -4691,7 +5495,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "효능제는 천연 신경 전달 물질의 작용을 모방한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-10-19-1772897778269",
@@ -4702,7 +5509,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "베타 차단제는 아드레날린의 효과를 차단하기 위한 길항제로 작용한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-10-20-1772897778269",
@@ -4713,7 +5523,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "치료 지수가 좁은 약물은 독성을 피하기 위해 주의 깊은 모니터링이 필요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-10-21-1772897778269",
@@ -4724,7 +5537,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "제네릭 의약품은 일반적으로 브랜드 의약품보다 저렴하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-10-22-1772897778269",
@@ -4735,7 +5551,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어린 시절의 예방 접종은 많은 심각한 질병을 퇴치했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-10-23-1772897778269",
@@ -4746,7 +5565,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "특정 유형의 중독성 물질은 금단 증상이 심각할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-24-1772897778269",
@@ -4757,7 +5579,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어떤 약물은 신체의 대사율에 영향을 미칠 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-25-1772897778269",
@@ -4768,7 +5593,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 진통제의 작용 지속 시간은 약 6시간이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-26-1772897778269",
@@ -4779,7 +5607,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "반감기가 긴 약물은 며칠 동안 체내에 남아 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-10-27-1772897778269",
@@ -4790,7 +5621,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자는 탈수를 치료하기 위해 정맥 수액 주입을 받았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-28-1772897778269",
@@ -4801,7 +5635,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "좌약은 약물 투여의 대체 경로가 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-10-29-1772897778269",
@@ -4812,7 +5649,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "가벼운 수술 과정 중에 국소 마취가 사용되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       }
     ]
   },
@@ -4978,7 +5818,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "과밀한 주거 환경에서는 전염의 위험이 증가한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-11-11-1772897778270",
@@ -4989,7 +5832,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "열은 박테리아나 바이러스 감염의 흔한 징후이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-11-12-1772897778270",
@@ -5000,7 +5846,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "적절한 위생은 수인성 질병의 확산을 예방하는 데 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-11-13-1772897778270",
@@ -5011,7 +5860,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "손 위생은 감염을 예방하는 가장 효과적인 방법 중 하나이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-11-14-1772897778270",
@@ -5022,7 +5874,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "표면의 정기적인 소독은 세균의 전파를 줄이는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-11-15-1772897778270",
@@ -5033,7 +5888,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "수술 도구는 사용 전에 철저한 멸균 과정을 거쳐야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-11-16-1772897778270",
@@ -5044,7 +5902,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "무증상 보균자도 여전히 다른 사람에게 바이러스를 퍼뜨릴 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-11-17-1772897778270",
@@ -5055,7 +5916,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "독감의 잠복기는 대개 2일에서 4일이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-11-18-1772897778270",
@@ -5066,7 +5930,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "광견병은 인수 공통 전염병의 잘 알려진 예이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-11-19-1772897778270",
@@ -5077,7 +5944,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "보건 당국은 최근 결혼식과 관련된 집단 감염 사례를 확인했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-11-20-1772897778270",
@@ -5088,7 +5958,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "접촉자 파악은 발병을 억제하기 위한 핵심 전략이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-11-21-1772897778270",
@@ -5099,7 +5972,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "집단 면역을 달성하는 것은 예방 접종을 받을 수 없는 사람들을 보호한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-11-22-1772897778270",
@@ -5110,7 +5986,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정기적인 검사는 암을 조기에 발견하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-11-23-1772897778270",
@@ -5121,7 +6000,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "질병 감시 시스템은 유행병의 조기 경보에 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-11-24-1772897778270",
@@ -5132,7 +6014,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "과학자들은 다양한 박테리아 변종의 병원성을 연구한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-11-25-1772897778270",
@@ -5143,7 +6028,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "바이러스의 독성은 사람을 얼마나 아프게 할 수 있는지 결정한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-11-26-1772897778270",
@@ -5154,7 +6042,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "흡연은 폐암의 주요 위험 요인이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-11-27-1772897778270",
@@ -5165,7 +6056,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의료 서비스 개선은 기대 수명을 높인다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-11-28-1772897778270",
@@ -5176,7 +6070,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정기적으로 손을 씻는 것은 전염성 질환의 확산 위험을 줄인다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-11-29-1772897778270",
@@ -5187,7 +6084,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "백신은 위험한 바이러스에 대한 면역력을 키우는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       }
     ]
   },
@@ -5353,7 +6253,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "치료를 중단하기로 한 결정은 복잡한 도덕적 딜레마가 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-12-11-1772897778270",
@@ -5364,7 +6267,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "장기 기증은 종종 이타주의의 궁극적인 행위로 간주된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-12-12-1772897778270",
@@ -5375,7 +6281,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의료 제공자들은 모든 환자를 존엄성과 동정심으로 대해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-12-13-1772897778270",
@@ -5386,7 +6295,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "전문가적인 정직을 유지하는 것은 환자와의 신뢰를 구축하는 데 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-12-14-1772897778270",
@@ -5397,7 +6309,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의료 시스템은 환자의 결과에 대한 책임성을 보장해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-12-15-1772897778270",
@@ -5408,7 +6323,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의학 연구의 투명성은 편향된 결과를 예방하는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-12-16-1772897778270",
@@ -5419,7 +6337,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 신약은 현재 3상 임상 시험을 거치고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-12-17-1772897778270",
@@ -5430,7 +6351,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "조력 자살의 법적 지위는 국가마다 다르다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-12-18-1772897778270",
@@ -5441,7 +6365,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "완화 의료는 환자와 가족 모두의 삶의 질을 개선하는 것을 목표로 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-12-19-1772897778270",
@@ -5452,7 +6379,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "동정심 어린 생애 말기 돌봄을 제공하는 것은 간호의 필수적인 부분이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-12-20-1772897778270",
@@ -5463,7 +6393,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사전 연명 의료 의향서를 작성해 두면 가족들이 위기 상황에서 어려운 결정을 내리는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-12-21-1772897778270",
@@ -5474,7 +6407,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자가 의식이 없는 경우, 의료 대리인이 대신 결정을 내린다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-12-22-1772897778270",
@@ -5485,7 +6421,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "연구자들은 결과를 발표할 때 모든 잠재적인 이해 상충을 공개해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-12-23-1772897778270",
@@ -5496,7 +6435,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "건강 형평성은 모든 사람이 가능한 한 건강해질 수 있는 공정한 기회를 갖는 것을 의미한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-12-24-1772897778270",
@@ -5507,7 +6449,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "임상 시험의 다양성은 결과가 모든 인구 집단에 적용되도록 하는 데 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-12-25-1772897778270",
@@ -5518,7 +6463,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "장애인의 사회적 포용은 보건 정책의 목표이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-12-26-1772897778270",
@@ -5529,7 +6477,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환자가 수술 후 합병증을 겪은 뒤 의료 과실 소송이 제기되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-12-27-1772897778270",
@@ -5540,7 +6491,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "배아 연구는 생명 윤리에서 엄격하게 규제되는 분야이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-12-28-1772897778270",
@@ -5551,7 +6505,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "유전학의 발전은 유전자 편집에 관한 새로운 윤리적 고려 사항을 제기한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-12-29-1772897778270",
@@ -5562,7 +6519,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신의의 원칙은 의료 제공자들이 환자에 대한 약속을 충실히 지킬 것을 요구한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       }
     ]
   },
@@ -5728,7 +6688,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의료 서비스 개선으로 전 세계적으로 백세인의 수가 증가하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-11-1772897778270",
@@ -5739,7 +6702,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "완화 의료는 완치 치료와 병행하여 제공될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-13-12-1772897778270",
@@ -5750,7 +6716,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "호스피스 돌봄은 삶의 마무리를 앞둔 사람들의 삶의 질에 초점을 맞춘다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-13-1772897778270",
@@ -5761,7 +6730,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "노년학은 노화의 생물학적, 심리학적, 사회적 측면을 탐구한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-13-14-1772897778270",
@@ -5772,7 +6744,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "백내장 수술은 노인의 시력을 회복시키는 흔하고 매우 성공적인 절차이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-13-15-1772897778270",
@@ -5783,7 +6758,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "녹내장의 조기 발견과 치료는 영구적인 시력 상실을 예방하는 데 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-13-16-1772897778270",
@@ -5794,7 +6772,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "많은 노인들은 보청기가 다른 사람들과의 의사소통을 크게 개선한다는 것을 알고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-17-1772897778270",
@@ -5805,7 +6786,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "워커와 지팡이는 노인들이 흔히 사용하는 이동 보조 기구이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-18-1772897778270",
@@ -5816,7 +6800,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "침대에 누워 있는 환자의 욕창을 예방하기 위해서는 주기적으로 자세를 바꾸는 것이 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-13-19-1772897778270",
@@ -5827,7 +6814,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "간병인들은 종종 상당한 신체적, 감정적 스트레스를 경험한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-20-1772897778270",
@@ -5838,7 +6828,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고령화 인구는 의료 및 연금 시스템에 도전 과제를 제기한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-13-21-1772897778270",
@@ -5849,7 +6842,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "충분한 칼슘 섭취는 노년기 골다공증 예방에 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-13-22-1772897778270",
@@ -5860,7 +6856,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "노인의 실신은 낙상과 심각한 부상으로 이어질 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-13-23-1772897778270",
@@ -5871,7 +6870,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "불면증은 노인들 사이에서 빈번한 불만 사항이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-24-1772897778270",
@@ -5882,7 +6884,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "노인의 우울증은 때때로 노화의 정상적인 부분으로 오해받기도 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-25-1772897778270",
@@ -5893,7 +6898,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사회적 고립은 노인의 정신 건강에 부정적인 영향을 미칠 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-26-1772897778270",
@@ -5904,7 +6912,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회상 요법은 노인의 기분과 자존감을 높이는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-13-27-1772897778270",
@@ -5915,7 +6926,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "지원 주거 시설은 독립성과 도움의 균형을 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-13-28-1772897778270",
@@ -5926,7 +6940,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "여러 처방약을 복용하는 노인들에게 적절한 복약 관리는 매우 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-13-29-1772897778270",
@@ -5937,7 +6954,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신체적 지구력을 기르는 것은 노인들이 독립성을 유지하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       }
     ]
   },
@@ -6103,7 +7123,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사춘기는 다양한 신체적, 감정적 변화로 특징지어진다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-14-11-1772897778270",
@@ -6114,7 +7137,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "수정은 일반적으로 난관에서 일어난다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-12-1772897778270",
@@ -6125,7 +7151,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "성공적인 착상은 임신을 달성하는 데 중요한 단계이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-14-13-1772897778270",
@@ -6136,7 +7165,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "진통의 단계는 여성마다 기간이 상당히 다를 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-14-14-1772897778270",
@@ -6147,7 +7179,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "아기의 출산은 순조로웠고 합병증이 없었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-14-15-1772897778270",
@@ -6158,7 +7193,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "산후 우울증은 치료가 필요한 심각한 상태이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-16-1772897778270",
@@ -6169,7 +7207,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "출산 후 분비되는 호르몬은 유즙 분비를 자극한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-17-1772897778270",
@@ -6180,7 +7221,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "불임은 다양한 의학적 개입으로 치료될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-14-18-1772897778270",
@@ -6191,7 +7235,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "유산은 부부에게 매우 고통스러운 경험이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-19-1772897778270",
@@ -6202,7 +7249,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "예비 부모들은 종종 사산의 위험을 인지하지 못한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       },
       {
         "id": "word-14-20-1772897778270",
@@ -6213,7 +7263,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정기적인 자궁경부암 검사는 자궁경부의 변화를 확인하는 데 사용된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-21-1772897778270",
@@ -6224,7 +7277,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "태아는 임신 기간 내내 자궁 안에서 발달한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-14-22-1772897778270",
@@ -6235,7 +7291,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "에스트로겐과 프로게스테론 같은 호르몬은 생식 주기에서 핵심적인 역할을 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-14-23-1772897778270",
@@ -6246,7 +7305,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "유방 촬영술은 유방암 조기 발견을 위한 중요한 도구이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-24-1772897778270",
@@ -6257,7 +7319,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "배란을 추적하는 것은 임신을 시도하는 여성들에게 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-25-1772897778270",
@@ -6268,7 +7333,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "월경은 여성 생식 주기의 정상적인 부분이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-14-26-1772897778270",
@@ -6279,7 +7347,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "콘돔은 널리 사용되는 피임 기구의 한 형태이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Basic"]
+        "tags": [
+          "Medical",
+          "Basic"
+        ]
       },
       {
         "id": "word-14-27-1772897778270",
@@ -6290,7 +7361,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "무통 주사는 진통 과정에서 상당한 통증 완화를 제공할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-28-1772897778270",
@@ -6301,7 +7375,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "질식 분만이 안전하지 않은 경우 제왕절개 수술이 필요할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Intermediate"]
+        "tags": [
+          "Medical",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-14-29-1772897778270",
@@ -6312,7 +7389,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "에스트로겐 수치는 월경 주기 동안 변동한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Medical", "Advanced"]
+        "tags": [
+          "Medical",
+          "Advanced"
+        ]
       }
     ]
   },
@@ -6338,7 +7418,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "발랄한 인사는 누군가의 하루를 밝게 해줄 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-1-1772897778270",
@@ -6349,7 +7432,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 은퇴 파티에서 동료들에게 다정한 작별 인사를 건넄다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-2-1772897778270",
@@ -6360,7 +7446,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "새로운 사람들을 만날 때는 보통 짧은 자기소개가 필요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-3-1772897778270",
@@ -6371,7 +7460,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 직장에서 알게 된 가벼운 지인일 뿐이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-4-1772897778270",
@@ -6382,7 +7474,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "공손함은 좋은 첫인상을 남기는 데 큰 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-5-1772897778270",
@@ -6393,7 +7488,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "당신의 작업에 대해 진심 어린 칭찬을 받는 것은 언제나 기분 좋은 일이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-6-1772897778270",
@@ -6404,7 +7502,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "진심 어린 사과는 깨진 관계를 회복시킬 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-7-1772897778270",
@@ -6415,7 +7516,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "감사를 표현하는 것은 전반적인 행복감을 높여줄 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-8-1772897778270",
@@ -6426,7 +7530,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "긴 토론 끝에 우리는 합의점에 도달했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-9-1772897778270",
@@ -6437,7 +7544,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "존중하는 태도만 있다면 의견 차이가 있어도 괜찮다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-10-1772897778270",
@@ -6448,7 +7558,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "모든 사람은 자신만의 의견을 가질 권리가 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-11-1772897778270",
@@ -6459,7 +7572,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "근처에 괜찮은 식당 제안해 줄 만한 곳 있나요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-12-1772897778270",
@@ -6470,7 +7586,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "생일 파티에 초대해 주셔서 감사합니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-13-1772897778270",
@@ -6481,7 +7600,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "엘리베이터 안에서는 날씨에 대한 가벼운 대화를 나누는 것이 흔하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-14-1772897778270",
@@ -6492,7 +7614,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어제 옛 친구와 흥미로운 대화를 나눴다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-15-1772897778270",
@@ -6503,7 +7628,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사회적 상호작용은 인간 발달에 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-16-1772897778270",
@@ -6514,7 +7642,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그의 행복한 표정은 그가 깜짝 선물을 즐겼음을 보여주었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-17-1772897778270",
@@ -6525,7 +7656,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "손을 흔드는 것은 안녕이라고 말할 때 사용하는 흔한 몸짓이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-18-1772897778270",
@@ -6536,7 +7670,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "제 이메일에 대한 당신의 응답을 기다리고 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-19-1772897778270",
@@ -6547,7 +7684,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 소식을 들었을 때 그녀의 반응은 어땠나요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-20-1772897778270",
@@ -6558,7 +7698,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그녀는 새로운 프로젝트에 대해 큰 열정을 보였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-21-1772897778270",
@@ -6569,7 +7712,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그의 목소리에 담긴 진심은 그가 진실을 말하고 있다고 나를 확신시켰다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-22-1772897778270",
@@ -6580,7 +7726,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "실질적인 공감은 판단하지 않고 경청하는 것을 포함한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-23-1772897778270",
@@ -6591,7 +7740,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 어려운 시기에 보내주신 지지에 정말 감사드립니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-24-1772897778270",
@@ -6602,7 +7754,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "누군가 힘들어할 때 작은 격려는 큰 힘이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-25-1772897778270",
@@ -6613,7 +7768,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "좋은 유머 감각은 어떤 관계에서든 소중한 특성이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-15-26-1772897778270",
@@ -6624,7 +7782,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "빈정거림은 글로 된 형태에서 감지하기 어려울 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-15-27-1772897778270",
@@ -6635,7 +7796,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "십대들은 종종 부모님이 이해하지 못하는 속어를 사용한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-15-28-1772897778270",
@@ -6646,7 +7810,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "'비가 억수같이 내린다'는 잘 알려진 영어 관용구이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-15-29-1772897778270",
@@ -6657,7 +7824,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "유창한 화자는 대화의 미묘한 차이를 이해할 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       }
     ]
   },
@@ -6683,7 +7853,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어제 벼룩시장에서 정말 저렴한 물건을 하나 찾았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-1-1772897778270",
@@ -6694,7 +7867,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "구매 증빙을 위해 영수증을 보관해 주세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-2-1772897778270",
@@ -6705,7 +7881,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 거래에 대한 영수증을 받을 수 있을까요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-3-1772897778270",
@@ -6716,7 +7895,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "제품에 결함이 있는 경우 전액 환불을 받을 권리가 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-4-1772897778270",
@@ -6727,7 +7909,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "학생들은 모든 품목에 대해 10% 할인을 받을 수 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-5-1772897778270",
@@ -6738,7 +7923,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "온라인 거래가 몇 초 만에 완료되었습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-6-1772897778270",
@@ -6749,7 +7937,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 가게는 연례 재고 조사를 위해 이틀 동안 문을 닫습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-7-1772897778270",
@@ -6760,7 +7951,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "공항에서 현지 통화를 달러로 환전할 수 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-8-1772897778270",
@@ -6771,7 +7965,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 셔츠를 더 큰 사이즈로 교환하고 싶습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-9-1772897778270",
@@ -6782,7 +7979,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "50달러 이상 주문 시 무료 배송이 가능합니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-10-1772897778270",
@@ -6793,7 +7993,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "온라인 쇼핑의 증가로 인해 지역 상인들이 어려움을 겪고 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-11-1772897778270",
@@ -6804,7 +8007,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리 다음 휴가 때는 예산 범위를 지켜야 해요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-12-1772897778270",
@@ -6815,7 +8021,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "디자이너 핸드백은 종종 매우 비쌉니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-13-1772897778270",
@@ -6826,7 +8035,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 도시는 더 저렴한 주택을 제공할 방법을 찾고 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-14-1772897778270",
@@ -6837,7 +8049,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "시즌 종료 재고 정리 세일 때 이 신발을 샀어요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-15-1772897778270",
@@ -6848,7 +8063,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 가게는 더 많은 고객을 끌어들이기 위해 판촉 활동을 하고 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-16-1772897778270",
@@ -6859,7 +8077,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 새로운 식당에서 무료 식사를 할 수 있는 바우처가 있어요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-17-1772897778270",
@@ -6870,7 +8091,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "식료품비에서 5달러를 절약하기 위해 쿠폰을 사용했습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-18-1772897778270",
@@ -6881,7 +8105,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 노트북은 2년 제조사 보증이 제공됩니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-19-1772897778270",
@@ -6892,7 +8119,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 모든 구매에 대해 만족을 보장합니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-20-1772897778270",
@@ -6903,7 +8133,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "위조품을 판매하는 것은 범죄 행위입니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-16-21-1772897778270",
@@ -6914,7 +8147,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "도매로 구매하면 단가를 크게 낮출 수 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-22-1772897778270",
@@ -6925,7 +8161,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "소매 가격은 보통 도매 가격보다 높습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-23-1772897778270",
@@ -6936,7 +8175,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "소매업자는 제품에 50%의 마진을 붙였습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-16-24-1772897778270",
@@ -6947,7 +8189,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "큰 폭의 가격 인하가 많은 열성적인 쇼핑객들을 끌어들였습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-25-1772897778270",
@@ -6958,7 +8203,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "인터넷과 함께 소비자 소비 패턴이 급격히 변했습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-26-1772897778270",
@@ -6969,7 +8217,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "전자 상거래는 우리가 모든 것을 쇼핑하는 방식에 혁명을 일으켰습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-16-27-1772897778270",
@@ -6980,7 +8231,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "일주일 치 식료품으로 쇼핑 카트를 가득 채웠습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-28-1772897778270",
@@ -6991,7 +8245,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "시리얼은 네 번째 통로에서 찾을 수 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-16-29-1772897778270",
@@ -7002,7 +8259,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "오늘 아침 계산대에 긴 줄이 늘어서 있었습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       }
     ]
   },
@@ -7028,7 +8288,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "금요일 밤에는 식당이 매우 붐비므로 예약을 하는 것이 가장 좋다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-1-1772897778270",
@@ -7039,7 +8302,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "자리에 앉자마자 서버가 우리에게 메뉴를 건네주었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-2-1772897778270",
@@ -7050,7 +8316,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 전채 요리로 브루스케타를 주문했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-3-1772897778270",
@@ -7061,7 +8330,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "주요리로 그릴에 구운 연어를 먹을게요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-4-1772897778270",
@@ -7072,7 +8344,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "배가 불렀지만 디저트를 주문하지 않을 수 없었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-5-1772897778270",
@@ -7083,7 +8358,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "식사와 함께 음료를 주문하시겠습니까?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-6-1772897778270",
@@ -7094,7 +8372,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신선한 재료가 훌륭한 식사의 비결이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-7-1772897778270",
@@ -7105,7 +8386,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이탈리아 요리는 파스타와 피자 요리로 유명하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-17-8-1772897778270",
@@ -7116,7 +8400,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 수프는 풍부하고 흙 내음이 나는 풍미가 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-9-1772897778270",
@@ -7127,7 +8414,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "취향에 따라 소금과 후추로 양념을 조절하세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-10-1772897778270",
@@ -7138,7 +8428,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "많은 식당들이 이제 다양한 채식 옵션을 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-11-1772897778270",
@@ -7149,7 +8442,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 빵집은 비건 패스트리와 케이크를 전문으로 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-17-12-1772897778270",
@@ -7160,7 +8456,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "음식 알레르기가 있는 경우 서버에게 알려주세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-13-1772897778270",
@@ -7171,7 +8470,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "채소는 필수 비타민과 영양소로 가득 차 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-17-14-1772897778270",
@@ -7182,7 +8484,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "초콜릿 칩 쿠키를 만드는 간단한 레시피를 찾고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-15-1772897778270",
@@ -7193,7 +8498,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "총주방장은 주방을 나가는 모든 접시를 감독했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-16-1772897778270",
@@ -7204,7 +8512,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "웨이터가 오늘의 특선 요리를 추천했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-17-1772897778270",
@@ -7215,7 +8526,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "음식은 맛있었지만 서비스는 약간 느렸다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-18-1772897778270",
@@ -7226,7 +8540,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "단체 손님의 경우 종종 15%의 봉사료가 포함된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-17-19-1772897778270",
@@ -7237,7 +8554,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "서랍에는 다양한 주방 기구가 가득 차 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-17-20-1772897778270",
@@ -7248,7 +8568,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "은식기류는 밝게 빛나도록 닦여 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-17-21-1772897778270",
@@ -7259,7 +8582,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그녀는 탁자 위에 흰색 리넨 식탁보를 깔았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-22-1772897778270",
@@ -7270,7 +8596,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 식사 후 냅킨으로 입을 닦았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-23-1772897778270",
@@ -7281,7 +8610,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "오늘 점심으로 파티 때 남은 음식을 먹었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-24-1772897778270",
@@ -7292,7 +8624,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 저녁으로 중국 음식을 포장해오기로 결정했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-25-1772897778270",
@@ -7303,7 +8638,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "매장에서 드시겠어요, 아니면 커피를 포장해 드릴까요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-26-1772897778270",
@@ -7314,7 +8652,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "야시장은 맛있는 길거리 음식으로 유명하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-17-27-1772897778270",
@@ -7325,7 +8666,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 가게는 엄선된 미식 치즈들을 판매한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-17-28-1772897778270",
@@ -7336,7 +8680,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "트러플은 세계 여러 곳에서 고급 별미로 여겨진다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-17-29-1772897778270",
@@ -7347,7 +8694,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "하이킹에서 마신 신선한 공기 덕분에 식욕이 왕성해졌다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       }
     ]
   },
@@ -7373,7 +8723,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 모든 주요 명소를 포함하도록 여행 일정을 세심하게 계획했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-1-1772897778270",
@@ -7384,7 +8737,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "공항으로 가기 전에 여권을 챙기는 것을 잊지 마세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-2-1772897778270",
@@ -7395,7 +8751,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "일부 국가는 특정 국가에서 온 관광객에게 비자를 요구한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-3-1772897778270",
@@ -7406,7 +8765,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "파리는 세계에서 가장 인기 있는 여행지 중 하나이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-4-1772897778270",
@@ -7417,7 +8779,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 로마에서 하루 종일 관광을 하며 보냈다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-5-1772897778270",
@@ -7428,7 +8793,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 런던 체류를 위해 적절한 숙소를 찾아야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-6-1772897778270",
@@ -7439,7 +8807,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "호텔에 더블룸 하나를 예약했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-7-1772897778270",
@@ -7450,7 +8821,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "많은 유럽 도시에서 대중교통은 매우 효율적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-8-1772897778270",
@@ -7461,7 +8835,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "공항에서는 항상 여러분의 짐을 잘 살피세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-9-1772897778270",
@@ -7472,7 +8849,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 세관 통과를 위해 긴 줄을 서서 기다려야 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-10-1772897778270",
@@ -7483,7 +8863,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "출입국 심사관이 내 방문에 대해 몇 가지 질문을 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-18-11-1772897778270",
@@ -7494,7 +8877,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "악천후로 인해 우리 출발이 두 시간 지연되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-12-1772897778270",
@@ -7505,7 +8891,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "예상 도착 시간은 저녁 10시이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-13-1772897778270",
@@ -7516,7 +8905,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "귀하의 비행기는 어느 터미널에서 출발하나요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-14-1772897778270",
@@ -7527,7 +8919,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "123편 승객 여러분은 즉시 15번 탑승구로 이동해 주시기 바랍니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-15-1772897778270",
@@ -7538,7 +8933,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "탑승권과 여권을 준비해 주세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-16-1772897778270",
@@ -7549,7 +8947,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나는 두바이에서 6시간 동안 대기 시간이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-17-1772897778270",
@@ -7560,7 +8961,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "많은 항공사들이 상용 고객을 위한 로열티 프로그램을 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-18-1772897778270",
@@ -7571,7 +8975,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 비행기에는 300명이 넘는 승객이 타고 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-19-1772897778270",
@@ -7582,7 +8989,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이륙을 준비하는 동안 안전벨트를 매 주시기 바랍니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-20-1772897778270",
@@ -7593,7 +9003,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "비상 사태 시 산소마스크가 천장에서 내려올 것입니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-21-1772897778270",
@@ -7604,7 +9017,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나는 기념품으로 에펠탑의 작은 모형을 샀다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-22-1772897778270",
@@ -7615,7 +9031,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "공항 출구 근처에서 환전 창구를 찾을 수 있습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-23-1772897778270",
@@ -7626,7 +9045,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "자유의 여신상은 뉴욕의 유명한 명소이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-24-1772897778270",
@@ -7637,7 +9059,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 근처 섬으로 당일 여행을 갔다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-25-1772897778270",
@@ -7648,7 +9073,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의료 비상 사태에 대비해 여행자 보험에 가입하는 것이 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-18-26-1772897778270",
@@ -7659,7 +9087,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "호텔 예약 확인서를 출력해서 가져오시기 바랍니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-18-27-1772897778270",
@@ -7670,7 +9101,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "여권을 분실하면 즉시 대사관에 연락해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-18-28-1772897778270",
@@ -7681,7 +9115,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "영사관은 해외를 여행하는 시민들에게 도움을 줄 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-18-29-1772897778270",
@@ -7692,7 +9129,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "런던 여행 후 시차 적응에서 벗어나는 데 몇 일이 걸렸다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -7718,7 +9158,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "붐비는 교차로를 운전할 때는 조심하세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-1-1772897778270",
@@ -7729,7 +9172,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "운전자는 횡단보도에 있는 보행자에게 항상 양보해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-2-1772897778270",
@@ -7740,7 +9186,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "새로운 회전교차로가 그 지역의 교통 흐름을 개선했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-3-1772897778270",
@@ -7751,7 +9200,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "지하철은 출퇴근 시간에 도시를 이동하는 가장 빠른 방법이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-4-1772897778270",
@@ -7762,7 +9214,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "기차로 통근하는 데 매일 약 45분이 걸린다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-5-1772897778270",
@@ -7773,7 +9228,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "많은 대도시에서 교통 정체는 주요 문제이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-6-1772897778270",
@@ -7784,7 +9242,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "주요 도로가 공사로 폐쇄되어 우회로를 이용해야 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-7-1772897778270",
@@ -7795,7 +9256,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리의 시간을 10분 아껴줄 지름길을 알고 있어요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-8-1772897778270",
@@ -7806,7 +9270,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "두 도시 사이의 총 거리는 얼마인가요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-9-1772897778270",
@@ -7817,7 +9284,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "가장 가까운 우체국으로 가는 길을 알려주실 수 있나요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-10-1772897778270",
@@ -7828,7 +9298,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 차의 내비게이션 시스템은 사용하기 매우 쉽다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-11-1772897778270",
@@ -7839,7 +9312,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "대중교통을 이용하는 것은 탄소 배출을 줄이는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-12-1772897778270",
@@ -7850,7 +9326,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "다음 정거장에서 다른 버스 노선으로 환승해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-13-1772897778270",
@@ -7861,7 +9340,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "시내 중심가까지 가는 버스 요금이 얼마인가요?",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-14-1772897778270",
@@ -7872,7 +9354,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "보행자 전용 구역에는 차량 진입이 금지된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-15-1772897778270",
@@ -7883,7 +9368,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "비상시에는 브레이크 페달을 꽉 밟으세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-16-1772897778270",
@@ -7894,7 +9382,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "운전자는 사고를 피하기 위해 제때 브레이크를 밟았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-17-1772897778270",
@@ -7905,7 +9396,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "속도를 높이려면 가속 페달을 부드럽게 밟으세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-18-1772897778270",
@@ -7916,7 +9410,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "차 엔진에서 이상한 소리가 나고 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-19-1772897778270",
@@ -7927,7 +9424,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "여행을 계속하기 전에 연료를 채우러 멈춰야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-20-1772897778270",
@@ -7938,7 +9438,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "차를 빌리려면 유효한 운전면허증이 필요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-21-1772897778270",
@@ -7949,7 +9452,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "여러분의 차량 등록이 최신 상태인지 확인하세요.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-22-1772897778270",
@@ -7960,7 +9466,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고속도로에서 차가 고장 났을 때 긴급 출동 서비스를 불러야 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-23-1772897778270",
@@ -7971,7 +9480,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "카풀은 기름값을 아끼고 교통량을 줄이는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-24-1772897778270",
@@ -7982,7 +9494,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "승차 공유 서비스는 많은 도시 지역에서 인기가 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-25-1772897778270",
@@ -7993,7 +9508,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 도시는 외곽 지역을 위해 호출형 버스 서비스를 도입했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Advanced"]
+        "tags": [
+          "Daily",
+          "Advanced"
+        ]
       },
       {
         "id": "word-19-26-1772897778270",
@@ -8004,7 +9522,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "자전거 타기는 건강하고 활동적으로 지낼 수 있는 좋은 방법이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-27-1772897778270",
@@ -8015,7 +9536,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 경치 좋은 보도는 강가의 아름다운 풍경을 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Basic"]
+        "tags": [
+          "Daily",
+          "Basic"
+        ]
       },
       {
         "id": "word-19-28-1772897778270",
@@ -8026,7 +9550,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "보행자들은 육교를 이용해 붐비는 고속도로를 건넜다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-19-29-1772897778270",
@@ -8037,7 +9564,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 지하도는 자전거를 타는 사람들이 철길을 건널 수 있는 안전한 경로를 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Daily", "Intermediate"]
+        "tags": [
+          "Daily",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -8063,7 +9593,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의제의 첫 번째 항목은 내년 예산안이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-1-1772897778270",
@@ -8074,7 +9607,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "비서는 이사회 회의 동안 회의록을 작성할 책임이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-2-1772897778270",
@@ -8085,7 +9621,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "부서 간의 효과적인 협업은 우리 성공의 핵심이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-3-1772897778270",
@@ -8096,7 +9635,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "새로운 마케팅 아이디어를 내기 위해 브레인스토밍 세션을 가집시다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-4-1772897778270",
@@ -8107,7 +9649,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "CEO는 직원들에게 합병에 대해 짧은 브리핑을 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-5-1772897778270",
@@ -8118,7 +9663,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "서로 다른 의견이 너무 많을 때는 합의에 도달하기가 어렵다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-6-1772897778270",
@@ -8129,7 +9677,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 금요일까지 프로젝트 마감 기한을 맞추기 위해 열심히 일하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-7-1772897778270",
@@ -8140,7 +9691,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "최종 보고서는 프로젝트의 이 단계에서 주요 산출물이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-8-1772897778270",
@@ -8151,7 +9705,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리의 서비스를 어떻게 개선할 수 있을지에 대한 귀하의 피드백을 환영합니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-9-1772897778270",
@@ -8162,7 +9719,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회의 시간이 변경되었다는 것을 미리 알려주고 싶었습니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-10-1772897778270",
@@ -8173,7 +9733,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 판매 목표를 달성한 직원들에게 금전적 인센티브를 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-11-1772897778270",
@@ -8184,7 +9747,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고객 만족도는 우리의 가장 중요한 핵심 성과 지표 중 하나이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-12-1772897778270",
@@ -8195,7 +9761,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "백만 명의 사용자를 확보한 것은 그 스타트업에게 중요한 이정표였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-13-1772897778270",
@@ -8206,7 +9775,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그들은 유기농 반려동물 사료 시장에서 틈새를 찾았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-14-1772897778270",
@@ -8217,7 +9789,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "온보딩 과정에는 사무실 투어와 일련의 교육 세션이 포함된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-15-1772897778270",
@@ -8228,7 +9803,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 고객 서비스를 전문 업체에 아웃소싱하기로 결정했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-16-1772897778270",
@@ -8239,7 +9817,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "원격 근무로의 전환은 비즈니스 세계에 새로운 패러다임을 만들었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-17-1772897778270",
@@ -8250,7 +9831,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 내년을 위해 진행 중인 신제품들이 여러 개 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-18-1772897778270",
@@ -8261,7 +9845,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 전략을 변경하여 모바일 사용자에게 집중하기로 결정했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-19-1772897778270",
@@ -8272,7 +9859,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 진척 상황을 추적하기 위해 분기별 검토 회의를 갖는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-20-1772897778270",
@@ -8283,7 +9873,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 최신 광고 캠페인의 투자 수익률을 분석해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-21-1772897778270",
@@ -8294,7 +9887,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "클라우드 서비스 제공업체를 선택할 때 확장성은 주요 고려 사항이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-22-1772897778270",
@@ -8305,7 +9901,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "합병은 상당한 시너지 효과와 비용 절감을 창출했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-23-1772897778270",
@@ -8316,7 +9915,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신뢰를 쌓기 위해서는 의사 결정의 투명성이 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-24-1772897778270",
@@ -8327,7 +9929,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 내부 작업 흐름을 간소화하기 위해 새로운 소프트웨어를 도입했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-25-1772897778270",
@@ -8338,7 +9943,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "워크숍은 효과적인 리더십을 위한 실질적인 기술을 제공했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-26-1772897778270",
@@ -8349,7 +9957,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 최종 결정을 내리기 전에 모든 이해관계자와 상의했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-20-27-1772897778270",
@@ -8360,7 +9971,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신흥 시장에서의 성장을 위한 장기 전략을 수립해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-20-28-1772897778270",
@@ -8371,7 +9985,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "환경적 지속가능성은 기업들에게 점점 더 중요한 이슈가 되고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-20-29-1772897778270",
@@ -8382,7 +9999,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "혁신은 우리 회사의 경쟁 우위 뒤에 있는 원동력이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       }
     ]
   },
@@ -8408,7 +10028,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사는 예산의 큰 부분을 디지털 광고에 지출했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-1-1772897778270",
@@ -8419,7 +10042,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "강력한 브랜딩은 우리 제품을 경쟁사 제품과 차별화하는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-2-1772897778270",
@@ -8430,7 +10056,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "새로운 마케팅 캠페인은 청년층 사이에서 브랜드 인지도를 높이는 것을 목표로 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-3-1772897778270",
@@ -8441,7 +10070,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 경쟁사의 가격과 마케팅 전략을 면밀히 모니터링해야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-4-1772897778270",
@@ -8452,7 +10084,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "타겟 시장의 인구 통계를 이해하는 것은 효과적인 광고를 위해 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-21-5-1772897778270",
@@ -8463,7 +10098,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "소셜 미디어 참여도는 우리 콘텐츠의 성공을 측정하는 핵심 지표이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-6-1772897778270",
@@ -8474,7 +10112,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리 웹사이트는 지난달에 500개 이상의 새로운 잠재 고객을 창출했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-7-1772897778270",
@@ -8485,7 +10126,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 향후 2년 동안 시장 점유율을 10% 높이는 것을 목표로 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-8-1772897778270",
@@ -8496,7 +10140,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 계약은 현재 양측 법무팀 간에 협상 중이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-9-1772897778270",
@@ -8507,7 +10154,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 스타트업은 벤처 캐피털 그룹에 설득력 있는 발표를 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-10-1772897778270",
@@ -8518,7 +10168,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 가게는 모든 여름 의류에 대해 특별 판촉 행사를 진행 중이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-11-1772897778270",
@@ -8529,7 +10182,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "영업팀은 의료 산업에서 새로운 잠재 고객을 식별하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-12-1772897778270",
@@ -8540,7 +10196,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "좋은 홍보는 회사가 위기에서 회복하는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-13-1772897778270",
@@ -8551,7 +10210,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리의 많은 신규 고객들이 만족한 고객들의 추천을 통해 우리를 찾아온다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-14-1772897778270",
@@ -8562,7 +10224,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고객 유지는 종종 신규 고객을 확보하는 것보다 더 비용 효율적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-15-1772897778270",
@@ -8573,7 +10238,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "시장 세분화는 우리가 특정 그룹에 맞게 메시지를 조정할 수 있게 해준다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-21-16-1772897778270",
@@ -8584,7 +10252,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "기억하기 쉬운 슬로건은 제품을 훨씬 더 기억에 남게 만들 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-17-1772897778270",
@@ -8595,7 +10266,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 제품의 핵심 대상은 기술에 능숙한 전문가들이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-18-1772897778270",
@@ -8606,7 +10280,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "웹사이트의 사용자 후기는 잠재적 구매자들과 신뢰를 쌓는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-19-1772897778270",
@@ -8617,7 +10294,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "서버는 우리 식사와 함께 프리미엄 와인을 제안하며 업셀링을 사용했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-20-1772897778270",
@@ -8628,7 +10308,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사의 가치 제안은 고품질과 뛰어난 서비스에 집중한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-21-21-1772897778270",
@@ -8639,7 +10322,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 영상은 바이럴이 되어 단 며칠 만에 수백만 명에게 도달했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-22-1772897778270",
@@ -8650,7 +10336,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그들은 제품을 도매가로 사서 이윤을 남기고 판다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-23-1772897778270",
@@ -8661,7 +10350,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "소매 산업은 전자상거래의 부상과 함께 크게 변화했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-21-24-1772897778270",
@@ -8672,7 +10364,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "콜드 콜링은 어려울 수 있지만 새로운 잠재 고객을 찾는 효과적인 방법이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-25-1772897778270",
@@ -8683,7 +10378,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 전환율을 높이기 위해 다양한 랜딩 페이지를 테스트하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-21-26-1772897778270",
@@ -8694,7 +10392,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고객 여정을 매핑하는 것은 개선을 위한 고충점과 기회를 식별하는 데 도움이 된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-21-27-1772897778270",
@@ -8705,7 +10406,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "인바운드 마케팅은 잠재 고객을 자연스럽게 끌어들이는 가치 있는 콘텐츠를 만드는 데 집중한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-21-28-1772897778270",
@@ -8716,7 +10420,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "TV 광고와 인쇄 광고는 아웃바운드 마케팅의 예시이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-21-29-1772897778270",
@@ -8727,7 +10434,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "좋은 SEO는 우리 웹사이트가 검색 엔진 결과에서 더 높은 순위를 차지하도록 돕는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -8753,7 +10463,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회계 부서는 회사의 재무 기록을 관리할 책임이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-1-1772897778270",
@@ -8764,7 +10477,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사는 투명성을 보장하기 위해 매년 외부 감사를 받는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-2-1772897778270",
@@ -8775,7 +10491,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "대차대조표는 회사의 재무 건전성을 한눈에 보여준다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-22-3-1772897778270",
@@ -8786,7 +10505,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리는 마케팅 캠페인을 위해 예산 범위를 지켜야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-4-1772897778270",
@@ -8797,7 +10519,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 스타트업은 운영을 확장하기 위해 추가 자본을 찾고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-5-1772897778270",
@@ -8808,7 +10533,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "긍정적인 현금 흐름은 모든 비즈니스의 장기적 생존에 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-6-1772897778270",
@@ -8819,7 +10547,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "은행은 그 소기업에 신용 한도를 연장해 주었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-7-1772897778270",
@@ -8830,7 +10561,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "물건의 구매와 판매는 다양한 계좌에 대한 출금과 입금을 초래한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-8-1772897778270",
@@ -8841,7 +10575,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사는 장기 채무를 줄이기 위해 노력하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-9-1772897778270",
@@ -8852,7 +10589,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 주당 50센트의 분기별 배당금을 발표했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-10-1772897778270",
@@ -8863,7 +10603,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "창립자들은 회사의 과반수 지분을 보유하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-22-11-1772897778270",
@@ -8874,7 +10617,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "예산의 균형을 맞추기 위해 여행 경비를 줄여야 한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-12-1772897778270",
@@ -8885,7 +10631,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사의 회계 연도는 12월 31일에 끝난다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-13-1772897778270",
@@ -8896,7 +10645,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "중앙은행은 인플레이션에 대처하기 위해 금리를 인상하기로 결정했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-14-1772897778270",
@@ -8907,7 +10659,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "부동산은 종종 안전한 장기 투자처로 여겨진다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-15-1772897778270",
@@ -8918,7 +10673,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사의 총 부채에는 대출금과 매입채무가 포함된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-22-16-1772897778270",
@@ -8929,7 +10687,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "충분한 유동성을 유지하는 것은 단기 의무를 이행하는 데 중요하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-22-17-1772897778270",
@@ -8940,7 +10701,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리의 순이익은 지난 분기에 비해 크게 증가했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-18-1772897778270",
@@ -8951,7 +10715,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "낮은 운영비는 시장에서 우리에게 경쟁 우위를 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-19-1772897778270",
@@ -8962,7 +10729,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "모든 비즈니스의 목표는 지속 가능한 이익을 창출하는 것이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-20-1772897778270",
@@ -8973,7 +10743,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사의 연간 매출은 지난해 사상 최고치를 기록했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-21-1772897778270",
@@ -8984,7 +10757,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "정부는 사치품에 대한 새로운 세금을 고려하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-22-1772897778270",
@@ -8995,7 +10771,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 거대 IT 기업의 가치 평가는 최근의 혁신으로 인해 급상승했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-22-23-1772897778270",
@@ -9006,7 +10785,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고수익 채권은 더 큰 수익을 제공하지만 더 많은 위험을 수반한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-22-24-1772897778270",
@@ -9017,7 +10799,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "강력한 브랜드는 회사의 가장 가치 있는 무형 자산 중 하나이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-22-25-1772897778270",
@@ -9028,7 +10813,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사는 몇 년간의 손실 끝에 파산을 신청했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-26-1772897778270",
@@ -9039,7 +10827,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 집은 은행 대출을 위한 담보로 사용되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-27-1772897778270",
@@ -9050,7 +10841,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "투자자들은 종종 인플레이션에 대한 방어책으로 금을 사용한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-22-28-1772897778270",
@@ -9061,7 +10855,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그들은 첫 번째 집을 사기 위해 30년 만기 주택 담보 대출을 받았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-22-29-1772897778270",
@@ -9072,7 +10869,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "분산된 포트폴리오는 투자의 전반적인 위험을 줄이는 데 도움이 될 수 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -9098,7 +10898,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "연례 성과 평가는 직원들이 자신의 업무에 대한 피드백을 받을 수 있는 기회이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-1-1772897778270",
@@ -9109,7 +10912,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 주니어 직원들 사이에서 높은 퇴사율(자연 감소)에 직면해 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-23-2-1772897778270",
@@ -9120,7 +10926,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의료 보험과 유급 휴가는 회사에서 제공하는 복지 혜택 중 일부이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-3-1772897778270",
@@ -9131,7 +10940,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "총 보상 패키지에는 급여, 보너스, 스톡 옵션이 포함된다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-4-1772897778270",
@@ -9142,7 +10954,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "서명하기 전에 고용 계약서를 주의 깊게 읽어보시기 바랍니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-5-1772897778270",
@@ -9153,7 +10968,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "다양성과 포용성을 증진하는 것은 우리 인사팀의 최우선 과제이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-6-1772897778270",
@@ -9164,7 +10982,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "높은 직원 참여도는 생산성과 사기 향상으로 이어진다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-7-1772897778270",
@@ -9175,7 +10996,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 새로운 최고 기술 책임자를 찾기 위해 헤드헌터를 고용했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-8-1772897778270",
@@ -9186,7 +11010,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "무료 간식과 체육관 이용권은 이 스타트업에서 일하는 특전 중 일부이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-9-1772897778270",
@@ -9197,7 +11024,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나는 내일 마케팅 매니저와 2차 면접이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-10-1772897778270",
@@ -9208,7 +11038,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "직무 기술서는 해당 역할에 필요한 핵심 기술과 자격 요건을 개설한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-11-1772897778270",
@@ -9219,7 +11052,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 경기 침체로 인해 일련의 해고를 발표했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-12-1772897778270",
@@ -9230,7 +11066,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 직책의 표준 퇴사 통보 기간은 3개월이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-13-1772897778270",
@@ -9241,7 +11080,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "신입 사원들은 월요일 아침에 오리엔테이션 세션에 참가할 것이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-14-1772897778270",
@@ -9252,7 +11094,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "팀은 프로젝트를 제시간에 끝내기 위해 많은 초과 근무를 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-15-1772897778270",
@@ -9263,7 +11108,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "인사 소프트웨어는 급여 지급 과정을 자동화하고 정확한 지급을 보장한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-16-1772897778270",
@@ -9274,7 +11122,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나는 다음 주에 매니저와 연례 성과 검토 면담이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-17-1772897778270",
@@ -9285,7 +11136,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 직원들이 조직 내에서 성장할 수 있도록 명확한 경력 경로를 제공한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-18-1772897778270",
@@ -9296,7 +11150,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사의 채용 전략은 대학에서 최고의 인재를 끌어들이는 데 집중한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-19-1772897778270",
@@ -9307,7 +11164,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "조직 개편으로 인해 행정 부서에서 몇몇 정리 해고가 발생했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-23-20-1772897778270",
@@ -9318,7 +11178,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "CEO의 갑작스러운 사퇴는 업계에 충격을 주었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-21-1772897778270",
@@ -9329,7 +11192,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 연금 펀드에 투자하며 은퇴를 계획하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-22-1772897778270",
@@ -9340,7 +11206,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 직책의 초봉은 매우 경쟁력이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-23-1772897778270",
@@ -9351,7 +11220,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "자격이 있는 직원들은 근무 연수에 따라 퇴직금을 받을 것이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-24-1772897778270",
@@ -9362,7 +11234,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "수색 위원회는 지원자들을 3명의 최종 후보 명단으로 좁혔다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-25-1772897778270",
@@ -9373,7 +11248,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리 인재 확보팀은 최고의 후보자를 찾기 위해 다양한 채널을 이용한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-23-26-1772897778270",
@@ -9384,7 +11262,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 직원은 회사 정책 위반으로 정식 해고 통보를 받았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-27-1772897778270",
@@ -9395,7 +11276,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "낮은 직원 이직률은 건강한 작업 환경의 징후이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-23-28-1772897778270",
@@ -9406,7 +11290,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "IT 부서에 시급히 채워야 할 공석이 여러 개 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-23-29-1772897778270",
@@ -9417,7 +11304,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 유연 근무제를 제공함으로써 건강한 워라밸을 장려한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       }
     ]
   },
@@ -9443,7 +11333,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사의 최신 인수는 새로운 시장으로 확장하는 데 도움이 될 것이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-1-1772897778270",
@@ -9454,7 +11347,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "두 회사는 합병에 대한 예비 합의에 도달했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-24-2-1772897778270",
@@ -9465,7 +11361,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 분쟁은 법원 재판이 아닌 구속력 있는 중재를 통해 해결되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-3-1772897778270",
@@ -9476,7 +11375,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "계약서 제5조는 해고 조건을 명시하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-4-1772897778270",
@@ -9487,7 +11389,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 물건을 제시간에 인도하지 못해 계약 위반으로 고소당했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-5-1772897778270",
@@ -9498,7 +11403,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "경업 금지 조항은 전직 직원들이 경쟁사에서 일하는 것을 방지한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-6-1772897778270",
@@ -9509,7 +11417,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "우리 회사는 모든 국내외 법규를 완벽하게 준수할 것을 보장한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-7-1772897778270",
@@ -9520,7 +11431,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "기밀 유지는 비밀 유지 계약의 핵심 요구 사항이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-8-1772897778270",
@@ -9531,7 +11445,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 소프트웨어는 국제 저작권법에 의해 보호받는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-24-9-1772897778270",
@@ -9542,7 +11459,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "법원은 원고에게 100만 달러의 손해 배상금을 지급하라고 판결했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-10-1772897778270",
@@ -9553,7 +11473,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "피고는 소송에서 제기된 모든 혐의를 부인했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-11-1772897778270",
@@ -9564,7 +11487,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "귀하의 비즈니스를 보호하기 위해 항상 웹사이트에 법적 고지 사항을 포함하십시오.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-12-1772897778270",
@@ -9575,7 +11501,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "투자자들은 계약을 체결하기 전에 실사를 진행하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-13-1772897778270",
@@ -9586,7 +11515,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "계약은 특정 법적 요구 사항을 충족해야만 집행 가능하다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-14-1772897778270",
@@ -9597,7 +11529,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "계약서에는 소송으로부터 회사를 보호하기 위한 면책 조항이 포함되어 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-15-1772897778270",
@@ -9608,7 +11543,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사는 경쟁사로부터 특허 침해 혐의로 고소당했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-16-1772897778270",
@@ -9619,7 +11557,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "법원은 분쟁 중인 상표를 회사가 사용하지 못하도록 금지 명령을 내렸다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-17-1772897778270",
@@ -9630,7 +11571,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "창조 산업의 기업들에게 지식 재산권을 보호하는 것은 필수적이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-18-1772897778270",
@@ -9641,7 +11585,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "두 회사는 새로운 전기차 라인을 개발하기 위해 조인트 벤처를 설립했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-19-1772897778270",
@@ -9652,7 +11599,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 환경 파괴로 인한 수백만 달러 규모의 소송에 직면해 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-24-20-1772897778270",
@@ -9663,7 +11613,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "회사는 직원들에게 안전한 작업 환경을 제공할 법적 의무가 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-24-21-1772897778270",
@@ -9674,7 +11627,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사는 계약 분쟁으로 인한 지속적인 소송에 휘말려 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-22-1772897778270",
@@ -9685,7 +11641,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "두 항공사의 합병은 세계 최대 규모의 항공사를 탄생시킬 것이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-23-1772897778270",
@@ -9696,7 +11655,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "컨설턴트는 우리 지식 재산권에 접근하기 전에 NDA에 서명해야 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-24-1772897778270",
@@ -9707,7 +11669,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "발명가는 그의 새로운 기술을 보호하기 위해 특허를 신청했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-25-1772897778270",
@@ -9718,7 +11683,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "해당 사건의 원고는 손해에 대한 배상을 청구하고 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-26-1772897778270",
@@ -9729,7 +11697,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이사회는 배당금을 인상하기로 결의안을 통과시켰다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       },
       {
         "id": "word-24-27-1772897778270",
@@ -9740,7 +11711,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이런 종류의 소송에 대한 공소시효는 3년이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Advanced"]
+        "tags": [
+          "Business",
+          "Advanced"
+        ]
       },
       {
         "id": "word-24-28-1772897778270",
@@ -9751,7 +11725,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 회사의 로고는 등록된 상표이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Basic"]
+        "tags": [
+          "Business",
+          "Basic"
+        ]
       },
       {
         "id": "word-24-29-1772897778270",
@@ -9762,7 +11739,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "고위험 활동에 참여하기 전에 권리 포기서에 서명해야 합니다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Business", "Intermediate"]
+        "tags": [
+          "Business",
+          "Intermediate"
+        ]
       }
     ]
   },
@@ -9788,7 +11768,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어린 왕자는 아주 작은 소행성에 살았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Space", "Literature"]
+        "tags": [
+          "Space",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-2-1773901514000",
@@ -9799,7 +11782,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 바오밥 나무들이 너무 커지기 전에 뽑아야 했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-3-1773901514000",
@@ -9810,7 +11796,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나에게 너는 아직 수많은 소년들과 다를 바 없지만... 만약 네가 나를 길들인다면 우리는 서로가 필요해질 거야.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Philosophy", "Literature"]
+        "tags": [
+          "Philosophy",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-4-1773901514000",
@@ -9821,7 +11810,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "내 꽃은 덧없어, 그리고 세상에 대항해 자신을 지킬 가시가 고작 네 개뿐이야.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-5-1773901514000",
@@ -9832,7 +11824,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "허영심 많은 사람은 오직 찬양의 말만 듣는다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Human", "Literature"]
+        "tags": [
+          "Human",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-6-1773901514000",
@@ -9843,7 +11838,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "가장 중요한 것은 눈에 보이지 않아.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-7-1773901514000",
@@ -9854,7 +11852,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "너의 작은 별에서는 원할 때마다 의자를 몇 발자국만 옮기면 노을을 볼 수 있었지.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Literature"]
+        "tags": [
+          "Emotion",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-8-1773901514000",
@@ -9865,7 +11866,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 조종사를 만나기 전까지 고독한 삶을 살았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-9-1773901514000",
@@ -9876,7 +11880,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "꽃들은 너무나 연약하고 순진해.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Literature"]
+        "tags": [
+          "Nature",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-10-1773901514000",
@@ -9887,7 +11894,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "천 년은 영원 속의 찰나와 같다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Abtract", "Classic"]
+        "tags": [
+          "Abtract",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-11-1773901514000",
@@ -9898,7 +11908,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "비즈니스맨에게 그런 탐닉을 즐길 시간은 없었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-12-1773901514000",
@@ -9909,7 +11922,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어린 왕자는 조종사를 당혹스럽게 바라보았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Classic"]
+        "tags": [
+          "Emotion",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-13-1773901514000",
@@ -9920,7 +11936,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그가 떠날 시간이 다가오고 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Literature"]
+        "tags": [
+          "Basic",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-14-1773901514000",
@@ -9931,7 +11950,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "너는 네가 길들인 것에 대해 언제까지나 책임이 있어.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Philosophy", "Classic"]
+        "tags": [
+          "Philosophy",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-15-1773901514000",
@@ -9942,7 +11964,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 별은 밤하늘에서 환하게 빛나고 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Literature"]
+        "tags": [
+          "Nature",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-16-1773901514000",
@@ -9953,7 +11978,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 사막의 고독 속에서 평화를 찾았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Classic"]
+        "tags": [
+          "Emotion",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-17-1773901514000",
@@ -9964,7 +11992,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "여우는 왕자에게 심오한 비밀을 공유했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-18-1773901514000",
@@ -9975,7 +12006,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 꽃은 자신의 별 밖의 세상에 대해 순진했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-19-1773901514000",
@@ -9986,7 +12020,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "왕은 그를 놀라움 속에서 바라보았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Literature"]
+        "tags": [
+          "Emotion",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-20-1773901514000",
@@ -9997,7 +12034,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "하루 종일 걸은 뒤, 그는 피로에 휩싸였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-21-1773901514000",
@@ -10008,7 +12048,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "웃음은 슬픔에 대한 가장 좋은 치료법이다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-22-1773901514000",
@@ -10019,7 +12062,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나에게 너는 온 세상에서 유일무이한 존재야.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Philosophy", "Classic"]
+        "tags": [
+          "Philosophy",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-23-1773901514000",
@@ -10030,7 +12076,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 여러 행성들을 헤매며 수년을 보냈다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Literature"]
+        "tags": [
+          "Basic",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-24-1773901514000",
@@ -10041,7 +12090,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "사막에서 갈증은 끊임없는 동반자가 되었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-25-1773901514000",
@@ -10052,7 +12104,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "왕자는 울고 있는 꽃을 위로하려 노력했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Literature"]
+        "tags": [
+          "Emotion",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-26-1773901514000",
@@ -10063,7 +12118,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 마치 별들의 심연을 들여다보고 있는 것 같은 기분이 들었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-27-1773901514000",
@@ -10074,7 +12132,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나는 어른들에게 내 걸작을 보여주었지만, 그들은 그저 모자로만 보았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Literature"]
+        "tags": [
+          "Nature",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-28-1773901514000",
@@ -10085,7 +12146,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "의례는 필요해. 그것이 어느 하루를 다른 날들과 다르게 만들어주거든.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Philosophy", "Classic"]
+        "tags": [
+          "Philosophy",
+          "Classic"
+        ]
       },
       {
         "id": "word-prince-29-1773901514000",
@@ -10096,7 +12160,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "어린 왕자는 유리 등갓으로 자신의 꽃을 보호했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Literature"]
+        "tags": [
+          "Basic",
+          "Literature"
+        ]
       },
       {
         "id": "word-prince-30-1773901514000",
@@ -10107,7 +12174,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "높은 산 위에서 그는 오직 자신의 목소리의 메아리만을 들었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Nature", "Classic"]
+        "tags": [
+          "Nature",
+          "Classic"
+        ]
       }
     ]
   },
@@ -10133,7 +12203,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "개츠비의 파티는 그 엄청난 사치스러움으로 유명했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-2-1773901514000",
@@ -10144,7 +12217,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이 소설은 아메리칸 드림에 대한 환멸을 탐구한다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Philosophy", "Literature"]
+        "tags": [
+          "Philosophy",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-3-1773901514000",
@@ -10155,7 +12231,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "데이지를 향한 그의 맹목적인 심취는 비극적인 결말로 이어졌다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Classic"]
+        "tags": [
+          "Emotion",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-4-1773901514000",
@@ -10166,7 +12245,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "1920년대는 미국 역사상 큰 타락의 시기였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-5-1773901514000",
@@ -10177,7 +12259,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 웨스트 에그에 있는 과시적인 대저택에서 살았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-6-1773901514000",
@@ -10188,7 +12273,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "이스트 에그의 사교계는 피상적인 것으로 알려져 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Human", "Literature"]
+        "tags": [
+          "Human",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-7-1773901514000",
@@ -10199,7 +12287,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그들은 도시에서 은밀한 만남을 가졌다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-8-1773901514000",
@@ -10210,7 +12301,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 거대한 저택은 처음 온 사람들에게 미로처럼 느껴졌다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Place", "Literature"]
+        "tags": [
+          "Place",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-9-1773901514000",
@@ -10221,7 +12315,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "머틀 윌슨은 무시하기 힘든 엄청난 활력을 가지고 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Human", "Classic"]
+        "tags": [
+          "Human",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-10-1773901514000",
@@ -10232,7 +12329,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "닉 캐러웨이는 이웃들에 대해 너무 냉소적으로 굴지 않으려 노력했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Literature"]
+        "tags": [
+          "Emotion",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-11-1773901514000",
@@ -10243,7 +12343,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "단 하나의 초록색 불빛을 향한 그의 오랜 기다림에는 가슴 아픈 무언가가 있었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-12-1773901514000",
@@ -10254,7 +12357,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "파티의 재즈 음악은 활기 넘치고 우렁찼다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Literature"]
+        "tags": [
+          "Basic",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-13-1773901514000",
@@ -10265,7 +12371,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "나는 원치 않는 대화를 피하기 위해 자는 척한 적이 있다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-14-1773901514000",
@@ -10276,7 +12385,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "개츠비는 갈망하는 몸짓으로 어두운 바다를 향해 두 팔을 뻗었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Literature"]
+        "tags": [
+          "Emotion",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-15-1773901514000",
@@ -10287,7 +12399,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그녀는 그가 멀어질 때 그를 애틋한 시선으로 바라보았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Classic"]
+        "tags": [
+          "Emotion",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-16-1773901514000",
@@ -10298,7 +12413,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "미래를 향한 그의 계획은 여전히 모호했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-17-1773901514000",
@@ -10309,7 +12427,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 자신의 정체성에 관한 세부 사항에 대해 매우 꼼꼼했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-18-1773901514000",
@@ -10320,7 +12441,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "주식 시장의 가격은 매일 요동친다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Literature"]
+        "tags": [
+          "Basic",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-19-1773901514000",
@@ -10331,7 +12455,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "조던 베이커는 경쾌한 발걸음으로 걸었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Character", "Classic"]
+        "tags": [
+          "Character",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-20-1773901514000",
@@ -10342,7 +12469,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "더운 오후 날씨는 모두를 무기력하게 만들었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Emotion", "Literature"]
+        "tags": [
+          "Emotion",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-21-1773901514000",
@@ -10353,7 +12483,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "인근 부근에는 다른 집들이 없었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Classic"]
+        "tags": [
+          "Basic",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-22-1773901514000",
@@ -10364,7 +12497,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그 신비로운 주인은 많은 수치스러운 소문의 대상이었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-23-1773901514000",
@@ -10375,7 +12511,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "뷰캐넌 가족은 미국의 오래된 귀족 계급에 속했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Human", "Classic"]
+        "tags": [
+          "Human",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-24-1773901514000",
@@ -10386,7 +12525,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "개츠비는 진정으로 유명해지기 전에 어느 정도의 악명을 얻었다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-25-1773901514000",
@@ -10397,7 +12539,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "초록색 불빛의 의미는 마침내 그를 빠져나가는 것 같았다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-26-1773901514000",
@@ -10408,7 +12553,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "마이어 울프심은 몽유병 환자 같은 추상적인 행동을 보였다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Literature"]
+        "tags": [
+          "Vocabulary",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-27-1773901514000",
@@ -10419,7 +12567,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "공기는 수다와 웃음, 그리고 일상적인 빈정거림으로 가득 찼다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Human", "Classic"]
+        "tags": [
+          "Human",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-28-1773901514000",
@@ -10430,7 +12581,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "덧없고 매혹적인 순간 동안... 인간은 자신의 경이로움에 상응하는 신세계의 저 싱그러운 초록색 가슴 앞에서 숨을 죽였을 것임에 틀림없다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Philosophy", "Literature"]
+        "tags": [
+          "Philosophy",
+          "Literature"
+        ]
       },
       {
         "id": "word-gatsby-29-1773901514000",
@@ -10441,7 +12595,10 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "미래는 저 어두운 바다처럼 불가해했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Vocabulary", "Classic"]
+        "tags": [
+          "Vocabulary",
+          "Classic"
+        ]
       },
       {
         "id": "word-gatsby-30-1773901514000",
@@ -10452,9 +12609,11 @@ export const curationPresets: VocaList[] = [
         "exampleKr": "그는 그 불행한 사건을 묘사하기 위해 완곡 어구를 사용했다.",
         "isMemorized": false,
         "isStarred": false,
-        "tags": ["Basic", "Literature"]
+        "tags": [
+          "Basic",
+          "Literature"
+        ]
       }
     ]
   }
 ];
-

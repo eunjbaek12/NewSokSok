@@ -14,10 +14,20 @@ import {
     Modal,
 } from 'react-native';
 import { useLocalSearchParams, router, useNavigation } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
+// expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
+let ExpoSpeechRecognitionModule: any = null;
+let useSpeechRecognitionEvent: any = (_event: string, _cb: any) => {};
+try {
+    const mod = require('expo-speech-recognition');
+    ExpoSpeechRecognitionModule = mod.ExpoSpeechRecognitionModule;
+    useSpeechRecognitionEvent = mod.useSpeechRecognitionEvent;
+} catch {
+    // Native module not available
+}
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
@@ -32,6 +42,7 @@ import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
 import { searchNaverDict } from '@/lib/naver-dict-api';
 import { useSettings } from '@/contexts/SettingsContext';
+import { speak } from '@/lib/tts';
 import { SUPPORTED_LANGUAGES, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
@@ -310,7 +321,6 @@ export default function AddWordScreen() {
     });
 
     const [inputMode, setInputMode] = useState<'manual' | 'photo' | 'excel'>('manual');
-    const [enginePickerOpen, setEnginePickerOpen] = useState(false);
     const [selectedListId, setSelectedListId] = useState(listId || (lists.length > 0 ? lists[0].id : ''));
     const [listPickerOpen, setListPickerOpen] = useState(false);
     const [newListName, setNewListName] = useState('');
@@ -321,6 +331,39 @@ export default function AddWordScreen() {
     const [isApplying, setIsApplying] = useState(false);
     const [sourceLangPickerOpen, setSourceLangPickerOpen] = useState(false);
     const [targetLangPickerOpen, setTargetLangPickerOpen] = useState(false);
+    const [isListening, setIsListening] = useState(false);
+
+    useSpeechRecognitionEvent('start', () => setIsListening(true));
+    useSpeechRecognitionEvent('end', () => setIsListening(false));
+    useSpeechRecognitionEvent('result', (event: any) => {
+        if (event.results[0]?.transcript) {
+            setTerm(event.results[0].transcript);
+        }
+    });
+    useSpeechRecognitionEvent('error', () => setIsListening(false));
+
+    const handleVoiceInput = async () => {
+        try {
+            if (!ExpoSpeechRecognitionModule) {
+                Alert.alert(t('common.error'), t('addWord.voiceNotSupported', { defaultValue: '음성 입력이 이 기기에서 지원되지 않습니다.' }));
+                return;
+            }
+            if (isListening) {
+                ExpoSpeechRecognitionModule.stop();
+                return;
+            }
+            const { granted } = await ExpoSpeechRecognitionModule.requestPermissionsAsync();
+            if (!granted) {
+                Alert.alert(t('common.permissionDenied'), t('addWord.micPermissionMessage'));
+                return;
+            }
+            Haptics.selectionAsync();
+            const lang = inputSettings.sourceLang === 'ko' ? 'ko-KR' : 'en-US';
+            ExpoSpeechRecognitionModule.start({ lang, interimResults: true });
+        } catch {
+            Alert.alert(t('common.error'), t('addWord.voiceNotSupported', { defaultValue: '음성 입력이 이 기기에서 지원되지 않습니다.' }));
+        }
+    };
 
     const selectedFieldsCount = useMemo(() => {
         let count = 2; // term, meaningKr
@@ -467,10 +510,10 @@ export default function AddWordScreen() {
                     setToastVisible(true);
                     setTimeout(() => setToastVisible(false), 1200);
 
-                    // 저장 후 단어 입력창에 다시 포커스 (약간의 지연 필요)
+                    // 저장 후 단어 입력창에 다시 포커스 (필드 리셋 완료 후)
                     setTimeout(() => {
                         termInputRef.current?.focus();
-                    }, 100);
+                    }, 300);
                 }
             },
             () => {
@@ -648,8 +691,8 @@ export default function AddWordScreen() {
                     styles.topBar,
                     {
                         borderBottomColor: colors.borderLight,
-                        paddingTop: currentMode === 'full' ? Math.max(insets.top, 4) : 16,
-                        paddingBottom: currentMode === 'full' ? 6 : 12
+                        paddingTop: currentMode === 'full' ? Math.max(insets.top, 4) : 10,
+                        paddingBottom: currentMode === 'full' ? 6 : 8
                     }
                 ]}>
                     <Pressable onPress={() => router.back()} hitSlop={8}>
@@ -658,7 +701,7 @@ export default function AddWordScreen() {
                     <Text style={[styles.topBarTitle, { color: colors.text }]}>
                         {isEditing ? t('addWord.editWord') : t('addWord.addWordTitle')}
                     </Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
                         <Pressable onPress={() => setFieldSettingsOpen(true)} hitSlop={12} style={{ padding: 6 }}>
                             <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
                         </Pressable>
@@ -693,6 +736,19 @@ export default function AddWordScreen() {
                                     if (fieldId === 'term') {
                                         return (
                                             <View key="term" style={styles.wordSection}>
+                                                {!isEditing && (
+                                                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6, marginBottom: 6 }}>
+                                                        <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primary : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                            <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? '#fff' : colors.textSecondary} />
+                                                        </Pressable>
+                                                        <Pressable onPress={() => setInputMode('photo')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                            <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
+                                                        </Pressable>
+                                                        <Pressable onPress={() => setInputMode('excel')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                            <MaterialCommunityIcons name="microsoft-excel" size={16} color={colors.textSecondary} />
+                                                        </Pressable>
+                                                    </View>
+                                                )}
                                                 <View style={styles.wordInputWrapper}>
                                                     <TextInput
                                                         ref={termInputRef}
@@ -713,6 +769,22 @@ export default function AddWordScreen() {
                                                     />
                                                     <View style={styles.searchActions}>
                                                         <Pressable
+                                                            onPress={() => {
+                                                                if (term.trim()) {
+                                                                    Haptics.selectionAsync();
+                                                                    speak(term.trim(), inputSettings.sourceLang === 'ko' ? 'ko-KR' : 'en-US');
+                                                                }
+                                                            }}
+                                                            disabled={!term.trim()}
+                                                            style={styles.searchIconButton}
+                                                        >
+                                                            <Ionicons
+                                                                name="volume-medium-outline"
+                                                                size={22}
+                                                                color={term.trim() ? colors.textSecondary : colors.textTertiary}
+                                                            />
+                                                        </Pressable>
+                                                        <Pressable
                                                             onPress={handleSearch}
                                                             disabled={!term.trim() || isPendingFill}
                                                             style={styles.searchIconButton}
@@ -726,16 +798,6 @@ export default function AddWordScreen() {
                                                                     color={term.trim() ? colors.primary : colors.textTertiary}
                                                                 />
                                                             )}
-                                                        </Pressable>
-                                                        <Pressable
-                                                            onPress={() => setEnginePickerOpen(true)}
-                                                            style={styles.moreIconButton}
-                                                        >
-                                                            <Ionicons
-                                                                name="ellipsis-horizontal"
-                                                                size={20}
-                                                                color={colors.textTertiary}
-                                                            />
                                                         </Pressable>
                                                     </View>
                                                 </View>
@@ -785,7 +847,7 @@ export default function AddWordScreen() {
 
                                     if (fieldId === 'example' && inputSettings.showExample) {
                                         return (
-                                            <Animated.View key="example" entering={FadeIn} exiting={FadeOut} layout={Layout} style={{ gap: 16 }}>
+                                            <Animated.View key="example" entering={FadeIn} exiting={FadeOut} layout={Layout} style={{ gap: 10 }}>
                                                 <Input
                                                     label={t('addWord.exampleLabel')}
                                                     placeholder={t('addWord.exampleLabel')}
@@ -911,21 +973,6 @@ export default function AddWordScreen() {
                 )
             }
 
-            <ModalPicker
-                visible={enginePickerOpen}
-                onClose={() => setEnginePickerOpen(false)}
-                title={t('addWord.inputModeTitle')}
-                options={[
-                    { id: 'photo', title: t('addWord.photoScan') },
-                    { id: 'excel', title: t('addWord.excelUpload') },
-                ]}
-                selectedValue={undefined}
-                onSelect={(id: string) => {
-                    setEnginePickerOpen(false);
-                    if (id === 'photo') setInputMode('photo');
-                    if (id === 'excel') setInputMode('excel');
-                }}
-            />
 
             <Modal
                 visible={fieldSettingsOpen}
@@ -1114,7 +1161,7 @@ export default function AddWordScreen() {
                 title={t('addWord.inputLanguageSelect')}
                 options={SUPPORTED_LANGUAGES
                     .filter(l => l.code !== tempSettings.targetLang)
-                    .map(l => ({ id: l.code, label: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
                 selectedValue={tempSettings.sourceLang}
                 onSelect={(code: string) => {
                     setTempSettings(s => ({ ...s, sourceLang: code as LanguageCode }));
@@ -1129,7 +1176,7 @@ export default function AddWordScreen() {
                 title={t('addWord.meaningLanguageSelect')}
                 options={SUPPORTED_LANGUAGES
                     .filter(l => l.code !== tempSettings.sourceLang)
-                    .map(l => ({ id: l.code, label: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
                 selectedValue={tempSettings.targetLang}
                 onSelect={(code: string) => {
                     setTempSettings(s => ({ ...s, targetLang: code as LanguageCode }));
@@ -1155,15 +1202,14 @@ const styles = StyleSheet.create({
     placeholderTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
     placeholderDesc: { fontSize: 14, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 22, marginBottom: 10 },
     scrollContent: { padding: 20, paddingBottom: 40 },
-    listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 20, gap: 8 },
+    listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
-    wordSection: { marginBottom: 16 },
+    wordSection: { marginBottom: 8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
-    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, backgroundColor: '#FFFFFF', borderRadius: 12, borderWidth: 1, paddingRight: 100 },
+    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, backgroundColor: '#FFFFFF', borderRadius: 12, borderWidth: 1, paddingRight: 88 },
     searchActions: { position: 'absolute', right: 4, flexDirection: 'row', alignItems: 'center' },
-    searchIconButton: { padding: 8, marginRight: -4 },
-    moreIconButton: { padding: 8, paddingRight: 10 },
-    fieldsContainer: { gap: 16, marginTop: 8 },
+    searchIconButton: { padding: 8 },
+    fieldsContainer: { gap: 10, marginTop: 4 },
     errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
     loadingContainer: { alignItems: 'center', paddingVertical: 20, gap: 8 },
     loadingText: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },

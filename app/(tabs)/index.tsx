@@ -54,7 +54,7 @@ export default function DashboardScreen() {
       .map(l => ({
         list: l,
         status: computePlanStatus(l, l.words, now) as PlanStatus,
-        dayStatus: computeDayStudyStatus(l, l.words),
+        dayStatus: computeDayStudyStatus(l, l.words, now),
       }))
       .filter(p => p.status === 'in-progress' || p.status === 'overdue' || p.status === 'inactive')
       .sort((a, b) => {
@@ -324,10 +324,9 @@ export default function DashboardScreen() {
                             onPress={(e) => {
                               e.stopPropagation();
                               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                              const isCompleted = dayStatus.state === 'completed';
                               Alert.alert(
-                                isCompleted ? t('home.endPlanTitle') : t('home.stopStudyTitle'),
-                                isCompleted ? t('home.endPlanMessage') : t('home.stopStudyMessage'),
+                                t('home.stopStudyTitle'),
+                                t('home.stopStudyMessage'),
                                 [
                                   { text: t('common.cancel'), style: 'cancel' },
                                   {

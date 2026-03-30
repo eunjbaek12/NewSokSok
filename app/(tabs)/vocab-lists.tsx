@@ -137,11 +137,22 @@ export default function VocabListsScreen() {
     [colors, openManageModal, t]
   );
 
-  const renderHeader = useCallback(() => {
+  const renderHeader = useCallback(() => null, []);
+
+  if (loading) {
     return (
-      <View style={styles.sectionHeader}>
-        <View style={styles.sectionTitleRow}>
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
+      <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
+        <ActivityIndicator size="large" color={colors.primary} />
+      </View>
+    );
+  }
+
+  return (
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* Header */}
+      <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
+        <View style={styles.headerTitleRow}>
+          <Text style={[styles.headerTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
           {visibleLists.length > 0 && (
             <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
               <Text style={[styles.countBadgeText, { color: colors.primary }]}>
@@ -157,23 +168,6 @@ export default function VocabListsScreen() {
         >
           <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
         </Pressable>
-      </View>
-    );
-  }, [visibleLists.length, colors, openManageModal, t]);
-
-  if (loading) {
-    return (
-      <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
-        <ActivityIndicator size="large" color={colors.primary} />
-      </View>
-    );
-  }
-
-  return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
-      {/* Header */}
-      <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <Text style={[styles.headerTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
       </View>
 
       {/* Fixed Search Bar */}
@@ -229,83 +223,53 @@ export default function VocabListsScreen() {
         />
       </View>
 
-      {/* FABs */}
+      {/* Scroll to top FAB */}
       {visibleLists.length > 0 && (
-        <View style={{ position: 'absolute', right: 20, bottom: insets.bottom + 84, alignItems: 'center' }}>
-          <RNAnimated.View
-            style={{
-              transform: [{
-                translateY: fabAnim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0, -64],
-                })
-              }],
-              zIndex: 2,
+        <RNAnimated.View
+          style={{
+            position: 'absolute',
+            right: 20,
+            bottom: insets.bottom + 84,
+            opacity: fabAnim,
+            transform: [{
+              scale: fabAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0.7, 1],
+              })
+            }],
+          }}
+          pointerEvents="box-none"
+        >
+          <Pressable
+            onPress={() => {
+              scrollRef.current?.scrollToOffset({ offset: 0, animated: true });
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
             }}
+            style={({ pressed }) => [
+              styles.fab,
+              {
+                position: 'relative',
+                right: 0,
+                bottom: 0,
+                width: 48,
+                height: 48,
+                borderRadius: 24,
+                backgroundColor: isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.9)',
+                borderWidth: 1,
+                borderColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+                opacity: pressed ? 0.7 : 1,
+                shadowOpacity: 0.15,
+              },
+            ]}
           >
-            <Pressable
-              onPress={() => router.push('/add-word')}
-              style={({ pressed }) => [
-                styles.fab,
-                {
-                  position: 'relative',
-                  right: 0,
-                  bottom: 0,
-                  backgroundColor: colors.primary,
-                  opacity: pressed ? 0.85 : 1,
-                },
-              ]}
-            >
-              <Ionicons name="add" size={28} color="#FFFFFF" />
-            </Pressable>
-          </RNAnimated.View>
-
-          <RNAnimated.View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              opacity: fabAnim,
-              transform: [{
-                scale: fabAnim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [0.7, 1],
-                })
-              }],
-              zIndex: 1,
-            }}
-            pointerEvents="box-none"
-          >
-            <Pressable
-              onPress={() => {
-                scrollRef.current?.scrollToOffset({ offset: 0, animated: true });
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              }}
-              style={({ pressed }) => [
-                styles.fab,
-                {
-                  position: 'relative',
-                  right: 0,
-                  bottom: 0,
-                  width: 48,
-                  height: 48,
-                  borderRadius: 24,
-                  backgroundColor: isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.9)',
-                  borderWidth: 1,
-                  borderColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
-                  opacity: pressed ? 0.7 : 1,
-                  shadowOpacity: 0.15,
-                },
-              ]}
-            >
-              {Platform.OS === 'ios' && (
-                <View style={[StyleSheet.absoluteFill, { borderRadius: 24, overflow: 'hidden' }]}>
-                  <BlurView intensity={20} tint={isDark ? 'dark' : 'light'} style={StyleSheet.absoluteFill} />
-                </View>
-              )}
-              <Ionicons name="arrow-up" size={24} color={colors.text} />
-            </Pressable>
-          </RNAnimated.View>
-        </View>
+            {Platform.OS === 'ios' && (
+              <View style={[StyleSheet.absoluteFill, { borderRadius: 24, overflow: 'hidden' }]}>
+                <BlurView intensity={20} tint={isDark ? 'dark' : 'light'} style={StyleSheet.absoluteFill} />
+              </View>
+            )}
+            <Ionicons name="arrow-up" size={24} color={colors.text} />
+          </Pressable>
+        </RNAnimated.View>
       )}
 
       {/* Modals */}
@@ -348,6 +312,14 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 20,
     paddingBottom: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   headerTitle: {
     fontSize: 26,

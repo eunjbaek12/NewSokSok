@@ -166,7 +166,7 @@ export default function VocabListsScreen() {
           hitSlop={8}
           style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}
         >
-          <Ionicons name="add-circle-outline" size={24} color={colors.primary} />
+          <Ionicons name="pencil-outline" size={18} color={colors.primary} />
         </Pressable>
       </View>
 

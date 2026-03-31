@@ -36,14 +36,15 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card } from '@/components/ui/Card';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
+import { Snackbar } from '@/components/ui/Snackbar';
 import BatchImportWorkflow from '@/components/BatchImportWorkflow';
 import PhotoImportWorkflow from '@/components/PhotoImportWorkflow';
 import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
-import { searchNaverDict } from '@/lib/naver-dict-api';
+import { searchNaverDict, fetchNaverAutocomplete, fetchDatamuseAutocomplete } from '@/lib/naver-dict-api';
 import { useSettings } from '@/contexts/SettingsContext';
 import { speak } from '@/lib/tts';
-import { SUPPORTED_LANGUAGES, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
     FadeOut,
@@ -61,7 +62,6 @@ import {
     GestureHandlerRootView
 } from 'react-native-gesture-handler';
 
-type InputMode = 'manual' | 'photo' | 'excel';
 
 // 드래그 가능한 필드 항목 컴포넌트
 const DraggableFieldItem = ({
@@ -286,11 +286,17 @@ export default function AddWordScreen() {
         tags, setTags,
         errors, setErrors,
         handleAutoFill,
+        handleAutoFillWithTerm,
         startAutoFill,
         handleSaveWord,
         isPendingFill,
         isPendingSave,
     } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang);
+
+    const [suggestions, setSuggestions] = useState<string[]>([]);
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [inputWrapperHeight, setInputWrapperHeight] = useState(50);
+    const autocompleteTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const [fieldSettingsOpen, setFieldSettingsOpen] = useState(false);
     const [tempSettings, setTempSettings] = useState(inputSettings);
@@ -320,7 +326,8 @@ export default function AddWordScreen() {
         };
     });
 
-    const [inputMode, setInputMode] = useState<'manual' | 'photo' | 'excel'>('manual');
+    const [photoSource, setPhotoSource] = useState<'camera' | 'gallery' | null>(null);
+    const [showExcel, setShowExcel] = useState(false);
     const [selectedListId, setSelectedListId] = useState(listId || (lists.length > 0 ? lists[0].id : ''));
     const [listPickerOpen, setListPickerOpen] = useState(false);
     const [newListName, setNewListName] = useState('');
@@ -400,13 +407,13 @@ export default function AddWordScreen() {
     }, [fieldSettingsOpen]);
 
     useEffect(() => {
-        if (!isEditing && inputMode === 'manual' && !fieldSettingsOpen) {
+        if (!isEditing && !fieldSettingsOpen) {
             const timer = setTimeout(() => {
                 termInputRef.current?.focus();
             }, 500);
             return () => clearTimeout(timer);
         }
-    }, [inputMode, fieldSettingsOpen, isEditing]);
+    }, [fieldSettingsOpen, isEditing]);
 
     const handleOpenSettings = () => {
         setTempSettings(inputSettings);
@@ -459,13 +466,36 @@ export default function AddWordScreen() {
 
     useEffect(() => {
         const unsubscribe = navigation.addListener('beforeRemove', (e) => {
-            if (!isEditing && inputMode !== 'manual') {
+            if (!isEditing && showExcel) {
                 e.preventDefault();
-                setInputMode('manual');
+                setShowExcel(false);
             }
         });
         return unsubscribe;
-    }, [navigation, inputMode, isEditing]);
+    }, [navigation, showExcel, isEditing]);
+
+    const handlePhotoSaveWords = async (words: { word: string; meaning: string; definition?: string; exampleSentence: string }[]) => {
+        let addedCount = 0;
+        for (const w of words) {
+            if (w.word.trim()) {
+                await addWord(selectedListId, {
+                    term: w.word.trim(),
+                    definition: w.definition || '',
+                    meaningKr: w.meaning,
+                    exampleEn: w.exampleSentence || '',
+                    exampleKr: '',
+                    isStarred: false,
+                    tags: []
+                });
+                addedCount++;
+            }
+        }
+        if (addedCount > 0) {
+            setToastMessage(t('addWord.batchSaveComplete', { count: addedCount }));
+            setToastVisible(true);
+            setTimeout(() => setToastVisible(false), 2000);
+        }
+    };
 
     const handleOpenListPicker = () => {
         setShowNewListInput(false);
@@ -480,7 +510,12 @@ export default function AddWordScreen() {
 
 
     // Use handleAutoFill from useAddWord hook instead of re-implementing it localy
-    const handleSearch = handleAutoFill;
+    const handleSearch = () => {
+        if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+        setSuggestions([]);
+        setShowSuggestions(false);
+        handleAutoFill();
+    };
 
     const handleAddTag = () => {
         const newTags = tagInput
@@ -584,79 +619,6 @@ export default function AddWordScreen() {
         </Pressable>
     );
 
-    // If excel mode is selected, we replace the screen content with BatchImportWorkflow
-    if (!isEditing && inputMode === 'excel') {
-        return (
-            <View style={{ flex: 1, backgroundColor: colors.background }}>
-                {!selectedListId ? (
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-                        <Ionicons name="warning-outline" size={48} color={colors.warning} style={{ marginBottom: 16 }} />
-                        <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Pretendard_500Medium', textAlign: 'center' }}>
-                            {t('addWord.selectListFirst')}
-                        </Text>
-                        <Button
-                            title={t('addWord.selectListButton')}
-                            onPress={() => setInputMode('manual')}
-                            style={{ marginTop: 20 }}
-                        />
-                    </View>
-                ) : (
-                    <BatchImportWorkflow
-                        listId={selectedListId}
-                        onClose={() => setInputMode('manual')}
-                    />
-                )}
-            </View>
-        );
-    }
-
-    // If photo mode is selected, replace screen content with PhotoImportWorkflow
-    if (!isEditing && inputMode === 'photo') {
-        return (
-            <View style={{ flex: 1, backgroundColor: colors.background }}>
-                {!selectedListId ? (
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-                        <Ionicons name="warning-outline" size={48} color={colors.warning} style={{ marginBottom: 16 }} />
-                        <Text style={{ fontSize: 16, color: colors.text, fontFamily: 'Pretendard_500Medium', textAlign: 'center' }}>
-                            {t('addWord.selectListFirst')}
-                        </Text>
-                        <Button
-                            title={t('addWord.selectListButton')}
-                            onPress={() => setInputMode('manual')}
-                            style={{ marginTop: 20 }}
-                        />
-                    </View>
-                ) : (
-                    <PhotoImportWorkflow
-                        listId={selectedListId}
-                        onClose={() => setInputMode('manual')}
-                        onSaveWords={async (words) => {
-                            let addedCount = 0;
-                            for (const w of words) {
-                                if (w.word.trim()) {
-                                    await addWord(selectedListId, {
-                                        term: w.word.trim(),
-                                        definition: w.definition || '', // Note: API prompt returned 'meaning' mostly, but type ScannedWord currently uses meaning. I'll map meaning to meaningKr and definition.
-                                        meaningKr: w.meaning,
-                                        exampleEn: w.exampleSentence || '',
-                                        exampleKr: '',
-                                        isStarred: false,
-                                        tags: []
-                                    });
-                                    addedCount++;
-                                }
-                            }
-                            if (addedCount > 0) {
-                                setToastMessage(t('addWord.batchSaveComplete', { count: addedCount }));
-                                setToastVisible(true);
-                                setTimeout(() => setToastVisible(false), 2000);
-                            }
-                        }}
-                    />
-                )}
-            </View>
-        );
-    }
 
     const currentMode = fieldSettingsOpen ? tempSettings.addWordMode : inputSettings.addWordMode;
 
@@ -729,7 +691,7 @@ export default function AddWordScreen() {
 
 
 
-                    {(isEditing || inputMode === 'manual') && (
+                    {(true) && (
                         <>
                             <View style={styles.fieldsContainer}>
                                 {sortedFieldOrder.map((fieldId) => {
@@ -741,24 +703,50 @@ export default function AddWordScreen() {
                                                         <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primary : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? '#fff' : colors.textSecondary} />
                                                         </Pressable>
-                                                        <Pressable onPress={() => setInputMode('photo')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                        <Pressable onPress={() => setPhotoSource('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
                                                         </Pressable>
-                                                        <Pressable onPress={() => setInputMode('excel')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                        <Pressable onPress={() => setPhotoSource('gallery')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                            <Ionicons name="images-outline" size={16} color={colors.textSecondary} />
+                                                        </Pressable>
+                                                        <Pressable onPress={() => setShowExcel(true)} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <MaterialCommunityIcons name="microsoft-excel" size={16} color={colors.textSecondary} />
                                                         </Pressable>
                                                     </View>
                                                 )}
-                                                <View style={styles.wordInputWrapper}>
+                                                <View style={{ zIndex: showSuggestions ? 1000 : 1 }}>
+                                                <View
+                                                    style={styles.wordInputWrapper}
+                                                    onLayout={(e) => setInputWrapperHeight(e.nativeEvent.layout.height)}
+                                                >
                                                     <TextInput
                                                         ref={termInputRef}
                                                         style={[styles.wordInput, { color: colors.text, borderColor: errors.term ? colors.error : colors.border }]}
                                                         placeholder={getPlaceholderText(inputSettings.sourceLang, t)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
-                                                        onChangeText={(t) => {
-                                                            setTerm(t);
+                                                        onChangeText={(text) => {
+                                                            setTerm(text);
                                                             if (errors.term) setErrors(e => ({ ...e, term: false }));
+                                                            if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+                                                            if (!inputSettings.enableAutocomplete || text.trim().length < 2) {
+                                                                setSuggestions([]);
+                                                                setShowSuggestions(false);
+                                                                return;
+                                                            }
+                                                            autocompleteTimerRef.current = setTimeout(async () => {
+                                                                const dictCode = getNaverDictCode(inputSettings.sourceLang, inputSettings.targetLang);
+                                                                let results: string[];
+                                                                if (inputSettings.sourceLang === 'en') {
+                                                                    results = await fetchDatamuseAutocomplete(text.trim());
+                                                                } else if (dictCode) {
+                                                                    results = await fetchNaverAutocomplete(text.trim(), inputSettings.sourceLang, inputSettings.targetLang);
+                                                                } else {
+                                                                    results = [];
+                                                                }
+                                                                setSuggestions(results);
+                                                                setShowSuggestions(results.length > 0);
+                                                            }, 300);
                                                         }}
                                                         autoFocus={!isEditing}
                                                         autoCapitalize="none"
@@ -799,7 +787,60 @@ export default function AddWordScreen() {
                                                                 />
                                                             )}
                                                         </Pressable>
+                                                        <Pressable
+                                                            onPress={() => {
+                                                                if (!term.trim()) return;
+                                                                Haptics.selectionAsync();
+                                                                const dictCode = getNaverDictCode(inputSettings.sourceLang, inputSettings.targetLang);
+                                                                const subdomain = dictCode ? getNaverDictSubdomain(dictCode) : 'en';
+                                                                WebBrowser.openBrowserAsync(
+                                                                    `https://${subdomain}.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`
+                                                                );
+                                                            }}
+                                                            disabled={!term.trim()}
+                                                            style={styles.searchIconButton}
+                                                        >
+                                                            <Text style={[styles.naverIconText, { color: term.trim() ? '#03C75A' : colors.textTertiary }]}>N</Text>
+                                                        </Pressable>
                                                     </View>
+                                                </View>
+                                                {showSuggestions && suggestions.length > 0 && (
+                                                    <View style={[styles.suggestionDropdown, {
+                                                        top: inputWrapperHeight + 2,
+                                                        backgroundColor: colors.surface,
+                                                        borderColor: colors.border,
+                                                    }]}>
+                                                        {suggestions.map((s) => (
+                                                            <Pressable
+                                                                key={s}
+                                                                onPress={() => {
+                                                                    if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+                                                                    setTerm(s);
+                                                                    setSuggestions([]);
+                                                                    setShowSuggestions(false);
+                                                                    Haptics.selectionAsync();
+                                                                    handleAutoFillWithTerm(s);
+                                                                }}
+                                                                style={({ pressed }) => [styles.suggestionItem, { backgroundColor: pressed ? colors.surfaceSecondary : 'transparent' }]}
+                                                            >
+                                                                <Ionicons name="search-outline" size={14} color={colors.textTertiary} />
+                                                                <Text style={[styles.suggestionText, { color: colors.text }]}>{s}</Text>
+                                                            </Pressable>
+                                                        ))}
+                                                        <Pressable
+                                                            onPress={() => {
+                                                                updateInputSettings({ enableAutocomplete: false });
+                                                                setSuggestions([]);
+                                                                setShowSuggestions(false);
+                                                                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                                                            }}
+                                                            style={[styles.suggestionDisableBtn, { borderTopColor: colors.borderLight }]}
+                                                        >
+                                                            <Ionicons name="close-outline" size={14} color={colors.textTertiary} />
+                                                            <Text style={[styles.suggestionDisableText, { color: colors.textTertiary }]}>{t('addWord.disableAutocomplete')}</Text>
+                                                        </Pressable>
+                                                    </View>
+                                                )}
                                                 </View>
                                                 {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('addWord.enterWordError')}</Text>}
                                             </View>
@@ -930,7 +971,7 @@ export default function AddWordScreen() {
                 </ScrollView>
 
                 {
-                    (isEditing || inputMode === 'manual') && (
+                    (true) && (
                         <Animated.View style={[
                             styles.fabContainer,
                             animatedFabStyle,
@@ -962,16 +1003,14 @@ export default function AddWordScreen() {
                 }
             </Animated.View>
 
-            {
-                toastVisible && (
-                    <View style={styles.toastContainer} pointerEvents="none">
-                        <View style={[styles.toast, { backgroundColor: colors.text }]}>
-                            <Ionicons name="checkmark-circle" size={20} color={colors.background} />
-                            <Text style={[styles.toastText, { color: colors.background }]}>{toastMessage}</Text>
-                        </View>
-                    </View>
-                )
-            }
+            <Snackbar
+                visible={toastVisible}
+                message={toastMessage}
+                onDismiss={() => setToastVisible(false)}
+                position="bottom"
+                bottomOffset={120}
+                duration={2000}
+            />
 
 
             <Modal
@@ -981,7 +1020,7 @@ export default function AddWordScreen() {
                 onRequestClose={() => setFieldSettingsOpen(false)}
             >
                 <GestureHandlerRootView style={{ flex: 1 }}>
-                    <Pressable style={styles.modalOverlay} onPress={() => setFieldSettingsOpen(false)}>
+                    <Pressable style={[styles.modalOverlay, { backgroundColor: colors.overlay }]} onPress={() => setFieldSettingsOpen(false)}>
                         <GestureDetector gesture={modalGesture}>
                             <Animated.View
                                 entering={FadeIn.duration(200)}
@@ -1032,6 +1071,45 @@ export default function AddWordScreen() {
                                             borderRadius: 9,
                                             backgroundColor: '#fff',
                                             transform: [{ translateX: tempSettings.addWordMode === 'full' ? 18 : 0 }]
+                                        }} />
+                                    </View>
+                                </Pressable>
+
+                                {/* 자동 완성 토글 */}
+                                <Pressable
+                                    onPress={() => setTempSettings(s => ({ ...s, enableAutocomplete: !s.enableAutocomplete }))}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 8,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
+                                    }}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Ionicons name="sparkles-outline" size={18} color={colors.primary} />
+                                        <Text style={[styles.settingsSectionTitle, { marginBottom: 0, color: colors.primary, fontSize: 13 }]}>{t('addWord.autocomplete')}</Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            width: 40,
+                                            height: 22,
+                                            borderRadius: 11,
+                                            backgroundColor: tempSettings.enableAutocomplete ? colors.primary : colors.border,
+                                            padding: 2,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <View style={{
+                                            width: 18,
+                                            height: 18,
+                                            borderRadius: 9,
+                                            backgroundColor: '#fff',
+                                            transform: [{ translateX: tempSettings.enableAutocomplete ? 18 : 0 }]
                                         }} />
                                     </View>
                                 </Pressable>
@@ -1183,6 +1261,39 @@ export default function AddWordScreen() {
                     setTargetLangPickerOpen(false);
                 }}
             />
+
+            {/* 사진 스캔 모달 */}
+            <Modal
+                visible={photoSource !== null}
+                animationType="slide"
+                onRequestClose={() => setPhotoSource(null)}
+            >
+                {photoSource !== null && (
+                    <PhotoImportWorkflow
+                        listId={selectedListId}
+                        source={photoSource}
+                        onClose={() => setPhotoSource(null)}
+                        onSaveWords={handlePhotoSaveWords}
+                    />
+                )}
+            </Modal>
+
+            {/* 엑셀 일괄 추가 모달 */}
+            <Modal
+                visible={showExcel}
+                animationType="slide"
+                onRequestClose={() => setShowExcel(false)}
+            >
+                <BatchImportWorkflow
+                    listId={selectedListId}
+                    onClose={() => setShowExcel(false)}
+                    onSaved={(count) => {
+                        setToastMessage(t('addWord.batchSaveComplete', { count }));
+                        setToastVisible(true);
+                        setTimeout(() => setToastVisible(false), 2000);
+                    }}
+                />
+            </Modal>
         </View >
     );
 }
@@ -1206,9 +1317,10 @@ const styles = StyleSheet.create({
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
-    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, backgroundColor: '#FFFFFF', borderRadius: 12, borderWidth: 1, paddingRight: 88 },
+    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, backgroundColor: '#FFFFFF', borderRadius: 12, borderWidth: 1, paddingRight: 124 },
     searchActions: { position: 'absolute', right: 4, flexDirection: 'row', alignItems: 'center' },
     searchIconButton: { padding: 8 },
+    naverIconText: { fontSize: 15, fontFamily: 'Pretendard_700Bold', lineHeight: 22 },
     fieldsContainer: { gap: 10, marginTop: 4 },
     errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
     loadingContainer: { alignItems: 'center', paddingVertical: 20, gap: 8 },
@@ -1222,12 +1334,50 @@ const styles = StyleSheet.create({
     tagChip: { flexDirection: 'row', alignItems: 'center', paddingVertical: 6, paddingLeft: 10, paddingRight: 6, borderRadius: 12, gap: 4 },
     tagChipText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
     tagChipClose: { marginLeft: 2 },
+    suggestionDropdown: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        borderRadius: 12,
+        borderWidth: 1,
+        overflow: 'hidden',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        elevation: 8,
+    },
+    suggestionItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 14,
+        paddingVertical: 11,
+        gap: 10,
+    },
+    suggestionText: {
+        fontSize: 15,
+        fontFamily: 'Pretendard_500Medium',
+        flex: 1,
+    },
+    suggestionDisableBtn: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 14,
+        paddingVertical: 8,
+        borderTopWidth: StyleSheet.hairlineWidth,
+        gap: 4,
+    },
+    suggestionDisableText: {
+        fontSize: 12,
+        fontFamily: 'Pretendard_400Regular',
+    },
     toastContainer: { position: 'absolute', bottom: 120, left: 0, right: 0, alignItems: 'center', zIndex: 999 },
     toast: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 12, borderRadius: 12, gap: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.15, shadowRadius: 12, elevation: 6 },
     toastText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     modalOverlay: {
         flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
@@ -1236,15 +1386,15 @@ const styles = StyleSheet.create({
         width: '94%',
         maxWidth: 400,
         backgroundColor: '#fff',
-        borderRadius: 24,
+        borderRadius: 20,
         padding: 16,
         paddingTop: 10,
         paddingBottom: 16,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 10 },
-        shadowOpacity: 0.15,
-        shadowRadius: 24,
-        elevation: 24,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.12,
+        shadowRadius: 16,
+        elevation: 10,
     },
     modalHeader: {
         flexDirection: 'row',

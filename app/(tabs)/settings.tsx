@@ -9,6 +9,7 @@ import {
   Platform,
   Alert,
   Image,
+  TextInput,
 } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -20,6 +21,9 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useLocale } from '@/contexts/LocaleContext';
 import { UI_LOCALES } from '@/i18n';
 import { ModalPicker } from '@/components/ui/ModalPicker';
+import DialogModal from '@/components/ui/DialogModal';
+import { useSettings } from '@/contexts/SettingsContext';
+import { PopupTokens } from '@/constants/popup';
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
@@ -27,9 +31,25 @@ export default function SettingsScreen() {
   const { colors, isDark, toggleTheme } = useTheme();
   const { authMode, user, logout } = useAuth();
   const { locale, setLocale } = useLocale();
+  const { profileSettings, updateProfileSettings } = useSettings();
   const [showLangPicker, setShowLangPicker] = useState(false);
+  const [showStartupPicker, setShowStartupPicker] = useState(false);
+  const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
+  const [nicknameInput, setNicknameInput] = useState('');
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
+  const btn = PopupTokens.button.standard;
+
+  const handleOpenNicknameModal = () => {
+    setNicknameInput(profileSettings.nickname);
+    setNicknameModalOpen(true);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  };
+
+  const handleSaveNickname = async () => {
+    await updateProfileSettings({ nickname: nicknameInput.trim() });
+    setNicknameModalOpen(false);
+  };
 
   const currentLangLabel = UI_LOCALES.find((l) => l.code === locale)?.nativeLabel ?? locale;
 
@@ -107,6 +127,24 @@ export default function SettingsScreen() {
               </View>
             )}
           </View>
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={handleOpenNicknameModal}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="at-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.nickname')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {profileSettings.nickname.trim() || t('settings.nicknameNotSet')}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+          </Pressable>
+
           <Pressable style={styles.row} onPress={handleLogout}>
             <View style={styles.rowLeft}>
               <View style={[styles.iconCircle, { backgroundColor: '#FEE2E2' }]}>
@@ -119,7 +157,7 @@ export default function SettingsScreen() {
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.display')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-          <View style={styles.row}>
+          <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
             <View style={styles.rowLeft}>
               <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
                 <Ionicons name="moon-outline" size={18} color={colors.primary} />
@@ -138,6 +176,26 @@ export default function SettingsScreen() {
               thumbColor="#FFFFFF"
             />
           </View>
+          <Pressable
+            style={styles.row}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              setShowStartupPicker(true);
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="home-outline" size={18} color={colors.primary} />
+              </View>
+              <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.startupScreen')}</Text>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+              <Text style={[styles.rowValue, { color: colors.textSecondary }]}>
+                {t(`settings.startup_${profileSettings.startupTab ?? 'index'}`)}
+              </Text>
+              <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+            </View>
+          </Pressable>
         </View>
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.language')}</Text>
@@ -203,6 +261,62 @@ export default function SettingsScreen() {
           setShowLangPicker(false);
         }}
       />
+
+      <ModalPicker
+        visible={showStartupPicker}
+        onClose={() => setShowStartupPicker(false)}
+        title={t('settings.startupScreen')}
+        options={[
+          { id: 'index', title: t('settings.startup_index') },
+          { id: 'vocab-lists', title: t('settings.startup_vocab-lists') },
+          { id: 'curation', title: t('settings.startup_curation') },
+        ]}
+        selectedValue={profileSettings.startupTab ?? 'index'}
+        onSelect={(id) => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          updateProfileSettings({ startupTab: id as any });
+          setShowStartupPicker(false);
+        }}
+      />
+
+      <DialogModal
+        visible={nicknameModalOpen}
+        onClose={() => setNicknameModalOpen(false)}
+        title={t('settings.nicknameTitle')}
+        scrollable={false}
+        footer={
+          <View style={styles.modalActions}>
+            <Pressable
+              onPress={() => setNicknameModalOpen(false)}
+              style={[styles.modalBtn, { backgroundColor: colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+            >
+              <Text style={[styles.modalBtnText, { color: colors.text, fontSize: btn.fontSize }]}>{t('common.cancel')}</Text>
+            </Pressable>
+            <Pressable
+              onPress={handleSaveNickname}
+              style={[styles.modalBtn, { backgroundColor: colors.primary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+            >
+              <Text style={[styles.modalBtnText, { color: '#FFFFFF', fontSize: btn.fontSize }]}>{t('common.save')}</Text>
+            </Pressable>
+          </View>
+        }
+      >
+        <View style={styles.modalBody}>
+          <Text style={[styles.nicknameDesc, { color: colors.textSecondary }]}>{t('settings.nicknameDesc')}</Text>
+          <TextInput
+            style={[styles.nicknameInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
+            value={nicknameInput}
+            onChangeText={setNicknameInput}
+            placeholder={t('settings.nicknamePlaceholder')}
+            placeholderTextColor={colors.textTertiary}
+            autoFocus
+            returnKeyType="done"
+            onSubmitEditing={handleSaveNickname}
+            maxLength={20}
+          />
+          <Text style={[styles.nicknameCount, { color: colors.textTertiary }]}>{nicknameInput.trim().length} / 20</Text>
+        </View>
+      </DialogModal>
     </View>
   );
 }
@@ -288,5 +402,39 @@ const styles = StyleSheet.create({
   cloudBadgeText: {
     fontSize: 11,
     fontFamily: 'Pretendard_600SemiBold',
+  },
+  modalActions: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  modalBtn: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  modalBtnText: {
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  modalBody: {
+    paddingHorizontal: 20,
+    paddingBottom: 8,
+    gap: 8,
+  },
+  nicknameDesc: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_400Regular',
+    lineHeight: 18,
+  },
+  nicknameInput: {
+    height: 48,
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    fontSize: 16,
+    fontFamily: 'Pretendard_400Regular',
+  },
+  nicknameCount: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_400Regular',
+    textAlign: 'right',
   },
 });

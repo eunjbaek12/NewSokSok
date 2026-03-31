@@ -8,7 +8,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSettings } from "@/contexts/SettingsContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import type { StartupTab } from "@/contexts/SettingsContext";
 
 function AddWordTabButton() {
   const { colors } = useTheme();
@@ -36,10 +38,10 @@ function AddWordTabButton() {
   );
 }
 
-function NativeTabLayout() {
+function NativeTabLayout({ startupTab }: { startupTab: StartupTab }) {
   const { t } = useTranslation();
   return (
-    <NativeTabs>
+    <NativeTabs initialRouteName={startupTab}>
       <NativeTabs.Trigger name="index">
         <Icon sf={{ default: "house", selected: "house.fill" }} />
         <Label>{t('tabs.home')}</Label>
@@ -60,13 +62,14 @@ function NativeTabLayout() {
   );
 }
 
-function ClassicTabLayout() {
+function ClassicTabLayout({ startupTab }: { startupTab: StartupTab }) {
   const { t } = useTranslation();
   const { colors, isDark } = useTheme();
   const insets = useSafeAreaInsets();
 
   return (
     <Tabs
+      initialRouteName={startupTab}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: isDark ? "#4B96FF" : "#3182F6",
@@ -180,15 +183,18 @@ function ClassicTabLayout() {
 
 export default function TabLayout() {
   const { authMode, loading } = useAuth();
+  const { profileSettings, isLoading: settingsLoading } = useSettings();
 
-  if (loading) return <View style={{ flex: 1 }} />;
+  if (loading || settingsLoading) return <View style={{ flex: 1 }} />;
 
   if (authMode === 'none') {
     return <Redirect href="/login" />;
   }
 
+  const startupTab = profileSettings.startupTab ?? 'index';
+
   if (isLiquidGlassAvailable()) {
-    return <NativeTabLayout />;
+    return <NativeTabLayout startupTab={startupTab} />;
   }
-  return <ClassicTabLayout />;
+  return <ClassicTabLayout startupTab={startupTab} />;
 }

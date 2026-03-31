@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Ionicons } from '@expo/vector-icons';
+import { PopupTokens } from '@/constants/popup';
 
 interface SnackbarProps {
     visible: boolean;
@@ -19,6 +20,8 @@ interface SnackbarProps {
     onDismiss: () => void;
     duration?: number;
     topOffset?: number;
+    position?: 'top' | 'bottom';
+    bottomOffset?: number;
 }
 
 const { width } = Dimensions.get('window');
@@ -31,9 +34,12 @@ export const Snackbar: React.FC<SnackbarProps> = ({
     onDismiss,
     duration = 4000,
     topOffset = 60,
+    position = 'top',
+    bottomOffset = 120,
 }) => {
     const { colors, isDark } = useTheme();
-    const translateY = useRef(new Animated.Value(-200)).current;
+    const isBottom = position === 'bottom';
+    const translateY = useRef(new Animated.Value(isBottom ? 200 : -200)).current;
     const opacity = useRef(new Animated.Value(0)).current;
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const isVisibleRef = useRef(false);
@@ -73,7 +79,7 @@ export const Snackbar: React.FC<SnackbarProps> = ({
     const hide = () => {
         Animated.parallel([
             Animated.timing(translateY, {
-                toValue: -200,
+                toValue: isBottom ? 200 : -200,
                 duration: 250,
                 useNativeDriver: true,
             }),
@@ -93,8 +99,8 @@ export const Snackbar: React.FC<SnackbarProps> = ({
         <Animated.View
             style={[
                 styles.container,
+                isBottom ? { bottom: bottomOffset } : { top: topOffset },
                 {
-                    top: topOffset,
                     opacity: opacity,
                     transform: [{ translateY }],
                     backgroundColor: isDark ? '#2C2C2E' : '#FFFFFF',
@@ -135,13 +141,13 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         ...Platform.select({
             ios: {
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: 4 },
-                shadowOpacity: 0.3,
-                shadowRadius: 10,
+                shadowColor: PopupTokens.shadow.color,
+                shadowOffset: PopupTokens.shadow.offset,
+                shadowOpacity: PopupTokens.shadow.opacity,
+                shadowRadius: PopupTokens.shadow.radius,
             },
             android: {
-                elevation: 6,
+                elevation: PopupTokens.shadow.elevation - 4,
             },
         }),
         zIndex: 9999,

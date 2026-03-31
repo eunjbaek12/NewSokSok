@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState } from 'react';
 import {
   View,
   Text,
-  Modal,
   Pressable,
   TextInput,
   ScrollView,
@@ -10,6 +9,7 @@ import {
   PanResponder,
   Animated,
 } from 'react-native';
+import ModalOverlay from './ui/ModalOverlay';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
@@ -364,14 +364,12 @@ export default function ManageModal({
   }, [managedLists, deletedIds, renamedMap, visibilityMap, lists, deleteList, renameList, toggleVisibility, createList, reorderLists, refreshData, newListName, editingId, editingName, onClose]);
 
   return (
-    <Modal
+    <ModalOverlay
       visible={visible}
-      transparent
-      animationType="slide"
-      onRequestClose={onClose}
+      onClose={onClose}
+      variant="dialog"
+      maxHeight="80%"
     >
-      <View style={[styles.manageOverlay, { backgroundColor: colors.overlay }]}>
-        <View style={[styles.manageSheet, { backgroundColor: colors.surface }]}>
           <View style={styles.manageHeader}>
             <Text style={[styles.manageTitle, { color: colors.text }]}>{t('manage.title')}</Text>
           </View>
@@ -446,30 +444,11 @@ export default function ManageModal({
               <Text style={[styles.manageFooterBtnText, { color: '#FFFFFF' }]}>{t('common.apply')}</Text>
             </Pressable>
           </View>
-        </View>
-      </View>
-    </Modal>
+    </ModalOverlay>
   );
 }
 
 const styles = StyleSheet.create({
-  manageOverlay: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-  },
-  manageSheet: {
-    width: '100%',
-    maxWidth: 420,
-    maxHeight: '80%',
-    borderRadius: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.2,
-    shadowRadius: 24,
-    elevation: 10,
-  },
   manageHeader: {
     paddingHorizontal: 20,
     paddingTop: 20,

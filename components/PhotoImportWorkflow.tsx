@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Alert, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/Button';
@@ -16,23 +17,47 @@ type ScannedWord = {
     exampleSentence: string;
 };
 
+type SelectedImage = {
+    uri: string;
+    base64: string;
+};
+
 interface PhotoImportWorkflowProps {
     listId: string;
+    source: 'camera' | 'gallery';
     onClose: () => void;
     onSaveWords: (words: Omit<ScannedWord, 'id'>[]) => Promise<void>;
 }
 
-export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: PhotoImportWorkflowProps) {
+export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWords }: PhotoImportWorkflowProps) {
     const { colors } = useTheme();
     const { t } = useTranslation();
+    const insets = useSafeAreaInsets();
+    const abortControllerRef = useRef<AbortController | null>(null);
+    const retakeLabel = source === 'camera' ? retakeLabel : t('photoImport.reselect');
+
+    const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
     const [isScanning, setIsScanning] = useState(false);
     const [scannedWords, setScannedWords] = useState<ScannedWord[]>([]);
     const [isSaving, setIsSaving] = useState(false);
+
+    useEffect(() => {
+        launchSource(source);
+    }, []);
+
+    const launchSource = async (src: 'camera' | 'gallery') => {
+        if (src === 'camera') {
+            await handleCameraPress();
+        } else {
+            await handleGalleryPress();
+        }
+    };
 
     const handleCameraPress = async () => {
         const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
         if (permissionResult.granted === false) {
             Alert.alert(t('photoImport.cameraPermission'), t('photoImport.cameraPermissionMessage'));
+            onClose();
             return;
         }
 
@@ -41,11 +66,14 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
             quality: 0.8,
         });
 
-        if (!result.canceled && result.assets && result.assets.length > 0) {
-            const base64 = result.assets[0].base64;
-            if (base64) {
-                await processImage(base64);
-            }
+        if (result.canceled) {
+            if (!selectedImage) onClose();
+            return;
+        }
+
+        const asset = result.assets?.[0];
+        if (asset?.base64 && asset?.uri) {
+            setSelectedImage({ uri: asset.uri, base64: asset.base64 });
         }
     };
 
@@ -53,6 +81,7 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
         const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (permissionResult.granted === false) {
             Alert.alert(t('photoImport.galleryPermission'), t('photoImport.galleryPermissionMessage'));
+            onClose();
             return;
         }
 
@@ -62,18 +91,28 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
             quality: 0.8,
         });
 
-        if (!result.canceled && result.assets && result.assets.length > 0) {
-            const base64 = result.assets[0].base64;
-            if (base64) {
-                await processImage(base64);
-            }
+        if (result.canceled) {
+            if (!selectedImage) onClose();
+            return;
+        }
+
+        const asset = result.assets?.[0];
+        if (asset?.base64 && asset?.uri) {
+            setSelectedImage({ uri: asset.uri, base64: asset.base64 });
         }
     };
 
+    const handleRetake = () => {
+        setSelectedImage(null);
+        launchSource(source);
+    };
+
     const processImage = async (base64Image: string) => {
+        const controller = new AbortController();
+        abortControllerRef.current = controller;
         setIsScanning(true);
         try {
-            const words = await fetchWordsFromImage(base64Image);
+            const words = await fetchWordsFromImage(base64Image, 3, controller.signal);
 
             if (!Array.isArray(words) || words.length === 0) {
                 Alert.alert(t('common.notice'), t('photoImport.noWordsFound'));
@@ -89,11 +128,19 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
 
             setScannedWords(wordsWithIds);
         } catch (error: any) {
+            if (error.name === 'AbortError') return; // 취소 — 조용히 미리보기로 복귀
             console.error(error);
             Alert.alert(t('common.error'), error.message || t('photoImport.saveError'));
         } finally {
             setIsScanning(false);
+            abortControllerRef.current = null;
         }
+    };
+
+    const handleCancelAnalysis = () => {
+        abortControllerRef.current?.abort();
+        // isScanning은 finally 블록에서 false로 변경됨
+        // selectedImage는 유지 → 미리보기 화면으로 자동 복귀
     };
 
     const updateWord = (id: string, field: keyof ScannedWord, value: string) => {
@@ -114,14 +161,12 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
 
         setIsSaving(true);
         try {
-            // Remove the temporary id field when passing to parent
             await onSaveWords(scannedWords.map(w => ({
                 word: w.word,
                 meaning: w.meaning,
                 exampleSentence: w.exampleSentence
             })));
 
-            // Success - clear and close
             setScannedWords([]);
             onClose();
             Alert.alert(t('common.success'), t('photoImport.wordsAdded', { count: scannedWords.length }));
@@ -133,16 +178,41 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
         }
     };
 
-    // 검증 및 편집 화면 
+    // ── 로딩 화면 ──────────────────────────────────────────
+    if (isScanning) {
+        return (
+            <View style={[styles.container, { backgroundColor: colors.background }]}>
+                <View style={styles.loadingContainer}>
+                    <ActivityIndicator size="large" color={colors.primary} />
+                    <Text style={[styles.loadingText, { color: colors.primary }]}>{t('photoImport.analyzing')}</Text>
+                    <Text style={[styles.loadingSubText, { color: colors.textSecondary }]}>{t('photoImport.analyzingDesc')}</Text>
+                    <Pressable
+                        onPress={handleCancelAnalysis}
+                        style={[styles.cancelBtn, { borderColor: colors.border, backgroundColor: colors.surface }]}
+                    >
+                        <Text style={[styles.cancelBtnText, { color: colors.textSecondary }]}>{t('photoImport.cancelAnalysis')}</Text>
+                    </Pressable>
+                </View>
+            </View>
+        );
+    }
+
+    // ── 결과 검토 화면 ──────────────────────────────────────
     if (scannedWords.length > 0) {
         return (
             <View style={[styles.container, { backgroundColor: colors.background }]}>
-                <View style={[styles.header, { borderBottomColor: colors.borderLight }]}>
-                    <Pressable onPress={() => setScannedWords([])} hitSlop={8}>
-                        <Ionicons name="arrow-back" size={24} color={colors.text} />
+                <View style={[styles.header, {
+                    borderBottomColor: colors.borderLight,
+                    paddingTop: Math.max(insets.top, 14),
+                }]}>
+                    <Pressable onPress={handleRetake} hitSlop={8} style={styles.headerBtn}>
+                        <Ionicons name="refresh-outline" size={20} color={colors.textSecondary} />
+                        <Text style={[styles.headerBtnText, { color: colors.textSecondary }]}>{retakeLabel}</Text>
                     </Pressable>
                     <Text style={[styles.title, { color: colors.text }]}>{t('photoImport.reviewTitle')}</Text>
-                    <View style={{ width: 24 }} />
+                    <Pressable onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
+                        <Ionicons name="close" size={22} color={colors.textSecondary} />
+                    </Pressable>
                 </View>
 
                 <View style={styles.subheader}>
@@ -185,13 +255,18 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
                             />
                         </View>
                     ))}
+                    <View style={{ height: 16 }} />
                 </ScrollView>
 
-                <View style={[styles.footer, { backgroundColor: colors.background, borderTopColor: colors.borderLight }]}>
+                <View style={[styles.footer, {
+                    backgroundColor: colors.background,
+                    borderTopColor: colors.borderLight,
+                    paddingBottom: Math.max(insets.bottom, 16),
+                }]}>
                     <Button
-                        title={t('common.cancel')}
+                        title={retakeLabel}
                         variant="secondary"
-                        onPress={() => setScannedWords([])}
+                        onPress={handleRetake}
                         style={{ flex: 1 }}
                         disabled={isSaving}
                     />
@@ -208,57 +283,53 @@ export default function PhotoImportWorkflow({ listId, onClose, onSaveWords }: Ph
         );
     }
 
-    // 초기 업로드 옵션 화면
-    return (
-        <View style={[styles.container, { backgroundColor: colors.background }]}>
-            <View style={[styles.header, { borderBottomColor: colors.borderLight }]}>
-                <Pressable onPress={onClose} hitSlop={8}>
-                    <Ionicons name="arrow-back" size={24} color={colors.text} />
-                </Pressable>
-                <Text style={[styles.title, { color: colors.text }]}>{t('photoImport.title')}</Text>
-                <View style={{ width: 24 }} />
-            </View>
-
-            <View style={styles.placeholderContainer}>
-                <View style={[styles.placeholderIconContainer, { backgroundColor: colors.primaryLight }]}>
-                    <Ionicons name="camera-outline" size={48} color={colors.primary} />
-                </View>
-                <Text style={[styles.placeholderTitle, { color: colors.text }]}>{t('photoImport.mainTitle')}</Text>
-                <Text style={[styles.placeholderDesc, { color: colors.textSecondary }]}>
-                    {t('photoImport.mainDesc')}
-                </Text>
-
-                <View style={styles.actionButtons}>
-                    <Pressable
-                        style={[styles.actionBtn, { backgroundColor: colors.surface, borderColor: colors.border }]}
-                        onPress={handleCameraPress}
-                        disabled={isScanning}
-                    >
-                        <Ionicons name="camera" size={24} color={colors.primary} />
-                        <Text style={[styles.actionBtnText, { color: colors.text }]}>{t('photoImport.takePhoto')}</Text>
-                    </Pressable>
-
-                    <Pressable
-                        style={[styles.actionBtn, { backgroundColor: colors.surface, borderColor: colors.border }]}
-                        onPress={handleGalleryPress}
-                        disabled={isScanning}
-                    >
-                        <Ionicons name="images" size={24} color={colors.primary} />
-                        <Text style={[styles.actionBtnText, { color: colors.text }]}>{t('photoImport.fromAlbum')}</Text>
+    // ── 사진 미리보기 화면 ──────────────────────────────────
+    if (selectedImage) {
+        return (
+            <View style={[styles.container, { backgroundColor: colors.background }]}>
+                <View style={[styles.header, {
+                    borderBottomColor: colors.borderLight,
+                    paddingTop: Math.max(insets.top, 14),
+                }]}>
+                    <View style={styles.headerBtn} />
+                    <Text style={[styles.title, { color: colors.text }]}>{t('photoImport.previewTitle')}</Text>
+                    <Pressable onPress={onClose} hitSlop={8} style={styles.headerBtnRight}>
+                        <Ionicons name="close" size={22} color={colors.textSecondary} />
                     </Pressable>
                 </View>
-            </View>
 
-            {/* 로딩 오버레이 */}
-            {isScanning && (
-                <View style={[styles.loadingOverlay, { backgroundColor: colors.background + 'CC' }]}>
-                    <ActivityIndicator size="large" color={colors.primary} />
-                    <Text style={[styles.loadingText, { color: colors.primary }]}>{t('photoImport.analyzing')}</Text>
-                    <Text style={[styles.loadingSubText, { color: colors.textSecondary }]}>{t('photoImport.analyzingDesc')}</Text>
+                <View style={styles.previewContainer}>
+                    <Image
+                        source={{ uri: selectedImage.uri }}
+                        style={styles.previewImage}
+                        resizeMode="contain"
+                    />
                 </View>
-            )}
-        </View>
-    );
+
+                <View style={[styles.footer, {
+                    backgroundColor: colors.background,
+                    borderTopColor: colors.borderLight,
+                    paddingBottom: Math.max(insets.bottom, 16),
+                }]}>
+                    <Button
+                        title={retakeLabel}
+                        variant="secondary"
+                        onPress={handleRetake}
+                        style={{ flex: 1 }}
+                    />
+                    <Button
+                        title={t('photoImport.confirmAnalysis')}
+                        variant="primary"
+                        onPress={() => processImage(selectedImage.base64)}
+                        style={{ flex: 2 }}
+                    />
+                </View>
+            </View>
+        );
+    }
+
+    // ── 초기 빈 화면 (카메라/갤러리 실행 중) ───────────────
+    return <View style={[styles.container, { backgroundColor: colors.background }]} />;
 }
 
 const styles = StyleSheet.create({
@@ -269,9 +340,23 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 20,
-        paddingVertical: 14,
+        paddingHorizontal: 16,
+        paddingBottom: 14,
         borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    headerBtn: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 4,
+        minWidth: 60,
+    },
+    headerBtnRight: {
+        minWidth: 60,
+        alignItems: 'flex-end',
+    },
+    headerBtnText: {
+        fontSize: 14,
+        fontFamily: 'Pretendard_400Regular',
     },
     title: {
         fontSize: 17,
@@ -285,71 +370,46 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'Pretendard_400Regular',
     },
-    placeholderContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 40,
-        paddingHorizontal: 20,
-        gap: 16
-    },
-    placeholderIconContainer: {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 8
-    },
-    placeholderTitle: {
-        fontSize: 20,
-        fontFamily: 'Pretendard_700Bold',
-        textAlign: 'center'
-    },
-    placeholderDesc: {
-        fontSize: 15,
-        fontFamily: 'Pretendard_400Regular',
-        textAlign: 'center',
-        lineHeight: 22,
-        marginBottom: 20
-    },
-    actionButtons: {
-        width: '100%',
-        gap: 12,
-    },
-    actionBtn: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+    previewContainer: {
+        flex: 1,
         padding: 16,
-        borderWidth: 1,
+    },
+    previewImage: {
+        flex: 1,
         borderRadius: 12,
-        gap: 12,
     },
-    actionBtnText: {
-        fontSize: 16,
-        fontFamily: 'Pretendard_600SemiBold',
-    },
-    loadingOverlay: {
-        ...StyleSheet.absoluteFillObject,
+    loadingContainer: {
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        zIndex: 10,
         padding: 20,
+        gap: 12,
     },
     loadingText: {
-        marginTop: 16,
+        marginTop: 8,
         fontSize: 16,
         fontFamily: 'Pretendard_600SemiBold',
     },
     loadingSubText: {
-        marginTop: 8,
         fontSize: 13,
         fontFamily: 'Pretendard_400Regular',
         textAlign: 'center',
     },
+    cancelBtn: {
+        marginTop: 20,
+        paddingHorizontal: 28,
+        paddingVertical: 12,
+        borderRadius: 20,
+        borderWidth: 1,
+    },
+    cancelBtnText: {
+        fontSize: 15,
+        fontFamily: 'Pretendard_500Medium',
+    },
     listContainer: {
         flex: 1,
         paddingHorizontal: 16,
+        paddingTop: 8,
     },
     card: {
         padding: 16,
@@ -394,6 +454,5 @@ const styles = StyleSheet.create({
         padding: 16,
         borderTopWidth: StyleSheet.hairlineWidth,
         gap: 12,
-        paddingBottom: 32, // for safe area
     },
 });

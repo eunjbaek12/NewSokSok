@@ -632,8 +632,8 @@ export async function savePlan(
   const now = Date.now();
   await db.withTransactionAsync(async () => {
     await db.runAsync(
-      `UPDATE lists SET planTotalDays = ?, planCurrentDay = 1, planWordsPerDay = ?, planStartedAt = ?, planUpdatedAt = ? WHERE id = ?`,
-      [totalDays, wordsPerDay, now, now, listId]
+      `UPDATE lists SET planTotalDays = ?, planCurrentDay = 1, planWordsPerDay = ?, planStartedAt = ?, planUpdatedAt = NULL WHERE id = ?`,
+      [totalDays, wordsPerDay, now, listId]
     );
     for (const { wordId, day } of assignedDays) {
       await db.runAsync('UPDATE words SET assignedDay = ? WHERE id = ?', [day, wordId]);

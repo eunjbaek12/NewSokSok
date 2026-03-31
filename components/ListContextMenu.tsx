@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
-  Modal,
   Pressable,
   TextInput,
   ScrollView,
@@ -16,6 +15,11 @@ import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { VocaList } from '@/lib/types';
+import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
+import { PopupTokens } from '@/constants/popup';
+import ModalOverlay from './ui/ModalOverlay';
+import DialogModal from './ui/DialogModal';
+import ConfirmDialog from './ui/ConfirmDialog';
 
 type MenuPos = { x: number; y: number; width: number; height: number };
 
@@ -28,7 +32,7 @@ interface ListContextMenuProps {
   onDeleteList: (id: string) => Promise<void>;
   onToggleVisibility: (id: string) => Promise<void>;
   onMergeLists: (sourceId: string, targetId: string, deleteSource: boolean) => Promise<void>;
-  onShareList: (listId: string, options?: { force?: boolean; updateId?: string }) => Promise<void>;
+  onShareList: (listId: string, options?: { force?: boolean; updateId?: string; description?: string }) => Promise<void>;
 }
 
 export default function ListContextMenu({
@@ -46,7 +50,10 @@ export default function ListContextMenu({
   const { t } = useTranslation();
   const { width: screenWidth, height: screenHeight } = useWindowDimensions();
 
-  const [sharing, setSharing] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [shareTargetList, setShareTargetList] = useState<VocaList | null>(null);
+  const [shareDescription, setShareDescription] = useState('');
+  const [shareSubmitting, setShareSubmitting] = useState(false);
   const [renameModalOpen, setRenameModalOpen] = useState(false);
   const [renameValue, setRenameValue] = useState('');
   const [renameTargetList, setRenameTargetList] = useState<VocaList | null>(null);
@@ -99,27 +106,37 @@ export default function ListContextMenu({
     setRenameTargetList(null);
   }, []);
 
-  const handleMenuShare = useCallback(async () => {
+  const handleMenuShare = useCallback(() => {
     if (!menuList) return;
+    setShareTargetList(menuList);
+    setShareDescription('');
+    onClose();
+    setTimeout(() => setShareModalOpen(true), 100);
+  }, [menuList, onClose]);
+
+  const handleShareSubmit = useCallback(async () => {
+    if (!shareTargetList) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setSharing(true);
+    setShareSubmitting(true);
+    const desc = shareDescription.trim() || undefined;
     try {
-      await onShareList(menuList.id);
-      Alert.alert(t('contextMenu.shareSuccess'), t('contextMenu.shareSuccessMessage', { name: menuList.title }));
-      onClose();
+      await onShareList(shareTargetList.id, { description: desc });
+      setShareModalOpen(false);
+      Alert.alert(t('contextMenu.shareSuccess'), t('contextMenu.shareSuccessMessage', { name: shareTargetList.title }));
     } catch (e: any) {
+      setShareModalOpen(false);
       if (e.message === 'DUPLICATE_SHARE') {
-        onClose();
+        const captured = shareTargetList;
         Alert.alert(
           t('contextMenu.alreadyShared'),
-          t('contextMenu.alreadySharedMessage', { name: menuList.title }),
+          t('contextMenu.alreadySharedMessage', { name: captured.title }),
           [
             { text: t('common.cancel'), style: 'cancel' },
             {
               text: t('contextMenu.createNew'),
               onPress: async () => {
                 try {
-                  await onShareList(menuList.id, { force: true });
+                  await onShareList(captured.id, { force: true, description: desc });
                   Alert.alert(t('contextMenu.shareSuccess'), t('contextMenu.newShareCreated'));
                 } catch (err: any) {
                   Alert.alert(t('contextMenu.shareFailed'), err.message || t('common.error'));
@@ -131,7 +148,7 @@ export default function ListContextMenu({
               style: 'default',
               onPress: async () => {
                 try {
-                  await onShareList(menuList.id, { updateId: e.existingId });
+                  await onShareList(captured.id, { updateId: e.existingId, description: desc });
                   Alert.alert(t('contextMenu.updateComplete'), t('contextMenu.updateCompleteMessage'));
                 } catch (err: any) {
                   Alert.alert(t('contextMenu.updateFailed'), err.message || t('common.error'));
@@ -142,12 +159,17 @@ export default function ListContextMenu({
         );
       } else {
         Alert.alert(t('contextMenu.shareFailed'), e.message || t('contextMenu.shareError'));
-        onClose();
       }
     } finally {
-      setSharing(false);
+      setShareSubmitting(false);
     }
-  }, [menuList, onShareList, onClose]);
+  }, [shareTargetList, shareDescription, onShareList, t]);
+
+  const handleShareClose = useCallback(() => {
+    setShareModalOpen(false);
+    setShareDescription('');
+    setShareTargetList(null);
+  }, []);
 
   const handleMenuMerge = useCallback(() => {
     if (!menuList) return;
@@ -195,7 +217,6 @@ export default function ListContextMenu({
     if (!deleteTargetList) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
     await onDeleteList(deleteTargetList.id);
-    setDeleteModalOpen(false);
     setDeleteTargetList(null);
   }, [deleteTargetList, onDeleteList]);
 
@@ -204,264 +225,251 @@ export default function ListContextMenu({
     setDeleteTargetList(null);
   }, []);
 
+  const btn = PopupTokens.button.standard;
+
   return (
     <>
       {/* Context Menu Popup */}
-      <Modal
+      <ModalOverlay
         visible={menuList !== null && menuPos !== null}
-        transparent
-        animationType="fade"
-        onRequestClose={onClose}
+        onClose={onClose}
+        variant="contextMenu"
+        style={{ position: 'absolute', top: popupTop, left: popupLeft }}
       >
-        <Pressable style={styles.popupOverlay} onPress={onClose}>
-          <View style={[styles.popupMenu, { backgroundColor: colors.surface, top: popupTop, left: popupLeft }]}>
+        <Pressable
+          onPress={handleMenuRename}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="pencil-outline" size={16} color={colors.text} />
+          <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.rename')}</Text>
+        </Pressable>
+
+        <Pressable
+          onPress={handleMenuMerge}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="albums-outline" size={16} color={colors.text} />
+          <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.sendToList')}</Text>
+        </Pressable>
+
+        <Pressable
+          onPress={handleMenuShare}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="share-social-outline" size={16} color={colors.primary} />
+          <Text style={[styles.menuItemText, { color: colors.primary }]}>{t('contextMenu.share')}</Text>
+        </Pressable>
+
+        <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
+
+        <Pressable
+          onPress={handleMenuHide}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="eye-off-outline" size={16} color={colors.textSecondary} />
+          <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.hide')}</Text>
+        </Pressable>
+
+        <Pressable
+          onPress={handleMenuDelete}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="trash-outline" size={16} color={colors.error} />
+          <Text style={[styles.menuItemText, { color: colors.error }]}>{t('common.delete')}</Text>
+        </Pressable>
+      </ModalOverlay>
+
+      {/* Rename Dialog */}
+      <DialogModal
+        visible={renameModalOpen}
+        onClose={handleRenameClose}
+        title={t('contextMenu.renameTitle')}
+        scrollable={false}
+        footer={
+          <View style={styles.actions}>
             <Pressable
-              onPress={handleMenuRename}
-              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+              onPress={handleRenameClose}
+              style={[styles.btn, { backgroundColor: colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
-              <Ionicons name="pencil-outline" size={16} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.rename')}</Text>
+              <Text style={[styles.btnText, { color: colors.text, fontSize: btn.fontSize }]}>{t('common.cancel')}</Text>
             </Pressable>
-
             <Pressable
-              onPress={handleMenuMerge}
-              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+              onPress={handleRenameSubmit}
+              disabled={!renameValue.trim()}
+              style={[styles.btn, { backgroundColor: renameValue.trim() ? colors.primary : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
-              <Ionicons name="albums-outline" size={16} color={colors.text} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.sendToList')}</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={handleMenuShare}
-              disabled={sharing}
-              style={({ pressed }) => [styles.menuItem, (pressed || sharing) && { backgroundColor: colors.surfaceSecondary }]}
-            >
-              {sharing ? (
-                <ActivityIndicator size="small" color={colors.primary} />
-              ) : (
-                <Ionicons name="share-social-outline" size={16} color={colors.primary} />
-              )}
-              <Text style={[styles.menuItemText, { color: colors.primary }]}>{t('contextMenu.share')}</Text>
-            </Pressable>
-
-            <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
-
-            <Pressable
-              onPress={handleMenuHide}
-              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
-            >
-              <Ionicons name="eye-off-outline" size={16} color={colors.textSecondary} />
-              <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.hide')}</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={handleMenuDelete}
-              style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
-            >
-              <Ionicons name="trash-outline" size={16} color={colors.error} />
-              <Text style={[styles.menuItemText, { color: colors.error }]}>{t('common.delete')}</Text>
+              <Text style={[styles.btnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.change')}</Text>
             </Pressable>
           </View>
-        </Pressable>
-      </Modal>
-
-      {/* Rename Modal */}
-      <Modal
-        visible={renameModalOpen}
-        transparent
-        animationType="fade"
-        onRequestClose={handleRenameClose}
+        }
       >
-        <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleRenameClose}>
-          <Pressable style={[styles.renameSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
-            <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>{t('contextMenu.renameTitle')}</Text>
-              <Pressable onPress={handleRenameClose} hitSlop={12} style={styles.menuCloseBtn}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
-            <TextInput
-              style={[styles.renameInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
-              value={renameValue}
-              onChangeText={setRenameValue}
-              onSubmitEditing={handleRenameSubmit}
-              autoFocus
-              returnKeyType="done"
-              selectTextOnFocus
-              placeholder={t('contextMenu.listNameLabel')}
-              placeholderTextColor={colors.textTertiary}
-            />
-            <View style={styles.renameActions}>
-              <Pressable
-                onPress={handleRenameClose}
-                style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
-              >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>{t('common.cancel')}</Text>
-              </Pressable>
-              <Pressable
-                onPress={handleRenameSubmit}
-                disabled={!renameValue.trim()}
-                style={[styles.renameBtn, { backgroundColor: renameValue.trim() ? colors.primary : colors.surfaceSecondary }]}
-              >
-                <Text style={[styles.renameBtnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary }]}>{t('common.change')}</Text>
-              </Pressable>
-            </View>
-          </Pressable>
-        </Pressable>
-      </Modal>
+        <View style={styles.dialogBody}>
+          <TextInput
+            style={[styles.renameInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
+            value={renameValue}
+            onChangeText={setRenameValue}
+            onSubmitEditing={handleRenameSubmit}
+            autoFocus
+            returnKeyType="done"
+            selectTextOnFocus
+            placeholder={t('contextMenu.listNameLabel')}
+            placeholderTextColor={colors.textTertiary}
+          />
+        </View>
+      </DialogModal>
 
-      {/* Delete Confirmation Modal */}
-      <Modal
+      {/* Delete Confirmation */}
+      <ConfirmDialog
         visible={deleteModalOpen}
-        transparent
-        animationType="fade"
-        onRequestClose={handleDeleteClose}
-      >
-        <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleDeleteClose}>
-          <Pressable style={[styles.renameSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
-            <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>{t('contextMenu.deleteTitle')}</Text>
-              <Pressable onPress={handleDeleteClose} hitSlop={12} style={styles.menuCloseBtn}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
-            <Text style={[styles.deleteConfirmText, { color: colors.textSecondary }]}>
-              {t('contextMenu.deleteConfirm', { name: deleteTargetList?.title })}
-            </Text>
-            <View style={styles.renameActions}>
-              <Pressable
-                onPress={handleDeleteClose}
-                style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
-              >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>{t('common.cancel')}</Text>
-              </Pressable>
-              <Pressable
-                onPress={handleDeleteConfirm}
-                style={[styles.renameBtn, { backgroundColor: '#FF3B30' }]}
-              >
-                <Text style={[styles.renameBtnText, { color: '#FFFFFF' }]}>{t('common.delete')}</Text>
-              </Pressable>
-            </View>
-          </Pressable>
-        </Pressable>
-      </Modal>
+        onClose={handleDeleteClose}
+        title={t('contextMenu.deleteTitle')}
+        message={t('contextMenu.deleteConfirm', { name: deleteTargetList?.title })}
+        confirmLabel={t('common.delete')}
+        cancelLabel={t('common.cancel')}
+        confirmVariant="destructive"
+        onConfirm={handleDeleteConfirm}
+      />
 
-      {/* Merge Modal */}
-      <Modal
-        visible={mergeModalOpen}
-        transparent
-        animationType="fade"
-        onRequestClose={handleMergeClose}
+      {/* Share Dialog */}
+      <DialogModal
+        visible={shareModalOpen}
+        onClose={handleShareClose}
+        title={t('contextMenu.shareTitle')}
+        scrollable={false}
+        footer={
+          <View style={styles.actions}>
+            <Pressable
+              onPress={handleShareClose}
+              style={[styles.btn, { backgroundColor: colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+            >
+              <Text style={[styles.btnText, { color: colors.text, fontSize: btn.fontSize }]}>{t('common.cancel')}</Text>
+            </Pressable>
+            <Pressable
+              onPress={handleShareSubmit}
+              disabled={shareSubmitting || (shareTargetList?.words.length ?? 0) === 0}
+              style={[styles.btn, {
+                backgroundColor: (shareSubmitting || (shareTargetList?.words.length ?? 0) === 0) ? colors.surfaceSecondary : colors.primary,
+                paddingVertical: btn.paddingVertical,
+                borderRadius: btn.borderRadius,
+              }]}
+            >
+              {shareSubmitting ? (
+                <ActivityIndicator size="small" color={colors.primary} />
+              ) : (
+                <Text style={[styles.btnText, {
+                  color: (shareTargetList?.words.length ?? 0) === 0 ? colors.textTertiary : '#FFFFFF',
+                  fontSize: btn.fontSize,
+                }]}>{t('contextMenu.shareConfirm')}</Text>
+              )}
+            </Pressable>
+          </View>
+        }
       >
-        <Pressable style={[styles.menuOverlay, { justifyContent: 'center', alignItems: 'center' }]} onPress={handleMergeClose}>
-          <Pressable style={[styles.mergeSheet, { backgroundColor: colors.surface }]} onPress={(e) => e.stopPropagation()}>
-            <View style={styles.menuHeader}>
-              <Text style={[styles.menuTitle, { color: colors.text }]}>{t('contextMenu.sendTitle')}</Text>
-              <Pressable onPress={handleMergeClose} hitSlop={12} style={styles.menuCloseBtn}>
-                <Ionicons name="close" size={24} color={colors.textSecondary} />
-              </Pressable>
-            </View>
-            <Text style={[styles.mergeSubtitle, { color: colors.textSecondary }]}>
-              {t('contextMenu.sendDesc', { name: mergeSourceList?.title })}
+        <View style={styles.dialogBody}>
+          {/* Info card */}
+          <View style={[styles.shareInfoCard, { backgroundColor: colors.surfaceSecondary }]}>
+            <Text style={[styles.shareInfoTitle, { color: colors.text }]} numberOfLines={1}>
+              {shareTargetList?.icon ?? '✨'} {shareTargetList?.title}
             </Text>
-            <ScrollView style={styles.mergeListScroll} showsVerticalScrollIndicator={false}>
-              {lists
-                .filter((l) => l.id !== mergeSourceList?.id)
-                .map((l) => (
-                  <Pressable
-                    key={l.id}
-                    onPress={() => setMergeTargetId(l.id)}
-                    style={[
-                      styles.mergeOption,
-                      {
-                        borderColor: mergeTargetId === l.id ? colors.primary : colors.border,
-                        backgroundColor: mergeTargetId === l.id ? colors.primaryLight : colors.surfaceSecondary,
-                      },
-                    ]}
-                  >
-                    <View style={styles.mergeOptionRow}>
-                      <Ionicons
-                        name={mergeTargetId === l.id ? 'radio-button-on' : 'radio-button-off'}
-                        size={20}
-                        color={mergeTargetId === l.id ? colors.primary : colors.textTertiary}
-                      />
-                      <Text style={[styles.mergeOptionText, { color: colors.text }]} numberOfLines={1}>
-                        {l.title}
-                      </Text>
-                      {!l.isVisible && (
-                        <View style={[styles.mergeHiddenBadge, { backgroundColor: colors.surfaceSecondary }]}>
-                          <Ionicons name="eye-off-outline" size={12} color={colors.textTertiary} />
-                          <Text style={[styles.mergeHiddenText, { color: colors.textTertiary }]}>{t('contextMenu.hidden')}</Text>
-                        </View>
-                      )}
-                    </View>
-                  </Pressable>
-                ))}
-            </ScrollView>
-            <View style={styles.renameActions}>
-              <Pressable
-                onPress={handleMergeClose}
-                style={[styles.renameBtn, { backgroundColor: colors.surfaceSecondary }]}
-              >
-                <Text style={[styles.renameBtnText, { color: colors.text }]}>{t('common.close')}</Text>
-              </Pressable>
-              <Pressable
-                onPress={handleMergeSubmit}
-                disabled={!mergeTargetId}
-                style={[styles.renameBtn, { backgroundColor: mergeTargetId ? colors.primary : colors.surfaceSecondary }]}
-              >
-                <Text style={[styles.renameBtnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary }]}>{t('common.send')}</Text>
-              </Pressable>
-            </View>
-          </Pressable>
-        </Pressable>
-      </Modal>
+            <Text style={[styles.shareInfoMeta, { color: colors.textSecondary }]}>
+              {t('contextMenu.sharePreviewWords', { count: shareTargetList?.words.length ?? 0 })}
+            </Text>
+            <Text style={[styles.shareInfoMeta, { color: colors.textSecondary }]}>
+              {t('contextMenu.sharePreviewLang', {
+                source: `${getLanguageFlag(shareTargetList?.sourceLanguage ?? 'en')} ${getLanguageLabel(shareTargetList?.sourceLanguage ?? 'en', t)}`,
+                target: `${getLanguageFlag(shareTargetList?.targetLanguage ?? 'ko')} ${getLanguageLabel(shareTargetList?.targetLanguage ?? 'ko', t)}`,
+              })}
+            </Text>
+            {(shareTargetList?.words.length ?? 0) === 0 && (
+              <Text style={[styles.shareEmptyWarning, { color: colors.error }]}>
+                {t('contextMenu.shareEmptyList')}
+              </Text>
+            )}
+          </View>
+          {/* Description input */}
+          <TextInput
+            style={[styles.shareDescInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
+            value={shareDescription}
+            onChangeText={setShareDescription}
+            placeholder={t('contextMenu.shareDescriptionPlaceholder')}
+            placeholderTextColor={colors.textTertiary}
+            multiline
+            returnKeyType="done"
+            blurOnSubmit
+          />
+        </View>
+      </DialogModal>
+
+      {/* Merge Dialog */}
+      <DialogModal
+        visible={mergeModalOpen}
+        onClose={handleMergeClose}
+        title={t('contextMenu.sendTitle')}
+        scrollable={false}
+        maxHeight="70%"
+        footer={
+          <View style={styles.actions}>
+            <Pressable
+              onPress={handleMergeClose}
+              style={[styles.btn, { backgroundColor: colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+            >
+              <Text style={[styles.btnText, { color: colors.text, fontSize: btn.fontSize }]}>{t('common.close')}</Text>
+            </Pressable>
+            <Pressable
+              onPress={handleMergeSubmit}
+              disabled={!mergeTargetId}
+              style={[styles.btn, { backgroundColor: mergeTargetId ? colors.primary : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+            >
+              <Text style={[styles.btnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.send')}</Text>
+            </Pressable>
+          </View>
+        }
+      >
+        <View style={styles.dialogBody}>
+          <Text style={[styles.mergeSubtitle, { color: colors.textSecondary }]}>
+            {t('contextMenu.sendDesc', { name: mergeSourceList?.title })}
+          </Text>
+          <ScrollView style={styles.mergeListScroll} showsVerticalScrollIndicator={false}>
+            {lists
+              .filter((l) => l.id !== mergeSourceList?.id)
+              .map((l) => (
+                <Pressable
+                  key={l.id}
+                  onPress={() => setMergeTargetId(l.id)}
+                  style={[
+                    styles.mergeOption,
+                    {
+                      borderColor: mergeTargetId === l.id ? colors.primary : colors.border,
+                      backgroundColor: mergeTargetId === l.id ? colors.primaryLight : colors.surfaceSecondary,
+                    },
+                  ]}
+                >
+                  <View style={styles.mergeOptionRow}>
+                    <Ionicons
+                      name={mergeTargetId === l.id ? 'radio-button-on' : 'radio-button-off'}
+                      size={20}
+                      color={mergeTargetId === l.id ? colors.primary : colors.textTertiary}
+                    />
+                    <Text style={[styles.mergeOptionText, { color: colors.text }]} numberOfLines={1}>
+                      {l.title}
+                    </Text>
+                    {!l.isVisible && (
+                      <View style={[styles.mergeHiddenBadge, { backgroundColor: colors.surfaceSecondary }]}>
+                        <Ionicons name="eye-off-outline" size={12} color={colors.textTertiary} />
+                        <Text style={[styles.mergeHiddenText, { color: colors.textTertiary }]}>{t('contextMenu.hidden')}</Text>
+                      </View>
+                    )}
+                  </View>
+                </Pressable>
+              ))}
+          </ScrollView>
+        </View>
+      </DialogModal>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  popupOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.08)',
-  },
-  popupMenu: {
-    position: 'absolute',
-    width: 192,
-    borderRadius: 12,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.18,
-    shadowRadius: 12,
-    elevation: 10,
-  },
-  menuOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    justifyContent: 'flex-end',
-  },
-  menuHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 12,
-  },
-  menuTitle: {
-    fontSize: 18,
-    fontFamily: 'Pretendard_700Bold',
-    flex: 1,
-    marginRight: 12,
-  },
-  menuCloseBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -475,22 +483,13 @@ const styles = StyleSheet.create({
   },
   menuDivider: {
     height: StyleSheet.hairlineWidth,
-    marginHorizontal: 0,
     marginVertical: 2,
   },
-  renameSheet: {
-    width: '90%',
-    maxWidth: 400,
-    borderRadius: 16,
-    paddingBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 16,
-    elevation: 10,
+  dialogBody: {
+    paddingHorizontal: PopupTokens.padding.container,
+    paddingBottom: 8,
   },
   renameInput: {
-    marginHorizontal: 20,
     height: 48,
     borderRadius: 10,
     borderWidth: 1,
@@ -498,50 +497,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Pretendard_400Regular',
   },
-  deleteConfirmText: {
-    fontSize: 15,
-    fontFamily: 'Pretendard_400Regular',
-    lineHeight: 22,
-    paddingHorizontal: 20,
-    marginTop: 4,
-  },
-  renameActions: {
+  actions: {
     flexDirection: 'row',
     gap: 10,
-    paddingHorizontal: 20,
-    marginTop: 16,
   },
-  renameBtn: {
+  btn: {
     flex: 1,
-    paddingVertical: 13,
-    borderRadius: 10,
     alignItems: 'center',
   },
-  renameBtnText: {
-    fontSize: 15,
+  btnText: {
     fontFamily: 'Pretendard_600SemiBold',
-  },
-  mergeSheet: {
-    width: '90%',
-    maxWidth: 400,
-    borderRadius: 16,
-    paddingBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 16,
-    elevation: 10,
-    maxHeight: '70%',
   },
   mergeSubtitle: {
     fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
-    paddingHorizontal: 20,
     marginBottom: 12,
   },
   mergeListScroll: {
     maxHeight: 280,
-    paddingHorizontal: 20,
   },
   mergeOption: {
     borderRadius: 10,
@@ -571,5 +544,36 @@ const styles = StyleSheet.create({
   mergeHiddenText: {
     fontSize: 10,
     fontFamily: 'Pretendard_500Medium',
+  },
+  shareInfoCard: {
+    borderRadius: 10,
+    padding: 14,
+    gap: 4,
+    marginBottom: 12,
+  },
+  shareInfoTitle: {
+    fontSize: 16,
+    fontFamily: 'Pretendard_600SemiBold',
+    marginBottom: 2,
+  },
+  shareInfoMeta: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_400Regular',
+  },
+  shareEmptyWarning: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_500Medium',
+    marginTop: 6,
+  },
+  shareDescInput: {
+    minHeight: 80,
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    paddingTop: 12,
+    paddingBottom: 12,
+    fontSize: 14,
+    fontFamily: 'Pretendard_400Regular',
+    textAlignVertical: 'top',
   },
 });

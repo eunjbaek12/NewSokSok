@@ -26,7 +26,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Literature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈkjʊəriəsər/",
+        "pos": "adjective"
       },
       {
         "id": "word-alice-1-1742305947000",
@@ -40,7 +42,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Idiom",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈræbɪt hoʊl/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-2-1742305947000",
@@ -54,7 +58,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Idiom",
           "Classic"
-        ]
+        ],
+        "phonetic": "/mæd æz ə ˈhæter/",
+        "pos": "idiom"
       },
       {
         "id": "word-alice-3-1742305947000",
@@ -68,7 +74,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈnɒnsəns/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-4-1742305947000",
@@ -82,7 +90,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Idiom",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ɡrɪn laɪk ə ˈtʃɛʃər kæt/",
+        "pos": "idiom"
       },
       {
         "id": "word-alice-5-1742305947000",
@@ -96,7 +106,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/bɪˈwɪldər/",
+        "pos": "verb"
       },
       {
         "id": "word-alice-6-1742305947000",
@@ -110,7 +122,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Vocabulary"
-        ]
+        ],
+        "phonetic": "/pɪˈkjuːliər/",
+        "pos": "adjective"
       },
       {
         "id": "word-alice-7-1742305947000",
@@ -124,7 +138,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ədˈvɛntʃər/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-8-1742305947000",
@@ -138,7 +154,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Classic",
           "Place"
-        ]
+        ],
+        "phonetic": "/ˈwʌndərlænd/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-9-1742305947000",
@@ -152,7 +170,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Idiom",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈɒf wɪð ðɛər ˈhɛdz/",
+        "pos": "phrase"
       },
       {
         "id": "word-alice-10-1742305947000",
@@ -166,7 +186,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Literature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈkɔːkəs reɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-11-1742305947000",
@@ -180,7 +202,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈdɔːrmɔːs/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-12-1742305947000",
@@ -194,7 +218,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/mɒk ˈtɜːrtəl/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-13-1742305947000",
@@ -208,7 +234,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Culture",
           "Classic"
-        ]
+        ],
+        "phonetic": "/kwoʊˈdrɪl/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-14-1742305947000",
@@ -222,7 +250,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˌɛksɪˈkjuːʃənər/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-15-1742305947000",
@@ -236,7 +266,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Food",
           "Classic"
-        ]
+        ],
+        "phonetic": "/tɑːrts/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-16-1742305947000",
@@ -250,7 +282,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Law",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈvɜːrdɪkt/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-17-1742305947000",
@@ -264,7 +298,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Law",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈwɪtnəs/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-18-1742305947000",
@@ -278,7 +314,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Law",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈdʒʊəri/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-19-1742305947000",
@@ -292,7 +330,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈrɪdl/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-20-1742305947000",
@@ -306,7 +346,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Culture",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈtiːtaɪm/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-21-1742305947000",
@@ -320,7 +362,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈkætərpɪlər/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-22-1742305947000",
@@ -334,7 +378,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈmʌʃruːm/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-23-1742305947000",
@@ -348,7 +394,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/fləˈmɪŋɡoʊ/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-24-1742305947000",
@@ -362,7 +410,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈhɛdʒhɒɡ/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-25-1742305947000",
@@ -376,7 +426,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/knæv/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-26-1742305947000",
@@ -390,7 +442,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈtʃɛʃər kæt/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-27-1742305947000",
@@ -404,7 +458,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Verb",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌkɒntrəˈdɪkt/",
+        "pos": "verb"
       },
       {
         "id": "word-alice-28-1742305947000",
@@ -418,7 +474,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Food",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈtriːkl/",
+        "pos": "noun"
       },
       {
         "id": "word-alice-29-1742305947000",
@@ -432,7 +490,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/driːm/",
+        "pos": "noun"
       }
     ]
   },
@@ -461,7 +521,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Detective",
           "Logic"
-        ]
+        ],
+        "phonetic": "/dɪˈdʌkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-1-1742305947000",
@@ -475,7 +537,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Classic",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɛlɪˈmɛntəri/",
+        "pos": "adjective"
       },
       {
         "id": "word-sherlock-2-1742305947000",
@@ -489,7 +553,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Detective",
           "Crime"
-        ]
+        ],
+        "phonetic": "/kluː/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-3-1742305947000",
@@ -503,7 +569,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Formal"
-        ]
+        ],
+        "phonetic": "/ɪnˌvɛstɪˈɡeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-4-1742305947000",
@@ -517,7 +585,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Law",
           "Crime"
-        ]
+        ],
+        "phonetic": "/ˈælɪbaɪ/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-5-1742305947000",
@@ -531,7 +601,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Verb",
           "Logic"
-        ]
+        ],
+        "phonetic": "/əbˈzɜːrv/",
+        "pos": "verb"
       },
       {
         "id": "word-sherlock-6-1742305947000",
@@ -545,7 +617,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Classic",
           "Genre"
-        ]
+        ],
+        "phonetic": "/ˈmɪstəri/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-7-1742305947000",
@@ -559,7 +633,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Title",
           "Classic"
-        ]
+        ],
+        "phonetic": "/kənˈsʌltɪŋ dɪˈtɛktɪv/",
+        "pos": "phrase"
       },
       {
         "id": "word-sherlock-8-1742305947000",
@@ -573,7 +649,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Place",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈbeɪkər striːt/",
+        "pos": "phrase"
       },
       {
         "id": "word-sherlock-9-1742305947000",
@@ -587,7 +665,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈwɒtsən/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-10-1742305947000",
@@ -601,7 +681,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Law",
           "Crime"
-        ]
+        ],
+        "phonetic": "/ˈkrɪmɪnəl/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-11-1742305947000",
@@ -615,7 +697,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Law",
           "Crime"
-        ]
+        ],
+        "phonetic": "/ˈsʌspɛkt/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-12-1742305947000",
@@ -629,7 +713,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Psychology",
           "Crime"
-        ]
+        ],
+        "phonetic": "/ˈmoʊtɪv/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-13-1742305947000",
@@ -643,7 +729,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Law",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈɛvɪdəns/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-14-1742305947000",
@@ -657,7 +745,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Tool",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈmæɡnɪfaɪɪŋ ɡlɑːs/",
+        "pos": "phrase"
       },
       {
         "id": "word-sherlock-15-1742305947000",
@@ -671,7 +761,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Verb",
           "Classic"
-        ]
+        ],
+        "phonetic": "/dɪsˈɡaɪz/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-16-1742305947000",
@@ -685,7 +777,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Crime"
-        ]
+        ],
+        "phonetic": "/ˈvɪlən/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-17-1742305947000",
@@ -699,7 +793,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˌmɔːriˈɑːrti/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-18-1742305947000",
@@ -713,7 +809,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Detective"
-        ]
+        ],
+        "phonetic": "/ˈfʊtprɪnt/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-19-1742305947000",
@@ -727,7 +825,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Science",
           "Detective"
-        ]
+        ],
+        "phonetic": "/fəˈrɛnzɪks/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-20-1742305947000",
@@ -741,7 +841,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Advanced",
           "Logic"
-        ]
+        ],
+        "phonetic": "/ˈsaɪfər/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-21-1742305947000",
@@ -755,7 +857,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Logic",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈriːzənɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-22-1742305947000",
@@ -769,7 +873,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Logic",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌspɛkjəˈleɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-23-1742305947000",
@@ -783,7 +889,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Detective"
-        ]
+        ],
+        "phonetic": "/keɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-24-1742305947000",
@@ -797,7 +905,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/haʊnd/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-25-1742305947000",
@@ -811,7 +921,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Color",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈskɑːrlət/",
+        "pos": "adjective"
       },
       {
         "id": "word-sherlock-26-1742305947000",
@@ -825,7 +937,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Culture",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈtɛlɪɡræm/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-27-1742305947000",
@@ -839,7 +953,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Place",
           "Law"
-        ]
+        ],
+        "phonetic": "/ˈskɒtlənd jɑːrd/",
+        "pos": "phrase"
       },
       {
         "id": "word-sherlock-28-1742305947000",
@@ -853,7 +969,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Psychology",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪntuˈɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-sherlock-29-1742305947000",
@@ -867,7 +985,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Vocabulary"
-        ]
+        ],
+        "phonetic": "/ˈʃædoʊ/",
+        "pos": "noun"
       }
     ]
   },
@@ -896,7 +1016,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɔːskʌlˈteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-0-1-1772897778269",
@@ -910,7 +1032,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/pælˈpeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-0-2-1772897778269",
@@ -924,7 +1048,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/prɒɡˈnəʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-0-3-1772897778269",
@@ -938,7 +1064,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/sɪˈkwiːlə/",
+        "pos": "noun"
       },
       {
         "id": "word-0-4-1772897778269",
@@ -952,7 +1080,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkəʊmɔːrˈbɪdɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-0-5-1772897778269",
@@ -966,7 +1096,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdɪfəˈrɛnʃəl daɪəɡˈnəʊsɪs/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-6-1772897778269",
@@ -980,7 +1112,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪdiəˈpæθɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-7-1772897778269",
@@ -994,7 +1128,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌnɒsəˈkəʊmiəl/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-8-1772897778269",
@@ -1008,7 +1144,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/rɪˈkʌrəns/",
+        "pos": "noun"
       },
       {
         "id": "word-0-9-1772897778269",
@@ -1022,7 +1160,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/rɪˈmɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-0-10-1772897778269",
@@ -1036,7 +1176,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈkjuːt/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-11-1772897778269",
@@ -1050,7 +1192,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkrɒnɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-12-1772897778269",
@@ -1064,7 +1208,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈvaɪtl saɪnz/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-13-1772897778269",
@@ -1078,7 +1224,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈfiːbraɪl/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-14-1772897778269",
@@ -1092,7 +1240,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/eɪˈfiːbraɪl/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-15-1772897778269",
@@ -1106,7 +1256,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/məˈleɪz/",
+        "pos": "noun"
       },
       {
         "id": "word-0-16-1772897778269",
@@ -1120,7 +1272,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Essential"
-        ]
+        ],
+        "phonetic": "/tʃiːf kəmˈpleɪnt/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-17-1772897778269",
@@ -1134,7 +1288,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈfɪzɪkl ɪɡˌzæmɪˈneɪʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-18-1772897778269",
@@ -1148,7 +1304,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/pərˈkʌʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-0-19-1772897778269",
@@ -1162,7 +1320,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈspɛkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-0-20-1772897778269",
@@ -1176,7 +1336,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/sɪˈstɛmɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-21-1772897778269",
@@ -1190,7 +1352,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈləʊkəlaɪzd/",
+        "pos": "adjective"
       },
       {
         "id": "word-0-22-1772897778269",
@@ -1204,7 +1368,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlæbrətɔːri tɛst/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-23-1772897778269",
@@ -1218,7 +1384,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɪmɪdʒɪŋ ˈstʌdi/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-24-1772897778269",
@@ -1232,7 +1400,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Essential"
-        ]
+        ],
+        "phonetic": "/pɑːst ˈmɛdɪkl ˈhɪstəri/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-25-1772897778269",
@@ -1246,7 +1416,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈfæməli ˈhɪstəri/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-26-1772897778269",
@@ -1260,7 +1432,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsəʊʃl ˈhɪstəri/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-27-1772897778269",
@@ -1274,7 +1448,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/rɪˈvjuː əv ˈsɪstəmz/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-28-1772897778269",
@@ -1288,7 +1464,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbɒdi ˈtɛmprətʃər/",
+        "pos": "phrase"
       },
       {
         "id": "word-0-29-1772897778269",
@@ -1302,7 +1480,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈblʌd ˈprɛʃər/",
+        "pos": "phrase"
       }
     ]
   },
@@ -1331,7 +1511,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ænˈdʒaɪnə/",
+        "pos": "noun"
       },
       {
         "id": "word-1-1-1772897778269",
@@ -1345,7 +1527,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/əˈrɪðmiə/",
+        "pos": "noun"
       },
       {
         "id": "word-1-2-1772897778269",
@@ -1359,7 +1543,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌæθəroʊskləˈroʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-1-3-1772897778269",
@@ -1373,7 +1559,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkɑːrdioʊmaɪˈɒpəθi/",
+        "pos": "noun"
       },
       {
         "id": "word-1-4-1772897778269",
@@ -1387,7 +1575,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌhaɪpərˈtɛnʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-1-5-1772897778269",
@@ -1401,7 +1591,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɪˈskiːmiə/",
+        "pos": "noun"
       },
       {
         "id": "word-1-6-1772897778269",
@@ -1415,7 +1607,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌmaɪoʊˈkɑːrdiəl ɪnˈfɑːrkʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-1-7-1772897778269",
@@ -1429,7 +1623,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/stɪˈnoʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-1-8-1772897778269",
@@ -1443,7 +1639,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/θrɒmˈboʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-1-9-1772897778269",
@@ -1457,7 +1655,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌveɪzoʊdaɪˈleɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-1-10-1772897778269",
@@ -1471,7 +1671,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌbrædɪˈkɑːrdiə/",
+        "pos": "noun"
       },
       {
         "id": "word-1-11-1772897778269",
@@ -1485,7 +1687,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌtækɪˈkɑːrdiə/",
+        "pos": "noun"
       },
       {
         "id": "word-1-12-1772897778269",
@@ -1499,7 +1703,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌpælpɪˈteɪʃənz/",
+        "pos": "noun"
       },
       {
         "id": "word-1-13-1772897778269",
@@ -1513,7 +1719,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪˈdiːmə/",
+        "pos": "noun"
       },
       {
         "id": "word-1-14-1772897778269",
@@ -1527,7 +1735,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈhɑːrt ˌfeɪljər/",
+        "pos": "phrase"
       },
       {
         "id": "word-1-15-1772897778269",
@@ -1541,7 +1751,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmɜːrmər/",
+        "pos": "noun"
       },
       {
         "id": "word-1-16-1772897778269",
@@ -1555,7 +1767,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhɑːrt vælv/",
+        "pos": "phrase"
       },
       {
         "id": "word-1-17-1772897778269",
@@ -1569,7 +1783,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/eɪˈɔːrtə/",
+        "pos": "noun"
       },
       {
         "id": "word-1-18-1772897778269",
@@ -1583,7 +1799,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈvɛntrɪkl/",
+        "pos": "noun"
       },
       {
         "id": "word-1-19-1772897778269",
@@ -1597,7 +1815,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈeɪtriəm/",
+        "pos": "noun"
       },
       {
         "id": "word-1-20-1772897778269",
@@ -1611,7 +1831,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɑːrˌtɪrioʊskləˈroʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-1-21-1772897778269",
@@ -1625,7 +1847,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kəˈlɛstərɔːl/",
+        "pos": "noun"
       },
       {
         "id": "word-1-22-1772897778269",
@@ -1639,7 +1863,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/traɪˈɡlɪsəraɪdz/",
+        "pos": "noun"
       },
       {
         "id": "word-1-23-1772897778269",
@@ -1653,7 +1879,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/plæk/",
+        "pos": "noun"
       },
       {
         "id": "word-1-24-1772897778269",
@@ -1667,7 +1895,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˈkɑːrdiæk əˈrɛst/",
+        "pos": "phrase"
       },
       {
         "id": "word-1-25-1772897778269",
@@ -1681,7 +1911,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Essential"
-        ]
+        ],
+        "phonetic": "/ˌsiːpiːˈɑːr/",
+        "pos": "noun"
       },
       {
         "id": "word-1-26-1772897778269",
@@ -1695,7 +1927,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpeɪsmeɪkər/",
+        "pos": "noun"
       },
       {
         "id": "word-1-27-1772897778269",
@@ -1709,7 +1943,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/stɛnt/",
+        "pos": "noun"
       },
       {
         "id": "word-1-28-1772897778269",
@@ -1723,7 +1959,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/flɪˈbaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-1-29-1772897778269",
@@ -1737,7 +1975,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈænjərɪzəm/",
+        "pos": "noun"
       }
     ]
   },
@@ -1766,7 +2006,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/bɪˈnaɪn/",
+        "pos": "adjective"
       },
       {
         "id": "word-2-1-1772897778269",
@@ -1780,7 +2022,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/məˈlɪɡnənt/",
+        "pos": "adjective"
       },
       {
         "id": "word-2-2-1772897778269",
@@ -1794,7 +2038,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/mɪˈtæstəsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-2-3-1772897778269",
@@ -1808,7 +2054,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈbaɪɒpsi/",
+        "pos": "noun"
       },
       {
         "id": "word-2-4-1772897778269",
@@ -1822,7 +2070,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkiːmoʊˈθɛrəpi/",
+        "pos": "noun"
       },
       {
         "id": "word-2-5-1772897778269",
@@ -1836,7 +2086,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌreɪdioʊˈθɛrəpi/",
+        "pos": "noun"
       },
       {
         "id": "word-2-6-1772897778269",
@@ -1850,7 +2102,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɒŋˈkɒlədʒɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-2-7-1772897778269",
@@ -1864,7 +2118,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpæliətɪv kɛər/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-8-1772897778269",
@@ -1878,7 +2134,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/kɑːrˈsɪnədʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-2-9-1772897778269",
@@ -1892,7 +2150,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪmjunoʊˈθɛrəpi/",
+        "pos": "noun"
       },
       {
         "id": "word-2-10-1772897778269",
@@ -1906,7 +2166,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈriːlæps/",
+        "pos": "noun"
       },
       {
         "id": "word-2-11-1772897778269",
@@ -1920,7 +2182,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsteɪdʒɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-2-12-1772897778269",
@@ -1934,7 +2198,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɡreɪdɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-2-13-1772897778269",
@@ -1948,7 +2214,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈtuːmər ˈmɑːrkər/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-14-1772897778269",
@@ -1962,7 +2230,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlɪmf noʊd/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-15-1772897778269",
@@ -1976,7 +2246,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈædʒʊvənt ˈθɛrəpi/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-16-1772897778269",
@@ -1990,7 +2262,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈniːoʊplæzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-2-17-1772897778269",
@@ -2004,7 +2278,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkɑːrsɪˈnoʊmə/",
+        "pos": "noun"
       },
       {
         "id": "word-2-18-1772897778269",
@@ -2018,7 +2294,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/sɑːrˈkoʊmə/",
+        "pos": "noun"
       },
       {
         "id": "word-2-19-1772897778269",
@@ -2032,7 +2310,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/luːˈkiːmiə/",
+        "pos": "noun"
       },
       {
         "id": "word-2-20-1772897778269",
@@ -2046,7 +2326,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/lɪmˈfoʊmə/",
+        "pos": "noun"
       },
       {
         "id": "word-2-21-1772897778269",
@@ -2060,7 +2342,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/mjuːˈteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-2-22-1772897778269",
@@ -2074,7 +2358,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈskriːnɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-2-23-1772897778269",
@@ -2088,7 +2374,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈtɑːrɡɪtɪd ˈθɛrəpi/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-24-1772897778269",
@@ -2102,7 +2390,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/prɪˈsɪʒən ˈmɛdɪsɪn/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-25-1772897778269",
@@ -2116,7 +2406,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/dʒɪˈnɛtɪk ˈkaʊnsəlɪŋ/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-26-1772897778269",
@@ -2130,7 +2422,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/sərˈvaɪvəl reɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-27-1772897778269",
@@ -2144,7 +2438,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈbaɪɒpsi rɪˈpɔːrt/",
+        "pos": "phrase"
       },
       {
         "id": "word-2-28-1772897778269",
@@ -2158,7 +2454,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌmɛtəˈstætɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-2-29-1772897778269",
@@ -2172,7 +2470,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌreɪdiˈeɪʃən ɒŋˈkɒlədʒɪst/",
+        "pos": "phrase"
       }
     ]
   },
@@ -2201,7 +2501,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/əˈfeɪʒə/",
+        "pos": "noun"
       },
       {
         "id": "word-3-1-1772897778269",
@@ -2215,7 +2517,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dɪˈmɛnʃə/",
+        "pos": "noun"
       },
       {
         "id": "word-3-2-1772897778269",
@@ -2229,7 +2533,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɛnˌsɛfəˈlaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-3-3-1772897778269",
@@ -2243,7 +2549,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/njʊˈrɒpəθi/",
+        "pos": "noun"
       },
       {
         "id": "word-3-4-1772897778269",
@@ -2257,7 +2565,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsiːʒər/",
+        "pos": "noun"
       },
       {
         "id": "word-3-5-1772897778269",
@@ -2271,7 +2581,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/stroʊk/",
+        "pos": "noun"
       },
       {
         "id": "word-3-6-1772897778269",
@@ -2285,7 +2597,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsɪŋkəpi/",
+        "pos": "noun"
       },
       {
         "id": "word-3-7-1772897778269",
@@ -2299,7 +2613,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈvɜːrtɪɡoʊ/",
+        "pos": "noun"
       },
       {
         "id": "word-3-8-1772897778269",
@@ -2313,7 +2629,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌnjʊəroʊˈtrænzmɪtər/",
+        "pos": "noun"
       },
       {
         "id": "word-3-9-1772897778269",
@@ -2327,7 +2645,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/səˌriːbroʊˈspaɪnəl ˈfluːɪd/",
+        "pos": "phrase"
       },
       {
         "id": "word-3-10-1772897778269",
@@ -2341,7 +2661,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈæltshaɪmərz dɪˈziːz/",
+        "pos": "phrase"
       },
       {
         "id": "word-3-11-1772897778269",
@@ -2355,7 +2677,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpɑːrkɪnsənz dɪˈziːz/",
+        "pos": "phrase"
       },
       {
         "id": "word-3-12-1772897778269",
@@ -2369,7 +2693,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌmʌltɪpl skləˈroʊsɪs/",
+        "pos": "phrase"
       },
       {
         "id": "word-3-13-1772897778269",
@@ -2383,7 +2709,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɛpɪlɛpsi/",
+        "pos": "noun"
       },
       {
         "id": "word-3-14-1772897778269",
@@ -2397,7 +2725,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈmaɪɡreɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-3-15-1772897778269",
@@ -2411,7 +2741,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kənˈkʌʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-3-16-1772897778269",
@@ -2425,7 +2757,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/njʊˈrældʒə/",
+        "pos": "noun"
       },
       {
         "id": "word-3-17-1772897778269",
@@ -2439,7 +2773,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/pəˈrælɪsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-3-18-1772897778269",
@@ -2453,7 +2789,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌhɛmɪˈpliːdʒə/",
+        "pos": "noun"
       },
       {
         "id": "word-3-19-1772897778269",
@@ -2467,7 +2805,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌnjʊəroʊˈdʒɛnɪsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-3-20-1772897778269",
@@ -2481,7 +2821,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsɪnæps/",
+        "pos": "noun"
       },
       {
         "id": "word-3-21-1772897778269",
@@ -2495,7 +2837,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈmaɪəlɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-3-22-1772897778269",
@@ -2509,7 +2853,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈriːflɛks/",
+        "pos": "noun"
       },
       {
         "id": "word-3-23-1772897778269",
@@ -2523,7 +2869,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈtrɛmər/",
+        "pos": "noun"
       },
       {
         "id": "word-3-24-1772897778269",
@@ -2537,7 +2885,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌmɛnɪnˈdʒaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-3-25-1772897778269",
@@ -2551,7 +2901,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌiː iː ˈdʒiː/",
+        "pos": "noun"
       },
       {
         "id": "word-3-26-1772897778269",
@@ -2565,7 +2917,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɛm ɑːr ˈaɪ/",
+        "pos": "noun"
       },
       {
         "id": "word-3-27-1772897778269",
@@ -2579,7 +2933,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈlʌmbɑːr ˈpʌŋktʃər/",
+        "pos": "phrase"
       },
       {
         "id": "word-3-28-1772897778269",
@@ -2593,7 +2949,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsɛnsəri/",
+        "pos": "adjective"
       },
       {
         "id": "word-3-29-1772897778269",
@@ -2607,7 +2965,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmoʊtər ˈnʊərɒn/",
+        "pos": "phrase"
       }
     ]
   },
@@ -2636,7 +2996,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dɪsˈpɛpsiə/",
+        "pos": "noun"
       },
       {
         "id": "word-4-1-1772897778269",
@@ -2650,7 +3012,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɡæsˈtraɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-4-2-1772897778269",
@@ -2664,7 +3028,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌhɛpəˈtaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-4-3-1772897778269",
@@ -2678,7 +3044,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/sɪˈroʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-4-4-1772897778269",
@@ -2692,7 +3060,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/koʊˈlaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-4-5-1772897778269",
@@ -2706,7 +3076,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɛnˈdɒskəpi/",
+        "pos": "noun"
       },
       {
         "id": "word-4-6-1772897778269",
@@ -2720,7 +3092,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪrɪtəbəl ˈbaʊəl ˈsɪndroʊm/",
+        "pos": "phrase"
       },
       {
         "id": "word-4-7-1772897778269",
@@ -2734,7 +3108,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌpæŋkriəˈtaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-4-8-1772897778269",
@@ -2748,7 +3124,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈriːflʌks/",
+        "pos": "noun"
       },
       {
         "id": "word-4-9-1772897778269",
@@ -2762,7 +3140,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈʌlsər/",
+        "pos": "noun"
       },
       {
         "id": "word-4-10-1772897778269",
@@ -2776,7 +3156,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/baɪl/",
+        "pos": "noun"
       },
       {
         "id": "word-4-11-1772897778269",
@@ -2790,7 +3172,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɡɔːlstəʊn/",
+        "pos": "noun"
       },
       {
         "id": "word-4-12-1772897778269",
@@ -2804,7 +3188,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌkɒnstɪˈpeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-4-13-1772897778269",
@@ -2818,7 +3204,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌdaɪəˈriːə/",
+        "pos": "noun"
       },
       {
         "id": "word-4-14-1772897778269",
@@ -2832,7 +3220,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈnɔːziə/",
+        "pos": "noun"
       },
       {
         "id": "word-4-15-1772897778269",
@@ -2846,7 +3236,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈvɒmɪtɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-4-16-1772897778269",
@@ -2860,7 +3252,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbloʊtɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-4-17-1772897778269",
@@ -2874,7 +3268,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈflætʃʊləns/",
+        "pos": "noun"
       },
       {
         "id": "word-4-18-1772897778269",
@@ -2888,7 +3284,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌpɛrɪˈstælsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-4-19-1772897778269",
@@ -2902,7 +3300,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/mɪˈtæbəlɪzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-4-20-1772897778269",
@@ -2916,7 +3316,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈnuːtriənt/",
+        "pos": "noun"
       },
       {
         "id": "word-4-21-1772897778269",
@@ -2930,7 +3332,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əbˈzɔːrpʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-4-22-1772897778269",
@@ -2944,7 +3348,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/smɔːl ɪnˈtɛstɪn/",
+        "pos": "phrase"
       },
       {
         "id": "word-4-23-1772897778269",
@@ -2958,7 +3364,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/lɑːrdʒ ɪnˈtɛstɪn/",
+        "pos": "phrase"
       },
       {
         "id": "word-4-24-1772897778269",
@@ -2972,7 +3380,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkoʊlən/",
+        "pos": "noun"
       },
       {
         "id": "word-4-25-1772897778269",
@@ -2986,7 +3396,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈrɛktəm/",
+        "pos": "noun"
       },
       {
         "id": "word-4-26-1772897778269",
@@ -3000,7 +3412,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlɪvər/",
+        "pos": "noun"
       },
       {
         "id": "word-4-27-1772897778269",
@@ -3014,7 +3428,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɡɔːlblædər/",
+        "pos": "noun"
       },
       {
         "id": "word-4-28-1772897778269",
@@ -3028,7 +3444,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpæŋkriəs/",
+        "pos": "noun"
       },
       {
         "id": "word-4-29-1772897778269",
@@ -3042,7 +3460,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/daɪˈdʒɛstɪv ˈɛnzaɪm/",
+        "pos": "phrase"
       }
     ]
   },
@@ -3071,7 +3491,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdaɪəˈbiːtiːz məˈlaɪtəs/",
+        "pos": "noun"
       },
       {
         "id": "word-5-1-1772897778269",
@@ -3085,7 +3507,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌhaɪpoʊˈθaɪrɔɪdɪzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-5-2-1772897778269",
@@ -3099,7 +3523,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌhaɪpərˈθaɪrɔɪdɪzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-5-3-1772897778269",
@@ -3113,7 +3539,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/əˈdriːnəl ɪnəˈfɪʃənsi/",
+        "pos": "noun"
       },
       {
         "id": "word-5-4-1772897778269",
@@ -3127,7 +3555,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɛndəkrɪˈnɒlədʒɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-5-5-1772897778269",
@@ -3141,7 +3571,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈhɔːrmoʊn rɪˈpleɪsmənt ˈθɛrəpi/",
+        "pos": "noun"
       },
       {
         "id": "word-5-6-1772897778269",
@@ -3155,7 +3587,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɪnsəlɪn rɪˈzɪstəns/",
+        "pos": "noun"
       },
       {
         "id": "word-5-7-1772897778269",
@@ -3169,7 +3603,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌmɛtəˈbɒlɪk ˈsɪndroʊm/",
+        "pos": "noun"
       },
       {
         "id": "word-5-8-1772897778269",
@@ -3183,7 +3619,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/pɪˈtjuːɪtɛri ɡlænd/",
+        "pos": "noun"
       },
       {
         "id": "word-5-9-1772897778269",
@@ -3197,7 +3635,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌθaɪrɔɪˈdɛktəmi/",
+        "pos": "noun"
       },
       {
         "id": "word-5-10-1772897778269",
@@ -3211,7 +3651,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkɔːrtɪsɒl/",
+        "pos": "noun"
       },
       {
         "id": "word-5-11-1772897778269",
@@ -3225,7 +3667,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɛpɪˈnɛfrɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-5-12-1772897778269",
@@ -3239,7 +3683,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɛstrədʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-5-13-1772897778269",
@@ -3253,7 +3699,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/tɛˈstɒstəroʊn/",
+        "pos": "noun"
       },
       {
         "id": "word-5-14-1772897778269",
@@ -3267,7 +3715,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈθaɪrɔɪd ɡlænd/",
+        "pos": "noun"
       },
       {
         "id": "word-5-15-1772897778269",
@@ -3281,7 +3731,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌpærəˈθaɪrɔɪd ɡlænd/",
+        "pos": "noun"
       },
       {
         "id": "word-5-16-1772897778269",
@@ -3295,7 +3747,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpɪniəl ɡlænd/",
+        "pos": "noun"
       },
       {
         "id": "word-5-17-1772897778269",
@@ -3309,7 +3763,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɡluːkəɡɒn/",
+        "pos": "noun"
       },
       {
         "id": "word-5-18-1772897778269",
@@ -3323,7 +3779,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌhoʊmiəˈsteɪsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-5-19-1772897778269",
@@ -3337,7 +3795,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpjuːbərti/",
+        "pos": "noun"
       },
       {
         "id": "word-5-20-1772897778269",
@@ -3351,7 +3811,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈmɛnəpɔːz/",
+        "pos": "noun"
       },
       {
         "id": "word-5-21-1772897778269",
@@ -3365,7 +3827,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌhaɪpərɡlaɪˈsiːmiə/",
+        "pos": "noun"
       },
       {
         "id": "word-5-22-1772897778269",
@@ -3379,7 +3843,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌhaɪpoʊɡlaɪˈsiːmiə/",
+        "pos": "noun"
       },
       {
         "id": "word-5-23-1772897778269",
@@ -3393,7 +3859,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɡɔɪtər/",
+        "pos": "noun"
       },
       {
         "id": "word-5-24-1772897778269",
@@ -3407,7 +3875,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɒstioʊpəˈroʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-5-25-1772897778269",
@@ -3421,7 +3891,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈændrədʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-5-26-1772897778269",
@@ -3435,7 +3907,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌmɛləˈtoʊnɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-5-27-1772897778269",
@@ -3449,7 +3923,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/proʊˈlæktɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-5-28-1772897778269",
@@ -3463,7 +3939,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɒksɪˈtoʊsɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-5-29-1772897778269",
@@ -3477,7 +3955,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɛndəkrɪn ˈsɪstəm/",
+        "pos": "noun"
       }
     ]
   },
@@ -3506,7 +3986,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈæl.ər.dʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-6-1-1772897778269",
@@ -3520,7 +4002,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈæn.tɪˌbɒd.i/",
+        "pos": "noun"
       },
       {
         "id": "word-6-2-1772897778269",
@@ -3534,7 +4018,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈæn.tɪ.dʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-6-3-1772897778269",
@@ -3548,7 +4034,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɔː.toʊ.ɪˈmjuːn dɪˌziːz/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-4-1772897778269",
@@ -3562,7 +4050,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪm.jʊ.noʊ.səˈprɛʃ.ən/",
+        "pos": "noun"
       },
       {
         "id": "word-6-5-1772897778269",
@@ -3576,7 +4066,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪn.fləˈmeɪ.ʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-6-6-1772897778269",
@@ -3590,7 +4082,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpæθ.ə.dʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-6-7-1772897778269",
@@ -3604,7 +4098,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈvæk.siːn/",
+        "pos": "noun"
       },
       {
         "id": "word-6-8-1772897778269",
@@ -3618,7 +4114,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌruː.mə.tɔɪd ɑːˈθraɪ.tɪs/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-9-1772897778269",
@@ -3632,7 +4130,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈluː.pəs/",
+        "pos": "noun"
       },
       {
         "id": "word-6-10-1772897778269",
@@ -3646,7 +4146,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪm.jʊ.noʊˈθɛr.ə.pi/",
+        "pos": "noun"
       },
       {
         "id": "word-6-11-1772897778269",
@@ -3660,7 +4162,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈhjuː.mə.rəl ɪˈmjuː.nɪ.ti/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-12-1772897778269",
@@ -3674,7 +4178,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsɛl ˈmiː.di.eɪ.tɪd ɪˈmjuː.nɪ.ti/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-13-1772897778269",
@@ -3688,7 +4194,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/lɪmˈfæt.ɪk ˈsɪs.təm/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-14-1772897778269",
@@ -3702,7 +4210,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/spliːn/",
+        "pos": "noun"
       },
       {
         "id": "word-6-15-1772897778269",
@@ -3716,7 +4226,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈboʊn ˈmær.oʊ/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-16-1772897778269",
@@ -3730,7 +4242,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈluː.kə.saɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-6-17-1772897778269",
@@ -3744,7 +4258,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈmæk.rə.feɪdʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-6-18-1772897778269",
@@ -3758,7 +4274,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsaɪ.tə.kaɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-6-19-1772897778269",
@@ -3772,7 +4290,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈhɪs.tə.miːn/",
+        "pos": "noun"
       },
       {
         "id": "word-6-20-1772897778269",
@@ -3786,7 +4306,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌæn.ə.fɪˈlæk.sɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-6-21-1772897778269",
@@ -3800,7 +4322,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪˈneɪt ɪˈmjuː.nɪ.ti/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-22-1772897778269",
@@ -3814,7 +4338,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əˈdæp.tɪv ɪˈmjuː.nɪ.ti/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-23-1772897778269",
@@ -3828,7 +4354,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌfæɡ.ə.saɪˈtoʊ.sɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-6-24-1772897778269",
@@ -3842,7 +4370,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌhaɪ.pər.sɛn.sɪˈtɪv.ɪ.ti/",
+        "pos": "noun"
       },
       {
         "id": "word-6-25-1772897778269",
@@ -3856,7 +4386,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlɪmf noʊd/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-26-1772897778269",
@@ -3870,7 +4402,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈtiː ˈlɪm.fə.saɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-27-1772897778269",
@@ -3884,7 +4418,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈbiː ˈlɪm.fə.saɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-6-28-1772897778269",
@@ -3898,7 +4434,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsɪə.rəm/",
+        "pos": "noun"
       },
       {
         "id": "word-6-29-1772897778269",
@@ -3912,7 +4450,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪn.tərˈfɪə.rɒn/",
+        "pos": "noun"
       }
     ]
   },
@@ -3941,7 +4481,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈæk.ni/",
+        "pos": "noun"
       },
       {
         "id": "word-7-1-1772897778269",
@@ -3955,7 +4497,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdɜː.məˈtaɪ.təs/",
+        "pos": "noun"
       },
       {
         "id": "word-7-2-1772897778269",
@@ -3969,7 +4513,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɛk.sə.mə/",
+        "pos": "noun"
       },
       {
         "id": "word-7-3-1772897778269",
@@ -3983,7 +4529,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɛk.sə.mə/",
+        "pos": "noun"
       },
       {
         "id": "word-7-4-1772897778269",
@@ -3997,7 +4545,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdɛl.əˈmɑː.tə/",
+        "pos": "noun"
       },
       {
         "id": "word-7-5-1772897778269",
@@ -4011,7 +4561,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈliː.ʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-7-6-1772897778269",
@@ -4025,7 +4577,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/prʊˈraɪ.təs/",
+        "pos": "noun"
       },
       {
         "id": "word-7-7-1772897778269",
@@ -4039,7 +4593,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ræʃ/",
+        "pos": "noun"
       },
       {
         "id": "word-7-8-1772897778269",
@@ -4053,7 +4609,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌʌr.tɪˈkeər.i.ə/",
+        "pos": "noun"
       },
       {
         "id": "word-7-9-1772897778269",
@@ -4067,7 +4625,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdɜː.məˈtɒl.ə.dʒɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-7-10-1772897778269",
@@ -4081,7 +4641,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɛp.ɪˈdɜː.mɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-7-11-1772897778269",
@@ -4095,7 +4657,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈdɜː.mɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-7-12-1772897778269",
@@ -4109,7 +4673,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌsʌb.kjuːˈteɪ.ni.əs/",
+        "pos": "adjective"
       },
       {
         "id": "word-7-13-1772897778269",
@@ -4123,7 +4689,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈheər ˈfɒl.ɪ.kəl/",
+        "pos": "phrase"
       },
       {
         "id": "word-7-14-1772897778269",
@@ -4137,7 +4705,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/sɪˈbeɪ.ʃəs ɡlænd/",
+        "pos": "phrase"
       },
       {
         "id": "word-7-15-1772897778269",
@@ -4151,7 +4721,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈswɛt ɡlænd/",
+        "pos": "phrase"
       },
       {
         "id": "word-7-16-1772897778269",
@@ -4165,7 +4737,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈmɛl.ə.nɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-7-17-1772897778269",
@@ -4179,7 +4753,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkɛr.ə.tɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-7-18-1772897778269",
@@ -4193,7 +4769,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈblɪs.tər/",
+        "pos": "noun"
       },
       {
         "id": "word-7-19-1772897778269",
@@ -4207,7 +4785,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkæl.əs/",
+        "pos": "noun"
       },
       {
         "id": "word-7-20-1772897778269",
@@ -4221,7 +4801,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/moʊl/",
+        "pos": "noun"
       },
       {
         "id": "word-7-21-1772897778269",
@@ -4235,7 +4817,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈfrɛk.əl/",
+        "pos": "noun"
       },
       {
         "id": "word-7-22-1772897778269",
@@ -4249,7 +4833,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/skɑːr/",
+        "pos": "noun"
       },
       {
         "id": "word-7-23-1772897778269",
@@ -4263,7 +4849,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/wɔːrt/",
+        "pos": "noun"
       },
       {
         "id": "word-7-24-1772897778269",
@@ -4277,7 +4865,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌpɪɡ.mɛnˈteɪ.ʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-7-25-1772897778269",
@@ -4291,7 +4881,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈtɒp.ɪ.kəl/",
+        "pos": "adjective"
       },
       {
         "id": "word-7-26-1772897778269",
@@ -4305,7 +4897,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈfʌŋ.ɡəl ɪnˈfɛk.ʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-7-27-1772897778269",
@@ -4319,7 +4913,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɪˈrʌp.ʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-7-28-1772897778269",
@@ -4333,7 +4929,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪnˈflæm.ə.tər.i/",
+        "pos": "adjective"
       },
       {
         "id": "word-7-29-1772897778269",
@@ -4347,7 +4945,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈlɜː.dʒɪk riˈæk.ʃən/",
+        "pos": "phrase"
       }
     ]
   },
@@ -4376,7 +4976,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɑːrˈθraɪtəs/",
+        "pos": "noun"
       },
       {
         "id": "word-8-1-1772897778269",
@@ -4390,7 +4992,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈfræktʃər/",
+        "pos": "noun"
       },
       {
         "id": "word-8-2-1772897778269",
@@ -4404,7 +5008,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɒstiəʊpəˈrəʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-8-3-1772897778269",
@@ -4418,7 +5024,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/spɹeɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-8-4-1772897778269",
@@ -4432,7 +5040,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/stɹeɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-8-5-1772897778269",
@@ -4446,7 +5056,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌtɛndəˈnaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-8-6-1772897778269",
@@ -4460,7 +5072,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈkɑːrtəlɪdʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-8-7-1772897778269",
@@ -4474,7 +5088,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈlɪɡəmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-8-8-1772897778269",
@@ -4488,7 +5104,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɔːθəʊˈpiːdɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-8-9-1772897778269",
@@ -4502,7 +5120,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌriːəbɪlɪˈteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-8-10-1772897778269",
@@ -4516,7 +5136,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈvɜːrtəbɹə/",
+        "pos": "noun"
       },
       {
         "id": "word-8-11-1772897778269",
@@ -4530,7 +5152,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈfemər/",
+        "pos": "noun"
       },
       {
         "id": "word-8-12-1772897778269",
@@ -4544,7 +5168,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dʒɔɪnt/",
+        "pos": "noun"
       },
       {
         "id": "word-8-13-1772897778269",
@@ -4558,7 +5184,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/dɪsləˈkeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-8-14-1772897778269",
@@ -4572,7 +5200,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈruːmətɪzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-8-15-1772897778269",
@@ -4586,7 +5216,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌbɜːrˈsaɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-8-16-1772897778269",
@@ -4600,7 +5232,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkɑːrpəl ˈtʌnəl ˈsɪndroʊm/",
+        "pos": "phrase"
       },
       {
         "id": "word-8-17-1772897778269",
@@ -4614,7 +5248,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/spaɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-8-18-1772897778269",
@@ -4628,7 +5264,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈlʌmbɑːr/",
+        "pos": "adjective"
       },
       {
         "id": "word-8-19-1772897778269",
@@ -4642,7 +5280,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsɜːrvɪkəl/",
+        "pos": "adjective"
       },
       {
         "id": "word-8-20-1772897778269",
@@ -4656,7 +5296,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/θəˈræsɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-8-21-1772897778269",
@@ -4670,7 +5312,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpɛlvɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-8-22-1772897778269",
@@ -4684,7 +5328,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈskɛlətən/",
+        "pos": "noun"
       },
       {
         "id": "word-8-23-1772897778269",
@@ -4698,7 +5344,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈmʌsəl ˈætɹəfi/",
+        "pos": "phrase"
       },
       {
         "id": "word-8-24-1772897778269",
@@ -4712,7 +5360,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/haɪˈpɜːrtroʊfi/",
+        "pos": "noun"
       },
       {
         "id": "word-8-25-1772897778269",
@@ -4726,7 +5376,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈspæzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-8-26-1772897778269",
@@ -4740,7 +5392,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/reɪndʒ əv ˈmoʊʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-8-27-1772897778269",
@@ -4754,7 +5408,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/skaɪˈfoʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-8-28-1772897778269",
@@ -4768,7 +5424,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈlɪɡəmənt tɛər/",
+        "pos": "phrase"
       },
       {
         "id": "word-8-29-1772897778269",
@@ -4782,7 +5440,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌmʌskiəʊˈskɛlətəl ˈsɪstəm/",
+        "pos": "phrase"
       }
     ]
   },
@@ -4811,7 +5471,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/æŋˈzaɪəti dɪsˈɔːrdər/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-1-1772897778269",
@@ -4825,7 +5487,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌbaɪˈpoʊlər dɪsˈɔːrdər/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-2-1772897778269",
@@ -4839,7 +5503,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dɪˈprɛʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-9-3-1772897778269",
@@ -4853,7 +5519,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/saɪˈkoʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-9-4-1772897778269",
@@ -4867,7 +5535,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌskɪtsəˈfriːniə/",
+        "pos": "noun"
       },
       {
         "id": "word-9-5-1772897778269",
@@ -4881,7 +5551,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈkɒɡnɪtɪv bɪˈheɪvjərəl ˈθɛrəpi/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-6-1772897778269",
@@ -4895,7 +5567,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/njʊˈroʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-9-7-1772897778269",
@@ -4909,7 +5583,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpænɪk əˈtæk/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-8-1772897778269",
@@ -4923,7 +5599,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/saɪˈkaɪətrɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-9-9-1772897778269",
@@ -4937,7 +5615,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈtraʊmə/",
+        "pos": "noun"
       },
       {
         "id": "word-9-10-1772897778269",
@@ -4951,7 +5631,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈdoʊpəmiːn/",
+        "pos": "noun"
       },
       {
         "id": "word-9-11-1772897778269",
@@ -4965,7 +5647,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌsɛrəˈtoʊnɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-9-12-1772897778269",
@@ -4979,7 +5663,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈfoʊbiə/",
+        "pos": "noun"
       },
       {
         "id": "word-9-13-1772897778269",
@@ -4993,7 +5679,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əbˈsɛsɪv kəmˈpʌlsɪv dɪsˈɔːrdər/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-14-1772897778269",
@@ -5007,7 +5695,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌpoʊst trɔːˈmætɪk strɛs dɪsˈɔːrdər/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-15-1772897778269",
@@ -5021,7 +5711,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌæntɪdɪˈprɛsənt/",
+        "pos": "noun"
       },
       {
         "id": "word-9-16-1772897778269",
@@ -5035,7 +5727,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/muːd ˈsteɪbɪlaɪzər/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-17-1772897778269",
@@ -5049,7 +5743,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/həˌluːsɪˈneɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-9-18-1772897778269",
@@ -5063,7 +5759,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dɪˈluːʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-9-19-1772897778269",
@@ -5077,7 +5775,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈsɒmniə/",
+        "pos": "noun"
       },
       {
         "id": "word-9-20-1772897778269",
@@ -5091,7 +5791,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈdɪkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-9-21-1772897778269",
@@ -5105,7 +5807,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈnɑːrsɪsɪzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-9-22-1772897778269",
@@ -5119,7 +5823,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɛmpəθi/",
+        "pos": "noun"
       },
       {
         "id": "word-9-23-1772897778269",
@@ -5133,7 +5839,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/rɪˈzɪliəns/",
+        "pos": "noun"
       },
       {
         "id": "word-9-24-1772897778269",
@@ -5147,7 +5855,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsoʊʃəl ˈstɪɡmə/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-25-1772897778269",
@@ -5161,7 +5871,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌnjʊəroʊdaɪˈvɜːrsɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-9-26-1772897778269",
@@ -5175,7 +5887,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈmaɪndfəlnəs/",
+        "pos": "noun"
       },
       {
         "id": "word-9-27-1772897778269",
@@ -5189,7 +5903,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/juːˈfɔːriə/",
+        "pos": "noun"
       },
       {
         "id": "word-9-28-1772897778269",
@@ -5203,7 +5919,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈmænɪk ˈɛpɪsoʊd/",
+        "pos": "phrase"
       },
       {
         "id": "word-9-29-1772897778269",
@@ -5217,7 +5935,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/kəmˈpʌlʃən/",
+        "pos": "noun"
       }
     ]
   },
@@ -5246,7 +5966,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌædvɜːrs ɪˈfekt/",
+        "pos": "phrase"
       },
       {
         "id": "word-10-1-1772897778269",
@@ -5260,7 +5982,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkɒntrəˌɪndɪˈkeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-10-2-1772897778269",
@@ -5274,7 +5998,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈdəʊsɪdʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-10-3-1772897778269",
@@ -5288,7 +6014,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈefɪkəsi/",
+        "pos": "noun"
       },
       {
         "id": "word-10-4-1772897778269",
@@ -5302,7 +6030,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌfɑːrməkoʊkaɪˈnetɪks/",
+        "pos": "noun"
       },
       {
         "id": "word-10-5-1772897778269",
@@ -5316,7 +6046,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/pləˈsiːboʊ/",
+        "pos": "noun"
       },
       {
         "id": "word-10-6-1772897778269",
@@ -5330,7 +6062,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpoʊtənsi/",
+        "pos": "noun"
       },
       {
         "id": "word-10-7-1772897778269",
@@ -5344,7 +6078,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/prɪˈskrɪpʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-10-8-1772897778269",
@@ -5358,7 +6094,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsɪnərdʒi/",
+        "pos": "noun"
       },
       {
         "id": "word-10-9-1772897778269",
@@ -5372,7 +6110,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈtɒlərəns/",
+        "pos": "noun"
       },
       {
         "id": "word-10-10-1772897778269",
@@ -5386,7 +6126,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌænəlˈdʒiːzɪk/",
+        "pos": "noun"
       },
       {
         "id": "word-10-11-1772897778269",
@@ -5400,7 +6142,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌæntibaɪˈɒtɪk/",
+        "pos": "noun"
       },
       {
         "id": "word-10-12-1772897778269",
@@ -5414,7 +6158,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌæntɪˈhɪstəmiːn/",
+        "pos": "noun"
       },
       {
         "id": "word-10-13-1772897778269",
@@ -5428,7 +6174,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌæntiɪnˈflæmətəri/",
+        "pos": "adjective"
       },
       {
         "id": "word-10-14-1772897778269",
@@ -5442,7 +6190,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/məˈtæbəlɪzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-10-15-1772897778269",
@@ -5456,7 +6206,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əbˈzɔːrpʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-10-16-1772897778269",
@@ -5470,7 +6222,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪkˈskriːʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-10-17-1772897778269",
@@ -5484,7 +6238,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌbaɪoʊəˌveɪləˈbɪləti/",
+        "pos": "noun"
       },
       {
         "id": "word-10-18-1772897778269",
@@ -5498,7 +6254,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈæɡənɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-10-19-1772897778269",
@@ -5512,7 +6270,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ænˈtæɡənɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-10-20-1772897778269",
@@ -5526,7 +6286,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌθerəˈpjuːtɪk ˈɪndeks/",
+        "pos": "phrase"
       },
       {
         "id": "word-10-21-1772897778269",
@@ -5540,7 +6302,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dʒəˈnerɪk drʌɡ/",
+        "pos": "phrase"
       },
       {
         "id": "word-10-22-1772897778269",
@@ -5554,7 +6318,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌvæksɪˈneɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-10-23-1772897778269",
@@ -5568,7 +6334,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/wɪðˈdrɔːəl/",
+        "pos": "noun"
       },
       {
         "id": "word-10-24-1772897778269",
@@ -5582,7 +6350,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌmetəˈbɒlɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-10-25-1772897778269",
@@ -5596,7 +6366,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/djʊˈreɪʃən əv ˈækʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-10-26-1772897778269",
@@ -5610,7 +6382,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈhæf laɪf/",
+        "pos": "noun"
       },
       {
         "id": "word-10-27-1772897778269",
@@ -5624,7 +6398,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪnˈfjuːʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-10-28-1772897778269",
@@ -5638,7 +6414,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/səˈpɒzɪtəri/",
+        "pos": "noun"
       },
       {
         "id": "word-10-29-1772897778269",
@@ -5652,7 +6430,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌænəsˈθiːziə/",
+        "pos": "noun"
       }
     ]
   },
@@ -5681,7 +6461,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɛnˈdɛmɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-11-1-1772897778269",
@@ -5695,7 +6477,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɛpɪˈdɛmɪk/",
+        "pos": "noun"
       },
       {
         "id": "word-11-2-1772897778269",
@@ -5709,7 +6493,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/pænˈdɛmɪk/",
+        "pos": "noun"
       },
       {
         "id": "word-11-3-1772897778269",
@@ -5723,7 +6509,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɪnsɪdəns/",
+        "pos": "noun"
       },
       {
         "id": "word-11-4-1772897778269",
@@ -5737,7 +6525,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈprɛvələns/",
+        "pos": "noun"
       },
       {
         "id": "word-11-5-1772897778269",
@@ -5751,7 +6541,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/mɔːrˈtælɪti reɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-6-1772897778269",
@@ -5765,7 +6557,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/mɔːrˈbɪdɪti reɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-7-1772897778269",
@@ -5779,7 +6573,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈkwɔːrəntiːn/",
+        "pos": "noun"
       },
       {
         "id": "word-11-8-1772897778269",
@@ -5793,7 +6589,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈvɛktər/",
+        "pos": "noun"
       },
       {
         "id": "word-11-9-1772897778270",
@@ -5807,7 +6605,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌvæksɪˈneɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-11-10-1772897778270",
@@ -5821,7 +6621,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/kənˈteɪdʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-11-11-1772897778270",
@@ -5835,7 +6637,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈfɛkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-11-12-1772897778270",
@@ -5849,7 +6653,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌsænɪˈteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-11-13-1772897778270",
@@ -5863,7 +6669,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhaɪdʒiːn/",
+        "pos": "noun"
       },
       {
         "id": "word-11-14-1772897778270",
@@ -5877,7 +6685,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌdɪsɪnˈfɛkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-11-15-1772897778270",
@@ -5891,7 +6701,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌstɛrɪlɪˈzeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-11-16-1772897778270",
@@ -5905,7 +6717,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌeɪsɪmptəˈmætɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-11-17-1772897778270",
@@ -5919,7 +6733,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɪnkjuˈbeɪʃən ˈpɪəriəd/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-18-1772897778270",
@@ -5933,7 +6749,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/zuːəˈnoʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-11-19-1772897778270",
@@ -5947,7 +6765,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈklʌstər/",
+        "pos": "noun"
       },
       {
         "id": "word-11-20-1772897778270",
@@ -5961,7 +6781,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkɒntækt ˈtreɪsɪŋ/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-21-1772897778270",
@@ -5975,7 +6797,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/hɜːrd ɪˈmjuːnɪti/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-22-1772897778270",
@@ -5989,7 +6813,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈskriːnɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-11-23-1772897778270",
@@ -6003,7 +6829,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/sərˈveɪləns/",
+        "pos": "noun"
       },
       {
         "id": "word-11-24-1772897778270",
@@ -6017,7 +6845,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌpæθədʒəˈnɪsɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-11-25-1772897778270",
@@ -6031,7 +6861,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈvɪrʊləns/",
+        "pos": "noun"
       },
       {
         "id": "word-11-26-1772897778270",
@@ -6045,7 +6877,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/rɪsk ˈfæktər/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-27-1772897778270",
@@ -6059,7 +6893,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/laɪf ɪkˈspɛktənsi/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-28-1772897778270",
@@ -6073,7 +6909,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/kəˈmjuːnɪkəbəl dɪˈziːz/",
+        "pos": "phrase"
       },
       {
         "id": "word-11-29-1772897778270",
@@ -6087,7 +6925,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪˈmjuːnɪti/",
+        "pos": "noun"
       }
     ]
   },
@@ -6116,7 +6956,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɔˈtɑnəmi/",
+        "pos": "noun"
       },
       {
         "id": "word-12-1-1772897778270",
@@ -6130,7 +6972,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/bəˈnɛfɪsns/",
+        "pos": "noun"
       },
       {
         "id": "word-12-2-1772897778270",
@@ -6144,7 +6988,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌnɑn məˈlɛfɪsns/",
+        "pos": "noun"
       },
       {
         "id": "word-12-3-1772897778270",
@@ -6158,7 +7004,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈdʒʌstɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-12-4-1772897778270",
@@ -6172,7 +7020,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪnˈfɔrmd kənˈsɛnt/",
+        "pos": "phrase"
       },
       {
         "id": "word-12-5-1772897778270",
@@ -6186,7 +7036,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkɑnfɪˌdɛnʃiˈælɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-12-6-1772897778270",
@@ -6200,7 +7052,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌjutəˈneɪʒə/",
+        "pos": "noun"
       },
       {
         "id": "word-12-7-1772897778270",
@@ -6214,7 +7068,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/prɑɡˈnɑstɪkeɪʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-12-8-1772897778270",
@@ -6228,7 +7084,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈfjutəlɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-12-9-1772897778270",
@@ -6242,7 +7100,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌbaɪoʊˈɛθɪks/",
+        "pos": "noun"
       },
       {
         "id": "word-12-10-1772897778270",
@@ -6256,7 +7116,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈmɔrəl/",
+        "pos": "adjective"
       },
       {
         "id": "word-12-11-1772897778270",
@@ -6270,7 +7132,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈæltruˌɪzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-12-12-1772897778270",
@@ -6284,7 +7148,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kəmˈpæʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-12-13-1772897778270",
@@ -6298,7 +7164,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈtɛɡrɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-12-14-1772897778270",
@@ -6312,7 +7180,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əˌkaʊntəˈbɪlɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-12-15-1772897778270",
@@ -6326,7 +7196,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/trænsˈpɛrənsi/",
+        "pos": "noun"
       },
       {
         "id": "word-12-16-1772897778270",
@@ -6340,7 +7212,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌklɪnɪkl ˈtraɪəl/",
+        "pos": "phrase"
       },
       {
         "id": "word-12-17-1772897778270",
@@ -6354,7 +7228,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/əˌsɪstɪd ˈsuːɪsaɪd/",
+        "pos": "phrase"
       },
       {
         "id": "word-12-18-1772897778270",
@@ -6368,7 +7244,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpæliətɪv kɛr/",
+        "pos": "phrase"
       },
       {
         "id": "word-12-19-1772897778270",
@@ -6382,7 +7260,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɛnd əv ˈlaɪf kɛr/",
+        "pos": "phrase"
       },
       {
         "id": "word-12-20-1772897778270",
@@ -6396,7 +7276,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ədˈvæns dəˈrɛktɪv/",
+        "pos": "phrase"
       },
       {
         "id": "word-12-21-1772897778270",
@@ -6410,7 +7292,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈprɑksi/",
+        "pos": "noun"
       },
       {
         "id": "word-12-22-1772897778270",
@@ -6424,7 +7308,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈkɑnflɪkt əv ˈɪntrəst/",
+        "pos": "idiom"
       },
       {
         "id": "word-12-23-1772897778270",
@@ -6438,7 +7324,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɛkwɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-12-24-1772897778270",
@@ -6452,7 +7340,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/daɪˈvɜrsɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-12-25-1772897778270",
@@ -6466,7 +7356,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈkluːʒn/",
+        "pos": "noun"
       },
       {
         "id": "word-12-26-1772897778270",
@@ -6480,7 +7372,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈmælˌplæktɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-12-27-1772897778270",
@@ -6494,7 +7388,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɛmbriˌoʊ/",
+        "pos": "noun"
       },
       {
         "id": "word-12-28-1772897778270",
@@ -6508,7 +7404,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/dʒəˈnɛtɪks/",
+        "pos": "noun"
       },
       {
         "id": "word-12-29-1772897778270",
@@ -6522,7 +7420,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/fɪˈdɛlɪti/",
+        "pos": "noun"
       }
     ]
   },
@@ -6551,7 +7451,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdʒɛriəˈtrɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-13-1-1772897778270",
@@ -6565,7 +7467,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈfreɪləti/",
+        "pos": "noun"
       },
       {
         "id": "word-13-2-1772897778270",
@@ -6579,7 +7483,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌpɒlɪˈfɑːrməsi/",
+        "pos": "noun"
       },
       {
         "id": "word-13-3-1772897778270",
@@ -6593,7 +7499,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈkɒɡnɪtɪv dɪˈklaɪn/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-4-1772897778270",
@@ -6607,7 +7515,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɒstiəʊɑːrˈθraɪtɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-13-5-1772897778270",
@@ -6621,7 +7531,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/sɑːrˈkoʊʊpɪə/",
+        "pos": "noun"
       },
       {
         "id": "word-13-6-1772897778270",
@@ -6635,7 +7547,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ækˈtɪvətiz əv ˈdeɪli ˈlaɪf/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-7-1772897778270",
@@ -6649,7 +7563,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɪnˈkɒntɪnəns/",
+        "pos": "noun"
       },
       {
         "id": "word-13-8-1772897778270",
@@ -6663,7 +7579,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dɪˈlɪəriəm/",
+        "pos": "noun"
       },
       {
         "id": "word-13-9-1772897778270",
@@ -6677,7 +7595,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈlɒŋ tɜːrm keər/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-10-1772897778270",
@@ -6691,7 +7611,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/sɛnˈtɛnəriən/",
+        "pos": "noun"
       },
       {
         "id": "word-13-11-1772897778270",
@@ -6705,7 +7627,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpæliətɪv keər/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-12-1772897778270",
@@ -6719,7 +7643,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhɒspɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-13-13-1772897778270",
@@ -6733,7 +7659,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dʒərənˈtɒlədʒi/",
+        "pos": "noun"
       },
       {
         "id": "word-13-14-1772897778270",
@@ -6747,7 +7675,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkætərækt/",
+        "pos": "noun"
       },
       {
         "id": "word-13-15-1772897778270",
@@ -6761,7 +7691,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɡlaʊˈkoʊmə/",
+        "pos": "noun"
       },
       {
         "id": "word-13-16-1772897778270",
@@ -6775,7 +7707,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhɪərɪŋ eɪd/",
+        "pos": "noun"
       },
       {
         "id": "word-13-17-1772897778270",
@@ -6789,7 +7723,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/moʊˈbɪləti eɪd/",
+        "pos": "noun"
       },
       {
         "id": "word-13-18-1772897778270",
@@ -6803,7 +7739,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈprɛʃər sɔːr/",
+        "pos": "noun"
       },
       {
         "id": "word-13-19-1772897778270",
@@ -6817,7 +7755,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkeərɡɪvər/",
+        "pos": "noun"
       },
       {
         "id": "word-13-20-1772897778270",
@@ -6831,7 +7771,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈeɪdʒɪŋ ˌpɒpjʊˈleɪʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-21-1772897778270",
@@ -6845,7 +7787,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɒstiəʊˈpəʊrəsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-13-22-1772897778270",
@@ -6859,7 +7803,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsɪŋkəpi/",
+        "pos": "noun"
       },
       {
         "id": "word-13-23-1772897778270",
@@ -6873,7 +7819,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈsɒmniə/",
+        "pos": "noun"
       },
       {
         "id": "word-13-24-1772897778270",
@@ -6887,7 +7835,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dɪˈprɛʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-13-25-1772897778270",
@@ -6901,7 +7851,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌaɪsəˈleɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-13-26-1772897778270",
@@ -6915,7 +7867,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/rɪˈmɛmbrəns ˈθɛrəpi/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-27-1772897778270",
@@ -6929,7 +7883,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈsɪstɪd ˈlɪvɪŋ/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-28-1772897778270",
@@ -6943,7 +7899,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌmɛdɪˈkeɪʃən ˈmænɪdʒmənt/",
+        "pos": "phrase"
       },
       {
         "id": "word-13-29-1772897778270",
@@ -6957,7 +7915,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈdjʊərəns/",
+        "pos": "noun"
       }
     ]
   },
@@ -6986,7 +7946,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/kənˈsɛpʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-1-1772897778270",
@@ -7000,7 +7962,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkɑntrəˈsɛpʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-2-1772897778270",
@@ -7014,7 +7978,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/fərˈtɪləti/",
+        "pos": "noun"
       },
       {
         "id": "word-14-3-1772897778270",
@@ -7028,7 +7994,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dʒɛsˈteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-4-1772897778270",
@@ -7042,7 +8010,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɑbstəˈtrɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-5-1772897778270",
@@ -7056,7 +8026,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɡaɪnəˈkɑlədʒɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-14-6-1772897778270",
@@ -7070,7 +8042,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈmɛnəˌpɔz/",
+        "pos": "noun"
       },
       {
         "id": "word-14-7-1772897778270",
@@ -7084,7 +8058,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɛndoʊmiːˈtriˈoʊsɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-14-8-1772897778270",
@@ -7098,7 +8074,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɪn ˈviːtroʊ ˌfɜrtəlaɪˈzeɪʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-14-9-1772897778270",
@@ -7112,7 +8090,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌpriˈneɪtəl kɛr/",
+        "pos": "phrase"
       },
       {
         "id": "word-14-10-1772897778270",
@@ -7126,7 +8106,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpjuːbərti/",
+        "pos": "noun"
       },
       {
         "id": "word-14-11-1772897778270",
@@ -7140,7 +8122,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌfɜrtəlaɪˈzeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-12-1772897778270",
@@ -7154,7 +8138,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪmplænˈteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-13-1772897778270",
@@ -7168,7 +8154,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈleɪbər/",
+        "pos": "noun"
       },
       {
         "id": "word-14-14-1772897778270",
@@ -7182,7 +8170,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dɪˈlɪvəri/",
+        "pos": "noun"
       },
       {
         "id": "word-14-15-1772897778270",
@@ -7196,7 +8186,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/poʊstˈpɑːrtəm/",
+        "pos": "adjective"
       },
       {
         "id": "word-14-16-1772897778270",
@@ -7210,7 +8202,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/læˈkteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-17-1772897778270",
@@ -7224,7 +8218,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪnfərˈtɪləti/",
+        "pos": "noun"
       },
       {
         "id": "word-14-18-1772897778270",
@@ -7238,7 +8234,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmɪsˌkɛrɪdʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-14-19-1772897778270",
@@ -7252,7 +8250,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈstɪlˌbɜrθ/",
+        "pos": "noun"
       },
       {
         "id": "word-14-20-1772897778270",
@@ -7266,7 +8266,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsɜrvɪks/",
+        "pos": "noun"
       },
       {
         "id": "word-14-21-1772897778270",
@@ -7280,7 +8282,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈjuːtərəs/",
+        "pos": "noun"
       },
       {
         "id": "word-14-22-1772897778270",
@@ -7294,7 +8298,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhɔːrmoʊn/",
+        "pos": "noun"
       },
       {
         "id": "word-14-23-1772897778270",
@@ -7308,7 +8314,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmæməˌɡræm/",
+        "pos": "noun"
       },
       {
         "id": "word-14-24-1772897778270",
@@ -7322,7 +8330,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɑːvjuˈleɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-25-1772897778270",
@@ -7336,7 +8346,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌmɛnˈstruˈeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-14-26-1772897778270",
@@ -7350,7 +8362,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌkɑntrəˈsɛptɪv/",
+        "pos": "adjective"
       },
       {
         "id": "word-14-27-1772897778270",
@@ -7364,7 +8378,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɛpɪˈdʊrəl/",
+        "pos": "noun"
       },
       {
         "id": "word-14-28-1772897778270",
@@ -7378,7 +8394,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/sɪˈzɛriən ˈsɛkʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-14-29-1772897778270",
@@ -7392,7 +8410,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Medical",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɛstrədʒən/",
+        "pos": "noun"
       }
     ]
   },
@@ -7421,7 +8441,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɡriːtɪŋz/",
+        "pos": "noun"
       },
       {
         "id": "word-15-1-1772897778270",
@@ -7435,7 +8457,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/fɛərˈwɛl/",
+        "pos": "noun"
       },
       {
         "id": "word-15-2-1772897778270",
@@ -7449,7 +8473,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɪntrəˈdʌkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-3-1772897778270",
@@ -7463,7 +8489,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əˈkweɪntəns/",
+        "pos": "noun"
       },
       {
         "id": "word-15-4-1772897778270",
@@ -7477,7 +8505,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpəlaɪtnəs/",
+        "pos": "noun"
       },
       {
         "id": "word-15-5-1772897778270",
@@ -7491,7 +8521,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkɒmplɪmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-15-6-1772897778270",
@@ -7505,7 +8537,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈpɒlədʒi/",
+        "pos": "noun"
       },
       {
         "id": "word-15-7-1772897778270",
@@ -7519,7 +8553,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɡrætɪtjuːd/",
+        "pos": "noun"
       },
       {
         "id": "word-15-8-1772897778270",
@@ -7533,7 +8569,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈɡriːmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-15-9-1772897778270",
@@ -7547,7 +8585,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌdɪsəˈɡriːmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-15-10-1772897778270",
@@ -7561,7 +8601,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈpɪnjən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-11-1772897778270",
@@ -7575,7 +8617,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/səˈdʒɛstʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-12-1772897778270",
@@ -7589,7 +8633,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈvɪteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-13-1772897778270",
@@ -7603,7 +8649,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsmɔːl tɔːk/",
+        "pos": "phrase"
       },
       {
         "id": "word-15-14-1772897778270",
@@ -7617,7 +8665,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌkɒnvərˈseɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-15-1772897778270",
@@ -7631,7 +8681,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɪntərˈækʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-16-1772897778270",
@@ -7645,7 +8697,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪkˈspreʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-17-1772897778270",
@@ -7659,7 +8713,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈdʒɛstʃər/",
+        "pos": "noun"
       },
       {
         "id": "word-15-18-1772897778270",
@@ -7673,7 +8729,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/rɪˈspɒns/",
+        "pos": "noun"
       },
       {
         "id": "word-15-19-1772897778270",
@@ -7687,7 +8745,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/riˈækʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-15-20-1772897778270",
@@ -7701,7 +8761,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪnˈθjuːziæzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-15-21-1772897778270",
@@ -7715,7 +8777,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/sɪnˈserəti/",
+        "pos": "noun"
       },
       {
         "id": "word-15-22-1772897778270",
@@ -7729,7 +8793,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɛmpəθi/",
+        "pos": "noun"
       },
       {
         "id": "word-15-23-1772897778270",
@@ -7743,7 +8809,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/səˈpɔːrt/",
+        "pos": "noun"
       },
       {
         "id": "word-15-24-1772897778270",
@@ -7757,7 +8825,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈkʌrɪdʒmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-15-25-1772897778270",
@@ -7771,7 +8841,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhjuːmər/",
+        "pos": "noun"
       },
       {
         "id": "word-15-26-1772897778270",
@@ -7785,7 +8857,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsɑːkæzəm/",
+        "pos": "noun"
       },
       {
         "id": "word-15-27-1772897778270",
@@ -7799,7 +8873,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/slæŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-15-28-1772897778270",
@@ -7813,7 +8889,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɪdiəm/",
+        "pos": "noun"
       },
       {
         "id": "word-15-29-1772897778270",
@@ -7827,7 +8905,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈnuːɑːns/",
+        "pos": "noun"
       }
     ]
   },
@@ -7856,7 +8936,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbɑːrɡɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-16-1-1772897778270",
@@ -7870,7 +8952,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpɜːrtʃəs/",
+        "pos": "noun"
       },
       {
         "id": "word-16-2-1772897778270",
@@ -7884,7 +8968,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/rɪˈsiːt/",
+        "pos": "noun"
       },
       {
         "id": "word-16-3-1772897778270",
@@ -7898,7 +8984,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈriːfʌnd/",
+        "pos": "noun"
       },
       {
         "id": "word-16-4-1772897778270",
@@ -7912,7 +9000,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈdɪskaʊnt/",
+        "pos": "noun"
       },
       {
         "id": "word-16-5-1772897778270",
@@ -7926,7 +9016,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/trænˈzækʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-16-6-1772897778270",
@@ -7940,7 +9032,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɪnvəntɔːri/",
+        "pos": "noun"
       },
       {
         "id": "word-16-7-1772897778270",
@@ -7954,7 +9048,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkɜːrənsi/",
+        "pos": "noun"
       },
       {
         "id": "word-16-8-1772897778270",
@@ -7968,7 +9064,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪksˈtʃeɪndʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-16-9-1772897778270",
@@ -7982,7 +9080,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈʃɪpɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-16-10-1772897778270",
@@ -7996,7 +9096,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmɜːrtʃənt/",
+        "pos": "noun"
       },
       {
         "id": "word-16-11-1772897778270",
@@ -8010,7 +9112,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbʌdʒɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-16-12-1772897778270",
@@ -8024,7 +9128,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪkˈspensɪv/",
+        "pos": "adjective"
       },
       {
         "id": "word-16-13-1772897778270",
@@ -8038,7 +9144,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈfɔːrdəbl/",
+        "pos": "adjective"
       },
       {
         "id": "word-16-14-1772897778270",
@@ -8052,7 +9160,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈklɪrəns/",
+        "pos": "noun"
       },
       {
         "id": "word-16-15-1772897778270",
@@ -8066,7 +9176,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/prəˈmoʊʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-16-16-1772897778270",
@@ -8080,7 +9192,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈvaʊtʃər/",
+        "pos": "noun"
       },
       {
         "id": "word-16-17-1772897778270",
@@ -8094,7 +9208,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkuːpɑːn/",
+        "pos": "noun"
       },
       {
         "id": "word-16-18-1772897778270",
@@ -8108,7 +9224,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈwɔːrənti/",
+        "pos": "noun"
       },
       {
         "id": "word-16-19-1772897778270",
@@ -8122,7 +9240,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɡærənˈtiː/",
+        "pos": "noun"
       },
       {
         "id": "word-16-20-1772897778270",
@@ -8136,7 +9256,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈkaʊntərfɪt/",
+        "pos": "adjective"
       },
       {
         "id": "word-16-21-1772897778270",
@@ -8150,7 +9272,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈhoʊlseɪl/",
+        "pos": "adjective"
       },
       {
         "id": "word-16-22-1772897778270",
@@ -8164,7 +9288,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈriːteɪl/",
+        "pos": "noun"
       },
       {
         "id": "word-16-23-1772897778270",
@@ -8178,7 +9304,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈmɑːrkʌp/",
+        "pos": "noun"
       },
       {
         "id": "word-16-24-1772897778270",
@@ -8192,7 +9320,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmɑːrkdaʊn/",
+        "pos": "noun"
       },
       {
         "id": "word-16-25-1772897778270",
@@ -8206,7 +9336,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/kənˈsʌmpʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-16-26-1772897778270",
@@ -8220,7 +9352,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈiː kɑːmɜːrs/",
+        "pos": "noun"
       },
       {
         "id": "word-16-27-1772897778270",
@@ -8234,7 +9368,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kɑːrt/",
+        "pos": "noun"
       },
       {
         "id": "word-16-28-1772897778270",
@@ -8248,7 +9384,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/aɪl/",
+        "pos": "noun"
       },
       {
         "id": "word-16-29-1772897778270",
@@ -8262,7 +9400,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈtʃekaʊt/",
+        "pos": "noun"
       }
     ]
   },
@@ -8291,7 +9431,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌrɛzərˈveɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-17-1-1772897778270",
@@ -8305,7 +9447,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈmɛnjuː/",
+        "pos": "noun"
       },
       {
         "id": "word-17-2-1772897778270",
@@ -8319,7 +9463,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈæpɪtaɪzər/",
+        "pos": "noun"
       },
       {
         "id": "word-17-3-1772897778270",
@@ -8333,7 +9479,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɑːntreɪ/",
+        "pos": "noun"
       },
       {
         "id": "word-17-4-1772897778270",
@@ -8347,7 +9495,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dɪˈzɜːrt/",
+        "pos": "noun"
       },
       {
         "id": "word-17-5-1772897778270",
@@ -8361,7 +9511,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbɛvərɪdʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-17-6-1772897778270",
@@ -8375,7 +9527,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈɡriːdiənt/",
+        "pos": "noun"
       },
       {
         "id": "word-17-7-1772897778270",
@@ -8389,7 +9543,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/kwɪˈziːn/",
+        "pos": "noun"
       },
       {
         "id": "word-17-8-1772897778270",
@@ -8403,7 +9559,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈfleɪvər/",
+        "pos": "noun"
       },
       {
         "id": "word-17-9-1772897778270",
@@ -8417,7 +9575,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsiːzənɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-17-10-1772897778270",
@@ -8431,7 +9591,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌvɛdʒɪˈtɛriən/",
+        "pos": "noun"
       },
       {
         "id": "word-17-11-1772897778270",
@@ -8445,7 +9607,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈviːɡən/",
+        "pos": "noun"
       },
       {
         "id": "word-17-12-1772897778270",
@@ -8459,7 +9623,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈælərdʒi/",
+        "pos": "noun"
       },
       {
         "id": "word-17-13-1772897778270",
@@ -8473,7 +9639,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈnuːtriənt/",
+        "pos": "noun"
       },
       {
         "id": "word-17-14-1772897778270",
@@ -8487,7 +9655,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈrɛsɪpi/",
+        "pos": "noun"
       },
       {
         "id": "word-17-15-1772897778270",
@@ -8501,7 +9671,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ʃɛf/",
+        "pos": "noun"
       },
       {
         "id": "word-17-16-1772897778270",
@@ -8515,7 +9687,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈweɪtər/",
+        "pos": "noun"
       },
       {
         "id": "word-17-17-1772897778270",
@@ -8529,7 +9703,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsɜːrvɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-17-18-1772897778270",
@@ -8543,7 +9719,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɡrəˈtuːɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-17-19-1772897778270",
@@ -8557,7 +9735,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/juːˈtɛnsɪl/",
+        "pos": "noun"
       },
       {
         "id": "word-17-20-1772897778270",
@@ -8571,7 +9751,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkʌtləri/",
+        "pos": "noun"
       },
       {
         "id": "word-17-21-1772897778270",
@@ -8585,7 +9767,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈteɪbəlklɔːθ/",
+        "pos": "noun"
       },
       {
         "id": "word-17-22-1772897778270",
@@ -8599,7 +9783,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈnæpkɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-17-23-1772897778270",
@@ -8613,7 +9799,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlɛftˌoʊvərz/",
+        "pos": "noun"
       },
       {
         "id": "word-17-24-1772897778270",
@@ -8627,7 +9815,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈteɪkaʊt/",
+        "pos": "noun"
       },
       {
         "id": "word-17-25-1772897778270",
@@ -8641,7 +9831,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈdaɪn ɪn/",
+        "pos": "adjective"
       },
       {
         "id": "word-17-26-1772897778270",
@@ -8655,7 +9847,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈstriːt fuːd/",
+        "pos": "noun"
       },
       {
         "id": "word-17-27-1772897778270",
@@ -8669,7 +9863,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɡʊrmeɪ/",
+        "pos": "adjective"
       },
       {
         "id": "word-17-28-1772897778270",
@@ -8683,7 +9879,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈdɛlɪkəsi/",
+        "pos": "noun"
       },
       {
         "id": "word-17-29-1772897778270",
@@ -8697,7 +9895,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈæpɪtaɪt/",
+        "pos": "noun"
       }
     ]
   },
@@ -8726,7 +9926,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/aɪˈtɪnərɛri/",
+        "pos": "noun"
       },
       {
         "id": "word-18-1-1772897778270",
@@ -8740,7 +9942,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpæspɔːrt/",
+        "pos": "noun"
       },
       {
         "id": "word-18-2-1772897778270",
@@ -8754,7 +9958,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈviːzə/",
+        "pos": "noun"
       },
       {
         "id": "word-18-3-1772897778270",
@@ -8768,7 +9974,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌdɛstɪˈneɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-18-4-1772897778270",
@@ -8782,7 +9990,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsaɪtˌsiːɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-18-5-1772897778270",
@@ -8796,7 +10006,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əˌkɑːməˈdeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-18-6-1772897778270",
@@ -8810,7 +10022,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbʊkɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-18-7-1772897778270",
@@ -8824,7 +10038,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌtrænspɔːrˈteɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-18-8-1772897778270",
@@ -8838,7 +10054,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlʌɡɪdʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-18-9-1772897778270",
@@ -8852,7 +10070,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkʌstəmz/",
+        "pos": "noun"
       },
       {
         "id": "word-18-10-1772897778270",
@@ -8866,7 +10086,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɪmɪˈɡreɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-18-11-1772897778270",
@@ -8880,7 +10102,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dɪˈpɑːrtʃər/",
+        "pos": "noun"
       },
       {
         "id": "word-18-12-1772897778270",
@@ -8894,7 +10118,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈraɪvəl/",
+        "pos": "noun"
       },
       {
         "id": "word-18-13-1772897778270",
@@ -8908,7 +10134,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈtɜːrmɪnəl/",
+        "pos": "noun"
       },
       {
         "id": "word-18-14-1772897778270",
@@ -8922,7 +10150,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɡeɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-18-15-1772897778270",
@@ -8936,7 +10166,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbɔːrdɪŋ pæs/",
+        "pos": "phrase"
       },
       {
         "id": "word-18-16-1772897778270",
@@ -8950,7 +10182,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈleɪˌoʊvər/",
+        "pos": "noun"
       },
       {
         "id": "word-18-17-1772897778270",
@@ -8964,7 +10198,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɛərlaɪnz/",
+        "pos": "noun"
       },
       {
         "id": "word-18-18-1772897778270",
@@ -8978,7 +10214,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpæsɪndʒər/",
+        "pos": "noun"
       },
       {
         "id": "word-18-19-1772897778270",
@@ -8992,7 +10230,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsiːtbɛlt/",
+        "pos": "noun"
       },
       {
         "id": "word-18-20-1772897778270",
@@ -9006,7 +10246,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪˈmɜːrdʒənsi/",
+        "pos": "noun"
       },
       {
         "id": "word-18-21-1772897778270",
@@ -9020,7 +10262,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌsuːvəˈnɪr/",
+        "pos": "noun"
       },
       {
         "id": "word-18-22-1772897778270",
@@ -9034,7 +10278,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈfɔːrɪn ɪksˈtʃeɪndʒ/",
+        "pos": "phrase"
       },
       {
         "id": "word-18-23-1772897778270",
@@ -9048,7 +10294,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈlændmɑːrk/",
+        "pos": "noun"
       },
       {
         "id": "word-18-24-1772897778270",
@@ -9062,7 +10310,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪkˈskɜːrʒən/",
+        "pos": "noun"
       },
       {
         "id": "word-18-25-1772897778270",
@@ -9076,7 +10326,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪnˈʃʊrəns/",
+        "pos": "noun"
       },
       {
         "id": "word-18-26-1772897778270",
@@ -9090,7 +10342,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌkɑːnfərˈmeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-18-27-1772897778270",
@@ -9104,7 +10358,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɛmbəsi/",
+        "pos": "noun"
       },
       {
         "id": "word-18-28-1772897778270",
@@ -9118,7 +10374,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈkɑːnsələt/",
+        "pos": "noun"
       },
       {
         "id": "word-18-29-1772897778270",
@@ -9132,7 +10390,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈdʒɛt læɡ/",
+        "pos": "noun"
       }
     ]
   },
@@ -9161,7 +10421,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɪntərˈsɛkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-19-1-1772897778270",
@@ -9175,7 +10437,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/pəˈdɛstriən/",
+        "pos": "noun"
       },
       {
         "id": "word-19-2-1772897778270",
@@ -9189,7 +10453,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈraʊndəˌbaʊt/",
+        "pos": "noun"
       },
       {
         "id": "word-19-3-1772897778270",
@@ -9203,7 +10469,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsʌbˌweɪ/",
+        "pos": "noun"
       },
       {
         "id": "word-19-4-1772897778270",
@@ -9217,7 +10485,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/kənˈdʒɛstʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-19-5-1772897778270",
@@ -9231,7 +10501,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈdiːˌtʊər/",
+        "pos": "noun"
       },
       {
         "id": "word-19-6-1772897778270",
@@ -9245,7 +10517,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈʃɔːrtkʌt/",
+        "pos": "noun"
       },
       {
         "id": "word-19-7-1772897778270",
@@ -9259,7 +10533,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈdɪstəns/",
+        "pos": "noun"
       },
       {
         "id": "word-19-8-1772897778270",
@@ -9273,7 +10549,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dɪˈrɛkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-19-9-1772897778270",
@@ -9287,7 +10565,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌnævɪˈɡeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-19-10-1772897778270",
@@ -9301,7 +10581,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpʌblɪk ˈtrænzɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-19-11-1772897778270",
@@ -9315,7 +10597,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈtrænsfər/",
+        "pos": "verb"
       },
       {
         "id": "word-19-12-1772897778270",
@@ -9329,7 +10613,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/fɛər/",
+        "pos": "noun"
       },
       {
         "id": "word-19-13-1772897778270",
@@ -9343,7 +10629,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈviːəkl/",
+        "pos": "noun"
       },
       {
         "id": "word-19-14-1772897778270",
@@ -9357,7 +10645,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈpɛdl/",
+        "pos": "noun"
       },
       {
         "id": "word-19-15-1772897778270",
@@ -9371,7 +10661,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/breɪk/",
+        "pos": "noun"
       },
       {
         "id": "word-19-16-1772897778270",
@@ -9385,7 +10677,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪkˈsɛləˌreɪtər/",
+        "pos": "noun"
       },
       {
         "id": "word-19-17-1772897778270",
@@ -9399,7 +10693,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɛndʒɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-19-18-1772897778270",
@@ -9413,7 +10709,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈfjuːəl/",
+        "pos": "noun"
       },
       {
         "id": "word-19-19-1772897778270",
@@ -9427,7 +10725,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlaɪsəns/",
+        "pos": "noun"
       },
       {
         "id": "word-19-20-1772897778270",
@@ -9441,7 +10741,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌrɛdʒɪˈstreɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-19-21-1772897778270",
@@ -9455,7 +10757,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈroʊdˌsaɪd əˈsɪstəns/",
+        "pos": "phrase"
       },
       {
         "id": "word-19-22-1772897778270",
@@ -9469,7 +10773,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkɑːrˌpuːl/",
+        "pos": "verb"
       },
       {
         "id": "word-19-23-1772897778270",
@@ -9483,7 +10789,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/raɪd ˈʃɛrɪŋ/",
+        "pos": "phrase"
       },
       {
         "id": "word-19-24-1772897778270",
@@ -9497,7 +10805,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɑːn ˌdɪˈmænd ˈsɜːrvɪs/",
+        "pos": "phrase"
       },
       {
         "id": "word-19-25-1772897778270",
@@ -9511,7 +10821,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsaɪklɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-19-26-1772897778270",
@@ -9525,7 +10837,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈwɔːkˌweɪ/",
+        "pos": "noun"
       },
       {
         "id": "word-19-27-1772897778270",
@@ -9539,7 +10853,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈoʊvərˌpæs/",
+        "pos": "noun"
       },
       {
         "id": "word-19-28-1772897778270",
@@ -9553,7 +10869,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Daily",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈʌndərˌpæs/",
+        "pos": "noun"
       },
       {
         "id": "word-19-29-1772897778270",
@@ -9596,7 +10914,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əˈdʒɛndə/",
+        "pos": "noun"
       },
       {
         "id": "word-20-1-1772897778270",
@@ -9610,7 +10930,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmɪnɪts/",
+        "pos": "noun"
       },
       {
         "id": "word-20-2-1772897778270",
@@ -9624,7 +10946,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kəˌlæbəˈreɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-20-3-1772897778270",
@@ -9638,7 +10962,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbreɪnstɔːrmɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-20-4-1772897778270",
@@ -9652,7 +10978,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈbriːfɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-20-5-1772897778270",
@@ -9666,7 +10994,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/kənˈsɛnsəs/",
+        "pos": "noun"
       },
       {
         "id": "word-20-6-1772897778270",
@@ -9680,7 +11010,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈdɛdlaɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-20-7-1772897778270",
@@ -9694,7 +11026,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dɪˈlɪvərəbəl/",
+        "pos": "noun"
       },
       {
         "id": "word-20-8-1772897778270",
@@ -9708,7 +11042,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈfiːdbæk/",
+        "pos": "noun"
       },
       {
         "id": "word-20-9-1772897778270",
@@ -9722,7 +11058,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhɛdz ʌp/",
+        "pos": "noun"
       },
       {
         "id": "word-20-10-1772897778270",
@@ -9736,7 +11074,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪnˈsɛntɪv/",
+        "pos": "noun"
       },
       {
         "id": "word-20-11-1772897778270",
@@ -9750,7 +11090,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌkeɪ piː ˈaɪ/",
+        "pos": "phrase"
       },
       {
         "id": "word-20-12-1772897778270",
@@ -9764,7 +11106,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmaɪlstoʊn/",
+        "pos": "noun"
       },
       {
         "id": "word-20-13-1772897778270",
@@ -9778,7 +11122,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/nɪʃ/",
+        "pos": "noun"
       },
       {
         "id": "word-20-14-1772897778270",
@@ -9792,7 +11138,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɒnbɔːrdɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-20-15-1772897778270",
@@ -9806,7 +11154,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈaʊtsɔːrsɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-20-16-1772897778270",
@@ -9820,7 +11170,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpærədaɪm/",
+        "pos": "noun"
       },
       {
         "id": "word-20-17-1772897778270",
@@ -9834,7 +11186,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpaɪplaɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-20-18-1772897778270",
@@ -9848,7 +11202,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpɪvət/",
+        "pos": "noun"
       },
       {
         "id": "word-20-19-1772897778270",
@@ -9862,7 +11218,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkwɔːrtərli/",
+        "pos": "adjective"
       },
       {
         "id": "word-20-20-1772897778270",
@@ -9876,7 +11234,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɑːr oʊ ˈaɪ/",
+        "pos": "phrase"
       },
       {
         "id": "word-20-21-1772897778270",
@@ -9890,7 +11250,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌskeɪləˈbɪləti/",
+        "pos": "noun"
       },
       {
         "id": "word-20-22-1772897778270",
@@ -9904,7 +11266,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsɪnərdʒi/",
+        "pos": "noun"
       },
       {
         "id": "word-20-23-1772897778270",
@@ -9918,7 +11282,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/trænsˈpærənsi/",
+        "pos": "noun"
       },
       {
         "id": "word-20-24-1772897778270",
@@ -9932,7 +11298,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈwɜːrkfloʊ/",
+        "pos": "noun"
       },
       {
         "id": "word-20-25-1772897778270",
@@ -9946,7 +11314,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈwɜːrkʃɒp/",
+        "pos": "noun"
       },
       {
         "id": "word-20-26-1772897778270",
@@ -9960,7 +11330,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈsteɪkhoʊldər/",
+        "pos": "noun"
       },
       {
         "id": "word-20-27-1772897778270",
@@ -9974,7 +11346,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈstrætədʒi/",
+        "pos": "noun"
       },
       {
         "id": "word-20-28-1772897778270",
@@ -9988,7 +11362,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/səˌsteɪnəˈbɪləti/",
+        "pos": "noun"
       },
       {
         "id": "word-20-29-1772897778270",
@@ -10002,7 +11378,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɪnəˈveɪʃən/",
+        "pos": "noun"
       }
     ]
   },
@@ -10031,7 +11409,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈædvərˌtaɪzɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-21-1-1772897778270",
@@ -10045,7 +11425,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈbrændɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-21-2-1772897778270",
@@ -10059,7 +11441,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kæmˈpeɪn/",
+        "pos": "noun"
       },
       {
         "id": "word-21-3-1772897778270",
@@ -10073,7 +11457,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kəmˈpɛtɪtər/",
+        "pos": "noun"
       },
       {
         "id": "word-21-4-1772897778270",
@@ -10087,7 +11473,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdɛməˈɡræfɪks/",
+        "pos": "noun"
       },
       {
         "id": "word-21-5-1772897778270",
@@ -10101,7 +11489,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪnˈɡeɪdʒmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-21-6-1772897778270",
@@ -10115,7 +11505,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/liːd/",
+        "pos": "noun"
       },
       {
         "id": "word-21-7-1772897778270",
@@ -10129,7 +11521,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmɑːrkɪt ʃɛər/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-8-1772897778270",
@@ -10143,7 +11537,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/nɪˌɡoʊʃiˈeɪʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-21-9-1772897778270",
@@ -10157,7 +11553,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/pɪtʃ/",
+        "pos": "noun"
       },
       {
         "id": "word-21-10-1772897778270",
@@ -10171,7 +11569,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/prəˈmoʊʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-21-11-1772897778270",
@@ -10185,7 +11585,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈprɒspɛkt/",
+        "pos": "noun"
       },
       {
         "id": "word-21-12-1772897778270",
@@ -10199,7 +11601,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌpʌblɪk rɪˈleɪʃnz/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-13-1772897778270",
@@ -10213,7 +11617,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/rɪˈfɜːrəl/",
+        "pos": "noun"
       },
       {
         "id": "word-21-14-1772897778270",
@@ -10227,7 +11633,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/rɪˈtɛnʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-21-15-1772897778270",
@@ -10241,7 +11649,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌsɛɡmɛnˈteɪʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-21-16-1772897778270",
@@ -10255,7 +11665,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsloʊɡən/",
+        "pos": "noun"
       },
       {
         "id": "word-21-17-1772897778270",
@@ -10269,7 +11681,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈtɑːrɡɪt ˈɔːdiəns/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-18-1772897778270",
@@ -10283,7 +11697,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌtɛstɪˈmoʊniəl/",
+        "pos": "noun"
       },
       {
         "id": "word-21-19-1772897778270",
@@ -10297,7 +11713,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ʌpˈsɛlɪŋ/",
+        "pos": "verb"
       },
       {
         "id": "word-21-20-1772897778270",
@@ -10311,7 +11729,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈvæljuː prɒpəˌzɪʃn/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-21-1772897778270",
@@ -10325,7 +11745,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈvaɪərəl/",
+        "pos": "adjective"
       },
       {
         "id": "word-21-22-1772897778270",
@@ -10339,7 +11761,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈhoʊlseɪl/",
+        "pos": "adjective"
       },
       {
         "id": "word-21-23-1772897778270",
@@ -10353,7 +11777,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈriːteɪl/",
+        "pos": "adjective"
       },
       {
         "id": "word-21-24-1772897778270",
@@ -10367,7 +11793,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkoʊld ˌkɔːlɪŋ/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-25-1772897778270",
@@ -10381,7 +11809,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/kənˈvɜːrʒn ˌreɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-26-1772897778270",
@@ -10395,7 +11825,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkʌstəmər ˈdʒɜːrni/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-27-1772897778270",
@@ -10409,7 +11841,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɪnbaʊnd ˈmɑːrkɪtɪŋ/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-28-1772897778270",
@@ -10423,7 +11857,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈaʊtbaʊnd ˈmɑːrkɪtɪŋ/",
+        "pos": "phrase"
       },
       {
         "id": "word-21-29-1772897778270",
@@ -10437,7 +11873,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɛs iː ˈoʊ/",
+        "pos": "phrase"
       }
     ]
   },
@@ -10466,7 +11904,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈkaʊntɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-22-1-1772897778270",
@@ -10480,7 +11920,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɔːdɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-2-1772897778270",
@@ -10494,7 +11936,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈbæləns ʃiːt/",
+        "pos": "phrase"
       },
       {
         "id": "word-22-3-1772897778270",
@@ -10508,7 +11952,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈbʌdʒɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-4-1772897778270",
@@ -10522,7 +11968,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkæpɪtl̩/",
+        "pos": "noun"
       },
       {
         "id": "word-22-5-1772897778270",
@@ -10536,7 +11984,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈkæʃ floʊ/",
+        "pos": "phrase"
       },
       {
         "id": "word-22-6-1772897778270",
@@ -10550,7 +12000,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkrɛdɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-7-1772897778270",
@@ -10564,7 +12016,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈdɛbɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-8-1772897778270",
@@ -10578,7 +12032,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dɛt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-9-1772897778270",
@@ -10592,7 +12048,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈdɪvɪdɛnd/",
+        "pos": "noun"
       },
       {
         "id": "word-22-10-1772897778270",
@@ -10606,7 +12064,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈɛkwəti/",
+        "pos": "noun"
       },
       {
         "id": "word-22-11-1772897778270",
@@ -10620,7 +12080,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪkˈspɛnsɪz/",
+        "pos": "noun"
       },
       {
         "id": "word-22-12-1772897778270",
@@ -10634,7 +12096,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈfɪskl̩ ˈjɪər/",
+        "pos": "phrase"
       },
       {
         "id": "word-22-13-1772897778270",
@@ -10648,7 +12112,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɪntrɛst reɪt/",
+        "pos": "phrase"
       },
       {
         "id": "word-22-14-1772897778270",
@@ -10662,7 +12128,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ɪnˈvɛstmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-15-1772897778270",
@@ -10676,7 +12144,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌlaɪəˈbɪləti/",
+        "pos": "noun"
       },
       {
         "id": "word-22-16-1772897778270",
@@ -10690,7 +12160,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/lɪˈkwɪdəti/",
+        "pos": "noun"
       },
       {
         "id": "word-22-17-1772897778270",
@@ -10704,7 +12176,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/nɛt ˈɪnkʌm/",
+        "pos": "phrase"
       },
       {
         "id": "word-22-18-1772897778270",
@@ -10718,7 +12192,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈoʊvərˌhɛd/",
+        "pos": "noun"
       },
       {
         "id": "word-22-19-1772897778270",
@@ -10732,7 +12208,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈprɒfɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-20-1772897778270",
@@ -10746,7 +12224,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈrɛvəˌnuː/",
+        "pos": "noun"
       },
       {
         "id": "word-22-21-1772897778270",
@@ -10760,7 +12240,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/tæks/",
+        "pos": "noun"
       },
       {
         "id": "word-22-22-1772897778270",
@@ -10774,7 +12256,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌvæljuˈeɪʃn̩/",
+        "pos": "noun"
       },
       {
         "id": "word-22-23-1772897778270",
@@ -10788,7 +12272,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/jiːld/",
+        "pos": "noun"
       },
       {
         "id": "word-22-24-1772897778270",
@@ -10802,7 +12288,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈæsɛt/",
+        "pos": "noun"
       },
       {
         "id": "word-22-25-1772897778270",
@@ -10816,7 +12304,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈbæŋkrʌptsi/",
+        "pos": "noun"
       },
       {
         "id": "word-22-26-1772897778270",
@@ -10830,7 +12320,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/kəˈlætərəl/",
+        "pos": "noun"
       },
       {
         "id": "word-22-27-1772897778270",
@@ -10844,7 +12336,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/hɛdʒ/",
+        "pos": "verb"
       },
       {
         "id": "word-22-28-1772897778270",
@@ -10858,7 +12352,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈmɔːrɡɪdʒ/",
+        "pos": "noun"
       },
       {
         "id": "word-22-29-1772897778270",
@@ -10872,7 +12368,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/pɔːrtˈfoʊlioʊ/",
+        "pos": "noun"
       }
     ]
   },
@@ -10901,7 +12399,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/əˈpreɪ.zəl/",
+        "pos": "noun"
       },
       {
         "id": "word-23-1-1772897778270",
@@ -10915,7 +12415,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/əˈtrɪʃ.ən/",
+        "pos": "noun"
       },
       {
         "id": "word-23-2-1772897778270",
@@ -10929,7 +12431,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈben.ə.fɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-23-3-1772897778270",
@@ -10943,7 +12447,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌkɒm.penˈseɪ.ʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-23-4-1772897778270",
@@ -10957,7 +12463,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkɒn.trækt/",
+        "pos": "noun"
       },
       {
         "id": "word-23-5-1772897778270",
@@ -10971,7 +12479,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/daɪˈvɜː.sə.ti/",
+        "pos": "noun"
       },
       {
         "id": "word-23-6-1772897778270",
@@ -10985,7 +12495,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪmˈplɔɪ.iː ɪŋˈɡeɪdʒ.mənt/",
+        "pos": "phrase"
       },
       {
         "id": "word-23-7-1772897778270",
@@ -10999,7 +12511,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈhed.hʌn.tər/",
+        "pos": "noun"
       },
       {
         "id": "word-23-8-1772897778270",
@@ -11013,7 +12527,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/pɜːk/",
+        "pos": "noun"
       },
       {
         "id": "word-23-9-1772897778270",
@@ -11027,7 +12543,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈɪn.tə.vjuː/",
+        "pos": "noun"
       },
       {
         "id": "word-23-10-1772897778270",
@@ -11041,7 +12559,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/dʒɒb dɪˈskrɪp.ʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-23-11-1772897778270",
@@ -11055,7 +12575,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈleɪ.ɒf/",
+        "pos": "noun"
       },
       {
         "id": "word-23-12-1772897778270",
@@ -11069,7 +12591,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈnəʊ.tɪs ˈpɪə.ri.əd/",
+        "pos": "phrase"
       },
       {
         "id": "word-23-13-1772897778270",
@@ -11083,7 +12607,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌɔː.ri.enˈteɪ.ʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-23-14-1772897778270",
@@ -11097,7 +12623,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈəʊ.və.taɪm/",
+        "pos": "noun"
       },
       {
         "id": "word-23-15-1772897778270",
@@ -11111,7 +12639,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpeɪ.rəʊl/",
+        "pos": "noun"
       },
       {
         "id": "word-23-16-1772897778270",
@@ -11125,7 +12655,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/pəˈfɔː.məns rɪˈvjuː/",
+        "pos": "phrase"
       },
       {
         "id": "word-23-17-1772897778270",
@@ -11139,7 +12671,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/kəˈrɪə pɑːθ/",
+        "pos": "phrase"
       },
       {
         "id": "word-23-18-1772897778270",
@@ -11153,7 +12687,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/rɪˈkruːt.mənt/",
+        "pos": "noun"
       },
       {
         "id": "word-23-19-1772897778270",
@@ -11167,7 +12703,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/rɪˈdʌn.dən.si/",
+        "pos": "noun"
       },
       {
         "id": "word-23-20-1772897778270",
@@ -11181,7 +12719,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˌrez.ɪɡˈneɪ.ʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-23-21-1772897778270",
@@ -11195,7 +12735,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/rɪˈtaɪə.mənt/",
+        "pos": "noun"
       },
       {
         "id": "word-23-22-1772897778270",
@@ -11209,7 +12751,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈsæl.ə.ri/",
+        "pos": "noun"
       },
       {
         "id": "word-23-23-1772897778270",
@@ -11223,7 +12767,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈsev.ər.əns peɪ/",
+        "pos": "phrase"
       },
       {
         "id": "word-23-24-1772897778270",
@@ -11237,7 +12783,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈʃɔːt.lɪst/",
+        "pos": "noun"
       },
       {
         "id": "word-23-25-1772897778270",
@@ -11251,7 +12799,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈtæl.ənt ˌæk.wɪˈzɪʃ.ən/",
+        "pos": "phrase"
       },
       {
         "id": "word-23-26-1772897778270",
@@ -11265,7 +12815,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌtɜː.mɪˈneɪ.ʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-23-27-1772897778270",
@@ -11279,7 +12831,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈtɜːn.əʊ.vər/",
+        "pos": "noun"
       },
       {
         "id": "word-23-28-1772897778270",
@@ -11293,7 +12847,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈveɪ.kən.si/",
+        "pos": "noun"
       },
       {
         "id": "word-23-29-1772897778270",
@@ -11307,7 +12863,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/wɜːk laɪf ˈbæl.əns/",
+        "pos": "phrase"
       }
     ]
   },
@@ -11336,7 +12894,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌækwəˈzɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-24-1-1772897778270",
@@ -11350,7 +12910,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/əˈɡriːmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-24-2-1772897778270",
@@ -11364,7 +12926,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌɑːrbəˈtreɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-24-3-1772897778270",
@@ -11378,7 +12942,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈɑːrtɪkl/",
+        "pos": "noun"
       },
       {
         "id": "word-24-4-1772897778270",
@@ -11392,7 +12958,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/briːtʃ əv ˈkɒntrækt/",
+        "pos": "idiom"
       },
       {
         "id": "word-24-5-1772897778270",
@@ -11406,7 +12974,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/klɔːz/",
+        "pos": "noun"
       },
       {
         "id": "word-24-6-1772897778270",
@@ -11420,7 +12990,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/kəmˈplaɪəns/",
+        "pos": "noun"
       },
       {
         "id": "word-24-7-1772897778270",
@@ -11434,7 +13006,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌkɒnfɪˌdenʃiˈælɪti/",
+        "pos": "noun"
       },
       {
         "id": "word-24-8-1772897778270",
@@ -11448,7 +13022,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈkɒpiraɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-24-9-1772897778270",
@@ -11462,7 +13038,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈdæmɪdʒɪz/",
+        "pos": "noun"
       },
       {
         "id": "word-24-10-1772897778270",
@@ -11476,7 +13054,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/dɪˈfendənt/",
+        "pos": "noun"
       },
       {
         "id": "word-24-11-1772897778270",
@@ -11490,7 +13070,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/dɪsˈkleɪmər/",
+        "pos": "noun"
       },
       {
         "id": "word-24-12-1772897778270",
@@ -11504,7 +13086,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌdjuː ˈdɪlɪdʒəns/",
+        "pos": "phrase"
       },
       {
         "id": "word-24-13-1772897778270",
@@ -11518,7 +13102,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɪnˈfɔːrsəbl/",
+        "pos": "adjective"
       },
       {
         "id": "word-24-14-1772897778270",
@@ -11532,7 +13118,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɪnˈdemnəti/",
+        "pos": "noun"
       },
       {
         "id": "word-24-15-1772897778270",
@@ -11546,7 +13134,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ɪnˈfrɪndʒmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-24-16-1772897778270",
@@ -11560,7 +13150,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ɪnˈdʒʌŋkʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-24-17-1772897778270",
@@ -11574,7 +13166,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɪntəˈlɛktʃuəl ˈprɒpərti/",
+        "pos": "phrase"
       },
       {
         "id": "word-24-18-1772897778270",
@@ -11588,7 +13182,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/dʒɔɪnt ˈvɛntʃər/",
+        "pos": "phrase"
       },
       {
         "id": "word-24-19-1772897778270",
@@ -11602,7 +13198,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈlɔːsuːt/",
+        "pos": "noun"
       },
       {
         "id": "word-24-20-1772897778270",
@@ -11616,7 +13214,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈliːɡəl ˌɒblɪˈɡeɪʃən/",
+        "pos": "phrase"
       },
       {
         "id": "word-24-21-1772897778270",
@@ -11630,7 +13230,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˌlɪtɪˈɡeɪʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-24-22-1772897778270",
@@ -11644,7 +13246,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/mɜːrdʒər/",
+        "pos": "noun"
       },
       {
         "id": "word-24-23-1772897778270",
@@ -11658,7 +13262,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌɛn diː ˈeɪ/",
+        "pos": "phrase"
       },
       {
         "id": "word-24-24-1772897778270",
@@ -11672,7 +13278,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈpætnt/",
+        "pos": "noun"
       },
       {
         "id": "word-24-25-1772897778270",
@@ -11686,7 +13294,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈpleɪntɪf/",
+        "pos": "noun"
       },
       {
         "id": "word-24-26-1772897778270",
@@ -11700,7 +13310,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˌrɛzəˈluːʃən/",
+        "pos": "noun"
       },
       {
         "id": "word-24-27-1772897778270",
@@ -11714,7 +13326,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Advanced"
-        ]
+        ],
+        "phonetic": "/ˈstætʃuːt/",
+        "pos": "noun"
       },
       {
         "id": "word-24-28-1772897778270",
@@ -11728,7 +13342,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Basic"
-        ]
+        ],
+        "phonetic": "/ˈtrɛɪdmɑːrk/",
+        "pos": "noun"
       },
       {
         "id": "word-24-29-1772897778270",
@@ -11742,7 +13358,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Business",
           "Intermediate"
-        ]
+        ],
+        "phonetic": "/ˈweɪvər/",
+        "pos": "noun"
       }
     ]
   },
@@ -11771,7 +13389,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Space",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈæs.tə.rɔɪd/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-2-1773901514000",
@@ -11785,7 +13405,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈbeɪ.oʊ.bæb/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-3-1773901514000",
@@ -11799,7 +13421,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Philosophy",
           "Literature"
-        ]
+        ],
+        "phonetic": "/teɪm/",
+        "pos": "verb"
       },
       {
         "id": "word-prince-4-1773901514000",
@@ -11813,7 +13437,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ɪˈfem.ər.əl/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-5-1773901514000",
@@ -11827,7 +13453,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Human",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈvæn.ə.ti/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-6-1773901514000",
@@ -11841,7 +13469,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈvɪz.ə.bəl/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-7-1773901514000",
@@ -11855,7 +13485,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈmel.ən.kɑː.li/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-8-1773901514000",
@@ -11869,7 +13501,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈsɑː.lə.ter.i/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-9-1773901514000",
@@ -11883,7 +13517,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈfrædʒ.əl/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-10-1773901514000",
@@ -11897,7 +13533,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Abtract",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ɪˈtɜː.nə.ti/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-11-1773901514000",
@@ -11911,7 +13549,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ɪnˈdʌl.dʒəns/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-12-1773901514000",
@@ -11925,7 +13565,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Classic"
-        ]
+        ],
+        "phonetic": "/pərˈplek.sə.ti/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-13-1773901514000",
@@ -11939,7 +13581,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Literature"
-        ]
+        ],
+        "phonetic": "/dɪˈpɑːr.tʃər/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-14-1773901514000",
@@ -11953,7 +13597,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Philosophy",
           "Classic"
-        ]
+        ],
+        "phonetic": "/rɪˈspɑːn.sə.bəl/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-15-1773901514000",
@@ -11967,7 +13613,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈreɪ.di.ənt/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-16-1773901514000",
@@ -11981,7 +13629,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈsɑː.lə.tuːd/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-17-1773901514000",
@@ -11995,7 +13645,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/prəˈfaʊnd/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-18-1773901514000",
@@ -12009,7 +13661,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/naɪˈiːv/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-19-1773901514000",
@@ -12023,7 +13677,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Literature"
-        ]
+        ],
+        "phonetic": "/əˈstɑːn.ɪʃ.mənt/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-20-1773901514000",
@@ -12037,7 +13693,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/fəˈtiːɡ/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-21-1773901514000",
@@ -12051,7 +13709,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈrem.ə.di/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-22-1773901514000",
@@ -12065,7 +13725,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Philosophy",
           "Classic"
-        ]
+        ],
+        "phonetic": "/juːˈniːk/",
+        "pos": "adjective"
       },
       {
         "id": "word-prince-23-1773901514000",
@@ -12079,7 +13741,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈwɑːn.dər/",
+        "pos": "verb"
       },
       {
         "id": "word-prince-24-1773901514000",
@@ -12093,7 +13757,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/θɜːrst/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-25-1773901514000",
@@ -12107,7 +13773,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Literature"
-        ]
+        ],
+        "phonetic": "/kənˈsoʊl/",
+        "pos": "verb"
       },
       {
         "id": "word-prince-26-1773901514000",
@@ -12121,7 +13789,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/əˈbɪs/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-27-1773901514000",
@@ -12135,7 +13805,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈboʊ.ə.kənˌstrɪk.tər/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-28-1773901514000",
@@ -12149,7 +13821,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Philosophy",
           "Classic"
-        ]
+        ],
+        "phonetic": "/raɪt/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-29-1773901514000",
@@ -12163,7 +13837,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈlæmpˌʃeɪ.dər/",
+        "pos": "noun"
       },
       {
         "id": "word-prince-30-1773901514000",
@@ -12177,7 +13853,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Nature",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈek.oʊ/",
+        "pos": "noun"
       }
     ]
   },
@@ -12206,7 +13884,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ɪɡˈstrævəɡəns/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-2-1773901514000",
@@ -12220,7 +13900,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Philosophy",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˌdɪsɪˈluːʒənmənt/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-3-1773901514000",
@@ -12234,7 +13916,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ɪnˌfætʃuˈeɪʃn/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-4-1773901514000",
@@ -12248,7 +13932,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈdɛkədəns/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-5-1773901514000",
@@ -12262,7 +13948,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˌɒstenˈteɪʃəs/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-6-1773901514000",
@@ -12276,7 +13964,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Human",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˌsuːpərˈfɪʃl/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-7-1773901514000",
@@ -12290,7 +13980,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/klænˈdɛstaɪn/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-8-1773901514000",
@@ -12304,7 +13996,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Place",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈlæbərɪnθ/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-9-1773901514000",
@@ -12318,7 +14012,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Human",
           "Classic"
-        ]
+        ],
+        "phonetic": "/vaɪˈtæləti/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-10-1773901514000",
@@ -12332,7 +14028,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈsɪnɪkl/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-11-1773901514000",
@@ -12346,7 +14044,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈpɔɪnjənt/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-12-1773901514000",
@@ -12360,7 +14060,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ɪɡˈzuːbərənt/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-13-1773901514000",
@@ -12374,7 +14076,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/feɪn/",
+        "pos": "verb"
       },
       {
         "id": "word-gatsby-14-1773901514000",
@@ -12388,7 +14092,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈjɜːrnɪŋ/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-15-1773901514000",
@@ -12402,7 +14108,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈwɪstfl/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-16-1773901514000",
@@ -12416,7 +14124,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈnɛbjələs/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-17-1773901514000",
@@ -12430,7 +14140,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/pʌŋkˈtɪliəs/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-18-1773901514000",
@@ -12444,7 +14156,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈflʌktʃueɪt/",
+        "pos": "verb"
       },
       {
         "id": "word-gatsby-19-1773901514000",
@@ -12458,7 +14172,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Character",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈdʒɔːnti/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-20-1773901514000",
@@ -12472,7 +14188,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Emotion",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ləˈθɑːrdʒɪk/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-21-1773901514000",
@@ -12486,7 +14204,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Classic"
-        ]
+        ],
+        "phonetic": "/vəˈsɪnəti/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-22-1773901514000",
@@ -12500,7 +14220,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈskændələs/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-23-1773901514000",
@@ -12514,7 +14236,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Human",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˈærəstɒkrəsi/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-24-1773901514000",
@@ -12528,7 +14252,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˌnəʊtəˈraɪəti/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-25-1773901514000",
@@ -12542,7 +14268,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ɪˈluːd/",
+        "pos": "verb"
       },
       {
         "id": "word-gatsby-26-1773901514000",
@@ -12556,7 +14284,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˌsɒmnˈæmbjuleɪtɔːri/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-27-1773901514000",
@@ -12570,7 +14300,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Human",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ˌɪnjuˈɛndoʊ/",
+        "pos": "noun"
       },
       {
         "id": "word-gatsby-28-1773901514000",
@@ -12584,7 +14316,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Philosophy",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈtrænʃənt/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-29-1773901514000",
@@ -12598,7 +14332,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Vocabulary",
           "Classic"
-        ]
+        ],
+        "phonetic": "/ʌnˈfæðəməbl/",
+        "pos": "adjective"
       },
       {
         "id": "word-gatsby-30-1773901514000",
@@ -12612,7 +14348,9 @@ export const curationPresets: VocaList[] = [
         "tags": [
           "Basic",
           "Literature"
-        ]
+        ],
+        "phonetic": "/ˈjuːfəmɪzəm/",
+        "pos": "noun"
       }
     ]
   }

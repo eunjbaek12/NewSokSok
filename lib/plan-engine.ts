@@ -53,7 +53,7 @@ export function computePlanStatus(list: VocaList, words: Word[], now: number): P
   if (!list.planStartedAt || !list.planTotalDays) {
     return 'none';
   }
-  if (words.length > 0 && words.every(w => w.isMemorized)) {
+  if (words.length > 0 && words.every(w => w.isMemorized) && list.planUpdatedAt != null) {
     return 'completed';
   }
   const planEndDate = list.planStartedAt + list.planTotalDays * 86400000;
@@ -61,7 +61,8 @@ export function computePlanStatus(list: VocaList, words: Word[], now: number): P
     return 'overdue';
   }
   const INACTIVE_THRESHOLD = 7 * 24 * 60 * 60 * 1000;
-  if (list.planUpdatedAt && now - list.planUpdatedAt >= INACTIVE_THRESHOLD) {
+  const lastActivity = list.planUpdatedAt ?? list.planStartedAt;
+  if (lastActivity && now - lastActivity >= INACTIVE_THRESHOLD) {
     return 'inactive';
   }
   return 'in-progress';
@@ -103,59 +104,72 @@ export interface DayStudyStatus {
   dayTotal: number;
 }
 
+function isSameCalendarDay(a: number, b: number): boolean {
+  const da = new Date(a);
+  const db = new Date(b);
+  return (
+    da.getFullYear() === db.getFullYear() &&
+    da.getMonth() === db.getMonth() &&
+    da.getDate() === db.getDate()
+  );
+}
+
 /**
  * Computes the study status for a plan card on the home screen.
- * - displayDay: the Day number to show on the chip (last studied or current)
- * - state: 'needs-study' (0% memorized), 'studying' (<50%), 'completed' (>=50%)
+ * - displayDay: the Day number to show on the chip
+ * - state: 'needs-study' (0%), 'studying' (<50%), 'completed' (>=50%, today only)
  * - dayMemorized/dayTotal: word counts for the display day
  *
- * If today's day is completed and planUpdatedAt was on a previous calendar day,
- * automatically advances to the next day.
+ * 'completed' is only returned when planUpdatedAt is today.
+ * If not studied today, cascades forward through already-completed days
+ * to show the first unfinished day as 'needs-study' or 'studying'.
  */
 export function computeDayStudyStatus(list: VocaList, words: Word[], now: number = Date.now()): DayStudyStatus {
-  const displayDay = list.planCurrentDay ?? computeCurrentDay(words);
-  const dayWords = words.filter(w => w.assignedDay === displayDay);
-  const dayTotal = dayWords.length;
-  const dayMemorized = dayWords.filter(w => w.isMemorized).length;
+  const isStudiedToday =
+    list.planUpdatedAt != null && isSameCalendarDay(list.planUpdatedAt, now);
 
-  let state: StudyState;
-  if (dayTotal === 0 || dayMemorized === 0) {
-    state = 'needs-study';
-  } else if (dayMemorized / dayTotal < 0.5) {
-    state = 'studying';
-  } else {
-    state = 'completed';
-  }
+  const baseDay = list.planCurrentDay ?? computeCurrentDay(words);
 
-  // 오늘 학습이 완료됐고, planUpdatedAt이 이전 날짜라면 다음 Day로 자동 전환
-  if (state === 'completed' && list.planUpdatedAt) {
-    const lastDate = new Date(list.planUpdatedAt);
-    const todayDate = new Date(now);
-    const isNewDay =
-      lastDate.getFullYear() !== todayDate.getFullYear() ||
-      lastDate.getMonth() !== todayDate.getMonth() ||
-      lastDate.getDate() !== todayDate.getDate();
-
-    if (isNewDay) {
-      const nextDay = displayDay + 1;
-      const nextDayWords = words.filter(w => w.assignedDay === nextDay);
-      if (nextDayWords.length > 0) {
-        const nextMemorized = nextDayWords.filter(w => w.isMemorized).length;
-        const nextTotal = nextDayWords.length;
-        let nextState: StudyState;
-        if (nextMemorized === 0) {
-          nextState = 'needs-study';
-        } else if (nextMemorized / nextTotal < 0.5) {
-          nextState = 'studying';
-        } else {
-          nextState = 'completed';
-        }
-        return { displayDay: nextDay, state: nextState, dayMemorized: nextMemorized, dayTotal: nextTotal };
-      }
+  function evalDay(day: number): { state: StudyState; dayMemorized: number; dayTotal: number } {
+    const dayWords = words.filter(w => w.assignedDay === day);
+    const dayTotal = dayWords.length;
+    const dayMemorized = dayWords.filter(w => w.isMemorized).length;
+    let state: StudyState;
+    if (dayTotal === 0 || dayMemorized === 0) {
+      state = 'needs-study';
+    } else if (dayMemorized / dayTotal < 0.5) {
+      state = 'studying';
+    } else {
+      state = 'completed';
     }
+    return { state, dayMemorized, dayTotal };
   }
 
-  return { displayDay, state, dayMemorized, dayTotal };
+  if (!isStudiedToday) {
+    // 오늘 학습하지 않은 경우: 이미 완료된 Day들을 건너뛰며 첫 미완료 Day를 탐색
+    let day = baseDay;
+    while (true) {
+      const { state, dayMemorized, dayTotal } = evalDay(day);
+      if (dayTotal === 0) break; // 더 이상 Day 없음
+      if (state !== 'completed') {
+        return { displayDay: day, state, dayMemorized, dayTotal };
+      }
+      // 완료 상태지만 오늘 학습 안 함 → 다음 Day 확인
+      const hasNextDay = words.some(w => w.assignedDay === day + 1);
+      if (!hasNextDay) {
+        // 마지막 Day — 오늘 학습 유도를 위해 needs-study로 표시
+        return { displayDay: day, state: 'needs-study', dayMemorized, dayTotal };
+      }
+      day++;
+    }
+    // 폴백
+    const { dayMemorized, dayTotal } = evalDay(baseDay);
+    return { displayDay: baseDay, state: 'needs-study', dayMemorized, dayTotal };
+  }
+
+  // 오늘 학습한 경우 — 실제 상태 그대로 반환 ('completed' 포함)
+  const { state, dayMemorized, dayTotal } = evalDay(baseDay);
+  return { displayDay: baseDay, state, dayMemorized, dayTotal };
 }
 
 /**

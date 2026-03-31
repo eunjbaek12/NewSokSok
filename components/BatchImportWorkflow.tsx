@@ -1,26 +1,27 @@
 import React, { useState, useMemo } from 'react';
 import { View, Text, StyleSheet, Pressable, TextInput, ScrollView, Alert, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as DocumentPicker from 'expo-document-picker';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { parseImportedText, ParsedWord } from '@/utils/importParser';
 import * as Haptics from 'expo-haptics';
-import { useRouter } from 'expo-router';
 
 type ImportStage = 'input' | 'preview';
 
 interface BatchImportWorkflowProps {
     listId: string;
     onClose: () => void;
+    onSaved?: (count: number) => void;
 }
 
-export default function BatchImportWorkflow({ listId, onClose }: BatchImportWorkflowProps) {
+export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchImportWorkflowProps) {
     const { colors } = useTheme();
     const { t } = useTranslation();
     const { addBatchWords } = useVocab();
-    const router = useRouter();
+    const insets = useSafeAreaInsets();
 
     const [stage, setStage] = useState<ImportStage>('input');
     const [rawText, setRawText] = useState('');
@@ -38,8 +39,6 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
             if (result.canceled) return;
             if (result.assets && result.assets.length > 0) {
                 const fileUri = result.assets[0].uri;
-                // In React Native, reading directly from URI can be tricky depending on the platform.
-                // For Expo, we can use fetch to get the blo/text if it's a local file.
                 const response = await fetch(fileUri);
                 const text = await response.text();
                 setRawText(text);
@@ -93,7 +92,8 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
             await addBatchWords(listId, dataToSubmit);
             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
             setIsSubmitting(false);
-            onClose(); // Returns to previous screen
+            onSaved?.(dataToSubmit.length);
+            onClose();
         } catch (e) {
             console.error(e);
             Alert.alert(t('common.error'), t('batchImport.saveError'));
@@ -104,9 +104,20 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
             {/* HEADER */}
-            <View style={[styles.header, { borderBottomColor: colors.borderLight }]}>
-                <Pressable onPress={stage === 'preview' ? () => setStage('input') : onClose} style={styles.headerBtn}>
-                    <Ionicons name={stage === 'preview' ? "arrow-back" : "close"} size={24} color={colors.text} />
+            <View style={[styles.header, {
+                borderBottomColor: colors.borderLight,
+                paddingTop: Math.max(insets.top, 14),
+            }]}>
+                <Pressable
+                    onPress={stage === 'preview' ? () => setStage('input') : onClose}
+                    style={styles.headerBtn}
+                    hitSlop={8}
+                >
+                    <Ionicons
+                        name={stage === 'preview' ? 'arrow-back' : 'close'}
+                        size={22}
+                        color={colors.textSecondary}
+                    />
                 </Pressable>
                 <Text style={[styles.headerTitle, { color: colors.text }]}>
                     {stage === 'input' ? t('batchImport.title') : t('batchImport.previewTitle')}
@@ -118,14 +129,16 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
             {stage === 'input' && (
                 <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
                     <View style={[styles.infoBox, { backgroundColor: colors.surfaceSecondary }]}>
-                        <Ionicons name="information-circle" size={20} color={colors.primary} />
-                        <Text style={[styles.infoText, { color: colors.textSecondary }]}>
-                            {t('batchImport.instructions')}
-                        </Text>
+                        <Ionicons name="information-circle" size={20} color={colors.primary} style={{ marginTop: 2 }} />
+                        <View style={{ flex: 1, gap: 6 }}>
+                            <Text style={[styles.infoText, { color: colors.textSecondary }]}>
+                                {t('batchImport.instructions')}
+                            </Text>
+                            <Text style={[styles.guideText, { color: colors.textTertiary }]}>
+                                {t('batchImport.formatGuide')}
+                            </Text>
+                        </View>
                     </View>
-                    <Text style={[styles.formatText, { color: colors.textTertiary }]}>
-                        {t('batchImport.format')}
-                    </Text>
 
                     <TextInput
                         style={[styles.textArea, { backgroundColor: colors.surface, color: colors.text, borderColor: colors.border }]}
@@ -138,7 +151,10 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                     />
 
                     <View style={styles.btnRow}>
-                        <Pressable onPress={handleFileUpload} style={[styles.uploadBtn, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}>
+                        <Pressable
+                            onPress={handleFileUpload}
+                            style={[styles.uploadBtn, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
+                        >
                             <Ionicons name="document-text-outline" size={20} color={colors.text} />
                             <Text style={[styles.uploadBtnText, { color: colors.text }]}>{t('batchImport.csvUpload')}</Text>
                         </Pressable>
@@ -150,8 +166,10 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                                 { backgroundColor: rawText.trim() ? colors.primary : colors.surfaceSecondary }
                             ]}
                         >
-                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? colors.background : colors.textTertiary }]}>{t('common.next')}</Text>
-                            <Ionicons name="arrow-forward" size={18} color={rawText.trim() ? colors.background : colors.textTertiary} />
+                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? '#fff' : colors.textTertiary }]}>
+                                {t('common.next')}
+                            </Text>
+                            <Ionicons name="arrow-forward" size={18} color={rawText.trim() ? '#fff' : colors.textTertiary} />
                         </Pressable>
                     </View>
                 </ScrollView>
@@ -161,10 +179,27 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
             {stage === 'preview' && (
                 <View style={styles.previewContainer}>
                     <View style={[styles.statsRow, { backgroundColor: colors.surfaceSecondary }]}>
-                        <Text style={[styles.statsText, { color: colors.textSecondary }]}>{t('batchImport.totalCount', { count: parsedData.length })}</Text>
-                        <Text style={[styles.statsText, { color: colors.success }]}>{t('batchImport.validCount', { count: validCount })}</Text>
-                        {invalidCount > 0 && <Text style={[styles.statsText, { color: colors.error }]}>{t('batchImport.invalidCount', { count: invalidCount })}</Text>}
+                        <Text style={[styles.statsText, { color: colors.textSecondary }]}>
+                            {t('batchImport.totalCount', { count: parsedData.length })}
+                        </Text>
+                        <Text style={[styles.statsText, { color: colors.success }]}>
+                            {t('batchImport.validCount', { count: validCount })}
+                        </Text>
+                        {invalidCount > 0 && (
+                            <Text style={[styles.statsText, { color: colors.error }]}>
+                                {t('batchImport.invalidCount', { count: invalidCount })}
+                            </Text>
+                        )}
                     </View>
+
+                    {invalidCount > 0 && (
+                        <View style={[styles.warningBanner, { backgroundColor: colors.errorLight }]}>
+                            <Ionicons name="alert-circle-outline" size={16} color={colors.error} />
+                            <Text style={[styles.warningText, { color: colors.error }]}>
+                                {t('batchImport.invalidWarning', { count: invalidCount })}
+                            </Text>
+                        </View>
+                    )}
 
                     <ScrollView contentContainerStyle={styles.previewScroll} keyboardShouldPersistTaps="handled">
                         {parsedData.map((item, index) => (
@@ -174,50 +209,55 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                                     styles.previewCard,
                                     {
                                         backgroundColor: colors.surface,
-                                        borderColor: item.isValid ? colors.borderLight : colors.error
+                                        borderColor: item.isValid ? colors.borderLight : colors.error,
                                     }
                                 ]}
                             >
                                 <View style={styles.cardHeader}>
                                     <Text style={[styles.cardIndex, { color: colors.textTertiary }]}>#{index + 1}</Text>
                                     <Pressable onPress={() => removeRow(item.id)} hitSlop={10}>
-                                        <Ionicons name="trash-outline" size={18} color={colors.error} />
+                                        <Ionicons name="close-circle" size={20} color={colors.error} />
                                     </Pressable>
                                 </View>
 
                                 <View style={styles.cardFields}>
-                                    <View style={styles.fieldRow}>
-                                        <TextInput
-                                            style={[styles.inlineInput, { color: colors.text, borderBottomColor: item.term ? colors.borderLight : colors.error }]}
-                                            value={item.term}
-                                            onChangeText={(t) => updateField(item.id, 'term', t)}
-                                            placeholder={t('batchImport.wordRequired')}
-                                            placeholderTextColor={colors.error}
-                                        />
-                                        <TextInput
-                                            style={[styles.inlineInput, { color: colors.text, borderBottomColor: item.meaningKr ? colors.borderLight : colors.error }]}
-                                            value={item.meaningKr}
-                                            onChangeText={(t) => updateField(item.id, 'meaningKr', t)}
-                                            placeholder={t('batchImport.meaningRequired')}
-                                            placeholderTextColor={colors.error}
-                                        />
-                                    </View>
                                     <TextInput
-                                        style={[styles.inlineInputFull, { color: colors.textSecondary, borderBottomColor: colors.borderLight }]}
+                                        style={[styles.inputTerm, { color: colors.text, borderBottomColor: item.term ? colors.borderLight : colors.error }]}
+                                        value={item.term}
+                                        onChangeText={(v) => updateField(item.id, 'term', v)}
+                                        placeholder={t('batchImport.wordRequired')}
+                                        placeholderTextColor={colors.error}
+                                    />
+                                    <TextInput
+                                        style={[styles.inputMeaning, { color: colors.text, borderBottomColor: item.meaningKr ? colors.borderLight : colors.error }]}
+                                        value={item.meaningKr}
+                                        onChangeText={(v) => updateField(item.id, 'meaningKr', v)}
+                                        placeholder={t('batchImport.meaningRequired')}
+                                        placeholderTextColor={colors.error}
+                                    />
+                                    <TextInput
+                                        style={[styles.inputExample, { color: colors.textSecondary, borderBottomColor: colors.borderLight }]}
                                         value={item.exampleEn}
-                                        onChangeText={(t) => updateField(item.id, 'exampleEn', t)}
+                                        onChangeText={(v) => updateField(item.id, 'exampleEn', v)}
                                         placeholder={t('batchImport.exampleOptional')}
                                         placeholderTextColor={colors.textTertiary}
                                     />
                                     {item.tags.length > 0 && (
-                                        <Text style={[styles.tagPreview, { color: colors.primary }]}>{t('batchImport.tagsLabel', { tags: item.tags.join(', ') })}</Text>
+                                        <Text style={[styles.tagPreview, { color: colors.primary }]}>
+                                            {t('batchImport.tagsLabel', { tags: item.tags.join(', ') })}
+                                        </Text>
                                     )}
                                 </View>
                             </View>
                         ))}
+                        <View style={{ height: 16 }} />
                     </ScrollView>
 
-                    <View style={[styles.footer, { borderTopColor: colors.borderLight, backgroundColor: colors.background }]}>
+                    <View style={[styles.footer, {
+                        borderTopColor: colors.borderLight,
+                        backgroundColor: colors.background,
+                        paddingBottom: Math.max(insets.bottom, 16),
+                    }]}>
                         <Pressable
                             onPress={handleSubmit}
                             disabled={isSubmitting || validCount === 0}
@@ -227,9 +267,9 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
                             ]}
                         >
                             {isSubmitting ? (
-                                <ActivityIndicator color={colors.background} />
+                                <ActivityIndicator color="#fff" />
                             ) : (
-                                <Text style={[styles.submitBtnText, { color: (validCount > 0) ? colors.background : colors.textTertiary }]}>
+                                <Text style={[styles.submitBtnText, { color: validCount > 0 ? '#fff' : colors.textTertiary }]}>
                                     {t('batchImport.batchSave', { count: validCount })}
                                 </Text>
                             )}
@@ -243,33 +283,64 @@ export default function BatchImportWorkflow({ listId, onClose }: BatchImportWork
 
 const styles = StyleSheet.create({
     container: { flex: 1 },
-    header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: 1 },
-    headerBtn: { padding: 4 },
-    headerTitle: { fontSize: 18, fontFamily: 'Pretendard_600SemiBold' },
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 16,
+        paddingBottom: 14,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    headerBtn: { padding: 4, minWidth: 32 },
+    headerTitle: { fontSize: 17, fontFamily: 'Pretendard_600SemiBold' },
     headerSpacer: { width: 32 },
     content: { padding: 16, gap: 16 },
-    infoBox: { flexDirection: 'row', padding: 12, borderRadius: 12, alignItems: 'center', gap: 8 },
-    infoText: { flex: 1, fontSize: 14, fontFamily: 'Pretendard_400Regular', lineHeight: 20 },
-    formatText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', alignSelf: 'center', marginBottom: -4 },
+    infoBox: { flexDirection: 'row', padding: 12, borderRadius: 12, alignItems: 'flex-start', gap: 8 },
+    infoText: { fontSize: 14, fontFamily: 'Pretendard_500Medium', lineHeight: 20 },
+    guideText: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 20 },
     textArea: { height: 300, borderWidth: 1, borderRadius: 12, padding: 16, fontSize: 15, fontFamily: 'Pretendard_400Regular' },
     btnRow: { flexDirection: 'row', gap: 12 },
     uploadBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 14, borderWidth: 1, borderRadius: 12, gap: 8 },
-    uploadBtnText: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
+    uploadBtnText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     nextBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: 14, borderRadius: 12, gap: 6 },
-    nextBtnText: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
+    nextBtnText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     previewContainer: { flex: 1 },
     statsRow: { flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 10 },
     statsText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+    warningBanner: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 6,
+        paddingHorizontal: 16,
+        paddingVertical: 10,
+    },
+    warningText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', flex: 1 },
     previewScroll: { padding: 16, gap: 12 },
-    previewCard: { borderWidth: 1, borderRadius: 20, padding: 12, gap: 8 },
-    cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+    previewCard: { borderWidth: 1, borderRadius: 12, padding: 14, gap: 4 },
+    cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
     cardIndex: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold' },
-    cardFields: { gap: 8 },
-    fieldRow: { flexDirection: 'row', gap: 8 },
-    inlineInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 4, borderBottomWidth: 1 },
-    inlineInputFull: { fontSize: 14, fontFamily: 'Pretendard_400Regular', paddingVertical: 4, borderBottomWidth: 1 },
-    tagPreview: { fontSize: 12, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
-    footer: { padding: 16, borderTopWidth: 1 },
+    cardFields: { gap: 6 },
+    inputTerm: {
+        fontSize: 17,
+        fontFamily: 'Pretendard_700Bold',
+        paddingVertical: 4,
+        borderBottomWidth: 1,
+    },
+    inputMeaning: {
+        fontSize: 15,
+        fontFamily: 'Pretendard_500Medium',
+        paddingVertical: 4,
+        borderBottomWidth: 1,
+    },
+    inputExample: {
+        fontSize: 13,
+        fontFamily: 'Pretendard_400Regular',
+        fontStyle: 'italic',
+        paddingVertical: 4,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+    tagPreview: { fontSize: 12, fontFamily: 'Pretendard_500Medium', marginTop: 2 },
+    footer: { padding: 16, borderTopWidth: StyleSheet.hairlineWidth },
     submitBtn: { paddingVertical: 16, borderRadius: 12, alignItems: 'center' },
     submitBtnText: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
 });

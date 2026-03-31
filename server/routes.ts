@@ -199,6 +199,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/dict/autocomplete", async (req: Request, res: Response) => {
+    try {
+      const { query, dictCode } = req.query;
+      if (!query || typeof query !== "string") {
+        return res.json({ items: [] });
+      }
+      const code = (typeof dictCode === 'string' && dictCode) || 'enko';
+      const url = `https://ac.dict.naver.com/${code}/ac?q=${encodeURIComponent(query.trim())}&q_enc=UTF-8&st=11&r_enc=UTF-8&r_format=json&t_korlex=1`;
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+          'Referer': 'https://en.dict.naver.com/',
+          'Accept': 'application/json, text/javascript, */*; q=0.01',
+        }
+      });
+      if (!response.ok) return res.json({ items: [] });
+      const data = await response.json();
+      res.json(data);
+    } catch {
+      res.json({ items: [] });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

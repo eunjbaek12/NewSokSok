@@ -1,4 +1,5 @@
-import React, { useMemo, useCallback, useState } from 'react';
+import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   StyleSheet,
   Text,
@@ -8,20 +9,45 @@ import {
   Platform,
   ActivityIndicator,
   Alert,
+  Modal,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
+import Svg, { Circle, G } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { useSettings, type CustomStudySettings } from '@/contexts/SettingsContext';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/lib/plan-engine';
-import type { PlanStatus } from '@/lib/types';
+import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/components/CustomStudyModal';
 import ProgressBar from '@/components/ui/ProgressBar';
+
+function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
+  const size = 148;
+  const strokeWidth = 11;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference * (1 - percent / 100);
+  return (
+    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
+      <Svg width={size} height={size} style={{ position: 'absolute' }}>
+        <G rotation="-90" origin={`${size / 2},${size / 2}`}>
+          <Circle cx={size / 2} cy={size / 2} r={radius} stroke={colors.borderLight} strokeWidth={strokeWidth} fill="none" />
+          <Circle cx={size / 2} cy={size / 2} r={radius} stroke={colors.success} strokeWidth={strokeWidth} fill="none"
+            strokeDasharray={circumference} strokeDashoffset={strokeDashoffset} strokeLinecap="round" />
+        </G>
+      </Svg>
+      <Text style={{ fontSize: 30, fontFamily: 'Pretendard_700Bold', color: colors.success }}>{percent}%</Text>
+      <Text style={{ fontSize: 13, fontFamily: 'Pretendard_400Regular', color: colors.textTertiary, marginTop: 2 }}>
+        {memorized}/{total}
+      </Text>
+    </View>
+  );
+}
 
 function getStudyStateConfig(state: StudyState, t: (key: string) => string) {
   switch (state) {
@@ -42,13 +68,29 @@ export default function DashboardScreen() {
   const { dashboardFilterMode: filterMode, updateDashboardFilter } = useSettings();
   const [showCustomStudy, setShowCustomStudy] = useState(false);
   const [customStudyPresetFilter, setCustomStudyPresetFilter] = useState<CustomStudySettings['wordFilter'] | undefined>();
+  const [resultList, setResultList] = useState<VocaList | null>(null);
+  const [completedCollapsed, setCompletedCollapsed] = useState(false);
+
+  useEffect(() => {
+    AsyncStorage.getItem('@soksok_completed_collapsed').then(val => {
+      if (val !== null) setCompletedCollapsed(val === 'true');
+    });
+  }, []);
+
+  const toggleCompletedCollapsed = useCallback(() => {
+    setCompletedCollapsed(prev => {
+      const next = !prev;
+      AsyncStorage.setItem('@soksok_completed_collapsed', String(next));
+      return next;
+    });
+  }, []);
 
   const topPadding = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const bottomPadding = Platform.OS === 'web' ? 120 + 34 : 120;
 
   const planItems = useMemo(() => {
     const now = Date.now();
-    const STATUS_ORDER: Record<string, number> = { 'in-progress': 0, overdue: 1, inactive: 2 };
+    const STATUS_ORDER: Record<string, number> = { 'in-progress': 0, overdue: 1, inactive: 2, completed: 3 };
     return lists
       .filter(l => l.isVisible)
       .map(l => ({
@@ -56,7 +98,7 @@ export default function DashboardScreen() {
         status: computePlanStatus(l, l.words, now) as PlanStatus,
         dayStatus: computeDayStudyStatus(l, l.words, now),
       }))
-      .filter(p => p.status === 'in-progress' || p.status === 'overdue' || p.status === 'inactive')
+      .filter(p => p.status === 'in-progress' || p.status === 'overdue' || p.status === 'inactive' || p.status === 'completed')
       .sort((a, b) => {
         const diff = (STATUS_ORDER[a.status] ?? 9) - (STATUS_ORDER[b.status] ?? 9);
         if (diff !== 0) return diff;
@@ -65,7 +107,8 @@ export default function DashboardScreen() {
   }, [lists]);
 
   const activeItems = useMemo(() => planItems.filter(p => p.status === 'in-progress'), [planItems]);
-  const staleItems = useMemo(() => planItems.filter(p => p.status !== 'in-progress'), [planItems]);
+  const staleItems = useMemo(() => planItems.filter(p => p.status === 'overdue' || p.status === 'inactive'), [planItems]);
+  const completedItems = useMemo(() => planItems.filter(p => p.status === 'completed'), [planItems]);
 
   const filteredActive = useMemo(() => {
     if (filterMode === 'studying') return activeItems.filter(p => p.dayStatus.state !== 'completed');
@@ -519,8 +562,102 @@ export default function DashboardScreen() {
                   </View>
                 )}
 
+                {/* Completed plan cards — separate section */}
+                {completedItems.length > 0 && (
+                  <Pressable
+                    onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); toggleCompletedCollapsed(); }}
+                    style={[styles.completedDivider, { borderTopColor: colors.borderLight }]}
+                  >
+                    <Text style={[styles.completedDividerText, { color: colors.textSecondary }]}>
+                      {t('home.planCompletedSection')}
+                    </Text>
+                    {completedItems.length > 0 && (
+                      <View style={[styles.countBadge, { backgroundColor: colors.surfaceSecondary, marginLeft: 8 }]}>
+                        <Text style={[styles.countBadgeText, { color: colors.textSecondary }]}>
+                          {completedItems.length}
+                        </Text>
+                      </View>
+                    )}
+                    <Ionicons
+                      name={completedCollapsed ? 'chevron-down' : 'chevron-up'}
+                      size={16}
+                      color={colors.textSecondary}
+                      style={{ marginLeft: 'auto' }}
+                    />
+                  </Pressable>
+                )}
+                {!completedCollapsed && completedItems.map(({ list }) => {
+                  const totalWords = list.words.length;
+                  const memorizedWords = list.words.filter(w => w.isMemorized).length;
+                  const percent = totalWords > 0 ? Math.round((memorizedWords / totalWords) * 100) : 0;
+                  return (
+                    <View
+                      key={list.id}
+                      style={[
+                        styles.planCard,
+                        {
+                          backgroundColor: colors.surfaceSecondary,
+                          borderColor: isDark ? colors.border : colors.borderLight,
+                          shadowColor: colors.cardShadow,
+                        },
+                      ]}
+                    >
+                      <View style={styles.planCardTop}>
+                        <View style={styles.planCardTitleArea}>
+                          {list.icon && <Text style={{ fontSize: 18 }}>{list.icon}</Text>}
+                          <Text style={[styles.planCardTitle, { color: colors.textSecondary }]} numberOfLines={1}>
+                            {list.title}
+                          </Text>
+                        </View>
+                        <View style={styles.planCardChips}>
+                          <View style={[styles.statusChip, { backgroundColor: colors.surfaceSecondary }]}>
+                            <Text style={[styles.statusChipText, { color: colors.textTertiary }]}>
+                              {t('home.planCompleted')}
+                            </Text>
+                          </View>
+                          <Pressable
+                            onPress={() => {
+                              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                              clearPlan(list.id);
+                            }}
+                            style={({ pressed }) => [styles.closeButton, { opacity: pressed ? 0.5 : 0.6 }]}
+                            hitSlop={8}
+                          >
+                            <Ionicons name="close" size={18} color={colors.textTertiary} />
+                          </Pressable>
+                        </View>
+                      </View>
+                      <View style={styles.planCardBottom}>
+                        <View style={styles.planCardBottomLeft}>
+                          <ProgressBar percent={percent} colors={colors} />
+                          <View style={styles.planStatsRow}>
+                            <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                              {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
+                            </Text>
+                            <Text style={[styles.planStatsPercent, { color: colors.textTertiary }]}>{percent}%</Text>
+                          </View>
+                        </View>
+                        <Pressable
+                          onPress={() => {
+                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                            setResultList(list);
+                          }}
+                          style={({ pressed }) => [
+                            styles.actionButton,
+                            { backgroundColor: colors.surfaceSecondary, opacity: pressed ? 0.85 : 1 },
+                          ]}
+                        >
+                          <Text style={[styles.actionButtonText, { color: colors.textSecondary }]}>
+                            {t('home.studyResult')}
+                          </Text>
+                        </Pressable>
+                      </View>
+                    </View>
+                  );
+                })}
+
                 {/* Filtered empty state */}
-                {planItems.length > 0 && filteredActive.length === 0 && staleItems.length === 0 && (
+                {planItems.length > 0 && filteredActive.length === 0 && staleItems.length === 0 && completedItems.length === 0 && (
                   <Text style={[styles.filterEmptyText, { color: colors.textTertiary }]}>
                     {filterMode === 'completed' ? t('home.noCompletedLists') : t('home.noStudyingLists')}
                   </Text>
@@ -530,6 +667,58 @@ export default function DashboardScreen() {
 
         </View>
       </ScrollView>
+
+      {/* Study Result Modal */}
+      <Modal
+        visible={!!resultList}
+        transparent
+        animationType="slide"
+        onRequestClose={() => setResultList(null)}
+      >
+        <Pressable
+          style={[styles.resultBackdrop, { backgroundColor: colors.overlay }]}
+          onPress={() => setResultList(null)}
+        />
+        {resultList && (() => {
+          const totalWords = resultList.words.length;
+          const memorizedWords = resultList.words.filter(w => w.isMemorized).length;
+          const percent = totalWords > 0 ? Math.round((memorizedWords / totalWords) * 100) : 0;
+          return (
+            <View style={[styles.resultSheet, { backgroundColor: colors.surface }]}>
+              <View style={[styles.resultHandle, { backgroundColor: colors.border }]} />
+              <View style={styles.resultTitleRow}>
+                {resultList.icon && <Text style={{ fontSize: 20 }}>{resultList.icon}</Text>}
+                <Text style={[styles.resultTitle, { color: colors.text }]} numberOfLines={1}>
+                  {resultList.title}
+                </Text>
+              </View>
+              <View style={styles.resultCircleArea}>
+                <CircularProgress percent={percent} memorized={memorizedWords} total={totalWords} colors={colors} />
+              </View>
+              <Text style={[styles.resultStats, { color: colors.textSecondary }]}>
+                {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
+              </Text>
+              <Text style={[styles.resultNote, { color: colors.textTertiary }]}>
+                {t('home.restartPlanNote')}
+              </Text>
+              <Pressable
+                onPress={() => {
+                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                  const listId = resultList.id;
+                  setResultList(null);
+                  router.push({ pathname: '/plan/[id]', params: { id: listId, openSetup: '1' } });
+                }}
+                style={({ pressed }) => [
+                  styles.resultRestartBtn,
+                  { backgroundColor: colors.primary, opacity: pressed ? 0.9 : 1 },
+                ]}
+              >
+                <Text style={styles.resultRestartBtnText}>{t('home.restartPlan')}</Text>
+              </Pressable>
+            </View>
+          );
+        })()}
+      </Modal>
 
       <CustomStudyModal
         visible={showCustomStudy}
@@ -791,6 +980,77 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_400Regular',
     textAlign: 'center',
     paddingVertical: 20,
+  },
+
+  // Completed section divider
+  completedDivider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+    marginBottom: 12,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    paddingTop: 16,
+  },
+  completedDividerText: {
+    fontSize: 18,
+    fontFamily: 'Pretendard_700Bold',
+    letterSpacing: -0.3,
+  },
+
+  // Study Result Modal
+  resultBackdrop: {
+    flex: 1,
+  },
+  resultSheet: {
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    padding: 24,
+    paddingBottom: 40,
+    alignItems: 'center',
+    gap: 12,
+  },
+  resultHandle: {
+    width: 36,
+    height: 4,
+    borderRadius: 2,
+    marginBottom: 4,
+  },
+  resultTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    alignSelf: 'stretch',
+  },
+  resultTitle: {
+    fontSize: 18,
+    fontFamily: 'Pretendard_700Bold',
+    flex: 1,
+    letterSpacing: -0.3,
+  },
+  resultCircleArea: {
+    marginVertical: 8,
+  },
+  resultStats: {
+    fontSize: 15,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  resultNote: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_400Regular',
+    textAlign: 'center',
+    lineHeight: 18,
+  },
+  resultRestartBtn: {
+    alignSelf: 'stretch',
+    borderRadius: 28,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginTop: 4,
+  },
+  resultRestartBtnText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontFamily: 'Pretendard_600SemiBold',
   },
 
   // Empty Plans

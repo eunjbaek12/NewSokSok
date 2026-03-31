@@ -1,8 +1,10 @@
 import React from 'react';
-import { Modal, Pressable, View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
+import { PopupTokens } from '@/constants/popup';
+import DialogModal from './DialogModal';
 
 export interface PickerOption {
     id: string;
@@ -35,85 +37,57 @@ export function ModalPicker({
     const { t } = useTranslation();
 
     return (
-        <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-            <Pressable style={styles.overlay} onPress={onClose}>
-                <View style={[styles.container, { backgroundColor: colors.surface }]} onStartShouldSetResponder={() => true}>
-                    <View style={styles.header}>
-                        <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
-                        <Pressable onPress={onClose} hitSlop={12}>
-                            <Ionicons name="close" size={24} color={colors.textSecondary} />
-                        </Pressable>
-                    </View>
-
-                    <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
-                        {options.map((opt) => (
-                            <Pressable
-                                key={opt.id}
-                                onPress={() => onSelect(opt.id)}
-                                style={[
-                                    styles.option,
-                                    {
-                                        borderBottomColor: colors.border,
-                                        backgroundColor: selectedValue === opt.id ? colors.primaryLight : 'transparent'
-                                    },
-                                ]}
-                            >
-                                <Ionicons
-                                    name={selectedValue === opt.id ? 'radio-button-on' : (opt.icon || 'radio-button-off')}
-                                    size={20}
-                                    color={selectedValue === opt.id ? colors.primary : colors.textTertiary}
-                                />
-                                <View style={styles.optionContent}>
-                                    <Text style={[styles.optionTitle, { color: colors.text }]}>{opt.title}</Text>
-                                    {opt.subtitle && (
-                                        <Text style={[styles.optionSub, { color: colors.textSecondary }]}>{opt.subtitle}</Text>
-                                    )}
-                                </View>
-                                {opt.rightElement}
-                            </Pressable>
-                        ))}
-                        {footer}
-                    </ScrollView>
-
+        <DialogModal
+            visible={visible}
+            onClose={onClose}
+            title={title}
+            scrollable={false}
+            footer={
+                <Pressable
+                    onPress={onClose}
+                    style={[styles.closeBtn, { backgroundColor: colors.surfaceSecondary, paddingVertical: 14, borderRadius: 12 }]}
+                >
+                    <Text style={[styles.closeBtnText, { color: colors.text }]}>{t('common.close')}</Text>
+                </Pressable>
+            }
+        >
+            <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
+                {options.map((opt) => (
                     <Pressable
-                        onPress={onClose}
-                        style={[styles.closeBtn, { backgroundColor: colors.surfaceSecondary }]}
+                        key={opt.id}
+                        onPress={() => onSelect(opt.id)}
+                        style={[
+                            styles.option,
+                            {
+                                borderBottomColor: colors.border,
+                                backgroundColor: selectedValue === opt.id ? colors.primaryLight : 'transparent',
+                            },
+                        ]}
                     >
-                        <Text style={[styles.closeBtnText, { color: colors.text }]}>{t('common.close')}</Text>
+                        <Ionicons
+                            name={selectedValue === opt.id ? 'radio-button-on' : (opt.icon || 'radio-button-off')}
+                            size={20}
+                            color={selectedValue === opt.id ? colors.primary : colors.textTertiary}
+                        />
+                        <View style={styles.optionContent}>
+                            <Text style={[styles.optionTitle, { color: colors.text }]}>{opt.title}</Text>
+                            {opt.subtitle && (
+                                <Text style={[styles.optionSub, { color: colors.textSecondary }]}>{opt.subtitle}</Text>
+                            )}
+                        </View>
+                        {opt.rightElement}
                     </Pressable>
-                </View>
-            </Pressable>
-        </Modal>
+                ))}
+                {footer}
+            </ScrollView>
+        </DialogModal>
     );
 }
 
 const styles = StyleSheet.create({
-    overlay: {
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 24,
-    },
-    container: {
-        width: '100%',
-        maxWidth: 400,
-        maxHeight: '80%',
-        borderRadius: 20,
-        padding: 24,
-    },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 16,
-    },
-    title: {
-        fontSize: 17,
-        fontFamily: 'Pretendard_700Bold',
-    },
     scroll: {
         maxHeight: 350,
+        paddingHorizontal: PopupTokens.padding.container,
     },
     option: {
         flexDirection: 'row',
@@ -137,9 +111,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Pretendard_400Regular',
     },
     closeBtn: {
-        marginTop: 16,
-        paddingVertical: 14,
-        borderRadius: 12,
         alignItems: 'center',
     },
     closeBtnText: {

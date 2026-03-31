@@ -4,9 +4,8 @@ import {
   Text,
   Pressable,
   StyleSheet,
-  Modal,
 } from 'react-native';
-import { ScrollView, GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
@@ -16,6 +15,7 @@ import { useVocab } from '@/contexts/VocabContext';
 import { useSettings, type CustomStudySettings } from '@/contexts/SettingsContext';
 import { Word } from '@/lib/types';
 import ListDayPicker from './ListDayPicker';
+import ModalOverlay from './ui/ModalOverlay';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -136,14 +136,13 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
   const noLists = visibleLists.length === 0;
 
   return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <View style={styles.modalOverlay}>
-          <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
-          <Pressable
-            style={[styles.sheet, { backgroundColor: isDark ? colors.background : '#F3F4F6' }]}
-            onPress={(e) => e.stopPropagation()}
-          >
+    <>
+      <ModalOverlay
+        visible={visible}
+        onClose={onClose}
+        variant="settingsPanel"
+        scrollable
+      >
             {/* 헤더 */}
             <View style={styles.header}>
               <Text style={[styles.title, { color: colors.text }]}>{t('customStudy.title')}</Text>
@@ -274,53 +273,29 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
                 </View>
               </>
             )}
-          </Pressable>
-        </View>
+      </ModalOverlay>
 
-        <ListDayPicker
-          visible={showListPicker}
-          onClose={() => setShowListPicker(false)}
-          lists={visibleLists}
-          selectedListIds={settings.useAllLists ? visibleLists.map(l => l.id) : settings.selectedListIds}
-          selectedDaysByList={settings.selectedDaysByList}
-          onApply={(listIds, daysByList) => {
-            const isAll = listIds.length === visibleLists.length &&
-              listIds.every(id => !daysByList[id] || daysByList[id] === 'all');
-            updateCustomStudySettings({
-              useAllLists: isAll,
-              selectedListIds: isAll ? [] : listIds,
-              selectedDaysByList: daysByList,
-            });
-          }}
-        />
-      </GestureHandlerRootView>
-    </Modal>
+      <ListDayPicker
+        visible={showListPicker}
+        onClose={() => setShowListPicker(false)}
+        lists={visibleLists}
+        selectedListIds={settings.useAllLists ? visibleLists.map(l => l.id) : settings.selectedListIds}
+        selectedDaysByList={settings.selectedDaysByList}
+        onApply={(listIds, daysByList) => {
+          const isAll = listIds.length === visibleLists.length &&
+            listIds.every(id => !daysByList[id] || daysByList[id] === 'all');
+          updateCustomStudySettings({
+            useAllLists: isAll,
+            selectedListIds: isAll ? [] : listIds,
+            selectedDaysByList: daysByList,
+          });
+        }}
+      />
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  sheet: {
-    width: '100%',
-    maxWidth: 400,
-    borderRadius: 24,
-    maxHeight: '85%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.1,
-    shadowRadius: 20,
-    elevation: 10,
-    overflow: 'hidden',
-    paddingTop: 6,
-    display: 'flex',
-    flexDirection: 'column',
-  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',

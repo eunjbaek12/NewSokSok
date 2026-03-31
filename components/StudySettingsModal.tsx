@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Modal } from 'react-native';
-import { ScrollView, GestureHandlerRootView } from 'react-native-gesture-handler';
+import { View, Text, Pressable, Platform, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import ModalOverlay from './ui/ModalOverlay';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { useAnimatedStyle, withTiming, interpolateColor } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
@@ -104,14 +105,13 @@ export default function StudySettingsModal({
     };
 
     return (
-        <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-            <GestureHandlerRootView style={{ flex: 1 }}>
-                <View style={styles.modalOverlay}>
-                    <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
-                    <Pressable
-                        style={[styles.settingsSheet, { backgroundColor: isDark ? colors.background : '#F3F4F6' }]}
-                        onPress={(e) => e.stopPropagation()}
-                    >
+        <ModalOverlay
+            visible={visible}
+            onClose={onClose}
+            variant="settingsPanel"
+            maxHeight="93%"
+            scrollable
+        >
                         <View style={styles.settingsHeader}>
                             <Text style={[styles.settingsTitle, { color: colors.text }]}>
                                 {mode === 'flashcard' ? t('studySettings.flashcardsSettings') : mode === 'quiz' ? t('studySettings.quizSettings') : mode === 'examples' ? t('studySettings.examplesSettings') : t('studySettings.autoplaySettings')}
@@ -438,32 +438,12 @@ export default function StudySettingsModal({
                                 <Text style={styles.btnApplyText}>{t('common.apply')}</Text>
                             </Pressable>
                         </View>
-                    </Pressable>
-                </View>
-            </GestureHandlerRootView>
-        </Modal>
+        </ModalOverlay>
     );
 }
 
 const styles = StyleSheet.create({
-    modalOverlay: {
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-    },
     settingsSheet: {
-        width: '100%',
-        maxWidth: 400,
-        borderRadius: 24,
-        maxHeight: '93%',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 10 },
-        shadowOpacity: 0.1,
-        shadowRadius: 20,
-        elevation: 10,
-        overflow: 'hidden',
         paddingTop: 6,
         display: 'flex',
         flexDirection: 'column',

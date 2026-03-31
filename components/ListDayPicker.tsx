@@ -4,7 +4,6 @@ import {
   Text,
   Pressable,
   StyleSheet,
-  Modal,
   ScrollView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -12,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { groupWordsByDay } from '@/lib/plan-engine';
 import type { VocaList } from '@/lib/types';
+import ModalOverlay from './ui/ModalOverlay';
 
 interface ListDayPickerProps {
   visible: boolean;
@@ -151,10 +151,12 @@ export default function ListDayPicker({
   };
 
   return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <View style={styles.overlay}>
-        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
-        <View style={[styles.container, { backgroundColor: isDark ? colors.background : '#F3F4F6' }]}>
+    <ModalOverlay
+      visible={visible}
+      onClose={onClose}
+      variant="settingsPanel"
+      maxHeight="80%"
+    >
           {/* 헤더 */}
           <View style={styles.header}>
             <Text style={[styles.title, { color: colors.text }]}>{t('dayPicker.title')}</Text>
@@ -289,31 +291,12 @@ export default function ListDayPicker({
               <Text style={styles.applyBtnText}>{t('common.apply')}</Text>
             </Pressable>
           </View>
-        </View>
-      </View>
-    </Modal>
+    </ModalOverlay>
   );
 }
 
 const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
   container: {
-    width: '100%',
-    maxWidth: 400,
-    borderRadius: 20,
-    maxHeight: '80%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.1,
-    shadowRadius: 20,
-    elevation: 10,
-    overflow: 'hidden',
     paddingTop: 6,
   },
   header: {

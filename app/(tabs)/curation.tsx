@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, KeyboardAvoidingView, BackHandler } from 'react-native';
+import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, KeyboardAvoidingView, BackHandler, Animated as RNAnimated } from 'react-native';
+import { BlurView } from 'expo-blur';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useScrollToTop } from '@react-navigation/native';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'expo-router';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -80,9 +82,17 @@ const getUniqueName = (base: string, existingNames: string[]): string => {
 export default function CurationScreen() {
     const scrollRef = useRef<ScrollView>(null);
     useScrollToTop(scrollRef);
+    const scrollY = useRef(new RNAnimated.Value(0)).current;
+    const fabAnim = useRef(new RNAnimated.Value(0)).current;
+    const isTopBtnVisible = useRef(false);
+
+    const detailScrollRef = useRef<ScrollView>(null);
+    const detailScrollY = useRef(new RNAnimated.Value(0)).current;
+    const detailFabAnim = useRef(new RNAnimated.Value(0)).current;
+    const isDetailTopBtnVisible = useRef(false);
 
     const insets = useSafeAreaInsets();
-    const { colors } = useTheme();
+    const { colors, isDark } = useTheme();
     const { t } = useTranslation();
     const router = useRouter();
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
@@ -146,6 +156,28 @@ export default function CurationScreen() {
         return () => backHandler.remove();
     }, [selectedTheme, detailWord, showListPicker]);
 
+    useEffect(() => {
+        const listener = scrollY.addListener(({ value }) => {
+            const shouldShow = value > 300;
+            if (shouldShow !== isTopBtnVisible.current) {
+                isTopBtnVisible.current = shouldShow;
+                RNAnimated.spring(fabAnim, { toValue: shouldShow ? 1 : 0, useNativeDriver: true, tension: 60, friction: 8 }).start();
+            }
+        });
+        return () => scrollY.removeListener(listener);
+    }, [scrollY, fabAnim]);
+
+    useEffect(() => {
+        const listener = detailScrollY.addListener(({ value }) => {
+            const shouldShow = value > 200;
+            if (shouldShow !== isDetailTopBtnVisible.current) {
+                isDetailTopBtnVisible.current = shouldShow;
+                RNAnimated.spring(detailFabAnim, { toValue: shouldShow ? 1 : 0, useNativeDriver: true, tension: 60, friction: 8 }).start();
+            }
+        });
+        return () => detailScrollY.removeListener(listener);
+    }, [detailScrollY, detailFabAnim]);
+
     const sourceThemes = activeTab === 'official' ? curationPresets : communityThemes;
     const filteredThemes = useMemo(() => sourceThemes.filter(t => {
         const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase());
@@ -160,9 +192,9 @@ export default function CurationScreen() {
 
     const getLevelStyle = (level?: string) => {
         switch (level) {
-            case 'beginner': return { label: t('curation.beginner'), bg: '#DCFCE7', color: '#16A34A' };
-            case 'intermediate': return { label: t('curation.intermediate'), bg: '#DBEAFE', color: '#2563EB' };
-            case 'advanced': return { label: t('curation.advanced'), bg: '#FEE2E2', color: '#DC2626' };
+            case 'beginner': return { label: t('curation.beginner'), bg: isDark ? 'rgba(22,163,74,0.2)' : '#DCFCE7', color: isDark ? '#4ade80' : '#16A34A' };
+            case 'intermediate': return { label: t('curation.intermediate'), bg: isDark ? 'rgba(37,99,235,0.2)' : '#DBEAFE', color: isDark ? '#60a5fa' : '#2563EB' };
+            case 'advanced': return { label: t('curation.advanced'), bg: isDark ? 'rgba(220,38,38,0.2)' : '#FEE2E2', color: isDark ? '#f87171' : '#DC2626' };
             default: return null;
         }
     };
@@ -186,7 +218,8 @@ export default function CurationScreen() {
     };
 
     const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-    const bottomInset = Platform.OS === 'web' ? 84 + 34 : 84;
+    const tabBarHeight = useBottomTabBarHeight();
+    const bottomInset = Platform.OS === 'web' ? 84 + 34 : tabBarHeight;
 
     const selectedCount = selectedWordIds.size;
     const totalCount = selectedTheme?.words.length ?? 0;
@@ -226,14 +259,18 @@ export default function CurationScreen() {
             }));
     }, [selectedTheme, selectedWordIds]);
 
-    const importOptions: PickerOption[] = useMemo(() => [
-        { id: '__new__', title: t('curation.createNewList'), icon: 'add-circle-outline' as keyof typeof Ionicons.glyphMap },
-        ...lists.map(l => ({
+    const importOptions: PickerOption[] = useMemo(() =>
+        lists.map(l => ({
             id: l.id,
             title: l.title,
             subtitle: t('curation.wordsIncluded', { count: l.words.length }),
         })),
-    ], [lists, t]);
+        [lists, t]
+    );
+
+    const isAlreadySaved = useCallback((theme: VocaList): boolean => {
+        return lists.some(l => l.isCurated && l.title.startsWith(theme.title));
+    }, [lists]);
 
     const handleGenerateAI = async () => {
         if (!searchQuery.trim()) {
@@ -261,39 +298,44 @@ export default function CurationScreen() {
         }
     };
 
+    const handleCreateNew = async () => {
+        if (!selectedTheme) return;
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        setSaving(true);
+        const words = getSelectedWords();
+        try {
+            const uniqueTitle = getUniqueName(selectedTheme.title, lists.map(l => l.title));
+            const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', words);
+            setSnackbar({
+                visible: true,
+                message: t('curation.savedSuccess'),
+                actionLabel: t('curation.goToVocabList'),
+                onAction: () => router.push(`/list/${newList.id}`),
+            });
+            setSelectedTheme(null);
+        } catch (e: any) {
+            setSnackbar({ visible: true, message: t('curation.saveError') });
+            console.error(e);
+        } finally {
+            setSaving(false);
+        }
+    };
+
     const handleImport = async (targetListId: string) => {
         if (!selectedTheme) return;
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         setSaving(true);
         setShowListPicker(false);
-
         const words = getSelectedWords();
-
         try {
-            let savedListId: string;
-
-            if (targetListId === '__new__') {
-                const uniqueTitle = getUniqueName(selectedTheme.title, lists.map(l => l.title));
-                const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', words);
-                savedListId = newList.id;
-                setSnackbar({
-                    visible: true,
-                    message: t('curation.savedSuccess'),
-                    actionLabel: t('curation.goToVocabList'),
-                    onAction: () => router.push(`/list/${savedListId}`),
-                });
-            } else {
-                await addBatchWords(targetListId, words);
-                savedListId = targetListId;
-                const targetList = lists.find(l => l.id === targetListId);
-                setSnackbar({
-                    visible: true,
-                    message: t('curation.addedToExistingList', { title: targetList?.title ?? '' }),
-                    actionLabel: t('curation.goToVocabList'),
-                    onAction: () => router.push(`/list/${savedListId}`),
-                });
-            }
-
+            await addBatchWords(targetListId, words);
+            const targetList = lists.find(l => l.id === targetListId);
+            setSnackbar({
+                visible: true,
+                message: t('curation.addedToExistingList', { title: targetList?.title ?? '' }),
+                actionLabel: t('curation.goToVocabList'),
+                onAction: () => router.push(`/list/${targetListId}`),
+            });
             setSelectedTheme(null);
         } catch (e: any) {
             setSnackbar({ visible: true, message: t('curation.saveError') });
@@ -307,7 +349,13 @@ export default function CurationScreen() {
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={[styles.container, { backgroundColor: colors.background }]}>
             {selectedTheme ? (
                 <View style={[styles.container, { backgroundColor: colors.background }]}>
-                    <ScrollView contentContainerStyle={{ paddingBottom: bottomInset + 120 }}>
+                    <ScrollView
+                        ref={detailScrollRef}
+                        style={{ flex: 1 }}
+                        contentContainerStyle={{ paddingBottom: 24 }}
+                        onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: detailScrollY } } }], { useNativeDriver: false })}
+                        scrollEventThrottle={16}
+                    >
                         <View style={[styles.detailHero, { backgroundColor: colors.surfaceSecondary, paddingTop: topInset + 16 }]}>
                             <Pressable onPress={() => setSelectedTheme(null)} style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)' }]}>
                                 <Ionicons name="arrow-back" size={24} color={colors.text} />
@@ -342,7 +390,7 @@ export default function CurationScreen() {
                                 {(() => {
                                     const tags = getTopTags(selectedTheme);
                                     return tags.length > 0 ? (
-                                        <View style={[styles.tagRow, { marginTop: 8 }]}>
+                                        <View style={[styles.tagRow, { marginTop: 8, justifyContent: 'flex-end' }]}>
                                             {tags.map(tag => (
                                                 <View key={tag} style={[styles.tagChip, { backgroundColor: 'rgba(255,255,255,0.5)' }]}>
                                                     <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{tag}</Text>
@@ -353,19 +401,23 @@ export default function CurationScreen() {
                                 })()}
                             </View>
                         </View>
-                        <View style={{ paddingHorizontal: 24, paddingTop: 16, paddingBottom: 0 }}>
+                        <View style={{ paddingHorizontal: 24, paddingTop: 8, paddingBottom: 0 }}>
                             <View style={styles.selectionBar}>
-                                <Text style={[styles.selectionText, { color: colors.textSecondary }]}>
+                                <Text style={[styles.selectionText, { color: colors.textSecondary, marginRight: 8 }]}>
                                     {t('curation.selectedCount', { selected: selectedCount, total: totalCount })}
                                 </Text>
-                                <Pressable onPress={toggleSelectAll} hitSlop={8}>
-                                    <Text style={[styles.selectionToggle, { color: colors.primary }]}>
-                                        {allSelected ? t('curation.deselectAll') : t('curation.selectAll')}
-                                    </Text>
-                                </Pressable>
+                                <View style={{ paddingRight: 16 }}>
+                                    <Pressable onPress={toggleSelectAll} hitSlop={8}>
+                                        <Ionicons
+                                            name={allSelected ? 'checkbox' : selectedCount > 0 ? 'checkbox-outline' : 'square-outline'}
+                                            size={24}
+                                            color={selectedCount > 0 ? colors.primary : colors.textTertiary}
+                                        />
+                                    </Pressable>
+                                </View>
                             </View>
                         </View>
-                        <View style={{ padding: 24, paddingTop: 12 }}>
+                        <View style={{ padding: 24, paddingTop: 4 }}>
                             {selectedTheme.words.map((w, i) => {
                                 const isSelected = selectedWordIds.has(String(i));
                                 return (
@@ -393,7 +445,7 @@ export default function CurationScreen() {
                                                 style={styles.checkboxHit}
                                             >
                                                 <Ionicons
-                                                    name={isSelected ? 'checkmark-circle' : 'ellipse-outline'}
+                                                    name={isSelected ? 'checkbox' : 'square-outline'}
                                                     size={24}
                                                     color={isSelected ? colors.primary : colors.textTertiary}
                                                 />
@@ -404,17 +456,54 @@ export default function CurationScreen() {
                             })}
                         </View>
                     </ScrollView>
-                    <View style={[styles.masterBar, { paddingBottom: bottomInset + 8, backgroundColor: colors.surface }]}>
-                        <Pressable
-                            onPress={() => setShowListPicker(true)}
-                            disabled={saving || selectedCount === 0}
-                            style={[styles.masterBtn, { backgroundColor: selectedCount === 0 ? colors.border : colors.primary }]}
-                        >
-                            {saving ? <ActivityIndicator color="#FFF" /> : (
-                                <Text style={styles.masterBtnText}>{t('curation.importSelected', { count: selectedCount })}</Text>
-                            )}
-                        </Pressable>
+                    <View style={[styles.masterBar, { paddingBottom: bottomInset, backgroundColor: colors.surface, borderTopColor: colors.border }]}>
+                        <View style={styles.masterBtnRow}>
+                            <Pressable
+                                onPress={() => setShowListPicker(true)}
+                                disabled={saving || selectedCount === 0 || lists.length === 0}
+                                style={[styles.masterBtnSecondary, {
+                                    borderColor: (saving || selectedCount === 0 || lists.length === 0) ? colors.border : colors.primary,
+                                }]}
+                            >
+                                <Text style={[styles.masterBtnSecondaryText, {
+                                    color: (saving || selectedCount === 0 || lists.length === 0) ? colors.textTertiary : colors.primary,
+                                }]}>
+                                    {t('curation.addToExisting')}
+                                </Text>
+                            </Pressable>
+                            <Pressable
+                                onPress={handleCreateNew}
+                                disabled={saving || selectedCount === 0}
+                                style={[styles.masterBtn, { backgroundColor: (saving || selectedCount === 0) ? colors.border : colors.primary }]}
+                            >
+                                {saving ? <ActivityIndicator color="#FFF" /> : (
+                                    <Text style={styles.masterBtnText}>{t('curation.createNewList')}</Text>
+                                )}
+                            </Pressable>
+                        </View>
                     </View>
+                    <RNAnimated.View
+                        style={{
+                            position: 'absolute',
+                            right: 20,
+                            bottom: tabBarHeight + 88,
+                            opacity: detailFabAnim,
+                            transform: [{ scale: detailFabAnim.interpolate({ inputRange: [0, 1], outputRange: [0.7, 1] }) }],
+                        }}
+                        pointerEvents="box-none"
+                    >
+                        <Pressable
+                            onPress={() => { detailScrollRef.current?.scrollTo({ y: 0, animated: true }); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }}
+                            style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', opacity: pressed ? 0.7 : 1 }]}
+                        >
+                            {Platform.OS === 'ios' && (
+                                <View style={[StyleSheet.absoluteFill, { borderRadius: 24, overflow: 'hidden' }]}>
+                                    <BlurView intensity={20} tint={isDark ? 'dark' : 'light'} style={StyleSheet.absoluteFill} />
+                                </View>
+                            )}
+                            <Ionicons name="arrow-up" size={24} color={colors.text} />
+                        </Pressable>
+                    </RNAnimated.View>
                 </View>
             ) : (
                 <>
@@ -476,7 +565,13 @@ export default function CurationScreen() {
                         })}
                     </ScrollView>
 
-                    <ScrollView ref={scrollRef} style={{ flex: 1 }} contentContainerStyle={[{ paddingHorizontal: 24, paddingTop: 4, paddingBottom: bottomInset + 100 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}>
+                    <ScrollView
+                        ref={scrollRef}
+                        style={{ flex: 1 }}
+                        contentContainerStyle={[{ paddingHorizontal: 24, paddingTop: 4, paddingBottom: 24 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
+                        onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
+                        scrollEventThrottle={16}
+                    >
                         {filteredThemes.map(theme => {
                             const levelStyle = getLevelStyle(theme.level);
                             const tags = getTopTags(theme);
@@ -484,20 +579,29 @@ export default function CurationScreen() {
                             const tgtFlag = getLanguageFlag(theme.targetLanguage || 'ko');
                             const srcCode = (theme.sourceLanguage || 'en').toUpperCase();
                             const tgtCode = (theme.targetLanguage || 'ko').toUpperCase();
+                            const alreadySaved = isAlreadySaved(theme);
 
                             return (
-                                <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
+                                <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.1)', shadowColor: colors.cardShadow }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
                                     <View style={{ flex: 1 }}>
                                         <View style={styles.cardHeader}>
                                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1 }}>
                                                 {theme.icon && <Text style={{ fontSize: 16 }}>{theme.icon}</Text>}
                                                 <Text style={[styles.cardTitle, { color: colors.text, flex: 1 }]} numberOfLines={1}>{theme.title}</Text>
                                             </View>
-                                            {levelStyle && (
-                                                <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
-                                                    <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
-                                                </View>
-                                            )}
+                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                                                {alreadySaved && (
+                                                    <View style={[styles.savedBadge, { backgroundColor: colors.successLight }]}>
+                                                        <Ionicons name="checkmark" size={10} color={colors.success} />
+                                                        <Text style={[styles.savedBadgeText, { color: colors.success }]}>{t('curation.saved')}</Text>
+                                                    </View>
+                                                )}
+                                                {levelStyle && (
+                                                    <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
+                                                        <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
+                                                    </View>
+                                                )}
+                                            </View>
                                         </View>
                                         {viewMode === 'detailed' && (
                                             <>
@@ -517,7 +621,9 @@ export default function CurationScreen() {
                                                     {srcFlag} {srcCode} → {tgtFlag} {tgtCode}
                                                 </Text>
                                                 <View style={styles.cardFooter}>
-                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.words.length })}</Text>
+                                                    <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
+                                                        <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.words.length })}</Text>
+                                                    </View>
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                                                         {theme.creatorName && (
                                                             <Text style={{ fontSize: 11, color: colors.textTertiary }}>by {theme.creatorName}</Text>
@@ -533,10 +639,14 @@ export default function CurationScreen() {
                                             </>
                                         )}
                                         {viewMode === 'compact' && (
-                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 }}>
-                                                <Text style={{ fontSize: 11, color: colors.textTertiary }}>{t('curation.nWordsCompact', { count: theme.words.length })}</Text>
+                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+                                                <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
+                                                    <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.nWordsCompact', { count: theme.words.length })}</Text>
+                                                </View>
                                                 {tags.length > 0 && (
-                                                    <Text style={{ fontSize: 10, color: colors.textTertiary }}>#{tags[0]}</Text>
+                                                    <View style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
+                                                        <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{tags[0]}</Text>
+                                                    </View>
                                                 )}
                                             </View>
                                         )}
@@ -546,24 +656,47 @@ export default function CurationScreen() {
                         })}
 
                         {filteredThemes.length === 0 && (
-                            <View style={{ alignItems: 'center', marginVertical: 40 }}>
+                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 24 }}>
                                 <Ionicons name="search-outline" size={48} color={colors.textTertiary} />
                                 <Text style={{ marginTop: 16, color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('curation.noResults')}</Text>
                             </View>
                         )}
+
+                        <View style={[styles.inlineFallback, { borderTopColor: colors.borderLight }]}>
+                            <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>{t('curation.noThemeFound')}</Text>
+                            <Pressable onPress={handleGenerateAI} disabled={generating || !searchQuery} style={[styles.fallbackBtn, { backgroundColor: searchQuery ? colors.accent : colors.border }]}>
+                                {generating ? <ActivityIndicator color="#FFF" /> : (
+                                    <>
+                                        <Ionicons name="sparkles" size={18} color="#FFF" />
+                                        <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
+                                    </>
+                                )}
+                            </Pressable>
+                        </View>
                     </ScrollView>
 
-                    <View style={[styles.fallbackBar, { backgroundColor: colors.surface, paddingBottom: bottomInset + 8, borderTopColor: colors.border }]}>
-                        <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>{t('curation.noThemeFound')}</Text>
-                        <Pressable onPress={handleGenerateAI} disabled={generating || !searchQuery} style={[styles.fallbackBtn, { backgroundColor: searchQuery ? colors.accent : colors.border }]}>
-                            {generating ? <ActivityIndicator color="#FFF" /> : (
-                                <>
-                                    <Ionicons name="sparkles" size={18} color="#FFF" />
-                                    <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
-                                </>
+                    <RNAnimated.View
+                        style={{
+                            position: 'absolute',
+                            right: 20,
+                            bottom: insets.bottom + 84,
+                            opacity: fabAnim,
+                            transform: [{ scale: fabAnim.interpolate({ inputRange: [0, 1], outputRange: [0.7, 1] }) }],
+                        }}
+                        pointerEvents="box-none"
+                    >
+                        <Pressable
+                            onPress={() => { scrollRef.current?.scrollTo({ y: 0, animated: true }); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }}
+                            style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', opacity: pressed ? 0.7 : 1 }]}
+                        >
+                            {Platform.OS === 'ios' && (
+                                <View style={[StyleSheet.absoluteFill, { borderRadius: 24, overflow: 'hidden' }]}>
+                                    <BlurView intensity={20} tint={isDark ? 'dark' : 'light'} style={StyleSheet.absoluteFill} />
+                                </View>
                             )}
+                            <Ionicons name="arrow-up" size={24} color={colors.text} />
                         </Pressable>
-                    </View>
+                    </RNAnimated.View>
                 </>
             )}
 
@@ -606,33 +739,36 @@ const styles = StyleSheet.create({
     tabContainer: { flexDirection: 'row', paddingHorizontal: 24, marginBottom: 16, borderBottomWidth: 1, borderBottomColor: '#E5E5E5' },
     tabButton: { flex: 1, paddingVertical: 12, alignItems: 'center' },
     tabText: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
-    themeCard: { borderRadius: 16, borderWidth: 1, marginBottom: 12 },
+    themeCard: { borderRadius: 16, borderWidth: 1, marginBottom: 12, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 1, shadowRadius: 10, elevation: 4 },
     cardDetailed: { padding: 16 },
     cardCompact: { padding: 12, marginBottom: 0 },
     cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
-    cardTitle: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
-    levelBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10, marginLeft: 8 },
+    cardTitle: { fontSize: 17, fontFamily: 'Pretendard_700Bold' },
+    levelBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10 },
     levelBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
+    savedBadge: { flexDirection: 'row', alignItems: 'center', gap: 3, paddingHorizontal: 7, paddingVertical: 3, borderRadius: 10 },
+    savedBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
     tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 4 },
-    tagChip: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 6 },
+    tagChip: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 4 },
     tagText: { fontSize: 11, fontFamily: 'Pretendard_500Medium' },
     cardDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 6 },
-    langPair: { fontSize: 11, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
+    langPair: { fontSize: 13, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
     cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 },
-    cardCount: { fontSize: 11, fontFamily: 'Pretendard_700Bold', letterSpacing: 0.5 },
+    wordCountPill: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10 },
+    cardCount: { fontSize: 12, fontFamily: 'Pretendard_700Bold', letterSpacing: 0.3 },
     langChipContainer: { paddingHorizontal: 24, paddingVertical: 2, flexDirection: 'row', alignItems: 'center' },
     langChip: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8 },
     langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
-    fallbackBar: { position: 'absolute', bottom: 0, left: 0, right: 0, paddingHorizontal: 24, paddingTop: 16, borderTopWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-    fallbackText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
+    inlineFallback: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 20, marginTop: 8, borderTopWidth: StyleSheet.hairlineWidth },
+    fallbackText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', flex: 1, marginRight: 12 },
     fallbackBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 16, paddingVertical: 10, borderRadius: 12 },
     detailHero: { minHeight: 160, position: 'relative', padding: 20, justifyContent: 'flex-end' },
     backBtn: { position: 'absolute', top: 52, left: 20, width: 44, height: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
     heroContent: { position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'center', opacity: 0.1 },
-    heroTextContainer: { zIndex: 1 },
-    heroMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 2 },
+    heroTextContainer: { zIndex: 1, alignItems: 'flex-end' },
+    heroMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 2, flexWrap: 'wrap', justifyContent: 'flex-end' },
     downloadRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
-    detailTitle: { fontSize: 28, fontFamily: 'Pretendard_700Bold', marginBottom: 4 },
+    detailTitle: { fontSize: 28, fontFamily: 'Pretendard_700Bold', marginBottom: 4, textAlign: 'right' },
     detailDesc: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     wordItem: { padding: 16, borderRadius: 12, borderWidth: 1, marginBottom: 12 },
     wordTerm: { fontSize: 17, fontFamily: 'Pretendard_700Bold', marginBottom: 4 },
@@ -640,10 +776,13 @@ const styles = StyleSheet.create({
     wordDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular' },
     checkboxRow: { flexDirection: 'row', alignItems: 'center', gap: 12 },
     checkboxHit: { paddingLeft: 4 },
-    selectionBar: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 },
+    selectionBar: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', marginBottom: 6 },
     selectionText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
-    selectionToggle: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
-    masterBar: { position: 'absolute', bottom: 0, left: 0, right: 0, paddingHorizontal: 24, paddingTop: 16 },
-    masterBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 18, borderRadius: 12 },
-    masterBtnText: { fontSize: 18, fontFamily: 'Pretendard_700Bold', color: '#FFFFFF' }
+    masterBar: { paddingHorizontal: 24, paddingTop: 12, borderTopWidth: StyleSheet.hairlineWidth },
+    masterBtnRow: { flexDirection: 'row', gap: 10 },
+    masterBtnSecondary: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 16, borderRadius: 12, borderWidth: 1.5 },
+    masterBtnSecondaryText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
+    masterBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 16, borderRadius: 12 },
+    masterBtnText: { fontSize: 15, fontFamily: 'Pretendard_700Bold', color: '#FFFFFF' },
+    fab: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.15, shadowRadius: 6, elevation: 4 },
 });

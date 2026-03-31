@@ -1,4 +1,4 @@
-export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3) => {
+export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, signal?: AbortSignal) => {
     // Expo 클라이언트 사이드에서 환경변수를 읽으려면 'EXPO_PUBLIC_' 접두사가 반드시 필요합니다.
     const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY || 'YOUR_API_KEY_HERE';
     if (!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_API_KEY_HERE') {
@@ -30,10 +30,13 @@ export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3) =
 
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
         try {
+            if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
+
             const response = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(payload),
+                signal,
             });
 
             if (!response.ok) {
@@ -74,7 +77,10 @@ export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3) =
             }
 
         } catch (error: any) {
-            // If it's the last attempt OR if it's a specific, unrecoverable error (like JSON parsing failure 
+            // AbortError는 retry 없이 즉시 throw
+            if (error.name === 'AbortError') throw error;
+
+            // If it's the last attempt OR if it's a specific, unrecoverable error (like JSON parsing failure
             // from a perfectly 200 OK response, or 400 Bad Request thrown from above)
             if (
                 attempt === maxRetries ||
@@ -97,7 +103,13 @@ export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3) =
             // Wait before next retry. Exponential backoff: 1000ms * 2^attempt
             const delayMs = 1000 * Math.pow(2, attempt);
             console.log(`[Gemini API] Attempt ${attempt + 1} failed, retrying in ${delayMs}ms...`);
-            await new Promise(res => setTimeout(res, delayMs));
+            await new Promise((res, rej) => {
+                const timer = setTimeout(res, delayMs);
+                signal?.addEventListener('abort', () => {
+                    clearTimeout(timer);
+                    rej(new DOMException('Aborted', 'AbortError'));
+                }, { once: true });
+            });
         }
     }
 

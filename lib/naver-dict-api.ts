@@ -123,3 +123,34 @@ export async function searchNaverDict(term: string, sourceLang: string = 'en', t
         return null;
     }
 }
+
+export async function fetchNaverAutocomplete(term: string, sourceLang: string, targetLang: string): Promise<string[]> {
+    const dictCode = getNaverDictCode(sourceLang, targetLang);
+    if (!dictCode) return [];
+    const trimmed = term.trim().toLowerCase();
+    if (trimmed.length < 2) return [];
+    try {
+        const res = await fetch(`${API_BASE}/api/dict/autocomplete?query=${encodeURIComponent(trimmed)}&dictCode=${dictCode}`);
+        if (!res.ok) return [];
+        const data = await res.json();
+        const items = data?.items;
+        if (!Array.isArray(items)) return [];
+        return items.slice(0, 7).map((item: any) => Array.isArray(item) ? item[0] : item).filter(Boolean);
+    } catch {
+        return [];
+    }
+}
+
+export async function fetchDatamuseAutocomplete(term: string): Promise<string[]> {
+    const trimmed = term.trim().toLowerCase();
+    if (trimmed.length < 2) return [];
+    try {
+        const res = await fetch(`https://api.datamuse.com/words?sp=${encodeURIComponent(trimmed)}*&max=7`);
+        if (!res.ok) return [];
+        const data = await res.json();
+        if (!Array.isArray(data)) return [];
+        return data.map((item: any) => item.word).filter(Boolean);
+    } catch {
+        return [];
+    }
+}

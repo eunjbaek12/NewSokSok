@@ -46,7 +46,7 @@ export default function ListCard({
   );
 
   const statusType = React.useMemo((): StatusBadgeType | null => {
-    if (planStatus !== 'none') return 'learning';
+    if (planStatus === 'in-progress') return 'learning';
     if (item.isCurated) return 'curated';
     return null;
   }, [planStatus, item.isCurated]);

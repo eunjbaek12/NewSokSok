@@ -22,14 +22,14 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     const [isPendingFill, startAutoFill] = useTransition();
     const [isPendingSave, startSave] = useTransition();
 
-    const handleAutoFill = () => {
-        if (!term.trim() || isPendingFill) return;
+    const runAutoFill = (searchTerm: string) => {
+        if (!searchTerm.trim() || isPendingFill) return;
 
         startAutoFill(async () => {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
             try {
                 // Try Naver Dictionary first (supported language pairs only)
-                const naverResult = await searchNaverDict(term.trim(), sourceLang, targetLang);
+                const naverResult = await searchNaverDict(searchTerm.trim(), sourceLang, targetLang);
                 if (naverResult) {
                     if (naverResult.meaningKr) setMeaningKr(naverResult.meaningKr);
                     if (naverResult.definition) setDefinition(naverResult.definition);
@@ -41,7 +41,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 }
 
                 // Fallback to AI Analysis
-                const result = await autoFillWord(term.trim(), sourceLang, targetLang);
+                const result = await autoFillWord(searchTerm.trim(), sourceLang, targetLang);
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
                 if (result.phonetic) setPhonetic(result.phonetic);
@@ -53,6 +53,9 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             }
         });
     };
+
+    const handleAutoFill = () => runAutoFill(term);
+    const handleAutoFillWithTerm = (overrideTerm: string) => runAutoFill(overrideTerm);
 
     const handleSaveWord = (selectedListId: string, onSuccess: (savedTerm: string) => void, onError: () => void) => {
         const newErrors: { term?: boolean; meaningKr?: boolean } = {};
@@ -137,6 +140,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         tags, setTags,
         errors, setErrors,
         handleAutoFill,
+        handleAutoFillWithTerm,
         startAutoFill,
         handleSaveWord,
         isPendingFill,

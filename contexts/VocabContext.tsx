@@ -4,6 +4,7 @@ import { VocaList, Word, StudyResult, AIWordResult, PlanStatus } from '@/lib/typ
 import * as Storage from '@/lib/vocab-storage';
 import * as PlanEngine from '@/lib/plan-engine';
 import { useAuth } from '@/contexts/AuthContext';
+import { useSettings } from '@/contexts/SettingsContext';
 
 const debuggerHost = Constants.expoConfig?.hostUri;
 const hostIp = debuggerHost ? debuggerHost.split(':')[0] : 'localhost';
@@ -25,7 +26,7 @@ interface VocabContextValue {
   toggleVisibility: (id: string) => Promise<void>;
   renameList: (id: string, newTitle: string) => Promise<void>;
   mergeLists: (sourceId: string, targetId: string, deleteSource: boolean) => Promise<void>;
-  shareList: (listId: string, options?: { force?: boolean; updateId?: string }) => Promise<void>;
+  shareList: (listId: string, options?: { force?: boolean; updateId?: string; description?: string }) => Promise<void>;
   addWord: (listId: string, wordData: Omit<Word, 'id' | 'isMemorized'>) => Promise<Word>;
   addBatchWords: (listId: string, wordsData: Array<Partial<Omit<Word, 'id' | 'createdAt' | 'updatedAt' | 'listId'>> & { term: string, meaningKr: string }>) => Promise<Word[]>;
   updateWord: (listId: string, wordId: string, updates: Partial<Omit<Word, 'id'>>) => Promise<void>;
@@ -44,7 +45,7 @@ interface VocabContextValue {
   studyResults: StudyResult[];
   setStudyResults: (results: StudyResult[]) => void;
   clearStudyResults: () => void;
-  setupPlan: (listId: string, wordsPerDay: number) => Promise<void>;
+  setupPlan: (listId: string, wordsPerDay: number, filter?: 'all' | 'unmemorized' | 'memorized') => Promise<void>;
   rechunkPlan: (listId: string, wordsPerDay: number) => Promise<void>;
   clearPlan: (listId: string) => Promise<void>;
   updatePlanProgress: (listId: string, currentDay: number) => Promise<void>;
@@ -55,6 +56,7 @@ const VocabContext = createContext<VocabContextValue | null>(null);
 
 export function VocabProvider({ children }: { children: ReactNode }) {
   const { authMode, user } = useAuth();
+  const { profileSettings } = useSettings();
   const [lists, setLists] = useState<VocaList[]>([]);
   const [loading, setLoading] = useState(true);
   const [studyResults, setStudyResults] = useState<StudyResult[]>([]);
@@ -212,15 +214,16 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     debouncedSync();
   }, [refreshData, debouncedSync]);
 
-  const shareList = useCallback(async (listId: string, options?: { force?: boolean; updateId?: string }) => {
+  const shareList = useCallback(async (listId: string, options?: { force?: boolean; updateId?: string; description?: string }) => {
     const list = lists.find(l => l.id === listId);
     if (!list) throw new Error('List not found');
 
     const theme = {
       title: list.title,
       icon: list.icon || '✨',
+      description: options?.description || undefined,
       isUserShared: true,
-      creatorName: user?.displayName || 'Anonymous',
+      creatorName: profileSettings.nickname.trim() || user?.displayName || 'Anonymous',
       creatorId: user?.id || null,
       sourceLanguage: list.sourceLanguage || 'en',
       targetLanguage: list.targetLanguage || 'ko',
@@ -375,11 +378,14 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     setStudyResults([]);
   }, []);
 
-  const setupPlan = useCallback(async (listId: string, wordsPerDay: number) => {
+  const setupPlan = useCallback(async (listId: string, wordsPerDay: number, filter: 'all' | 'unmemorized' | 'memorized' = 'all') => {
     const allLists = await Storage.getLists();
     const list = allLists.find(l => l.id === listId);
     if (!list) return;
-    const { assignments, totalDays } = PlanEngine.generatePlan(list.words, wordsPerDay);
+    let wordsToUse = list.words;
+    if (filter === 'unmemorized') wordsToUse = list.words.filter(w => !w.isMemorized);
+    else if (filter === 'memorized') wordsToUse = list.words.filter(w => w.isMemorized);
+    const { assignments, totalDays } = PlanEngine.generatePlan(wordsToUse, wordsPerDay);
     await Storage.savePlan(listId, wordsPerDay, assignments, totalDays);
     await refreshData();
     debouncedSync();

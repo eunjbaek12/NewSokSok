@@ -12,6 +12,7 @@ export interface InputSettings {
     fieldOrder: string[];
     sourceLang: LanguageCode;
     targetLang: LanguageCode;
+    enableAutocomplete: boolean;
 }
 
 export interface StudySettings {
@@ -32,6 +33,13 @@ export interface AutoPlaySettings {
     shuffle: boolean;
 }
 
+export type StartupTab = 'index' | 'vocab-lists' | 'curation';
+
+export interface ProfileSettings {
+    nickname: string;
+    startupTab: StartupTab;
+}
+
 export interface CustomStudySettings {
     useAllLists: boolean;
     selectedListIds: string[];
@@ -43,6 +51,8 @@ export interface CustomStudySettings {
 export type DashboardFilterMode = 'studying' | 'completed';
 
 interface SettingsContextType {
+    profileSettings: ProfileSettings;
+    updateProfileSettings: (updates: Partial<ProfileSettings>) => Promise<void>;
     inputSettings: InputSettings;
     updateInputSettings: (updates: Partial<InputSettings>) => Promise<void>;
     studySettings: StudySettings;
@@ -66,6 +76,7 @@ const DEFAULT_INPUT_SETTINGS: InputSettings = {
     fieldOrder: ['term', 'meaningKr', 'pos', 'phonetic', 'definition', 'example', 'tags'],
     sourceLang: 'en',
     targetLang: 'ko',
+    enableAutocomplete: true,
 };
 
 const DEFAULT_STUDY_SETTINGS: StudySettings = {
@@ -86,6 +97,11 @@ const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = {
     shuffle: false,
 };
 
+const DEFAULT_PROFILE_SETTINGS: ProfileSettings = {
+    nickname: '',
+    startupTab: 'index',
+};
+
 const DEFAULT_CUSTOM_STUDY_SETTINGS: CustomStudySettings = {
     useAllLists: true,
     selectedListIds: [],
@@ -99,6 +115,7 @@ const STUDY_SETTINGS_KEY = '@soksok_user_study_settings';
 const AUTOPLAY_SETTINGS_KEY = '@soksok_user_autoplay_settings';
 const CUSTOM_STUDY_KEY = '@soksok_custom_study_settings';
 const DASHBOARD_FILTER_KEY = '@soksok_dashboard_filter';
+const PROFILE_SETTINGS_KEY = '@soksok_profile_settings';
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
 
@@ -108,6 +125,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(DEFAULT_AUTOPLAY_SETTINGS);
     const [customStudySettings, setCustomStudySettings] = useState<CustomStudySettings>(DEFAULT_CUSTOM_STUDY_SETTINGS);
     const [dashboardFilterMode, setDashboardFilterMode] = useState<DashboardFilterMode>('studying');
+    const [profileSettings, setProfileSettings] = useState<ProfileSettings>(DEFAULT_PROFILE_SETTINGS);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -116,12 +134,13 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
     const loadSettings = async () => {
         try {
-            const [savedInput, savedStudy, savedAutoPlay, savedCustomStudy, savedDashboardFilter] = await Promise.all([
+            const [savedInput, savedStudy, savedAutoPlay, savedCustomStudy, savedDashboardFilter, savedProfile] = await Promise.all([
                 AsyncStorage.getItem(SETTINGS_KEY),
                 AsyncStorage.getItem(STUDY_SETTINGS_KEY),
                 AsyncStorage.getItem(AUTOPLAY_SETTINGS_KEY),
                 AsyncStorage.getItem(CUSTOM_STUDY_KEY),
                 AsyncStorage.getItem(DASHBOARD_FILTER_KEY),
+                AsyncStorage.getItem(PROFILE_SETTINGS_KEY),
             ]);
 
             if (savedStudy) {
@@ -141,6 +160,11 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
             if (savedDashboardFilter && ['studying', 'completed'].includes(savedDashboardFilter)) {
                 setDashboardFilterMode(savedDashboardFilter as DashboardFilterMode);
+            }
+
+            if (savedProfile) {
+                const parsedProfile = JSON.parse(savedProfile);
+                setProfileSettings({ ...DEFAULT_PROFILE_SETTINGS, ...parsedProfile });
             }
 
             if (savedInput) {
@@ -228,6 +252,16 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    const updateProfileSettings = async (updates: Partial<ProfileSettings>) => {
+        try {
+            const newSettings = { ...profileSettings, ...updates };
+            setProfileSettings(newSettings);
+            await AsyncStorage.setItem(PROFILE_SETTINGS_KEY, JSON.stringify(newSettings));
+        } catch (e) {
+            console.error('Failed to save profile settings', e);
+        }
+    };
+
     const updateDashboardFilter = async (mode: DashboardFilterMode) => {
         try {
             setDashboardFilterMode(mode);
@@ -239,6 +273,8 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
     return (
         <SettingsContext.Provider value={{
+            profileSettings,
+            updateProfileSettings,
             inputSettings,
             updateInputSettings,
             studySettings,

@@ -31,6 +31,8 @@ export function parseImportedText(text: string): ParsedWord[] {
     // Split into lines, removing empty lines
     const lines = text.split(/\r?\n/).filter(line => line.trim().length > 0);
 
+    const HEADER_KEYWORDS = ['단어', 'word', 'term', 'vocab', '어휘', '영단어', 'english', '뜻', 'meaning'];
+
     const parsedWords: ParsedWord[] = [];
 
     for (let i = 0; i < lines.length; i++) {
@@ -48,6 +50,11 @@ export function parseImportedText(text: string): ParsedWord[] {
             const rowRegex = /(".*?"|[^",\s]+)(?=\s*,|\s*$)/g;
             const matches = line.match(rowRegex);
             columns = matches ? matches.map(m => m.replace(/^"|"$/g, '').trim()) : line.split(',').map(s => s.trim());
+        }
+
+        // 첫 행이 헤더인 경우 자동 스킵
+        if (i === 0 && HEADER_KEYWORDS.includes(columns[0]?.trim().toLowerCase() || '')) {
+            continue;
         }
 
         // Map columns

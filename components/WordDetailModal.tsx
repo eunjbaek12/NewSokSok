@@ -20,6 +20,7 @@ import { useAddWord } from '@/hooks/useAddWord';
 import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
+import { speak } from '@/lib/tts';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -187,6 +188,16 @@ export default function WordDetailModal({
                         placeholder={placeholder}
                         placeholderTextColor={colors.textTertiary}
                     />
+                ) : readOnly ? (
+                    <View style={[
+                        styles.fieldInput,
+                        { backgroundColor: colors.surface, borderColor: colors.borderLight },
+                        multiline && { minHeight: 80, justifyContent: 'flex-start' }
+                    ]}>
+                        <Text style={[styles.fieldText, { color: isCore ? colors.primary : colors.text, fontSize: isCore ? 16 : 15, fontFamily: isCore ? 'Pretendard_600SemiBold' : 'Pretendard_400Regular', lineHeight: isCore ? 24 : 22 }]}>
+                            {value || '—'}
+                        </Text>
+                    </View>
                 ) : (
                     <Pressable onPress={switchToEdit} style={[
                         styles.fieldInput,
@@ -210,7 +221,7 @@ export default function WordDetailModal({
             animationType="fade"
             onRequestClose={handleCancel}
         >
-            <View style={[styles.modalOverlay, { backgroundColor: 'rgba(0,0,0,0.4)' }]}>
+            <View style={[styles.modalOverlay, { backgroundColor: colors.overlay }]}>
                 <Pressable style={styles.modalBackdrop} onPress={mode === 'read' ? onClose : undefined} />
 
                 <KeyboardAvoidingView
@@ -227,7 +238,7 @@ export default function WordDetailModal({
                             </Pressable>
 
                             <Text style={[styles.topBarTitle, { color: colors.text }]}>
-                                {readOnly ? '' : (mode === 'add' ? t('wordDetail.addWord') : mode === 'edit' ? t('wordDetail.editWord') : t('wordDetail.viewWord'))}
+                                {mode === 'add' ? t('wordDetail.addWord') : mode === 'edit' ? t('wordDetail.editWord') : t('wordDetail.viewWord')}
                             </Text>
 
                             <View style={styles.topBtn}>
@@ -251,9 +262,15 @@ export default function WordDetailModal({
                             <View style={styles.wordSection}>
                                 <View style={styles.wordTitleRow}>
                                     {mode === 'read' ? (
+                                        readOnly ? (
+                                            <View style={{ flex: 1 }}>
+                                                <Text style={[styles.wordInputText, { color: colors.text }]}>{term}</Text>
+                                            </View>
+                                        ) : (
                                         <Pressable onPress={switchToEdit} style={{ flex: 1 }}>
                                             <Text style={[styles.wordInputText, { color: colors.text }]}>{term}</Text>
                                         </Pressable>
+                                        )
                                     ) : (
                                         <TextInput
                                             style={[styles.wordInput, { color: colors.text, borderBottomColor: errors.term ? colors.error : colors.border }]}
@@ -268,9 +285,20 @@ export default function WordDetailModal({
                                             autoCorrect={false}
                                         />
                                     )}
-                                    <Pressable onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 8 }}>
-                                        <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? "#FFD700" : colors.textTertiary} />
-                                    </Pressable>
+                                    {mode === 'read' && term.trim() ? (
+                                        <Pressable
+                                            onPress={() => { Haptics.selectionAsync(); speak(term.trim(), 'en-US'); }}
+                                            hitSlop={12}
+                                            style={[styles.termActionBtn, { backgroundColor: colors.surfaceSecondary }]}
+                                        >
+                                            <Ionicons name="volume-medium-outline" size={20} color={colors.textSecondary} />
+                                        </Pressable>
+                                    ) : null}
+                                    {!readOnly && (
+                                        <Pressable onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 4 }}>
+                                            <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? "#FFD700" : colors.textTertiary} />
+                                        </Pressable>
+                                    )}
                                 </View>
 
                                 {(phonetic || pos || mode !== 'read') && (
@@ -346,7 +374,7 @@ export default function WordDetailModal({
                                     multiline
                                 />
 
-                                <View style={[styles.exampleGroup, { backgroundColor: mode === 'read' ? 'transparent' : colors.surfaceSecondary }]}>
+                                <View style={[styles.exampleGroup, { backgroundColor: (mode === 'read' || readOnly) ? 'transparent' : colors.surfaceSecondary }]}>
                                     <EditableField
                                         label={t('wordDetail.exampleLabel')}
                                         placeholder={t('wordDetail.examplePlaceholder')}
@@ -446,9 +474,9 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         overflow: 'hidden',
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 8 },
-        shadowOpacity: 0.2,
-        shadowRadius: 24,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.12,
+        shadowRadius: 16,
         elevation: 10,
     },
     topBar: {
@@ -469,7 +497,8 @@ const styles = StyleSheet.create({
     topBarSave: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
     scrollContent: { padding: 20, paddingBottom: 40 },
     wordSection: { marginBottom: 20 },
-    wordTitleRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 12 },
+    wordTitleRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 8 },
+    termActionBtn: { width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center' },
     wordInputText: { fontSize: 26, fontFamily: 'Pretendard_700Bold', paddingVertical: 8, letterSpacing: -0.5 },
     wordInput: { flex: 1, fontSize: 24, fontFamily: 'Pretendard_700Bold', paddingVertical: 8, borderBottomWidth: 2, letterSpacing: -0.5 },
     analyzeBtn: { alignSelf: 'flex-start', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, marginTop: 12 },
@@ -478,6 +507,7 @@ const styles = StyleSheet.create({
     fieldLabel: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', marginBottom: 6, letterSpacing: 0.5, marginLeft: 2 },
     fieldInput: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 14, fontSize: 15, fontFamily: 'Pretendard_400Regular', textAlignVertical: 'center' },
     fieldText: { fontSize: 15, fontFamily: 'Pretendard_400Regular', lineHeight: 22 },
+    fieldReadView: { paddingVertical: 4, paddingHorizontal: 2 },
     readFieldPressable: {
         paddingVertical: 6,
         paddingHorizontal: 2,

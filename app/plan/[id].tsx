@@ -141,8 +141,10 @@ function WordPlanCard({ word, onToggle, colors }: WordPlanCardProps) {
 
 // ─── Main Screen ──────────────────────────────────────────────────────────────
 
+type PlanFilter = 'all' | 'unmemorized' | 'memorized';
+
 export default function PlanScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, openSetup } = useLocalSearchParams<{ id: string; openSetup?: string }>();
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
@@ -150,16 +152,16 @@ export default function PlanScreen() {
     lists,
     toggleMemorized,
     setupPlan,
-    rechunkPlan,
     clearPlan,
     updatePlanProgress,
   } = useVocab();
 
   const [setupModalVisible, setSetupModalVisible] = useState(false);
   const [wordsPerDayInput, setWordsPerDayInput] = useState('');
+  const [filterMode, setFilterMode] = useState<PlanFilter>('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [viewingDay, setViewingDay] = useState<number>(0); // 0 = not initialized
-  const [selectedMode, setSelectedMode] = useState<string | null>(null);
+  const [selectedMode, setSelectedMode] = useState<string>('/flashcards/[id]');
 
   const list = useMemo(() => lists.find(l => l.id === id), [lists, id]);
   const words = list?.words ?? [];
@@ -169,8 +171,15 @@ export default function PlanScreen() {
     [list, words]
   );
 
-  const autoCurrentDay = useMemo(() => computeCurrentDay(words), [words]);
+  const autoCurrentDay = useMemo(
+    () => list?.planCurrentDay ?? computeCurrentDay(words),
+    [words, list]
+  );
   const suggested = useMemo(() => suggestWordsPerDay(words.length), [words.length]);
+
+  const allCount = words.length;
+  const unmemorizedCount = useMemo(() => words.filter(w => !w.isMemorized).length, [words]);
+  const memorizedCount = useMemo(() => words.filter(w => w.isMemorized).length, [words]);
 
   // Initialize viewingDay to auto-computed current day
   useEffect(() => {
@@ -179,18 +188,29 @@ export default function PlanScreen() {
     }
   }, [planStatus, autoCurrentDay, viewingDay]);
 
-  // Reset selected mode when viewing day changes
+  // Reset selected mode to default (flashcards) when viewing day changes
   useEffect(() => {
-    setSelectedMode(null);
+    setSelectedMode('/flashcards/[id]');
   }, [viewingDay]);
 
   // Auto-open setup modal if no plan
   useEffect(() => {
     if (planStatus === 'none' && words.length > 0) {
       setWordsPerDayInput(String(suggested));
+      setFilterMode('all');
       setSetupModalVisible(true);
     }
   }, [planStatus, words.length, suggested]);
+
+  // Open setup modal when navigated with openSetup param (e.g., from 학습결과 modal)
+  useEffect(() => {
+    if (openSetup === '1' && planStatus !== 'none' && !setupModalVisible) {
+      setWordsPerDayInput(String(suggested));
+      setFilterMode('all');
+      setSetupModalVisible(true);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const banner = useMemo(
     () => getBannerConfig(planStatus, list, colors, t),
@@ -225,13 +245,13 @@ export default function PlanScreen() {
     return isNaN(n) || n <= 0 ? suggested : n;
   }, [wordsPerDayInput, suggested]);
 
-  const previewDays = useMemo(() => {
-    if (planStatus === 'inactive' || planStatus === 'overdue') {
-      const unmemorized = words.filter(w => !w.isMemorized).length;
-      return Math.ceil(unmemorized / parsedWordsPerDay);
-    }
-    return Math.ceil(words.length / parsedWordsPerDay);
-  }, [planStatus, words, parsedWordsPerDay]);
+  const filteredWordCount = useMemo(() => {
+    if (filterMode === 'unmemorized') return unmemorizedCount;
+    if (filterMode === 'memorized') return memorizedCount;
+    return allCount;
+  }, [filterMode, allCount, unmemorizedCount, memorizedCount]);
+
+  const previewDays = useMemo(() => Math.ceil(filteredWordCount / parsedWordsPerDay), [filteredWordCount, parsedWordsPerDay]);
 
   const completedWords = words.filter(w => w.isMemorized).length;
 
@@ -239,26 +259,26 @@ export default function PlanScreen() {
 
   const handleOpenSetup = useCallback(() => {
     setWordsPerDayInput(String(suggested));
+    if (planStatus === 'inactive' || planStatus === 'overdue') {
+      setFilterMode(unmemorizedCount > 0 ? 'unmemorized' : 'all');
+    } else {
+      setFilterMode('all');
+    }
     setSetupModalVisible(true);
-  }, [suggested]);
+  }, [suggested, planStatus, unmemorizedCount]);
 
   const handleConfirmSetup = useCallback(async () => {
     if (!id) return;
     setIsSubmitting(true);
     try {
       await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-      if (planStatus === 'none') {
-        await setupPlan(id, parsedWordsPerDay);
-      } else {
-        await rechunkPlan(id, parsedWordsPerDay);
-        await updatePlanProgress(id, 1);
-      }
+      await setupPlan(id, parsedWordsPerDay, filterMode);
       setSetupModalVisible(false);
-      setViewingDay(0); // Reset to trigger re-init from autoCurrentDay
+      setViewingDay(0);
     } finally {
       setIsSubmitting(false);
     }
-  }, [id, planStatus, parsedWordsPerDay, setupPlan, rechunkPlan, updatePlanProgress]);
+  }, [id, parsedWordsPerDay, filterMode, setupPlan]);
 
   const handleToggleMemorized = useCallback(
     async (wordId: string) => {
@@ -308,15 +328,17 @@ export default function PlanScreen() {
       return;
     }
 
-    const targetWords = viewingWords.filter(w => !w.isMemorized);
-    const targetIds = targetWords.map(w => w.id).join(',');
-    const destination = selectedMode ?? '/study-select/[id]';
+    const unmemorizedWords = viewingWords.filter(w => !w.isMemorized);
+    const studyWords = unmemorizedWords.length > 0 ? unmemorizedWords : viewingWords;
+    const studyFilter = unmemorizedWords.length > 0 ? 'learning' : 'all';
+    const targetIds = studyWords.map(w => w.id).join(',');
+    const destination = selectedMode;
 
     await updatePlanProgress(id, viewingDay);
-    if (targetWords.length < 2) {
-      router.push({ pathname: destination as any, params: { id, filter: 'learning' } });
+    if (studyWords.length < 2) {
+      router.push({ pathname: destination as any, params: { id, filter: studyFilter } });
     } else {
-      router.push({ pathname: destination as any, params: { id, filter: 'learning', ids: targetIds } });
+      router.push({ pathname: destination as any, params: { id, filter: studyFilter, ids: targetIds } });
     }
   }, [id, planStatus, viewingDay, viewingWords, selectedMode, updatePlanProgress, handleOpenSetup]);
 
@@ -332,7 +354,7 @@ export default function PlanScreen() {
 
   const handleSelectMode = useCallback((pathname: string) => {
     Haptics.selectionAsync();
-    setSelectedMode(prev => prev === pathname ? null : pathname);
+    setSelectedMode(pathname);
   }, []);
 
   // ─── Render ─────────────────────────────────────────────────────────
@@ -560,7 +582,7 @@ export default function PlanScreen() {
         onRequestClose={() => setSetupModalVisible(false)}
       >
         <Pressable
-          style={styles.modalBackdrop}
+          style={[styles.modalBackdrop, { backgroundColor: colors.overlay }]}
           onPress={() => setSetupModalVisible(false)}
         />
         <KeyboardAvoidingView
@@ -573,10 +595,50 @@ export default function PlanScreen() {
             <Text style={[styles.modalTitle, { color: colors.text }]}>
               {planStatus === 'none' ? t('plan.createPlanTitle') : t('plan.resetPlanTitle')}
             </Text>
+
+            {/* Filter selector */}
+            <View style={styles.filterSection}>
+              <Text style={[styles.filterLabel, { color: colors.textSecondary }]}>{t('plan.filterLabel')}</Text>
+              <View style={styles.filterRow}>
+                {([
+                  { key: 'all', label: t('plan.filterAll'), count: allCount },
+                  { key: 'unmemorized', label: t('plan.filterUnmemorized'), count: unmemorizedCount },
+                  { key: 'memorized', label: t('plan.filterMemorized'), count: memorizedCount },
+                ] as { key: PlanFilter; label: string; count: number }[]).map(({ key, label, count }) => {
+                  const isSelected = filterMode === key;
+                  const isDisabled = count === 0;
+                  return (
+                    <Pressable
+                      key={key}
+                      onPress={() => {
+                        if (!isDisabled) {
+                          Haptics.selectionAsync();
+                          setFilterMode(key);
+                        }
+                      }}
+                      style={[
+                        styles.filterOption,
+                        {
+                          backgroundColor: isSelected ? colors.primaryLight : colors.background,
+                          borderColor: isSelected ? colors.primary : colors.borderLight,
+                          opacity: isDisabled ? 0.35 : 1,
+                        },
+                      ]}
+                    >
+                      <Text style={[styles.filterOptionLabel, { color: isSelected ? colors.primary : colors.text }]}>
+                        {label}
+                      </Text>
+                      <Text style={[styles.filterOptionCount, { color: isSelected ? colors.primary : colors.textTertiary }]}>
+                        {count}개
+                      </Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+            </View>
+
             <Text style={[styles.modalDesc, { color: colors.textSecondary }]}>
-              {planStatus === 'inactive' || planStatus === 'overdue'
-                ? t('plan.resetDesc', { count: words.filter(w => !w.isMemorized).length })
-                : t('plan.createDesc', { count: words.length })}
+              {t('plan.planDesc', { count: filteredWordCount })}
             </Text>
 
             <View style={[styles.inputRow, { borderColor: colors.border, backgroundColor: colors.background }]}>
@@ -886,14 +948,13 @@ const styles = StyleSheet.create({
   // Modal
   modalBackdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
   },
   modalWrapper: {
     justifyContent: 'flex-end',
   },
   modalSheet: {
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     padding: 24,
     paddingBottom: 40,
     gap: 16,
@@ -904,6 +965,35 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     alignSelf: 'center',
     marginBottom: 4,
+  },
+  filterSection: {
+    gap: 8,
+  },
+  filterLabel: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  filterRow: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  filterOption: {
+    flex: 1,
+    borderWidth: 1.5,
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 6,
+    alignItems: 'center',
+    gap: 2,
+  },
+  filterOptionLabel: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
+  },
+  filterOptionCount: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_400Regular',
   },
   modalTitle: {
     fontSize: 18,

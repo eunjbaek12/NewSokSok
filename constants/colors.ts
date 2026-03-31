@@ -25,6 +25,7 @@ const Colors = {
     tabIconSelected: '#3182F6',
     cardShadow: 'rgba(25, 31, 40, 0.08)',
     overlay: 'rgba(0, 0, 0, 0.4)',
+    surfaceModal: '#F3F4F6',
   },
   dark: {
     primary: '#4B96FF',
@@ -52,6 +53,7 @@ const Colors = {
     tabIconSelected: '#4B96FF',
     cardShadow: 'rgba(0, 0, 0, 0.3)',
     overlay: 'rgba(0, 0, 0, 0.6)',
+    surfaceModal: '#121212',
   },
 };
 

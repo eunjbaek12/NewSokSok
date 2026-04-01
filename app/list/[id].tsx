@@ -33,7 +33,7 @@ import { Snackbar } from '@/components/ui/Snackbar';
 import FastScrollHandle from '@/components/ui/FastScrollHandle';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
-type SortOrder = 'newest' | 'az' | 'za' | 'wrong';
+type SortOrder = 'newest' | 'az' | 'za';
 
 export default function ListDetailScreen() {
   const { t } = useTranslation();
@@ -138,8 +138,6 @@ export default function ListDetailScreen() {
       sorted.sort((a, b) => a.term.localeCompare(b.term, 'en', { sensitivity: 'base' }));
     } else if (sortOrder === 'za') {
       sorted.sort((a, b) => b.term.localeCompare(a.term, 'en', { sensitivity: 'base' }));
-    } else if (sortOrder === 'wrong') {
-      sorted.sort((a, b) => (b.wrongCount ?? 0) - (a.wrongCount ?? 0));
     } else {
       sorted.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
     }
@@ -160,10 +158,6 @@ export default function ListDetailScreen() {
     if (!word) return '';
     if (sortOrder === 'az' || sortOrder === 'za') {
       return word.term[0]?.toUpperCase() ?? '#';
-    }
-    if (sortOrder === 'wrong') {
-      const count = word.wrongCount ?? 0;
-      return count > 0 ? `×${count}` : t('list.filterCorrect');
     }
     // newest by createdAt
     const ts = word.createdAt || word.updatedAt || 0;
@@ -463,14 +457,6 @@ export default function ListDetailScreen() {
 
           {/* 우측 아이콘 영역 */}
           <View style={styles.cardActions}>
-            {/* 오답 횟수 배지 */}
-            {(item.wrongCount ?? 0) > 0 && (
-              <View style={[styles.wrongBadge, { backgroundColor: colors.errorLight }]}>
-                <Text style={[styles.wrongBadgeText, { color: colors.error }]}>
-                  ×{item.wrongCount}
-                </Text>
-              </View>
-            )}
 
             {/* 3. 스피커 (단어 바로 다음 우측 부분) */}
             <Pressable
@@ -556,19 +542,17 @@ export default function ListDetailScreen() {
 
     const cycleSort = () => {
       setSortOrder(prev =>
-        prev === 'newest' ? 'az' : prev === 'az' ? 'za' : prev === 'za' ? 'wrong' : 'newest'
+        prev === 'newest' ? 'az' : prev === 'az' ? 'za' : 'newest'
       );
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     };
 
     const sortLabel =
       sortOrder === 'az' ? t('list.sortAlpha') :
-      sortOrder === 'za' ? t('list.sortReverse') :
-      sortOrder === 'wrong' ? t('list.sortWrong') : t('list.sortRecent');
+      sortOrder === 'za' ? t('list.sortReverse') : t('list.sortRecent');
     const sortIconName: React.ComponentProps<typeof Ionicons>['name'] =
       sortOrder === 'az' ? 'arrow-down-outline' :
-      sortOrder === 'za' ? 'arrow-up-outline' :
-      sortOrder === 'wrong' ? 'alert-circle-outline' : 'time-outline';
+      sortOrder === 'za' ? 'arrow-up-outline' : 'time-outline';
     const sortIsActive = sortOrder !== 'newest';
 
     const toggleStarredFilter = () => {
@@ -1148,17 +1132,6 @@ const styles = StyleSheet.create({
   speakerBtn: {
     justifyContent: 'center',
     padding: 4,
-  },
-  wrongBadge: {
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  wrongBadgeText: {
-    fontSize: 11,
-    fontFamily: 'Pretendard_600SemiBold',
   },
   memorizeBtn: {
     justifyContent: 'center',

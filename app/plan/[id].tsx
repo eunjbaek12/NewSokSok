@@ -172,8 +172,8 @@ export default function PlanScreen() {
   );
 
   const autoCurrentDay = useMemo(
-    () => list?.planCurrentDay ?? computeCurrentDay(words),
-    [words, list]
+    () => computeCurrentDay(words),
+    [words]
   );
   const suggested = useMemo(() => suggestWordsPerDay(words.length), [words.length]);
 

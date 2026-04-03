@@ -40,6 +40,7 @@ interface VocabContextValue {
   resetWrongCount: (wordIds: string[]) => Promise<void>;
   getWordsForList: (listId: string) => Word[];
   getListProgress: (listId: string) => { total: number; memorized: number; percent: number };
+  saveLastResult: (listId: string) => Promise<void>;
   reorderLists: (orderedIds: string[]) => Promise<void>;
   updateStudyTime: (listId: string) => Promise<void>;
   studyResults: StudyResult[];
@@ -378,6 +379,11 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     setStudyResults([]);
   }, []);
 
+  const saveLastResult = useCallback(async (listId: string) => {
+    await Storage.saveLastResult(listId);
+    await refreshData();
+  }, [refreshData]);
+
   const setupPlan = useCallback(async (listId: string, wordsPerDay: number, filter: 'all' | 'unmemorized' | 'memorized' = 'all') => {
     const allLists = await Storage.getLists();
     const list = allLists.find(l => l.id === listId);
@@ -386,7 +392,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     if (filter === 'unmemorized') wordsToUse = list.words.filter(w => !w.isMemorized);
     else if (filter === 'memorized') wordsToUse = list.words.filter(w => w.isMemorized);
     const { assignments, totalDays } = PlanEngine.generatePlan(wordsToUse, wordsPerDay);
-    await Storage.savePlan(listId, wordsPerDay, assignments, totalDays);
+    await Storage.savePlan(listId, wordsPerDay, assignments, totalDays, filter);
     await refreshData();
     debouncedSync();
   }, [refreshData, debouncedSync]);
@@ -450,12 +456,13 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     studyResults,
     setStudyResults,
     clearStudyResults,
+    saveLastResult,
     setupPlan,
     rechunkPlan,
     clearPlan,
     updatePlanProgress,
     getPlanStatus,
-  }), [lists, loading, refreshData, fetchCloudCurations, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults, setupPlan, rechunkPlan, clearPlan, updatePlanProgress, getPlanStatus]);
+  }), [lists, loading, refreshData, fetchCloudCurations, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults, saveLastResult, setupPlan, rechunkPlan, clearPlan, updatePlanProgress, getPlanStatus]);
 
   return (
     <VocabContext.Provider value={value}>

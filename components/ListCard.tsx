@@ -37,7 +37,10 @@ export default function ListCard({
 }: ListCardProps) {
   const { colors, isDark } = useTheme();
   const { t } = useTranslation();
-  const progress = getListProgress(item.id);
+  const hasSnapshot = (item.lastResultTotal ?? 0) > 0;
+  const progress = hasSnapshot
+    ? { memorized: item.lastResultMemorized!, total: item.lastResultTotal!, percent: item.lastResultPercent! }
+    : getListProgress(item.id);
   const relativeTime = getRelativeTime(item.lastStudiedAt, t);
 
   const planStatus = React.useMemo(

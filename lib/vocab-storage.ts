@@ -61,6 +61,10 @@ export async function getLists(): Promise<VocaList[]> {
       planWordsPerDay: row.planWordsPerDay ?? 10,
       planStartedAt: row.planStartedAt ?? undefined,
       planUpdatedAt: row.planUpdatedAt ?? undefined,
+      planFilter: (row.planFilter as 'all' | 'unmemorized' | 'memorized') ?? 'all',
+      lastResultMemorized: row.lastResultMemorized ?? 0,
+      lastResultTotal: row.lastResultTotal ?? 0,
+      lastResultPercent: row.lastResultPercent ?? 0,
     };
   });
 
@@ -266,12 +270,6 @@ export async function addWord(
         newWord.targetLang ?? 'ko',
       ]
     );
-    // touch list lastStudiedAt? We keep it but it won't affect order now as we order by position
-    await db.runAsync(
-      `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-      Date.now(),
-      listId
-    );
   });
 
   return newWord;
@@ -339,12 +337,6 @@ export async function addBatchWords(
         ]
       );
     }
-    // We update lastStudiedAt for history, but position remains unchanged so order is preserved
-    await db.runAsync(
-      `UPDATE lists SET lastStudiedAt = ? WHERE id = ?`,
-      Date.now(),
-      listId
-    );
   });
 
   return newWords;
@@ -516,6 +508,21 @@ export async function reorderLists(orderedIds: string[]): Promise<void> {
   });
 }
 
+export async function saveLastResult(listId: string): Promise<void> {
+  const db = await getDb();
+  const row = await db.getFirstAsync<{ memorized: number; total: number }>(
+    `SELECT COUNT(*) as total, SUM(CASE WHEN isMemorized = 1 THEN 1 ELSE 0 END) as memorized FROM words WHERE listId = ?`,
+    [listId]
+  );
+  const memorized = row?.memorized ?? 0;
+  const total = row?.total ?? 0;
+  const percent = total > 0 ? Math.round((memorized / total) * 100) : 0;
+  await db.runAsync(
+    `UPDATE lists SET lastResultMemorized = ?, lastResultTotal = ?, lastResultPercent = ? WHERE id = ?`,
+    [memorized, total, percent, listId]
+  );
+}
+
 export async function updateStudyTime(listId: string): Promise<void> {
   const db = await getDb();
   await db.runAsync('UPDATE lists SET lastStudiedAt = ? WHERE id = ?', Date.now(), listId);
@@ -626,14 +633,15 @@ export async function savePlan(
   listId: string,
   wordsPerDay: number,
   assignedDays: Array<{ wordId: string; day: number }>,
-  totalDays: number
+  totalDays: number,
+  filter: 'all' | 'unmemorized' | 'memorized' = 'all'
 ): Promise<void> {
   const db = await getDb();
   const now = Date.now();
   await db.withTransactionAsync(async () => {
     await db.runAsync(
-      `UPDATE lists SET planTotalDays = ?, planCurrentDay = 1, planWordsPerDay = ?, planStartedAt = ?, planUpdatedAt = NULL WHERE id = ?`,
-      [totalDays, wordsPerDay, now, listId]
+      `UPDATE lists SET planTotalDays = ?, planCurrentDay = 1, planWordsPerDay = ?, planStartedAt = ?, planUpdatedAt = NULL, planFilter = ? WHERE id = ?`,
+      [totalDays, wordsPerDay, now, filter, listId]
     );
     for (const { wordId, day } of assignedDays) {
       await db.runAsync('UPDATE words SET assignedDay = ? WHERE id = ?', [day, wordId]);
@@ -655,7 +663,7 @@ export async function clearPlan(listId: string): Promise<void> {
 export async function updatePlanProgress(listId: string, currentDay: number): Promise<void> {
   const db = await getDb();
   await db.runAsync(
-    'UPDATE lists SET planCurrentDay = ?, planUpdatedAt = ? WHERE id = ?',
+    'UPDATE lists SET planCurrentDay = MAX(planCurrentDay, ?), planUpdatedAt = ? WHERE id = ?',
     [currentDay, Date.now(), listId]
   );
 }

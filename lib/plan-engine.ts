@@ -53,9 +53,13 @@ export function computePlanStatus(list: VocaList, words: Word[], now: number): P
   if (!list.planStartedAt || !list.planTotalDays) {
     return 'none';
   }
-  if (words.length > 0 && words.every(w => w.isMemorized) && list.planUpdatedAt != null) {
+  if (
+    list.planUpdatedAt != null &&
+    (list.planCurrentDay ?? 0) > list.planTotalDays
+  ) {
     return 'completed';
   }
+  const planWords = words.filter(w => w.assignedDay != null && w.assignedDay > 0);
   const planEndDate = list.planStartedAt + list.planTotalDays * 86400000;
   if (now > planEndDate) {
     return 'overdue';
@@ -92,7 +96,7 @@ export function computeCurrentDay(words: Word[]): number {
     const dayWords = assignedWords.filter(w => w.assignedDay === day);
     if (dayWords.some(w => !w.isMemorized)) return day;
   }
-  return sortedDays[sortedDays.length - 1];
+  return sortedDays[0]; // 모두 암기됨 → Day 1(첫날)부터 복습
 }
 
 export type StudyState = 'needs-study' | 'studying' | 'completed';
@@ -117,18 +121,21 @@ function isSameCalendarDay(a: number, b: number): boolean {
 /**
  * Computes the study status for a plan card on the home screen.
  * - displayDay: the Day number to show on the chip
- * - state: 'needs-study' (0%), 'studying' (<50%), 'completed' (>=50%, today only)
+ * - state: 'needs-study' | 'studying' | 'completed'
  * - dayMemorized/dayTotal: word counts for the display day
  *
- * 'completed' is only returned when planUpdatedAt is today.
- * If not studied today, cascades forward through already-completed days
- * to show the first unfinished day as 'needs-study' or 'studying'.
+ * planCurrentDay semantics: "next day to study" (= last-studied day + 1).
+ * Default value 1 means no day has been explicitly studied through the plan yet.
+ *
+ * 'completed' is returned only when the user finished the LAST day today.
+ * After completing any other day, immediately shows the next day as 'needs-study'.
  */
 export function computeDayStudyStatus(list: VocaList, words: Word[], now: number = Date.now()): DayStudyStatus {
   const isStudiedToday =
     list.planUpdatedAt != null && isSameCalendarDay(list.planUpdatedAt, now);
 
-  const baseDay = list.planCurrentDay ?? computeCurrentDay(words);
+  const planCurrentDay = list.planCurrentDay ?? 1;
+  const planTotalDays = list.planTotalDays ?? 0;
 
   function evalDay(day: number): { state: StudyState; dayMemorized: number; dayTotal: number } {
     const dayWords = words.filter(w => w.assignedDay === day);
@@ -145,31 +152,44 @@ export function computeDayStudyStatus(list: VocaList, words: Word[], now: number
     return { state, dayMemorized, dayTotal };
   }
 
-  if (!isStudiedToday) {
-    // 오늘 학습하지 않은 경우: 이미 완료된 Day들을 건너뛰며 첫 미완료 Day를 탐색
-    let day = baseDay;
-    while (true) {
-      const { state, dayMemorized, dayTotal } = evalDay(day);
-      if (dayTotal === 0) break; // 더 이상 Day 없음
-      if (state !== 'completed') {
-        return { displayDay: day, state, dayMemorized, dayTotal };
-      }
-      // 완료 상태지만 오늘 학습 안 함 → 다음 Day 확인
-      const hasNextDay = words.some(w => w.assignedDay === day + 1);
-      if (!hasNextDay) {
-        // 마지막 Day — 오늘 학습 유도를 위해 needs-study로 표시
-        return { displayDay: day, state: 'needs-study', dayMemorized, dayTotal };
-      }
-      day++;
-    }
-    // 폴백
-    const { dayMemorized, dayTotal } = evalDay(baseDay);
-    return { displayDay: baseDay, state: 'needs-study', dayMemorized, dayTotal };
+  if (isStudiedToday && planCurrentDay > 1) {
+    // User studied today — always show "오늘 달성" for the last studied day.
+    // Additional study beyond today's goal keeps the achieved status.
+    const studiedDay = planCurrentDay - 1;
+    const prev = evalDay(studiedDay);
+    return { displayDay: studiedDay, state: 'completed', dayMemorized: prev.dayMemorized, dayTotal: prev.dayTotal };
   }
 
-  // 오늘 학습한 경우 — 실제 상태 그대로 반환 ('completed' 포함)
-  const { state, dayMemorized, dayTotal } = evalDay(baseDay);
-  return { displayDay: baseDay, state, dayMemorized, dayTotal };
+  if (isStudiedToday) {
+    // Studied today but planCurrentDay is still 1 (edge case fallback)
+    const { state, dayMemorized, dayTotal } = evalDay(1);
+    return { displayDay: 1, state, dayMemorized, dayTotal };
+  }
+
+  // Not studied today:
+  if (planCurrentDay > 1) {
+    // Previously studied through the plan — resume at planCurrentDay
+    const day = planTotalDays > 0 ? Math.min(planCurrentDay, planTotalDays) : planCurrentDay;
+    const { dayMemorized, dayTotal } = evalDay(day);
+    return { displayDay: day, state: 'needs-study', dayMemorized, dayTotal };
+  }
+
+  // planCurrentDay = 1, fresh start: cascade to find the first day that needs attention.
+  let day = 1;
+  while (true) {
+    const { state, dayMemorized, dayTotal } = evalDay(day);
+    if (dayTotal === 0) break;
+    if (state !== 'completed') {
+      return { displayDay: day, state, dayMemorized, dayTotal };
+    }
+    const hasNextDay = words.some(w => w.assignedDay === day + 1);
+    if (!hasNextDay) {
+      return { displayDay: day, state: 'needs-study', dayMemorized, dayTotal };
+    }
+    day++;
+  }
+  const { dayMemorized, dayTotal } = evalDay(1);
+  return { displayDay: 1, state: 'needs-study', dayMemorized, dayTotal };
 }
 
 /**

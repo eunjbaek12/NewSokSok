@@ -1,4 +1,4 @@
-export const SCHEMA_VERSION = 10;
+export const SCHEMA_VERSION = 12;
 
 export const INIT_QUERIES = [
   // 리스트(단어장) 보관 테이블
@@ -16,8 +16,12 @@ export const INIT_QUERIES = [
     planWordsPerDay INTEGER DEFAULT 10,
     planStartedAt INTEGER,
     planUpdatedAt INTEGER,
+    planFilter TEXT DEFAULT 'all',
     sourceLanguage TEXT DEFAULT 'en',
-    targetLanguage TEXT DEFAULT 'ko'
+    targetLanguage TEXT DEFAULT 'ko',
+    lastResultMemorized INTEGER DEFAULT 0,
+    lastResultTotal INTEGER DEFAULT 0,
+    lastResultPercent INTEGER DEFAULT 0
   );`,
 
   // 단어 보관 테이블

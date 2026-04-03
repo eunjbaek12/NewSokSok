@@ -596,8 +596,8 @@ export default function DashboardScreen() {
                       style={[
                         styles.planCard,
                         {
-                          backgroundColor: colors.surfaceSecondary,
-                          borderColor: isDark ? colors.border : colors.borderLight,
+                          backgroundColor: colors.successLight,
+                          borderColor: isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)',
                           shadowColor: colors.cardShadow,
                         },
                       ]}
@@ -605,13 +605,13 @@ export default function DashboardScreen() {
                       <View style={styles.planCardTop}>
                         <View style={styles.planCardTitleArea}>
                           {list.icon && <Text style={{ fontSize: 18 }}>{list.icon}</Text>}
-                          <Text style={[styles.planCardTitle, { color: colors.textSecondary }]} numberOfLines={1}>
+                          <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
                             {list.title}
                           </Text>
                         </View>
                         <View style={styles.planCardChips}>
-                          <View style={[styles.statusChip, { backgroundColor: colors.surfaceSecondary }]}>
-                            <Text style={[styles.statusChipText, { color: colors.textTertiary }]}>
+                          <View style={[styles.statusChip, { backgroundColor: isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)' }]}>
+                            <Text style={[styles.statusChipText, { color: colors.success }]}>
                               {t('home.planCompleted')}
                             </Text>
                           </View>
@@ -620,10 +620,10 @@ export default function DashboardScreen() {
                               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                               clearPlan(list.id);
                             }}
-                            style={({ pressed }) => [styles.closeButton, { opacity: pressed ? 0.5 : 0.6 }]}
+                            style={({ pressed }) => [styles.closeButton, { opacity: pressed ? 0.4 : 0.7 }]}
                             hitSlop={8}
                           >
-                            <Ionicons name="close" size={18} color={colors.textTertiary} />
+                            <Ionicons name="close" size={18} color={colors.success} />
                           </Pressable>
                         </View>
                       </View>
@@ -631,10 +631,10 @@ export default function DashboardScreen() {
                         <View style={styles.planCardBottomLeft}>
                           <ProgressBar percent={percent} colors={colors} />
                           <View style={styles.planStatsRow}>
-                            <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                            <Text style={[styles.planWordCount, { color: colors.success }]}>
                               {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
                             </Text>
-                            <Text style={[styles.planStatsPercent, { color: colors.textTertiary }]}>{percent}%</Text>
+                            <Text style={[styles.planStatsPercent, { color: colors.success }]}>{percent}%</Text>
                           </View>
                         </View>
                         <Pressable
@@ -644,10 +644,10 @@ export default function DashboardScreen() {
                           }}
                           style={({ pressed }) => [
                             styles.actionButton,
-                            { backgroundColor: colors.surfaceSecondary, opacity: pressed ? 0.85 : 1 },
+                            { backgroundColor: colors.success, opacity: pressed ? 0.85 : 1 },
                           ]}
                         >
-                          <Text style={[styles.actionButtonText, { color: colors.textSecondary }]}>
+                          <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
                             {t('home.studyResult')}
                           </Text>
                         </Pressable>
@@ -687,19 +687,21 @@ export default function DashboardScreen() {
             <View style={[styles.resultSheet, { backgroundColor: colors.surface }]}>
               <View style={[styles.resultHandle, { backgroundColor: colors.border }]} />
               <View style={styles.resultTitleRow}>
-                {resultList.icon && <Text style={{ fontSize: 20 }}>{resultList.icon}</Text>}
-                <Text style={[styles.resultTitle, { color: colors.text }]} numberOfLines={1}>
-                  {resultList.title}
+                <Text style={[styles.resultSubtitle, { color: colors.textSecondary }]}>
+                  {t('home.studyResult')}
                 </Text>
+                <View style={styles.resultTitleMain}>
+                  {resultList.icon && <Text style={{ fontSize: 20 }}>{resultList.icon}</Text>}
+                  <Text style={[styles.resultTitle, { color: colors.text }]} numberOfLines={1}>
+                    {resultList.title}
+                  </Text>
+                </View>
               </View>
               <View style={styles.resultCircleArea}>
                 <CircularProgress percent={percent} memorized={memorizedWords} total={totalWords} colors={colors} />
               </View>
               <Text style={[styles.resultStats, { color: colors.textSecondary }]}>
                 {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
-              </Text>
-              <Text style={[styles.resultNote, { color: colors.textTertiary }]}>
-                {t('home.restartPlanNote')}
               </Text>
               <Pressable
                 onPress={() => {
@@ -715,6 +717,9 @@ export default function DashboardScreen() {
               >
                 <Text style={styles.resultRestartBtnText}>{t('home.restartPlan')}</Text>
               </Pressable>
+              <Text style={[styles.resultNote, { color: colors.textTertiary }]}>
+                {t('home.restartPlanNote')}
+              </Text>
             </View>
           );
         })()}
@@ -1016,13 +1021,21 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   resultTitleRow: {
+    flexDirection: 'column',
+    gap: 4,
+    alignSelf: 'stretch',
+  },
+  resultSubtitle: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  resultTitleMain: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    alignSelf: 'stretch',
   },
   resultTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Pretendard_700Bold',
     flex: 1,
     letterSpacing: -0.3,

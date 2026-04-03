@@ -39,11 +39,15 @@ export interface VocaList {
   planWordsPerDay?: number;
   planStartedAt?: number;
   planUpdatedAt?: number;
+  planFilter?: 'all' | 'unmemorized' | 'memorized';
   category?: string;
   level?: string;
   description?: string;
   sourceLanguage?: string;
   targetLanguage?: string;
+  lastResultMemorized?: number;
+  lastResultTotal?: number;
+  lastResultPercent?: number;
 }
 
 export interface StudyResult {

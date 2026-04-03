@@ -153,7 +153,6 @@ export default function PlanScreen() {
     toggleMemorized,
     setupPlan,
     clearPlan,
-    updatePlanProgress,
   } = useVocab();
 
   const [setupModalVisible, setSetupModalVisible] = useState(false);
@@ -171,10 +170,15 @@ export default function PlanScreen() {
     [list, words]
   );
 
-  const autoCurrentDay = useMemo(
-    () => computeCurrentDay(words),
-    [words]
-  );
+  const autoCurrentDay = useMemo(() => {
+    // planCurrentDay > 1 means the user has explicitly advanced through the plan.
+    // Use it directly (capped at totalDays) so the plan screen resumes at the right day.
+    if (list && list.planCurrentDay > 1) {
+      const maxDay = list.planTotalDays ?? 1;
+      return Math.min(list.planCurrentDay, maxDay);
+    }
+    return computeCurrentDay(words);
+  }, [list, words]);
   const suggested = useMemo(() => suggestWordsPerDay(words.length), [words.length]);
 
   const allCount = words.length;
@@ -257,6 +261,13 @@ export default function PlanScreen() {
 
   // ─── Handlers ───────────────────────────────────────────────────────
 
+  const handleCancelSetup = useCallback(() => {
+    setSetupModalVisible(false);
+    if (openSetup === '1') {
+      router.dismissAll();
+    }
+  }, [openSetup]);
+
   const handleOpenSetup = useCallback(() => {
     setWordsPerDayInput(String(suggested));
     if (planStatus === 'inactive' || planStatus === 'overdue') {
@@ -274,7 +285,7 @@ export default function PlanScreen() {
       await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
       await setupPlan(id, parsedWordsPerDay, filterMode);
       setSetupModalVisible(false);
-      setViewingDay(0);
+      setViewingDay(1);
     } finally {
       setIsSubmitting(false);
     }
@@ -328,27 +339,37 @@ export default function PlanScreen() {
       return;
     }
 
+    // viewingDay가 아직 초기화되지 않았으면 학습 불가
+    if (viewingDay === 0 || !allDays.includes(viewingDay)) return;
+
+    const planFilter = list?.planFilter ?? 'all';
     const unmemorizedWords = viewingWords.filter(w => !w.isMemorized);
-    const studyWords = unmemorizedWords.length > 0 ? unmemorizedWords : viewingWords;
-    const studyFilter = unmemorizedWords.length > 0 ? 'learning' : 'all';
+    const studyWords = (planFilter === 'all' || unmemorizedWords.length === 0) ? viewingWords : unmemorizedWords;
+    const studyFilter = planFilter === 'all' ? 'all' : (unmemorizedWords.length > 0 ? 'learning' : 'all');
     const targetIds = studyWords.map(w => w.id).join(',');
     const destination = selectedMode;
 
-    await updatePlanProgress(id, viewingDay);
-    if (studyWords.length < 2) {
-      router.push({ pathname: destination as any, params: { id, filter: studyFilter } });
+    if (studyWords.length > 0) {
+      router.push({ pathname: destination as any, params: { id, filter: studyFilter, ids: targetIds, planDay: String(viewingDay) } });
     } else {
-      router.push({ pathname: destination as any, params: { id, filter: studyFilter, ids: targetIds } });
+      router.push({ pathname: destination as any, params: { id, filter: studyFilter, planDay: String(viewingDay) } });
     }
-  }, [id, planStatus, viewingDay, viewingWords, selectedMode, updatePlanProgress, handleOpenSetup]);
+  }, [id, planStatus, viewingDay, allDays, viewingWords, selectedMode, handleOpenSetup, list]);
+
+  const isStudyLocked = useMemo(() => {
+    if (planStatus !== 'in-progress' && planStatus !== 'overdue') return false;
+    if (viewingDay <= 0) return false;
+    return viewingDay > (list?.planCurrentDay ?? 1);
+  }, [planStatus, viewingDay, list?.planCurrentDay]);
 
   const actionLabel = useMemo(() => {
     if (planStatus === 'none') return t('plan.createPlan');
     if (planStatus === 'completed') return t('plan.randomReview');
     if (viewingDay === -1) return t('plan.includeInPlan');
     if (planStatus === 'inactive') return t('plan.resetPlan');
+    if (isStudyLocked) return t('plan.locked');
     return t('plan.startDay', { day: viewingDay });
-  }, [planStatus, viewingDay, t]);
+  }, [planStatus, viewingDay, isStudyLocked, t]);
 
   const showModeButtons = (planStatus === 'in-progress' || planStatus === 'overdue') && viewingDay !== -1;
 
@@ -561,16 +582,16 @@ export default function PlanScreen() {
           </View>
         )}
         <Pressable
-          onPress={handleActionButton}
+          onPress={isStudyLocked ? undefined : handleActionButton}
           style={({ pressed }) => [
             styles.actionBtn,
             {
-              backgroundColor: colors.primary,
-              opacity: pressed ? 0.9 : 1,
+              backgroundColor: isStudyLocked ? colors.borderLight : colors.primary,
+              opacity: pressed && !isStudyLocked ? 0.9 : 1,
             },
           ]}
         >
-          <Text style={styles.actionBtnText}>{actionLabel}</Text>
+          <Text style={[styles.actionBtnText, isStudyLocked && { color: colors.textTertiary }]}>{actionLabel}</Text>
         </Pressable>
       </View>
 
@@ -579,11 +600,11 @@ export default function PlanScreen() {
         visible={setupModalVisible}
         transparent
         animationType="slide"
-        onRequestClose={() => setSetupModalVisible(false)}
+        onRequestClose={handleCancelSetup}
       >
         <Pressable
           style={[styles.modalBackdrop, { backgroundColor: colors.overlay }]}
-          onPress={() => setSetupModalVisible(false)}
+          onPress={handleCancelSetup}
         />
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -664,7 +685,7 @@ export default function PlanScreen() {
 
             <View style={styles.modalButtons}>
               <Pressable
-                onPress={() => setSetupModalVisible(false)}
+                onPress={handleCancelSetup}
                 style={({ pressed }) => [
                   styles.modalBtnOutline,
                   { borderColor: colors.border, opacity: pressed ? 0.7 : 1 },

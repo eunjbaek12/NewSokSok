@@ -158,6 +158,28 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase> {
                         currentVersion = 10;
                     }
 
+                    // Version 10 to 11: 학습 결과 스냅샷 저장
+                    if (currentVersion === 10) {
+                        try {
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN lastResultMemorized INTEGER DEFAULT 0;');
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN lastResultTotal INTEGER DEFAULT 0;');
+                            await dbInstance!.execAsync('ALTER TABLE lists ADD COLUMN lastResultPercent INTEGER DEFAULT 0;');
+                        } catch (e) {
+                            console.log('lastResult columns might already exist.', e);
+                        }
+                        currentVersion = 11;
+                    }
+
+                    // Version 11 to 12: planFilter 저장
+                    if (currentVersion === 11) {
+                        try {
+                            await dbInstance!.execAsync("ALTER TABLE lists ADD COLUMN planFilter TEXT DEFAULT 'all';");
+                        } catch (e) {
+                            console.log('planFilter column might already exist.', e);
+                        }
+                        currentVersion = 12;
+                    }
+
                     await dbInstance!.execAsync(`PRAGMA user_version = ${SCHEMA_VERSION}`);
                 });
             }

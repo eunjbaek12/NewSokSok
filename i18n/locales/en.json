@@ -178,6 +178,7 @@
     "includeInPlan": "Include in Plan",
     "resetPlan": "Reset Study Plan",
     "startDay": "Start Day {{day}}",
+    "locked": "Complete previous Day first",
     "listNotFound": "List not found.",
     "memorizedProgress": "/{{total}} memorized",
     "unassigned": "Unassigned",

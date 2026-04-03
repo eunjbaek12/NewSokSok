@@ -23,17 +23,18 @@ function shuffleArray<T>(arr: T[]): T[] {
 }
 
 export default function QuizScreen() {
-  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, ids } = useLocalSearchParams<{
+  const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, ids, planDay } = useLocalSearchParams<{
     id: string;
     filter?: string;
     isStarred?: string;
     quizType?: string;
     ids?: string;
+    planDay?: string;
   }>();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { t } = useTranslation();
-  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount } = useVocab();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount, saveLastResult, updatePlanProgress } = useVocab();
   const { studySettings, updateStudySettings } = useSettings();
   const list = lists.find(l => l.id === id);
 
@@ -232,6 +233,8 @@ export default function QuizScreen() {
     if (correctWordIds.length > 0) {
       await resetWrongCount(correctWordIds);
     }
+    await saveLastResult(id!);
+    if (planDay) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
     setStudyResults(finalResults);
     router.replace({
       pathname: '/study-results',

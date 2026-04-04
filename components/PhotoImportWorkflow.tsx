@@ -34,7 +34,7 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
     const { t } = useTranslation();
     const insets = useSafeAreaInsets();
     const abortControllerRef = useRef<AbortController | null>(null);
-    const retakeLabel = source === 'camera' ? retakeLabel : t('photoImport.reselect');
+    const retakeLabel = source === 'camera' ? t('photoImport.retake') : t('photoImport.reselect');
 
     const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
     const [isScanning, setIsScanning] = useState(false);

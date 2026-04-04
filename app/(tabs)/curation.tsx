@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, KeyboardAvoidingView, BackHandler, Animated as RNAnimated } from 'react-native';
+import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, KeyboardAvoidingView, BackHandler, Animated as RNAnimated, Alert } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,6 +9,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'expo-router';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { VocaList, Word } from '@/lib/types';
 import { curationPresets } from '@/constants/curationData';
@@ -108,7 +109,8 @@ export default function CurationScreen() {
     const [showListPicker, setShowListPicker] = useState(false);
     const [snackbar, setSnackbar] = useState<{ visible: boolean; message: string; actionLabel?: string; onAction?: () => void }>({ visible: false, message: '' });
 
-    const { createCuratedList, fetchCloudCurations, lists, addBatchWords } = useVocab();
+    const { createCuratedList, fetchCloudCurations, deleteCloudCuration, lists, addBatchWords } = useVocab();
+    const { user } = useAuth();
 
     useEffect(() => {
         let mounted = true;
@@ -272,6 +274,36 @@ export default function CurationScreen() {
         return lists.some(l => l.isCurated && l.title.startsWith(theme.title));
     }, [lists]);
 
+    const canDeleteCuration = useCallback((theme: VocaList): boolean => {
+        if (!user) return false;
+        return theme.creatorId === user.id || user.isAdmin;
+    }, [user]);
+
+    const handleDeleteCuration = useCallback((theme: VocaList) => {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        Alert.alert(
+            t('curation.deleteConfirmTitle'),
+            t('curation.deleteConfirmMessage', { title: theme.title }),
+            [
+                { text: t('common.cancel'), style: 'cancel' },
+                {
+                    text: t('common.delete'),
+                    style: 'destructive',
+                    onPress: async () => {
+                        try {
+                            await deleteCloudCuration(theme.id);
+                            setCommunityThemes(prev => prev.filter(c => c.id !== theme.id));
+                            if (selectedTheme?.id === theme.id) setSelectedTheme(null);
+                            setSnackbar({ visible: true, message: t('curation.deleteSuccess') });
+                        } catch (e: any) {
+                            setSnackbar({ visible: true, message: t('curation.deleteError') });
+                        }
+                    },
+                },
+            ],
+        );
+    }, [t, deleteCloudCuration, selectedTheme]);
+
     const handleGenerateAI = async () => {
         if (!searchQuery.trim()) {
             setSnackbar({ visible: true, message: t('curation.enterSearchFirst') });
@@ -360,6 +392,15 @@ export default function CurationScreen() {
                             <Pressable onPress={() => setSelectedTheme(null)} style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)' }]}>
                                 <Ionicons name="arrow-back" size={24} color={colors.text} />
                             </Pressable>
+                            {activeTab === 'community' && canDeleteCuration(selectedTheme) && (
+                                <Pressable
+                                    onPress={() => handleDeleteCuration(selectedTheme)}
+                                    style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)', left: undefined, right: 20 }]}
+                                    hitSlop={8}
+                                >
+                                    <Ionicons name="trash-outline" size={20} color={colors.error} />
+                                </Pressable>
+                            )}
                             <View style={styles.heroContent}>
                                 <Text style={{ fontSize: 64 }}>{selectedTheme.icon}</Text>
                             </View>
@@ -580,6 +621,7 @@ export default function CurationScreen() {
                             const srcCode = (theme.sourceLanguage || 'en').toUpperCase();
                             const tgtCode = (theme.targetLanguage || 'ko').toUpperCase();
                             const alreadySaved = isAlreadySaved(theme);
+                            const canDelete = activeTab === 'community' && canDeleteCuration(theme);
 
                             return (
                                 <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.1)', shadowColor: colors.cardShadow }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
@@ -600,6 +642,15 @@ export default function CurationScreen() {
                                                     <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
                                                         <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
                                                     </View>
+                                                )}
+                                                {canDelete && (
+                                                    <Pressable
+                                                        onPress={(e) => { e.stopPropagation(); handleDeleteCuration(theme); }}
+                                                        hitSlop={8}
+                                                        style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1, padding: 2 })}
+                                                    >
+                                                        <Ionicons name="trash-outline" size={16} color={colors.error} />
+                                                    </Pressable>
                                                 )}
                                             </View>
                                         </View>

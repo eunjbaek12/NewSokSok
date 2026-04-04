@@ -32,6 +32,7 @@ export interface VocaList {
   isCurated?: boolean;
   icon?: string;
   isUserShared?: boolean;
+  creatorId?: string | null;
   creatorName?: string;
   downloadCount?: number;
   planTotalDays?: number;

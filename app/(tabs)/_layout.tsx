@@ -41,7 +41,7 @@ function AddWordTabButton() {
 function NativeTabLayout({ startupTab }: { startupTab: StartupTab }) {
   const { t } = useTranslation();
   return (
-    <NativeTabs initialRouteName={startupTab}>
+    <NativeTabs {...({ initialRouteName: startupTab } as any)}>
       <NativeTabs.Trigger name="index">
         <Icon sf={{ default: "house", selected: "house.fill" }} />
         <Label>{t('tabs.home')}</Label>

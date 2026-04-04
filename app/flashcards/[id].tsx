@@ -496,6 +496,7 @@ export default function FlashcardsScreen() {
           initialBatchSize={studySettings.studyBatchSize}
           onClose={() => setSettingsVisible(false)}
           onApply={applySettings}
+          hideTargetFilter={!!ids}
         />
       </View>
     );

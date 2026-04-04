@@ -73,6 +73,7 @@ interface StudySettingsModalProps {
     initialBatchSize: number | 'all';
     onClose: () => void;
     onApply: (settings: StudySettings, batchSize: number | 'all') => void;
+    hideTargetFilter?: boolean;
 }
 
 export default function StudySettingsModal({
@@ -82,6 +83,7 @@ export default function StudySettingsModal({
     initialBatchSize,
     onClose,
     onApply,
+    hideTargetFilter = false,
 }: StudySettingsModalProps) {
     const { colors, isDark } = useTheme();
     const { t } = useTranslation();
@@ -129,7 +131,7 @@ export default function StudySettingsModal({
                             keyboardShouldPersistTaps="handled"
                         >
                             {/* 공통: 출제 대상 */}
-                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                            {!hideTargetFilter && <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
                                 <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.targetWords')}</Text>
 
                                 <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
@@ -188,7 +190,7 @@ export default function StudySettingsModal({
                                         </View>
                                     </>
                                 )}
-                            </View>
+                            </View>}
 
                             {/* 공통: 학습 단위 */}
                             <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>

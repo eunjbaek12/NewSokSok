@@ -11,6 +11,7 @@ export interface IStorage {
   createCuration(themeData: any, words: any[]): Promise<any>;
   findDuplicateCuration(creatorId: string, title: string): Promise<any | null>;
   updateCuration(id: string, creatorId: string, themeData: any, words: any[]): Promise<any>;
+  deleteCuration(id: string, requesterId: string, isAdmin: boolean): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -121,6 +122,14 @@ export class DatabaseStorage implements IStorage {
     }
 
     return { ...theme, words: wordsData };
+  }
+
+  async deleteCuration(id: string, requesterId: string, isAdmin: boolean): Promise<void> {
+    const [existing] = await db.select().from(curated_themes).where(eq(curated_themes.id, id));
+    if (!existing) throw new Error('Curation not found');
+    if (!isAdmin && existing.creatorId !== requesterId) throw new Error('Unauthorized');
+
+    await db.delete(curated_themes).where(eq(curated_themes.id, id));
   }
 }
 

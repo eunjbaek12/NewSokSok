@@ -174,22 +174,10 @@ export function computeDayStudyStatus(list: VocaList, words: Word[], now: number
     return { displayDay: day, state: 'needs-study', dayMemorized, dayTotal };
   }
 
-  // planCurrentDay = 1, fresh start: cascade to find the first day that needs attention.
-  let day = 1;
-  while (true) {
-    const { state, dayMemorized, dayTotal } = evalDay(day);
-    if (dayTotal === 0) break;
-    if (state !== 'completed') {
-      return { displayDay: day, state, dayMemorized, dayTotal };
-    }
-    const hasNextDay = words.some(w => w.assignedDay === day + 1);
-    if (!hasNextDay) {
-      return { displayDay: day, state: 'needs-study', dayMemorized, dayTotal };
-    }
-    day++;
-  }
-  const { dayMemorized, dayTotal } = evalDay(1);
-  return { displayDay: 1, state: 'needs-study', dayMemorized, dayTotal };
+  // planCurrentDay = 1: fresh start or reset plan — no study session has completed yet.
+  // Always show Day 1; do not skip ahead based on isMemorized state from free study.
+  const { state, dayMemorized, dayTotal } = evalDay(1);
+  return { displayDay: 1, state, dayMemorized, dayTotal };
 }
 
 /**

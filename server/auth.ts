@@ -7,6 +7,14 @@ export interface CloudUser {
   email: string;
   display_name: string | null;
   avatar_url: string | null;
+  is_admin: boolean;
+}
+
+export async function runMigrations(): Promise<void> {
+  await pool.query(`
+    ALTER TABLE IF EXISTS cloud_users
+    ADD COLUMN IF NOT EXISTS is_admin BOOLEAN NOT NULL DEFAULT FALSE
+  `);
 }
 
 async function findOrCreateGoogleUser(
@@ -77,6 +85,7 @@ export function registerAuthRoutes(app: Express) {
           email: user.email,
           displayName: user.display_name,
           avatarUrl: user.avatar_url,
+          isAdmin: user.is_admin ?? false,
         },
       });
     } catch (error: any) {

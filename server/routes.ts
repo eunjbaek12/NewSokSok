@@ -9,6 +9,11 @@ import {
 } from "./gemini";
 import { registerAuthRoutes } from "./auth";
 import { storage } from "./storage";
+import { pool } from "./db";
+
+function paramId(id: string | string[]): string {
+  return Array.isArray(id) ? id[0] : id;
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   registerAuthRoutes(app);
@@ -75,7 +80,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!theme || !theme.creatorId) {
         return res.status(400).json({ error: "Theme and creatorId are required" });
       }
-      const updated = await storage.updateCuration(Array.isArray(id) ? id[0] : id, theme.creatorId, theme, words || []);
+      const updated = await storage.updateCuration(paramId(id), theme.creatorId, theme, words || []);
       res.json(updated);
     } catch (error: any) {
       if (error.message === 'Unauthorized') {
@@ -86,6 +91,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       console.error("CURATION_UPDATE_ERROR:", error);
       res.status(500).json({ error: "Failed to update curation" });
+    }
+  });
+
+  app.delete("/api/curations/:id", async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const requesterId = req.headers['x-user-id'] as string;
+      if (!requesterId) {
+        return res.status(401).json({ error: 'Authentication required' });
+      }
+
+      let isAdmin = false;
+      try {
+        const result = await pool.query(
+          'SELECT is_admin FROM cloud_users WHERE id = $1',
+          [requesterId],
+        );
+        isAdmin = result.rows[0]?.is_admin ?? false;
+      } catch {
+        // cloud_users table may not exist in all environments; default to non-admin
+      }
+
+      await storage.deleteCuration(paramId(id), requesterId, isAdmin);
+      res.status(200).json({ success: true });
+    } catch (error: any) {
+      if (error.message === 'Unauthorized') {
+        return res.status(403).json({ error: 'Not authorized to delete this curation' });
+      }
+      if (error.message === 'Curation not found') {
+        return res.status(404).json({ error: 'Curation not found' });
+      }
+      console.error('CURATION_DELETE_ERROR:', error);
+      res.status(500).json({ error: 'Failed to delete curation' });
     }
   });
 

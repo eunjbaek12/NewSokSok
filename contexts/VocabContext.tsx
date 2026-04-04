@@ -19,6 +19,7 @@ interface VocabContextValue {
   loading: boolean;
   refreshData: () => Promise<void>;
   fetchCloudCurations: () => Promise<any[]>;
+  deleteCloudCuration: (curationId: string) => Promise<void>;
   createList: (title: string) => Promise<VocaList>;
   createCuratedList: (title: string, icon: string, words: Omit<Word, 'id' | 'isMemorized'>[]) => Promise<VocaList>;
   updateList: (id: string, updates: Partial<Omit<VocaList, 'id' | 'words'>>) => Promise<void>;
@@ -134,6 +135,18 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       return [];
     }
   }, []);
+
+  const deleteCloudCuration = useCallback(async (curationId: string) => {
+    if (!user?.id) throw new Error('Authentication required');
+    const res = await fetch(`${API_BASE}/api/curations/${curationId}`, {
+      method: 'DELETE',
+      headers: { 'x-user-id': user.id },
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.error || `HTTP ${res.status}`);
+    }
+  }, [user]);
 
   useEffect(() => {
     // 1. First ensure the SQLite DB is seeded if it's completely empty
@@ -271,7 +284,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       const detailedError = errorData.details || errorData.error || `HTTP ${res.status}`;
       throw new Error(detailedError);
     }
-  }, [lists, user]);
+  }, [lists, user, profileSettings]);
 
   const addWord = useCallback(async (listId: string, wordData: Omit<Word, 'id' | 'isMemorized'>) => {
     const newWord = await Storage.addWord(listId, wordData);
@@ -430,6 +443,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     loading,
     refreshData,
     fetchCloudCurations,
+    deleteCloudCuration,
     createList,
     createCuratedList,
     updateList,
@@ -462,7 +476,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     clearPlan,
     updatePlanProgress,
     getPlanStatus,
-  }), [lists, loading, refreshData, fetchCloudCurations, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults, saveLastResult, setupPlan, rechunkPlan, clearPlan, updatePlanProgress, getPlanStatus]);
+  }), [lists, loading, refreshData, fetchCloudCurations, deleteCloudCuration, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults, saveLastResult, setupPlan, rechunkPlan, clearPlan, updatePlanProgress, getPlanStatus]);
 
   return (
     <VocabContext.Provider value={value}>

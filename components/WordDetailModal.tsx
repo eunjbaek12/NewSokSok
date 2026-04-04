@@ -35,6 +35,146 @@ interface WordDetailModalProps {
     onModeChange?: (mode: WordModalMode) => void;
 }
 
+// ─── Read-only content view ────────────────────────────────────────────────────
+
+function ReadOnlyView({ word, onClose, colors, t }: {
+    word: Word;
+    onClose: () => void;
+    colors: any;
+    t: (key: string) => string;
+}) {
+    const hasExample = !!(word.exampleEn || word.exampleKr);
+
+    return (
+        <>
+            {/* Header */}
+            <View style={[styles.topBar, { borderBottomColor: colors.borderLight }]}>
+                <Pressable onPress={onClose} hitSlop={8} style={styles.topBtn}>
+                    <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>
+                        {t('common.close')}
+                    </Text>
+                </Pressable>
+                <Text style={[styles.topBarTitle, { color: colors.text }]}>
+                    {t('wordDetail.viewWord')}
+                </Text>
+                {/* 오른쪽 영역 균형용 빈 뷰 */}
+                <View style={styles.topBtn} />
+            </View>
+
+            <ScrollView
+                contentContainerStyle={styles.roScrollContent}
+                showsVerticalScrollIndicator={false}
+            >
+                {/* ── 단어 + 발음 + 품사 ── */}
+                <View style={styles.roTermSection}>
+                    <View style={styles.roTermRow}>
+                        <Text style={[styles.roTerm, { color: colors.text }]}>
+                            {word.term}
+                        </Text>
+                        {word.term?.trim() ? (
+                            <Pressable
+                                onPress={() => { Haptics.selectionAsync(); speak(word.term.trim(), 'en-US'); }}
+                                hitSlop={12}
+                                style={[styles.roTtsBtn, { backgroundColor: colors.surfaceSecondary }]}
+                            >
+                                <Ionicons name="volume-medium-outline" size={20} color={colors.textSecondary} />
+                            </Pressable>
+                        ) : null}
+                    </View>
+
+                    {(word.phonetic || word.pos) ? (
+                        <View style={styles.roMetaRow}>
+                            {word.pos ? (
+                                <View style={[styles.posBadge, { backgroundColor: colors.primaryLight }]}>
+                                    <Text style={[styles.posBadgeText, { color: colors.primary }]}>{word.pos}</Text>
+                                </View>
+                            ) : null}
+                            {word.phonetic ? (
+                                <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>
+                                    /{word.phonetic}/
+                                </Text>
+                            ) : null}
+                        </View>
+                    ) : null}
+                </View>
+
+                {/* ── 뜻 ── */}
+                <View style={[styles.roDivider, { borderTopColor: colors.borderLight }]} />
+                <View style={styles.roSection}>
+                    <Text style={[styles.roLabel, { color: colors.textTertiary }]}>
+                        {t('wordDetail.meaningRequired').replace(' *', '')}
+                    </Text>
+                    <Text style={[styles.roMeaning, { color: colors.primary }]}>
+                        {word.meaningKr || '—'}
+                    </Text>
+                </View>
+
+                {/* ── 정의 ── */}
+                {word.definition ? (
+                    <>
+                        <View style={[styles.roDivider, { borderTopColor: colors.borderLight }]} />
+                        <View style={styles.roSection}>
+                            <Text style={[styles.roLabel, { color: colors.textTertiary }]}>
+                                {t('wordDetail.definitionLabel')}
+                            </Text>
+                            <Text style={[styles.roBody, { color: colors.text }]}>
+                                {word.definition}
+                            </Text>
+                        </View>
+                    </>
+                ) : null}
+
+                {/* ── 예문 ── */}
+                {hasExample ? (
+                    <>
+                        <View style={[styles.roDivider, { borderTopColor: colors.borderLight }]} />
+                        <View style={styles.roSection}>
+                            <Text style={[styles.roLabel, { color: colors.textTertiary }]}>
+                                {t('wordDetail.exampleLabel')}
+                            </Text>
+                            {word.exampleEn ? (
+                                <Text style={[styles.roBody, { color: colors.text }]}>
+                                    {word.exampleEn}
+                                </Text>
+                            ) : null}
+                            {word.exampleKr ? (
+                                <Text style={[styles.roBodySub, { color: colors.textSecondary }]}>
+                                    {word.exampleKr}
+                                </Text>
+                            ) : null}
+                        </View>
+                    </>
+                ) : null}
+
+                {/* ── 태그 ── */}
+                {word.tags && word.tags.length > 0 ? (
+                    <>
+                        <View style={[styles.roDivider, { borderTopColor: colors.borderLight }]} />
+                        <View style={styles.roSection}>
+                            <Text style={[styles.roLabel, { color: colors.textTertiary }]}>
+                                {t('wordDetail.tagsLabel')}
+                            </Text>
+                            <View style={styles.roTagsRow}>
+                                {word.tags.map((tag, idx) => (
+                                    <View
+                                        key={`${tag}-${idx}`}
+                                        style={[styles.roTagChip, { backgroundColor: colors.surfaceSecondary }]}
+                                    >
+                                        <Text style={[styles.roTagText, { color: colors.textSecondary }]}>#{tag}</Text>
+                                    </View>
+                                ))}
+                            </View>
+                        </View>
+                    </>
+                ) : null}
+
+            </ScrollView>
+        </>
+    );
+}
+
+// ─── Main component ───────────────────────────────────────────────────────────
+
 export default function WordDetailModal({
     visible,
     mode,
@@ -71,7 +211,6 @@ export default function WordDetailModal({
 
     const [tagInput, setTagInput] = useState('');
 
-    // Reset or populate fields when modal opens/changes target
     useEffect(() => {
         if (visible && existingWord) {
             setTerm(existingWord.term);
@@ -85,16 +224,9 @@ export default function WordDetailModal({
             setIsStarred(existingWord.isStarred || false);
             setErrors({});
         } else if (visible && !existingWord) {
-            // Clear fields for new add
-            setTerm('');
-            setDefinition('');
-            setMeaningKr('');
-            setPhonetic('');
-            setPos('');
-            setExampleEn('');
-            setExampleKr('');
-            setTags([]);
-            setIsStarred(false);
+            setTerm(''); setDefinition(''); setMeaningKr('');
+            setPhonetic(''); setPos(''); setExampleEn('');
+            setExampleKr(''); setTags([]); setIsStarred(false);
             setErrors({});
         }
     }, [visible, existingWord, setTerm, setDefinition, setMeaningKr, setExampleEn, setExampleKr, setTags, setIsStarred, setErrors]);
@@ -102,33 +234,25 @@ export default function WordDetailModal({
     const onSave = () => {
         handleSaveWord(
             listId,
-            (savedTerm) => {
+            () => {
                 if (mode === 'edit') {
-                    // Stay on screen but switch back to read mode
                     if (onModeChange) onModeChange('read');
                     else onClose();
                 } else {
-                    // If added from list, just close it so they see it in the list
                     onClose();
                 }
             },
-            () => {
-                Alert.alert(t('common.error'), t('wordDetail.saveError'));
-            }
+            () => { Alert.alert(t('common.error'), t('wordDetail.saveError')); }
         );
     };
 
     const handleCancel = () => {
         if (mode === 'edit') {
             if (existingWord) {
-                setTerm(existingWord.term);
-                setDefinition(existingWord.definition);
-                setMeaningKr(existingWord.meaningKr);
-                setPhonetic(existingWord.phonetic || '');
-                setPos(existingWord.pos || '');
-                setExampleEn(existingWord.exampleEn);
-                setExampleKr(existingWord.exampleKr || '');
-                setTags(existingWord.tags || []);
+                setTerm(existingWord.term); setDefinition(existingWord.definition);
+                setMeaningKr(existingWord.meaningKr); setPhonetic(existingWord.phonetic || '');
+                setPos(existingWord.pos || ''); setExampleEn(existingWord.exampleEn);
+                setExampleKr(existingWord.exampleKr || ''); setTags(existingWord.tags || []);
                 setIsStarred(existingWord.isStarred || false);
             }
             if (onModeChange) onModeChange('read');
@@ -157,13 +281,10 @@ export default function WordDetailModal({
 
     const handleAddTag = () => {
         const newTags = tagInput
-            .split(/[\s,]+/) // split by space or comma
+            .split(/[\s,]+/)
             .map(t => t.trim().toLowerCase())
             .filter(t => t.length > 0 && !tags.includes(t));
-
-        if (newTags.length > 0) {
-            setTags([...tags, ...newTags].slice(0, 10)); // max 10 tags
-        }
+        if (newTags.length > 0) setTags([...tags, ...newTags].slice(0, 10));
         setTagInput('');
     };
 
@@ -171,56 +292,44 @@ export default function WordDetailModal({
         setTags(tags.filter(t => t !== tagToRemove));
     };
 
-    const EditableField = ({ label, value, onChangeText, multiline, placeholder, error, isCore }: { label: string, value: string, onChangeText: (t: string) => void, multiline?: boolean, placeholder?: string, error?: string, isCore?: boolean }) => {
-        return (
-            <View style={styles.fieldWrapper}>
-                <Text style={[styles.fieldLabel, { color: colors.textSecondary }]}>{label}</Text>
-                {mode !== 'read' ? (
-                    <TextInput
-                        style={[
-                            styles.fieldInput,
-                            { color: colors.text, backgroundColor: colors.surface, borderColor: error ? colors.error : colors.border },
-                            multiline && { minHeight: 80, textAlignVertical: 'top' }
-                        ]}
-                        value={value}
-                        onChangeText={onChangeText}
-                        multiline={multiline}
-                        placeholder={placeholder}
-                        placeholderTextColor={colors.textTertiary}
-                    />
-                ) : readOnly ? (
-                    <View style={[
+    const EditableField = ({ label, value, onChangeText, multiline, placeholder, error, isCore }: {
+        label: string; value: string; onChangeText: (t: string) => void;
+        multiline?: boolean; placeholder?: string; error?: string; isCore?: boolean;
+    }) => (
+        <View style={styles.fieldWrapper}>
+            <Text style={[styles.fieldLabel, { color: colors.textSecondary }]}>{label}</Text>
+            {mode !== 'read' ? (
+                <TextInput
+                    style={[
                         styles.fieldInput,
-                        { backgroundColor: colors.surface, borderColor: colors.borderLight },
-                        multiline && { minHeight: 80, justifyContent: 'flex-start' }
-                    ]}>
-                        <Text style={[styles.fieldText, { color: isCore ? colors.primary : colors.text, fontSize: isCore ? 16 : 15, fontFamily: isCore ? 'Pretendard_600SemiBold' : 'Pretendard_400Regular', lineHeight: isCore ? 24 : 22 }]}>
-                            {value || '—'}
-                        </Text>
-                    </View>
-                ) : (
-                    <Pressable onPress={switchToEdit} style={[
-                        styles.fieldInput,
-                        { backgroundColor: colors.surface, borderColor: colors.border },
-                        multiline && { minHeight: 80, justifyContent: 'flex-start' }
-                    ]}>
-                        <Text style={[styles.fieldText, { color: isCore ? colors.primary : colors.text, fontSize: isCore ? 16 : 15, fontFamily: isCore ? 'Pretendard_600SemiBold' : 'Pretendard_400Regular' }]}>
-                            {value || '-'}
-                        </Text>
-                    </Pressable>
-                )}
-                {error && <Text style={[styles.errorText, { color: colors.error }]}>{error}</Text>}
-            </View>
-        );
-    };
+                        { color: colors.text, backgroundColor: colors.surface, borderColor: error ? colors.error : colors.border },
+                        multiline && { minHeight: 80, textAlignVertical: 'top' }
+                    ]}
+                    value={value} onChangeText={onChangeText} multiline={multiline}
+                    placeholder={placeholder} placeholderTextColor={colors.textTertiary}
+                />
+            ) : (
+                <Pressable onPress={switchToEdit} style={[
+                    styles.fieldInput,
+                    { backgroundColor: colors.surface, borderColor: colors.border },
+                    multiline && { minHeight: 80, justifyContent: 'flex-start' }
+                ]}>
+                    <Text style={[styles.fieldText, {
+                        color: isCore ? colors.primary : colors.text,
+                        fontSize: isCore ? 16 : 15,
+                        fontFamily: isCore ? 'Pretendard_600SemiBold' : 'Pretendard_400Regular',
+                        lineHeight: isCore ? 24 : 22,
+                    }]}>
+                        {value || '-'}
+                    </Text>
+                </Pressable>
+            )}
+            {error && <Text style={[styles.errorText, { color: colors.error }]}>{error}</Text>}
+        </View>
+    );
 
     return (
-        <Modal
-            visible={visible}
-            transparent
-            animationType="fade"
-            onRequestClose={handleCancel}
-        >
+        <Modal visible={visible} transparent animationType="fade" onRequestClose={handleCancel}>
             <View style={[styles.modalOverlay, { backgroundColor: colors.overlay }]}>
                 <Pressable style={styles.modalBackdrop} onPress={mode === 'read' ? onClose : undefined} />
 
@@ -229,224 +338,179 @@ export default function WordDetailModal({
                     style={styles.keyboardView}
                 >
                     <View style={[styles.modalContent, { backgroundColor: colors.background }]}>
-                        {/* Header */}
-                        <View style={[styles.topBar, { borderBottomColor: colors.borderLight }]}>
-                            <Pressable onPress={handleCancel} hitSlop={8} style={styles.topBtn}>
-                                <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>
-                                    {mode === 'read' ? t('common.close') : t('common.cancel')}
-                                </Text>
-                            </Pressable>
 
-                            <Text style={[styles.topBarTitle, { color: colors.text }]}>
-                                {mode === 'add' ? t('wordDetail.addWord') : mode === 'edit' ? t('wordDetail.editWord') : t('wordDetail.viewWord')}
-                            </Text>
-
-                            <View style={styles.topBtn}>
-                                {mode === 'read' ? (
-                                    !readOnly && (
-                                        <Pressable onPress={switchToEdit} hitSlop={8}>
-                                            <Text style={[styles.topBarSave, { color: colors.primary }]}>{t('common.edit')}</Text>
-                                        </Pressable>
-                                    )
-                                ) : (
-                                    <Pressable onPress={onSave} hitSlop={8} disabled={isPendingSave}>
-                                        <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave ? 0.5 : 1 }]}>{t('common.save')}</Text>
+                        {/* ── readOnly: 콘텐츠 뷰 ── */}
+                        {readOnly && existingWord ? (
+                            <ReadOnlyView
+                                word={existingWord}
+                                onClose={onClose}
+                                colors={colors}
+                                t={t}
+                            />
+                        ) : (
+                            <>
+                                {/* ── 편집/추가 모드: 기존 폼 UI ── */}
+                                <View style={[styles.topBar, { borderBottomColor: colors.borderLight }]}>
+                                    <Pressable onPress={handleCancel} hitSlop={8} style={styles.topBtn}>
+                                        <Text style={[styles.topBarCancel, { color: colors.textSecondary }]}>
+                                            {mode === 'read' ? t('common.close') : t('common.cancel')}
+                                        </Text>
                                     </Pressable>
-                                )}
-                            </View>
-                        </View>
-
-                        {/* Content Body */}
-                        <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
-
-                            <View style={styles.wordSection}>
-                                <View style={styles.wordTitleRow}>
-                                    {mode === 'read' ? (
-                                        readOnly ? (
-                                            <View style={{ flex: 1 }}>
-                                                <Text style={[styles.wordInputText, { color: colors.text }]}>{term}</Text>
-                                            </View>
+                                    <Text style={[styles.topBarTitle, { color: colors.text }]}>
+                                        {mode === 'add' ? t('wordDetail.addWord') : mode === 'edit' ? t('wordDetail.editWord') : t('wordDetail.viewWord')}
+                                    </Text>
+                                    <View style={styles.topBtn}>
+                                        {mode === 'read' ? (
+                                            !readOnly && (
+                                                <Pressable onPress={switchToEdit} hitSlop={8}>
+                                                    <Text style={[styles.topBarSave, { color: colors.primary }]}>{t('common.edit')}</Text>
+                                                </Pressable>
+                                            )
                                         ) : (
-                                        <Pressable onPress={switchToEdit} style={{ flex: 1 }}>
-                                            <Text style={[styles.wordInputText, { color: colors.text }]}>{term}</Text>
-                                        </Pressable>
-                                        )
-                                    ) : (
-                                        <TextInput
-                                            style={[styles.wordInput, { color: colors.text, borderBottomColor: errors.term ? colors.error : colors.border }]}
-                                            placeholder={t('wordDetail.wordInput')}
-                                            placeholderTextColor={colors.textTertiary}
-                                            value={term}
-                                            onChangeText={(t) => {
-                                                setTerm(t);
-                                                if (errors.term) setErrors(e => ({ ...e, term: false }));
-                                            }}
-                                            autoCapitalize="none"
-                                            autoCorrect={false}
-                                        />
-                                    )}
-                                    {mode === 'read' && term.trim() ? (
-                                        <Pressable
-                                            onPress={() => { Haptics.selectionAsync(); speak(term.trim(), 'en-US'); }}
-                                            hitSlop={12}
-                                            style={[styles.termActionBtn, { backgroundColor: colors.surfaceSecondary }]}
-                                        >
-                                            <Ionicons name="volume-medium-outline" size={20} color={colors.textSecondary} />
-                                        </Pressable>
-                                    ) : null}
-                                    {!readOnly && (
-                                        <Pressable onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 4 }}>
-                                            <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? "#FFD700" : colors.textTertiary} />
-                                        </Pressable>
-                                    )}
+                                            <Pressable onPress={onSave} hitSlop={8} disabled={isPendingSave}>
+                                                <Text style={[styles.topBarSave, { color: colors.primary, opacity: isPendingSave ? 0.5 : 1 }]}>
+                                                    {t('common.save')}
+                                                </Text>
+                                            </Pressable>
+                                        )}
+                                    </View>
                                 </View>
 
-                                {(phonetic || pos || mode !== 'read') && (
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: -4, marginBottom: 8 }}>
-                                        {mode === 'read' ? (
-                                            <>
-                                                {pos ? (
-                                                    <View style={[styles.posBadge, { backgroundColor: colors.primaryLight }]}>
-                                                        <Text style={[styles.posBadgeText, { color: colors.primary }]}>{pos}</Text>
+                                <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+                                    <View style={styles.wordSection}>
+                                        <View style={styles.wordTitleRow}>
+                                            <Pressable onPress={switchToEdit} style={{ flex: 1 }}>
+                                                <Text style={[styles.wordInputText, { color: colors.text }]}>{term}</Text>
+                                            </Pressable>
+                                            {mode === 'read' && term.trim() ? (
+                                                <Pressable
+                                                    onPress={() => { Haptics.selectionAsync(); speak(term.trim(), 'en-US'); }}
+                                                    hitSlop={12}
+                                                    style={[styles.termActionBtn, { backgroundColor: colors.surfaceSecondary }]}
+                                                >
+                                                    <Ionicons name="volume-medium-outline" size={20} color={colors.textSecondary} />
+                                                </Pressable>
+                                            ) : null}
+                                            {!readOnly && (
+                                                <Pressable onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 4 }}>
+                                                    <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? "#FFD700" : colors.textTertiary} />
+                                                </Pressable>
+                                            )}
+                                        </View>
+
+                                        {(phonetic || pos || mode !== 'read') && (
+                                            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: -4, marginBottom: 8 }}>
+                                                {mode === 'read' ? (
+                                                    <>
+                                                        {pos ? (
+                                                            <View style={[styles.posBadge, { backgroundColor: colors.primaryLight }]}>
+                                                                <Text style={[styles.posBadgeText, { color: colors.primary }]}>{pos}</Text>
+                                                            </View>
+                                                        ) : null}
+                                                        {phonetic ? (
+                                                            <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{phonetic}/</Text>
+                                                        ) : null}
+                                                    </>
+                                                ) : (
+                                                    <View style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
+                                                        <View style={{ flex: 1 }}>
+                                                            <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>{t('wordDetail.phonetic')}</Text>
+                                                            <TextInput
+                                                                style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
+                                                                value={phonetic} onChangeText={setPhonetic}
+                                                                placeholder={t('wordDetail.phonetic')} placeholderTextColor={colors.textTertiary}
+                                                            />
+                                                        </View>
+                                                        <View style={{ flex: 1 }}>
+                                                            <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>{t('wordDetail.posLabel')}</Text>
+                                                            <TextInput
+                                                                style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
+                                                                value={pos} onChangeText={setPos}
+                                                                placeholder={t('wordDetail.posPlaceholder')} placeholderTextColor={colors.textTertiary}
+                                                            />
+                                                        </View>
                                                     </View>
-                                                ) : null}
-                                                {phonetic ? (
-                                                    <Text style={[styles.phoneticText, { color: colors.textSecondary }]}>/{phonetic}/</Text>
-                                                ) : null}
-                                            </>
-                                        ) : (
-                                            <View style={{ flex: 1, flexDirection: 'row', gap: 12 }}>
-                                                <View style={{ flex: 1 }}>
-                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>{t('wordDetail.phonetic')}</Text>
+                                                )}
+                                            </View>
+                                        )}
+                                        {mode !== 'read' && errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('wordDetail.enterWord')}</Text>}
+
+                                        {mode !== 'read' && (
+                                            <Button
+                                                variant={term.trim() && !isPendingFill ? 'primary' : 'secondary'}
+                                                title={t('wordDetail.aiAutoComplete')}
+                                                icon="sparkles-outline"
+                                                iconColor={term.trim() ? colors.background : colors.textTertiary}
+                                                loading={isPendingFill}
+                                                disabled={!term.trim() || isPendingFill}
+                                                onPress={handleAutoFill}
+                                                style={[styles.analyzeBtn, { backgroundColor: term.trim() && !isPendingFill ? colors.text : colors.surfaceSecondary }]}
+                                                textStyle={{ color: term.trim() ? colors.background : colors.textTertiary, fontSize: 13 }}
+                                            />
+                                        )}
+                                    </View>
+
+                                    <View style={styles.fieldsContainer}>
+                                        <EditableField label={t('wordDetail.meaningRequired')} placeholder={t('wordDetail.meaningPlaceholder')} value={meaningKr}
+                                            onChangeText={(v) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                            error={errors.meaningKr ? t('wordDetail.enterWord') : undefined} isCore />
+                                        <EditableField label={t('wordDetail.definitionLabel')} placeholder={t('wordDetail.definitionPlaceholder')} value={definition}
+                                            onChangeText={setDefinition} multiline />
+
+                                        <View style={[styles.exampleGroup, { backgroundColor: mode === 'read' ? 'transparent' : colors.surfaceSecondary }]}>
+                                            <EditableField label={t('wordDetail.exampleLabel')} placeholder={t('wordDetail.examplePlaceholder')} value={exampleEn}
+                                                onChangeText={setExampleEn} multiline />
+                                            <EditableField label={t('wordDetail.translationLabel')} placeholder={t('wordDetail.translationPlaceholder')} value={exampleKr}
+                                                onChangeText={setExampleKr} multiline />
+                                        </View>
+
+                                        <View style={styles.tagsContainer}>
+                                            <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>{t('wordDetail.tagsLabel')}</Text>
+                                            {mode !== 'read' && (
+                                                <View style={styles.tagInputRow}>
                                                     <TextInput
-                                                        style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
-                                                        value={phonetic}
-                                                        onChangeText={setPhonetic}
-                                                        placeholder={t('wordDetail.phonetic')}
-                                                        placeholderTextColor={colors.textTertiary}
+                                                        style={[styles.tagInput, { color: colors.text, borderColor: colors.border, backgroundColor: colors.surface }]}
+                                                        placeholder={t('wordDetail.tagsPlaceholder')} placeholderTextColor={colors.textTertiary}
+                                                        value={tagInput} onChangeText={setTagInput}
+                                                        onSubmitEditing={handleAddTag} returnKeyType="done" autoCapitalize="none"
                                                     />
+                                                    <Pressable onPress={handleAddTag} disabled={!tagInput.trim()}
+                                                        style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primary : colors.surfaceSecondary }]}>
+                                                        <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
+                                                    </Pressable>
                                                 </View>
-                                                <View style={{ flex: 1 }}>
-                                                    <Text style={[styles.fieldLabel, { color: colors.textSecondary, marginBottom: 4 }]}>{t('wordDetail.posLabel')}</Text>
-                                                    <TextInput
-                                                        style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
-                                                        value={pos}
-                                                        onChangeText={setPos}
-                                                        placeholder={t('wordDetail.posPlaceholder')}
-                                                        placeholderTextColor={colors.textTertiary}
-                                                    />
+                                            )}
+                                            {tags.length > 0 ? (
+                                                <View style={styles.tagsFlexBox}>
+                                                    {tags.map((tag, idx) => (
+                                                        <View key={`${tag}-${idx}`} style={[styles.tagChip, { backgroundColor: mode === 'read' ? colors.surfaceSecondary : colors.primaryLight }]}>
+                                                            <Text style={[styles.tagChipText, { color: mode === 'read' ? colors.text : colors.primary }]}>#{tag}</Text>
+                                                            {mode !== 'read' && (
+                                                                <Pressable onPress={() => handleRemoveTag(tag)} hitSlop={6} style={styles.tagChipClose}>
+                                                                    <Ionicons name="close-circle" size={16} color={colors.primary} />
+                                                                </Pressable>
+                                                            )}
+                                                        </View>
+                                                    ))}
                                                 </View>
+                                            ) : (
+                                                mode === 'read' && <Text style={{ color: colors.textTertiary, fontFamily: 'Pretendard_400Regular', fontSize: 14, marginLeft: 4 }}>{t('wordDetail.noTags')}</Text>
+                                            )}
+                                        </View>
+
+                                        {mode === 'read' && (
+                                            <View style={{ marginTop: 24, paddingBottom: 12 }}>
+                                                <Button
+                                                    onPress={() => { if (term.trim()) Linking.openURL(`https://en.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`); }}
+                                                    disabled={!term.trim()} icon="language-outline" title={t('wordDetail.naverDict')}
+                                                    style={{ backgroundColor: term.trim() ? '#03C75A' : colors.surfaceSecondary, paddingVertical: 10 }}
+                                                />
                                             </View>
                                         )}
                                     </View>
-                                )}
-                                {mode !== 'read' && errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('wordDetail.enterWord')}</Text>}
-
-                                {mode !== 'read' && (
-                                    <Button
-                                        variant={term.trim() && !isPendingFill ? 'primary' : 'secondary'}
-                                        title={t('wordDetail.aiAutoComplete')}
-                                        icon="sparkles-outline"
-                                        iconColor={term.trim() ? colors.background : colors.textTertiary}
-                                        loading={isPendingFill}
-                                        disabled={!term.trim() || isPendingFill}
-                                        onPress={handleAutoFill}
-                                        style={[styles.analyzeBtn, { backgroundColor: term.trim() && !isPendingFill ? colors.text : colors.surfaceSecondary }]}
-                                        textStyle={{ color: term.trim() ? colors.background : colors.textTertiary, fontSize: 13 }}
-                                    />
-                                )}
-                            </View>
-
-                            <View style={styles.fieldsContainer}>
-                                <EditableField
-                                    label={t('wordDetail.meaningRequired')}
-                                    placeholder={t('wordDetail.meaningPlaceholder')}
-                                    value={meaningKr}
-                                    onChangeText={(v: string) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
-                                    error={errors.meaningKr ? t('wordDetail.enterWord') : undefined}
-                                    isCore
-                                />
-                                <EditableField
-                                    label={t('wordDetail.definitionLabel')}
-                                    placeholder={t('wordDetail.definitionPlaceholder')}
-                                    value={definition}
-                                    onChangeText={setDefinition}
-                                    multiline
-                                />
-
-                                <View style={[styles.exampleGroup, { backgroundColor: (mode === 'read' || readOnly) ? 'transparent' : colors.surfaceSecondary }]}>
-                                    <EditableField
-                                        label={t('wordDetail.exampleLabel')}
-                                        placeholder={t('wordDetail.examplePlaceholder')}
-                                        value={exampleEn}
-                                        onChangeText={setExampleEn}
-                                        multiline
-                                    />
-                                    <EditableField
-                                        label={t('wordDetail.translationLabel')}
-                                        placeholder={t('wordDetail.translationPlaceholder')}
-                                        value={exampleKr}
-                                        onChangeText={setExampleKr}
-                                        multiline
-                                    />
-                                </View>
-
-                                <View style={styles.tagsContainer}>
-                                    <Text style={[styles.tagsLabel, { color: colors.textSecondary }]}>{t('wordDetail.tagsLabel')}</Text>
-
-                                    {mode !== 'read' && (
-                                        <View style={styles.tagInputRow}>
-                                            <TextInput
-                                                style={[styles.tagInput, { color: colors.text, borderColor: colors.border, backgroundColor: colors.surface }]}
-                                                placeholder={t('wordDetail.tagsPlaceholder')}
-                                                placeholderTextColor={colors.textTertiary}
-                                                value={tagInput}
-                                                onChangeText={setTagInput}
-                                                onSubmitEditing={handleAddTag}
-                                                returnKeyType="done"
-                                                autoCapitalize="none"
-                                            />
-                                            <Pressable
-                                                onPress={handleAddTag}
-                                                disabled={!tagInput.trim()}
-                                                style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primary : colors.surfaceSecondary }]}
-                                            >
-                                                <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
-                                            </Pressable>
-                                        </View>
-                                    )}
-
-                                    {tags.length > 0 ? (
-                                        <View style={styles.tagsFlexBox}>
-                                            {tags.map((t, idx) => (
-                                                <View key={`${t}-${idx}`} style={[styles.tagChip, { backgroundColor: mode === 'read' ? colors.surfaceSecondary : colors.primaryLight }]}>
-                                                    <Text style={[styles.tagChipText, { color: mode === 'read' ? colors.text : colors.primary }]}>#{t}</Text>
-                                                    {mode !== 'read' && (
-                                                        <Pressable onPress={() => handleRemoveTag(t)} hitSlop={6} style={styles.tagChipClose}>
-                                                            <Ionicons name="close-circle" size={16} color={colors.primary} />
-                                                        </Pressable>
-                                                    )}
-                                                </View>
-                                            ))}
-                                        </View>
-                                    ) : (
-                                        mode === 'read' && <Text style={{ color: colors.textTertiary, fontFamily: 'Pretendard_400Regular', fontSize: 14, marginLeft: 4 }}>{t('wordDetail.noTags')}</Text>
-                                    )}
-                                </View>
-
-                                {mode === 'read' && (
-                                    <View style={{ marginTop: 24, paddingBottom: 12 }}>
-                                        <Button
-                                            onPress={() => { if (term.trim()) Linking.openURL(`https://en.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`); }}
-                                            disabled={!term.trim()}
-                                            icon="language-outline"
-                                            title={t('wordDetail.naverDict')}
-                                            style={{ backgroundColor: term.trim() ? '#03C75A' : colors.surfaceSecondary, paddingVertical: 10 }}
-                                        />
-                                    </View>
-                                )}
-                            </View>
-                        </ScrollView>
+                                </ScrollView>
+                            </>
+                        )}
                     </View>
                 </KeyboardAvoidingView>
             </View>
@@ -455,46 +519,41 @@ export default function WordDetailModal({
 }
 
 const styles = StyleSheet.create({
-    modalOverlay: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalBackdrop: {
-        ...StyleSheet.absoluteFillObject,
-    },
-    keyboardView: {
-        width: '92%',
-        maxWidth: 500,
-        maxHeight: '85%',
-    },
+    modalOverlay: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+    modalBackdrop: { ...StyleSheet.absoluteFillObject },
+    keyboardView: { width: '92%', maxWidth: 500, maxHeight: '85%' },
     modalContent: {
-        width: '100%',
-        height: '100%',
-        borderRadius: 20,
-        overflow: 'hidden',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.12,
-        shadowRadius: 16,
-        elevation: 10,
+        width: '100%', height: '100%', borderRadius: 20, overflow: 'hidden',
+        shadowColor: '#000', shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.12, shadowRadius: 16, elevation: 10,
     },
     topBar: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingHorizontal: 16,
-        paddingVertical: 14,
-        borderBottomWidth: StyleSheet.hairlineWidth
+        flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+        paddingHorizontal: 16, paddingVertical: 14, borderBottomWidth: StyleSheet.hairlineWidth,
     },
-    topBtn: {
-        padding: 4,
-        minWidth: 44,
-        alignItems: 'center',
-    },
+    topBtn: { padding: 4, minWidth: 44, alignItems: 'center' },
     topBarCancel: { fontSize: 16, fontFamily: 'Pretendard_400Regular' },
     topBarTitle: { fontSize: 17, fontFamily: 'Pretendard_600SemiBold' },
     topBarSave: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
+
+    // ── readOnly 전용 스타일 ──────────────────────────────────────────────────
+    roScrollContent: { paddingBottom: 36 },
+    roTermSection: { paddingHorizontal: 24, paddingTop: 24, paddingBottom: 20 },
+    roTermRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 },
+    roTerm: { flex: 1, fontSize: 30, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
+    roTtsBtn: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center' },
+    roMetaRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+    roDivider: { borderTopWidth: StyleSheet.hairlineWidth, marginHorizontal: 0 },
+    roSection: { paddingHorizontal: 24, paddingVertical: 16 },
+    roLabel: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.5, marginBottom: 6 },
+    roMeaning: { fontSize: 20, fontFamily: 'Pretendard_700Bold', lineHeight: 28 },
+    roBody: { fontSize: 15, fontFamily: 'Pretendard_400Regular', lineHeight: 22 },
+    roBodySub: { fontSize: 14, fontFamily: 'Pretendard_400Regular', lineHeight: 20, marginTop: 6 },
+    roTagsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 2 },
+    roTagChip: { paddingHorizontal: 10, paddingVertical: 5, borderRadius: 10 },
+    roTagText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
+
+    // ── 편집/추가 모드 스타일 ─────────────────────────────────────────────────
     scrollContent: { padding: 20, paddingBottom: 40 },
     wordSection: { marginBottom: 20 },
     wordTitleRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 8 },
@@ -508,11 +567,6 @@ const styles = StyleSheet.create({
     fieldInput: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 14, fontSize: 15, fontFamily: 'Pretendard_400Regular', textAlignVertical: 'center' },
     fieldText: { fontSize: 15, fontFamily: 'Pretendard_400Regular', lineHeight: 22 },
     fieldReadView: { paddingVertical: 4, paddingHorizontal: 2 },
-    readFieldPressable: {
-        paddingVertical: 6,
-        paddingHorizontal: 2,
-        borderRadius: 6,
-    },
     exampleGroup: { padding: 12, borderRadius: 12, gap: 16, marginHorizontal: -4 },
     errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 4, marginLeft: 4 },
     tagsContainer: { marginTop: 8 },
@@ -524,27 +578,8 @@ const styles = StyleSheet.create({
     tagChip: { flexDirection: 'row', alignItems: 'center', paddingVertical: 6, paddingLeft: 10, paddingRight: 6, borderRadius: 12, gap: 4 },
     tagChipText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
     tagChipClose: { marginLeft: 2 },
-    posBadge: {
-        paddingHorizontal: 8,
-        paddingVertical: 2,
-        borderRadius: 6,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    posBadgeText: {
-        fontSize: 12,
-        fontFamily: 'Pretendard_600SemiBold',
-    },
-    phoneticText: {
-        fontSize: 14,
-        fontFamily: 'Pretendard_400Regular',
-    },
-    smallInput: {
-        borderWidth: 1,
-        borderRadius: 8,
-        paddingHorizontal: 12,
-        paddingVertical: 8,
-        fontSize: 14,
-        fontFamily: 'Pretendard_400Regular',
-    },
+    posBadge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 6, alignItems: 'center', justifyContent: 'center' },
+    posBadgeText: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold' },
+    phoneticText: { fontSize: 14, fontFamily: 'Pretendard_400Regular' },
+    smallInput: { borderWidth: 1, borderRadius: 8, paddingHorizontal: 12, paddingVertical: 8, fontSize: 14, fontFamily: 'Pretendard_400Regular' },
 });

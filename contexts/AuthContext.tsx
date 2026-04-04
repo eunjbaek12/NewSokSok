@@ -11,6 +11,7 @@ interface GoogleUser {
   email: string;
   displayName: string | null;
   avatarUrl: string | null;
+  isAdmin: boolean;
 }
 
 interface AuthState {

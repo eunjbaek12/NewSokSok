@@ -29,12 +29,11 @@ function shuffleArray<T>(arr: T[]): T[] {
 interface CustomStudyModalProps {
   visible: boolean;
   onClose: () => void;
-  initialFilter?: CustomStudySettings['wordFilter'];
 }
 
 const FILTER_OPTION_KEYS: CustomStudySettings['wordFilter'][] = ['all', 'learning', 'wrongCount', 'recent', 'starred'];
 
-export default function CustomStudyModal({ visible, onClose, initialFilter }: CustomStudyModalProps) {
+export default function CustomStudyModal({ visible, onClose }: CustomStudyModalProps) {
   const { colors, isDark } = useTheme();
   const { t } = useTranslation();
   const { lists } = useVocab();
@@ -50,13 +49,6 @@ export default function CustomStudyModal({ visible, onClose, initialFilter }: Cu
   ], [t]);
 
   const visibleLists = useMemo(() => lists.filter(l => l.isVisible), [lists]);
-
-  // 바로가기 프리셋 적용
-  useEffect(() => {
-    if (visible && initialFilter && settings.wordFilter !== initialFilter) {
-      updateCustomStudySettings({ wordFilter: initialFilter });
-    }
-  }, [visible, initialFilter, settings.wordFilter, updateCustomStudySettings]);
 
   // 삭제된 단어장 ID 자동 정리
   useEffect(() => {

@@ -11,6 +11,7 @@ import {
   Alert,
   Modal,
 } from 'react-native';
+import CharacterSvg from '@/components/CharacterSvg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -20,7 +21,7 @@ import Svg, { Circle, G } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
-import { useSettings, type CustomStudySettings } from '@/contexts/SettingsContext';
+import { useSettings } from '@/contexts/SettingsContext';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/lib/plan-engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/components/CustomStudyModal';
@@ -65,9 +66,8 @@ export default function DashboardScreen() {
   const { colors, isDark } = useTheme();
   const { lists, loading, clearPlan } = useVocab();
   const { t } = useTranslation();
-  const { dashboardFilterMode: filterMode, updateDashboardFilter } = useSettings();
+  const { dashboardFilterMode: filterMode, updateDashboardFilter, customStudySettings } = useSettings();
   const [showCustomStudy, setShowCustomStudy] = useState(false);
-  const [customStudyPresetFilter, setCustomStudyPresetFilter] = useState<CustomStudySettings['wordFilter'] | undefined>();
   const [resultList, setResultList] = useState<VocaList | null>(null);
   const [completedCollapsed, setCompletedCollapsed] = useState(false);
 
@@ -134,21 +134,34 @@ export default function DashboardScreen() {
 
   const handleCustomStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setCustomStudyPresetFilter(undefined);
     setShowCustomStudy(true);
   }, []);
 
   const handleWrongWordStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setCustomStudyPresetFilter('wrongCount');
-    setShowCustomStudy(true);
-  }, []);
+    const words = lists
+      .filter(l => l.isVisible)
+      .flatMap(l => l.words)
+      .filter(w => (w.wrongCount ?? 0) > 0)
+      .sort((a, b) => (b.wrongCount ?? 0) - (a.wrongCount ?? 0))
+      .slice(0, 50);
+    if (words.length === 0) return;
+    const ids = words.map(w => w.id).join(',');
+    const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
+    router.push({ pathname: pathname as any, params: { id: '__custom__', ids } });
+  }, [lists, customStudySettings.studyMode]);
 
   const handleStarredWordStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setCustomStudyPresetFilter('starred');
-    setShowCustomStudy(true);
-  }, []);
+    const words = lists
+      .filter(l => l.isVisible)
+      .flatMap(l => l.words)
+      .filter(w => w.isStarred);
+    if (words.length === 0) return;
+    const ids = words.map(w => w.id).join(',');
+    const pathname = customStudySettings.studyMode === 'quiz' ? '/quiz/[id]' : '/flashcards/[id]';
+    router.push({ pathname: pathname as any, params: { id: '__custom__', ids } });
+  }, [lists, customStudySettings.studyMode]);
 
   const handlePlanPress = useCallback((listId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -172,12 +185,15 @@ export default function DashboardScreen() {
       >
         {/* 0: Header / Greeting */}
         <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-          <Text style={[styles.greeting, { color: colors.text }]}>
-            {t('home.greeting')} <Text style={{ color: colors.primary }}>{t('home.learner')}</Text>
-          </Text>
-          <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-            {t('home.subtitle')}
-          </Text>
+          <CharacterSvg size={56} />
+          <View style={styles.headerTextArea}>
+            <Text style={[styles.greeting, { color: colors.text }]}>
+              {t('home.greeting')} <Text style={{ color: colors.primary }}>{t('home.learner')}</Text>
+            </Text>
+            <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
+              {t('home.subtitle')}
+            </Text>
+          </View>
         </View>
 
         {/* 1: Sticky Search Bar */}
@@ -323,346 +339,422 @@ export default function DashboardScreen() {
             </View>
 
             {/* Cards */}
-              <>
-                {/* In-progress plan cards */}
-                {filteredActive.map(({ list, dayStatus }) => {
-                  const statusConfig = getStudyStateConfig(dayStatus.state, t);
-                  return (
-                    <Pressable
-                      key={list.id}
-                      onPress={() => handlePlanPress(list.id)}
-                      style={({ pressed }) => [
-                        styles.planCard,
-                        {
-                          backgroundColor: colors.surface,
-                          borderColor: dayStatus.state === 'completed'
-                            ? (isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)')
-                            : (isDark ? colors.border : 'rgba(49,130,246,0.08)'),
-                          shadowColor: colors.cardShadow,
-                          opacity: pressed ? 0.92 : 1,
-                        },
-                      ]}
-                    >
-                      <View style={styles.planCardTop}>
-                        <View style={styles.planCardTitleArea}>
-                          {list.icon && (
-                            <Text style={{ fontSize: 18 }}>{list.icon}</Text>
-                          )}
-                          <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
-                            {list.title}
+            <>
+              {/* In-progress plan cards */}
+              {filteredActive.map(({ list, dayStatus }) => {
+                const statusConfig = getStudyStateConfig(dayStatus.state, t);
+                return (
+                  <Pressable
+                    key={list.id}
+                    onPress={() => handlePlanPress(list.id)}
+                    style={({ pressed }) => [
+                      styles.planCard,
+                      {
+                        backgroundColor: colors.surface,
+                        borderColor: dayStatus.state === 'completed'
+                          ? (isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)')
+                          : (isDark ? colors.border : 'rgba(49,130,246,0.08)'),
+                        shadowColor: colors.cardShadow,
+                        opacity: pressed ? 0.92 : 1,
+                      },
+                    ]}
+                  >
+                    <View style={styles.planCardTop}>
+                      <View style={styles.planCardTitleArea}>
+                        {list.icon && (
+                          <Text style={{ fontSize: 18 }}>{list.icon}</Text>
+                        )}
+                        <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
+                          {list.title}
+                        </Text>
+                      </View>
+                      <View style={styles.planCardChips}>
+                        <View style={[styles.dayBadge, { backgroundColor: colors.primaryLight }]}>
+                          <Text style={[styles.dayBadgeText, { color: colors.primary }]}>
+                            Day {dayStatus.displayDay}
                           </Text>
                         </View>
-                        <View style={styles.planCardChips}>
-                          <View style={[styles.dayBadge, { backgroundColor: colors.primaryLight }]}>
-                            <Text style={[styles.dayBadgeText, { color: colors.primary }]}>
-                              Day {dayStatus.displayDay}
-                            </Text>
-                          </View>
-                          <View style={[styles.statusChip, { backgroundColor: colors[statusConfig.bgColor] }]}>
-                            <Text style={[styles.statusChipText, { color: colors[statusConfig.textColor] }]}>
-                              {statusConfig.label}
-                            </Text>
-                          </View>
-                          <Pressable
-                            onPress={(e) => {
-                              e.stopPropagation();
-                              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                              Alert.alert(
-                                t('home.stopStudyTitle'),
-                                t('home.stopStudyMessage'),
-                                [
-                                  { text: t('common.cancel'), style: 'cancel' },
-                                  {
-                                    text: t('common.confirm'),
-                                    style: 'destructive',
-                                    onPress: () => {
-                                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-                                      clearPlan(list.id);
-                                    },
-                                  },
-                                ],
-                              );
-                            }}
-                            style={({ pressed }) => [
-                              styles.closeButton,
-                              { opacity: pressed ? 0.5 : 0.6 },
-                            ]}
-                            hitSlop={8}
-                          >
-                            <Ionicons name="close" size={18} color={colors.textTertiary} />
-                          </Pressable>
-                        </View>
-                      </View>
-                      <View style={styles.planCardBottom}>
-                        <View style={styles.planCardBottomLeft}>
-                          <ProgressBar percent={dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0} colors={colors} />
-                          <View style={styles.planStatsRow}>
-                            <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
-                              {t('home.dayProgress', { day: dayStatus.displayDay, memorized: dayStatus.dayMemorized, total: dayStatus.dayTotal })}
-                            </Text>
-                            <Text style={[styles.planStatsPercent, {
-                              color: dayStatus.dayTotal > 0 && dayStatus.dayMemorized === dayStatus.dayTotal ? colors.success : colors.primary,
-                            }]}>
-                              {dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0}%
-                            </Text>
-                          </View>
+                        <View style={[styles.statusChip, { backgroundColor: colors[statusConfig.bgColor] }]}>
+                          <Text style={[styles.statusChipText, { color: colors[statusConfig.textColor] }]}>
+                            {statusConfig.label}
+                          </Text>
                         </View>
                         <Pressable
                           onPress={(e) => {
                             e.stopPropagation();
-                            handlePlanPress(list.id);
+                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                            Alert.alert(
+                              t('home.stopStudyTitle'),
+                              t('home.stopStudyMessage'),
+                              [
+                                { text: t('common.cancel'), style: 'cancel' },
+                                {
+                                  text: t('common.confirm'),
+                                  style: 'destructive',
+                                  onPress: () => {
+                                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                    clearPlan(list.id);
+                                  },
+                                },
+                              ],
+                            );
+                          }}
+                          style={({ pressed }) => [
+                            styles.closeButton,
+                            { opacity: pressed ? 0.5 : 0.6 },
+                          ]}
+                          hitSlop={8}
+                        >
+                          <Ionicons name="close" size={18} color={colors.textTertiary} />
+                        </Pressable>
+                      </View>
+                    </View>
+                    <View style={styles.planCardBottom}>
+                      <View style={styles.planCardBottomLeft}>
+                        <ProgressBar percent={dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0} colors={colors} />
+                        <View style={styles.planStatsRow}>
+                          <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                            {t('home.dayProgress', { day: dayStatus.displayDay, memorized: dayStatus.dayMemorized, total: dayStatus.dayTotal })}
+                          </Text>
+                          <Text style={[styles.planStatsPercent, {
+                            color: dayStatus.dayTotal > 0 && dayStatus.dayMemorized === dayStatus.dayTotal ? colors.success : colors.primary,
+                          }]}>
+                            {dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0}%
+                          </Text>
+                        </View>
+                      </View>
+                      <Pressable
+                        onPress={(e) => {
+                          e.stopPropagation();
+                          handlePlanPress(list.id);
+                        }}
+                        style={({ pressed }) => [
+                          styles.actionButton,
+                          {
+                            backgroundColor: dayStatus.state === 'completed'
+                              ? colors.surfaceSecondary
+                              : colors.primary,
+                            opacity: pressed ? 0.85 : 1,
+                          },
+                        ]}
+                      >
+                        <Text style={[
+                          styles.actionButtonText,
+                          {
+                            color: dayStatus.state === 'completed'
+                              ? colors.textSecondary
+                              : '#FFFFFF',
+                          },
+                        ]}>
+                          {statusConfig.actionLabel}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  </Pressable>
+                );
+              })}
+
+              {/* Overdue / Inactive plan cards */}
+              {staleItems.map(({ list, dayStatus, status }) => {
+                const staleLabel = status === 'overdue' ? t('home.expired') : t('home.inactive');
+                const staleBg = status === 'overdue' ? colors.errorLight : colors.warningLight;
+                const staleColor = status === 'overdue' ? colors.error : colors.warning;
+                const staleBorder = status === 'overdue'
+                  ? (isDark ? 'rgba(248,81,73,0.2)' : 'rgba(239,68,68,0.15)')
+                  : (isDark ? 'rgba(210,153,34,0.2)' : 'rgba(245,158,11,0.15)');
+                return (
+                  <View
+                    key={list.id}
+                    style={[
+                      styles.planCard,
+                      {
+                        backgroundColor: colors.surface,
+                        borderColor: staleBorder,
+                        shadowColor: colors.cardShadow,
+                      },
+                    ]}
+                  >
+                    <View style={styles.planCardTop}>
+                      <View style={styles.planCardTitleArea}>
+                        {list.icon && (
+                          <Text style={{ fontSize: 18 }}>{list.icon}</Text>
+                        )}
+                        <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
+                          {list.title}
+                        </Text>
+                      </View>
+                      <View style={styles.planCardChips}>
+                        <View style={[styles.dayBadge, { backgroundColor: colors.primaryLight }]}>
+                          <Text style={[styles.dayBadgeText, { color: colors.primary }]}>
+                            Day {dayStatus.displayDay}
+                          </Text>
+                        </View>
+                        <View style={[styles.statusChip, { backgroundColor: staleBg }]}>
+                          <Text style={[styles.statusChipText, { color: staleColor }]}>
+                            {staleLabel}
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                    <View style={styles.planCardBottom}>
+                      <View style={styles.planCardBottomLeft}>
+                        <ProgressBar percent={dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0} colors={colors} />
+                        <View style={styles.planStatsRow}>
+                          <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                            {t('home.dayProgress', { day: dayStatus.displayDay, memorized: dayStatus.dayMemorized, total: dayStatus.dayTotal })}
+                          </Text>
+                          <Text style={[styles.planStatsPercent, {
+                            color: dayStatus.dayTotal > 0 && dayStatus.dayMemorized === dayStatus.dayTotal ? colors.success : colors.primary,
+                          }]}>
+                            {dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0}%
+                          </Text>
+                        </View>
+                      </View>
+                      <View style={styles.staleActionRow}>
+                        <Pressable
+                          onPress={() => {
+                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                            Alert.alert(
+                              t('home.endStudyTitle'),
+                              t('home.endStudyMessage'),
+                              [
+                                { text: t('common.cancel'), style: 'cancel' },
+                                {
+                                  text: t('common.confirm'),
+                                  style: 'destructive',
+                                  onPress: () => {
+                                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                    clearPlan(list.id);
+                                  },
+                                },
+                              ],
+                            );
                           }}
                           style={({ pressed }) => [
                             styles.actionButton,
                             {
-                              backgroundColor: dayStatus.state === 'completed'
-                                ? colors.surfaceSecondary
-                                : colors.primary,
+                              backgroundColor: colors.surface,
+                              borderWidth: 1,
+                              borderColor: colors.border,
                               opacity: pressed ? 0.85 : 1,
                             },
                           ]}
                         >
-                          <Text style={[
-                            styles.actionButtonText,
-                            {
-                              color: dayStatus.state === 'completed'
-                                ? colors.textSecondary
-                                : '#FFFFFF',
-                            },
-                          ]}>
-                            {statusConfig.actionLabel}
+                          <Text style={[styles.actionButtonText, { color: colors.error }]}>
+                            {t('home.endStudy')}
                           </Text>
                         </Pressable>
-                      </View>
-                    </Pressable>
-                  );
-                })}
-
-                {/* Overdue / Inactive plan cards */}
-                {staleItems.map(({ list, dayStatus, status }) => {
-                  const staleLabel = status === 'overdue' ? t('home.expired') : t('home.inactive');
-                  const staleBg = status === 'overdue' ? colors.errorLight : colors.warningLight;
-                  const staleColor = status === 'overdue' ? colors.error : colors.warning;
-                  const staleBorder = status === 'overdue'
-                    ? (isDark ? 'rgba(248,81,73,0.2)' : 'rgba(239,68,68,0.15)')
-                    : (isDark ? 'rgba(210,153,34,0.2)' : 'rgba(245,158,11,0.15)');
-                  return (
-                    <View
-                      key={list.id}
-                      style={[
-                        styles.planCard,
-                        {
-                          backgroundColor: colors.surface,
-                          borderColor: staleBorder,
-                          shadowColor: colors.cardShadow,
-                        },
-                      ]}
-                    >
-                      <View style={styles.planCardTop}>
-                        <View style={styles.planCardTitleArea}>
-                          {list.icon && (
-                            <Text style={{ fontSize: 18 }}>{list.icon}</Text>
-                          )}
-                          <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
-                            {list.title}
-                          </Text>
-                        </View>
-                        <View style={styles.planCardChips}>
-                          <View style={[styles.dayBadge, { backgroundColor: colors.primaryLight }]}>
-                            <Text style={[styles.dayBadgeText, { color: colors.primary }]}>
-                              Day {dayStatus.displayDay}
-                            </Text>
-                          </View>
-                          <View style={[styles.statusChip, { backgroundColor: staleBg }]}>
-                            <Text style={[styles.statusChipText, { color: staleColor }]}>
-                              {staleLabel}
-                            </Text>
-                          </View>
-                        </View>
-                      </View>
-                      <View style={styles.planCardBottom}>
-                        <View style={styles.planCardBottomLeft}>
-                          <ProgressBar percent={dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0} colors={colors} />
-                          <View style={styles.planStatsRow}>
-                            <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
-                              {t('home.dayProgress', { day: dayStatus.displayDay, memorized: dayStatus.dayMemorized, total: dayStatus.dayTotal })}
-                            </Text>
-                            <Text style={[styles.planStatsPercent, {
-                              color: dayStatus.dayTotal > 0 && dayStatus.dayMemorized === dayStatus.dayTotal ? colors.success : colors.primary,
-                            }]}>
-                              {dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0}%
-                            </Text>
-                          </View>
-                        </View>
-                        <View style={styles.staleActionRow}>
-                          <Pressable
-                            onPress={() => {
-                              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-                              clearPlan(list.id);
-                            }}
-                            style={({ pressed }) => [
-                              styles.actionButton,
-                              {
-                                backgroundColor: colors.surface,
-                                borderWidth: 1,
-                                borderColor: colors.border,
-                                opacity: pressed ? 0.85 : 1,
-                              },
-                            ]}
-                          >
-                            <Text style={[styles.actionButtonText, { color: colors.error }]}>
-                              {t('home.endStudy')}
-                            </Text>
-                          </Pressable>
-                          <Pressable
-                            onPress={() => handlePlanPress(list.id)}
-                            style={({ pressed }) => [
-                              styles.actionButton,
-                              {
-                                backgroundColor: colors.primary,
-                                opacity: pressed ? 0.85 : 1,
-                              },
-                            ]}
-                          >
-                            <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
-                              {t('home.restartStudy')}
-                            </Text>
-                          </Pressable>
-                        </View>
-                      </View>
-                    </View>
-                  );
-                })}
-
-                {/* Empty state */}
-                {planItems.length === 0 && (
-                  <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
-                    <Ionicons name="rocket-outline" size={40} color={colors.textTertiary} />
-                    <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>
-                      {t('home.emptyTitle')}
-                    </Text>
-                    <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>
-                      {t('home.emptySubtitle')}
-                    </Text>
-                    <Pressable
-                      onPress={() => {
-                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                        router.navigate('/(tabs)/vocab-lists' as any);
-                      }}
-                      style={({ pressed }) => [
-                        styles.emptyPlansLink,
-                        { backgroundColor: colors.primaryLight, opacity: pressed ? 0.8 : 1 },
-                      ]}
-                    >
-                      <Ionicons name="library-outline" size={16} color={colors.primary} />
-                      <Text style={[styles.emptyPlansLinkText, { color: colors.primary }]}>
-                        {t('home.goToVocabLists')}
-                      </Text>
-                    </Pressable>
-                  </View>
-                )}
-
-                {/* Completed plan cards — separate section */}
-                {completedItems.length > 0 && (
-                  <Pressable
-                    onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); toggleCompletedCollapsed(); }}
-                    style={[styles.completedDivider, { borderTopColor: colors.borderLight }]}
-                  >
-                    <Text style={[styles.completedDividerText, { color: colors.textSecondary }]}>
-                      {t('home.planCompletedSection')}
-                    </Text>
-                    {completedItems.length > 0 && (
-                      <View style={[styles.countBadge, { backgroundColor: colors.surfaceSecondary, marginLeft: 8 }]}>
-                        <Text style={[styles.countBadgeText, { color: colors.textSecondary }]}>
-                          {completedItems.length}
-                        </Text>
-                      </View>
-                    )}
-                    <Ionicons
-                      name={completedCollapsed ? 'chevron-down' : 'chevron-up'}
-                      size={16}
-                      color={colors.textSecondary}
-                      style={{ marginLeft: 'auto' }}
-                    />
-                  </Pressable>
-                )}
-                {!completedCollapsed && completedItems.map(({ list }) => {
-                  const totalWords = list.words.length;
-                  const memorizedWords = list.words.filter(w => w.isMemorized).length;
-                  const percent = totalWords > 0 ? Math.round((memorizedWords / totalWords) * 100) : 0;
-                  return (
-                    <View
-                      key={list.id}
-                      style={[
-                        styles.planCard,
-                        {
-                          backgroundColor: colors.successLight,
-                          borderColor: isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)',
-                          shadowColor: colors.cardShadow,
-                        },
-                      ]}
-                    >
-                      <View style={styles.planCardTop}>
-                        <View style={styles.planCardTitleArea}>
-                          {list.icon && <Text style={{ fontSize: 18 }}>{list.icon}</Text>}
-                          <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
-                            {list.title}
-                          </Text>
-                        </View>
-                        <View style={styles.planCardChips}>
-                          <View style={[styles.statusChip, { backgroundColor: isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)' }]}>
-                            <Text style={[styles.statusChipText, { color: colors.success }]}>
-                              {t('home.planCompleted')}
-                            </Text>
-                          </View>
-                          <Pressable
-                            onPress={() => {
-                              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                              clearPlan(list.id);
-                            }}
-                            style={({ pressed }) => [styles.closeButton, { opacity: pressed ? 0.4 : 0.7 }]}
-                            hitSlop={8}
-                          >
-                            <Ionicons name="close" size={18} color={colors.success} />
-                          </Pressable>
-                        </View>
-                      </View>
-                      <View style={styles.planCardBottom}>
-                        <View style={styles.planCardBottomLeft}>
-                          <ProgressBar percent={percent} colors={colors} />
-                          <View style={styles.planStatsRow}>
-                            <Text style={[styles.planWordCount, { color: colors.success }]}>
-                              {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
-                            </Text>
-                            <Text style={[styles.planStatsPercent, { color: colors.success }]}>{percent}%</Text>
-                          </View>
-                        </View>
                         <Pressable
-                          onPress={() => {
-                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                            setResultList(list);
-                          }}
+                          onPress={() => handlePlanPress(list.id)}
                           style={({ pressed }) => [
                             styles.actionButton,
-                            { backgroundColor: colors.success, opacity: pressed ? 0.85 : 1 },
+                            {
+                              backgroundColor: colors.primary,
+                              opacity: pressed ? 0.85 : 1,
+                            },
                           ]}
                         >
                           <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
-                            {t('home.studyResult')}
+                            {t('home.restartStudy')}
                           </Text>
                         </Pressable>
                       </View>
                     </View>
-                  );
-                })}
+                  </View>
+                );
+              })}
 
-                {/* Filtered empty state */}
-                {planItems.length > 0 && filteredActive.length === 0 && staleItems.length === 0 && completedItems.length === 0 && (
-                  <Text style={[styles.filterEmptyText, { color: colors.textTertiary }]}>
-                    {filterMode === 'completed' ? t('home.noCompletedLists') : t('home.noStudyingLists')}
+              {/* Empty state: 케이스 A — 플랜 자체가 없음 */}
+              {planItems.length === 0 && (
+                <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
+                  <Ionicons name="rocket-outline" size={40} color={colors.textTertiary} />
+                  <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>
+                    {t('home.emptyTitle')}
                   </Text>
-                )}
-              </>
+                  <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>
+                    {t('home.emptySubtitle')}
+                  </Text>
+                  <Pressable
+                    onPress={() => {
+                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                      router.navigate('/(tabs)/vocab-lists' as any);
+                    }}
+                    style={({ pressed }) => [
+                      styles.emptyPlansLink,
+                      { backgroundColor: colors.primaryLight, opacity: pressed ? 0.8 : 1 },
+                    ]}
+                  >
+                    <Ionicons name="library-outline" size={16} color={colors.primary} />
+                    <Text style={[styles.emptyPlansLinkText, { color: colors.primary }]}>
+                      {t('home.goToVocabLists')}
+                    </Text>
+                  </Pressable>
+                </View>
+              )}
+
+              {/* Empty state: 케이스 B — 진행 중 없고 완료 플랜만 있음 */}
+              {planItems.length > 0 && activeItems.length === 0 && staleItems.length === 0 && (
+                <View style={[styles.emptyPlans, { backgroundColor: colors.successLight, borderColor: isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)' }]}>
+                  <Text style={{ fontSize: 36 }}>🎉</Text>
+                  <Text style={[styles.emptyPlansTitle, { color: colors.success }]}>
+                    {t('home.allPlansCompletedTitle')}
+                  </Text>
+                  <Text style={[styles.emptyPlansSubtitle, { color: colors.success, opacity: 0.8 }]}>
+                    {t('home.allPlansCompletedSubtitle')}
+                  </Text>
+                  <Pressable
+                    onPress={() => {
+                      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                      router.navigate('/(tabs)/vocab-lists' as any);
+                    }}
+                    style={({ pressed }) => [
+                      styles.emptyPlansLink,
+                      { backgroundColor: isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)', opacity: pressed ? 0.8 : 1 },
+                    ]}
+                  >
+                    <Ionicons name="library-outline" size={16} color={colors.success} />
+                    <Text style={[styles.emptyPlansLinkText, { color: colors.success }]}>
+                      {t('home.goToVocabLists')}
+                    </Text>
+                  </Pressable>
+                </View>
+              )}
+
+              {/* Empty state: 케이스 C-1 — "학습중" 필터인데 오늘 모두 달성 */}
+              {activeItems.length > 0 && filteredActive.length === 0 && filterMode !== 'completed' && (
+                <View style={[styles.emptyPlans, { backgroundColor: colors.successLight, borderColor: isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)' }]}>
+                  <Text style={[styles.emptyPlansTitle, { color: colors.success }]}>
+                    {t('home.filterAllDoneToday')}
+                  </Text>
+                </View>
+              )}
+
+              {/* Empty state: 케이스 C-2 — "오늘달성" 필터인데 달성한 단어장 없음 */}
+              {activeItems.length > 0 && filteredActive.length === 0 && filterMode === 'completed' && (
+                <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
+                  <Ionicons name="checkmark-circle-outline" size={36} color={colors.textTertiary} />
+                  <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>
+                    {t('home.filterEmptyCompleted')}
+                  </Text>
+                </View>
+              )}
+
+              {/* Completed plan cards — separate section */}
+              {completedItems.length > 0 && (
+                <Pressable
+                  onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); toggleCompletedCollapsed(); }}
+                  style={[styles.completedDivider, { borderTopColor: colors.borderLight }]}
+                >
+                  <Text style={[styles.completedDividerText, { color: colors.textSecondary }]}>
+                    {t('home.planCompletedSection')}
+                  </Text>
+                  {completedItems.length > 0 && (
+                    <View style={[styles.countBadge, { backgroundColor: colors.surfaceSecondary, marginLeft: 8 }]}>
+                      <Text style={[styles.countBadgeText, { color: colors.textSecondary }]}>
+                        {completedItems.length}
+                      </Text>
+                    </View>
+                  )}
+                  <Ionicons
+                    name={completedCollapsed ? 'chevron-down' : 'chevron-up'}
+                    size={16}
+                    color={colors.textSecondary}
+                    style={{ marginLeft: 'auto' }}
+                  />
+                </Pressable>
+              )}
+              {!completedCollapsed && completedItems.map(({ list }) => {
+                const totalWords = list.words.length;
+                const memorizedWords = list.words.filter(w => w.isMemorized).length;
+                const percent = totalWords > 0 ? Math.round((memorizedWords / totalWords) * 100) : 0;
+                return (
+                  <View
+                    key={list.id}
+                    style={[
+                      styles.planCard,
+                      {
+                        backgroundColor: colors.successLight,
+                        borderColor: isDark ? 'rgba(63,185,80,0.25)' : 'rgba(34,197,94,0.2)',
+                        shadowColor: colors.cardShadow,
+                      },
+                    ]}
+                  >
+                    <View style={styles.planCardTop}>
+                      <View style={styles.planCardTitleArea}>
+                        {list.icon && <Text style={{ fontSize: 18 }}>{list.icon}</Text>}
+                        <Text style={[styles.planCardTitle, { color: colors.text }]} numberOfLines={1}>
+                          {list.title}
+                        </Text>
+                      </View>
+                      <View style={styles.planCardChips}>
+                        <View style={[styles.statusChip, { backgroundColor: isDark ? 'rgba(63,185,80,0.2)' : 'rgba(34,197,94,0.15)' }]}>
+                          <Text style={[styles.statusChipText, { color: colors.success }]}>
+                            {t('home.planCompleted')}
+                          </Text>
+                        </View>
+                        <Pressable
+                          onPress={(e) => {
+                            e.stopPropagation();
+                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                            Alert.alert(
+                              t('home.removePlanTitle'),
+                              t('home.removePlanMessage'),
+                              [
+                                { text: t('common.cancel'), style: 'cancel' },
+                                {
+                                  text: t('common.confirm'),
+                                  style: 'destructive',
+                                  onPress: () => {
+                                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+                                    clearPlan(list.id);
+                                  },
+                                },
+                              ],
+                            );
+                          }}
+                          style={({ pressed }) => [styles.closeButton, { opacity: pressed ? 0.4 : 0.7 }]}
+                          hitSlop={8}
+                        >
+                          <Ionicons name="close" size={18} color={colors.success} />
+                        </Pressable>
+                      </View>
+                    </View>
+                    <View style={styles.planCardBottom}>
+                      <View style={styles.planCardBottomLeft}>
+                        <ProgressBar percent={percent} colors={colors} />
+                        <View style={styles.planStatsRow}>
+                          <Text style={[styles.planWordCount, { color: colors.success }]}>
+                            {t('home.allMemorized', { memorized: memorizedWords, total: totalWords })}
+                          </Text>
+                          <Text style={[styles.planStatsPercent, { color: colors.success }]}>{percent}%</Text>
+                        </View>
+                      </View>
+                      <Pressable
+                        onPress={() => {
+                          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                          setResultList(list);
+                        }}
+                        style={({ pressed }) => [
+                          styles.actionButton,
+                          { backgroundColor: colors.success, opacity: pressed ? 0.85 : 1 },
+                        ]}
+                      >
+                        <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
+                          {t('home.studyResult')}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  </View>
+                );
+              })}
+
+              {/* Filtered empty state */}
+              {planItems.length > 0 && filteredActive.length === 0 && staleItems.length === 0 && completedItems.length === 0 && (
+                <Text style={[styles.filterEmptyText, { color: colors.textTertiary }]}>
+                  {filterMode === 'completed' ? t('home.noCompletedLists') : t('home.noStudyingLists')}
+                </Text>
+              )}
+            </>
           </View>
 
         </View>
@@ -728,7 +820,6 @@ export default function DashboardScreen() {
       <CustomStudyModal
         visible={showCustomStudy}
         onClose={() => setShowCustomStudy(false)}
-        initialFilter={customStudyPresetFilter}
       />
     </View>
   );
@@ -746,6 +837,12 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 20,
     paddingBottom: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  headerTextArea: {
+    flex: 1,
   },
   greeting: {
     fontSize: 26,

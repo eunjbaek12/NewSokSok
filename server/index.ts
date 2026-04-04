@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import type { Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
+import { runMigrations } from "./auth";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -232,6 +233,8 @@ function setupErrorHandler(app: express.Application) {
   setupRequestLogging(app);
 
   configureExpoAndLanding(app);
+
+  await runMigrations().catch(e => console.warn('Migration warning:', e.message));
 
   const server = await registerRoutes(app);
 

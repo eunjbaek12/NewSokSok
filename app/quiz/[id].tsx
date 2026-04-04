@@ -280,6 +280,7 @@ export default function QuizScreen() {
           initialBatchSize={studySettings.studyBatchSize}
           onClose={() => setSettingsVisible(false)}
           onApply={applySettings}
+          hideTargetFilter={!!ids}
         />
       </View>
     );

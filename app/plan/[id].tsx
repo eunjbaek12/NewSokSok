@@ -173,9 +173,10 @@ export default function PlanScreen() {
   const autoCurrentDay = useMemo(() => {
     // planCurrentDay > 1 means the user has explicitly advanced through the plan.
     // Use it directly (capped at totalDays) so the plan screen resumes at the right day.
-    if (list && list.planCurrentDay > 1) {
+    const currentDay = list?.planCurrentDay ?? 1;
+    if (list && currentDay > 1) {
       const maxDay = list.planTotalDays ?? 1;
-      return Math.min(list.planCurrentDay, maxDay);
+      return Math.min(currentDay, maxDay);
     }
     return computeCurrentDay(words);
   }, [list, words]);

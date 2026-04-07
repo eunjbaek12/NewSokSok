@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -12,6 +12,7 @@ import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/components/StudySettingsModal';
 import BatchResultOverlay from '@/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
+import { autoFillWord } from '@/lib/translation-api';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -73,8 +74,8 @@ export default function ExamplesScreen() {
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
   const { t } = useTranslation();
-  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized } = useVocab();
-  const { studySettings, updateStudySettings } = useSettings();
+  const { lists, getWordsForList, setStudyResults, toggleStarred, setWordsMemorized, updateWord } = useVocab();
+  const { studySettings, updateStudySettings, profileSettings } = useSettings();
   const list = lists.find(l => l.id === id);
 
   // Settings State
@@ -86,7 +87,7 @@ export default function ExamplesScreen() {
     showMeaning: true,
     showExampleKr: true,
     autoPlaySound: true,
-    shuffle: false,
+    shuffle: studySettings.shuffle,
   });
 
   const applySettings = useCallback((newSettings: StudySettings, newBatchSize: number | 'all') => {
@@ -94,10 +95,21 @@ export default function ExamplesScreen() {
     if (newBatchSize !== studySettings.studyBatchSize) {
       updateStudySettings({ studyBatchSize: newBatchSize as any });
     }
+    if (newSettings.shuffle !== studySettings.shuffle) {
+      updateStudySettings({ shuffle: newSettings.shuffle });
+    }
     setSettingsVisible(false);
-  }, [studySettings.studyBatchSize, updateStudySettings]);
+  }, [studySettings.studyBatchSize, studySettings.shuffle, updateStudySettings]);
 
   const [studyWords, setStudyWords] = useState<Word[]>([]);
+  const pendingStudyWords = useRef<Word[]>([]);
+  const [showGenerateModal, setShowGenerateModal] = useState(false);
+  const [missingCount, setMissingCount] = useState(0);
+  const [hasExistingExamples, setHasExistingExamples] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generateProgress, setGenerateProgress] = useState(0);
+  const cancelledRef = useRef(false);
+
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentIndexRef = useRef(currentIndex);
@@ -161,7 +173,7 @@ export default function ExamplesScreen() {
       lastSettingsRef.current.ids !== ids;
 
     if (coreFilterChanged || isInitialLoad.current) {
-      if (settings.shuffle && !ids) {
+      if (settings.shuffle) {
         all = [...all].sort(() => Math.random() - 0.5);
       }
       setCurrentIndex(0);
@@ -172,8 +184,18 @@ export default function ExamplesScreen() {
       setIsNewAnswer(false);
       results.current = [];
       lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
+      pendingStudyWords.current = all;
       setStudyWords(all);
       isInitialLoad.current = false;
+
+      const missing = all.filter(w => !w.exampleEn);
+      if (missing.length > 0) {
+        setMissingCount(missing.length);
+        setHasExistingExamples(all.some(w => !!w.exampleEn));
+        setShowGenerateModal(true);
+      } else {
+        setShowGenerateModal(false);
+      }
     } else {
       setStudyWords(prev => {
         const newMap = new Map(all.map(w => [w.id, w]));
@@ -289,11 +311,101 @@ export default function ExamplesScreen() {
     router.back();
   }, []);
 
+  const handleGenerateExamples = async () => {
+    cancelledRef.current = false;
+    setIsGenerating(true);
+    setGenerateProgress(0);
+    const missing = pendingStudyWords.current.filter(w => !w.exampleEn);
+    const updatedMap = new Map(pendingStudyWords.current.map(w => [w.id, { ...w }]));
+
+    for (let i = 0; i < missing.length; i++) {
+      if (cancelledRef.current) break;
+      setGenerateProgress(i + 1);
+      const word = missing[i];
+      try {
+        const result = await autoFillWord(word.term, word.sourceLang || 'en', word.targetLang || 'ko', profileSettings.geminiApiKey || undefined);
+        if (result.exampleEn) {
+          const updates: Partial<Omit<Word, 'id'>> = { exampleEn: result.exampleEn };
+          if (result.exampleKr) updates.exampleKr = result.exampleKr;
+          await updateWord(id!, word.id, updates);
+          updatedMap.set(word.id, { ...word, ...updates });
+        }
+      } catch {
+        // 생성 실패 시 해당 단어 건너뜀
+      }
+    }
+
+    // 생성 실패하거나 취소된 단어(예문 여전히 없음)는 학습에서 제외
+    setStudyWords(Array.from(updatedMap.values()).filter(w => !!w.exampleEn));
+    setIsGenerating(false);
+    setShowGenerateModal(false);
+  };
+
+  const handleCancelGenerate = () => {
+    cancelledRef.current = true;
+  };
+
+  const handleExcludeNoExample = () => {
+    const withExample = pendingStudyWords.current.filter(w => !!w.exampleEn);
+    setStudyWords(withExample);
+    setShowGenerateModal(false);
+  };
+
   const handleSpeak = useCallback(() => {
     if (currentWord?.exampleEn) {
       speak(currentWord.exampleEn);
     }
   }, [currentWord]);
+
+  if (showGenerateModal) {
+    return (
+      <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center', padding: 24 }]}>
+        {isGenerating ? (
+          <>
+            <ActivityIndicator size="large" color={colors.primary} />
+            <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', marginTop: 24, textAlign: 'center' }}>
+              {t('examples.generating')}
+            </Text>
+            <Text style={{ color: colors.textSecondary, marginTop: 8, fontFamily: 'Pretendard_500Medium' }}>
+              {generateProgress} / {missingCount}
+            </Text>
+            <Pressable onPress={handleCancelGenerate} style={{ marginTop: 24 }}>
+              <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('common.cancel')}</Text>
+            </Pressable>
+          </>
+        ) : (
+          <>
+            <Ionicons name="sparkles-outline" size={64} color={colors.primary} style={{ marginBottom: 16 }} />
+            <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_700Bold', textAlign: 'center', marginBottom: 8 }}>
+              {t('examples.missingExamplesTitle', { count: missingCount, total: pendingStudyWords.current.length })}
+            </Text>
+            <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 32, paddingHorizontal: 8, fontFamily: 'Pretendard_400Regular', lineHeight: 22 }}>
+              {t('examples.missingExamplesDesc')}
+            </Text>
+            <View style={{ flexDirection: 'row', gap: 12, width: '100%' }}>
+              {hasExistingExamples && (
+                <Pressable
+                  onPress={handleExcludeNoExample}
+                  style={{ flex: 1, backgroundColor: colors.surfaceSecondary, paddingVertical: 14, borderRadius: 12, alignItems: 'center' }}
+                >
+                  <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>{t('examples.excludeAndStart')}</Text>
+                </Pressable>
+              )}
+              <Pressable
+                onPress={handleGenerateExamples}
+                style={{ flex: 1, backgroundColor: colors.primary, paddingVertical: 14, borderRadius: 12, alignItems: 'center' }}
+              >
+                <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('examples.generateWithAI')}</Text>
+              </Pressable>
+            </View>
+            <Pressable onPress={handleClose} style={{ marginTop: 20 }}>
+              <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('common.back')}</Text>
+            </Pressable>
+          </>
+        )}
+      </View>
+    );
+  }
 
   if (studyWords.length === 0) {
     return (

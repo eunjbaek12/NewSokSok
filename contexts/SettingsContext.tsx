@@ -18,6 +18,8 @@ export interface InputSettings {
 export interface StudySettings {
     studyBatchSize: number | 'all';
     sentenceBatchSize: number | 'all';
+    shuffle: boolean;
+    autoPlaySound: boolean;
 }
 
 export interface AutoPlaySettings {
@@ -38,6 +40,7 @@ export type StartupTab = 'index' | 'vocab-lists' | 'curation';
 export interface ProfileSettings {
     nickname: string;
     startupTab: StartupTab;
+    geminiApiKey: string;
 }
 
 export interface CustomStudySettings {
@@ -48,7 +51,7 @@ export interface CustomStudySettings {
     studyMode: 'flashcard' | 'quiz';
 }
 
-export type DashboardFilterMode = 'studying' | 'completed';
+export type DashboardFilterMode = 'all' | 'studying' | 'completed' | 'finished';
 
 interface SettingsContextType {
     profileSettings: ProfileSettings;
@@ -82,6 +85,8 @@ const DEFAULT_INPUT_SETTINGS: InputSettings = {
 const DEFAULT_STUDY_SETTINGS: StudySettings = {
     studyBatchSize: 'all',
     sentenceBatchSize: 'all',
+    shuffle: false,
+    autoPlaySound: true,
 };
 
 const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = {
@@ -100,6 +105,7 @@ const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = {
 const DEFAULT_PROFILE_SETTINGS: ProfileSettings = {
     nickname: '',
     startupTab: 'index',
+    geminiApiKey: '',
 };
 
 const DEFAULT_CUSTOM_STUDY_SETTINGS: CustomStudySettings = {
@@ -124,7 +130,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     const [studySettings, setStudySettings] = useState<StudySettings>(DEFAULT_STUDY_SETTINGS);
     const [autoPlaySettings, setAutoPlaySettings] = useState<AutoPlaySettings>(DEFAULT_AUTOPLAY_SETTINGS);
     const [customStudySettings, setCustomStudySettings] = useState<CustomStudySettings>(DEFAULT_CUSTOM_STUDY_SETTINGS);
-    const [dashboardFilterMode, setDashboardFilterMode] = useState<DashboardFilterMode>('studying');
+    const [dashboardFilterMode, setDashboardFilterMode] = useState<DashboardFilterMode>('all');
     const [profileSettings, setProfileSettings] = useState<ProfileSettings>(DEFAULT_PROFILE_SETTINGS);
     const [isLoading, setIsLoading] = useState(true);
 

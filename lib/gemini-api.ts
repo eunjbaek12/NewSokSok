@@ -1,11 +1,10 @@
-export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, signal?: AbortSignal) => {
-    // Expo 클라이언트 사이드에서 환경변수를 읽으려면 'EXPO_PUBLIC_' 접두사가 반드시 필요합니다.
-    const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY || 'YOUR_API_KEY_HERE';
-    if (!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_API_KEY_HERE') {
-        throw new Error('EXPO_PUBLIC_GEMINI_API_KEY 환경 변수가 설정되어 있지 않습니다. .env 파일을 확인해주세요.');
+export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, signal?: AbortSignal, apiKey?: string) => {
+    const GEMINI_API_KEY = apiKey || '';
+    if (!GEMINI_API_KEY) {
+        throw new Error('Gemini API 키가 설정되어 있지 않습니다. 설정에서 API 키를 입력해주세요.');
     }
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
     const payload = {
         contents: [
             {

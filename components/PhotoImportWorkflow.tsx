@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useSettings } from '@/contexts/SettingsContext';
 import { Button } from '@/components/ui/Button';
 
 import { fetchWordsFromImage } from '@/lib/gemini-api';
@@ -32,6 +33,7 @@ interface PhotoImportWorkflowProps {
 export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWords }: PhotoImportWorkflowProps) {
     const { colors } = useTheme();
     const { t } = useTranslation();
+    const { profileSettings } = useSettings();
     const insets = useSafeAreaInsets();
     const abortControllerRef = useRef<AbortController | null>(null);
     const retakeLabel = source === 'camera' ? t('photoImport.retake') : t('photoImport.reselect');
@@ -112,7 +114,7 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
         abortControllerRef.current = controller;
         setIsScanning(true);
         try {
-            const words = await fetchWordsFromImage(base64Image, 3, controller.signal);
+            const words = await fetchWordsFromImage(base64Image, 3, controller.signal, profileSettings.geminiApiKey || undefined);
 
             if (!Array.isArray(words) || words.length === 0) {
                 Alert.alert(t('common.notice'), t('photoImport.noWordsFound'));

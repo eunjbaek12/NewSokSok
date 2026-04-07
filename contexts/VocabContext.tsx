@@ -1,10 +1,22 @@
 import React, { createContext, useContext, useState, useMemo, useCallback, useEffect, useRef, ReactNode } from 'react';
 import Constants from 'expo-constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VocaList, Word, StudyResult, AIWordResult, PlanStatus } from '@/lib/types';
 import * as Storage from '@/lib/vocab-storage';
 import * as PlanEngine from '@/lib/plan-engine';
 import { useAuth } from '@/contexts/AuthContext';
 import { useSettings } from '@/contexts/SettingsContext';
+
+const DEVICE_ID_KEY = '@soksok_device_id';
+
+async function getDeviceId(): Promise<string> {
+  let id = await AsyncStorage.getItem(DEVICE_ID_KEY);
+  if (!id) {
+    id = Storage.generateId();
+    await AsyncStorage.setItem(DEVICE_ID_KEY, id);
+  }
+  return id;
+}
 
 const debuggerHost = Constants.expoConfig?.hostUri;
 const hostIp = debuggerHost ? debuggerHost.split(':')[0] : 'localhost';
@@ -51,6 +63,7 @@ interface VocabContextValue {
   rechunkPlan: (listId: string, wordsPerDay: number) => Promise<void>;
   clearPlan: (listId: string) => Promise<void>;
   updatePlanProgress: (listId: string, currentDay: number) => Promise<void>;
+  resetPlanForReStudy: (listId: string) => Promise<void>;
   getPlanStatus: (listId: string) => PlanStatus;
 }
 
@@ -137,10 +150,10 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const deleteCloudCuration = useCallback(async (curationId: string) => {
-    if (!user?.id) throw new Error('Authentication required');
+    const requesterId = user?.id || await getDeviceId();
     const res = await fetch(`${API_BASE}/api/curations/${curationId}`, {
       method: 'DELETE',
-      headers: { 'x-user-id': user.id },
+      headers: { 'x-user-id': requesterId },
     });
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
@@ -238,7 +251,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       description: options?.description || undefined,
       isUserShared: true,
       creatorName: profileSettings.nickname.trim() || user?.displayName || 'Anonymous',
-      creatorId: user?.id || null,
+      creatorId: user?.id || await getDeviceId(),
       sourceLanguage: list.sourceLanguage || 'en',
       targetLanguage: list.targetLanguage || 'ko',
     };
@@ -432,6 +445,12 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     debouncedSync();
   }, [refreshData, debouncedSync]);
 
+  const resetPlanForReStudy = useCallback(async (listId: string) => {
+    await Storage.resetPlanCurrentDayToTotal(listId);
+    await refreshData();
+    debouncedSync();
+  }, [refreshData, debouncedSync]);
+
   const getPlanStatus = useCallback((listId: string): PlanStatus => {
     const list = lists.find(l => l.id === listId);
     if (!list) return 'none';
@@ -475,8 +494,9 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     rechunkPlan,
     clearPlan,
     updatePlanProgress,
+    resetPlanForReStudy,
     getPlanStatus,
-  }), [lists, loading, refreshData, fetchCloudCurations, deleteCloudCuration, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults, saveLastResult, setupPlan, rechunkPlan, clearPlan, updatePlanProgress, getPlanStatus]);
+  }), [lists, loading, refreshData, fetchCloudCurations, deleteCloudCuration, createList, createCuratedList, updateList, deleteList, toggleVisibility, renameList, mergeListsFn, shareList, addWord, addBatchWords, updateWord, deleteWord, deleteWords, toggleMemorized, toggleStarred, setWordsMemorized, incrementWrongCount, resetWrongCount, getWordsForList, getListProgress, reorderListsFn, updateStudyTime, studyResults, clearStudyResults, saveLastResult, setupPlan, rechunkPlan, clearPlan, updatePlanProgress, resetPlanForReStudy, getPlanStatus]);
 
   return (
     <VocabContext.Provider value={value}>

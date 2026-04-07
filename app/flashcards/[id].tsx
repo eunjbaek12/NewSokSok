@@ -58,7 +58,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, t }:
         </View>
       )}
 
-      <Text style={[styles.cardWord, { color: colors.text }]}>{word.term}</Text>
+      <Text style={[styles.cardWord, { color: colors.text }]} numberOfLines={3} adjustsFontSizeToFit minimumFontScale={0.6}>{word.term}</Text>
 
       {word.phonetic && (
         <View style={styles.cardInfoRow}>
@@ -110,7 +110,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
             <Text style={[styles.topPosBadgeText, { color: colors.primary, fontSize: 10 }]}>{word.pos}</Text>
           </View>
         )}
-        <Text style={[styles.cardBackTerm, { color: colors.textSecondary }]}>{word.term}</Text>
+        <Text style={[styles.cardBackTerm, { color: colors.textSecondary }]} numberOfLines={2} ellipsizeMode="tail">{word.term}</Text>
 
         <View style={styles.cardInfoRowInline}>
           {showPhonetic && word.phonetic && (
@@ -132,16 +132,16 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
       />
 
       {showMeaning ? (
-        <Text style={[styles.cardMeaning, { color: colors.text }]}>{word.meaningKr}</Text>
+        <Text style={[styles.cardMeaning, { color: colors.text }]} numberOfLines={3} adjustsFontSizeToFit minimumFontScale={0.6}>{word.meaningKr}</Text>
       ) : (
         <Text style={[styles.cardMeaning, { color: colors.textSecondary, opacity: 0.3 }]}>{t('flashcards.meaningHidden')}</Text>
       )}
 
       {showExample && word.exampleEn ? (
         <View style={[styles.cardExampleBox, { backgroundColor: colors.surfaceSecondary }]}>
-          <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
+          <Text style={[styles.cardExample, { color: colors.textSecondary }]} numberOfLines={4} ellipsizeMode="tail">{word.exampleEn}</Text>
           {showExampleKr && word.exampleKr ? (
-            <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
+            <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]} numberOfLines={3} ellipsizeMode="tail">{word.exampleKr}</Text>
           ) : null}
         </View>
       ) : null}
@@ -168,8 +168,8 @@ export default function FlashcardsScreen() {
     showExampleKr: true,
     showPhonetic: true,
     showPos: true,
-    autoPlaySound: true,
-    shuffle: false,
+    autoPlaySound: studySettings.autoPlaySound,
+    shuffle: studySettings.shuffle,
   });
 
   const applySettings = useCallback((newSettings: StudySettings, newBatchSize: number | 'all') => {
@@ -177,8 +177,14 @@ export default function FlashcardsScreen() {
     if (newBatchSize !== studySettings.studyBatchSize) {
       updateStudySettings({ studyBatchSize: newBatchSize as any });
     }
+    if (newSettings.shuffle !== studySettings.shuffle) {
+      updateStudySettings({ shuffle: newSettings.shuffle });
+    }
+    if (newSettings.autoPlaySound !== studySettings.autoPlaySound) {
+      updateStudySettings({ autoPlaySound: newSettings.autoPlaySound });
+    }
     setSettingsVisible(false);
-  }, [studySettings.studyBatchSize, updateStudySettings]);
+  }, [studySettings.studyBatchSize, studySettings.shuffle, studySettings.autoPlaySound, updateStudySettings]);
 
   const [studyWords, setStudyWords] = useState<Word[]>([]);
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
@@ -187,6 +193,7 @@ export default function FlashcardsScreen() {
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const isInitialLoad = useRef(true);
+  const lastHandledIndex = useRef(-1);
 
   const rotation = useSharedValue(0);
   const translateX = useSharedValue(0);
@@ -245,12 +252,13 @@ export default function FlashcardsScreen() {
 
     if (coreFilterChanged || isInitialLoad.current) {
       // Apply Shuffle only when core settings change or on initial load
-      if (settings.shuffle && !ids) {
+      if (settings.shuffle) {
         all = [...all].sort(() => Math.random() - 0.5);
       }
       setCurrentIndex(0);
       setCurrentBatchIndex(0);
       results.current = [];
+      lastHandledIndex.current = -1;
       rotation.value = 0;
       lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
       setStudyWords(all);
@@ -286,6 +294,9 @@ export default function FlashcardsScreen() {
 
   const handleNext = useCallback(async (gotIt: boolean) => {
     if (!currentWord) return;
+    const globalIndex = currentBatchIndex * batchSizeNum + currentIndex;
+    if (lastHandledIndex.current === globalIndex) return;
+    lastHandledIndex.current = globalIndex;
     Haptics.impactAsync(gotIt ? Haptics.ImpactFeedbackStyle.Medium : Haptics.ImpactFeedbackStyle.Light);
     results.current.push({ word: currentWord, gotIt });
 
@@ -340,7 +351,8 @@ export default function FlashcardsScreen() {
       await resetWrongCount(correctWordIds);
     }
     await saveLastResult(id!);
-    if (planDay) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
+    const gotItRatio = finalResults.length > 0 ? finalResults.filter(r => r.gotIt).length / finalResults.length : 0;
+    if (planDay && gotItRatio >= 0.5) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
     setStudyResults(finalResults);
     router.replace({
       pathname: '/study-results',
@@ -629,6 +641,7 @@ export default function FlashcardsScreen() {
         initialBatchSize={studySettings.studyBatchSize}
         onClose={() => setSettingsVisible(false)}
         onApply={applySettings}
+        hideTargetFilter={!!ids}
       />
       <BatchResultOverlay
         visible={showBatchOverlay}
@@ -638,6 +651,7 @@ export default function FlashcardsScreen() {
         onNextBatch={() => {
           setCurrentBatchIndex(prev => prev + 1);
           setCurrentIndex(0);
+          lastHandledIndex.current = -1;
           rotation.value = 0;
           setShowBatchOverlay(false);
           // Auto play sound for first word of new batch
@@ -649,6 +663,7 @@ export default function FlashcardsScreen() {
         }}
         onRetryBatch={() => {
           setCurrentIndex(0);
+          lastHandledIndex.current = -1;
           rotation.value = 0;
           setShowBatchOverlay(false);
           // Remove results for this batch so they aren't duplicated

@@ -23,19 +23,19 @@ export async function isGeminiAvailable(): Promise<boolean> {
   return _geminiAvailable;
 }
 
-export async function autoFillWord(term: string, sourceLang: string = 'en', targetLang: string = 'ko'): Promise<AutoFillResult> {
+export async function autoFillWord(term: string, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string): Promise<AutoFillResult> {
   const trimmed = term.trim().toLowerCase();
   if (!trimmed) {
     return { definition: '', meaningKr: '', exampleEn: '' };
   }
 
-  const gemini = await isGeminiAvailable();
-  if (gemini) {
+  const shouldTryAI = apiKey ? true : await isGeminiAvailable();
+  if (shouldTryAI) {
     try {
       const res = await fetch(`${API_BASE}/api/ai/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: trimmed, sourceLang, targetLang }),
+        body: JSON.stringify({ word: trimmed, sourceLang, targetLang, ...(apiKey && { apiKey }) }),
       });
       if (res.ok) {
         const data = await res.json();

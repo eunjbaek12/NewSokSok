@@ -10,6 +10,7 @@ import {
   Alert,
   Image,
   TextInput,
+  Linking,
 } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -36,6 +37,8 @@ export default function SettingsScreen() {
   const [showStartupPicker, setShowStartupPicker] = useState(false);
   const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
   const [nicknameInput, setNicknameInput] = useState('');
+  const [apiKeyModalOpen, setApiKeyModalOpen] = useState(false);
+  const [apiKeyInput, setApiKeyInput] = useState('');
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
   const btn = PopupTokens.button.standard;
@@ -50,6 +53,40 @@ export default function SettingsScreen() {
     await updateProfileSettings({ nickname: nicknameInput.trim() });
     setNicknameModalOpen(false);
   };
+
+  const handleOpenApiKeyModal = () => {
+    setApiKeyInput(profileSettings.geminiApiKey || '');
+    setApiKeyModalOpen(true);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  };
+
+  const handleSaveApiKey = async () => {
+    await updateProfileSettings({ geminiApiKey: apiKeyInput.trim() });
+    setApiKeyModalOpen(false);
+  };
+
+  const handleRemoveApiKey = () => {
+    Alert.alert(
+      t('settings.geminiApiKeyRemove'),
+      t('settings.geminiApiKeyRemoveConfirm'),
+      [
+        { text: t('common.cancel'), style: 'cancel' },
+        {
+          text: t('common.delete'),
+          style: 'destructive',
+          onPress: async () => {
+            await updateProfileSettings({ geminiApiKey: '' });
+            setApiKeyInput('');
+            setApiKeyModalOpen(false);
+          },
+        },
+      ],
+    );
+  };
+
+  const maskedApiKey = profileSettings.geminiApiKey
+    ? `${profileSettings.geminiApiKey.slice(0, 6)}...${profileSettings.geminiApiKey.slice(-4)}`
+    : '';
 
   const currentLangLabel = UI_LOCALES.find((l) => l.code === locale)?.nativeLabel ?? locale;
 
@@ -220,6 +257,34 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.ai')}</Text>
+        <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <Pressable
+            style={styles.row}
+            onPress={handleOpenApiKeyModal}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: '#F3E8FF' }]}>
+                <Ionicons name="sparkles-outline" size={18} color="#9333EA" />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.geminiApiKey')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {profileSettings.geminiApiKey ? maskedApiKey : t('settings.geminiApiKeyNotSet')}
+                </Text>
+              </View>
+            </View>
+            {profileSettings.geminiApiKey ? (
+              <View style={[styles.cloudBadge, { backgroundColor: colors.successLight }]}>
+                <Ionicons name="checkmark-circle-outline" size={14} color={colors.success} />
+                <Text style={[styles.cloudBadgeText, { color: colors.success }]}>{t('settings.geminiApiKeySet')}</Text>
+              </View>
+            ) : (
+              <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+            )}
+          </Pressable>
+        </View>
+
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.info')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
@@ -315,6 +380,62 @@ export default function SettingsScreen() {
             maxLength={20}
           />
           <Text style={[styles.nicknameCount, { color: colors.textTertiary }]}>{nicknameInput.trim().length} / 20</Text>
+        </View>
+      </DialogModal>
+      <DialogModal
+        visible={apiKeyModalOpen}
+        onClose={() => setApiKeyModalOpen(false)}
+        title={t('settings.geminiApiKeyTitle')}
+        scrollable={false}
+        footer={
+          <View style={styles.modalActions}>
+            {profileSettings.geminiApiKey ? (
+              <Pressable
+                onPress={handleRemoveApiKey}
+                style={[styles.modalBtn, { backgroundColor: '#FEE2E2', paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+              >
+                <Text style={[styles.modalBtnText, { color: '#EF4444', fontSize: btn.fontSize }]}>{t('settings.geminiApiKeyRemove')}</Text>
+              </Pressable>
+            ) : (
+              <Pressable
+                onPress={() => setApiKeyModalOpen(false)}
+                style={[styles.modalBtn, { backgroundColor: colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+              >
+                <Text style={[styles.modalBtnText, { color: colors.text, fontSize: btn.fontSize }]}>{t('common.cancel')}</Text>
+              </Pressable>
+            )}
+            <Pressable
+              onPress={handleSaveApiKey}
+              style={[styles.modalBtn, { backgroundColor: colors.primary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+            >
+              <Text style={[styles.modalBtnText, { color: '#FFFFFF', fontSize: btn.fontSize }]}>{t('common.save')}</Text>
+            </Pressable>
+          </View>
+        }
+      >
+        <View style={styles.modalBody}>
+          <Text style={[styles.nicknameDesc, { color: colors.textSecondary }]}>{t('settings.geminiApiKeyDesc')}</Text>
+          <TextInput
+            style={[styles.nicknameInput, { color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
+            value={apiKeyInput}
+            onChangeText={setApiKeyInput}
+            placeholder={t('settings.geminiApiKeyPlaceholder')}
+            placeholderTextColor={colors.textTertiary}
+            autoFocus
+            autoCapitalize="none"
+            autoCorrect={false}
+            returnKeyType="done"
+            onSubmitEditing={handleSaveApiKey}
+          />
+          <Pressable
+            onPress={() => Linking.openURL('https://aistudio.google.com/apikey')}
+            style={{ flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 }}
+          >
+            <Ionicons name="open-outline" size={14} color={colors.primary} />
+            <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_500Medium' }}>
+              {t('settings.geminiApiKeyLink')}
+            </Text>
+          </Pressable>
         </View>
       </DialogModal>
     </View>

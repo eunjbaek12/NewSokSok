@@ -4,7 +4,7 @@ import { useVocab } from '@/contexts/VocabContext';
 import { autoFillWord } from '@/lib/translation-api';
 import { searchNaverDict } from '@/lib/naver-dict-api';
 
-export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any, sourceLang: string = 'en', targetLang: string = 'ko') {
+export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string) {
     const { addWord, updateWord } = useVocab();
 
     const [term, setTerm] = useState(initialState?.term ?? existingWord?.term ?? '');
@@ -41,7 +41,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 }
 
                 // Fallback to AI Analysis
-                const result = await autoFillWord(searchTerm.trim(), sourceLang, targetLang);
+                const result = await autoFillWord(searchTerm.trim(), sourceLang, targetLang, apiKey);
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
                 if (result.phonetic) setPhonetic(result.phonetic);

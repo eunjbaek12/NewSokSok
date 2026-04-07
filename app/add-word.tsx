@@ -273,7 +273,7 @@ export default function AddWordScreen() {
     const isEditing = !!wordId;
     const existingWord = isEditing && listId ? getWordsForList(listId).find(w => w.id === wordId) : null;
 
-    const { inputSettings, updateInputSettings } = useSettings();
+    const { inputSettings, updateInputSettings, profileSettings } = useSettings();
 
     const {
         term, setTerm,
@@ -291,7 +291,7 @@ export default function AddWordScreen() {
         handleSaveWord,
         isPendingFill,
         isPendingSave,
-    } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang);
+    } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang, profileSettings.geminiApiKey || undefined);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -725,6 +725,7 @@ export default function AddWordScreen() {
                                                         placeholder={getPlaceholderText(inputSettings.sourceLang, t)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
+                                                        maxLength={200}
                                                         onChangeText={(text) => {
                                                             setTerm(text);
                                                             if (errors.term) setErrors(e => ({ ...e, term: false }));
@@ -854,6 +855,7 @@ export default function AddWordScreen() {
                                                 label={getMeaningLabel(inputSettings.targetLang, t)}
                                                 placeholder={getMeaningLabel(inputSettings.targetLang, t)}
                                                 value={meaningKr}
+                                                maxLength={200}
                                                 onChangeText={(v: string) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
                                                 error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
                                             />
@@ -894,6 +896,7 @@ export default function AddWordScreen() {
                                                     placeholder={t('addWord.exampleLabel')}
                                                     value={exampleEn}
                                                     onChangeText={setExampleEn}
+                                                    maxLength={300}
                                                     multiline
                                                     style={{ fontStyle: 'italic' }}
                                                 />
@@ -902,6 +905,7 @@ export default function AddWordScreen() {
                                                     placeholder={getExampleTranslationLabel(inputSettings.targetLang, t)}
                                                     value={exampleKr}
                                                     onChangeText={setExampleKr}
+                                                    maxLength={300}
                                                     multiline
                                                 />
                                             </Animated.View>
@@ -916,6 +920,7 @@ export default function AddWordScreen() {
                                                     placeholder={getDefinitionLabel(inputSettings.sourceLang, t)}
                                                     value={definition}
                                                     onChangeText={setDefinition}
+                                                    maxLength={1000}
                                                     multiline
                                                 />
                                             </Animated.View>

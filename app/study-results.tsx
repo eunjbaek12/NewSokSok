@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, ScrollView } from 'react-native';
-import { router, useLocalSearchParams } from 'expo-router';
+import React, { useEffect, useMemo, useCallback } from 'react';
+import { View, Text, Pressable, Platform, StyleSheet, ScrollView, BackHandler } from 'react-native';
+import { router, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -28,6 +28,11 @@ export default function StudyResultsScreen() {
   const reviewResults = useMemo(() => studyResults.filter(r => !r.gotIt), [studyResults]);
   const allCorrect = reviewResults.length === 0 && gotItResults.length > 0;
   const accuracy = studyResults.length > 0 ? Math.round((gotItResults.length / studyResults.length) * 100) : 0;
+  const subtitleKey = allCorrect
+    ? 'studyResults.perfectMessage'
+    : accuracy >= 50
+      ? 'studyResults.goodMessage'
+      : 'studyResults.needsReviewMessage';
 
   const formatDuration = (ms: string | undefined) => {
     if (!ms) return '0s';
@@ -48,15 +53,30 @@ export default function StudyResultsScreen() {
     }
   }, []);
 
-  const handleDone = () => {
-    clearStudyResults();
-    router.dismissAll();
-  };
+  const handleDone = useCallback(() => {
+    router.back();
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      clearStudyResults();
+    };
+  }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        handleDone();
+        return true;
+      };
+      const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () => subscription.remove();
+    }, [handleDone])
+  );
 
   const handleRetryAll = () => {
     const sessionIds = studyResults.map(r => r.word.id).join(',');
-    clearStudyResults();
-    router.push({
+    router.replace({
       pathname: `/${mode}/${id}` as any,
       params: { isStarred, filter: sessionFilter, quizType, ids: sessionIds }
     });
@@ -64,8 +84,7 @@ export default function StudyResultsScreen() {
 
   const handleRetryUnmemorized = () => {
     const failedIds = reviewResults.map(r => r.word.id).join(',');
-    clearStudyResults();
-    router.push({
+    router.replace({
       pathname: `/${mode}/${id}` as any,
       params: { isStarred, quizType, ids: failedIds }
     });
@@ -96,7 +115,7 @@ export default function StudyResultsScreen() {
           </View>
           <Text style={[styles.title, { color: colors.text }]}>{t('studyResults.complete')}</Text>
           <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-            {allCorrect ? t('studyResults.perfectMessage') : t('studyResults.goodMessage')}
+            {t(subtitleKey)}
           </Text>
         </View>
 

@@ -110,7 +110,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         );
         isAdmin = result.rows[0]?.is_admin ?? false;
       } catch {
-        // cloud_users table may not exist in all environments; default to non-admin
+        // cloud_users table may not exist in all environments, or requesterId is a device ID; default to non-admin
       }
 
       await storage.deleteCuration(paramId(id), requesterId, isAdmin);
@@ -133,14 +133,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/ai/analyze", async (req: Request, res: Response) => {
     try {
-      if (!isGeminiAvailable()) {
+      const { word, sourceLang, targetLang, apiKey } = req.body;
+      if (!isGeminiAvailable(apiKey)) {
         return res.status(503).json({ error: "Gemini API key not configured" });
       }
-      const { word, sourceLang, targetLang } = req.body;
       if (!word || typeof word !== "string") {
         return res.status(400).json({ error: "word is required" });
       }
-      const result = await analyzeWord(word.trim(), sourceLang || 'en', targetLang || 'ko');
+      const result = await analyzeWord(word.trim(), sourceLang || 'en', targetLang || 'ko', apiKey);
       res.json(result);
     } catch (error: any) {
       console.error("AI analyze error:", error?.message);

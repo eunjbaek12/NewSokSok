@@ -22,10 +22,17 @@ export async function getLists(): Promise<VocaList[]> {
     'SELECT * FROM words'
   );
 
-  // 3. Assemble
+  // 3. Group words by listId (O(n) vs the previous O(lists × words))
+  const wordsByListId = new Map<string, any[]>();
+  for (const w of wordsRows) {
+    const bucket = wordsByListId.get(w.listId);
+    if (bucket) bucket.push(w);
+    else wordsByListId.set(w.listId, [w]);
+  }
+
+  // 4. Assemble
   const lists: VocaList[] = listsRows.map(row => {
-    const listWords = wordsRows
-      .filter(w => w.listId === row.id)
+    const listWords = (wordsByListId.get(row.id) ?? [])
       .map(w => ({
         id: w.id,
         term: w.term,
@@ -665,5 +672,17 @@ export async function updatePlanProgress(listId: string, currentDay: number): Pr
   await db.runAsync(
     'UPDATE lists SET planCurrentDay = MAX(planCurrentDay, ?), planUpdatedAt = ? WHERE id = ?',
     [currentDay, Date.now(), listId]
+  );
+}
+
+export async function resetPlanCurrentDayToTotal(listId: string): Promise<void> {
+  const db = await getDb();
+  const list = await db.getFirstAsync<{ planTotalDays: number | null }>(
+    'SELECT planTotalDays FROM lists WHERE id = ?', [listId]
+  );
+  const planTotalDays = list?.planTotalDays ?? 1;
+  await db.runAsync(
+    'UPDATE lists SET planCurrentDay = ?, planUpdatedAt = ? WHERE id = ?',
+    [planTotalDays, Date.now(), listId]
   );
 }

@@ -8,23 +8,35 @@ import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { useVocab } from '@/contexts/VocabContext';
+import { useSettings } from '@/contexts/SettingsContext';
 import { VocaList, Word } from '@/lib/types';
 import { curationPresets } from '@/constants/curationData';
+
+const DEVICE_ID_KEY = '@soksok_device_id';
 import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import WordDetailModal from '@/components/WordDetailModal';
 import { Snackbar } from '@/components/ui/Snackbar';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
+import DialogModal from '@/components/ui/DialogModal';
 
-// Simple fetch for AI if lib/gemini-api.ts doesn't have text generation yet
-const generateAIWords = async (query: string): Promise<Word[]> => {
-    const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
-    if (!GEMINI_API_KEY) throw new Error('API Key missing');
+type AiDifficulty = 'beginner' | 'intermediate' | 'advanced';
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
-    const prompt = `성인 학습자가 '${query}' 상황에서 사용할 수 있는 전문적인 영어 단어 10~50개를 생성해줘.
+const DIFFICULTY_PROMPT: Record<AiDifficulty, string> = {
+    beginner: '초급 수준의 쉬운',
+    intermediate: '중급 수준의',
+    advanced: '고급/전문적인',
+};
+
+const generateAIWords = async (query: string, apiKey: string, wordCount: number, difficulty: AiDifficulty): Promise<Word[]> => {
+    if (!apiKey) throw new Error('API Key missing');
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const diffLabel = DIFFICULTY_PROMPT[difficulty];
+    const prompt = `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} 영어 단어 ${wordCount}개를 생성해줘.
   응답은 오직 JSON 배열만 반환해야 해.
   포맷: [{"term": "단어", "definition": "영영뜻", "meaningKr": "한국어 뜻", "exampleEn": "영어 예문", "tags": ["${query}"]}]`;
 
@@ -34,12 +46,15 @@ const generateAIWords = async (query: string): Promise<Word[]> => {
     };
 
     const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-    if (!response.ok) throw new Error('AI 생성에 실패했습니다.');
+    if (!response.ok) {
+        if (response.status === 429) throw new Error('API 할당량이 초과되었습니다. 잠시 후 다시 시도해주세요.');
+        if (response.status === 400) throw new Error('API 키가 올바르지 않습니다. 설정을 확인해주세요.');
+        throw new Error('AI 생성에 실패했습니다.');
+    }
 
     const data = await response.json();
     let textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 
-    // Check and remove markdown wrap
     textResponse = textResponse.trim();
     if (textResponse.startsWith('```')) {
         const firstNewLine = textResponse.indexOf('\n');
@@ -111,6 +126,11 @@ export default function CurationScreen() {
 
     const { createCuratedList, fetchCloudCurations, deleteCloudCuration, lists, addBatchWords } = useVocab();
     const { user } = useAuth();
+    const { profileSettings } = useSettings();
+    const [aiModalVisible, setAiModalVisible] = useState(false);
+    const [aiTopic, setAiTopic] = useState('');
+    const [aiWordCount, setAiWordCount] = useState(20);
+    const [aiDifficulty, setAiDifficulty] = useState<AiDifficulty>('intermediate');
 
     useEffect(() => {
         let mounted = true;
@@ -274,10 +294,16 @@ export default function CurationScreen() {
         return lists.some(l => l.isCurated && l.title.startsWith(theme.title));
     }, [lists]);
 
+    const [deviceId, setDeviceId] = useState<string | null>(null);
+    useEffect(() => {
+        AsyncStorage.getItem(DEVICE_ID_KEY).then(id => setDeviceId(id));
+    }, []);
+
     const canDeleteCuration = useCallback((theme: VocaList): boolean => {
-        if (!user) return false;
-        return theme.creatorId === user.id || user.isAdmin;
-    }, [user]);
+        if (user && (theme.creatorId === user.id || user.isAdmin)) return true;
+        if (deviceId && theme.creatorId === deviceId) return true;
+        return false;
+    }, [user, deviceId]);
 
     const handleDeleteCuration = useCallback((theme: VocaList) => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -304,24 +330,37 @@ export default function CurationScreen() {
         );
     }, [t, deleteCloudCuration, selectedTheme]);
 
+    const hasApiKey = !!profileSettings.geminiApiKey;
+
+    const handleOpenAiModal = () => {
+        if (!hasApiKey) {
+            router.push('/(tabs)/settings');
+            return;
+        }
+        setAiTopic(searchQuery);
+        setAiModalVisible(true);
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    };
+
     const handleGenerateAI = async () => {
-        if (!searchQuery.trim()) {
+        if (!aiTopic.trim()) {
             setSnackbar({ visible: true, message: t('curation.enterSearchFirst') });
             return;
         }
         setGenerating(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         try {
-            const words = await generateAIWords(searchQuery);
+            const words = await generateAIWords(aiTopic.trim(), profileSettings.geminiApiKey, aiWordCount, aiDifficulty);
             const newTheme: VocaList = {
                 id: `ai-theme-${Date.now()}`,
-                title: `AI: ${searchQuery}`,
+                title: `AI: ${aiTopic.trim()}`,
                 icon: '✨',
                 words,
                 isVisible: true,
                 createdAt: Date.now(),
                 isCurated: true,
             };
+            setAiModalVisible(false);
             setSelectedTheme(newTheme);
         } catch (e: any) {
             setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
@@ -715,14 +754,23 @@ export default function CurationScreen() {
 
                         <View style={[styles.inlineFallback, { borderTopColor: colors.borderLight }]}>
                             <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>{t('curation.noThemeFound')}</Text>
-                            <Pressable onPress={handleGenerateAI} disabled={generating || !searchQuery} style={[styles.fallbackBtn, { backgroundColor: searchQuery ? colors.accent : colors.border }]}>
-                                {generating ? <ActivityIndicator color="#FFF" /> : (
-                                    <>
-                                        <Ionicons name="sparkles" size={18} color="#FFF" />
-                                        <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
-                                    </>
-                                )}
-                            </Pressable>
+                            {hasApiKey ? (
+                                <Pressable onPress={handleOpenAiModal} style={[styles.fallbackBtn, { backgroundColor: colors.accent }]}>
+                                    <Ionicons name="sparkles" size={18} color="#FFF" />
+                                    <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
+                                </Pressable>
+                            ) : (
+                                <View style={{ alignItems: 'center', gap: 8 }}>
+                                    <Text style={{ color: colors.textTertiary, fontSize: 13, fontFamily: 'Pretendard_400Regular' }}>{t('curation.aiApiKeyRequired')}</Text>
+                                    <Pressable
+                                        onPress={() => router.push('/(tabs)/settings')}
+                                        style={{ flexDirection: 'row', alignItems: 'center', gap: 4, paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, backgroundColor: colors.primaryLight }}
+                                    >
+                                        <Ionicons name="settings-outline" size={16} color={colors.primary} />
+                                        <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_600SemiBold' }}>{t('curation.aiGoToSettings')}</Text>
+                                    </Pressable>
+                                </View>
+                            )}
                         </View>
                     </ScrollView>
 
@@ -767,6 +815,101 @@ export default function CurationScreen() {
                 options={importOptions}
                 onSelect={handleImport}
             />
+
+            <DialogModal
+                visible={aiModalVisible}
+                onClose={() => { if (!generating) setAiModalVisible(false); }}
+                title={t('curation.aiGenerate')}
+                scrollable={false}
+                footer={
+                    <Pressable
+                        onPress={handleGenerateAI}
+                        disabled={generating || !aiTopic.trim()}
+                        style={{
+                            flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
+                            backgroundColor: aiTopic.trim() && !generating ? colors.accent : colors.border,
+                            paddingVertical: 14, borderRadius: 14,
+                        }}
+                    >
+                        {generating ? (
+                            <>
+                                <ActivityIndicator color="#FFF" size="small" />
+                                <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerating')}</Text>
+                            </>
+                        ) : (
+                            <>
+                                <Ionicons name="sparkles" size={18} color="#FFF" />
+                                <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerateAction')}</Text>
+                            </>
+                        )}
+                    </Pressable>
+                }
+            >
+                <View style={{ paddingHorizontal: 20, gap: 16, paddingBottom: 8 }}>
+                    <View style={{ gap: 6 }}>
+                        <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiTopicLabel')}</Text>
+                        <TextInput
+                            style={{
+                                height: 48, borderRadius: 12, borderWidth: 1, paddingHorizontal: 14,
+                                fontSize: 16, fontFamily: 'Pretendard_400Regular',
+                                color: colors.text, backgroundColor: colors.surfaceSecondary, borderColor: colors.border,
+                            }}
+                            value={aiTopic}
+                            onChangeText={setAiTopic}
+                            placeholder={t('curation.aiTopicPlaceholder')}
+                            placeholderTextColor={colors.textTertiary}
+                            autoFocus
+                            editable={!generating}
+                        />
+                    </View>
+
+                    <View style={{ gap: 6 }}>
+                        <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiDifficultyLabel')}</Text>
+                        <View style={{ flexDirection: 'row', gap: 8 }}>
+                            {([
+                                { key: 'beginner' as AiDifficulty, label: t('curation.beginner') },
+                                { key: 'intermediate' as AiDifficulty, label: t('curation.intermediate') },
+                                { key: 'advanced' as AiDifficulty, label: t('curation.advanced') },
+                            ]).map(d => (
+                                <Pressable
+                                    key={d.key}
+                                    onPress={() => !generating && setAiDifficulty(d.key)}
+                                    style={{
+                                        flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
+                                        backgroundColor: aiDifficulty === d.key ? colors.primary : colors.surfaceSecondary,
+                                    }}
+                                >
+                                    <Text style={{
+                                        fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
+                                        color: aiDifficulty === d.key ? '#FFF' : colors.textSecondary,
+                                    }}>{d.label}</Text>
+                                </Pressable>
+                            ))}
+                        </View>
+                    </View>
+
+                    <View style={{ gap: 6 }}>
+                        <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiWordCount')}</Text>
+                        <View style={{ flexDirection: 'row', gap: 8 }}>
+                            {[10, 20, 30, 50].map(n => (
+                                <Pressable
+                                    key={n}
+                                    onPress={() => !generating && setAiWordCount(n)}
+                                    style={{
+                                        flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
+                                        backgroundColor: aiWordCount === n ? colors.primary : colors.surfaceSecondary,
+                                    }}
+                                >
+                                    <Text style={{
+                                        fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
+                                        color: aiWordCount === n ? '#FFF' : colors.textSecondary,
+                                    }}>{n}{t('curation.aiWordUnit')}</Text>
+                                </Pressable>
+                            ))}
+                        </View>
+                    </View>
+                </View>
+            </DialogModal>
 
             <Snackbar
                 visible={snackbar.visible}

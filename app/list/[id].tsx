@@ -449,10 +449,12 @@ export default function ListDetailScreen() {
                 { color: item.isMemorized ? colors.textTertiary : colors.text },
                 item.isMemorized && styles.wordTextMemorized,
               ]}
+              numberOfLines={2}
+              ellipsizeMode="tail"
             >
               {item.term}
             </Text>
-            <Text style={[styles.meaningText, { color: colors.textSecondary }]}>{item.meaningKr}</Text>
+            <Text style={[styles.meaningText, { color: colors.textSecondary }]} numberOfLines={2} ellipsizeMode="tail">{item.meaningKr}</Text>
           </View>
 
           {/* 우측 아이콘 영역 */}

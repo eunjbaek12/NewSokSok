@@ -9,16 +9,16 @@ interface AIWordResult {
 
 const MODEL_NAME = "gemini-2.0-flash";
 
-function getAIClient() {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
+function getAIClient(apiKey?: string) {
+  const key = apiKey || process.env.GEMINI_API_KEY;
+  if (!key) {
     throw new Error("GEMINI_API_KEY is not set");
   }
-  return new GoogleGenAI({ apiKey });
+  return new GoogleGenAI({ apiKey: key });
 }
 
-export function isGeminiAvailable(): boolean {
-  return !!process.env.GEMINI_API_KEY;
+export function isGeminiAvailable(apiKey?: string): boolean {
+  return !!(apiKey || process.env.GEMINI_API_KEY);
 }
 
 function getFullLanguageName(code: string): string {
@@ -28,8 +28,8 @@ function getFullLanguageName(code: string): string {
   return map[code] || code;
 }
 
-export async function analyzeWord(word: string, sourceLang: string = 'en', targetLang: string = 'ko'): Promise<AIWordResult> {
-  const ai = getAIClient();
+export async function analyzeWord(word: string, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string): Promise<AIWordResult> {
+  const ai = getAIClient(apiKey);
   const srcName = getFullLanguageName(sourceLang);
   const tgtName = getFullLanguageName(targetLang);
 

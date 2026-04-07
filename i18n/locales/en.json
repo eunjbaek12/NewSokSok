@@ -39,6 +39,7 @@
     "searchPlaceholder": "Search words, meanings, tags...",
     "customStudy": "Custom Study",
     "wrongWords": "Wrong Words",
+    "wrongWordsLimit": "Top 50",
     "starredWords": "Starred Words",
     "studyingLists": "My Study",
     "filterAll": "All",
@@ -162,7 +163,6 @@
     "tagline": "AI-powered personal vocabulary builder",
     "featureAI": "AI-generated themed word lists",
     "featureFlashcard": "Flashcard & quiz learning",
-    "featureShadowing": "Shadowing & pronunciation practice",
     "googleLogin": "Sign in with Google",
     "googleSubtext": "Sync your vocab lists across devices",
     "guestStart": "Get Started",
@@ -304,8 +304,6 @@
     "quizDesc": "Test yourself with multiple choice",
     "examplesTitle": "Example Sentences",
     "examplesDesc": "Learn words in context",
-    "shadowingTitle": "Shadowing",
-    "shadowingDesc": "Listen and repeat",
     "filterUnmemorized": "Not Memorized",
     "filterMemorized": "Memorized",
     "filterAll": "All",
@@ -341,7 +339,12 @@
     "noExamples": "No examples to study",
     "noExamplesDesc": "No words match the selected criteria. Please check your settings.",
     "noMeaning": "No meaning available",
-    "noExample": "No example available"
+    "noExample": "No example available",
+    "missingExamplesTitle": "{{count}} of {{total}} words have no example",
+    "missingExamplesDesc": "Generate examples with AI, or start without those words. Generated examples will be saved to each word.",
+    "generateWithAI": "Generate with AI",
+    "excludeAndStart": "Exclude & Start",
+    "generating": "Generating examples..."
   },
   "autoplay": {
     "title": "Autoplay",

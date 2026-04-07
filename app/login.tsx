@@ -110,12 +110,6 @@ export default function LoginScreen() {
             </View>
             <Text style={styles.featureText}>{t('login.featureFlashcard')}</Text>
           </View>
-          <View style={styles.featureRow}>
-            <View style={styles.featureDot}>
-              <Ionicons name="volume-high-outline" size={16} color="#6C5CE7" />
-            </View>
-            <Text style={styles.featureText}>{t('login.featureShadowing')}</Text>
-          </View>
         </View>
 
         <View style={styles.buttonsSection}>

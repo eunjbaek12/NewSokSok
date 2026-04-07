@@ -4,7 +4,7 @@ import { NativeTabs, Icon, Label } from "expo-router/unstable-native-tabs";
 import { BlurView } from "expo-blur";
 import { Platform, Pressable, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -184,6 +184,17 @@ function ClassicTabLayout({ startupTab }: { startupTab: StartupTab }) {
 export default function TabLayout() {
   const { authMode, loading } = useAuth();
   const { profileSettings, isLoading: settingsLoading } = useSettings();
+  const [startupHandled, setStartupHandled] = useState(false);
+
+  useEffect(() => {
+    if (!settingsLoading && !loading && !startupHandled) {
+      const tab = profileSettings.startupTab ?? 'index';
+      if (tab !== 'index') {
+        router.replace(`/(tabs)/${tab}` as any);
+      }
+      setStartupHandled(true);
+    }
+  }, [settingsLoading, loading, startupHandled]);
 
   if (loading || settingsLoading) return <View style={{ flex: 1 }} />;
 

@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { useAddWord } from '@/hooks/useAddWord';
+import { useSettings } from '@/contexts/SettingsContext';
 import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
@@ -188,6 +189,7 @@ export default function WordDetailModal({
     const { t } = useTranslation();
     const { colors } = useTheme();
     const { getWordsForList, toggleStarred } = useVocab();
+    const { profileSettings } = useSettings();
 
     const isEditing = wordId !== undefined && wordId !== null;
     const existingWord = word || (isEditing ? getWordsForList(listId).find(w => w.id === wordId) : null);
@@ -207,7 +209,7 @@ export default function WordDetailModal({
         handleSaveWord,
         isPendingFill,
         isPendingSave,
-    } = useAddWord(listId, wordId || undefined, existingWord);
+    } = useAddWord(listId, wordId || undefined, existingWord, undefined, undefined, undefined, profileSettings.geminiApiKey || undefined);
 
     const [tagInput, setTagInput] = useState('');
 

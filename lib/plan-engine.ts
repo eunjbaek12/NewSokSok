@@ -175,9 +175,9 @@ export function computeDayStudyStatus(list: VocaList, words: Word[], now: number
   }
 
   // planCurrentDay = 1: fresh start or reset plan — no study session has completed yet.
-  // Always show Day 1; do not skip ahead based on isMemorized state from free study.
-  const { state, dayMemorized, dayTotal } = evalDay(1);
-  return { displayDay: 1, state, dayMemorized, dayTotal };
+  // Always show Day 1 as 'needs-study'; do not infer completion from isMemorized state.
+  const { dayMemorized, dayTotal } = evalDay(1);
+  return { displayDay: 1, state: 'needs-study', dayMemorized, dayTotal };
 }
 
 /**

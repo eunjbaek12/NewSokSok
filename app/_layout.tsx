@@ -71,7 +71,7 @@ function AppStack() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="study-select/[id]" options={{ headerShown: false }} />
+
       <Stack.Screen name="plan/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="flashcards/[id]" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="quiz/[id]" options={{ headerShown: false, gestureEnabled: false }} />
@@ -94,7 +94,6 @@ function AppStack() {
           animation: 'slide_from_bottom',
         }}
       />
-      <Stack.Screen name="shadowing/[id]" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="study-results" options={{ headerShown: false, gestureEnabled: false }} />
     </Stack>
   );

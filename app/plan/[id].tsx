@@ -21,7 +21,6 @@ import { useVocab } from '@/contexts/VocabContext';
 import { PlanStatus, Word } from '@/lib/types';
 import {
   computePlanStatus,
-  computeCurrentDay,
   suggestWordsPerDay,
 } from '@/lib/plan-engine';
 
@@ -153,6 +152,7 @@ export default function PlanScreen() {
     toggleMemorized,
     setupPlan,
     clearPlan,
+    resetPlanForReStudy,
   } = useVocab();
 
   const [setupModalVisible, setSetupModalVisible] = useState(false);
@@ -171,15 +171,10 @@ export default function PlanScreen() {
   );
 
   const autoCurrentDay = useMemo(() => {
-    // planCurrentDay > 1 means the user has explicitly advanced through the plan.
-    // Use it directly (capped at totalDays) so the plan screen resumes at the right day.
     const currentDay = list?.planCurrentDay ?? 1;
-    if (list && currentDay > 1) {
-      const maxDay = list.planTotalDays ?? 1;
-      return Math.min(currentDay, maxDay);
-    }
-    return computeCurrentDay(words);
-  }, [list, words]);
+    const maxDay = list?.planTotalDays ?? 1;
+    return Math.min(Math.max(currentDay, 1), maxDay);
+  }, [list]);
   const suggested = useMemo(() => suggestWordsPerDay(words.length), [words.length]);
 
   const allCount = words.length;
@@ -326,7 +321,9 @@ export default function PlanScreen() {
     }
 
     if (planStatus === 'completed') {
-      router.push({ pathname: '/study-select/[id]', params: { id, filter: 'all' } });
+      await resetPlanForReStudy(id);
+      const planTotalDays = list?.planTotalDays ?? 1;
+      router.push({ pathname: selectedMode as any, params: { id, filter: 'all', planDay: String(planTotalDays) } });
       return;
     }
 
@@ -355,7 +352,7 @@ export default function PlanScreen() {
     } else {
       router.push({ pathname: destination as any, params: { id, filter: studyFilter, planDay: String(viewingDay) } });
     }
-  }, [id, planStatus, viewingDay, allDays, viewingWords, selectedMode, handleOpenSetup, list]);
+  }, [id, planStatus, viewingDay, allDays, viewingWords, selectedMode, handleOpenSetup, list, resetPlanForReStudy]);
 
   const isStudyLocked = useMemo(() => {
     if (planStatus !== 'in-progress' && planStatus !== 'overdue') return false;

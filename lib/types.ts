@@ -56,7 +56,7 @@ export interface StudyResult {
   gotIt: boolean;
 }
 
-export type StudyMode = 'flashcards' | 'quiz' | 'examples' | 'shadowing';
+export type StudyMode = 'flashcards' | 'quiz' | 'examples';
 
 export type ThemeMode = 'light' | 'dark';
 

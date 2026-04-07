@@ -234,7 +234,8 @@ export default function QuizScreen() {
       await resetWrongCount(correctWordIds);
     }
     await saveLastResult(id!);
-    if (planDay) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
+    const gotItRatio = finalResults.length > 0 ? finalResults.filter(r => r.gotIt).length / finalResults.length : 0;
+    if (planDay && gotItRatio >= 0.5) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
     setStudyResults(finalResults);
     router.replace({
       pathname: '/study-results',
@@ -351,7 +352,7 @@ export default function QuizScreen() {
               </View>
             )}
 
-            <Text style={[styles.questionText, { color: colors.text }]}>{questionContent}</Text>
+            <Text style={[styles.questionText, { color: colors.text }]} numberOfLines={4} adjustsFontSizeToFit minimumFontScale={0.5}>{questionContent}</Text>
             <Pressable
               onPress={() => speak(currentWord.term)}
               hitSlop={12}
@@ -411,7 +412,7 @@ export default function QuizScreen() {
                 <View style={styles.choiceIndexBadge}>
                   <Text style={[styles.choiceIndexText, { color: badgeTextColor }]}>{['A', 'B', 'C', 'D'][index]}.</Text>
                 </View>
-                <Text style={[styles.choiceText, { color: textColor }]}>{getChoiceText(choice)}</Text>
+                <Text style={[styles.choiceText, { color: textColor }]} numberOfLines={2} ellipsizeMode="tail">{getChoiceText(choice)}</Text>
                 {iconName && (
                   <Ionicons name={iconName} size={24} color={textColor} />
                 )}
@@ -450,6 +451,7 @@ export default function QuizScreen() {
         initialBatchSize={studySettings.studyBatchSize}
         onClose={() => setSettingsVisible(false)}
         onApply={applySettings}
+        hideTargetFilter={!!ids}
       />
       <BatchResultOverlay
         visible={showBatchOverlay}

@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import type { Express, Request, Response, NextFunction } from 'express';
 import { pool } from './db';
 
@@ -8,6 +9,53 @@ export interface CloudUser {
   display_name: string | null;
   avatar_url: string | null;
   is_admin: boolean;
+}
+
+export interface AuthRequest extends Request {
+  userId?: string;
+}
+
+const JWT_SECRET = process.env.JWT_SECRET || 'soksok-dev-secret-change-in-production';
+const JWT_EXPIRES_IN = '30d';
+
+export function verifyJWT(req: AuthRequest, res: Response, next: NextFunction) {
+  const authHeader = req.headers['authorization'];
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Authorization required' });
+  }
+  const token = authHeader.slice(7);
+  try {
+    const payload = jwt.verify(token, JWT_SECRET) as { userId: string };
+    req.userId = payload.userId;
+    next();
+  } catch {
+    return res.status(401).json({ error: 'Invalid or expired token' });
+  }
+}
+
+/**
+ * For curation routes: accepts either a JWT (google users) or x-user-id (guest/device).
+ * Attaches req.userId in both cases.
+ */
+export function resolveRequesterId(req: AuthRequest, res: Response, next: NextFunction) {
+  const authHeader = req.headers['authorization'];
+  if (authHeader?.startsWith('Bearer ')) {
+    const token = authHeader.slice(7);
+    try {
+      const payload = jwt.verify(token, JWT_SECRET) as { userId: string };
+      req.userId = payload.userId;
+      return next();
+    } catch {
+      return res.status(401).json({ error: 'Invalid token' });
+    }
+  }
+
+  const headerUserId = req.headers['x-user-id'] as string;
+  if (!headerUserId) {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
+  req.userId = headerUserId;
+  next();
 }
 
 export async function runMigrations(): Promise<void> {
@@ -77,6 +125,7 @@ export function registerAuthRoutes(app: Express) {
       }
 
       const user = await findOrCreateGoogleUser(googleId, email, displayName, avatarUrl);
+      const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 
       res.json({
         user: {
@@ -87,6 +136,7 @@ export function registerAuthRoutes(app: Express) {
           avatarUrl: user.avatar_url,
           isAdmin: user.is_admin ?? false,
         },
+        token,
       });
     } catch (error: any) {
       console.error('Google auth error:', error?.message);
@@ -94,13 +144,9 @@ export function registerAuthRoutes(app: Express) {
     }
   });
 
-  app.get('/api/sync/data', async (req: Request, res: Response) => {
+  app.get('/api/sync/data', verifyJWT, async (req: AuthRequest, res: Response) => {
     try {
-      const userId = req.headers['x-user-id'] as string;
-      if (!userId) {
-        return res.status(401).json({ error: 'User ID required' });
-      }
-
+      const userId = req.userId!;
       const result = await pool.query(
         'SELECT data_json, updated_at FROM cloud_vocab_data WHERE user_id = $1',
         [userId],
@@ -120,13 +166,9 @@ export function registerAuthRoutes(app: Express) {
     }
   });
 
-  app.post('/api/sync/data', async (req: Request, res: Response) => {
+  app.post('/api/sync/data', verifyJWT, async (req: AuthRequest, res: Response) => {
     try {
-      const userId = req.headers['x-user-id'] as string;
-      if (!userId) {
-        return res.status(401).json({ error: 'User ID required' });
-      }
-
+      const userId = req.userId!;
       const { lists } = req.body;
       if (!Array.isArray(lists)) {
         return res.status(400).json({ error: 'lists array is required' });

@@ -7,7 +7,7 @@ import {
   generateThemeList,
   generateMoreWords,
 } from "./gemini";
-import { registerAuthRoutes } from "./auth";
+import { registerAuthRoutes, resolveRequesterId, type AuthRequest } from "./auth";
 import { storage } from "./storage";
 import { pool } from "./db";
 
@@ -94,13 +94,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete("/api/curations/:id", async (req: Request, res: Response) => {
+  app.delete("/api/curations/:id", resolveRequesterId, async (req: AuthRequest, res: Response) => {
     try {
       const { id } = req.params;
-      const requesterId = req.headers['x-user-id'] as string;
-      if (!requesterId) {
-        return res.status(401).json({ error: 'Authentication required' });
-      }
+      const requesterId = req.userId!;
 
       let isAdmin = false;
       try {

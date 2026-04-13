@@ -70,7 +70,7 @@ interface VocabContextValue {
 const VocabContext = createContext<VocabContextValue | null>(null);
 
 export function VocabProvider({ children }: { children: ReactNode }) {
-  const { authMode, user } = useAuth();
+  const { authMode, user, token } = useAuth();
   const { profileSettings } = useSettings();
   const [lists, setLists] = useState<VocaList[]>([]);
   const [loading, setLoading] = useState(true);
@@ -78,21 +78,21 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   const syncTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const syncToCloud = useCallback(async () => {
-    if (authMode !== 'google' || !user?.id) return;
+    if (authMode !== 'google' || !token) return;
     try {
       const currentLists = await Storage.getLists();
       await fetch(`${API_BASE}/api/sync/data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-user-id': user.id,
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({ lists: currentLists }),
       });
     } catch (e) {
       console.warn('Cloud sync failed:', e);
     }
-  }, [authMode, user?.id]);
+  }, [authMode, token]);
 
   const debouncedSync = useCallback(() => {
     if (syncTimerRef.current) clearTimeout(syncTimerRef.current);
@@ -102,10 +102,10 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   }, [syncToCloud]);
 
   const loadCloudData = useCallback(async () => {
-    if (authMode !== 'google' || !user?.id) return;
+    if (authMode !== 'google' || !token) return;
     try {
       const res = await fetch(`${API_BASE}/api/sync/data`, {
-        headers: { 'x-user-id': user.id },
+        headers: { 'Authorization': `Bearer ${token}` },
       });
       if (!res.ok) return;
       const data = await res.json();
@@ -120,7 +120,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'x-user-id': user.id,
+              'Authorization': `Bearer ${token}`,
             },
             body: JSON.stringify({ lists: localLists }),
           });
@@ -129,7 +129,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     } catch (e) {
       console.warn('Cloud data load failed:', e);
     }
-  }, [authMode, user?.id]);
+  }, [authMode, token]);
 
   const refreshData = useCallback(async () => {
     const l = await Storage.getLists();
@@ -150,16 +150,20 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const deleteCloudCuration = useCallback(async (curationId: string) => {
-    const requesterId = user?.id || await getDeviceId();
+    const headers: Record<string, string> =
+      authMode === 'google' && token
+        ? { 'Authorization': `Bearer ${token}` }
+        : { 'x-user-id': await getDeviceId() };
+
     const res = await fetch(`${API_BASE}/api/curations/${curationId}`, {
       method: 'DELETE',
-      headers: { 'x-user-id': requesterId },
+      headers,
     });
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
       throw new Error(data.error || `HTTP ${res.status}`);
     }
-  }, [user]);
+  }, [authMode, token]);
 
   useEffect(() => {
     // 1. First ensure the SQLite DB is seeded if it's completely empty
@@ -171,7 +175,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
         refreshData();
       }
     });
-  }, [authMode, user?.id, loadCloudData, refreshData]);
+  }, [authMode, token, loadCloudData, refreshData]);
 
   const withSync = useCallback(<T,>(fn: () => Promise<T>) => {
     return async (): Promise<T> => {

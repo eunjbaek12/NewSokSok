@@ -14,64 +14,28 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/Button';
 
-const GOOGLE_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID || '';
-
 export default function LoginScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
-  const { loginAsGuest, loginWithGoogle } = useAuth();
+  const { loginAsGuest, signInWithGoogle } = useAuth();
   const [loading, setLoading] = useState<'google' | 'guest' | null>(null);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
   const handleGoogleLogin = async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-
-    if (Platform.OS !== 'web') {
-      Alert.alert(
-        t('login.googleNotReady'),
-        t('login.googleNotReadyMessage'),
-      );
-      return;
-    }
-
-    if (!GOOGLE_CLIENT_ID) {
-      Alert.alert(
-        t('login.googleNotReady'),
-        t('login.googleNotReadyMessage'),
-      );
-      return;
-    }
-
     setLoading('google');
     try {
-      const AuthSession = await import('expo-auth-session');
-      const WebBrowser = await import('expo-web-browser');
-      WebBrowser.maybeCompleteAuthSession();
-
-      const redirectUri = AuthSession.makeRedirectUri();
-      const discovery = {
-        authorizationEndpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
-        tokenEndpoint: 'https://oauth2.googleapis.com/token',
-      };
-
-      const authRequest = new AuthSession.AuthRequest({
-        clientId: GOOGLE_CLIENT_ID,
-        scopes: ['openid', 'profile', 'email'],
-        redirectUri,
-        responseType: AuthSession.ResponseType.Token,
-      });
-
-      const result = await authRequest.promptAsync(discovery);
-
-      if (result.type === 'success' && result.authentication?.accessToken) {
-        await loginWithGoogle(result.authentication.accessToken);
-        router.replace('/');
-        return;
-      } else {
-        setLoading(null);
+      await signInWithGoogle();
+      router.replace('/');
+    } catch (error: any) {
+      if (error.message !== 'GOOGLE_CLIENT_ID_MISSING') {
+        console.error(error);
       }
-    } catch {
-      Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
+      if (error.message === 'GOOGLE_CLIENT_ID_MISSING') {
+        Alert.alert(t('login.googleNotReady'), t('login.googleNotReadyMessage'));
+      } else {
+        Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
+      }
       setLoading(null);
     }
   };

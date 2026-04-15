@@ -15,7 +15,10 @@ export interface AuthRequest extends Request {
   userId?: string;
 }
 
-const JWT_SECRET = process.env.JWT_SECRET || 'soksok-dev-secret-change-in-production';
+if (!process.env.JWT_SECRET) {
+  throw new Error('JWT_SECRET environment variable is required');
+}
+const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES_IN = '30d';
 
 export function verifyJWT(req: AuthRequest, res: Response, next: NextFunction) {

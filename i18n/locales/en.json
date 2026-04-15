@@ -1,4 +1,25 @@
 {
+  "onboarding": {
+    "skip": "Skip",
+    "next": "Next",
+    "start": "Get Started",
+    "slide1": {
+      "title": "Your Personal\nAI Vocabulary",
+      "body": "Just enter a topic and AI will\nautomatically generate related words"
+    },
+    "slide2": {
+      "title": "Memorize Fast\nwith Flashcards",
+      "body": "Flip through cards to learn words\nand test yourself with quizzes"
+    },
+    "slide3": {
+      "title": "Stay Consistent\nwith Study Plans",
+      "body": "Set a daily word goal and we'll\nautomatically manage your progress"
+    },
+    "slide4": {
+      "title": "Ready to\nGet Started?",
+      "body": "Create your personal vocabulary list\nand begin your learning journey"
+    }
+  },
   "common": {
     "close": "Close",
     "cancel": "Cancel",
@@ -168,6 +189,7 @@
     "guestStart": "Get Started",
     "guestSubtext": "Use on this device without sign-up",
     "terms": "By continuing, you agree to the Terms of Service",
+    "privacyPolicy": "Privacy Policy",
     "googleNotReady": "Google Sign-in Not Ready",
     "googleNotReadyMessage": "Google sign-in is still being set up. Please use \"Get Started\" instead.",
     "loginFailed": "Login Failed",
@@ -394,6 +416,7 @@
     "wordFilter": "Word Filter",
     "filterAll": "All",
     "filterUnmemorized": "Not Memorized",
+    "filterMemorized": "Memorized",
     "filterWrong": "Most Wrong",
     "filterRecent": "Recently Added",
     "filterStarred": "Starred",

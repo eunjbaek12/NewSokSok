@@ -5,6 +5,8 @@ import {
   StyleSheet,
   Platform,
   Alert,
+  Linking,
+  Pressable,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -116,6 +118,9 @@ export default function LoginScreen() {
         <Text style={styles.footerText}>
           {t('login.terms')}
         </Text>
+        <Pressable onPress={() => Linking.openURL('https://eunjbaek12.github.io/NewSokSok/privacy-policy')}>
+          <Text style={styles.privacyLink}>{t('login.privacyPolicy')}</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -275,5 +280,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_400Regular',
     color: '#B0B0C0',
     textAlign: 'center',
+  },
+  privacyLink: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_400Regular',
+    color: '#3182F6',
+    textAlign: 'center',
+    marginTop: 6,
+    textDecorationLine: 'underline',
   },
 });

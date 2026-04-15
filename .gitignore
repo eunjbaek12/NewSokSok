@@ -39,3 +39,8 @@ yarn-error.*
 .vercel
 
 .env
+
+# Android sensitive files
+google-services.json
+*.keystore
+debug.keystore

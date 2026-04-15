@@ -47,7 +47,7 @@ export interface CustomStudySettings {
     useAllLists: boolean;
     selectedListIds: string[];
     selectedDaysByList: Record<string, number[] | 'all'>;
-    wordFilter: 'all' | 'learning' | 'wrongCount' | 'recent' | 'starred';
+    wordFilter: 'all' | 'learning' | 'memorized' | 'wrongCount' | 'recent' | 'starred';
     studyMode: 'flashcard' | 'quiz';
 }
 

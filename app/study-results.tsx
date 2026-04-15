@@ -54,7 +54,7 @@ export default function StudyResultsScreen() {
   }, []);
 
   const handleDone = useCallback(() => {
-    router.back();
+    router.dismissAll();
   }, []);
 
   useEffect(() => {

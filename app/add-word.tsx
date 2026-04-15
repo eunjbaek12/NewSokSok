@@ -339,6 +339,7 @@ export default function AddWordScreen() {
     const [sourceLangPickerOpen, setSourceLangPickerOpen] = useState(false);
     const [targetLangPickerOpen, setTargetLangPickerOpen] = useState(false);
     const [isListening, setIsListening] = useState(false);
+    const [isTermFocused, setIsTermFocused] = useState(false);
 
     useSpeechRecognitionEvent('start', () => setIsListening(true));
     useSpeechRecognitionEvent('end', () => setIsListening(false));
@@ -652,6 +653,7 @@ export default function AddWordScreen() {
                 <View style={[
                     styles.topBar,
                     {
+                        backgroundColor: colors.background,
                         borderBottomColor: colors.borderLight,
                         paddingTop: currentMode === 'full' ? Math.max(insets.top, 4) : 10,
                         paddingBottom: currentMode === 'full' ? 6 : 8
@@ -721,7 +723,9 @@ export default function AddWordScreen() {
                                                 >
                                                     <TextInput
                                                         ref={termInputRef}
-                                                        style={[styles.wordInput, { color: colors.text, borderColor: errors.term ? colors.error : colors.border }]}
+                                                        style={[styles.wordInput, { color: colors.text, backgroundColor: colors.surface, borderColor: errors.term ? colors.error : isTermFocused ? colors.primary : colors.border }]}
+                                                        onFocus={() => setIsTermFocused(true)}
+                                                        onBlur={() => setIsTermFocused(false)}
                                                         placeholder={getPlaceholderText(inputSettings.sourceLang, t)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
@@ -1322,7 +1326,7 @@ const styles = StyleSheet.create({
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
-    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, backgroundColor: '#FFFFFF', borderRadius: 12, borderWidth: 1, paddingRight: 124 },
+    wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 124 },
     searchActions: { position: 'absolute', right: 4, flexDirection: 'row', alignItems: 'center' },
     searchIconButton: { padding: 8 },
     naverIconText: { fontSize: 15, fontFamily: 'Pretendard_700Bold', lineHeight: 22 },

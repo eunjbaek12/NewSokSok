@@ -608,7 +608,7 @@ export default function PlanScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={styles.modalWrapper}
         >
-          <View style={[styles.modalSheet, { backgroundColor: colors.surface }]}>
+          <View style={[styles.modalSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
             <View style={[styles.modalHandle, { backgroundColor: colors.border }]} />
 
             <Text style={[styles.modalTitle, { color: colors.text }]}>
@@ -975,7 +975,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     padding: 24,
-    paddingBottom: 40,
     gap: 16,
   },
   modalHandle: {

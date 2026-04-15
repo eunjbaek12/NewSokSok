@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useVocab } from '@/contexts/VocabContext';
 import { useSettings } from '@/contexts/SettingsContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/lib/plan-engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/components/CustomStudyModal';
@@ -66,7 +67,9 @@ export default function DashboardScreen() {
   const { colors, isDark } = useTheme();
   const { lists, loading, clearPlan } = useVocab();
   const { t } = useTranslation();
-  const { dashboardFilterMode: filterMode, updateDashboardFilter, customStudySettings } = useSettings();
+  const { dashboardFilterMode: filterMode, updateDashboardFilter, customStudySettings, profileSettings } = useSettings();
+  const { user } = useAuth();
+  const displayName = profileSettings.nickname.trim() || user?.displayName?.split(' ')[0] || t('home.learner');
   const [showCustomStudy, setShowCustomStudy] = useState(false);
   const [resultList, setResultList] = useState<VocaList | null>(null);
   const scrollRef = useRef(null);
@@ -182,10 +185,10 @@ export default function DashboardScreen() {
         <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
           <CharacterSvg size={56} isDark={isDark} />
           <View style={styles.headerTextArea}>
-            <Text style={[styles.greeting, { color: colors.text }]}>
-              {t('home.greeting')} <Text style={{ color: colors.primary }}>{t('home.learner')}</Text>
+            <Text style={[styles.greeting, { color: colors.text }]} numberOfLines={1}>
+              {t('home.greeting')}<Text style={{ color: colors.primary }}>{displayName}</Text>
             </Text>
-            <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
+            <Text style={[styles.subtitle, { color: colors.textSecondary }]} numberOfLines={1}>
               {t('home.subtitle')}
             </Text>
           </View>
@@ -240,7 +243,7 @@ export default function DashboardScreen() {
                 styles.quickCard,
                 {
                   backgroundColor: wrongWordCount > 0
-                    ? (isDark ? colors.errorLight : '#FFF5F5')
+                    ? colors.errorLight
                     : colors.surface,
                   borderColor: wrongWordCount > 0
                     ? (isDark ? 'rgba(248,81,73,0.3)' : 'rgba(239,68,68,0.15)')
@@ -271,7 +274,7 @@ export default function DashboardScreen() {
                 styles.quickCard,
                 {
                   backgroundColor: starredWordCount > 0
-                    ? (isDark ? colors.warningLight : '#FFFBEB')
+                    ? colors.warningLight
                     : colors.surface,
                   borderColor: starredWordCount > 0
                     ? (isDark ? 'rgba(245,158,11,0.3)' : 'rgba(245,158,11,0.15)')
@@ -677,7 +680,7 @@ export default function DashboardScreen() {
           const memorizedWords = resultList.words.filter(w => w.isMemorized).length;
           const percent = totalWords > 0 ? Math.round((memorizedWords / totalWords) * 100) : 0;
           return (
-            <View style={[styles.resultSheet, { backgroundColor: colors.surface }]}>
+            <View style={[styles.resultSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
               <View style={[styles.resultHandle, { backgroundColor: colors.border }]} />
               <View style={styles.resultTitleRow}>
                 <Text style={[styles.resultSubtitle, { color: colors.textSecondary }]}>
@@ -1014,7 +1017,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     padding: 24,
-    paddingBottom: 40,
     alignItems: 'center',
     gap: 12,
   },

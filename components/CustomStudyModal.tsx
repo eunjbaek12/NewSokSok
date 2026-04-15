@@ -31,7 +31,7 @@ interface CustomStudyModalProps {
   onClose: () => void;
 }
 
-const FILTER_OPTION_KEYS: CustomStudySettings['wordFilter'][] = ['all', 'learning', 'wrongCount', 'recent', 'starred'];
+const FILTER_OPTION_KEYS: CustomStudySettings['wordFilter'][] = ['all', 'learning', 'memorized', 'wrongCount', 'recent', 'starred'];
 
 export default function CustomStudyModal({ visible, onClose }: CustomStudyModalProps) {
   const { colors, isDark } = useTheme();
@@ -43,6 +43,7 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
   const filterOptions = useMemo(() => [
     { key: 'all' as const, label: t('customStudy.filterAll') },
     { key: 'learning' as const, label: t('customStudy.filterUnmemorized') },
+    { key: 'memorized' as const, label: t('customStudy.filterMemorized') },
     { key: 'wrongCount' as const, label: t('customStudy.filterWrong') },
     { key: 'recent' as const, label: t('customStudy.filterRecent') },
     { key: 'starred' as const, label: t('customStudy.filterStarred') },
@@ -80,6 +81,9 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
     switch (settings.wordFilter) {
       case 'learning':
         words = words.filter(w => !w.isMemorized);
+        break;
+      case 'memorized':
+        words = words.filter(w => w.isMemorized);
         break;
       case 'wrongCount':
         words = words

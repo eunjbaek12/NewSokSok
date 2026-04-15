@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react';
+import React, { useCallback, useRef, useState, useEffect, useMemo } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import CharacterSvg from '@/components/CharacterSvg';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
@@ -29,6 +30,12 @@ export default function VocabListsScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
   const { colors, isDark } = useTheme();
+
+  const dailyTip = useMemo(() => {
+    const tips = t('vocabLists.tips', { returnObjects: true }) as string[];
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+    return tips[dayOfYear % tips.length];
+  }, [t]);
 
   const scrollRef = useRef<FlatList>(null);
   useScrollToTop(scrollRef);
@@ -151,15 +158,21 @@ export default function VocabListsScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       {/* Header */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <View style={styles.headerTitleRow}>
-          <Text style={[styles.headerTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
-          {visibleLists.length > 0 && (
-            <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
-              <Text style={[styles.countBadgeText, { color: colors.primary }]}>
-                {visibleLists.length}
-              </Text>
-            </View>
-          )}
+        <CharacterSvg size={56} isDark={isDark} />
+        <View style={styles.headerTextArea}>
+          <View style={styles.headerTitleRow}>
+            <Text style={[styles.headerTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
+            {visibleLists.length > 0 && (
+              <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
+                <Text style={[styles.countBadgeText, { color: colors.primary }]}>
+                  {visibleLists.length}
+                </Text>
+              </View>
+            )}
+          </View>
+          <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={1}>
+            {dailyTip}
+          </Text>
         </View>
         <Pressable
           onPress={openManageModal}
@@ -313,8 +326,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 8,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    gap: 12,
+  },
+  headerTextArea: {
+    flex: 1,
   },
   headerTitleRow: {
     flexDirection: 'row',
@@ -325,6 +341,12 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontFamily: 'Pretendard_700Bold',
     letterSpacing: -0.5,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    fontFamily: 'Pretendard_400Regular',
+    marginTop: 2,
+    lineHeight: 20,
   },
   searchBarWrapper: {
     paddingHorizontal: 20,

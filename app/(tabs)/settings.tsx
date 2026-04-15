@@ -25,6 +25,8 @@ import { ModalPicker } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/contexts/SettingsContext';
 import { PopupTokens } from '@/constants/popup';
+import { useOnboarding } from '@/hooks/useOnboarding';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
@@ -39,6 +41,21 @@ export default function SettingsScreen() {
   const [apiKeyModalOpen, setApiKeyModalOpen] = useState(false);
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [apiKeyVisible, setApiKeyVisible] = useState(false);
+  const { markOnboardingDone } = useOnboarding();
+
+  const handleResetOnboarding = () => {
+    Alert.alert('온보딩 초기화', '앱을 재시작하면 온보딩이 다시 표시됩니다.', [
+      { text: t('common.cancel'), style: 'cancel' },
+      {
+        text: '초기화',
+        style: 'destructive',
+        onPress: async () => {
+          await AsyncStorage.setItem('@soksok_onboarding_done', 'false');
+          Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+        },
+      },
+    ]);
+  };
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
   const btn = PopupTokens.button.standard;
@@ -163,7 +180,7 @@ export default function SettingsScreen() {
               onPress={handleGoogleUpgrade}
             >
               <View style={styles.rowLeft}>
-                <View style={[styles.iconCircle, { backgroundColor: '#EFF6FF' }]}>
+                <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
                   <Ionicons name="logo-google" size={18} color="#4285F4" />
                 </View>
                 <View style={{ flex: 1 }}>
@@ -195,10 +212,10 @@ export default function SettingsScreen() {
 
           <Pressable style={styles.row} onPress={handleLogout}>
             <View style={styles.rowLeft}>
-              <View style={[styles.iconCircle, { backgroundColor: '#FEE2E2' }]}>
-                <Ionicons name="log-out-outline" size={18} color="#EF4444" />
+              <View style={[styles.iconCircle, { backgroundColor: colors.errorLight }]}>
+                <Ionicons name="log-out-outline" size={18} color={colors.error} />
               </View>
-              <Text style={[styles.rowTitle, { color: '#EF4444' }]}>{t('settings.logout')}</Text>
+              <Text style={[styles.rowTitle, { color: colors.error }]}>{t('settings.logout')}</Text>
             </View>
           </Pressable>
         </View>
@@ -272,8 +289,8 @@ export default function SettingsScreen() {
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <Pressable style={styles.row} onPress={handleOpenApiKeyModal}>
             <View style={styles.rowLeft}>
-              <View style={[styles.iconCircle, { backgroundColor: '#E0F2FE' }]}>
-                <Ionicons name="key-outline" size={18} color="#0284C7" />
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="key-outline" size={18} color={colors.primary} />
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={[styles.rowTitle, { color: colors.text }]}>Gemini API 키</Text>
@@ -306,6 +323,22 @@ export default function SettingsScreen() {
             </View>
             <Text style={[styles.rowValue, { color: colors.textSecondary }]}>1.0.0</Text>
           </View>
+        </View>
+
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>개발자</Text>
+        <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <Pressable style={styles.row} onPress={handleResetOnboarding}>
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.warningLight }]}>
+                <Ionicons name="refresh-outline" size={18} color={colors.warning} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>온보딩 다시 보기</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>초기화 후 앱 재시작 시 온보딩 표시</Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+          </Pressable>
         </View>
 
         <View style={{ height: 100 }} />
@@ -378,9 +411,9 @@ export default function SettingsScreen() {
             autoFocus
             returnKeyType="done"
             onSubmitEditing={handleSaveNickname}
-            maxLength={20}
+            maxLength={10}
           />
-          <Text style={[styles.nicknameCount, { color: colors.textTertiary }]}>{nicknameInput.trim().length} / 20</Text>
+          <Text style={[styles.nicknameCount, { color: colors.textTertiary }]}>{nicknameInput.trim().length} / 10</Text>
         </View>
       </DialogModal>
       <DialogModal

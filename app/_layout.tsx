@@ -1,5 +1,5 @@
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Stack } from "expo-router";
+import { Stack, router } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -13,6 +13,7 @@ import { SettingsProvider } from "@/contexts/SettingsContext";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import { useFonts } from "expo-font";
 import { useSettings } from "@/contexts/SettingsContext";
+import { useOnboarding } from "@/hooks/useOnboarding";
 import "@/i18n";
 
 SplashScreen.preventAutoHideAsync();
@@ -58,9 +59,18 @@ export default function RootLayout() {
 
 function AppStack() {
   const { inputSettings } = useSettings();
+  const { isOnboardingDone } = useOnboarding();
+
+  useEffect(() => {
+    if (isOnboardingDone === null) return;
+    if (!isOnboardingDone) {
+      router.replace('/onboarding' as any);
+    }
+  }, [isOnboardingDone]);
 
   return (
     <Stack screenOptions={{ headerBackTitle: "Back" }}>
+      <Stack.Screen name="onboarding" options={{ headerShown: false, gestureEnabled: false, animation: 'none' }} />
       <Stack.Screen name="login" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="list/[id]" options={{ headerShown: false }} />

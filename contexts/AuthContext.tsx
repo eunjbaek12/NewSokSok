@@ -30,6 +30,7 @@ interface AuthContextValue {
   loginAsGuest: () => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
+  handleTokenExpired: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -59,6 +60,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           // 이전 버전 호환: google 모드인데 token이 없으면 재로그인 필요
           if (parsed.mode === 'google' && !parsed.token) {
             await AsyncStorage.removeItem(AUTH_KEY);
+          } else if (parsed.mode === 'google' && parsed.token) {
+            // JWT 만료 여부 확인 (디코딩만, 서명 검증 불필요)
+            try {
+              const [, payloadB64] = parsed.token.split('.');
+              const payload = JSON.parse(atob(payloadB64)) as { exp?: number };
+              if (payload.exp && payload.exp * 1000 < Date.now()) {
+                // 만료됨 → 로그아웃 상태로 초기화
+                await AsyncStorage.removeItem(AUTH_KEY);
+              } else {
+                setAuthState(parsed);
+              }
+            } catch {
+              // 디코딩 실패 시 안전하게 초기화
+              await AsyncStorage.removeItem(AUTH_KEY);
+            }
           } else {
             setAuthState(parsed);
           }
@@ -113,6 +129,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await persist({ mode: 'none', user: null, token: null });
   }, [persist]);
 
+  // JWT 만료로 인한 401 수신 시 조용히 로그아웃 처리
+  const handleTokenExpired = useCallback(async () => {
+    try {
+      await GoogleSignin.signOut();
+    } catch { }
+    await persist({ mode: 'none', user: null, token: null });
+  }, [persist]);
+
   return (
     <AuthContext.Provider
       value={{
@@ -122,6 +146,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         loading,
         loginAsGuest,
         signInWithGoogle,
+        handleTokenExpired,
         logout,
       }}
     >

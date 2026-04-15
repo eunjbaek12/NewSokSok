@@ -117,6 +117,7 @@ export default function CurationScreen() {
     const [selectedTheme, setSelectedTheme] = useState<VocaList | null>(null);
     const [saving, setSaving] = useState(false);
     const [generating, setGenerating] = useState(false);
+    const [isCommunityLoading, setIsCommunityLoading] = useState(true);
     const [detailWord, setDetailWord] = useState<Word | null>(null);
     const [activeTab, setActiveTab] = useState<'official' | 'community'>('official');
     const [communityThemes, setCommunityThemes] = useState<VocaList[]>([]);
@@ -135,11 +136,11 @@ export default function CurationScreen() {
 
     useEffect(() => {
         let mounted = true;
-        setGenerating(true); // Re-using generating state as loading indicator safely
+        setIsCommunityLoading(true);
         fetchCloudCurations().then(data => {
             if (mounted) {
                 setCommunityThemes(data);
-                setGenerating(false);
+                setIsCommunityLoading(false);
             }
         });
         return () => { mounted = false; };
@@ -601,7 +602,7 @@ export default function CurationScreen() {
                             <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={1}>{dailyTip}</Text>
                         </View>
                         <Pressable onPress={() => setViewMode(prev => prev === 'detailed' ? 'compact' : 'detailed')} style={[styles.actionBtn, { borderColor: colors.border }]}>
-                            <Ionicons name={viewMode === 'detailed' ? 'list' : 'grid'} size={22} color={colors.textSecondary} />
+                            <Ionicons name={viewMode === 'detailed' ? 'reorder-three-outline' : 'reader-outline'} size={22} color={colors.textSecondary} />
                         </Pressable>
                     </View>
 
@@ -638,7 +639,7 @@ export default function CurationScreen() {
                         })}
                     </ScrollView>
 
-                    <View style={styles.tabContainer}>
+                    <View style={[styles.tabContainer, { borderBottomColor: colors.border }]}>
                         <Pressable
                             style={[styles.tabButton, activeTab === 'official' && { borderBottomColor: colors.primary, borderBottomWidth: 2 }]}
                             onPress={() => { Haptics.selectionAsync(); setActiveTab('official'); }}
@@ -653,6 +654,11 @@ export default function CurationScreen() {
                         </Pressable>
                     </View>
 
+                    {activeTab === 'community' && isCommunityLoading ? (
+                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                            <ActivityIndicator size="large" color={colors.primary} />
+                        </View>
+                    ) : (
                     <ScrollView
                         ref={scrollRef}
                         style={{ flex: 1 }}
@@ -669,6 +675,7 @@ export default function CurationScreen() {
                             const tgtCode = (theme.targetLanguage || 'ko').toUpperCase();
                             const alreadySaved = isAlreadySaved(theme);
                             const canDelete = activeTab === 'community' && canDeleteCuration(theme);
+                            const showLangPair = languageFilter === 'all';
 
                             return (
                                 <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.1)', shadowColor: colors.cardShadow }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>
@@ -715,9 +722,11 @@ export default function CurationScreen() {
                                                 {theme.description && (
                                                     <Text style={[styles.cardDesc, { color: colors.textSecondary }]} numberOfLines={1}>{theme.description}</Text>
                                                 )}
-                                                <Text style={[styles.langPair, { color: colors.textTertiary }]}>
-                                                    {srcFlag} {srcCode} → {tgtFlag} {tgtCode}
-                                                </Text>
+                                                {showLangPair && (
+                                                    <Text style={[styles.langPair, { color: colors.textTertiary }]}>
+                                                        {srcFlag} {srcCode} → {tgtFlag} {tgtCode}
+                                                    </Text>
+                                                )}
                                                 <View style={styles.cardFooter}>
                                                     <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
                                                         <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.wordsIncluded', { count: theme.words.length })}</Text>
@@ -741,6 +750,11 @@ export default function CurationScreen() {
                                                 <View style={[styles.wordCountPill, { backgroundColor: colors.primaryLight }]}>
                                                     <Text style={[styles.cardCount, { color: colors.primary }]}>{t('curation.nWordsCompact', { count: theme.words.length })}</Text>
                                                 </View>
+                                                {levelStyle && (
+                                                    <View style={[styles.levelBadge, { backgroundColor: levelStyle.bg }]}>
+                                                        <Text style={[styles.levelBadgeText, { color: levelStyle.color }]}>{levelStyle.label}</Text>
+                                                    </View>
+                                                )}
                                                 {tags.length > 0 && (
                                                     <View style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
                                                         <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{tags[0]}</Text>
@@ -760,27 +774,30 @@ export default function CurationScreen() {
                             </View>
                         )}
 
-                        <View style={[styles.inlineFallback, { borderTopColor: colors.borderLight }]}>
-                            <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>{t('curation.noThemeFound')}</Text>
-                            {hasApiKey ? (
-                                <Pressable onPress={handleOpenAiModal} style={[styles.fallbackBtn, { backgroundColor: colors.accent }]}>
-                                    <Ionicons name="sparkles" size={18} color="#FFF" />
-                                    <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
-                                </Pressable>
-                            ) : (
-                                <View style={{ alignItems: 'center', gap: 8 }}>
-                                    <Text style={{ color: colors.textTertiary, fontSize: 13, fontFamily: 'Pretendard_400Regular' }}>{t('curation.aiApiKeyRequired')}</Text>
-                                    <Pressable
-                                        onPress={() => router.push('/(tabs)/settings')}
-                                        style={{ flexDirection: 'row', alignItems: 'center', gap: 4, paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, backgroundColor: colors.primaryLight }}
-                                    >
-                                        <Ionicons name="settings-outline" size={16} color={colors.primary} />
-                                        <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_600SemiBold' }}>{t('curation.aiGoToSettings')}</Text>
+                        {filteredThemes.length === 0 && activeTab === 'official' && (
+                            <View style={[styles.inlineFallback, { borderTopColor: colors.borderLight }]}>
+                                <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>{t('curation.noThemeFound')}</Text>
+                                {hasApiKey ? (
+                                    <Pressable onPress={handleOpenAiModal} style={[styles.fallbackBtn, { backgroundColor: colors.accent }]}>
+                                        <Ionicons name="sparkles" size={18} color="#FFF" />
+                                        <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
                                     </Pressable>
-                                </View>
-                            )}
-                        </View>
+                                ) : (
+                                    <View style={{ alignItems: 'center', gap: 8 }}>
+                                        <Text style={{ color: colors.textTertiary, fontSize: 13, fontFamily: 'Pretendard_400Regular' }}>{t('curation.aiApiKeyRequired')}</Text>
+                                        <Pressable
+                                            onPress={() => router.push('/(tabs)/settings')}
+                                            style={{ flexDirection: 'row', alignItems: 'center', gap: 4, paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, backgroundColor: colors.primaryLight }}
+                                        >
+                                            <Ionicons name="settings-outline" size={16} color={colors.primary} />
+                                            <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_600SemiBold' }}>{t('curation.aiGoToSettings')}</Text>
+                                        </Pressable>
+                                    </View>
+                                )}
+                            </View>
+                        )}
                     </ScrollView>
+                    )}
 
                     <RNAnimated.View
                         style={{
@@ -937,9 +954,9 @@ const styles = StyleSheet.create({
     headerTitle: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
     headerSubtitle: { fontSize: 14, fontFamily: 'Pretendard_400Regular', marginTop: 2, lineHeight: 20 },
     actionBtn: { width: 44, height: 44, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
-    searchBox: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, height: 50, borderRadius: 16, borderWidth: 1, gap: 10, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 8, elevation: 2 },
-    searchInput: { flex: 1, fontFamily: 'Pretendard_500Medium', fontSize: 15 },
-    tabContainer: { flexDirection: 'row', paddingHorizontal: 20, marginBottom: 16, borderBottomWidth: 1, borderBottomColor: '#E5E5E5' },
+    searchBox: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderRadius: 16, borderWidth: 1, gap: 10, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 8, elevation: 2 },
+    searchInput: { flex: 1, fontFamily: 'Pretendard_400Regular', fontSize: 15, fontWeight: '400', padding: 0 },
+    tabContainer: { flexDirection: 'row', paddingHorizontal: 20, marginBottom: 16, borderBottomWidth: 1 },
     tabButton: { flex: 1, paddingVertical: 12, alignItems: 'center' },
     tabText: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
     themeCard: { borderRadius: 16, borderWidth: 1, marginBottom: 12, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 1, shadowRadius: 10, elevation: 4 },

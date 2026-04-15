@@ -70,7 +70,7 @@ interface VocabContextValue {
 const VocabContext = createContext<VocabContextValue | null>(null);
 
 export function VocabProvider({ children }: { children: ReactNode }) {
-  const { authMode, user, token } = useAuth();
+  const { authMode, user, token, handleTokenExpired } = useAuth();
   const { profileSettings } = useSettings();
   const [lists, setLists] = useState<VocaList[]>([]);
   const [loading, setLoading] = useState(true);
@@ -81,7 +81,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     if (authMode !== 'google' || !token) return;
     try {
       const currentLists = await Storage.getLists();
-      await fetch(`${API_BASE}/api/sync/data`, {
+      const res = await fetch(`${API_BASE}/api/sync/data`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,10 +89,13 @@ export function VocabProvider({ children }: { children: ReactNode }) {
         },
         body: JSON.stringify({ lists: currentLists }),
       });
+      if (res.status === 401) {
+        await handleTokenExpired();
+      }
     } catch (e) {
       console.warn('Cloud sync failed:', e);
     }
-  }, [authMode, token]);
+  }, [authMode, token, handleTokenExpired]);
 
   const debouncedSync = useCallback(() => {
     if (syncTimerRef.current) clearTimeout(syncTimerRef.current);
@@ -107,6 +110,10 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       const res = await fetch(`${API_BASE}/api/sync/data`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
+      if (res.status === 401) {
+        await handleTokenExpired();
+        return;
+      }
       if (!res.ok) return;
       const data = await res.json();
       if (data.lists && Array.isArray(data.lists) && data.lists.length > 0) {
@@ -129,7 +136,7 @@ export function VocabProvider({ children }: { children: ReactNode }) {
     } catch (e) {
       console.warn('Cloud data load failed:', e);
     }
-  }, [authMode, token]);
+  }, [authMode, token, handleTokenExpired]);
 
   const refreshData = useCallback(async () => {
     const l = await Storage.getLists();

@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, integer, boolean, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, integer, boolean, timestamp, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -36,6 +36,23 @@ export const curated_words = pgTable("curated_words", {
   meaningKr: text("meaning_kr").notNull(),
   exampleEn: text("example_en").notNull(),
   createdAt: timestamp("created_at").defaultNow()
+});
+
+export const cloud_users = pgTable("cloud_users", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  google_id: text("google_id").notNull().unique(),
+  email: text("email").notNull(),
+  display_name: text("display_name"),
+  avatar_url: text("avatar_url"),
+  is_admin: boolean("is_admin").notNull().default(false),
+  created_at: timestamp("created_at").defaultNow(),
+  updated_at: timestamp("updated_at").defaultNow(),
+});
+
+export const cloud_vocab_data = pgTable("cloud_vocab_data", {
+  user_id: varchar("user_id").primaryKey().references(() => cloud_users.id, { onDelete: "cascade" }),
+  data_json: jsonb("data_json").notNull().default(sql`'[]'::jsonb`),
+  updated_at: timestamp("updated_at").defaultNow(),
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({

@@ -4,6 +4,7 @@ import { BlurView } from 'expo-blur';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import CharacterSvg from '@/components/CharacterSvg';
 import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
@@ -240,6 +241,12 @@ export default function CurationScreen() {
     };
 
     const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
+
+    const dailyTip = useMemo(() => {
+        const tips = t('curation.tips', { returnObjects: true }) as string[];
+        const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+        return tips[dayOfYear % tips.length];
+    }, [t]);
     const tabBarHeight = useBottomTabBarHeight();
     const bottomInset = Platform.OS === 'web' ? 84 + 34 : tabBarHeight;
 
@@ -587,32 +594,18 @@ export default function CurationScreen() {
                 </View>
             ) : (
                 <>
-                    <View style={[styles.header, { paddingTop: topInset + 12 }]}>
-                        <View>
+                    <View style={[styles.header, { paddingTop: topInset + 16 }]}>
+                        <CharacterSvg size={56} isDark={isDark} />
+                        <View style={styles.headerTextArea}>
                             <Text style={[styles.headerTitle, { color: colors.text }]}>{t('curation.title')}</Text>
-                            <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]}>{t('curation.subtitle')}</Text>
+                            <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={1}>{dailyTip}</Text>
                         </View>
                         <Pressable onPress={() => setViewMode(prev => prev === 'detailed' ? 'compact' : 'detailed')} style={[styles.actionBtn, { borderColor: colors.border }]}>
                             <Ionicons name={viewMode === 'detailed' ? 'list' : 'grid'} size={22} color={colors.textSecondary} />
                         </Pressable>
                     </View>
 
-                    <View style={styles.tabContainer}>
-                        <Pressable
-                            style={[styles.tabButton, activeTab === 'official' && { borderBottomColor: colors.primary, borderBottomWidth: 2 }]}
-                            onPress={() => { Haptics.selectionAsync(); setActiveTab('official'); }}
-                        >
-                            <Text style={[styles.tabText, { color: activeTab === 'official' ? colors.primary : colors.textSecondary }]}>{t('curation.officialTab')}</Text>
-                        </Pressable>
-                        <Pressable
-                            style={[styles.tabButton, activeTab === 'community' && { borderBottomColor: colors.primary, borderBottomWidth: 2 }]}
-                            onPress={() => { Haptics.selectionAsync(); setActiveTab('community'); }}
-                        >
-                            <Text style={[styles.tabText, { color: activeTab === 'community' ? colors.primary : colors.textSecondary }]}>{t('curation.communityTab')}</Text>
-                        </Pressable>
-                    </View>
-
-                    <View style={{ paddingHorizontal: 24, paddingBottom: 6 }}>
+                    <View style={{ paddingHorizontal: 20, paddingVertical: 8 }}>
                         <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
                             <Ionicons name="search" size={20} color={colors.textTertiary} />
                             <TextInput
@@ -645,10 +638,25 @@ export default function CurationScreen() {
                         })}
                     </ScrollView>
 
+                    <View style={styles.tabContainer}>
+                        <Pressable
+                            style={[styles.tabButton, activeTab === 'official' && { borderBottomColor: colors.primary, borderBottomWidth: 2 }]}
+                            onPress={() => { Haptics.selectionAsync(); setActiveTab('official'); }}
+                        >
+                            <Text style={[styles.tabText, { color: activeTab === 'official' ? colors.primary : colors.textSecondary }]}>{t('curation.officialTab')}</Text>
+                        </Pressable>
+                        <Pressable
+                            style={[styles.tabButton, activeTab === 'community' && { borderBottomColor: colors.primary, borderBottomWidth: 2 }]}
+                            onPress={() => { Haptics.selectionAsync(); setActiveTab('community'); }}
+                        >
+                            <Text style={[styles.tabText, { color: activeTab === 'community' ? colors.primary : colors.textSecondary }]}>{t('curation.communityTab')}</Text>
+                        </Pressable>
+                    </View>
+
                     <ScrollView
                         ref={scrollRef}
                         style={{ flex: 1 }}
-                        contentContainerStyle={[{ paddingHorizontal: 24, paddingTop: 4, paddingBottom: 24 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
+                        contentContainerStyle={[{ paddingHorizontal: 20, paddingTop: 4, paddingBottom: 24 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
                         onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
                         scrollEventThrottle={16}
                     >
@@ -924,13 +932,14 @@ export default function CurationScreen() {
 
 const styles = StyleSheet.create({
     container: { flex: 1 },
-    header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24, paddingBottom: 16 },
-    headerTitle: { fontSize: 28, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
-    headerSubtitle: { fontSize: 14, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
+    header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingBottom: 8, gap: 12 },
+    headerTextArea: { flex: 1 },
+    headerTitle: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
+    headerSubtitle: { fontSize: 14, fontFamily: 'Pretendard_400Regular', marginTop: 2, lineHeight: 20 },
     actionBtn: { width: 44, height: 44, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
-    searchBox: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, height: 50, borderRadius: 12, borderWidth: 1, gap: 10 },
+    searchBox: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, height: 50, borderRadius: 16, borderWidth: 1, gap: 10, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 8, elevation: 2 },
     searchInput: { flex: 1, fontFamily: 'Pretendard_500Medium', fontSize: 15 },
-    tabContainer: { flexDirection: 'row', paddingHorizontal: 24, marginBottom: 16, borderBottomWidth: 1, borderBottomColor: '#E5E5E5' },
+    tabContainer: { flexDirection: 'row', paddingHorizontal: 20, marginBottom: 16, borderBottomWidth: 1, borderBottomColor: '#E5E5E5' },
     tabButton: { flex: 1, paddingVertical: 12, alignItems: 'center' },
     tabText: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
     themeCard: { borderRadius: 16, borderWidth: 1, marginBottom: 12, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 1, shadowRadius: 10, elevation: 4 },
@@ -950,7 +959,7 @@ const styles = StyleSheet.create({
     cardFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 },
     wordCountPill: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10 },
     cardCount: { fontSize: 12, fontFamily: 'Pretendard_700Bold', letterSpacing: 0.3 },
-    langChipContainer: { paddingHorizontal: 24, paddingVertical: 2, flexDirection: 'row', alignItems: 'center' },
+    langChipContainer: { paddingHorizontal: 20, paddingVertical: 2, flexDirection: 'row', alignItems: 'center' },
     langChip: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8 },
     langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
     inlineFallback: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 20, marginTop: 8, borderTopWidth: StyleSheet.hairlineWidth },

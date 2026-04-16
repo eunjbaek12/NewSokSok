@@ -68,7 +68,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, t }:
 
       <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
         {({ pressed }) => (
-          <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
+          <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
         )}
       </Pressable>
 
@@ -112,16 +112,15 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
         )}
         <Text style={[styles.cardBackTerm, { color: colors.textSecondary }]} numberOfLines={2} ellipsizeMode="tail">{word.term}</Text>
 
-        <View style={styles.cardInfoRowInline}>
-          {showPhonetic && word.phonetic && (
-            <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14 }]}>/{word.phonetic}/</Text>
+        {showPhonetic && word.phonetic && (
+          <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14, marginTop: 4 }]}>/{word.phonetic}/</Text>
+        )}
+
+        <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
+          {({ pressed }) => (
+            <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
           )}
-          <Pressable onPress={() => speak(word.term)} hitSlop={12}>
-            {({ pressed }) => (
-              <Ionicons name="volume-medium-outline" size={22} color={pressed ? colors.primary : colors.textTertiary} />
-            )}
-          </Pressable>
-        </View>
+        </Pressable>
       </View>
 
       <LinearGradient
@@ -450,7 +449,7 @@ export default function FlashcardsScreen() {
     );
 
     return {
-      backgroundColor: translateX.value < 0 ? colors.warning : colors.primary,
+      backgroundColor: translateX.value < 0 ? colors.warning : colors.primaryButton,
       opacity: translateX.value < 0 ? leftOpacity : rightOpacity,
     };
   });
@@ -488,7 +487,7 @@ export default function FlashcardsScreen() {
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <Pressable
             onPress={() => setSettingsVisible(true)}
-            style={{ backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
+            style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
             <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
@@ -539,7 +538,7 @@ export default function FlashcardsScreen() {
               style={[
                 styles.progressBarFill,
                 {
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.primaryButton,
                   width: `${((currentIndex + 1) / currentBatchWords.length) * 100}%`,
                 },
               ]}
@@ -586,53 +585,53 @@ export default function FlashcardsScreen() {
             </Pressable>
           </Animated.View>
         </GestureDetector>
+
+        <View style={[styles.bottomBar, { bottom: insets.bottom + 76, paddingHorizontal: 24, gap: 16 }]}>
+          <Animated.View style={[{ flex: 1 }, leftBtnScale]}>
+            <Pressable
+              onPress={() => handleNext(false)}
+              style={({ pressed }) => [
+                styles.actionBtn,
+                {
+                  backgroundColor: pressed ? colors.warning + '33' : colors.warning + '1A',
+                  borderColor: colors.warning + '33',
+                  borderWidth: 1,
+                }
+              ]}
+            >
+              <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
+              <Ionicons name="chevron-back" size={22} color={colors.warning} />
+              <View>
+                <Text style={[styles.actionBtnText, { color: colors.warning }]}>다시 볼게요</Text>
+                <Text style={[styles.actionBtnSubtext, { color: colors.warning, opacity: 0.5 }]}>Swipe Left</Text>
+              </View>
+            </Pressable>
+          </Animated.View>
+
+          <Animated.View style={[{ flex: 1 }, rightBtnScale]}>
+            <Pressable
+              onPress={() => handleNext(true)}
+              style={({ pressed }) => [
+                styles.actionBtn,
+                {
+                  backgroundColor: pressed ? colors.primary + '33' : colors.primary + '1A',
+                  borderColor: colors.primary + '33',
+                  borderWidth: 1,
+                }
+              ]}
+            >
+              <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
+              <View style={{ alignItems: 'flex-end' }}>
+                <Text style={[styles.actionBtnText, { color: colors.primary }]}>외웠어요</Text>
+                <Text style={[styles.actionBtnSubtext, { color: colors.primary, opacity: 0.5 }]}>Swipe Right</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={22} color={colors.primary} />
+            </Pressable>
+          </Animated.View>
+        </View>
       </View>
 
       <Animated.View style={[StyleSheet.absoluteFill, { zIndex: -2, pointerEvents: 'none' }, bgOverlayStyle]} />
-
-      <View style={[styles.bottomBar, { paddingBottom: insets.bottom + 20 }]}>
-        <Animated.View style={[{ flex: 1 }, leftBtnScale]}>
-          <Pressable
-            onPress={() => handleNext(false)}
-            style={({ pressed }) => [
-              styles.actionBtn,
-              {
-                backgroundColor: pressed ? colors.warning + '33' : colors.warning + '1A', // 20% or 10% opacity
-                borderColor: colors.warning + '33',
-                borderWidth: 1,
-              }
-            ]}
-          >
-            <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
-            <Ionicons name="chevron-back" size={22} color={colors.warning} />
-            <View>
-              <Text style={[styles.actionBtnText, { color: colors.warning }]}>Review</Text>
-              <Text style={[styles.actionBtnSubtext, { color: colors.warning, opacity: 0.5 }]}>Swipe Left</Text>
-            </View>
-          </Pressable>
-        </Animated.View>
-
-        <Animated.View style={[{ flex: 1 }, rightBtnScale]}>
-          <Pressable
-            onPress={() => handleNext(true)}
-            style={({ pressed }) => [
-              styles.actionBtn,
-              {
-                backgroundColor: pressed ? colors.primary + '33' : colors.primary + '1A',
-                borderColor: colors.primary + '33',
-                borderWidth: 1,
-              }
-            ]}
-          >
-            <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
-            <View style={{ alignItems: 'flex-end' }}>
-              <Text style={[styles.actionBtnText, { color: colors.primary }]}>Got it</Text>
-              <Text style={[styles.actionBtnSubtext, { color: colors.primary, opacity: 0.5 }]}>Swipe Right</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={22} color={colors.primary} />
-          </Pressable>
-        </Animated.View>
-      </View>
 
       <StudySettingsModal
         visible={settingsVisible}
@@ -735,6 +734,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 24,
+    paddingBottom: 200,
   },
   card: {
     position: 'absolute',
@@ -841,16 +841,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_600SemiBold',
     opacity: 0.7,
   },
-  speakerBtn: {
-    padding: 8,
-    marginTop: 10,
-  },
   starBtn: {
     position: 'absolute',
     top: 16,
     right: 16,
-    padding: 8,
+    padding: 4,
     zIndex: 10,
+  },
+  speakerBtn: {
+    padding: 8,
+    marginTop: 4,
+    alignItems: 'center',
   },
   indicator: {
     position: 'absolute',
@@ -882,9 +883,10 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   bottomBar: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
     flexDirection: 'row',
-    paddingHorizontal: 24,
-    gap: 16,
   },
   actionBtn: {
     flexDirection: 'row',

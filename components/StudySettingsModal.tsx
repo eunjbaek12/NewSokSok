@@ -434,7 +434,7 @@ export default function StudySettingsModal({
                             </Pressable>
 
                             <Pressable
-                                style={styles.btnApply}
+                                style={[styles.btnApply, { backgroundColor: colors.primaryButton }]}
                                 onPress={handleApply}
                             >
                                 <Text style={styles.btnApplyText}>{t('common.apply')}</Text>
@@ -555,7 +555,7 @@ const styles = StyleSheet.create({
     },
     btnApply: {
         flex: 1,
-        backgroundColor: '#4A7DFF',
+        backgroundColor: undefined,
         paddingVertical: 8,
         borderRadius: 8,
         alignItems: 'center',

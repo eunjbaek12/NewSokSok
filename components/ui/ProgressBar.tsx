@@ -29,7 +29,7 @@ export default function ProgressBar({ percent, colors }: ProgressBarProps) {
           styles.progressFill,
           {
             width: widthInterpolated,
-            backgroundColor: percent === 100 ? colors.success : colors.primary,
+            backgroundColor: percent === 100 ? colors.successButton : colors.primaryButton,
           },
         ]}
       />

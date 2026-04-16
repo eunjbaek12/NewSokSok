@@ -95,7 +95,7 @@ export default function StudyResultsScreen() {
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center' }]}>
         <Ionicons name="alert-circle-outline" size={64} color={colors.textTertiary} />
         <Text style={{ color: colors.text, textAlign: 'center', marginTop: 16, fontSize: 18, fontFamily: 'Pretendard_600SemiBold' }}>{t('studyResults.noResults')}</Text>
-        <Pressable onPress={() => router.back()} style={{ marginTop: 24, backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 24, borderRadius: 12 }}>
+        <Pressable onPress={() => router.back()} style={{ marginTop: 24, backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 24, borderRadius: 12 }}>
           <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
         </Pressable>
       </View>
@@ -172,7 +172,7 @@ export default function StudyResultsScreen() {
 
         <Pressable
           onPress={handleDone}
-          style={[styles.doneBtn, { backgroundColor: colors.primary }]}
+          style={[styles.doneBtn, { backgroundColor: colors.primaryButton }]}
         >
           <Text style={[styles.doneBtnText, { color: '#FFFFFF' }]}>{t('studyResults.endStudy')}</Text>
         </Pressable>

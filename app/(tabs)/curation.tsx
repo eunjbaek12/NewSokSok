@@ -125,6 +125,7 @@ export default function CurationScreen() {
     const [selectedWordIds, setSelectedWordIds] = useState<Set<string>>(new Set());
     const [showListPicker, setShowListPicker] = useState(false);
     const [snackbar, setSnackbar] = useState<{ visible: boolean; message: string; actionLabel?: string; onAction?: () => void }>({ visible: false, message: '' });
+    const [masterBarHeight, setMasterBarHeight] = useState(0);
 
     const { createCuratedList, fetchCloudCurations, deleteCloudCuration, lists, addBatchWords } = useVocab();
     const { user } = useAuth();
@@ -431,7 +432,7 @@ export default function CurationScreen() {
                     <ScrollView
                         ref={detailScrollRef}
                         style={{ flex: 1 }}
-                        contentContainerStyle={{ paddingBottom: 24 }}
+                        contentContainerStyle={{ paddingBottom: masterBarHeight > 0 ? masterBarHeight + 8 : 140 }}
                         onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: detailScrollY } } }], { useNativeDriver: false })}
                         scrollEventThrottle={16}
                     >
@@ -544,7 +545,23 @@ export default function CurationScreen() {
                             })}
                         </View>
                     </ScrollView>
-                    <View style={[styles.masterBar, { paddingBottom: bottomInset, backgroundColor: colors.surface, borderTopColor: colors.border }]}>
+                    <View
+                        style={[styles.masterBar, {
+                            paddingBottom: bottomInset + 10,
+                            backgroundColor: isDark ? 'rgba(18, 18, 18, 0.92)' : 'rgba(255, 255, 255, 0.92)',
+                            borderTopColor: colors.border,
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                        }]}
+                        onLayout={(e) => setMasterBarHeight(e.nativeEvent.layout.height)}
+                    >
+                        <BlurView
+                            intensity={80}
+                            tint={isDark ? 'dark' : 'light'}
+                            style={StyleSheet.absoluteFill}
+                        />
                         <View style={styles.masterBtnRow}>
                             <Pressable
                                 onPress={() => setShowListPicker(true)}
@@ -562,7 +579,7 @@ export default function CurationScreen() {
                             <Pressable
                                 onPress={handleCreateNew}
                                 disabled={saving || selectedCount === 0}
-                                style={[styles.masterBtn, { backgroundColor: (saving || selectedCount === 0) ? colors.border : colors.primary }]}
+                                style={[styles.masterBtn, { backgroundColor: (saving || selectedCount === 0) ? colors.border : colors.primaryButton }]}
                             >
                                 {saving ? <ActivityIndicator color="#FFF" /> : (
                                     <Text style={styles.masterBtnText}>{t('curation.createNewList')}</Text>
@@ -631,7 +648,7 @@ export default function CurationScreen() {
                                 <Pressable
                                     key={chip.code}
                                     onPress={() => { Haptics.selectionAsync(); setLanguageFilter(chip.code); }}
-                                    style={[styles.langChip, { backgroundColor: isActive ? colors.primary : colors.surfaceSecondary }]}
+                                    style={[styles.langChip, { backgroundColor: isActive ? colors.primaryButton : colors.surfaceSecondary }]}
                                 >
                                     <Text style={[styles.langChipText, { color: isActive ? '#FFF' : colors.textSecondary }]}>{chip.label}</Text>
                                 </Pressable>
@@ -662,7 +679,7 @@ export default function CurationScreen() {
                     <ScrollView
                         ref={scrollRef}
                         style={{ flex: 1 }}
-                        contentContainerStyle={[{ paddingHorizontal: 20, paddingTop: 4, paddingBottom: 24 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
+                        contentContainerStyle={[{ paddingHorizontal: 20, paddingTop: 4, paddingBottom: bottomInset + 24 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
                         onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
                         scrollEventThrottle={16}
                     >
@@ -901,7 +918,7 @@ export default function CurationScreen() {
                                     onPress={() => !generating && setAiDifficulty(d.key)}
                                     style={{
                                         flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
-                                        backgroundColor: aiDifficulty === d.key ? colors.primary : colors.surfaceSecondary,
+                                        backgroundColor: aiDifficulty === d.key ? colors.primaryButton : colors.surfaceSecondary,
                                     }}
                                 >
                                     <Text style={{
@@ -922,7 +939,7 @@ export default function CurationScreen() {
                                     onPress={() => !generating && setAiWordCount(n)}
                                     style={{
                                         flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
-                                        backgroundColor: aiWordCount === n ? colors.primary : colors.surfaceSecondary,
+                                        backgroundColor: aiWordCount === n ? colors.primaryButton : colors.surfaceSecondary,
                                     }}
                                 >
                                     <Text style={{
@@ -998,11 +1015,11 @@ const styles = StyleSheet.create({
     checkboxHit: { paddingLeft: 4 },
     selectionBar: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', marginBottom: 6 },
     selectionText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
-    masterBar: { paddingHorizontal: 24, paddingTop: 12, borderTopWidth: StyleSheet.hairlineWidth },
+    masterBar: { paddingHorizontal: 24, paddingTop: 10, borderTopWidth: StyleSheet.hairlineWidth },
     masterBtnRow: { flexDirection: 'row', gap: 10 },
-    masterBtnSecondary: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 16, borderRadius: 12, borderWidth: 1.5 },
+    masterBtnSecondary: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 12, borderWidth: 1.5 },
     masterBtnSecondaryText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
-    masterBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 16, borderRadius: 12 },
+    masterBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 12 },
     masterBtnText: { fontSize: 15, fontFamily: 'Pretendard_700Bold', color: '#FFFFFF' },
     fab: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.15, shadowRadius: 6, elevation: 4 },
 });

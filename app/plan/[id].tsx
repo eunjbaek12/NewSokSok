@@ -441,7 +441,7 @@ export default function PlanScreen() {
               style={[
                 styles.progressFill,
                 {
-                  backgroundColor: completedWords === words.length ? colors.success : colors.primary,
+                  backgroundColor: completedWords === words.length ? colors.successButton : colors.primaryButton,
                   width: words.length > 0 ? `${Math.round((completedWords / words.length) * 100)}%` : '0%',
                 },
               ]}
@@ -584,7 +584,7 @@ export default function PlanScreen() {
           style={({ pressed }) => [
             styles.actionBtn,
             {
-              backgroundColor: isStudyLocked ? colors.borderLight : colors.primary,
+              backgroundColor: isStudyLocked ? colors.borderLight : colors.primaryButton,
               opacity: pressed && !isStudyLocked ? 0.9 : 1,
             },
           ]}
@@ -696,7 +696,7 @@ export default function PlanScreen() {
                 disabled={isSubmitting}
                 style={({ pressed }) => [
                   styles.modalBtnPrimary,
-                  { backgroundColor: colors.primary, opacity: pressed || isSubmitting ? 0.8 : 1 },
+                  { backgroundColor: colors.primaryButton, opacity: pressed || isSubmitting ? 0.8 : 1 },
                 ]}
               >
                 {isSubmitting ? (

@@ -125,7 +125,7 @@ export default function VocabListsScreen() {
         </Text>
         <Pressable
           onPress={openManageModal}
-          style={[styles.emptyButton, { backgroundColor: colors.primary }]}
+          style={[styles.emptyButton, { backgroundColor: colors.primaryButton }]}
         >
           <Ionicons name="add" size={20} color="#FFFFFF" />
           <Text style={styles.emptyButtonText}>{t('vocabLists.createList')}</Text>

@@ -1,5 +1,5 @@
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Stack, router } from "expo-router";
+import { Stack, router, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -8,11 +8,10 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { queryClient } from "@/lib/query-client";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { VocabProvider } from "@/contexts/VocabContext";
-import { AuthProvider } from "@/contexts/AuthContext";
-import { SettingsProvider } from "@/contexts/SettingsContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
+import { SettingsProvider, useSettings } from "@/contexts/SettingsContext";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import { useFonts } from "expo-font";
-import { useSettings } from "@/contexts/SettingsContext";
 import { useOnboarding } from "@/hooks/useOnboarding";
 import "@/i18n";
 
@@ -60,6 +59,8 @@ export default function RootLayout() {
 function AppStack() {
   const { inputSettings } = useSettings();
   const { isOnboardingDone } = useOnboarding();
+  const { authMode, loading: authLoading } = useAuth();
+  const segments = useSegments();
 
   useEffect(() => {
     if (isOnboardingDone === null) return;
@@ -67,6 +68,14 @@ function AppStack() {
       router.replace('/onboarding' as any);
     }
   }, [isOnboardingDone]);
+
+  useEffect(() => {
+    if (authLoading) return;
+    const inAuthScreen = segments[0] === 'login' || segments[0] === 'onboarding';
+    if (authMode === 'none' && !inAuthScreen) {
+      router.replace('/login');
+    }
+  }, [authMode, authLoading, segments]);
 
   return (
     <Stack screenOptions={{ headerBackTitle: "Back" }}>

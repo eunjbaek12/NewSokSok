@@ -734,7 +734,7 @@ export default function ListDetailScreen() {
       </Text>
       <Pressable
         onPress={handleAddWord}
-        style={[styles.emptyButton, { backgroundColor: colors.primary }]}
+        style={[styles.emptyButton, { backgroundColor: colors.primaryButton }]}
       >
         <Ionicons name="add" size={18} color="#FFFFFF" />
         <Text style={styles.emptyButtonText}>{t('addWord.addWordTitle')}</Text>
@@ -897,7 +897,7 @@ export default function ListDetailScreen() {
                   position: 'relative',
                   right: 0,
                   bottom: 0,
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.primaryButton,
                   opacity: pressed ? 0.85 : 1,
                 },
               ]}

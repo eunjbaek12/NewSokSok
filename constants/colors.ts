@@ -1,6 +1,7 @@
 const Colors = {
   light: {
     primary: '#3182F6',
+    primaryButton: '#3182F6',
     primaryLight: '#E8F0FE',
     secondary: '#8E5AFF',
     secondaryLight: '#F4EFFF',
@@ -13,6 +14,7 @@ const Colors = {
     textSecondary: '#4E5968',
     textTertiary: '#8B95A1',
     success: '#22C55E',
+    successButton: '#22C55E',
     successLight: '#DCFCE7',
     error: '#EF4444',
     errorLight: '#FEE2E2',
@@ -29,6 +31,7 @@ const Colors = {
   },
   dark: {
     primary: '#4B96FF',
+    primaryButton: '#2D6FD4',
     primaryLight: '#1E3A5F',
     secondary: '#A78BFA',
     secondaryLight: '#2D1558',
@@ -41,6 +44,7 @@ const Colors = {
     textSecondary: '#B0B8C1',
     textTertiary: '#6B7684',
     success: '#3FB950',
+    successButton: '#2A8A3E',
     successLight: '#1A3D2A',
     error: '#F85149',
     errorLight: '#3D1A1A',

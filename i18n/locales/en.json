@@ -4,16 +4,16 @@
     "next": "Next",
     "start": "Get Started",
     "slide1": {
-      "title": "Your Personal\nAI Vocabulary",
-      "body": "Just enter a topic and AI will\nautomatically generate related words"
+      "title": "The Vocabulary App\nYou've Been Looking For",
+      "body": "Add words directly or import them\nand build your own word list"
     },
     "slide2": {
-      "title": "Memorize Fast\nwith Flashcards",
+      "title": "Memorize Fast\nwith Card Study",
       "body": "Flip through cards to learn words\nand test yourself with quizzes"
     },
     "slide3": {
-      "title": "Stay Consistent\nwith Study Plans",
-      "body": "Set a daily word goal and we'll\nautomatically manage your progress"
+      "title": "Ready-Made Lists\nFor Any Situation",
+      "body": "Browse curated word lists and\nsave them as your own in one tap"
     },
     "slide4": {
       "title": "Ready to\nGet Started?",
@@ -181,7 +181,7 @@
     "logout": "Logout",
     "logoutTitle": "Logout",
     "logoutMessageGoogle": "You will be returned to the login screen. Your cloud data will be preserved.",
-    "logoutMessageGuest": "You will be returned to the login screen.",
+    "logoutMessageGuest": "You will be returned to the login screen. Your saved words will remain on this device.",
     "display": "Display",
     "darkMode": "Dark Mode",
     "themeInUse": "Using {{theme}} theme",
@@ -360,11 +360,12 @@
   "search": {
     "tagMatch": "Tag Match",
     "placeholder": "Search words, meanings, tags...",
-    "starred": "Starred Words",
-    "allLists": "All Vocab Lists",
+    "starred": "Starred",
+    "allLists": "All",
     "popularTags": "Popular Tags",
     "enterQuery": "Enter a search term.",
-    "noResults": "No results found."
+    "noResults": "No results found.",
+    "resultCount": "{{count}} words"
   },
   "flashcards": {
     "title": "Flashcards",

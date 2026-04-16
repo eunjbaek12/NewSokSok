@@ -601,7 +601,7 @@ export default function AddWordScreen() {
             <Pressable
                 onPress={handleCreateNewList}
                 disabled={!newListName.trim()}
-                style={[styles.pickerNewBtn, { backgroundColor: newListName.trim() ? colors.primary : colors.surfaceSecondary }]}
+                style={[styles.pickerNewBtn, { backgroundColor: newListName.trim() ? colors.primaryButton : colors.surfaceSecondary }]}
             >
                 <Text style={{ color: newListName.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: 14, fontFamily: 'Pretendard_600SemiBold' }}>
                     {t('common.create')}
@@ -702,7 +702,7 @@ export default function AddWordScreen() {
                                             <View key="term" style={styles.wordSection}>
                                                 {!isEditing && (
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6, marginBottom: 6 }}>
-                                                        <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primary : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                        <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? '#fff' : colors.textSecondary} />
                                                         </Pressable>
                                                         <Pressable onPress={() => setPhotoSource('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
@@ -949,7 +949,7 @@ export default function AddWordScreen() {
                                                     <Pressable
                                                         onPress={handleAddTag}
                                                         disabled={!tagInput.trim()}
-                                                        style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primary : colors.surfaceSecondary }]}
+                                                        style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primaryButton : colors.surfaceSecondary }]}
                                                     >
                                                         <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
                                                     </Pressable>
@@ -992,9 +992,9 @@ export default function AddWordScreen() {
                                 style={({ pressed }) => [
                                     styles.fabButton,
                                     {
-                                        backgroundColor: colors.primary,
+                                        backgroundColor: colors.primaryButton,
                                         opacity: isPendingSave || pressed ? 0.8 : 1,
-                                        shadowColor: colors.primary,
+                                        shadowColor: colors.primaryButton,
                                     }
                                 ]}
                             >
@@ -1069,7 +1069,7 @@ export default function AddWordScreen() {
                                             width: 40,
                                             height: 22,
                                             borderRadius: 11,
-                                            backgroundColor: tempSettings.addWordMode === 'full' ? colors.primary : colors.border,
+                                            backgroundColor: tempSettings.addWordMode === 'full' ? colors.primaryButton : colors.border,
                                             padding: 2,
                                             justifyContent: 'center'
                                         }}
@@ -1108,7 +1108,7 @@ export default function AddWordScreen() {
                                             width: 40,
                                             height: 22,
                                             borderRadius: 11,
-                                            backgroundColor: tempSettings.enableAutocomplete ? colors.primary : colors.border,
+                                            backgroundColor: tempSettings.enableAutocomplete ? colors.primaryButton : colors.border,
                                             padding: 2,
                                             justifyContent: 'center'
                                         }}
@@ -1202,7 +1202,7 @@ export default function AddWordScreen() {
                                         style={[
                                             styles.modalActionBtn,
                                             {
-                                                backgroundColor: isApplying ? colors.success : colors.primary,
+                                                backgroundColor: isApplying ? colors.successButton : colors.primaryButton,
                                                 flex: 1,
                                                 height: 48,
                                                 flexDirection: 'row',

@@ -4,16 +4,16 @@
     "next": "다음",
     "start": "시작하기",
     "slide1": {
-      "title": "AI가 만드는\n나만의 단어장",
-      "body": "주제 하나만 입력하면 AI가\n관련 단어를 자동으로 생성해 드려요"
+      "title": "내가 찾던\n바로 그 단어장",
+      "body": "단어를 직접 추가하거나 가져와서\n나만의 단어장을 만들어보세요"
     },
     "slide2": {
-      "title": "플래시카드로\n빠르게 암기",
+      "title": "카드 학습으로\n빠르게 암기",
       "body": "카드를 넘기며 단어를 익히고\n퀴즈로 실력을 확인해보세요"
     },
     "slide3": {
-      "title": "학습 계획으로\n꾸준하게",
-      "body": "하루 목표 단어 수를 정하면\nDay별 진도를 자동으로 관리해줘요"
+      "title": "필요할 때 바로\n꺼내 쓰는 단어장",
+      "body": "상황에 맞는 단어장을 골라\n바로 내 것으로 만들어보세요"
     },
     "slide4": {
       "title": "지금 바로\n시작해볼까요?",
@@ -106,7 +106,7 @@
   },
   "vocabLists": {
     "title": "나의 단어장",
-    "searchPlaceholder": "단어, 뜻, 태그로 통합 검색...",
+    "searchPlaceholder": "단어, 뜻, 태그로 검색...",
     "myLists": "나의 단어장",
     "emptyTitle": "단어장이 없습니다",
     "emptySubtitle": "나만의 단어장을 만들거나\n모음집에서 단어를 가져와보세요",
@@ -192,7 +192,7 @@
     "logout": "로그아웃",
     "logoutTitle": "로그아웃",
     "logoutMessageGoogle": "로그아웃하면 로그인 화면으로 돌아갑니다. 클라우드 데이터는 보관됩니다.",
-    "logoutMessageGuest": "로그아웃하면 로그인 화면으로 돌아갑니다.",
+    "logoutMessageGuest": "로그인 화면으로 돌아갑니다. 저장된 단어는 이 기기에 유지됩니다.",
     "display": "화면",
     "darkMode": "다크 모드",
     "themeInUse": "{{theme}} 테마 사용 중",
@@ -382,11 +382,12 @@
   "search": {
     "tagMatch": "태그 일치",
     "placeholder": "단어, 뜻, 태그 검색...",
-    "starred": "중요 단어",
-    "allLists": "전체 단어장",
-    "popularTags": "많이 찾는 태그",
+    "starred": "별표 단어",
+    "allLists": "전체",
+    "popularTags": "자주 쓰는 태그",
     "enterQuery": "검색어를 입력해보세요.",
-    "noResults": "검색 결과가 없습니다."
+    "noResults": "검색 결과가 없습니다.",
+    "resultCount": "단어 {{count}}개"
   },
   "flashcards": {
     "title": "카드 학습",

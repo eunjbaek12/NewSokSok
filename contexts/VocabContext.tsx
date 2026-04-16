@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useMemo, useCallback, useEffect, useRef, ReactNode } from 'react';
+import { Alert } from 'react-native';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { VocaList, Word, StudyResult, AIWordResult, PlanStatus } from '@/lib/types';
@@ -8,6 +9,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useSettings } from '@/contexts/SettingsContext';
 
 const DEVICE_ID_KEY = '@soksok_device_id';
+const LAST_GOOGLE_ID_KEY = '@soksok_last_google_id';
 
 async function getDeviceId(): Promise<string> {
   let id = await AsyncStorage.getItem(DEVICE_ID_KEY);
@@ -116,11 +118,42 @@ export function VocabProvider({ children }: { children: ReactNode }) {
       }
       if (!res.ok) return;
       const data = await res.json();
-      if (data.lists && Array.isArray(data.lists) && data.lists.length > 0) {
-        // Sync logic for Phase 2: For now, we'll just ignore or carefully merge
-        // A full remote list replacement requires a specialized SQLite query.
-        console.log('Received lists from cloud, sync implementation pending in Phase 2.');
+      const cloudLists: VocaList[] = data.lists && Array.isArray(data.lists) ? data.lists : [];
+
+      if (cloudLists.length > 0) {
+        const localLists = await Storage.getLists();
+        const localWordCount = localLists.reduce((sum, l) => sum + l.words.length, 0);
+        const cloudWordCount = cloudLists.reduce((sum, l) => sum + (l.words?.length ?? 0), 0);
+
+        if (localWordCount > 0) {
+          // 양쪽 모두 데이터 있음 → 사용자에게 선택 요청
+          const choice = await new Promise<'merge' | 'cloud'>((resolve) => {
+            Alert.alert(
+              '데이터 선택',
+              `클라우드에 ${cloudWordCount}개, 이 기기에 ${localWordCount}개 단어가 있습니다. 어떻게 할까요?`,
+              [
+                { text: '합치기', onPress: () => resolve('merge') },
+                {
+                  text: '클라우드 유지',
+                  style: 'destructive',
+                  onPress: () => resolve('cloud'),
+                },
+              ],
+              { cancelable: false }
+            );
+          });
+
+          if (choice === 'merge') {
+            await Storage.mergeCloudData(cloudLists);
+          } else {
+            await Storage.replaceLocalWithCloudData(cloudLists);
+          }
+        } else {
+          // 로컬 비어있음 → 클라우드로 바로 교체
+          await Storage.replaceLocalWithCloudData(cloudLists);
+        }
       } else {
+        // 클라우드 비어있음 → 로컬 → 클라우드 업로드
         const localLists = await Storage.getLists();
         if (localLists.length > 0) {
           await fetch(`${API_BASE}/api/sync/data`, {
@@ -173,16 +206,25 @@ export function VocabProvider({ children }: { children: ReactNode }) {
   }, [authMode, token]);
 
   useEffect(() => {
-    // 1. First ensure the SQLite DB is seeded if it's completely empty
-    Storage.initSeedDataIfEmpty().then(() => {
-      // 3. Then proceed with normal cloud sync or local refresh
-      if (authMode === 'google' && user?.id) {
-        loadCloudData().then(() => refreshData());
+    const initData = async () => {
+      if (authMode === 'google' && user?.googleId) {
+        await AsyncStorage.setItem(LAST_GOOGLE_ID_KEY, user.googleId);
+        // loadCloudData가 클라우드 데이터 유무에 따라 처리:
+        // - 클라우드에 데이터 있음 → replaceLocalWithCloudData (로컬 교체)
+        // - 클라우드 비어있음 → 현재 로컬 데이터를 클라우드에 업로드
+        await loadCloudData();
+        await refreshData();
       } else {
-        refreshData();
+        // 게스트/비로그인 상태에서는 LAST_GOOGLE_ID 초기화
+        // (다음 구글 로그인이 항상 신선한 연결로 처리되도록)
+        await AsyncStorage.removeItem(LAST_GOOGLE_ID_KEY);
+        await Storage.initSeedDataIfEmpty();
+        await refreshData();
       }
-    });
-  }, [authMode, token, loadCloudData, refreshData]);
+    };
+
+    initData();
+  }, [authMode, token, user?.googleId, loadCloudData, refreshData]);
 
   const withSync = useCallback(<T,>(fn: () => Promise<T>) => {
     return async (): Promise<T> => {

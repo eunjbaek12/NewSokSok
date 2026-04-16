@@ -256,7 +256,7 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                       <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>{t('common.close')}</Text>
                     </Pressable>
                     <Pressable
-                      style={[styles.btnStart, { backgroundColor: wordCount > 0 ? colors.primary : colors.borderLight }]}
+                      style={[styles.btnStart, { backgroundColor: wordCount > 0 ? colors.primaryButton : colors.borderLight }]}
                       onPress={handleStart}
                       disabled={wordCount === 0}
                     >

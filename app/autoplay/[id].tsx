@@ -306,7 +306,7 @@ export default function AutoPlayScreen() {
                             style={[
                                 styles.progressBarFill,
                                 {
-                                    backgroundColor: colors.primary,
+                                    backgroundColor: colors.primaryButton,
                                     width: `${Math.max(0, Math.min(100, ((currentIndex + 1) / words.length) * 100))}%`,
                                 },
                             ]}
@@ -337,7 +337,7 @@ export default function AutoPlayScreen() {
                                 <Text style={[styles.completionBtnText, { color: colors.text }]}>{t('autoplay.restart')}</Text>
                             </Pressable>
                             <Pressable
-                                style={[styles.completionBtn, { backgroundColor: colors.primary }]}
+                                style={[styles.completionBtn, { backgroundColor: colors.primaryButton }]}
                                 onPress={handleClose}
                             >
                                 <Text style={[styles.completionBtnText, { color: '#FFF' }]}>{t('autoplay.exit')}</Text>
@@ -450,7 +450,7 @@ export default function AutoPlayScreen() {
                     >
                         <Pressable
                             onPress={togglePlayPause}
-                            style={[styles.playPauseBtn, { backgroundColor: colors.primary }]}
+                            style={[styles.playPauseBtn, { backgroundColor: colors.primaryButton }]}
                             hitSlop={12}
                         >
                             <Ionicons

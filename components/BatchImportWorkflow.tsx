@@ -163,7 +163,7 @@ export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchI
                             disabled={!rawText.trim()}
                             style={[
                                 styles.nextBtn,
-                                { backgroundColor: rawText.trim() ? colors.primary : colors.surfaceSecondary }
+                                { backgroundColor: rawText.trim() ? colors.primaryButton : colors.surfaceSecondary }
                             ]}
                         >
                             <Text style={[styles.nextBtnText, { color: rawText.trim() ? '#fff' : colors.textTertiary }]}>
@@ -263,7 +263,7 @@ export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchI
                             disabled={isSubmitting || validCount === 0}
                             style={[
                                 styles.submitBtn,
-                                { backgroundColor: (validCount > 0 && !isSubmitting) ? colors.primary : colors.surfaceSecondary }
+                                { backgroundColor: (validCount > 0 && !isSubmitting) ? colors.primaryButton : colors.surfaceSecondary }
                             ]}
                         >
                             {isSubmitting ? (

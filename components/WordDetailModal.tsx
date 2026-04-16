@@ -477,7 +477,7 @@ export default function WordDetailModal({
                                                         onSubmitEditing={handleAddTag} returnKeyType="done" autoCapitalize="none"
                                                     />
                                                     <Pressable onPress={handleAddTag} disabled={!tagInput.trim()}
-                                                        style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primary : colors.surfaceSecondary }]}>
+                                                        style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primaryButton : colors.surfaceSecondary }]}>
                                                         <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
                                                     </Pressable>
                                                 </View>

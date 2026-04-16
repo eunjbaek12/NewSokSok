@@ -118,6 +118,86 @@ export async function initSeedDataIfEmpty(): Promise<void> {
   }
 }
 
+export async function clearAllData(): Promise<void> {
+  const db = await getDb();
+  await db.runAsync('DELETE FROM words');
+  await db.runAsync('DELETE FROM lists');
+}
+
+export async function mergeCloudData(cloudLists: VocaList[]): Promise<void> {
+  const db = await getDb();
+  await db.withTransactionAsync(async () => {
+    for (const list of cloudLists) {
+      await db.runAsync(
+        `INSERT OR REPLACE INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position, isCurated, icon,
+           planTotalDays, planCurrentDay, planWordsPerDay, planStartedAt, planUpdatedAt, planFilter,
+           lastResultMemorized, lastResultTotal, lastResultPercent)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          list.id, list.title, list.isVisible ? 1 : 0, list.createdAt,
+          list.lastStudiedAt ?? null, list.position ?? 0, list.isCurated ? 1 : 0, list.icon ?? null,
+          list.planTotalDays ?? 0, list.planCurrentDay ?? 1, list.planWordsPerDay ?? 10,
+          list.planStartedAt ?? null, list.planUpdatedAt ?? null, list.planFilter ?? 'all',
+          list.lastResultMemorized ?? 0, list.lastResultTotal ?? 0, list.lastResultPercent ?? 0,
+        ]
+      );
+      for (const word of list.words) {
+        await db.runAsync(
+          `INSERT OR REPLACE INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
+             meaningKr, isMemorized, isStarred, tags, createdAt, updatedAt, wrongCount, assignedDay,
+             sourceLang, targetLang)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            word.id, list.id, word.term, word.definition ?? null, word.phonetic ?? null,
+            word.pos ?? null, word.exampleEn ?? null, word.exampleKr ?? null, word.meaningKr,
+            word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, JSON.stringify(word.tags ?? []),
+            word.createdAt ?? 0, word.updatedAt ?? 0, word.wrongCount ?? 0,
+            word.assignedDay ?? null, word.sourceLang ?? 'en', word.targetLang ?? 'ko',
+          ]
+        );
+      }
+    }
+  });
+}
+
+export async function replaceLocalWithCloudData(lists: VocaList[]): Promise<void> {
+  const db = await getDb();
+  await db.withTransactionAsync(async () => {
+    await db.runAsync('DELETE FROM words');
+    await db.runAsync('DELETE FROM lists');
+    for (const list of lists) {
+      await db.runAsync(
+        `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position, isCurated, icon,
+           planTotalDays, planCurrentDay, planWordsPerDay, planStartedAt, planUpdatedAt, planFilter,
+           lastResultMemorized, lastResultTotal, lastResultPercent)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          list.id, list.title, list.isVisible ? 1 : 0, list.createdAt,
+          list.lastStudiedAt ?? null, list.position ?? 0, list.isCurated ? 1 : 0, list.icon ?? null,
+          list.planTotalDays ?? 0, list.planCurrentDay ?? 1, list.planWordsPerDay ?? 10,
+          list.planStartedAt ?? null, list.planUpdatedAt ?? null, list.planFilter ?? 'all',
+          list.lastResultMemorized ?? 0, list.lastResultTotal ?? 0, list.lastResultPercent ?? 0,
+        ]
+      );
+      for (const word of list.words) {
+        await db.runAsync(
+          `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
+             meaningKr, isMemorized, isStarred, tags, createdAt, updatedAt, wrongCount, assignedDay,
+             sourceLang, targetLang)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            word.id, list.id, word.term, word.definition ?? null, word.phonetic ?? null,
+            word.pos ?? null, word.exampleEn ?? null, word.exampleKr ?? null, word.meaningKr,
+            word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, JSON.stringify(word.tags ?? []),
+            word.createdAt ?? 0, word.updatedAt ?? 0, word.wrongCount ?? 0,
+            word.assignedDay ?? null, word.sourceLang ?? 'en', word.targetLang ?? 'ko',
+          ]
+        );
+      }
+    }
+  });
+}
+
 export async function createList(title: string): Promise<VocaList> {
   const db = await getDb();
   const id = generateId();

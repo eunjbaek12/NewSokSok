@@ -327,7 +327,7 @@ export default function DashboardScreen() {
                       }}
                       style={[
                         styles.filterChip,
-                        { backgroundColor: filterMode === key ? colors.primary : colors.surfaceSecondary },
+                        { backgroundColor: filterMode === key ? colors.primaryButton : colors.surfaceSecondary },
                       ]}
                     >
                       <Text style={[
@@ -419,7 +419,7 @@ export default function DashboardScreen() {
                           }}
                           style={({ pressed }) => [
                             styles.actionButton,
-                            { backgroundColor: colors.success, opacity: pressed ? 0.85 : 1 },
+                            { backgroundColor: colors.successButton, opacity: pressed ? 0.85 : 1 },
                           ]}
                         >
                           <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
@@ -507,7 +507,7 @@ export default function DashboardScreen() {
                             onPress={() => handlePlanPress(list.id)}
                             style={({ pressed }) => [
                               styles.actionButton,
-                              { backgroundColor: colors.primary, opacity: pressed ? 0.85 : 1 },
+                              { backgroundColor: colors.primaryButton, opacity: pressed ? 0.85 : 1 },
                             ]}
                           >
                             <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>{t('home.restartStudy')}</Text>
@@ -600,7 +600,7 @@ export default function DashboardScreen() {
                         style={({ pressed }) => [
                           styles.actionButton,
                           {
-                            backgroundColor: dayStatus.state === 'completed' ? colors.surfaceSecondary : colors.primary,
+                            backgroundColor: dayStatus.state === 'completed' ? colors.surfaceSecondary : colors.primaryButton,
                             opacity: pressed ? 0.85 : 1,
                           },
                         ]}
@@ -708,7 +708,7 @@ export default function DashboardScreen() {
                 }}
                 style={({ pressed }) => [
                   styles.resultRestartBtn,
-                  { backgroundColor: colors.primary, opacity: pressed ? 0.9 : 1 },
+                  { backgroundColor: colors.primaryButton, opacity: pressed ? 0.9 : 1 },
                 ]}
               >
                 <Text style={styles.resultRestartBtnText}>{t('home.restartPlan')}</Text>

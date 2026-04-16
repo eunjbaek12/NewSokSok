@@ -263,7 +263,7 @@ export default function QuizScreen() {
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <Pressable
             onPress={() => setSettingsVisible(true)}
-            style={{ backgroundColor: colors.primary, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
+            style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
             <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
@@ -316,7 +316,7 @@ export default function QuizScreen() {
               style={[
                 styles.progressBarFill,
                 {
-                  backgroundColor: colors.primary,
+                  backgroundColor: colors.primaryButton,
                   width: `${((currentIndex + 1) / currentBatchWords.length) * 100}%`,
                 },
               ]}
@@ -333,18 +333,16 @@ export default function QuizScreen() {
         contentContainerStyle={{
           flexGrow: 1,
           paddingTop: 0,
-          paddingBottom: 0,
+          paddingBottom: 16,
           justifyContent: 'space-evenly'
         }}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
-            <View style={styles.questionHeader}>
-              <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
-                <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
-              </Pressable>
-            </View>
+            <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
+              <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+            </Pressable>
 
             {settings.showPos && currentWord.pos && (
               <View style={[styles.topPosBadge, { backgroundColor: colors.primaryLight }]}>
@@ -353,13 +351,10 @@ export default function QuizScreen() {
             )}
 
             <Text style={[styles.questionText, { color: colors.text }]} numberOfLines={4} adjustsFontSizeToFit minimumFontScale={0.5}>{questionContent}</Text>
-            <Pressable
-              onPress={() => speak(currentWord.term)}
-              hitSlop={12}
-              style={styles.speakerBtn}
-            >
+
+            <Pressable onPress={() => speak(currentWord.term)} hitSlop={12} style={styles.speakerBtn}>
               {({ pressed }) => (
-                <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
+                <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
               )}
             </Pressable>
           </View>
@@ -421,9 +416,11 @@ export default function QuizScreen() {
           })}
         </View>
 
-        <View style={styles.navFooter}>
+      </ScrollView>
+
+      <View style={[styles.navFooter, { paddingBottom: insets.bottom + 36 }]}>
           <Pressable
-            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }, currentIndex === 0 && { opacity: 0.4 }]}
+            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }, currentIndex === 0 && { opacity: 0.4 }]}
             disabled={currentIndex === 0}
             onPress={() => setCurrentIndex(prev => prev - 1)}
           >
@@ -432,7 +429,7 @@ export default function QuizScreen() {
           </Pressable>
 
           <Pressable
-            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary }, currentIndex >= currentBatchWords.length - 1 && { opacity: 0.4 }]}
+            style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }, currentIndex >= currentBatchWords.length - 1 && { opacity: 0.4 }]}
             disabled={currentIndex >= currentBatchWords.length - 1}
             onPress={() => setCurrentIndex(prev => prev + 1)}
           >
@@ -440,9 +437,6 @@ export default function QuizScreen() {
             <Ionicons name="chevron-forward" size={20} color={colors.text} />
           </Pressable>
         </View>
-
-        <View style={{ height: Math.max(insets.bottom, 20) }} />
-      </ScrollView>
 
       <StudySettingsModal
         visible={settingsVisible}
@@ -532,7 +526,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     borderRadius: 12,
-    padding: 32,
+    padding: 24,
     alignItems: 'center',
     justifyContent: 'center',
     shadowOffset: { width: 0, height: 12 },
@@ -540,20 +534,19 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
     gap: 12,
-    minHeight: 280,
+    minHeight: 250,
   },
-  questionHeader: {
+  starBtn: {
     position: 'absolute',
     top: 16,
     right: 16,
-    zIndex: 10,
-  },
-  starBtn: {
     padding: 4,
+    zIndex: 10,
   },
   speakerBtn: {
     padding: 8,
-    marginTop: 8,
+    marginTop: 4,
+    alignItems: 'center',
   },
   questionText: {
     fontSize: 28,
@@ -586,12 +579,13 @@ const styles = StyleSheet.create({
   choicesArea: {
     paddingHorizontal: 20,
     gap: 8,
+    marginTop: -12,
   },
   choiceBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 14,
+    paddingVertical: 11,
     paddingHorizontal: 16,
     borderRadius: 12,
     borderWidth: 1.5,
@@ -612,18 +606,20 @@ const styles = StyleSheet.create({
   },
   navFooter: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    marginTop: 8,
+    paddingTop: 12,
+    gap: 12,
   },
   navBtn: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
+    justifyContent: 'center',
+    paddingVertical: 14,
     borderRadius: 12,
-    gap: 4,
+    borderWidth: 1,
+    gap: 6,
   },
   navBtnText: {
     fontSize: 16,

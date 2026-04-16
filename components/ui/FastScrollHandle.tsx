@@ -193,7 +193,7 @@ export default function FastScrollHandle({
           },
         ]}
       >
-        <View style={[styles.bubble, { backgroundColor: colors.primary }]}>
+        <View style={[styles.bubble, { backgroundColor: colors.primaryButton }]}>
           <Text style={styles.bubbleText} numberOfLines={1}>
             {sectionLabel}
           </Text>

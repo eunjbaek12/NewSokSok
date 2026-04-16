@@ -296,7 +296,7 @@ export default function ListContextMenu({
             <Pressable
               onPress={handleRenameSubmit}
               disabled={!renameValue.trim()}
-              style={[styles.btn, { backgroundColor: renameValue.trim() ? colors.primary : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+              style={[styles.btn, { backgroundColor: renameValue.trim() ? colors.primaryButton : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
               <Text style={[styles.btnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.change')}</Text>
             </Pressable>
@@ -348,7 +348,7 @@ export default function ListContextMenu({
               onPress={handleShareSubmit}
               disabled={shareSubmitting || (shareTargetList?.words.length ?? 0) === 0}
               style={[styles.btn, {
-                backgroundColor: (shareSubmitting || (shareTargetList?.words.length ?? 0) === 0) ? colors.surfaceSecondary : colors.primary,
+                backgroundColor: (shareSubmitting || (shareTargetList?.words.length ?? 0) === 0) ? colors.surfaceSecondary : colors.primaryButton,
                 paddingVertical: btn.paddingVertical,
                 borderRadius: btn.borderRadius,
               }]}
@@ -418,7 +418,7 @@ export default function ListContextMenu({
             <Pressable
               onPress={handleMergeSubmit}
               disabled={!mergeTargetId}
-              style={[styles.btn, { backgroundColor: mergeTargetId ? colors.primary : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+              style={[styles.btn, { backgroundColor: mergeTargetId ? colors.primaryButton : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
               <Text style={[styles.btnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.send')}</Text>
             </Pressable>

@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
@@ -29,6 +30,7 @@ import { useOnboarding } from '@/hooks/useOnboarding';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
+  const tabBarHeight = useBottomTabBarHeight();
   const { t } = useTranslation();
   const { colors, isDark, toggleTheme } = useTheme();
   const { authMode, user, logout, signInWithGoogle } = useAuth();
@@ -61,7 +63,11 @@ export default function SettingsScreen() {
   const btn = PopupTokens.button.standard;
 
   const handleOpenNicknameModal = () => {
-    setNicknameInput(profileSettings.nickname);
+    // 닉네임 미설정 상태에서 구글 로그인이면 displayName 자동 채우기
+    const defaultNickname =
+      profileSettings.nickname ||
+      (authMode === 'google' && user?.displayName ? user.displayName : '');
+    setNicknameInput(defaultNickname);
     setNicknameModalOpen(true);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
@@ -133,7 +139,7 @@ export default function SettingsScreen() {
       </View>
 
       <ScrollView
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={[styles.scrollContent, { paddingBottom: tabBarHeight + 24 }]}
         showsVerticalScrollIndicator={false}
       >
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.account')}</Text>
@@ -341,7 +347,6 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
-        <View style={{ height: 100 }} />
       </ScrollView>
 
       <ModalPicker
@@ -393,7 +398,7 @@ export default function SettingsScreen() {
             </Pressable>
             <Pressable
               onPress={handleSaveNickname}
-              style={[styles.modalBtn, { backgroundColor: colors.primary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+              style={[styles.modalBtn, { backgroundColor: colors.primaryButton, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
               <Text style={[styles.modalBtnText, { color: '#FFFFFF', fontSize: btn.fontSize }]}>{t('common.save')}</Text>
             </Pressable>
@@ -431,7 +436,7 @@ export default function SettingsScreen() {
             </Pressable>
             <Pressable
               onPress={handleSaveApiKey}
-              style={[styles.modalBtn, { backgroundColor: colors.primary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
+              style={[styles.modalBtn, { backgroundColor: colors.primaryButton, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
               <Text style={[styles.modalBtnText, { color: '#FFFFFF', fontSize: btn.fontSize }]}>{t('common.save')}</Text>
             </Pressable>

@@ -22,7 +22,7 @@ function AddWordTabButton() {
         width: 56,
         height: 56,
         borderRadius: 28,
-        backgroundColor: colors.primary,
+        backgroundColor: colors.primaryButton,
         alignItems: 'center',
         justifyContent: 'center',
         shadowColor: '#000',

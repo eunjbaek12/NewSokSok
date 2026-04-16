@@ -174,8 +174,8 @@ export default function ListDayPicker({
             <View style={[
               styles.checkbox,
               {
-                backgroundColor: isAllSelected ? colors.primary : 'transparent',
-                borderColor: isAllSelected ? colors.primary : colors.border,
+                backgroundColor: isAllSelected ? colors.primaryButton : 'transparent',
+                borderColor: isAllSelected ? colors.primaryButton : colors.border,
               },
             ]}>
               {isAllSelected && <Ionicons name="checkmark" size={12} color="#FFF" />}
@@ -287,7 +287,7 @@ export default function ListDayPicker({
 
           {/* 적용 버튼 */}
           <View style={styles.footer}>
-            <Pressable style={[styles.applyBtn, { backgroundColor: colors.primary }]} onPress={handleApply}>
+            <Pressable style={[styles.applyBtn, { backgroundColor: colors.primaryButton }]} onPress={handleApply}>
               <Text style={styles.applyBtnText}>{t('common.apply')}</Text>
             </Pressable>
           </View>

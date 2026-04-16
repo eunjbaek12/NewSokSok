@@ -104,7 +104,7 @@ export default function BatchResultOverlay({
                             </Text>
                         </View>
                         <View style={[styles.progressBarBg, { backgroundColor: colors.surfaceSecondary }]}>
-                            <Animated.View style={[styles.progressBarFill, { backgroundColor: colors.primary }, progressBarStyle]} />
+                            <Animated.View style={[styles.progressBarFill, { backgroundColor: colors.primaryButton }, progressBarStyle]} />
                         </View>
                     </View>
 
@@ -118,7 +118,7 @@ export default function BatchResultOverlay({
                                 }}
                                 style={({ pressed }) => [
                                     styles.primaryButton,
-                                    { backgroundColor: colors.primary, opacity: pressed ? 0.8 : 1 },
+                                    { backgroundColor: colors.primaryButton, opacity: pressed ? 0.8 : 1 },
                                 ]}
                             >
                                 <Text style={styles.primaryButtonText}>{t('batchResult.nextSet')}</Text>

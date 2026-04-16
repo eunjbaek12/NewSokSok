@@ -387,7 +387,7 @@ export default function ManageModal({
             <Pressable
               onPress={handleManageAdd}
               disabled={!newListName.trim()}
-              style={[styles.manageAddBtn, { backgroundColor: newListName.trim() ? colors.primary : colors.surfaceSecondary }]}
+              style={[styles.manageAddBtn, { backgroundColor: newListName.trim() ? colors.primaryButton : colors.surfaceSecondary }]}
             >
               <Ionicons name="add" size={22} color={newListName.trim() ? '#FFFFFF' : colors.textTertiary} />
             </Pressable>
@@ -439,7 +439,7 @@ export default function ManageModal({
             </Pressable>
             <Pressable
               onPress={handleApplyManage}
-              style={[styles.manageFooterBtn, { backgroundColor: colors.primary }]}
+              style={[styles.manageFooterBtn, { backgroundColor: colors.primaryButton }]}
             >
               <Text style={[styles.manageFooterBtnText, { color: '#FFFFFF' }]}>{t('common.apply')}</Text>
             </Pressable>

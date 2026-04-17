@@ -224,11 +224,13 @@
     "version": "버전"
   },
   "login": {
-    "appName": "쏙쏙 보카",
-    "appNameEn": "SokSok Voca",
-    "tagline": "AI로 만드는 나만의 영어 단어장",
-    "featureAI": "AI 테마 단어장 자동 생성",
-    "featureFlashcard": "플래시카드 & 퀴즈 학습",
+    "appName": "아보카도",
+    "appNameEn": "A Voca Do",
+    "tagline": "나만의 단어장을 키워봐요 🌱",
+    "featureAI": "AI가 단어장을 뚝딱 만들어줘요",
+    "featureFlashcard": "카드 넘기며 단어를 술술 외워요",
+    "featureShadowing": "듣고 따라 말하는 쉐도잉 학습",
+    "featureSync": "어디서든 내 단어장이 함께해요",
     "googleLogin": "Google로 로그인",
     "googleSubtext": "다른 기기에서도 단어장을 동기화할 수 있어요",
     "guestStart": "바로 시작하기",

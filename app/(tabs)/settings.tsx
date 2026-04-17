@@ -318,7 +318,7 @@ export default function SettingsScreen() {
               </View>
               <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.appName')}</Text>
             </View>
-            <Text style={[styles.rowValue, { color: colors.textSecondary }]}>SokSok Voca</Text>
+            <Text style={[styles.rowValue, { color: colors.textSecondary }]}>아보카도</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.rowLeft}>

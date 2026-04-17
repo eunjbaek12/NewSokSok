@@ -203,11 +203,13 @@
     "version": "Version"
   },
   "login": {
-    "appName": "SokSok Voca",
-    "appNameEn": "SokSok Voca",
-    "tagline": "AI-powered personal vocabulary builder",
-    "featureAI": "AI-generated themed word lists",
-    "featureFlashcard": "Flashcard & quiz learning",
+    "appName": "아보카도",
+    "appNameEn": "A Voca Do",
+    "tagline": "Grow your own vocabulary 🌱",
+    "featureAI": "AI whips up your word list instantly",
+    "featureFlashcard": "Flip cards & master words with ease",
+    "featureShadowing": "Listen & shadow for fluent speaking",
+    "featureSync": "Your vocab list travels with you",
     "googleLogin": "Sign in with Google",
     "googleSubtext": "Sync your vocab lists across devices",
     "guestStart": "Get Started",

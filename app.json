@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "SokSok Voca",
+    "name": "아보카도",
     "slug": "soksok-voca",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,8 +17,8 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.soksokvoca",
       "infoPlist": {
-        "NSSpeechRecognitionUsageDescription": "Allow SokSok Voca to use speech recognition for voice input.",
-        "NSMicrophoneUsageDescription": "Allow SokSok Voca to use the microphone for voice input."
+        "NSSpeechRecognitionUsageDescription": "Allow 아보카도 to use speech recognition for voice input.",
+        "NSMicrophoneUsageDescription": "Allow 아보카도 to use the microphone for voice input."
       }
     },
     "android": {
@@ -56,8 +56,8 @@
       [
         "expo-speech-recognition",
         {
-          "microphonePermission": "Allow SokSok Voca to use the microphone for voice input.",
-          "speechRecognitionPermission": "Allow SokSok Voca to use speech recognition for voice input."
+          "microphonePermission": "Allow 아보카도 to use the microphone for voice input.",
+          "speechRecognitionPermission": "Allow 아보카도 to use speech recognition for voice input."
         }
       ]
     ],

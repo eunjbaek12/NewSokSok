@@ -9,12 +9,13 @@ import {
   Pressable,
 } from 'react-native';
 import { router } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/Button';
+import { AvocadoCharacter } from '@/components/onboarding/AvocadoCharacter';
+
 
 export default function LoginScreen() {
   const insets = useSafeAreaInsets();
@@ -53,29 +54,12 @@ export default function LoginScreen() {
     <View style={[styles.container, { paddingTop: topInset }]}>
       <View style={styles.content}>
         <View style={styles.heroSection}>
-          <View style={styles.logoContainer}>
-            <View style={styles.logoCircle}>
-              <Ionicons name="book" size={40} color="#FFFFFF" />
-            </View>
+          <View style={styles.characterContainer}>
+            <AvocadoCharacter slideIndex={0} isActive={false} isStatic size={110} />
           </View>
           <Text style={styles.appName}>{t('login.appName')}</Text>
           <Text style={styles.appNameEn}>{t('login.appNameEn')}</Text>
           <Text style={styles.tagline}>{t('login.tagline')}</Text>
-        </View>
-
-        <View style={styles.featuresSection}>
-          <View style={styles.featureRow}>
-            <View style={styles.featureDot}>
-              <Ionicons name="sparkles" size={16} color="#6C5CE7" />
-            </View>
-            <Text style={styles.featureText}>{t('login.featureAI')}</Text>
-          </View>
-          <View style={styles.featureRow}>
-            <View style={styles.featureDot}>
-              <Ionicons name="card-outline" size={16} color="#6C5CE7" />
-            </View>
-            <Text style={styles.featureText}>{t('login.featureFlashcard')}</Text>
-          </View>
         </View>
 
         <View style={styles.buttonsSection}>
@@ -102,22 +86,19 @@ export default function LoginScreen() {
             onPress={handleGuestLogin}
             loading={loading === 'guest'}
             disabled={loading !== null}
-            variant="primary"
+            variant="outline"
             icon="phone-portrait-outline"
+            iconColor="#3D7020"
             title={t('login.guestStart')}
             style={styles.guestBtn}
             textStyle={styles.guestBtnText}
           />
-          <Text style={styles.guestSubtext}>
-            {t('login.guestSubtext')}
-          </Text>
+          <Text style={styles.guestSubtext}>{t('login.guestSubtext')}</Text>
         </View>
       </View>
 
       <View style={[styles.footer, { paddingBottom: Platform.OS === 'web' ? 34 + 16 : insets.bottom + 16 }]}>
-        <Text style={styles.footerText}>
-          {t('login.terms')}
-        </Text>
+        <Text style={styles.footerText}>{t('login.terms')}</Text>
         <Pressable onPress={() => Linking.openURL('https://eunjbaek12.github.io/NewSokSok/privacy-policy')}>
           <Text style={styles.privacyLink}>{t('login.privacyPolicy')}</Text>
         </Pressable>
@@ -129,7 +110,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F4F6',
+    backgroundColor: '#F5EDD6',
   },
   content: {
     flex: 1,
@@ -138,66 +119,30 @@ const styles = StyleSheet.create({
   },
   heroSection: {
     alignItems: 'center',
-    marginBottom: 36,
+    marginBottom: 48,
   },
-  logoContainer: {
-    marginBottom: 16,
-  },
-  logoCircle: {
-    width: 80,
-    height: 80,
-    borderRadius: 20,
-    backgroundColor: '#3182F6',
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#3182F6',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.3,
-    shadowRadius: 16,
-    elevation: 8,
+  characterContainer: {
+    marginBottom: 14,
   },
   appName: {
-    fontSize: 32,
+    fontSize: 36,
     fontFamily: 'Pretendard_700Bold',
-    color: '#1A1A2E',
+    color: '#3B2A1A',
     letterSpacing: -1,
   },
   appNameEn: {
-    fontSize: 14,
+    fontSize: 13,
     fontFamily: 'Pretendard_500Medium',
-    color: '#3182F6',
+    color: '#6AB045',
     marginTop: 4,
-    letterSpacing: 2,
+    letterSpacing: 3,
     textTransform: 'uppercase',
   },
   tagline: {
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
-    color: '#8E8EA0',
-    marginTop: 12,
-  },
-  featuresSection: {
-    gap: 14,
-    marginBottom: 40,
-    paddingHorizontal: 8,
-  },
-  featureRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  featureDot: {
-    width: 32,
-    height: 32,
-    borderRadius: 10,
-    backgroundColor: '#F0EEFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  featureText: {
-    fontSize: 15,
-    fontFamily: 'Pretendard_500Medium',
-    color: '#3A3A50',
+    color: '#7A6651',
+    marginTop: 10,
   },
   buttonsSection: {
     gap: 0,
@@ -207,26 +152,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1,
-    borderColor: '#E1E1E5',
-    borderRadius: 14,
+    backgroundColor: '#FFFDF5',
+    borderWidth: 1.5,
+    borderColor: '#C8BAA0',
+    borderRadius: 18,
     paddingVertical: 16,
-    shadowColor: '#000',
+    shadowColor: '#3B2A1A',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
+    shadowOpacity: 0.06,
     shadowRadius: 4,
     elevation: 2,
   },
   googleBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#3A3A50',
+    color: '#4A3728',
   },
   googleSubtext: {
     fontSize: 12,
     fontFamily: 'Pretendard_400Regular',
-    color: '#8E8EA0',
+    color: '#A89880',
     textAlign: 'center',
     marginTop: 8,
     marginBottom: 16,
@@ -240,36 +185,40 @@ const styles = StyleSheet.create({
   dividerLine: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
-    backgroundColor: '#D1D1D6',
+    backgroundColor: '#C8BAA0',
   },
   dividerText: {
     fontSize: 13,
     fontFamily: 'Pretendard_400Regular',
-    color: '#8E8EA0',
+    color: '#A89880',
   },
   guestBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#3182F6',
-    borderRadius: 12,
+    backgroundColor: '#E8F5DC',
+    borderWidth: 1,
+    borderColor: '#6AB045',
+    borderRadius: 18,
     paddingVertical: 16,
+    shadowColor: '#3B2A1A',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
+    elevation: 2,
   },
   guestBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#FFFFFF',
+    color: '#3D7020',
   },
   guestSubtext: {
     fontSize: 12,
     fontFamily: 'Pretendard_400Regular',
-    color: '#8E8EA0',
+    color: '#A89880',
     textAlign: 'center',
     marginTop: 8,
-  },
-  btnDisabled: {
-    opacity: 0.6,
   },
   footer: {
     alignItems: 'center',
@@ -278,13 +227,13 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 11,
     fontFamily: 'Pretendard_400Regular',
-    color: '#B0B0C0',
+    color: '#A89880',
     textAlign: 'center',
   },
   privacyLink: {
     fontSize: 11,
     fontFamily: 'Pretendard_400Regular',
-    color: '#3182F6',
+    color: '#6AB045',
     textAlign: 'center',
     marginTop: 6,
     textDecorationLine: 'underline',

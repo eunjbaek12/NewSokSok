@@ -149,7 +149,7 @@ const THEMES: CardData[] = [
 ];
 
 // 실제 langFilterChips
-const CHIPS = ['전체', 'EN', 'KO', 'JP', 'ZH'];
+const CHIPS = ['전체', '영어', '한국어', '일본어', '중국어'];
 
 export function CurationDemo({ isActive }: { isActive: boolean }) {
   const screenOpacity = useSharedValue(0);
@@ -274,11 +274,11 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
           borderBottomWidth: 2,
           borderBottomColor: C.primary,
         }}>
-          <Text style={{ fontSize: 14 * p, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>공식</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>공식 단어장</Text>
         </View>
-        {/* 커뮤니티 탭 */}
+        {/* 공유 단어장 탭 */}
         <View style={{ flex: 1, paddingVertical: 10 * p, alignItems: 'center' }}>
-          <Text style={{ fontSize: 14 * p, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary }}>커뮤니티</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary }}>공유 단어장</Text>
         </View>
       </View>
 

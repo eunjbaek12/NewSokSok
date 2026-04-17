@@ -12,7 +12,6 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 
-// 실제 앱 colors.light 토큰
 const C = {
   bg: '#F0F4FF',
   surface: '#F8FAFC',
@@ -43,7 +42,6 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
     }
     containerOpacity.value = withTiming(1, { duration: 400 });
 
-    // 1.2s 후 flip, 1.5s 유지 후 다시 뒤집기, 반복
     rotation.value = withRepeat(
       withSequence(
         withTiming(0, { duration: 0 }),
@@ -77,19 +75,19 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
   });
 
   const s = SCALE;
+  const CARD_H = 303 * s;
 
   return (
     <Animated.View style={[styles.wrapper, { opacity: containerOpacity }]}>
       <View style={[styles.screen, { backgroundColor: C.bg, width: AVAIL_W }]}>
 
-        {/* ── 헤더 (실제 flashcards/[id].tsx 와 동일) ── */}
+        {/* ── 헤더 ── */}
         <View style={[styles.header, {
           borderBottomColor: C.border,
           paddingHorizontal: 16 * s,
           paddingTop: 14 * s,
           paddingBottom: 0,
         }]}>
-          {/* headerRow */}
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 * s }}>
             <Ionicons name="chevron-back" size={24 * s} color={C.text} />
             <Text style={{
@@ -103,7 +101,6 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
             <Ionicons name="settings-outline" size={20 * s} color={C.textSecondary} />
           </View>
 
-          {/* progressContainer */}
           <View style={{
             marginTop: 10 * s,
             flexDirection: 'row',
@@ -117,17 +114,20 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
             }}>
               <View style={{ width: '20%', height: '100%', borderRadius: 3 * s, backgroundColor: C.primary }} />
             </View>
-            <Text style={{ fontSize: 12 * s, fontFamily: 'Pretendard_500Medium', color: C.textTertiary, minWidth: 40 * s, textAlign: 'right' }}>
-              1 / 20
+            <Text style={{
+              fontSize: 12 * s, fontFamily: 'Pretendard_500Medium',
+              color: C.textTertiary, minWidth: 40 * s, textAlign: 'right',
+            }}>
+              1 / 4
             </Text>
           </View>
         </View>
 
         {/* ── 카드 영역 ── */}
-        <View style={{ paddingHorizontal: 24 * s, paddingTop: 8 * s, paddingBottom: (76 + 56) * s }}>
-          <View style={{ height: 195 * s, position: 'relative' }}>
+        <View style={{ paddingHorizontal: 24 * s, paddingTop: 8 * s, paddingBottom: 8 * s }}>
+          <View style={{ height: CARD_H, position: 'relative' }}>
 
-            {/* ── 카드 앞면 ── */}
+            {/* ── 카드 앞면 (실제 CardFront 구조와 동일) ── */}
             <Animated.View style={[
               styles.card,
               {
@@ -135,50 +135,60 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 borderColor: C.borderLight,
                 borderWidth: 1,
                 borderRadius: 12 * s,
-                padding: 32 * s,
-                minHeight: 195 * s,
-                gap: 12 * s,
+                padding: 24 * s,
+                minHeight: CARD_H,
+                gap: 6 * s,
               },
               frontStyle,
             ]}>
-              {/* 별 버튼 (starBtn: absolute top right) */}
+              {/* starBtn */}
               <Ionicons
                 name="star-outline"
-                size={22 * s}
+                size={20 * s}
                 color={C.textTertiary}
                 style={{ position: 'absolute', top: 14 * s, right: 14 * s }}
               />
 
-              {/* 품사 배지 */}
+              {/* topPosBadge */}
               <View style={{
                 backgroundColor: C.primaryLight,
-                paddingHorizontal: 8 * s, paddingVertical: 2 * s,
-                borderRadius: 8 * s, marginBottom: 8 * s,
+                paddingHorizontal: 7 * s, paddingVertical: 2 * s,
+                borderRadius: 8 * s, marginBottom: 6 * s,
               }}>
-                <Text style={{ fontSize: 12 * s, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>명사</Text>
+                <Text style={{ fontSize: 11 * s, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>명사</Text>
               </View>
 
-              {/* 단어 */}
-              <Text style={{ fontSize: 36 * s, fontFamily: 'Pretendard_700Bold', color: C.text, textAlign: 'center' }}>apple</Text>
-
-              {/* 발음 */}
-              <Text style={{ fontSize: 14 * s, fontFamily: 'Pretendard_400Regular', color: C.textSecondary, textAlign: 'center' }}>
-                /æp·əl/
+              {/* cardWord */}
+              <Text style={{ fontSize: 26 * s, fontFamily: 'Pretendard_700Bold', color: C.text, textAlign: 'center' }}>
+                apple
               </Text>
 
-              {/* 스피커 */}
-              <Ionicons name="volume-medium-outline" size={26 * s} color={C.textTertiary} />
+              {/* cardInfoRow → phoneticText */}
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ fontSize: 13 * s, fontFamily: 'Pretendard_400Regular', color: C.textSecondary }}>
+                  /æp·əl/
+                </Text>
+              </View>
 
-              {/* 힌트 */}
+              {/* speakerBtn */}
+              <View style={{ padding: 6 * s, alignItems: 'center' }}>
+                <Ionicons name="volume-medium-outline" size={22 * s} color={C.textTertiary} />
+              </View>
+
+              {/* hintText */}
               <Text style={{
-                position: 'absolute', bottom: 14 * s,
-                fontSize: 12 * s, fontFamily: 'Pretendard_400Regular', color: C.textTertiary,
+                position: 'absolute',
+                bottom: 14 * s,
+                fontSize: 11 * s,
+                fontFamily: 'Pretendard_600SemiBold',
+                color: C.textTertiary,
+                opacity: 0.7,
               }}>
                 탭하여 뒤집기
               </Text>
             </Animated.View>
 
-            {/* ── 카드 뒷면 ── */}
+            {/* ── 카드 뒷면 (실제 CardBack 구조와 동일) ── */}
             <Animated.View style={[
               styles.card,
               {
@@ -186,66 +196,74 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 borderColor: C.borderLight,
                 borderWidth: 1,
                 borderRadius: 12 * s,
-                padding: 32 * s,
-                paddingTop: 50 * s,
-                minHeight: 195 * s,
-                gap: 12 * s,
+                padding: 14 * s,
+                paddingTop: 76 * s,
+                minHeight: CARD_H,
+                gap: 6 * s,
               },
               backStyle,
             ]}>
-              {/* 별 버튼 */}
+              {/* starBtn */}
               <Ionicons
                 name="star-outline"
-                size={22 * s}
+                size={20 * s}
                 color={C.textTertiary}
                 style={{ position: 'absolute', top: 14 * s, right: 14 * s }}
               />
 
-              {/* 상단: 품사 + 단어 + 발음 + 스피커 */}
-              <View style={{ alignItems: 'center', gap: 4 * s }}>
+              {/* termWrapper: topPosBadge + term + phonetic + speakerBtn */}
+              <View style={{ alignItems: 'center', gap: 3 * s }}>
                 <View style={{
                   backgroundColor: C.primaryLight,
-                  paddingHorizontal: 6 * s, paddingVertical: 1 * s,
-                  borderRadius: 8 * s,
+                  paddingHorizontal: 5 * s, paddingVertical: 1 * s,
+                  borderRadius: 8 * s, marginBottom: 3 * s,
                 }}>
-                  <Text style={{ fontSize: 10 * s, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>명사</Text>
+                  <Text style={{ fontSize: 9 * s, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>명사</Text>
                 </View>
-                <Text style={{ fontSize: 14 * s, fontFamily: 'Pretendard_500Medium', color: C.textSecondary }}>apple</Text>
-                <Ionicons name="volume-medium-outline" size={16 * s} color={C.textTertiary} />
+                <Text style={{ fontSize: 14 * s, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary }}>
+                  apple
+                </Text>
+                <Text style={{ fontSize: 11 * s, fontFamily: 'Pretendard_400Regular', color: C.textSecondary }}>
+                  /æp·əl/
+                </Text>
+                <View style={{ padding: 4 * s, alignItems: 'center' }}>
+                  <Ionicons name="volume-medium-outline" size={20 * s} color={C.textTertiary} />
+                </View>
               </View>
 
-              {/* 구분선 */}
-              <View style={{ width: '80%', height: StyleSheet.hairlineWidth, backgroundColor: C.border }} />
+              {/* gradientDivider */}
+              <View style={{
+                width: '70%', height: StyleSheet.hairlineWidth,
+                backgroundColor: C.border, alignSelf: 'center',
+              }} />
 
-              {/* 뜻 */}
-              <Text style={{ fontSize: 32 * s, fontFamily: 'Pretendard_700Bold', color: C.text, textAlign: 'center' }}>
+              {/* cardMeaning */}
+              <Text style={{ fontSize: 20 * s, fontFamily: 'Pretendard_700Bold', color: C.text, textAlign: 'center' }}>
                 사과
               </Text>
 
-              {/* 예문 박스 */}
+              {/* cardExampleBox */}
               <View style={{
                 backgroundColor: C.surfaceSecondary,
-                borderRadius: 10 * s, padding: 10 * s,
-                alignSelf: 'stretch',
+                borderRadius: 8 * s, padding: 8 * s,
+                width: '100%',
               }}>
-                <Text style={{ fontSize: 12 * s, fontFamily: 'Pretendard_400Regular', color: C.textSecondary, textAlign: 'center' }}>
+                <Text style={{
+                  fontSize: 10 * s, fontFamily: 'Pretendard_400Regular',
+                  color: C.textSecondary, textAlign: 'center', fontStyle: 'italic',
+                }}>
                   I ate an apple this morning.
-                </Text>
-                <Text style={{ fontSize: 11 * s, fontFamily: 'Pretendard_400Regular', color: C.textTertiary, textAlign: 'center', marginTop: 4 * s }}>
-                  나는 오늘 아침에 사과를 먹었다.
                 </Text>
               </View>
             </Animated.View>
           </View>
         </View>
 
-        {/* ── 하단 버튼 (실제 앱과 동일: 다시 볼게요 / 외웠어요) ── */}
+        {/* ── 하단 버튼 (일반 플로우 - 카드 아래에 위치) ── */}
         <View style={{
-          position: 'absolute',
-          bottom: 12 * s,
-          left: 0, right: 0,
           flexDirection: 'row',
           paddingHorizontal: 16 * s,
+          paddingBottom: 12 * s,
           gap: 16 * s,
         }}>
           {/* 다시 볼게요 */}
@@ -253,13 +271,14 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
             flex: 1,
             backgroundColor: C.warning + '1A',
             borderColor: C.warning + '33',
-            borderRadius: 14 * s,
-            padding: 12 * s,
+            borderRadius: 12 * s,
+            paddingVertical: 12 * s,
+            paddingHorizontal: 12 * s,
           }]}>
-            <Ionicons name="chevron-back" size={22 * s} color={C.warning} />
+            <Ionicons name="chevron-back" size={20 * s} color={C.warning} />
             <View>
               <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 13 * s, color: C.warning }}>다시 볼게요</Text>
-              <Text style={{ fontFamily: 'Pretendard_400Regular', fontSize: 10 * s, color: C.warning, opacity: 0.5 }}>Swipe Left</Text>
+              <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 9 * s, color: C.warning, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Left</Text>
             </View>
           </View>
 
@@ -268,17 +287,19 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
             flex: 1,
             backgroundColor: C.primary + '1A',
             borderColor: C.primary + '33',
-            borderRadius: 14 * s,
-            padding: 12 * s,
+            borderRadius: 12 * s,
+            paddingVertical: 12 * s,
+            paddingHorizontal: 12 * s,
             justifyContent: 'flex-end',
           }]}>
             <View style={{ alignItems: 'flex-end' }}>
               <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 13 * s, color: C.primary }}>외웠어요</Text>
-              <Text style={{ fontFamily: 'Pretendard_400Regular', fontSize: 10 * s, color: C.primary, opacity: 0.5 }}>Swipe Right</Text>
+              <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 9 * s, color: C.primary, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Right</Text>
             </View>
-            <Ionicons name="chevron-forward" size={22 * s} color={C.primary} />
+            <Ionicons name="chevron-forward" size={20 * s} color={C.primary} />
           </View>
         </View>
+
       </View>
     </Animated.View>
   );
@@ -315,6 +336,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    gap: 6,
+    gap: 8,
+    overflow: 'hidden',
   },
 });

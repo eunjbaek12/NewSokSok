@@ -14,6 +14,7 @@ import Svg, { Path, LinearGradient, RadialGradient, Stop, Defs } from 'react-nat
 interface Props {
   slideIndex: number;
   isActive: boolean;
+  isStatic?: boolean;
   size?: number;
 }
 
@@ -25,13 +26,14 @@ const ANIMATIONS = [
   { type: 'pulse' },   // 슬라이드 4: 크기 맥박
 ];
 
-export function AvocadoCharacter({ slideIndex, isActive, size = 180 }: Props) {
+export function AvocadoCharacter({ slideIndex, isActive, isStatic = false, size = 180 }: Props) {
   const translateY = useSharedValue(0);
   const translateX = useSharedValue(0);
-  const scale = useSharedValue(0.8);
-  const opacity = useSharedValue(0);
+  const scale = useSharedValue(isStatic ? 1 : 0.8);
+  const opacity = useSharedValue(isStatic ? 1 : 0);
 
   useEffect(() => {
+    if (isStatic) return;
     if (!isActive) {
       scale.value = withTiming(0.8, { duration: 200 });
       opacity.value = withTiming(0, { duration: 200 });
@@ -89,7 +91,7 @@ export function AvocadoCharacter({ slideIndex, isActive, size = 180 }: Props) {
         false,
       );
     }
-  }, [isActive, slideIndex]);
+  }, [isActive, slideIndex, isStatic]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [

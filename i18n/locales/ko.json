@@ -351,7 +351,11 @@
     "inputLanguageSelect": "입력 언어 선택",
     "meaningLanguageSelect": "뜻 언어 선택",
     "autocomplete": "자동 완성",
-    "disableAutocomplete": "자동 완성 끄기"
+    "disableAutocomplete": "자동 완성 끄기",
+    "langSection": "언어",
+    "screenSection": "화면 설정",
+    "fieldsSection": "표시 항목",
+    "dragHint": "길게 눌러 순서 변경"
   },
   "studyResults": {
     "noResults": "결과 정보가 없습니다",

@@ -567,11 +567,12 @@ export default function CurationScreen() {
                                 onPress={() => setShowListPicker(true)}
                                 disabled={saving || selectedCount === 0 || lists.length === 0}
                                 style={[styles.masterBtnSecondary, {
-                                    borderColor: (saving || selectedCount === 0 || lists.length === 0) ? colors.border : colors.primary,
+                                    backgroundColor: colors.surface,
+                                    borderColor: colors.border,
                                 }]}
                             >
                                 <Text style={[styles.masterBtnSecondaryText, {
-                                    color: (saving || selectedCount === 0 || lists.length === 0) ? colors.textTertiary : colors.primary,
+                                    color: (saving || selectedCount === 0 || lists.length === 0) ? colors.textTertiary : colors.textSecondary,
                                 }]}>
                                     {t('curation.addToExisting')}
                                 </Text>
@@ -579,10 +580,16 @@ export default function CurationScreen() {
                             <Pressable
                                 onPress={handleCreateNew}
                                 disabled={saving || selectedCount === 0}
-                                style={[styles.masterBtn, { backgroundColor: (saving || selectedCount === 0) ? colors.border : colors.primaryButton }]}
+                                style={[styles.masterBtn, {
+                                    backgroundColor: (saving || selectedCount === 0) ? colors.surface : colors.primaryLight,
+                                    borderWidth: 1.5,
+                                    borderColor: (saving || selectedCount === 0) ? colors.border : colors.primary,
+                                }]}
                             >
-                                {saving ? <ActivityIndicator color="#FFF" /> : (
-                                    <Text style={styles.masterBtnText}>{t('curation.createNewList')}</Text>
+                                {saving ? <ActivityIndicator color={colors.primary} /> : (
+                                    <Text style={[styles.masterBtnText, {
+                                        color: (saving || selectedCount === 0) ? colors.textTertiary : colors.primary,
+                                    }]}>{t('curation.createNewList')}</Text>
                                 )}
                             </Pressable>
                         </View>
@@ -1020,6 +1027,6 @@ const styles = StyleSheet.create({
     masterBtnSecondary: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 12, borderWidth: 1.5 },
     masterBtnSecondaryText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     masterBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 12 },
-    masterBtnText: { fontSize: 15, fontFamily: 'Pretendard_700Bold', color: '#FFFFFF' },
+    masterBtnText: { fontSize: 15, fontFamily: 'Pretendard_700Bold' },
     fab: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.15, shadowRadius: 6, elevation: 4 },
 });

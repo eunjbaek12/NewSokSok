@@ -17,7 +17,7 @@ function Dot({ active }: { active: boolean }) {
     <Animated.View
       style={[
         styles.dot,
-        { backgroundColor: active ? '#3182F6' : '#3182F6' },
+        { backgroundColor: active ? '#6AB045' : '#6AB045' },
         animatedStyle,
       ]}
     />

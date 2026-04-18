@@ -88,7 +88,7 @@ export default function LoginScreen() {
             disabled={loading !== null}
             variant="outline"
             icon="phone-portrait-outline"
-            iconColor="#3D7020"
+            iconColor="#4A3728"
             title={t('login.guestStart')}
             style={styles.guestBtn}
             textStyle={styles.guestBtnText}
@@ -152,9 +152,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#FFFDF5',
-    borderWidth: 1.5,
-    borderColor: '#C8BAA0',
+    backgroundColor: '#E8F5DC',
+    borderWidth: 1,
+    borderColor: '#6AB045',
     borderRadius: 18,
     paddingVertical: 16,
     shadowColor: '#3B2A1A',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   googleBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#4A3728',
+    color: '#3D7020',
   },
   googleSubtext: {
     fontSize: 12,
@@ -197,9 +197,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#E8F5DC',
-    borderWidth: 1,
-    borderColor: '#6AB045',
+    backgroundColor: '#FFFDF5',
+    borderWidth: 1.5,
+    borderColor: '#C8BAA0',
     borderRadius: 18,
     paddingVertical: 16,
     shadowColor: '#3B2A1A',
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   guestBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#3D7020',
+    color: '#4A3728',
   },
   guestSubtext: {
     fontSize: 12,

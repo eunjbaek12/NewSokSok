@@ -72,8 +72,8 @@ function ClassicTabLayout({ startupTab }: { startupTab: StartupTab }) {
       initialRouteName={startupTab}
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: isDark ? "#4B96FF" : "#3182F6",
-        tabBarInactiveTintColor: isDark ? "#6B7684" : "#6B7684",
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.tabIconDefault,
         tabBarShowLabel: true,
         tabBarLabelStyle: {
           fontSize: 12,
@@ -83,9 +83,9 @@ function ClassicTabLayout({ startupTab }: { startupTab: StartupTab }) {
         },
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isDark ? "rgba(30, 31, 33, 0.95)" : "rgba(255, 255, 255, 0.95)",
+          backgroundColor: isDark ? "rgba(42, 30, 15, 0.95)" : "rgba(255, 253, 245, 0.95)",
           borderTopWidth: 0.5,
-          borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
+          borderTopColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(59, 42, 26, 0.08)",
           elevation: 8,
           height: 64 + insets.bottom,
           bottom: 0,

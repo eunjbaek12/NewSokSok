@@ -396,7 +396,8 @@ export default function ListDetailScreen() {
   const renderWordCard = useCallback(({ item }: { item: Word }) => {
     const isSpeaking = speakingWordId === item.id;
     const isSelected = editMode && selectedIds.has(item.id);
-    const borderColor = item.isStarred ? '#FFD700' : (item.isMemorized ? colors.success : colors.primary);
+    const borderColor = item.isStarred ? '#FFD700' : (item.isMemorized ? colors.border : colors.primary);
+    const cardBg = isSelected ? colors.primaryLight : (item.isMemorized ? colors.surfaceSecondary : colors.surface);
 
     return (
       <Pressable
@@ -405,7 +406,7 @@ export default function ListDetailScreen() {
         style={[
           styles.card,
           {
-            backgroundColor: isSelected ? colors.primaryLight : colors.surface,
+            backgroundColor: cardBg,
             shadowColor: colors.cardShadow,
             borderLeftColor: borderColor,
             borderLeftWidth: 3,

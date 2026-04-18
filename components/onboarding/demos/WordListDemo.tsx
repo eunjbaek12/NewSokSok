@@ -12,17 +12,17 @@ import Animated, {
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const C = {
-  bg: '#F0F4FF',
-  surface: '#F8FAFC',
-  surfaceSecondary: '#EBEEF2',
-  text: '#191F28',
-  textSecondary: '#4E5968',
-  textTertiary: '#8B95A1',
-  primary: '#3182F6',
-  primaryLight: '#E8F0FE',
-  border: '#E5E8EB',
-  borderLight: '#F2F4F6',
-  success: '#22C55E',
+  bg: '#FAF6EC',
+  surface: '#FFFDF5',
+  surfaceSecondary: '#F0E8D5',
+  text: '#3B2A1A',
+  textSecondary: '#7A6651',
+  textTertiary: '#A89880',
+  primary: '#6AB045',
+  primaryLight: '#E8F5D9',
+  border: '#C8BAA0',
+  borderLight: '#DDD3BF',
+  success: '#6AB045',
   naverGreen: '#03C75A',
   // 키보드 색상 (iOS 스타일)
   kbBg: '#CDD0D5',
@@ -30,11 +30,10 @@ const C = {
   kbSpecial: '#ADB5BC',
   kbHighlight: '#A8AAAF',
   kbText: '#000000',
-  kbReturn: '#3182F6',
+  kbReturn: '#6AB045',
 };
 
-const SCREEN_W = Dimensions.get('window').width;
-const AVAIL_W = SCREEN_W - 56;
+const AVAIL_W = 300;
 const S = AVAIL_W / 340;
 
 // ─── 단어 카드 ───────────────────────────────────────────────
@@ -553,7 +552,7 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
   const listFabStyle = useAnimatedStyle(() => ({ transform: [{ scale: listFabScale.value }] }));
 
   return (
-    <Animated.View style={[screenStyle, styles.screen, { backgroundColor: C.bg, width: AVAIL_W }]}>
+    <Animated.View style={[screenStyle, styles.screen, { backgroundColor: C.bg, width: AVAIL_W, height: 420 }]}>
       {/* ── 헤더 ── */}
       <View style={{
         paddingHorizontal: 14 * p, paddingTop: 13 * p, paddingBottom: 9 * p,

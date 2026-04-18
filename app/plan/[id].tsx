@@ -566,14 +566,14 @@ export default function PlanScreen() {
                     styles.modeBtn,
                     {
                       backgroundColor: isSelected ? colors.primaryLight : colors.surface,
-                      borderWidth: isSelected ? 1.5 : 0,
-                      borderColor: colors.primary,
+                      borderWidth: 1.5,
+                      borderColor: isSelected ? colors.primary : colors.border,
                       opacity: pressed ? 0.8 : 1,
                     },
                   ]}
                 >
-                  <Ionicons name={icon as any} size={20} color={colors.primary} />
-                  <Text style={[styles.modeBtnText, { color: isSelected ? colors.primary : colors.text }]}>{t(labelKey)}</Text>
+                  <Ionicons name={icon as any} size={20} color={isSelected ? colors.primary : colors.textSecondary} />
+                  <Text style={[styles.modeBtnText, { color: isSelected ? colors.primary : colors.textSecondary }]}>{t(labelKey)}</Text>
                 </Pressable>
               );
             })}

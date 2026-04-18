@@ -12,27 +12,26 @@ import CharacterSvg from '@/components/CharacterSvg';
 
 // 실제 앱 colors.light 토큰
 const C = {
-  bg: '#F0F4FF',
-  surface: '#F8FAFC',
-  surfaceSecondary: '#EBEEF2',
-  text: '#191F28',
-  textSecondary: '#4E5968',
-  textTertiary: '#8B95A1',
-  primary: '#3182F6',
-  primaryLight: '#E8F0FE',
-  primaryButton: '#3182F6',
-  border: '#E5E8EB',
-  borderLight: '#F2F4F6',
+  bg: '#FAF6EC',
+  surface: '#FFFDF5',
+  surfaceSecondary: '#F0E8D5',
+  text: '#3B2A1A',
+  textSecondary: '#7A6651',
+  textTertiary: '#A89880',
+  primary: '#6AB045',
+  primaryLight: '#E8F5D9',
+  primaryButton: '#6AB045',
+  border: '#C8BAA0',
+  borderLight: '#DDD3BF',
   cardShadow: 'rgba(25,31,40,0.08)',
 };
 
 const LEVEL_STYLES = {
-  beginner: { label: '초급', bg: '#DCFCE7', color: '#16A34A' },
-  intermediate: { label: '중급', bg: '#DBEAFE', color: '#2563EB' },
+  beginner: { label: '초급', bg: '#E8F5D9', color: '#16A34A' },
+  intermediate: { label: '중급', bg: '#E8F5D9', color: '#5A9438' },
 };
 
-const SCREEN_W = Dimensions.get('window').width;
-const AVAIL_W = SCREEN_W - 56;
+const AVAIL_W = 300;
 const S = AVAIL_W / 340;
 
 type CardData = {
@@ -164,7 +163,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
   const p = S;
 
   return (
-    <Animated.View style={[screenStyle, styles.screen, { backgroundColor: C.bg, width: AVAIL_W }]}>
+    <Animated.View style={[screenStyle, styles.screen, { backgroundColor: C.bg, width: AVAIL_W, height: 420 }]}>
 
       {/* ── 헤더 (실제 curation.tsx: paddingHorizontal 20, paddingBottom 8, gap 12) ── */}
       <View style={{

@@ -13,21 +13,20 @@ import Animated, {
 import { Ionicons } from '@expo/vector-icons';
 
 const C = {
-  bg: '#F0F4FF',
-  surface: '#F8FAFC',
-  surfaceSecondary: '#EBEEF2',
-  text: '#191F28',
-  textSecondary: '#4E5968',
-  textTertiary: '#8B95A1',
-  primary: '#3182F6',
-  primaryLight: '#E8F0FE',
-  border: '#E5E8EB',
-  borderLight: '#F2F4F6',
+  bg: '#FAF6EC',
+  surface: '#FFFDF5',
+  surfaceSecondary: '#F0E8D5',
+  text: '#3B2A1A',
+  textSecondary: '#7A6651',
+  textTertiary: '#A89880',
+  primary: '#6AB045',
+  primaryLight: '#E8F5D9',
+  border: '#C8BAA0',
+  borderLight: '#DDD3BF',
   warning: '#F59E0B',
 };
 
-const SCREEN_W = Dimensions.get('window').width;
-const AVAIL_W = SCREEN_W - 56;
+const AVAIL_W = 300;
 const SCALE = AVAIL_W / 340;
 
 export function FlashcardDemo({ isActive }: { isActive: boolean }) {
@@ -79,7 +78,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
 
   return (
     <Animated.View style={[styles.wrapper, { opacity: containerOpacity }]}>
-      <View style={[styles.screen, { backgroundColor: C.bg, width: AVAIL_W }]}>
+      <View style={[styles.screen, { backgroundColor: C.bg, width: AVAIL_W, height: 420 }]}>
 
         {/* ── 헤더 ── */}
         <View style={[styles.header, {
@@ -317,7 +316,7 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   header: {
-    backgroundColor: '#F0F4FF',
+    backgroundColor: '#FAF6EC',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   card: {

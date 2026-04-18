@@ -297,6 +297,7 @@ export default function AddWordScreen() {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [inputWrapperHeight, setInputWrapperHeight] = useState(50);
     const autocompleteTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+    const suppressBlurRef = React.useRef(false);
 
     const [fieldSettingsOpen, setFieldSettingsOpen] = useState(false);
     const [tempSettings, setTempSettings] = useState(inputSettings);
@@ -319,10 +320,10 @@ export default function AddWordScreen() {
 
     const animatedFabStyle = useAnimatedStyle(() => {
         return {
-            transform: [
-                { translateY: -keyboard.height.value }
-            ],
-            opacity: keyboard.height.value > 0 ? 1 : 0.9,
+            transform: [{
+                translateY: -Math.max(keyboard.height.value, 100),
+            }],
+            opacity: 1,
         };
     });
 
@@ -725,7 +726,9 @@ export default function AddWordScreen() {
                                                         ref={termInputRef}
                                                         style={[styles.wordInput, { color: colors.text, backgroundColor: colors.surface, borderColor: errors.term ? colors.error : isTermFocused ? colors.primary : colors.border }]}
                                                         onFocus={() => setIsTermFocused(true)}
-                                                        onBlur={() => setIsTermFocused(false)}
+                                                        onBlur={() => {
+                                                            if (!suppressBlurRef.current) setIsTermFocused(false);
+                                                        }}
                                                         placeholder={getPlaceholderText(inputSettings.sourceLang, t)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
@@ -778,19 +781,17 @@ export default function AddWordScreen() {
                                                             />
                                                         </Pressable>
                                                         <Pressable
+                                                            onPressIn={() => { suppressBlurRef.current = true; }}
                                                             onPress={handleSearch}
+                                                            onPressOut={() => { suppressBlurRef.current = false; }}
                                                             disabled={!term.trim() || isPendingFill}
                                                             style={styles.searchIconButton}
                                                         >
-                                                            {isPendingFill ? (
-                                                                <ActivityIndicator size="small" color={colors.primary} />
-                                                            ) : (
-                                                                <Ionicons
-                                                                    name="search-outline"
-                                                                    size={22}
-                                                                    color={term.trim() ? colors.primary : colors.textTertiary}
-                                                                />
-                                                            )}
+                                                            <Ionicons
+                                                                name="search-outline"
+                                                                size={22}
+                                                                color={!term.trim() ? colors.textTertiary : isPendingFill ? colors.primary + '60' : colors.primary}
+                                                            />
                                                         </Pressable>
                                                         <Pressable
                                                             onPress={() => {
@@ -1025,14 +1026,13 @@ export default function AddWordScreen() {
             <Modal
                 visible={fieldSettingsOpen}
                 transparent
-                animationType="slide"
+                animationType="fade"
                 onRequestClose={() => setFieldSettingsOpen(false)}
             >
                 <GestureHandlerRootView style={{ flex: 1 }}>
                     <Pressable style={[styles.modalOverlay, { backgroundColor: colors.overlay }]} onPress={() => setFieldSettingsOpen(false)}>
                         <GestureDetector gesture={modalGesture}>
                             <Animated.View
-                                entering={FadeIn.duration(200)}
                                 style={[styles.modalContainer, { backgroundColor: colors.surface }, modalAnimatedStyle]}
                             >
                                 <View style={{ alignItems: 'center', marginBottom: 8, marginTop: -12, paddingVertical: 6 }}>
@@ -1394,7 +1394,6 @@ const styles = StyleSheet.create({
     modalContainer: {
         width: '94%',
         maxWidth: 400,
-        backgroundColor: '#fff',
         borderRadius: 20,
         padding: 16,
         paddingTop: 10,

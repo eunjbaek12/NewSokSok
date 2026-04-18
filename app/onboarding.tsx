@@ -24,29 +24,29 @@ const SLIDES = [
   {
     titleKey: 'onboarding.slide1.title',
     bodyKey: 'onboarding.slide1.body',
-    bg: '#FFF7ED',
-    accent: '#F97316',
+    bg: '#FDECD8',
+    accent: '#E07B39',
     demo: 'wordlist',
   },
   {
     titleKey: 'onboarding.slide2.title',
     bodyKey: 'onboarding.slide2.body',
-    bg: '#F0EEFF',
-    accent: '#6C5CE7',
+    bg: '#F5EDD6',
+    accent: '#D4860B',
     demo: 'flashcard',
   },
   {
     titleKey: 'onboarding.slide3.title',
     bodyKey: 'onboarding.slide3.body',
-    bg: '#F0FDFA',
-    accent: '#0D9488',
+    bg: '#EFF7E8',
+    accent: '#6AB045',
     demo: 'curation',
   },
   {
     titleKey: 'onboarding.slide4.title',
     bodyKey: 'onboarding.slide4.body',
-    bg: '#EBF3FF',
-    accent: '#3182F6',
+    bg: '#FAF6EC',
+    accent: '#6AB045',
     demo: 'avocado',
   },
 ];
@@ -85,11 +85,6 @@ export default function OnboardingScreen() {
     setCurrentIndex(next);
   };
 
-  const handleSkip = () => {
-    Haptics.selectionAsync();
-    handleFinish();
-  };
-
   const handleFinish = async () => {
     await markOnboardingDone();
     router.replace('/login');
@@ -107,17 +102,6 @@ export default function OnboardingScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: slide.bg }]}>
-      {/* Skip 버튼 */}
-      {!isLast && (
-        <TouchableOpacity
-          style={[styles.skipBtn, { top: insets.top + 16 }]}
-          onPress={handleSkip}
-          hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}
-        >
-          <Text style={styles.skipText}>{t('onboarding.skip')}</Text>
-        </TouchableOpacity>
-      )}
-
       {/* 슬라이드 */}
       <ScrollView
         ref={scrollRef}
@@ -133,7 +117,7 @@ export default function OnboardingScreen() {
             key={i}
             style={[
               styles.slide,
-              { backgroundColor: s.bg, paddingTop: insets.top + 48 },
+              { backgroundColor: s.bg, paddingTop: insets.top + 16 },
             ]}
           >
             {/* 데모 영역 */}
@@ -171,16 +155,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  skipBtn: {
-    position: 'absolute',
-    right: 24,
-    zIndex: 10,
-  },
-  skipText: {
-    fontSize: 15,
-    fontFamily: 'Pretendard_500Medium',
-    color: '#8E8EA0',
-  },
   scrollView: {
     flex: 1,
   },
@@ -190,10 +164,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 28,
   },
   demoArea: {
-    flex: 1,
+    height: 440,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   textArea: {
+    paddingTop: 16,
     paddingBottom: 24,
     gap: 10,
   },

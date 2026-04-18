@@ -11,18 +11,18 @@ import { Ionicons } from '@expo/vector-icons';
 
 // 실제 앱 colors.light 토큰
 const C = {
-  bg: '#F0F4FF',
-  surface: '#F8FAFC',
-  surfaceSecondary: '#EBEEF2',
-  text: '#191F28',
-  textSecondary: '#4E5968',
-  textTertiary: '#8B95A1',
-  primary: '#3182F6',
-  primaryLight: '#E8F0FE',
-  border: '#E5E8EB',
-  borderLight: '#F2F4F6',
-  success: '#22C55E',
-  successLight: '#DCFCE7',
+  bg: '#FAF6EC',
+  surface: '#FFFDF5',
+  surfaceSecondary: '#F0E8D5',
+  text: '#3B2A1A',
+  textSecondary: '#7A6651',
+  textTertiary: '#A89880',
+  primary: '#6AB045',
+  primaryLight: '#E8F5D9',
+  border: '#C8BAA0',
+  borderLight: '#DDD3BF',
+  success: '#6AB045',
+  successLight: '#E8F5D9',
 };
 
 const SCREEN_W = Dimensions.get('window').width;
@@ -193,9 +193,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    backgroundColor: '#F0F4FF',
+    backgroundColor: '#FAF6EC',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#E5E8EB',
+    borderColor: '#C8BAA0',
   },
   banner: {
     flexDirection: 'row',

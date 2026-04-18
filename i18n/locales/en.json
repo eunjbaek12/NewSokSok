@@ -330,11 +330,7 @@
     "inputLanguageSelect": "Select Input Language",
     "meaningLanguageSelect": "Select Meaning Language",
     "autocomplete": "Autocomplete",
-    "disableAutocomplete": "Disable Autocomplete",
-    "langSection": "Language",
-    "screenSection": "Screen",
-    "fieldsSection": "Display Fields",
-    "dragHint": "Hold to reorder"
+    "disableAutocomplete": "Disable Autocomplete"
   },
   "studyResults": {
     "noResults": "No results available",

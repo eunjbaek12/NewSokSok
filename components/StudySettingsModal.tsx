@@ -1,11 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import ModalOverlay from './ui/ModalOverlay';
-import Toggle from './ui/Toggle';
 import { Ionicons } from '@expo/vector-icons';
+import Animated, { useAnimatedStyle, withTiming, interpolateColor } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
+
+const CustomToggle = ({ value, onValueChange, activeColor = '#4A7DFF' }: { value: boolean, onValueChange: (v: boolean) => void, activeColor?: string }) => {
+    const { colors, isDark } = useTheme();
+
+    const animatedStyle = useAnimatedStyle(() => {
+        return {
+            transform: [{ translateX: withTiming(value ? 14 : 0, { duration: 200 }) }],
+        };
+    });
+
+    const trackStyle = useAnimatedStyle(() => {
+        return {
+            backgroundColor: withTiming(value ? activeColor : (isDark ? '#374151' : '#E5E7EB'), { duration: 200 }),
+        };
+    });
+
+    return (
+        <Pressable onPress={() => onValueChange(!value)} style={{ padding: 4 }}>
+            <Animated.View style={[{
+                width: 30,
+                height: 16,
+                borderRadius: 8,
+                justifyContent: 'center',
+                paddingHorizontal: 2,
+            }, trackStyle]}>
+                <Animated.View style={[{
+                    width: 12,
+                    height: 12,
+                    borderRadius: 6,
+                    backgroundColor: '#FFF',
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 1 },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 1,
+                    elevation: 1,
+                }, animatedStyle]} />
+            </Animated.View>
+        </Pressable>
+    );
+};
 
 export interface StudySettings {
     filter: 'all' | 'learning' | 'memorized';
@@ -126,7 +166,7 @@ export default function StudySettingsModal({
                                         </View>
                                         <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.starredOnly')}</Text>
                                     </View>
-                                    <Toggle
+                                    <CustomToggle
                                         value={tempSettings.isStarred}
                                         onValueChange={v => updateSetting('isStarred', v)}
                                     />
@@ -143,7 +183,7 @@ export default function StudySettingsModal({
                                                 </View>
                                                 <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.showPos')}</Text>
                                             </View>
-                                            <Toggle
+                                            <CustomToggle
                                                 value={!!tempSettings.showPos}
                                                 onValueChange={v => updateSetting('showPos', v)}
                                             />
@@ -192,7 +232,7 @@ export default function StudySettingsModal({
                                                 {mode === 'examples' ? t('studySettings.shuffleSentences') : t('studySettings.shuffleWords')}
                                             </Text>
                                         </View>
-                                        <Toggle
+                                        <CustomToggle
                                             value={!!tempSettings.shuffle}
                                             onValueChange={v => updateSetting('shuffle', v)}
                                         />
@@ -207,7 +247,7 @@ export default function StudySettingsModal({
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.autoSound')}</Text>
                                         </View>
-                                        <Toggle
+                                        <CustomToggle
                                             value={!!tempSettings.autoPlaySound}
                                             onValueChange={v => updateSetting('autoPlaySound', v)}
                                         />
@@ -265,7 +305,7 @@ export default function StudySettingsModal({
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.pos')}</Text>
                                         </View>
-                                        <Toggle
+                                        <CustomToggle
                                             value={!!tempSettings.showPos}
                                             onValueChange={v => updateSetting('showPos', v)}
                                         />
@@ -281,7 +321,7 @@ export default function StudySettingsModal({
                                                     </View>
                                                     <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.phonetic')}</Text>
                                                 </View>
-                                                <Toggle
+                                                <CustomToggle
                                                     value={!!tempSettings.showPhonetic}
                                                     onValueChange={v => updateSetting('showPhonetic', v)}
                                                 />
@@ -298,7 +338,7 @@ export default function StudySettingsModal({
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.example')}</Text>
                                         </View>
-                                        <Toggle
+                                        <CustomToggle
                                             value={!!tempSettings.showExample}
                                             onValueChange={v => updateSetting('showExample', v)}
                                         />
@@ -313,7 +353,7 @@ export default function StudySettingsModal({
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.exampleTranslation')}</Text>
                                         </View>
-                                        <Toggle
+                                        <CustomToggle
                                             value={!!tempSettings.showExampleKr}
                                             onValueChange={v => updateSetting('showExampleKr', v)}
                                         />
@@ -333,7 +373,7 @@ export default function StudySettingsModal({
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.exampleTranslation')}</Text>
                                         </View>
-                                        <Toggle
+                                        <CustomToggle
                                             value={!!tempSettings.showExampleKr}
                                             onValueChange={v => updateSetting('showExampleKr', v)}
                                         />

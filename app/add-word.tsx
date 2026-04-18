@@ -30,7 +30,6 @@ try {
 }
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/contexts/ThemeContext';
-import Toggle from '@/components/ui/Toggle';
 import { useVocab } from '@/contexts/VocabContext';
 import { useAddWord } from '@/hooks/useAddWord';
 import { Button } from '@/components/ui/Button';
@@ -53,8 +52,8 @@ import Animated, {
     useAnimatedKeyboard,
     useAnimatedStyle,
     withSpring,
-    withTiming,
     useSharedValue,
+    withTiming,
     runOnJS,
 } from 'react-native-reanimated';
 import {
@@ -256,7 +255,7 @@ export default function AddWordScreen() {
     const termInputRef = React.useRef<TextInput>(null);
     const { listId, wordId } = useLocalSearchParams<{ listId: string; wordId?: string }>();
     const { t } = useTranslation();
-    const { colors, isDark } = useTheme();
+    const { colors } = useTheme();
     const insets = useSafeAreaInsets();
     const { lists, getWordsForList, createList, addWord } = useVocab();
     const params = useLocalSearchParams<any>();
@@ -384,6 +383,30 @@ export default function AddWordScreen() {
         if (tempSettings.showTags) count++;
         return count;
     }, [tempSettings]);
+
+    const modalTranslateY = useSharedValue(0);
+    const modalGesture = Gesture.Pan()
+        .onUpdate((e) => {
+            if (e.translationY > 0) {
+                modalTranslateY.value = e.translationY;
+            }
+        })
+        .onEnd((e) => {
+            if (e.translationY > 100 || e.velocityY > 500) {
+                runOnJS(setFieldSettingsOpen)(false);
+            }
+            modalTranslateY.value = withSpring(0, { damping: 20, stiffness: 200 });
+        });
+
+    const modalAnimatedStyle = useAnimatedStyle(() => ({
+        transform: [{ translateY: modalTranslateY.value }]
+    }));
+
+    useEffect(() => {
+        if (fieldSettingsOpen) {
+            modalTranslateY.value = 0;
+        }
+    }, [fieldSettingsOpen]);
 
     useEffect(() => {
         if (!isEditing && !fieldSettingsOpen) {
@@ -1008,88 +1031,156 @@ export default function AddWordScreen() {
             >
                 <GestureHandlerRootView style={{ flex: 1 }}>
                     <Pressable style={[styles.modalOverlay, { backgroundColor: colors.overlay }]} onPress={() => setFieldSettingsOpen(false)}>
-                        <View style={[styles.modalContainer, { backgroundColor: colors.surface }]} onStartShouldSetResponder={() => true}>
-
-                            {/* 헤더 */}
-                            <View style={styles.inputSettingsHeader}>
-                                <Text style={[styles.inputSettingsTitle, { color: colors.text }]}>{t('addWord.fieldSettings')}</Text>
-                                <Pressable onPress={() => setFieldSettingsOpen(false)} hitSlop={8} style={[styles.inputSettingsCloseBtn, { backgroundColor: 'rgba(150,150,150,0.1)' }]}>
-                                    <Ionicons name="close" size={20} color={colors.textSecondary} />
-                                </Pressable>
-                            </View>
-
-                            <ScrollView
-                                showsVerticalScrollIndicator={false}
-                                style={styles.inputSettingsScroll}
-                                contentContainerStyle={{ paddingBottom: 8 }}
-                                keyboardShouldPersistTaps="handled"
+                        <GestureDetector gesture={modalGesture}>
+                            <Animated.View
+                                style={[styles.modalContainer, { backgroundColor: colors.surface }, modalAnimatedStyle]}
                             >
-                                {/* 카드 1: 언어 */}
-                                <View style={[styles.inputSettingsCard, { backgroundColor: isDark ? colors.surfaceSecondary : '#FFF' }]}>
-                                    <Text style={[styles.inputSettingsSectionLabel, { color: colors.textSecondary }]}>{t('addWord.langSection')}</Text>
-                                    <Pressable onPress={() => setSourceLangPickerOpen(true)} style={styles.inputSettingRow}>
-                                        <View style={styles.inputSettingRowLeft}>
-                                            <View style={styles.inputSettingIconBox}><Text style={{ fontSize: 13 }}>🔤</Text></View>
-                                            <Text style={[styles.inputSettingLabel, { color: colors.text }]}>{t('addWord.inputLanguage')}</Text>
-                                        </View>
-                                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                            <Text style={{ fontSize: 13 }}>{getLanguageFlag(tempSettings.sourceLang)}</Text>
-                                            <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.textSecondary, fontSize: 12 }}>{getLanguageLabel(tempSettings.sourceLang, t)}</Text>
-                                            <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
-                                        </View>
-                                    </Pressable>
-                                    <View style={[styles.inputSettingDivider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-                                    <Pressable onPress={() => setTargetLangPickerOpen(true)} style={styles.inputSettingRow}>
-                                        <View style={styles.inputSettingRowLeft}>
-                                            <View style={styles.inputSettingIconBox}><Text style={{ fontSize: 13 }}>🎯</Text></View>
-                                            <Text style={[styles.inputSettingLabel, { color: colors.text }]}>{t('addWord.meaningLanguage')}</Text>
-                                        </View>
-                                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                            <Text style={{ fontSize: 13 }}>{getLanguageFlag(tempSettings.targetLang)}</Text>
-                                            <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.textSecondary, fontSize: 12 }}>{getLanguageLabel(tempSettings.targetLang, t)}</Text>
-                                            <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
-                                        </View>
+                                <View style={{ alignItems: 'center', marginBottom: 8, marginTop: -12, paddingVertical: 6 }}>
+                                    <View style={{ width: 36, height: 4, borderRadius: 2, backgroundColor: colors.border, opacity: 0.5 }} />
+                                </View>
+
+                                <View style={styles.modalHeader}>
+                                    <Text style={[styles.modalTitle, { color: colors.text }]}>{t('addWord.fieldSettings')}</Text>
+                                    <Pressable onPress={() => setFieldSettingsOpen(false)} hitSlop={12} style={{ backgroundColor: colors.surfaceSecondary, padding: 6, borderRadius: 20 }}>
+                                        <Ionicons name="close" size={20} color={colors.textSecondary} />
                                     </Pressable>
                                 </View>
 
-                                {/* 카드 2: 화면 설정 */}
-                                <View style={[styles.inputSettingsCard, { backgroundColor: isDark ? colors.surfaceSecondary : '#FFF' }]}>
-                                    <Text style={[styles.inputSettingsSectionLabel, { color: colors.textSecondary }]}>{t('addWord.screenSection')}</Text>
-                                    <View style={styles.inputSettingRow}>
-                                        <View style={styles.inputSettingRowLeft}>
-                                            <View style={styles.inputSettingIconBox}>
-                                                <Ionicons name="expand-outline" size={16} color="#4A7DFF" />
-                                            </View>
-                                            <Text style={[styles.inputSettingLabel, { color: colors.text }]}>{t('addWord.fullscreenMode')}</Text>
-                                        </View>
-                                        <Toggle
-                                            value={tempSettings.addWordMode === 'full'}
-                                            onValueChange={(v) => setTempSettings(s => ({ ...s, addWordMode: v ? 'full' : 'popup' }))}
-                                            activeColor="#4A7DFF"
-                                        />
+                                <Pressable
+                                    onPress={() => setTempSettings(s => ({ ...s, addWordMode: s.addWordMode === 'full' ? 'popup' : 'full' }))}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 8,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
+                                    }}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Ionicons name="expand-outline" size={18} color={colors.primary} />
+                                        <Text style={[styles.settingsSectionTitle, { marginBottom: 0, color: colors.primary, fontSize: 13 }]}>{t('addWord.fullscreenMode')}</Text>
                                     </View>
-                                    <View style={[styles.inputSettingDivider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
-                                    <View style={styles.inputSettingRow}>
-                                        <View style={styles.inputSettingRowLeft}>
-                                            <View style={styles.inputSettingIconBox}>
-                                                <Ionicons name="sparkles-outline" size={16} color="#9333EA" />
-                                            </View>
-                                            <Text style={[styles.inputSettingLabel, { color: colors.text }]}>{t('addWord.autocomplete')}</Text>
-                                        </View>
-                                        <Toggle
-                                            value={tempSettings.enableAutocomplete}
-                                            onValueChange={(v) => setTempSettings(s => ({ ...s, enableAutocomplete: v }))}
-                                            activeColor="#9333EA"
-                                        />
+                                    <View
+                                        style={{
+                                            width: 40,
+                                            height: 22,
+                                            borderRadius: 11,
+                                            backgroundColor: tempSettings.addWordMode === 'full' ? colors.primaryButton : colors.border,
+                                            padding: 2,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <View style={{
+                                            width: 18,
+                                            height: 18,
+                                            borderRadius: 9,
+                                            backgroundColor: '#fff',
+                                            transform: [{ translateX: tempSettings.addWordMode === 'full' ? 18 : 0 }]
+                                        }} />
                                     </View>
+                                </Pressable>
+
+                                {/* 자동 완성 토글 */}
+                                <Pressable
+                                    onPress={() => setTempSettings(s => ({ ...s, enableAutocomplete: !s.enableAutocomplete }))}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 8,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
+                                    }}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Ionicons name="sparkles-outline" size={18} color={colors.primary} />
+                                        <Text style={[styles.settingsSectionTitle, { marginBottom: 0, color: colors.primary, fontSize: 13 }]}>{t('addWord.autocomplete')}</Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            width: 40,
+                                            height: 22,
+                                            borderRadius: 11,
+                                            backgroundColor: tempSettings.enableAutocomplete ? colors.primaryButton : colors.border,
+                                            padding: 2,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <View style={{
+                                            width: 18,
+                                            height: 18,
+                                            borderRadius: 9,
+                                            backgroundColor: '#fff',
+                                            transform: [{ translateX: tempSettings.enableAutocomplete ? 18 : 0 }]
+                                        }} />
+                                    </View>
+                                </Pressable>
+
+                                {/* 입력 언어 (출발어) */}
+                                <Pressable
+                                    onPress={() => setSourceLangPickerOpen(true)}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 8,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
+                                    }}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Text style={{ fontSize: 16 }}>🔤</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.inputLanguage')}</Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.sourceLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.sourceLang, t)}</Text>
+                                        <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
+                                    </View>
+                                </Pressable>
+
+                                {/* 뜻 언어 (도착어) */}
+                                <Pressable
+                                    onPress={() => setTargetLangPickerOpen(true)}
+                                    style={{
+                                        flexDirection: 'row',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                        marginBottom: 12,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                        backgroundColor: colors.primary + '08',
+                                        borderWidth: 1,
+                                        borderColor: colors.primary + '20'
+                                    }}
+                                >
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                                        <Text style={{ fontSize: 16 }}>🎯</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.meaningLanguage')}</Text>
+                                    </View>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.targetLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.targetLang, t)}</Text>
+                                        <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
+                                    </View>
+                                </Pressable>
+
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6, paddingHorizontal: 4 }}>
+                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>{t('addWord.fieldName')}</Text>
+                                    <Text style={{ fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: colors.textTertiary, letterSpacing: 0.5 }}>{t('addWord.display')}</Text>
                                 </View>
 
-                                {/* 카드 3: 표시 항목 */}
-                                <View style={[styles.inputSettingsCard, { backgroundColor: isDark ? colors.surfaceSecondary : '#FFF' }]}>
-                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <Text style={[styles.inputSettingsSectionLabel, { color: colors.textSecondary }]}>{t('addWord.fieldsSection')}</Text>
-                                        <Text style={{ fontSize: 9, fontFamily: 'Pretendard_400Regular', color: colors.textTertiary, marginBottom: 4 }}>{t('addWord.dragHint')}</Text>
-                                    </View>
+                                <View style={{ maxHeight: 380, paddingBottom: 12 }}>
                                     <DraggableFieldList
                                         settings={tempSettings}
                                         onUpdate={setTempSettings}
@@ -1097,38 +1188,45 @@ export default function AddWordScreen() {
                                         t={t}
                                     />
                                 </View>
-                            </ScrollView>
 
-                            {/* 하단 버튼 */}
-                            <View style={styles.inputSettingsBottomButtons}>
-                                <Pressable
-                                    onPress={handleCancelSettings}
-                                    style={[styles.inputSettingsBtnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
-                                >
-                                    <Text style={[styles.inputSettingsBtnText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>{t('common.cancel')}</Text>
-                                </Pressable>
-                                <Pressable
-                                    onPress={handleApplySettings}
-                                    disabled={isApplying}
-                                    style={[styles.inputSettingsBtnApply, { backgroundColor: isApplying ? colors.successButton : colors.primaryButton }]}
-                                >
-                                    {isApplying ? (
-                                        <>
-                                            <Ionicons name="checkmark" size={16} color="#fff" />
-                                            <Text style={[styles.inputSettingsBtnText, { color: '#fff' }]}>{t('addWord.applied')}</Text>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Text style={[styles.inputSettingsBtnText, { color: '#fff' }]}>{t('common.apply')}</Text>
-                                            <View style={{ backgroundColor: 'rgba(255,255,255,0.2)', paddingHorizontal: 6, paddingVertical: 1, borderRadius: 8 }}>
-                                                <Text style={{ color: '#fff', fontSize: 11, fontFamily: 'Pretendard_700Bold' }}>{selectedFieldsCount}</Text>
-                                            </View>
-                                        </>
-                                    )}
-                                </Pressable>
-                            </View>
-
-                        </View>
+                                <View style={{ flexDirection: 'row', gap: 12, marginTop: 12 }}>
+                                    <Pressable
+                                        onPress={handleCancelSettings}
+                                        style={[styles.modalActionBtn, { backgroundColor: colors.surfaceSecondary, flex: 1, height: 48 }]}
+                                    >
+                                        <Text style={[styles.modalActionBtnText, { color: colors.textSecondary }]}>{t('common.cancel')}</Text>
+                                    </Pressable>
+                                    <Pressable
+                                        onPress={handleApplySettings}
+                                        disabled={isApplying}
+                                        style={[
+                                            styles.modalActionBtn,
+                                            {
+                                                backgroundColor: isApplying ? colors.successButton : colors.primaryButton,
+                                                flex: 1,
+                                                height: 48,
+                                                flexDirection: 'row',
+                                                gap: 8
+                                            }
+                                        ]}
+                                    >
+                                        {isApplying ? (
+                                            <>
+                                                <Ionicons name="checkmark" size={20} color="#fff" />
+                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>{t('addWord.applied')}</Text>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>{t('common.apply')}</Text>
+                                                <View style={{ backgroundColor: 'rgba(255,255,255,0.2)', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10 }}>
+                                                    <Text style={{ color: '#fff', fontSize: 12, fontFamily: 'Pretendard_700Bold' }}>{selectedFieldsCount}</Text>
+                                                </View>
+                                            </>
+                                        )}
+                                    </Pressable>
+                                </View>
+                            </Animated.View>
+                        </GestureDetector>
                     </Pressable>
                 </GestureHandlerRootView>
             </Modal>
@@ -1306,89 +1404,57 @@ const styles = StyleSheet.create({
         shadowRadius: 16,
         elevation: 10,
     },
-    inputSettingsHeader: {
+    modalHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: 16,
-        height: 48,
+        marginBottom: 12,
     },
-    inputSettingsTitle: {
-        fontSize: 15,
+    modalTitle: {
+        fontSize: 19,
         fontFamily: 'Pretendard_700Bold',
+        letterSpacing: -0.5,
     },
-    inputSettingsCloseBtn: {
-        padding: 6,
-        marginRight: -6,
-        borderRadius: 20,
-    },
-    inputSettingsScroll: {
-        flexShrink: 1,
-        flexGrow: 0,
-    },
-    inputSettingsCard: {
-        marginHorizontal: 12,
-        marginBottom: 8,
-        borderRadius: 12,
-        paddingHorizontal: 14,
-        paddingVertical: 5,
-    },
-    inputSettingsSectionLabel: {
-        fontSize: 10,
-        fontFamily: 'Pretendard_600SemiBold',
-        marginBottom: 4,
-        marginLeft: 2,
-    },
-    inputSettingRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        minHeight: 34,
-    },
-    inputSettingRowLeft: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 6,
-    },
-    inputSettingIconBox: {
-        width: 20,
-        height: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputSettingLabel: {
+    settingsSectionTitle: {
         fontSize: 13,
-        fontFamily: 'Pretendard_500Medium',
+        fontFamily: 'Pretendard_600SemiBold',
+        marginBottom: 12,
+        letterSpacing: 0.5,
     },
-    inputSettingDivider: {
-        height: 1,
-        marginVertical: 0,
-    },
-    inputSettingsBottomButtons: {
+    segmentedControlContainer: {
         flexDirection: 'row',
-        paddingHorizontal: 16,
-        paddingTop: 8,
-        paddingBottom: 14,
-        gap: 8,
+        padding: 4,
+        borderRadius: 12,
+        height: 48,
+        position: 'relative',
     },
-    inputSettingsBtnCancel: {
-        flex: 1,
-        paddingVertical: 8,
-        borderRadius: 8,
-        alignItems: 'center',
+    segmentedControlIndicator: {
+        position: 'absolute',
+        top: 4,
+        bottom: 4,
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.05,
+        shadowRadius: 4,
+        elevation: 2,
     },
-    inputSettingsBtnApply: {
+    segmentedTab: {
         flex: 1,
-        paddingVertical: 8,
-        borderRadius: 8,
-        alignItems: 'center',
-        flexDirection: 'row',
         justifyContent: 'center',
-        gap: 6,
+        alignItems: 'center',
+        zIndex: 1,
     },
-    inputSettingsBtnText: {
+    segmentedTabText: {
         fontSize: 14,
         fontFamily: 'Pretendard_600SemiBold',
+    },
+    settingsRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingVertical: 14,
+        borderBottomWidth: StyleSheet.hairlineWidth,
     },
     settingsRowCompact: {
         flexDirection: 'row',
@@ -1399,6 +1465,26 @@ const styles = StyleSheet.create({
     settingsRowText: {
         fontSize: 14,
         fontFamily: 'Pretendard_500Medium',
+    },
+    modalCloseBtn: {
+        marginTop: 16,
+        paddingVertical: 14,
+        borderRadius: 14,
+        alignItems: 'center',
+    },
+    modalCloseBtnText: {
+        fontSize: 16,
+        fontFamily: 'Pretendard_600SemiBold',
+    },
+    modalActionBtn: {
+        paddingVertical: 14,
+        borderRadius: 16,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    modalActionBtnText: {
+        fontSize: 15,
+        fontFamily: 'Pretendard_700Bold',
     },
     pickerHiddenBadge: { paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, marginLeft: 8 },
     pickerNewRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 8, gap: 8, borderTopWidth: StyleSheet.hairlineWidth },

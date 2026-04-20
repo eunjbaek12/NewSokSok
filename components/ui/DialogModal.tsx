@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { ScrollView as GHScrollView } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { PopupTokens } from '@/constants/popup';
 import ModalOverlay, { ModalVariant } from './ModalOverlay';
 

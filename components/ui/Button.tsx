@@ -1,6 +1,6 @@
 import React, { ComponentProps } from 'react';
 import { Pressable, Text, StyleSheet, ActivityIndicator, ViewStyle, TextStyle, View } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
 
 interface ButtonProps extends ComponentProps<typeof Pressable> {
@@ -43,11 +43,11 @@ export function Button({
 
     const getTextColor = () => {
         switch (variant) {
-            case 'primary': return '#FFFFFF';
+            case 'primary': return colors.onPrimary;
             case 'secondary': return colors.text;
             case 'outline': return colors.primary;
             case 'ghost': return colors.textSecondary;
-            default: return '#FFFFFF';
+            default: return colors.onPrimary;
         }
     };
 

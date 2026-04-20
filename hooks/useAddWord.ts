@@ -1,11 +1,10 @@
 import { useState, useTransition } from 'react';
 import * as Haptics from 'expo-haptics';
-import { useVocab } from '@/contexts/VocabContext';
+import { addWord, updateWord } from '@/features/vocab';
 import { autoFillWord } from '@/lib/translation-api';
 import { searchNaverDict } from '@/lib/naver-dict-api';
 
 export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string) {
-    const { addWord, updateWord } = useVocab();
 
     const [term, setTerm] = useState(initialState?.term ?? existingWord?.term ?? '');
     const [definition, setDefinition] = useState(initialState?.definition ?? existingWord?.definition ?? '');

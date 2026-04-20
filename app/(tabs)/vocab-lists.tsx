@@ -18,8 +18,23 @@ import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
 import { BlurView } from 'expo-blur';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import {
+  useLists,
+  useBootstrapLoading,
+  useListProgress,
+  useListWords,
+  useShareList,
+  invalidateLists,
+  createList,
+  deleteList,
+  toggleVisibility,
+  renameList,
+  mergeLists,
+  reorderLists,
+  selectWordsForList,
+  selectListProgress,
+} from '@/features/vocab';
 import { VocaList } from '@/lib/types';
 import ScrollIndicator from '@/components/ui/ScrollIndicator';
 import ListCard from '@/components/ListCard';
@@ -43,20 +58,11 @@ export default function VocabListsScreen() {
   const [listContentHeight, setListContentHeight] = useState(0);
   const [listVisibleHeight, setListVisibleHeight] = useState(0);
 
-  const {
-    lists,
-    loading,
-    refreshData,
-    createList,
-    deleteList,
-    toggleVisibility,
-    getListProgress,
-    getWordsForList,
-    renameList,
-    mergeLists,
-    reorderLists,
-    shareList,
-  } = useVocab();
+  const lists = useLists();
+  const loading = useBootstrapLoading();
+  const getListProgress = (listId: string) => selectListProgress(lists, listId);
+  const getWordsForList = (listId: string) => selectWordsForList(lists, listId);
+  const shareList = useShareList();
 
   const [menuList, setMenuList] = useState<VocaList | null>(null);
   type MenuPos = { x: number; y: number; width: number; height: number };
@@ -127,8 +133,8 @@ export default function VocabListsScreen() {
           onPress={openManageModal}
           style={[styles.emptyButton, { backgroundColor: colors.primaryButton }]}
         >
-          <Ionicons name="add" size={20} color="#FFFFFF" />
-          <Text style={styles.emptyButtonText}>{t('vocabLists.createList')}</Text>
+          <Ionicons name="add" size={20} color={colors.onPrimary} />
+          <Text style={[styles.emptyButtonText, { color: colors.onPrimary }]}>{t('vocabLists.createList')}</Text>
         </Pressable>
         <Pressable
           onPress={() => router.navigate('/(tabs)/curation')}
@@ -189,7 +195,7 @@ export default function VocabListsScreen() {
           onPress={() => router.push('/search-modal')}
           style={({ pressed }) => [
             styles.searchTrigger,
-            { backgroundColor: colors.surface, borderColor: colors.borderLight },
+            { backgroundColor: colors.surface, borderColor: colors.borderLight, shadowColor: colors.shadow },
             pressed && { opacity: 0.7 },
           ]}
         >
@@ -214,7 +220,7 @@ export default function VocabListsScreen() {
           refreshControl={
             <RefreshControl
               refreshing={false}
-              onRefresh={refreshData}
+              onRefresh={invalidateLists}
               tintColor={colors.primary}
               colors={[colors.primary]}
             />
@@ -271,6 +277,7 @@ export default function VocabListsScreen() {
                 borderWidth: 1,
                 borderColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
                 opacity: pressed ? 0.7 : 1,
+                shadowColor: colors.shadow,
                 shadowOpacity: 0.15,
               },
             ]}
@@ -307,7 +314,7 @@ export default function VocabListsScreen() {
         renameList={renameList}
         toggleVisibility={toggleVisibility}
         reorderLists={reorderLists}
-        refreshData={refreshData}
+        refreshData={invalidateLists}
       />
     </View>
   );
@@ -360,7 +367,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     gap: 10,
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 8,
@@ -436,7 +442,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   emptyButtonText: {
-    color: '#FFFFFF',
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
   },
@@ -459,7 +464,6 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 8,

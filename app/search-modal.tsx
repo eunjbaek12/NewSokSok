@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useDeferredValue } from 'react';
+import React, { useState, useMemo, useDeferredValue, useCallback } from 'react';
 import {
     View,
     Text,
@@ -16,8 +16,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { useLists, selectWordsForList } from '@/features/vocab';
 import { filterAndRankResults, getTopTags, type AllDataItem, type SearchResult } from '@/lib/search';
 import * as Haptics from 'expo-haptics';
 
@@ -26,7 +26,8 @@ export default function SearchModalScreen() {
     const router = useRouter();
     const { colors, isDark } = useTheme();
     const insets = useSafeAreaInsets();
-    const { lists, getWordsForList } = useVocab();
+    const lists = useLists();
+    const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
 
     const [query, setQuery] = useState('');
     const [selectedListId, setSelectedListId] = useState<string | null>(null);
@@ -91,7 +92,7 @@ export default function SearchModalScreen() {
                         {item.word.term}
                     </Text>
                     <View style={styles.resultHeaderRight}>
-                        {item.word.isStarred && <Ionicons name="star" size={14} color="#F59E0B" />}
+                        {item.word.isStarred && <Ionicons name="star" size={14} color={colors.warning} />}
                         <View style={[styles.listBadge, { backgroundColor: colors.primaryLight }]}>
                             {item.word.tags?.length === 0 && null}
                             <Ionicons name="folder-outline" size={11} color={colors.primary} />
@@ -191,16 +192,16 @@ export default function SearchModalScreen() {
                             style={[
                                 styles.filterChip,
                                 starredOnly
-                                    ? { backgroundColor: '#FFF8E1', borderColor: '#F59E0B' }
+                                    ? { backgroundColor: colors.warningLight, borderColor: colors.warning }
                                     : { backgroundColor: colors.surface, borderColor: colors.border },
                             ]}
                         >
                             <Ionicons
                                 name={starredOnly ? 'star' : 'star-outline'}
                                 size={13}
-                                color={starredOnly ? '#F59E0B' : colors.textSecondary}
+                                color={starredOnly ? colors.warning : colors.textSecondary}
                             />
-                            <Text style={[styles.filterChipText, { color: starredOnly ? '#B45309' : colors.textSecondary }]}>
+                            <Text style={[styles.filterChipText, { color: starredOnly ? colors.warning : colors.textSecondary }]}>
                                 {t('search.starred')}
                             </Text>
                         </Pressable>
@@ -220,7 +221,7 @@ export default function SearchModalScreen() {
                                     : { backgroundColor: colors.surface, borderColor: colors.border },
                             ]}
                         >
-                            <Text style={[styles.filterChipText, { color: selectedListId === null ? '#FFFFFF' : colors.textSecondary }]}>
+                            <Text style={[styles.filterChipText, { color: selectedListId === null ? colors.onPrimary : colors.textSecondary }]}>
                                 {t('search.allLists')}
                             </Text>
                         </Pressable>
@@ -245,7 +246,7 @@ export default function SearchModalScreen() {
                                     {item.icon ? (
                                         <Text style={{ fontSize: 12, lineHeight: 16 }}>{item.icon}</Text>
                                     ) : null}
-                                    <Text style={[styles.filterChipText, { color: isActive ? '#FFFFFF' : colors.textSecondary }]}>
+                                    <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
                                         {item.title}
                                     </Text>
                                 </Pressable>

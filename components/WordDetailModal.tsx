@@ -14,10 +14,10 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { useListWords, toggleStarred } from '@/features/vocab';
 import { useAddWord } from '@/hooks/useAddWord';
-import { useSettings } from '@/contexts/SettingsContext';
+import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
@@ -188,11 +188,11 @@ export default function WordDetailModal({
 }: WordDetailModalProps) {
     const { t } = useTranslation();
     const { colors } = useTheme();
-    const { getWordsForList, toggleStarred } = useVocab();
+    const listWords = useListWords(listId);
     const { profileSettings } = useSettings();
 
     const isEditing = wordId !== undefined && wordId !== null;
-    const existingWord = word || (isEditing ? getWordsForList(listId).find(w => w.id === wordId) : null);
+    const existingWord = word || (isEditing ? listWords.find(w => w.id === wordId) : null);
 
     const {
         term, setTerm,
@@ -339,7 +339,7 @@ export default function WordDetailModal({
                     behavior={Platform.OS === 'ios' ? 'padding' : undefined}
                     style={styles.keyboardView}
                 >
-                    <View style={[styles.modalContent, { backgroundColor: colors.background }]}>
+                    <View style={[styles.modalContent, { backgroundColor: colors.background, shadowColor: colors.shadow }]}>
 
                         {/* ── readOnly: 콘텐츠 뷰 ── */}
                         {readOnly && existingWord ? (
@@ -395,7 +395,7 @@ export default function WordDetailModal({
                                             ) : null}
                                             {!readOnly && (
                                                 <Pressable onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 4 }}>
-                                                    <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? "#FFD700" : colors.textTertiary} />
+                                                    <Ionicons name={isStarred ? "star" : "star-outline"} size={28} color={isStarred ? colors.starGold : colors.textTertiary} />
                                                 </Pressable>
                                             )}
                                         </View>
@@ -478,7 +478,7 @@ export default function WordDetailModal({
                                                     />
                                                     <Pressable onPress={handleAddTag} disabled={!tagInput.trim()}
                                                         style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primaryButton : colors.surfaceSecondary }]}>
-                                                        <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
+                                                        <Ionicons name="add" size={20} color={tagInput.trim() ? colors.onPrimary : colors.textTertiary} />
                                                     </Pressable>
                                                 </View>
                                             )}
@@ -505,7 +505,7 @@ export default function WordDetailModal({
                                                 <Button
                                                     onPress={() => { if (term.trim()) Linking.openURL(`https://en.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`); }}
                                                     disabled={!term.trim()} icon="language-outline" title={t('wordDetail.naverDict')}
-                                                    style={{ backgroundColor: term.trim() ? '#03C75A' : colors.surfaceSecondary, paddingVertical: 10 }}
+                                                    style={{ backgroundColor: term.trim() ? colors.brand.naverGreen : colors.surfaceSecondary, paddingVertical: 10 }}
                                                 />
                                             </View>
                                         )}
@@ -526,7 +526,7 @@ const styles = StyleSheet.create({
     keyboardView: { width: '92%', maxWidth: 500, maxHeight: '85%' },
     modalContent: {
         width: '100%', height: '100%', borderRadius: 20, overflow: 'hidden',
-        shadowColor: '#000', shadowOffset: { width: 0, height: 4 },
+        shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.12, shadowRadius: 16, elevation: 10,
     },
     topBar: {

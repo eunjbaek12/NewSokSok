@@ -4,8 +4,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as DocumentPicker from 'expo-document-picker';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { addBatchWords } from '@/features/vocab';
 import { parseImportedText, ParsedWord } from '@/utils/importParser';
 import * as Haptics from 'expo-haptics';
 
@@ -20,7 +20,6 @@ interface BatchImportWorkflowProps {
 export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchImportWorkflowProps) {
     const { colors } = useTheme();
     const { t } = useTranslation();
-    const { addBatchWords } = useVocab();
     const insets = useSafeAreaInsets();
 
     const [stage, setStage] = useState<ImportStage>('input');
@@ -166,10 +165,10 @@ export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchI
                                 { backgroundColor: rawText.trim() ? colors.primaryButton : colors.surfaceSecondary }
                             ]}
                         >
-                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? '#fff' : colors.textTertiary }]}>
+                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? colors.onPrimary : colors.textTertiary }]}>
                                 {t('common.next')}
                             </Text>
-                            <Ionicons name="arrow-forward" size={18} color={rawText.trim() ? '#fff' : colors.textTertiary} />
+                            <Ionicons name="arrow-forward" size={18} color={rawText.trim() ? colors.onPrimary : colors.textTertiary} />
                         </Pressable>
                     </View>
                 </ScrollView>
@@ -267,9 +266,9 @@ export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchI
                             ]}
                         >
                             {isSubmitting ? (
-                                <ActivityIndicator color="#fff" />
+                                <ActivityIndicator color={colors.onPrimary} />
                             ) : (
-                                <Text style={[styles.submitBtnText, { color: validCount > 0 ? '#fff' : colors.textTertiary }]}>
+                                <Text style={[styles.submitBtnText, { color: validCount > 0 ? colors.onPrimary : colors.textTertiary }]}>
                                     {t('batchImport.batchSave', { count: validCount })}
                                 </Text>
                             )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { PopupTokens } from '@/constants/popup';
 import ModalOverlay from './ModalOverlay';
 
@@ -46,7 +46,7 @@ export default function ConfirmDialog({
           onPress={() => { onConfirm(); onClose(); }}
           style={[styles.btn, { backgroundColor: confirmBg, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
         >
-          <Text style={[styles.btnText, { color: '#FFFFFF', fontSize: btn.fontSize }]}>{confirmLabel}</Text>
+          <Text style={[styles.btnText, { color: colors.onPrimary, fontSize: btn.fontSize }]}>{confirmLabel}</Text>
         </Pressable>
       </View>
     </ModalOverlay>

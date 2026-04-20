@@ -6,11 +6,11 @@ import { Platform, Pressable, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@/contexts/ThemeContext";
-import { useAuth } from "@/contexts/AuthContext";
-import { useSettings } from "@/contexts/SettingsContext";
+import { useTheme } from "@/features/theme";
+import { useAuth } from "@/features/auth";
+import { useSettings } from "@/features/settings";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import type { StartupTab } from "@/contexts/SettingsContext";
+import type { StartupTab } from "@/features/settings";
 
 function AddWordTabButton() {
   const { colors } = useTheme();
@@ -25,7 +25,7 @@ function AddWordTabButton() {
         backgroundColor: colors.primaryButton,
         alignItems: 'center',
         justifyContent: 'center',
-        shadowColor: '#000',
+        shadowColor: colors.shadow,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.3,
         shadowRadius: 8,
@@ -33,7 +33,7 @@ function AddWordTabButton() {
         opacity: pressed ? 0.85 : 1,
       })}
     >
-      <Ionicons name="add" size={32} color="#FFFFFF" />
+      <Ionicons name="add" size={32} color={colors.onPrimary} />
     </Pressable>
   );
 }
@@ -92,7 +92,7 @@ function ClassicTabLayout({ startupTab }: { startupTab: StartupTab }) {
           left: 0,
           right: 0,
           paddingBottom: insets.bottom,
-          shadowColor: "#000",
+          shadowColor: colors.shadow,
           shadowOffset: { width: 0, height: -2 },
           shadowOpacity: 0.1,
           shadowRadius: 4,

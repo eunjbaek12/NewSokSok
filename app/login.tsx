@@ -12,14 +12,16 @@ import { router } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/features/auth';
+import { useTheme } from '@/features/theme';
 import { Button } from '@/components/ui/Button';
-import { AvocadoCharacter } from '@/components/onboarding/AvocadoCharacter';
+import { AvocadoCharacter } from '@/features/onboarding/components/AvocadoCharacter';
 
 
 export default function LoginScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
+  const { colors } = useTheme();
   const { loginAsGuest, signInWithGoogle } = useAuth();
   const [loading, setLoading] = useState<'google' | 'guest' | null>(null);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
@@ -51,15 +53,15 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={[styles.container, { paddingTop: topInset }]}>
+    <View style={[styles.container, { paddingTop: topInset, backgroundColor: colors.background }]}>
       <View style={styles.content}>
         <View style={styles.heroSection}>
           <View style={styles.characterContainer}>
             <AvocadoCharacter slideIndex={0} isActive={false} isStatic size={110} />
           </View>
-          <Text style={styles.appName}>{t('login.appName')}</Text>
-          <Text style={styles.appNameEn}>{t('login.appNameEn')}</Text>
-          <Text style={styles.tagline}>{t('login.tagline')}</Text>
+          <Text style={[styles.appName, { color: colors.text }]}>{t('login.appName')}</Text>
+          <Text style={[styles.appNameEn, { color: colors.brand.green }]}>{t('login.appNameEn')}</Text>
+          <Text style={[styles.tagline, { color: colors.textSecondary }]}>{t('login.tagline')}</Text>
         </View>
 
         <View style={styles.buttonsSection}>
@@ -69,17 +71,17 @@ export default function LoginScreen() {
             disabled={loading !== null}
             variant="outline"
             icon="logo-google"
-            iconColor="#4285F4"
+            iconColor={colors.brand.googleBlue}
             title={t('login.googleLogin')}
-            style={styles.googleBtn}
-            textStyle={styles.googleBtnText}
+            style={[styles.googleBtn, { backgroundColor: colors.brand.greenLight, borderColor: colors.brand.green, shadowColor: colors.shadow }]}
+            textStyle={[styles.googleBtnText, { color: colors.brand.greenDark }]}
           />
-          <Text style={styles.googleSubtext}>{t('login.googleSubtext')}</Text>
+          <Text style={[styles.googleSubtext, { color: colors.textTertiary }]}>{t('login.googleSubtext')}</Text>
 
           <View style={styles.divider}>
-            <View style={styles.dividerLine} />
-            <Text style={styles.dividerText}>{t('common.or')}</Text>
-            <View style={styles.dividerLine} />
+            <View style={[styles.dividerLine, { backgroundColor: colors.borderLight }]} />
+            <Text style={[styles.dividerText, { color: colors.textTertiary }]}>{t('common.or')}</Text>
+            <View style={[styles.dividerLine, { backgroundColor: colors.borderLight }]} />
           </View>
 
           <Button
@@ -88,19 +90,19 @@ export default function LoginScreen() {
             disabled={loading !== null}
             variant="outline"
             icon="phone-portrait-outline"
-            iconColor="#4A3728"
+            iconColor={colors.text}
             title={t('login.guestStart')}
-            style={styles.guestBtn}
-            textStyle={styles.guestBtnText}
+            style={[styles.guestBtn, { backgroundColor: colors.surface, borderColor: colors.borderLight, shadowColor: colors.shadow }]}
+            textStyle={[styles.guestBtnText, { color: colors.text }]}
           />
-          <Text style={styles.guestSubtext}>{t('login.guestSubtext')}</Text>
+          <Text style={[styles.guestSubtext, { color: colors.textTertiary }]}>{t('login.guestSubtext')}</Text>
         </View>
       </View>
 
       <View style={[styles.footer, { paddingBottom: Platform.OS === 'web' ? 34 + 16 : insets.bottom + 16 }]}>
-        <Text style={styles.footerText}>{t('login.terms')}</Text>
+        <Text style={[styles.footerText, { color: colors.textTertiary }]}>{t('login.terms')}</Text>
         <Pressable onPress={() => Linking.openURL('https://eunjbaek12.github.io/NewSokSok/privacy-policy')}>
-          <Text style={styles.privacyLink}>{t('login.privacyPolicy')}</Text>
+          <Text style={[styles.privacyLink, { color: colors.brand.green }]}>{t('login.privacyPolicy')}</Text>
         </Pressable>
       </View>
     </View>
@@ -110,7 +112,6 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5EDD6',
   },
   content: {
     flex: 1,
@@ -127,13 +128,11 @@ const styles = StyleSheet.create({
   appName: {
     fontSize: 36,
     fontFamily: 'Pretendard_700Bold',
-    color: '#3B2A1A',
     letterSpacing: -1,
   },
   appNameEn: {
     fontSize: 13,
     fontFamily: 'Pretendard_500Medium',
-    color: '#6AB045',
     marginTop: 4,
     letterSpacing: 3,
     textTransform: 'uppercase',
@@ -141,7 +140,6 @@ const styles = StyleSheet.create({
   tagline: {
     fontSize: 14,
     fontFamily: 'Pretendard_400Regular',
-    color: '#7A6651',
     marginTop: 10,
   },
   buttonsSection: {
@@ -152,12 +150,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#E8F5DC',
     borderWidth: 1,
-    borderColor: '#6AB045',
     borderRadius: 18,
     paddingVertical: 16,
-    shadowColor: '#3B2A1A',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06,
     shadowRadius: 4,
@@ -166,12 +161,10 @@ const styles = StyleSheet.create({
   googleBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#3D7020',
   },
   googleSubtext: {
     fontSize: 12,
     fontFamily: 'Pretendard_400Regular',
-    color: '#A89880',
     textAlign: 'center',
     marginTop: 8,
     marginBottom: 16,
@@ -185,24 +178,19 @@ const styles = StyleSheet.create({
   dividerLine: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
-    backgroundColor: '#C8BAA0',
   },
   dividerText: {
     fontSize: 13,
     fontFamily: 'Pretendard_400Regular',
-    color: '#A89880',
   },
   guestBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#FFFDF5',
     borderWidth: 1.5,
-    borderColor: '#C8BAA0',
     borderRadius: 18,
     paddingVertical: 16,
-    shadowColor: '#3B2A1A',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06,
     shadowRadius: 4,
@@ -211,12 +199,10 @@ const styles = StyleSheet.create({
   guestBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#4A3728',
   },
   guestSubtext: {
     fontSize: 12,
     fontFamily: 'Pretendard_400Regular',
-    color: '#A89880',
     textAlign: 'center',
     marginTop: 8,
   },
@@ -227,13 +213,11 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 11,
     fontFamily: 'Pretendard_400Regular',
-    color: '#A89880',
     textAlign: 'center',
   },
   privacyLink: {
     fontSize: 11,
     fontFamily: 'Pretendard_400Regular',
-    color: '#6AB045',
     textAlign: 'center',
     marginTop: 6,
     textDecorationLine: 'underline',

@@ -13,7 +13,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { VocaList } from '@/lib/types';
 import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import { PopupTokens } from '@/constants/popup';
@@ -298,7 +298,7 @@ export default function ListContextMenu({
               disabled={!renameValue.trim()}
               style={[styles.btn, { backgroundColor: renameValue.trim() ? colors.primaryButton : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
-              <Text style={[styles.btnText, { color: renameValue.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.change')}</Text>
+              <Text style={[styles.btnText, { color: renameValue.trim() ? colors.onPrimary : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.change')}</Text>
             </Pressable>
           </View>
         }
@@ -357,7 +357,7 @@ export default function ListContextMenu({
                 <ActivityIndicator size="small" color={colors.primary} />
               ) : (
                 <Text style={[styles.btnText, {
-                  color: (shareTargetList?.words.length ?? 0) === 0 ? colors.textTertiary : '#FFFFFF',
+                  color: (shareTargetList?.words.length ?? 0) === 0 ? colors.textTertiary : colors.onPrimary,
                   fontSize: btn.fontSize,
                 }]}>{t('contextMenu.shareConfirm')}</Text>
               )}
@@ -420,7 +420,7 @@ export default function ListContextMenu({
               disabled={!mergeTargetId}
               style={[styles.btn, { backgroundColor: mergeTargetId ? colors.primaryButton : colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
-              <Text style={[styles.btnText, { color: mergeTargetId ? '#FFFFFF' : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.send')}</Text>
+              <Text style={[styles.btnText, { color: mergeTargetId ? colors.onPrimary : colors.textTertiary, fontSize: btn.fontSize }]}>{t('common.send')}</Text>
             </Pressable>
           </View>
         }

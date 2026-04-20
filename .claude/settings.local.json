@@ -3,7 +3,9 @@
     "allow": [
       "Bash(ls -la \"/c/Users/kimos/OneDrive/문서/repositories/NewSokSok/app/\\(tabs\\)/\")",
       "Bash(cat \"/c/Users/kimos/OneDrive/문서/repositories/NewSokSok/app/\\(tabs\\)/_layout.tsx\")",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Skill(playwright-cli)"
     ]
-  }
+  },
+  "prefersReducedMotion": true
 }

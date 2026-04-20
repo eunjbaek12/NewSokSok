@@ -1,4 +1,6 @@
-export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, signal?: AbortSignal, apiKey?: string) => {
+import { GeminiImageResultSchema, type GeminiImageResult } from '@shared/contracts';
+
+export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, signal?: AbortSignal, apiKey?: string): Promise<GeminiImageResult> => {
     const GEMINI_API_KEY = apiKey || '';
     if (!GEMINI_API_KEY) {
         throw new Error('Gemini API 키가 설정되어 있지 않습니다. 설정에서 API 키를 입력해주세요.');
@@ -68,12 +70,19 @@ export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, s
             const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
             if (!textResponse) throw new Error('결과를 파싱할 수 없습니다.');
 
+            let raw: unknown;
             try {
-                return JSON.parse(textResponse);
+                raw = JSON.parse(textResponse);
             } catch (e) {
                 console.error("JSON 파싱 에러:", textResponse);
                 throw new Error("API 응답이 올바른 JSON 형식이 아닙니다.");
             }
+            const parsed = GeminiImageResultSchema.safeParse(raw);
+            if (!parsed.success) {
+                console.error("Gemini 이미지 응답 스키마 불일치:", parsed.error.issues, 'raw:', raw);
+                throw new Error("API 응답 형식이 예상과 다릅니다. 다시 시도해주세요.");
+            }
+            return parsed.data;
 
         } catch (error: any) {
             // AbortError는 retry 없이 즉시 throw

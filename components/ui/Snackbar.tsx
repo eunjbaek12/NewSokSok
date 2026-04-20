@@ -8,7 +8,7 @@ import {
     Dimensions,
     Platform,
 } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { PopupTokens } from '@/constants/popup';
 
@@ -103,14 +103,14 @@ export const Snackbar: React.FC<SnackbarProps> = ({
                 {
                     opacity: opacity,
                     transform: [{ translateY }],
-                    backgroundColor: isDark ? '#2C2C2E' : '#FFFFFF',
-                    borderColor: isDark ? '#3A3A3C' : '#E5E5E7',
+                    backgroundColor: colors.surface,
+                    borderColor: colors.borderLight,
                     borderWidth: isDark ? 0 : 1,
                 },
             ]}
         >
             <View style={styles.content}>
-                <Text style={[styles.message, { color: isDark ? '#FFFFFF' : '#1C1C1E' }]} numberOfLines={2}>
+                <Text style={[styles.message, { color: colors.text }]} numberOfLines={2}>
                     {message}
                 </Text>
                 {actionLabel && (
@@ -158,7 +158,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     message: {
-        color: '#FFFFFF',
         fontSize: 14,
         fontFamily: 'Pretendard_500Medium',
         flex: 1,

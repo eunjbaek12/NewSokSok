@@ -13,7 +13,7 @@ import ModalOverlay from './ui/ModalOverlay';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { VocaList } from '@/lib/types';
 
 interface ManagedList {
@@ -389,14 +389,14 @@ export default function ManageModal({
               disabled={!newListName.trim()}
               style={[styles.manageAddBtn, { backgroundColor: newListName.trim() ? colors.primaryButton : colors.surfaceSecondary }]}
             >
-              <Ionicons name="add" size={22} color={newListName.trim() ? '#FFFFFF' : colors.textTertiary} />
+              <Ionicons name="add" size={22} color={newListName.trim() ? colors.onPrimary : colors.textTertiary} />
             </Pressable>
           </View>
 
           {duplicateError !== '' && (
             <View style={styles.duplicateErrorRow}>
-              <Ionicons name="alert-circle" size={16} color={colors.error || '#FF3B30'} />
-              <Text style={[styles.duplicateErrorText, { color: colors.error || '#FF3B30' }]}>
+              <Ionicons name="alert-circle" size={16} color={colors.error} />
+              <Text style={[styles.duplicateErrorText, { color: colors.error }]}>
                 {duplicateError}
               </Text>
             </View>
@@ -441,7 +441,7 @@ export default function ManageModal({
               onPress={handleApplyManage}
               style={[styles.manageFooterBtn, { backgroundColor: colors.primaryButton }]}
             >
-              <Text style={[styles.manageFooterBtnText, { color: '#FFFFFF' }]}>{t('common.apply')}</Text>
+              <Text style={[styles.manageFooterBtnText, { color: colors.onPrimary }]}>{t('common.apply')}</Text>
             </Pressable>
           </View>
     </ModalOverlay>

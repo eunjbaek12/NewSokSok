@@ -4,8 +4,8 @@ import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useSettings } from '@/contexts/SettingsContext';
+import { useTheme } from '@/features/theme';
+import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 
 import { fetchWordsFromImage } from '@/lib/gemini-api';
@@ -225,7 +225,7 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
 
                 <ScrollView style={styles.listContainer} keyboardShouldPersistTaps="handled">
                     {scannedWords.map((item) => (
-                        <View key={item.id} style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+                        <View key={item.id} style={[styles.card, { backgroundColor: colors.surface, borderColor: colors.border, shadowColor: colors.shadow }]}>
                             <View style={styles.cardHeader}>
                                 <TextInput
                                     style={[styles.inputBold, { color: colors.text, borderBottomColor: colors.border }]}
@@ -418,7 +418,6 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         marginBottom: 12,
         borderWidth: 1,
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.05,
         shadowRadius: 2,

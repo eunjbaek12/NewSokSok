@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Modal, Pressable, View, StyleSheet, ViewStyle, DimensionValue } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BlurView } from 'expo-blur';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { PopupTokens } from '@/constants/popup';
 
 export type ModalVariant =

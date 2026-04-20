@@ -235,9 +235,9 @@ export default function CurationScreen() {
 
     const getLevelStyle = (level?: string) => {
         switch (level) {
-            case 'beginner': return { label: t('curation.beginner'), bg: isDark ? 'rgba(22,163,74,0.2)' : '#DCFCE7', color: isDark ? '#4ade80' : '#16A34A' };
-            case 'intermediate': return { label: t('curation.intermediate'), bg: isDark ? 'rgba(37,99,235,0.2)' : '#DBEAFE', color: isDark ? '#60a5fa' : '#2563EB' };
-            case 'advanced': return { label: t('curation.advanced'), bg: isDark ? 'rgba(220,38,38,0.2)' : '#FEE2E2', color: isDark ? '#f87171' : '#DC2626' };
+            case 'beginner': return { label: t('curation.beginner'), bg: colors.difficulty.beginnerBg, color: colors.difficulty.beginnerText };
+            case 'intermediate': return { label: t('curation.intermediate'), bg: colors.difficulty.intermediateBg, color: colors.difficulty.intermediateText };
+            case 'advanced': return { label: t('curation.advanced'), bg: colors.difficulty.advancedBg, color: colors.difficulty.advancedText };
             default: return null;
         }
     };
@@ -624,7 +624,7 @@ export default function CurationScreen() {
                     >
                         <Pressable
                             onPress={() => { detailScrollRef.current?.scrollTo({ y: 0, animated: true }); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }}
-                            style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', opacity: pressed ? 0.7 : 1 }]}
+                            style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', shadowColor: colors.shadow, opacity: pressed ? 0.7 : 1 }]}
                         >
                             {Platform.OS === 'ios' && (
                                 <View style={[StyleSheet.absoluteFill, { borderRadius: 24, overflow: 'hidden' }]}>
@@ -649,7 +649,7 @@ export default function CurationScreen() {
                     </View>
 
                     <View style={{ paddingHorizontal: 20, paddingVertical: 8 }}>
-                        <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+                        <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.borderLight, shadowColor: colors.shadow }]}>
                             <Ionicons name="search" size={20} color={colors.textTertiary} />
                             <TextInput
                                 placeholder={t('curation.searchPlaceholder')}
@@ -675,7 +675,7 @@ export default function CurationScreen() {
                                     onPress={() => { Haptics.selectionAsync(); setLanguageFilter(chip.code); }}
                                     style={[styles.langChip, { backgroundColor: isActive ? colors.primaryButton : colors.surfaceSecondary }]}
                                 >
-                                    <Text style={[styles.langChipText, { color: isActive ? '#FFF' : colors.textSecondary }]}>{chip.label}</Text>
+                                    <Text style={[styles.langChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>{chip.label}</Text>
                                 </Pressable>
                             );
                         })}
@@ -821,8 +821,8 @@ export default function CurationScreen() {
                                 <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>{t('curation.noThemeFound')}</Text>
                                 {hasApiKey ? (
                                     <Pressable onPress={handleOpenAiModal} style={[styles.fallbackBtn, { backgroundColor: colors.accent }]}>
-                                        <Ionicons name="sparkles" size={18} color="#FFF" />
-                                        <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
+                                        <Ionicons name="sparkles" size={18} color={colors.onPrimary} />
+                                        <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
                                     </Pressable>
                                 ) : (
                                     <View style={{ alignItems: 'center', gap: 8 }}>
@@ -853,7 +853,7 @@ export default function CurationScreen() {
                     >
                         <Pressable
                             onPress={() => { scrollRef.current?.scrollTo({ y: 0, animated: true }); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); }}
-                            style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', opacity: pressed ? 0.7 : 1 }]}
+                            style={({ pressed }) => [styles.fab, { backgroundColor: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.9)', borderWidth: 1, borderColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', shadowColor: colors.shadow, opacity: pressed ? 0.7 : 1 }]}
                         >
                             {Platform.OS === 'ios' && (
                                 <View style={[StyleSheet.absoluteFill, { borderRadius: 24, overflow: 'hidden' }]}>
@@ -900,13 +900,13 @@ export default function CurationScreen() {
                     >
                         {generating ? (
                             <>
-                                <ActivityIndicator color="#FFF" size="small" />
-                                <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerating')}</Text>
+                                <ActivityIndicator color={colors.onPrimary} size="small" />
+                                <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerating')}</Text>
                             </>
                         ) : (
                             <>
-                                <Ionicons name="sparkles" size={18} color="#FFF" />
-                                <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerateAction')}</Text>
+                                <Ionicons name="sparkles" size={18} color={colors.onPrimary} />
+                                <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerateAction')}</Text>
                             </>
                         )}
                     </Pressable>
@@ -948,7 +948,7 @@ export default function CurationScreen() {
                                 >
                                     <Text style={{
                                         fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
-                                        color: aiDifficulty === d.key ? '#FFF' : colors.textSecondary,
+                                        color: aiDifficulty === d.key ? colors.onPrimary : colors.textSecondary,
                                     }}>{d.label}</Text>
                                 </Pressable>
                             ))}
@@ -969,7 +969,7 @@ export default function CurationScreen() {
                                 >
                                     <Text style={{
                                         fontSize: 14, fontFamily: 'Pretendard_600SemiBold',
-                                        color: aiWordCount === n ? '#FFF' : colors.textSecondary,
+                                        color: aiWordCount === n ? colors.onPrimary : colors.textSecondary,
                                     }}>{n}{t('curation.aiWordUnit')}</Text>
                                 </Pressable>
                             ))}
@@ -996,7 +996,7 @@ const styles = StyleSheet.create({
     headerTitle: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
     headerSubtitle: { fontSize: 14, fontFamily: 'Pretendard_400Regular', marginTop: 2, lineHeight: 20 },
     actionBtn: { width: 44, height: 44, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
-    searchBox: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderRadius: 16, borderWidth: 1, gap: 10, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 8, elevation: 2 },
+    searchBox: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderRadius: 16, borderWidth: 1, gap: 10, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 8, elevation: 2 },
     searchInput: { flex: 1, fontFamily: 'Pretendard_400Regular', fontSize: 15, fontWeight: '400', padding: 0 },
     tabContainer: { flexDirection: 'row', paddingHorizontal: 20, marginBottom: 16, borderBottomWidth: 1 },
     tabButton: { flex: 1, paddingVertical: 12, alignItems: 'center' },
@@ -1046,5 +1046,5 @@ const styles = StyleSheet.create({
     masterBtnSecondaryText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     masterBtn: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 12 },
     masterBtnText: { fontSize: 15, fontFamily: 'Pretendard_700Bold' },
-    fab: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.15, shadowRadius: 6, elevation: 4 },
+    fab: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.15, shadowRadius: 6, elevation: 4 },
 });

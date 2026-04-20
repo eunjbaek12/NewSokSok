@@ -59,7 +59,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, t }:
       frontStyle
     ]}>
       <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
-        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
+        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? colors.starGold : colors.textTertiary} />
       </Pressable>
 
       {showPos && word.pos && (
@@ -111,7 +111,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
       backStyle
     ]}>
       <Pressable onPress={() => onToggleStar(word.id)} hitSlop={12} style={styles.starBtn}>
-        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? '#FFD700' : colors.textTertiary} />
+        <Ionicons name={word.isStarred ? 'star' : 'star-outline'} size={22} color={word.isStarred ? colors.starGold : colors.textTertiary} />
       </Pressable>
 
       <View style={styles.termWrapper}>
@@ -501,7 +501,7 @@ export default function FlashcardsScreen() {
             onPress={() => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
+            <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
@@ -973,7 +973,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   segmentedTabActive: {
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 1,
@@ -1032,14 +1031,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     borderRadius: 10,
-    backgroundColor: '#4A7DFF',
     alignItems: 'center',
     justifyContent: 'center',
   },
   btnApplyText: {
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#FFF',
   },
 });
 

@@ -583,7 +583,7 @@ export default function PlanScreen() {
             },
           ]}
         >
-          <Text style={[styles.actionBtnText, isStudyLocked && { color: colors.textTertiary }]}>{actionLabel}</Text>
+          <Text style={[styles.actionBtnText, { color: isStudyLocked ? colors.textTertiary : colors.onPrimary }]}>{actionLabel}</Text>
         </Pressable>
       </View>
 
@@ -694,9 +694,9 @@ export default function PlanScreen() {
                 ]}
               >
                 {isSubmitting ? (
-                  <ActivityIndicator color="#fff" size="small" />
+                  <ActivityIndicator color={colors.onPrimary} size="small" />
                 ) : (
-                  <Text style={styles.modalBtnPrimaryText}>{t('plan.startPlan')}</Text>
+                  <Text style={[styles.modalBtnPrimaryText, { color: colors.onPrimary }]}>{t('plan.startPlan')}</Text>
                 )}
               </Pressable>
             </View>
@@ -953,7 +953,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   actionBtnText: {
-    color: '#FFFFFF',
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
     letterSpacing: -0.2,
@@ -1078,7 +1077,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   modalBtnPrimaryText: {
-    color: '#FFFFFF',
     fontSize: 15,
     fontFamily: 'Pretendard_600SemiBold',
   },

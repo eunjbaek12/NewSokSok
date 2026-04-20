@@ -277,7 +277,7 @@ export default function QuizScreen() {
             onPress={() => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
+            <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
@@ -353,7 +353,7 @@ export default function QuizScreen() {
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
-              <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+              <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? colors.starGold : colors.textTertiary} />
             </Pressable>
 
             {settings.showPos && currentWord.pos && (

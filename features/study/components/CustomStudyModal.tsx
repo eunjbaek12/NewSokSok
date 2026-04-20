@@ -162,9 +162,9 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                   contentContainerStyle={{ paddingBottom: 8 }}
                 >
                   {/* 학습 모드 */}
-                  <View style={[styles.card, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                  <View style={[styles.card, { backgroundColor: colors.surface }]}>
                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('customStudy.studyMode')}</Text>
-                    <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
+                    <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary }]}>
                       {(['flashcard', 'quiz'] as const).map(mode => {
                         const isActive = settings.studyMode === mode;
                         return (
@@ -173,7 +173,7 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                             onPress={() => updateCustomStudySettings({ studyMode: mode })}
                             style={[
                               styles.segmentedTab,
-                              isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }],
+                              isActive && [styles.segmentedTabActive, { backgroundColor: colors.surface, shadowColor: colors.shadow }],
                             ]}
                           >
                             <Text style={[
@@ -189,7 +189,7 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                   </View>
 
                   {/* 학습 범위 */}
-                  <View style={[styles.card, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                  <View style={[styles.card, { backgroundColor: colors.surface }]}>
                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('customStudy.studyScope')}</Text>
                     <Pressable
                       onPress={() => setShowListPicker(true)}
@@ -203,7 +203,7 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                   </View>
 
                   {/* 단어 필터 */}
-                  <View style={[styles.card, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                  <View style={[styles.card, { backgroundColor: colors.surface }]}>
                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('customStudy.wordFilter')}</Text>
                     <View style={styles.chipRow}>
                       {filterOptions.map(opt => {
@@ -250,20 +250,20 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                   </View>
                   <View style={styles.btnRow}>
                     <Pressable
-                      style={[styles.btnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
+                      style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary }]}
                       onPress={onClose}
                     >
-                      <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>{t('common.close')}</Text>
+                      <Text style={[styles.btnCancelText, { color: colors.textSecondary }]}>{t('common.close')}</Text>
                     </Pressable>
                     <Pressable
                       style={[styles.btnStart, { backgroundColor: wordCount > 0 ? colors.primaryButton : colors.borderLight }]}
                       onPress={handleStart}
                       disabled={wordCount === 0}
                     >
-                      <Text style={[styles.btnStartText, { color: wordCount > 0 ? '#FFF' : colors.textTertiary }]}>
+                      <Text style={[styles.btnStartText, { color: wordCount > 0 ? colors.onPrimary : colors.textTertiary }]}>
                         {t('customStudy.startStudy')}
                       </Text>
-                      {wordCount > 0 && <Ionicons name="arrow-forward" size={16} color="#FFF" />}
+                      {wordCount > 0 && <Ionicons name="arrow-forward" size={16} color={colors.onPrimary} />}
                     </Pressable>
                   </View>
                 </View>
@@ -349,7 +349,6 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   segmentedTabActive: {
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,

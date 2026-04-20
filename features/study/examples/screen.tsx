@@ -42,18 +42,16 @@ function HighlightedSentence({ sentence, term, meaning, primaryColor, textColor,
             <Text key={i} style={[styles.highlightedWord, { color: primaryColor }]}>{part}</Text>
           ) : (
             (() => {
-              const hintBg = isDark ? '#3D3D29' : '#FFF9C4'; // Soft yellow for hint
-              const defaultBg = isDark ? colors.surfaceSecondary : '#F3F4F6';
               const child = (
                 <View key={i} style={[
                   styles.blankBox,
                   {
-                    backgroundColor: showHint ? hintBg : defaultBg,
-                    borderColor: showHint ? (isDark ? '#856404' : '#FFEE58') : (isDark ? colors.border : '#E5E7EB'),
+                    backgroundColor: showHint ? colors.hintBg : colors.surfaceSecondary,
+                    borderColor: showHint ? colors.hintBorder : colors.border,
                     minWidth: showHint ? 60 : 40,
                   }
                 ]}>
-                  <Text style={[styles.blankText, { color: showHint ? (isDark ? '#FDE68A' : '#856404') : (isDark ? colors.textTertiary : '#9CA3AF') }]}>
+                  <Text style={[styles.blankText, { color: showHint ? colors.hintText : colors.textTertiary }]}>
                     {showHint ? meaning : '?'}
                   </Text>
                 </View>
@@ -404,7 +402,7 @@ export default function ExamplesScreen() {
                 onPress={handleGenerateExamples}
                 style={{ flex: 1, backgroundColor: colors.primaryButton, paddingVertical: 14, borderRadius: 12, alignItems: 'center' }}
               >
-                <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('examples.generateWithAI')}</Text>
+                <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>{t('examples.generateWithAI')}</Text>
               </Pressable>
             </View>
             <Pressable onPress={handleClose} style={{ marginTop: 20 }}>
@@ -427,7 +425,7 @@ export default function ExamplesScreen() {
             onPress={() => setSettingsVisible(true)}
             style={{ backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 20, borderRadius: 12 }}
           >
-            <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
+            <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.settingsChange')}</Text>
           </Pressable>
           <Pressable
             onPress={handleClose}
@@ -498,7 +496,7 @@ export default function ExamplesScreen() {
         <View style={styles.cardArea}>
           <View style={[styles.card, { backgroundColor: colors.surface, shadowColor: colors.cardShadow, borderColor: colors.borderLight, borderWidth: 1 }]}>
             <Pressable onPress={() => handleToggleStar(currentWord.id)} hitSlop={12} style={styles.starBtn}>
-              <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+              <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? colors.starGold : colors.textTertiary} />
             </Pressable>
 
             {currentWord.exampleEn ? (

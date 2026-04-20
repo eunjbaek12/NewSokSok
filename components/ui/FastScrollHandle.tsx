@@ -193,8 +193,8 @@ export default function FastScrollHandle({
           },
         ]}
       >
-        <View style={[styles.bubble, { backgroundColor: colors.primaryButton }]}>
-          <Text style={styles.bubbleText} numberOfLines={1}>
+        <View style={[styles.bubble, { backgroundColor: colors.primaryButton, shadowColor: colors.shadow }]}>
+          <Text style={[styles.bubbleText, { color: colors.onPrimary }]} numberOfLines={1}>
             {sectionLabel}
           </Text>
         </View>
@@ -244,14 +244,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     minWidth: 60,
     alignItems: 'center',
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 4,
   },
   bubbleText: {
-    color: '#fff',
     fontSize: 12,
     fontFamily: 'Pretendard_600SemiBold',
   },

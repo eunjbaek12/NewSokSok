@@ -187,7 +187,7 @@ export default function SettingsScreen() {
             >
               <View style={styles.rowLeft}>
                 <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-                  <Ionicons name="logo-google" size={18} color="#4285F4" />
+                  <Ionicons name="logo-google" size={18} color={colors.brand.googleBlue} />
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={[styles.rowTitle, { color: colors.text }]}>구글로 연결하기</Text>
@@ -244,7 +244,7 @@ export default function SettingsScreen() {
               value={isDark}
               onValueChange={handleToggleTheme}
               trackColor={{ false: colors.surfaceSecondary, true: colors.primary }}
-              thumbColor="#FFFFFF"
+              thumbColor={colors.onPrimary}
             />
           </View>
           <Pressable
@@ -400,7 +400,7 @@ export default function SettingsScreen() {
               onPress={handleSaveNickname}
               style={[styles.modalBtn, { backgroundColor: colors.primaryButton, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
-              <Text style={[styles.modalBtnText, { color: '#FFFFFF', fontSize: btn.fontSize }]}>{t('common.save')}</Text>
+              <Text style={[styles.modalBtnText, { color: colors.onPrimary, fontSize: btn.fontSize }]}>{t('common.save')}</Text>
             </Pressable>
           </View>
         }
@@ -438,7 +438,7 @@ export default function SettingsScreen() {
               onPress={handleSaveApiKey}
               style={[styles.modalBtn, { backgroundColor: colors.primaryButton, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
             >
-              <Text style={[styles.modalBtnText, { color: '#FFFFFF', fontSize: btn.fontSize }]}>{t('common.save')}</Text>
+              <Text style={[styles.modalBtnText, { color: colors.onPrimary, fontSize: btn.fontSize }]}>{t('common.save')}</Text>
             </Pressable>
           </View>
         }
@@ -474,7 +474,7 @@ export default function SettingsScreen() {
           </View>
           {profileSettings.geminiApiKey ? (
             <Pressable onPress={() => { setApiKeyInput(''); updateProfileSettings({ geminiApiKey: '' }); setApiKeyModalOpen(false); }}>
-              <Text style={{ color: '#EF4444', fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 4 }}>API 키 삭제</Text>
+              <Text style={{ color: colors.error, fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 4 }}>API 키 삭제</Text>
             </Pressable>
           ) : null}
         </View>

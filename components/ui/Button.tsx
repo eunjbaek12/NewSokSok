@@ -43,11 +43,11 @@ export function Button({
 
     const getTextColor = () => {
         switch (variant) {
-            case 'primary': return '#FFFFFF';
+            case 'primary': return colors.onPrimary;
             case 'secondary': return colors.text;
             case 'outline': return colors.primary;
             case 'ghost': return colors.textSecondary;
-            default: return '#FFFFFF';
+            default: return colors.onPrimary;
         }
     };
 

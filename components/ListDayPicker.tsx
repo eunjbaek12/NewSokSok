@@ -168,7 +168,7 @@ export default function ListDayPicker({
           {/* 전체 선택 */}
           <Pressable
             onPress={toggleAll}
-            style={[styles.allRow, { backgroundColor: isDark ? colors.surface : '#FFF', marginHorizontal: 12, borderRadius: 10, marginBottom: 6 }]}
+            style={[styles.allRow, { backgroundColor: colors.surface, marginHorizontal: 12, borderRadius: 10, marginBottom: 6 }]}
           >
             <Text style={[styles.allText, { color: colors.text }]}>{t('dayPicker.selectAll')}</Text>
             <View style={[
@@ -178,7 +178,7 @@ export default function ListDayPicker({
                 borderColor: isAllSelected ? colors.primaryButton : colors.border,
               },
             ]}>
-              {isAllSelected && <Ionicons name="checkmark" size={12} color="#FFF" />}
+              {isAllSelected && <Ionicons name="checkmark" size={12} color={colors.onPrimary} />}
             </View>
           </Pressable>
 
@@ -194,7 +194,7 @@ export default function ListDayPicker({
               const isIndeterminate = selected && hasDays && daySelection !== 'all' && Array.isArray(daySelection) && daySelection.length > 0;
 
               return (
-                <View key={list.id} style={[styles.listItem, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                <View key={list.id} style={[styles.listItem, { backgroundColor: colors.surface }]}>
                   <Pressable style={styles.listRow} onPress={() => toggleList(list.id)}>
                     <View style={styles.listRowLeft}>
                       {list.icon ? (
@@ -228,7 +228,7 @@ export default function ListDayPicker({
                           borderColor: selected ? colors.primary : colors.border,
                         },
                       ]}>
-                        {!isIndeterminate && selected && <Ionicons name="checkmark" size={12} color="#FFF" />}
+                        {!isIndeterminate && selected && <Ionicons name="checkmark" size={12} color={colors.onPrimary} />}
                         {isIndeterminate && <Ionicons name="remove" size={12} color={colors.primary} />}
                       </View>
                     </View>
@@ -288,7 +288,7 @@ export default function ListDayPicker({
           {/* 적용 버튼 */}
           <View style={styles.footer}>
             <Pressable style={[styles.applyBtn, { backgroundColor: colors.primaryButton }]} onPress={handleApply}>
-              <Text style={styles.applyBtnText}>{t('common.apply')}</Text>
+              <Text style={[styles.applyBtnText, { color: colors.onPrimary }]}>{t('common.apply')}</Text>
             </Pressable>
           </View>
     </ModalOverlay>
@@ -415,7 +415,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   applyBtnText: {
-    color: '#FFF',
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
   },

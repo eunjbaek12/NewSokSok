@@ -165,10 +165,10 @@ export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchI
                                 { backgroundColor: rawText.trim() ? colors.primaryButton : colors.surfaceSecondary }
                             ]}
                         >
-                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? '#fff' : colors.textTertiary }]}>
+                            <Text style={[styles.nextBtnText, { color: rawText.trim() ? colors.onPrimary : colors.textTertiary }]}>
                                 {t('common.next')}
                             </Text>
-                            <Ionicons name="arrow-forward" size={18} color={rawText.trim() ? '#fff' : colors.textTertiary} />
+                            <Ionicons name="arrow-forward" size={18} color={rawText.trim() ? colors.onPrimary : colors.textTertiary} />
                         </Pressable>
                     </View>
                 </ScrollView>
@@ -266,9 +266,9 @@ export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchI
                             ]}
                         >
                             {isSubmitting ? (
-                                <ActivityIndicator color="#fff" />
+                                <ActivityIndicator color={colors.onPrimary} />
                             ) : (
-                                <Text style={[styles.submitBtnText, { color: validCount > 0 ? '#fff' : colors.textTertiary }]}>
+                                <Text style={[styles.submitBtnText, { color: validCount > 0 ? colors.onPrimary : colors.textTertiary }]}>
                                     {t('batchImport.batchSave', { count: validCount })}
                                 </Text>
                             )}

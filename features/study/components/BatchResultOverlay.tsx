@@ -121,8 +121,8 @@ export default function BatchResultOverlay({
                                     { backgroundColor: colors.primaryButton, opacity: pressed ? 0.8 : 1 },
                                 ]}
                             >
-                                <Text style={styles.primaryButtonText}>{t('batchResult.nextSet')}</Text>
-                                <Ionicons name="arrow-forward" size={20} color="#FFF" style={{ marginLeft: 4 }} />
+                                <Text style={[styles.primaryButtonText, { color: colors.onPrimary }]}>{t('batchResult.nextSet')}</Text>
+                                <Ionicons name="arrow-forward" size={20} color={colors.onPrimary} style={{ marginLeft: 4 }} />
                             </Pressable>
                         ) : null}
 
@@ -238,7 +238,6 @@ const styles = StyleSheet.create({
         borderRadius: 16,
     },
     primaryButtonText: {
-        color: '#FFF',
         fontSize: 16,
         fontFamily: 'Pretendard_600SemiBold',
     },

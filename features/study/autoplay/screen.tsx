@@ -341,7 +341,7 @@ export default function AutoPlayScreen() {
                                 style={[styles.completionBtn, { backgroundColor: colors.primaryButton }]}
                                 onPress={handleClose}
                             >
-                                <Text style={[styles.completionBtnText, { color: '#FFF' }]}>{t('autoplay.exit')}</Text>
+                                <Text style={[styles.completionBtnText, { color: colors.onPrimary }]}>{t('autoplay.exit')}</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -355,7 +355,7 @@ export default function AutoPlayScreen() {
                             hitSlop={12}
                             style={styles.starBtn}
                         >
-                            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? '#FFD700' : colors.textTertiary} />
+                            <Ionicons name={currentWord.isStarred ? 'star' : 'star-outline'} size={22} color={currentWord.isStarred ? colors.starGold : colors.textTertiary} />
                         </Pressable>
 
                         {/* Word Area */}
@@ -451,13 +451,13 @@ export default function AutoPlayScreen() {
                     >
                         <Pressable
                             onPress={togglePlayPause}
-                            style={[styles.playPauseBtn, { backgroundColor: colors.primaryButton }]}
+                            style={[styles.playPauseBtn, { backgroundColor: colors.primaryButton, shadowColor: colors.shadow }]}
                             hitSlop={12}
                         >
                             <Ionicons
                                 name={isPlaying ? "pause" : "play"}
                                 size={32}
-                                color="#FFF"
+                                color={colors.onPrimary}
                                 style={{ marginLeft: isPlaying ? 0 : 2 }}
                             />
                         </Pressable>
@@ -605,7 +605,6 @@ const styles = StyleSheet.create({
         borderRadius: 32,
         alignItems: 'center',
         justifyContent: 'center',
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.2,
         shadowRadius: 8,

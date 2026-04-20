@@ -97,7 +97,7 @@ export default function StudyResultsScreen() {
         <Ionicons name="alert-circle-outline" size={64} color={colors.textTertiary} />
         <Text style={{ color: colors.text, textAlign: 'center', marginTop: 16, fontSize: 18, fontFamily: 'Pretendard_600SemiBold' }}>{t('studyResults.noResults')}</Text>
         <Pressable onPress={() => router.back()} style={{ marginTop: 24, backgroundColor: colors.primaryButton, paddingVertical: 12, paddingHorizontal: 24, borderRadius: 12 }}>
-          <Text style={{ color: '#FFF', fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
+          <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>{t('common.back')}</Text>
         </Pressable>
       </View>
     );
@@ -107,7 +107,7 @@ export default function StudyResultsScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView contentContainerStyle={[styles.content, { paddingTop: topInset + 40, paddingBottom: 160 }]}>
         <View style={styles.header}>
-          <View style={[styles.statusIcon, { backgroundColor: allCorrect ? colors.successLight : colors.primaryLight }]}>
+          <View style={[styles.statusIcon, { backgroundColor: allCorrect ? colors.successLight : colors.primaryLight, shadowColor: colors.shadow }]}>
             <Ionicons
               name={allCorrect ? 'trophy' : 'checkmark-circle'}
               size={48}
@@ -175,7 +175,7 @@ export default function StudyResultsScreen() {
           onPress={handleDone}
           style={[styles.doneBtn, { backgroundColor: colors.primaryButton }]}
         >
-          <Text style={[styles.doneBtnText, { color: '#FFFFFF' }]}>{t('studyResults.endStudy')}</Text>
+          <Text style={[styles.doneBtnText, { color: colors.onPrimary }]}>{t('studyResults.endStudy')}</Text>
         </Pressable>
       </View>
     </View>
@@ -203,7 +203,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     ...Platform.select({
       ios: {
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.1,
         shadowRadius: 10,

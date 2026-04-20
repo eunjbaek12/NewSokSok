@@ -204,6 +204,7 @@ export default function DashboardScreen() {
               {
                 backgroundColor: colors.surface,
                 borderColor: colors.borderLight,
+                shadowColor: colors.shadow,
               },
               pressed && { opacity: 0.7 },
             ]}
@@ -225,15 +226,15 @@ export default function DashboardScreen() {
               style={({ pressed }) => [styles.quickCard, { opacity: pressed ? 0.85 : 1 }]}
             >
               <LinearGradient
-                colors={isDark ? ['#1E3A5F', '#2D5A9E'] : ['#3182F6', '#5BA0FC']}
+                colors={colors.accentActionGradient}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
                 style={styles.quickCardGradient}
               />
               <View style={styles.quickCardIconWrap}>
-                <Ionicons name="flash" size={24} color="#FFFFFF" />
+                <Ionicons name="flash" size={24} color={colors.onPrimary} />
               </View>
-              <Text style={styles.quickCardLabelWhite}>{t('home.customStudy')}</Text>
+              <Text style={[styles.quickCardLabelWhite, { color: colors.onPrimary }]}>{t('home.customStudy')}</Text>
             </Pressable>
 
             {/* 오답 정복 */}
@@ -257,7 +258,7 @@ export default function DashboardScreen() {
                 <Ionicons name="alert-circle" size={24} color={wrongWordCount > 0 ? colors.error : colors.textTertiary} />
                 {wrongWordCount > 0 && (
                   <View style={[styles.quickCardBadge, { backgroundColor: colors.error }]}>
-                    <Text style={styles.quickCardBadgeText}>{Math.min(wrongWordCount, 50)}</Text>
+                    <Text style={[styles.quickCardBadgeText, { color: colors.onPrimary }]}>{Math.min(wrongWordCount, 50)}</Text>
                   </View>
                 )}
               </View>
@@ -288,7 +289,7 @@ export default function DashboardScreen() {
                 <Ionicons name="star" size={24} color={starredWordCount > 0 ? colors.warning : colors.textTertiary} />
                 {starredWordCount > 0 && (
                   <View style={[styles.quickCardBadge, { backgroundColor: colors.warning }]}>
-                    <Text style={styles.quickCardBadgeText}>{starredWordCount}</Text>
+                    <Text style={[styles.quickCardBadgeText, { color: colors.onPrimary }]}>{starredWordCount}</Text>
                   </View>
                 )}
               </View>
@@ -333,7 +334,7 @@ export default function DashboardScreen() {
                     >
                       <Text style={[
                         styles.filterChipText,
-                        { color: filterMode === key ? '#FFFFFF' : colors.textSecondary },
+                        { color: filterMode === key ? colors.onPrimary : colors.textSecondary },
                       ]}>
                         {label}
                       </Text>
@@ -423,7 +424,7 @@ export default function DashboardScreen() {
                             { backgroundColor: colors.successButton, opacity: pressed ? 0.85 : 1 },
                           ]}
                         >
-                          <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>
+                          <Text style={[styles.actionButtonText, { color: colors.onPrimary }]}>
                             {t('home.studyResult')}
                           </Text>
                         </Pressable>
@@ -511,7 +512,7 @@ export default function DashboardScreen() {
                               { backgroundColor: colors.primaryButton, opacity: pressed ? 0.85 : 1 },
                             ]}
                           >
-                            <Text style={[styles.actionButtonText, { color: '#FFFFFF' }]}>{t('home.restartStudy')}</Text>
+                            <Text style={[styles.actionButtonText, { color: colors.onPrimary }]}>{t('home.restartStudy')}</Text>
                           </Pressable>
                         </View>
                       </View>
@@ -608,7 +609,7 @@ export default function DashboardScreen() {
                       >
                         <Text style={[
                           styles.actionButtonText,
-                          { color: dayStatus.state === 'completed' ? colors.textSecondary : '#FFFFFF' },
+                          { color: dayStatus.state === 'completed' ? colors.textSecondary : colors.onPrimary },
                         ]}>
                           {statusConfig.actionLabel}
                         </Text>
@@ -712,7 +713,7 @@ export default function DashboardScreen() {
                   { backgroundColor: colors.primaryButton, opacity: pressed ? 0.9 : 1 },
                 ]}
               >
-                <Text style={styles.resultRestartBtnText}>{t('home.restartPlan')}</Text>
+                <Text style={[styles.resultRestartBtnText, { color: colors.onPrimary }]}>{t('home.restartPlan')}</Text>
               </Pressable>
               <Text style={[styles.resultNote, { color: colors.textTertiary }]}>
                 {t('home.restartPlanNote')}
@@ -771,7 +772,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     gap: 10,
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 8,
@@ -814,7 +814,6 @@ const styles = StyleSheet.create({
   quickCardLabelWhite: {
     fontSize: 13,
     fontFamily: 'Pretendard_600SemiBold',
-    color: '#FFFFFF',
     textAlign: 'center',
   },
   quickCardLabel: {
@@ -842,7 +841,6 @@ const styles = StyleSheet.create({
   quickCardBadgeText: {
     fontSize: 10,
     fontFamily: 'Pretendard_700Bold',
-    color: '#FFFFFF',
   },
 
   // Section
@@ -1068,7 +1066,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   resultRestartBtnText: {
-    color: '#FFFFFF',
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
   },

@@ -1,6 +1,11 @@
 const { defineConfig } = require('eslint/config');
 const expoConfig = require('eslint-config-expo/flat');
 
+const HEX_GUARD = {
+  selector: "Literal[value=/^#[0-9a-fA-F]{3,8}$/]",
+  message: 'Hex color literals are forbidden. Use theme tokens (colors.X from @/features/theme) or system tokens. See docs/refactor-plan handoff Step 10b.',
+};
+
 module.exports = defineConfig([
   expoConfig,
   {
@@ -35,32 +40,34 @@ module.exports = defineConfig([
       }],
     },
   },
-  // Step 10b guard: data/logic layers are already hex-free. Keep them that way —
-  // any new `'#RRGGBB'` literal here must instead come from the theme tokens
-  // (`colors.X` from @/features/theme, or `tokens.X` from @/lib/theme/tokens).
-  // UI layers (app/**, components/**, features/*/screen.tsx, features/*/components/**)
-  // are still being swept and are intentionally excluded.
+  // Step 10b guard: hex literals forbidden across the entire UI + data layer.
+  // Theme palette and SVG illustrations are exempt — see exception block below.
   {
     files: [
-      'features/auth/**/*.{ts,tsx}',
-      'features/settings/**/*.{ts,tsx}',
-      'features/sync/**/*.{ts,tsx}',
-      'features/vocab/**/*.{ts,tsx}',
-      'features/theme/**/*.{ts,tsx}',
-      'features/locale/**/*.{ts,tsx}',
-      'features/onboarding/store.ts',
-      'features/onboarding/index.ts',
+      'app/**/*.{ts,tsx}',
+      'components/**/*.{ts,tsx}',
+      'features/**/*.{ts,tsx}',
+      'hooks/**/*.{ts,tsx}',
+      'lib/**/*.{ts,tsx}',
       'server/**/*.{ts,tsx}',
       'shared/**/*.{ts,tsx}',
-      'lib/api/**/*.{ts,tsx}',
-      'lib/storage/**/*.{ts,tsx}',
-      'lib/theme/**/*.{ts,tsx}',
     ],
     rules: {
-      'no-restricted-syntax': ['error', {
-        selector: "Literal[value=/^#[0-9a-fA-F]{3,8}$/]",
-        message: 'Hex color literals are forbidden here. Use theme tokens (colors.X) or constants. See docs/refactor-plan handoff Step 10b.',
-      }],
+      'no-restricted-syntax': ['error', HEX_GUARD],
+    },
+  },
+  // Exceptions: theme palette is the single source of hex truth; SVG character
+  // illustrations carry their own static art colors (intentionally theme-agnostic).
+  {
+    files: [
+      'constants/colors.ts',
+      'lib/theme/**/*.{ts,tsx}',
+      'components/CharacterSvg.tsx',
+      'features/onboarding/components/AvocadoCharacter.tsx',
+      'features/onboarding/components/demos/**/*.{ts,tsx}',
+    ],
+    rules: {
+      'no-restricted-syntax': 'off',
     },
   },
 ]);

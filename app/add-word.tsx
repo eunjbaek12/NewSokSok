@@ -605,7 +605,7 @@ export default function AddWordScreen() {
                 disabled={!newListName.trim()}
                 style={[styles.pickerNewBtn, { backgroundColor: newListName.trim() ? colors.primaryButton : colors.surfaceSecondary }]}
             >
-                <Text style={{ color: newListName.trim() ? '#FFFFFF' : colors.textTertiary, fontSize: 14, fontFamily: 'Pretendard_600SemiBold' }}>
+                <Text style={{ color: newListName.trim() ? colors.onPrimary : colors.textTertiary, fontSize: 14, fontFamily: 'Pretendard_600SemiBold' }}>
                     {t('common.create')}
                 </Text>
             </Pressable>
@@ -644,7 +644,7 @@ export default function AddWordScreen() {
                         backgroundColor: colors.background,
                         borderRadius: 24,
                         overflow: 'hidden',
-                        shadowColor: '#000',
+                        shadowColor: colors.shadow,
                         shadowOffset: { width: 0, height: 10 },
                         shadowOpacity: 0.25,
                         shadowRadius: 20,
@@ -705,7 +705,7 @@ export default function AddWordScreen() {
                                                 {!isEditing && (
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6, marginBottom: 6 }}>
                                                         <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
-                                                            <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? '#fff' : colors.textSecondary} />
+                                                            <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? colors.onPrimary : colors.textSecondary} />
                                                         </Pressable>
                                                         <Pressable onPress={() => setPhotoSource('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
@@ -807,7 +807,7 @@ export default function AddWordScreen() {
                                                             disabled={!term.trim()}
                                                             style={styles.searchIconButton}
                                                         >
-                                                            <Text style={[styles.naverIconText, { color: term.trim() ? '#03C75A' : colors.textTertiary }]}>N</Text>
+                                                            <Text style={[styles.naverIconText, { color: term.trim() ? colors.brand.naverGreen : colors.textTertiary }]}>N</Text>
                                                         </Pressable>
                                                     </View>
                                                 </View>
@@ -816,6 +816,7 @@ export default function AddWordScreen() {
                                                         top: inputWrapperHeight + 2,
                                                         backgroundColor: colors.surface,
                                                         borderColor: colors.border,
+                                                        shadowColor: colors.shadow,
                                                     }]}>
                                                         {suggestions.map((s) => (
                                                             <Pressable
@@ -953,7 +954,7 @@ export default function AddWordScreen() {
                                                         disabled={!tagInput.trim()}
                                                         style={[styles.addTagBtn, { backgroundColor: tagInput.trim() ? colors.primaryButton : colors.surfaceSecondary }]}
                                                     >
-                                                        <Ionicons name="add" size={20} color={tagInput.trim() ? '#fff' : colors.textTertiary} />
+                                                        <Ionicons name="add" size={20} color={tagInput.trim() ? colors.onPrimary : colors.textTertiary} />
                                                     </Pressable>
                                                 </View>
 
@@ -1001,11 +1002,11 @@ export default function AddWordScreen() {
                                 ]}
                             >
                                 {isPendingSave ? (
-                                    <ActivityIndicator color="#fff" size="small" />
+                                    <ActivityIndicator color={colors.onPrimary} size="small" />
                                 ) : (
                                     <>
-                                        <Ionicons name="checkmark" size={20} color="#fff" />
-                                        <Text style={styles.fabText}>{t('common.save')}</Text>
+                                        <Ionicons name="checkmark" size={20} color={colors.onPrimary} />
+                                        <Text style={[styles.fabText, { color: colors.onPrimary }]}>{t('common.save')}</Text>
                                     </>
                                 )}
                             </Pressable>
@@ -1034,7 +1035,7 @@ export default function AddWordScreen() {
                     <Pressable style={[styles.modalOverlay, { backgroundColor: colors.overlay }]} onPress={() => setFieldSettingsOpen(false)}>
                         <GestureDetector gesture={modalGesture}>
                             <Animated.View
-                                style={[styles.modalContainer, { backgroundColor: colors.surface }, modalAnimatedStyle]}
+                                style={[styles.modalContainer, { backgroundColor: colors.surface, shadowColor: colors.shadow }, modalAnimatedStyle]}
                             >
                                 <View style={{ alignItems: 'center', marginBottom: 8, marginTop: -12, paddingVertical: 6 }}>
                                     <View style={{ width: 36, height: 4, borderRadius: 2, backgroundColor: colors.border, opacity: 0.5 }} />
@@ -1079,7 +1080,7 @@ export default function AddWordScreen() {
                                             width: 18,
                                             height: 18,
                                             borderRadius: 9,
-                                            backgroundColor: '#fff',
+                                            backgroundColor: colors.onPrimary,
                                             transform: [{ translateX: tempSettings.addWordMode === 'full' ? 18 : 0 }]
                                         }} />
                                     </View>
@@ -1118,7 +1119,7 @@ export default function AddWordScreen() {
                                             width: 18,
                                             height: 18,
                                             borderRadius: 9,
-                                            backgroundColor: '#fff',
+                                            backgroundColor: colors.onPrimary,
                                             transform: [{ translateX: tempSettings.enableAutocomplete ? 18 : 0 }]
                                         }} />
                                     </View>
@@ -1213,14 +1214,14 @@ export default function AddWordScreen() {
                                     >
                                         {isApplying ? (
                                             <>
-                                                <Ionicons name="checkmark" size={20} color="#fff" />
-                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>{t('addWord.applied')}</Text>
+                                                <Ionicons name="checkmark" size={20} color={colors.onPrimary} />
+                                                <Text style={[styles.modalActionBtnText, { color: colors.onPrimary }]}>{t('addWord.applied')}</Text>
                                             </>
                                         ) : (
                                             <>
-                                                <Text style={[styles.modalActionBtnText, { color: '#ffffff' }]}>{t('common.apply')}</Text>
+                                                <Text style={[styles.modalActionBtnText, { color: colors.onPrimary }]}>{t('common.apply')}</Text>
                                                 <View style={{ backgroundColor: 'rgba(255,255,255,0.2)', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10 }}>
-                                                    <Text style={{ color: '#fff', fontSize: 12, fontFamily: 'Pretendard_700Bold' }}>{selectedFieldsCount}</Text>
+                                                    <Text style={{ color: colors.onPrimary, fontSize: 12, fontFamily: 'Pretendard_700Bold' }}>{selectedFieldsCount}</Text>
                                                 </View>
                                             </>
                                         )}
@@ -1310,7 +1311,7 @@ export default function AddWordScreen() {
 
 const styles = StyleSheet.create({
     container: { flex: 1 },
-    topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, borderBottomWidth: StyleSheet.hairlineWidth, backgroundColor: '#F2F4F6' },
+    topBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20, borderBottomWidth: StyleSheet.hairlineWidth },
     topBarCancel: { fontSize: 16, fontFamily: 'Pretendard_400Regular' },
     topBarTitle: { fontSize: 17, fontFamily: 'Pretendard_600SemiBold' },
     topBarSave: { fontSize: 16, fontFamily: 'Pretendard_700Bold' },
@@ -1336,7 +1337,7 @@ const styles = StyleSheet.create({
     loadingContainer: { alignItems: 'center', paddingVertical: 20, gap: 8 },
     loadingText: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     tagsContainer: { marginTop: 0, gap: 6 },
-    tagsLabel: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold', color: '#8E949A', letterSpacing: 0.8 },
+    tagsLabel: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     tagInputRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 },
     tagInput: { flex: 1, borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, fontSize: 16, fontFamily: 'Pretendard_400Regular' },
     addTagBtn: { width: 44, height: 44, borderRadius: 22, alignItems: 'center', justifyContent: 'center' },
@@ -1352,7 +1353,6 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         borderWidth: 1,
         overflow: 'hidden',
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.1,
         shadowRadius: 8,
@@ -1384,7 +1384,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Pretendard_400Regular',
     },
     toastContainer: { position: 'absolute', bottom: 120, left: 0, right: 0, alignItems: 'center', zIndex: 999 },
-    toast: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 12, borderRadius: 12, gap: 8, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.15, shadowRadius: 12, elevation: 6 },
+    toast: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 12, borderRadius: 12, gap: 8, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.15, shadowRadius: 12, elevation: 6 },
     toastText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     modalOverlay: {
         flex: 1,
@@ -1399,7 +1399,6 @@ const styles = StyleSheet.create({
         padding: 16,
         paddingTop: 10,
         paddingBottom: 16,
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.12,
         shadowRadius: 16,
@@ -1434,7 +1433,6 @@ const styles = StyleSheet.create({
         top: 4,
         bottom: 4,
         borderRadius: 10,
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.05,
         shadowRadius: 4,
@@ -1511,7 +1509,6 @@ const styles = StyleSheet.create({
         elevation: 6,
     },
     fabText: {
-        color: '#fff',
         fontSize: 16,
         fontFamily: 'Pretendard_700Bold',
     },

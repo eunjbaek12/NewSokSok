@@ -7,8 +7,9 @@ import Animated, { useAnimatedStyle, withTiming, interpolateColor } from 'react-
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 
-const CustomToggle = ({ value, onValueChange, activeColor = '#4A7DFF' }: { value: boolean, onValueChange: (v: boolean) => void, activeColor?: string }) => {
-    const { colors, isDark } = useTheme();
+const CustomToggle = ({ value, onValueChange, activeColor }: { value: boolean, onValueChange: (v: boolean) => void, activeColor?: string }) => {
+    const { colors } = useTheme();
+    const trackActiveColor = activeColor ?? colors.accentAction;
 
     const animatedStyle = useAnimatedStyle(() => {
         return {
@@ -18,7 +19,7 @@ const CustomToggle = ({ value, onValueChange, activeColor = '#4A7DFF' }: { value
 
     const trackStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: withTiming(value ? activeColor : (isDark ? '#374151' : '#E5E7EB'), { duration: 200 }),
+            backgroundColor: withTiming(value ? trackActiveColor : colors.surfaceSecondary, { duration: 200 }),
         };
     });
 
@@ -35,8 +36,8 @@ const CustomToggle = ({ value, onValueChange, activeColor = '#4A7DFF' }: { value
                     width: 12,
                     height: 12,
                     borderRadius: 6,
-                    backgroundColor: '#FFF',
-                    shadowColor: '#000',
+                    backgroundColor: colors.onPrimary,
+                    shadowColor: colors.shadow,
                     shadowOffset: { width: 0, height: 1 },
                     shadowOpacity: 0.1,
                     shadowRadius: 1,
@@ -131,10 +132,10 @@ export default function StudySettingsModal({
                             keyboardShouldPersistTaps="handled"
                         >
                             {/* 공통: 출제 대상 */}
-                            {!hideTargetFilter && <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                            {!hideTargetFilter && <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
                                 <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.targetWords')}</Text>
 
-                                <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
+                                <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary }]}>
                                     {(['all', 'learning', 'memorized'] as const).map(f => {
                                         const isActive = tempSettings.filter === f;
                                         return (
@@ -143,12 +144,12 @@ export default function StudySettingsModal({
                                                 onPress={() => updateSetting('filter', f)}
                                                 style={[
                                                     styles.segmentedTab,
-                                                    isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                    isActive && [styles.segmentedTabActive, { backgroundColor: colors.surface, shadowColor: colors.shadow }]
                                                 ]}
                                             >
                                                 <Text style={[
                                                     isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                    { color: isActive ? '#4A7DFF' : colors.textSecondary }
+                                                    { color: isActive ? colors.accentAction : colors.textSecondary }
                                                 ]}>
                                                     {f === 'all' ? t('studySettings.all') : f === 'learning' ? t('studySettings.unmemorized') : t('studySettings.memorized')}
                                                 </Text>
@@ -157,12 +158,12 @@ export default function StudySettingsModal({
                                     })}
                                 </View>
 
-                                <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                <View style={[styles.divider, { backgroundColor: colors.border }]} />
 
                                 <View style={styles.settingRow}>
                                     <View style={styles.settingRowContent}>
                                         <View style={styles.iconContainer}>
-                                            <Ionicons name="star-outline" size={16} color="#4A7DFF" />
+                                            <Ionicons name="star-outline" size={16} color={colors.accentAction} />
                                         </View>
                                         <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.starredOnly')}</Text>
                                     </View>
@@ -175,11 +176,11 @@ export default function StudySettingsModal({
                                 {/* 품사 표시는 플래시카드는 카드 뒷면에, 퀴즈는 여기에? 플래시카드/퀴즈 구조상 퀴즈는 공통 출제 대상 쪽에 있었음. 플래시카드처럼 퀴즈도 여기서 처리. */}
                                 {mode === 'quiz' && (
                                     <>
-                                        <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                        <View style={[styles.divider, { backgroundColor: colors.border }]} />
                                         <View style={styles.settingRow}>
                                             <View style={styles.settingRowContent}>
                                                 <View style={styles.iconContainer}>
-                                                    <Ionicons name="text-outline" size={16} color="#10B981" />
+                                                    <Ionicons name="text-outline" size={16} color={colors.icons.memorization} />
                                                 </View>
                                                 <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.showPos')}</Text>
                                             </View>
@@ -193,9 +194,9 @@ export default function StudySettingsModal({
                             </View>}
 
                             {/* 공통: 학습 단위 */}
-                            <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                            <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
                                 <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.studyUnit')}</Text>
-                                <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6' }]}>
+                                <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary }]}>
                                     {['all', 10, 20, 30].map(size => {
                                         const isActive = tempBatchSize === size;
                                         return (
@@ -204,12 +205,12 @@ export default function StudySettingsModal({
                                                 onPress={() => setTempBatchSize(size as 'all' | 10 | 20 | 30)}
                                                 style={[
                                                     styles.segmentedTab,
-                                                    isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                    isActive && [styles.segmentedTabActive, { backgroundColor: colors.surface, shadowColor: colors.shadow }]
                                                 ]}
                                             >
                                                 <Text style={[
                                                     isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                    { color: isActive ? '#4A7DFF' : colors.textSecondary }
+                                                    { color: isActive ? colors.accentAction : colors.textSecondary }
                                                 ]}>
                                                     {size === 'all' ? t('studySettings.all') : t('studySettings.nPerSet', { size })}
                                                 </Text>
@@ -221,12 +222,12 @@ export default function StudySettingsModal({
 
                             {/* 플래시카드, 문장완성, 자동재생 공통: 학습 옵션 */}
                             {(mode === 'flashcard' || mode === 'examples' || mode === 'autoplay') && (
-                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.studyOptions')}</Text>
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="shuffle-outline" size={16} color="#9333EA" />
+                                                <Ionicons name="shuffle-outline" size={16} color={colors.icons.shuffle} />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>
                                                 {mode === 'examples' ? t('studySettings.shuffleSentences') : t('studySettings.shuffleWords')}
@@ -238,12 +239,12 @@ export default function StudySettingsModal({
                                         />
                                     </View>
 
-                                    <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                    <View style={[styles.divider, { backgroundColor: colors.border }]} />
 
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="volume-high-outline" size={16} color="#FF5722" />
+                                                <Ionicons name="volume-high-outline" size={16} color={colors.icons.sound} />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.autoSound')}</Text>
                                         </View>
@@ -255,15 +256,15 @@ export default function StudySettingsModal({
 
                                     {mode === 'autoplay' && (
                                         <>
-                                            <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                            <View style={[styles.divider, { backgroundColor: colors.border }]} />
                                             <View style={styles.settingRow}>
                                                 <View style={styles.settingRowContent}>
                                                     <View style={styles.iconContainer}>
-                                                        <Ionicons name="time-outline" size={16} color="#F59E0B" />
+                                                        <Ionicons name="time-outline" size={16} color={colors.icons.timing} />
                                                     </View>
                                                     <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.nextDelay')}</Text>
                                                 </View>
-                                                <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6', flex: 1, marginLeft: 16 }]}>
+                                                <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary, flex: 1, marginLeft: 16 }]}>
                                                     {(['1s', '2s', '3s'] as const).map(d => {
                                                         const isActive = tempSettings.delay === d;
                                                         return (
@@ -272,12 +273,12 @@ export default function StudySettingsModal({
                                                                 onPress={() => updateSetting('delay', d)}
                                                                 style={[
                                                                     styles.segmentedTab,
-                                                                    isActive && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                                    isActive && [styles.segmentedTabActive, { backgroundColor: colors.surface, shadowColor: colors.shadow }]
                                                                 ]}
                                                             >
                                                                 <Text style={[
                                                                     isActive ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                                    { color: isActive ? '#4A7DFF' : colors.textSecondary }
+                                                                    { color: isActive ? colors.accentAction : colors.textSecondary }
                                                                 ]}>
                                                                     {d}
                                                                 </Text>
@@ -293,7 +294,7 @@ export default function StudySettingsModal({
 
                             {/* 플래시카드 및 자동재생 공통: 카드 뒷면 표시 */}
                             {(mode === 'flashcard' || mode === 'autoplay') && (
-                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.displaySettings')}</Text>
 
 
@@ -301,7 +302,7 @@ export default function StudySettingsModal({
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="text-outline" size={16} color="#10B981" />
+                                                <Ionicons name="text-outline" size={16} color={colors.icons.memorization} />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.pos')}</Text>
                                         </View>
@@ -313,11 +314,11 @@ export default function StudySettingsModal({
 
                                     {(mode === 'flashcard' || mode === 'autoplay') && (
                                         <>
-                                            <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                            <View style={[styles.divider, { backgroundColor: colors.border }]} />
                                             <View style={styles.settingRow}>
                                                 <View style={styles.settingRowContent}>
                                                     <View style={styles.iconContainer}>
-                                                        <Ionicons name="headset-outline" size={16} color="#F59E0B" />
+                                                        <Ionicons name="headset-outline" size={16} color={colors.icons.timing} />
                                                     </View>
                                                     <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.phonetic')}</Text>
                                                 </View>
@@ -329,12 +330,12 @@ export default function StudySettingsModal({
                                         </>
                                     )}
 
-                                    <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                    <View style={[styles.divider, { backgroundColor: colors.border }]} />
 
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="chatbubble-outline" size={16} color="#EC4899" />
+                                                <Ionicons name="chatbubble-outline" size={16} color={colors.icons.chat} />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.example')}</Text>
                                         </View>
@@ -344,12 +345,12 @@ export default function StudySettingsModal({
                                         />
                                     </View>
 
-                                    <View style={[styles.divider, { backgroundColor: isDark ? colors.border : '#F3F4F6' }]} />
+                                    <View style={[styles.divider, { backgroundColor: colors.border }]} />
 
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="language-outline" size={16} color="#14B8A6" />
+                                                <Ionicons name="language-outline" size={16} color={colors.icons.language} />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.exampleTranslation')}</Text>
                                         </View>
@@ -363,13 +364,13 @@ export default function StudySettingsModal({
 
                             {/* 문장완성 전용: 표시 설정 */}
                             {mode === 'examples' && (
-                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.displaySettings')}</Text>
 
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="language-outline" size={16} color="#F59E0B" />
+                                                <Ionicons name="language-outline" size={16} color={colors.icons.timing} />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.exampleTranslation')}</Text>
                                         </View>
@@ -383,39 +384,39 @@ export default function StudySettingsModal({
 
                             {/* 퀴즈 전용: 문제 옵션 */}
                             {mode === 'quiz' && (
-                                <View style={[styles.settingsCard, { backgroundColor: isDark ? colors.surface : '#FFF' }]}>
+                                <View style={[styles.settingsCard, { backgroundColor: colors.surface }]}>
                                     <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('studySettings.questionOptions')}</Text>
 
                                     <View style={styles.settingRow}>
                                         <View style={styles.settingRowContent}>
                                             <View style={styles.iconContainer}>
-                                                <Ionicons name="swap-horizontal-outline" size={16} color="#9333EA" />
+                                                <Ionicons name="swap-horizontal-outline" size={16} color={colors.icons.shuffle} />
                                             </View>
                                             <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.quizType')}</Text>
                                         </View>
-                                        <View style={[styles.segmentedControl, { backgroundColor: isDark ? colors.surfaceSecondary : '#F3F4F6', flex: 1, marginLeft: 16 }]}>
+                                        <View style={[styles.segmentedControl, { backgroundColor: colors.surfaceSecondary, flex: 1, marginLeft: 16 }]}>
                                             <Pressable
                                                 onPress={() => updateSetting('quizType', 'meaning-to-term')}
                                                 style={[
                                                     styles.segmentedTab,
-                                                    tempSettings.quizType === 'meaning-to-term' && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                    tempSettings.quizType === 'meaning-to-term' && [styles.segmentedTabActive, { backgroundColor: colors.surface }]
                                                 ]}
                                             >
                                                 <Text style={[
                                                     tempSettings.quizType === 'meaning-to-term' ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                    { color: tempSettings.quizType === 'meaning-to-term' ? '#4A7DFF' : colors.textSecondary }
+                                                    { color: tempSettings.quizType === 'meaning-to-term' ? colors.accentAction : colors.textSecondary }
                                                 ]}>{t('studySettings.meaningToWord')}</Text>
                                             </Pressable>
                                             <Pressable
                                                 onPress={() => updateSetting('quizType', 'term-to-meaning')}
                                                 style={[
                                                     styles.segmentedTab,
-                                                    tempSettings.quizType === 'term-to-meaning' && [styles.segmentedTabActive, { backgroundColor: isDark ? colors.surface : '#FFF' }]
+                                                    tempSettings.quizType === 'term-to-meaning' && [styles.segmentedTabActive, { backgroundColor: colors.surface }]
                                                 ]}
                                             >
                                                 <Text style={[
                                                     tempSettings.quizType === 'term-to-meaning' ? styles.segmentedTabTextActive : styles.segmentedTabText,
-                                                    { color: tempSettings.quizType === 'term-to-meaning' ? '#4A7DFF' : colors.textSecondary }
+                                                    { color: tempSettings.quizType === 'term-to-meaning' ? colors.accentAction : colors.textSecondary }
                                                 ]}>{t('studySettings.wordToMeaning')}</Text>
                                             </Pressable>
                                         </View>
@@ -427,17 +428,17 @@ export default function StudySettingsModal({
 
                         <View style={styles.bottomButtons}>
                             <Pressable
-                                style={[styles.btnCancel, { backgroundColor: isDark ? colors.surfaceSecondary : '#E5E7EB' }]}
+                                style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary }]}
                                 onPress={onClose}
                             >
-                                <Text style={[styles.btnCancelText, { color: isDark ? colors.textSecondary : '#4B5563' }]}>{t('common.close')}</Text>
+                                <Text style={[styles.btnCancelText, { color: colors.textSecondary }]}>{t('common.close')}</Text>
                             </Pressable>
 
                             <Pressable
                                 style={[styles.btnApply, { backgroundColor: colors.primaryButton }]}
                                 onPress={handleApply}
                             >
-                                <Text style={styles.btnApplyText}>{t('common.apply')}</Text>
+                                <Text style={[styles.btnApplyText, { color: colors.onPrimary }]}>{t('common.apply')}</Text>
                             </Pressable>
                         </View>
         </ModalOverlay>
@@ -497,7 +498,6 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     segmentedTabActive: {
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.1,
         shadowRadius: 2,
@@ -561,7 +561,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     btnApplyText: {
-        color: '#FFF',
         fontSize: 14,
         fontFamily: 'Pretendard_600SemiBold',
     },

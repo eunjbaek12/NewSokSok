@@ -397,7 +397,7 @@ export default function ListDetailScreen() {
   const renderWordCard = useCallback(({ item }: { item: Word }) => {
     const isSpeaking = speakingWordId === item.id;
     const isSelected = editMode && selectedIds.has(item.id);
-    const borderColor = item.isStarred ? '#FFD700' : (item.isMemorized ? colors.border : colors.primary);
+    const borderColor = item.isStarred ? colors.starGold : (item.isMemorized ? colors.border : colors.primary);
     const cardBg = isSelected ? colors.primaryLight : (item.isMemorized ? colors.surfaceSecondary : colors.surface);
 
     return (
@@ -439,7 +439,7 @@ export default function ListDetailScreen() {
             <Ionicons
               name={item.isStarred ? 'star' : 'star-outline'}
               size={22}
-              color={item.isStarred ? '#FFD700' : colors.textTertiary}
+              color={item.isStarred ? colors.starGold : colors.textTertiary}
             />
           </TouchableOpacity>
 
@@ -590,7 +590,7 @@ export default function ListDetailScreen() {
             <Ionicons
               name={filterStarred ? 'star' : 'star-outline'}
               size={22}
-              color={filterStarred ? '#FFD700' : colors.textTertiary}
+              color={filterStarred ? colors.starGold : colors.textTertiary}
             />
           </Pressable>
 
@@ -631,8 +631,8 @@ export default function ListDetailScreen() {
   };
 
   const renderStudyButtons = () => {
-    const iconColor = isDark ? "#6B7684" : "#6B7684";
-    const activeColor = isDark ? "#4B96FF" : "#3182F6";
+    const iconColor = colors.textTertiary;
+    const activeColor = colors.accentAction;
 
     return (
       <View style={styles.studyRow}>
@@ -650,7 +650,7 @@ export default function ListDetailScreen() {
           <View style={styles.iconBox}>
             <View style={{ position: 'relative', width: 24, height: 24, alignItems: 'center', justifyContent: 'center' }}>
               <Ionicons name="card-outline" size={22} color={iconColor} />
-              <View style={{ position: 'absolute', right: -2, bottom: -2, backgroundColor: isDark ? "#1E1F21" : "#F8F9FA", borderRadius: 6 }}>
+              <View style={{ position: 'absolute', right: -2, bottom: -2, backgroundColor: colors.surfaceSecondary, borderRadius: 6 }}>
                 <Ionicons name="sync" size={10} color={iconColor} />
               </View>
             </View>
@@ -738,8 +738,8 @@ export default function ListDetailScreen() {
         onPress={handleAddWord}
         style={[styles.emptyButton, { backgroundColor: colors.primaryButton }]}
       >
-        <Ionicons name="add" size={18} color="#FFFFFF" />
-        <Text style={styles.emptyButtonText}>{t('addWord.addWordTitle')}</Text>
+        <Ionicons name="add" size={18} color={colors.onPrimary} />
+        <Text style={[styles.emptyButtonText, { color: colors.onPrimary }]}>{t('addWord.addWordTitle')}</Text>
       </Pressable>
     </View>
   ), [colors, handleAddWord]);
@@ -900,11 +900,12 @@ export default function ListDetailScreen() {
                   right: 0,
                   bottom: 0,
                   backgroundColor: colors.primaryButton,
+                  shadowColor: colors.shadow,
                   opacity: pressed ? 0.85 : 1,
                 },
               ]}
             >
-              <Ionicons name="add" size={28} color="#FFFFFF" />
+              <Ionicons name="add" size={28} color={colors.onPrimary} />
             </Pressable>
           </Animated.View>
 
@@ -942,6 +943,7 @@ export default function ListDetailScreen() {
                   borderWidth: 1,
                   borderColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
                   opacity: pressed ? 0.7 : 1,
+                  shadowColor: colors.shadow,
                   shadowOpacity: 0.15,
                 },
               ]}
@@ -972,7 +974,7 @@ export default function ListDetailScreen() {
           borderTopWidth: 0.5,
           borderTopColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
           paddingBottom: insets.bottom,
-          shadowColor: "#000",
+          shadowColor: colors.shadow,
           shadowOffset: { width: 0, height: -2 },
           shadowOpacity: 0.1,
           shadowRadius: 4,
@@ -1177,7 +1179,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   emptyButtonText: {
-    color: '#FFFFFF',
     fontSize: 15,
     fontFamily: 'Pretendard_600SemiBold',
   },
@@ -1193,7 +1194,6 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 8,
@@ -1201,7 +1201,6 @@ const styles = StyleSheet.create({
   },
   bottomBarContainer: {
     position: 'absolute',
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 12,
@@ -1221,7 +1220,6 @@ const styles = StyleSheet.create({
     maxWidth: 420,
     borderRadius: 20,
     maxHeight: '80%',
-    shadowColor: '#000',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.15,
     shadowRadius: 24,
@@ -1283,7 +1281,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   saveBtnText: {
-    color: '#FFFFFF',
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
   },

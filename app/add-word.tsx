@@ -29,8 +29,8 @@ try {
     // Native module not available
 }
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { useLists, selectWordsForList, createList, addWord } from '@/features/vocab';
 import { useAddWord } from '@/hooks/useAddWord';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -42,7 +42,7 @@ import PhotoImportWorkflow from '@/components/PhotoImportWorkflow';
 import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
 import { searchNaverDict, fetchNaverAutocomplete, fetchDatamuseAutocomplete } from '@/lib/naver-dict-api';
-import { useSettings } from '@/contexts/SettingsContext';
+import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
 import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
 import Animated, {
@@ -257,7 +257,8 @@ export default function AddWordScreen() {
     const { t } = useTranslation();
     const { colors } = useTheme();
     const insets = useSafeAreaInsets();
-    const { lists, getWordsForList, createList, addWord } = useVocab();
+    const lists = useLists();
+    const getWordsForList = (id: string) => selectWordsForList(lists, id);
     const params = useLocalSearchParams<any>();
 
     const initialMode = useMemo(() => params.initialMode, [params.initialMode]);

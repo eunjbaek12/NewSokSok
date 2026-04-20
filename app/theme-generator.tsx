@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 
 export default function ThemeGeneratorScreen() {
     const { colors } = useTheme();

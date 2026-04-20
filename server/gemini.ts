@@ -1,11 +1,12 @@
 import { GoogleGenAI, Type } from "@google/genai";
-
-interface AIWordResult {
-  term: string;
-  definition: string;
-  exampleEn: string;
-  meaningKr: string;
-}
+import {
+  AIWordResultSchema,
+  AIThemeGenerateResponseSchema,
+  AIWordResultArraySchema,
+  type AIWordResult,
+  type AIThemeGenerateResponse,
+} from "@shared/contracts";
+import { fromZodError } from "zod-validation-error";
 
 const MODEL_NAME = "gemini-2.0-flash";
 
@@ -26,6 +27,23 @@ function getFullLanguageName(code: string): string {
     en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese',
   };
   return map[code] || code;
+}
+
+function parseAIJson<T>(text: string | undefined, schema: { safeParse(v: unknown): { success: boolean; data?: T; error?: any } }, context: string): T {
+  if (!text) throw new Error(`No response from AI (${context})`);
+  let raw: unknown;
+  try {
+    raw = JSON.parse(text);
+  } catch (e: any) {
+    throw new Error(`AI response was not valid JSON (${context}): ${e?.message}`);
+  }
+  const result = schema.safeParse(raw);
+  if (!result.success) {
+    const readable = fromZodError(result.error);
+    console.error(`AI ${context} schema mismatch:`, readable.message, 'raw:', raw);
+    throw new Error(`AI response failed validation (${context}): ${readable.message}`);
+  }
+  return result.data as T;
 }
 
 export async function analyzeWord(word: string, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string): Promise<AIWordResult> {
@@ -62,9 +80,7 @@ export async function analyzeWord(word: string, sourceLang: string = 'en', targe
     },
   });
 
-  const text = response.text;
-  if (!text) throw new Error("No response from AI");
-  return JSON.parse(text) as AIWordResult;
+  return parseAIJson<AIWordResult>(response.text, AIWordResultSchema, 'analyzeWord');
 }
 
 export async function generateThemeList(
@@ -72,7 +88,7 @@ export async function generateThemeList(
   difficulty: string = "Intermediate",
   count: number = 20,
   existingWords: string[] = []
-): Promise<{ title: string; words: AIWordResult[] }> {
+): Promise<AIThemeGenerateResponse> {
   const ai = getAIClient();
   const exclusionNote = existingWords.length > 0
     ? `\nIMPORTANT: Do NOT include any of the following words that already exist: ${existingWords.slice(0, 500).join(", ")}.`
@@ -110,9 +126,7 @@ export async function generateThemeList(
     },
   });
 
-  const text = response.text;
-  if (!text) throw new Error("No response from AI");
-  return JSON.parse(text) as { title: string; words: AIWordResult[] };
+  return parseAIJson<AIThemeGenerateResponse>(response.text, AIThemeGenerateResponseSchema, 'generateThemeList');
 }
 
 export async function generateMoreWords(
@@ -147,7 +161,5 @@ export async function generateMoreWords(
     },
   });
 
-  const text = response.text;
-  if (!text) throw new Error("No response from AI");
-  return JSON.parse(text) as AIWordResult[];
+  return parseAIJson<AIWordResult[]>(response.text, AIWordResultArraySchema, 'generateMoreWords');
 }

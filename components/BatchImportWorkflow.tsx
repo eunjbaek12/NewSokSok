@@ -4,8 +4,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as DocumentPicker from 'expo-document-picker';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { addBatchWords } from '@/features/vocab';
 import { parseImportedText, ParsedWord } from '@/utils/importParser';
 import * as Haptics from 'expo-haptics';
 
@@ -20,7 +20,6 @@ interface BatchImportWorkflowProps {
 export default function BatchImportWorkflow({ listId, onClose, onSaved }: BatchImportWorkflowProps) {
     const { colors } = useTheme();
     const { t } = useTranslation();
-    const { addBatchWords } = useVocab();
     const insets = useSafeAreaInsets();
 
     const [stage, setStage] = useState<ImportStage>('input');

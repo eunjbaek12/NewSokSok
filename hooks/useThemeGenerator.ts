@@ -1,6 +1,6 @@
 import { useState, useTransition, useMemo } from 'react';
 import * as Haptics from 'expo-haptics';
-import { useVocab } from '@/contexts/VocabContext';
+import { useLists, createList, addBatchWords } from '@/features/vocab';
 import { generateThemeWords } from '@/lib/translation-api';
 import { AIWordResult } from '@/lib/types';
 import { Alert } from 'react-native';
@@ -8,7 +8,7 @@ import { Alert } from 'react-native';
 const NEW_LIST_ID = '__new__';
 
 export function useThemeGenerator(initialTheme: string = '') {
-    const { lists, createList, addBatchWords } = useVocab();
+    const lists = useLists();
 
     const [theme, setTheme] = useState(initialTheme);
     const [results, setResults] = useState<AIWordResult[]>([]);

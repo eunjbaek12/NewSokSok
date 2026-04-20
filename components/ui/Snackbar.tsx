@@ -8,7 +8,7 @@ import {
     Dimensions,
     Platform,
 } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { PopupTokens } from '@/constants/popup';
 

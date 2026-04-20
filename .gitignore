@@ -44,3 +44,16 @@ yarn-error.*
 google-services.json
 *.keystore
 debug.keystore
+
+# Build artifacts
+server_dist/
+.gradle/
+app/src/
+
+# Tooling caches
+.playwright-cli/
+
+# Editor / debug leftovers
+*.bak
+*.log
+debug.log

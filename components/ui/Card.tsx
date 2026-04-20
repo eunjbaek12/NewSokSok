@@ -1,6 +1,6 @@
 import React, { ComponentProps } from 'react';
 import { View, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 
 interface CardProps extends ComponentProps<typeof View> {
     style?: ViewStyle | ViewStyle[];
@@ -22,7 +22,7 @@ export function Card({
                 styles.card,
                 {
                     backgroundColor: colors.surface,
-                    shadowColor: colors.cardShadow || '#000',
+                    shadowColor: colors.cardShadow,
                 },
                 style,
             ]}

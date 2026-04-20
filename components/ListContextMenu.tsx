@@ -13,7 +13,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { VocaList } from '@/lib/types';
 import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import { PopupTokens } from '@/constants/popup';

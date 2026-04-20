@@ -1,6 +1,6 @@
 import React, { ComponentProps } from 'react';
 import { TextInput, View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
 
 interface InputProps extends ComponentProps<typeof TextInput> {

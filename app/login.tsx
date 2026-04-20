@@ -12,9 +12,9 @@ import { router } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/features/auth';
 import { Button } from '@/components/ui/Button';
-import { AvocadoCharacter } from '@/components/onboarding/AvocadoCharacter';
+import { AvocadoCharacter } from '@/features/onboarding/components/AvocadoCharacter';
 
 
 export default function LoginScreen() {

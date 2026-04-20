@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 
 export type StatusBadgeType = 'learning' | 'completed' | 'curated' | 'plan-progress' | 'plan-done' | 'plan-overdue' | 'plan-inactive';
 

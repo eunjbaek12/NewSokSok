@@ -4,8 +4,8 @@ import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useSettings } from '@/contexts/SettingsContext';
+import { useTheme } from '@/features/theme';
+import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 
 import { fetchWordsFromImage } from '@/lib/gemini-api';

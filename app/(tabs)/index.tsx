@@ -19,13 +19,13 @@ import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
 import Svg, { Circle, G } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
-import { useSettings } from '@/contexts/SettingsContext';
-import { useAuth } from '@/contexts/AuthContext';
-import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/lib/plan-engine';
+import { useTheme } from '@/features/theme';
+import { useLists, useBootstrapLoading, clearPlan } from '@/features/vocab';
+import { useSettings } from '@/features/settings';
+import { useAuth } from '@/features/auth';
+import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/features/study/plan/engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
-import CustomStudyModal from '@/components/CustomStudyModal';
+import CustomStudyModal from '@/features/study/components/CustomStudyModal';
 import ProgressBar from '@/components/ui/ProgressBar';
 
 function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
@@ -65,7 +65,8 @@ function getStudyStateConfig(state: StudyState, t: (key: string) => string) {
 export default function DashboardScreen() {
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
-  const { lists, loading, clearPlan } = useVocab();
+  const lists = useLists();
+  const loading = useBootstrapLoading();
   const { t } = useTranslation();
   const { dashboardFilterMode: filterMode, updateDashboardFilter, customStudySettings, profileSettings } = useSettings();
   const { user } = useAuth();

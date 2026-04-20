@@ -21,11 +21,23 @@ import { useLocalSearchParams, router, useNavigation } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import {
+  useLists,
+  selectWordsForList,
+  invalidateLists,
+  renameList,
+  deleteWords,
+  toggleMemorized,
+  toggleStarred,
+  addBatchWords,
+  updateWord,
+  copyWords,
+  moveWords,
+} from '@/features/vocab';
 import { speak } from '@/lib/tts';
 import { Word } from '@/lib/types';
-import { computePlanStatus } from '@/lib/plan-engine';
+import { computePlanStatus } from '@/features/study/plan/engine';
 import { useTranslation } from 'react-i18next';
 import { BlurView } from 'expo-blur';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
@@ -40,19 +52,8 @@ export default function ListDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const insets = useSafeAreaInsets();
   const { colors, isDark } = useTheme();
-  const {
-    lists,
-    getWordsForList,
-    renameList,
-    deleteWords,
-    toggleMemorized,
-    toggleStarred,
-    refreshData,
-    addBatchWords,
-    updateWord,
-    copyWords,
-    moveWords,
-  } = useVocab();
+  const lists = useLists();
+  const getWordsForList = (listId: string) => selectWordsForList(lists, listId);
 
   // Snackbar & Undo State
   const [snackbarVisible, setSnackbarVisible] = useState(false);
@@ -168,9 +169,9 @@ export default function ListDetailScreen() {
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    await refreshData();
+    await invalidateLists();
     setRefreshing(false);
-  }, [refreshData]);
+  }, []);
 
   const handleSpeak = useCallback(async (word: Word) => {
     setSpeakingWordId(word.id);

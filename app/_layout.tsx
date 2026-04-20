@@ -5,14 +5,14 @@ import React, { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { queryClient } from "@/lib/query-client";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { VocabProvider } from "@/contexts/VocabContext";
-import { AuthProvider, useAuth } from "@/contexts/AuthContext";
-import { SettingsProvider, useSettings } from "@/contexts/SettingsContext";
-import { LocaleProvider } from "@/contexts/LocaleContext";
+import { queryClient } from "@/lib/api/client";
+import { ThemeProvider } from "@/features/theme";
+import { useVocabBootstrap } from "@/features/vocab";
+import { useAuth, useAuthStore } from "@/features/auth";
+import { useSettings, useSettingsStore } from "@/features/settings";
+import { LocaleProvider } from "@/features/locale";
 import { useFonts } from "expo-font";
-import { useOnboarding } from "@/hooks/useOnboarding";
+import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import "@/i18n";
 
 SplashScreen.preventAutoHideAsync();
@@ -38,22 +38,34 @@ export default function RootLayout() {
       <ErrorBoundary>
         <LocaleProvider>
           <QueryClientProvider client={queryClient}>
-            <AuthProvider>
-              <SettingsProvider>
-                <ThemeProvider>
-                  <VocabProvider>
-                    <GestureHandlerRootView style={{ flex: 1 }}>
-                      <AppStack />
-                    </GestureHandlerRootView>
-                  </VocabProvider>
-                </ThemeProvider>
-              </SettingsProvider>
-            </AuthProvider>
+            <AppHydrators>
+              <ThemeProvider>
+                <VocabBootstrapper>
+                  <GestureHandlerRootView style={{ flex: 1 }}>
+                    <AppStack />
+                  </GestureHandlerRootView>
+                </VocabBootstrapper>
+              </ThemeProvider>
+            </AppHydrators>
           </QueryClientProvider>
         </LocaleProvider>
       </ErrorBoundary>
     </SafeAreaProvider>
   );
+}
+
+function AppHydrators({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    useAuthStore.getState().hydrate();
+    useSettingsStore.getState().hydrate();
+    useOnboardingStore.getState().hydrate();
+  }, []);
+  return <>{children}</>;
+}
+
+function VocabBootstrapper({ children }: { children: React.ReactNode }) {
+  useVocabBootstrap();
+  return <>{children}</>;
 }
 
 function AppStack() {
@@ -71,7 +83,8 @@ function AppStack() {
 
   useEffect(() => {
     if (authLoading) return;
-    const inAuthScreen = segments[0] === 'login' || segments[0] === 'onboarding';
+    const first = segments[0] as string;
+    const inAuthScreen = first === 'login' || first === 'onboarding';
     if (authMode === 'none' && !inAuthScreen) {
       router.replace('/login');
     }

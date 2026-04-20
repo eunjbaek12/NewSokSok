@@ -4,9 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { VocaList, Word } from '@/lib/types';
-import { computePlanStatus } from '@/lib/plan-engine';
+import { computePlanStatus } from '@/features/study';
 import ProgressBar from '@/components/ui/ProgressBar';
 import StatusBadge, { StatusBadgeType } from '@/components/ui/StatusBadge';
 

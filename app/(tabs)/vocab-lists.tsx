@@ -18,8 +18,23 @@ import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
 import { BlurView } from 'expo-blur';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import {
+  useLists,
+  useBootstrapLoading,
+  useListProgress,
+  useListWords,
+  useShareList,
+  invalidateLists,
+  createList,
+  deleteList,
+  toggleVisibility,
+  renameList,
+  mergeLists,
+  reorderLists,
+  selectWordsForList,
+  selectListProgress,
+} from '@/features/vocab';
 import { VocaList } from '@/lib/types';
 import ScrollIndicator from '@/components/ui/ScrollIndicator';
 import ListCard from '@/components/ListCard';
@@ -43,20 +58,11 @@ export default function VocabListsScreen() {
   const [listContentHeight, setListContentHeight] = useState(0);
   const [listVisibleHeight, setListVisibleHeight] = useState(0);
 
-  const {
-    lists,
-    loading,
-    refreshData,
-    createList,
-    deleteList,
-    toggleVisibility,
-    getListProgress,
-    getWordsForList,
-    renameList,
-    mergeLists,
-    reorderLists,
-    shareList,
-  } = useVocab();
+  const lists = useLists();
+  const loading = useBootstrapLoading();
+  const getListProgress = (listId: string) => selectListProgress(lists, listId);
+  const getWordsForList = (listId: string) => selectWordsForList(lists, listId);
+  const shareList = useShareList();
 
   const [menuList, setMenuList] = useState<VocaList | null>(null);
   type MenuPos = { x: number; y: number; width: number; height: number };
@@ -214,7 +220,7 @@ export default function VocabListsScreen() {
           refreshControl={
             <RefreshControl
               refreshing={false}
-              onRefresh={refreshData}
+              onRefresh={invalidateLists}
               tintColor={colors.primary}
               colors={[colors.primary]}
             />
@@ -307,7 +313,7 @@ export default function VocabListsScreen() {
         renameList={renameList}
         toggleVisibility={toggleVisibility}
         reorderLists={reorderLists}
-        refreshData={refreshData}
+        refreshData={invalidateLists}
       />
     </View>
   );

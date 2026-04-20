@@ -14,10 +14,10 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { useListWords, toggleStarred } from '@/features/vocab';
 import { useAddWord } from '@/hooks/useAddWord';
-import { useSettings } from '@/contexts/SettingsContext';
+import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
@@ -188,11 +188,11 @@ export default function WordDetailModal({
 }: WordDetailModalProps) {
     const { t } = useTranslation();
     const { colors } = useTheme();
-    const { getWordsForList, toggleStarred } = useVocab();
+    const listWords = useListWords(listId);
     const { profileSettings } = useSettings();
 
     const isEditing = wordId !== undefined && wordId !== null;
-    const existingWord = word || (isEditing ? getWordsForList(listId).find(w => w.id === wordId) : null);
+    const existingWord = word || (isEditing ? listWords.find(w => w.id === wordId) : null);
 
     const {
         term, setTerm,

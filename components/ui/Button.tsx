@@ -1,6 +1,6 @@
 import React, { ComponentProps } from 'react';
 import { Pressable, Text, StyleSheet, ActivityIndicator, ViewStyle, TextStyle, View } from 'react-native';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
 
 interface ButtonProps extends ComponentProps<typeof Pressable> {

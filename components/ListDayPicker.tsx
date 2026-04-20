@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { groupWordsByDay } from '@/lib/plan-engine';
+import { useTheme } from '@/features/theme';
+import { groupWordsByDay } from '@/features/study';
 import type { VocaList } from '@/lib/types';
 import ModalOverlay from './ui/ModalOverlay';
 

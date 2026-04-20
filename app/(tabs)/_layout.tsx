@@ -6,11 +6,11 @@ import { Platform, Pressable, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@/contexts/ThemeContext";
-import { useAuth } from "@/contexts/AuthContext";
-import { useSettings } from "@/contexts/SettingsContext";
+import { useTheme } from "@/features/theme";
+import { useAuth } from "@/features/auth";
+import { useSettings } from "@/features/settings";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import type { StartupTab } from "@/contexts/SettingsContext";
+import type { StartupTab } from "@/features/settings";
 
 function AddWordTabButton() {
   const { colors } = useTheme();

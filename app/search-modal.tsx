@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useDeferredValue } from 'react';
+import React, { useState, useMemo, useDeferredValue, useCallback } from 'react';
 import {
     View,
     Text,
@@ -16,8 +16,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { useLists, selectWordsForList } from '@/features/vocab';
 import { filterAndRankResults, getTopTags, type AllDataItem, type SearchResult } from '@/lib/search';
 import * as Haptics from 'expo-haptics';
 
@@ -26,7 +26,8 @@ export default function SearchModalScreen() {
     const router = useRouter();
     const { colors, isDark } = useTheme();
     const insets = useSafeAreaInsets();
-    const { lists, getWordsForList } = useVocab();
+    const lists = useLists();
+    const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
 
     const [query, setQuery] = useState('');
     const [selectedListId, setSelectedListId] = useState<string | null>(null);

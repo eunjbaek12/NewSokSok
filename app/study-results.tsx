@@ -5,14 +5,15 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useVocab } from '@/contexts/VocabContext';
+import { useTheme } from '@/features/theme';
+import { useStudyResultsStore } from '@/features/study';
 
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { studyResults, clearStudyResults } = useVocab();
+  const studyResults = useStudyResultsStore(s => s.results);
+  const clearStudyResults = useStudyResultsStore(s => s.clear);
   const { id, mode, duration, isStarred, sessionFilter, quizType } = useLocalSearchParams<{
     id: string;
     mode: string;

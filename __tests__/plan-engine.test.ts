@@ -6,7 +6,7 @@ import {
   computeCurrentDay,
   computeDayStudyStatus,
   groupWordsByDay,
-} from '../lib/plan-engine';
+} from '../features/study/plan/engine';
 import type { Word, VocaList } from '../lib/types';
 
 // ─── Factories ─────────────────────────────────────────────────────────���──────

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Animated, View, PanResponder, Text, StyleSheet } from 'react-native';
 import * as Haptics from 'expo-haptics';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/features/theme';
 
 interface FastScrollHandleProps {
   scrollY: Animated.Value;

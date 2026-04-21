@@ -1027,16 +1027,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Pretendard_600SemiBold',
   },
-  btnApply: {
-    flex: 1,
-    paddingVertical: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btnApplyText: {
-    fontSize: 14,
-    fontFamily: 'Pretendard_600SemiBold',
-  },
 });
 

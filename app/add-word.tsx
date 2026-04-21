@@ -1384,7 +1384,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Pretendard_400Regular',
     },
     toastContainer: { position: 'absolute', bottom: 120, left: 0, right: 0, alignItems: 'center', zIndex: 999 },
-    toast: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 12, borderRadius: 12, gap: 8, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.15, shadowRadius: 12, elevation: 6 },
     toastText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
     modalOverlay: {
         flex: 1,
@@ -1427,16 +1426,6 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         height: 48,
         position: 'relative',
-    },
-    segmentedControlIndicator: {
-        position: 'absolute',
-        top: 4,
-        bottom: 4,
-        borderRadius: 10,
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.05,
-        shadowRadius: 4,
-        elevation: 2,
     },
     segmentedTab: {
         flex: 1,

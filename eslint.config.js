@@ -3,7 +3,7 @@ const expoConfig = require('eslint-config-expo/flat');
 
 const HEX_GUARD = {
   selector: "Literal[value=/^#[0-9a-fA-F]{3,8}$/]",
-  message: 'Hex color literals are forbidden. Use theme tokens (colors.X from @/features/theme) or system tokens. See docs/refactor-plan handoff Step 10b.',
+  message: 'Hex color literals are forbidden. Use theme tokens (colors.X from @/features/theme) or system tokens. See docs/refactor-plan/archive/step-10b-handoff.md.',
 };
 
 module.exports = defineConfig([

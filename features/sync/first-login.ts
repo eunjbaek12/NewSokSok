@@ -24,7 +24,12 @@
 import { apiFetch } from '@/lib/api/client';
 import { SyncPullResponseSchema } from '@shared/contracts';
 import { getDb } from '@/lib/db';
-import { fetchAllLists, generateId, clearAllData } from '@/features/vocab';
+// Direct (non-barrel) imports break the features/vocab ↔ features/sync require cycle:
+// the vocab barrel re-exports mutations.ts, which imports back into @/features/sync.
+// eslint-disable-next-line no-restricted-imports
+import { fetchAllLists } from '@/features/vocab/queries';
+// eslint-disable-next-line no-restricted-imports
+import { generateId, clearAllData } from '@/features/vocab/db';
 import { useSyncStore } from './store';
 
 export type FirstLoginState =

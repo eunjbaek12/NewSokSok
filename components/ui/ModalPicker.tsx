@@ -51,7 +51,7 @@ export function ModalPicker({
                 </Pressable>
             }
         >
-            <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
+            <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
                 {options.map((opt) => (
                     <Pressable
                         key={opt.id}
@@ -78,15 +78,19 @@ export function ModalPicker({
                         {opt.rightElement}
                     </Pressable>
                 ))}
-                {footer}
             </ScrollView>
+            {footer && <View style={styles.footerWrap}>{footer}</View>}
         </DialogModal>
     );
 }
 
 const styles = StyleSheet.create({
     scroll: {
+        flexShrink: 1,
         maxHeight: 350,
+        paddingHorizontal: PopupTokens.padding.container,
+    },
+    footerWrap: {
         paddingHorizontal: PopupTokens.padding.container,
     },
     option: {

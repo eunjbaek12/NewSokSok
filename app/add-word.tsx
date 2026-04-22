@@ -613,7 +613,7 @@ export default function AddWordScreen() {
     ) : (
         <Pressable
             onPress={() => setShowNewListInput(true)}
-            style={[styles.pickerOption, { borderColor: colors.border, backgroundColor: colors.surfaceSecondary }]}
+            style={[styles.pickerOption, { borderColor: colors.border, backgroundColor: colors.surfaceSecondary, borderBottomWidth: 0, marginTop: 8 }]}
         >
             <Ionicons name="add-circle-outline" size={20} color={colors.primary} />
             <Text style={[styles.pickerOptionText, { color: colors.primary }]}>

@@ -18,6 +18,7 @@ interface DialogModalProps {
   maxWidth?: number;
   maxHeight?: string;
   variant?: Extract<ModalVariant, 'dialog' | 'settingsPanel' | 'formDialog'>;
+  avoidKeyboard?: boolean;
 }
 
 export default function DialogModal({
@@ -32,6 +33,7 @@ export default function DialogModal({
   maxWidth,
   maxHeight,
   variant = 'dialog',
+  avoidKeyboard = false,
 }: DialogModalProps) {
   const { colors } = useTheme();
   const h = compact ? PopupTokens.header.compact : PopupTokens.header.standard;
@@ -49,6 +51,7 @@ export default function DialogModal({
       maxWidth={maxWidth}
       maxHeight={maxHeight}
       scrollable={scrollable && compact}
+      avoidKeyboard={avoidKeyboard}
     >
       {/* Header */}
       <View style={styles.header}>

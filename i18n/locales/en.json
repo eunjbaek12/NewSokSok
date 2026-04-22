@@ -305,7 +305,7 @@
     "duplicateNameMessage": "A list named \"{{name}}\" already exists. Please choose a different name.",
     "selectList": "Choose a List",
     "newListName": "New list name",
-    "createNewList": "+ Create New List",
+    "createNewList": "Create New List",
     "selectListFirst": "Please select a list first.",
     "micPermissionMessage": "Microphone permission is required to use voice recognition.",
     "selectListButton": "Select a List",

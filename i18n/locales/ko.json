@@ -326,7 +326,7 @@
     "duplicateNameMessage": "\"{{name}}\" 단어장이 이미 있습니다. 다른 이름을 사용해 주세요.",
     "selectList": "단어장 고르기",
     "newListName": "새 단어장 이름",
-    "createNewList": "+ 새 단어장 만들기",
+    "createNewList": "새 단어장 만들기",
     "selectListFirst": "먼저 단어장을 선택해주세요.",
     "micPermissionMessage": "음성 인식을 사용하려면 마이크 권한이 필요합니다.",
     "selectListButton": "단어장 선택하기",

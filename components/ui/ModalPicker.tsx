@@ -42,6 +42,7 @@ export function ModalPicker({
             onClose={onClose}
             title={title}
             scrollable={false}
+            avoidKeyboard={false}
             footer={
                 <Pressable
                     onPress={onClose}
@@ -51,6 +52,7 @@ export function ModalPicker({
                 </Pressable>
             }
         >
+            {footer && <View style={styles.footerWrap}>{footer}</View>}
             <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
                 {options.map((opt) => (
                     <Pressable
@@ -79,7 +81,6 @@ export function ModalPicker({
                     </Pressable>
                 ))}
             </ScrollView>
-            {footer && <View style={styles.footerWrap}>{footer}</View>}
         </DialogModal>
     );
 }
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
     },
     footerWrap: {
         paddingHorizontal: PopupTokens.padding.container,
+        paddingBottom: 4,
     },
     option: {
         flexDirection: 'row',

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Modal, Pressable, View, StyleSheet, ViewStyle, DimensionValue } from 'react-native';
+import { Modal, Pressable, View, StyleSheet, ViewStyle, DimensionValue, KeyboardAvoidingView, Platform } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BlurView } from 'expo-blur';
 import { useTheme } from '@/features/theme';
@@ -24,6 +24,8 @@ interface ModalOverlayProps {
   children: ReactNode;
   /** For contextMenu: absolute position override */
   style?: ViewStyle;
+  /** Wrap modal content in KeyboardAvoidingView — for modals containing TextInput */
+  avoidKeyboard?: boolean;
 }
 
 const VARIANT_DEFAULTS: Record<ModalVariant, {
@@ -53,6 +55,7 @@ export default function ModalOverlay({
   scrollable = false,
   children,
   style,
+  avoidKeyboard = false,
 }: ModalOverlayProps) {
   const { colors, isDark } = useTheme();
   const cfg = VARIANT_DEFAULTS[variant];
@@ -98,6 +101,34 @@ export default function ModalOverlay({
         ? { ...styles.overlay, backgroundColor: overlayBg }
         : { ...styles.overlay, justifyContent: 'center', alignItems: 'center', padding: 24, backgroundColor: overlayBg };
 
+  const overlayContent = cfg.bg === 'blur' ? (
+    <BlurView
+      style={styles.overlay}
+      intensity={isDark ? 80 : 40}
+      tint={isDark ? 'dark' : 'light'}
+    >
+      <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
+      <View style={containerStyle} onStartShouldSetResponder={() => true}>
+        {children}
+      </View>
+    </BlurView>
+  ) : (
+    <Pressable style={overlayStyle} onPress={onClose}>
+      <View style={containerStyle} onStartShouldSetResponder={() => true}>
+        {children}
+      </View>
+    </Pressable>
+  );
+
+  const wrappedContent = avoidKeyboard ? (
+    <KeyboardAvoidingView
+      style={StyleSheet.absoluteFill}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      {overlayContent}
+    </KeyboardAvoidingView>
+  ) : overlayContent;
+
   return (
     <Modal
       visible={visible}
@@ -107,43 +138,9 @@ export default function ModalOverlay({
     >
       {scrollable ? (
         <GestureHandlerRootView style={StyleSheet.absoluteFill}>
-          {cfg.bg === 'blur' ? (
-            <BlurView
-              style={styles.overlay}
-              intensity={isDark ? 80 : 40}
-              tint={isDark ? 'dark' : 'light'}
-            >
-              <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
-              <View style={containerStyle} onStartShouldSetResponder={() => true}>
-                {children}
-              </View>
-            </BlurView>
-          ) : (
-            <Pressable style={overlayStyle} onPress={onClose}>
-              <View style={containerStyle} onStartShouldSetResponder={() => true}>
-                {children}
-              </View>
-            </Pressable>
-          )}
+          {wrappedContent}
         </GestureHandlerRootView>
-      ) : cfg.bg === 'blur' ? (
-        <BlurView
-          style={styles.overlay}
-          intensity={isDark ? 80 : 40}
-          tint={isDark ? 'dark' : 'light'}
-        >
-          <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
-          <View style={containerStyle} onStartShouldSetResponder={() => true}>
-            {children}
-          </View>
-        </BlurView>
-      ) : (
-        <Pressable style={overlayStyle} onPress={onClose}>
-          <View style={containerStyle} onStartShouldSetResponder={() => true}>
-            {children}
-          </View>
-        </Pressable>
-      )}
+      ) : wrappedContent}
     </Modal>
   );
 }

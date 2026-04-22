@@ -613,7 +613,7 @@ export default function AddWordScreen() {
     ) : (
         <Pressable
             onPress={() => setShowNewListInput(true)}
-            style={[styles.pickerOption, { borderColor: colors.border, backgroundColor: colors.surfaceSecondary, borderBottomWidth: 0, marginTop: 8 }]}
+            style={[styles.pickerOption, { borderColor: colors.border, backgroundColor: colors.surfaceSecondary, borderBottomWidth: 0 }]}
         >
             <Ionicons name="add-circle-outline" size={20} color={colors.primary} />
             <Text style={[styles.pickerOptionText, { color: colors.primary }]}>
@@ -1475,7 +1475,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Pretendard_700Bold',
     },
     pickerHiddenBadge: { paddingHorizontal: 6, paddingVertical: 2, borderRadius: 4, marginLeft: 8 },
-    pickerNewRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 8, gap: 8, borderTopWidth: StyleSheet.hairlineWidth },
+    pickerNewRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 8, gap: 8 },
     pickerNewInput: { flex: 1, height: 44, borderWidth: 1, borderRadius: 12, paddingHorizontal: 12, fontSize: 15, fontFamily: 'Pretendard_400Regular' },
     pickerNewBtn: { height: 44, paddingHorizontal: 16, borderRadius: 12, justifyContent: 'center', alignItems: 'center' },
     pickerOptionText: { fontSize: 15, fontFamily: 'Pretendard_500Medium' },

@@ -274,7 +274,7 @@ export default function ListDetailScreen() {
 
     Alert.alert(
       t('list.deleteWordsConfirm', { count }),
-      t('list.deleteWordsDesc'),
+      undefined,
       [
         { text: t('common.cancel'), style: 'cancel' },
         {

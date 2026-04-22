@@ -270,7 +270,6 @@
   "list": {
     "renameTitle": "Rename List",
     "deleteWordsConfirm": "Delete {{count}} selected words?",
-    "deleteWordsDesc": "This can be undone, but words will need to be re-added.",
     "wordsDeleted": "{{count}} words deleted.",
     "wordsCopied": "{{count}} words copied to {{listName}}.",
     "wordsMoved": "{{count}} words moved to {{listName}}.",

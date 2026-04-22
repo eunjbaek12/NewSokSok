@@ -291,7 +291,6 @@
   "list": {
     "renameTitle": "단어장 이름 변경",
     "deleteWordsConfirm": "선택한 {{count}}개의 단어를 삭제하시겠습니까?",
-    "deleteWordsDesc": "이 작업은 되돌릴 수 있지만, 다시 추가하는 방식으로 복구됩니다.",
     "wordsDeleted": "{{count}}개의 단어가 삭제되었습니다.",
     "wordsCopied": "{{count}}개의 단어가 {{listName}}로 복사되었습니다.",
     "wordsMoved": "{{count}}개의 단어가 {{listName}}로 이동되었습니다.",

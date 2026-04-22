@@ -158,8 +158,6 @@ export default function StudySettingsModal({
                                     })}
                                 </View>
 
-                                <View style={[styles.divider, { backgroundColor: colors.border }]} />
-
                                 <View style={styles.settingRow}>
                                     <View style={styles.settingRowContent}>
                                         <View style={styles.iconContainer}>
@@ -428,7 +426,7 @@ export default function StudySettingsModal({
 
                         <View style={styles.bottomButtons}>
                             <Pressable
-                                style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary }]}
+                                style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
                                 onPress={onClose}
                             >
                                 <Text style={[styles.btnCancelText, { color: colors.textSecondary }]}>{t('common.close')}</Text>
@@ -548,6 +546,7 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
         borderRadius: 8,
         alignItems: 'center',
+        borderWidth: 1,
     },
     btnCancelText: {
         fontSize: 14,

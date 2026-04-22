@@ -250,7 +250,7 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                   </View>
                   <View style={styles.btnRow}>
                     <Pressable
-                      style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary }]}
+                      style={[styles.btnCancel, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}
                       onPress={onClose}
                     >
                       <Text style={[styles.btnCancelText, { color: colors.textSecondary }]}>{t('common.close')}</Text>
@@ -413,6 +413,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 8,
     alignItems: 'center',
+    borderWidth: 1,
   },
   btnCancelText: {
     fontSize: 14,

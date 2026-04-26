@@ -288,7 +288,6 @@ export default function AddWordScreen() {
         errors, setErrors,
         handleAutoFill,
         handleAutoFillWithTerm,
-        startAutoFill,
         handleSaveWord,
         isPendingFill,
         isPendingSave,

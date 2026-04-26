@@ -1,79 +1,61 @@
 import { AutoFillResult, AIWordResult } from './types';
 import { fetch } from 'expo/fetch';
-import { resolveApiBase } from '@/lib/api/client';
+import {
+  analyzeWord,
+  generateThemeList,
+  generateMoreWords as geminiGenerateMoreWords,
+} from '@/lib/ai/gemini-client';
 
-export async function isGeminiAvailable(): Promise<boolean> {
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 1000);
-    const res = await fetch(`${resolveApiBase()}/api/ai/status`, { signal: controller.signal });
-    clearTimeout(timer);
-    if (res.ok) {
-      const data = await res.json();
-      return !!data.available;
-    }
-    return false;
-  } catch {
-    return false;
-  }
-}
-
-export async function autoFillWord(term: string, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string): Promise<AutoFillResult> {
+export async function autoFillWord(
+  term: string,
+  sourceLang: string = 'en',
+  targetLang: string = 'ko',
+  apiKey?: string,
+): Promise<AutoFillResult> {
   const trimmed = term.trim().toLowerCase();
   if (!trimmed) {
     return { definition: '', meaningKr: '', exampleEn: '' };
   }
 
-  // 외부 사전 API를 Gemini 체크와 동시에 시작 (서버 미응답 시 대기 없이 결과 반환)
-  const externalFallback: Promise<AutoFillResult> = (async () => {
-    const fallbacks: Promise<any>[] = [
-      translateWord(trimmed, sourceLang, targetLang),
-    ];
-    if (sourceLang === 'en') {
-      fallbacks.push(getDictionaryData(trimmed));
-    }
-    const results = await Promise.allSettled(fallbacks);
-    const meaningKr = results[0].status === 'fulfilled' ? results[0].value : '';
-    const dict = (sourceLang === 'en' && results[1]?.status === 'fulfilled')
-      ? results[1].value
-      : { definition: '', exampleEn: '' };
-    return {
-      definition: dict.definition,
-      meaningKr,
-      exampleEn: dict.exampleEn,
-      pos: dict.pos,
-      phonetic: dict.phonetic,
-    };
-  })();
-
-  const shouldTryAI = apiKey ? true : await isGeminiAvailable();
-  if (shouldTryAI) {
+  if (apiKey) {
     try {
-      const analyzeController = new AbortController();
-      const analyzeTimer = setTimeout(() => analyzeController.abort(), 4000);
-      const res = await fetch(`${resolveApiBase()}/api/ai/analyze`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word: trimmed, sourceLang, targetLang, ...(apiKey && { apiKey }) }),
-        signal: analyzeController.signal,
-      });
-      clearTimeout(analyzeTimer);
-      if (res.ok) {
-        const data = await res.json();
-        return {
-          definition: data.definition || '',
-          meaningKr: data.meaningKr || '',
-          exampleEn: data.exampleEn || '',
-          exampleKr: data.exampleKr || '',
-          mnemonic: data.mnemonic || '',
-          pos: data.pos || '',
-          phonetic: data.phonetic || '',
-        };
-      }
-    } catch { }
+      const data = await analyzeWord(trimmed, sourceLang, targetLang, apiKey);
+      return {
+        definition: data.definition || '',
+        meaningKr: data.meaningKr || '',
+        exampleEn: data.exampleEn || '',
+        exampleKr: data.exampleKr || '',
+        mnemonic: data.mnemonic || '',
+        pos: data.pos || '',
+        phonetic: data.phonetic || '',
+      };
+    } catch {
+      // AI 실패 시 무료 사전 fallback
+    }
   }
 
-  return externalFallback;
+  return externalFallback(trimmed, sourceLang);
+}
+
+async function externalFallback(trimmed: string, sourceLang: string): Promise<AutoFillResult> {
+  const fallbacks: Promise<any>[] = [
+    translateWord(trimmed, sourceLang, 'ko'),
+  ];
+  if (sourceLang === 'en') {
+    fallbacks.push(getDictionaryData(trimmed));
+  }
+  const results = await Promise.allSettled(fallbacks);
+  const meaningKr = results[0].status === 'fulfilled' ? results[0].value : '';
+  const dict = (sourceLang === 'en' && results[1]?.status === 'fulfilled')
+    ? results[1].value
+    : { definition: '', exampleEn: '' };
+  return {
+    definition: dict.definition,
+    meaningKr,
+    exampleEn: dict.exampleEn,
+    pos: dict.pos,
+    phonetic: dict.phonetic,
+  };
 }
 
 function fetchWithTimeout(url: string, ms = 5000): Promise<Response> {
@@ -110,10 +92,9 @@ async function getDictionaryData(
   if (Array.isArray(data) && data.length > 0) {
     const entry = data[0];
 
-    // Phonetic extraction
     if (entry.phonetics && Array.isArray(entry.phonetics)) {
       const p = entry.phonetics.find((ph: any) => ph.text);
-      if (p) phonetic = p.text.replace(/\//g, ''); // Remove slashes
+      if (p) phonetic = p.text.replace(/\//g, '');
     }
 
     if (entry.meanings) {
@@ -147,29 +128,25 @@ export async function generateThemeWords(
   theme: string,
   difficulty?: string,
   count?: number,
-  existingWords?: string[]
+  existingWords?: string[],
+  apiKey?: string,
 ): Promise<AIWordResult[]> {
   const trimmed = theme.trim().toLowerCase();
   if (!trimmed) return [];
 
-  const gemini = await isGeminiAvailable();
-  if (gemini) {
+  if (apiKey) {
     try {
-      const res = await fetch(`${resolveApiBase()}/api/ai/generate-theme`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          theme: trimmed,
-          difficulty: difficulty || 'Intermediate',
-          count: count || 20,
-          existingWords: existingWords || [],
-        }),
-      });
-      if (res.ok) {
-        const data = await res.json();
-        return data.words || [];
-      }
-    } catch { }
+      const data = await generateThemeList(
+        trimmed,
+        difficulty || 'Intermediate',
+        count || 20,
+        existingWords || [],
+        apiKey,
+      );
+      return data.words || [];
+    } catch {
+      // AI 실패 시 datamuse fallback
+    }
   }
 
   try {
@@ -241,27 +218,16 @@ export async function generateMoreWords(
   theme: string,
   difficulty: string,
   count: number,
-  existingWords: string[]
+  existingWords: string[],
+  apiKey?: string,
 ): Promise<AIWordResult[]> {
-  const gemini = await isGeminiAvailable();
-  if (!gemini) {
-    return generateThemeWords(theme);
+  if (!apiKey) {
+    return generateThemeWords(theme, difficulty, count, existingWords);
   }
 
   try {
-    const res = await fetch(`${resolveApiBase()}/api/ai/generate-more`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        theme: theme.trim(),
-        difficulty,
-        count,
-        existingWords,
-      }),
-    });
-    if (res.ok) {
-      return await res.json();
-    }
-  } catch { }
-  return [];
+    return await geminiGenerateMoreWords(theme.trim(), difficulty, count, existingWords, apiKey);
+  } catch {
+    return [];
+  }
 }

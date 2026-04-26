@@ -55,9 +55,13 @@ There is no configured test script. Jest and ts-jest are in devDependencies with
 ### Environment Variables
 
 ```
-EXPO_PUBLIC_GEMINI_API_KEY   # Google Gemini API key (client-accessible)
+EXPO_PUBLIC_GEMINI_API_KEY   # Optional, used only by dev scripts (scripts/*) and tests. Production app uses the user-input key from profileSettings.geminiApiKey.
 DATABASE_URL                 # PostgreSQL connection string (server only)
 ```
+
+### AI Calls
+
+AI features (Gemini) are called **directly from the client** using the user's own API key (entered in settings). There is no server-side `/api/ai/*` route. See `lib/ai/gemini-client.ts` for the SDK wrapper and `lib/translation-api.ts` / `features/curation/screen.tsx` / `lib/gemini-api.ts` for the call sites.
 
 ### SQLite Schema Migrations
 

@@ -253,27 +253,6 @@ export const GeminiImageWordSchema = z.object({
 export const GeminiImageResultSchema = z.array(GeminiImageWordSchema);
 export type GeminiImageResult = z.infer<typeof GeminiImageResultSchema>;
 
-export const AIAnalyzeRequestSchema = z.object({
-  word: z.string().min(1),
-  sourceLang: z.string().optional(),
-  targetLang: z.string().optional(),
-  apiKey: z.string().optional(),
-});
-
-export const AIGenerateThemeRequestSchema = z.object({
-  theme: z.string().min(1),
-  difficulty: z.string().default('Intermediate'),
-  count: z.coerce.number().int().min(5).max(100).default(20),
-  existingWords: z.array(z.string()).default([]),
-});
-
-export const AIGenerateMoreRequestSchema = z.object({
-  theme: z.string().min(1),
-  difficulty: z.string().default('Intermediate'),
-  count: z.coerce.number().int().min(1).max(50).default(10),
-  existingWords: z.array(z.string()).default([]),
-});
-
 // Curation request — outer shape is strict. `theme` keeps inner passthrough()
 // because the server reads optional fields (creatorId, icon, category, …) that
 // the UI ships alongside title; a dedicated theme schema would be scope creep.

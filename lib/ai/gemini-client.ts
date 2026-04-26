@@ -1,25 +1,17 @@
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI, Type } from '@google/genai';
 import {
   AIWordResultSchema,
   AIThemeGenerateResponseSchema,
   AIWordResultArraySchema,
   type AIWordResult,
   type AIThemeGenerateResponse,
-} from "@shared/contracts";
-import { fromZodError } from "zod-validation-error";
+} from '@shared/contracts';
+import { fromZodError } from 'zod-validation-error';
 
-const MODEL_NAME = "gemini-2.0-flash";
+const MODEL_NAME = 'gemini-2.0-flash';
 
-function getAIClient(apiKey?: string) {
-  const key = apiKey || process.env.GEMINI_API_KEY;
-  if (!key) {
-    throw new Error("GEMINI_API_KEY is not set");
-  }
-  return new GoogleGenAI({ apiKey: key });
-}
-
-export function isGeminiAvailable(apiKey?: string): boolean {
-  return !!(apiKey || process.env.GEMINI_API_KEY);
+function getAIClient(apiKey: string): GoogleGenAI {
+  return new GoogleGenAI({ apiKey });
 }
 
 function getFullLanguageName(code: string): string {
@@ -29,7 +21,11 @@ function getFullLanguageName(code: string): string {
   return map[code] || code;
 }
 
-function parseAIJson<T>(text: string | undefined, schema: { safeParse(v: unknown): { success: boolean; data?: T; error?: any } }, context: string): T {
+function parseAIJson<T>(
+  text: string | undefined,
+  schema: { safeParse(v: unknown): { success: boolean; data?: T; error?: any } },
+  context: string,
+): T {
   if (!text) throw new Error(`No response from AI (${context})`);
   let raw: unknown;
   try {
@@ -40,13 +36,17 @@ function parseAIJson<T>(text: string | undefined, schema: { safeParse(v: unknown
   const result = schema.safeParse(raw);
   if (!result.success) {
     const readable = fromZodError(result.error);
-    console.error(`AI ${context} schema mismatch:`, readable.message, 'raw:', raw);
     throw new Error(`AI response failed validation (${context}): ${readable.message}`);
   }
   return result.data as T;
 }
 
-export async function analyzeWord(word: string, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string): Promise<AIWordResult> {
+export async function analyzeWord(
+  word: string,
+  sourceLang: string,
+  targetLang: string,
+  apiKey: string,
+): Promise<AIWordResult> {
   const ai = getAIClient(apiKey);
   const srcName = getFullLanguageName(sourceLang);
   const tgtName = getFullLanguageName(targetLang);
@@ -62,7 +62,7 @@ export async function analyzeWord(word: string, sourceLang: string = 'en', targe
       6. The phonetic transcription (발음기호).
       7. A translation of the example sentence in ${tgtName}.`,
     config: {
-      responseMimeType: "application/json",
+      responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
         properties: {
@@ -75,7 +75,7 @@ export async function analyzeWord(word: string, sourceLang: string = 'en', targe
           pos: { type: Type.STRING },
           phonetic: { type: Type.STRING },
         },
-        required: ["term", "definition", "exampleEn", "meaningKr", "mnemonic", "pos", "phonetic"],
+        required: ['term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
       },
     },
   });
@@ -85,13 +85,14 @@ export async function analyzeWord(word: string, sourceLang: string = 'en', targe
 
 export async function generateThemeList(
   theme: string,
-  difficulty: string = "Intermediate",
-  count: number = 20,
-  existingWords: string[] = []
+  difficulty: string,
+  count: number,
+  existingWords: string[],
+  apiKey: string,
 ): Promise<AIThemeGenerateResponse> {
-  const ai = getAIClient();
+  const ai = getAIClient(apiKey);
   const exclusionNote = existingWords.length > 0
-    ? `\nIMPORTANT: Do NOT include any of the following words that already exist: ${existingWords.slice(0, 500).join(", ")}.`
+    ? `\nIMPORTANT: Do NOT include any of the following words that already exist: ${existingWords.slice(0, 500).join(', ')}.`
     : '';
   const response = await ai.models.generateContent({
     model: MODEL_NAME,
@@ -99,13 +100,13 @@ export async function generateThemeList(
       Return a JSON object with a suitable title for the list and an array of ${count} relevant English words suitable for this level.
       For each word, provide the definition, an example sentence, and Korean meaning.${exclusionNote}`,
     config: {
-      responseMimeType: "application/json",
+      responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
         properties: {
           title: {
             type: Type.STRING,
-            description: "A creative title for the vocabulary list",
+            description: 'A creative title for the vocabulary list',
           },
           words: {
             type: Type.ARRAY,
@@ -117,11 +118,11 @@ export async function generateThemeList(
                 exampleEn: { type: Type.STRING },
                 meaningKr: { type: Type.STRING },
               },
-              required: ["term", "definition", "exampleEn", "meaningKr"],
+              required: ['term', 'definition', 'exampleEn', 'meaningKr'],
             },
           },
         },
-        required: ["title", "words"],
+        required: ['title', 'words'],
       },
     },
   });
@@ -133,10 +134,11 @@ export async function generateMoreWords(
   theme: string,
   difficulty: string,
   count: number,
-  existingWords: string[]
+  existingWords: string[],
+  apiKey: string,
 ): Promise<AIWordResult[]> {
-  const ai = getAIClient();
-  const exclusionList = existingWords.slice(0, 300).join(", ");
+  const ai = getAIClient(apiKey);
+  const exclusionList = existingWords.slice(0, 300).join(', ');
 
   const response = await ai.models.generateContent({
     model: MODEL_NAME,
@@ -144,7 +146,7 @@ export async function generateMoreWords(
       IMPORTANT: Do NOT include any of the following words: ${exclusionList}.
       Return a JSON array of objects.`,
     config: {
-      responseMimeType: "application/json",
+      responseMimeType: 'application/json',
       responseSchema: {
         type: Type.ARRAY,
         items: {
@@ -155,7 +157,7 @@ export async function generateMoreWords(
             exampleEn: { type: Type.STRING },
             meaningKr: { type: Type.STRING },
           },
-          required: ["term", "definition", "exampleEn", "meaningKr"],
+          required: ['term', 'definition', 'exampleEn', 'meaningKr'],
         },
       },
     },

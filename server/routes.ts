@@ -5,13 +5,11 @@ import { createServer, type Server } from 'node:http';
 import { registerAuthRoutes } from './routes/auth';
 import { registerSyncRoutes } from './routes/sync';
 import { registerCurationRoutes } from './routes/curations';
-import { registerAIRoutes } from './routes/ai';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   registerAuthRoutes(app);
   registerSyncRoutes(app);
   registerCurationRoutes(app);
-  registerAIRoutes(app);
 
   app.get('/api/db-check', async (_req: Request, res: Response) => {
     try {

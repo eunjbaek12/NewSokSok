@@ -3,12 +3,14 @@ import * as Haptics from 'expo-haptics';
 import { useLists, createList, addBatchWords } from '@/features/vocab';
 import { generateThemeWords } from '@/lib/translation-api';
 import { AIWordResult } from '@/lib/types';
+import { useSettings } from '@/features/settings';
 import { Alert } from 'react-native';
 
 const NEW_LIST_ID = '__new__';
 
 export function useThemeGenerator(initialTheme: string = '') {
     const lists = useLists();
+    const { profileSettings } = useSettings();
 
     const [theme, setTheme] = useState(initialTheme);
     const [results, setResults] = useState<AIWordResult[]>([]);
@@ -37,7 +39,13 @@ export function useThemeGenerator(initialTheme: string = '') {
         startGen(async () => {
             setResults([]);
             try {
-                const words = await generateThemeWords(trimmed, difficulty, wordCount, existingWordsForDedup);
+                const words = await generateThemeWords(
+                    trimmed,
+                    difficulty,
+                    wordCount,
+                    existingWordsForDedup,
+                    profileSettings.geminiApiKey || undefined,
+                );
                 if (words.length === 0) {
                     Alert.alert('No Results', 'No words found for this theme. Try a different topic.');
                 }

@@ -38,12 +38,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      [
-        "expo-router",
-        {
-          "origin": "https://replit.com/"
-        }
-      ],
+      "expo-router",
       [
         "expo-font",
         {
@@ -66,9 +61,6 @@
       "reactCompiler": true
     },
     "extra": {
-      "router": {
-        "origin": "https://replit.com/"
-      },
       "eas": {
         "projectId": "2d560de2-a41b-4ac1-a019-d287f7aaa2d6"
       }

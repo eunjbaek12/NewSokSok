@@ -56,7 +56,20 @@
   "home": {
     "greeting": "Hello, ",
     "learner": "Learner",
-    "subtitle": "Let's study hard today",
+    "planSubtitle": "{{count}} studies in progress",
+    "planSubtitleWithDone": "{{count}} studies in progress · {{done}} done today",
+    "tips": [
+      "A Voca Do! You've got this!",
+      "Every word opens a new door",
+      "A Voca Do! Start your journey",
+      "Consistency is the key to fluency",
+      "Today's words are tomorrow's power",
+      "A Voca Do! One step at a time",
+      "Small daily steps build big skills",
+      "Create a list and set a study plan",
+      "A Voca Do! Keep going!",
+      "Your efforts today shape your skills"
+    ],
     "searchPlaceholder": "Search words, meanings, tags...",
     "customStudy": "Custom Study",
     "wrongWords": "Wrong Words",

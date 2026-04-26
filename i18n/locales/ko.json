@@ -56,7 +56,20 @@
   "home": {
     "greeting": "안녕하세요, ",
     "learner": "학습자",
-    "subtitle": "오늘도 열심히 공부해봐요",
+    "planSubtitle": "학습 {{count}}개 진행 중",
+    "planSubtitleWithDone": "학습 {{count}}개 진행 중 · 오늘 {{done}}개 달성",
+    "tips": [
+      "A Voca Do! 오늘도 할 수 있어요",
+      "단어 하나가 세상을 열어줘요",
+      "A Voca Do! 지금 시작이 딱이에요",
+      "꾸준함이 단어 실력의 비결이에요",
+      "오늘 외운 단어가 내일 빛나요",
+      "A Voca Do! 한 걸음씩 나아가요",
+      "작은 반복이 큰 실력을 만들어요",
+      "단어장 만들고 학습 계획 세워봐요",
+      "A Voca Do! 포기하지 마세요",
+      "오늘의 노력이 쌓여 실력이 돼요"
+    ],
     "searchPlaceholder": "단어, 뜻, 태그로 검색...",
     "customStudy": "맞춤 학습",
     "wrongWords": "오답 정복",

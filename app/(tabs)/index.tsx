@@ -114,6 +114,21 @@ export default function DashboardScreen() {
     }
   }, [planItems, filterMode]);
 
+  const headerSubtitle = useMemo(() => {
+    const activePlans = planItems.filter(p => p.status !== 'completed');
+    const activePlanCount = activePlans.length;
+    if (activePlanCount > 0) {
+      const todayDoneCount = activePlans.filter(p => p.dayStatus.state === 'completed').length;
+      if (todayDoneCount > 0) {
+        return t('home.planSubtitleWithDone', { count: activePlanCount, done: todayDoneCount });
+      }
+      return t('home.planSubtitle', { count: activePlanCount });
+    }
+    const tips = t('home.tips', { returnObjects: true }) as string[];
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+    return tips[dayOfYear % tips.length];
+  }, [planItems, t]);
+
   const wrongWordCount = useMemo(() => {
     return lists
       .filter(l => l.isVisible)
@@ -176,47 +191,46 @@ export default function DashboardScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
+      {/* Fixed Header / Greeting */}
+      <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
+        <CharacterSvg size={56} isDark={isDark} />
+        <View style={styles.headerTextArea}>
+          <Text style={[styles.greeting, { color: colors.text }]} numberOfLines={1}>
+            {t('home.greeting')}<Text style={{ color: colors.primary }}>{displayName}</Text>
+          </Text>
+          <Text style={[styles.subtitle, { color: colors.textSecondary }]} numberOfLines={1}>
+            {headerSubtitle}
+          </Text>
+        </View>
+      </View>
+
+      {/* Fixed Search Bar */}
+      <View style={[styles.searchBarWrapper, { backgroundColor: colors.background }]}>
+        <Pressable
+          onPress={() => router.push('/search-modal')}
+          style={({ pressed }) => [
+            styles.searchTrigger,
+            {
+              backgroundColor: colors.surface,
+              borderColor: colors.borderLight,
+              shadowColor: colors.shadow,
+            },
+            pressed && { opacity: 0.7 },
+          ]}
+        >
+          <Ionicons name="search" size={20} color={colors.textTertiary} />
+          <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>
+            {t('home.searchPlaceholder')}
+          </Text>
+        </Pressable>
+      </View>
+
       <ScrollView
         ref={scrollRef}
-        stickyHeaderIndices={[1]}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: bottomPadding }}
       >
-        {/* 0: Header / Greeting */}
-        <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-          <CharacterSvg size={56} isDark={isDark} />
-          <View style={styles.headerTextArea}>
-            <Text style={[styles.greeting, { color: colors.text }]} numberOfLines={1}>
-              {t('home.greeting')}<Text style={{ color: colors.primary }}>{displayName}</Text>
-            </Text>
-            <Text style={[styles.subtitle, { color: colors.textSecondary }]} numberOfLines={1}>
-              {t('home.subtitle')}
-            </Text>
-          </View>
-        </View>
-
-        {/* 1: Sticky Search Bar */}
-        <View style={[styles.searchBarWrapper, { backgroundColor: colors.background }]}>
-          <Pressable
-            onPress={() => router.push('/search-modal')}
-            style={({ pressed }) => [
-              styles.searchTrigger,
-              {
-                backgroundColor: colors.surface,
-                borderColor: colors.borderLight,
-                shadowColor: colors.shadow,
-              },
-              pressed && { opacity: 0.7 },
-            ]}
-          >
-            <Ionicons name="search" size={20} color={colors.textTertiary} />
-            <Text style={[styles.searchTriggerText, { color: colors.textTertiary }]}>
-              {t('home.searchPlaceholder')}
-            </Text>
-          </Pressable>
-        </View>
-
-        {/* 2: Content */}
+        {/* Content */}
         <View style={styles.content}>
           {/* Quick Action Cards */}
           <View style={styles.quickActionRow}>

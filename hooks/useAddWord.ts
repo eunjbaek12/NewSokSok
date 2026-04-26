@@ -37,18 +37,12 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 return Promise.race([promise, timeout]);
             };
 
-            // Naver와 AI를 병렬로 시작: Naver 우선 사용, 실패 시 AI fallback
-            const naverPromise = withTimeout(
+            // Naver 우선 시도: 결과 있으면 거기서 끝 (사용자 Gemini 토큰 절약)
+            const naverResult = await withTimeout(
                 searchNaverDict(trimmed, sourceLang, targetLang),
                 3000
             ).catch(() => null);
 
-            const aiPromise = withTimeout(
-                autoFillWord(trimmed, sourceLang, targetLang, apiKey),
-                5000
-            ).catch(() => null);
-
-            const naverResult = await naverPromise;
             if (naverResult) {
                 if (naverResult.meaningKr) setMeaningKr(naverResult.meaningKr);
                 if (naverResult.definition) setDefinition(naverResult.definition);
@@ -59,7 +53,12 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 return;
             }
 
-            const result = await aiPromise;
+            // Naver 실패 시에만 AI fallback (apiKey 있으면 Gemini, 없으면 무료 사전)
+            const result = await withTimeout(
+                autoFillWord(trimmed, sourceLang, targetLang, apiKey),
+                5000
+            ).catch(() => null);
+
             if (result) {
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);

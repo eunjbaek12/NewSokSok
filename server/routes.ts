@@ -6,14 +6,12 @@ import { registerAuthRoutes } from './routes/auth';
 import { registerSyncRoutes } from './routes/sync';
 import { registerCurationRoutes } from './routes/curations';
 import { registerAIRoutes } from './routes/ai';
-import { registerDictRoutes } from './routes/dict';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   registerAuthRoutes(app);
   registerSyncRoutes(app);
   registerCurationRoutes(app);
   registerAIRoutes(app);
-  registerDictRoutes(app);
 
   app.get('/api/db-check', async (_req: Request, res: Response) => {
     try {

@@ -274,11 +274,6 @@ export const AIGenerateMoreRequestSchema = z.object({
   existingWords: z.array(z.string()).default([]),
 });
 
-export const DictQuerySchema = z.object({
-  query: z.string().min(1),
-  dictCode: z.string().optional(),
-});
-
 // Curation request — outer shape is strict. `theme` keeps inner passthrough()
 // because the server reads optional fields (creatorId, icon, category, …) that
 // the UI ships alongside title; a dedicated theme schema would be scope creep.

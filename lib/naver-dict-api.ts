@@ -2,62 +2,44 @@ import { fetch } from 'expo/fetch';
 import { AutoFillResult } from './types';
 import { getNaverDictCode } from '@/constants/languages';
 
-const API_BASE = process.env.EXPO_PUBLIC_DOMAIN
-    ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
-    : 'http://localhost:5000';
+const NAVER_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+    'Referer': 'https://en.dict.naver.com/',
+    'X-Requested-With': 'XMLHttpRequest',
+    'Accept': 'application/json, text/javascript, */*; q=0.01',
+    'Alldict-Locale': 'ko',
+};
+
+function subdomainForDictCode(code: string): string {
+    if (code.startsWith('ja') || code === 'koja') return 'ja';
+    if (code.startsWith('zh') || code === 'kozh') return 'zh';
+    if (code.startsWith('ko')) return 'korean';
+    return 'en';
+}
 
 export async function searchNaverDict(term: string, sourceLang: string = 'en', targetLang: string = 'ko'): Promise<AutoFillResult | null> {
     const trimmed = term.trim().toLowerCase();
     if (!trimmed) return null;
 
     const dictCode = getNaverDictCode(sourceLang, targetLang);
-    if (!dictCode) return null; // Unsupported language pair for Naver
+    if (!dictCode) return null;
 
-    const tryFetch = async (url: string, isProxy = false) => {
-        const headers: Record<string, string> = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-            'Referer': 'https://en.dict.naver.com/',
-            'X-Requested-With': 'XMLHttpRequest',
-            'Accept': 'application/json, text/javascript, */*; q=0.01',
-            'Alldict-Locale': 'ko'
-        };
+    const subdomain = subdomainForDictCode(dictCode);
+    const url = `https://${subdomain}.dict.naver.com/api3/${dictCode}/search?query=${encodeURIComponent(trimmed)}&m=pc&lang=ko`;
 
-        const res = await fetch(url, isProxy ? undefined : { headers });
-        if (!res.ok) {
-            console.warn(`Fetch failed (${isProxy ? 'proxy' : 'direct'}): ${res.status}`);
-            return null;
-        }
-
-        try {
-            return await res.json();
-        } catch (e) {
-            const text = await res.text().catch(() => 'No body');
-            console.error(`JSON parse error (${isProxy ? 'proxy' : 'direct'}):`, e, 'Body snippet:', text.substring(0, 100));
-            throw e;
-        }
-    };
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 2500);
 
     try {
-        let data = null;
+        const res = await fetch(url, {
+            headers: NAVER_HEADERS,
+            signal: controller.signal,
+        });
+        clearTimeout(timer);
 
-        // 1. Try Proxy first (More reliable for CSRF/Headers)
-        try {
-            data = await tryFetch(`${API_BASE}/api/dict/naver?query=${encodeURIComponent(trimmed)}&dictCode=${dictCode}`, true);
-        } catch (e) {
-            console.warn("Proxy fetch failed, falling back to direct...");
-        }
+        if (!res.ok) return null;
 
-        // 2. Try Direct if proxy failed or returned null
-        if (!data) {
-            let subdomain = 'en';
-            if (dictCode.startsWith('ja') || dictCode === 'koja') subdomain = 'ja';
-            else if (dictCode.startsWith('zh') || dictCode === 'kozh') subdomain = 'zh';
-            else if (dictCode.startsWith('ko')) subdomain = 'korean';
-            const directUrl = `https://${subdomain}.dict.naver.com/api3/${dictCode}/search?query=${encodeURIComponent(trimmed)}&m=pc&lang=ko`;
-            data = await tryFetch(directUrl, false);
-        }
-
-        if (!data) return null;
+        const data = await res.json();
 
         const items = data?.searchResultMap?.searchResultListMap?.WORD?.items;
         if (!items || items.length === 0) return null;
@@ -96,30 +78,26 @@ export async function searchNaverDict(term: string, sourceLang: string = 'en', t
             }
         }
 
-        // POS Extraction Improvement
         let pos = entry.partOfSpeech || entry.posName || "";
-
-        // If top-level POS is missing, check meansCollector groups
         if (!pos && entry.meansCollector) {
             const posList = entry.meansCollector
                 .map((m: any) => m.partOfSpeech || m.partOfSpeech2 || m.partOfSpeechCode || m.posName)
                 .filter((p: any) => p);
             if (posList.length > 0) {
-                // Join unique POS values if multiple exist
                 pos = Array.from(new Set(posList)).join(', ');
             }
         }
 
         return {
             meaningKr: cleanValue(meaningKr),
-            definition: "", // Default to empty string as requested by the user
+            definition: "",
             phonetic,
             pos: cleanValue(pos),
             exampleEn: cleanValue(exampleEn),
             exampleKr: cleanValue(exampleKr),
         };
-    } catch (error) {
-        console.error('Naver Dictionary search final failure:', error);
+    } catch {
+        clearTimeout(timer);
         return null;
     }
 }
@@ -129,8 +107,11 @@ export async function fetchNaverAutocomplete(term: string, sourceLang: string, t
     if (!dictCode) return [];
     const trimmed = term.trim().toLowerCase();
     if (trimmed.length < 2) return [];
+
+    const url = `https://ac.dict.naver.com/${dictCode}/ac?q=${encodeURIComponent(trimmed)}&q_enc=UTF-8&st=11&r_enc=UTF-8&r_format=json&t_korlex=1`;
+
     try {
-        const res = await fetch(`${API_BASE}/api/dict/autocomplete?query=${encodeURIComponent(trimmed)}&dictCode=${dictCode}`);
+        const res = await fetch(url, { headers: NAVER_HEADERS });
         if (!res.ok) return [];
         const data = await res.json();
         const items = data?.items;

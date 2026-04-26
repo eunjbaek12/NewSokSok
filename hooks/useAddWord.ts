@@ -1,4 +1,4 @@
-import { useState, useTransition } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import * as Haptics from 'expo-haptics';
 import { addWord, updateWord } from '@/features/vocab';
 import { autoFillWord } from '@/lib/translation-api';
@@ -18,45 +18,68 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
 
     const [errors, setErrors] = useState<{ term?: boolean; meaningKr?: boolean }>({});
 
-    const [isPendingFill, startAutoFill] = useTransition();
-    const [isPendingSave, startSave] = useTransition();
+    const [isPendingFill, setIsPendingFill] = useState(false);
+    const isPendingFillRef = useRef(false);
+    const [isPendingSave, setIsPendingSave] = useState(false);
 
-    const runAutoFill = (searchTerm: string) => {
-        if (!searchTerm.trim() || isPendingFill) return;
-
-        startAutoFill(async () => {
+    const runAutoFill = useCallback(async (searchTerm: string) => {
+        if (!searchTerm.trim() || isPendingFillRef.current) return;
+        isPendingFillRef.current = true;
+        setIsPendingFill(true);
+        const trimmed = searchTerm.trim();
+        try {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-            try {
-                // Try Naver Dictionary first (supported language pairs only)
-                const naverResult = await searchNaverDict(searchTerm.trim(), sourceLang, targetLang);
-                if (naverResult) {
-                    if (naverResult.meaningKr) setMeaningKr(naverResult.meaningKr);
-                    if (naverResult.definition) setDefinition(naverResult.definition);
-                    if (naverResult.phonetic) setPhonetic(naverResult.phonetic);
-                    if (naverResult.pos) setPos(naverResult.pos);
-                    if (naverResult.exampleEn) setExampleEn(naverResult.exampleEn);
-                    if (naverResult.exampleKr) setExampleKr(naverResult.exampleKr);
-                    return;
-                }
 
-                // Fallback to AI Analysis
-                const result = await autoFillWord(searchTerm.trim(), sourceLang, targetLang, apiKey);
+            const withTimeout = <T>(promise: Promise<T>, ms: number): Promise<T> => {
+                const timeout = new Promise<never>((_, reject) =>
+                    setTimeout(() => reject(new Error('timeout')), ms)
+                );
+                return Promise.race([promise, timeout]);
+            };
+
+            // Naver와 AI를 병렬로 시작: Naver 우선 사용, 실패 시 AI fallback
+            const naverPromise = withTimeout(
+                searchNaverDict(trimmed, sourceLang, targetLang),
+                3000
+            ).catch(() => null);
+
+            const aiPromise = withTimeout(
+                autoFillWord(trimmed, sourceLang, targetLang, apiKey),
+                5000
+            ).catch(() => null);
+
+            const naverResult = await naverPromise;
+            if (naverResult) {
+                if (naverResult.meaningKr) setMeaningKr(naverResult.meaningKr);
+                if (naverResult.definition) setDefinition(naverResult.definition);
+                if (naverResult.phonetic) setPhonetic(naverResult.phonetic);
+                if (naverResult.pos) setPos(naverResult.pos);
+                if (naverResult.exampleEn) setExampleEn(naverResult.exampleEn);
+                if (naverResult.exampleKr) setExampleKr(naverResult.exampleKr);
+                return;
+            }
+
+            const result = await aiPromise;
+            if (result) {
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
                 if (result.phonetic) setPhonetic(result.phonetic);
                 if (result.pos) setPos(result.pos);
                 if (result.exampleEn) setExampleEn(result.exampleEn);
                 if (result.exampleKr) setExampleKr(result.exampleKr);
-            } catch {
-                // Ignore errors
             }
-        });
-    };
+        } catch {
+            // Ignore errors (including timeouts)
+        } finally {
+            isPendingFillRef.current = false;
+            setIsPendingFill(false);
+        }
+    }, [sourceLang, targetLang, apiKey]);
 
     const handleAutoFill = () => runAutoFill(term);
     const handleAutoFillWithTerm = (overrideTerm: string) => runAutoFill(overrideTerm);
 
-    const handleSaveWord = (selectedListId: string, onSuccess: (savedTerm: string) => void, onError: () => void) => {
+    const handleSaveWord = async (selectedListId: string, onSuccess: (savedTerm: string) => void, onError: () => void) => {
         const newErrors: { term?: boolean; meaningKr?: boolean } = {};
         if (!term.trim()) newErrors.term = true;
         if (!meaningKr.trim()) newErrors.meaningKr = true;
@@ -66,65 +89,66 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             return;
         }
         setErrors({});
+        setIsPendingSave(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
 
-        startSave(async () => {
-            try {
-                if (wordId && listId) {
-                    await updateWord(listId, wordId, {
-                        term: term.trim(),
-                        definition: definition.trim(),
-                        phonetic: phonetic.trim(),
-                        pos: pos.trim(),
-                        meaningKr: meaningKr.trim(),
-                        exampleEn: exampleEn.trim(),
-                        exampleKr: exampleKr.trim(),
-                        isStarred,
-                        tags,
-                        sourceLang,
-                        targetLang,
-                    });
-                    onSuccess(term.trim());
-                } else {
-                    if (!selectedListId) {
-                        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-                        onError();
-                        return;
-                    }
-                    const savedTerm = term.trim();
-                    await addWord(selectedListId, {
-                        term: savedTerm,
-                        definition: definition.trim(),
-                        phonetic: phonetic.trim(),
-                        pos: pos.trim(),
-                        exampleEn: exampleEn.trim(),
-                        exampleKr: exampleKr.trim(),
-                        meaningKr: meaningKr.trim(),
-                        isStarred,
-                        tags,
-                        sourceLang,
-                        targetLang,
-                    });
-
-                    // Reset states
-                    setTerm('');
-                    setDefinition('');
-                    setPhonetic('');
-                    setPos('');
-                    setMeaningKr('');
-                    setExampleEn('');
-                    setExampleKr('');
-                    setTags([]);
-                    setIsStarred(false);
-                    setErrors({});
-                    onSuccess(savedTerm);
+        try {
+            if (wordId && listId) {
+                await updateWord(listId, wordId, {
+                    term: term.trim(),
+                    definition: definition.trim(),
+                    phonetic: phonetic.trim(),
+                    pos: pos.trim(),
+                    meaningKr: meaningKr.trim(),
+                    exampleEn: exampleEn.trim(),
+                    exampleKr: exampleKr.trim(),
+                    isStarred,
+                    tags,
+                    sourceLang,
+                    targetLang,
+                });
+                onSuccess(term.trim());
+            } else {
+                if (!selectedListId) {
+                    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+                    onError();
+                    return;
                 }
-            } catch (error) {
-                console.error("Failed to save word:", error);
-                Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-                onError();
+                const savedTerm = term.trim();
+                await addWord(selectedListId, {
+                    term: savedTerm,
+                    definition: definition.trim(),
+                    phonetic: phonetic.trim(),
+                    pos: pos.trim(),
+                    exampleEn: exampleEn.trim(),
+                    exampleKr: exampleKr.trim(),
+                    meaningKr: meaningKr.trim(),
+                    isStarred,
+                    tags,
+                    sourceLang,
+                    targetLang,
+                });
+
+                // Reset states
+                setTerm('');
+                setDefinition('');
+                setPhonetic('');
+                setPos('');
+                setMeaningKr('');
+                setExampleEn('');
+                setExampleKr('');
+                setTags([]);
+                setIsStarred(false);
+                setErrors({});
+                onSuccess(savedTerm);
             }
-        });
+        } catch (error) {
+            console.error("Failed to save word:", error);
+            Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+            onError();
+        } finally {
+            setIsPendingSave(false);
+        }
     };
 
     return {
@@ -140,7 +164,6 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         errors, setErrors,
         handleAutoFill,
         handleAutoFillWithTerm,
-        startAutoFill,
         handleSaveWord,
         isPendingFill,
         isPendingSave,

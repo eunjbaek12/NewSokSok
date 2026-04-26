@@ -1,26 +1,21 @@
 import { AutoFillResult, AIWordResult } from './types';
 import { fetch } from 'expo/fetch';
-
-const API_BASE = process.env.EXPO_PUBLIC_DOMAIN
-  ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
-  : 'http://localhost:5000';
-
-let _geminiAvailable: boolean | null = null;
+import { resolveApiBase } from '@/lib/api/client';
 
 export async function isGeminiAvailable(): Promise<boolean> {
-  if (_geminiAvailable !== null) return _geminiAvailable;
   try {
-    const res = await fetch(`${API_BASE}/api/ai/status`);
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 1000);
+    const res = await fetch(`${resolveApiBase()}/api/ai/status`, { signal: controller.signal });
+    clearTimeout(timer);
     if (res.ok) {
       const data = await res.json();
-      _geminiAvailable = !!data.available;
-    } else {
-      _geminiAvailable = false;
+      return !!data.available;
     }
+    return false;
   } catch {
-    _geminiAvailable = false;
+    return false;
   }
-  return _geminiAvailable;
 }
 
 export async function autoFillWord(term: string, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string): Promise<AutoFillResult> {
@@ -29,14 +24,40 @@ export async function autoFillWord(term: string, sourceLang: string = 'en', targ
     return { definition: '', meaningKr: '', exampleEn: '' };
   }
 
+  // 외부 사전 API를 Gemini 체크와 동시에 시작 (서버 미응답 시 대기 없이 결과 반환)
+  const externalFallback: Promise<AutoFillResult> = (async () => {
+    const fallbacks: Promise<any>[] = [
+      translateWord(trimmed, sourceLang, targetLang),
+    ];
+    if (sourceLang === 'en') {
+      fallbacks.push(getDictionaryData(trimmed));
+    }
+    const results = await Promise.allSettled(fallbacks);
+    const meaningKr = results[0].status === 'fulfilled' ? results[0].value : '';
+    const dict = (sourceLang === 'en' && results[1]?.status === 'fulfilled')
+      ? results[1].value
+      : { definition: '', exampleEn: '' };
+    return {
+      definition: dict.definition,
+      meaningKr,
+      exampleEn: dict.exampleEn,
+      pos: dict.pos,
+      phonetic: dict.phonetic,
+    };
+  })();
+
   const shouldTryAI = apiKey ? true : await isGeminiAvailable();
   if (shouldTryAI) {
     try {
-      const res = await fetch(`${API_BASE}/api/ai/analyze`, {
+      const analyzeController = new AbortController();
+      const analyzeTimer = setTimeout(() => analyzeController.abort(), 4000);
+      const res = await fetch(`${resolveApiBase()}/api/ai/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ word: trimmed, sourceLang, targetLang, ...(apiKey && { apiKey }) }),
+        signal: analyzeController.signal,
       });
+      clearTimeout(analyzeTimer);
       if (res.ok) {
         const data = await res.json();
         return {
@@ -52,33 +73,18 @@ export async function autoFillWord(term: string, sourceLang: string = 'en', targ
     } catch { }
   }
 
-  // Fallback: Dictionary API only works for English source words
-  const fallbacks: Promise<any>[] = [
-    translateWord(trimmed, sourceLang, targetLang),
-  ];
-  if (sourceLang === 'en') {
-    fallbacks.push(getDictionaryData(trimmed));
-  }
+  return externalFallback;
+}
 
-  const results = await Promise.allSettled(fallbacks);
-
-  const meaningKr = results[0].status === 'fulfilled' ? results[0].value : '';
-  const dict = (sourceLang === 'en' && results[1]?.status === 'fulfilled')
-    ? results[1].value
-    : { definition: '', exampleEn: '' };
-
-  return {
-    definition: dict.definition,
-    meaningKr,
-    exampleEn: dict.exampleEn,
-    pos: dict.pos,
-    phonetic: dict.phonetic,
-  };
+function fetchWithTimeout(url: string, ms = 5000): Promise<Response> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer));
 }
 
 async function translateWord(word: string, from: string = 'en', to: string = 'ko'): Promise<string> {
   const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=${from}|${to}`;
-  const res = await fetch(url);
+  const res = await fetchWithTimeout(url);
   if (!res.ok) throw new Error('Translation failed');
   const data = await res.json();
   const translation = data?.responseData?.translatedText;
@@ -92,7 +98,7 @@ async function getDictionaryData(
   word: string
 ): Promise<{ definition: string; exampleEn: string; pos?: string; phonetic?: string }> {
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
-  const res = await fetch(url);
+  const res = await fetchWithTimeout(url);
   if (!res.ok) throw new Error('Dictionary lookup failed');
   const data = await res.json();
 
@@ -149,7 +155,7 @@ export async function generateThemeWords(
   const gemini = await isGeminiAvailable();
   if (gemini) {
     try {
-      const res = await fetch(`${API_BASE}/api/ai/generate-theme`, {
+      const res = await fetch(`${resolveApiBase()}/api/ai/generate-theme`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -243,7 +249,7 @@ export async function generateMoreWords(
   }
 
   try {
-    const res = await fetch(`${API_BASE}/api/ai/generate-more`, {
+    const res = await fetch(`${resolveApiBase()}/api/ai/generate-more`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

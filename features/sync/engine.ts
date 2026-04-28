@@ -1,32 +1,19 @@
-import { apiFetch } from '@/lib/api/client';
-import { ApiError } from '@/lib/api/errors';
 import { useAuthStore } from '@/features/auth';
 import { getDb } from '@/lib/db';
-import {
-  SyncPullResponseSchema,
-  SyncPushResponseSchema,
-  type CloudListPush,
-  type CloudWordPush,
-} from '@shared/contracts';
+import { supabase } from '@/lib/supabase';
 import { useSyncStore } from './store';
-import { vocaListToCloudPush, wordToCloudPush } from './mapping';
+import { vocaListToCloudRow, wordToCloudRow, dbRowToVocaList, dbRowToWord } from './mapping';
 
 const DEBOUNCE_MS = 2000;
 
 let pushTimer: ReturnType<typeof setTimeout> | null = null;
 let pushInFlight = false;
 
-function getAuthForSync(): { token: string; userId: string } | null {
-  const { mode, token, user } = useAuthStore.getState();
-  if (mode !== 'google' || !token || !user?.id) return null;
-  return { token, userId: user.id };
+function isGoogleAuthed(): boolean {
+  const { mode, user } = useAuthStore.getState();
+  return mode === 'google' && !!user?.id;
 }
 
-async function logout401() {
-  await useAuthStore.getState().handleTokenExpired();
-}
-
-/** Schedule a push in `DEBOUNCE_MS` ms (coalesces bursts of mutations). */
 export function schedulePush(): void {
   if (pushTimer) clearTimeout(pushTimer);
   pushTimer = setTimeout(() => {
@@ -35,18 +22,14 @@ export function schedulePush(): void {
   }, DEBOUNCE_MS);
 }
 
-/** Immediately flush the dirty set. No-op if no auth or nothing dirty. */
 export async function flushPush(): Promise<void> {
-  const auth = getAuthForSync();
-  if (!auth) return;
+  if (!isGoogleAuthed()) return;
 
   const { dirtyListIds, dirtyWordIds, setIsSyncing, setLastPulledAt, clearDirtyLists, clearDirtyWords } =
     useSyncStore.getState();
   if (dirtyListIds.size === 0 && dirtyWordIds.size === 0) return;
-  if (pushInFlight) {
-    // Coalesce — another scheduler will pick up residual dirty set.
-    return;
-  }
+  if (pushInFlight) return;
+
   pushInFlight = true;
   setIsSyncing(true);
 
@@ -56,84 +39,87 @@ export async function flushPush(): Promise<void> {
   try {
     const db = await getDb();
 
-    const lists: CloudListPush[] = [];
     if (listIds.length > 0) {
       const placeholders = listIds.map(() => '?').join(',');
       const rows = await db.getAllAsync<any>(
         `SELECT * FROM lists WHERE id IN (${placeholders})`,
         ...listIds,
       );
-      for (const r of rows) {
-        lists.push(vocaListToCloudPush(rowToVocaList(r), { deletedAt: r.deletedAt ?? null }));
+      const cloudRows = rows.map(r => vocaListToCloudRow(rowToVocaList(r), { deletedAt: r.deletedAt ?? null }));
+      const { error } = await supabase.from('cloud_lists').upsert(cloudRows, { onConflict: 'id' });
+      if (error) throw error;
+
+      // echo-prevention: advance watermark past our own writes
+      const { data: pushed } = await supabase
+        .from('cloud_lists')
+        .select('updated_at')
+        .in('id', listIds);
+      if (pushed && pushed.length > 0) {
+        const maxTs = Math.max(...pushed.map((r: any) => r.updated_at as number));
+        await setLastPulledAt(maxTs);
       }
     }
 
-    const words: CloudWordPush[] = [];
     if (wordIds.length > 0) {
       const placeholders = wordIds.map(() => '?').join(',');
       const rows = await db.getAllAsync<any>(
         `SELECT * FROM words WHERE id IN (${placeholders})`,
         ...wordIds,
       );
-      for (const r of rows) {
-        words.push(
-          wordToCloudPush(rowToWord(r), r.listId, {
-            deletedAt: r.deletedAt ?? null,
-            position: r.position ?? 0,
-          }),
-        );
+      const cloudRows = rows.map(r =>
+        wordToCloudRow(rowToWord(r), r.listId, {
+          deletedAt: r.deletedAt ?? null,
+          position: r.position ?? 0,
+        }),
+      );
+      const { error } = await supabase.from('cloud_words').upsert(cloudRows, { onConflict: 'id' });
+      if (error) throw error;
+
+      const { data: pushed } = await supabase
+        .from('cloud_words')
+        .select('updated_at')
+        .in('id', wordIds);
+      if (pushed && pushed.length > 0) {
+        const maxTs = Math.max(...pushed.map((r: any) => r.updated_at as number));
+        await setLastPulledAt(maxTs);
       }
     }
 
-    const res = await apiFetch('/api/sync/push', {
-      schema: SyncPushResponseSchema,
-      method: 'POST',
-      body: { lists, words },
-      token: auth.token,
-    });
-
-    // echo-prevention: advance lastPulledAt past our own writes immediately.
-    await setLastPulledAt(res.serverTime);
     clearDirtyLists(listIds);
     clearDirtyWords(wordIds);
-  } catch (e: any) {
-    if (e instanceof ApiError && e.status === 401) {
-      await logout401();
-      return;
-    }
-    // Other errors: leave dirty set intact so next schedulePush retries.
-    throw e;
   } finally {
     pushInFlight = false;
     setIsSyncing(false);
   }
 }
 
-/**
- * Pull changes since `lastPulledAt` and apply to SQLite in one transaction.
- * Updates lastPulledAt AFTER the transaction commits (crash-safe).
- */
 export async function pullChanges(): Promise<void> {
-  const auth = getAuthForSync();
-  if (!auth) return;
+  if (!isGoogleAuthed()) return;
 
   const { lastPulledAt, setLastPulledAt, setIsSyncing } = useSyncStore.getState();
   setIsSyncing(true);
   try {
-    const res = await apiFetch(`/api/sync/pull?since=${lastPulledAt}`, {
-      schema: SyncPullResponseSchema,
-      method: 'GET',
-      token: auth.token,
-    });
+    const [{ data: lists, error: listErr }, { data: words, error: wordErr }] = await Promise.all([
+      supabase.from('cloud_lists').select('*').gt('updated_at', lastPulledAt),
+      supabase.from('cloud_words').select('*').gt('updated_at', lastPulledAt),
+    ]);
+    if (listErr) throw listErr;
+    if (wordErr) throw wordErr;
+
+    const allRows = [...(lists ?? []), ...(words ?? [])];
+    const newWatermark = allRows.length > 0
+      ? Math.max(...allRows.map((r: any) => r.updated_at as number))
+      : Date.now();
 
     const db = await getDb();
     await db.withTransactionAsync(async () => {
-      for (const l of res.lists) {
-        if (l.deletedAt != null) {
+      for (const l of (lists ?? [])) {
+        if (l.is_deleted) {
           await db.runAsync('DELETE FROM words WHERE listId = ?', l.id);
           await db.runAsync('DELETE FROM lists WHERE id = ?', l.id);
           continue;
         }
+        const v = dbRowToVocaList(l);
         await db.runAsync(
           `INSERT OR REPLACE INTO lists (
             id, title, isVisible, createdAt, lastStudiedAt, position, isCurated, icon,
@@ -143,22 +129,23 @@ export async function pullChanges(): Promise<void> {
             updatedAt, deletedAt
           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
-            l.id, l.title, l.isVisible ? 1 : 0, l.createdAt, l.lastStudiedAt ?? null,
-            l.position, l.isCurated ? 1 : 0, l.icon ?? null,
-            l.planTotalDays, l.planCurrentDay, l.planWordsPerDay,
-            l.planStartedAt ?? null, l.planUpdatedAt ?? null, l.planFilter,
-            l.sourceLanguage, l.targetLanguage,
-            l.lastResultMemorized, l.lastResultTotal, l.lastResultPercent,
-            l.updatedAt, null,
+            v.id, v.title, v.isVisible ? 1 : 0, v.createdAt, v.lastStudiedAt ?? null,
+            v.position, v.isCurated ? 1 : 0, v.icon ?? null,
+            v.planTotalDays, v.planCurrentDay, v.planWordsPerDay,
+            v.planStartedAt ?? null, v.planUpdatedAt ?? null, v.planFilter,
+            v.sourceLanguage, v.targetLanguage,
+            v.lastResultMemorized, v.lastResultTotal, v.lastResultPercent,
+            l.updated_at, null,
           ],
         );
       }
 
-      for (const w of res.words) {
-        if (w.deletedAt != null) {
+      for (const w of (words ?? [])) {
+        if (w.is_deleted) {
           await db.runAsync('DELETE FROM words WHERE id = ?', w.id);
           continue;
         }
+        const word = dbRowToWord(w);
         await db.runAsync(
           `INSERT OR REPLACE INTO words (
             id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
@@ -166,33 +153,22 @@ export async function pullChanges(): Promise<void> {
             wrongCount, assignedDay, sourceLang, targetLang, deletedAt
           ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
-            w.id, w.listId, w.term, w.definition, w.phonetic ?? null, w.pos ?? null,
-            w.exampleEn, w.exampleKr ?? null, w.meaningKr,
-            w.isMemorized ? 1 : 0, w.isStarred ? 1 : 0, w.tags ?? null,
-            w.position, w.createdAt, w.updatedAt,
-            w.wrongCount, w.assignedDay ?? null, w.sourceLang, w.targetLang, null,
+            word.id, w.list_id, word.term, word.definition, word.phonetic ?? null, word.pos ?? null,
+            word.exampleEn, word.exampleKr ?? null, word.meaningKr,
+            word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, w.tags ?? null,
+            w.position, word.createdAt, word.updatedAt,
+            word.wrongCount, word.assignedDay ?? null, word.sourceLang, word.targetLang, null,
           ],
         );
       }
     });
 
-    // Crash-safe: only advance the high-water mark after commit.
-    await setLastPulledAt(res.serverTime);
-  } catch (e: any) {
-    if (e instanceof ApiError && e.status === 401) {
-      await logout401();
-      return;
-    }
-    throw e;
+    await setLastPulledAt(newWatermark);
   } finally {
     setIsSyncing(false);
   }
 }
 
-/**
- * Cascade soft-delete: mark list + all its non-deleted words dirty.
- * Called from features/vocab (step 7b) after `softDeleteList()` in the DB.
- */
 export async function cascadeSoftDelete(listId: string): Promise<void> {
   const db = await getDb();
   const rows = await db.getAllAsync<{ id: string }>(
@@ -203,7 +179,7 @@ export async function cascadeSoftDelete(listId: string): Promise<void> {
   if (rows.length > 0) markWordsDirty(rows.map(r => r.id));
 }
 
-// ---- Row → domain helpers (mirror features/vocab/db.getLists assembler) ----
+// ---- Row → domain helpers ----
 
 function rowToVocaList(r: any) {
   return {

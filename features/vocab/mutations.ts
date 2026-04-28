@@ -26,8 +26,8 @@ import { invalidateLists } from './queries';
 // ---- Auth-gated sync helpers ------------------------------------------------
 
 function isGoogleAuthed(): boolean {
-  const { mode, token } = useAuthStore.getState();
-  return mode === 'google' && !!token;
+  const { mode, user } = useAuthStore.getState();
+  return mode === 'google' && !!user?.id;
 }
 
 function markListsDirty(ids: string[]): void {

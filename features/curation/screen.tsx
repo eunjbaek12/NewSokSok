@@ -24,7 +24,6 @@ import { VocaList, Word } from '@/lib/types';
 import { AIWordResultArraySchema } from '@shared/contracts';
 import { curationPresets } from '@/constants/curationData';
 
-const DEVICE_ID_KEY = '@soksok_device_id';
 import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import WordDetailModal from '@/components/WordDetailModal';
 import { Snackbar } from '@/components/ui/Snackbar';
@@ -321,16 +320,10 @@ export default function CurationScreen() {
         return lists.some(l => l.isCurated && l.title.startsWith(theme.title));
     }, [lists]);
 
-    const [deviceId, setDeviceId] = useState<string | null>(null);
-    useEffect(() => {
-        AsyncStorage.getItem(DEVICE_ID_KEY).then(id => setDeviceId(id));
-    }, []);
-
     const canDeleteCuration = useCallback((theme: VocaList): boolean => {
-        if (user && (theme.creatorId === user.id || user.isAdmin)) return true;
-        if (deviceId && theme.creatorId === deviceId) return true;
-        return false;
-    }, [user, deviceId]);
+        if (!user) return false;
+        return theme.creatorId === user.id || user.isAdmin;
+    }, [user]);
 
     const handleDeleteCuration = useCallback((theme: VocaList) => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);

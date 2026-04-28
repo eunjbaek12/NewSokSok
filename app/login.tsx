@@ -17,7 +17,6 @@ import { useTheme } from '@/features/theme';
 import { Button } from '@/components/ui/Button';
 import { AvocadoCharacter } from '@/features/onboarding/components/AvocadoCharacter';
 
-
 export default function LoginScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();

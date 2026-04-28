@@ -21,9 +21,8 @@
  * None of these functions touch `Alert` or React state; they're pure
  * SQLite/sync operations.
  */
-import { apiFetch } from '@/lib/api/client';
-import { SyncPullResponseSchema } from '@shared/contracts';
 import { getDb } from '@/lib/db';
+import { supabase } from '@/lib/supabase';
 // Direct (non-barrel) imports break the features/vocab ↔ features/sync require cycle:
 // the vocab barrel re-exports mutations.ts, which imports back into @/features/sync.
 // eslint-disable-next-line no-restricted-imports
@@ -45,16 +44,16 @@ export interface FirstLoginProbe {
 }
 
 /**
- * Hit `/api/sync/pull?since=0` and count both sides' non-deleted words to
- * decide the reconciliation branch.
+ * Count cloud (non-deleted) words and local words to decide the reconciliation branch.
  */
-export async function probeFirstLoginState(token: string): Promise<FirstLoginProbe> {
-  const probe = await apiFetch('/api/sync/pull?since=0', {
-    schema: SyncPullResponseSchema,
-    method: 'GET',
-    token,
-  });
-  const cloudWordCount = probe.words.filter(w => w.deletedAt == null).length;
+export async function probeFirstLoginState(): Promise<FirstLoginProbe> {
+  const { data: cloudWords, error } = await supabase
+    .from('cloud_words')
+    .select('id')
+    .eq('is_deleted', false);
+  if (error) throw error;
+
+  const cloudWordCount = cloudWords?.length ?? 0;
   const localLists = await fetchAllLists();
   const localWordCount = localLists.reduce((sum, l) => sum + l.words.length, 0);
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Alert } from 'react-native';
+import { Alert, AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { useAuth } from '@/features/auth';
@@ -69,6 +69,13 @@ async function loadCloudData(): Promise<void> {
 
 export function useVocabBootstrap(): void {
   const { authMode, user } = useAuth();
+
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state !== 'active') void flushPush();
+    });
+    return () => sub.remove();
+  }, []);
 
   useEffect(() => {
     let cancelled = false;

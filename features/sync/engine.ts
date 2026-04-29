@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 import { useSyncStore } from './store';
 import { vocaListToCloudRow, wordToCloudRow, dbRowToVocaList, dbRowToWord } from './mapping';
 
-const DEBOUNCE_MS = 2000;
+const DEBOUNCE_MS = 30000;
 
 let pushTimer: ReturnType<typeof setTimeout> | null = null;
 let pushInFlight = false;
@@ -46,16 +46,14 @@ export async function flushPush(): Promise<void> {
         ...listIds,
       );
       const cloudRows = rows.map(r => vocaListToCloudRow(rowToVocaList(r), { deletedAt: r.deletedAt ?? null }));
-      const { error } = await supabase.from('cloud_lists').upsert(cloudRows, { onConflict: 'id' });
-      if (error) throw error;
-
-      // echo-prevention: advance watermark past our own writes
-      const { data: pushed } = await supabase
+      // echo-prevention: upsert + select in one request to advance watermark past our own writes
+      const { data: pushedLists, error } = await supabase
         .from('cloud_lists')
-        .select('updated_at')
-        .in('id', listIds);
-      if (pushed && pushed.length > 0) {
-        const maxTs = Math.max(...pushed.map((r: any) => r.updated_at as number));
+        .upsert(cloudRows, { onConflict: 'id' })
+        .select('updated_at');
+      if (error) throw error;
+      if (pushedLists && pushedLists.length > 0) {
+        const maxTs = Math.max(...pushedLists.map((r: any) => r.updated_at as number));
         await setLastPulledAt(maxTs);
       }
     }
@@ -72,15 +70,14 @@ export async function flushPush(): Promise<void> {
           position: r.position ?? 0,
         }),
       );
-      const { error } = await supabase.from('cloud_words').upsert(cloudRows, { onConflict: 'id' });
-      if (error) throw error;
-
-      const { data: pushed } = await supabase
+      // echo-prevention: upsert + select in one request to advance watermark past our own writes
+      const { data: pushedWords, error: wordError } = await supabase
         .from('cloud_words')
-        .select('updated_at')
-        .in('id', wordIds);
-      if (pushed && pushed.length > 0) {
-        const maxTs = Math.max(...pushed.map((r: any) => r.updated_at as number));
+        .upsert(cloudRows, { onConflict: 'id' })
+        .select('updated_at');
+      if (wordError) throw wordError;
+      if (pushedWords && pushedWords.length > 0) {
+        const maxTs = Math.max(...pushedWords.map((r: any) => r.updated_at as number));
         await setLastPulledAt(maxTs);
       }
     }

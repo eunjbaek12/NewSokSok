@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import type { User as SupabaseUser } from '@supabase/supabase-js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   AuthStateSchema,
   type AuthMode,
@@ -9,6 +10,7 @@ import {
 } from '@shared/contracts';
 import { persisted } from '@/lib/storage/persisted';
 import { supabase } from '@/lib/supabase';
+import { getDb } from '@/lib/db';
 
 const GOOGLE_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID || '';
 
@@ -27,6 +29,7 @@ interface AuthStoreState {
   loginAsGuest: () => Promise<void>;
   signInWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
+  deleteAccount: () => Promise<void>;
 }
 
 let googleConfigured = false;
@@ -121,6 +124,27 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     await supabase.auth.signOut();
     await persist({ mode: 'none', user: null }, set);
   },
+
+  deleteAccount: async () => {
+    const { error } = await supabase.rpc('delete_user');
+    if (error) throw error;
+
+    const db = await getDb();
+    await db.execAsync('DELETE FROM words');
+    await db.execAsync('DELETE FROM lists');
+
+    const keys = await AsyncStorage.getAllKeys();
+    const soksokKeys = keys.filter(k => k.startsWith('@soksok_'));
+    await AsyncStorage.multiRemove(soksokKeys);
+
+    try {
+      await GoogleSignin.revokeAccess();
+      await GoogleSignin.signOut();
+    } catch {}
+
+    await supabase.auth.signOut();
+    await persist({ mode: 'none', user: null }, set);
+  },
 }));
 
 export function useAuth() {
@@ -130,6 +154,7 @@ export function useAuth() {
   const loginAsGuest = useAuthStore(s => s.loginAsGuest);
   const signInWithGoogle = useAuthStore(s => s.signInWithGoogle);
   const logout = useAuthStore(s => s.logout);
+  const deleteAccount = useAuthStore(s => s.deleteAccount);
 
   return {
     authMode: mode,
@@ -138,5 +163,6 @@ export function useAuth() {
     loginAsGuest,
     signInWithGoogle,
     logout,
+    deleteAccount,
   };
 }

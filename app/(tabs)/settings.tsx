@@ -33,9 +33,10 @@ export default function SettingsScreen() {
   const tabBarHeight = useBottomTabBarHeight();
   const { t } = useTranslation();
   const { colors, isDark, toggleTheme } = useTheme();
-  const { authMode, user, logout, signInWithGoogle } = useAuth();
+  const { authMode, user, logout, signInWithGoogle, deleteAccount } = useAuth();
   const { locale, setLocale } = useLocale();
   const { profileSettings, updateProfileSettings } = useSettings();
+  const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
   const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
@@ -109,6 +110,31 @@ export default function SettingsScreen() {
         Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
       }
     }
+  };
+
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      t('settings.deleteAccountTitle'),
+      t('settings.deleteAccountMessage'),
+      [
+        { text: t('common.cancel'), style: 'cancel' },
+        {
+          text: t('settings.deleteAccountConfirm'),
+          style: 'destructive',
+          onPress: async () => {
+            setIsDeleting(true);
+            try {
+              await deleteAccount();
+              router.replace('/login');
+            } catch {
+              Alert.alert(t('common.error'), t('settings.deleteAccountError'));
+            } finally {
+              setIsDeleting(false);
+            }
+          },
+        },
+      ],
+    );
   };
 
   const handleLogout = () => {
@@ -347,6 +373,18 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
+        {authMode === 'google' && (
+          <Pressable
+            style={styles.deleteAccountLink}
+            onPress={handleDeleteAccount}
+            disabled={isDeleting}
+          >
+            <Text style={[styles.deleteAccountText, { color: colors.error }]}>
+              {isDeleting ? '처리 중...' : t('settings.deleteAccount')}
+            </Text>
+          </Pressable>
+        )}
+
       </ScrollView>
 
       <ModalPicker
@@ -564,6 +602,17 @@ const styles = StyleSheet.create({
   cloudBadgeText: {
     fontSize: 11,
     fontFamily: 'Pretendard_600SemiBold',
+  },
+  deleteAccountLink: {
+    alignItems: 'center',
+    paddingVertical: 24,
+    marginTop: 12,
+  },
+  deleteAccountText: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_400Regular',
+    textDecorationLine: 'underline',
+    opacity: 0.7,
   },
   modalActions: {
     flexDirection: 'row',

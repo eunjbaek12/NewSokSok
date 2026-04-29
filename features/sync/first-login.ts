@@ -89,9 +89,11 @@ export async function applyFirstLoginMerge(): Promise<void> {
   const wordIdMap = new Map<string, string>();
   for (const r of wordRows) wordIdMap.set(r.id, generateId());
 
-  await db.withTransactionAsync(async () => {
-    await db.execAsync('PRAGMA foreign_keys = OFF');
-    try {
+  // PRAGMA foreign_keys cannot be changed inside a transaction (SQLite silently ignores it).
+  // Disable FK enforcement before opening the transaction, then restore after.
+  await db.execAsync('PRAGMA foreign_keys = OFF');
+  try {
+    await db.withTransactionAsync(async () => {
       for (const [oldId, newId] of listIdMap) {
         await db.runAsync('UPDATE lists SET id = ? WHERE id = ?', newId, oldId);
         await db.runAsync('UPDATE words SET listId = ? WHERE listId = ?', newId, oldId);
@@ -99,10 +101,10 @@ export async function applyFirstLoginMerge(): Promise<void> {
       for (const [oldId, newId] of wordIdMap) {
         await db.runAsync('UPDATE words SET id = ? WHERE id = ?', newId, oldId);
       }
-    } finally {
-      await db.execAsync('PRAGMA foreign_keys = ON');
-    }
-  });
+    });
+  } finally {
+    await db.execAsync('PRAGMA foreign_keys = ON');
+  }
 
   const { markListsDirty, markWordsDirty } = useSyncStore.getState();
   markListsDirty(Array.from(listIdMap.values()));

@@ -63,6 +63,7 @@ async function loadCloudData(): Promise<void> {
     }
   } catch (e: any) {
     console.warn('Cloud data load failed:', e?.message ?? e);
+    Alert.alert('동기화 오류', `클라우드 동기화에 실패했습니다.\n${e?.message ?? String(e)}`);
   }
 }
 

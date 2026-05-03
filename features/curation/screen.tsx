@@ -481,6 +481,16 @@ export default function CurationScreen() {
                                         <Text style={[styles.detailDesc, { color: colors.textSecondary }]}>• by {selectedTheme.creatorName}</Text>
                                     )}
                                 </View>
+                                {selectedTheme.description && (
+                                    <Text style={[styles.detailDescription, { color: colors.textSecondary }]}>
+                                        {selectedTheme.description}
+                                    </Text>
+                                )}
+                                {selectedTheme.isAiGenerated && (
+                                    <Text style={[styles.aiGeneratedNote, { color: colors.textTertiary }]}>
+                                        {t('curation.aiGeneratedNote')}
+                                    </Text>
+                                )}
                                 {(selectedTheme.downloadCount ?? 0) > 0 && (
                                     <View style={styles.downloadRow}>
                                         <Ionicons name="download-outline" size={14} color={colors.textTertiary} />
@@ -492,8 +502,8 @@ export default function CurationScreen() {
                                     return tags.length > 0 ? (
                                         <View style={[styles.tagRow, { marginTop: 8, justifyContent: 'flex-end' }]}>
                                             {tags.map(tag => (
-                                                <View key={tag} style={[styles.tagChip, { backgroundColor: 'rgba(255,255,255,0.5)' }]}>
-                                                    <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{tag}</Text>
+                                                <View key={tag} style={[styles.tagChip, { backgroundColor: isDark ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.65)' }]}>
+                                                    <Text style={[styles.tagText, { color: colors.text }]}>#{tag}</Text>
                                                 </View>
                                             ))}
                                         </View>
@@ -1003,6 +1013,7 @@ const styles = StyleSheet.create({
     levelBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
     savedBadge: { flexDirection: 'row', alignItems: 'center', gap: 3, paddingHorizontal: 7, paddingVertical: 3, borderRadius: 10 },
     savedBadgeText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
+    aiGeneratedNote: { fontSize: 11, fontFamily: 'Pretendard_400Regular', marginTop: 4, textAlign: 'right', fontStyle: 'italic' },
     tagRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 4 },
     tagChip: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 4 },
     tagText: { fontSize: 11, fontFamily: 'Pretendard_500Medium' },
@@ -1025,6 +1036,7 @@ const styles = StyleSheet.create({
     downloadRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 4 },
     detailTitle: { fontSize: 28, fontFamily: 'Pretendard_700Bold', marginBottom: 4, textAlign: 'right' },
     detailDesc: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
+    detailDescription: { fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 6, textAlign: 'right', lineHeight: 18 },
     wordItem: { padding: 16, borderRadius: 12, borderWidth: 1, marginBottom: 12 },
     wordTerm: { fontSize: 17, fontFamily: 'Pretendard_700Bold', marginBottom: 4 },
     wordMeaning: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },

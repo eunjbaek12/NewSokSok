@@ -253,18 +253,20 @@ export async function createCuratedList(title: string, icon: string, words: Omit
 
     for (const w of words) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           id,
           w.term ?? '',
           w.definition ?? '',
+          w.phonetic ?? null,
+          w.pos ?? null,
           w.exampleEn ?? '',
           w.exampleKr || null,
           w.meaningKr ?? '',
           0,
           0,
-          JSON.stringify([]),
+          JSON.stringify(w.tags ?? []),
           now,
           (w as any).sourceLang ?? 'en',
           (w as any).targetLang ?? 'ko',
@@ -580,12 +582,14 @@ export async function mergeLists(
   await db.withTransactionAsync(async () => {
     for (const w of wordsToAdd) {
       await db.runAsync(
-        `INSERT INTO words (id, listId, term, definition, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           generateId(),
           targetId,
           w.term ?? '',
           w.definition ?? '',
+          w.phonetic ?? null,
+          w.pos ?? null,
           w.exampleEn ?? '',
           w.exampleKr || null,
           w.meaningKr ?? '',

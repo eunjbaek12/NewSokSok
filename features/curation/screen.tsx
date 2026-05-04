@@ -300,6 +300,8 @@ export default function CurationScreen() {
                 term: w.term,
                 meaningKr: w.meaningKr,
                 definition: w.definition,
+                phonetic: w.phonetic,
+                pos: w.pos,
                 exampleEn: w.exampleEn,
                 exampleKr: w.exampleKr,
                 isStarred: false,

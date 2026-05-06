@@ -9,6 +9,7 @@ import { VocaList, Word } from '@/lib/types';
 import { computePlanStatus } from '@/features/study';
 import ProgressBar from '@/components/ui/ProgressBar';
 import StatusBadge, { StatusBadgeType } from '@/components/ui/StatusBadge';
+import { Radius } from '@/constants/tokens';
 
 export function getRelativeTime(timestamp: number | undefined, t: (key: string, opts?: any) => string): string {
   if (!timestamp) return t('listCard.noStudyRecord');
@@ -35,7 +36,7 @@ export default function ListCard({
   getWordsForList,
   onOpenMenu,
 }: ListCardProps) {
-  const { colors, isDark } = useTheme();
+  const { colors, isDark, fontFamily } = useTheme();
   const { t } = useTranslation();
   const hasSnapshot = (item.lastResultTotal ?? 0) > 0;
   const progress = hasSnapshot
@@ -107,7 +108,7 @@ export default function ListCard({
             {item.icon && (
               <Text style={{ fontSize: 16 }}>{item.icon}</Text>
             )}
-            <Text style={[styles.cardTitle, { color: colors.text, flexShrink: 1 }]} numberOfLines={2}>
+            <Text style={[styles.cardTitle, { color: colors.text, flexShrink: 1, fontFamily: fontFamily.bold }]} numberOfLines={2}>
               {item.title}
             </Text>
           </View>
@@ -120,13 +121,15 @@ export default function ListCard({
           <Pressable
             ref={menuBtnRef}
             onPress={handleContextMenu}
-            hitSlop={8}
+            hitSlop={12}
+            accessibilityLabel={t('listCard.menuLabel')}
+            accessibilityHint={t('listCard.menuHint')}
             style={({ pressed }) => [
               styles.menuBtn,
-              { opacity: pressed ? 0.4 : 0.55 },
+              { opacity: pressed ? 0.5 : 1 },
             ]}
           >
-            <Ionicons name="ellipsis-vertical" size={16} color={colors.textTertiary} />
+            <Ionicons name="ellipsis-horizontal" size={16} color={colors.textSecondary} />
           </Pressable>
         </View>
       </View>
@@ -160,7 +163,7 @@ export default function ListCard({
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 12,
+    borderRadius: Radius.md,
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
@@ -193,7 +196,10 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   menuBtn: {
-    padding: 4,
+    width: 28,
+    height: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   planActionRow: {
     marginTop: 12,

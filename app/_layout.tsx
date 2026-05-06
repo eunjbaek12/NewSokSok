@@ -1,18 +1,20 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Stack, router, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { ImageBackground, StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { queryClient } from "@/lib/api/client";
-import { ThemeProvider } from "@/features/theme";
+import { ThemeProvider, useSkinStore } from "@/features/theme";
 import { useVocabBootstrap } from "@/features/vocab";
 import { useAuth, useAuthStore } from "@/features/auth";
 import { useSettings, useSettingsStore } from "@/features/settings";
 import { LocaleProvider } from "@/features/locale";
 import { useFonts } from "expo-font";
+import { Jua_400Regular } from "@expo-google-fonts/jua";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import "@/i18n";
 
@@ -24,15 +26,30 @@ export default function RootLayout() {
     Pretendard_500Medium: require("../assets/fonts/Pretendard-Medium.otf"),
     Pretendard_600SemiBold: require("../assets/fonts/Pretendard-SemiBold.otf"),
     Pretendard_700Bold: require("../assets/fonts/Pretendard-Bold.otf"),
+    Jua_400Regular,
   });
+  const [splashDone, setSplashDone] = useState(false);
+
+  useEffect(() => {
+    SplashScreen.hideAsync();
+  }, []);
 
   useEffect(() => {
     if (fontsLoaded) {
-      SplashScreen.hideAsync();
+      const t = setTimeout(() => setSplashDone(true), 1500);
+      return () => clearTimeout(t);
     }
   }, [fontsLoaded]);
 
-  if (!fontsLoaded) return null;
+  if (!splashDone) {
+    return (
+      <ImageBackground
+        source={require("../assets/images/splash-full.png")}
+        style={styles.splash}
+        resizeMode="cover"
+      />
+    );
+  }
 
   return (
     <SafeAreaProvider>
@@ -62,6 +79,7 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
     useAuthStore.getState().hydrate();
     useSettingsStore.getState().hydrate();
     useOnboardingStore.getState().hydrate();
+    useSkinStore.getState().hydrate();
   }, []);
   return <>{children}</>;
 }
@@ -130,6 +148,14 @@ function AppStack() {
         }}
       />
       <Stack.Screen name="study-results" options={{ headerShown: false, gestureEnabled: false }} />
+      <Stack.Screen name="faq" options={{ headerShown: false }} />
     </Stack>
   );
 }
+
+const styles = StyleSheet.create({
+  splash: {
+    flex: 1,
+    backgroundColor: "#2A7B78",
+  },
+});

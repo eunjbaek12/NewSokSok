@@ -11,7 +11,7 @@ import { useStudyResultsStore } from '@/features/study';
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
   const insets = useSafeAreaInsets();
-  const { colors } = useTheme();
+  const { colors, fontFamily } = useTheme();
   const studyResults = useStudyResultsStore(s => s.results);
   const clearStudyResults = useStudyResultsStore(s => s.clear);
   const { id, mode, duration, isStarred, sessionFilter, quizType } = useLocalSearchParams<{
@@ -114,7 +114,7 @@ export default function StudyResultsScreen() {
               color={allCorrect ? colors.success : colors.primary}
             />
           </View>
-          <Text style={[styles.title, { color: colors.text }]}>{t('studyResults.complete')}</Text>
+          <Text style={[styles.title, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('studyResults.complete')}</Text>
           <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
             {t(subtitleKey)}
           </Text>

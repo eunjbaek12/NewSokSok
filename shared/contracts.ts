@@ -102,7 +102,7 @@ export type CustomStudySettings = z.infer<typeof CustomStudySettingsSchema>;
 export const DashboardFilterSchema = z.enum(['all', 'studying', 'completed', 'finished']);
 export type DashboardFilter = z.infer<typeof DashboardFilterSchema>;
 
-export const ThemeModeSchema = z.enum(['light', 'dark']);
+export const ThemeModeSchema = z.enum(['classic', 'dark', 'y2k', 'lab']);
 export type ThemeMode = z.infer<typeof ThemeModeSchema>;
 
 export const UILocaleCodeSchema = z.enum(['ko', 'en']);

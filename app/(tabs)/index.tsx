@@ -11,8 +11,10 @@ import {
   Modal,
 } from 'react-native';
 import CharacterSvg from '@/components/CharacterSvg';
+import { CharacterAccessory } from '@/components/CharacterAccessory';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { Radius } from '@/constants/tokens';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
@@ -64,7 +66,7 @@ function getStudyStateConfig(state: StudyState, t: (key: string) => string) {
 
 export default function DashboardScreen() {
   const insets = useSafeAreaInsets();
-  const { colors, isDark } = useTheme();
+  const { colors, isDark, skin, fontFamily } = useTheme();
   const lists = useLists();
   const loading = useBootstrapLoading();
   const { t } = useTranslation();
@@ -193,10 +195,13 @@ export default function DashboardScreen() {
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       {/* Fixed Header / Greeting */}
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <CharacterSvg size={56} isDark={isDark} />
+        <View style={{ width: 56, height: 56 }}>
+          <CharacterSvg size={56} isDark={isDark} />
+          <CharacterAccessory accessory={skin.characterAccessory} size={56} />
+        </View>
         <View style={styles.headerTextArea}>
-          <Text style={[styles.greeting, { color: colors.text }]} numberOfLines={1}>
-            {t('home.greeting')}<Text style={{ color: colors.primary }}>{displayName}</Text>
+          <Text style={[styles.greeting, { color: colors.text, fontFamily: fontFamily.bold }]} numberOfLines={1}>
+            {t('home.greeting')}<Text style={{ color: colors.primary, fontFamily: fontFamily.bold }}>{displayName}</Text>
           </Text>
           <Text style={[styles.subtitle, { color: colors.textSecondary }]} numberOfLines={1}>
             {headerSubtitle}
@@ -636,7 +641,10 @@ export default function DashboardScreen() {
               {/* Empty: 플랜 자체가 없음 */}
               {planItems.length === 0 && (
                 <View style={[styles.emptyPlans, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : colors.borderLight }]}>
-                  <Ionicons name="rocket-outline" size={40} color={colors.textTertiary} />
+                  <View style={{ width: 72, height: 72 }}>
+                    <CharacterSvg size={72} isDark={isDark} wave />
+                    <CharacterAccessory accessory={skin.characterAccessory} size={72} />
+                  </View>
                   <Text style={[styles.emptyPlansTitle, { color: colors.text }]}>{t('home.emptyTitle')}</Text>
                   <Text style={[styles.emptyPlansSubtitle, { color: colors.textTertiary }]}>{t('home.emptySubtitle')}</Text>
                   <Pressable
@@ -698,15 +706,21 @@ export default function DashboardScreen() {
           return (
             <View style={[styles.resultSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
               <View style={[styles.resultHandle, { backgroundColor: colors.border }]} />
-              <View style={styles.resultTitleRow}>
-                <Text style={[styles.resultSubtitle, { color: colors.textSecondary }]}>
-                  {t('home.studyResult')}
-                </Text>
-                <View style={styles.resultTitleMain}>
-                  {resultList.icon && <Text style={{ fontSize: 20 }}>{resultList.icon}</Text>}
-                  <Text style={[styles.resultTitle, { color: colors.text }]} numberOfLines={1}>
-                    {resultList.title}
+              <View style={styles.resultHeaderRow}>
+                <View style={{ width: 48, height: 48 }}>
+                  <CharacterSvg size={48} isDark={isDark} wave />
+                  <CharacterAccessory accessory={skin.characterAccessory} size={48} />
+                </View>
+                <View style={styles.resultTitleRow}>
+                  <Text style={[styles.resultSubtitle, { color: colors.textSecondary }]}>
+                    {t('home.studyResult')}
                   </Text>
+                  <View style={styles.resultTitleMain}>
+                    {resultList.icon && <Text style={{ fontSize: 20 }}>{resultList.icon}</Text>}
+                    <Text style={[styles.resultTitle, { color: colors.text }]} numberOfLines={1}>
+                      {resultList.title}
+                    </Text>
+                  </View>
                 </View>
               </View>
               <View style={styles.resultCircleArea}>
@@ -783,7 +797,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 14,
-    borderRadius: 16,
+    borderRadius: Radius.lg,
     borderWidth: 1,
     gap: 10,
     shadowOffset: { width: 0, height: 2 },
@@ -809,7 +823,7 @@ const styles = StyleSheet.create({
   quickCard: {
     flex: 1,
     aspectRatio: 1,
-    borderRadius: 16,
+    borderRadius: Radius.lg,
     borderWidth: 1,
     borderColor: 'transparent',
     alignItems: 'center',
@@ -819,7 +833,7 @@ const styles = StyleSheet.create({
   },
   quickCardGradient: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: 16,
+    borderRadius: Radius.lg,
   },
   quickCardIconWrap: {
     position: 'relative',
@@ -885,7 +899,7 @@ const styles = StyleSheet.create({
   countBadge: {
     paddingHorizontal: 10,
     paddingVertical: 2,
-    borderRadius: 12,
+    borderRadius: Radius.md,
   },
   countBadgeText: {
     fontSize: 13,
@@ -900,7 +914,7 @@ const styles = StyleSheet.create({
   filterChip: {
     paddingHorizontal: 10,
     paddingVertical: 4,
-    borderRadius: 10,
+    borderRadius: Radius.sm,
   },
   filterChipText: {
     fontSize: 11,
@@ -909,7 +923,7 @@ const styles = StyleSheet.create({
 
   // Plan Card
   planCard: {
-    borderRadius: 20,
+    borderRadius: Radius.lg,
     padding: 18,
     marginBottom: 12,
     borderWidth: 1,
@@ -948,7 +962,7 @@ const styles = StyleSheet.create({
   dayBadge: {
     paddingHorizontal: 10,
     paddingVertical: 4,
-    borderRadius: 10,
+    borderRadius: Radius.sm,
   },
   dayBadgeText: {
     fontSize: 12,
@@ -957,7 +971,7 @@ const styles = StyleSheet.create({
   statusChip: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 10,
+    borderRadius: Radius.sm,
   },
   statusChipText: {
     fontSize: 11,
@@ -990,7 +1004,7 @@ const styles = StyleSheet.create({
   actionButton: {
     paddingHorizontal: 14,
     paddingVertical: 7,
-    borderRadius: 12,
+    borderRadius: Radius.md,
   },
   actionButtonText: {
     fontSize: 12,
@@ -1027,8 +1041,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   resultSheet: {
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
+    borderTopLeftRadius: Radius.xl,
+    borderTopRightRadius: Radius.xl,
     padding: 24,
     alignItems: 'center',
     gap: 12,
@@ -1039,10 +1053,16 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     marginBottom: 4,
   },
+  resultHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    alignSelf: 'stretch',
+  },
   resultTitleRow: {
     flexDirection: 'column',
     gap: 4,
-    alignSelf: 'stretch',
+    flex: 1,
   },
   resultSubtitle: {
     fontSize: 12,
@@ -1074,7 +1094,7 @@ const styles = StyleSheet.create({
   },
   resultRestartBtn: {
     alignSelf: 'stretch',
-    borderRadius: 28,
+    borderRadius: Radius.xl,
     paddingVertical: 16,
     alignItems: 'center',
     marginTop: 4,
@@ -1086,7 +1106,7 @@ const styles = StyleSheet.create({
 
   // Empty Plans
   emptyPlans: {
-    borderRadius: 20,
+    borderRadius: Radius.lg,
     padding: 28,
     alignItems: 'center',
     gap: 8,
@@ -1109,7 +1129,7 @@ const styles = StyleSheet.create({
     gap: 6,
     paddingHorizontal: 16,
     paddingVertical: 10,
-    borderRadius: 14,
+    borderRadius: Radius.lg,
     marginTop: 8,
   },
   emptyPlansLinkText: {

@@ -44,7 +44,7 @@ import ListContextMenu from '@/components/ListContextMenu';
 export default function VocabListsScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
-  const { colors, isDark } = useTheme();
+  const { colors, isDark, fontFamily } = useTheme();
 
   const dailyTip = useMemo(() => {
     const tips = t('vocabLists.tips', { returnObjects: true }) as string[];
@@ -167,7 +167,7 @@ export default function VocabListsScreen() {
         <CharacterSvg size={56} isDark={isDark} />
         <View style={styles.headerTextArea}>
           <View style={styles.headerTitleRow}>
-            <Text style={[styles.headerTitle, { color: colors.text }]}>{t('vocabLists.title')}</Text>
+            <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('vocabLists.title')}</Text>
             {visibleLists.length > 0 && (
               <View style={[styles.countBadge, { backgroundColor: colors.primaryLight }]}>
                 <Text style={[styles.countBadgeText, { color: colors.primary }]}>

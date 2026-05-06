@@ -121,7 +121,7 @@ export default function CurationScreen() {
     const isDetailTopBtnVisible = useRef(false);
 
     const insets = useSafeAreaInsets();
-    const { colors, isDark } = useTheme();
+    const { colors, isDark, fontFamily } = useTheme();
     const { t } = useTranslation();
     const router = useRouter();
     const [viewMode, setViewMode] = useState<'detailed' | 'compact'>('detailed');
@@ -645,7 +645,7 @@ export default function CurationScreen() {
                     <View style={[styles.header, { paddingTop: topInset + 16 }]}>
                         <CharacterSvg size={56} isDark={isDark} />
                         <View style={styles.headerTextArea}>
-                            <Text style={[styles.headerTitle, { color: colors.text }]}>{t('curation.title')}</Text>
+                            <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('curation.title')}</Text>
                             <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={1}>{dailyTip}</Text>
                         </View>
                         <Pressable onPress={() => setViewMode(prev => prev === 'detailed' ? 'compact' : 'detailed')} style={[styles.actionBtn, { borderColor: colors.border }]}>

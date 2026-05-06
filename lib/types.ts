@@ -44,6 +44,7 @@ export interface VocaList {
   category?: string;
   level?: string;
   description?: string;
+  isAiGenerated?: boolean;
   sourceLanguage?: string;
   targetLanguage?: string;
   lastResultMemorized?: number;
@@ -58,7 +59,7 @@ export interface StudyResult {
 
 export type StudyMode = 'flashcards' | 'quiz' | 'examples';
 
-export type ThemeMode = 'light' | 'dark';
+export type ThemeMode = 'classic' | 'dark' | 'y2k' | 'lab';
 
 export interface AutoFillResult {
   definition: string;

@@ -2,6 +2,7 @@ import React, { ComponentProps } from 'react';
 import { Pressable, Text, StyleSheet, ActivityIndicator, ViewStyle, TextStyle, View } from 'react-native';
 import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
+import { Radius } from '@/constants/tokens';
 
 interface ButtonProps extends ComponentProps<typeof Pressable> {
     title?: string;
@@ -29,7 +30,7 @@ export function Button({
     children,
     ...props
 }: ButtonProps) {
-    const { colors } = useTheme();
+    const { colors, fontFamily } = useTheme();
 
     const getBackgroundColor = () => {
         switch (variant) {
@@ -97,7 +98,7 @@ export function Button({
                         <Text
                             style={[
                                 styles.text,
-                                { color: getTextColor(), fontSize: size === 'small' ? 14 : size === 'large' ? 17 : 16 },
+                                { color: getTextColor(), fontSize: size === 'small' ? 14 : size === 'large' ? 17 : 16, fontFamily: fontFamily.semiBold },
                                 textStyle,
                             ]}
                         >
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 12,
+        borderRadius: Radius.md,
         gap: 8,
     },
     text: {

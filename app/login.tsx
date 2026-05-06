@@ -20,7 +20,7 @@ import { AvocadoCharacter } from '@/features/onboarding/components/AvocadoCharac
 export default function LoginScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
-  const { colors } = useTheme();
+  const { colors, fontFamily } = useTheme();
   const { loginAsGuest, signInWithGoogle } = useAuth();
   const [loading, setLoading] = useState<'google' | 'guest' | null>(null);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
@@ -58,7 +58,7 @@ export default function LoginScreen() {
           <View style={styles.characterContainer}>
             <AvocadoCharacter slideIndex={0} isActive={false} isStatic size={110} />
           </View>
-          <Text style={[styles.appName, { color: colors.text }]}>{t('login.appName')}</Text>
+          <Text style={[styles.appName, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('login.appName')}</Text>
           <Text style={[styles.appNameEn, { color: colors.brand.green }]}>{t('login.appNameEn')}</Text>
           <Text style={[styles.tagline, { color: colors.textSecondary }]}>{t('login.tagline')}</Text>
         </View>

@@ -17,6 +17,7 @@ import { WordListDemo } from '@/features/onboarding/components/demos/WordListDem
 import { FlashcardDemo } from '@/features/onboarding/components/demos/FlashcardDemo';
 import { CurationDemo } from '@/features/onboarding/components/demos/CurationDemo';
 import { useOnboarding } from '@/features/onboarding';
+import { useTheme } from '@/features/theme';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -69,6 +70,7 @@ export default function OnboardingScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
   const { markOnboardingDone } = useOnboarding();
+  const { fontFamily } = useTheme();
   const scrollRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -127,7 +129,7 @@ export default function OnboardingScreen() {
 
             {/* 텍스트 영역 */}
             <View style={styles.textArea}>
-              <Text style={styles.title}>{t(s.titleKey)}</Text>
+              <Text style={[styles.title, { fontFamily: fontFamily.bold }]}>{t(s.titleKey)}</Text>
               <Text style={styles.body}>{t(s.bodyKey)}</Text>
             </View>
           </View>

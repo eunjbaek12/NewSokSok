@@ -19,6 +19,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
+import { SkinSelector } from '@/components/SkinSelector';
 import { useAuth } from '@/features/auth';
 import { useLocale } from '@/features/locale';
 import { UI_LOCALES } from '@/i18n';
@@ -32,7 +33,7 @@ export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const tabBarHeight = useBottomTabBarHeight();
   const { t } = useTranslation();
-  const { colors, isDark, toggleTheme } = useTheme();
+  const { colors, isDark, skinId, setSkin, fontFamily } = useTheme();
   const { authMode, user, logout, signInWithGoogle, deleteAccount } = useAuth();
   const { locale, setLocale } = useLocale();
   const { profileSettings, updateProfileSettings } = useSettings();
@@ -41,6 +42,7 @@ export default function SettingsScreen() {
   const [showStartupPicker, setShowStartupPicker] = useState(false);
   const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
   const [nicknameInput, setNicknameInput] = useState('');
+  const [nicknameFromGoogle, setNicknameFromGoogle] = useState(false);
   const [apiKeyModalOpen, setApiKeyModalOpen] = useState(false);
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [apiKeyVisible, setApiKeyVisible] = useState(false);
@@ -64,11 +66,12 @@ export default function SettingsScreen() {
   const btn = PopupTokens.button.standard;
 
   const handleOpenNicknameModal = () => {
-    // 닉네임 미설정 상태에서 구글 로그인이면 displayName 자동 채우기
+    const isFromGoogle = !profileSettings.nickname && authMode === 'google' && !!user?.displayName;
     const defaultNickname =
       profileSettings.nickname ||
       (authMode === 'google' && user?.displayName ? user.displayName : '');
     setNicknameInput(defaultNickname);
+    setNicknameFromGoogle(isFromGoogle);
     setNicknameModalOpen(true);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
@@ -95,11 +98,6 @@ export default function SettingsScreen() {
     : '';
 
   const currentLangLabel = UI_LOCALES.find((l) => l.code === locale)?.nativeLabel ?? locale;
-
-  const handleToggleTheme = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    toggleTheme();
-  };
 
   const handleGoogleUpgrade = async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -161,7 +159,7 @@ export default function SettingsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topPadding + 16 }]}>
-        <Text style={[styles.headerTitle, { color: colors.text }]}>{t('settings.title')}</Text>
+        <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('settings.title')}</Text>
       </View>
 
       <ScrollView
@@ -216,8 +214,8 @@ export default function SettingsScreen() {
                   <Ionicons name="logo-google" size={18} color={colors.brand.googleBlue} />
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={[styles.rowTitle, { color: colors.text }]}>구글로 연결하기</Text>
-                  <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>데이터를 유지한 채 클라우드 동기화 활성화</Text>
+                  <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.googleUpgrade')}</Text>
+                  <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>{t('settings.googleUpgradeDesc')}</Text>
                 </View>
               </View>
               <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
@@ -254,24 +252,9 @@ export default function SettingsScreen() {
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.display')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-          <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
-            <View style={styles.rowLeft}>
-              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-                <Ionicons name="moon-outline" size={18} color={colors.primary} />
-              </View>
-              <View>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.darkMode')}</Text>
-                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
-                  {t('settings.themeInUse', { theme: isDark ? t('settings.dark') : t('settings.light') })}
-                </Text>
-              </View>
-            </View>
-            <Switch
-              value={isDark}
-              onValueChange={handleToggleTheme}
-              trackColor={{ false: colors.surfaceSecondary, true: colors.primary }}
-              thumbColor={colors.onPrimary}
-            />
+          <View style={[styles.skinSelectorRow, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
+            <Text style={[styles.skinSelectorLabel, { color: colors.textSecondary }]}>{t('skin')}</Text>
+            <SkinSelector />
           </View>
           <Pressable
             style={styles.row}
@@ -325,9 +308,9 @@ export default function SettingsScreen() {
                 <Ionicons name="key-outline" size={18} color={colors.primary} />
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>Gemini API 키</Text>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.geminiApiKey')}</Text>
                 <Text style={[styles.rowSubtitle, { color: profileSettings.geminiApiKey ? colors.success : colors.textTertiary }]} numberOfLines={1}>
-                  {profileSettings.geminiApiKey ? maskedApiKey : '키를 입력하면 AI 기능을 사용할 수 있어요'}
+                  {profileSettings.geminiApiKey ? maskedApiKey : t('settings.geminiApiKeyNotSet')}
                 </Text>
               </View>
             </View>
@@ -337,6 +320,46 @@ export default function SettingsScreen() {
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.info')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/faq' as any);
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="help-circle-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.faq')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {t('settings.faqDesc')}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+          </Pressable>
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/terms' as any);
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="document-text-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.terms')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {t('settings.termsDesc')}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+          </Pressable>
           <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
             <View style={styles.rowLeft}>
               <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
@@ -380,7 +403,7 @@ export default function SettingsScreen() {
             disabled={isDeleting}
           >
             <Text style={[styles.deleteAccountText, { color: colors.error }]}>
-              {isDeleting ? '처리 중...' : t('settings.deleteAccount')}
+              {isDeleting ? t('settings.deleting') : t('settings.deleteAccount')}
             </Text>
           </Pressable>
         )}
@@ -457,12 +480,17 @@ export default function SettingsScreen() {
             maxLength={10}
           />
           <Text style={[styles.nicknameCount, { color: colors.textTertiary }]}>{nicknameInput.trim().length} / 10</Text>
+          {nicknameFromGoogle && (
+            <Text style={[styles.nicknameHint, { color: colors.textTertiary }]}>
+              {t('settings.nicknameFromGoogle')}
+            </Text>
+          )}
         </View>
       </DialogModal>
       <DialogModal
         visible={apiKeyModalOpen}
         onClose={() => setApiKeyModalOpen(false)}
-        title="Gemini API 키"
+        title={t('settings.geminiApiKeyTitle')}
         scrollable={false}
         footer={
           <View style={styles.modalActions}>
@@ -483,13 +511,13 @@ export default function SettingsScreen() {
       >
         <View style={styles.modalBody}>
           <Text style={[styles.nicknameDesc, { color: colors.textSecondary }]}>
-            {'Google AI Studio에서 발급받은 API 키를 입력하세요.\n키는 이 기기에만 저장됩니다.'}
+            {t('settings.geminiApiKeyDesc')}
           </Text>
           <Pressable
             onPress={() => Linking.openURL('https://aistudio.google.com/apikey')}
           >
             <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_500Medium', marginBottom: 4 }}>
-              API 키 발급받기 →
+              {t('settings.geminiApiKeyLink')} →
             </Text>
           </Pressable>
           <View style={[styles.apiKeyInputRow, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}>
@@ -512,7 +540,7 @@ export default function SettingsScreen() {
           </View>
           {profileSettings.geminiApiKey ? (
             <Pressable onPress={() => { setApiKeyInput(''); updateProfileSettings({ geminiApiKey: '' }); setApiKeyModalOpen(false); }}>
-              <Text style={{ color: colors.error, fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 4 }}>API 키 삭제</Text>
+              <Text style={{ color: colors.error, fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 4 }}>{t('settings.geminiApiKeyRemove')}</Text>
             </Pressable>
           ) : null}
         </View>
@@ -648,6 +676,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_400Regular',
     textAlign: 'right',
   },
+  nicknameHint: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_400Regular',
+    marginTop: 4,
+  },
   apiKeyInputRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -660,5 +693,16 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 15,
     fontFamily: 'Pretendard_400Regular',
+  },
+  skinSelectorRow: {
+    paddingVertical: 12,
+  },
+  skinSelectorLabel: {
+    fontSize: 13,
+    fontFamily: 'Pretendard_600SemiBold',
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+    paddingHorizontal: 14,
+    marginBottom: 4,
   },
 });

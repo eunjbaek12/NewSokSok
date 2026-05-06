@@ -77,8 +77,10 @@
     "starredWords": "Starred Words",
     "studyingLists": "My Study",
     "filterAll": "All",
-    "filterStudying": "Today's Todo",
-    "filterCompleted": "Today's Goal",
+    "filterStudying": "Todo",
+    "filterCompleted": "Done",
+    "filterFinished": "Finished",
+    "filterEmptyFinished": "No completed lists",
     "needsStudy": "Not Started",
     "studying": "In Progress",
     "completed": "Today's Goal",
@@ -163,6 +165,7 @@
     "duplicateList": "A list with the same name already exists.",
     "saveError": "An error occurred while saving.",
     "noThemeFound": "Can't find what you're looking for?",
+    "aiGeneratedNote": "AI-generated meanings & examples",
     "aiGenerate": "Let AI generate it for you?",
     "enterSearchFirst": "Please enter a search term first.",
     "aiGenerateError": "An error occurred while generating words.",
@@ -183,7 +186,16 @@
     "deleteConfirmTitle": "Delete Collection",
     "deleteConfirmMessage": "Remove \"{{title}}\" from the community? Users who already imported it will keep their copy.",
     "deleteSuccess": "Collection deleted.",
-    "deleteError": "An error occurred while deleting."
+    "deleteError": "An error occurred while deleting.",
+    "aiGenerateAction": "Generate",
+    "aiGenerating": "Generating...",
+    "aiApiKeyRequired": "Enter your Gemini API key in Settings",
+    "aiGoToSettings": "Go to Settings",
+    "aiTopicLabel": "Topic",
+    "aiTopicPlaceholder": "e.g., business meetings, café orders",
+    "aiDifficultyLabel": "Difficulty",
+    "aiWordCount": "Word Count",
+    "aiWordUnit": ""
   },
   "settings": {
     "title": "Settings",
@@ -207,10 +219,24 @@
     "nicknameTitle": "Set Nickname",
     "nicknamePlaceholder": "Up to 10 characters",
     "nicknameDesc": "Shown in the home greeting and when sharing lists",
+    "nicknameFromGoogle": "Filled from your Google account. Edit to your liking.",
     "startupScreen": "Startup Screen",
     "startup_index": "Home",
     "startup_vocab-lists": "Vocabulary Lists",
     "startup_curation": "Curation",
+    "ai": "AI",
+    "geminiApiKey": "Gemini API Key",
+    "geminiApiKeyNotSet": "Not set",
+    "geminiApiKeySet": "Key saved",
+    "geminiApiKeyTitle": "Set Gemini API Key",
+    "geminiApiKeyDesc": "Get a free API key from Google AI Studio.\nThe key is stored only on this device.",
+    "geminiApiKeyPlaceholder": "Enter API key",
+    "geminiApiKeyLink": "Get an API key from Google AI Studio",
+    "geminiApiKeyRemove": "Remove Key",
+    "geminiApiKeyRemoveConfirm": "Remove your API key?",
+    "googleUpgrade": "Connect with Google",
+    "googleUpgradeDesc": "Keep your data and enable cloud sync",
+    "deleting": "Processing...",
     "deleteAccount": "Delete Account",
     "deleteAccountTitle": "Delete Account",
     "deleteAccountMessage": "All your cloud data will be permanently deleted. This action cannot be undone.",
@@ -218,7 +244,223 @@
     "deleteAccountError": "An error occurred. Please try again.",
     "info": "Info",
     "appName": "App Name",
-    "version": "Version"
+    "version": "Version",
+    "faq": "FAQ",
+    "faqDesc": "Find answers to common questions",
+    "terms": "Terms of Service",
+    "termsDesc": "Read our terms and conditions"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: May 2026",
+    "sections": [
+      {
+        "title": "Use of Service",
+        "body": "SokSok Voca (the 'App') is a personal vocabulary learning tool. By using the App, you agree to these terms."
+      },
+      {
+        "title": "User Content & Copyright",
+        "body": "You are solely responsible for the copyright of any content (words, meanings, example sentences, etc.) that you create or share in the App.\n\nDo not share content that infringes on others' copyrights. Sharing content from copyrighted sources (dictionaries, textbooks, etc.) without permission is prohibited."
+      },
+      {
+        "title": "Official Curated Lists",
+        "body": "Official word lists provided in the App (TOEIC, academic, etc.) are based on open-licensed data (CC BY-SA 4.0) and AI-generated content. Sources are noted in each list's description."
+      },
+      {
+        "title": "AI Features",
+        "body": "AI autocomplete and translation features operate using your own Gemini API key. Any costs incurred from API usage are your responsibility. The developer does not guarantee the accuracy of AI-generated content."
+      },
+      {
+        "title": "Privacy",
+        "body": "If you use Google Sign-In, your email and display name are used to operate the service. User data is stored securely on Supabase and is never sold or shared with third parties."
+      },
+      {
+        "title": "Disclaimer",
+        "body": "The App is provided as-is. The developer is not liable for damages resulting from service interruptions, data loss, or AI translation errors."
+      },
+      {
+        "title": "Changes to Terms",
+        "body": "These terms may be updated without prior notice. Updated terms will be available in Settings > Terms of Service after an app update."
+      }
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "headerSubtitle": "Frequently asked questions",
+    "categories": [
+      {
+        "title": "Getting Started",
+        "items": [
+          {
+            "q": "What's the difference between guest mode and Google sign-in?",
+            "a": "Guest mode stores your lists only on this device — they'll be lost if you uninstall or switch devices.\nGoogle sign-in stores your data in the cloud, keeping it safe across devices and syncing automatically."
+          },
+          {
+            "q": "Where should I begin?",
+            "a": "1. Import a list from Curation, or create your own from the Lists tab.\n2. Add words (6 ways: manual, AI auto-complete, AI generate, photo scan, spreadsheet paste, voice).\n3. Start studying with flashcards or quiz."
+          }
+        ]
+      },
+      {
+        "title": "Adding Words",
+        "items": [
+          {
+            "q": "How many ways are there to add words?",
+            "a": "Six ways:\n• Manual entry\n• AI auto-complete (enter the word, AI fills meaning/example)\n• AI generate (give a topic, AI builds a list)\n• Photo scan (capture textbooks/notes)\n• Spreadsheet paste (copy from Excel/Google Sheets)\n• Voice input\n\nYou can also import others' lists from Curation."
+          },
+          {
+            "q": "Which method should I use?",
+            "a": "Manual for one or two words, AI auto-complete when you only know the word, AI generate when you have a topic, photo scan for textbooks/notes, spreadsheet paste for organized lists.\n\nPhoto scan and AI features require a Gemini API key."
+          },
+          {
+            "q": "How does AI auto-complete work?",
+            "a": "Type just the word and tap auto-complete — AI fills in the meaning, example, pronunciation, and part of speech. Edit or regenerate if you don't like the result."
+          },
+          {
+            "q": "What about AI generate?",
+            "a": "Enter a topic like \"TOEIC business\" or \"100 travel English\" and AI creates a word list. Pick the words you like and import only those."
+          },
+          {
+            "q": "What kinds of photos can be scanned?",
+            "a": "Both printed lists and handwritten notes work, but blurry photos or pages packed with too many words reduce accuracy. Photos with words paired with their meanings work best."
+          },
+          {
+            "q": "How does the spreadsheet paste work?",
+            "a": "Copy words from Excel/Google Sheets and paste them in.\n\nColumn order: term / meaning / definition / example (EN) / example (translation) / tags\n\nThe last 4 columns are optional. Header rows are auto-detected and skipped."
+          },
+          {
+            "q": "Can I add words by voice?",
+            "a": "Yes — tap the mic icon and say the word. You'll need to grant microphone permission the first time."
+          }
+        ]
+      },
+      {
+        "title": "Studying",
+        "items": [
+          {
+            "q": "What study modes are available?",
+            "a": "• Flashcards — flip cards to memorize\n• Quiz — multiple choice to check yourself\n• Examples — learn through context\n• Autoplay — listen and repeat (shadowing)"
+          },
+          {
+            "q": "What's the minimum number of words to start studying?",
+            "a": "You need at least 2 words to start a session."
+          },
+          {
+            "q": "Can I study a subset of words?",
+            "a": "Yes, three ways:\n• Starred — only starred words\n• Wrong words — top 50 you've gotten wrong\n• Custom study — any range you pick"
+          },
+          {
+            "q": "Is my progress saved if I stop mid-session?",
+            "a": "Yes. Next time you open the same list, tap \"Continue\" to resume from where you left off."
+          },
+          {
+            "q": "I want to review only the words I missed.",
+            "a": "On the result screen, tap \"Restudy wrong words\"."
+          },
+          {
+            "q": "Do I have to set up a study plan?",
+            "a": "No. Plans are useful when you want daily portions managed automatically. Resetting a plan keeps your memorization records intact."
+          },
+          {
+            "q": "What if I miss a few days?",
+            "a": "After 7 days of inactivity, you'll see a reset prompt. Once the period ends, the plan expires and you can do a focused session on the remaining words."
+          }
+        ]
+      },
+      {
+        "title": "Data & Sync",
+        "items": [
+          {
+            "q": "Will my words disappear if I switch from guest to Google?",
+            "a": "If this is your first Google sign-in on this device, your guest words upload to the cloud automatically.\n\nIf the same account is already in use on another device, you'll see a \"Merge / Keep Cloud\" dialog. Choose \"Merge\" to preserve your guest data."
+          },
+          {
+            "q": "Will my lists follow me to a new device?",
+            "a": "Google users: yes — sign in on the new device and they download automatically. Guest users: no."
+          },
+          {
+            "q": "When does sync happen?",
+            "a": "About 30 seconds after a change, and immediately when you send the app to the background."
+          },
+          {
+            "q": "Can I use the app offline?",
+            "a": "Studying, adding, and editing all work offline. Only AI features (auto-complete, generate, photo scan) need internet. Offline changes sync the next time you connect."
+          },
+          {
+            "q": "What if I edit the same word on two devices at once?",
+            "a": "The most recent save wins. Avoid editing the same word simultaneously on multiple devices."
+          }
+        ]
+      },
+      {
+        "title": "AI Features",
+        "items": [
+          {
+            "q": "What do I need to use AI features?",
+            "a": "A Google Gemini API key. Go to Settings → AI, tap \"Get an API key\" to receive one for free, then paste it in."
+          },
+          {
+            "q": "Where is my API key stored?",
+            "a": "Only on this device — never sent to our servers. AI calls go directly from your device to Google."
+          },
+          {
+            "q": "Are there usage charges?",
+            "a": "Gemini is free up to a generous quota. Check your usage on Google AI Studio."
+          }
+        ]
+      },
+      {
+        "title": "Curation",
+        "items": [
+          {
+            "q": "Can I share my list to Curation?",
+            "a": "Only Google-signed-in users can share. Guests can import only."
+          },
+          {
+            "q": "Does editing an imported list affect the original?",
+            "a": "No. You receive a copy at the moment of import — add, delete, edit freely. You can also import only selected words."
+          },
+          {
+            "q": "Can I remove a list I shared?",
+            "a": "You can remove your own shares. Copies others have already imported are unaffected."
+          }
+        ]
+      },
+      {
+        "title": "Account & Security",
+        "items": [
+          {
+            "q": "What happens to my lists if I sign out?",
+            "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same account."
+          },
+          {
+            "q": "How do I delete my account permanently?",
+            "a": "Settings → Account → Delete Account. This permanently erases your cloud data, local lists, and shared Curation entries. It cannot be undone."
+          },
+          {
+            "q": "Can other people see my lists?",
+            "a": "No. Only lists you explicitly share to Curation are visible to others."
+          }
+        ]
+      },
+      {
+        "title": "Troubleshooting",
+        "items": [
+          {
+            "q": "Sync isn't working.",
+            "a": "1. Check your internet connection.\n2. Send the app to the background and reopen it.\n3. If it still fails, sign out and sign back in."
+          },
+          {
+            "q": "My lists are missing.",
+            "a": "Google users: sign in with the same account to restore them. Guest users who reinstalled the app: data is unrecoverable."
+          },
+          {
+            "q": "AI isn't returning results.",
+            "a": "Verify your API key in Settings and confirm internet is connected. If the key has expired, generate a new one."
+          }
+        ]
+      }
+    ]
   },
   "login": {
     "appName": "아보카도",
@@ -354,6 +596,7 @@
     "complete": "Study Complete!",
     "perfectMessage": "Perfect! You've mastered all the words.",
     "goodMessage": "Great job! Keep up this pace.",
+    "needsReviewMessage": "Keep going! Study the words you missed.",
     "accuracy": "Accuracy",
     "duration": "Duration",
     "memorized": "Memorized:",
@@ -367,7 +610,7 @@
     "flashcardsDesc": "Flip cards to memorize",
     "quizTitle": "Quiz",
     "quizDesc": "Test yourself with multiple choice",
-    "examplesTitle": "Example Sentences",
+    "examplesTitle": "Examples",
     "examplesDesc": "Learn words in context",
     "filterUnmemorized": "Not Memorized",
     "filterMemorized": "Memorized",
@@ -393,6 +636,7 @@
     "noWords": "No words to study",
     "noWordsDesc": "No words match the selected filters or star (⭐). Please check your settings.",
     "review": "Review",
+    "reviewBtn": "Review Again",
     "memorized": "Got it!"
   },
   "quiz": {
@@ -598,7 +842,9 @@
     "wordProgress": "{{memorized}} / {{total}} words",
     "planLabel": "Study Plan",
     "reviewAction": "Review",
-    "studyAction": "Study"
+    "studyAction": "Study",
+    "menuLabel": "List menu",
+    "menuHint": "Open management options: edit, share, delete"
   },
   "dayPicker": {
     "title": "Select Study Range",
@@ -649,5 +895,10 @@
     "title": "Page Not Found",
     "message": "This screen doesn't exist.",
     "goHome": "Go to Home"
-  }
+  },
+  "skin": "Theme / Skin",
+  "skinClassic": "Classic",
+  "skinDark": "Dark",
+  "skinY2k": "Y2K",
+  "skinLab": "Lab"
 }

@@ -1,56 +1,54 @@
-import React, { createContext, useContext, useState, useMemo, useCallback, useEffect, ReactNode } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useColorScheme } from 'react-native';
-import Colors from '@/constants/colors';
-import { ThemeMode } from '@/lib/types';
+import React, { createContext, useContext, useMemo, useCallback, ReactNode } from 'react';
+import { useSkinStore } from './skin-store';
+import { SKINS, getSkinColors } from '@/constants/skins';
+import type { SkinId, SkinDefinition, FontFamily } from './types';
+import type { ThemeMode } from '@/lib/types';
 
-const THEME_KEY = '@soksok_theme';
-
-type ThemeColors = typeof Colors.light;
+type ThemeColors = ReturnType<typeof getSkinColors>;
 
 interface ThemeContextValue {
+  // New skin API
+  skinId: SkinId;
+  skin: SkinDefinition;
+  fontFamily: FontFamily;
+  setSkin: (id: SkinId) => Promise<void>;
+
+  // Legacy API (maintained for backward compatibility)
   mode: ThemeMode;
   colors: ThemeColors;
   isDark: boolean;
   toggleTheme: () => void;
-  setTheme: (mode: ThemeMode) => void;
+  setTheme: (m: 'light' | 'dark') => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const systemScheme = useColorScheme();
-  const [mode, setMode] = useState<ThemeMode>(systemScheme === 'dark' ? 'dark' : 'light');
+  const { skinId, setSkin } = useSkinStore();
 
-  useEffect(() => {
-    AsyncStorage.getItem(THEME_KEY).then((saved) => {
-      if (saved === 'light' || saved === 'dark') {
-        setMode(saved);
-      }
-    });
-  }, []);
-
-  const isDark = mode === 'dark';
-  const colors = isDark ? Colors.dark : Colors.light;
+  const skin = SKINS[skinId];
+  const colors = getSkinColors(skinId);
+  const isDark = skin.colorScheme === 'dark';
 
   const toggleTheme = useCallback(() => {
-    const next = isDark ? 'light' : 'dark';
-    setMode(next);
-    AsyncStorage.setItem(THEME_KEY, next);
-  }, [isDark]);
+    setSkin(isDark ? 'classic' : 'dark');
+  }, [isDark, setSkin]);
 
-  const setThemeMode = useCallback((m: ThemeMode) => {
-    setMode(m);
-    AsyncStorage.setItem(THEME_KEY, m);
-  }, []);
+  const setTheme = useCallback((m: 'light' | 'dark') => {
+    setSkin(m === 'dark' ? 'dark' : 'classic');
+  }, [setSkin]);
 
-  const value = useMemo(() => ({
-    mode,
+  const value = useMemo<ThemeContextValue>(() => ({
+    skinId,
+    skin,
+    fontFamily: skin.fontFamily,
+    setSkin,
+    mode: skinId as ThemeMode,
     colors,
     isDark,
     toggleTheme,
-    setTheme: setThemeMode,
-  }), [mode, colors, isDark, toggleTheme, setThemeMode]);
+    setTheme,
+  }), [skinId, skin, colors, isDark, toggleTheme, setTheme, setSkin]);
 
   return (
     <ThemeContext value={value}>

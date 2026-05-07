@@ -18,6 +18,7 @@ export function SkinSelector() {
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
+      style={styles.scroll}
     >
       {SKIN_LIST.map((skin) => {
         const isSelected = skin.id === skinId;
@@ -71,11 +72,15 @@ export function SkinSelector() {
 }
 
 const styles = StyleSheet.create({
+  scroll: {
+    height: 120,
+  },
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
     gap: 12,
     flexDirection: 'row',
+    alignItems: 'center',
   },
   card: {
     width: 108,

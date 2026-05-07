@@ -1,14 +1,27 @@
-import React, { useEffect, useRef } from 'react';
-import { Animated } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, AccessibilityInfo } from 'react-native';
 import Svg, { Path, Defs, LinearGradient, RadialGradient, Stop, G } from 'react-native-svg';
 
 const AnimatedG = Animated.createAnimatedComponent(G);
 
 export default function CharacterSvg({ size = 56, wave = true, isDark = false }: { size?: number; wave?: boolean; isDark?: boolean }) {
   const armRot = useRef(new Animated.Value(0)).current;
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    if (!wave) return;
+    let mounted = true;
+    AccessibilityInfo.isReduceMotionEnabled().then(enabled => {
+      if (mounted) setReduceMotion(enabled);
+    });
+    const sub = AccessibilityInfo.addEventListener('reduceMotionChanged', setReduceMotion);
+    return () => {
+      mounted = false;
+      sub.remove();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!wave || reduceMotion) return;
     const timeout = setTimeout(() => {
       Animated.sequence([
         Animated.timing(armRot, { toValue: -35, duration: 180, useNativeDriver: false }),
@@ -20,7 +33,7 @@ export default function CharacterSvg({ size = 56, wave = true, isDark = false }:
       ]).start();
     }, 400);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [wave, reduceMotion]);
 
   return (
     <Svg width={size} height={size} viewBox="0 0 250 250" fill="none">

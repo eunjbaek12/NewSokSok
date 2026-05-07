@@ -2,6 +2,7 @@ import React, { ComponentProps } from 'react';
 import { TextInput, View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
+import { Radius } from '@/constants/tokens';
 
 interface InputProps extends ComponentProps<typeof TextInput> {
     label?: string;
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,
-        borderRadius: 12,
+        borderRadius: Radius.md,
         paddingHorizontal: 14,
     },
     leftIcon: {

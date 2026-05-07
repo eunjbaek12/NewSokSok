@@ -1,6 +1,7 @@
 import React, { ComponentProps } from 'react';
 import { View, StyleSheet, ViewStyle } from 'react-native';
 import { useTheme } from '@/features/theme';
+import { Radius } from '@/constants/tokens';
 
 interface CardProps extends ComponentProps<typeof View> {
     style?: ViewStyle | ViewStyle[];
@@ -35,7 +36,7 @@ export function Card({
 
 const styles = StyleSheet.create({
     card: {
-        borderRadius: 12,
+        borderRadius: Radius.md,
         padding: 20,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 1,

@@ -11,6 +11,7 @@ import {
 import { useTheme } from '@/features/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { PopupTokens } from '@/constants/popup';
+import { Radius } from '@/constants/tokens';
 
 interface SnackbarProps {
     visible: boolean;
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 16,
         right: 16,
-        borderRadius: 12,
+        borderRadius: Radius.md,
         paddingVertical: 14,
         paddingHorizontal: 16,
         ...Platform.select({

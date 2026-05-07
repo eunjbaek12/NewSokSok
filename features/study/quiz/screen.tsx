@@ -45,7 +45,7 @@ export default function QuizScreen() {
   const { colors } = useTheme();
   const { t } = useTranslation();
   const lists = useLists();
-  const getWordsForList = (listId: string) => selectWordsForList(lists, listId);
+  const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
   const setStudyResults = useStudyResultsStore(s => s.setResults);
   const { studySettings, updateStudySettings } = useSettings();
   const list = lists.find(l => l.id === id);

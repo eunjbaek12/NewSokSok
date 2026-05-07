@@ -690,13 +690,9 @@ export default function ListDetailScreen() {
           ]}
         >
           <View style={styles.iconBox}>
-            <View style={{ gap: 2, alignItems: 'center' }}>
-              <View style={{ width: 14, height: 1.5, backgroundColor: iconColor }} />
-              <View style={{ width: 14, height: 1.5, backgroundColor: iconColor }} />
-              <Text style={{ fontSize: 8, color: iconColor, marginTop: -2, fontWeight: '900' }}>___</Text>
-            </View>
+            <Ionicons name="chatbubbles-outline" size={22} color={iconColor} />
           </View>
-          <Text style={[styles.studyLabel, { color: iconColor }]}>{t('examples.title')}</Text>
+          <Text style={[styles.studyLabel, { color: iconColor }]}>{t('studySelect.examplesTitle')}</Text>
         </Pressable>
 
         <Pressable
@@ -1090,6 +1086,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'Pretendard_700Bold',
     marginTop: 8,
+    textAlign: 'center',
   },
   listContent: {
     paddingHorizontal: 16,

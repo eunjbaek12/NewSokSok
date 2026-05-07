@@ -30,50 +30,34 @@ export async function autoFillWord(
         phonetic: data.phonetic || '',
       };
     } catch {
-      // AI 실패 시 무료 사전 fallback
+      // AI 실패 시 사전 fallback
     }
   }
 
-  return externalFallback(trimmed, sourceLang);
-}
-
-async function externalFallback(trimmed: string, sourceLang: string): Promise<AutoFillResult> {
-  const fallbacks: Promise<any>[] = [
-    translateWord(trimmed, sourceLang, 'ko'),
-  ];
+  // API 키 없을 때: 영어만 무료 사전 사용, 그 외 언어는 빈 결과 반환
+  // (MyMemory 등 저품질 번역 서비스 사용 안 함 — 오역 저장 방지)
   if (sourceLang === 'en') {
-    fallbacks.push(getDictionaryData(trimmed));
+    try {
+      const dict = await getDictionaryData(trimmed);
+      return {
+        definition: dict.definition,
+        meaningKr: '',
+        exampleEn: dict.exampleEn,
+        pos: dict.pos,
+        phonetic: dict.phonetic,
+      };
+    } catch {
+      return { definition: '', meaningKr: '', exampleEn: '' };
+    }
   }
-  const results = await Promise.allSettled(fallbacks);
-  const meaningKr = results[0].status === 'fulfilled' ? results[0].value : '';
-  const dict = (sourceLang === 'en' && results[1]?.status === 'fulfilled')
-    ? results[1].value
-    : { definition: '', exampleEn: '' };
-  return {
-    definition: dict.definition,
-    meaningKr,
-    exampleEn: dict.exampleEn,
-    pos: dict.pos,
-    phonetic: dict.phonetic,
-  };
+
+  return { definition: '', meaningKr: '', exampleEn: '' };
 }
 
 function fetchWithTimeout(url: string, ms = 5000): Promise<Response> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ms);
   return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer));
-}
-
-async function translateWord(word: string, from: string = 'en', to: string = 'ko'): Promise<string> {
-  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=${from}|${to}`;
-  const res = await fetchWithTimeout(url);
-  if (!res.ok) throw new Error('Translation failed');
-  const data = await res.json();
-  const translation = data?.responseData?.translatedText;
-  if (!translation || translation === word) {
-    throw new Error('No translation found');
-  }
-  return translation;
 }
 
 async function getDictionaryData(
@@ -184,23 +168,14 @@ export async function generateThemeWords(
     for (const candidate of candidates) {
       try {
         const wordStr = candidate.word as string;
-        const [dictResult, transResult] = await Promise.allSettled([
-          getDictionaryData(wordStr),
-          translateWord(wordStr),
-        ]);
+        const dict = await getDictionaryData(wordStr).catch(() => ({ definition: '', exampleEn: '' }));
 
-        const dict =
-          dictResult.status === 'fulfilled'
-            ? dictResult.value
-            : { definition: '', exampleEn: '' };
-        const kr = transResult.status === 'fulfilled' ? transResult.value : '';
-
-        if (dict.definition || kr) {
+        if (dict.definition) {
           results.push({
             term: wordStr.charAt(0).toUpperCase() + wordStr.slice(1),
-            definition: dict.definition || `Related to ${theme}`,
+            definition: dict.definition,
             exampleEn: dict.exampleEn || `I studied the word "${wordStr}" today.`,
-            meaningKr: kr || wordStr,
+            meaningKr: '',
           });
         }
       } catch {

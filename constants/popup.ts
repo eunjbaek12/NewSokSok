@@ -1,8 +1,10 @@
+import { Radius } from './tokens';
+
 export const PopupTokens = {
   radius: {
-    standard: 20,
-    contextMenu: 12,
-    toast: 12,
+    standard: Radius.lg,
+    contextMenu: Radius.md,
+    toast: Radius.md,
   },
   overlay: {
     contextMenu: 'rgba(0,0,0,0.08)',

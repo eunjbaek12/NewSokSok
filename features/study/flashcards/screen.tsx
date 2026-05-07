@@ -614,7 +614,7 @@ export default function FlashcardsScreen() {
               <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
               <Ionicons name="chevron-back" size={22} color={colors.warning} />
               <View>
-                <Text style={[styles.actionBtnText, { color: colors.warning }]}>다시 볼게요</Text>
+                <Text style={[styles.actionBtnText, { color: colors.warning }]}>{t('flashcards.reviewBtn')}</Text>
                 <Text style={[styles.actionBtnSubtext, { color: colors.warning, opacity: 0.5 }]}>Swipe Left</Text>
               </View>
             </Pressable>
@@ -634,7 +634,7 @@ export default function FlashcardsScreen() {
             >
               <BlurView intensity={20} tint={isDark ? "dark" : "light"} style={StyleSheet.absoluteFill} />
               <View style={{ alignItems: 'flex-end' }}>
-                <Text style={[styles.actionBtnText, { color: colors.primary }]}>외웠어요</Text>
+                <Text style={[styles.actionBtnText, { color: colors.primary }]}>{t('flashcards.memorized')}</Text>
                 <Text style={[styles.actionBtnSubtext, { color: colors.primary, opacity: 0.5 }]}>Swipe Right</Text>
               </View>
               <Ionicons name="chevron-forward" size={22} color={colors.primary} />

@@ -630,7 +630,7 @@ export default function AddWordScreen() {
             currentMode === 'popup' ? {
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: 'rgba(0,0,0,0.4)'
+                backgroundColor: colors.overlay
             } : { backgroundColor: colors.background }
         ]}>
             <Animated.View

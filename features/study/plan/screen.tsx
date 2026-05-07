@@ -281,6 +281,20 @@ export default function PlanScreen() {
     }
   }, [id, parsedWordsPerDay, filterMode, setupPlan]);
 
+  const handleDecrement = useCallback(() => {
+    const current = parseInt(wordsPerDayInput, 10);
+    const base = isNaN(current) || current <= 0 ? suggested : current;
+    setWordsPerDayInput(String(Math.max(1, base - 1)));
+    Haptics.selectionAsync();
+  }, [wordsPerDayInput, suggested]);
+
+  const handleIncrement = useCallback(() => {
+    const current = parseInt(wordsPerDayInput, 10);
+    const base = isNaN(current) || current <= 0 ? suggested : current;
+    setWordsPerDayInput(String(Math.min(filteredWordCount || 999, base + 1)));
+    Haptics.selectionAsync();
+  }, [wordsPerDayInput, suggested, filteredWordCount]);
+
   const handleToggleMemorized = useCallback(
     async (wordId: string) => {
       if (!id) return;
@@ -594,14 +608,14 @@ export default function PlanScreen() {
         animationType="slide"
         onRequestClose={handleCancelSetup}
       >
-        <Pressable
-          style={[styles.modalBackdrop, { backgroundColor: colors.overlay }]}
-          onPress={handleCancelSetup}
-        />
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={styles.modalWrapper}
         >
+          <Pressable
+            style={[styles.modalBackdrop, { backgroundColor: colors.overlay }]}
+            onPress={handleCancelSetup}
+          />
           <View style={[styles.modalSheet, { backgroundColor: colors.surface, paddingBottom: Math.max(40, insets.bottom + 24) }]}>
             <View style={[styles.modalHandle, { backgroundColor: colors.border }]} />
 
@@ -656,15 +670,31 @@ export default function PlanScreen() {
 
             <View style={[styles.inputRow, { borderColor: colors.border, backgroundColor: colors.background }]}>
               <Text style={[styles.inputLabel, { color: colors.textSecondary }]}>{t('plan.dailyAmount')}</Text>
-              <TextInput
-                style={[styles.input, { color: colors.text }]}
-                value={wordsPerDayInput}
-                onChangeText={setWordsPerDayInput}
-                keyboardType="number-pad"
-                placeholder={String(suggested)}
-                placeholderTextColor={colors.textTertiary}
-                selectTextOnFocus
-              />
+              <View style={styles.stepperControls}>
+                <Pressable
+                  onPress={handleDecrement}
+                  style={({ pressed }) => [styles.stepperBtn, { backgroundColor: colors.surfaceSecondary, opacity: pressed ? 0.7 : 1 }]}
+                  hitSlop={8}
+                >
+                  <Ionicons name="remove" size={18} color={colors.text} />
+                </Pressable>
+                <TextInput
+                  style={[styles.input, { color: colors.text }]}
+                  value={wordsPerDayInput}
+                  onChangeText={setWordsPerDayInput}
+                  keyboardType="number-pad"
+                  placeholder={String(suggested)}
+                  placeholderTextColor={colors.textTertiary}
+                  selectTextOnFocus
+                />
+                <Pressable
+                  onPress={handleIncrement}
+                  style={({ pressed }) => [styles.stepperBtn, { backgroundColor: colors.surfaceSecondary, opacity: pressed ? 0.7 : 1 }]}
+                  hitSlop={8}
+                >
+                  <Ionicons name="add" size={18} color={colors.text} />
+                </Pressable>
+              </View>
               <Text style={[styles.inputUnit, { color: colors.textTertiary }]}>{t('plan.wordsPerDay')}</Text>
             </View>
 
@@ -962,6 +992,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   modalWrapper: {
+    flex: 1,
     justifyContent: 'flex-end',
   },
   modalSheet: {
@@ -1040,6 +1071,18 @@ const styles = StyleSheet.create({
   inputUnit: {
     fontSize: 13,
     fontFamily: 'Pretendard_400Regular',
+  },
+  stepperControls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  stepperBtn: {
+    width: 32,
+    height: 32,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   previewBox: {
     flexDirection: 'row',

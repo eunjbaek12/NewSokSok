@@ -1,0 +1,70 @@
+import fs from 'fs';
+import { GoogleGenAI, Type } from '@google/genai';
+
+const apiKey = fs.readFileSync('.env', 'utf8').match(/EXPO_PUBLIC_GEMINI_API_KEY=(.*)/)?.[1].trim() || '';
+const ai = new GoogleGenAI({ apiKey });
+const MODEL_NAME = 'gemini-2.5-flash-lite';
+
+console.log(`[A] analyzeWord 시뮬레이션 — 단어 추가 AI 분석 경로`);
+const t0 = Date.now();
+const r1 = await ai.models.generateContent({
+  model: MODEL_NAME,
+  contents: `Analyze the English word "ephemeral". Provide: definition, example sentence, Korean meaning, mnemonic, pos, phonetic, Korean example translation.`,
+  config: {
+    responseMimeType: 'application/json',
+    responseSchema: {
+      type: Type.OBJECT,
+      properties: {
+        term: { type: Type.STRING },
+        definition: { type: Type.STRING },
+        exampleEn: { type: Type.STRING },
+        exampleKr: { type: Type.STRING },
+        meaningKr: { type: Type.STRING },
+        mnemonic: { type: Type.STRING },
+        pos: { type: Type.STRING },
+        phonetic: { type: Type.STRING },
+      },
+      required: ['term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
+    },
+  },
+});
+const parsed1 = JSON.parse(r1.text);
+console.log(`  HTTP OK (${Date.now() - t0}ms)`);
+console.log(`  term=${parsed1.term} pos=${parsed1.pos} phonetic=${parsed1.phonetic}`);
+console.log(`  meaningKr=${parsed1.meaningKr}`);
+
+console.log(`\n[B] generateThemeList 시뮬레이션 — 테마 생성기 경로`);
+const t1 = Date.now();
+const r2 = await ai.models.generateContent({
+  model: MODEL_NAME,
+  contents: `Generate a vocabulary list for the theme: "airport". Level: beginner. Return a JSON object with title and array of 3 English words with definition, exampleEn, meaningKr.`,
+  config: {
+    responseMimeType: 'application/json',
+    responseSchema: {
+      type: Type.OBJECT,
+      properties: {
+        title: { type: Type.STRING },
+        words: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              term: { type: Type.STRING },
+              definition: { type: Type.STRING },
+              exampleEn: { type: Type.STRING },
+              meaningKr: { type: Type.STRING },
+            },
+            required: ['term', 'definition', 'exampleEn', 'meaningKr'],
+          },
+        },
+      },
+      required: ['title', 'words'],
+    },
+  },
+});
+const parsed2 = JSON.parse(r2.text);
+console.log(`  HTTP OK (${Date.now() - t1}ms)`);
+console.log(`  title="${parsed2.title}" wordCount=${parsed2.words.length}`);
+console.log(`  sample: ${parsed2.words[0].term} = ${parsed2.words[0].meaningKr}`);
+
+console.log(`\n✅ SDK paths PASSED — analyzeWord & generateThemeList 모두 새 모델로 동작`);

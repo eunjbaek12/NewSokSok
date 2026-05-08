@@ -8,7 +8,7 @@ import {
 } from '@shared/contracts';
 import { fromZodError } from 'zod-validation-error';
 
-const MODEL_NAME = 'gemini-2.0-flash';
+const MODEL_NAME = 'gemini-2.5-flash-lite';
 
 function getAIClient(apiKey: string): GoogleGenAI {
   return new GoogleGenAI({ apiKey });

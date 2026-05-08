@@ -41,7 +41,7 @@ const DIFFICULTY_PROMPT: Record<AiDifficulty, string> = {
 const generateAIWords = async (query: string, apiKey: string, wordCount: number, difficulty: AiDifficulty): Promise<Word[]> => {
     if (!apiKey) throw new Error('API Key missing');
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
     const diffLabel = DIFFICULTY_PROMPT[difficulty];
     const prompt = `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} 영어 단어 ${wordCount}개를 생성해줘.
   응답은 오직 JSON 배열만 반환해야 해.
@@ -49,14 +49,40 @@ const generateAIWords = async (query: string, apiKey: string, wordCount: number,
 
     const payload = {
         contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.7, responseMimeType: 'application/json' }
+        generationConfig: {
+            temperature: 0.7,
+            responseMimeType: 'application/json',
+            thinkingConfig: { thinkingBudget: 0 },
+        },
     };
 
     const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     if (!response.ok) {
-        if (response.status === 429) throw new Error('API 할당량이 초과되었습니다. 잠시 후 다시 시도해주세요.');
-        if (response.status === 400) throw new Error('API 키가 올바르지 않습니다. 설정을 확인해주세요.');
-        throw new Error('AI 생성에 실패했습니다.');
+        const errorBody = await response.json().catch(() => null);
+        const error = errorBody?.error;
+        const status: string | undefined = error?.status;
+        const message: string | undefined = error?.message;
+        const quotaViolations = error?.details?.find((d: any) => typeof d?.['@type'] === 'string' && d['@type'].includes('QuotaFailure'))?.violations;
+        const quotaMetric: string = quotaViolations?.[0]?.quotaMetric || '';
+
+        console.log('[gemini:curation] error', response.status, { status, message, quotaMetric, violations: quotaViolations });
+
+        if (status === 'RESOURCE_EXHAUSTED' || response.status === 429) {
+            if (/per_?day|PerDay/i.test(quotaMetric)) {
+                throw new Error('오늘의 무료 일일 한도가 모두 소진되었습니다. 자정(태평양시) 이후 다시 시도해주세요.');
+            }
+            if (/per_?minute|PerMinute/i.test(quotaMetric)) {
+                throw new Error('분당 요청 한도를 초과했습니다. 약 1분 후 다시 시도해주세요.');
+            }
+            throw new Error(`API 사용량 한도에 도달했습니다${quotaMetric ? ` (${quotaMetric})` : ''}. 잠시 후 다시 시도해주세요.`);
+        }
+        if (status === 'PERMISSION_DENIED' || response.status === 403) {
+            throw new Error('API 키에 권한이 없습니다. Google AI Studio에서 Generative Language API가 활성화되어 있는지 확인해주세요.');
+        }
+        if (status === 'INVALID_ARGUMENT' || response.status === 400) {
+            throw new Error('API 키가 올바르지 않습니다. 설정에서 다시 확인해주세요.');
+        }
+        throw new Error(`AI 생성에 실패했습니다${message ? `: ${message}` : ` (HTTP ${response.status})`}`);
     }
 
     const data = await response.json();

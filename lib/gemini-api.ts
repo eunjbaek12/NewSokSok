@@ -6,7 +6,7 @@ export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, s
         throw new Error('Gemini API 키가 설정되어 있지 않습니다. 설정에서 API 키를 입력해주세요.');
     }
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
     const payload = {
         contents: [
             {

@@ -1,0 +1,5 @@
+reservation: wt=9722chars, err=, old=['예약(豫約)'], new=['예약(豫約)']
+logical: wt=6542chars, err=, old=[], new=[]
+invoice: wt=5868chars, err=, old=['송장(送狀)', '인보이스', '계산서(計算書)'], new=['송장(送狀)', '인보이스', '계산서(計算書)']
+noon: wt=13706chars, err=, old=['정오(正午)', '낮'], new=['정오(正午)', '낮']
+clerk: wt=12071chars, err=, old=['사무원(事務員)', '서기(書記)', '점원(店員)'], new=['사무원(事務員)', '서기(書記)', '점원(店員)']

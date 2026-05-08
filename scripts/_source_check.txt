@@ -1,0 +1,14 @@
+=== NAWL 소스 샘플 (원본) ===
+{'rank': 1, 'sfi': 72.452, 'term': 'repertoire', 'definition': ''}
+{'rank': 2, 'sfi': 66.519, 'term': 'obtain', 'definition': ''}
+{'rank': 3, 'sfi': 65.665, 'term': 'distribution', 'definition': ''}
+
+=== TSL 소스 샘플 (원본) ===
+{'rank': 1, 'sfi': 71.28, 'term': 'mister', 'definition': 'a form of address for a man'}
+{'rank': 2, 'sfi': 65.56, 'term': 'vacation', 'definition': 'a holiday or break from work'}
+{'rank': 3, 'sfi': 65.26, 'term': 'client', 'definition': 'someone who pays for a service'}
+
+=== NAWL progress 샘플 (Gemini 결과) ===
+{'rank': 1, 'term': 'repertoire', 'definition': 'The complete range of skills, techniques, or devices used in a particular field or occupation.', 'phonetic': '/ˈrep.ə.twɑːr/', 'pos': 'noun', 'meaningKr': '레퍼토리, 연주 목록, (한 사람이 할 수 있는) 모든 것', 'exampleEn': 'The musician expanded her repertoire by incorporating traditional folk melodies into her contemporary jazz compositions.', 'exampleKr': '그 음악가는 현대 재즈 작곡에 전통 민요 선율을 통합함으로써 그녀의 레퍼토리를 확장했다.'}
+{'rank': 2, 'term': 'obtain', 'definition': 'To acquire or secure something through effort, request, or a formal process.', 'phonetic': '/əbˈteɪn/', 'pos': 'verb', 'meaningKr': '얻다, 획득하다, 존재하다', 'exampleEn': 'Researchers must obtain written permission from the ethics committee before proceeding with any human subject experiments.', 'exampleKr': '연구자들은 인간 피험자 실험을 진행하기 전에 윤리 위원회로부터 서면 허가를 얻어야 한다.'}
+{'rank': 3, 'term': 'distribution', 'definition': 'The way in which something is shared out among a group or spread over an area.', 'phonetic': '/ˌdɪs.trɪˈbjuː.ʃən/', 'pos': 'noun', 'meaningKr': '분포, 분배, 유통', 'exampleEn': 'The study analyzes the geographical distribution of rare plant species across the tropical rainforest ecosystem.', 'exampleKr': '이 연구는 열대 우림 생태계 전반에 걸친 희귀 식물 종의 지리적 분포를 분석한다.'}

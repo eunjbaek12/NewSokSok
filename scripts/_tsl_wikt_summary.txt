@@ -1,0 +1,9 @@
+총: 600개
+한국어 있음: 127 (21%)
+한국어 없음: 473개
+  mister -> 씨, 님, 미스터
+  vacation -> 휴가
+  client -> 손님, 고객, 고객님
+  e-book -> 전자책, 전자서적, 이북
+  airport -> 공항, 비행장, 항공역
+누락 샘플: ['reservation', 'logical', 'fax', 'sincerely', 'supervisor', 'invoice', 'brochure', 'noon', 'accountant', 'clerk', 'lobby', 'publish', 'résumé', 'enclose', 'applicant']

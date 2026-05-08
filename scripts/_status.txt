@@ -1,0 +1,8 @@
+TSL (토익 600): 600개 존재
+NAWL (수능·학문 957): 957개 존재
+BSL (비즈니스 1000): 1000개 존재
+NGSL (기초 1001): 1001개 존재
+NAWL translated: 없음
+BSL translated: 없음
+NGSL translated: 없음
+NAWL progress: 400개 존재

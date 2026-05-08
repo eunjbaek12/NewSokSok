@@ -1,0 +1,8 @@
+scripts/tsl-top600-source.json: 600개
+scripts/tsl-top600-translated.json: 600개
+scripts/tsl-merged.json: 600개
+scripts/nawl-source.json: 957개
+scripts/.nawl-progress.json: 400개
+scripts/nawl-translated.json: 없음
+scripts/bsl-source.json: 1000개
+scripts/ngsl-source.json: 1001개

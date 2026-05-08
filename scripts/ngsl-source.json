@@ -1,0 +1,6008 @@
+[
+  {
+    "rank": 200,
+    "sfi": 66.93,
+    "term": "move",
+    "definition": "to cause something to change to a different place"
+  },
+  {
+    "rank": 201,
+    "sfi": 66.92,
+    "term": "money",
+    "definition": "coins or notes we use to pay for things"
+  },
+  {
+    "rank": 202,
+    "sfi": 66.86,
+    "term": "fact",
+    "definition": "something that is known or proved to be true"
+  },
+  {
+    "rank": 203,
+    "sfi": 66.8,
+    "term": "however",
+    "definition": "used to say something is different from what was said before; but"
+  },
+  {
+    "rank": 204,
+    "sfi": 66.78,
+    "term": "area",
+    "definition": "a specific section or space; part of a region"
+  },
+  {
+    "rank": 205,
+    "sfi": 66.78,
+    "term": "provide",
+    "definition": "to make available; to supply for use"
+  },
+  {
+    "rank": 206,
+    "sfi": 66.74,
+    "term": "name",
+    "definition": "what something or someone is called"
+  },
+  {
+    "rank": 207,
+    "sfi": 66.73,
+    "term": "read",
+    "definition": "to look at and comprehend the meaning some writing"
+  },
+  {
+    "rank": 208,
+    "sfi": 66.7,
+    "term": "friend",
+    "definition": "person who you like and enjoy being with"
+  },
+  {
+    "rank": 209,
+    "sfi": 66.7,
+    "term": "month",
+    "definition": "one of 12 time periods that make a year, each from 28 to 31 days long"
+  },
+  {
+    "rank": 210,
+    "sfi": 66.67,
+    "term": "large",
+    "definition": "big; of great size; broad, tall, wide, long, or fat"
+  },
+  {
+    "rank": 211,
+    "sfi": 66.67,
+    "term": "business",
+    "definition": "the making, buying, or selling goods or services for money"
+  },
+  {
+    "rank": 212,
+    "sfi": 66.64,
+    "term": "without",
+    "definition": "used to say you don't have something or it isn't in a place"
+  },
+  {
+    "rank": 213,
+    "sfi": 66.62,
+    "term": "information",
+    "definition": "collection of facts and details about something"
+  },
+  {
+    "rank": 214,
+    "sfi": 66.61,
+    "term": "open",
+    "definition": "not closed or shut"
+  },
+  {
+    "rank": 215,
+    "sfi": 66.59,
+    "term": "order",
+    "definition": "to ask for something you want to buy (e.g., a meal)"
+  },
+  {
+    "rank": 216,
+    "sfi": 66.58,
+    "term": "government",
+    "definition": "group of people and system which rule a nation"
+  },
+  {
+    "rank": 217,
+    "sfi": 66.58,
+    "term": "word",
+    "definition": "unit of language that has a meaning"
+  },
+  {
+    "rank": 218,
+    "sfi": 66.56,
+    "term": "issue",
+    "definition": "important topic discussed, debated, or argued over"
+  },
+  {
+    "rank": 219,
+    "sfi": 66.53,
+    "term": "market",
+    "definition": "public event where people sell goods on tables"
+  },
+  {
+    "rank": 220,
+    "sfi": 66.51,
+    "term": "pay",
+    "definition": "to give money for goods or work done"
+  },
+  {
+    "rank": 221,
+    "sfi": 66.5,
+    "term": "build",
+    "definition": "to make (e.g., a house, by putting materials together)"
+  },
+  {
+    "rank": 222,
+    "sfi": 66.45,
+    "term": "hold",
+    "definition": "to use hands or arms to carry or keep something"
+  },
+  {
+    "rank": 223,
+    "sfi": 66.44,
+    "term": "service",
+    "definition": "to maintain a piece of machinery so it runs well"
+  },
+  {
+    "rank": 224,
+    "sfi": 66.39,
+    "term": "against",
+    "definition": "in opposition to; disagreeing with"
+  },
+  {
+    "rank": 225,
+    "sfi": 66.38,
+    "term": "believe",
+    "definition": "to think or accept that something is true"
+  },
+  {
+    "rank": 226,
+    "sfi": 66.36,
+    "term": "second",
+    "definition": "2nd; the one following first"
+  },
+  {
+    "rank": 227,
+    "sfi": 66.34,
+    "term": "though",
+    "definition": "although, despite the fact that"
+  },
+  {
+    "rank": 228,
+    "sfi": 66.33,
+    "term": "yes",
+    "definition": "way to say you agree or will do something"
+  },
+  {
+    "rank": 229,
+    "sfi": 66.3,
+    "term": "love",
+    "definition": "to care for and like someone very strong and deeply"
+  },
+  {
+    "rank": 230,
+    "sfi": 66.28,
+    "term": "increase",
+    "definition": "to make or become something larger in size or amount"
+  },
+  {
+    "rank": 231,
+    "sfi": 66.28,
+    "term": "job",
+    "definition": "regular work of earning money"
+  },
+  {
+    "rank": 232,
+    "sfi": 66.28,
+    "term": "plan",
+    "definition": "to decide a set of actions to do something"
+  },
+  {
+    "rank": 233,
+    "sfi": 66.27,
+    "term": "result",
+    "definition": "to be the outcome of other causes and effects"
+  },
+  {
+    "rank": 234,
+    "sfi": 66.27,
+    "term": "away",
+    "definition": "not here; far from here; in a different direction"
+  },
+  {
+    "rank": 235,
+    "sfi": 66.24,
+    "term": "example",
+    "definition": "something or someone who represents a group"
+  },
+  {
+    "rank": 236,
+    "sfi": 66.23,
+    "term": "happen",
+    "definition": "to take place or occur"
+  },
+  {
+    "rank": 237,
+    "sfi": 66.21,
+    "term": "offer",
+    "definition": "to give the opportunity to accept something"
+  },
+  {
+    "rank": 238,
+    "sfi": 66.2,
+    "term": "young",
+    "definition": "at an early stage of existence; not mature"
+  },
+  {
+    "rank": 239,
+    "sfi": 66.19,
+    "term": "close",
+    "definition": "next to; only a short distance away"
+  },
+  {
+    "rank": 240,
+    "sfi": 66.17,
+    "term": "program",
+    "definition": "planned set of actions; a schematic system"
+  },
+  {
+    "rank": 241,
+    "sfi": 66.13,
+    "term": "lead",
+    "definition": "to show the way or guide others"
+  },
+  {
+    "rank": 242,
+    "sfi": 66.07,
+    "term": "buy",
+    "definition": "to get something by paying money for it"
+  },
+  {
+    "rank": 243,
+    "sfi": 66.05,
+    "term": "understand",
+    "definition": "to know the meaning of language, what someone says"
+  },
+  {
+    "rank": 244,
+    "sfi": 66.01,
+    "term": "thank",
+    "definition": "to tell someone you are grateful to them"
+  },
+  {
+    "rank": 245,
+    "sfi": 66.0,
+    "term": "far",
+    "definition": "a long way away"
+  },
+  {
+    "rank": 246,
+    "sfi": 65.94,
+    "term": "today",
+    "definition": "on this day; at the time that is happening now"
+  },
+  {
+    "rank": 247,
+    "sfi": 65.93,
+    "term": "hour",
+    "definition": "60 minutes; one of 24 equal units of time in a day"
+  },
+  {
+    "rank": 248,
+    "sfi": 65.92,
+    "term": "student",
+    "definition": "person studying at school"
+  },
+  {
+    "rank": 249,
+    "sfi": 65.91,
+    "term": "face",
+    "definition": "front part of the head where eyes, nose, and mouth are"
+  },
+  {
+    "rank": 250,
+    "sfi": 65.89,
+    "term": "hope",
+    "definition": "when you wish something would happen; what you wish"
+  },
+  {
+    "rank": 251,
+    "sfi": 65.87,
+    "term": "idea",
+    "definition": "belief, thought, suggestion, opinion, or plan"
+  },
+  {
+    "rank": 252,
+    "sfi": 65.86,
+    "term": "cost",
+    "definition": "price you pay for something"
+  },
+  {
+    "rank": 253,
+    "sfi": 65.86,
+    "term": "less",
+    "definition": "smaller in amount or degree"
+  },
+  {
+    "rank": 254,
+    "sfi": 65.85,
+    "term": "room",
+    "definition": "a part of building enclosed by walls (e.g., kitchen)"
+  },
+  {
+    "rank": 255,
+    "sfi": 65.83,
+    "term": "until",
+    "definition": "up to, to indicate a point in time when something happens"
+  },
+  {
+    "rank": 256,
+    "sfi": 65.83,
+    "term": "reason",
+    "definition": "explanation for why something occurred or was done"
+  },
+  {
+    "rank": 257,
+    "sfi": 65.79,
+    "term": "form",
+    "definition": "visible shape or style; type; kind"
+  },
+  {
+    "rank": 258,
+    "sfi": 65.78,
+    "term": "spend",
+    "definition": "to use money to pay for something"
+  },
+  {
+    "rank": 259,
+    "sfi": 65.77,
+    "term": "head",
+    "definition": "top part of your body with eyes and a mouth"
+  },
+  {
+    "rank": 260,
+    "sfi": 65.77,
+    "term": "car",
+    "definition": "a vehicle with four wheels and engine that can carry things"
+  },
+  {
+    "rank": 261,
+    "sfi": 65.74,
+    "term": "learn",
+    "definition": "to get knowledge or skills by study or experience"
+  },
+  {
+    "rank": 262,
+    "sfi": 65.71,
+    "term": "level",
+    "definition": "to make things flat or even"
+  },
+  {
+    "rank": 263,
+    "sfi": 65.66,
+    "term": "person",
+    "definition": "man, woman, or child"
+  },
+  {
+    "rank": 264,
+    "sfi": 65.63,
+    "term": "experience",
+    "definition": "knowledge gained by living life, doing new things"
+  },
+  {
+    "rank": 265,
+    "sfi": 65.62,
+    "term": "once",
+    "definition": "one time; one instance"
+  },
+  {
+    "rank": 266,
+    "sfi": 65.61,
+    "term": "member",
+    "definition": "person or thing belonging to a group or team"
+  },
+  {
+    "rank": 267,
+    "sfi": 65.6,
+    "term": "enough",
+    "definition": "equal to what is needed; as much as required"
+  },
+  {
+    "rank": 268,
+    "sfi": 65.59,
+    "term": "bad",
+    "definition": "not good; wrong"
+  },
+  {
+    "rank": 269,
+    "sfi": 65.59,
+    "term": "city",
+    "definition": "a heavily populated area with many buildings and roads"
+  },
+  {
+    "rank": 270,
+    "sfi": 65.58,
+    "term": "night",
+    "definition": "time when sun does not shine"
+  },
+  {
+    "rank": 271,
+    "sfi": 65.57,
+    "term": "able",
+    "definition": "having the power, skill, knowledge, or money to do something"
+  },
+  {
+    "rank": 272,
+    "sfi": 65.55,
+    "term": "support",
+    "definition": "to give assistance or advice to someone"
+  },
+  {
+    "rank": 273,
+    "sfi": 65.55,
+    "term": "whether",
+    "definition": "if something will happen or not"
+  },
+  {
+    "rank": 274,
+    "sfi": 65.54,
+    "term": "line",
+    "definition": "mark that is long, straight, and very thin"
+  },
+  {
+    "rank": 275,
+    "sfi": 65.54,
+    "term": "present",
+    "definition": "gift"
+  },
+  {
+    "rank": 276,
+    "sfi": 65.51,
+    "term": "side",
+    "definition": "straight edge of an object"
+  },
+  {
+    "rank": 277,
+    "sfi": 65.5,
+    "term": "quite",
+    "definition": "very; in a complete or total manner"
+  },
+  {
+    "rank": 278,
+    "sfi": 65.46,
+    "term": "although",
+    "definition": "despite the fact that; however"
+  },
+  {
+    "rank": 279,
+    "sfi": 65.45,
+    "term": "sure",
+    "definition": "having no doubts about something"
+  },
+  {
+    "rank": 280,
+    "sfi": 65.44,
+    "term": "term",
+    "definition": "fixed period of weeks for learning at school"
+  },
+  {
+    "rank": 281,
+    "sfi": 65.44,
+    "term": "least",
+    "definition": "in the smallest or lowest way"
+  },
+  {
+    "rank": 282,
+    "sfi": 65.43,
+    "term": "age",
+    "definition": "number of years a person has lived (also of things)"
+  },
+  {
+    "rank": 283,
+    "sfi": 65.43,
+    "term": "low",
+    "definition": "not high; being near the ground, or bottom"
+  },
+  {
+    "rank": 284,
+    "sfi": 65.42,
+    "term": "speak",
+    "definition": "to use words to tell information, express thoughts"
+  },
+  {
+    "rank": 285,
+    "sfi": 65.4,
+    "term": "within",
+    "definition": "not beyond the limits of a particular space, time, or range"
+  },
+  {
+    "rank": 286,
+    "sfi": 65.4,
+    "term": "process",
+    "definition": "to adopt a set of actions that produce a particular result"
+  },
+  {
+    "rank": 287,
+    "sfi": 65.35,
+    "term": "public",
+    "definition": "concerning society in general"
+  },
+  {
+    "rank": 288,
+    "sfi": 65.33,
+    "term": "often",
+    "definition": "many times, frequently, on many occasions"
+  },
+  {
+    "rank": 289,
+    "sfi": 65.29,
+    "term": "train",
+    "definition": "vehicle that carries people and runs on rails"
+  },
+  {
+    "rank": 290,
+    "sfi": 65.28,
+    "term": "possible",
+    "definition": "having a chance of happening, or being true"
+  },
+  {
+    "rank": 291,
+    "sfi": 65.28,
+    "term": "actually",
+    "definition": "used to add new (often different) information"
+  },
+  {
+    "rank": 292,
+    "sfi": 65.27,
+    "term": "rather",
+    "definition": "somewhat; fairly; not that much"
+  },
+  {
+    "rank": 293,
+    "sfi": 65.26,
+    "term": "view",
+    "definition": "things you are able to see from a specific place"
+  },
+  {
+    "rank": 294,
+    "sfi": 65.24,
+    "term": "together",
+    "definition": "near close in the same place not far in a family or group"
+  },
+  {
+    "rank": 295,
+    "sfi": 65.24,
+    "term": "consider",
+    "definition": "to think carefully about something"
+  },
+  {
+    "rank": 296,
+    "sfi": 65.14,
+    "term": "price",
+    "definition": "to determine or set the cost of something"
+  },
+  {
+    "rank": 297,
+    "sfi": 65.14,
+    "term": "parent",
+    "definition": "person's mother or father"
+  },
+  {
+    "rank": 298,
+    "sfi": 65.12,
+    "term": "hard",
+    "definition": "difficult to bend, break or cut; solid"
+  },
+  {
+    "rank": 299,
+    "sfi": 65.08,
+    "term": "party",
+    "definition": "social event often with food, drinks, and dancing"
+  },
+  {
+    "rank": 300,
+    "sfi": 65.06,
+    "term": "local",
+    "definition": "relating or restricted to a particular area, city, or town"
+  },
+  {
+    "rank": 301,
+    "sfi": 65.05,
+    "term": "control",
+    "definition": "to direct or influence the behavior of something"
+  },
+  {
+    "rank": 302,
+    "sfi": 65.02,
+    "term": "already",
+    "definition": "having happened or been done before this time"
+  },
+  {
+    "rank": 303,
+    "sfi": 65.02,
+    "term": "concern",
+    "definition": "feeling of worry or anxiety"
+  },
+  {
+    "rank": 304,
+    "sfi": 65.01,
+    "term": "product",
+    "definition": "item that can be bought"
+  },
+  {
+    "rank": 305,
+    "sfi": 65.0,
+    "term": "lose",
+    "definition": "to be unable to find something you once had"
+  },
+  {
+    "rank": 306,
+    "sfi": 64.98,
+    "term": "story",
+    "definition": "an account or description of how something happened"
+  },
+  {
+    "rank": 307,
+    "sfi": 64.98,
+    "term": "almost",
+    "definition": "only a little less than, nearly, not quite"
+  },
+  {
+    "rank": 308,
+    "sfi": 64.96,
+    "term": "continue",
+    "definition": "to do something without stopping, or after pausing"
+  },
+  {
+    "rank": 309,
+    "sfi": 64.95,
+    "term": "stand",
+    "definition": "to be upright; not be sitting or lying down"
+  },
+  {
+    "rank": 310,
+    "sfi": 64.95,
+    "term": "whole",
+    "definition": "complete or full; all of"
+  },
+  {
+    "rank": 311,
+    "sfi": 64.95,
+    "term": "yet",
+    "definition": "until now; up to the present"
+  },
+  {
+    "rank": 312,
+    "sfi": 64.94,
+    "term": "rate",
+    "definition": "speed or frequency of events over time"
+  },
+  {
+    "rank": 313,
+    "sfi": 64.93,
+    "term": "care",
+    "definition": "to look after someone or something"
+  },
+  {
+    "rank": 314,
+    "sfi": 64.93,
+    "term": "expect",
+    "definition": "to believe something is probably going to happen"
+  },
+  {
+    "rank": 315,
+    "sfi": 64.93,
+    "term": "effect",
+    "definition": "change brought about by a cause; result"
+  },
+  {
+    "rank": 316,
+    "sfi": 64.92,
+    "term": "sort",
+    "definition": "group or class of similar things or people"
+  },
+  {
+    "rank": 317,
+    "sfi": 64.92,
+    "term": "ever",
+    "definition": "at any time; at all times in the future"
+  },
+  {
+    "rank": 318,
+    "sfi": 64.92,
+    "term": "anything",
+    "definition": "thing of any kind; used to refer to a thing in questions"
+  },
+  {
+    "rank": 319,
+    "sfi": 64.9,
+    "term": "cause",
+    "definition": "to make something happen; create effect or result"
+  },
+  {
+    "rank": 320,
+    "sfi": 64.89,
+    "term": "fall",
+    "definition": "dropping from a standing position to the ground"
+  },
+  {
+    "rank": 321,
+    "sfi": 64.89,
+    "term": "deal",
+    "definition": "to give out (cards, etc.) to; distribute"
+  },
+  {
+    "rank": 322,
+    "sfi": 64.87,
+    "term": "water",
+    "definition": "clear liquid that forms the seas, rivers, and rain"
+  },
+  {
+    "rank": 323,
+    "sfi": 64.86,
+    "term": "send",
+    "definition": "to cause mail or package to go to another place"
+  },
+  {
+    "rank": 324,
+    "sfi": 64.84,
+    "term": "allow",
+    "definition": "to let or permit someone do something"
+  },
+  {
+    "rank": 325,
+    "sfi": 64.84,
+    "term": "soon",
+    "definition": "at a time not long from now"
+  },
+  {
+    "rank": 326,
+    "sfi": 64.8,
+    "term": "watch",
+    "definition": "to look at carefully to work out what is happening"
+  },
+  {
+    "rank": 327,
+    "sfi": 64.78,
+    "term": "base",
+    "definition": "origin or start from which something came"
+  },
+  {
+    "rank": 328,
+    "sfi": 64.75,
+    "term": "probably",
+    "definition": "likely to happen or be true"
+  },
+  {
+    "rank": 329,
+    "sfi": 64.74,
+    "term": "suggest",
+    "definition": "to mention something that could be done; propose"
+  },
+  {
+    "rank": 330,
+    "sfi": 64.73,
+    "term": "past",
+    "definition": "the time that existed before now (e.g., long ago)"
+  },
+  {
+    "rank": 331,
+    "sfi": 64.72,
+    "term": "power",
+    "definition": "legal or official right to perform certain actions"
+  },
+  {
+    "rank": 332,
+    "sfi": 64.71,
+    "term": "test",
+    "definition": "examination; questions to measure knowledge"
+  },
+  {
+    "rank": 333,
+    "sfi": 64.7,
+    "term": "visit",
+    "definition": "to go to a place for a time, usually for a reason"
+  },
+  {
+    "rank": 334,
+    "sfi": 64.7,
+    "term": "center",
+    "definition": "place in the middle of something"
+  },
+  {
+    "rank": 335,
+    "sfi": 64.69,
+    "term": "grow",
+    "definition": "to develop and become bigger or taller over time"
+  },
+  {
+    "rank": 336,
+    "sfi": 64.68,
+    "term": "nothing",
+    "definition": "not anything, not a single thing"
+  },
+  {
+    "rank": 337,
+    "sfi": 64.68,
+    "term": "return",
+    "definition": "to come back to a place again"
+  },
+  {
+    "rank": 338,
+    "sfi": 64.67,
+    "term": "mother",
+    "definition": "a female who has a child or children"
+  },
+  {
+    "rank": 339,
+    "sfi": 64.63,
+    "term": "walk",
+    "definition": "to move with your legs at a slowish pace"
+  },
+  {
+    "rank": 340,
+    "sfi": 64.63,
+    "term": "matter",
+    "definition": "problem or reason for concern"
+  },
+  {
+    "rank": 341,
+    "sfi": 64.62,
+    "term": "mind",
+    "definition": "part of humans that allows us to think or feel"
+  },
+  {
+    "rank": 342,
+    "sfi": 64.61,
+    "term": "value",
+    "definition": "to say how much money something is worth"
+  },
+  {
+    "rank": 343,
+    "sfi": 64.59,
+    "term": "office",
+    "definition": "building of set of rooms used to do business or professional activities"
+  },
+  {
+    "rank": 344,
+    "sfi": 64.59,
+    "term": "record",
+    "definition": "being the highest or most extreme level achieved in an area"
+  },
+  {
+    "rank": 345,
+    "sfi": 64.57,
+    "term": "stay",
+    "definition": "to spend time visiting a place or someone's home"
+  },
+  {
+    "rank": 346,
+    "sfi": 64.57,
+    "term": "force",
+    "definition": "to use physical strength or violence to persuade"
+  },
+  {
+    "rank": 347,
+    "sfi": 64.55,
+    "term": "stop",
+    "definition": "to finish moving or to come to an end"
+  },
+  {
+    "rank": 348,
+    "sfi": 64.54,
+    "term": "several",
+    "definition": "more than two but not many"
+  },
+  {
+    "rank": 349,
+    "sfi": 64.53,
+    "term": "light",
+    "definition": "not heavy; weighing only a little"
+  },
+  {
+    "rank": 350,
+    "sfi": 64.51,
+    "term": "develop",
+    "definition": "to grow bigger, more complex, or more advanced"
+  },
+  {
+    "rank": 351,
+    "sfi": 64.5,
+    "term": "remember",
+    "definition": "to bring a previous image or idea to your mind"
+  },
+  {
+    "rank": 352,
+    "sfi": 64.49,
+    "term": "bit",
+    "definition": "small piece of something"
+  },
+  {
+    "rank": 353,
+    "sfi": 64.48,
+    "term": "share",
+    "definition": "part of a company you own, shown by a certificate"
+  },
+  {
+    "rank": 354,
+    "sfi": 64.47,
+    "term": "real",
+    "definition": "actually existing or happening, not imagined"
+  },
+  {
+    "rank": 355,
+    "sfi": 64.46,
+    "term": "answer",
+    "definition": "solution to a problem or test question"
+  },
+  {
+    "rank": 356,
+    "sfi": 64.44,
+    "term": "sit",
+    "definition": "to be in a resting position on a chair"
+  },
+  {
+    "rank": 357,
+    "sfi": 64.43,
+    "term": "figure",
+    "definition": "to understand after thinking; work out"
+  },
+  {
+    "rank": 358,
+    "sfi": 64.43,
+    "term": "letter",
+    "definition": "message you put in an envelope and send by post"
+  },
+  {
+    "rank": 359,
+    "sfi": 64.41,
+    "term": "decide",
+    "definition": "to make a choice about something or choose after thinking"
+  },
+  {
+    "rank": 360,
+    "sfi": 64.39,
+    "term": "language",
+    "definition": "words or signs used to communicate messages"
+  },
+  {
+    "rank": 361,
+    "sfi": 64.35,
+    "term": "subject",
+    "definition": "the person, or thing that is being talked, or written about"
+  },
+  {
+    "rank": 362,
+    "sfi": 64.35,
+    "term": "class",
+    "definition": "rank or level in society, ranked from high (rich professional people) to low (ordinary people)"
+  },
+  {
+    "rank": 363,
+    "sfi": 64.31,
+    "term": "development",
+    "definition": "act or process of growing bigger or more advanced"
+  },
+  {
+    "rank": 364,
+    "sfi": 64.31,
+    "term": "town",
+    "definition": "small city"
+  },
+  {
+    "rank": 365,
+    "sfi": 64.29,
+    "term": "half",
+    "definition": "the part you get when one is divided into two; ½"
+  },
+  {
+    "rank": 366,
+    "sfi": 64.28,
+    "term": "minute",
+    "definition": "unit of time equal to 60 seconds"
+  },
+  {
+    "rank": 367,
+    "sfi": 64.28,
+    "term": "food",
+    "definition": "what people and animals eat to live"
+  },
+  {
+    "rank": 368,
+    "sfi": 64.28,
+    "term": "break",
+    "definition": "to separate into pieces by force, or by dropping"
+  },
+  {
+    "rank": 369,
+    "sfi": 64.25,
+    "term": "clear",
+    "definition": "easy to understand; well-explained; obvious"
+  },
+  {
+    "rank": 370,
+    "sfi": 64.24,
+    "term": "future",
+    "definition": "time that is to come after the present"
+  },
+  {
+    "rank": 371,
+    "sfi": 64.24,
+    "term": "either",
+    "definition": "one of two (used when there is a choice of two)"
+  },
+  {
+    "rank": 372,
+    "sfi": 64.24,
+    "term": "ago",
+    "definition": "at a specified length of time in the past"
+  },
+  {
+    "rank": 373,
+    "sfi": 64.24,
+    "term": "per",
+    "definition": "for each; during each"
+  },
+  {
+    "rank": 374,
+    "sfi": 64.24,
+    "term": "remain",
+    "definition": "to be left behind, to continue to exist"
+  },
+  {
+    "rank": 375,
+    "sfi": 64.23,
+    "term": "top",
+    "definition": "highest or upper part or point of something"
+  },
+  {
+    "rank": 376,
+    "sfi": 64.23,
+    "term": "among",
+    "definition": "in the center of some things; in relation to several things"
+  },
+  {
+    "rank": 377,
+    "sfi": 64.21,
+    "term": "win",
+    "definition": "to succeed in a game or contest"
+  },
+  {
+    "rank": 378,
+    "sfi": 64.2,
+    "term": "color",
+    "definition": "the quality of things you can see (e.g., red, blue)"
+  },
+  {
+    "rank": 379,
+    "sfi": 64.16,
+    "term": "involve",
+    "definition": "to have or be included as a part of something"
+  },
+  {
+    "rank": 380,
+    "sfi": 64.15,
+    "term": "reach",
+    "definition": "to come to or arrive at a goal or destination"
+  },
+  {
+    "rank": 381,
+    "sfi": 64.15,
+    "term": "social",
+    "definition": "involving activities among people especially free time activities"
+  },
+  {
+    "rank": 382,
+    "sfi": 64.13,
+    "term": "period",
+    "definition": "set amount of time during which events take place"
+  },
+  {
+    "rank": 383,
+    "sfi": 64.12,
+    "term": "across",
+    "definition": "from one side to the other of something"
+  },
+  {
+    "rank": 384,
+    "sfi": 64.12,
+    "term": "note",
+    "definition": "to make mention of something; to make a remark"
+  },
+  {
+    "rank": 385,
+    "sfi": 64.12,
+    "term": "history",
+    "definition": "study of past event"
+  },
+  {
+    "rank": 386,
+    "sfi": 64.11,
+    "term": "create",
+    "definition": "to make, cause, or bring into existence"
+  },
+  {
+    "rank": 387,
+    "sfi": 64.11,
+    "term": "drive",
+    "definition": "to control a vehicle so that it moves somewhere"
+  },
+  {
+    "rank": 388,
+    "sfi": 64.1,
+    "term": "along",
+    "definition": "at a point on a line"
+  },
+  {
+    "rank": 389,
+    "sfi": 64.09,
+    "term": "type",
+    "definition": "group of things or people sharing common features"
+  },
+  {
+    "rank": 390,
+    "sfi": 64.08,
+    "term": "sound",
+    "definition": "waves traveling in air or water that can be heard"
+  },
+  {
+    "rank": 391,
+    "sfi": 64.07,
+    "term": "eye",
+    "definition": "part of the body that you see with"
+  },
+  {
+    "rank": 392,
+    "sfi": 64.07,
+    "term": "music",
+    "definition": "sounds that are sung or played to give pleasure"
+  },
+  {
+    "rank": 393,
+    "sfi": 64.07,
+    "term": "game",
+    "definition": "activity with rules that people play to have fun"
+  },
+  {
+    "rank": 394,
+    "sfi": 64.06,
+    "term": "political",
+    "definition": "concerning government or public affairs"
+  },
+  {
+    "rank": 395,
+    "sfi": 64.06,
+    "term": "free",
+    "definition": "costing no money"
+  },
+  {
+    "rank": 396,
+    "sfi": 64.05,
+    "term": "receive",
+    "definition": "to get something that someone has given or sent to you"
+  },
+  {
+    "rank": 397,
+    "sfi": 64.05,
+    "term": "moment",
+    "definition": "very short or brief period of time"
+  },
+  {
+    "rank": 398,
+    "sfi": 64.04,
+    "term": "sale",
+    "definition": "giving something for money; the amount sold"
+  },
+  {
+    "rank": 399,
+    "sfi": 64.04,
+    "term": "policy",
+    "definition": "course of action proposed by an organization, etc."
+  },
+  {
+    "rank": 400,
+    "sfi": 63.99,
+    "term": "further",
+    "definition": "extra; in addition"
+  },
+  {
+    "rank": 401,
+    "sfi": 63.98,
+    "term": "body",
+    "definition": "a person's physical self"
+  },
+  {
+    "rank": 402,
+    "sfi": 63.97,
+    "term": "require",
+    "definition": "to need something, to make it necessary"
+  },
+  {
+    "rank": 403,
+    "sfi": 63.96,
+    "term": "wait",
+    "definition": "to spend time until an expected thing happens"
+  },
+  {
+    "rank": 404,
+    "sfi": 63.95,
+    "term": "general",
+    "definition": "widespread, normal or usual"
+  },
+  {
+    "rank": 405,
+    "sfi": 63.95,
+    "term": "appear",
+    "definition": "to be seen, become visible; come into sight"
+  },
+  {
+    "rank": 406,
+    "sfi": 63.95,
+    "term": "toward",
+    "definition": "facing or moving in the direction of something"
+  },
+  {
+    "rank": 407,
+    "sfi": 63.95,
+    "term": "team",
+    "definition": "group of people working on a task together"
+  },
+  {
+    "rank": 408,
+    "sfi": 63.95,
+    "term": "easy",
+    "definition": "not hard to do; not difficult"
+  },
+  {
+    "rank": 409,
+    "sfi": 63.95,
+    "term": "individual",
+    "definition": "single person, looked at separately from others"
+  },
+  {
+    "rank": 410,
+    "sfi": 63.95,
+    "term": "full",
+    "definition": "containing or holding as much as possible"
+  },
+  {
+    "rank": 411,
+    "sfi": 63.94,
+    "term": "black",
+    "definition": "color of the sky on a dark night"
+  },
+  {
+    "rank": 412,
+    "sfi": 63.92,
+    "term": "sense",
+    "definition": "to perceive using sight, sound, taste touch or hearing"
+  },
+  {
+    "rank": 413,
+    "sfi": 63.91,
+    "term": "perhaps",
+    "definition": "possibly, but not certainly; maybe"
+  },
+  {
+    "rank": 414,
+    "sfi": 63.89,
+    "term": "add",
+    "definition": "to put two things or numbers together (e.g., 2+2)"
+  },
+  {
+    "rank": 415,
+    "sfi": 63.88,
+    "term": "rule",
+    "definition": "statement that says how things should be"
+  },
+  {
+    "rank": 416,
+    "sfi": 63.86,
+    "term": "pass",
+    "definition": "to travel through or near a place"
+  },
+  {
+    "rank": 417,
+    "sfi": 63.86,
+    "term": "produce",
+    "definition": "to manufacture something using machines"
+  },
+  {
+    "rank": 418,
+    "sfi": 63.86,
+    "term": "sell",
+    "definition": "to exchange something for money"
+  },
+  {
+    "rank": 419,
+    "sfi": 63.81,
+    "term": "short",
+    "definition": "small distance from one end to the other"
+  },
+  {
+    "rank": 420,
+    "sfi": 63.81,
+    "term": "agree",
+    "definition": "to have the same opinion as someone else"
+  },
+  {
+    "rank": 421,
+    "sfi": 63.79,
+    "term": "law",
+    "definition": "system or rules made by the government"
+  },
+  {
+    "rank": 422,
+    "sfi": 63.77,
+    "term": "everything",
+    "definition": "all of the things mentioned"
+  },
+  {
+    "rank": 423,
+    "sfi": 63.75,
+    "term": "research",
+    "definition": "to carefully study to find and report new knowledge"
+  },
+  {
+    "rank": 424,
+    "sfi": 63.73,
+    "term": "cover",
+    "definition": "thing you put over something to close or hide it"
+  },
+  {
+    "rank": 425,
+    "sfi": 63.73,
+    "term": "paper",
+    "definition": "pages of a book are made from this"
+  },
+  {
+    "rank": 426,
+    "sfi": 63.72,
+    "term": "position",
+    "definition": "specific location where someone or something is"
+  },
+  {
+    "rank": 427,
+    "sfi": 63.72,
+    "term": "near",
+    "definition": "with a small distance between things"
+  },
+  {
+    "rank": 428,
+    "sfi": 63.72,
+    "term": "human",
+    "definition": "a person; a man, woman or child"
+  },
+  {
+    "rank": 429,
+    "sfi": 63.72,
+    "term": "computer",
+    "definition": "a machine for storing information and accessing the internet"
+  },
+  {
+    "rank": 430,
+    "sfi": 63.7,
+    "term": "situation",
+    "definition": "condition, location or position"
+  },
+  {
+    "rank": 431,
+    "sfi": 63.7,
+    "term": "staff",
+    "definition": "employees of a company"
+  },
+  {
+    "rank": 432,
+    "sfi": 63.68,
+    "term": "activity",
+    "definition": "an action or task (e.g., sports, washing your clothes)"
+  },
+  {
+    "rank": 433,
+    "sfi": 63.66,
+    "term": "film",
+    "definition": "movie"
+  },
+  {
+    "rank": 434,
+    "sfi": 63.65,
+    "term": "morning",
+    "definition": "early part of the day before 12 noon"
+  },
+  {
+    "rank": 435,
+    "sfi": 63.63,
+    "term": "war",
+    "definition": "situation where armies fight each other"
+  },
+  {
+    "rank": 436,
+    "sfi": 63.63,
+    "term": "account",
+    "definition": "arrangement with a bank to keep your money for you"
+  },
+  {
+    "rank": 437,
+    "sfi": 63.62,
+    "term": "shop",
+    "definition": "place which sells things"
+  },
+  {
+    "rank": 438,
+    "sfi": 63.59,
+    "term": "major",
+    "definition": "important, serious, or large in scope"
+  },
+  {
+    "rank": 439,
+    "sfi": 63.58,
+    "term": "someone",
+    "definition": "person who is not known or named"
+  },
+  {
+    "rank": 440,
+    "sfi": 63.58,
+    "term": "above",
+    "definition": "in a higher place than something else"
+  },
+  {
+    "rank": 441,
+    "sfi": 63.58,
+    "term": "design",
+    "definition": "to plan in a particular way to fulfill a purpose"
+  },
+  {
+    "rank": 442,
+    "sfi": 63.57,
+    "term": "event",
+    "definition": "something that happens"
+  },
+  {
+    "rank": 443,
+    "sfi": 63.57,
+    "term": "special",
+    "definition": "different from what is usual; better or greater than normal"
+  },
+  {
+    "rank": 444,
+    "sfi": 63.57,
+    "term": "sometimes",
+    "definition": "only at certain times; occasionally"
+  },
+  {
+    "rank": 445,
+    "sfi": 63.54,
+    "term": "condition",
+    "definition": "state of living you are in (e.g., good health)"
+  },
+  {
+    "rank": 446,
+    "sfi": 63.54,
+    "term": "carry",
+    "definition": "to hold something and move it to another place"
+  },
+  {
+    "rank": 447,
+    "sfi": 63.53,
+    "term": "choose",
+    "definition": "to select; decide between several possibilities"
+  },
+  {
+    "rank": 448,
+    "sfi": 63.51,
+    "term": "father",
+    "definition": "a male parent"
+  },
+  {
+    "rank": 449,
+    "sfi": 63.51,
+    "term": "decision",
+    "definition": "a choice you make about something after thinking about it"
+  },
+  {
+    "rank": 450,
+    "sfi": 63.5,
+    "term": "table",
+    "definition": "raised flat surface"
+  },
+  {
+    "rank": 451,
+    "sfi": 63.49,
+    "term": "certain",
+    "definition": "being sure about something; without doubt"
+  },
+  {
+    "rank": 452,
+    "sfi": 63.48,
+    "term": "forward",
+    "definition": "toward what is ahead or in front"
+  },
+  {
+    "rank": 453,
+    "sfi": 63.48,
+    "term": "main",
+    "definition": "most important; most often used"
+  },
+  {
+    "rank": 454,
+    "sfi": 63.47,
+    "term": "die",
+    "definition": "to stop living"
+  },
+  {
+    "rank": 455,
+    "sfi": 63.45,
+    "term": "bear",
+    "definition": "large brown animal with fur that lives in forests"
+  },
+  {
+    "rank": 456,
+    "sfi": 63.45,
+    "term": "cut",
+    "definition": "to use a knife or scissors to divide or open the surface"
+  },
+  {
+    "rank": 457,
+    "sfi": 63.43,
+    "term": "describe",
+    "definition": "to tell someone the appearance, sound or smell of something"
+  },
+  {
+    "rank": 458,
+    "sfi": 63.42,
+    "term": "himself",
+    "definition": "the same (male) person who did the action"
+  },
+  {
+    "rank": 459,
+    "sfi": 63.42,
+    "term": "available",
+    "definition": "present and able to be used"
+  },
+  {
+    "rank": 460,
+    "sfi": 63.42,
+    "term": "especially",
+    "definition": "more than usual; extremely"
+  },
+  {
+    "rank": 461,
+    "sfi": 63.38,
+    "term": "strong",
+    "definition": "having big muscles; physically powerful"
+  },
+  {
+    "rank": 462,
+    "sfi": 63.38,
+    "term": "rise",
+    "definition": "to move from a lower position to a higher one"
+  },
+  {
+    "rank": 463,
+    "sfi": 63.37,
+    "term": "girl",
+    "definition": "a female child"
+  },
+  {
+    "rank": 464,
+    "sfi": 63.37,
+    "term": "maybe",
+    "definition": "possibly but not certainly; perhaps"
+  },
+  {
+    "rank": 465,
+    "sfi": 63.37,
+    "term": "community",
+    "definition": "group of people who share a common idea or area"
+  },
+  {
+    "rank": 466,
+    "sfi": 63.34,
+    "term": "else",
+    "definition": "otherwise; if you fail to..."
+  },
+  {
+    "rank": 467,
+    "sfi": 63.33,
+    "term": "particular",
+    "definition": "one specific (one)"
+  },
+  {
+    "rank": 468,
+    "sfi": 63.33,
+    "term": "role",
+    "definition": "character played by an actor"
+  },
+  {
+    "rank": 469,
+    "sfi": 63.33,
+    "term": "join",
+    "definition": "to bring something close to another, to become one"
+  },
+  {
+    "rank": 470,
+    "sfi": 63.32,
+    "term": "difficult",
+    "definition": "hard; not easy; you need to work hard to do it"
+  },
+  {
+    "rank": 471,
+    "sfi": 63.28,
+    "term": "please",
+    "definition": "you say this when you politely ask people for things"
+  },
+  {
+    "rank": 472,
+    "sfi": 63.28,
+    "term": "detail",
+    "definition": "small part of something; tiny fact"
+  },
+  {
+    "rank": 473,
+    "sfi": 63.27,
+    "term": "difference",
+    "definition": "not of the same kind; unlike other things"
+  },
+  {
+    "rank": 474,
+    "sfi": 63.21,
+    "term": "action",
+    "definition": "something that a person or thing does"
+  },
+  {
+    "rank": 475,
+    "sfi": 63.21,
+    "term": "health",
+    "definition": "being in a good condition; being well"
+  },
+  {
+    "rank": 476,
+    "sfi": 63.19,
+    "term": "eat",
+    "definition": "to put food in your mouth"
+  },
+  {
+    "rank": 477,
+    "sfi": 63.18,
+    "term": "step",
+    "definition": "flat horizontal piece that forms stairs"
+  },
+  {
+    "rank": 478,
+    "sfi": 63.17,
+    "term": "true",
+    "definition": "agreeing with the facts; not false; real or actual"
+  },
+  {
+    "rank": 479,
+    "sfi": 63.16,
+    "term": "phone",
+    "definition": "to talk to someone using a telephone"
+  },
+  {
+    "rank": 480,
+    "sfi": 63.16,
+    "term": "themselves",
+    "definition": "reflexive form of they"
+  },
+  {
+    "rank": 481,
+    "sfi": 63.15,
+    "term": "draw",
+    "definition": "to create an image using pen or pencil and paper"
+  },
+  {
+    "rank": 482,
+    "sfi": 63.14,
+    "term": "white",
+    "definition": "lightest color; the color of fresh snow and milk"
+  },
+  {
+    "rank": 483,
+    "sfi": 63.13,
+    "term": "date",
+    "definition": "a day in the calendar such as January 3rd"
+  },
+  {
+    "rank": 484,
+    "sfi": 63.12,
+    "term": "practice",
+    "definition": "to do something many times to improve a skill"
+  },
+  {
+    "rank": 485,
+    "sfi": 63.12,
+    "term": "model",
+    "definition": "a copy that represents an object or standard"
+  },
+  {
+    "rank": 486,
+    "sfi": 63.11,
+    "term": "raise",
+    "definition": "to increase a quantity, size, intensity or price"
+  },
+  {
+    "rank": 487,
+    "sfi": 63.11,
+    "term": "customer",
+    "definition": "someone who buys goods or services from a business"
+  },
+  {
+    "rank": 488,
+    "sfi": 63.07,
+    "term": "front",
+    "definition": "opposite of back; the forward part of an object"
+  },
+  {
+    "rank": 489,
+    "sfi": 63.06,
+    "term": "explain",
+    "definition": "to make clear or easy to understand by describing"
+  },
+  {
+    "rank": 490,
+    "sfi": 63.05,
+    "term": "door",
+    "definition": "you walk through this when you go in a room"
+  },
+  {
+    "rank": 491,
+    "sfi": 63.02,
+    "term": "outside",
+    "definition": "area around or near something, such as a building"
+  },
+  {
+    "rank": 492,
+    "sfi": 63.01,
+    "term": "behind",
+    "definition": "in or toward the back"
+  },
+  {
+    "rank": 493,
+    "sfi": 62.99,
+    "term": "economic",
+    "definition": "having to do with trade, industry, and money"
+  },
+  {
+    "rank": 494,
+    "sfi": 62.98,
+    "term": "site",
+    "definition": "present, former, or future location of something, such as a building"
+  },
+  {
+    "rank": 495,
+    "sfi": 62.98,
+    "term": "approach",
+    "definition": "to get close to reaching something or somewhere"
+  },
+  {
+    "rank": 496,
+    "sfi": 62.98,
+    "term": "teacher",
+    "definition": "person who teaches others, especially in a school"
+  },
+  {
+    "rank": 497,
+    "sfi": 62.94,
+    "term": "land",
+    "definition": "the earth; the ground"
+  },
+  {
+    "rank": 498,
+    "sfi": 62.94,
+    "term": "charge",
+    "definition": "to ask for money as a price for a service or goods"
+  },
+  {
+    "rank": 499,
+    "sfi": 62.93,
+    "term": "finally",
+    "definition": "after a long time or some difficulty"
+  },
+  {
+    "rank": 500,
+    "sfi": 62.93,
+    "term": "sign",
+    "definition": "something such as a mark or event that shows that something exists, is true, is happening or will happen"
+  },
+  {
+    "rank": 501,
+    "sfi": 62.93,
+    "term": "claim",
+    "definition": "to say something is true when others may not agree"
+  },
+  {
+    "rank": 502,
+    "sfi": 62.93,
+    "term": "relationship",
+    "definition": "manner in which people, groups or countries behave toward one another"
+  },
+  {
+    "rank": 503,
+    "sfi": 62.91,
+    "term": "travel",
+    "definition": "to go to a place that is far away"
+  },
+  {
+    "rank": 504,
+    "sfi": 62.89,
+    "term": "enjoy",
+    "definition": "to take pleasure in something"
+  },
+  {
+    "rank": 505,
+    "sfi": 62.89,
+    "term": "death",
+    "definition": "when someone dies; the end of life"
+  },
+  {
+    "rank": 506,
+    "sfi": 62.86,
+    "term": "nice",
+    "definition": "good or enjoyable"
+  },
+  {
+    "rank": 507,
+    "sfi": 62.86,
+    "term": "amount",
+    "definition": "quantity of something"
+  },
+  {
+    "rank": 508,
+    "sfi": 62.83,
+    "term": "improve",
+    "definition": "to make, or become, something better"
+  },
+  {
+    "rank": 509,
+    "sfi": 62.83,
+    "term": "picture",
+    "definition": "painting, drawing or photograph on paper or screen"
+  },
+  {
+    "rank": 510,
+    "sfi": 62.83,
+    "term": "boy",
+    "definition": "a young male person"
+  },
+  {
+    "rank": 511,
+    "sfi": 62.82,
+    "term": "regard",
+    "definition": "to pay attention to someone or something"
+  },
+  {
+    "rank": 512,
+    "sfi": 62.82,
+    "term": "organization",
+    "definition": "formal group of people with a particular purpose"
+  },
+  {
+    "rank": 513,
+    "sfi": 62.81,
+    "term": "happy",
+    "definition": "feeling pleasure or joy; glad"
+  },
+  {
+    "rank": 514,
+    "sfi": 62.81,
+    "term": "couple",
+    "definition": "two of something; two people; a pair"
+  },
+  {
+    "rank": 515,
+    "sfi": 62.8,
+    "term": "act",
+    "definition": "to behave in a certain way"
+  },
+  {
+    "rank": 516,
+    "sfi": 62.79,
+    "term": "range",
+    "definition": "limits within which something extends or varies"
+  },
+  {
+    "rank": 517,
+    "sfi": 62.78,
+    "term": "quality",
+    "definition": "high level of worth or excellence"
+  },
+  {
+    "rank": 518,
+    "sfi": 62.78,
+    "term": "project",
+    "definition": "a planned piece of work for specific purpose"
+  },
+  {
+    "rank": 519,
+    "sfi": 62.77,
+    "term": "round",
+    "definition": "being in the shape of a circle or ball"
+  },
+  {
+    "rank": 520,
+    "sfi": 62.76,
+    "term": "opportunity",
+    "definition": "time/situation when a thing might be done; chance"
+  },
+  {
+    "rank": 521,
+    "sfi": 62.76,
+    "term": "road",
+    "definition": "long piece of hard land for cars to travel on"
+  },
+  {
+    "rank": 522,
+    "sfi": 62.74,
+    "term": "accord",
+    "definition": "agreement or harmony"
+  },
+  {
+    "rank": 523,
+    "sfi": 62.73,
+    "term": "list",
+    "definition": "series of written names, words or numbers"
+  },
+  {
+    "rank": 524,
+    "sfi": 62.73,
+    "term": "wish",
+    "definition": "to want something to happen or to become true"
+  },
+  {
+    "rank": 525,
+    "sfi": 62.72,
+    "term": "therefore",
+    "definition": "for that reason"
+  },
+  {
+    "rank": 526,
+    "sfi": 62.71,
+    "term": "wear",
+    "definition": "to have clothes, glasses, shoes, etc., on your body"
+  },
+  {
+    "rank": 527,
+    "sfi": 62.71,
+    "term": "fund",
+    "definition": "to supply money for something"
+  },
+  {
+    "rank": 528,
+    "sfi": 62.71,
+    "term": "rest",
+    "definition": "time when one relaxes, sleeps, or is inactive"
+  },
+  {
+    "rank": 529,
+    "sfi": 62.7,
+    "term": "kid",
+    "definition": "informal child or young person"
+  },
+  {
+    "rank": 530,
+    "sfi": 62.68,
+    "term": "industry",
+    "definition": "factories or businesses that make certain products"
+  },
+  {
+    "rank": 531,
+    "sfi": 62.67,
+    "term": "education",
+    "definition": "process of giving or receiving teaching"
+  },
+  {
+    "rank": 532,
+    "sfi": 62.67,
+    "term": "measure",
+    "definition": "to calculate size, weight or temperature of"
+  },
+  {
+    "rank": 533,
+    "sfi": 62.65,
+    "term": "kill",
+    "definition": "to end the life of a person or other living thing"
+  },
+  {
+    "rank": 534,
+    "sfi": 62.64,
+    "term": "serve",
+    "definition": "to give or provide something to another person"
+  },
+  {
+    "rank": 535,
+    "sfi": 62.62,
+    "term": "likely",
+    "definition": "referring to the chance that something will actually happen"
+  },
+  {
+    "rank": 536,
+    "sfi": 62.59,
+    "term": "certainly",
+    "definition": "definitely true or is sure to happen"
+  },
+  {
+    "rank": 537,
+    "sfi": 62.58,
+    "term": "national",
+    "definition": "concerning a nation as a whole"
+  },
+  {
+    "rank": 538,
+    "sfi": 62.57,
+    "term": "itself",
+    "definition": "referring to it"
+  },
+  {
+    "rank": 539,
+    "sfi": 62.57,
+    "term": "teach",
+    "definition": "to help someone learn or do something"
+  },
+  {
+    "rank": 540,
+    "sfi": 62.57,
+    "term": "field",
+    "definition": "open area of land, especially without buildings"
+  },
+  {
+    "rank": 541,
+    "sfi": 62.54,
+    "term": "security",
+    "definition": "things done to protect people, buildings, a country, etc., from harm"
+  },
+  {
+    "rank": 542,
+    "sfi": 62.53,
+    "term": "air",
+    "definition": "mixture of gases around the earth that we breathe"
+  },
+  {
+    "rank": 543,
+    "sfi": 62.53,
+    "term": "benefit",
+    "definition": "good result or effect, something advantageous"
+  },
+  {
+    "rank": 544,
+    "sfi": 62.52,
+    "term": "trade",
+    "definition": "to buy, sell and exchange goods in business"
+  },
+  {
+    "rank": 545,
+    "sfi": 62.52,
+    "term": "risk",
+    "definition": "to take the chance that you may do something dangerous"
+  },
+  {
+    "rank": 546,
+    "sfi": 62.51,
+    "term": "news",
+    "definition": "information about recent events"
+  },
+  {
+    "rank": 547,
+    "sfi": 62.5,
+    "term": "standard",
+    "definition": "accepted level of quality; an official measurement"
+  },
+  {
+    "rank": 548,
+    "sfi": 62.49,
+    "term": "vote",
+    "definition": "to make a choice for or against, as in an election"
+  },
+  {
+    "rank": 549,
+    "sfi": 62.49,
+    "term": "percent",
+    "definition": "one one-hundredth of a whole"
+  },
+  {
+    "rank": 550,
+    "sfi": 62.48,
+    "term": "focus",
+    "definition": "main purpose or center of interest or activity"
+  },
+  {
+    "rank": 551,
+    "sfi": 62.47,
+    "term": "stage",
+    "definition": "place where actors or musician perform for others"
+  },
+  {
+    "rank": 552,
+    "sfi": 62.46,
+    "term": "space",
+    "definition": "empty area with nothing in it"
+  },
+  {
+    "rank": 553,
+    "sfi": 62.46,
+    "term": "instead",
+    "definition": "when one thing is replaced by another"
+  },
+  {
+    "rank": 554,
+    "sfi": 62.46,
+    "term": "realize",
+    "definition": "to become aware of or understand mentally"
+  },
+  {
+    "rank": 555,
+    "sfi": 62.44,
+    "term": "usually",
+    "definition": "normally; regularly"
+  },
+  {
+    "rank": 556,
+    "sfi": 62.42,
+    "term": "data",
+    "definition": "facts or information used to calculate or analyze"
+  },
+  {
+    "rank": 557,
+    "sfi": 62.41,
+    "term": "single",
+    "definition": "only, merely"
+  },
+  {
+    "rank": 558,
+    "sfi": 62.37,
+    "term": "address",
+    "definition": "exact street location of a place"
+  },
+  {
+    "rank": 559,
+    "sfi": 62.36,
+    "term": "performance",
+    "definition": "activity done to entertain an audience"
+  },
+  {
+    "rank": 560,
+    "sfi": 62.36,
+    "term": "chance",
+    "definition": "possibility that something will happen"
+  },
+  {
+    "rank": 561,
+    "sfi": 62.36,
+    "term": "accept",
+    "definition": "to agree to receive or take something offered"
+  },
+  {
+    "rank": 562,
+    "sfi": 62.35,
+    "term": "society",
+    "definition": "community of people living together"
+  },
+  {
+    "rank": 563,
+    "sfi": 62.35,
+    "term": "technology",
+    "definition": "use or knowledge of science in industry, engineering, etc."
+  },
+  {
+    "rank": 564,
+    "sfi": 62.35,
+    "term": "mention",
+    "definition": "to refer to or talk or write about something"
+  },
+  {
+    "rank": 565,
+    "sfi": 62.33,
+    "term": "choice",
+    "definition": "decision between two or more possibilities"
+  },
+  {
+    "rank": 566,
+    "sfi": 62.33,
+    "term": "save",
+    "definition": "to rescue someone or something from a bad situation"
+  },
+  {
+    "rank": 567,
+    "sfi": 62.32,
+    "term": "common",
+    "definition": "typical, normal; not unusual"
+  },
+  {
+    "rank": 568,
+    "sfi": 62.29,
+    "term": "culture",
+    "definition": "beliefs and customs of a particular group"
+  },
+  {
+    "rank": 569,
+    "sfi": 62.28,
+    "term": "total",
+    "definition": "whole number or amount of something"
+  },
+  {
+    "rank": 570,
+    "sfi": 62.27,
+    "term": "demand",
+    "definition": "to strongly request someone to do something; insist"
+  },
+  {
+    "rank": 571,
+    "sfi": 62.26,
+    "term": "material",
+    "definition": "substance from which a thing is made of"
+  },
+  {
+    "rank": 572,
+    "sfi": 62.25,
+    "term": "limit",
+    "definition": "point beyond which it is not possible to go"
+  },
+  {
+    "rank": 573,
+    "sfi": 62.25,
+    "term": "listen",
+    "definition": "to use your ears to hear and understand things"
+  },
+  {
+    "rank": 574,
+    "sfi": 62.23,
+    "term": "due",
+    "definition": "when something is required or expected"
+  },
+  {
+    "rank": 575,
+    "sfi": 62.23,
+    "term": "wrong",
+    "definition": "not right, incorrect; not true; bad"
+  },
+  {
+    "rank": 576,
+    "sfi": 62.22,
+    "term": "foot",
+    "definition": "lowest part of the leg we use to stand on"
+  },
+  {
+    "rank": 577,
+    "sfi": 62.22,
+    "term": "effort",
+    "definition": "amount of work used trying to do something"
+  },
+  {
+    "rank": 578,
+    "sfi": 62.21,
+    "term": "attention",
+    "definition": "focus of your thoughts on something"
+  },
+  {
+    "rank": 579,
+    "sfi": 62.21,
+    "term": "upon",
+    "definition": "more formal term for on"
+  },
+  {
+    "rank": 580,
+    "sfi": 62.2,
+    "term": "check",
+    "definition": "to confirm the details of something are correct"
+  },
+  {
+    "rank": 581,
+    "sfi": 62.2,
+    "term": "complete",
+    "definition": "to finish or reach the end of doing something"
+  },
+  {
+    "rank": 582,
+    "sfi": 62.19,
+    "term": "lie",
+    "definition": "to say something that you know is not true"
+  },
+  {
+    "rank": 583,
+    "sfi": 62.19,
+    "term": "pick",
+    "definition": "to decide on a thing from various choices; select"
+  },
+  {
+    "rank": 584,
+    "sfi": 62.19,
+    "term": "reduce",
+    "definition": "to make something smaller or use less of it"
+  },
+  {
+    "rank": 585,
+    "sfi": 62.19,
+    "term": "personal",
+    "definition": "done by or to a particular person; individual"
+  },
+  {
+    "rank": 586,
+    "sfi": 62.18,
+    "term": "ground",
+    "definition": "solid surface of the earth that we stand on"
+  },
+  {
+    "rank": 587,
+    "sfi": 62.17,
+    "term": "animal",
+    "definition": "a living creature that is not a plant or person"
+  },
+  {
+    "rank": 588,
+    "sfi": 62.17,
+    "term": "arrive",
+    "definition": "to reach the place you are travelling to"
+  },
+  {
+    "rank": 589,
+    "sfi": 62.17,
+    "term": "patient",
+    "definition": "not getting annoyed when things take a long time"
+  },
+  {
+    "rank": 590,
+    "sfi": 62.15,
+    "term": "current",
+    "definition": "happening or being in the present time"
+  },
+  {
+    "rank": 591,
+    "sfi": 62.14,
+    "term": "century",
+    "definition": "period of 100 years"
+  },
+  {
+    "rank": 592,
+    "sfi": 62.13,
+    "term": "evidence",
+    "definition": "factual proof that helps to establish the truth"
+  },
+  {
+    "rank": 593,
+    "sfi": 62.13,
+    "term": "exist",
+    "definition": "to be present, alive or real"
+  },
+  {
+    "rank": 594,
+    "sfi": 62.12,
+    "term": "similar",
+    "definition": "nearly the same"
+  },
+  {
+    "rank": 595,
+    "sfi": 62.12,
+    "term": "fight",
+    "definition": "act of trying to hurt someone by hitting them"
+  },
+  {
+    "rank": 596,
+    "sfi": 62.12,
+    "term": "leader",
+    "definition": "person who is in charge of a group or task"
+  },
+  {
+    "rank": 597,
+    "sfi": 62.11,
+    "term": "fine",
+    "definition": "good, acceptable or satisfactory"
+  },
+  {
+    "rank": 598,
+    "sfi": 62.11,
+    "term": "street",
+    "definition": "road in a city with buildings and places to walk"
+  },
+  {
+    "rank": 599,
+    "sfi": 62.1,
+    "term": "former",
+    "definition": "being something previously, but not now"
+  },
+  {
+    "rank": 600,
+    "sfi": 62.09,
+    "term": "contact",
+    "definition": "to get in touch with someone"
+  },
+  {
+    "rank": 601,
+    "sfi": 62.09,
+    "term": "particularly",
+    "definition": "specially; more than others"
+  },
+  {
+    "rank": 602,
+    "sfi": 62.06,
+    "term": "wife",
+    "definition": "married woman"
+  },
+  {
+    "rank": 603,
+    "sfi": 62.06,
+    "term": "sport",
+    "definition": "game or physical exercise with rules"
+  },
+  {
+    "rank": 604,
+    "sfi": 62.04,
+    "term": "prepare",
+    "definition": "to make something ready for use"
+  },
+  {
+    "rank": 605,
+    "sfi": 62.03,
+    "term": "discuss",
+    "definition": "to talk about something seriously or in great detail"
+  },
+  {
+    "rank": 606,
+    "sfi": 62.03,
+    "term": "response",
+    "definition": "something said or written as an answer to something"
+  },
+  {
+    "rank": 607,
+    "sfi": 62.02,
+    "term": "voice",
+    "definition": "sound made when you speak or sing"
+  },
+  {
+    "rank": 608,
+    "sfi": 62.01,
+    "term": "piece",
+    "definition": "small part that of something larger"
+  },
+  {
+    "rank": 609,
+    "sfi": 62.0,
+    "term": "finish",
+    "definition": "end of something; completion"
+  },
+  {
+    "rank": 610,
+    "sfi": 61.97,
+    "term": "suppose",
+    "definition": "to imagine or guess what might happen"
+  },
+  {
+    "rank": 611,
+    "sfi": 61.97,
+    "term": "apply",
+    "definition": "to ask formally for (a job, building permission, etc.)"
+  },
+  {
+    "rank": 612,
+    "sfi": 61.97,
+    "term": "president",
+    "definition": "person in charge of a country, company, or organization"
+  },
+  {
+    "rank": 613,
+    "sfi": 61.96,
+    "term": "fire",
+    "definition": "heat and the flame produced when burning"
+  },
+  {
+    "rank": 614,
+    "sfi": 61.95,
+    "term": "compare",
+    "definition": "to consider how similar and different things are"
+  },
+  {
+    "rank": 615,
+    "sfi": 61.94,
+    "term": "court",
+    "definition": "large, flat area, to play tennis or basketball"
+  },
+  {
+    "rank": 616,
+    "sfi": 61.93,
+    "term": "police",
+    "definition": "people, often in uniforms, who solve crimes"
+  },
+  {
+    "rank": 617,
+    "sfi": 61.92,
+    "term": "store",
+    "definition": "place where you can go to buy things"
+  },
+  {
+    "rank": 618,
+    "sfi": 61.92,
+    "term": "poor",
+    "definition": "without money; not rich"
+  },
+  {
+    "rank": 619,
+    "sfi": 61.91,
+    "term": "knowledge",
+    "definition": "information, understanding, or skill"
+  },
+  {
+    "rank": 620,
+    "sfi": 61.91,
+    "term": "laugh",
+    "definition": "to make a happy sound when something is funny"
+  },
+  {
+    "rank": 621,
+    "sfi": 61.9,
+    "term": "arm",
+    "definition": "part of your body from your shoulder to your hand"
+  },
+  {
+    "rank": 622,
+    "sfi": 61.9,
+    "term": "heart",
+    "definition": "part of the body that pumps blood"
+  },
+  {
+    "rank": 623,
+    "sfi": 61.9,
+    "term": "source",
+    "definition": "produces or provides what is wanted or needed"
+  },
+  {
+    "rank": 624,
+    "sfi": 61.89,
+    "term": "employee",
+    "definition": "person who works for someone else for payment"
+  },
+  {
+    "rank": 625,
+    "sfi": 61.87,
+    "term": "manage",
+    "definition": "to run or operate a business by directing others"
+  },
+  {
+    "rank": 626,
+    "sfi": 61.86,
+    "term": "simply",
+    "definition": "in an easy or clear manner"
+  },
+  {
+    "rank": 627,
+    "sfi": 61.85,
+    "term": "bank",
+    "definition": "a financial institution that keeps or lends money"
+  },
+  {
+    "rank": 628,
+    "sfi": 61.84,
+    "term": "firm",
+    "definition": "fairly hard or solid, not soft"
+  },
+  {
+    "rank": 629,
+    "sfi": 61.84,
+    "term": "cell",
+    "definition": "short for 'cellphone'"
+  },
+  {
+    "rank": 630,
+    "sfi": 61.81,
+    "term": "article",
+    "definition": "piece of writing about a particular subject"
+  },
+  {
+    "rank": 631,
+    "sfi": 61.8,
+    "term": "fast",
+    "definition": "moving or able to move quickly"
+  },
+  {
+    "rank": 632,
+    "sfi": 61.79,
+    "term": "attack",
+    "definition": "to try to destroy, beat, or injure"
+  },
+  {
+    "rank": 633,
+    "sfi": 61.79,
+    "term": "foreign",
+    "definition": "being of a different place or country"
+  },
+  {
+    "rank": 634,
+    "sfi": 61.78,
+    "term": "surprise",
+    "definition": "to do something that another person didn't expect"
+  },
+  {
+    "rank": 635,
+    "sfi": 61.77,
+    "term": "feature",
+    "definition": "distinctive or important point of something"
+  },
+  {
+    "rank": 636,
+    "sfi": 61.77,
+    "term": "factor",
+    "definition": "something that influences a result"
+  },
+  {
+    "rank": 637,
+    "sfi": 61.76,
+    "term": "pretty",
+    "definition": "being attractive to the eye in a simple way"
+  },
+  {
+    "rank": 638,
+    "sfi": 61.76,
+    "term": "recently",
+    "definition": "just a while ago; not long ago"
+  },
+  {
+    "rank": 639,
+    "sfi": 61.76,
+    "term": "affect",
+    "definition": "to do something that changes something else"
+  },
+  {
+    "rank": 640,
+    "sfi": 61.75,
+    "term": "drop",
+    "definition": "to let something fall from your hand"
+  },
+  {
+    "rank": 641,
+    "sfi": 61.74,
+    "term": "recent",
+    "definition": "happening or beginning not long ago"
+  },
+  {
+    "rank": 642,
+    "sfi": 61.74,
+    "term": "relate",
+    "definition": "to understand or sympathize with someone or something"
+  },
+  {
+    "rank": 643,
+    "sfi": 61.73,
+    "term": "official",
+    "definition": "of or done by someone in authority; formal"
+  },
+  {
+    "rank": 644,
+    "sfi": 61.73,
+    "term": "financial",
+    "definition": "involving money"
+  },
+  {
+    "rank": 645,
+    "sfi": 61.72,
+    "term": "miss",
+    "definition": "to be too late to ride on something (e.g., train or bus)"
+  },
+  {
+    "rank": 646,
+    "sfi": 61.72,
+    "term": "art",
+    "definition": "a creative skill using the imagination (e.g., painting)"
+  },
+  {
+    "rank": 647,
+    "sfi": 61.71,
+    "term": "campaign",
+    "definition": "to work in an organized and active way toward a goal"
+  },
+  {
+    "rank": 648,
+    "sfi": 61.71,
+    "term": "private",
+    "definition": "personal; not to be seen by everyone"
+  },
+  {
+    "rank": 649,
+    "sfi": 61.7,
+    "term": "pause",
+    "definition": "to stop doing for a while before continuing"
+  },
+  {
+    "rank": 650,
+    "sfi": 61.69,
+    "term": "everyone",
+    "definition": "every person; everybody"
+  },
+  {
+    "rank": 651,
+    "sfi": 61.68,
+    "term": "forget",
+    "definition": "to not remember something"
+  },
+  {
+    "rank": 652,
+    "sfi": 61.68,
+    "term": "page",
+    "definition": "one side of a sheet of paper"
+  },
+  {
+    "rank": 653,
+    "sfi": 61.68,
+    "term": "worry",
+    "definition": "to feel concerned or troubled about something"
+  },
+  {
+    "rank": 654,
+    "sfi": 61.67,
+    "term": "summer",
+    "definition": "part of the year when the weather is hot"
+  },
+  {
+    "rank": 655,
+    "sfi": 61.66,
+    "term": "drink",
+    "definition": "to put water in your body through your mouth"
+  },
+  {
+    "rank": 656,
+    "sfi": 61.66,
+    "term": "opinion",
+    "definition": "a person's thoughts on a topic"
+  },
+  {
+    "rank": 657,
+    "sfi": 61.65,
+    "term": "park",
+    "definition": "to put your car or bike in a certain place for a time"
+  },
+  {
+    "rank": 658,
+    "sfi": 61.64,
+    "term": "represent",
+    "definition": "to stand in the place or to act the part of"
+  },
+  {
+    "rank": 659,
+    "sfi": 61.64,
+    "term": "key",
+    "definition": "something you use to open a lock or start a car"
+  },
+  {
+    "rank": 660,
+    "sfi": 61.62,
+    "term": "inside",
+    "definition": "being in something"
+  },
+  {
+    "rank": 661,
+    "sfi": 61.6,
+    "term": "manager",
+    "definition": "person who controls and runs a business or group"
+  },
+  {
+    "rank": 662,
+    "sfi": 61.59,
+    "term": "international",
+    "definition": "done or relating to several countries, not just your own"
+  },
+  {
+    "rank": 663,
+    "sfi": 61.58,
+    "term": "contain",
+    "definition": "to hold something inside something else"
+  },
+  {
+    "rank": 664,
+    "sfi": 61.56,
+    "term": "notice",
+    "definition": "to become aware by sight, touch, or hearing"
+  },
+  {
+    "rank": 665,
+    "sfi": 61.56,
+    "term": "wonder",
+    "definition": "surprise caused by experiencing something amazing"
+  },
+  {
+    "rank": 666,
+    "sfi": 61.55,
+    "term": "nature",
+    "definition": "physical world, including plants, animals, rocks"
+  },
+  {
+    "rank": 667,
+    "sfi": 61.55,
+    "term": "structure",
+    "definition": "way something is built, arranged, or organized"
+  },
+  {
+    "rank": 668,
+    "sfi": 61.54,
+    "term": "section",
+    "definition": "one of the parts that form something"
+  },
+  {
+    "rank": 669,
+    "sfi": 61.53,
+    "term": "myself",
+    "definition": "same person as did the action mentioned"
+  },
+  {
+    "rank": 670,
+    "sfi": 61.52,
+    "term": "exactly",
+    "definition": "no more and no less than; precisely"
+  },
+  {
+    "rank": 671,
+    "sfi": 61.52,
+    "term": "plant",
+    "definition": "living thing with leaves and roots growing in soil"
+  },
+  {
+    "rank": 672,
+    "sfi": 61.51,
+    "term": "paint",
+    "definition": "to apply something; coat"
+  },
+  {
+    "rank": 673,
+    "sfi": 61.5,
+    "term": "worker",
+    "definition": "person who works"
+  },
+  {
+    "rank": 674,
+    "sfi": 61.5,
+    "term": "press",
+    "definition": "to push something against something else"
+  },
+  {
+    "rank": 675,
+    "sfi": 61.5,
+    "term": "whatever",
+    "definition": "anything or everything needed; no matter what"
+  },
+  {
+    "rank": 676,
+    "sfi": 61.5,
+    "term": "necessary",
+    "definition": "needed or required; unavoidable"
+  },
+  {
+    "rank": 677,
+    "sfi": 61.48,
+    "term": "region",
+    "definition": "part of a country, of the world, area, etc."
+  },
+  {
+    "rank": 678,
+    "sfi": 61.46,
+    "term": "growth",
+    "definition": "act of growing"
+  },
+  {
+    "rank": 679,
+    "sfi": 61.46,
+    "term": "evening",
+    "definition": "last part of the day and early part of the night"
+  },
+  {
+    "rank": 680,
+    "sfi": 61.46,
+    "term": "influence",
+    "definition": "to affect what happens; change something (indirectly)"
+  },
+  {
+    "rank": 681,
+    "sfi": 61.46,
+    "term": "respect",
+    "definition": "to think very highly of another person because of what they do"
+  },
+  {
+    "rank": 682,
+    "sfi": 61.46,
+    "term": "various",
+    "definition": "several; consisting of different things or types"
+  },
+  {
+    "rank": 683,
+    "sfi": 61.45,
+    "term": "catch",
+    "definition": "use your hands to stop and hold something flying"
+  },
+  {
+    "rank": 684,
+    "sfi": 61.43,
+    "term": "thus",
+    "definition": "therefore; so; as a result"
+  },
+  {
+    "rank": 685,
+    "sfi": 61.43,
+    "term": "skill",
+    "definition": "ability to do something well"
+  },
+  {
+    "rank": 686,
+    "sfi": 61.42,
+    "term": "attempt",
+    "definition": "to try to do something challenging or difficult"
+  },
+  {
+    "rank": 687,
+    "sfi": 61.42,
+    "term": "son",
+    "definition": "male child; friendly way of addressing a boy"
+  },
+  {
+    "rank": 688,
+    "sfi": 61.41,
+    "term": "simple",
+    "definition": "not hard to understand or do; not complex"
+  },
+  {
+    "rank": 689,
+    "sfi": 61.41,
+    "term": "medium",
+    "definition": "middle size, something between other things"
+  },
+  {
+    "rank": 690,
+    "sfi": 61.41,
+    "term": "average",
+    "definition": "typical or normal; usual; ordinary"
+  },
+  {
+    "rank": 691,
+    "sfi": 61.4,
+    "term": "stock",
+    "definition": "piece of a business bought in the form of shares"
+  },
+  {
+    "rank": 692,
+    "sfi": 61.39,
+    "term": "management",
+    "definition": "people who are in control of a business or group"
+  },
+  {
+    "rank": 693,
+    "sfi": 61.38,
+    "term": "character",
+    "definition": "your personality or nature"
+  },
+  {
+    "rank": 694,
+    "sfi": 61.38,
+    "term": "bed",
+    "definition": "a piece of furniture that people sleep on"
+  },
+  {
+    "rank": 695,
+    "sfi": 61.38,
+    "term": "hit",
+    "definition": "to fight, attack or damage something or someone"
+  },
+  {
+    "rank": 696,
+    "sfi": 61.37,
+    "term": "establish",
+    "definition": "to set or create something to last for a long time"
+  },
+  {
+    "rank": 697,
+    "sfi": 61.36,
+    "term": "indeed",
+    "definition": "actually; in fact; in reality"
+  },
+  {
+    "rank": 698,
+    "sfi": 61.36,
+    "term": "final",
+    "definition": "being the last thing in a series"
+  },
+  {
+    "rank": 699,
+    "sfi": 61.35,
+    "term": "economy",
+    "definition": "total of all the goods, services, and wages in an area"
+  },
+  {
+    "rank": 700,
+    "sfi": 61.35,
+    "term": "fit",
+    "definition": "proper or acceptable; morally or socially correct"
+  },
+  {
+    "rank": 701,
+    "sfi": 61.33,
+    "term": "guy",
+    "definition": "informal man; boy; any person"
+  },
+  {
+    "rank": 702,
+    "sfi": 61.32,
+    "term": "function",
+    "definition": "what something is intended to be used for; purpose"
+  },
+  {
+    "rank": 703,
+    "sfi": 61.32,
+    "term": "yesterday",
+    "definition": "day before today"
+  },
+  {
+    "rank": 704,
+    "sfi": 61.31,
+    "term": "image",
+    "definition": "picture, sculpture, or painting of something"
+  },
+  {
+    "rank": 705,
+    "sfi": 61.3,
+    "term": "size",
+    "definition": "how big or small a thing is"
+  },
+  {
+    "rank": 706,
+    "sfi": 61.3,
+    "term": "behavior",
+    "definition": "way a person or thing acts; manner"
+  },
+  {
+    "rank": 707,
+    "sfi": 61.3,
+    "term": "addition",
+    "definition": "fact of adding something; thing that is added"
+  },
+  {
+    "rank": 708,
+    "sfi": 61.29,
+    "term": "determine",
+    "definition": "to control exactly how something will be or act"
+  },
+  {
+    "rank": 709,
+    "sfi": 61.28,
+    "term": "station",
+    "definition": "place where you can catch a train or a bus"
+  },
+  {
+    "rank": 710,
+    "sfi": 61.28,
+    "term": "population",
+    "definition": "number of people who live in a country, area, etc."
+  },
+  {
+    "rank": 711,
+    "sfi": 61.27,
+    "term": "fail",
+    "definition": "to not achieve a goal, or to go wrong"
+  },
+  {
+    "rank": 712,
+    "sfi": 61.27,
+    "term": "environment",
+    "definition": "natural world in which plants and animals live"
+  },
+  {
+    "rank": 713,
+    "sfi": 61.25,
+    "term": "production",
+    "definition": "process of making something on a large scale"
+  },
+  {
+    "rank": 714,
+    "sfi": 61.24,
+    "term": "contract",
+    "definition": "legal agreement (e.g., for doing work for money)"
+  },
+  {
+    "rank": 715,
+    "sfi": 61.22,
+    "term": "player",
+    "definition": "person who plays sports"
+  },
+  {
+    "rank": 716,
+    "sfi": 61.22,
+    "term": "comment",
+    "definition": "something you say; give an opinion; remark"
+  },
+  {
+    "rank": 717,
+    "sfi": 61.21,
+    "term": "enter",
+    "definition": "to go into a room"
+  },
+  {
+    "rank": 718,
+    "sfi": 61.2,
+    "term": "occur",
+    "definition": "to come to pass or to happen"
+  },
+  {
+    "rank": 719,
+    "sfi": 61.2,
+    "term": "alone",
+    "definition": "without anyone or anything else"
+  },
+  {
+    "rank": 720,
+    "sfi": 61.18,
+    "term": "significant",
+    "definition": "large enough to be noticed or have an effect; important"
+  },
+  {
+    "rank": 721,
+    "sfi": 61.18,
+    "term": "drug",
+    "definition": "chemical used as a medicine"
+  },
+  {
+    "rank": 722,
+    "sfi": 61.17,
+    "term": "wall",
+    "definition": "high, flat side of a room or building"
+  },
+  {
+    "rank": 723,
+    "sfi": 61.17,
+    "term": "series",
+    "definition": "number of things that happen one after another"
+  },
+  {
+    "rank": 724,
+    "sfi": 61.16,
+    "term": "direct",
+    "definition": "to tell someone to do something in a straight-talking way"
+  },
+  {
+    "rank": 725,
+    "sfi": 61.15,
+    "term": "success",
+    "definition": "achievement of a desired purpose or goal"
+  },
+  {
+    "rank": 726,
+    "sfi": 61.14,
+    "term": "tomorrow",
+    "definition": "day after today"
+  },
+  {
+    "rank": 727,
+    "sfi": 61.13,
+    "term": "director",
+    "definition": "senior person who manages part of an organization"
+  },
+  {
+    "rank": 728,
+    "sfi": 61.13,
+    "term": "clearly",
+    "definition": "in a way that is easy to understand; obviously"
+  },
+  {
+    "rank": 729,
+    "sfi": 61.12,
+    "term": "lack",
+    "definition": "to not have, or not have enough, of something"
+  },
+  {
+    "rank": 730,
+    "sfi": 61.12,
+    "term": "review",
+    "definition": "to carefully look at the quality of something"
+  },
+  {
+    "rank": 731,
+    "sfi": 61.1,
+    "term": "depend",
+    "definition": "to need (someone or something) for support, help, etc."
+  },
+  {
+    "rank": 732,
+    "sfi": 61.1,
+    "term": "race",
+    "definition": "contest between people, animals, or vehicles, to determine which is the fastest"
+  },
+  {
+    "rank": 733,
+    "sfi": 61.1,
+    "term": "recognize",
+    "definition": "to remember because you have met it before"
+  },
+  {
+    "rank": 734,
+    "sfi": 61.1,
+    "term": "window",
+    "definition": "opening in a wall or door to let in light"
+  },
+  {
+    "rank": 735,
+    "sfi": 61.09,
+    "term": "purpose",
+    "definition": "reason for which something is done; aim; goal"
+  },
+  {
+    "rank": 736,
+    "sfi": 61.09,
+    "term": "department",
+    "definition": "division of a larger part or organization"
+  },
+  {
+    "rank": 737,
+    "sfi": 61.08,
+    "term": "gain",
+    "definition": "to get something wanted, needed, or valued"
+  },
+  {
+    "rank": 738,
+    "sfi": 61.08,
+    "term": "tree",
+    "definition": "tall green plants in a forest"
+  },
+  {
+    "rank": 739,
+    "sfi": 61.07,
+    "term": "college",
+    "definition": "school or educational institution for adults"
+  },
+  {
+    "rank": 740,
+    "sfi": 61.07,
+    "term": "argue",
+    "definition": "to give reasons for or against an idea or point of view"
+  },
+  {
+    "rank": 741,
+    "sfi": 61.06,
+    "term": "board",
+    "definition": "surface for posting or showing information"
+  },
+  {
+    "rank": 742,
+    "sfi": 61.05,
+    "term": "holiday",
+    "definition": "day when people don't go to work or school"
+  },
+  {
+    "rank": 743,
+    "sfi": 61.05,
+    "term": "mark",
+    "definition": "to make or leave a visible sign on something; a writing symbol"
+  },
+  {
+    "rank": 744,
+    "sfi": 61.02,
+    "term": "church",
+    "definition": "building where religious people gather and pray"
+  },
+  {
+    "rank": 745,
+    "sfi": 61.02,
+    "term": "machine",
+    "definition": "piece of equipment used to do work"
+  },
+  {
+    "rank": 746,
+    "sfi": 61.02,
+    "term": "achieve",
+    "definition": "to succeed in doing something good, usually by working hard"
+  },
+  {
+    "rank": 747,
+    "sfi": 61.02,
+    "term": "item",
+    "definition": "distinct, individual thing, often part of a group"
+  },
+  {
+    "rank": 748,
+    "sfi": 61.02,
+    "term": "prove",
+    "definition": "to demonstrate truth by providing evidence"
+  },
+  {
+    "rank": 749,
+    "sfi": 61.02,
+    "term": "cent",
+    "definition": "100th of the basic unit of money (e.g., there are 100 of these in a dollar)"
+  },
+  {
+    "rank": 750,
+    "sfi": 61.01,
+    "term": "season",
+    "definition": "one of the four parts of the year determined mainly by the weather during that time"
+  },
+  {
+    "rank": 751,
+    "sfi": 61.01,
+    "term": "floor",
+    "definition": "part of a room on which you stand"
+  },
+  {
+    "rank": 752,
+    "sfi": 61.01,
+    "term": "stuff",
+    "definition": "generic description for things, materials, objects"
+  },
+  {
+    "rank": 753,
+    "sfi": 61.01,
+    "term": "wide",
+    "definition": "having a great distance from one side to the other"
+  },
+  {
+    "rank": 754,
+    "sfi": 61.01,
+    "term": "anyone",
+    "definition": "any person"
+  },
+  {
+    "rank": 755,
+    "sfi": 61.01,
+    "term": "method",
+    "definition": "organized and planned way of doing something"
+  },
+  {
+    "rank": 756,
+    "sfi": 61.0,
+    "term": "analysis",
+    "definition": "careful study to better understand something"
+  },
+  {
+    "rank": 757,
+    "sfi": 60.99,
+    "term": "election",
+    "definition": "process of choosing someone by voting"
+  },
+  {
+    "rank": 758,
+    "sfi": 60.99,
+    "term": "military",
+    "definition": "concerning soldiers or the armed forces"
+  },
+  {
+    "rank": 759,
+    "sfi": 60.99,
+    "term": "hotel",
+    "definition": "place where people can stay when traveling"
+  },
+  {
+    "rank": 760,
+    "sfi": 60.99,
+    "term": "club",
+    "definition": "group of people who share an interest, as in sport"
+  },
+  {
+    "rank": 761,
+    "sfi": 60.99,
+    "term": "below",
+    "definition": "in a lower position, place, or level"
+  },
+  {
+    "rank": 762,
+    "sfi": 60.99,
+    "term": "movie",
+    "definition": "motion picture; film"
+  },
+  {
+    "rank": 763,
+    "sfi": 60.98,
+    "term": "doctor",
+    "definition": "a professional who is trained and licensed to treat sick or injured people; a person who has the highest degree given by a university"
+  },
+  {
+    "rank": 764,
+    "sfi": 60.98,
+    "term": "discussion",
+    "definition": "any long communication about some particular topic"
+  },
+  {
+    "rank": 765,
+    "sfi": 60.98,
+    "term": "sorry",
+    "definition": "what you say to admit you were wrong"
+  },
+  {
+    "rank": 766,
+    "sfi": 60.98,
+    "term": "challenge",
+    "definition": "an activity you wish to try that may be hard to do"
+  },
+  {
+    "rank": 767,
+    "sfi": 60.96,
+    "term": "nation",
+    "definition": "area or region controlled by a government and army"
+  },
+  {
+    "rank": 768,
+    "sfi": 60.96,
+    "term": "nearly",
+    "definition": "not completely; almost"
+  },
+  {
+    "rank": 769,
+    "sfi": 60.95,
+    "term": "statement",
+    "definition": "act or process of saying something formally"
+  },
+  {
+    "rank": 770,
+    "sfi": 60.95,
+    "term": "link",
+    "definition": "to join or connect together"
+  },
+  {
+    "rank": 771,
+    "sfi": 60.94,
+    "term": "despite",
+    "definition": "without being affected by something; in spite of"
+  },
+  {
+    "rank": 772,
+    "sfi": 60.94,
+    "term": "introduce",
+    "definition": "to make someone known to another by name"
+  },
+  {
+    "rank": 773,
+    "sfi": 60.94,
+    "term": "advantage",
+    "definition": "thing making the chance of success higher"
+  },
+  {
+    "rank": 774,
+    "sfi": 60.94,
+    "term": "ready",
+    "definition": "prepared to do something"
+  },
+  {
+    "rank": 775,
+    "sfi": 60.93,
+    "term": "marry",
+    "definition": "to become the husband or wife of someone"
+  },
+  {
+    "rank": 776,
+    "sfi": 60.93,
+    "term": "strike",
+    "definition": "to hit something"
+  },
+  {
+    "rank": 777,
+    "sfi": 60.92,
+    "term": "mile",
+    "definition": "unit of distance; 1.6 kilometers"
+  },
+  {
+    "rank": 778,
+    "sfi": 60.92,
+    "term": "seek",
+    "definition": "to search for; to try to find; look for"
+  },
+  {
+    "rank": 779,
+    "sfi": 60.9,
+    "term": "ability",
+    "definition": "power, money, knowledge, or skill to do something"
+  },
+  {
+    "rank": 780,
+    "sfi": 60.9,
+    "term": "unit",
+    "definition": "single thing or person; a part of something larger"
+  },
+  {
+    "rank": 781,
+    "sfi": 60.89,
+    "term": "card",
+    "definition": "small piece of paper or plastic used as i.d."
+  },
+  {
+    "rank": 782,
+    "sfi": 60.88,
+    "term": "hospital",
+    "definition": "building for sick people, with doctors and nurses"
+  },
+  {
+    "rank": 783,
+    "sfi": 60.86,
+    "term": "quickly",
+    "definition": "without taking a lot of time; fast"
+  },
+  {
+    "rank": 784,
+    "sfi": 60.86,
+    "term": "interview",
+    "definition": "to formally ask questions about a given topic"
+  },
+  {
+    "rank": 785,
+    "sfi": 60.85,
+    "term": "agreement",
+    "definition": "when you share the same opinion or reach a decision"
+  },
+  {
+    "rank": 786,
+    "sfi": 60.85,
+    "term": "release",
+    "definition": "to allow to leave jail, cage, prison, etc."
+  },
+  {
+    "rank": 787,
+    "sfi": 60.85,
+    "term": "tax",
+    "definition": "money taken by a government from its people"
+  },
+  {
+    "rank": 788,
+    "sfi": 60.85,
+    "term": "solution",
+    "definition": "something that ends a problem"
+  },
+  {
+    "rank": 789,
+    "sfi": 60.83,
+    "term": "capital",
+    "definition": "main, or major"
+  },
+  {
+    "rank": 790,
+    "sfi": 60.82,
+    "term": "popular",
+    "definition": "liked or enjoyed by many people"
+  },
+  {
+    "rank": 791,
+    "sfi": 60.82,
+    "term": "specific",
+    "definition": "special or particular; clearly presented or stated"
+  },
+  {
+    "rank": 792,
+    "sfi": 60.82,
+    "term": "beautiful",
+    "definition": "having very attractive or appealing physical qualities"
+  },
+  {
+    "rank": 793,
+    "sfi": 60.81,
+    "term": "fear",
+    "definition": "unpleasant feelings caused by being aware of danger"
+  },
+  {
+    "rank": 794,
+    "sfi": 60.81,
+    "term": "aim",
+    "definition": "act of pointing something at a target"
+  },
+  {
+    "rank": 795,
+    "sfi": 60.81,
+    "term": "television",
+    "definition": "device that broadcasts programs, movies, or show"
+  },
+  {
+    "rank": 796,
+    "sfi": 60.81,
+    "term": "serious",
+    "definition": "needing thought or concentration; important; in a sober manner"
+  },
+  {
+    "rank": 797,
+    "sfi": 60.8,
+    "term": "target",
+    "definition": "a goal or amount you are trying to achieve"
+  },
+  {
+    "rank": 798,
+    "sfi": 60.78,
+    "term": "degree",
+    "definition": "unit for measuring temperature or angles"
+  },
+  {
+    "rank": 799,
+    "sfi": 60.77,
+    "term": "pull",
+    "definition": "to hold something and move it toward you"
+  },
+  {
+    "rank": 800,
+    "sfi": 60.77,
+    "term": "red",
+    "definition": "being the color of blood"
+  },
+  {
+    "rank": 801,
+    "sfi": 60.77,
+    "term": "husband",
+    "definition": "married man"
+  },
+  {
+    "rank": 802,
+    "sfi": 60.77,
+    "term": "access",
+    "definition": "an entrance to a place; a way in"
+  },
+  {
+    "rank": 803,
+    "sfi": 60.75,
+    "term": "movement",
+    "definition": "part of a piece of music"
+  },
+  {
+    "rank": 804,
+    "sfi": 60.74,
+    "term": "treat",
+    "definition": "to act in a certain way toward someone"
+  },
+  {
+    "rank": 805,
+    "sfi": 60.73,
+    "term": "identify",
+    "definition": "to indicate who or what someone or something is"
+  },
+  {
+    "rank": 806,
+    "sfi": 60.72,
+    "term": "loss",
+    "definition": "experience or state of failing to have or keep"
+  },
+  {
+    "rank": 807,
+    "sfi": 60.72,
+    "term": "shall",
+    "definition": "expressing the future tense, to expect to happen"
+  },
+  {
+    "rank": 808,
+    "sfi": 60.7,
+    "term": "modern",
+    "definition": "of the present time; up to date; contemporary"
+  },
+  {
+    "rank": 809,
+    "sfi": 60.7,
+    "term": "pressure",
+    "definition": "force/weight when pressing against a thing"
+  },
+  {
+    "rank": 810,
+    "sfi": 60.69,
+    "term": "bus",
+    "definition": "a large road vehicle used for carrying many people"
+  },
+  {
+    "rank": 811,
+    "sfi": 60.69,
+    "term": "treatment",
+    "definition": "way someone acts toward another"
+  },
+  {
+    "rank": 812,
+    "sfi": 60.68,
+    "term": "conference",
+    "definition": "an event where people exchange ideas"
+  },
+  {
+    "rank": 813,
+    "sfi": 60.67,
+    "term": "yourself",
+    "definition": "reflexive form of 'you', used for an emphasis"
+  },
+  {
+    "rank": 814,
+    "sfi": 60.66,
+    "term": "supply",
+    "definition": "to give or sell goods to others for their use"
+  },
+  {
+    "rank": 815,
+    "sfi": 60.65,
+    "term": "village",
+    "definition": "small town in the country"
+  },
+  {
+    "rank": 816,
+    "sfi": 60.64,
+    "term": "worth",
+    "definition": "how much something is worth; the value of something"
+  },
+  {
+    "rank": 817,
+    "sfi": 60.64,
+    "term": "natural",
+    "definition": "not made by humans; without human intervention"
+  },
+  {
+    "rank": 818,
+    "sfi": 60.64,
+    "term": "express",
+    "definition": "to state or show what you think or how you feel"
+  },
+  {
+    "rank": 819,
+    "sfi": 60.64,
+    "term": "indicate",
+    "definition": "to show something, direct attention to, or point out"
+  },
+  {
+    "rank": 820,
+    "sfi": 60.63,
+    "term": "attend",
+    "definition": "to be present at an event"
+  },
+  {
+    "rank": 821,
+    "sfi": 60.63,
+    "term": "brother",
+    "definition": "a boy or man who shares a parent with you"
+  },
+  {
+    "rank": 822,
+    "sfi": 60.63,
+    "term": "investment",
+    "definition": "something purchased hoping its value will increase"
+  },
+  {
+    "rank": 823,
+    "sfi": 60.62,
+    "term": "score",
+    "definition": "to get points in a sport such as kicking a ball into a goal"
+  },
+  {
+    "rank": 824,
+    "sfi": 60.62,
+    "term": "organize",
+    "definition": "to arrange and plan things (e.g., a party)"
+  },
+  {
+    "rank": 825,
+    "sfi": 60.62,
+    "term": "trip",
+    "definition": "journey or visit to a place"
+  },
+  {
+    "rank": 826,
+    "sfi": 60.62,
+    "term": "beyond",
+    "definition": "on or to the farther side; in addition to"
+  },
+  {
+    "rank": 827,
+    "sfi": 60.61,
+    "term": "sleep",
+    "definition": "to rest your body in bed, as at night time"
+  },
+  {
+    "rank": 828,
+    "sfi": 60.6,
+    "term": "fish",
+    "definition": "animal that swims and lives in the sea"
+  },
+  {
+    "rank": 829,
+    "sfi": 60.6,
+    "term": "promise",
+    "definition": "to say you will certainly do something"
+  },
+  {
+    "rank": 830,
+    "sfi": 60.59,
+    "term": "potential",
+    "definition": "capable of happening or becoming reality"
+  },
+  {
+    "rank": 831,
+    "sfi": 60.59,
+    "term": "energy",
+    "definition": "physical or mental strength"
+  },
+  {
+    "rank": 832,
+    "sfi": 60.59,
+    "term": "trouble",
+    "definition": "state of difficulty or stress"
+  },
+  {
+    "rank": 833,
+    "sfi": 60.58,
+    "term": "relation",
+    "definition": "manner in which people, groups, or countries behave toward one another"
+  },
+  {
+    "rank": 834,
+    "sfi": 60.56,
+    "term": "touch",
+    "definition": "to feel an object with your fingers, etc."
+  },
+  {
+    "rank": 835,
+    "sfi": 60.56,
+    "term": "file",
+    "definition": "to submit documents to an authority (e.g., city hall)"
+  },
+  {
+    "rank": 836,
+    "sfi": 60.56,
+    "term": "middle",
+    "definition": "place that is halfway between two things"
+  },
+  {
+    "rank": 837,
+    "sfi": 60.55,
+    "term": "bar",
+    "definition": "to prevent entry, exit, or an action"
+  },
+  {
+    "rank": 838,
+    "sfi": 60.55,
+    "term": "suffer",
+    "definition": "to experience pain, illness, or injury"
+  },
+  {
+    "rank": 839,
+    "sfi": 60.55,
+    "term": "strategy",
+    "definition": "careful plan or method for achieving a goal"
+  },
+  {
+    "rank": 840,
+    "sfi": 60.54,
+    "term": "deep",
+    "definition": "going far down from the surface"
+  },
+  {
+    "rank": 841,
+    "sfi": 60.54,
+    "term": "except",
+    "definition": "not including; other than"
+  },
+  {
+    "rank": 842,
+    "sfi": 60.54,
+    "term": "clean",
+    "definition": "being free from dirt or marks because it was washed"
+  },
+  {
+    "rank": 843,
+    "sfi": 60.54,
+    "term": "tend",
+    "definition": "to regularly behave in a certain way"
+  },
+  {
+    "rank": 844,
+    "sfi": 60.54,
+    "term": "advance",
+    "definition": "to move forward in a certain direction"
+  },
+  {
+    "rank": 845,
+    "sfi": 60.53,
+    "term": "fill",
+    "definition": "to make something full"
+  },
+  {
+    "rank": 846,
+    "sfi": 60.52,
+    "term": "star",
+    "definition": "a bright planet of gas in the night sky"
+  },
+  {
+    "rank": 847,
+    "sfi": 60.5,
+    "term": "network",
+    "definition": "system of connections"
+  },
+  {
+    "rank": 848,
+    "sfi": 60.5,
+    "term": "generally",
+    "definition": "usually; as a rule; by, to, or for most people"
+  },
+  {
+    "rank": 849,
+    "sfi": 60.49,
+    "term": "operation",
+    "definition": "functioning; use"
+  },
+  {
+    "rank": 850,
+    "sfi": 60.47,
+    "term": "match",
+    "definition": "a sports competition between two people or teams"
+  },
+  {
+    "rank": 851,
+    "sfi": 60.47,
+    "term": "avoid",
+    "definition": "to prevent from happening, or stay away from"
+  },
+  {
+    "rank": 852,
+    "sfi": 60.45,
+    "term": "seat",
+    "definition": "something on which a person can sit"
+  },
+  {
+    "rank": 853,
+    "sfi": 60.45,
+    "term": "throw",
+    "definition": "to use your arm to make a thing fly through the air"
+  },
+  {
+    "rank": 854,
+    "sfi": 60.44,
+    "term": "task",
+    "definition": "big or small piece of work someone has to do"
+  },
+  {
+    "rank": 855,
+    "sfi": 60.43,
+    "term": "normal",
+    "definition": "standard or regular way of doing something"
+  },
+  {
+    "rank": 856,
+    "sfi": 60.42,
+    "term": "goal",
+    "definition": "something you try to do or achieve; an aim"
+  },
+  {
+    "rank": 857,
+    "sfi": 60.42,
+    "term": "associate",
+    "definition": "partner in professional work (e.g., in law)"
+  },
+  {
+    "rank": 858,
+    "sfi": 60.41,
+    "term": "blue",
+    "definition": "color of the clear sky"
+  },
+  {
+    "rank": 859,
+    "sfi": 60.4,
+    "term": "positive",
+    "definition": "good or useful in qualities, constructive, confident"
+  },
+  {
+    "rank": 860,
+    "sfi": 60.4,
+    "term": "option",
+    "definition": "possibility out of several that can be chosen; choice"
+  },
+  {
+    "rank": 861,
+    "sfi": 60.39,
+    "term": "box",
+    "definition": "a container with (usually) four straight sides and a lid"
+  },
+  {
+    "rank": 862,
+    "sfi": 60.39,
+    "term": "huge",
+    "definition": "very very large"
+  },
+  {
+    "rank": 863,
+    "sfi": 60.39,
+    "term": "message",
+    "definition": "piece of information that is told/given to someone"
+  },
+  {
+    "rank": 864,
+    "sfi": 60.38,
+    "term": "instance",
+    "definition": "an example of something; case"
+  },
+  {
+    "rank": 865,
+    "sfi": 60.38,
+    "term": "style",
+    "definition": "the particular way something is done or made"
+  },
+  {
+    "rank": 866,
+    "sfi": 60.37,
+    "term": "refer",
+    "definition": "to talk about or write about something"
+  },
+  {
+    "rank": 867,
+    "sfi": 60.36,
+    "term": "cold",
+    "definition": "having a very low temperature"
+  },
+  {
+    "rank": 868,
+    "sfi": 60.36,
+    "term": "push",
+    "definition": "to force something away from you"
+  },
+  {
+    "rank": 869,
+    "sfi": 60.36,
+    "term": "quarter",
+    "definition": "one of four equal parts of something"
+  },
+  {
+    "rank": 870,
+    "sfi": 60.34,
+    "term": "assume",
+    "definition": "to believe, based on the evidence; suppose"
+  },
+  {
+    "rank": 871,
+    "sfi": 60.33,
+    "term": "baby",
+    "definition": "very young child, who cannot yet speak"
+  },
+  {
+    "rank": 872,
+    "sfi": 60.32,
+    "term": "successful",
+    "definition": "having the desired effect or result"
+  },
+  {
+    "rank": 873,
+    "sfi": 60.32,
+    "term": "sing",
+    "definition": "to make musical sounds with your voice"
+  },
+  {
+    "rank": 874,
+    "sfi": 60.32,
+    "term": "doubt",
+    "definition": "not being sure of something; lack of certainty"
+  },
+  {
+    "rank": 875,
+    "sfi": 60.32,
+    "term": "competition",
+    "definition": "fighting against others when trying to win something"
+  },
+  {
+    "rank": 876,
+    "sfi": 60.31,
+    "term": "theory",
+    "definition": "idea or set of ideas that try to explain facts or events"
+  },
+  {
+    "rank": 877,
+    "sfi": 60.31,
+    "term": "propose",
+    "definition": "to offer or put forward an idea for consideration"
+  },
+  {
+    "rank": 878,
+    "sfi": 60.3,
+    "term": "reference",
+    "definition": "to cite a piece of research in speech or in writing"
+  },
+  {
+    "rank": 879,
+    "sfi": 60.3,
+    "term": "argument",
+    "definition": "a discussion in which you disagree with another's opinion"
+  },
+  {
+    "rank": 880,
+    "sfi": 60.3,
+    "term": "adult",
+    "definition": "person or animal that is fully grown"
+  },
+  {
+    "rank": 881,
+    "sfi": 60.3,
+    "term": "fly",
+    "definition": "to travel through the air using wings"
+  },
+  {
+    "rank": 882,
+    "sfi": 60.29,
+    "term": "document",
+    "definition": "official (printed) record that gives information"
+  },
+  {
+    "rank": 883,
+    "sfi": 60.29,
+    "term": "pattern",
+    "definition": "regular repeated behavior"
+  },
+  {
+    "rank": 884,
+    "sfi": 60.28,
+    "term": "application",
+    "definition": "formal request for a job, building permission, etc."
+  },
+  {
+    "rank": 885,
+    "sfi": 60.28,
+    "term": "hot",
+    "definition": "having a high temperature"
+  },
+  {
+    "rank": 886,
+    "sfi": 60.28,
+    "term": "obviously",
+    "definition": "in a way that is obvious/easy to see or understand"
+  },
+  {
+    "rank": 887,
+    "sfi": 60.27,
+    "term": "unclear",
+    "definition": "not easy to understand; not obvious"
+  },
+  {
+    "rank": 888,
+    "sfi": 60.27,
+    "term": "bill",
+    "definition": "piece of paper showing what you have to pay"
+  },
+  {
+    "rank": 889,
+    "sfi": 60.26,
+    "term": "search",
+    "definition": "to carefully look for something"
+  },
+  {
+    "rank": 890,
+    "sfi": 60.26,
+    "term": "separate",
+    "definition": "to divide into parts, or to make something divide into parts"
+  },
+  {
+    "rank": 891,
+    "sfi": 60.26,
+    "term": "central",
+    "definition": "being in the middle"
+  },
+  {
+    "rank": 892,
+    "sfi": 60.25,
+    "term": "career",
+    "definition": "particular occupation in professional life"
+  },
+  {
+    "rank": 893,
+    "sfi": 60.25,
+    "term": "anyway",
+    "definition": "a word people use to change the topic of a conversation"
+  },
+  {
+    "rank": 894,
+    "sfi": 60.24,
+    "term": "speech",
+    "definition": "expression of ideas or opinions"
+  },
+  {
+    "rank": 895,
+    "sfi": 60.24,
+    "term": "dog",
+    "definition": "small 4-legged animal that barks kept as a pet"
+  },
+  {
+    "rank": 896,
+    "sfi": 60.24,
+    "term": "officer",
+    "definition": "person with an important position in an organization"
+  },
+  {
+    "rank": 897,
+    "sfi": 60.24,
+    "term": "throughout",
+    "definition": "over or across an entire thing or place, or in every part of something"
+  },
+  {
+    "rank": 898,
+    "sfi": 60.22,
+    "term": "oil",
+    "definition": "thick, black liquid in the ground used as fuel"
+  },
+  {
+    "rank": 899,
+    "sfi": 60.21,
+    "term": "dress",
+    "definition": "women's garment with a top part and a skirt"
+  },
+  {
+    "rank": 900,
+    "sfi": 60.21,
+    "term": "profit",
+    "definition": "to earn money from something"
+  },
+  {
+    "rank": 901,
+    "sfi": 60.2,
+    "term": "guess",
+    "definition": "to give an answer without knowing if it is correct"
+  },
+  {
+    "rank": 902,
+    "sfi": 60.2,
+    "term": "fun",
+    "definition": "amusing and enjoyable"
+  },
+  {
+    "rank": 903,
+    "sfi": 60.2,
+    "term": "protect",
+    "definition": "to defend someone or something from harm or danger"
+  },
+  {
+    "rank": 904,
+    "sfi": 60.19,
+    "term": "resource",
+    "definition": "essential supply of something"
+  },
+  {
+    "rank": 905,
+    "sfi": 60.19,
+    "term": "science",
+    "definition": "knowledge of the physical world based on facts"
+  },
+  {
+    "rank": 906,
+    "sfi": 60.19,
+    "term": "disease",
+    "definition": "illness that affects a person, animal, or plant"
+  },
+  {
+    "rank": 907,
+    "sfi": 60.18,
+    "term": "balance",
+    "definition": "to make two or more things equal"
+  },
+  {
+    "rank": 908,
+    "sfi": 60.18,
+    "term": "damage",
+    "definition": "physical harm that is done to something"
+  },
+  {
+    "rank": 909,
+    "sfi": 60.18,
+    "term": "basis",
+    "definition": "starting situation, fact, idea to develop from"
+  },
+  {
+    "rank": 910,
+    "sfi": 60.17,
+    "term": "author",
+    "definition": "person who writes books, plays, poems, etc."
+  },
+  {
+    "rank": 911,
+    "sfi": 60.17,
+    "term": "basic",
+    "definition": "at the most important or easiest (beginner) level"
+  },
+  {
+    "rank": 912,
+    "sfi": 60.16,
+    "term": "encourage",
+    "definition": "to make someone more determined or confident"
+  },
+  {
+    "rank": 913,
+    "sfi": 60.15,
+    "term": "hair",
+    "definition": "long thin strands on your head or body"
+  },
+  {
+    "rank": 914,
+    "sfi": 60.15,
+    "term": "male",
+    "definition": "characteristic of boys or men"
+  },
+  {
+    "rank": 915,
+    "sfi": 60.14,
+    "term": "operate",
+    "definition": "to be working or being used"
+  },
+  {
+    "rank": 916,
+    "sfi": 60.14,
+    "term": "reflect",
+    "definition": "to bounce back off a surface (e.g., light)"
+  },
+  {
+    "rank": 917,
+    "sfi": 60.13,
+    "term": "exercise",
+    "definition": "to work out to become stronger and healthier"
+  },
+  {
+    "rank": 918,
+    "sfi": 60.12,
+    "term": "useful",
+    "definition": "that can help with a particular task"
+  },
+  {
+    "rank": 919,
+    "sfi": 60.12,
+    "term": "restaurant",
+    "definition": "place where you can order, buy and eat a meal"
+  },
+  {
+    "rank": 920,
+    "sfi": 60.12,
+    "term": "income",
+    "definition": "earned money from work, investments, or business"
+  },
+  {
+    "rank": 921,
+    "sfi": 60.12,
+    "term": "property",
+    "definition": "things, buildings, or pieces of land owned by someone"
+  },
+  {
+    "rank": 922,
+    "sfi": 60.12,
+    "term": "previous",
+    "definition": "existing or happening before the present time"
+  },
+  {
+    "rank": 923,
+    "sfi": 60.11,
+    "term": "dark",
+    "definition": "having little or no light; not light in color"
+  },
+  {
+    "rank": 924,
+    "sfi": 60.11,
+    "term": "imagine",
+    "definition": "to think creatively about; form a mental picture of"
+  },
+  {
+    "rank": 925,
+    "sfi": 60.1,
+    "term": "okay",
+    "definition": "yes; alright"
+  },
+  {
+    "rank": 926,
+    "sfi": 60.09,
+    "term": "earn",
+    "definition": "to get money for work"
+  },
+  {
+    "rank": 927,
+    "sfi": 60.09,
+    "term": "daughter",
+    "definition": "a female child of someone"
+  },
+  {
+    "rank": 928,
+    "sfi": 60.08,
+    "term": "post",
+    "definition": "to send a letter or package using the post office"
+  },
+  {
+    "rank": 929,
+    "sfi": 60.07,
+    "term": "newspaper",
+    "definition": "sheets of paper (or online) containing news stories"
+  },
+  {
+    "rank": 930,
+    "sfi": 60.06,
+    "term": "define",
+    "definition": "to explain the meaning of words"
+  },
+  {
+    "rank": 931,
+    "sfi": 60.05,
+    "term": "conclusion",
+    "definition": "judgment or opinion after thinking for a while"
+  },
+  {
+    "rank": 932,
+    "sfi": 60.05,
+    "term": "clock",
+    "definition": "a device that shows the time"
+  },
+  {
+    "rank": 933,
+    "sfi": 60.05,
+    "term": "everybody",
+    "definition": "every person; everyone"
+  },
+  {
+    "rank": 934,
+    "sfi": 60.04,
+    "term": "weekend",
+    "definition": "Saturday and Sunday"
+  },
+  {
+    "rank": 935,
+    "sfi": 60.04,
+    "term": "perform",
+    "definition": "to carry out an action well or successfully"
+  },
+  {
+    "rank": 936,
+    "sfi": 60.04,
+    "term": "professional",
+    "definition": "about a job such as a doctor, lawyer, accountant, etc."
+  },
+  {
+    "rank": 937,
+    "sfi": 60.04,
+    "term": "mine",
+    "definition": "that thing that belongs to me"
+  },
+  {
+    "rank": 938,
+    "sfi": 60.03,
+    "term": "debate",
+    "definition": "general public discussion of a topic"
+  },
+  {
+    "rank": 939,
+    "sfi": 60.03,
+    "term": "memory",
+    "definition": "something that has been remembered"
+  },
+  {
+    "rank": 940,
+    "sfi": 60.03,
+    "term": "green",
+    "definition": "color of young leaves"
+  },
+  {
+    "rank": 941,
+    "sfi": 60.02,
+    "term": "song",
+    "definition": "some music with words in verse"
+  },
+  {
+    "rank": 942,
+    "sfi": 60.0,
+    "term": "object",
+    "definition": "to disagree; to protest against an idea or plan"
+  },
+  {
+    "rank": 943,
+    "sfi": 60.0,
+    "term": "maintain",
+    "definition": "to keep, exist or continue without changing"
+  },
+  {
+    "rank": 944,
+    "sfi": 59.99,
+    "term": "credit",
+    "definition": "system to buy something and pay for it later"
+  },
+  {
+    "rank": 945,
+    "sfi": 59.99,
+    "term": "ring",
+    "definition": "to produce a sound from a bell, alarm, or telephone; a piece of jewelry worn on a finger"
+  },
+  {
+    "rank": 946,
+    "sfi": 59.97,
+    "term": "discover",
+    "definition": "to find something new that was not known before"
+  },
+  {
+    "rank": 947,
+    "sfi": 59.96,
+    "term": "dead",
+    "definition": "not alive"
+  },
+  {
+    "rank": 948,
+    "sfi": 59.96,
+    "term": "afternoon",
+    "definition": "time after 12:00 and before the evening meal"
+  },
+  {
+    "rank": 949,
+    "sfi": 59.96,
+    "term": "prefer",
+    "definition": "to like something better than something else"
+  },
+  {
+    "rank": 950,
+    "sfi": 59.95,
+    "term": "extend",
+    "definition": "to straighten or stretch something out (e.g., your leg)"
+  },
+  {
+    "rank": 951,
+    "sfi": 59.95,
+    "term": "possibility",
+    "definition": "something with a chance of happening or being true"
+  },
+  {
+    "rank": 952,
+    "sfi": 59.94,
+    "term": "direction",
+    "definition": "describes the way you are going (e.g., north)"
+  },
+  {
+    "rank": 953,
+    "sfi": 59.94,
+    "term": "facility",
+    "definition": "piece of equipment or buildings with a special use"
+  },
+  {
+    "rank": 954,
+    "sfi": 59.92,
+    "term": "variety",
+    "definition": "particular types of things or persons"
+  },
+  {
+    "rank": 955,
+    "sfi": 59.91,
+    "term": "daily",
+    "definition": "happening every day"
+  },
+  {
+    "rank": 956,
+    "sfi": 59.91,
+    "term": "clothes",
+    "definition": "things you wear on your body (e.g., shirt, dress, tie)"
+  },
+  {
+    "rank": 957,
+    "sfi": 59.9,
+    "term": "screen",
+    "definition": "flat surface on a computer, or tv that shows images"
+  },
+  {
+    "rank": 958,
+    "sfi": 59.89,
+    "term": "track",
+    "definition": "to follow behind someone to see what they are doing"
+  },
+  {
+    "rank": 959,
+    "sfi": 59.89,
+    "term": "dance",
+    "definition": "to move your body rhythmically to music"
+  },
+  {
+    "rank": 960,
+    "sfi": 59.89,
+    "term": "completely",
+    "definition": "in every way or as much as possible"
+  },
+  {
+    "rank": 961,
+    "sfi": 59.88,
+    "term": "female",
+    "definition": "person of the sex that gives birth to babies"
+  },
+  {
+    "rank": 962,
+    "sfi": 59.88,
+    "term": "responsibility",
+    "definition": "state of being dependable or reliable"
+  },
+  {
+    "rank": 963,
+    "sfi": 59.84,
+    "term": "original",
+    "definition": "being first made, thought, or performed; fresh"
+  },
+  {
+    "rank": 964,
+    "sfi": 59.84,
+    "term": "sister",
+    "definition": "female you share a parent with"
+  },
+  {
+    "rank": 965,
+    "sfi": 59.84,
+    "term": "rock",
+    "definition": "big stone; hard, solid substance forming mountains"
+  },
+  {
+    "rank": 966,
+    "sfi": 59.84,
+    "term": "dream",
+    "definition": "images, thoughts, and feelings that are experienced during sleep"
+  },
+  {
+    "rank": 967,
+    "sfi": 59.82,
+    "term": "nor",
+    "definition": "used to show two things that are both untrue or do not happen"
+  },
+  {
+    "rank": 968,
+    "sfi": 59.82,
+    "term": "university",
+    "definition": "high-level educational institution; college"
+  },
+  {
+    "rank": 969,
+    "sfi": 59.81,
+    "term": "easily",
+    "definition": "without difficulty"
+  },
+  {
+    "rank": 970,
+    "sfi": 59.81,
+    "term": "agency",
+    "definition": "business that provides some service for others"
+  },
+  {
+    "rank": 971,
+    "sfi": 59.8,
+    "term": "dollar",
+    "definition": "a basic unit of money equal to 100 cent"
+  },
+  {
+    "rank": 972,
+    "sfi": 59.79,
+    "term": "garden",
+    "definition": "yard; ground outside your house to grow plants"
+  },
+  {
+    "rank": 973,
+    "sfi": 59.79,
+    "term": "fix",
+    "definition": "to make something whole or able to work again"
+  },
+  {
+    "rank": 974,
+    "sfi": 59.78,
+    "term": "ahead",
+    "definition": "in or toward the front"
+  },
+  {
+    "rank": 975,
+    "sfi": 59.78,
+    "term": "cross",
+    "definition": "to meet at one point"
+  },
+  {
+    "rank": 976,
+    "sfi": 59.77,
+    "term": "yeah",
+    "definition": "yes (informal)"
+  },
+  {
+    "rank": 977,
+    "sfi": 59.74,
+    "term": "candidate",
+    "definition": "a person being considered for a job or position in office"
+  },
+  {
+    "rank": 978,
+    "sfi": 59.74,
+    "term": "weight",
+    "definition": "how heavy something is"
+  },
+  {
+    "rank": 979,
+    "sfi": 59.72,
+    "term": "legal",
+    "definition": "concerning the law; allowed by law"
+  },
+  {
+    "rank": 980,
+    "sfi": 59.71,
+    "term": "proposal",
+    "definition": "offer or plan to people who can decide about it"
+  },
+  {
+    "rank": 981,
+    "sfi": 59.71,
+    "term": "version",
+    "definition": "particular form of something and other forms"
+  },
+  {
+    "rank": 982,
+    "sfi": 59.71,
+    "term": "conversation",
+    "definition": "when you talk with other people; discussion or chat"
+  },
+  {
+    "rank": 983,
+    "sfi": 59.7,
+    "term": "somebody",
+    "definition": "person who is not known or named"
+  },
+  {
+    "rank": 984,
+    "sfi": 59.69,
+    "term": "pound",
+    "definition": "unit of weight equal to 16 ounces or 0.4536 kg"
+  },
+  {
+    "rank": 985,
+    "sfi": 59.69,
+    "term": "magazine",
+    "definition": "weekly or monthly publication with pictures and stories"
+  },
+  {
+    "rank": 986,
+    "sfi": 59.69,
+    "term": "shape",
+    "definition": "outer form of something, what it looks like"
+  },
+  {
+    "rank": 987,
+    "sfi": 59.68,
+    "term": "sea",
+    "definition": "place with a large amount of salt water"
+  },
+  {
+    "rank": 988,
+    "sfi": 59.67,
+    "term": "immediately",
+    "definition": "without any delay; straight away; right (after or before)"
+  },
+  {
+    "rank": 989,
+    "sfi": 59.67,
+    "term": "welcome",
+    "definition": "friendly greeting to someone who has arrived"
+  },
+  {
+    "rank": 990,
+    "sfi": 59.67,
+    "term": "smile",
+    "definition": "to show happiness by pulling up the corners of your mouth"
+  },
+  {
+    "rank": 991,
+    "sfi": 59.67,
+    "term": "communication",
+    "definition": "talking to people; giving information to people"
+  },
+  {
+    "rank": 992,
+    "sfi": 59.65,
+    "term": "agent",
+    "definition": "person who can represent and decide for others"
+  },
+  {
+    "rank": 993,
+    "sfi": 59.65,
+    "term": "traditional",
+    "definition": "involved in a tradition"
+  },
+  {
+    "rank": 994,
+    "sfi": 59.64,
+    "term": "replace",
+    "definition": "to use instead of something else"
+  },
+  {
+    "rank": 995,
+    "sfi": 59.64,
+    "term": "judge",
+    "definition": "to form an opinion after careful consideration"
+  },
+  {
+    "rank": 996,
+    "sfi": 59.63,
+    "term": "herself",
+    "definition": "female person that did the original action"
+  },
+  {
+    "rank": 997,
+    "sfi": 59.63,
+    "term": "suddenly",
+    "definition": "in an unexpected or very quick manner"
+  },
+  {
+    "rank": 998,
+    "sfi": 59.63,
+    "term": "generation",
+    "definition": "people born and living at about the same time"
+  },
+  {
+    "rank": 999,
+    "sfi": 59.63,
+    "term": "estimate",
+    "definition": "guess or calculation of cost, size, or value"
+  },
+  {
+    "rank": 1000,
+    "sfi": 59.62,
+    "term": "favorite",
+    "definition": "most liked; best loved"
+  },
+  {
+    "rank": 1001,
+    "sfi": 59.62,
+    "term": "difficulty",
+    "definition": "something that is hard to do"
+  },
+  {
+    "rank": 1002,
+    "sfi": 59.61,
+    "term": "purchase",
+    "definition": "to buy something; to get by paying money for it"
+  },
+  {
+    "rank": 1003,
+    "sfi": 59.6,
+    "term": "shoot",
+    "definition": "to kick or throw a ball at a goal"
+  },
+  {
+    "rank": 1004,
+    "sfi": 59.6,
+    "term": "announce",
+    "definition": "to make a public statement about a plan, decision"
+  },
+  {
+    "rank": 1005,
+    "sfi": 59.6,
+    "term": "unless",
+    "definition": "negative of 'if'"
+  },
+  {
+    "rank": 1006,
+    "sfi": 59.59,
+    "term": "independent",
+    "definition": "making your own decisions; not controlled by others"
+  },
+  {
+    "rank": 1007,
+    "sfi": 59.58,
+    "term": "recommend",
+    "definition": "to say something is good and deserves to be chosen"
+  },
+  {
+    "rank": 1008,
+    "sfi": 59.58,
+    "term": "survey",
+    "definition": "to ask people a question about a particular topic"
+  },
+  {
+    "rank": 1009,
+    "sfi": 59.58,
+    "term": "majority",
+    "definition": "amount that is more than half of a group"
+  },
+  {
+    "rank": 1010,
+    "sfi": 59.57,
+    "term": "stick",
+    "definition": "long thin piece of wood from a tree"
+  },
+  {
+    "rank": 1011,
+    "sfi": 59.56,
+    "term": "request",
+    "definition": "to ask for something"
+  },
+  {
+    "rank": 1012,
+    "sfi": 59.54,
+    "term": "rich",
+    "definition": "having a lot of money, possessions, or resources"
+  },
+  {
+    "rank": 1013,
+    "sfi": 59.54,
+    "term": "wind",
+    "definition": "natural movement of outside air as part of the weather"
+  },
+  {
+    "rank": 1014,
+    "sfi": 59.53,
+    "term": "none",
+    "definition": "not one of a group; not at all or in no way"
+  },
+  {
+    "rank": 1015,
+    "sfi": 59.52,
+    "term": "exchange",
+    "definition": "to give things of similar value to each other"
+  },
+  {
+    "rank": 1016,
+    "sfi": 59.51,
+    "term": "budget",
+    "definition": "amount of money planned to be spent on something"
+  },
+  {
+    "rank": 1017,
+    "sfi": 59.51,
+    "term": "famous",
+    "definition": "widely known; recognized by many people"
+  },
+  {
+    "rank": 1018,
+    "sfi": 59.51,
+    "term": "blood",
+    "definition": "red liquid in the bodies of people and animals"
+  },
+  {
+    "rank": 1019,
+    "sfi": 59.51,
+    "term": "appropriate",
+    "definition": "right or suitable for some situation or purpose"
+  },
+  {
+    "rank": 1020,
+    "sfi": 59.51,
+    "term": "block",
+    "definition": "to stop from going forward or making progress"
+  },
+  {
+    "rank": 1021,
+    "sfi": 59.5,
+    "term": "warm",
+    "definition": "slightly hot; not very hot"
+  },
+  {
+    "rank": 1022,
+    "sfi": 59.5,
+    "term": "count",
+    "definition": "to add things together to find the total number"
+  },
+  {
+    "rank": 1023,
+    "sfi": 59.5,
+    "term": "scene",
+    "definition": "part of an act in a play"
+  },
+  {
+    "rank": 1024,
+    "sfi": 59.49,
+    "term": "writer",
+    "definition": "professional who writes books, articles, etc."
+  },
+  {
+    "rank": 1025,
+    "sfi": 59.49,
+    "term": "content",
+    "definition": "information in something (e.g., a book or computer program)"
+  },
+  {
+    "rank": 1026,
+    "sfi": 59.48,
+    "term": "prevent",
+    "definition": "to stop something from happening or existing"
+  },
+  {
+    "rank": 1027,
+    "sfi": 59.47,
+    "term": "safe",
+    "definition": "being out of danger"
+  },
+  {
+    "rank": 1028,
+    "sfi": 59.47,
+    "term": "invite",
+    "definition": "to ask someone to go somewhere or do something"
+  },
+  {
+    "rank": 1029,
+    "sfi": 59.46,
+    "term": "mix",
+    "definition": "to combine two or more things to make one"
+  },
+  {
+    "rank": 1030,
+    "sfi": 59.45,
+    "term": "element",
+    "definition": "essential or particular part of something"
+  },
+  {
+    "rank": 1031,
+    "sfi": 59.45,
+    "term": "effective",
+    "definition": "working efficiently to produce a desired result"
+  },
+  {
+    "rank": 1032,
+    "sfi": 59.45,
+    "term": "correct",
+    "definition": "true or accurate"
+  },
+  {
+    "rank": 1033,
+    "sfi": 59.43,
+    "term": "medical",
+    "definition": "of or relating to physical health or medicine"
+  },
+  {
+    "rank": 1034,
+    "sfi": 59.42,
+    "term": "admit",
+    "definition": "to agree that you did something bad, or that something bad is true"
+  },
+  {
+    "rank": 1035,
+    "sfi": 59.42,
+    "term": "beat",
+    "definition": "to win against another person or team; defeat"
+  },
+  {
+    "rank": 1036,
+    "sfi": 59.42,
+    "term": "telephone",
+    "definition": "machine used to talk to someone who is far away"
+  },
+  {
+    "rank": 1037,
+    "sfi": 59.41,
+    "term": "copy",
+    "definition": "to make something that looks the same as the original"
+  },
+  {
+    "rank": 1038,
+    "sfi": 59.4,
+    "term": "committee",
+    "definition": "group of people who do or decide something"
+  },
+  {
+    "rank": 1039,
+    "sfi": 59.4,
+    "term": "aware",
+    "definition": "knowing or feeling that something exists"
+  },
+  {
+    "rank": 1040,
+    "sfi": 59.4,
+    "term": "advice",
+    "definition": "suggestion about what someone should do"
+  },
+  {
+    "rank": 1041,
+    "sfi": 59.39,
+    "term": "handle",
+    "definition": "to have the ability to cope with or take responsibility for"
+  },
+  {
+    "rank": 1042,
+    "sfi": 59.39,
+    "term": "glass",
+    "definition": "hard transparent material used for making windows"
+  },
+  {
+    "rank": 1043,
+    "sfi": 59.38,
+    "term": "trial",
+    "definition": "concerning or used in a trial"
+  },
+  {
+    "rank": 1044,
+    "sfi": 59.38,
+    "term": "stress",
+    "definition": "to be in a state of mental tension due to problems"
+  },
+  {
+    "rank": 1045,
+    "sfi": 59.37,
+    "term": "radio",
+    "definition": "system for sending and receiving signals through the air"
+  },
+  {
+    "rank": 1046,
+    "sfi": 59.36,
+    "term": "administration",
+    "definition": "the work of running something (e.g., a business)"
+  },
+  {
+    "rank": 1047,
+    "sfi": 59.36,
+    "term": "complex",
+    "definition": "difficult, not easy to understand or explain"
+  },
+  {
+    "rank": 1048,
+    "sfi": 59.35,
+    "term": "text",
+    "definition": "written part of a book or other work"
+  },
+  {
+    "rank": 1049,
+    "sfi": 59.35,
+    "term": "context",
+    "definition": "set of facts surrounding a person or event"
+  },
+  {
+    "rank": 1050,
+    "sfi": 59.34,
+    "term": "ride",
+    "definition": "to sit on and control a horse or vehicle"
+  },
+  {
+    "rank": 1051,
+    "sfi": 59.34,
+    "term": "directly",
+    "definition": "in a frank and honest way"
+  },
+  {
+    "rank": 1052,
+    "sfi": 59.34,
+    "term": "heavy",
+    "definition": "having a lot of weight"
+  },
+  {
+    "rank": 1053,
+    "sfi": 59.33,
+    "term": "remove",
+    "definition": "to move, erase or take away from a place"
+  },
+  {
+    "rank": 1054,
+    "sfi": 59.33,
+    "term": "conduct",
+    "definition": "to direct, lead or guide something"
+  },
+  {
+    "rank": 1055,
+    "sfi": 59.33,
+    "term": "equipment",
+    "definition": "tools or materials used to perform a task"
+  },
+  {
+    "rank": 1056,
+    "sfi": 59.33,
+    "term": "otherwise",
+    "definition": "indicates that there will be a bad result if something is done, not done, or done improperly"
+  },
+  {
+    "rank": 1057,
+    "sfi": 59.32,
+    "term": "title",
+    "definition": "name given to something to identify or describe it"
+  },
+  {
+    "rank": 1058,
+    "sfi": 59.31,
+    "term": "extra",
+    "definition": "more than necessary; additional"
+  },
+  {
+    "rank": 1059,
+    "sfi": 59.31,
+    "term": "executive",
+    "definition": "a senior manager in a business or organization"
+  },
+  {
+    "rank": 1060,
+    "sfi": 59.31,
+    "term": "chair",
+    "definition": "a piece of furniture you sit on when sitting at a table or desk"
+  },
+  {
+    "rank": 1061,
+    "sfi": 59.31,
+    "term": "expensive",
+    "definition": "costing a lot of money"
+  },
+  {
+    "rank": 1062,
+    "sfi": 59.3,
+    "term": "sample",
+    "definition": "to try something to see if you like it (e.g., food)"
+  },
+  {
+    "rank": 1063,
+    "sfi": 59.3,
+    "term": "sex",
+    "definition": "state of being male or female mostly biological"
+  },
+  {
+    "rank": 1064,
+    "sfi": 59.29,
+    "term": "deliver",
+    "definition": "to take something to a person or place"
+  },
+  {
+    "rank": 1065,
+    "sfi": 59.29,
+    "term": "video",
+    "definition": "recording capturing action with sound"
+  },
+  {
+    "rank": 1066,
+    "sfi": 59.29,
+    "term": "connection",
+    "definition": "something that joins things together; being joined"
+  },
+  {
+    "rank": 1067,
+    "sfi": 59.28,
+    "term": "primary",
+    "definition": "most important, most basic or essential"
+  },
+  {
+    "rank": 1068,
+    "sfi": 59.27,
+    "term": "weather",
+    "definition": "whether it is raining, sunny, cold, etc., outside"
+  },
+  {
+    "rank": 1069,
+    "sfi": 59.27,
+    "term": "collect",
+    "definition": "to gather things/people together in one place"
+  },
+  {
+    "rank": 1070,
+    "sfi": 59.25,
+    "term": "inform",
+    "definition": "to give information or facts about something"
+  },
+  {
+    "rank": 1071,
+    "sfi": 59.25,
+    "term": "principle",
+    "definition": "strong belief that influences a person's actions; basic law or belief"
+  },
+  {
+    "rank": 1072,
+    "sfi": 59.24,
+    "term": "straight",
+    "definition": "not having curves, bends, or angles"
+  },
+  {
+    "rank": 1073,
+    "sfi": 59.24,
+    "term": "appeal",
+    "definition": "to request a judge or others change a decision"
+  },
+  {
+    "rank": 1074,
+    "sfi": 59.24,
+    "term": "highly",
+    "definition": "more than usual; to a great degree"
+  },
+  {
+    "rank": 1075,
+    "sfi": 59.24,
+    "term": "trust",
+    "definition": "to be confident that someone is honest and reliable"
+  },
+  {
+    "rank": 1076,
+    "sfi": 59.23,
+    "term": "wonderful",
+    "definition": "producing feelings of enjoyment or delight"
+  },
+  {
+    "rank": 1077,
+    "sfi": 59.23,
+    "term": "flat",
+    "definition": "level; even; without curves or bumps"
+  },
+  {
+    "rank": 1078,
+    "sfi": 59.22,
+    "term": "absolutely",
+    "definition": "completely; totally; very"
+  },
+  {
+    "rank": 1079,
+    "sfi": 59.22,
+    "term": "flow",
+    "definition": "to move steadily and easily in a certain direction"
+  },
+  {
+    "rank": 1080,
+    "sfi": 59.22,
+    "term": "fair",
+    "definition": "treating all people the same way"
+  },
+  {
+    "rank": 1081,
+    "sfi": 59.21,
+    "term": "additional",
+    "definition": "further or added"
+  },
+  {
+    "rank": 1082,
+    "sfi": 59.21,
+    "term": "responsible",
+    "definition": "having the duty of dealing with something; being the cause or creator of something; behaving in a mature and reasonable manner"
+  },
+  {
+    "rank": 1083,
+    "sfi": 59.2,
+    "term": "farm",
+    "definition": "land used for growing crops or raising animals"
+  },
+  {
+    "rank": 1084,
+    "sfi": 59.2,
+    "term": "collection",
+    "definition": "group of similar things gathered as a hobby"
+  },
+  {
+    "rank": 1085,
+    "sfi": 59.19,
+    "term": "hang",
+    "definition": "to attach a picture, photograph, etc., onto a wall"
+  },
+  {
+    "rank": 1086,
+    "sfi": 59.18,
+    "term": "negative",
+    "definition": "being harmful, unwanted, or unhelpful"
+  },
+  {
+    "rank": 1087,
+    "sfi": 59.18,
+    "term": "band",
+    "definition": "group of people who work together (e.g., play music)"
+  },
+  {
+    "rank": 1088,
+    "sfi": 59.17,
+    "term": "relative",
+    "definition": "measured or considered in comparison to something else"
+  },
+  {
+    "rank": 1089,
+    "sfi": 59.17,
+    "term": "tour",
+    "definition": "a journey to visit several places for pleasure"
+  },
+  {
+    "rank": 1090,
+    "sfi": 59.17,
+    "term": "alternative",
+    "definition": "other choices"
+  },
+  {
+    "rank": 1091,
+    "sfi": 59.17,
+    "term": "software",
+    "definition": "market for software is expected to expand"
+  },
+  {
+    "rank": 1092,
+    "sfi": 59.16,
+    "term": "pair",
+    "definition": "two of the same thing (e.g., socks)"
+  },
+  {
+    "rank": 1093,
+    "sfi": 59.16,
+    "term": "ship",
+    "definition": "large boat"
+  },
+  {
+    "rank": 1094,
+    "sfi": 59.14,
+    "term": "attitude",
+    "definition": "way you act, think, and feel about something"
+  },
+  {
+    "rank": 1095,
+    "sfi": 59.14,
+    "term": "cheap",
+    "definition": "not costing a lot of money"
+  },
+  {
+    "rank": 1096,
+    "sfi": 59.14,
+    "term": "double",
+    "definition": "two times the amount or degree; twice"
+  },
+  {
+    "rank": 1097,
+    "sfi": 59.13,
+    "term": "leg",
+    "definition": "part of the body from the thigh down"
+  },
+  {
+    "rank": 1098,
+    "sfi": 59.13,
+    "term": "observe",
+    "definition": "to watch carefully; to make a comment"
+  },
+  {
+    "rank": 1099,
+    "sfi": 59.13,
+    "term": "sentence",
+    "definition": "set of spoken or written words that make a whole statement"
+  },
+  {
+    "rank": 1100,
+    "sfi": 59.12,
+    "term": "print",
+    "definition": "to make many copies of a page, magazine, or book"
+  },
+  {
+    "rank": 1101,
+    "sfi": 59.12,
+    "term": "progress",
+    "definition": "to move forward or toward a place or goal"
+  },
+  {
+    "rank": 1102,
+    "sfi": 59.11,
+    "term": "truth",
+    "definition": "real facts about something"
+  },
+  {
+    "rank": 1103,
+    "sfi": 59.11,
+    "term": "nobody",
+    "definition": "no person; no one; not any person"
+  },
+  {
+    "rank": 1104,
+    "sfi": 59.1,
+    "term": "examine",
+    "definition": "to look at someone or something very carefully in order to learn more"
+  },
+  {
+    "rank": 1105,
+    "sfi": 59.1,
+    "term": "lay",
+    "definition": "to put or set something down in a flat position"
+  },
+  {
+    "rank": 1106,
+    "sfi": 59.09,
+    "term": "speed",
+    "definition": "quality of being fast or quick"
+  },
+  {
+    "rank": 1107,
+    "sfi": 59.09,
+    "term": "politics",
+    "definition": "activities influencing the policies of a government"
+  },
+  {
+    "rank": 1108,
+    "sfi": 59.08,
+    "term": "reply",
+    "definition": "answer someone's question"
+  },
+  {
+    "rank": 1109,
+    "sfi": 59.08,
+    "term": "display",
+    "definition": "to put so they can be seen or be bought"
+  },
+  {
+    "rank": 1110,
+    "sfi": 59.08,
+    "term": "transfer",
+    "definition": "to move something from one place to another"
+  },
+  {
+    "rank": 1111,
+    "sfi": 59.07,
+    "term": "perfect",
+    "definition": "so good it/they cannot be improved"
+  },
+  {
+    "rank": 1112,
+    "sfi": 59.07,
+    "term": "slightly",
+    "definition": "concerning a small quantity or degree"
+  },
+  {
+    "rank": 1113,
+    "sfi": 59.07,
+    "term": "overall",
+    "definition": "viewed as a whole; in general, not as details"
+  },
+  {
+    "rank": 1114,
+    "sfi": 59.06,
+    "term": "intend",
+    "definition": "to plan or want to do something"
+  },
+  {
+    "rank": 1115,
+    "sfi": 59.05,
+    "term": "user",
+    "definition": "person that uses a service or thing (e.g., a website)"
+  },
+  {
+    "rank": 1116,
+    "sfi": 59.05,
+    "term": "respond",
+    "definition": "to say or write to answer the question"
+  },
+  {
+    "rank": 1117,
+    "sfi": 59.04,
+    "term": "dinner",
+    "definition": "main meal of the day, usually in the evening in the us"
+  },
+  {
+    "rank": 1118,
+    "sfi": 59.04,
+    "term": "slow",
+    "definition": "moving or happening without speed; not fast"
+  },
+  {
+    "rank": 1119,
+    "sfi": 59.04,
+    "term": "regular",
+    "definition": "occurring or being done frequently"
+  },
+  {
+    "rank": 1120,
+    "sfi": 59.04,
+    "term": "physical",
+    "definition": "concerning the body of a person"
+  },
+  {
+    "rank": 1121,
+    "sfi": 59.02,
+    "term": "apart",
+    "definition": "separated by an amount of time or space"
+  },
+  {
+    "rank": 1122,
+    "sfi": 59.01,
+    "term": "suit",
+    "definition": "to be appropriate for a given situation"
+  },
+  {
+    "rank": 1123,
+    "sfi": 59.01,
+    "term": "federal",
+    "definition": "system of government"
+  },
+  {
+    "rank": 1124,
+    "sfi": 59.01,
+    "term": "reveal",
+    "definition": "to make known, to show or prove"
+  },
+  {
+    "rank": 1125,
+    "sfi": 59.0,
+    "term": "percentage",
+    "definition": "part of a whole divided into hundredths"
+  },
+  {
+    "rank": 1126,
+    "sfi": 58.99,
+    "term": "peace",
+    "definition": "time when there is no war or fighting"
+  },
+  {
+    "rank": 1127,
+    "sfi": 58.99,
+    "term": "status",
+    "definition": "position or rank relative to others in a society"
+  },
+  {
+    "rank": 1128,
+    "sfi": 58.98,
+    "term": "crime",
+    "definition": "act that is against the law; murder, theft, etc."
+  },
+  {
+    "rank": 1129,
+    "sfi": 58.97,
+    "term": "decline",
+    "definition": "to not accept an invitation or offer; refuse"
+  },
+  {
+    "rank": 1130,
+    "sfi": 58.97,
+    "term": "decade",
+    "definition": "period of 10 years"
+  },
+  {
+    "rank": 1131,
+    "sfi": 58.97,
+    "term": "launch",
+    "definition": "to put a rocket into the air; put a ship into the water"
+  },
+  {
+    "rank": 1132,
+    "sfi": 58.96,
+    "term": "warn",
+    "definition": "to tell someone about possible danger"
+  },
+  {
+    "rank": 1133,
+    "sfi": 58.96,
+    "term": "consumer",
+    "definition": "person who uses goods or services; individual buyer"
+  },
+  {
+    "rank": 1134,
+    "sfi": 58.96,
+    "term": "favor",
+    "definition": "helpful act of kindness"
+  },
+  {
+    "rank": 1135,
+    "sfi": 58.95,
+    "term": "dry",
+    "definition": "without water; not wet"
+  },
+  {
+    "rank": 1136,
+    "sfi": 58.95,
+    "term": "partner",
+    "definition": "someone you have a business or personal relationship with"
+  },
+  {
+    "rank": 1137,
+    "sfi": 58.95,
+    "term": "institution",
+    "definition": "organization created for a particular cause or purpose"
+  },
+  {
+    "rank": 1138,
+    "sfi": 58.94,
+    "term": "spot",
+    "definition": "see someone by chance"
+  },
+  {
+    "rank": 1139,
+    "sfi": 58.94,
+    "term": "horse",
+    "definition": "large animal with 4 legs used for riding"
+  },
+  {
+    "rank": 1140,
+    "sfi": 58.93,
+    "term": "eventually",
+    "definition": "finally"
+  },
+  {
+    "rank": 1141,
+    "sfi": 58.93,
+    "term": "heat",
+    "definition": "to make hot or hotter"
+  },
+  {
+    "rank": 1142,
+    "sfi": 58.92,
+    "term": "excite",
+    "definition": "to make someone feel happy, interested, or eager"
+  },
+  {
+    "rank": 1143,
+    "sfi": 58.92,
+    "term": "reader",
+    "definition": "person who reads written or printed materials"
+  },
+  {
+    "rank": 1144,
+    "sfi": 58.91,
+    "term": "importance",
+    "definition": "being important; having a big effect on"
+  },
+  {
+    "rank": 1145,
+    "sfi": 58.9,
+    "term": "distance",
+    "definition": "amount of space between two places or things"
+  },
+  {
+    "rank": 1146,
+    "sfi": 58.9,
+    "term": "guide",
+    "definition": "to lead people visiting a new or unknown place"
+  },
+  {
+    "rank": 1147,
+    "sfi": 58.9,
+    "term": "grant",
+    "definition": "to give or let someone do what they want"
+  },
+  {
+    "rank": 1148,
+    "sfi": 58.89,
+    "term": "taxi",
+    "definition": "car that transports people for money"
+  },
+  {
+    "rank": 1149,
+    "sfi": 58.89,
+    "term": "feed",
+    "definition": "to give food (e.g., to an animal or a baby)"
+  },
+  {
+    "rank": 1150,
+    "sfi": 58.89,
+    "term": "pain",
+    "definition": "strong feeling of hurt or discomfort"
+  },
+  {
+    "rank": 1151,
+    "sfi": 58.87,
+    "term": "sector",
+    "definition": "area that includes certain kinds of job"
+  },
+  {
+    "rank": 1152,
+    "sfi": 58.87,
+    "term": "mistake",
+    "definition": "something done wrong, calculated wrong.; error"
+  },
+  {
+    "rank": 1153,
+    "sfi": 58.86,
+    "term": "ensure",
+    "definition": "to make something sure, certain, or safe"
+  },
+  {
+    "rank": 1154,
+    "sfi": 58.85,
+    "term": "satisfy",
+    "definition": "to be happy because you met your expectation"
+  },
+  {
+    "rank": 1155,
+    "sfi": 58.85,
+    "term": "chief",
+    "definition": "most important one"
+  },
+  {
+    "rank": 1156,
+    "sfi": 58.85,
+    "term": "cool",
+    "definition": "almost cold; not warm or hot"
+  },
+  {
+    "rank": 1157,
+    "sfi": 58.84,
+    "term": "expert",
+    "definition": "skillful person with special knowledge"
+  },
+  {
+    "rank": 1158,
+    "sfi": 58.84,
+    "term": "wave",
+    "definition": "to move your hand or arm to say hello or goodbye"
+  },
+  {
+    "rank": 1159,
+    "sfi": 58.84,
+    "term": "south",
+    "definition": "direction that is the opposite of north"
+  },
+  {
+    "rank": 1160,
+    "sfi": 58.83,
+    "term": "labor",
+    "definition": "to work hard (often physically) for many hours"
+  },
+  {
+    "rank": 1161,
+    "sfi": 58.83,
+    "term": "surface",
+    "definition": "of the top layer; superficial"
+  },
+  {
+    "rank": 1162,
+    "sfi": 58.82,
+    "term": "library",
+    "definition": "place where books and other media are kept"
+  },
+  {
+    "rank": 1163,
+    "sfi": 58.81,
+    "term": "excellent",
+    "definition": "extremely good"
+  },
+  {
+    "rank": 1164,
+    "sfi": 58.81,
+    "term": "edge",
+    "definition": "boundary of a surface"
+  },
+  {
+    "rank": 1165,
+    "sfi": 58.81,
+    "term": "camp",
+    "definition": "place where people live for a short time in tents"
+  },
+  {
+    "rank": 1166,
+    "sfi": 58.8,
+    "term": "audience",
+    "definition": "group of people listening, watch a play, movie, etc."
+  },
+  {
+    "rank": 1167,
+    "sfi": 58.8,
+    "term": "lift",
+    "definition": "to move something to higher position"
+  },
+  {
+    "rank": 1168,
+    "sfi": 58.79,
+    "term": "procedure",
+    "definition": "usual or standard way in which something is done"
+  },
+  {
+    "rank": 1169,
+    "sfi": 58.79,
+    "term": "email",
+    "definition": ""
+  },
+  {
+    "rank": 1170,
+    "sfi": 58.79,
+    "term": "global",
+    "definition": "concerning, affecting, or involving the entire world"
+  },
+  {
+    "rank": 1171,
+    "sfi": 58.79,
+    "term": "struggle",
+    "definition": "to try very hard to do something difficult"
+  },
+  {
+    "rank": 1172,
+    "sfi": 58.77,
+    "term": "advertise",
+    "definition": "to show how good a product is, to make people buy"
+  },
+  {
+    "rank": 1173,
+    "sfi": 58.76,
+    "term": "select",
+    "definition": "to choose from a group, something most suitable"
+  },
+  {
+    "rank": 1174,
+    "sfi": 58.75,
+    "term": "surround",
+    "definition": "to be on every side of something"
+  },
+  {
+    "rank": 1175,
+    "sfi": 58.74,
+    "term": "extent",
+    "definition": "range or space included in something"
+  },
+  {
+    "rank": 1176,
+    "sfi": 58.73,
+    "term": "river",
+    "definition": "flowing water that runs from mountains to the sea"
+  },
+  {
+    "rank": 1177,
+    "sfi": 58.73,
+    "term": "annual",
+    "definition": "happening once a year, or every year"
+  },
+  {
+    "rank": 1178,
+    "sfi": 58.73,
+    "term": "fully",
+    "definition": "completely or entirely"
+  },
+  {
+    "rank": 1179,
+    "sfi": 58.72,
+    "term": "contrast",
+    "definition": "to compare; to show clear, obvious differences"
+  },
+  {
+    "rank": 1180,
+    "sfi": 58.71,
+    "term": "roll",
+    "definition": "to move along a surface by turning many times"
+  },
+  {
+    "rank": 1181,
+    "sfi": 58.71,
+    "term": "reality",
+    "definition": "what is true, as opposed to what is imagined"
+  },
+  {
+    "rank": 1182,
+    "sfi": 58.7,
+    "term": "photograph",
+    "definition": "a picture made with a camera that shows how things look in real life"
+  },
+  {
+    "rank": 1183,
+    "sfi": 58.69,
+    "term": "artist",
+    "definition": "a person who is skilled and creative in art, such as a painter"
+  },
+  {
+    "rank": 1184,
+    "sfi": 58.69,
+    "term": "conflict",
+    "definition": "to have opposite ideas; to disagree; to not match"
+  },
+  {
+    "rank": 1185,
+    "sfi": 58.69,
+    "term": "entire",
+    "definition": "complete or full; with no part left out; whole"
+  },
+  {
+    "rank": 1186,
+    "sfi": 58.69,
+    "term": "presence",
+    "definition": "fact that someone or something is in a particular place"
+  },
+  {
+    "rank": 1187,
+    "sfi": 58.69,
+    "term": "crowd",
+    "definition": "large group of people together in one place"
+  },
+  {
+    "rank": 1188,
+    "sfi": 58.69,
+    "term": "corner",
+    "definition": "place where two lines, sides, corners, etc., meet"
+  },
+  {
+    "rank": 1189,
+    "sfi": 58.69,
+    "term": "gas",
+    "definition": "elements in our air, like oxygen or nitrogen"
+  },
+  {
+    "rank": 1190,
+    "sfi": 58.68,
+    "term": "shift",
+    "definition": "to change in position or direction"
+  },
+  {
+    "rank": 1191,
+    "sfi": 58.68,
+    "term": "net",
+    "definition": "material made of string tied together and used to catch fish or other small animals"
+  },
+  {
+    "rank": 1192,
+    "sfi": 58.68,
+    "term": "category",
+    "definition": "groups of things that are similar in some way"
+  },
+  {
+    "rank": 1193,
+    "sfi": 58.68,
+    "term": "secretary",
+    "definition": "an employee who does general office work for another person in the office"
+  },
+  {
+    "rank": 1194,
+    "sfi": 58.68,
+    "term": "defense",
+    "definition": "process of protecting something from attack"
+  },
+  {
+    "rank": 1195,
+    "sfi": 58.67,
+    "term": "quick",
+    "definition": "using very little time; moving far in little time"
+  },
+  {
+    "rank": 1196,
+    "sfi": 58.67,
+    "term": "cook",
+    "definition": "to heat food until it is ready to eat"
+  },
+  {
+    "rank": 1197,
+    "sfi": 58.66,
+    "term": "spread",
+    "definition": "to place something over or cover a large area"
+  },
+  {
+    "rank": 1198,
+    "sfi": 58.66,
+    "term": "nuclear",
+    "definition": "concerning or involving the center of an atom"
+  },
+  {
+    "rank": 1199,
+    "sfi": 58.66,
+    "term": "scale",
+    "definition": "a device that is used to weigh a person or thing"
+  },
+  {
+    "rank": 1200,
+    "sfi": 58.66,
+    "term": "driver",
+    "definition": "someone who operates a vehicle"
+  }
+]

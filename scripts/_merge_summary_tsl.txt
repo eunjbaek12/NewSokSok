@@ -1,0 +1,4 @@
+[TSL] 병합 완료: 600개
+  Wiktionary 한국어: 127개 (21%)
+  AI 대체:          473개 (79%)
+  출력: C:\Users\kimos\OneDrive\문서\repositories\NewSokSok\scripts\tsl-merged.json

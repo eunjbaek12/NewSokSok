@@ -1,0 +1,5744 @@
+[
+  {
+    "rank": 1,
+    "sfi": 72.452,
+    "term": "repertoire",
+    "definition": ""
+  },
+  {
+    "rank": 2,
+    "sfi": 66.519,
+    "term": "obtain",
+    "definition": ""
+  },
+  {
+    "rank": 3,
+    "sfi": 65.665,
+    "term": "distribution",
+    "definition": ""
+  },
+  {
+    "rank": 4,
+    "sfi": 64.369,
+    "term": "parameter",
+    "definition": ""
+  },
+  {
+    "rank": 5,
+    "sfi": 64.19,
+    "term": "aspect",
+    "definition": ""
+  },
+  {
+    "rank": 6,
+    "sfi": 63.506,
+    "term": "dynamic",
+    "definition": ""
+  },
+  {
+    "rank": 7,
+    "sfi": 63.491,
+    "term": "impact",
+    "definition": ""
+  },
+  {
+    "rank": 8,
+    "sfi": 63.467,
+    "term": "domain",
+    "definition": ""
+  },
+  {
+    "rank": 9,
+    "sfi": 62.897,
+    "term": "publish",
+    "definition": ""
+  },
+  {
+    "rank": 10,
+    "sfi": 62.571,
+    "term": "denote",
+    "definition": ""
+  },
+  {
+    "rank": 11,
+    "sfi": 62.502,
+    "term": "authority",
+    "definition": ""
+  },
+  {
+    "rank": 12,
+    "sfi": 62.38,
+    "term": "semantic",
+    "definition": ""
+  },
+  {
+    "rank": 13,
+    "sfi": 62.339,
+    "term": "par",
+    "definition": ""
+  },
+  {
+    "rank": 14,
+    "sfi": 62.179,
+    "term": "ion",
+    "definition": ""
+  },
+  {
+    "rank": 15,
+    "sfi": 62.166,
+    "term": "matrix",
+    "definition": ""
+  },
+  {
+    "rank": 16,
+    "sfi": 62.119,
+    "term": "linear",
+    "definition": ""
+  },
+  {
+    "rank": 17,
+    "sfi": 62.068,
+    "term": "cognitive",
+    "definition": ""
+  },
+  {
+    "rank": 18,
+    "sfi": 61.814,
+    "term": "graph",
+    "definition": ""
+  },
+  {
+    "rank": 19,
+    "sfi": 61.761,
+    "term": "correlation",
+    "definition": ""
+  },
+  {
+    "rank": 20,
+    "sfi": 61.741,
+    "term": "linguistic",
+    "definition": ""
+  },
+  {
+    "rank": 21,
+    "sfi": 61.719,
+    "term": "acid",
+    "definition": ""
+  },
+  {
+    "rank": 22,
+    "sfi": 61.652,
+    "term": "induce",
+    "definition": ""
+  },
+  {
+    "rank": 23,
+    "sfi": 61.636,
+    "term": "velocity",
+    "definition": ""
+  },
+  {
+    "rank": 24,
+    "sfi": 61.62,
+    "term": "interval",
+    "definition": ""
+  },
+  {
+    "rank": 25,
+    "sfi": 61.513,
+    "term": "discourse",
+    "definition": ""
+  },
+  {
+    "rank": 26,
+    "sfi": 61.478,
+    "term": "finite",
+    "definition": ""
+  },
+  {
+    "rank": 27,
+    "sfi": 61.442,
+    "term": "stimulus",
+    "definition": ""
+  },
+  {
+    "rank": 28,
+    "sfi": 61.431,
+    "term": "vector",
+    "definition": ""
+  },
+  {
+    "rank": 29,
+    "sfi": 61.413,
+    "term": "electron",
+    "definition": ""
+  },
+  {
+    "rank": 30,
+    "sfi": 61.36,
+    "term": "receptor",
+    "definition": ""
+  },
+  {
+    "rank": 31,
+    "sfi": 61.319,
+    "term": "theorem",
+    "definition": ""
+  },
+  {
+    "rank": 32,
+    "sfi": 61.252,
+    "term": "algorithm",
+    "definition": ""
+  },
+  {
+    "rank": 33,
+    "sfi": 61.211,
+    "term": "fluid",
+    "definition": ""
+  },
+  {
+    "rank": 34,
+    "sfi": 61.171,
+    "term": "developmental",
+    "definition": ""
+  },
+  {
+    "rank": 35,
+    "sfi": 61.142,
+    "term": "bound",
+    "definition": ""
+  },
+  {
+    "rank": 36,
+    "sfi": 61.019,
+    "term": "molecular",
+    "definition": ""
+  },
+  {
+    "rank": 37,
+    "sfi": 60.981,
+    "term": "transformation",
+    "definition": ""
+  },
+  {
+    "rank": 38,
+    "sfi": 60.886,
+    "term": "spatial",
+    "definition": ""
+  },
+  {
+    "rank": 39,
+    "sfi": 60.834,
+    "term": "coefficient",
+    "definition": ""
+  },
+  {
+    "rank": 40,
+    "sfi": 60.695,
+    "term": "translation",
+    "definition": ""
+  },
+  {
+    "rank": 41,
+    "sfi": 60.675,
+    "term": "membrane",
+    "definition": ""
+  },
+  {
+    "rank": 42,
+    "sfi": 60.646,
+    "term": "neuron",
+    "definition": ""
+  },
+  {
+    "rank": 43,
+    "sfi": 60.642,
+    "term": "simulation",
+    "definition": ""
+  },
+  {
+    "rank": 44,
+    "sfi": 60.617,
+    "term": "lexical",
+    "definition": ""
+  },
+  {
+    "rank": 45,
+    "sfi": 60.528,
+    "term": "regime",
+    "definition": ""
+  },
+  {
+    "rank": 46,
+    "sfi": 60.343,
+    "term": "variance",
+    "definition": ""
+  },
+  {
+    "rank": 47,
+    "sfi": 60.305,
+    "term": "molecule",
+    "definition": ""
+  },
+  {
+    "rank": 48,
+    "sfi": 60.234,
+    "term": "marker",
+    "definition": ""
+  },
+  {
+    "rank": 49,
+    "sfi": 60.149,
+    "term": "empirical",
+    "definition": ""
+  },
+  {
+    "rank": 50,
+    "sfi": 60.055,
+    "term": "robot",
+    "definition": ""
+  },
+  {
+    "rank": 51,
+    "sfi": 60.0,
+    "term": "statistical",
+    "definition": ""
+  },
+  {
+    "rank": 52,
+    "sfi": 59.968,
+    "term": "vowel",
+    "definition": ""
+  },
+  {
+    "rank": 53,
+    "sfi": 59.952,
+    "term": "equilibrium",
+    "definition": ""
+  },
+  {
+    "rank": 54,
+    "sfi": 59.938,
+    "term": "intensity",
+    "definition": ""
+  },
+  {
+    "rank": 55,
+    "sfi": 59.918,
+    "term": "regression",
+    "definition": ""
+  },
+  {
+    "rank": 56,
+    "sfi": 59.844,
+    "term": "diagnosis",
+    "definition": ""
+  },
+  {
+    "rank": 57,
+    "sfi": 59.821,
+    "term": "identification",
+    "definition": ""
+  },
+  {
+    "rank": 58,
+    "sfi": 59.781,
+    "term": "node",
+    "definition": ""
+  },
+  {
+    "rank": 59,
+    "sfi": 59.709,
+    "term": "partial",
+    "definition": ""
+  },
+  {
+    "rank": 60,
+    "sfi": 59.679,
+    "term": "correlate",
+    "definition": ""
+  },
+  {
+    "rank": 61,
+    "sfi": 59.671,
+    "term": "mortality",
+    "definition": ""
+  },
+  {
+    "rank": 62,
+    "sfi": 59.649,
+    "term": "antibody",
+    "definition": ""
+  },
+  {
+    "rank": 63,
+    "sfi": 59.611,
+    "term": "temporal",
+    "definition": ""
+  },
+  {
+    "rank": 64,
+    "sfi": 59.587,
+    "term": "particle",
+    "definition": ""
+  },
+  {
+    "rank": 65,
+    "sfi": 59.577,
+    "term": "duration",
+    "definition": ""
+  },
+  {
+    "rank": 66,
+    "sfi": 59.549,
+    "term": "behavioral",
+    "definition": ""
+  },
+  {
+    "rank": 67,
+    "sfi": 59.545,
+    "term": "consumption",
+    "definition": ""
+  },
+  {
+    "rank": 68,
+    "sfi": 59.488,
+    "term": "bilingual",
+    "definition": ""
+  },
+  {
+    "rank": 69,
+    "sfi": 59.471,
+    "term": "sensitivity",
+    "definition": ""
+  },
+  {
+    "rank": 70,
+    "sfi": 59.459,
+    "term": "similarity",
+    "definition": ""
+  },
+  {
+    "rank": 71,
+    "sfi": 59.411,
+    "term": "optimal",
+    "definition": ""
+  },
+  {
+    "rank": 72,
+    "sfi": 59.389,
+    "term": "explicit",
+    "definition": ""
+  },
+  {
+    "rank": 73,
+    "sfi": 59.374,
+    "term": "mutation",
+    "definition": ""
+  },
+  {
+    "rank": 74,
+    "sfi": 59.37,
+    "term": "colonial",
+    "definition": ""
+  },
+  {
+    "rank": 75,
+    "sfi": 59.327,
+    "term": "spectrum",
+    "definition": ""
+  },
+  {
+    "rank": 76,
+    "sfi": 59.327,
+    "term": "phonological",
+    "definition": ""
+  },
+  {
+    "rank": 77,
+    "sfi": 59.324,
+    "term": "nucleus",
+    "definition": ""
+  },
+  {
+    "rank": 78,
+    "sfi": 59.314,
+    "term": "onset",
+    "definition": ""
+  },
+  {
+    "rank": 79,
+    "sfi": 59.263,
+    "term": "integration",
+    "definition": ""
+  },
+  {
+    "rank": 80,
+    "sfi": 59.25,
+    "term": "dominant",
+    "definition": ""
+  },
+  {
+    "rank": 81,
+    "sfi": 59.216,
+    "term": "pathway",
+    "definition": ""
+  },
+  {
+    "rank": 82,
+    "sfi": 59.192,
+    "term": "coordinate",
+    "definition": ""
+  },
+  {
+    "rank": 83,
+    "sfi": 59.182,
+    "term": "calculation",
+    "definition": ""
+  },
+  {
+    "rank": 84,
+    "sfi": 59.163,
+    "term": "precede",
+    "definition": ""
+  },
+  {
+    "rank": 85,
+    "sfi": 59.149,
+    "term": "subset",
+    "definition": ""
+  },
+  {
+    "rank": 86,
+    "sfi": 59.143,
+    "term": "syntactic",
+    "definition": ""
+  },
+  {
+    "rank": 87,
+    "sfi": 59.133,
+    "term": "orientation",
+    "definition": ""
+  },
+  {
+    "rank": 88,
+    "sfi": 59.126,
+    "term": "proposition",
+    "definition": ""
+  },
+  {
+    "rank": 89,
+    "sfi": 59.111,
+    "term": "inequality",
+    "definition": ""
+  },
+  {
+    "rank": 90,
+    "sfi": 59.107,
+    "term": "identical",
+    "definition": ""
+  },
+  {
+    "rank": 91,
+    "sfi": 59.103,
+    "term": "prevalence",
+    "definition": ""
+  },
+  {
+    "rank": 92,
+    "sfi": 59.041,
+    "term": "differential",
+    "definition": ""
+  },
+  {
+    "rank": 93,
+    "sfi": 59.029,
+    "term": "generalize",
+    "definition": ""
+  },
+  {
+    "rank": 94,
+    "sfi": 59.017,
+    "term": "beam",
+    "definition": ""
+  },
+  {
+    "rank": 95,
+    "sfi": 59.014,
+    "term": "pulse",
+    "definition": ""
+  },
+  {
+    "rank": 96,
+    "sfi": 59.005,
+    "term": "norm",
+    "definition": ""
+  },
+  {
+    "rank": 97,
+    "sfi": 58.974,
+    "term": "trait",
+    "definition": ""
+  },
+  {
+    "rank": 98,
+    "sfi": 58.96,
+    "term": "prediction",
+    "definition": ""
+  },
+  {
+    "rank": 99,
+    "sfi": 58.943,
+    "term": "correspondence",
+    "definition": ""
+  },
+  {
+    "rank": 100,
+    "sfi": 58.934,
+    "term": "essentially",
+    "definition": ""
+  },
+  {
+    "rank": 101,
+    "sfi": 58.821,
+    "term": "syllable",
+    "definition": ""
+  },
+  {
+    "rank": 102,
+    "sfi": 58.774,
+    "term": "chromosome",
+    "definition": ""
+  },
+  {
+    "rank": 103,
+    "sfi": 58.764,
+    "term": "infect",
+    "definition": ""
+  },
+  {
+    "rank": 104,
+    "sfi": 58.756,
+    "term": "magnetic",
+    "definition": ""
+  },
+  {
+    "rank": 105,
+    "sfi": 58.755,
+    "term": "configuration",
+    "definition": ""
+  },
+  {
+    "rank": 106,
+    "sfi": 58.742,
+    "term": "numerical",
+    "definition": ""
+  },
+  {
+    "rank": 107,
+    "sfi": 58.728,
+    "term": "namely",
+    "definition": ""
+  },
+  {
+    "rank": 108,
+    "sfi": 58.719,
+    "term": "intermediate",
+    "definition": ""
+  },
+  {
+    "rank": 109,
+    "sfi": 58.718,
+    "term": "transmission",
+    "definition": ""
+  },
+  {
+    "rank": 110,
+    "sfi": 58.711,
+    "term": "dose",
+    "definition": ""
+  },
+  {
+    "rank": 111,
+    "sfi": 58.698,
+    "term": "occurrence",
+    "definition": ""
+  },
+  {
+    "rank": 112,
+    "sfi": 58.691,
+    "term": "maternal",
+    "definition": ""
+  },
+  {
+    "rank": 113,
+    "sfi": 58.672,
+    "term": "axis",
+    "definition": ""
+  },
+  {
+    "rank": 114,
+    "sfi": 58.661,
+    "term": "rational",
+    "definition": ""
+  },
+  {
+    "rank": 115,
+    "sfi": 58.635,
+    "term": "locus",
+    "definition": ""
+  },
+  {
+    "rank": 116,
+    "sfi": 58.631,
+    "term": "elite",
+    "definition": ""
+  },
+  {
+    "rank": 117,
+    "sfi": 58.602,
+    "term": "approximation",
+    "definition": ""
+  },
+  {
+    "rank": 118,
+    "sfi": 58.6,
+    "term": "thesis",
+    "definition": ""
+  },
+  {
+    "rank": 119,
+    "sfi": 58.585,
+    "term": "sin",
+    "definition": ""
+  },
+  {
+    "rank": 120,
+    "sfi": 58.542,
+    "term": "classification",
+    "definition": ""
+  },
+  {
+    "rank": 121,
+    "sfi": 58.516,
+    "term": "threshold",
+    "definition": ""
+  },
+  {
+    "rank": 122,
+    "sfi": 58.505,
+    "term": "syndrome",
+    "definition": ""
+  },
+  {
+    "rank": 123,
+    "sfi": 58.502,
+    "term": "comparative",
+    "definition": ""
+  },
+  {
+    "rank": 124,
+    "sfi": 58.462,
+    "term": "activate",
+    "definition": ""
+  },
+  {
+    "rank": 125,
+    "sfi": 58.461,
+    "term": "adolescent",
+    "definition": ""
+  },
+  {
+    "rank": 126,
+    "sfi": 58.444,
+    "term": "vocabulary",
+    "definition": ""
+  },
+  {
+    "rank": 127,
+    "sfi": 58.441,
+    "term": "utterance",
+    "definition": ""
+  },
+  {
+    "rank": 128,
+    "sfi": 58.441,
+    "term": "encode",
+    "definition": ""
+  },
+  {
+    "rank": 129,
+    "sfi": 58.438,
+    "term": "facilitate",
+    "definition": ""
+  },
+  {
+    "rank": 130,
+    "sfi": 58.423,
+    "term": "incidence",
+    "definition": ""
+  },
+  {
+    "rank": 131,
+    "sfi": 58.419,
+    "term": "induction",
+    "definition": ""
+  },
+  {
+    "rank": 132,
+    "sfi": 58.416,
+    "term": "trajectory",
+    "definition": ""
+  },
+  {
+    "rank": 133,
+    "sfi": 58.407,
+    "term": "manuscript",
+    "definition": ""
+  },
+  {
+    "rank": 134,
+    "sfi": 58.322,
+    "term": "commonly",
+    "definition": ""
+  },
+  {
+    "rank": 135,
+    "sfi": 58.317,
+    "term": "grammatical",
+    "definition": ""
+  },
+  {
+    "rank": 136,
+    "sfi": 58.315,
+    "term": "accuracy",
+    "definition": ""
+  },
+  {
+    "rank": 137,
+    "sfi": 58.308,
+    "term": "amplitude",
+    "definition": ""
+  },
+  {
+    "rank": 138,
+    "sfi": 58.308,
+    "term": "adaptation",
+    "definition": ""
+  },
+  {
+    "rank": 139,
+    "sfi": 58.305,
+    "term": "cortex",
+    "definition": ""
+  },
+  {
+    "rank": 140,
+    "sfi": 58.279,
+    "term": "minimal",
+    "definition": ""
+  },
+  {
+    "rank": 141,
+    "sfi": 58.275,
+    "term": "systematic",
+    "definition": ""
+  },
+  {
+    "rank": 142,
+    "sfi": 58.267,
+    "term": "horizontal",
+    "definition": ""
+  },
+  {
+    "rank": 143,
+    "sfi": 58.258,
+    "term": "synthesis",
+    "definition": ""
+  },
+  {
+    "rank": 144,
+    "sfi": 58.258,
+    "term": "projection",
+    "definition": ""
+  },
+  {
+    "rank": 145,
+    "sfi": 58.256,
+    "term": "diameter",
+    "definition": ""
+  },
+  {
+    "rank": 146,
+    "sfi": 58.244,
+    "term": "cone",
+    "definition": ""
+  },
+  {
+    "rank": 147,
+    "sfi": 58.237,
+    "term": "dependence",
+    "definition": ""
+  },
+  {
+    "rank": 148,
+    "sfi": 58.219,
+    "term": "organism",
+    "definition": ""
+  },
+  {
+    "rank": 149,
+    "sfi": 58.201,
+    "term": "emergence",
+    "definition": ""
+  },
+  {
+    "rank": 150,
+    "sfi": 58.186,
+    "term": "overlap",
+    "definition": ""
+  },
+  {
+    "rank": 151,
+    "sfi": 58.144,
+    "term": "substitution",
+    "definition": ""
+  },
+  {
+    "rank": 152,
+    "sfi": 58.124,
+    "term": "explicitly",
+    "definition": ""
+  },
+  {
+    "rank": 153,
+    "sfi": 58.121,
+    "term": "evident",
+    "definition": ""
+  },
+  {
+    "rank": 154,
+    "sfi": 58.113,
+    "term": "conceptual",
+    "definition": ""
+  },
+  {
+    "rank": 155,
+    "sfi": 58.103,
+    "term": "detection",
+    "definition": ""
+  },
+  {
+    "rank": 156,
+    "sfi": 58.098,
+    "term": "interact",
+    "definition": ""
+  },
+  {
+    "rank": 157,
+    "sfi": 58.082,
+    "term": "neural",
+    "definition": ""
+  },
+  {
+    "rank": 158,
+    "sfi": 58.07,
+    "term": "chronic",
+    "definition": ""
+  },
+  {
+    "rank": 159,
+    "sfi": 58.063,
+    "term": "integral",
+    "definition": ""
+  },
+  {
+    "rank": 160,
+    "sfi": 58.051,
+    "term": "enzyme",
+    "definition": ""
+  },
+  {
+    "rank": 161,
+    "sfi": 58.038,
+    "term": "conception",
+    "definition": ""
+  },
+  {
+    "rank": 162,
+    "sfi": 58.029,
+    "term": "ex",
+    "definition": ""
+  },
+  {
+    "rank": 163,
+    "sfi": 58.025,
+    "term": "ideology",
+    "definition": ""
+  },
+  {
+    "rank": 164,
+    "sfi": 58.012,
+    "term": "sperm",
+    "definition": ""
+  },
+  {
+    "rank": 165,
+    "sfi": 58.011,
+    "term": "quantitative",
+    "definition": ""
+  },
+  {
+    "rank": 166,
+    "sfi": 57.993,
+    "term": "sphere",
+    "definition": ""
+  },
+  {
+    "rank": 167,
+    "sfi": 57.974,
+    "term": "instability",
+    "definition": ""
+  },
+  {
+    "rank": 168,
+    "sfi": 57.953,
+    "term": "mediate",
+    "definition": ""
+  },
+  {
+    "rank": 169,
+    "sfi": 57.947,
+    "term": "specification",
+    "definition": ""
+  },
+  {
+    "rank": 170,
+    "sfi": 57.937,
+    "term": "classify",
+    "definition": ""
+  },
+  {
+    "rank": 171,
+    "sfi": 57.936,
+    "term": "physician",
+    "definition": ""
+  },
+  {
+    "rank": 172,
+    "sfi": 57.915,
+    "term": "computation",
+    "definition": ""
+  },
+  {
+    "rank": 173,
+    "sfi": 57.91,
+    "term": "oral",
+    "definition": ""
+  },
+  {
+    "rank": 174,
+    "sfi": 57.909,
+    "term": "mid",
+    "definition": ""
+  },
+  {
+    "rank": 175,
+    "sfi": 57.895,
+    "term": "indicator",
+    "definition": ""
+  },
+  {
+    "rank": 176,
+    "sfi": 57.888,
+    "term": "variant",
+    "definition": ""
+  },
+  {
+    "rank": 177,
+    "sfi": 57.866,
+    "term": "evolutionary",
+    "definition": ""
+  },
+  {
+    "rank": 178,
+    "sfi": 57.858,
+    "term": "feedback",
+    "definition": ""
+  },
+  {
+    "rank": 179,
+    "sfi": 57.824,
+    "term": "collective",
+    "definition": ""
+  },
+  {
+    "rank": 180,
+    "sfi": 57.817,
+    "term": "arbitrary",
+    "definition": ""
+  },
+  {
+    "rank": 181,
+    "sfi": 57.805,
+    "term": "fraction",
+    "definition": ""
+  },
+  {
+    "rank": 182,
+    "sfi": 57.802,
+    "term": "estimation",
+    "definition": ""
+  },
+  {
+    "rank": 183,
+    "sfi": 57.795,
+    "term": "nonlinear",
+    "definition": ""
+  },
+  {
+    "rank": 184,
+    "sfi": 57.786,
+    "term": "deviation",
+    "definition": ""
+  },
+  {
+    "rank": 185,
+    "sfi": 57.786,
+    "term": "compact",
+    "definition": ""
+  },
+  {
+    "rank": 186,
+    "sfi": 57.785,
+    "term": "diagram",
+    "definition": ""
+  },
+  {
+    "rank": 187,
+    "sfi": 57.782,
+    "term": "tropical",
+    "definition": ""
+  },
+  {
+    "rank": 188,
+    "sfi": 57.76,
+    "term": "morphology",
+    "definition": ""
+  },
+  {
+    "rank": 189,
+    "sfi": 57.75,
+    "term": "thereby",
+    "definition": ""
+  },
+  {
+    "rank": 190,
+    "sfi": 57.747,
+    "term": "syntax",
+    "definition": ""
+  },
+  {
+    "rank": 191,
+    "sfi": 57.744,
+    "term": "defect",
+    "definition": ""
+  },
+  {
+    "rank": 192,
+    "sfi": 57.743,
+    "term": "separation",
+    "definition": ""
+  },
+  {
+    "rank": 193,
+    "sfi": 57.738,
+    "term": "convergence",
+    "definition": ""
+  },
+  {
+    "rank": 194,
+    "sfi": 57.734,
+    "term": "sufficiently",
+    "definition": ""
+  },
+  {
+    "rank": 195,
+    "sfi": 57.729,
+    "term": "valid",
+    "definition": ""
+  },
+  {
+    "rank": 196,
+    "sfi": 57.726,
+    "term": "interface",
+    "definition": ""
+  },
+  {
+    "rank": 197,
+    "sfi": 57.725,
+    "term": "radiation",
+    "definition": ""
+  },
+  {
+    "rank": 198,
+    "sfi": 57.724,
+    "term": "vertical",
+    "definition": ""
+  },
+  {
+    "rank": 199,
+    "sfi": 57.724,
+    "term": "embed",
+    "definition": ""
+  },
+  {
+    "rank": 200,
+    "sfi": 57.723,
+    "term": "acute",
+    "definition": ""
+  },
+  {
+    "rank": 201,
+    "sfi": 57.696,
+    "term": "utility",
+    "definition": ""
+  },
+  {
+    "rank": 202,
+    "sfi": 57.666,
+    "term": "complement",
+    "definition": ""
+  },
+  {
+    "rank": 203,
+    "sfi": 57.651,
+    "term": "leaf",
+    "definition": ""
+  },
+  {
+    "rank": 204,
+    "sfi": 57.644,
+    "term": "verbal",
+    "definition": ""
+  },
+  {
+    "rank": 205,
+    "sfi": 57.643,
+    "term": "aggregate",
+    "definition": ""
+  },
+  {
+    "rank": 206,
+    "sfi": 57.621,
+    "term": "equality",
+    "definition": ""
+  },
+  {
+    "rank": 207,
+    "sfi": 57.611,
+    "term": "corpus",
+    "definition": ""
+  },
+  {
+    "rank": 208,
+    "sfi": 57.603,
+    "term": "organ",
+    "definition": ""
+  },
+  {
+    "rank": 209,
+    "sfi": 57.599,
+    "term": "gradient",
+    "definition": ""
+  },
+  {
+    "rank": 210,
+    "sfi": 57.595,
+    "term": "methodology",
+    "definition": ""
+  },
+  {
+    "rank": 211,
+    "sfi": 57.57,
+    "term": "entity",
+    "definition": ""
+  },
+  {
+    "rank": 212,
+    "sfi": 57.567,
+    "term": "tumor",
+    "definition": ""
+  },
+  {
+    "rank": 213,
+    "sfi": 57.559,
+    "term": "fiber",
+    "definition": ""
+  },
+  {
+    "rank": 214,
+    "sfi": 57.547,
+    "term": "paradigm",
+    "definition": ""
+  },
+  {
+    "rank": 215,
+    "sfi": 57.534,
+    "term": "psychology",
+    "definition": ""
+  },
+  {
+    "rank": 216,
+    "sfi": 57.52,
+    "term": "infinite",
+    "definition": ""
+  },
+  {
+    "rank": 217,
+    "sfi": 57.487,
+    "term": "diverse",
+    "definition": ""
+  },
+  {
+    "rank": 218,
+    "sfi": 57.486,
+    "term": "diagnostic",
+    "definition": ""
+  },
+  {
+    "rank": 219,
+    "sfi": 57.449,
+    "term": "continuity",
+    "definition": ""
+  },
+  {
+    "rank": 220,
+    "sfi": 57.431,
+    "term": "variability",
+    "definition": ""
+  },
+  {
+    "rank": 221,
+    "sfi": 57.423,
+    "term": "outer",
+    "definition": ""
+  },
+  {
+    "rank": 222,
+    "sfi": 57.412,
+    "term": "notation",
+    "definition": ""
+  },
+  {
+    "rank": 223,
+    "sfi": 57.391,
+    "term": "probe",
+    "definition": ""
+  },
+  {
+    "rank": 224,
+    "sfi": 57.39,
+    "term": "migration",
+    "definition": ""
+  },
+  {
+    "rank": 225,
+    "sfi": 57.388,
+    "term": "mathematical",
+    "definition": ""
+  },
+  {
+    "rank": 226,
+    "sfi": 57.367,
+    "term": "likelihood",
+    "definition": ""
+  },
+  {
+    "rank": 227,
+    "sfi": 57.333,
+    "term": "comparable",
+    "definition": ""
+  },
+  {
+    "rank": 228,
+    "sfi": 57.307,
+    "term": "magnitude",
+    "definition": ""
+  },
+  {
+    "rank": 229,
+    "sfi": 57.299,
+    "term": "array",
+    "definition": ""
+  },
+  {
+    "rank": 230,
+    "sfi": 57.292,
+    "term": "inclusion",
+    "definition": ""
+  },
+  {
+    "rank": 231,
+    "sfi": 57.265,
+    "term": "emission",
+    "definition": ""
+  },
+  {
+    "rank": 232,
+    "sfi": 57.261,
+    "term": "inference",
+    "definition": ""
+  },
+  {
+    "rank": 233,
+    "sfi": 57.257,
+    "term": "non",
+    "definition": ""
+  },
+  {
+    "rank": 234,
+    "sfi": 57.241,
+    "term": "consciousness",
+    "definition": ""
+  },
+  {
+    "rank": 235,
+    "sfi": 57.234,
+    "term": "simultaneously",
+    "definition": ""
+  },
+  {
+    "rank": 236,
+    "sfi": 57.225,
+    "term": "disturbance",
+    "definition": ""
+  },
+  {
+    "rank": 237,
+    "sfi": 57.217,
+    "term": "hierarchy",
+    "definition": ""
+  },
+  {
+    "rank": 238,
+    "sfi": 57.191,
+    "term": "rotation",
+    "definition": ""
+  },
+  {
+    "rank": 239,
+    "sfi": 57.181,
+    "term": "validity",
+    "definition": ""
+  },
+  {
+    "rank": 240,
+    "sfi": 57.181,
+    "term": "periodic",
+    "definition": ""
+  },
+  {
+    "rank": 241,
+    "sfi": 57.178,
+    "term": "archaeology",
+    "definition": ""
+  },
+  {
+    "rank": 242,
+    "sfi": 57.173,
+    "term": "atom",
+    "definition": ""
+  },
+  {
+    "rank": 243,
+    "sfi": 57.163,
+    "term": "modification",
+    "definition": ""
+  },
+  {
+    "rank": 244,
+    "sfi": 57.154,
+    "term": "partition",
+    "definition": ""
+  },
+  {
+    "rank": 245,
+    "sfi": 57.151,
+    "term": "initiate",
+    "definition": ""
+  },
+  {
+    "rank": 246,
+    "sfi": 57.139,
+    "term": "autonomy",
+    "definition": ""
+  },
+  {
+    "rank": 247,
+    "sfi": 57.126,
+    "term": "inhibit",
+    "definition": ""
+  },
+  {
+    "rank": 248,
+    "sfi": 57.118,
+    "term": "consonant",
+    "definition": ""
+  },
+  {
+    "rank": 249,
+    "sfi": 57.114,
+    "term": "biology",
+    "definition": ""
+  },
+  {
+    "rank": 250,
+    "sfi": 57.103,
+    "term": "scenario",
+    "definition": ""
+  },
+  {
+    "rank": 251,
+    "sfi": 57.096,
+    "term": "conditional",
+    "definition": ""
+  },
+  {
+    "rank": 252,
+    "sfi": 57.084,
+    "term": "contrary",
+    "definition": ""
+  },
+  {
+    "rank": 253,
+    "sfi": 57.08,
+    "term": "discrete",
+    "definition": ""
+  },
+  {
+    "rank": 254,
+    "sfi": 57.072,
+    "term": "classroom",
+    "definition": ""
+  },
+  {
+    "rank": 255,
+    "sfi": 57.069,
+    "term": "morphological",
+    "definition": ""
+  },
+  {
+    "rank": 256,
+    "sfi": 57.063,
+    "term": "lateral",
+    "definition": ""
+  },
+  {
+    "rank": 257,
+    "sfi": 57.053,
+    "term": "injection",
+    "definition": ""
+  },
+  {
+    "rank": 258,
+    "sfi": 57.05,
+    "term": "effectiveness",
+    "definition": ""
+  },
+  {
+    "rank": 259,
+    "sfi": 57.042,
+    "term": "insect",
+    "definition": ""
+  },
+  {
+    "rank": 260,
+    "sfi": 57.032,
+    "term": "logical",
+    "definition": ""
+  },
+  {
+    "rank": 261,
+    "sfi": 57.014,
+    "term": "calculus",
+    "definition": ""
+  },
+  {
+    "rank": 262,
+    "sfi": 56.996,
+    "term": "usage",
+    "definition": ""
+  },
+  {
+    "rank": 263,
+    "sfi": 56.996,
+    "term": "longitudinal",
+    "definition": ""
+  },
+  {
+    "rank": 264,
+    "sfi": 56.985,
+    "term": "neutral",
+    "definition": ""
+  },
+  {
+    "rank": 265,
+    "sfi": 56.96,
+    "term": "marginal",
+    "definition": ""
+  },
+  {
+    "rank": 266,
+    "sfi": 56.96,
+    "term": "client",
+    "definition": ""
+  },
+  {
+    "rank": 267,
+    "sfi": 56.957,
+    "term": "characterization",
+    "definition": ""
+  },
+  {
+    "rank": 268,
+    "sfi": 56.936,
+    "term": "ethical",
+    "definition": ""
+  },
+  {
+    "rank": 269,
+    "sfi": 56.934,
+    "term": "superior",
+    "definition": ""
+  },
+  {
+    "rank": 270,
+    "sfi": 56.929,
+    "term": "approximate",
+    "definition": ""
+  },
+  {
+    "rank": 271,
+    "sfi": 56.92,
+    "term": "composer",
+    "definition": ""
+  },
+  {
+    "rank": 272,
+    "sfi": 56.917,
+    "term": "singular",
+    "definition": ""
+  },
+  {
+    "rank": 273,
+    "sfi": 56.913,
+    "term": "converge",
+    "definition": ""
+  },
+  {
+    "rank": 274,
+    "sfi": 56.908,
+    "term": "fetal",
+    "definition": ""
+  },
+  {
+    "rank": 275,
+    "sfi": 56.904,
+    "term": "comprehension",
+    "definition": ""
+  },
+  {
+    "rank": 276,
+    "sfi": 56.895,
+    "term": "implicit",
+    "definition": ""
+  },
+  {
+    "rank": 277,
+    "sfi": 56.893,
+    "term": "span",
+    "definition": ""
+  },
+  {
+    "rank": 278,
+    "sfi": 56.89,
+    "term": "oxygen",
+    "definition": ""
+  },
+  {
+    "rank": 279,
+    "sfi": 56.885,
+    "term": "formulation",
+    "definition": ""
+  },
+  {
+    "rank": 280,
+    "sfi": 56.884,
+    "term": "dialect",
+    "definition": ""
+  },
+  {
+    "rank": 281,
+    "sfi": 56.871,
+    "term": "colony",
+    "definition": ""
+  },
+  {
+    "rank": 282,
+    "sfi": 56.868,
+    "term": "immune",
+    "definition": ""
+  },
+  {
+    "rank": 283,
+    "sfi": 56.846,
+    "term": "loop",
+    "definition": ""
+  },
+  {
+    "rank": 284,
+    "sfi": 56.842,
+    "term": "algebra",
+    "definition": ""
+  },
+  {
+    "rank": 285,
+    "sfi": 56.84,
+    "term": "derivative",
+    "definition": ""
+  },
+  {
+    "rank": 286,
+    "sfi": 56.838,
+    "term": "appendix",
+    "definition": ""
+  },
+  {
+    "rank": 287,
+    "sfi": 56.836,
+    "term": "overview",
+    "definition": ""
+  },
+  {
+    "rank": 288,
+    "sfi": 56.827,
+    "term": "diffusion",
+    "definition": ""
+  },
+  {
+    "rank": 289,
+    "sfi": 56.813,
+    "term": "specimen",
+    "definition": ""
+  },
+  {
+    "rank": 290,
+    "sfi": 56.805,
+    "term": "assert",
+    "definition": ""
+  },
+  {
+    "rank": 291,
+    "sfi": 56.802,
+    "term": "widespread",
+    "definition": ""
+  },
+  {
+    "rank": 292,
+    "sfi": 56.8,
+    "term": "competence",
+    "definition": ""
+  },
+  {
+    "rank": 293,
+    "sfi": 56.798,
+    "term": "residual",
+    "definition": ""
+  },
+  {
+    "rank": 294,
+    "sfi": 56.797,
+    "term": "fusion",
+    "definition": ""
+  },
+  {
+    "rank": 295,
+    "sfi": 56.79,
+    "term": "conservation",
+    "definition": ""
+  },
+  {
+    "rank": 296,
+    "sfi": 56.789,
+    "term": "constrain",
+    "definition": ""
+  },
+  {
+    "rank": 297,
+    "sfi": 56.788,
+    "term": "virtue",
+    "definition": ""
+  },
+  {
+    "rank": 298,
+    "sfi": 56.788,
+    "term": "differentiate",
+    "definition": ""
+  },
+  {
+    "rank": 299,
+    "sfi": 56.785,
+    "term": "amino",
+    "definition": ""
+  },
+  {
+    "rank": 300,
+    "sfi": 56.781,
+    "term": "partially",
+    "definition": ""
+  },
+  {
+    "rank": 301,
+    "sfi": 56.779,
+    "term": "preliminary",
+    "definition": ""
+  },
+  {
+    "rank": 302,
+    "sfi": 56.777,
+    "term": "philosophical",
+    "definition": ""
+  },
+  {
+    "rank": 303,
+    "sfi": 56.759,
+    "term": "pre",
+    "definition": ""
+  },
+  {
+    "rank": 304,
+    "sfi": 56.757,
+    "term": "transaction",
+    "definition": ""
+  },
+  {
+    "rank": 305,
+    "sfi": 56.743,
+    "term": "prominent",
+    "definition": ""
+  },
+  {
+    "rank": 306,
+    "sfi": 56.734,
+    "term": "indigenous",
+    "definition": ""
+  },
+  {
+    "rank": 307,
+    "sfi": 56.724,
+    "term": "render",
+    "definition": ""
+  },
+  {
+    "rank": 308,
+    "sfi": 56.717,
+    "term": "independently",
+    "definition": ""
+  },
+  {
+    "rank": 309,
+    "sfi": 56.714,
+    "term": "symbolic",
+    "definition": ""
+  },
+  {
+    "rank": 310,
+    "sfi": 56.699,
+    "term": "utilize",
+    "definition": ""
+  },
+  {
+    "rank": 311,
+    "sfi": 56.681,
+    "term": "physiological",
+    "definition": ""
+  },
+  {
+    "rank": 312,
+    "sfi": 56.678,
+    "term": "indirect",
+    "definition": ""
+  },
+  {
+    "rank": 313,
+    "sfi": 56.669,
+    "term": "calcium",
+    "definition": ""
+  },
+  {
+    "rank": 314,
+    "sfi": 56.669,
+    "term": "assembly",
+    "definition": ""
+  },
+  {
+    "rank": 315,
+    "sfi": 56.653,
+    "term": "strictly",
+    "definition": ""
+  },
+  {
+    "rank": 316,
+    "sfi": 56.65,
+    "term": "unity",
+    "definition": ""
+  },
+  {
+    "rank": 317,
+    "sfi": 56.65,
+    "term": "psychiatric",
+    "definition": ""
+  },
+  {
+    "rank": 318,
+    "sfi": 56.647,
+    "term": "critique",
+    "definition": ""
+  },
+  {
+    "rank": 319,
+    "sfi": 56.646,
+    "term": "differentiation",
+    "definition": ""
+  },
+  {
+    "rank": 320,
+    "sfi": 56.642,
+    "term": "closure",
+    "definition": ""
+  },
+  {
+    "rank": 321,
+    "sfi": 56.638,
+    "term": "minimize",
+    "definition": ""
+  },
+  {
+    "rank": 322,
+    "sfi": 56.637,
+    "term": "selective",
+    "definition": ""
+  },
+  {
+    "rank": 323,
+    "sfi": 56.633,
+    "term": "availability",
+    "definition": ""
+  },
+  {
+    "rank": 324,
+    "sfi": 56.61,
+    "term": "depict",
+    "definition": ""
+  },
+  {
+    "rank": 325,
+    "sfi": 56.6,
+    "term": "cue",
+    "definition": ""
+  },
+  {
+    "rank": 326,
+    "sfi": 56.59,
+    "term": "parental",
+    "definition": ""
+  },
+  {
+    "rank": 327,
+    "sfi": 56.577,
+    "term": "ritual",
+    "definition": ""
+  },
+  {
+    "rank": 328,
+    "sfi": 56.559,
+    "term": "fertility",
+    "definition": ""
+  },
+  {
+    "rank": 329,
+    "sfi": 56.556,
+    "term": "adjacent",
+    "definition": ""
+  },
+  {
+    "rank": 330,
+    "sfi": 56.553,
+    "term": "readily",
+    "definition": ""
+  },
+  {
+    "rank": 331,
+    "sfi": 56.553,
+    "term": "observer",
+    "definition": ""
+  },
+  {
+    "rank": 332,
+    "sfi": 56.553,
+    "term": "inhibition",
+    "definition": ""
+  },
+  {
+    "rank": 333,
+    "sfi": 56.55,
+    "term": "questionnaire",
+    "definition": ""
+  },
+  {
+    "rank": 334,
+    "sfi": 56.546,
+    "term": "generalization",
+    "definition": ""
+  },
+  {
+    "rank": 335,
+    "sfi": 56.538,
+    "term": "qualitative",
+    "definition": ""
+  },
+  {
+    "rank": 336,
+    "sfi": 56.531,
+    "term": "tense",
+    "definition": ""
+  },
+  {
+    "rank": 337,
+    "sfi": 56.502,
+    "term": "transcription",
+    "definition": ""
+  },
+  {
+    "rank": 338,
+    "sfi": 56.502,
+    "term": "locally",
+    "definition": ""
+  },
+  {
+    "rank": 339,
+    "sfi": 56.497,
+    "term": "nutrient",
+    "definition": ""
+  },
+  {
+    "rank": 340,
+    "sfi": 56.494,
+    "term": "reinforce",
+    "definition": ""
+  },
+  {
+    "rank": 341,
+    "sfi": 56.493,
+    "term": "statistically",
+    "definition": ""
+  },
+  {
+    "rank": 342,
+    "sfi": 56.493,
+    "term": "simulate",
+    "definition": ""
+  },
+  {
+    "rank": 343,
+    "sfi": 56.491,
+    "term": "dense",
+    "definition": ""
+  },
+  {
+    "rank": 344,
+    "sfi": 56.49,
+    "term": "ecology",
+    "definition": ""
+  },
+  {
+    "rank": 345,
+    "sfi": 56.472,
+    "term": "null",
+    "definition": ""
+  },
+  {
+    "rank": 346,
+    "sfi": 56.457,
+    "term": "terminal",
+    "definition": ""
+  },
+  {
+    "rank": 347,
+    "sfi": 56.448,
+    "term": "informal",
+    "definition": ""
+  },
+  {
+    "rank": 348,
+    "sfi": 56.443,
+    "term": "discharge",
+    "definition": ""
+  },
+  {
+    "rank": 349,
+    "sfi": 56.439,
+    "term": "adaptive",
+    "definition": ""
+  },
+  {
+    "rank": 350,
+    "sfi": 56.43,
+    "term": "ecological",
+    "definition": ""
+  },
+  {
+    "rank": 351,
+    "sfi": 56.421,
+    "term": "protocol",
+    "definition": ""
+  },
+  {
+    "rank": 352,
+    "sfi": 56.413,
+    "term": "progressive",
+    "definition": ""
+  },
+  {
+    "rank": 353,
+    "sfi": 56.408,
+    "term": "aesthetic",
+    "definition": ""
+  },
+  {
+    "rank": 354,
+    "sfi": 56.397,
+    "term": "exploit",
+    "definition": ""
+  },
+  {
+    "rank": 355,
+    "sfi": 56.397,
+    "term": "agriculture",
+    "definition": ""
+  },
+  {
+    "rank": 356,
+    "sfi": 56.391,
+    "term": "practitioner",
+    "definition": ""
+  },
+  {
+    "rank": 357,
+    "sfi": 56.383,
+    "term": "occupation",
+    "definition": ""
+  },
+  {
+    "rank": 358,
+    "sfi": 56.343,
+    "term": "equivalence",
+    "definition": ""
+  },
+  {
+    "rank": 359,
+    "sfi": 56.341,
+    "term": "pragmatic",
+    "definition": ""
+  },
+  {
+    "rank": 360,
+    "sfi": 56.319,
+    "term": "productivity",
+    "definition": ""
+  },
+  {
+    "rank": 361,
+    "sfi": 56.304,
+    "term": "arrow",
+    "definition": ""
+  },
+  {
+    "rank": 362,
+    "sfi": 56.302,
+    "term": "reproduce",
+    "definition": ""
+  },
+  {
+    "rank": 363,
+    "sfi": 56.292,
+    "term": "commentary",
+    "definition": ""
+  },
+  {
+    "rank": 364,
+    "sfi": 56.279,
+    "term": "residue",
+    "definition": ""
+  },
+  {
+    "rank": 365,
+    "sfi": 56.275,
+    "term": "unstable",
+    "definition": ""
+  },
+  {
+    "rank": 366,
+    "sfi": 56.259,
+    "term": "consensus",
+    "definition": ""
+  },
+  {
+    "rank": 367,
+    "sfi": 56.255,
+    "term": "simplify",
+    "definition": ""
+  },
+  {
+    "rank": 368,
+    "sfi": 56.236,
+    "term": "radius",
+    "definition": ""
+  },
+  {
+    "rank": 369,
+    "sfi": 56.221,
+    "term": "artificial",
+    "definition": ""
+  },
+  {
+    "rank": 370,
+    "sfi": 56.205,
+    "term": "harvest",
+    "definition": ""
+  },
+  {
+    "rank": 371,
+    "sfi": 56.197,
+    "term": "suicide",
+    "definition": ""
+  },
+  {
+    "rank": 372,
+    "sfi": 56.158,
+    "term": "pi",
+    "definition": ""
+  },
+  {
+    "rank": 373,
+    "sfi": 56.124,
+    "term": "monkey",
+    "definition": ""
+  },
+  {
+    "rank": 374,
+    "sfi": 56.092,
+    "term": "habitat",
+    "definition": ""
+  },
+  {
+    "rank": 375,
+    "sfi": 56.09,
+    "term": "assignment",
+    "definition": ""
+  },
+  {
+    "rank": 376,
+    "sfi": 56.085,
+    "term": "replicate",
+    "definition": ""
+  },
+  {
+    "rank": 377,
+    "sfi": 56.076,
+    "term": "mechanical",
+    "definition": ""
+  },
+  {
+    "rank": 378,
+    "sfi": 56.073,
+    "term": "disability",
+    "definition": ""
+  },
+  {
+    "rank": 379,
+    "sfi": 56.069,
+    "term": "cattle",
+    "definition": ""
+  },
+  {
+    "rank": 380,
+    "sfi": 56.067,
+    "term": "purely",
+    "definition": ""
+  },
+  {
+    "rank": 381,
+    "sfi": 56.053,
+    "term": "contradiction",
+    "definition": ""
+  },
+  {
+    "rank": 382,
+    "sfi": 56.047,
+    "term": "scatter",
+    "definition": ""
+  },
+  {
+    "rank": 383,
+    "sfi": 56.034,
+    "term": "problematic",
+    "definition": ""
+  },
+  {
+    "rank": 384,
+    "sfi": 56.022,
+    "term": "correction",
+    "definition": ""
+  },
+  {
+    "rank": 385,
+    "sfi": 56.015,
+    "term": "linguistics",
+    "definition": ""
+  },
+  {
+    "rank": 386,
+    "sfi": 56.006,
+    "term": "hormone",
+    "definition": ""
+  },
+  {
+    "rank": 387,
+    "sfi": 55.994,
+    "term": "primitive",
+    "definition": ""
+  },
+  {
+    "rank": 388,
+    "sfi": 55.981,
+    "term": "ethics",
+    "definition": ""
+  },
+  {
+    "rank": 389,
+    "sfi": 55.973,
+    "term": "accumulation",
+    "definition": ""
+  },
+  {
+    "rank": 390,
+    "sfi": 55.96,
+    "term": "static",
+    "definition": ""
+  },
+  {
+    "rank": 391,
+    "sfi": 55.934,
+    "term": "consent",
+    "definition": ""
+  },
+  {
+    "rank": 392,
+    "sfi": 55.933,
+    "term": "substrate",
+    "definition": ""
+  },
+  {
+    "rank": 393,
+    "sfi": 55.931,
+    "term": "straightforward",
+    "definition": ""
+  },
+  {
+    "rank": 394,
+    "sfi": 55.907,
+    "term": "discrimination",
+    "definition": ""
+  },
+  {
+    "rank": 395,
+    "sfi": 55.903,
+    "term": "separately",
+    "definition": ""
+  },
+  {
+    "rank": 396,
+    "sfi": 55.884,
+    "term": "randomize",
+    "definition": ""
+  },
+  {
+    "rank": 397,
+    "sfi": 55.852,
+    "term": "sensory",
+    "definition": ""
+  },
+  {
+    "rank": 398,
+    "sfi": 55.83,
+    "term": "confine",
+    "definition": ""
+  },
+  {
+    "rank": 399,
+    "sfi": 55.789,
+    "term": "peripheral",
+    "definition": ""
+  },
+  {
+    "rank": 400,
+    "sfi": 55.789,
+    "term": "mineral",
+    "definition": ""
+  },
+  {
+    "rank": 401,
+    "sfi": 55.759,
+    "term": "spontaneous",
+    "definition": ""
+  },
+  {
+    "rank": 402,
+    "sfi": 55.75,
+    "term": "reliability",
+    "definition": ""
+  },
+  {
+    "rank": 403,
+    "sfi": 55.741,
+    "term": "clone",
+    "definition": ""
+  },
+  {
+    "rank": 404,
+    "sfi": 55.736,
+    "term": "orient",
+    "definition": ""
+  },
+  {
+    "rank": 405,
+    "sfi": 55.732,
+    "term": "elaborate",
+    "definition": ""
+  },
+  {
+    "rank": 406,
+    "sfi": 55.727,
+    "term": "nominal",
+    "definition": ""
+  },
+  {
+    "rank": 407,
+    "sfi": 55.717,
+    "term": "insert",
+    "definition": ""
+  },
+  {
+    "rank": 408,
+    "sfi": 55.716,
+    "term": "reproduction",
+    "definition": ""
+  },
+  {
+    "rank": 409,
+    "sfi": 55.714,
+    "term": "dominance",
+    "definition": ""
+  },
+  {
+    "rank": 410,
+    "sfi": 55.697,
+    "term": "allocation",
+    "definition": ""
+  },
+  {
+    "rank": 411,
+    "sfi": 55.688,
+    "term": "lung",
+    "definition": ""
+  },
+  {
+    "rank": 412,
+    "sfi": 55.682,
+    "term": "productive",
+    "definition": ""
+  },
+  {
+    "rank": 413,
+    "sfi": 55.661,
+    "term": "decay",
+    "definition": ""
+  },
+  {
+    "rank": 414,
+    "sfi": 55.656,
+    "term": "conscious",
+    "definition": ""
+  },
+  {
+    "rank": 415,
+    "sfi": 55.655,
+    "term": "thickness",
+    "definition": ""
+  },
+  {
+    "rank": 416,
+    "sfi": 55.651,
+    "term": "transmit",
+    "definition": ""
+  },
+  {
+    "rank": 417,
+    "sfi": 55.644,
+    "term": "conceive",
+    "definition": ""
+  },
+  {
+    "rank": 418,
+    "sfi": 55.636,
+    "term": "offspring",
+    "definition": ""
+  },
+  {
+    "rank": 419,
+    "sfi": 55.63,
+    "term": "resemble",
+    "definition": ""
+  },
+  {
+    "rank": 420,
+    "sfi": 55.629,
+    "term": "circulation",
+    "definition": ""
+  },
+  {
+    "rank": 421,
+    "sfi": 55.621,
+    "term": "correctly",
+    "definition": ""
+  },
+  {
+    "rank": 422,
+    "sfi": 55.614,
+    "term": "necessity",
+    "definition": ""
+  },
+  {
+    "rank": 423,
+    "sfi": 55.593,
+    "term": "metaphor",
+    "definition": ""
+  },
+  {
+    "rank": 424,
+    "sfi": 55.59,
+    "term": "tract",
+    "definition": ""
+  },
+  {
+    "rank": 425,
+    "sfi": 55.577,
+    "term": "liver",
+    "definition": ""
+  },
+  {
+    "rank": 426,
+    "sfi": 55.573,
+    "term": "subjective",
+    "definition": ""
+  },
+  {
+    "rank": 427,
+    "sfi": 55.566,
+    "term": "accumulate",
+    "definition": ""
+  },
+  {
+    "rank": 428,
+    "sfi": 55.563,
+    "term": "rejection",
+    "definition": ""
+  },
+  {
+    "rank": 429,
+    "sfi": 55.557,
+    "term": "maximize",
+    "definition": ""
+  },
+  {
+    "rank": 430,
+    "sfi": 55.554,
+    "term": "replacement",
+    "definition": ""
+  },
+  {
+    "rank": 431,
+    "sfi": 55.515,
+    "term": "amongst",
+    "definition": ""
+  },
+  {
+    "rank": 432,
+    "sfi": 55.513,
+    "term": "complication",
+    "definition": ""
+  },
+  {
+    "rank": 433,
+    "sfi": 55.504,
+    "term": "valve",
+    "definition": ""
+  },
+  {
+    "rank": 434,
+    "sfi": 55.504,
+    "term": "plural",
+    "definition": ""
+  },
+  {
+    "rank": 435,
+    "sfi": 55.479,
+    "term": "absorption",
+    "definition": ""
+  },
+  {
+    "rank": 436,
+    "sfi": 55.471,
+    "term": "monetary",
+    "definition": ""
+  },
+  {
+    "rank": 437,
+    "sfi": 55.466,
+    "term": "thermal",
+    "definition": ""
+  },
+  {
+    "rank": 438,
+    "sfi": 55.462,
+    "term": "likewise",
+    "definition": ""
+  },
+  {
+    "rank": 439,
+    "sfi": 55.447,
+    "term": "tolerance",
+    "definition": ""
+  },
+  {
+    "rank": 440,
+    "sfi": 55.439,
+    "term": "articulate",
+    "definition": ""
+  },
+  {
+    "rank": 441,
+    "sfi": 55.438,
+    "term": "donor",
+    "definition": ""
+  },
+  {
+    "rank": 442,
+    "sfi": 55.415,
+    "term": "flux",
+    "definition": ""
+  },
+  {
+    "rank": 443,
+    "sfi": 55.412,
+    "term": "mobility",
+    "definition": ""
+  },
+  {
+    "rank": 444,
+    "sfi": 55.407,
+    "term": "manipulation",
+    "definition": ""
+  },
+  {
+    "rank": 445,
+    "sfi": 55.405,
+    "term": "elevate",
+    "definition": ""
+  },
+  {
+    "rank": 446,
+    "sfi": 55.394,
+    "term": "nationalism",
+    "definition": ""
+  },
+  {
+    "rank": 447,
+    "sfi": 55.392,
+    "term": "analogy",
+    "definition": ""
+  },
+  {
+    "rank": 448,
+    "sfi": 55.387,
+    "term": "adverse",
+    "definition": ""
+  },
+  {
+    "rank": 449,
+    "sfi": 55.37,
+    "term": "plausible",
+    "definition": ""
+  },
+  {
+    "rank": 450,
+    "sfi": 55.37,
+    "term": "nitrogen",
+    "definition": ""
+  },
+  {
+    "rank": 451,
+    "sfi": 55.365,
+    "term": "vein",
+    "definition": ""
+  },
+  {
+    "rank": 452,
+    "sfi": 55.305,
+    "term": "controversy",
+    "definition": ""
+  },
+  {
+    "rank": 453,
+    "sfi": 55.29,
+    "term": "wheat",
+    "definition": ""
+  },
+  {
+    "rank": 454,
+    "sfi": 55.265,
+    "term": "rewrite",
+    "definition": ""
+  },
+  {
+    "rank": 455,
+    "sfi": 55.259,
+    "term": "manual",
+    "definition": ""
+  },
+  {
+    "rank": 456,
+    "sfi": 55.243,
+    "term": "strategic",
+    "definition": ""
+  },
+  {
+    "rank": 457,
+    "sfi": 55.231,
+    "term": "peasant",
+    "definition": ""
+  },
+  {
+    "rank": 458,
+    "sfi": 55.197,
+    "term": "absorb",
+    "definition": ""
+  },
+  {
+    "rank": 459,
+    "sfi": 55.193,
+    "term": "sketch",
+    "definition": ""
+  },
+  {
+    "rank": 460,
+    "sfi": 55.19,
+    "term": "justification",
+    "definition": ""
+  },
+  {
+    "rank": 461,
+    "sfi": 55.186,
+    "term": "lifetime",
+    "definition": ""
+  },
+  {
+    "rank": 462,
+    "sfi": 55.168,
+    "term": "binary",
+    "definition": ""
+  },
+  {
+    "rank": 463,
+    "sfi": 55.167,
+    "term": "definite",
+    "definition": ""
+  },
+  {
+    "rank": 464,
+    "sfi": 55.132,
+    "term": "contour",
+    "definition": ""
+  },
+  {
+    "rank": 465,
+    "sfi": 55.13,
+    "term": "execution",
+    "definition": ""
+  },
+  {
+    "rank": 466,
+    "sfi": 55.118,
+    "term": "rhythm",
+    "definition": ""
+  },
+  {
+    "rank": 467,
+    "sfi": 55.098,
+    "term": "ultimate",
+    "definition": ""
+  },
+  {
+    "rank": 468,
+    "sfi": 55.096,
+    "term": "dictionary",
+    "definition": ""
+  },
+  {
+    "rank": 469,
+    "sfi": 55.072,
+    "term": "constitution",
+    "definition": ""
+  },
+  {
+    "rank": 470,
+    "sfi": 55.071,
+    "term": "acceleration",
+    "definition": ""
+  },
+  {
+    "rank": 471,
+    "sfi": 55.052,
+    "term": "undermine",
+    "definition": ""
+  },
+  {
+    "rank": 472,
+    "sfi": 55.045,
+    "term": "disadvantage",
+    "definition": ""
+  },
+  {
+    "rank": 473,
+    "sfi": 55.034,
+    "term": "myth",
+    "definition": ""
+  },
+  {
+    "rank": 474,
+    "sfi": 55.015,
+    "term": "strand",
+    "definition": ""
+  },
+  {
+    "rank": 475,
+    "sfi": 54.965,
+    "term": "unify",
+    "definition": ""
+  },
+  {
+    "rank": 476,
+    "sfi": 54.956,
+    "term": "randomly",
+    "definition": ""
+  },
+  {
+    "rank": 477,
+    "sfi": 54.954,
+    "term": "philosopher",
+    "definition": ""
+  },
+  {
+    "rank": 478,
+    "sfi": 54.951,
+    "term": "pronounce",
+    "definition": ""
+  },
+  {
+    "rank": 479,
+    "sfi": 54.948,
+    "term": "workshop",
+    "definition": ""
+  },
+  {
+    "rank": 480,
+    "sfi": 54.944,
+    "term": "objection",
+    "definition": ""
+  },
+  {
+    "rank": 481,
+    "sfi": 54.942,
+    "term": "meaningful",
+    "definition": ""
+  },
+  {
+    "rank": 482,
+    "sfi": 54.94,
+    "term": "wavelength",
+    "definition": ""
+  },
+  {
+    "rank": 483,
+    "sfi": 54.925,
+    "term": "diagnose",
+    "definition": ""
+  },
+  {
+    "rank": 484,
+    "sfi": 54.904,
+    "term": "accent",
+    "definition": ""
+  },
+  {
+    "rank": 485,
+    "sfi": 54.899,
+    "term": "realm",
+    "definition": ""
+  },
+  {
+    "rank": 486,
+    "sfi": 54.871,
+    "term": "replication",
+    "definition": ""
+  },
+  {
+    "rank": 487,
+    "sfi": 54.858,
+    "term": "basin",
+    "definition": ""
+  },
+  {
+    "rank": 488,
+    "sfi": 54.844,
+    "term": "admission",
+    "definition": ""
+  },
+  {
+    "rank": 489,
+    "sfi": 54.84,
+    "term": "interestingly",
+    "definition": ""
+  },
+  {
+    "rank": 490,
+    "sfi": 54.827,
+    "term": "clarify",
+    "definition": ""
+  },
+  {
+    "rank": 491,
+    "sfi": 54.826,
+    "term": "grid",
+    "definition": ""
+  },
+  {
+    "rank": 492,
+    "sfi": 54.807,
+    "term": "curriculum",
+    "definition": ""
+  },
+  {
+    "rank": 493,
+    "sfi": 54.804,
+    "term": "displacement",
+    "definition": ""
+  },
+  {
+    "rank": 494,
+    "sfi": 54.801,
+    "term": "coherent",
+    "definition": ""
+  },
+  {
+    "rank": 495,
+    "sfi": 54.795,
+    "term": "standardize",
+    "definition": ""
+  },
+  {
+    "rank": 496,
+    "sfi": 54.785,
+    "term": "civilization",
+    "definition": ""
+  },
+  {
+    "rank": 497,
+    "sfi": 54.762,
+    "term": "positively",
+    "definition": ""
+  },
+  {
+    "rank": 498,
+    "sfi": 54.733,
+    "term": "bacterial",
+    "definition": ""
+  },
+  {
+    "rank": 499,
+    "sfi": 54.723,
+    "term": "deficiency",
+    "definition": ""
+  },
+  {
+    "rank": 500,
+    "sfi": 54.705,
+    "term": "legitimate",
+    "definition": ""
+  },
+  {
+    "rank": 501,
+    "sfi": 54.672,
+    "term": "sophisticate",
+    "definition": ""
+  },
+  {
+    "rank": 502,
+    "sfi": 54.671,
+    "term": "accelerate",
+    "definition": ""
+  },
+  {
+    "rank": 503,
+    "sfi": 54.668,
+    "term": "exponential",
+    "definition": ""
+  },
+  {
+    "rank": 504,
+    "sfi": 54.634,
+    "term": "formally",
+    "definition": ""
+  },
+  {
+    "rank": 505,
+    "sfi": 54.632,
+    "term": "socially",
+    "definition": ""
+  },
+  {
+    "rank": 506,
+    "sfi": 54.63,
+    "term": "accurately",
+    "definition": ""
+  },
+  {
+    "rank": 507,
+    "sfi": 54.616,
+    "term": "influential",
+    "definition": ""
+  },
+  {
+    "rank": 508,
+    "sfi": 54.61,
+    "term": "progression",
+    "definition": ""
+  },
+  {
+    "rank": 509,
+    "sfi": 54.607,
+    "term": "essence",
+    "definition": ""
+  },
+  {
+    "rank": 510,
+    "sfi": 54.606,
+    "term": "cylinder",
+    "definition": ""
+  },
+  {
+    "rank": 511,
+    "sfi": 54.601,
+    "term": "scholarship",
+    "definition": ""
+  },
+  {
+    "rank": 512,
+    "sfi": 54.597,
+    "term": "sodium",
+    "definition": ""
+  },
+  {
+    "rank": 513,
+    "sfi": 54.591,
+    "term": "predominantly",
+    "definition": ""
+  },
+  {
+    "rank": 514,
+    "sfi": 54.585,
+    "term": "oscillation",
+    "definition": ""
+  },
+  {
+    "rank": 515,
+    "sfi": 54.585,
+    "term": "impulse",
+    "definition": ""
+  },
+  {
+    "rank": 516,
+    "sfi": 54.58,
+    "term": "theorist",
+    "definition": ""
+  },
+  {
+    "rank": 517,
+    "sfi": 54.561,
+    "term": "manipulate",
+    "definition": ""
+  },
+  {
+    "rank": 518,
+    "sfi": 54.553,
+    "term": "alliance",
+    "definition": ""
+  },
+  {
+    "rank": 519,
+    "sfi": 54.546,
+    "term": "crystal",
+    "definition": ""
+  },
+  {
+    "rank": 520,
+    "sfi": 54.544,
+    "term": "importantly",
+    "definition": ""
+  },
+  {
+    "rank": 521,
+    "sfi": 54.519,
+    "term": "stack",
+    "definition": ""
+  },
+  {
+    "rank": 522,
+    "sfi": 54.515,
+    "term": "drift",
+    "definition": ""
+  },
+  {
+    "rank": 523,
+    "sfi": 54.507,
+    "term": "nest",
+    "definition": ""
+  },
+  {
+    "rank": 524,
+    "sfi": 54.503,
+    "term": "fossil",
+    "definition": ""
+  },
+  {
+    "rank": 525,
+    "sfi": 54.502,
+    "term": "resistant",
+    "definition": ""
+  },
+  {
+    "rank": 526,
+    "sfi": 54.502,
+    "term": "dimensional",
+    "definition": ""
+  },
+  {
+    "rank": 527,
+    "sfi": 54.498,
+    "term": "punishment",
+    "definition": ""
+  },
+  {
+    "rank": 528,
+    "sfi": 54.488,
+    "term": "rhetoric",
+    "definition": ""
+  },
+  {
+    "rank": 529,
+    "sfi": 54.477,
+    "term": "artifact",
+    "definition": ""
+  },
+  {
+    "rank": 530,
+    "sfi": 54.47,
+    "term": "carrier",
+    "definition": ""
+  },
+  {
+    "rank": 531,
+    "sfi": 54.461,
+    "term": "surgical",
+    "definition": ""
+  },
+  {
+    "rank": 532,
+    "sfi": 54.455,
+    "term": "coordination",
+    "definition": ""
+  },
+  {
+    "rank": 533,
+    "sfi": 54.437,
+    "term": "turbulent",
+    "definition": ""
+  },
+  {
+    "rank": 534,
+    "sfi": 54.436,
+    "term": "quantum",
+    "definition": ""
+  },
+  {
+    "rank": 535,
+    "sfi": 54.403,
+    "term": "sediment",
+    "definition": ""
+  },
+  {
+    "rank": 536,
+    "sfi": 54.371,
+    "term": "ray",
+    "definition": ""
+  },
+  {
+    "rank": 537,
+    "sfi": 54.358,
+    "term": "conserve",
+    "definition": ""
+  },
+  {
+    "rank": 538,
+    "sfi": 54.348,
+    "term": "primer",
+    "definition": ""
+  },
+  {
+    "rank": 539,
+    "sfi": 54.345,
+    "term": "grasp",
+    "definition": ""
+  },
+  {
+    "rank": 540,
+    "sfi": 54.327,
+    "term": "bulk",
+    "definition": ""
+  },
+  {
+    "rank": 541,
+    "sfi": 54.32,
+    "term": "terminology",
+    "definition": ""
+  },
+  {
+    "rank": 542,
+    "sfi": 54.315,
+    "term": "vegetation",
+    "definition": ""
+  },
+  {
+    "rank": 543,
+    "sfi": 54.284,
+    "term": "triangle",
+    "definition": ""
+  },
+  {
+    "rank": 544,
+    "sfi": 54.283,
+    "term": "traditionally",
+    "definition": ""
+  },
+  {
+    "rank": 545,
+    "sfi": 54.26,
+    "term": "execute",
+    "definition": ""
+  },
+  {
+    "rank": 546,
+    "sfi": 54.231,
+    "term": "intensive",
+    "definition": ""
+  },
+  {
+    "rank": 547,
+    "sfi": 54.215,
+    "term": "reconstruct",
+    "definition": ""
+  },
+  {
+    "rank": 548,
+    "sfi": 54.209,
+    "term": "broadly",
+    "definition": ""
+  },
+  {
+    "rank": 549,
+    "sfi": 54.205,
+    "term": "metabolism",
+    "definition": ""
+  },
+  {
+    "rank": 550,
+    "sfi": 54.203,
+    "term": "revolutionary",
+    "definition": ""
+  },
+  {
+    "rank": 551,
+    "sfi": 54.192,
+    "term": "merge",
+    "definition": ""
+  },
+  {
+    "rank": 552,
+    "sfi": 54.174,
+    "term": "dilemma",
+    "definition": ""
+  },
+  {
+    "rank": 553,
+    "sfi": 54.158,
+    "term": "motif",
+    "definition": ""
+  },
+  {
+    "rank": 554,
+    "sfi": 54.153,
+    "term": "motive",
+    "definition": ""
+  },
+  {
+    "rank": 555,
+    "sfi": 54.148,
+    "term": "subtle",
+    "definition": ""
+  },
+  {
+    "rank": 556,
+    "sfi": 54.145,
+    "term": "clinic",
+    "definition": ""
+  },
+  {
+    "rank": 557,
+    "sfi": 54.143,
+    "term": "allocate",
+    "definition": ""
+  },
+  {
+    "rank": 558,
+    "sfi": 54.123,
+    "term": "hydrogen",
+    "definition": ""
+  },
+  {
+    "rank": 559,
+    "sfi": 54.116,
+    "term": "dissertation",
+    "definition": ""
+  },
+  {
+    "rank": 560,
+    "sfi": 54.112,
+    "term": "susceptible",
+    "definition": ""
+  },
+  {
+    "rank": 561,
+    "sfi": 54.109,
+    "term": "architect",
+    "definition": ""
+  },
+  {
+    "rank": 562,
+    "sfi": 54.101,
+    "term": "coronary",
+    "definition": ""
+  },
+  {
+    "rank": 563,
+    "sfi": 54.084,
+    "term": "breakdown",
+    "definition": ""
+  },
+  {
+    "rank": 564,
+    "sfi": 54.077,
+    "term": "inject",
+    "definition": ""
+  },
+  {
+    "rank": 565,
+    "sfi": 54.069,
+    "term": "economist",
+    "definition": ""
+  },
+  {
+    "rank": 566,
+    "sfi": 54.043,
+    "term": "momentum",
+    "definition": ""
+  },
+  {
+    "rank": 567,
+    "sfi": 54.032,
+    "term": "polar",
+    "definition": ""
+  },
+  {
+    "rank": 568,
+    "sfi": 54.031,
+    "term": "backward",
+    "definition": ""
+  },
+  {
+    "rank": 569,
+    "sfi": 54.019,
+    "term": "multiply",
+    "definition": ""
+  },
+  {
+    "rank": 570,
+    "sfi": 54.008,
+    "term": "morality",
+    "definition": ""
+  },
+  {
+    "rank": 571,
+    "sfi": 54.003,
+    "term": "communicative",
+    "definition": ""
+  },
+  {
+    "rank": 572,
+    "sfi": 53.993,
+    "term": "physically",
+    "definition": ""
+  },
+  {
+    "rank": 573,
+    "sfi": 53.988,
+    "term": "rainfall",
+    "definition": ""
+  },
+  {
+    "rank": 574,
+    "sfi": 53.986,
+    "term": "politically",
+    "definition": ""
+  },
+  {
+    "rank": 575,
+    "sfi": 53.966,
+    "term": "invasion",
+    "definition": ""
+  },
+  {
+    "rank": 576,
+    "sfi": 53.959,
+    "term": "inevitably",
+    "definition": ""
+  },
+  {
+    "rank": 577,
+    "sfi": 53.954,
+    "term": "capitalism",
+    "definition": ""
+  },
+  {
+    "rank": 578,
+    "sfi": 53.944,
+    "term": "expertise",
+    "definition": ""
+  },
+  {
+    "rank": 579,
+    "sfi": 53.928,
+    "term": "inferior",
+    "definition": ""
+  },
+  {
+    "rank": 580,
+    "sfi": 53.924,
+    "term": "actively",
+    "definition": ""
+  },
+  {
+    "rank": 581,
+    "sfi": 53.914,
+    "term": "quotation",
+    "definition": ""
+  },
+  {
+    "rank": 582,
+    "sfi": 53.91,
+    "term": "composite",
+    "definition": ""
+  },
+  {
+    "rank": 583,
+    "sfi": 53.895,
+    "term": "historically",
+    "definition": ""
+  },
+  {
+    "rank": 584,
+    "sfi": 53.886,
+    "term": "textbook",
+    "definition": ""
+  },
+  {
+    "rank": 585,
+    "sfi": 53.882,
+    "term": "bundle",
+    "definition": ""
+  },
+  {
+    "rank": 586,
+    "sfi": 53.881,
+    "term": "elementary",
+    "definition": ""
+  },
+  {
+    "rank": 587,
+    "sfi": 53.876,
+    "term": "capitalist",
+    "definition": ""
+  },
+  {
+    "rank": 588,
+    "sfi": 53.873,
+    "term": "flexibility",
+    "definition": ""
+  },
+  {
+    "rank": 589,
+    "sfi": 53.838,
+    "term": "cord",
+    "definition": ""
+  },
+  {
+    "rank": 590,
+    "sfi": 53.836,
+    "term": "realistic",
+    "definition": ""
+  },
+  {
+    "rank": 591,
+    "sfi": 53.836,
+    "term": "initiation",
+    "definition": ""
+  },
+  {
+    "rank": 592,
+    "sfi": 53.834,
+    "term": "horizon",
+    "definition": ""
+  },
+  {
+    "rank": 593,
+    "sfi": 53.832,
+    "term": "consultation",
+    "definition": ""
+  },
+  {
+    "rank": 594,
+    "sfi": 53.831,
+    "term": "ruler",
+    "definition": ""
+  },
+  {
+    "rank": 595,
+    "sfi": 53.817,
+    "term": "freely",
+    "definition": ""
+  },
+  {
+    "rank": 596,
+    "sfi": 53.812,
+    "term": "rotate",
+    "definition": ""
+  },
+  {
+    "rank": 597,
+    "sfi": 53.805,
+    "term": "commodity",
+    "definition": ""
+  },
+  {
+    "rank": 598,
+    "sfi": 53.792,
+    "term": "elevation",
+    "definition": ""
+  },
+  {
+    "rank": 599,
+    "sfi": 53.781,
+    "term": "intervene",
+    "definition": ""
+  },
+  {
+    "rank": 600,
+    "sfi": 53.779,
+    "term": "compensate",
+    "definition": ""
+  },
+  {
+    "rank": 601,
+    "sfi": 53.775,
+    "term": "atomic",
+    "definition": ""
+  },
+  {
+    "rank": 602,
+    "sfi": 53.767,
+    "term": "trivial",
+    "definition": ""
+  },
+  {
+    "rank": 603,
+    "sfi": 53.756,
+    "term": "stance",
+    "definition": ""
+  },
+  {
+    "rank": 604,
+    "sfi": 53.738,
+    "term": "stabilize",
+    "definition": ""
+  },
+  {
+    "rank": 605,
+    "sfi": 53.723,
+    "term": "profound",
+    "definition": ""
+  },
+  {
+    "rank": 606,
+    "sfi": 53.717,
+    "term": "whereby",
+    "definition": ""
+  },
+  {
+    "rank": 607,
+    "sfi": 53.712,
+    "term": "ancestor",
+    "definition": ""
+  },
+  {
+    "rank": 608,
+    "sfi": 53.705,
+    "term": "genetics",
+    "definition": ""
+  },
+  {
+    "rank": 609,
+    "sfi": 53.672,
+    "term": "proton",
+    "definition": ""
+  },
+  {
+    "rank": 610,
+    "sfi": 53.639,
+    "term": "phosphate",
+    "definition": ""
+  },
+  {
+    "rank": 611,
+    "sfi": 53.636,
+    "term": "gravity",
+    "definition": ""
+  },
+  {
+    "rank": 612,
+    "sfi": 53.63,
+    "term": "pole",
+    "definition": ""
+  },
+  {
+    "rank": 613,
+    "sfi": 53.621,
+    "term": "puzzle",
+    "definition": ""
+  },
+  {
+    "rank": 614,
+    "sfi": 53.617,
+    "term": "respiratory",
+    "definition": ""
+  },
+  {
+    "rank": 615,
+    "sfi": 53.61,
+    "term": "elimination",
+    "definition": ""
+  },
+  {
+    "rank": 616,
+    "sfi": 53.608,
+    "term": "exit",
+    "definition": ""
+  },
+  {
+    "rank": 617,
+    "sfi": 53.582,
+    "term": "corruption",
+    "definition": ""
+  },
+  {
+    "rank": 618,
+    "sfi": 53.573,
+    "term": "circulate",
+    "definition": ""
+  },
+  {
+    "rank": 619,
+    "sfi": 53.555,
+    "term": "obscure",
+    "definition": ""
+  },
+  {
+    "rank": 620,
+    "sfi": 53.531,
+    "term": "contradict",
+    "definition": ""
+  },
+  {
+    "rank": 621,
+    "sfi": 53.514,
+    "term": "interfere",
+    "definition": ""
+  },
+  {
+    "rank": 622,
+    "sfi": 53.505,
+    "term": "trauma",
+    "definition": ""
+  },
+  {
+    "rank": 623,
+    "sfi": 53.504,
+    "term": "upward",
+    "definition": ""
+  },
+  {
+    "rank": 624,
+    "sfi": 53.493,
+    "term": "gross",
+    "definition": ""
+  },
+  {
+    "rank": 625,
+    "sfi": 53.472,
+    "term": "optical",
+    "definition": ""
+  },
+  {
+    "rank": 626,
+    "sfi": 53.467,
+    "term": "communist",
+    "definition": ""
+  },
+  {
+    "rank": 627,
+    "sfi": 53.458,
+    "term": "continent",
+    "definition": ""
+  },
+  {
+    "rank": 628,
+    "sfi": 53.44,
+    "term": "physics",
+    "definition": ""
+  },
+  {
+    "rank": 629,
+    "sfi": 53.435,
+    "term": "viable",
+    "definition": ""
+  },
+  {
+    "rank": 630,
+    "sfi": 53.429,
+    "term": "limb",
+    "definition": ""
+  },
+  {
+    "rank": 631,
+    "sfi": 53.413,
+    "term": "retrieve",
+    "definition": ""
+  },
+  {
+    "rank": 632,
+    "sfi": 53.406,
+    "term": "presume",
+    "definition": ""
+  },
+  {
+    "rank": 633,
+    "sfi": 53.385,
+    "term": "rationality",
+    "definition": ""
+  },
+  {
+    "rank": 634,
+    "sfi": 53.371,
+    "term": "stereotype",
+    "definition": ""
+  },
+  {
+    "rank": 635,
+    "sfi": 53.344,
+    "term": "slavery",
+    "definition": ""
+  },
+  {
+    "rank": 636,
+    "sfi": 53.283,
+    "term": "artistic",
+    "definition": ""
+  },
+  {
+    "rank": 637,
+    "sfi": 53.282,
+    "term": "faculty",
+    "definition": ""
+  },
+  {
+    "rank": 638,
+    "sfi": 53.282,
+    "term": "anthropology",
+    "definition": ""
+  },
+  {
+    "rank": 639,
+    "sfi": 53.276,
+    "term": "antibiotic",
+    "definition": ""
+  },
+  {
+    "rank": 640,
+    "sfi": 53.275,
+    "term": "portray",
+    "definition": ""
+  },
+  {
+    "rank": 641,
+    "sfi": 53.225,
+    "term": "sexuality",
+    "definition": ""
+  },
+  {
+    "rank": 642,
+    "sfi": 53.225,
+    "term": "chemistry",
+    "definition": ""
+  },
+  {
+    "rank": 643,
+    "sfi": 53.221,
+    "term": "axiom",
+    "definition": ""
+  },
+  {
+    "rank": 644,
+    "sfi": 53.215,
+    "term": "pest",
+    "definition": ""
+  },
+  {
+    "rank": 645,
+    "sfi": 53.209,
+    "term": "fracture",
+    "definition": ""
+  },
+  {
+    "rank": 646,
+    "sfi": 53.206,
+    "term": "transplant",
+    "definition": ""
+  },
+  {
+    "rank": 647,
+    "sfi": 53.194,
+    "term": "goods",
+    "definition": ""
+  },
+  {
+    "rank": 648,
+    "sfi": 53.155,
+    "term": "shortly",
+    "definition": ""
+  },
+  {
+    "rank": 649,
+    "sfi": 53.131,
+    "term": "epidemic",
+    "definition": ""
+  },
+  {
+    "rank": 650,
+    "sfi": 53.107,
+    "term": "inversion",
+    "definition": ""
+  },
+  {
+    "rank": 651,
+    "sfi": 53.103,
+    "term": "irrelevant",
+    "definition": ""
+  },
+  {
+    "rank": 652,
+    "sfi": 53.094,
+    "term": "mechanic",
+    "definition": ""
+  },
+  {
+    "rank": 653,
+    "sfi": 53.092,
+    "term": "epidemiology",
+    "definition": ""
+  },
+  {
+    "rank": 654,
+    "sfi": 53.089,
+    "term": "dissolve",
+    "definition": ""
+  },
+  {
+    "rank": 655,
+    "sfi": 53.04,
+    "term": "fatigue",
+    "definition": ""
+  },
+  {
+    "rank": 656,
+    "sfi": 53.026,
+    "term": "nonetheless",
+    "definition": ""
+  },
+  {
+    "rank": 657,
+    "sfi": 52.994,
+    "term": "bargain",
+    "definition": ""
+  },
+  {
+    "rank": 658,
+    "sfi": 52.98,
+    "term": "infectious",
+    "definition": ""
+  },
+  {
+    "rank": 659,
+    "sfi": 52.951,
+    "term": "individually",
+    "definition": ""
+  },
+  {
+    "rank": 660,
+    "sfi": 52.95,
+    "term": "psychologist",
+    "definition": ""
+  },
+  {
+    "rank": 661,
+    "sfi": 52.946,
+    "term": "trans",
+    "definition": ""
+  },
+  {
+    "rank": 662,
+    "sfi": 52.903,
+    "term": "irrigation",
+    "definition": ""
+  },
+  {
+    "rank": 663,
+    "sfi": 52.865,
+    "term": "diary",
+    "definition": ""
+  },
+  {
+    "rank": 664,
+    "sfi": 52.86,
+    "term": "treaty",
+    "definition": ""
+  },
+  {
+    "rank": 665,
+    "sfi": 52.856,
+    "term": "rehabilitation",
+    "definition": ""
+  },
+  {
+    "rank": 666,
+    "sfi": 52.847,
+    "term": "illusion",
+    "definition": ""
+  },
+  {
+    "rank": 667,
+    "sfi": 52.83,
+    "term": "bat",
+    "definition": ""
+  },
+  {
+    "rank": 668,
+    "sfi": 52.828,
+    "term": "optimum",
+    "definition": ""
+  },
+  {
+    "rank": 669,
+    "sfi": 52.821,
+    "term": "fever",
+    "definition": ""
+  },
+  {
+    "rank": 670,
+    "sfi": 52.818,
+    "term": "paradox",
+    "definition": ""
+  },
+  {
+    "rank": 671,
+    "sfi": 52.784,
+    "term": "kidney",
+    "definition": ""
+  },
+  {
+    "rank": 672,
+    "sfi": 52.749,
+    "term": "predator",
+    "definition": ""
+  },
+  {
+    "rank": 673,
+    "sfi": 52.697,
+    "term": "migrate",
+    "definition": ""
+  },
+  {
+    "rank": 674,
+    "sfi": 52.696,
+    "term": "infinity",
+    "definition": ""
+  },
+  {
+    "rank": 675,
+    "sfi": 52.691,
+    "term": "shallow",
+    "definition": ""
+  },
+  {
+    "rank": 676,
+    "sfi": 52.651,
+    "term": "fundamentally",
+    "definition": ""
+  },
+  {
+    "rank": 677,
+    "sfi": 52.608,
+    "term": "synthetic",
+    "definition": ""
+  },
+  {
+    "rank": 678,
+    "sfi": 52.6,
+    "term": "hepatitis",
+    "definition": ""
+  },
+  {
+    "rank": 679,
+    "sfi": 52.591,
+    "term": "ton",
+    "definition": ""
+  },
+  {
+    "rank": 680,
+    "sfi": 52.573,
+    "term": "bubble",
+    "definition": ""
+  },
+  {
+    "rank": 681,
+    "sfi": 52.56,
+    "term": "bracket",
+    "definition": ""
+  },
+  {
+    "rank": 682,
+    "sfi": 52.537,
+    "term": "elasticity",
+    "definition": ""
+  },
+  {
+    "rank": 683,
+    "sfi": 52.528,
+    "term": "cure",
+    "definition": ""
+  },
+  {
+    "rank": 684,
+    "sfi": 52.518,
+    "term": "contradictory",
+    "definition": ""
+  },
+  {
+    "rank": 685,
+    "sfi": 52.51,
+    "term": "sensation",
+    "definition": ""
+  },
+  {
+    "rank": 686,
+    "sfi": 52.488,
+    "term": "sustainable",
+    "definition": ""
+  },
+  {
+    "rank": 687,
+    "sfi": 52.487,
+    "term": "elastic",
+    "definition": ""
+  },
+  {
+    "rank": 688,
+    "sfi": 52.466,
+    "term": "machinery",
+    "definition": ""
+  },
+  {
+    "rank": 689,
+    "sfi": 52.435,
+    "term": "dictate",
+    "definition": ""
+  },
+  {
+    "rank": 690,
+    "sfi": 52.428,
+    "term": "vitamin",
+    "definition": ""
+  },
+  {
+    "rank": 691,
+    "sfi": 52.424,
+    "term": "incline",
+    "definition": ""
+  },
+  {
+    "rank": 692,
+    "sfi": 52.396,
+    "term": "leisure",
+    "definition": ""
+  },
+  {
+    "rank": 693,
+    "sfi": 52.394,
+    "term": "enforcement",
+    "definition": ""
+  },
+  {
+    "rank": 694,
+    "sfi": 52.389,
+    "term": "prey",
+    "definition": ""
+  },
+  {
+    "rank": 695,
+    "sfi": 52.389,
+    "term": "cyclic",
+    "definition": ""
+  },
+  {
+    "rank": 696,
+    "sfi": 52.362,
+    "term": "clue",
+    "definition": ""
+  },
+  {
+    "rank": 697,
+    "sfi": 52.36,
+    "term": "friction",
+    "definition": ""
+  },
+  {
+    "rank": 698,
+    "sfi": 52.347,
+    "term": "parenthesis",
+    "definition": ""
+  },
+  {
+    "rank": 699,
+    "sfi": 52.34,
+    "term": "noble",
+    "definition": ""
+  },
+  {
+    "rank": 700,
+    "sfi": 52.332,
+    "term": "potassium",
+    "definition": ""
+  },
+  {
+    "rank": 701,
+    "sfi": 52.33,
+    "term": "reactive",
+    "definition": ""
+  },
+  {
+    "rank": 702,
+    "sfi": 52.314,
+    "term": "genetically",
+    "definition": ""
+  },
+  {
+    "rank": 703,
+    "sfi": 52.311,
+    "term": "bacteria",
+    "definition": ""
+  },
+  {
+    "rank": 704,
+    "sfi": 52.306,
+    "term": "wisdom",
+    "definition": ""
+  },
+  {
+    "rank": 705,
+    "sfi": 52.289,
+    "term": "crude",
+    "definition": ""
+  },
+  {
+    "rank": 706,
+    "sfi": 52.282,
+    "term": "realism",
+    "definition": ""
+  },
+  {
+    "rank": 707,
+    "sfi": 52.25,
+    "term": "deliberately",
+    "definition": ""
+  },
+  {
+    "rank": 708,
+    "sfi": 52.248,
+    "term": "chemotherapy",
+    "definition": ""
+  },
+  {
+    "rank": 709,
+    "sfi": 52.24,
+    "term": "surplus",
+    "definition": ""
+  },
+  {
+    "rank": 710,
+    "sfi": 52.236,
+    "term": "capillary",
+    "definition": ""
+  },
+  {
+    "rank": 711,
+    "sfi": 52.227,
+    "term": "directive",
+    "definition": ""
+  },
+  {
+    "rank": 712,
+    "sfi": 52.189,
+    "term": "globalization",
+    "definition": ""
+  },
+  {
+    "rank": 713,
+    "sfi": 52.156,
+    "term": "alien",
+    "definition": ""
+  },
+  {
+    "rank": 714,
+    "sfi": 52.133,
+    "term": "portfolio",
+    "definition": ""
+  },
+  {
+    "rank": 715,
+    "sfi": 52.128,
+    "term": "monopoly",
+    "definition": ""
+  },
+  {
+    "rank": 716,
+    "sfi": 52.098,
+    "term": "lifestyle",
+    "definition": ""
+  },
+  {
+    "rank": 717,
+    "sfi": 52.083,
+    "term": "invert",
+    "definition": ""
+  },
+  {
+    "rank": 718,
+    "sfi": 52.077,
+    "term": "thread",
+    "definition": ""
+  },
+  {
+    "rank": 719,
+    "sfi": 52.029,
+    "term": "clay",
+    "definition": ""
+  },
+  {
+    "rank": 720,
+    "sfi": 52.027,
+    "term": "dye",
+    "definition": ""
+  },
+  {
+    "rank": 721,
+    "sfi": 52.012,
+    "term": "transcribe",
+    "definition": ""
+  },
+  {
+    "rank": 722,
+    "sfi": 52.011,
+    "term": "dilute",
+    "definition": ""
+  },
+  {
+    "rank": 723,
+    "sfi": 51.989,
+    "term": "tribe",
+    "definition": ""
+  },
+  {
+    "rank": 724,
+    "sfi": 51.978,
+    "term": "damp",
+    "definition": ""
+  },
+  {
+    "rank": 725,
+    "sfi": 51.967,
+    "term": "economically",
+    "definition": ""
+  },
+  {
+    "rank": 726,
+    "sfi": 51.896,
+    "term": "critically",
+    "definition": ""
+  },
+  {
+    "rank": 727,
+    "sfi": 51.868,
+    "term": "secrete",
+    "definition": ""
+  },
+  {
+    "rank": 728,
+    "sfi": 51.859,
+    "term": "hip",
+    "definition": ""
+  },
+  {
+    "rank": 729,
+    "sfi": 51.848,
+    "term": "plantation",
+    "definition": ""
+  },
+  {
+    "rank": 730,
+    "sfi": 51.8,
+    "term": "prejudice",
+    "definition": ""
+  },
+  {
+    "rank": 731,
+    "sfi": 51.795,
+    "term": "onwards",
+    "definition": ""
+  },
+  {
+    "rank": 732,
+    "sfi": 51.771,
+    "term": "anti",
+    "definition": ""
+  },
+  {
+    "rank": 733,
+    "sfi": 51.735,
+    "term": "helix",
+    "definition": ""
+  },
+  {
+    "rank": 734,
+    "sfi": 51.719,
+    "term": "interrupt",
+    "definition": ""
+  },
+  {
+    "rank": 735,
+    "sfi": 51.657,
+    "term": "domination",
+    "definition": ""
+  },
+  {
+    "rank": 736,
+    "sfi": 51.633,
+    "term": "undergraduate",
+    "definition": ""
+  },
+  {
+    "rank": 737,
+    "sfi": 51.627,
+    "term": "soluble",
+    "definition": ""
+  },
+  {
+    "rank": 738,
+    "sfi": 51.607,
+    "term": "innate",
+    "definition": ""
+  },
+  {
+    "rank": 739,
+    "sfi": 51.598,
+    "term": "dioxide",
+    "definition": ""
+  },
+  {
+    "rank": 740,
+    "sfi": 51.538,
+    "term": "goat",
+    "definition": ""
+  },
+  {
+    "rank": 741,
+    "sfi": 51.536,
+    "term": "emit",
+    "definition": ""
+  },
+  {
+    "rank": 742,
+    "sfi": 51.531,
+    "term": "confound",
+    "definition": ""
+  },
+  {
+    "rank": 743,
+    "sfi": 51.528,
+    "term": "competent",
+    "definition": ""
+  },
+  {
+    "rank": 744,
+    "sfi": 51.515,
+    "term": "degrade",
+    "definition": ""
+  },
+  {
+    "rank": 745,
+    "sfi": 51.506,
+    "term": "layout",
+    "definition": ""
+  },
+  {
+    "rank": 746,
+    "sfi": 51.498,
+    "term": "fabric",
+    "definition": ""
+  },
+  {
+    "rank": 747,
+    "sfi": 51.495,
+    "term": "container",
+    "definition": ""
+  },
+  {
+    "rank": 748,
+    "sfi": 51.493,
+    "term": "fungus",
+    "definition": ""
+  },
+  {
+    "rank": 749,
+    "sfi": 51.49,
+    "term": "reservoir",
+    "definition": ""
+  },
+  {
+    "rank": 750,
+    "sfi": 51.484,
+    "term": "footnote",
+    "definition": ""
+  },
+  {
+    "rank": 751,
+    "sfi": 51.446,
+    "term": "bodily",
+    "definition": ""
+  },
+  {
+    "rank": 752,
+    "sfi": 51.415,
+    "term": "niche",
+    "definition": ""
+  },
+  {
+    "rank": 753,
+    "sfi": 51.407,
+    "term": "vague",
+    "definition": ""
+  },
+  {
+    "rank": 754,
+    "sfi": 51.347,
+    "term": "affirm",
+    "definition": ""
+  },
+  {
+    "rank": 755,
+    "sfi": 51.297,
+    "term": "urine",
+    "definition": ""
+  },
+  {
+    "rank": 756,
+    "sfi": 51.275,
+    "term": "afterward",
+    "definition": ""
+  },
+  {
+    "rank": 757,
+    "sfi": 51.263,
+    "term": "jazz",
+    "definition": ""
+  },
+  {
+    "rank": 758,
+    "sfi": 51.252,
+    "term": "antiquity",
+    "definition": ""
+  },
+  {
+    "rank": 759,
+    "sfi": 51.242,
+    "term": "unemployed",
+    "definition": ""
+  },
+  {
+    "rank": 760,
+    "sfi": 51.236,
+    "term": "toxic",
+    "definition": ""
+  },
+  {
+    "rank": 761,
+    "sfi": 51.228,
+    "term": "yeast",
+    "definition": ""
+  },
+  {
+    "rank": 762,
+    "sfi": 51.174,
+    "term": "punish",
+    "definition": ""
+  },
+  {
+    "rank": 763,
+    "sfi": 51.173,
+    "term": "forum",
+    "definition": ""
+  },
+  {
+    "rank": 764,
+    "sfi": 51.17,
+    "term": "bleed",
+    "definition": ""
+  },
+  {
+    "rank": 765,
+    "sfi": 51.165,
+    "term": "overhead",
+    "definition": ""
+  },
+  {
+    "rank": 766,
+    "sfi": 51.139,
+    "term": "republic",
+    "definition": ""
+  },
+  {
+    "rank": 767,
+    "sfi": 51.123,
+    "term": "processor",
+    "definition": ""
+  },
+  {
+    "rank": 768,
+    "sfi": 51.122,
+    "term": "goodness",
+    "definition": ""
+  },
+  {
+    "rank": 769,
+    "sfi": 51.017,
+    "term": "comply",
+    "definition": ""
+  },
+  {
+    "rank": 770,
+    "sfi": 51.017,
+    "term": "audit",
+    "definition": ""
+  },
+  {
+    "rank": 771,
+    "sfi": 51.016,
+    "term": "legend",
+    "definition": ""
+  },
+  {
+    "rank": 772,
+    "sfi": 50.941,
+    "term": "slot",
+    "definition": ""
+  },
+  {
+    "rank": 773,
+    "sfi": 50.892,
+    "term": "drain",
+    "definition": ""
+  },
+  {
+    "rank": 774,
+    "sfi": 50.888,
+    "term": "abdominal",
+    "definition": ""
+  },
+  {
+    "rank": 775,
+    "sfi": 50.882,
+    "term": "media",
+    "definition": ""
+  },
+  {
+    "rank": 776,
+    "sfi": 50.881,
+    "term": "tempt",
+    "definition": ""
+  },
+  {
+    "rank": 777,
+    "sfi": 50.88,
+    "term": "outlet",
+    "definition": ""
+  },
+  {
+    "rank": 778,
+    "sfi": 50.865,
+    "term": "precipitation",
+    "definition": ""
+  },
+  {
+    "rank": 779,
+    "sfi": 50.843,
+    "term": "invade",
+    "definition": ""
+  },
+  {
+    "rank": 780,
+    "sfi": 50.812,
+    "term": "interviewer",
+    "definition": ""
+  },
+  {
+    "rank": 781,
+    "sfi": 50.807,
+    "term": "apple",
+    "definition": ""
+  },
+  {
+    "rank": 782,
+    "sfi": 50.802,
+    "term": "planner",
+    "definition": ""
+  },
+  {
+    "rank": 783,
+    "sfi": 50.778,
+    "term": "supposedly",
+    "definition": ""
+  },
+  {
+    "rank": 784,
+    "sfi": 50.773,
+    "term": "gut",
+    "definition": ""
+  },
+  {
+    "rank": 785,
+    "sfi": 50.746,
+    "term": "swell",
+    "definition": ""
+  },
+  {
+    "rank": 786,
+    "sfi": 50.699,
+    "term": "emperor",
+    "definition": ""
+  },
+  {
+    "rank": 787,
+    "sfi": 50.681,
+    "term": "altitude",
+    "definition": ""
+  },
+  {
+    "rank": 788,
+    "sfi": 50.665,
+    "term": "gauge",
+    "definition": ""
+  },
+  {
+    "rank": 789,
+    "sfi": 50.636,
+    "term": "transparency",
+    "definition": ""
+  },
+  {
+    "rank": 790,
+    "sfi": 50.634,
+    "term": "sub",
+    "definition": ""
+  },
+  {
+    "rank": 791,
+    "sfi": 50.569,
+    "term": "blank",
+    "definition": ""
+  },
+  {
+    "rank": 792,
+    "sfi": 50.526,
+    "term": "chloride",
+    "definition": ""
+  },
+  {
+    "rank": 793,
+    "sfi": 50.508,
+    "term": "sensible",
+    "definition": ""
+  },
+  {
+    "rank": 794,
+    "sfi": 50.467,
+    "term": "weave",
+    "definition": ""
+  },
+  {
+    "rank": 795,
+    "sfi": 50.462,
+    "term": "destination",
+    "definition": ""
+  },
+  {
+    "rank": 796,
+    "sfi": 50.42,
+    "term": "precipitate",
+    "definition": ""
+  },
+  {
+    "rank": 797,
+    "sfi": 50.411,
+    "term": "painful",
+    "definition": ""
+  },
+  {
+    "rank": 798,
+    "sfi": 50.403,
+    "term": "industrialization",
+    "definition": ""
+  },
+  {
+    "rank": 799,
+    "sfi": 50.397,
+    "term": "lab",
+    "definition": ""
+  },
+  {
+    "rank": 800,
+    "sfi": 50.37,
+    "term": "seminar",
+    "definition": ""
+  },
+  {
+    "rank": 801,
+    "sfi": 50.361,
+    "term": "minus",
+    "definition": ""
+  },
+  {
+    "rank": 802,
+    "sfi": 50.328,
+    "term": "conduction",
+    "definition": ""
+  },
+  {
+    "rank": 803,
+    "sfi": 50.308,
+    "term": "audio",
+    "definition": ""
+  },
+  {
+    "rank": 804,
+    "sfi": 50.296,
+    "term": "subtract",
+    "definition": ""
+  },
+  {
+    "rank": 805,
+    "sfi": 50.286,
+    "term": "facet",
+    "definition": ""
+  },
+  {
+    "rank": 806,
+    "sfi": 50.174,
+    "term": "splice",
+    "definition": ""
+  },
+  {
+    "rank": 807,
+    "sfi": 50.169,
+    "term": "incumbent",
+    "definition": ""
+  },
+  {
+    "rank": 808,
+    "sfi": 50.153,
+    "term": "biodiversity",
+    "definition": ""
+  },
+  {
+    "rank": 809,
+    "sfi": 50.02,
+    "term": "chunk",
+    "definition": ""
+  },
+  {
+    "rank": 810,
+    "sfi": 49.993,
+    "term": "credibility",
+    "definition": ""
+  },
+  {
+    "rank": 811,
+    "sfi": 49.932,
+    "term": "tutor",
+    "definition": ""
+  },
+  {
+    "rank": 812,
+    "sfi": 49.916,
+    "term": "super",
+    "definition": ""
+  },
+  {
+    "rank": 813,
+    "sfi": 49.87,
+    "term": "fin",
+    "definition": ""
+  },
+  {
+    "rank": 814,
+    "sfi": 49.867,
+    "term": "aluminum",
+    "definition": ""
+  },
+  {
+    "rank": 815,
+    "sfi": 49.85,
+    "term": "gram",
+    "definition": ""
+  },
+  {
+    "rank": 816,
+    "sfi": 49.828,
+    "term": "liable",
+    "definition": ""
+  },
+  {
+    "rank": 817,
+    "sfi": 49.802,
+    "term": "marble",
+    "definition": ""
+  },
+  {
+    "rank": 818,
+    "sfi": 49.732,
+    "term": "pesticide",
+    "definition": ""
+  },
+  {
+    "rank": 819,
+    "sfi": 49.646,
+    "term": "technically",
+    "definition": ""
+  },
+  {
+    "rank": 820,
+    "sfi": 49.598,
+    "term": "fringe",
+    "definition": ""
+  },
+  {
+    "rank": 821,
+    "sfi": 49.576,
+    "term": "messenger",
+    "definition": ""
+  },
+  {
+    "rank": 822,
+    "sfi": 49.565,
+    "term": "biologist",
+    "definition": ""
+  },
+  {
+    "rank": 823,
+    "sfi": 49.558,
+    "term": "connotation",
+    "definition": ""
+  },
+  {
+    "rank": 824,
+    "sfi": 49.534,
+    "term": "delta",
+    "definition": ""
+  },
+  {
+    "rank": 825,
+    "sfi": 49.486,
+    "term": "tremendous",
+    "definition": ""
+  },
+  {
+    "rank": 826,
+    "sfi": 49.471,
+    "term": "snake",
+    "definition": ""
+  },
+  {
+    "rank": 827,
+    "sfi": 49.42,
+    "term": "flesh",
+    "definition": ""
+  },
+  {
+    "rank": 828,
+    "sfi": 49.342,
+    "term": "ghost",
+    "definition": ""
+  },
+  {
+    "rank": 829,
+    "sfi": 49.339,
+    "term": "marrow",
+    "definition": ""
+  },
+  {
+    "rank": 830,
+    "sfi": 49.328,
+    "term": "surgeon",
+    "definition": ""
+  },
+  {
+    "rank": 831,
+    "sfi": 49.319,
+    "term": "instinct",
+    "definition": ""
+  },
+  {
+    "rank": 832,
+    "sfi": 49.284,
+    "term": "industrialize",
+    "definition": ""
+  },
+  {
+    "rank": 833,
+    "sfi": 49.23,
+    "term": "denominator",
+    "definition": ""
+  },
+  {
+    "rank": 834,
+    "sfi": 49.188,
+    "term": "stripe",
+    "definition": ""
+  },
+  {
+    "rank": 835,
+    "sfi": 49.179,
+    "term": "junior",
+    "definition": ""
+  },
+  {
+    "rank": 836,
+    "sfi": 49.177,
+    "term": "solvent",
+    "definition": ""
+  },
+  {
+    "rank": 837,
+    "sfi": 49.137,
+    "term": "kilometer",
+    "definition": ""
+  },
+  {
+    "rank": 838,
+    "sfi": 49.101,
+    "term": "slab",
+    "definition": ""
+  },
+  {
+    "rank": 839,
+    "sfi": 48.823,
+    "term": "hedge",
+    "definition": ""
+  },
+  {
+    "rank": 840,
+    "sfi": 48.819,
+    "term": "spray",
+    "definition": ""
+  },
+  {
+    "rank": 841,
+    "sfi": 48.811,
+    "term": "cinema",
+    "definition": ""
+  },
+  {
+    "rank": 842,
+    "sfi": 48.755,
+    "term": "plug",
+    "definition": ""
+  },
+  {
+    "rank": 843,
+    "sfi": 48.731,
+    "term": "naked",
+    "definition": ""
+  },
+  {
+    "rank": 844,
+    "sfi": 48.72,
+    "term": "indifference",
+    "definition": ""
+  },
+  {
+    "rank": 845,
+    "sfi": 48.677,
+    "term": "erase",
+    "definition": ""
+  },
+  {
+    "rank": 846,
+    "sfi": 48.592,
+    "term": "powder",
+    "definition": ""
+  },
+  {
+    "rank": 847,
+    "sfi": 48.505,
+    "term": "micro",
+    "definition": ""
+  },
+  {
+    "rank": 848,
+    "sfi": 48.398,
+    "term": "clip",
+    "definition": ""
+  },
+  {
+    "rank": 849,
+    "sfi": 48.377,
+    "term": "solute",
+    "definition": ""
+  },
+  {
+    "rank": 850,
+    "sfi": 48.318,
+    "term": "dissection",
+    "definition": ""
+  },
+  {
+    "rank": 851,
+    "sfi": 48.281,
+    "term": "censor",
+    "definition": ""
+  },
+  {
+    "rank": 852,
+    "sfi": 48.265,
+    "term": "portrayal",
+    "definition": ""
+  },
+  {
+    "rank": 853,
+    "sfi": 48.058,
+    "term": "statistics",
+    "definition": ""
+  },
+  {
+    "rank": 854,
+    "sfi": 48.036,
+    "term": "thumb",
+    "definition": ""
+  },
+  {
+    "rank": 855,
+    "sfi": 48.035,
+    "term": "acidic",
+    "definition": ""
+  },
+  {
+    "rank": 856,
+    "sfi": 48.006,
+    "term": "uplift",
+    "definition": ""
+  },
+  {
+    "rank": 857,
+    "sfi": 48.002,
+    "term": "flip",
+    "definition": ""
+  },
+  {
+    "rank": 858,
+    "sfi": 47.982,
+    "term": "congruent",
+    "definition": ""
+  },
+  {
+    "rank": 859,
+    "sfi": 47.921,
+    "term": "parcel",
+    "definition": ""
+  },
+  {
+    "rank": 860,
+    "sfi": 47.917,
+    "term": "lecturer",
+    "definition": ""
+  },
+  {
+    "rank": 861,
+    "sfi": 47.907,
+    "term": "skip",
+    "definition": ""
+  },
+  {
+    "rank": 862,
+    "sfi": 47.885,
+    "term": "poster",
+    "definition": ""
+  },
+  {
+    "rank": 863,
+    "sfi": 47.832,
+    "term": "sword",
+    "definition": ""
+  },
+  {
+    "rank": 864,
+    "sfi": 47.808,
+    "term": "photographic",
+    "definition": ""
+  },
+  {
+    "rank": 865,
+    "sfi": 47.752,
+    "term": "auction",
+    "definition": ""
+  },
+  {
+    "rank": 866,
+    "sfi": 47.735,
+    "term": "barrel",
+    "definition": ""
+  },
+  {
+    "rank": 867,
+    "sfi": 47.731,
+    "term": "mentor",
+    "definition": ""
+  },
+  {
+    "rank": 868,
+    "sfi": 47.725,
+    "term": "nicely",
+    "definition": ""
+  },
+  {
+    "rank": 869,
+    "sfi": 47.72,
+    "term": "lump",
+    "definition": ""
+  },
+  {
+    "rank": 870,
+    "sfi": 47.681,
+    "term": "quiz",
+    "definition": ""
+  },
+  {
+    "rank": 871,
+    "sfi": 47.662,
+    "term": "watershed",
+    "definition": ""
+  },
+  {
+    "rank": 872,
+    "sfi": 47.433,
+    "term": "liter",
+    "definition": ""
+  },
+  {
+    "rank": 873,
+    "sfi": 47.402,
+    "term": "oxidize",
+    "definition": ""
+  },
+  {
+    "rank": 874,
+    "sfi": 47.366,
+    "term": "mercury",
+    "definition": ""
+  },
+  {
+    "rank": 875,
+    "sfi": 47.358,
+    "term": "noisy",
+    "definition": ""
+  },
+  {
+    "rank": 876,
+    "sfi": 47.357,
+    "term": "headquarters",
+    "definition": ""
+  },
+  {
+    "rank": 877,
+    "sfi": 47.322,
+    "term": "phenomenal",
+    "definition": ""
+  },
+  {
+    "rank": 878,
+    "sfi": 47.306,
+    "term": "multinational",
+    "definition": ""
+  },
+  {
+    "rank": 879,
+    "sfi": 47.236,
+    "term": "comma",
+    "definition": ""
+  },
+  {
+    "rank": 880,
+    "sfi": 47.216,
+    "term": "bizarre",
+    "definition": ""
+  },
+  {
+    "rank": 881,
+    "sfi": 47.202,
+    "term": "specialty",
+    "definition": ""
+  },
+  {
+    "rank": 882,
+    "sfi": 47.163,
+    "term": "socialize",
+    "definition": ""
+  },
+  {
+    "rank": 883,
+    "sfi": 47.123,
+    "term": "novice",
+    "definition": ""
+  },
+  {
+    "rank": 884,
+    "sfi": 47.123,
+    "term": "enormously",
+    "definition": ""
+  },
+  {
+    "rank": 885,
+    "sfi": 47.082,
+    "term": "rope",
+    "definition": ""
+  },
+  {
+    "rank": 886,
+    "sfi": 47.053,
+    "term": "campus",
+    "definition": ""
+  },
+  {
+    "rank": 887,
+    "sfi": 47.03,
+    "term": "clever",
+    "definition": ""
+  },
+  {
+    "rank": 888,
+    "sfi": 46.893,
+    "term": "mole",
+    "definition": ""
+  },
+  {
+    "rank": 889,
+    "sfi": 46.791,
+    "term": "sometime",
+    "definition": ""
+  },
+  {
+    "rank": 890,
+    "sfi": 46.689,
+    "term": "bucket",
+    "definition": ""
+  },
+  {
+    "rank": 891,
+    "sfi": 46.674,
+    "term": "swap",
+    "definition": ""
+  },
+  {
+    "rank": 892,
+    "sfi": 46.646,
+    "term": "recipe",
+    "definition": ""
+  },
+  {
+    "rank": 893,
+    "sfi": 46.596,
+    "term": "airplane",
+    "definition": ""
+  },
+  {
+    "rank": 894,
+    "sfi": 46.573,
+    "term": "deflection",
+    "definition": ""
+  },
+  {
+    "rank": 895,
+    "sfi": 46.559,
+    "term": "deceive",
+    "definition": ""
+  },
+  {
+    "rank": 896,
+    "sfi": 46.543,
+    "term": "syllabus",
+    "definition": ""
+  },
+  {
+    "rank": 897,
+    "sfi": 46.535,
+    "term": "neat",
+    "definition": ""
+  },
+  {
+    "rank": 898,
+    "sfi": 46.511,
+    "term": "factorial",
+    "definition": ""
+  },
+  {
+    "rank": 899,
+    "sfi": 46.508,
+    "term": "lever",
+    "definition": ""
+  },
+  {
+    "rank": 900,
+    "sfi": 46.495,
+    "term": "descriptor",
+    "definition": ""
+  },
+  {
+    "rank": 901,
+    "sfi": 46.324,
+    "term": "semester",
+    "definition": ""
+  },
+  {
+    "rank": 902,
+    "sfi": 46.213,
+    "term": "underneath",
+    "definition": ""
+  },
+  {
+    "rank": 903,
+    "sfi": 46.161,
+    "term": "reactor",
+    "definition": ""
+  },
+  {
+    "rank": 904,
+    "sfi": 46.057,
+    "term": "herbicide",
+    "definition": ""
+  },
+  {
+    "rank": 905,
+    "sfi": 46.047,
+    "term": "bonus",
+    "definition": ""
+  },
+  {
+    "rank": 906,
+    "sfi": 46.023,
+    "term": "cheat",
+    "definition": ""
+  },
+  {
+    "rank": 907,
+    "sfi": 45.967,
+    "term": "missile",
+    "definition": ""
+  },
+  {
+    "rank": 908,
+    "sfi": 45.945,
+    "term": "rub",
+    "definition": ""
+  },
+  {
+    "rank": 909,
+    "sfi": 45.872,
+    "term": "radar",
+    "definition": ""
+  },
+  {
+    "rank": 910,
+    "sfi": 45.828,
+    "term": "memorize",
+    "definition": ""
+  },
+  {
+    "rank": 911,
+    "sfi": 45.819,
+    "term": "scripture",
+    "definition": ""
+  },
+  {
+    "rank": 912,
+    "sfi": 45.733,
+    "term": "whoever",
+    "definition": ""
+  },
+  {
+    "rank": 913,
+    "sfi": 45.489,
+    "term": "whichever",
+    "definition": ""
+  },
+  {
+    "rank": 914,
+    "sfi": 45.326,
+    "term": "bullet",
+    "definition": ""
+  },
+  {
+    "rank": 915,
+    "sfi": 45.325,
+    "term": "punch",
+    "definition": ""
+  },
+  {
+    "rank": 916,
+    "sfi": 45.287,
+    "term": "postgraduate",
+    "definition": ""
+  },
+  {
+    "rank": 917,
+    "sfi": 45.22,
+    "term": "artwork",
+    "definition": ""
+  },
+  {
+    "rank": 918,
+    "sfi": 45.047,
+    "term": "pardon",
+    "definition": ""
+  },
+  {
+    "rank": 919,
+    "sfi": 44.916,
+    "term": "millimeter",
+    "definition": ""
+  },
+  {
+    "rank": 920,
+    "sfi": 44.861,
+    "term": "incredible",
+    "definition": ""
+  },
+  {
+    "rank": 921,
+    "sfi": 44.848,
+    "term": "halfway",
+    "definition": ""
+  },
+  {
+    "rank": 922,
+    "sfi": 44.808,
+    "term": "deadline",
+    "definition": ""
+  },
+  {
+    "rank": 923,
+    "sfi": 44.77,
+    "term": "bang",
+    "definition": ""
+  },
+  {
+    "rank": 924,
+    "sfi": 44.497,
+    "term": "semi",
+    "definition": ""
+  },
+  {
+    "rank": 925,
+    "sfi": 44.465,
+    "term": "slash",
+    "definition": ""
+  },
+  {
+    "rank": 926,
+    "sfi": 44.415,
+    "term": "ridiculous",
+    "definition": ""
+  },
+  {
+    "rank": 927,
+    "sfi": 44.385,
+    "term": "multi",
+    "definition": ""
+  },
+  {
+    "rank": 928,
+    "sfi": 44.385,
+    "term": "homework",
+    "definition": ""
+  },
+  {
+    "rank": 929,
+    "sfi": 44.333,
+    "term": "volition",
+    "definition": ""
+  },
+  {
+    "rank": 930,
+    "sfi": 43.896,
+    "term": "tricky",
+    "definition": ""
+  },
+  {
+    "rank": 931,
+    "sfi": 43.81,
+    "term": "cheer",
+    "definition": ""
+  },
+  {
+    "rank": 932,
+    "sfi": 43.767,
+    "term": "shuttle",
+    "definition": ""
+  },
+  {
+    "rank": 933,
+    "sfi": 43.708,
+    "term": "aerosol",
+    "definition": ""
+  },
+  {
+    "rank": 934,
+    "sfi": 43.62,
+    "term": "athletic",
+    "definition": ""
+  },
+  {
+    "rank": 935,
+    "sfi": 43.564,
+    "term": "chess",
+    "definition": ""
+  },
+  {
+    "rank": 936,
+    "sfi": 43.525,
+    "term": "terribly",
+    "definition": ""
+  },
+  {
+    "rank": 937,
+    "sfi": 43.512,
+    "term": "unintelligible",
+    "definition": ""
+  },
+  {
+    "rank": 938,
+    "sfi": 43.488,
+    "term": "circa",
+    "definition": ""
+  },
+  {
+    "rank": 939,
+    "sfi": 43.465,
+    "term": "scroll",
+    "definition": ""
+  },
+  {
+    "rank": 940,
+    "sfi": 43.286,
+    "term": "sponsorship",
+    "definition": ""
+  },
+  {
+    "rank": 941,
+    "sfi": 43.196,
+    "term": "connector",
+    "definition": ""
+  },
+  {
+    "rank": 942,
+    "sfi": 43.172,
+    "term": "nasty",
+    "definition": ""
+  },
+  {
+    "rank": 943,
+    "sfi": 43.128,
+    "term": "incredibly",
+    "definition": ""
+  },
+  {
+    "rank": 944,
+    "sfi": 43.106,
+    "term": "neo",
+    "definition": ""
+  },
+  {
+    "rank": 945,
+    "sfi": 42.98,
+    "term": "entrant",
+    "definition": ""
+  },
+  {
+    "rank": 946,
+    "sfi": 42.937,
+    "term": "hawk",
+    "definition": ""
+  },
+  {
+    "rank": 947,
+    "sfi": 42.85,
+    "term": "handout",
+    "definition": ""
+  },
+  {
+    "rank": 948,
+    "sfi": 42.591,
+    "term": "tech",
+    "definition": ""
+  },
+  {
+    "rank": 949,
+    "sfi": 42.423,
+    "term": "rack",
+    "definition": ""
+  },
+  {
+    "rank": 950,
+    "sfi": 42.343,
+    "term": "applause",
+    "definition": ""
+  },
+  {
+    "rank": 951,
+    "sfi": 42.26,
+    "term": "demonstrator",
+    "definition": ""
+  },
+  {
+    "rank": 952,
+    "sfi": 41.841,
+    "term": "calculator",
+    "definition": ""
+  },
+  {
+    "rank": 953,
+    "sfi": 41.244,
+    "term": "mall",
+    "definition": ""
+  },
+  {
+    "rank": 954,
+    "sfi": 40.815,
+    "term": "sneeze",
+    "definition": ""
+  },
+  {
+    "rank": 955,
+    "sfi": 40.694,
+    "term": "sniff",
+    "definition": ""
+  },
+  {
+    "rank": 956,
+    "sfi": 40.67,
+    "term": "stadium",
+    "definition": ""
+  },
+  {
+    "rank": 957,
+    "sfi": 38.92,
+    "term": "descendent",
+    "definition": ""
+  }
+]

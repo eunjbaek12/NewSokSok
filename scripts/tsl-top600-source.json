@@ -1,0 +1,3602 @@
+[
+  {
+    "rank": 1,
+    "sfi": 71.28,
+    "term": "mister",
+    "definition": "a form of address for a man"
+  },
+  {
+    "rank": 2,
+    "sfi": 65.56,
+    "term": "vacation",
+    "definition": "a holiday or break from work"
+  },
+  {
+    "rank": 3,
+    "sfi": 65.26,
+    "term": "client",
+    "definition": "someone who pays for a service"
+  },
+  {
+    "rank": 4,
+    "sfi": 65.03,
+    "term": "e-book",
+    "definition": "an electronic version of a book read on a digital device"
+  },
+  {
+    "rank": 5,
+    "sfi": 65.02,
+    "term": "airport",
+    "definition": "the place where you go to get on a plane"
+  },
+  {
+    "rank": 6,
+    "sfi": 64.07,
+    "term": "memo",
+    "definition": "a written reminder to do somethng"
+  },
+  {
+    "rank": 7,
+    "sfi": 63.98,
+    "term": "reservation",
+    "definition": "to put something on hold for use later, e.g. car, hotel room"
+  },
+  {
+    "rank": 8,
+    "sfi": 63.89,
+    "term": "logical",
+    "definition": "to do with reason"
+  },
+  {
+    "rank": 9,
+    "sfi": 63.78,
+    "term": "fax",
+    "definition": "to send using a fax machine"
+  },
+  {
+    "rank": 10,
+    "sfi": 63.51,
+    "term": "o'clock",
+    "definition": "the hour of the day"
+  },
+  {
+    "rank": 11,
+    "sfi": 62.82,
+    "term": "sincerely",
+    "definition": "with honesty"
+  },
+  {
+    "rank": 12,
+    "sfi": 62.43,
+    "term": "sometime",
+    "definition": "at some unknown point in time"
+  },
+  {
+    "rank": 13,
+    "sfi": 62.41,
+    "term": "supervisor",
+    "definition": "the person who is in charge"
+  },
+  {
+    "rank": 14,
+    "sfi": 62.3,
+    "term": "refund",
+    "definition": "give back money that has already been paid"
+  },
+  {
+    "rank": 15,
+    "sfi": 62.13,
+    "term": "goods",
+    "definition": "resources or things bought or sold"
+  },
+  {
+    "rank": 16,
+    "sfi": 62.07,
+    "term": "workshop",
+    "definition": "a building or room where things are made or repaired"
+  },
+  {
+    "rank": 17,
+    "sfi": 61.95,
+    "term": "downtown",
+    "definition": "the business or central part of a city or town"
+  },
+  {
+    "rank": 18,
+    "sfi": 61.91,
+    "term": "deadline",
+    "definition": "when something must be finished"
+  },
+  {
+    "rank": 19,
+    "sfi": 61.85,
+    "term": "invoice",
+    "definition": "a written request for payment for the goods and services listed"
+  },
+  {
+    "rank": 20,
+    "sfi": 61.68,
+    "term": "brochure",
+    "definition": "a small paper book that gives information about a product or service"
+  },
+  {
+    "rank": 21,
+    "sfi": 61.65,
+    "term": "noon",
+    "definition": "the middle of the day"
+  },
+  {
+    "rank": 22,
+    "sfi": 61.57,
+    "term": "accountant",
+    "definition": "a person responsible for the money in a business"
+  },
+  {
+    "rank": 23,
+    "sfi": 61.5,
+    "term": "clerk",
+    "definition": "someone who works at a counter"
+  },
+  {
+    "rank": 24,
+    "sfi": 61.5,
+    "term": "lobby",
+    "definition": "the main area of a hotel just inside the entrance"
+  },
+  {
+    "rank": 25,
+    "sfi": 61.45,
+    "term": "publish",
+    "definition": "to print and distribute"
+  },
+  {
+    "rank": 26,
+    "sfi": 57.53,
+    "term": "résumé",
+    "definition": "a document summarizing a person's work experience and qualifications"
+  },
+  {
+    "rank": 27,
+    "sfi": 61.36,
+    "term": "enclose",
+    "definition": "to surround fully"
+  },
+  {
+    "rank": 28,
+    "sfi": 61.27,
+    "term": "applicant",
+    "definition": "a person who submits papers in order to do something, e.g. job applicant"
+  },
+  {
+    "rank": 29,
+    "sfi": 61.27,
+    "term": "seminar",
+    "definition": "a discussion session or class led by a teacher, or expert"
+  },
+  {
+    "rank": 30,
+    "sfi": 61.1,
+    "term": "technician",
+    "definition": "someone who is trained with special skills to do practical work"
+  },
+  {
+    "rank": 31,
+    "sfi": 60.79,
+    "term": "cloth",
+    "definition": "a piece of thin material"
+  },
+  {
+    "rank": 32,
+    "sfi": 60.65,
+    "term": "fare",
+    "definition": "the cost for a ride, e.g. bus, or taxi"
+  },
+  {
+    "rank": 33,
+    "sfi": 60.71,
+    "term": "receipt",
+    "definition": "proof of payment"
+  },
+  {
+    "rank": 34,
+    "sfi": 60.62,
+    "term": "traveler",
+    "definition": "a tourist or adventurer who visits many countries"
+  },
+  {
+    "rank": 35,
+    "sfi": 60.6,
+    "term": "caller",
+    "definition": "the person that is phoning you"
+  },
+  {
+    "rank": 36,
+    "sfi": 60.6,
+    "term": "subway",
+    "definition": "a tunnel under the road for people to walk through"
+  },
+  {
+    "rank": 37,
+    "sfi": 60.51,
+    "term": "luggage",
+    "definition": "Bags and cases that you carry your clothes in when you go on a journey"
+  },
+  {
+    "rank": 38,
+    "sfi": 60.37,
+    "term": "shipment",
+    "definition": "delivery of goods, e.g. carried by a large vehicle"
+  },
+  {
+    "rank": 39,
+    "sfi": 60.28,
+    "term": "infer",
+    "definition": "to guess something with given information"
+  },
+  {
+    "rank": 40,
+    "sfi": 60.28,
+    "term": "waiter",
+    "definition": "a man whose job it is to bring meals to your table in a restaurant or cafe"
+  },
+  {
+    "rank": 41,
+    "sfi": 60.25,
+    "term": "rental",
+    "definition": "the act of paying for the use of something (as an apartment or house or car)"
+  },
+  {
+    "rank": 42,
+    "sfi": 60.19,
+    "term": "warranty",
+    "definition": "the promise to repair or replace a product if it ceases to work properly"
+  },
+  {
+    "rank": 43,
+    "sfi": 60.16,
+    "term": "cafeteria",
+    "definition": "a restaurant where you serve yourself and pay a cashier"
+  },
+  {
+    "rank": 44,
+    "sfi": 60.0,
+    "term": "chef",
+    "definition": "a person who cooks for a living"
+  },
+  {
+    "rank": 45,
+    "sfi": 59.84,
+    "term": "elevator",
+    "definition": "a machine that takes people to different floors in a building"
+  },
+  {
+    "rank": 46,
+    "sfi": 59.84,
+    "term": "reception",
+    "definition": "the act of greeting people"
+  },
+  {
+    "rank": 47,
+    "sfi": null,
+    "term": "correctly",
+    "definition": "to do something the right way"
+  },
+  {
+    "rank": 48,
+    "sfi": 59.63,
+    "term": "lease",
+    "definition": "to rent"
+  },
+  {
+    "rank": 49,
+    "sfi": 59.6,
+    "term": "bicycle",
+    "definition": "a vehicle with two wheels and pedals"
+  },
+  {
+    "rank": 50,
+    "sfi": 59.6,
+    "term": "notify",
+    "definition": "officially tell someone some information"
+  },
+  {
+    "rank": 51,
+    "sfi": 59.6,
+    "term": "preview",
+    "definition": "a chance to see something before it becomes generally available"
+  },
+  {
+    "rank": 52,
+    "sfi": 59.56,
+    "term": "attendant",
+    "definition": "someone who waits on or tends to the needs of another"
+  },
+  {
+    "rank": 53,
+    "sfi": 59.56,
+    "term": "subscription",
+    "definition": "the amount of money that you pay to receive a service or product regularly"
+  },
+  {
+    "rank": 54,
+    "sfi": 59.49,
+    "term": "convenient",
+    "definition": "to be easy to do"
+  },
+  {
+    "rank": 55,
+    "sfi": 59.46,
+    "term": "manual",
+    "definition": "a book that explains how to do something"
+  },
+  {
+    "rank": 56,
+    "sfi": 59.38,
+    "term": "clue",
+    "definition": "a hint, a tip"
+  },
+  {
+    "rank": 57,
+    "sfi": 59.42,
+    "term": "garage",
+    "definition": "a place where you keep your car"
+  },
+  {
+    "rank": 58,
+    "sfi": 59.38,
+    "term": "obtain",
+    "definition": "to get"
+  },
+  {
+    "rank": 59,
+    "sfi": 59.38,
+    "term": "oval",
+    "definition": "A shape that looks like an egg"
+  },
+  {
+    "rank": 60,
+    "sfi": 59.27,
+    "term": "inventory",
+    "definition": "detailed list of everything included"
+  },
+  {
+    "rank": 61,
+    "sfi": 59.27,
+    "term": "outdoor",
+    "definition": "outside in the open air"
+  },
+  {
+    "rank": 62,
+    "sfi": 59.27,
+    "term": "suitcase",
+    "definition": "A large bag like container for carrying clothes when traveling"
+  },
+  {
+    "rank": 63,
+    "sfi": 59.23,
+    "term": "destination",
+    "definition": "the place you want to be at the end of a journey"
+  },
+  {
+    "rank": 64,
+    "sfi": 59.23,
+    "term": "occupation",
+    "definition": "profession or job"
+  },
+  {
+    "rank": 65,
+    "sfi": 59.23,
+    "term": "postpone",
+    "definition": "put off until a later time"
+  },
+  {
+    "rank": 66,
+    "sfi": 59.16,
+    "term": "contradict",
+    "definition": "to say the opposite of"
+  },
+  {
+    "rank": 67,
+    "sfi": 59.12,
+    "term": "umbrella",
+    "definition": "something, like an organization, that covers a  similar range of things"
+  },
+  {
+    "rank": 68,
+    "sfi": 58.96,
+    "term": "inference",
+    "definition": "the act of guessing something with given information"
+  },
+  {
+    "rank": 69,
+    "sfi": 58.92,
+    "term": "cellphone",
+    "definition": "phone that connects to the system by radio so that you can use it anywhere"
+  },
+  {
+    "rank": 70,
+    "sfi": 58.67,
+    "term": "compact",
+    "definition": "tightly packed in a small size"
+  },
+  {
+    "rank": 71,
+    "sfi": 58.67,
+    "term": "merchandise",
+    "definition": "goods for sale"
+  },
+  {
+    "rank": 72,
+    "sfi": 58.62,
+    "term": "receptionist",
+    "definition": "someone who works at the front desk, e.g. secretary"
+  },
+  {
+    "rank": 73,
+    "sfi": 58.58,
+    "term": "dentist",
+    "definition": "a person who looks after your teeth for a living"
+  },
+  {
+    "rank": 74,
+    "sfi": 58.58,
+    "term": "identification",
+    "definition": "a document that shows who a person is,  e.g. passport, driver's licence"
+  },
+  {
+    "rank": 75,
+    "sfi": 58.53,
+    "term": "coupon",
+    "definition": "a piece of paper that you can use to buy goods or to get them at a reduced price"
+  },
+  {
+    "rank": 76,
+    "sfi": 58.53,
+    "term": "depart",
+    "definition": "to leave"
+  },
+  {
+    "rank": 77,
+    "sfi": 58.53,
+    "term": "reschedule",
+    "definition": "to set a new time for something"
+  },
+  {
+    "rank": 78,
+    "sfi": 58.49,
+    "term": "tactic",
+    "definition": "like a plan or scheme"
+  },
+  {
+    "rank": 79,
+    "sfi": 58.44,
+    "term": "renovation",
+    "definition": "the process of being restored to a previous or better condition"
+  },
+  {
+    "rank": 80,
+    "sfi": 58.4,
+    "term": "upgrade",
+    "definition": "to improve what was old or outdated"
+  },
+  {
+    "rank": 81,
+    "sfi": 58.35,
+    "term": "precede",
+    "definition": "to happen before something else"
+  },
+  {
+    "rank": 82,
+    "sfi": 58.44,
+    "term": "replacement",
+    "definition": "to put something/someone in place of something/someone else"
+  },
+  {
+    "rank": 83,
+    "sfi": 58.3,
+    "term": "dine",
+    "definition": "have supper; eat dinner"
+  },
+  {
+    "rank": 84,
+    "sfi": 58.3,
+    "term": "passport",
+    "definition": "official document containing information about you, that allows you to enter other countries"
+  },
+  {
+    "rank": 85,
+    "sfi": 58.21,
+    "term": "coworker",
+    "definition": "a person that works with you in the same workplace"
+  },
+  {
+    "rank": 86,
+    "sfi": 58.21,
+    "term": "upcoming",
+    "definition": "happening soon"
+  },
+  {
+    "rank": 87,
+    "sfi": 58.16,
+    "term": "cabinet",
+    "definition": "a piece of furniture with shelves to store things"
+  },
+  {
+    "rank": 88,
+    "sfi": 58.11,
+    "term": "appliance",
+    "definition": "a machine or device that does a particular task"
+  },
+  {
+    "rank": 89,
+    "sfi": 58.11,
+    "term": "explanatory",
+    "definition": "to explain or make clear"
+  },
+  {
+    "rank": 90,
+    "sfi": 58.06,
+    "term": "instructor",
+    "definition": "someon who teaches for a living"
+  },
+  {
+    "rank": 91,
+    "sfi": 58.11,
+    "term": "keyboard",
+    "definition": "the part of computer that you type on"
+  },
+  {
+    "rank": 92,
+    "sfi": 58.06,
+    "term": "media",
+    "definition": "related to different forms of communication, e.g. radio, TV, newspapers etc."
+  },
+  {
+    "rank": 93,
+    "sfi": 58.06,
+    "term": "supermarket",
+    "definition": "a large self-service store selling food and household items"
+  },
+  {
+    "rank": 94,
+    "sfi": 58.11,
+    "term": "valid",
+    "definition": "just, fair, right"
+  },
+  {
+    "rank": 95,
+    "sfi": 58.01,
+    "term": "admission",
+    "definition": "entrance into something"
+  },
+  {
+    "rank": 96,
+    "sfi": 58.01,
+    "term": "laptop",
+    "definition": "a computer small enough to carry and to use in your lap"
+  },
+  {
+    "rank": 97,
+    "sfi": 58.01,
+    "term": "underline",
+    "definition": "to call attention to"
+  },
+  {
+    "rank": 98,
+    "sfi": 57.96,
+    "term": "electrical",
+    "definition": "to do with electricity"
+  },
+  {
+    "rank": 99,
+    "sfi": 57.91,
+    "term": "airplane",
+    "definition": "a powered vehicle that flys through the air to its destination"
+  },
+  {
+    "rank": 100,
+    "sfi": 57.91,
+    "term": "assignment",
+    "definition": "a project or task"
+  },
+  {
+    "rank": 101,
+    "sfi": 57.91,
+    "term": "exit",
+    "definition": "to leave"
+  },
+  {
+    "rank": 102,
+    "sfi": 57.86,
+    "term": "attendee",
+    "definition": "someone present (at a meeting or event)"
+  },
+  {
+    "rank": 103,
+    "sfi": 57.8,
+    "term": "cruise",
+    "definition": "a long, relaxing holiday on a ship"
+  },
+  {
+    "rank": 104,
+    "sfi": null,
+    "term": "birthday",
+    "definition": "the day in the year on which a person was born"
+  },
+  {
+    "rank": 105,
+    "sfi": 57.8,
+    "term": "café",
+    "definition": "a small restaurant serving coffee and light meals"
+  },
+  {
+    "rank": 106,
+    "sfi": 57.75,
+    "term": "comprehension",
+    "definition": "the act of understanding"
+  },
+  {
+    "rank": 107,
+    "sfi": 57.75,
+    "term": "mall",
+    "definition": "very large building containing lots of stores and restaurants"
+  },
+  {
+    "rank": 108,
+    "sfi": 57.75,
+    "term": "medication",
+    "definition": "a substance used to make an illness or condition get better"
+  },
+  {
+    "rank": 109,
+    "sfi": 57.75,
+    "term": "recycle",
+    "definition": "to find another use for something that is going to be put in the trash"
+  },
+  {
+    "rank": 110,
+    "sfi": 57.75,
+    "term": "renew",
+    "definition": "to make something new again"
+  },
+  {
+    "rank": 111,
+    "sfi": 57.75,
+    "term": "tenant",
+    "definition": "someone who pays rent for the use of property like land or rooms"
+  },
+  {
+    "rank": 112,
+    "sfi": 57.7,
+    "term": "sandwich",
+    "definition": "two pieces of bread with a filling inside, e.g. meat or jam"
+  },
+  {
+    "rank": 113,
+    "sfi": 57.64,
+    "term": "departure",
+    "definition": "the act of leaving"
+  },
+  {
+    "rank": 114,
+    "sfi": 57.64,
+    "term": "mini",
+    "definition": "smaller than is usual for a particular type of thing"
+  },
+  {
+    "rank": 115,
+    "sfi": 57.59,
+    "term": "fitness",
+    "definition": "the state of being healthy"
+  },
+  {
+    "rank": 116,
+    "sfi": 57.59,
+    "term": "inconvenience",
+    "definition": "something that causes trouble or discomfort"
+  },
+  {
+    "rank": 117,
+    "sfi": 57.53,
+    "term": "banquet",
+    "definition": "a formal meal given for a lot of people"
+  },
+  {
+    "rank": 118,
+    "sfi": 57.53,
+    "term": "closet",
+    "definition": "a small cupboard"
+  },
+  {
+    "rank": 119,
+    "sfi": 57.53,
+    "term": "unreal",
+    "definition": "not true to life"
+  },
+  {
+    "rank": 120,
+    "sfi": 57.47,
+    "term": "distractor",
+    "definition": "an incorrect option offered in a multiple choice question"
+  },
+  {
+    "rank": 121,
+    "sfi": 57.47,
+    "term": "expire",
+    "definition": "Come to an end"
+  },
+  {
+    "rank": 122,
+    "sfi": 57.53,
+    "term": "folder",
+    "definition": "a file or covering to keep papers in"
+  },
+  {
+    "rank": 123,
+    "sfi": 57.47,
+    "term": "photocopy",
+    "definition": "an exact copy of a document made with a photographic machine"
+  },
+  {
+    "rank": 124,
+    "sfi": 57.47,
+    "term": "renovate",
+    "definition": "restore to a previous or better condition"
+  },
+  {
+    "rank": 125,
+    "sfi": 57.47,
+    "term": "sunny",
+    "definition": "a day with no clouds or rain just sunshine"
+  },
+  {
+    "rank": 126,
+    "sfi": 57.42,
+    "term": "calendar",
+    "definition": "something you hang on the wall that has the months of the year on it"
+  },
+  {
+    "rank": 127,
+    "sfi": 57.42,
+    "term": "donation",
+    "definition": "the money that is given to a cause or charity"
+  },
+  {
+    "rank": 128,
+    "sfi": 57.42,
+    "term": "feedback",
+    "definition": "information given to the provider about how good or bad the goods or services were"
+  },
+  {
+    "rank": 129,
+    "sfi": 57.42,
+    "term": "shortly",
+    "definition": "very soon"
+  },
+  {
+    "rank": 130,
+    "sfi": 57.42,
+    "term": "snack",
+    "definition": "Small amount of food eaten between meals"
+  },
+  {
+    "rank": 131,
+    "sfi": 57.42,
+    "term": "warehouse",
+    "definition": "a building where a large number of things are stored while they are waiting to be sold"
+  },
+  {
+    "rank": 132,
+    "sfi": 57.36,
+    "term": "copier",
+    "definition": "a machine that makes paper copies"
+  },
+  {
+    "rank": 133,
+    "sfi": 57.36,
+    "term": "provider",
+    "definition": "someone who takes care of others with money, food, home"
+  },
+  {
+    "rank": 134,
+    "sfi": 57.3,
+    "term": "beverage",
+    "definition": "any liquid suitable for drinking"
+  },
+  {
+    "rank": 135,
+    "sfi": 57.24,
+    "term": "hungry",
+    "definition": "in need of food, needing to eat"
+  },
+  {
+    "rank": 136,
+    "sfi": 57.24,
+    "term": "inspection",
+    "definition": "a formal or official examination of something"
+  },
+  {
+    "rank": 137,
+    "sfi": 57.24,
+    "term": "recipient",
+    "definition": "the person who receives something"
+  },
+  {
+    "rank": 138,
+    "sfi": 57.18,
+    "term": "aisle",
+    "definition": "long narrow area for walking between rows of something"
+  },
+  {
+    "rank": 139,
+    "sfi": 57.18,
+    "term": "inspect",
+    "definition": "look over carefully"
+  },
+  {
+    "rank": 140,
+    "sfi": 57.18,
+    "term": "mechanic",
+    "definition": "a person who fixes machinery for a living"
+  },
+  {
+    "rank": 141,
+    "sfi": 57.24,
+    "term": "merger",
+    "definition": "when one company buys another company to create one big company"
+  },
+  {
+    "rank": 142,
+    "sfi": 57.18,
+    "term": "soccer",
+    "definition": "ball game played by two teams who try to score goals without handling the ball"
+  },
+  {
+    "rank": 143,
+    "sfi": 57.12,
+    "term": "sweater",
+    "definition": "a warm item of clothing worn over the arms and upper body, made of wool,"
+  },
+  {
+    "rank": 144,
+    "sfi": 57.12,
+    "term": "ingredient",
+    "definition": "something listed in a recipe, e.g. flour, sugar"
+  },
+  {
+    "rank": 145,
+    "sfi": 57.12,
+    "term": "rewrite",
+    "definition": "to write again differently"
+  },
+  {
+    "rank": 146,
+    "sfi": 57.05,
+    "term": "itinerary",
+    "definition": "a detailed plan of what will happen on a journey"
+  },
+  {
+    "rank": 147,
+    "sfi": 57.05,
+    "term": "workplace",
+    "definition": "the location where you do your job"
+  },
+  {
+    "rank": 148,
+    "sfi": 56.99,
+    "term": "architect",
+    "definition": "someone who designs buildings"
+  },
+  {
+    "rank": 149,
+    "sfi": 56.99,
+    "term": "convenience",
+    "definition": "the state of being easy"
+  },
+  {
+    "rank": 150,
+    "sfi": 56.99,
+    "term": "eligible",
+    "definition": "able to be chosen"
+  },
+  {
+    "rank": 151,
+    "sfi": 56.99,
+    "term": "indoor",
+    "definition": "inside a house or building"
+  },
+  {
+    "rank": 152,
+    "sfi": 56.93,
+    "term": "baggage",
+    "definition": "travel bags"
+  },
+  {
+    "rank": 153,
+    "sfi": 56.93,
+    "term": "dial",
+    "definition": "to make a phone call by pressing the buttons"
+  },
+  {
+    "rank": 154,
+    "sfi": 56.86,
+    "term": "container",
+    "definition": "something that holds things"
+  },
+  {
+    "rank": 155,
+    "sfi": 56.86,
+    "term": "drawer",
+    "definition": "a sliding compartment you keep things in"
+  },
+  {
+    "rank": 156,
+    "sfi": 56.86,
+    "term": "lab",
+    "definition": "where you do experiments"
+  },
+  {
+    "rank": 157,
+    "sfi": 56.86,
+    "term": "submission",
+    "definition": "the act of formally delivering a document, for a decision to be made about it"
+  },
+  {
+    "rank": 158,
+    "sfi": 56.79,
+    "term": "bulletin",
+    "definition": "a short news report"
+  },
+  {
+    "rank": 159,
+    "sfi": 56.79,
+    "term": "certificate",
+    "definition": "a piece of paper stating you did something"
+  },
+  {
+    "rank": 160,
+    "sfi": 56.99,
+    "term": "gym",
+    "definition": "building with equipment you can use to exercise your body"
+  },
+  {
+    "rank": 161,
+    "sfi": 56.79,
+    "term": "highway",
+    "definition": "a major road connecting cities"
+  },
+  {
+    "rank": 162,
+    "sfi": 56.79,
+    "term": "respondent",
+    "definition": "someone who replies to something"
+  },
+  {
+    "rank": 163,
+    "sfi": 56.73,
+    "term": "jewelry",
+    "definition": "gold, silver, stones etc. you wear for decoration, e.g. necklace"
+  },
+  {
+    "rank": 164,
+    "sfi": 56.73,
+    "term": "overtime",
+    "definition": "work done in addition to regular working hours"
+  },
+  {
+    "rank": 165,
+    "sfi": 56.66,
+    "term": "battery",
+    "definition": "something that produces electric energy"
+  },
+  {
+    "rank": 166,
+    "sfi": 56.66,
+    "term": "donate",
+    "definition": "to give money to a cause or charity"
+  },
+  {
+    "rank": 167,
+    "sfi": 56.66,
+    "term": "outstanding",
+    "definition": "not yet completed"
+  },
+  {
+    "rank": 168,
+    "sfi": 56.66,
+    "term": "skim",
+    "definition": "to move quickly above the surface without touching it"
+  },
+  {
+    "rank": 169,
+    "sfi": 56.59,
+    "term": "briefcase",
+    "definition": "a small case with a handle usually used for carrying business papers"
+  },
+  {
+    "rank": 170,
+    "sfi": 56.59,
+    "term": "dessert",
+    "definition": "sweet food you eat after your main meal"
+  },
+  {
+    "rank": 171,
+    "sfi": 56.59,
+    "term": "impact",
+    "definition": "the effect one thing makes on another"
+  },
+  {
+    "rank": 172,
+    "sfi": 56.59,
+    "term": "innovative",
+    "definition": "to be creative and come up with new ideas"
+  },
+  {
+    "rank": 173,
+    "sfi": 56.59,
+    "term": "inquire",
+    "definition": "to ask about"
+  },
+  {
+    "rank": 174,
+    "sfi": 56.59,
+    "term": "overnight",
+    "definition": "from one day to the next"
+  },
+  {
+    "rank": 175,
+    "sfi": 56.59,
+    "term": "venue",
+    "definition": "the place that an event is happening"
+  },
+  {
+    "rank": 176,
+    "sfi": 56.59,
+    "term": "commuter",
+    "definition": "someone who travels a long way to work and back"
+  },
+  {
+    "rank": 177,
+    "sfi": 56.52,
+    "term": "logo",
+    "definition": "a small design used by a company as its symbol"
+  },
+  {
+    "rank": 178,
+    "sfi": 56.52,
+    "term": "newsletter",
+    "definition": "report or open letter giving information of interest to a special group"
+  },
+  {
+    "rank": 179,
+    "sfi": 56.45,
+    "term": "advisor",
+    "definition": "someone who gives an opinion on what to do"
+  },
+  {
+    "rank": 180,
+    "sfi": 56.45,
+    "term": "cartridge",
+    "definition": "a piece of the equipment that is a sealed unit, and that can be taken out and replaced"
+  },
+  {
+    "rank": 181,
+    "sfi": 56.45,
+    "term": "cloudy",
+    "definition": "weather where the sky is filled with clouds"
+  },
+  {
+    "rank": 182,
+    "sfi": 56.45,
+    "term": "photographer",
+    "definition": "someone who takes pictures for a living"
+  },
+  {
+    "rank": 183,
+    "sfi": 56.45,
+    "term": "shopper",
+    "definition": "someone who buys things in a store"
+  },
+  {
+    "rank": 184,
+    "sfi": 56.45,
+    "term": "tag",
+    "definition": "a label"
+  },
+  {
+    "rank": 185,
+    "sfi": 56.37,
+    "term": "announcer",
+    "definition": "someone who gives a message publicly"
+  },
+  {
+    "rank": 186,
+    "sfi": 56.37,
+    "term": "aspect",
+    "definition": "a part or a feature"
+  },
+  {
+    "rank": 187,
+    "sfi": 56.37,
+    "term": "audit",
+    "definition": "to check something is correct, usually related to accounts in business"
+  },
+  {
+    "rank": 188,
+    "sfi": 56.37,
+    "term": "contractor",
+    "definition": "a builder"
+  },
+  {
+    "rank": 189,
+    "sfi": 56.37,
+    "term": "download",
+    "definition": "transfer a file or program onto your computer"
+  },
+  {
+    "rank": 190,
+    "sfi": 56.37,
+    "term": "password",
+    "definition": "a secret word or phrase needed to prove who you are"
+  },
+  {
+    "rank": 191,
+    "sfi": 56.37,
+    "term": "prohibit",
+    "definition": "not allowed"
+  },
+  {
+    "rank": 192,
+    "sfi": 56.37,
+    "term": "stadium",
+    "definition": "sports ground surrounded by rows of seats where people go to watch events"
+  },
+  {
+    "rank": 193,
+    "sfi": 56.37,
+    "term": "terminal",
+    "definition": "the place where a transport line ends, like the final train station on the line"
+  },
+  {
+    "rank": 194,
+    "sfi": 56.37,
+    "term": "weekday",
+    "definition": "All the working days in a week, usually Monday to Friday"
+  },
+  {
+    "rank": 195,
+    "sfi": 56.3,
+    "term": "bonus",
+    "definition": "extra, usually in the form of money"
+  },
+  {
+    "rank": 196,
+    "sfi": 56.3,
+    "term": "cart",
+    "definition": "a wagon or truck used to for transport"
+  },
+  {
+    "rank": 197,
+    "sfi": 56.3,
+    "term": "delicious",
+    "definition": "to taste good"
+  },
+  {
+    "rank": 198,
+    "sfi": 56.3,
+    "term": "ink",
+    "definition": "liquid found in pens"
+  },
+  {
+    "rank": 199,
+    "sfi": 56.3,
+    "term": "supervise",
+    "definition": "to watch over and manage"
+  },
+  {
+    "rank": 200,
+    "sfi": 56.37,
+    "term": "waitress",
+    "definition": "a woman whose job it is to bring meals to your the table in a restaurant or cafe"
+  },
+  {
+    "rank": 201,
+    "sfi": 56.22,
+    "term": "cleaner",
+    "definition": "someone who cleans  for a living"
+  },
+  {
+    "rank": 202,
+    "sfi": 56.22,
+    "term": "developer",
+    "definition": "someone who designs and builds properties"
+  },
+  {
+    "rank": 203,
+    "sfi": 56.22,
+    "term": "headquarter",
+    "definition": "the main office of an organization"
+  },
+  {
+    "rank": 204,
+    "sfi": 56.22,
+    "term": "shuttle",
+    "definition": "travel back and forth between two points"
+  },
+  {
+    "rank": 205,
+    "sfi": 56.22,
+    "term": "stationery",
+    "definition": "any materials needed for writing and printing"
+  },
+  {
+    "rank": 206,
+    "sfi": 56.22,
+    "term": "subscribe",
+    "definition": "to pay money to receive a service or product regularly"
+  },
+  {
+    "rank": 207,
+    "sfi": 56.15,
+    "term": "alike",
+    "definition": "similar, almost the same"
+  },
+  {
+    "rank": 208,
+    "sfi": 56.15,
+    "term": "flavor",
+    "definition": "the taste of something, e.g. sweet, sour"
+  },
+  {
+    "rank": 209,
+    "sfi": 56.15,
+    "term": "picnic",
+    "definition": "a packed meal to take with you and eaten in the open air"
+  },
+  {
+    "rank": 210,
+    "sfi": 56.15,
+    "term": "recipe",
+    "definition": "directions for baking or cooking something"
+  },
+  {
+    "rank": 211,
+    "sfi": 56.15,
+    "term": "refreshment",
+    "definition": "a small amount of food and drink served as a light meal"
+  },
+  {
+    "rank": 212,
+    "sfi": 55.48,
+    "term": "administrative",
+    "definition": "to do with the management of an office"
+  },
+  {
+    "rank": 213,
+    "sfi": 56.07,
+    "term": "authorize",
+    "definition": "to give permission for something"
+  },
+  {
+    "rank": 214,
+    "sfi": 56.07,
+    "term": "commonly",
+    "definition": "frequently, usually"
+  },
+  {
+    "rank": 215,
+    "sfi": 56.07,
+    "term": "distribution",
+    "definition": "the act of circulating things in a wide area"
+  },
+  {
+    "rank": 216,
+    "sfi": 56.07,
+    "term": "sofa",
+    "definition": "a long soft seat with a back, big enough for at least two people to sit on"
+  },
+  {
+    "rank": 217,
+    "sfi": 55.99,
+    "term": "accommodate",
+    "definition": "to give something that is needed"
+  },
+  {
+    "rank": 218,
+    "sfi": 55.99,
+    "term": "affordable",
+    "definition": "not expensive, one is able to pay easily"
+  },
+  {
+    "rank": 219,
+    "sfi": 55.99,
+    "term": "annoy",
+    "definition": "to bother or irritate"
+  },
+  {
+    "rank": 220,
+    "sfi": 56.07,
+    "term": "commute",
+    "definition": "to travel a long way to work and back"
+  },
+  {
+    "rank": 221,
+    "sfi": 56.07,
+    "term": "coordinate",
+    "definition": "to organize or manage"
+  },
+  {
+    "rank": 222,
+    "sfi": 55.99,
+    "term": "paperwork",
+    "definition": "the written work to do with any particular job"
+  },
+  {
+    "rank": 223,
+    "sfi": 55.99,
+    "term": "quit",
+    "definition": "to stop doing something"
+  },
+  {
+    "rank": 224,
+    "sfi": 55.91,
+    "term": "authority",
+    "definition": "the power to give orders and make decisions"
+  },
+  {
+    "rank": 225,
+    "sfi": 55.91,
+    "term": "flu",
+    "definition": "illness that you catch from other people, that gives you a fever for a few days"
+  },
+  {
+    "rank": 226,
+    "sfi": 55.83,
+    "term": "captain",
+    "definition": "the person in charge of a ship or airplane"
+  },
+  {
+    "rank": 227,
+    "sfi": 55.83,
+    "term": "installation",
+    "definition": "the act of connecting or inputting something"
+  },
+  {
+    "rank": 228,
+    "sfi": 55.83,
+    "term": "trainer",
+    "definition": "one who teaches a person or animal to do something"
+  },
+  {
+    "rank": 229,
+    "sfi": 55.74,
+    "term": "availability",
+    "definition": "Being present and able to be used"
+  },
+  {
+    "rank": 230,
+    "sfi": 55.74,
+    "term": "bargain",
+    "definition": "a good deal, a good price"
+  },
+  {
+    "rank": 231,
+    "sfi": 55.74,
+    "term": "complimentary",
+    "definition": "it does not cost anything, it is free"
+  },
+  {
+    "rank": 232,
+    "sfi": 55.74,
+    "term": "hike",
+    "definition": "walk a long way"
+  },
+  {
+    "rank": 233,
+    "sfi": 55.74,
+    "term": "midnight",
+    "definition": "12 o'clock at night"
+  },
+  {
+    "rank": 234,
+    "sfi": 55.74,
+    "term": "productivity",
+    "definition": "the amount of work done"
+  },
+  {
+    "rank": 235,
+    "sfi": 55.74,
+    "term": "rainy",
+    "definition": "water from the clouds, wet or showery"
+  },
+  {
+    "rank": 236,
+    "sfi": 55.74,
+    "term": "relocate",
+    "definition": "to move to a new location"
+  },
+  {
+    "rank": 237,
+    "sfi": 55.74,
+    "term": "trainee",
+    "definition": "someone who is learning on the job"
+  },
+  {
+    "rank": 238,
+    "sfi": 55.74,
+    "term": "transaction",
+    "definition": "an exchange between two people"
+  },
+  {
+    "rank": 239,
+    "sfi": 55.74,
+    "term": "unhappy",
+    "definition": "feeling little or no joy"
+  },
+  {
+    "rank": 240,
+    "sfi": 55.74,
+    "term": "verify",
+    "definition": "confirm the truth of"
+  },
+  {
+    "rank": 241,
+    "sfi": 55.66,
+    "term": "automobile",
+    "definition": "long name for 'car'"
+  },
+  {
+    "rank": 242,
+    "sfi": 55.66,
+    "term": "courier",
+    "definition": "Person paid to carry and deliver documents"
+  },
+  {
+    "rank": 243,
+    "sfi": 55.66,
+    "term": "incomplete",
+    "definition": "not yet finished"
+  },
+  {
+    "rank": 244,
+    "sfi": 55.66,
+    "term": "questionnaire",
+    "definition": "a set of questions to find out what people think about something"
+  },
+  {
+    "rank": 245,
+    "sfi": 55.57,
+    "term": "baseball",
+    "definition": "a sports game with a bat and ball"
+  },
+  {
+    "rank": 246,
+    "sfi": 55.57,
+    "term": "dock",
+    "definition": "the place where boats get tied up"
+  },
+  {
+    "rank": 247,
+    "sfi": 55.57,
+    "term": "lamp",
+    "definition": "an artificial source of light"
+  },
+  {
+    "rank": 248,
+    "sfi": 55.57,
+    "term": "lately",
+    "definition": "recently"
+  },
+  {
+    "rank": 249,
+    "sfi": 55.57,
+    "term": "machinery",
+    "definition": "tools, equipment"
+  },
+  {
+    "rank": 250,
+    "sfi": 55.57,
+    "term": "presenter",
+    "definition": "a person who shows and explains something to an audience"
+  },
+  {
+    "rank": 251,
+    "sfi": 55.57,
+    "term": "seldom",
+    "definition": "not very often"
+  },
+  {
+    "rank": 252,
+    "sfi": 55.57,
+    "term": "signature",
+    "definition": "your name written in your own handwriting"
+  },
+  {
+    "rank": 253,
+    "sfi": 55.66,
+    "term": "worldwide",
+    "definition": "Spanning or reaching across the whole earth"
+  },
+  {
+    "rank": 254,
+    "sfi": 55.48,
+    "term": "carrier",
+    "definition": "a person or thing that carries something"
+  },
+  {
+    "rank": 255,
+    "sfi": 55.48,
+    "term": "designate",
+    "definition": "to name or select someone for something"
+  },
+  {
+    "rank": 256,
+    "sfi": 55.48,
+    "term": "exclusive",
+    "definition": "only available to a certain group"
+  },
+  {
+    "rank": 257,
+    "sfi": 55.48,
+    "term": "grocery",
+    "definition": "a place that sells food items"
+  },
+  {
+    "rank": 258,
+    "sfi": 55.48,
+    "term": "homework",
+    "definition": "the work a teacher gives to students to be done outside of school"
+  },
+  {
+    "rank": 259,
+    "sfi": 55.48,
+    "term": "memorandum",
+    "definition": "A written note or message to remind you or someone else to do something"
+  },
+  {
+    "rank": 260,
+    "sfi": 55.48,
+    "term": "photocopier",
+    "definition": "a machine that makes exact copies of documents"
+  },
+  {
+    "rank": 261,
+    "sfi": 55.48,
+    "term": "suite",
+    "definition": "a set of connecting rooms, usually in a hotel"
+  },
+  {
+    "rank": 262,
+    "sfi": 55.57,
+    "term": "thorough",
+    "definition": "to be carefully and completely done, e.g. a thorough search"
+  },
+  {
+    "rank": 263,
+    "sfi": 55.48,
+    "term": "bookstore",
+    "definition": "A place where you go to buy books"
+  },
+  {
+    "rank": 264,
+    "sfi": 55.48,
+    "term": "cater",
+    "definition": "to make and deliver food"
+  },
+  {
+    "rank": 265,
+    "sfi": 55.39,
+    "term": "dental",
+    "definition": "relating to teeth"
+  },
+  {
+    "rank": 266,
+    "sfi": 55.39,
+    "term": "duration",
+    "definition": "how long something takes"
+  },
+  {
+    "rank": 267,
+    "sfi": 55.39,
+    "term": "lounge",
+    "definition": "a place to relax"
+  },
+  {
+    "rank": 268,
+    "sfi": 55.39,
+    "term": "painter",
+    "definition": "an artist who paints"
+  },
+  {
+    "rank": 269,
+    "sfi": 55.39,
+    "term": "patron",
+    "definition": "someone who gives support with time, money or effort"
+  },
+  {
+    "rank": 270,
+    "sfi": 55.39,
+    "term": "prescription",
+    "definition": "doctor's written order for medicine"
+  },
+  {
+    "rank": 271,
+    "sfi": 55.39,
+    "term": "productive",
+    "definition": "useful or worthwhile, e.g. a productive meeting"
+  },
+  {
+    "rank": 272,
+    "sfi": 55.39,
+    "term": "salad",
+    "definition": "food made of mainly leaves or lettuce and vegetables"
+  },
+  {
+    "rank": 273,
+    "sfi": 55.39,
+    "term": "stack",
+    "definition": "a pile of things placed one on top of the other"
+  },
+  {
+    "rank": 274,
+    "sfi": 55.29,
+    "term": "delegate",
+    "definition": "to give others tasks to do"
+  },
+  {
+    "rank": 275,
+    "sfi": 55.29,
+    "term": "salesperson",
+    "definition": "a man or woman whose job it is get people to buy things from their company"
+  },
+  {
+    "rank": 276,
+    "sfi": 55.2,
+    "term": "calculator",
+    "definition": "a device that does math for you"
+  },
+  {
+    "rank": 277,
+    "sfi": 55.2,
+    "term": "completion",
+    "definition": "the end, the finishing point"
+  },
+  {
+    "rank": 278,
+    "sfi": 55.2,
+    "term": "defect",
+    "definition": "something that is faulty"
+  },
+  {
+    "rank": 279,
+    "sfi": 55.2,
+    "term": "garbage",
+    "definition": "trash; something that is worthless"
+  },
+  {
+    "rank": 280,
+    "sfi": 55.2,
+    "term": "omit",
+    "definition": "to leave out or not say"
+  },
+  {
+    "rank": 281,
+    "sfi": 55.2,
+    "term": "spite",
+    "definition": "the desire to direct bad feeling towards someone"
+  },
+  {
+    "rank": 282,
+    "sfi": 55.1,
+    "term": "bathroom",
+    "definition": "a room where there is a bath and/or a shower"
+  },
+  {
+    "rank": 283,
+    "sfi": 55.1,
+    "term": "cab",
+    "definition": "taxi"
+  },
+  {
+    "rank": 284,
+    "sfi": 55.1,
+    "term": "correspondence",
+    "definition": "communication by letter"
+  },
+  {
+    "rank": 285,
+    "sfi": 55.1,
+    "term": "ladder",
+    "definition": "something you use to climb up high"
+  },
+  {
+    "rank": 286,
+    "sfi": 55.1,
+    "term": "photography",
+    "definition": "the art of taking pictures"
+  },
+  {
+    "rank": 287,
+    "sfi": 55.1,
+    "term": "sculpture",
+    "definition": "a figure or statue"
+  },
+  {
+    "rank": 288,
+    "sfi": 55.0,
+    "term": "anniversary",
+    "definition": "a date to remember"
+  },
+  {
+    "rank": 289,
+    "sfi": 55.1,
+    "term": "buffet",
+    "definition": "a meal consisting of a number of different dishes from which people serve themselves"
+  },
+  {
+    "rank": 290,
+    "sfi": 55.0,
+    "term": "defective",
+    "definition": "when something is not working"
+  },
+  {
+    "rank": 291,
+    "sfi": 55.0,
+    "term": "ice cream",
+    "definition": "Frozen food made of cream, very sweet and good to eat"
+  },
+  {
+    "rank": 292,
+    "sfi": 55.0,
+    "term": "leak",
+    "definition": "to drip water or other liquid"
+  },
+  {
+    "rank": 293,
+    "sfi": 55.0,
+    "term": "occupancy",
+    "definition": "the state of living in a place"
+  },
+  {
+    "rank": 294,
+    "sfi": 55.0,
+    "term": "proficiency",
+    "definition": "skill and experience"
+  },
+  {
+    "rank": 295,
+    "sfi": 55.0,
+    "term": "renewal",
+    "definition": "the act of making something new again"
+  },
+  {
+    "rank": 296,
+    "sfi": 55.0,
+    "term": "urgent",
+    "definition": "very important, needing attention now"
+  },
+  {
+    "rank": 297,
+    "sfi": 54.9,
+    "term": "annually",
+    "definition": "every 12 months"
+  },
+  {
+    "rank": 298,
+    "sfi": 55.0,
+    "term": "basketball",
+    "definition": "a game played by two teams who try to score goals by throwing the ball"
+  },
+  {
+    "rank": 299,
+    "sfi": 54.9,
+    "term": "delete",
+    "definition": "remove"
+  },
+  {
+    "rank": 300,
+    "sfi": 54.9,
+    "term": "illogical",
+    "definition": "not making any sense, lack of reasoning"
+  },
+  {
+    "rank": 301,
+    "sfi": 54.9,
+    "term": "pet",
+    "definition": "an animal you keep in the house to play with"
+  },
+  {
+    "rank": 302,
+    "sfi": null,
+    "term": "textbook",
+    "definition": "a book of facts to be used for the study of a particular subject"
+  },
+  {
+    "rank": 303,
+    "sfi": 54.79,
+    "term": "accurately",
+    "definition": "when something is done correctly"
+  },
+  {
+    "rank": 304,
+    "sfi": 54.9,
+    "term": "cabin",
+    "definition": "a small house in the forest"
+  },
+  {
+    "rank": 305,
+    "sfi": 54.79,
+    "term": "conductor",
+    "definition": "a person who leads"
+  },
+  {
+    "rank": 306,
+    "sfi": 54.79,
+    "term": "inspector",
+    "definition": "a high ranking police officer"
+  },
+  {
+    "rank": 307,
+    "sfi": 54.79,
+    "term": "intern",
+    "definition": "a stuent or trainee who is doing a job, often without pay, to get work experience"
+  },
+  {
+    "rank": 308,
+    "sfi": null,
+    "term": "semester",
+    "definition": "one of two divisions of the school year"
+  },
+  {
+    "rank": 309,
+    "sfi": 54.69,
+    "term": "confirmation",
+    "definition": "something that verifies something is true"
+  },
+  {
+    "rank": 310,
+    "sfi": 54.69,
+    "term": "congratulation",
+    "definition": "the act of congratulating"
+  },
+  {
+    "rank": 311,
+    "sfi": 54.69,
+    "term": "expertise",
+    "definition": "excellent knowledge on something"
+  },
+  {
+    "rank": 312,
+    "sfi": 54.69,
+    "term": "graph",
+    "definition": "an image that shows data"
+  },
+  {
+    "rank": 313,
+    "sfi": 54.69,
+    "term": "taker",
+    "definition": "someone who does not give but only takes"
+  },
+  {
+    "rank": 314,
+    "sfi": 54.69,
+    "term": "utility",
+    "definition": "usefulness"
+  },
+  {
+    "rank": 315,
+    "sfi": 54.69,
+    "term": "voucher",
+    "definition": "a piece of paper that you can use to buy goods or to get them at a reduced price"
+  },
+  {
+    "rank": 316,
+    "sfi": 54.58,
+    "term": "banker",
+    "definition": "someone who works for the bank"
+  },
+  {
+    "rank": 317,
+    "sfi": 54.58,
+    "term": "behalf",
+    "definition": "to speak or do something for someone else, e.g. on behalf of…"
+  },
+  {
+    "rank": 318,
+    "sfi": 54.58,
+    "term": "minimize",
+    "definition": "to make less important or smaller"
+  },
+  {
+    "rank": 319,
+    "sfi": 54.58,
+    "term": "optional",
+    "definition": "a choice, something you do not have to do"
+  },
+  {
+    "rank": 320,
+    "sfi": 54.58,
+    "term": "paycheck",
+    "definition": "the piece of paper that tells a worker how much they have earned"
+  },
+  {
+    "rank": 321,
+    "sfi": 54.58,
+    "term": "polite",
+    "definition": "being kind to others"
+  },
+  {
+    "rank": 322,
+    "sfi": 54.58,
+    "term": "protective",
+    "definition": "to want to keep safe"
+  },
+  {
+    "rank": 323,
+    "sfi": 54.58,
+    "term": "seller",
+    "definition": "someone who promotes or exchanges goods or services for money"
+  },
+  {
+    "rank": 324,
+    "sfi": 54.58,
+    "term": "sidewalk",
+    "definition": "the area that runs alonside a road for people to walk on"
+  },
+  {
+    "rank": 325,
+    "sfi": 54.58,
+    "term": "sightsee",
+    "definition": "go to visit places of interest"
+  },
+  {
+    "rank": 326,
+    "sfi": 54.58,
+    "term": "soup",
+    "definition": "a liquid meal, usually hot"
+  },
+  {
+    "rank": 327,
+    "sfi": 54.58,
+    "term": "transit",
+    "definition": "on the move from one place to another"
+  },
+  {
+    "rank": 328,
+    "sfi": 54.58,
+    "term": "wallet",
+    "definition": "a small case that can fit in a pocket, used by men to hold money  and credit cards"
+  },
+  {
+    "rank": 329,
+    "sfi": 54.46,
+    "term": "cashier",
+    "definition": "the person whose job it is to take the money you pay for goods or services"
+  },
+  {
+    "rank": 330,
+    "sfi": 54.46,
+    "term": "casual",
+    "definition": "uncertain, unplanned"
+  },
+  {
+    "rank": 331,
+    "sfi": 54.46,
+    "term": "drill",
+    "definition": "to bore a hole into something"
+  },
+  {
+    "rank": 332,
+    "sfi": 54.46,
+    "term": "fountain",
+    "definition": "a man-made spray of water that shoots upwards"
+  },
+  {
+    "rank": 333,
+    "sfi": 54.46,
+    "term": "juice",
+    "definition": "the natural liquid from a plant or fruit"
+  },
+  {
+    "rank": 334,
+    "sfi": 54.46,
+    "term": "lane",
+    "definition": "a narrow road"
+  },
+  {
+    "rank": 335,
+    "sfi": 54.46,
+    "term": "popularity",
+    "definition": "the state of being liked by many people"
+  },
+  {
+    "rank": 336,
+    "sfi": 54.46,
+    "term": "poster",
+    "definition": "a large printed picture or notice to stick on a wall"
+  },
+  {
+    "rank": 337,
+    "sfi": 54.46,
+    "term": "promptly",
+    "definition": "done right away, immediately"
+  },
+  {
+    "rank": 338,
+    "sfi": 54.46,
+    "term": "retailer",
+    "definition": "a store that sells something"
+  },
+  {
+    "rank": 339,
+    "sfi": 54.46,
+    "term": "vacancy",
+    "definition": "job or position that needs to be filled"
+  },
+  {
+    "rank": 340,
+    "sfi": 54.35,
+    "term": "bench",
+    "definition": "a long, usually wooden, seat found mainly in parks"
+  },
+  {
+    "rank": 341,
+    "sfi": 54.35,
+    "term": "cumulative",
+    "definition": "gets bigger by more and more being added to it"
+  },
+  {
+    "rank": 342,
+    "sfi": 54.35,
+    "term": "directory",
+    "definition": "an alphabetical list of names and addresses"
+  },
+  {
+    "rank": 343,
+    "sfi": 54.35,
+    "term": "disposal",
+    "definition": "the act of getting rid of something"
+  },
+  {
+    "rank": 344,
+    "sfi": 54.35,
+    "term": "housekeeper",
+    "definition": "someone whose job it is to take care of and clean another person's house"
+  },
+  {
+    "rank": 345,
+    "sfi": 54.35,
+    "term": "internship",
+    "definition": "a position or placement for someone to learn a job through work, sometimes without pay"
+  },
+  {
+    "rank": 346,
+    "sfi": 54.35,
+    "term": "knowledgeable",
+    "definition": "to know much about a topic"
+  },
+  {
+    "rank": 347,
+    "sfi": 54.35,
+    "term": "organizer",
+    "definition": "someone who plans things for a living"
+  },
+  {
+    "rank": 348,
+    "sfi": 54.35,
+    "term": "overdue",
+    "definition": "past the date you should do something; late"
+  },
+  {
+    "rank": 349,
+    "sfi": 54.35,
+    "term": "prediction",
+    "definition": "a guess about the future"
+  },
+  {
+    "rank": 350,
+    "sfi": 54.35,
+    "term": "subscriber",
+    "definition": "someone who pays money to receive a service or product regularly"
+  },
+  {
+    "rank": 351,
+    "sfi": 54.23,
+    "term": "booklet",
+    "definition": "a small book, leaflet, or brochure"
+  },
+  {
+    "rank": 352,
+    "sfi": 54.23,
+    "term": "conditioner",
+    "definition": "shampoo-like substance used after washing hair"
+  },
+  {
+    "rank": 353,
+    "sfi": 54.23,
+    "term": "enroll",
+    "definition": "to register for something"
+  },
+  {
+    "rank": 354,
+    "sfi": 54.23,
+    "term": "frustrate",
+    "definition": "to upset someone"
+  },
+  {
+    "rank": 355,
+    "sfi": 54.23,
+    "term": "garment",
+    "definition": "something made of material that you can wear, like pants or a dress"
+  },
+  {
+    "rank": 356,
+    "sfi": 54.23,
+    "term": "orientation",
+    "definition": "something that makes you familiar with a place"
+  },
+  {
+    "rank": 357,
+    "sfi": 54.23,
+    "term": "outlet",
+    "definition": "a store that sells things at a discount"
+  },
+  {
+    "rank": 358,
+    "sfi": 54.23,
+    "term": "packet",
+    "definition": "a small carton or package"
+  },
+  {
+    "rank": 359,
+    "sfi": 54.23,
+    "term": "plumber",
+    "definition": "someone connects and mends water pipes for a living"
+  },
+  {
+    "rank": 360,
+    "sfi": 54.23,
+    "term": "specification",
+    "definition": "a special detail or necessity for something"
+  },
+  {
+    "rank": 361,
+    "sfi": 54.11,
+    "term": "auto",
+    "definition": "car"
+  },
+  {
+    "rank": 362,
+    "sfi": 54.11,
+    "term": "decorate",
+    "definition": "make more attractive by adding ornament, colour, etc."
+  },
+  {
+    "rank": 363,
+    "sfi": 54.11,
+    "term": "deduction",
+    "definition": "the act of taking away, usually money"
+  },
+  {
+    "rank": 364,
+    "sfi": 54.11,
+    "term": "definite",
+    "definition": "for certain, exact"
+  },
+  {
+    "rank": 365,
+    "sfi": 54.11,
+    "term": "economical",
+    "definition": "of good value"
+  },
+  {
+    "rank": 366,
+    "sfi": 54.11,
+    "term": "efficiently",
+    "definition": "to do something well in a little amount of time"
+  },
+  {
+    "rank": 367,
+    "sfi": 54.11,
+    "term": "flyer",
+    "definition": "brochure, leaflet"
+  },
+  {
+    "rank": 368,
+    "sfi": 54.11,
+    "term": "franchise",
+    "definition": "one of many branches of a business you buy, e.g.KFC"
+  },
+  {
+    "rank": 369,
+    "sfi": 54.11,
+    "term": "generous",
+    "definition": "to give willingly and freely"
+  },
+  {
+    "rank": 370,
+    "sfi": 54.11,
+    "term": "interrupt",
+    "definition": "to stop something or someone in the middle of something"
+  },
+  {
+    "rank": 371,
+    "sfi": 54.11,
+    "term": "oven",
+    "definition": "kitchen appliance used for baking or roasting"
+  },
+  {
+    "rank": 372,
+    "sfi": 54.11,
+    "term": "pant",
+    "definition": "take short sharp breaths through your mouth, noisily"
+  },
+  {
+    "rank": 373,
+    "sfi": 54.11,
+    "term": "profitable",
+    "definition": "able to make money"
+  },
+  {
+    "rank": 374,
+    "sfi": 54.11,
+    "term": "refrigerator",
+    "definition": "an electric box that cools food"
+  },
+  {
+    "rank": 375,
+    "sfi": 54.11,
+    "term": "reimburse",
+    "definition": "give back the money for an expense that has been paid out"
+  },
+  {
+    "rank": 376,
+    "sfi": 54.11,
+    "term": "showroom",
+    "definition": "an area where goods for sale are set out so people can look at them"
+  },
+  {
+    "rank": 377,
+    "sfi": 54.11,
+    "term": "vegetarian",
+    "definition": "someone who does not eat meat or fish"
+  },
+  {
+    "rank": 378,
+    "sfi": 53.98,
+    "term": "administrator",
+    "definition": "the person who manages an office"
+  },
+  {
+    "rank": 379,
+    "sfi": 53.98,
+    "term": "broker",
+    "definition": "someone who buys and sells thing for a percentage of sales"
+  },
+  {
+    "rank": 380,
+    "sfi": 53.98,
+    "term": "cancellation",
+    "definition": "when something is not going to happen after all"
+  },
+  {
+    "rank": 381,
+    "sfi": 53.98,
+    "term": "confidential",
+    "definition": "something that needs to be kept secret"
+  },
+  {
+    "rank": 382,
+    "sfi": 53.98,
+    "term": "jet",
+    "definition": "an airplane"
+  },
+  {
+    "rank": 383,
+    "sfi": 53.98,
+    "term": "realistic",
+    "definition": "to be reasonable or be close to real life"
+  },
+  {
+    "rank": 384,
+    "sfi": 53.98,
+    "term": "thoroughly",
+    "definition": "to do something carefully with attention to detail"
+  },
+  {
+    "rank": 385,
+    "sfi": 53.98,
+    "term": "trash",
+    "definition": "garbage or waste; something worthless"
+  },
+  {
+    "rank": 386,
+    "sfi": 53.98,
+    "term": "usage",
+    "definition": "the usual or customary way in which something is used"
+  },
+  {
+    "rank": 387,
+    "sfi": 53.98,
+    "term": "windy",
+    "definition": "weather that is stormy or gusty"
+  },
+  {
+    "rank": 388,
+    "sfi": 53.85,
+    "term": "automate",
+    "definition": "To make a process that does a task over and over again by machine"
+  },
+  {
+    "rank": 389,
+    "sfi": 53.85,
+    "term": "ferry",
+    "definition": "a big boat that carries people and cars"
+  },
+  {
+    "rank": 390,
+    "sfi": 53.85,
+    "term": "finalize",
+    "definition": "to make final"
+  },
+  {
+    "rank": 391,
+    "sfi": 53.85,
+    "term": "incur",
+    "definition": "lay yourself open to something as a result of your actions"
+  },
+  {
+    "rank": 392,
+    "sfi": 53.85,
+    "term": "instruct",
+    "definition": "to teach"
+  },
+  {
+    "rank": 393,
+    "sfi": 53.85,
+    "term": "loyal",
+    "definition": "to stay true or faithful"
+  },
+  {
+    "rank": 394,
+    "sfi": 53.85,
+    "term": "luncheon",
+    "definition": "a formal meal eaten in the middle of the day"
+  },
+  {
+    "rank": 395,
+    "sfi": 53.85,
+    "term": "microphone",
+    "definition": "device used by singers and public speakers to make their voice louder"
+  },
+  {
+    "rank": 396,
+    "sfi": 53.85,
+    "term": "overview",
+    "definition": "a general summary of a subject"
+  },
+  {
+    "rank": 397,
+    "sfi": 53.85,
+    "term": "projector",
+    "definition": "an optical instrument that projects an enlarged image onto a screen"
+  },
+  {
+    "rank": 398,
+    "sfi": 53.85,
+    "term": "shortage",
+    "definition": "a lack of something"
+  },
+  {
+    "rank": 399,
+    "sfi": 53.85,
+    "term": "spacious",
+    "definition": "lots of room or space"
+  },
+  {
+    "rank": 400,
+    "sfi": 53.72,
+    "term": "accomplishment",
+    "definition": "something you achieve"
+  },
+  {
+    "rank": 401,
+    "sfi": 53.72,
+    "term": "accustom",
+    "definition": "to get used to"
+  },
+  {
+    "rank": 402,
+    "sfi": 53.72,
+    "term": "clinic",
+    "definition": "a place you go when sick, like a mini-hospital"
+  },
+  {
+    "rank": 403,
+    "sfi": 53.72,
+    "term": "desktop",
+    "definition": "the working area of a computer screen when no programs are open"
+  },
+  {
+    "rank": 404,
+    "sfi": 53.72,
+    "term": "jog",
+    "definition": "a gentle run"
+  },
+  {
+    "rank": 405,
+    "sfi": 53.85,
+    "term": "leisure",
+    "definition": "something for fun or relaxing"
+  },
+  {
+    "rank": 406,
+    "sfi": 53.72,
+    "term": "nap",
+    "definition": "a short sleep, often taken during the daytime"
+  },
+  {
+    "rank": 407,
+    "sfi": 53.72,
+    "term": "reinforce",
+    "definition": "to make stronger"
+  },
+  {
+    "rank": 408,
+    "sfi": 53.72,
+    "term": "sender",
+    "definition": "someone who transmits a message"
+  },
+  {
+    "rank": 409,
+    "sfi": 53.72,
+    "term": "vacuum",
+    "definition": "a completely empty space"
+  },
+  {
+    "rank": 410,
+    "sfi": 53.72,
+    "term": "wireless",
+    "definition": "a means of communication that uses radio waves instead of wires"
+  },
+  {
+    "rank": 411,
+    "sfi": 53.72,
+    "term": "yearly",
+    "definition": "happening every 12 months"
+  },
+  {
+    "rank": 412,
+    "sfi": 53.58,
+    "term": "appreciation",
+    "definition": "to show thanks for something or someone"
+  },
+  {
+    "rank": 413,
+    "sfi": 53.58,
+    "term": "cargo",
+    "definition": "the things carried in the hold of an airplane or on a truck"
+  },
+  {
+    "rank": 414,
+    "sfi": 53.58,
+    "term": "cooperate",
+    "definition": "to work together nicely"
+  },
+  {
+    "rank": 415,
+    "sfi": 53.58,
+    "term": "distract",
+    "definition": "to take your focus away from something"
+  },
+  {
+    "rank": 416,
+    "sfi": 53.58,
+    "term": "dividend",
+    "definition": "money received as a bonus"
+  },
+  {
+    "rank": 417,
+    "sfi": 53.58,
+    "term": "exemption",
+    "definition": "an exception to the rule"
+  },
+  {
+    "rank": 418,
+    "sfi": 53.58,
+    "term": "furnish",
+    "definition": "to put furniture in"
+  },
+  {
+    "rank": 419,
+    "sfi": 53.58,
+    "term": "hourly",
+    "definition": "happens every 60 minutes"
+  },
+  {
+    "rank": 420,
+    "sfi": 53.58,
+    "term": "laundry",
+    "definition": "dirty clothes that need washing"
+  },
+  {
+    "rank": 421,
+    "sfi": 53.58,
+    "term": "mandatory",
+    "definition": "something that has to be done"
+  },
+  {
+    "rank": 422,
+    "sfi": 53.58,
+    "term": "mechanical",
+    "definition": "to do with machines"
+  },
+  {
+    "rank": 423,
+    "sfi": 53.58,
+    "term": "pharmacy",
+    "definition": "a store where medicines are prepared and sold"
+  },
+  {
+    "rank": 424,
+    "sfi": 53.58,
+    "term": "promotional",
+    "definition": "to do with encouraging sales"
+  },
+  {
+    "rank": 425,
+    "sfi": 53.58,
+    "term": "quarterly",
+    "definition": "every 4 months"
+  },
+  {
+    "rank": 426,
+    "sfi": 53.72,
+    "term": "residential",
+    "definition": "an area where people live"
+  },
+  {
+    "rank": 427,
+    "sfi": 53.58,
+    "term": "scholarship",
+    "definition": "an amount of money given to an able student to help pay for their studies"
+  },
+  {
+    "rank": 428,
+    "sfi": 53.58,
+    "term": "seeker",
+    "definition": "someone looking for something"
+  },
+  {
+    "rank": 429,
+    "sfi": 53.58,
+    "term": "temporarily",
+    "definition": "not for ever, for a short while"
+  },
+  {
+    "rank": 430,
+    "sfi": 53.58,
+    "term": "towel",
+    "definition": "a big cloth used for drying after a shower or swim"
+  },
+  {
+    "rank": 431,
+    "sfi": 53.58,
+    "term": "unattended",
+    "definition": "when someone or something is not being watched"
+  },
+  {
+    "rank": 432,
+    "sfi": 53.44,
+    "term": "accessible",
+    "definition": "available, easy to reach"
+  },
+  {
+    "rank": 433,
+    "sfi": 53.44,
+    "term": "afterward",
+    "definition": "after an event or action"
+  },
+  {
+    "rank": 434,
+    "sfi": 53.44,
+    "term": "apology",
+    "definition": "saying you are sorry for something"
+  },
+  {
+    "rank": 435,
+    "sfi": 53.44,
+    "term": "assemble",
+    "definition": "to gather people together"
+  },
+  {
+    "rank": 436,
+    "sfi": 53.44,
+    "term": "automatic",
+    "definition": "done without thinking"
+  },
+  {
+    "rank": 437,
+    "sfi": 53.44,
+    "term": "boardroom",
+    "definition": "a room where the board of directors of a company hold meetings"
+  },
+  {
+    "rank": 438,
+    "sfi": 53.44,
+    "term": "carpenter",
+    "definition": "a person makes and mends things made of wood for a liviing"
+  },
+  {
+    "rank": 439,
+    "sfi": 53.44,
+    "term": "caterer",
+    "definition": "the person who makes food and delivers it for a living"
+  },
+  {
+    "rank": 440,
+    "sfi": 53.44,
+    "term": "classify",
+    "definition": "to put into a category"
+  },
+  {
+    "rank": 441,
+    "sfi": 53.58,
+    "term": "consultation",
+    "definition": "a meeting between two people"
+  },
+  {
+    "rank": 442,
+    "sfi": 53.44,
+    "term": "durable",
+    "definition": "very long lasting"
+  },
+  {
+    "rank": 443,
+    "sfi": 53.44,
+    "term": "glove",
+    "definition": "something you wear on your hand to keep warm"
+  },
+  {
+    "rank": 444,
+    "sfi": 53.44,
+    "term": "hardware",
+    "definition": "tools or equipment"
+  },
+  {
+    "rank": 445,
+    "sfi": 53.44,
+    "term": "malfunction",
+    "definition": "a breakdown or failure in the system"
+  },
+  {
+    "rank": 446,
+    "sfi": 53.44,
+    "term": "outdated",
+    "definition": "to be older than"
+  },
+  {
+    "rank": 447,
+    "sfi": 53.44,
+    "term": "patience",
+    "definition": "to accept suffering without getting angry"
+  },
+  {
+    "rank": 448,
+    "sfi": 53.44,
+    "term": "postcard",
+    "definition": "a card for sending messages by post without an envelope"
+  },
+  {
+    "rank": 449,
+    "sfi": 53.44,
+    "term": "prospective",
+    "definition": "possible in the future, e.g. prospective client"
+  },
+  {
+    "rank": 450,
+    "sfi": 53.44,
+    "term": "revision",
+    "definition": "to change or rewrite something"
+  },
+  {
+    "rank": 451,
+    "sfi": 53.44,
+    "term": "strictly",
+    "definition": "in a strong manner, in a manner that follows the rules"
+  },
+  {
+    "rank": 452,
+    "sfi": 53.44,
+    "term": "tomato",
+    "definition": "a round red fruit, usually thought of as a vegetable"
+  },
+  {
+    "rank": 453,
+    "sfi": 53.44,
+    "term": "tray",
+    "definition": "a flat plate used to carry things, usually coffee or tea"
+  },
+  {
+    "rank": 454,
+    "sfi": 53.44,
+    "term": "vendor",
+    "definition": "the person who is selling something"
+  },
+  {
+    "rank": 455,
+    "sfi": 53.44,
+    "term": "withdrawal",
+    "definition": "the act of taking something away or out of something, e.g. bank withdrawal"
+  },
+  {
+    "rank": 456,
+    "sfi": 53.29,
+    "term": "anytime",
+    "definition": "at a time you choose, it's not important when"
+  },
+  {
+    "rank": 457,
+    "sfi": 53.29,
+    "term": "badge",
+    "definition": "a small piece of material with your name and details on that you wear to show who you are"
+  },
+  {
+    "rank": 458,
+    "sfi": 53.29,
+    "term": "brake",
+    "definition": "to stop a vehicle by pressing a pedal"
+  },
+  {
+    "rank": 459,
+    "sfi": 53.29,
+    "term": "calculation",
+    "definition": "to add, subtract, multiply, divide etc."
+  },
+  {
+    "rank": 460,
+    "sfi": 53.29,
+    "term": "coordinator",
+    "definition": "someone whose job is to organize things"
+  },
+  {
+    "rank": 461,
+    "sfi": 53.29,
+    "term": "costly",
+    "definition": "to be expensive, to be of a high price"
+  },
+  {
+    "rank": 462,
+    "sfi": 53.29,
+    "term": "equip",
+    "definition": "provide with abilities or tools"
+  },
+  {
+    "rank": 463,
+    "sfi": 53.29,
+    "term": "excursion",
+    "definition": "a journey taken for pleasure"
+  },
+  {
+    "rank": 464,
+    "sfi": 53.29,
+    "term": "graphic",
+    "definition": "to do with a picture or image"
+  },
+  {
+    "rank": 465,
+    "sfi": 53.44,
+    "term": "inexperience",
+    "definition": "to not have much practice with something"
+  },
+  {
+    "rank": 466,
+    "sfi": 53.29,
+    "term": "lengthy",
+    "definition": "long in time or size"
+  },
+  {
+    "rank": 467,
+    "sfi": 53.29,
+    "term": "librarian",
+    "definition": "a person who works with books in a library"
+  },
+  {
+    "rank": 468,
+    "sfi": 53.29,
+    "term": "meantime",
+    "definition": "the time between two events"
+  },
+  {
+    "rank": 469,
+    "sfi": 53.29,
+    "term": "merge",
+    "definition": "to bring two things together to make one"
+  },
+  {
+    "rank": 470,
+    "sfi": 53.29,
+    "term": "performer",
+    "definition": "an entertainer  like an actor or a singer"
+  },
+  {
+    "rank": 471,
+    "sfi": 53.29,
+    "term": "pharmacist",
+    "definition": "a person whose job it is to prepare medicines"
+  },
+  {
+    "rank": 472,
+    "sfi": 53.29,
+    "term": "pizza",
+    "definition": "a round piece of baked dough, covered with tomato, cheese and other ingredients"
+  },
+  {
+    "rank": 473,
+    "sfi": 53.29,
+    "term": "resignation",
+    "definition": "to quit one's job"
+  },
+  {
+    "rank": 474,
+    "sfi": 53.29,
+    "term": "reviewer",
+    "definition": "someone who checks written work"
+  },
+  {
+    "rank": 475,
+    "sfi": 53.29,
+    "term": "terminate",
+    "definition": "bring to an end"
+  },
+  {
+    "rank": 476,
+    "sfi": 53.29,
+    "term": "translation",
+    "definition": "something that is changed into another language"
+  },
+  {
+    "rank": 477,
+    "sfi": 53.29,
+    "term": "unfamiliar",
+    "definition": "not well known"
+  },
+  {
+    "rank": 478,
+    "sfi": 53.14,
+    "term": "actress",
+    "definition": "a female actor"
+  },
+  {
+    "rank": 479,
+    "sfi": 53.14,
+    "term": "adjacent",
+    "definition": "next to, beside"
+  },
+  {
+    "rank": 480,
+    "sfi": 53.14,
+    "term": "alternate",
+    "definition": "another option"
+  },
+  {
+    "rank": 481,
+    "sfi": 53.14,
+    "term": "congratulate",
+    "definition": "to tell someone 'good job' on a happy occasion"
+  },
+  {
+    "rank": 482,
+    "sfi": 53.14,
+    "term": "escort",
+    "definition": "to go with someone"
+  },
+  {
+    "rank": 483,
+    "sfi": 53.14,
+    "term": "inexpensive",
+    "definition": "having a low price; cheap"
+  },
+  {
+    "rank": 484,
+    "sfi": 53.14,
+    "term": "mask",
+    "definition": "something that covers your face"
+  },
+  {
+    "rank": 485,
+    "sfi": 53.14,
+    "term": "purchaser",
+    "definition": "someone who buys things; buyer"
+  },
+  {
+    "rank": 486,
+    "sfi": 53.14,
+    "term": "purse",
+    "definition": "a small bag women use to carry personal items"
+  },
+  {
+    "rank": 487,
+    "sfi": 53.14,
+    "term": "realtor",
+    "definition": "a person who sells, rents out or manages property for a living"
+  },
+  {
+    "rank": 488,
+    "sfi": 53.14,
+    "term": "rearrange",
+    "definition": "to put into a new order"
+  },
+  {
+    "rank": 489,
+    "sfi": 53.14,
+    "term": "reopen",
+    "definition": "to open again"
+  },
+  {
+    "rank": 490,
+    "sfi": 53.14,
+    "term": "soap",
+    "definition": "a block of material used for washing or cleaning"
+  },
+  {
+    "rank": 491,
+    "sfi": 53.14,
+    "term": "spokesperson",
+    "definition": "one man or woman who speaks officially for the rest of the group"
+  },
+  {
+    "rank": 492,
+    "sfi": 53.14,
+    "term": "superior",
+    "definition": "the leader, someone higher than you in rank"
+  },
+  {
+    "rank": 493,
+    "sfi": 52.98,
+    "term": "airfare",
+    "definition": "the amount of money charged for traveling by airplane"
+  },
+  {
+    "rank": 494,
+    "sfi": 52.98,
+    "term": "bake",
+    "definition": "to cook things inside the oven"
+  },
+  {
+    "rank": 495,
+    "sfi": 52.98,
+    "term": "businessperson",
+    "definition": "a person who works in commercial or industrial business, especially an owner or executive"
+  },
+  {
+    "rank": 496,
+    "sfi": 52.98,
+    "term": "considerably",
+    "definition": "to a large degree"
+  },
+  {
+    "rank": 497,
+    "sfi": 53.14,
+    "term": "faulty",
+    "definition": "broken, not perfect"
+  },
+  {
+    "rank": 498,
+    "sfi": 52.98,
+    "term": "hobby",
+    "definition": "something you do in your spare time for fun"
+  },
+  {
+    "rank": 499,
+    "sfi": 52.98,
+    "term": "informal",
+    "definition": "relaxed, casual - often used to describe clothes or an event"
+  },
+  {
+    "rank": 500,
+    "sfi": 52.98,
+    "term": "kilometer",
+    "definition": "a metric unit of length equal to 1000 meters"
+  },
+  {
+    "rank": 501,
+    "sfi": 52.98,
+    "term": "lawn",
+    "definition": "the grassy area in your garden"
+  },
+  {
+    "rank": 502,
+    "sfi": 52.98,
+    "term": "microscope",
+    "definition": "a device that makes very small things look bigger so you can study them closer"
+  },
+  {
+    "rank": 503,
+    "sfi": 52.98,
+    "term": "mislead",
+    "definition": "to lead someone in the wrong direction or give someone wrong directions"
+  },
+  {
+    "rank": 504,
+    "sfi": 52.98,
+    "term": "misplace",
+    "definition": "forget where you have put it"
+  },
+  {
+    "rank": 505,
+    "sfi": 52.98,
+    "term": "newsstand",
+    "definition": "a small structure where newspapers and magazines are sold"
+  },
+  {
+    "rank": 506,
+    "sfi": 52.98,
+    "term": "overhead",
+    "definition": "the fixed cost of a business, e.g. rent"
+  },
+  {
+    "rank": 507,
+    "sfi": 52.98,
+    "term": "portfolio",
+    "definition": "a collection of investments that someone owns"
+  },
+  {
+    "rank": 508,
+    "sfi": 52.98,
+    "term": "rack",
+    "definition": "a stand or shelf to put things on"
+  },
+  {
+    "rank": 509,
+    "sfi": 52.98,
+    "term": "remodel",
+    "definition": "change or alter nearly everything to make it look different"
+  },
+  {
+    "rank": 510,
+    "sfi": 52.98,
+    "term": "statistics",
+    "definition": "math related to data collection"
+  },
+  {
+    "rank": 511,
+    "sfi": 52.98,
+    "term": "tunnel",
+    "definition": "a hole one can travel through"
+  },
+  {
+    "rank": 512,
+    "sfi": 52.98,
+    "term": "unlimited",
+    "definition": "without end"
+  },
+  {
+    "rank": 513,
+    "sfi": 52.98,
+    "term": "vitamin",
+    "definition": "a natural substance found in food and drink that your body needs to be healthy"
+  },
+  {
+    "rank": 514,
+    "sfi": 52.98,
+    "term": "zoo",
+    "definition": "a park where many different types of live animals are kept"
+  },
+  {
+    "rank": 515,
+    "sfi": 52.82,
+    "term": "alert",
+    "definition": "wide awake, aware"
+  },
+  {
+    "rank": 516,
+    "sfi": 52.82,
+    "term": "auditorium",
+    "definition": "the area of a theater or concert hall where the audience sits"
+  },
+  {
+    "rank": 517,
+    "sfi": 52.82,
+    "term": "celebrity",
+    "definition": "someone famous"
+  },
+  {
+    "rank": 518,
+    "sfi": 52.82,
+    "term": "deduct",
+    "definition": "to minus or take away"
+  },
+  {
+    "rank": 519,
+    "sfi": 52.82,
+    "term": "disruption",
+    "definition": "the act of interrupting and causing chaos"
+  },
+  {
+    "rank": 520,
+    "sfi": 52.82,
+    "term": "electrician",
+    "definition": "a person who installs or repairs electrical or telephone lines"
+  },
+  {
+    "rank": 521,
+    "sfi": 52.82,
+    "term": "enthusiastic",
+    "definition": "to show excitement for something"
+  },
+  {
+    "rank": 522,
+    "sfi": 52.82,
+    "term": "graduation",
+    "definition": "the ceremony upon finishing a degree or program"
+  },
+  {
+    "rank": 523,
+    "sfi": 52.82,
+    "term": "icy",
+    "definition": "made of ice"
+  },
+  {
+    "rank": 524,
+    "sfi": 52.82,
+    "term": "irregular",
+    "definition": "occuring at unexpected times"
+  },
+  {
+    "rank": 525,
+    "sfi": 52.82,
+    "term": "login",
+    "definition": "to enter a computer website account"
+  },
+  {
+    "rank": 526,
+    "sfi": 52.82,
+    "term": "managerial",
+    "definition": "to do with management or supervision"
+  },
+  {
+    "rank": 527,
+    "sfi": 52.82,
+    "term": "mineral",
+    "definition": "a type of substance found in nature"
+  },
+  {
+    "rank": 528,
+    "sfi": 52.82,
+    "term": "motorcycle",
+    "definition": "a motor vehicle with two wheels and a strong frame"
+  },
+  {
+    "rank": 529,
+    "sfi": 52.82,
+    "term": "necessity",
+    "definition": "something which you need"
+  },
+  {
+    "rank": 530,
+    "sfi": 52.82,
+    "term": "planner",
+    "definition": "a person who makes plans"
+  },
+  {
+    "rank": 531,
+    "sfi": 52.82,
+    "term": "programmer",
+    "definition": "a person who designs and writes and tests computer programs"
+  },
+  {
+    "rank": 532,
+    "sfi": 52.82,
+    "term": "proofread",
+    "definition": "read for errors"
+  },
+  {
+    "rank": 533,
+    "sfi": 52.82,
+    "term": "recruiter",
+    "definition": "a person who hires people for businesses"
+  },
+  {
+    "rank": 534,
+    "sfi": 52.82,
+    "term": "remainder",
+    "definition": "what is left over"
+  },
+  {
+    "rank": 535,
+    "sfi": 52.82,
+    "term": "statue",
+    "definition": "a work of art, usually a model of a person or animal, made from hard material"
+  },
+  {
+    "rank": 536,
+    "sfi": 52.82,
+    "term": "steadily",
+    "definition": "in a slow and even manner"
+  },
+  {
+    "rank": 537,
+    "sfi": 52.82,
+    "term": "stockholder",
+    "definition": "someone who holds shares of stock in a corporation"
+  },
+  {
+    "rank": 538,
+    "sfi": 52.82,
+    "term": "vacant",
+    "definition": "empty"
+  },
+  {
+    "rank": 539,
+    "sfi": 52.64,
+    "term": "accessory",
+    "definition": "partner in crime"
+  },
+  {
+    "rank": 540,
+    "sfi": 52.64,
+    "term": "assembly",
+    "definition": "when people are gathered together"
+  },
+  {
+    "rank": 541,
+    "sfi": 52.64,
+    "term": "basket",
+    "definition": "a container made of pieces of wood"
+  },
+  {
+    "rank": 542,
+    "sfi": 52.64,
+    "term": "certification",
+    "definition": "written proof that you did something or that something is good enough"
+  },
+  {
+    "rank": 543,
+    "sfi": 52.64,
+    "term": "closure",
+    "definition": "when something is closed for good"
+  },
+  {
+    "rank": 544,
+    "sfi": 52.64,
+    "term": "dislike",
+    "definition": "to not like, hate"
+  },
+  {
+    "rank": 545,
+    "sfi": 52.64,
+    "term": "downstairs",
+    "definition": "on a lower floor of a building"
+  },
+  {
+    "rank": 546,
+    "sfi": 52.64,
+    "term": "expiration",
+    "definition": "the end of a period of time"
+  },
+  {
+    "rank": 547,
+    "sfi": 52.64,
+    "term": "headache",
+    "definition": "pain in the head"
+  },
+  {
+    "rank": 548,
+    "sfi": 52.64,
+    "term": "jam",
+    "definition": "push down hard"
+  },
+  {
+    "rank": 549,
+    "sfi": 52.64,
+    "term": "nail",
+    "definition": "a long, thin piece of metal used to hold pieces of wood together banged in with a hammer"
+  },
+  {
+    "rank": 550,
+    "sfi": 52.64,
+    "term": "optimistic",
+    "definition": "being positive about the future"
+  },
+  {
+    "rank": 551,
+    "sfi": 52.64,
+    "term": "pedestrian",
+    "definition": "a person who is walking on the street"
+  },
+  {
+    "rank": 552,
+    "sfi": 52.64,
+    "term": "projection",
+    "definition": "a guess about future events, e.g. sales or income"
+  },
+  {
+    "rank": 553,
+    "sfi": 52.64,
+    "term": "sleeve",
+    "definition": "the part of a garment that covers some, or all, of the arm"
+  },
+  {
+    "rank": 554,
+    "sfi": 52.64,
+    "term": "suburb",
+    "definition": "living area outside the city"
+  },
+  {
+    "rank": 555,
+    "sfi": 52.64,
+    "term": "takeover",
+    "definition": "the buying out of one company by another"
+  },
+  {
+    "rank": 556,
+    "sfi": 52.64,
+    "term": "unsure",
+    "definition": "not certain or sure"
+  },
+  {
+    "rank": 557,
+    "sfi": 52.64,
+    "term": "upstairs",
+    "definition": "on a higher level of the building"
+  },
+  {
+    "rank": 558,
+    "sfi": 52.64,
+    "term": "verbal",
+    "definition": "spoken"
+  },
+  {
+    "rank": 559,
+    "sfi": 52.64,
+    "term": "visa",
+    "definition": "travel permit that allows you to enter a particular country for a period of time"
+  },
+  {
+    "rank": 560,
+    "sfi": 52.64,
+    "term": "wildlife",
+    "definition": "animals and plants that live in the natural world"
+  },
+  {
+    "rank": 561,
+    "sfi": 52.64,
+    "term": "workforce",
+    "definition": "all the people that a company employs"
+  },
+  {
+    "rank": 562,
+    "sfi": 52.47,
+    "term": "absent",
+    "definition": "missing, not present"
+  },
+  {
+    "rank": 563,
+    "sfi": 52.47,
+    "term": "accumulate",
+    "definition": "to slowly get more and more of something, e.g. wealth"
+  },
+  {
+    "rank": 564,
+    "sfi": 52.47,
+    "term": "appraisal",
+    "definition": "an evaluation"
+  },
+  {
+    "rank": 565,
+    "sfi": 52.47,
+    "term": "apprentice",
+    "definition": "someone who is learning a trade by working with an expert"
+  },
+  {
+    "rank": 566,
+    "sfi": 52.47,
+    "term": "businessman",
+    "definition": "a man who works in commercial or industrial business, especially an owner or executive"
+  },
+  {
+    "rank": 567,
+    "sfi": 52.47,
+    "term": "ceiling",
+    "definition": "the thing that covers the room up high"
+  },
+  {
+    "rank": 568,
+    "sfi": 52.47,
+    "term": "colorful",
+    "definition": "having many different colors"
+  },
+  {
+    "rank": 569,
+    "sfi": 52.47,
+    "term": "compensate",
+    "definition": "to give money for a service"
+  },
+  {
+    "rank": 570,
+    "sfi": 52.47,
+    "term": "costume",
+    "definition": "something unusual you dress up in, e.g. for Hallowe'en"
+  },
+  {
+    "rank": 571,
+    "sfi": 52.47,
+    "term": "editorial",
+    "definition": "a newspaper article written by the editor"
+  },
+  {
+    "rank": 572,
+    "sfi": 52.47,
+    "term": "effectiveness",
+    "definition": "the state of working properly or as expected"
+  },
+  {
+    "rank": 573,
+    "sfi": 52.47,
+    "term": "facilitate",
+    "definition": "to help or make easier"
+  },
+  {
+    "rank": 574,
+    "sfi": 52.47,
+    "term": "firefighter",
+    "definition": "someone whose job it is to put out fires or save people from dangerous situations"
+  },
+  {
+    "rank": 575,
+    "sfi": 52.47,
+    "term": "gasoline",
+    "definition": "fuel used in most motor vehicles"
+  },
+  {
+    "rank": 576,
+    "sfi": 52.47,
+    "term": "inappropriate",
+    "definition": "not suitable for use in a given situation"
+  },
+  {
+    "rank": 577,
+    "sfi": 52.47,
+    "term": "internet",
+    "definition": "the information highway, the worldwide web"
+  },
+  {
+    "rank": 578,
+    "sfi": 52.47,
+    "term": "landlord",
+    "definition": "the person who owns the place you rent"
+  },
+  {
+    "rank": 579,
+    "sfi": 52.47,
+    "term": "layout",
+    "definition": "the plan of how it is set out"
+  },
+  {
+    "rank": 580,
+    "sfi": 52.47,
+    "term": "lunchtime",
+    "definition": "The usual time for eating the midday meal"
+  },
+  {
+    "rank": 581,
+    "sfi": 52.47,
+    "term": "payroll",
+    "definition": "the total amount of money paid in wages"
+  },
+  {
+    "rank": 582,
+    "sfi": 52.47,
+    "term": "pharmaceutical",
+    "definition": "relating to the preparation and making of medicine"
+  },
+  {
+    "rank": 583,
+    "sfi": 52.47,
+    "term": "plausible",
+    "definition": "it sounds like it could be true"
+  },
+  {
+    "rank": 584,
+    "sfi": 52.47,
+    "term": "premium",
+    "definition": "an extra payment added to the cost"
+  },
+  {
+    "rank": 585,
+    "sfi": 52.47,
+    "term": "safely",
+    "definition": "in a way that is not dangerous"
+  },
+  {
+    "rank": 586,
+    "sfi": 52.47,
+    "term": "simplify",
+    "definition": "make easier to understand"
+  },
+  {
+    "rank": 587,
+    "sfi": 52.47,
+    "term": "specialty",
+    "definition": "something you are very good at"
+  },
+  {
+    "rank": 588,
+    "sfi": 52.47,
+    "term": "tech",
+    "definition": "short form of the word 'technology'"
+  },
+  {
+    "rank": 589,
+    "sfi": 52.47,
+    "term": "unexpected",
+    "definition": "to be a surprise"
+  },
+  {
+    "rank": 590,
+    "sfi": 52.47,
+    "term": "unspecified",
+    "definition": "not clearly marked or known"
+  },
+  {
+    "rank": 591,
+    "sfi": 52.28,
+    "term": "adhere",
+    "definition": "to stay with or follow , e.g. adhere to rules"
+  },
+  {
+    "rank": 592,
+    "sfi": 52.28,
+    "term": "bankrupt",
+    "definition": "to have no more money"
+  },
+  {
+    "rank": 593,
+    "sfi": 52.28,
+    "term": "caution",
+    "definition": "a warning to be careful"
+  },
+  {
+    "rank": 594,
+    "sfi": 52.28,
+    "term": "clip",
+    "definition": "to cut short, snip"
+  },
+  {
+    "rank": 595,
+    "sfi": 52.28,
+    "term": "comply",
+    "definition": "to obey a rule"
+  },
+  {
+    "rank": 596,
+    "sfi": 52.28,
+    "term": "diner",
+    "definition": "a small, informal restaurant"
+  },
+  {
+    "rank": 597,
+    "sfi": 52.28,
+    "term": "duplicate",
+    "definition": "make an exact copy"
+  },
+  {
+    "rank": 598,
+    "sfi": 52.28,
+    "term": "eager",
+    "definition": "to be excited to help or do something"
+  },
+  {
+    "rank": 599,
+    "sfi": 52.28,
+    "term": "economist",
+    "definition": "an expert in the science of economics"
+  },
+  {
+    "rank": 600,
+    "sfi": 52.28,
+    "term": "embassy",
+    "definition": "the office of an ambassador"
+  }
+]

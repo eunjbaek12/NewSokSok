@@ -1,0 +1,6002 @@
+[
+  {
+    "term": "mister",
+    "phonetic": "/ˈmɪstə/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "씨, 님, 미스터",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 1
+  },
+  {
+    "term": "vacation",
+    "phonetic": "/vəˈkeɪ.ʃən/",
+    "pos": "Noun",
+    "definition": "An extended trip or journey away from home for rest or pleasure. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "휴가",
+    "exampleEn": "We were on vacation in Florida this year.",
+    "hasMeaningKr": true,
+    "rank": 2
+  },
+  {
+    "term": "client",
+    "phonetic": "/ˈklaɪ.ənt/",
+    "pos": "Noun",
+    "definition": "A customer, a buyer or receiver of goods or services.",
+    "meaningKr": "손님, 고객, 고객님",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 3
+  },
+  {
+    "term": "e-book",
+    "phonetic": "/ˈiːbʊk/",
+    "pos": "Noun",
+    "definition": "An electronic book, a book published in electronic form.",
+    "meaningKr": "전자책, 전자서적, 이북",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 4
+  },
+  {
+    "term": "airport",
+    "phonetic": "/ˈɛə.pɔːt/",
+    "pos": "Noun",
+    "definition": "An airfield (an area designated for the takeoff and landing of aircraft), including one or more runways and (for commercial airports) one or more passenger terminals.",
+    "meaningKr": "공항, 비행장, 항공역",
+    "exampleEn": "She met Sam and the others at the airport at 7:00 am.",
+    "hasMeaningKr": true,
+    "rank": 5
+  },
+  {
+    "term": "memo",
+    "phonetic": "/ˈmɛməʊ̯/",
+    "pos": "Noun",
+    "definition": "A short note; a memorandum.",
+    "meaningKr": "메모",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 6
+  },
+  {
+    "term": "reservation",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "The act of reserving, withholding or keeping back.",
+    "meaningKr": "",
+    "exampleEn": "The committee authorised the reservation of funds.",
+    "hasMeaningKr": false,
+    "rank": 7
+  },
+  {
+    "term": "logical",
+    "phonetic": "",
+    "pos": "Adjective",
+    "definition": "In agreement with the principles of logic; sequacious.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 8
+  },
+  {
+    "term": "fax",
+    "phonetic": "/fæks/",
+    "pos": "Symbol",
+    "definition": "ISO 639-3 language code for Fala.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 9
+  },
+  {
+    "term": "o'clock",
+    "phonetic": "/www.etymonline.com/",
+    "pos": "Adverb",
+    "definition": "NATO, ICAO, ITU &amp; IMO radiotelephony code word used with numerals up to twelve to indicate direction",
+    "meaningKr": "한시, 한시-에",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 10
+  },
+  {
+    "term": "sincerely",
+    "phonetic": "/sɪnˈsɪəli/",
+    "pos": "Adverb",
+    "definition": "In a sincere or earnest manner; honestly.",
+    "meaningKr": "",
+    "exampleEn": "I sincerely hope they make it home safely.",
+    "hasMeaningKr": false,
+    "rank": 11
+  },
+  {
+    "term": "sometime",
+    "phonetic": "/ˈsʌmˌtaɪm/",
+    "pos": "Adverb",
+    "definition": "",
+    "meaningKr": "언젠가",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 12
+  },
+  {
+    "term": "supervisor",
+    "phonetic": "/ˈsuːpəˌvaɪzə(ɹ)/",
+    "pos": "Noun",
+    "definition": "A person with the official task of overseeing the work of a person or group, or of other operations and activities.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 13
+  },
+  {
+    "term": "refund",
+    "phonetic": "/ɹɪˈfʌnd/",
+    "pos": "Verb",
+    "definition": "To return (money) to (someone); to reimburse.",
+    "meaningKr": "환불하다, 환불금, 환불",
+    "exampleEn": "If you find this computer for sale anywhere at a lower price, we’ll refund you the difference.",
+    "hasMeaningKr": true,
+    "rank": 14
+  },
+  {
+    "term": "goods",
+    "phonetic": "/ɡʊdz/",
+    "pos": "Noun",
+    "definition": "plural of good",
+    "meaningKr": "상품, 물품, 물건",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 15
+  },
+  {
+    "term": "workshop",
+    "phonetic": "/ˈwɜːk.ʃɒp/",
+    "pos": "Noun",
+    "definition": "A room, especially one which is not particularly large, used for manufacturing or other light industrial work.",
+    "meaningKr": "작업장, 아틀리에, 공방",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 16
+  },
+  {
+    "term": "downtown",
+    "phonetic": "/ˈdaʊ̯nˌtaʊ̯n/",
+    "pos": "Adjective",
+    "definition": "Of, relating to, or situated in the central business district.",
+    "meaningKr": "시내, 도심",
+    "exampleEn": "John walked every day to his downtown job.",
+    "hasMeaningKr": true,
+    "rank": 17
+  },
+  {
+    "term": "deadline",
+    "phonetic": "/www.civilwar.org/",
+    "pos": "Noun",
+    "definition": "A time limit in the form of a date on or before which something must be completed.",
+    "meaningKr": "마감, 데드라인",
+    "exampleEn": "I must make this deadline or my boss will kill me!",
+    "hasMeaningKr": true,
+    "rank": 18
+  },
+  {
+    "term": "invoice",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "A bill; a commercial document issued by a seller to a buyer indicating the products, quantities and agreed prices for products or services that the seller has already provided the buyer with. An invoice indicates that, unless paid in advance, payment is due by the buyer to the seller, according to the agreed terms.",
+    "meaningKr": "",
+    "exampleEn": "I've already rendered the invoices for payment.",
+    "hasMeaningKr": false,
+    "rank": 19
+  },
+  {
+    "term": "brochure",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 20
+  },
+  {
+    "term": "noon",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 21
+  },
+  {
+    "term": "accountant",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 22
+  },
+  {
+    "term": "clerk",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 23
+  },
+  {
+    "term": "lobby",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 24
+  },
+  {
+    "term": "publish",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 25
+  },
+  {
+    "term": "résumé",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 26
+  },
+  {
+    "term": "enclose",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 27
+  },
+  {
+    "term": "applicant",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 28
+  },
+  {
+    "term": "seminar",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 29
+  },
+  {
+    "term": "technician",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 30
+  },
+  {
+    "term": "cloth",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 31
+  },
+  {
+    "term": "fare",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 32
+  },
+  {
+    "term": "receipt",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 33
+  },
+  {
+    "term": "traveler",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 34
+  },
+  {
+    "term": "caller",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 35
+  },
+  {
+    "term": "subway",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 36
+  },
+  {
+    "term": "luggage",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 37
+  },
+  {
+    "term": "shipment",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 38
+  },
+  {
+    "term": "infer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 39
+  },
+  {
+    "term": "waiter",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 40
+  },
+  {
+    "term": "rental",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 41
+  },
+  {
+    "term": "warranty",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 42
+  },
+  {
+    "term": "cafeteria",
+    "phonetic": "/ˌkafəˈtɪə̯.ɹi.ə/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "식당, 카페테리아, 식당",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 43
+  },
+  {
+    "term": "chef",
+    "phonetic": "/ʃɛf/",
+    "pos": "Noun",
+    "definition": "The presiding cook in the kitchen of a large household.",
+    "meaningKr": "요리사, 료리사, 주방장",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 44
+  },
+  {
+    "term": "elevator",
+    "phonetic": "/ˈɛləˌveɪtə/",
+    "pos": "Noun",
+    "definition": "Anything that raises or uplifts.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 45
+  },
+  {
+    "term": "reception",
+    "phonetic": "/ɹɪˈsɛp.ʃn̩/",
+    "pos": "Noun",
+    "definition": "The act of receiving.",
+    "meaningKr": "응접, 환영회, 리셉션",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 46
+  },
+  {
+    "term": "correctly",
+    "phonetic": "/kəˈɹɛk(t).li/",
+    "pos": "Adverb",
+    "definition": "In a correct manner.",
+    "meaningKr": "정확히",
+    "exampleEn": "Most people couldn't pronounce Daragh's name correctly, so he went by the name of \"Dave\" instead.",
+    "hasMeaningKr": true,
+    "rank": 47
+  },
+  {
+    "term": "lease",
+    "phonetic": "/liːs/",
+    "pos": "Noun",
+    "definition": "An interest in land granting exclusive use or occupation of real estate for a limited period; a leasehold.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 48
+  },
+  {
+    "term": "bicycle",
+    "phonetic": "/ˈbaɪsɪk(ə)l/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "자전거",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 49
+  },
+  {
+    "term": "notify",
+    "phonetic": "/ˈnoʊtɪfaɪ/",
+    "pos": "Verb",
+    "definition": "To give (someone) notice (of some event). .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "통치하다, 통보하다, 알리다",
+    "exampleEn": "The dispatcher immediately notified the volunteer fire department of the emergency call.",
+    "hasMeaningKr": true,
+    "rank": 50
+  },
+  {
+    "term": "preview",
+    "phonetic": "/ˈpɹiːvjuː/",
+    "pos": "Noun",
+    "definition": "An experience of something in advance.",
+    "meaningKr": "미리보기, 미리 보다",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 51
+  },
+  {
+    "term": "attendant",
+    "phonetic": "/əˈtɛndənt/",
+    "pos": "Noun",
+    "definition": "One who attends; one who works with or watches over someone or something.",
+    "meaningKr": "",
+    "exampleEn": "Give your keys to the parking attendants and they will park your car for you.",
+    "hasMeaningKr": false,
+    "rank": 52
+  },
+  {
+    "term": "subscription",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "Access to a resource for a period of time, generally for payment.",
+    "meaningKr": "",
+    "exampleEn": "subscription fee",
+    "hasMeaningKr": false,
+    "rank": 53
+  },
+  {
+    "term": "convenient",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 54
+  },
+  {
+    "term": "manual",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 55
+  },
+  {
+    "term": "clue",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 56
+  },
+  {
+    "term": "garage",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 57
+  },
+  {
+    "term": "obtain",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 58
+  },
+  {
+    "term": "oval",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 59
+  },
+  {
+    "term": "inventory",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 60
+  },
+  {
+    "term": "outdoor",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 61
+  },
+  {
+    "term": "suitcase",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 62
+  },
+  {
+    "term": "destination",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 63
+  },
+  {
+    "term": "occupation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 64
+  },
+  {
+    "term": "postpone",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 65
+  },
+  {
+    "term": "contradict",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 66
+  },
+  {
+    "term": "umbrella",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 67
+  },
+  {
+    "term": "inference",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 68
+  },
+  {
+    "term": "cellphone",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 69
+  },
+  {
+    "term": "compact",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 70
+  },
+  {
+    "term": "merchandise",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 71
+  },
+  {
+    "term": "receptionist",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 72
+  },
+  {
+    "term": "dentist",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 73
+  },
+  {
+    "term": "identification",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 74
+  },
+  {
+    "term": "coupon",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 75
+  },
+  {
+    "term": "depart",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 76
+  },
+  {
+    "term": "reschedule",
+    "phonetic": "/ɹiːˈʃɛdjuːl/",
+    "pos": "Verb",
+    "definition": "To schedule again or at a different time.",
+    "meaningKr": "",
+    "exampleEn": "We'll have to reschedule next Monday's meeting because of the public holiday.",
+    "hasMeaningKr": false,
+    "rank": 77
+  },
+  {
+    "term": "tactic",
+    "phonetic": "/ˈtæktɪk/",
+    "pos": "Noun",
+    "definition": "A maneuver, or action calculated to achieve some end.",
+    "meaningKr": "전술, 전술",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 78
+  },
+  {
+    "term": "renovation",
+    "phonetic": "/ɹɛnəˈveɪʃən/",
+    "pos": "Noun",
+    "definition": "An act, or the process, of renovating.",
+    "meaningKr": "개조, 수리",
+    "exampleEn": "His room was currently under renovation.",
+    "hasMeaningKr": true,
+    "rank": 79
+  },
+  {
+    "term": "upgrade",
+    "phonetic": "/ˈʌp.ɡɹeɪd/",
+    "pos": "Noun",
+    "definition": "An upward grade or slope.",
+    "meaningKr": "업그레이드",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 80
+  },
+  {
+    "term": "precede",
+    "phonetic": "/pɹɪˈsiːd/",
+    "pos": "Verb",
+    "definition": "To go before, go in front of.",
+    "meaningKr": "",
+    "exampleEn": "Cultural genocide precedes physical genocide.",
+    "hasMeaningKr": false,
+    "rank": 81
+  },
+  {
+    "term": "replacement",
+    "phonetic": "/ɹɪˈpleɪsmənt/",
+    "pos": "Noun",
+    "definition": "A person or thing that takes the place of another; a substitute.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 82
+  },
+  {
+    "term": "dine",
+    "phonetic": "/daɪn/",
+    "pos": "Verb",
+    "definition": "To eat; to eat dinner or supper.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 83
+  },
+  {
+    "term": "passport",
+    "phonetic": "/ˈpɑːspɔːt/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "여권, 려권, 패스포트",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 84
+  },
+  {
+    "term": "coworker",
+    "phonetic": "/ˌkəʊˈwɜː.kər/",
+    "pos": "Noun",
+    "definition": "Somebody with whom one works.",
+    "meaningKr": "동료, 동업자",
+    "exampleEn": "He heard from a coworker that the company planned to merge those departments.",
+    "hasMeaningKr": true,
+    "rank": 85
+  },
+  {
+    "term": "upcoming",
+    "phonetic": "/apnews.com/",
+    "pos": "Adjective",
+    "definition": "Happening or appearing in the relatively near future.",
+    "meaningKr": "",
+    "exampleEn": "We are ready for whatever is upcoming.",
+    "hasMeaningKr": false,
+    "rank": 86
+  },
+  {
+    "term": "cabinet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 87
+  },
+  {
+    "term": "appliance",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 88
+  },
+  {
+    "term": "explanatory",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 89
+  },
+  {
+    "term": "instructor",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 90
+  },
+  {
+    "term": "keyboard",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 91
+  },
+  {
+    "term": "media",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 92
+  },
+  {
+    "term": "supermarket",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 93
+  },
+  {
+    "term": "valid",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 94
+  },
+  {
+    "term": "admission",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 95
+  },
+  {
+    "term": "laptop",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 96
+  },
+  {
+    "term": "underline",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 97
+  },
+  {
+    "term": "electrical",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 98
+  },
+  {
+    "term": "airplane",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 99
+  },
+  {
+    "term": "assignment",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 100
+  },
+  {
+    "term": "exit",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 101
+  },
+  {
+    "term": "attendee",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 102
+  },
+  {
+    "term": "cruise",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 103
+  },
+  {
+    "term": "birthday",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 104
+  },
+  {
+    "term": "café",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 105
+  },
+  {
+    "term": "comprehension",
+    "phonetic": "/ˌkɒmpɹɪˈhɛnʃn̩/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "이해, 리해, 요해",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 106
+  },
+  {
+    "term": "mall",
+    "phonetic": "/mɔːl/",
+    "pos": "Noun",
+    "definition": "A pedestrianised street, especially a shopping precinct. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "쇼핑 센터",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 107
+  },
+  {
+    "term": "medication",
+    "phonetic": "/mɛdɪˈkeɪʃən/",
+    "pos": "Noun",
+    "definition": "A medicine, or all the medicines regularly taken by a patient.",
+    "meaningKr": "",
+    "exampleEn": "Have you been taking your medication? [uncountable]",
+    "hasMeaningKr": false,
+    "rank": 108
+  },
+  {
+    "term": "recycle",
+    "phonetic": "/ˌɹiːˈsaɪkəl/",
+    "pos": "Verb",
+    "definition": "To break down and reuse component materials.",
+    "meaningKr": "재활용하다",
+    "exampleEn": "Both paper and plastic can be recycled.",
+    "hasMeaningKr": true,
+    "rank": 109
+  },
+  {
+    "term": "renew",
+    "phonetic": "/ɹɪˈnjuː/",
+    "pos": "Verb",
+    "definition": "To make (something) new again; to restore to freshness or original condition. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 110
+  },
+  {
+    "term": "tenant",
+    "phonetic": "/ˈtɛ.nənt/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 111
+  },
+  {
+    "term": "sandwich",
+    "phonetic": "/ˈsæn(d).wɪd͡ʒ/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "샌드위치, 겹빵이",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 112
+  },
+  {
+    "term": "departure",
+    "phonetic": "/dɪˈpɑː(ɹ)tjə(ɹ)/",
+    "pos": "Noun",
+    "definition": "The act of departing or something that has departed.",
+    "meaningKr": "출발",
+    "exampleEn": "The departure was scheduled for noon.",
+    "hasMeaningKr": true,
+    "rank": 113
+  },
+  {
+    "term": "mini",
+    "phonetic": "/ˈmɪn.i/",
+    "pos": "Adjective",
+    "definition": "Miniature, tiny, small.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 114
+  },
+  {
+    "term": "fitness",
+    "phonetic": "/ˈfɪt.nəs/",
+    "pos": "Noun",
+    "definition": "The condition of being fit, suitable or appropriate.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 115
+  },
+  {
+    "term": "inconvenience",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "The quality of being inconvenient.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 116
+  },
+  {
+    "term": "banquet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 117
+  },
+  {
+    "term": "closet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 118
+  },
+  {
+    "term": "unreal",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 119
+  },
+  {
+    "term": "distractor",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 120
+  },
+  {
+    "term": "expire",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 121
+  },
+  {
+    "term": "folder",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 122
+  },
+  {
+    "term": "photocopy",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 123
+  },
+  {
+    "term": "renovate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 124
+  },
+  {
+    "term": "sunny",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 125
+  },
+  {
+    "term": "calendar",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 126
+  },
+  {
+    "term": "donation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 127
+  },
+  {
+    "term": "feedback",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 128
+  },
+  {
+    "term": "shortly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 129
+  },
+  {
+    "term": "snack",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 130
+  },
+  {
+    "term": "warehouse",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 131
+  },
+  {
+    "term": "copier",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 132
+  },
+  {
+    "term": "provider",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 133
+  },
+  {
+    "term": "beverage",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 134
+  },
+  {
+    "term": "hungry",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 135
+  },
+  {
+    "term": "inspection",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 136
+  },
+  {
+    "term": "recipient",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 137
+  },
+  {
+    "term": "aisle",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 138
+  },
+  {
+    "term": "inspect",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 139
+  },
+  {
+    "term": "mechanic",
+    "phonetic": "/mɪˈkænɪk/",
+    "pos": "Adjective",
+    "definition": "mechanical; relating to mechanics or the laws of motion in physics",
+    "meaningKr": "정비공, 기계공",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 140
+  },
+  {
+    "term": "merger",
+    "phonetic": "/ˈmɜː.d͡ʒə/",
+    "pos": "Noun",
+    "definition": "One that merges.",
+    "meaningKr": "합병",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 141
+  },
+  {
+    "term": "soccer",
+    "phonetic": "/ˈsɒk.ə/",
+    "pos": "Noun",
+    "definition": "Association football.",
+    "meaningKr": "축구, 풋볼",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 142
+  },
+  {
+    "term": "sweater",
+    "phonetic": "/ˈswɛtə/",
+    "pos": "Noun",
+    "definition": "A knitted jacket or jersey, usually of thick wool, worn by athletes before or after exercise.",
+    "meaningKr": "스웨터, 쎄타, 스웨터",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 143
+  },
+  {
+    "term": "ingredient",
+    "phonetic": "/ɪnˈɡɹiːdi.ənt/",
+    "pos": "Noun",
+    "definition": "One of the substances present in a mixture, especially food.",
+    "meaningKr": "성분",
+    "exampleEn": "The ingredients of a Spanish omelette are potatoes, eggs, onion, and a little salt.",
+    "hasMeaningKr": true,
+    "rank": 144
+  },
+  {
+    "term": "rewrite",
+    "phonetic": "/ˈɹiː.ɹaɪt/",
+    "pos": "Noun",
+    "definition": "The act of writing again or anew.",
+    "meaningKr": "",
+    "exampleEn": "The film script underwent a rewrite for the European market.",
+    "hasMeaningKr": false,
+    "rank": 145
+  },
+  {
+    "term": "itinerary",
+    "phonetic": "/aɪˈtɪnə(ɹə)ɹi/",
+    "pos": "Noun",
+    "definition": "A written schedule of activities for a vacation or road trip.",
+    "meaningKr": "여정, 려정, 일정",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 146
+  },
+  {
+    "term": "workplace",
+    "phonetic": "/ˈwɝkˌpleɪs/",
+    "pos": "Noun",
+    "definition": "The place where someone works.",
+    "meaningKr": "직장, 일터",
+    "exampleEn": "in the workplace",
+    "hasMeaningKr": true,
+    "rank": 147
+  },
+  {
+    "term": "architect",
+    "phonetic": "/ˈɑː.kɪˌtɛkt/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "건축가, 설계자, 계획자",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 148
+  },
+  {
+    "term": "convenience",
+    "phonetic": "/kənˈviːnɪəns/",
+    "pos": "Noun",
+    "definition": "The quality of being convenient.",
+    "meaningKr": "",
+    "exampleEn": "Fast food is popular because of its cost and convenience.",
+    "hasMeaningKr": false,
+    "rank": 149
+  },
+  {
+    "term": "eligible",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 150
+  },
+  {
+    "term": "indoor",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 151
+  },
+  {
+    "term": "baggage",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 152
+  },
+  {
+    "term": "dial",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 153
+  },
+  {
+    "term": "container",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 154
+  },
+  {
+    "term": "drawer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 155
+  },
+  {
+    "term": "lab",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 156
+  },
+  {
+    "term": "submission",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 157
+  },
+  {
+    "term": "bulletin",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 158
+  },
+  {
+    "term": "certificate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 159
+  },
+  {
+    "term": "gym",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 160
+  },
+  {
+    "term": "highway",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 161
+  },
+  {
+    "term": "respondent",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 162
+  },
+  {
+    "term": "jewelry",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 163
+  },
+  {
+    "term": "overtime",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 164
+  },
+  {
+    "term": "battery",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 165
+  },
+  {
+    "term": "donate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 166
+  },
+  {
+    "term": "outstanding",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 167
+  },
+  {
+    "term": "skim",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 168
+  },
+  {
+    "term": "briefcase",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 169
+  },
+  {
+    "term": "dessert",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 170
+  },
+  {
+    "term": "impact",
+    "phonetic": "/ˈɪmpækt/",
+    "pos": "Noun",
+    "definition": "The striking of one body against another; collision.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 171
+  },
+  {
+    "term": "innovative",
+    "phonetic": "/ɪnˈnɒ.və.tɪv/",
+    "pos": "Adjective",
+    "definition": "Characterized by the creation of new ideas or inventions.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 172
+  },
+  {
+    "term": "inquire",
+    "phonetic": "/ɪnˈkwaɪə/",
+    "pos": "Verb",
+    "definition": "To ask (about something).",
+    "meaningKr": "",
+    "exampleEn": "May I inquire to whom I have the honor of speaking?",
+    "hasMeaningKr": false,
+    "rank": 173
+  },
+  {
+    "term": "overnight",
+    "phonetic": "/əʊvə(ɹ)ˈnaɪt/",
+    "pos": "Adverb",
+    "definition": "During or throughout the night, especially during the evening or night just past.",
+    "meaningKr": "일박",
+    "exampleEn": "Let it run overnight and we'll check on it in the morning.",
+    "hasMeaningKr": true,
+    "rank": 174
+  },
+  {
+    "term": "venue",
+    "phonetic": "/ˈvɛnjuː/",
+    "pos": "Noun",
+    "definition": "A theater, auditorium, arena, or other area designated for sporting or entertainment events.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 175
+  },
+  {
+    "term": "commuter",
+    "phonetic": "/kəˈmjuːtɚ/",
+    "pos": "Noun",
+    "definition": "One who commutes (etymology 1).",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 176
+  },
+  {
+    "term": "logo",
+    "phonetic": "/ˈləʊ.ɡəʊ/",
+    "pos": "Noun",
+    "definition": "A visual symbol or emblem that acts as a trademark or a means of identification of a company or organization.",
+    "meaningKr": "로고, 로고타이프",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 177
+  },
+  {
+    "term": "newsletter",
+    "phonetic": "/ˈn(j)uzˌlɛtɚ/",
+    "pos": "Noun",
+    "definition": "A periodically sent publication containing current events or the like, generally on a particular topic or geared toward a limited audience.",
+    "meaningKr": "뉴스레터",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 178
+  },
+  {
+    "term": "advisor",
+    "phonetic": "/ædˈvaɪ.zə(ɹ)/",
+    "pos": "Noun",
+    "definition": "One who offers advice.",
+    "meaningKr": "고문",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 179
+  },
+  {
+    "term": "cartridge",
+    "phonetic": "/ˈkɑː.tɹɪd͡ʒ/",
+    "pos": "Noun",
+    "definition": "The package consisting of the bullet, primer, and casing containing gunpowder; a round of ammunition.",
+    "meaningKr": "탄약통, 카트리지",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 180
+  },
+  {
+    "term": "cloudy",
+    "phonetic": "",
+    "pos": "Adjective",
+    "definition": "Covered with or characterised by clouds.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 181
+  },
+  {
+    "term": "photographer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 182
+  },
+  {
+    "term": "shopper",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 183
+  },
+  {
+    "term": "tag",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 184
+  },
+  {
+    "term": "announcer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 185
+  },
+  {
+    "term": "aspect",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 186
+  },
+  {
+    "term": "audit",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 187
+  },
+  {
+    "term": "contractor",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 188
+  },
+  {
+    "term": "download",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 189
+  },
+  {
+    "term": "password",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 190
+  },
+  {
+    "term": "prohibit",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 191
+  },
+  {
+    "term": "stadium",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 192
+  },
+  {
+    "term": "terminal",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 193
+  },
+  {
+    "term": "weekday",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 194
+  },
+  {
+    "term": "bonus",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 195
+  },
+  {
+    "term": "cart",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 196
+  },
+  {
+    "term": "delicious",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 197
+  },
+  {
+    "term": "ink",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 198
+  },
+  {
+    "term": "supervise",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 199
+  },
+  {
+    "term": "waitress",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 200
+  },
+  {
+    "term": "cleaner",
+    "phonetic": "/ˈkliː.nə/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "청소부, 청소부, 소제부",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 201
+  },
+  {
+    "term": "developer",
+    "phonetic": "/dɪˈvɛləpə(ɹ)/",
+    "pos": "Noun",
+    "definition": "A person or entity engaged in the creation or improvement of certain classes of products.",
+    "meaningKr": "현상액, 프로그래머, 개발자",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 202
+  },
+  {
+    "term": "headquarter",
+    "phonetic": "/www.courthousenews.com/",
+    "pos": "Verb",
+    "definition": "To provide (an organization) with headquarters.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 203
+  },
+  {
+    "term": "shuttle",
+    "phonetic": "/ˈʃʌtəl/",
+    "pos": "Noun",
+    "definition": "A tool used to carry the woof back and forth between the warp threads on a loom.",
+    "meaningKr": "북, 셔틀",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 204
+  },
+  {
+    "term": "stationery",
+    "phonetic": "/ˈsteɪʃ(ə)n(ə)ɹi/",
+    "pos": "Noun",
+    "definition": "Writing materials, envelopes, office materials.",
+    "meaningKr": "문방구, 문구",
+    "exampleEn": "When the school year finished, he put all of his stationery away in the loft, as he would have no need for pencils and exercise books during the holidays.",
+    "hasMeaningKr": true,
+    "rank": 205
+  },
+  {
+    "term": "subscribe",
+    "phonetic": "/səbˈskɹaɪb/",
+    "pos": "Verb",
+    "definition": "To write (one’s name) at the bottom of a document; to sign (one's name).",
+    "meaningKr": "구독하다",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 206
+  },
+  {
+    "term": "alike",
+    "phonetic": "/əˈlaɪk/",
+    "pos": "Adjective",
+    "definition": "Having resemblance or similitude; similar; without difference.",
+    "meaningKr": "",
+    "exampleEn": "Twins are physically alike, that is, similar-looking people on the outside.",
+    "hasMeaningKr": false,
+    "rank": 207
+  },
+  {
+    "term": "flavor",
+    "phonetic": "/ˈfleɪvə/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "향미, 풍미, 맛",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 208
+  },
+  {
+    "term": "picnic",
+    "phonetic": "/ˈpɪknɪk/",
+    "pos": "Noun",
+    "definition": "An informal social gathering, usually in a natural outdoor setting, to which the participants bring their own food and drink.",
+    "meaningKr": "소풍, 피크닉",
+    "exampleEn": "We went out for a picnic in the forest.",
+    "hasMeaningKr": true,
+    "rank": 209
+  },
+  {
+    "term": "recipe",
+    "phonetic": "/ˈɹɛsɪpi/",
+    "pos": "Noun",
+    "definition": "A formula for preparing or using a medicine; a prescription; also, a medicine prepared from such instructions. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "처방, 조리법, 레시피",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 210
+  },
+  {
+    "term": "refreshment",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "The process of refreshing; a means of restoring strength, energy or vigour.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 211
+  },
+  {
+    "term": "administrative",
+    "phonetic": "",
+    "pos": "Adjective",
+    "definition": "Of or relating to administering or administration.",
+    "meaningKr": "",
+    "exampleEn": "administrative costs",
+    "hasMeaningKr": false,
+    "rank": 212
+  },
+  {
+    "term": "authorize",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 213
+  },
+  {
+    "term": "commonly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 214
+  },
+  {
+    "term": "distribution",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 215
+  },
+  {
+    "term": "sofa",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 216
+  },
+  {
+    "term": "accommodate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 217
+  },
+  {
+    "term": "affordable",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 218
+  },
+  {
+    "term": "annoy",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 219
+  },
+  {
+    "term": "commute",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 220
+  },
+  {
+    "term": "coordinate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 221
+  },
+  {
+    "term": "paperwork",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 222
+  },
+  {
+    "term": "quit",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 223
+  },
+  {
+    "term": "authority",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 224
+  },
+  {
+    "term": "flu",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 225
+  },
+  {
+    "term": "captain",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 226
+  },
+  {
+    "term": "installation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 227
+  },
+  {
+    "term": "trainer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 228
+  },
+  {
+    "term": "availability",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 229
+  },
+  {
+    "term": "bargain",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 230
+  },
+  {
+    "term": "complimentary",
+    "phonetic": "/ˌkɒmplɪˈmɛnt(ə)ɹi/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "아첨하는",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 231
+  },
+  {
+    "term": "hike",
+    "phonetic": "/haɪk/",
+    "pos": "Noun",
+    "definition": "A long walk, usually for pleasure or exercise. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "등산, 하이킹, 산책",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 232
+  },
+  {
+    "term": "midnight",
+    "phonetic": "/ˈmɪd(ˌ)naɪt/",
+    "pos": "Noun",
+    "definition": "The middle of the night: the sixth temporal hour, equidistant between sunset and sunrise.",
+    "meaningKr": "한밤중, 한밤, 야밤",
+    "exampleEn": "Thanks to its sonar, the narwhal can remain active even at midnight, unhindered by the darkness.",
+    "hasMeaningKr": true,
+    "rank": 233
+  },
+  {
+    "term": "productivity",
+    "phonetic": "/ˌpɹɒdʌkˈtɪvəti/",
+    "pos": "Noun",
+    "definition": "The state of being productive, fertile, or efficient.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 234
+  },
+  {
+    "term": "rainy",
+    "phonetic": "/ˈɹeɪni/",
+    "pos": "Adjective",
+    "definition": "Pouring with rain; wet; showery",
+    "meaningKr": "비-가  [[오다, 우중",
+    "exampleEn": "Due to the rainy weather, we decided not to play in the park.",
+    "hasMeaningKr": true,
+    "rank": 235
+  },
+  {
+    "term": "relocate",
+    "phonetic": "/ˌɹiːləʊˈkeɪt/",
+    "pos": "Verb",
+    "definition": "To move (something) from one place to another.",
+    "meaningKr": "",
+    "exampleEn": "We had to relocate the magazine rack because we bruised our shins on it too frequently when it was near the door.",
+    "hasMeaningKr": false,
+    "rank": 236
+  },
+  {
+    "term": "trainee",
+    "phonetic": "/tɹeɪˈni/",
+    "pos": "Noun",
+    "definition": "Someone who is still in the process of being formally trained in a workplace.",
+    "meaningKr": "연수생, 실습생",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 237
+  },
+  {
+    "term": "transaction",
+    "phonetic": "/tɹænˈzækʃən/",
+    "pos": "Noun",
+    "definition": "The act of conducting or carrying out (business, negotiations, plans).",
+    "meaningKr": "처리, 거래, 매매",
+    "exampleEn": "The transaction was made on Friday with the supplier.",
+    "hasMeaningKr": true,
+    "rank": 238
+  },
+  {
+    "term": "unhappy",
+    "phonetic": "/ʌnˈhæpi/",
+    "pos": "Adjective",
+    "definition": "Not happy; sad.",
+    "meaningKr": "",
+    "exampleEn": "I am unhappy.",
+    "hasMeaningKr": false,
+    "rank": 239
+  },
+  {
+    "term": "verify",
+    "phonetic": "/ˈvɛɹɪfaɪ/",
+    "pos": "Verb",
+    "definition": "To substantiate or prove the truth of something.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 240
+  },
+  {
+    "term": "automobile",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 241
+  },
+  {
+    "term": "courier",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 242
+  },
+  {
+    "term": "incomplete",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 243
+  },
+  {
+    "term": "questionnaire",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 244
+  },
+  {
+    "term": "baseball",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 245
+  },
+  {
+    "term": "dock",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 246
+  },
+  {
+    "term": "lamp",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 247
+  },
+  {
+    "term": "lately",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 248
+  },
+  {
+    "term": "machinery",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 249
+  },
+  {
+    "term": "presenter",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 250
+  },
+  {
+    "term": "seldom",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 251
+  },
+  {
+    "term": "signature",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 252
+  },
+  {
+    "term": "worldwide",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 253
+  },
+  {
+    "term": "carrier",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 254
+  },
+  {
+    "term": "designate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 255
+  },
+  {
+    "term": "exclusive",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 256
+  },
+  {
+    "term": "grocery",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 257
+  },
+  {
+    "term": "homework",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 258
+  },
+  {
+    "term": "memorandum",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 259
+  },
+  {
+    "term": "photocopier",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 260
+  },
+  {
+    "term": "suite",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 261
+  },
+  {
+    "term": "thorough",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 262
+  },
+  {
+    "term": "bookstore",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 263
+  },
+  {
+    "term": "cater",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 264
+  },
+  {
+    "term": "dental",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 265
+  },
+  {
+    "term": "duration",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 266
+  },
+  {
+    "term": "lounge",
+    "phonetic": "/ˈlaʊ̯nd͡ʒ/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "라운지, 대기실, 휴게실",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 267
+  },
+  {
+    "term": "painter",
+    "phonetic": "/ˈpeɪntə/",
+    "pos": "Noun",
+    "definition": "An artist who paints pictures.",
+    "meaningKr": "화가",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 268
+  },
+  {
+    "term": "patron",
+    "phonetic": "/ˈpeɪ.tɹən/",
+    "pos": "Noun",
+    "definition": "One who protects or supports; a defender or advocate.\n\nA guardian or intercessor; synonym of patron saint.",
+    "meaningKr": "",
+    "exampleEn": "St. Joseph is the patron of many different places.",
+    "hasMeaningKr": false,
+    "rank": 269
+  },
+  {
+    "term": "prescription",
+    "phonetic": "/pɹəˈskɹɪp.ʃən/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "처방, 처방전",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 270
+  },
+  {
+    "term": "productive",
+    "phonetic": "/pɹəˈdʌk.tɪv/",
+    "pos": "Adjective",
+    "definition": "Capable of producing something, especially in abundance; fertile.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 271
+  },
+  {
+    "term": "salad",
+    "phonetic": "/ˈsæl.əd/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "샐러드",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 272
+  },
+  {
+    "term": "stack",
+    "phonetic": "/stæk/",
+    "pos": "Noun",
+    "definition": "A pile.\nA large pile of hay, grain, straw, or the like, larger at the bottom than the top, sometimes covered with thatch.\n\nA pile of similar objects, each directly on top of the last.",
+    "meaningKr": "무더기, 스택",
+    "exampleEn": "Please bring me a chair from that stack in the corner.",
+    "hasMeaningKr": true,
+    "rank": 273
+  },
+  {
+    "term": "delegate",
+    "phonetic": "/ˈdɛlɪɡət/",
+    "pos": "Noun",
+    "definition": "A person authorized to act as representative for another; a deputy.",
+    "meaningKr": "대표, 사절, 대리인",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 274
+  },
+  {
+    "term": "salesperson",
+    "phonetic": "/www.nytimes.com/",
+    "pos": "Noun",
+    "definition": "A person whose job is to sell things, often in a shop or store.",
+    "meaningKr": "판매원, 점원",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 275
+  },
+  {
+    "term": "calculator",
+    "phonetic": "/ˈkæl.kjə.leɪ.tə(ɹ)/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "계산기",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 276
+  },
+  {
+    "term": "completion",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "The act or state of being or making something complete; conclusion, accomplishment.",
+    "meaningKr": "",
+    "exampleEn": "The fundraising campaign was successfully stewarded to completion on time.",
+    "hasMeaningKr": false,
+    "rank": 277
+  },
+  {
+    "term": "defect",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 278
+  },
+  {
+    "term": "garbage",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 279
+  },
+  {
+    "term": "omit",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 280
+  },
+  {
+    "term": "spite",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 281
+  },
+  {
+    "term": "bathroom",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 282
+  },
+  {
+    "term": "cab",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 283
+  },
+  {
+    "term": "correspondence",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 284
+  },
+  {
+    "term": "ladder",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 285
+  },
+  {
+    "term": "photography",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 286
+  },
+  {
+    "term": "sculpture",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 287
+  },
+  {
+    "term": "anniversary",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 288
+  },
+  {
+    "term": "buffet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 289
+  },
+  {
+    "term": "defective",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 290
+  },
+  {
+    "term": "ice cream",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 291
+  },
+  {
+    "term": "leak",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 292
+  },
+  {
+    "term": "occupancy",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 293
+  },
+  {
+    "term": "proficiency",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 294
+  },
+  {
+    "term": "renewal",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 295
+  },
+  {
+    "term": "urgent",
+    "phonetic": "/ˈɜː.d͡ʒənt/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "긴급",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 296
+  },
+  {
+    "term": "annually",
+    "phonetic": "/ˈæn.jʊə.li/",
+    "pos": "Adverb",
+    "definition": "Once every year without fail, yearly",
+    "meaningKr": "",
+    "exampleEn": "The Sunshine Festival is held annually, at the end of May.",
+    "hasMeaningKr": false,
+    "rank": 297
+  },
+  {
+    "term": "basketball",
+    "phonetic": "/ˈbɑːs.kɪt.bɔːl/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "농구, 롱구, 배스킷볼",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 298
+  },
+  {
+    "term": "delete",
+    "phonetic": "/dɪˈliːt/",
+    "pos": "Verb",
+    "definition": "To remove, get rid of or erase, especially written or printed material, or data on a computer or other device. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "삭제하다",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 299
+  },
+  {
+    "term": "illogical",
+    "phonetic": "",
+    "pos": "Adjective",
+    "definition": "Contrary to logic; lacking sense or sound reasoning.",
+    "meaningKr": "동우각마",
+    "exampleEn": "I received an illogical reply and that left me standing there feeling confused.",
+    "hasMeaningKr": true,
+    "rank": 300
+  },
+  {
+    "term": "pet",
+    "phonetic": "/pɛt/",
+    "pos": "Noun",
+    "definition": "An animal kept as a companion or otherwise for pleasure, rather than for some practical benefit or use.",
+    "meaningKr": "애완동물, 반려동물, 펫",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 301
+  },
+  {
+    "term": "textbook",
+    "phonetic": "/ˈtɛkst.bʊk/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "교과서, 텍스트북",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 302
+  },
+  {
+    "term": "accurately",
+    "phonetic": "/ˈak.jə.ɹɪt.li/",
+    "pos": "Adverb",
+    "definition": "In an accurate manner; exactly; precisely; without error or defect.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 303
+  },
+  {
+    "term": "cabin",
+    "phonetic": "/ˈkæbɪn/",
+    "pos": "Noun",
+    "definition": "A small dwelling characteristic of the frontier, especially when built from logs with simple tools and not constructed by professional builders, but by those who meant to live in it.",
+    "meaningKr": "소옥, 오두막집, 오두막",
+    "exampleEn": "Abraham Lincoln was born in a log cabin.",
+    "hasMeaningKr": true,
+    "rank": 304
+  },
+  {
+    "term": "conductor",
+    "phonetic": "/kənˈdʌktɚ/",
+    "pos": "Noun",
+    "definition": "One who conducts or leads; a guide; a director.",
+    "meaningKr": "지휘자, 차장, 도체",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 305
+  },
+  {
+    "term": "inspector",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "A person employed to inspect something.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 306
+  },
+  {
+    "term": "intern",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 307
+  },
+  {
+    "term": "semester",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 308
+  },
+  {
+    "term": "confirmation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 309
+  },
+  {
+    "term": "congratulation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 310
+  },
+  {
+    "term": "expertise",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 311
+  },
+  {
+    "term": "graph",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 312
+  },
+  {
+    "term": "taker",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 313
+  },
+  {
+    "term": "utility",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 314
+  },
+  {
+    "term": "voucher",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 315
+  },
+  {
+    "term": "banker",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 316
+  },
+  {
+    "term": "behalf",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 317
+  },
+  {
+    "term": "minimize",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 318
+  },
+  {
+    "term": "optional",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 319
+  },
+  {
+    "term": "paycheck",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 320
+  },
+  {
+    "term": "polite",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 321
+  },
+  {
+    "term": "protective",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 322
+  },
+  {
+    "term": "seller",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 323
+  },
+  {
+    "term": "sidewalk",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 324
+  },
+  {
+    "term": "sightsee",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 325
+  },
+  {
+    "term": "soup",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 326
+  },
+  {
+    "term": "transit",
+    "phonetic": "/ˈtɹæn.zɪt/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "통과, 통과",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 327
+  },
+  {
+    "term": "wallet",
+    "phonetic": "/ˈwɒl.ɪt/",
+    "pos": "Noun",
+    "definition": "A small case, often flat and often made of leather, for keeping money (especially paper money), credit cards, etc.",
+    "meaningKr": "지갑",
+    "exampleEn": "The thief stole all the money and credit cards out of the old man's wallet.",
+    "hasMeaningKr": true,
+    "rank": 328
+  },
+  {
+    "term": "cashier",
+    "phonetic": "/kəˈʃɪə/",
+    "pos": "Verb",
+    "definition": "To dismiss (someone, especially military personnel) from service.",
+    "meaningKr": "출납계, 회계원, 계산원",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 329
+  },
+  {
+    "term": "casual",
+    "phonetic": "/ˈkaʒ(uː)əl/",
+    "pos": "Adjective",
+    "definition": "Happening by chance.",
+    "meaningKr": "",
+    "exampleEn": "They only had casual meetings.",
+    "hasMeaningKr": false,
+    "rank": 330
+  },
+  {
+    "term": "drill",
+    "phonetic": "/dɹɪl/",
+    "pos": "Verb",
+    "definition": "To create (a hole) by removing material with a drill (tool).",
+    "meaningKr": "드릴, 훈련",
+    "exampleEn": "Drill a small hole to start the screw in the right direction.",
+    "hasMeaningKr": true,
+    "rank": 331
+  },
+  {
+    "term": "fountain",
+    "phonetic": "/ˈfaʊn.tɪn/",
+    "pos": "Noun",
+    "definition": "A natural source of water; a spring.",
+    "meaningKr": "분수",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 332
+  },
+  {
+    "term": "juice",
+    "phonetic": "/d͡ʒuːs/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "즙, 주스, 단물",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 333
+  },
+  {
+    "term": "lane",
+    "phonetic": "/leɪn/",
+    "pos": "Noun",
+    "definition": "A road, street, or similar thoroughfare.",
+    "meaningKr": "골목",
+    "exampleEn": "Penny Lane",
+    "hasMeaningKr": true,
+    "rank": 334
+  },
+  {
+    "term": "popularity",
+    "phonetic": "/ˌpɒp.jəˈlæɹ.ɪ.ti/",
+    "pos": "Noun",
+    "definition": "The quality or state of being popular; especially, the state of being widely liked or in favor with the people at large.",
+    "meaningKr": "인기",
+    "exampleEn": "This destination has increased in popularity after great reviews in the guide books.",
+    "hasMeaningKr": true,
+    "rank": 335
+  },
+  {
+    "term": "poster",
+    "phonetic": "/ˈpoʊstɚ/",
+    "pos": "Noun",
+    "definition": "A picture of a celebrity, an event etc., intended to be attached to a wall.",
+    "meaningKr": "포스터, 포스터",
+    "exampleEn": "He has posters of his favorite band, sports teams and holiday resorts up.",
+    "hasMeaningKr": true,
+    "rank": 336
+  },
+  {
+    "term": "promptly",
+    "phonetic": "",
+    "pos": "Adverb",
+    "definition": "In a prompt manner.\nBoth soon and quickly.\n\nExactly at a specific time.",
+    "meaningKr": "",
+    "exampleEn": "The sale will begin on January 28th, promptly at 9 a.m.",
+    "hasMeaningKr": false,
+    "rank": 337
+  },
+  {
+    "term": "retailer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 338
+  },
+  {
+    "term": "vacancy",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 339
+  },
+  {
+    "term": "bench",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 340
+  },
+  {
+    "term": "cumulative",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 341
+  },
+  {
+    "term": "directory",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 342
+  },
+  {
+    "term": "disposal",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 343
+  },
+  {
+    "term": "housekeeper",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 344
+  },
+  {
+    "term": "internship",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 345
+  },
+  {
+    "term": "knowledgeable",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 346
+  },
+  {
+    "term": "organizer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 347
+  },
+  {
+    "term": "overdue",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 348
+  },
+  {
+    "term": "prediction",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 349
+  },
+  {
+    "term": "subscriber",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 350
+  },
+  {
+    "term": "booklet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 351
+  },
+  {
+    "term": "conditioner",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 352
+  },
+  {
+    "term": "enroll",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 353
+  },
+  {
+    "term": "frustrate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 354
+  },
+  {
+    "term": "garment",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 355
+  },
+  {
+    "term": "orientation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 356
+  },
+  {
+    "term": "outlet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 357
+  },
+  {
+    "term": "packet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 358
+  },
+  {
+    "term": "plumber",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 359
+  },
+  {
+    "term": "specification",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "An explicit set of requirements to be satisfied by a material, product, or service.",
+    "meaningKr": "사양, 스펙",
+    "exampleEn": "The contractor followed the architect’s specifications.",
+    "hasMeaningKr": true,
+    "rank": 360
+  },
+  {
+    "term": "auto",
+    "phonetic": "/ˈɔːtəʊ/",
+    "pos": "Adjective",
+    "definition": "Clipping of automatic .",
+    "meaningKr": "",
+    "exampleEn": "It's an auto sedan which we picked up from a wholesaler locally.",
+    "hasMeaningKr": false,
+    "rank": 361
+  },
+  {
+    "term": "decorate",
+    "phonetic": "/ˈdɛkəɹeɪt/",
+    "pos": "Verb",
+    "definition": "To furnish with decorations.",
+    "meaningKr": "꾸미다",
+    "exampleEn": "We decorated the Christmas tree with tinsel and baubles.",
+    "hasMeaningKr": true,
+    "rank": 362
+  },
+  {
+    "term": "deduction",
+    "phonetic": "/dɪˈdʌkʃən/",
+    "pos": "Noun",
+    "definition": "That which is deducted; that which is subtracted or removed.",
+    "meaningKr": "",
+    "exampleEn": "standard deduction",
+    "hasMeaningKr": false,
+    "rank": 363
+  },
+  {
+    "term": "definite",
+    "phonetic": "/ˈdɛfɪnɪt/",
+    "pos": "Adjective",
+    "definition": "Having distinct limits.",
+    "meaningKr": "",
+    "exampleEn": "definite dimensions; a definite measure; a definite period or interval",
+    "hasMeaningKr": false,
+    "rank": 364
+  },
+  {
+    "term": "economical",
+    "phonetic": "/ˌiː.kəˈnɒm.ɪ.kəl/",
+    "pos": "Adjective",
+    "definition": "Careful with money so as not to spend too much; prudent; thrifty.",
+    "meaningKr": "",
+    "exampleEn": "He was an economical person by nature.",
+    "hasMeaningKr": false,
+    "rank": 365
+  },
+  {
+    "term": "efficiently",
+    "phonetic": "/news.bbc.co.uk/",
+    "pos": "Adverb",
+    "definition": "In an efficient manner.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 366
+  },
+  {
+    "term": "flyer",
+    "phonetic": "/ˈflaɪə(ɹ)/",
+    "pos": "Noun",
+    "definition": "That which flies, as a bird or insect.",
+    "meaningKr": "플라이어, 전단, 전단지",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 367
+  },
+  {
+    "term": "franchise",
+    "phonetic": "/ˈfɹænt͡ʃaɪ̯z/",
+    "pos": "Noun",
+    "definition": "The right to vote at a public election or referendum; see: suffrage.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 368
+  },
+  {
+    "term": "generous",
+    "phonetic": "/ˈd͡ʒɛn(ə)ɹəs/",
+    "pos": "Adjective",
+    "definition": "Noble in behaviour or actions; principled, not petty; kind, magnanimous. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "관대하다",
+    "exampleEn": "Thank you for your generous words.",
+    "hasMeaningKr": true,
+    "rank": 369
+  },
+  {
+    "term": "interrupt",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 370
+  },
+  {
+    "term": "oven",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 371
+  },
+  {
+    "term": "pant",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 372
+  },
+  {
+    "term": "profitable",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 373
+  },
+  {
+    "term": "refrigerator",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 374
+  },
+  {
+    "term": "reimburse",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 375
+  },
+  {
+    "term": "showroom",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 376
+  },
+  {
+    "term": "vegetarian",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 377
+  },
+  {
+    "term": "administrator",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 378
+  },
+  {
+    "term": "broker",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 379
+  },
+  {
+    "term": "cancellation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 380
+  },
+  {
+    "term": "confidential",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 381
+  },
+  {
+    "term": "jet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 382
+  },
+  {
+    "term": "realistic",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 383
+  },
+  {
+    "term": "thoroughly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 384
+  },
+  {
+    "term": "trash",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 385
+  },
+  {
+    "term": "usage",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 386
+  },
+  {
+    "term": "windy",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 387
+  },
+  {
+    "term": "automate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 388
+  },
+  {
+    "term": "ferry",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 389
+  },
+  {
+    "term": "finalize",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 390
+  },
+  {
+    "term": "incur",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 391
+  },
+  {
+    "term": "instruct",
+    "phonetic": "/ɪnˈstɹʌkt/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 392
+  },
+  {
+    "term": "loyal",
+    "phonetic": "/ˈlɔɪəl/",
+    "pos": "Adjective",
+    "definition": "Having or demonstrating undivided and constant support for someone or something.",
+    "meaningKr": "충실하다, 충성하다",
+    "exampleEn": "Dogs are very loyal animals, which is why they make wonderful pets.",
+    "hasMeaningKr": true,
+    "rank": 393
+  },
+  {
+    "term": "luncheon",
+    "phonetic": "/ˈlʌn(t)ʃən/",
+    "pos": "Noun",
+    "definition": "A formal meal served in the middle of the day.",
+    "meaningKr": "",
+    "exampleEn": "Most people thought the food at the luncheon was mediocre.",
+    "hasMeaningKr": false,
+    "rank": 394
+  },
+  {
+    "term": "microphone",
+    "phonetic": "/ˈmaɪ.kɹəˌfəʊn/",
+    "pos": "Noun",
+    "definition": "A device (transducer) used to convert sound waves into a varying electric current; normally fed into an amplifier and either recorded or transmitted over radio.",
+    "meaningKr": "마이크로폰, 마이크",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 395
+  },
+  {
+    "term": "overview",
+    "phonetic": "/ˈəʊ.vəˌvjuː/",
+    "pos": "Noun",
+    "definition": "A brief summary, as of a book or a presentation.",
+    "meaningKr": "개요",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 396
+  },
+  {
+    "term": "projector",
+    "phonetic": "/pɹəˈd͡ʒɛktə/",
+    "pos": "Noun",
+    "definition": "Someone who devises or suggests a project; a proposer or planner of something. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "투영기, 프로젝터, 영사기",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 397
+  },
+  {
+    "term": "shortage",
+    "phonetic": "/ˈʃɔː(ɹ)tɪd͡ʒ/",
+    "pos": "Noun",
+    "definition": "A lack or deficiency; an insufficient amount.",
+    "meaningKr": "부족, 흠손",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 398
+  },
+  {
+    "term": "spacious",
+    "phonetic": "/ˈspeɪʃ.əs/",
+    "pos": "Adjective",
+    "definition": "Having plenty of space; roomy; capacious.",
+    "meaningKr": "",
+    "exampleEn": "The apartment has a spacious bedroom.",
+    "hasMeaningKr": false,
+    "rank": 399
+  },
+  {
+    "term": "accomplishment",
+    "phonetic": "/əˈkɒm.plɪʃ.mənt/",
+    "pos": "Noun",
+    "definition": "The act of accomplishing; completion; fulfilment.",
+    "meaningKr": "",
+    "exampleEn": "the accomplishment of an enterprise, of a prophecy, etc",
+    "hasMeaningKr": false,
+    "rank": 400
+  },
+  {
+    "term": "accustom",
+    "phonetic": "/əˈkʌs.təm/",
+    "pos": "Verb",
+    "definition": "To make familiar by use; to cause to accept; to habituate, familiarize, or inure.",
+    "meaningKr": "",
+    "exampleEn": "Early exposure to pet allergens and pet-related bacteria accustoms the body to allergens.",
+    "hasMeaningKr": false,
+    "rank": 401
+  },
+  {
+    "term": "clinic",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "A medical facility, such as a hospital, especially one for the treatment and diagnosis of outpatients.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 402
+  },
+  {
+    "term": "desktop",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 403
+  },
+  {
+    "term": "jog",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 404
+  },
+  {
+    "term": "leisure",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 405
+  },
+  {
+    "term": "nap",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 406
+  },
+  {
+    "term": "reinforce",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 407
+  },
+  {
+    "term": "sender",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 408
+  },
+  {
+    "term": "vacuum",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 409
+  },
+  {
+    "term": "wireless",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 410
+  },
+  {
+    "term": "yearly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 411
+  },
+  {
+    "term": "appreciation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 412
+  },
+  {
+    "term": "cargo",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 413
+  },
+  {
+    "term": "cooperate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 414
+  },
+  {
+    "term": "distract",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 415
+  },
+  {
+    "term": "dividend",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 416
+  },
+  {
+    "term": "exemption",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 417
+  },
+  {
+    "term": "furnish",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 418
+  },
+  {
+    "term": "hourly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 419
+  },
+  {
+    "term": "laundry",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 420
+  },
+  {
+    "term": "mandatory",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 421
+  },
+  {
+    "term": "mechanical",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 422
+  },
+  {
+    "term": "pharmacy",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 423
+  },
+  {
+    "term": "promotional",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 424
+  },
+  {
+    "term": "quarterly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 425
+  },
+  {
+    "term": "residential",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 426
+  },
+  {
+    "term": "scholarship",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 427
+  },
+  {
+    "term": "seeker",
+    "phonetic": "/ˈsiːkə/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 428
+  },
+  {
+    "term": "temporarily",
+    "phonetic": "/ˌtɛmpəˈɹɛɹəli/",
+    "pos": "Adverb",
+    "definition": "For a limited period of time; not permanently.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 429
+  },
+  {
+    "term": "towel",
+    "phonetic": "/ˈtaʊ̯əl/",
+    "pos": "Noun",
+    "definition": "A cloth used for wiping, especially one used for drying anything wet, such as a person after a bath.",
+    "meaningKr": "수건, 타월",
+    "exampleEn": "He needed a towel for wiping the slippery floor.",
+    "hasMeaningKr": true,
+    "rank": 430
+  },
+  {
+    "term": "unattended",
+    "phonetic": "/[[felügyelet]]/",
+    "pos": "Adjective",
+    "definition": "Not attended; without persons present.",
+    "meaningKr": "",
+    "exampleEn": "The meeting went largely unattended, since it took place on Christmas Eve.",
+    "hasMeaningKr": false,
+    "rank": 431
+  },
+  {
+    "term": "accessible",
+    "phonetic": "/əkˈsɛs.ɪ.bəl/",
+    "pos": "Adjective",
+    "definition": "Easy of access or approach. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "",
+    "exampleEn": "an accessible town or mountain",
+    "hasMeaningKr": false,
+    "rank": 432
+  },
+  {
+    "term": "afterward",
+    "phonetic": "/ˈɑːftə.wəd/",
+    "pos": "Adverb",
+    "definition": "Alternative form of afterwards.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 433
+  },
+  {
+    "term": "apology",
+    "phonetic": "/əˈpɒl.ə.d͡ʒi/",
+    "pos": "Noun",
+    "definition": "An expression of remorse or regret for having said or done something that harmed another: an instance of apologizing (saying that one is sorry).",
+    "meaningKr": "사과, 사죄, 변명",
+    "exampleEn": "What he said really hurt my feelings, but his apology sounded so sincere that I couldn't help but forgive him.",
+    "hasMeaningKr": true,
+    "rank": 434
+  },
+  {
+    "term": "assemble",
+    "phonetic": "/əˈsɛm.bəl/",
+    "pos": "Verb",
+    "definition": "To put together.",
+    "meaningKr": "모으다",
+    "exampleEn": "He assembled the model ship.",
+    "hasMeaningKr": true,
+    "rank": 435
+  },
+  {
+    "term": "automatic",
+    "phonetic": "/ˌɔː.təˈmæt.ɪk/",
+    "pos": "Adjective",
+    "definition": "Capable of operating without external control or intervention.",
+    "meaningKr": "자동, 자동적",
+    "exampleEn": "The automatic clothes washer was a great labor-saving device.",
+    "hasMeaningKr": true,
+    "rank": 436
+  },
+  {
+    "term": "boardroom",
+    "phonetic": "/ˈbɔɹdˌɹuːm/",
+    "pos": "Noun",
+    "definition": "The room where a group of people (especially the board of a company or organization) conducts its meetings",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 437
+  },
+  {
+    "term": "carpenter",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "A person skilled at carpentry, the trade of cutting and joining timber in order to construct buildings or other structures.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 438
+  },
+  {
+    "term": "caterer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 439
+  },
+  {
+    "term": "classify",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 440
+  },
+  {
+    "term": "consultation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 441
+  },
+  {
+    "term": "durable",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 442
+  },
+  {
+    "term": "glove",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 443
+  },
+  {
+    "term": "hardware",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 444
+  },
+  {
+    "term": "malfunction",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 445
+  },
+  {
+    "term": "outdated",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 446
+  },
+  {
+    "term": "patience",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 447
+  },
+  {
+    "term": "postcard",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 448
+  },
+  {
+    "term": "prospective",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 449
+  },
+  {
+    "term": "revision",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 450
+  },
+  {
+    "term": "strictly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 451
+  },
+  {
+    "term": "tomato",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 452
+  },
+  {
+    "term": "tray",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 453
+  },
+  {
+    "term": "vendor",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 454
+  },
+  {
+    "term": "withdrawal",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 455
+  },
+  {
+    "term": "anytime",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 456
+  },
+  {
+    "term": "badge",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 457
+  },
+  {
+    "term": "brake",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 458
+  },
+  {
+    "term": "calculation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 459
+  },
+  {
+    "term": "coordinator",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 460
+  },
+  {
+    "term": "costly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 461
+  },
+  {
+    "term": "equip",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 462
+  },
+  {
+    "term": "excursion",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 463
+  },
+  {
+    "term": "graphic",
+    "phonetic": "/ˈɡɹæfɪk/",
+    "pos": "Adjective",
+    "definition": "Drawn, pictorial.",
+    "meaningKr": "그림을 보는 듯한",
+    "exampleEn": "The design team has created a new graphic language for the promotional material of this campaign.",
+    "hasMeaningKr": true,
+    "rank": 464
+  },
+  {
+    "term": "inexperience",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "A lack of experience.",
+    "meaningKr": "",
+    "exampleEn": "I failed to get the job due to inexperience.",
+    "hasMeaningKr": false,
+    "rank": 465
+  },
+  {
+    "term": "lengthy",
+    "phonetic": "/www.bbc.co.uk/",
+    "pos": "Adjective",
+    "definition": "Having length; long and overextended, especially in time rather than dimension.",
+    "meaningKr": "",
+    "exampleEn": "a lengthy text",
+    "hasMeaningKr": false,
+    "rank": 466
+  },
+  {
+    "term": "librarian",
+    "phonetic": "/laɪˈbɹɛə̯ɹi.ən/",
+    "pos": "Noun",
+    "definition": "The keeper, manager of a library.",
+    "meaningKr": "사서, 도서관원",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 467
+  },
+  {
+    "term": "meantime",
+    "phonetic": "/ˈmiːntaɪm/",
+    "pos": "Noun",
+    "definition": "The time spent waiting for another event; time in between.",
+    "meaningKr": "그동안",
+    "exampleEn": "We'll come back asap; just wait here for the meantime.",
+    "hasMeaningKr": true,
+    "rank": 468
+  },
+  {
+    "term": "merge",
+    "phonetic": "/mɜːd͡ʒ/",
+    "pos": "Verb",
+    "definition": "To combine into a whole.",
+    "meaningKr": "합하다",
+    "exampleEn": "Headquarters merged the operations of the three divisions.",
+    "hasMeaningKr": true,
+    "rank": 469
+  },
+  {
+    "term": "performer",
+    "phonetic": "/pɚˈfɔɹmɚ/",
+    "pos": "Noun",
+    "definition": "One who performs for, or entertains, an audience.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 470
+  },
+  {
+    "term": "pharmacist",
+    "phonetic": "/ˈfɑɹməsɪst/",
+    "pos": "Noun",
+    "definition": "A health professional who controls, formulates, preserves, and dispenses medications and provides medical advice and counseling on how medicines should be used in order to achieve maximum benefit, and minimal side effects in order to avoid drug interactions.",
+    "meaningKr": "약사, 약제사",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 471
+  },
+  {
+    "term": "pizza",
+    "phonetic": "/ˈpiː.tsə/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "피자",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 472
+  },
+  {
+    "term": "resignation",
+    "phonetic": "/ˌɹɛz.ɪɡˈneɪ.ʃən/",
+    "pos": "Noun",
+    "definition": "The act of resigning.",
+    "meaningKr": "사임, 사직, 사임",
+    "exampleEn": "Jane tendered her resignation to the board of directors, but they refused.",
+    "hasMeaningKr": true,
+    "rank": 473
+  },
+  {
+    "term": "reviewer",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 474
+  },
+  {
+    "term": "terminate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 475
+  },
+  {
+    "term": "translation",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 476
+  },
+  {
+    "term": "unfamiliar",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 477
+  },
+  {
+    "term": "actress",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 478
+  },
+  {
+    "term": "adjacent",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 479
+  },
+  {
+    "term": "alternate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 480
+  },
+  {
+    "term": "congratulate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 481
+  },
+  {
+    "term": "escort",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 482
+  },
+  {
+    "term": "inexpensive",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 483
+  },
+  {
+    "term": "mask",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 484
+  },
+  {
+    "term": "purchaser",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 485
+  },
+  {
+    "term": "purse",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 486
+  },
+  {
+    "term": "realtor",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 487
+  },
+  {
+    "term": "rearrange",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 488
+  },
+  {
+    "term": "reopen",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 489
+  },
+  {
+    "term": "soap",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 490
+  },
+  {
+    "term": "spokesperson",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 491
+  },
+  {
+    "term": "superior",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 492
+  },
+  {
+    "term": "airfare",
+    "phonetic": "/www.stlouisfed.org/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "항공료",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 493
+  },
+  {
+    "term": "bake",
+    "phonetic": "/beɪk/",
+    "pos": "Verb",
+    "definition": "To cook (something) in an oven (for someone).",
+    "meaningKr": "굽다",
+    "exampleEn": "I baked a delicious cherry pie.",
+    "hasMeaningKr": true,
+    "rank": 494
+  },
+  {
+    "term": "businessperson",
+    "phonetic": "",
+    "pos": "Noun",
+    "definition": "A person in business, or one who works at a commercial institution.",
+    "meaningKr": "실업가",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 495
+  },
+  {
+    "term": "considerably",
+    "phonetic": "/kənˈsɪdəɹəbli/",
+    "pos": "Adverb",
+    "definition": "Significantly; to a degree worth considering.",
+    "meaningKr": "",
+    "exampleEn": "The situation has improved considerably.",
+    "hasMeaningKr": false,
+    "rank": 496
+  },
+  {
+    "term": "faulty",
+    "phonetic": "/ˈfɒlti/",
+    "pos": "Adjective",
+    "definition": "Having or displaying faults; not perfect; not adequate or acceptable.",
+    "meaningKr": "",
+    "exampleEn": "They replaced the faulty wiring and it has worked fine ever since.",
+    "hasMeaningKr": false,
+    "rank": 497
+  },
+  {
+    "term": "hobby",
+    "phonetic": "/ˈhɒ.bi/",
+    "pos": "Noun",
+    "definition": "An activity that one enjoys doing in one's spare time.",
+    "meaningKr": "취미, 새홀리기",
+    "exampleEn": "I like to collect stamps from different countries as a hobby.",
+    "hasMeaningKr": true,
+    "rank": 498
+  },
+  {
+    "term": "informal",
+    "phonetic": "/ɪnˈfɔː.m(ə)l/",
+    "pos": "Adjective",
+    "definition": "Not formal or ceremonious.",
+    "meaningKr": "",
+    "exampleEn": "an informal get-together",
+    "hasMeaningKr": false,
+    "rank": 499
+  },
+  {
+    "term": "kilometer",
+    "phonetic": "/kɪˈlɒmɪtə/",
+    "pos": "Noun",
+    "definition": "US spelling of kilometre.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 500
+  },
+  {
+    "term": "lawn",
+    "phonetic": "/lɔːn/",
+    "pos": "Noun",
+    "definition": "Ground (generally in front of or around a house) covered with grass kept closely mown.",
+    "meaningKr": "풀밭, 초지, 잔디밭",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 501
+  },
+  {
+    "term": "microscope",
+    "phonetic": "/ˈmaɪ.kɹəˌskəʊp/",
+    "pos": "Noun",
+    "definition": "An optical instrument used for observing small objects.",
+    "meaningKr": "현미경",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 502
+  },
+  {
+    "term": "mislead",
+    "phonetic": "",
+    "pos": "Verb",
+    "definition": "To lead astray, in a false direction.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 503
+  },
+  {
+    "term": "misplace",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 504
+  },
+  {
+    "term": "newsstand",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 505
+  },
+  {
+    "term": "overhead",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 506
+  },
+  {
+    "term": "portfolio",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 507
+  },
+  {
+    "term": "rack",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 508
+  },
+  {
+    "term": "remodel",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 509
+  },
+  {
+    "term": "statistics",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 510
+  },
+  {
+    "term": "tunnel",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 511
+  },
+  {
+    "term": "unlimited",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 512
+  },
+  {
+    "term": "vitamin",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 513
+  },
+  {
+    "term": "zoo",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 514
+  },
+  {
+    "term": "alert",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 515
+  },
+  {
+    "term": "auditorium",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 516
+  },
+  {
+    "term": "celebrity",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 517
+  },
+  {
+    "term": "deduct",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 518
+  },
+  {
+    "term": "disruption",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 519
+  },
+  {
+    "term": "electrician",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 520
+  },
+  {
+    "term": "enthusiastic",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 521
+  },
+  {
+    "term": "graduation",
+    "phonetic": "/ˌɡɹæd͡ʒuˈeɪʃən/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "졸업, 졸업식",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 522
+  },
+  {
+    "term": "icy",
+    "phonetic": "/ˈaɪsi/",
+    "pos": "Adjective",
+    "definition": "Pertaining to, resembling, or abounding in ice; cold; frosty.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 523
+  },
+  {
+    "term": "irregular",
+    "phonetic": "/ɪˈɹɛɡ.jʊ.lə/",
+    "pos": "Adjective",
+    "definition": "Nonstandard; not conforming to rules or expectations.",
+    "meaningKr": "불규칙하다",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 524
+  },
+  {
+    "term": "login",
+    "phonetic": "/ˈlɒɡ.ɪn/",
+    "pos": "Noun",
+    "definition": "Credentials: the combination of a user's identification and password used to enter a computer, program, network, etc.",
+    "meaningKr": "로그인, 사용자명, 사용자 이름",
+    "exampleEn": "I've forgotten my login again.",
+    "hasMeaningKr": true,
+    "rank": 525
+  },
+  {
+    "term": "managerial",
+    "phonetic": "/ˌmænɪˈd͡ʒɪəɹi.əl/",
+    "pos": "Adjective",
+    "definition": "Of or relating to a manager or management; involving management-like duties.",
+    "meaningKr": "관리의",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 526
+  },
+  {
+    "term": "mineral",
+    "phonetic": "/ˈmɪn.ə.ɹəl/",
+    "pos": "Noun",
+    "definition": "Any naturally occurring material that has a (more or less) definite chemical composition and characteristic physical properties; especially, an inorganic one.",
+    "meaningKr": "광물",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 527
+  },
+  {
+    "term": "motorcycle",
+    "phonetic": "/ˈməʊtəˌsaɪkəl/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "오토바이, 모터사이클",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 528
+  },
+  {
+    "term": "necessity",
+    "phonetic": "/nɪˈsɛsəti/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "필요성, 필요, 요구",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 529
+  },
+  {
+    "term": "planner",
+    "phonetic": "/ˈplænɚ/",
+    "pos": "Noun",
+    "definition": "One who plans.",
+    "meaningKr": "설계자, 계획자",
+    "exampleEn": "Johnny is a good planner. He starts his work in time to get it finished by the deadline.",
+    "hasMeaningKr": true,
+    "rank": 530
+  },
+  {
+    "term": "programmer",
+    "phonetic": "/ˈpɹəʊɡɹæmə/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "프로그래머",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 531
+  },
+  {
+    "term": "proofread",
+    "phonetic": "",
+    "pos": "Verb",
+    "definition": "To check a written text for errors in spelling, grammar, syntax, and punctuation.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 532
+  },
+  {
+    "term": "recruiter",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 533
+  },
+  {
+    "term": "remainder",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 534
+  },
+  {
+    "term": "statue",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 535
+  },
+  {
+    "term": "steadily",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 536
+  },
+  {
+    "term": "stockholder",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 537
+  },
+  {
+    "term": "vacant",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 538
+  },
+  {
+    "term": "accessory",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 539
+  },
+  {
+    "term": "assembly",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 540
+  },
+  {
+    "term": "basket",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 541
+  },
+  {
+    "term": "certification",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 542
+  },
+  {
+    "term": "closure",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 543
+  },
+  {
+    "term": "dislike",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 544
+  },
+  {
+    "term": "downstairs",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 545
+  },
+  {
+    "term": "expiration",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 546
+  },
+  {
+    "term": "headache",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 547
+  },
+  {
+    "term": "jam",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 548
+  },
+  {
+    "term": "nail",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 549
+  },
+  {
+    "term": "optimistic",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 550
+  },
+  {
+    "term": "pedestrian",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 551
+  },
+  {
+    "term": "projection",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 552
+  },
+  {
+    "term": "sleeve",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 553
+  },
+  {
+    "term": "suburb",
+    "phonetic": "/ˈsʌbɝb/",
+    "pos": "Noun",
+    "definition": "A residential area located on the outskirts of a city or large town that usually includes businesses that cater to its residents; such as schools, grocery stores, shopping centers, restaurants, convenience stores, etc.",
+    "meaningKr": "근교, 교외, 구",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 554
+  },
+  {
+    "term": "takeover",
+    "phonetic": "/www.economist.com/",
+    "pos": "Noun",
+    "definition": "The purchase of one company by another; a merger without the formation of a new company, especially where some stakeholders in the purchased company oppose the purchase.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 555
+  },
+  {
+    "term": "unsure",
+    "phonetic": "",
+    "pos": "Adjective",
+    "definition": "uncertain, ambivalent.",
+    "meaningKr": "",
+    "exampleEn": "I'm still unsure whether to attend the wedding.",
+    "hasMeaningKr": false,
+    "rank": 556
+  },
+  {
+    "term": "upstairs",
+    "phonetic": "/ˌʌpˈstɛɹz/",
+    "pos": "Adjective",
+    "definition": "Located on a higher floor or level of a building.",
+    "meaningKr": "위층, 위층",
+    "exampleEn": "We rent out the upstairs bedroom to a student.",
+    "hasMeaningKr": true,
+    "rank": 557
+  },
+  {
+    "term": "verbal",
+    "phonetic": "/ˈvɜː.bəl/",
+    "pos": "Adjective",
+    "definition": "Of or relating to words.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 558
+  },
+  {
+    "term": "visa",
+    "phonetic": "/ˈviːzə/",
+    "pos": "Noun",
+    "definition": "A permit to enter and leave a country, normally issued by the authorities of the country to be visited.",
+    "meaningKr": "비자, 사증",
+    "exampleEn": "I came on a six-month tourist visa.",
+    "hasMeaningKr": true,
+    "rank": 559
+  },
+  {
+    "term": "wildlife",
+    "phonetic": "/ˈwaɪldlaɪf/",
+    "pos": "Noun",
+    "definition": "undomesticated animals, especially mammals, birds, and fish, which live in the wild.",
+    "meaningKr": "",
+    "exampleEn": "This town offers wildlife tours where you can go and watch the bears, deer, wild rabbits and other creatures in their natural habitats.",
+    "hasMeaningKr": false,
+    "rank": 560
+  },
+  {
+    "term": "workforce",
+    "phonetic": "/ˈwɝk.foɹs/",
+    "pos": "Noun",
+    "definition": "All the workers employed by a specific organization or state, or on a specific project.",
+    "meaningKr": "노동력, 로동력",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 561
+  },
+  {
+    "term": "absent",
+    "phonetic": "/ˈæb.sn̩t/",
+    "pos": "Adjective",
+    "definition": "Being away from a place; withdrawn from a place; existing but not present;  missing. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "없다, 결석하다",
+    "exampleEn": "Owing to his own illness and then his family's, Ramzi has often been absent from class this month. We will help him catch up with his studies.",
+    "hasMeaningKr": true,
+    "rank": 562
+  },
+  {
+    "term": "accumulate",
+    "phonetic": "/əˈkjuːmjʊˌleɪt/",
+    "pos": "Verb",
+    "definition": "To heap up in a mass; to pile up; to collect or bring together (either literally or figuratively), often gradually and without active intent.",
+    "meaningKr": "모으다, 축적하다, 쌓다",
+    "exampleEn": "He wishes to accumulate a sum of money.",
+    "hasMeaningKr": true,
+    "rank": 563
+  },
+  {
+    "term": "appraisal",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 564
+  },
+  {
+    "term": "apprentice",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 565
+  },
+  {
+    "term": "businessman",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 566
+  },
+  {
+    "term": "ceiling",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 567
+  },
+  {
+    "term": "colorful",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 568
+  },
+  {
+    "term": "compensate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 569
+  },
+  {
+    "term": "costume",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 570
+  },
+  {
+    "term": "editorial",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 571
+  },
+  {
+    "term": "effectiveness",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 572
+  },
+  {
+    "term": "facilitate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 573
+  },
+  {
+    "term": "firefighter",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 574
+  },
+  {
+    "term": "gasoline",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 575
+  },
+  {
+    "term": "inappropriate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 576
+  },
+  {
+    "term": "internet",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 577
+  },
+  {
+    "term": "landlord",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 578
+  },
+  {
+    "term": "layout",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 579
+  },
+  {
+    "term": "lunchtime",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 580
+  },
+  {
+    "term": "payroll",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 581
+  },
+  {
+    "term": "pharmaceutical",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 582
+  },
+  {
+    "term": "plausible",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 583
+  },
+  {
+    "term": "premium",
+    "phonetic": "/ˈpɹiː.miː.əm/",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 584
+  },
+  {
+    "term": "safely",
+    "phonetic": "/ˈseɪfli/",
+    "pos": "Adverb",
+    "definition": "In a safe manner; without risk; using caution above all else.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 585
+  },
+  {
+    "term": "simplify",
+    "phonetic": "/ˈsɪmplɪfaɪ/",
+    "pos": "Verb",
+    "definition": "To make simpler, either by reducing in complexity, reducing to component parts, or making easier to understand.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 586
+  },
+  {
+    "term": "specialty",
+    "phonetic": "/ˈspɛʃ.əl.ti/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "특산물",
+    "exampleEn": "",
+    "hasMeaningKr": true,
+    "rank": 587
+  },
+  {
+    "term": "tech",
+    "phonetic": "/tɛk/",
+    "pos": "Noun",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 588
+  },
+  {
+    "term": "unexpected",
+    "phonetic": "/ʌnɪkˈspɛktɪd/",
+    "pos": "Adjective",
+    "definition": "Not expected, anticipated or foreseen.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 589
+  },
+  {
+    "term": "unspecified",
+    "phonetic": "/ʌnˈspɛ.sɪ.faɪd/",
+    "pos": "Adjective",
+    "definition": "Not specified; not thoroughly explained or detailed; not adequately commented.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 590
+  },
+  {
+    "term": "adhere",
+    "phonetic": "/ædˈhɪə/",
+    "pos": "Verb",
+    "definition": "To stick fast or cleave, as a glutinous substance does; to become joined or united.",
+    "meaningKr": "달라붙다",
+    "exampleEn": "Wax adhered to his finger.",
+    "hasMeaningKr": true,
+    "rank": 591
+  },
+  {
+    "term": "bankrupt",
+    "phonetic": "/ˈbæŋk.ɹəpt/",
+    "pos": "Adjective",
+    "definition": "In a condition of bankruptcy; unable to pay outstanding debts or meet financial obligations; specifically, having been legally declared insolvent. .mw-parser-output .defdate{font-size:smaller}",
+    "meaningKr": "파산",
+    "exampleEn": "a bankrupt merchant",
+    "hasMeaningKr": true,
+    "rank": 592
+  },
+  {
+    "term": "caution",
+    "phonetic": "/ˈkɔːʃ(ə)n/",
+    "pos": "Noun",
+    "definition": "Prudence when faced with, or when expecting to face, danger; care taken in order to avoid risk or harm.",
+    "meaningKr": "조심, 주의",
+    "exampleEn": "take caution",
+    "hasMeaningKr": true,
+    "rank": 593
+  },
+  {
+    "term": "clip",
+    "phonetic": "",
+    "pos": "Verb",
+    "definition": "To grip tightly.",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 594
+  },
+  {
+    "term": "comply",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 595
+  },
+  {
+    "term": "diner",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 596
+  },
+  {
+    "term": "duplicate",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 597
+  },
+  {
+    "term": "eager",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 598
+  },
+  {
+    "term": "economist",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 599
+  },
+  {
+    "term": "embassy",
+    "phonetic": "",
+    "pos": "",
+    "definition": "",
+    "meaningKr": "",
+    "exampleEn": "",
+    "hasMeaningKr": false,
+    "rank": 600
+  }
+]

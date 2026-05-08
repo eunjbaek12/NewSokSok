@@ -1,0 +1,5 @@
+curated-toeic-tsl-1: curationData.ts에 있음
+curated-nawl-1: curationData.ts에 없음
+curated-bsl-1: curationData.ts에 없음
+curated-ngsl-1: curationData.ts에 없음
+NAWL progress 상태: 400개, meaningKr 없음: 0개

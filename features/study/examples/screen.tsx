@@ -11,6 +11,9 @@ import {
   toggleStarred,
   setWordsMemorized,
   updateWord,
+  incrementWrongCount,
+  resetWrongCount,
+  saveLastResult,
 } from '@/features/vocab';
 import { useStudyResultsStore } from '@/features/study';
 import { useSettings } from '@/features/settings';
@@ -301,6 +304,13 @@ export default function ExamplesScreen() {
     if (failedWords.length > 0) {
       await setWordsMemorized(id!, failedWords, false);
     }
+    const wrongWordIds = finalResults.filter(r => !r.gotIt).map(r => r.word.id);
+    const correctWordIds = finalResults
+      .filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0)
+      .map(r => r.word.id);
+    if (wrongWordIds.length > 0) await incrementWrongCount(wrongWordIds);
+    if (correctWordIds.length > 0) await resetWrongCount(correctWordIds);
+    await saveLastResult(id!);
     setStudyResults(finalResults);
     router.replace({
       pathname: '/study-results',
@@ -314,7 +324,13 @@ export default function ExamplesScreen() {
     });
   };
 
-  const handleClose = useCallback(() => {
+  const handleClose = useCallback(async () => {
+    const wrongIds = results.current.filter(r => !r.gotIt).map(r => r.word.id);
+    const correctIds = results.current
+      .filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0)
+      .map(r => r.word.id);
+    if (wrongIds.length > 0) await incrementWrongCount(wrongIds);
+    if (correctIds.length > 0) await resetWrongCount(correctIds);
     router.back();
   }, []);
 

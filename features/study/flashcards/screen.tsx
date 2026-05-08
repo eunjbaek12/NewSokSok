@@ -486,7 +486,13 @@ export default function FlashcardsScreen() {
     return { transform: [{ scale }] };
   });
 
-  const handleClose = useCallback(() => {
+  const handleClose = useCallback(async () => {
+    const wrongIds = results.current.filter(r => !r.gotIt).map(r => r.word.id);
+    const correctIds = results.current
+      .filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0)
+      .map(r => r.word.id);
+    if (wrongIds.length > 0) await incrementWrongCount(wrongIds);
+    if (correctIds.length > 0) await resetWrongCount(correctIds);
     router.back();
   }, []);
 

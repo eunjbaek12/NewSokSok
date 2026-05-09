@@ -94,9 +94,10 @@ export async function createCuratedList(
   title: string,
   icon: string,
   words: Omit<Word, 'id' | 'isMemorized'>[],
+  options?: { sourceLanguage?: string; targetLanguage?: string },
 ): Promise<VocaList> {
   await assertTitleUnique(title);
-  const newList = await db.createCuratedList(title, icon, words);
+  const newList = await db.createCuratedList(title, icon, words, options);
   markListsDirty([newList.id]);
   markWordsDirty(newList.words.map(w => w.id));
   await commit();

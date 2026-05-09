@@ -240,15 +240,22 @@ export async function createList(title: string): Promise<VocaList> {
   } as VocaList;
 }
 
-export async function createCuratedList(title: string, icon: string, words: Omit<Word, 'id' | 'isMemorized'>[]): Promise<VocaList> {
+export async function createCuratedList(
+  title: string,
+  icon: string,
+  words: Omit<Word, 'id' | 'isMemorized'>[],
+  options?: { sourceLanguage?: string; targetLanguage?: string },
+): Promise<VocaList> {
   const db = await getDb();
   const id = generateId();
   const now = Date.now();
+  const srcLang = options?.sourceLanguage ?? 'en';
+  const tgtLang = options?.targetLanguage ?? 'ko';
 
   await db.withTransactionAsync(async () => {
     await db.runAsync(
-      `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [id, title, 1, now, now, 1, icon, now, now]
+      `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position, updatedAt, sourceLanguage, targetLanguage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [id, title, 1, now, now, 1, icon, now, now, srcLang, tgtLang]
     );
 
     for (const w of words) {

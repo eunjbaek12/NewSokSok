@@ -21,7 +21,7 @@ import {
 } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { VocaList, Word } from '@/lib/types';
-import { AIWordResultArraySchema } from '@shared/contracts';
+import { AIWordResultSchema, AI_GENERATED_TAG } from '@shared/contracts';
 import { curationPresets } from '@/constants/curationData';
 
 import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel } from '@/constants/languages';
@@ -38,14 +38,62 @@ const DIFFICULTY_PROMPT: Record<AiDifficulty, string> = {
     advanced: '고급/전문적인',
 };
 
-const generateAIWords = async (query: string, apiKey: string, wordCount: number, difficulty: AiDifficulty): Promise<Word[]> => {
+const DIFFICULTY_TAG: Record<AiDifficulty, string> = {
+    beginner: '초급',
+    intermediate: '중급',
+    advanced: '고급',
+};
+
+const LANG_LABEL_KO: Record<string, string> = {
+    en: '영어',
+    ko: '한국어',
+    ja: '일본어',
+    zh: '중국어',
+};
+
+// Phonetic notation per source language. Empty string instructs LLM to leave blank.
+const PHONETIC_INSTRUCTION: Record<string, string> = {
+    en: 'IPA 발음기호 (슬래시 없이, 예: prəˈnʌnsiˌeɪʃən)',
+    ko: '비워두기 (한글 자체가 발음 표기)',
+    ja: '후리가나 (예: ありがとう)',
+    zh: '병음 (성조 포함, 예: nǐ hǎo)',
+};
+
+function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty, sourceLang: string, targetLang: string): string {
+    const diffLabel = DIFFICULTY_PROMPT[difficulty];
+    const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;
+    const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
+    const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
+    const sameLangNote = sourceLang === targetLang
+        ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성.)`
+        : '';
+    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}
+  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며 (phonetic은 지시에 따라 비워둘 수 있음), 그 외 필드는 비워두지 마.
+  - term: ${srcLabel} 단어
+  - pos: 품사 (예: noun, verb, adj, adv)
+  - phonetic: ${phoneticInstr}
+  - definition: ${srcLabel}로 작성한 정의
+  - meaningKr: ${tgtLabel} 뜻
+  - exampleEn: ${srcLabel} 예문
+  - exampleKr: 위 예문의 ${tgtLabel} 번역
+  - tags: 주제 태그 배열
+  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]`;
+}
+
+type GenerateAIWordsResult = { words: Word[]; droppedCount: number };
+
+const generateAIWords = async (
+    query: string,
+    apiKey: string,
+    wordCount: number,
+    difficulty: AiDifficulty,
+    sourceLang: string,
+    targetLang: string,
+): Promise<GenerateAIWordsResult> => {
     if (!apiKey) throw new Error('API Key missing');
 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
-    const diffLabel = DIFFICULTY_PROMPT[difficulty];
-    const prompt = `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} 영어 단어 ${wordCount}개를 생성해줘.
-  응답은 오직 JSON 배열만 반환해야 해.
-  포맷: [{"term": "단어", "definition": "영영뜻", "meaningKr": "한국어 뜻", "exampleEn": "영어 예문", "tags": ["${query}"]}]`;
+    const prompt = buildPrompt(query, wordCount, difficulty, sourceLang, targetLang);
 
     const payload = {
         contents: [{ parts: [{ text: prompt }] }],
@@ -56,36 +104,53 @@ const generateAIWords = async (query: string, apiKey: string, wordCount: number,
         },
     };
 
-    const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-    if (!response.ok) {
-        const errorBody = await response.json().catch(() => null);
-        const error = errorBody?.error;
-        const status: string | undefined = error?.status;
-        const message: string | undefined = error?.message;
-        const quotaViolations = error?.details?.find((d: any) => typeof d?.['@type'] === 'string' && d['@type'].includes('QuotaFailure'))?.violations;
-        const quotaMetric: string = quotaViolations?.[0]?.quotaMetric || '';
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60_000);
 
-        console.log('[gemini:curation] error', response.status, { status, message, quotaMetric, violations: quotaViolations });
+    let data: any;
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+        });
+        if (!response.ok) {
+            const errorBody = await response.json().catch(() => null);
+            const error = errorBody?.error;
+            const status: string | undefined = error?.status;
+            const message: string | undefined = error?.message;
+            const quotaViolations = error?.details?.find((d: any) => typeof d?.['@type'] === 'string' && d['@type'].includes('QuotaFailure'))?.violations;
+            const quotaMetric: string = quotaViolations?.[0]?.quotaMetric || '';
 
-        if (status === 'RESOURCE_EXHAUSTED' || response.status === 429) {
-            if (/per_?day|PerDay/i.test(quotaMetric)) {
-                throw new Error('오늘의 무료 일일 한도가 모두 소진되었습니다. 자정(태평양시) 이후 다시 시도해주세요.');
+            console.log('[gemini:curation] error', response.status, { status, message, quotaMetric, violations: quotaViolations });
+
+            if (status === 'RESOURCE_EXHAUSTED' || response.status === 429) {
+                if (/per_?day|PerDay/i.test(quotaMetric)) {
+                    throw new Error('오늘의 무료 일일 한도가 모두 소진되었습니다. 자정(태평양시) 이후 다시 시도해주세요.');
+                }
+                if (/per_?minute|PerMinute/i.test(quotaMetric)) {
+                    throw new Error('분당 요청 한도를 초과했습니다. 약 1분 후 다시 시도해주세요.');
+                }
+                throw new Error(`API 사용량 한도에 도달했습니다${quotaMetric ? ` (${quotaMetric})` : ''}. 잠시 후 다시 시도해주세요.`);
             }
-            if (/per_?minute|PerMinute/i.test(quotaMetric)) {
-                throw new Error('분당 요청 한도를 초과했습니다. 약 1분 후 다시 시도해주세요.');
+            if (status === 'PERMISSION_DENIED' || response.status === 403) {
+                throw new Error('API 키에 권한이 없습니다. Google AI Studio에서 Generative Language API가 활성화되어 있는지 확인해주세요.');
             }
-            throw new Error(`API 사용량 한도에 도달했습니다${quotaMetric ? ` (${quotaMetric})` : ''}. 잠시 후 다시 시도해주세요.`);
+            if (status === 'INVALID_ARGUMENT' || response.status === 400) {
+                throw new Error('API 키가 올바르지 않습니다. 설정에서 다시 확인해주세요.');
+            }
+            throw new Error(`AI 생성에 실패했습니다${message ? `: ${message}` : ` (HTTP ${response.status})`}`);
         }
-        if (status === 'PERMISSION_DENIED' || response.status === 403) {
-            throw new Error('API 키에 권한이 없습니다. Google AI Studio에서 Generative Language API가 활성화되어 있는지 확인해주세요.');
+        data = await response.json();
+    } catch (e: any) {
+        if (e?.name === 'AbortError') {
+            throw new Error('AI 응답 시간이 초과되었습니다 (60초). 네트워크 상태를 확인하고 다시 시도해주세요.');
         }
-        if (status === 'INVALID_ARGUMENT' || response.status === 400) {
-            throw new Error('API 키가 올바르지 않습니다. 설정에서 다시 확인해주세요.');
-        }
-        throw new Error(`AI 생성에 실패했습니다${message ? `: ${message}` : ` (HTTP ${response.status})`}`);
+        throw e;
+    } finally {
+        clearTimeout(timeoutId);
     }
-
-    const data = await response.json();
     let textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 
     textResponse = textResponse.trim();
@@ -105,22 +170,48 @@ const generateAIWords = async (query: string, apiKey: string, wordCount: number,
         throw new Error('응답을 파싱할 수 없습니다.');
     }
 
-    const result = AIWordResultArraySchema.safeParse(raw);
-    if (!result.success) {
-        console.error('AI curation schema mismatch:', result.error.issues, 'raw:', raw);
+    if (!Array.isArray(raw)) {
+        console.error('AI curation: expected array, got:', raw);
         throw new Error('AI 응답 형식이 올바르지 않습니다. 다시 시도해주세요.');
     }
 
-    return result.data.map((w, index) => ({
-        id: `ai-word-${index}-${Date.now()}`,
-        term: w.term,
-        definition: w.definition,
-        meaningKr: w.meaningKr,
-        exampleEn: w.exampleEn,
-        isMemorized: false,
-        isStarred: false,
-        tags: w.tags ?? [query],
-    }));
+    const validated: { item: ReturnType<typeof AIWordResultSchema.parse>; originalIndex: number }[] = [];
+    let droppedCount = 0;
+    for (let i = 0; i < raw.length; i++) {
+        const parsed = AIWordResultSchema.safeParse(raw[i]);
+        if (parsed.success) {
+            validated.push({ item: parsed.data, originalIndex: i });
+        } else {
+            droppedCount++;
+            console.warn('[gemini:curation] dropped invalid word at index', i, parsed.error.issues);
+        }
+    }
+
+    if (validated.length === 0) {
+        console.error('AI curation: all items failed validation, raw:', raw);
+        throw new Error('AI 응답 형식이 올바르지 않습니다. 다시 시도해주세요.');
+    }
+
+    const now = Date.now();
+    const difficultyTag = DIFFICULTY_TAG[difficulty];
+    const words: Word[] = validated.map(({ item: w, originalIndex }) => {
+        const baseTags = w.tags && w.tags.length > 0 ? w.tags : [query];
+        return {
+            id: `ai-word-${originalIndex}-${now}`,
+            term: w.term,
+            definition: w.definition,
+            meaningKr: w.meaningKr,
+            exampleEn: w.exampleEn,
+            exampleKr: w.exampleKr ?? '',
+            pos: w.pos ?? '',
+            phonetic: w.phonetic ?? '',
+            isMemorized: false,
+            isStarred: false,
+            tags: [...baseTags, AI_GENERATED_TAG, difficultyTag],
+        };
+    });
+
+    return { words, droppedCount };
 };
 
 const getUniqueName = (base: string, existingNames: string[]): string => {
@@ -169,11 +260,13 @@ export default function CurationScreen() {
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
     const { user } = useAuth();
-    const { profileSettings } = useSettings();
+    const { profileSettings, inputSettings } = useSettings();
     const [aiModalVisible, setAiModalVisible] = useState(false);
     const [aiTopic, setAiTopic] = useState('');
     const [aiWordCount, setAiWordCount] = useState(20);
     const [aiDifficulty, setAiDifficulty] = useState<AiDifficulty>('intermediate');
+    const [lastGenParams, setLastGenParams] = useState<{ topic: string; difficulty: AiDifficulty; wordCount: number; sourceLang: string; targetLang: string } | null>(null);
+    const [regenerating, setRegenerating] = useState(false);
 
     useEffect(() => {
         let mounted = true;
@@ -397,23 +490,62 @@ export default function CurationScreen() {
         }
         setGenerating(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        const topic = aiTopic.trim();
+        const sourceLang = inputSettings.sourceLang;
+        const targetLang = inputSettings.targetLang;
         try {
-            const words = await generateAIWords(aiTopic.trim(), profileSettings.geminiApiKey, aiWordCount, aiDifficulty);
+            const { words, droppedCount } = await generateAIWords(topic, profileSettings.geminiApiKey, aiWordCount, aiDifficulty, sourceLang, targetLang);
             const newTheme: VocaList = {
                 id: `ai-theme-${Date.now()}`,
-                title: `AI: ${aiTopic.trim()}`,
+                title: `AI: ${topic}`,
                 icon: '✨',
                 words,
                 isVisible: true,
                 createdAt: Date.now(),
                 isCurated: true,
+                sourceLanguage: sourceLang,
+                targetLanguage: targetLang,
             };
+            setLastGenParams({ topic, difficulty: aiDifficulty, wordCount: aiWordCount, sourceLang, targetLang });
             setAiModalVisible(false);
             setSelectedTheme(newTheme);
+            if (droppedCount > 0) {
+                setSnackbar({
+                    visible: true,
+                    message: t('curation.aiPartialResult', { kept: words.length, dropped: droppedCount }),
+                });
+            }
         } catch (e: any) {
             setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
         } finally {
             setGenerating(false);
+        }
+    };
+
+    const handleRegenerate = async () => {
+        if (!lastGenParams || regenerating) return;
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        setRegenerating(true);
+        try {
+            const { words, droppedCount } = await generateAIWords(
+                lastGenParams.topic,
+                profileSettings.geminiApiKey,
+                lastGenParams.wordCount,
+                lastGenParams.difficulty,
+                lastGenParams.sourceLang,
+                lastGenParams.targetLang,
+            );
+            setSelectedTheme(prev => prev ? { ...prev, words } : prev);
+            if (droppedCount > 0) {
+                setSnackbar({
+                    visible: true,
+                    message: t('curation.aiPartialResult', { kept: words.length, dropped: droppedCount }),
+                });
+            }
+        } catch (e: any) {
+            setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
+        } finally {
+            setRegenerating(false);
         }
     };
 
@@ -424,7 +556,10 @@ export default function CurationScreen() {
         const words = getSelectedWords();
         try {
             const uniqueTitle = getUniqueName(selectedTheme.title, lists.map(l => l.title));
-            const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', words);
+            const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', words, {
+                sourceLanguage: selectedTheme.sourceLanguage,
+                targetLanguage: selectedTheme.targetLanguage,
+            });
             setSnackbar({
                 visible: true,
                 message: t('curation.savedSuccess'),
@@ -486,6 +621,21 @@ export default function CurationScreen() {
                                     hitSlop={8}
                                 >
                                     <Ionicons name="trash-outline" size={20} color={colors.error} />
+                                </Pressable>
+                            )}
+                            {selectedTheme.id.startsWith('ai-theme-') && lastGenParams && (
+                                <Pressable
+                                    onPress={handleRegenerate}
+                                    disabled={regenerating}
+                                    style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)', left: undefined, right: 20 }]}
+                                    hitSlop={8}
+                                    accessibilityLabel={t('curation.aiRegenerate')}
+                                >
+                                    {regenerating ? (
+                                        <ActivityIndicator size="small" color={colors.primary} />
+                                    ) : (
+                                        <Ionicons name="refresh" size={22} color={colors.text} />
+                                    )}
                                 </Pressable>
                             )}
                             <View style={styles.heroContent}>
@@ -614,30 +764,30 @@ export default function CurationScreen() {
                         <View style={styles.masterBtnRow}>
                             <Pressable
                                 onPress={() => setShowListPicker(true)}
-                                disabled={saving || selectedCount === 0 || lists.length === 0}
+                                disabled={saving || regenerating || selectedCount === 0 || lists.length === 0}
                                 style={[styles.masterBtnSecondary, {
                                     backgroundColor: colors.surface,
                                     borderColor: colors.border,
                                 }]}
                             >
                                 <Text style={[styles.masterBtnSecondaryText, {
-                                    color: (saving || selectedCount === 0 || lists.length === 0) ? colors.textTertiary : colors.textSecondary,
+                                    color: (saving || regenerating || selectedCount === 0 || lists.length === 0) ? colors.textTertiary : colors.textSecondary,
                                 }]}>
                                     {t('curation.addToExisting')}
                                 </Text>
                             </Pressable>
                             <Pressable
                                 onPress={handleCreateNew}
-                                disabled={saving || selectedCount === 0}
+                                disabled={saving || regenerating || selectedCount === 0}
                                 style={[styles.masterBtn, {
-                                    backgroundColor: (saving || selectedCount === 0) ? colors.surface : colors.primaryLight,
+                                    backgroundColor: (saving || regenerating || selectedCount === 0) ? colors.surface : colors.primaryLight,
                                     borderWidth: 1.5,
-                                    borderColor: (saving || selectedCount === 0) ? colors.border : colors.primary,
+                                    borderColor: (saving || regenerating || selectedCount === 0) ? colors.border : colors.primary,
                                 }]}
                             >
                                 {saving ? <ActivityIndicator color={colors.primary} /> : (
                                     <Text style={[styles.masterBtnText, {
-                                        color: (saving || selectedCount === 0) ? colors.textTertiary : colors.primary,
+                                        color: (saving || regenerating || selectedCount === 0) ? colors.textTertiary : colors.primary,
                                     }]}>{t('curation.createNewList')}</Text>
                                 )}
                             </Pressable>
@@ -674,6 +824,13 @@ export default function CurationScreen() {
                             <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('curation.title')}</Text>
                             <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={1}>{dailyTip}</Text>
                         </View>
+                        <Pressable
+                            onPress={handleOpenAiModal}
+                            style={[styles.actionBtn, { borderColor: colors.border }]}
+                            accessibilityLabel={t('curation.aiGenerate')}
+                        >
+                            <Ionicons name="sparkles" size={22} color={colors.accent} />
+                        </Pressable>
                         <Pressable onPress={() => setViewMode(prev => prev === 'detailed' ? 'compact' : 'detailed')} style={[styles.actionBtn, { borderColor: colors.border }]}>
                             <Ionicons name={viewMode === 'detailed' ? 'reorder-three-outline' : 'reader-outline'} size={22} color={colors.textSecondary} />
                         </Pressable>
@@ -841,31 +998,13 @@ export default function CurationScreen() {
                         })}
 
                         {filteredThemes.length === 0 && (
-                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 24 }}>
+                            <View style={{ alignItems: 'center', marginTop: 40, marginBottom: 24, paddingHorizontal: 32 }}>
                                 <Ionicons name="search-outline" size={48} color={colors.textTertiary} />
                                 <Text style={{ marginTop: 16, color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('curation.noResults')}</Text>
-                            </View>
-                        )}
-
-                        {filteredThemes.length === 0 && activeTab === 'official' && (
-                            <View style={[styles.inlineFallback, { borderTopColor: colors.borderLight }]}>
-                                <Text style={[styles.fallbackText, { color: colors.textSecondary }]}>{t('curation.noThemeFound')}</Text>
-                                {hasApiKey ? (
-                                    <Pressable onPress={handleOpenAiModal} style={[styles.fallbackBtn, { backgroundColor: colors.accent }]}>
-                                        <Ionicons name="sparkles" size={18} color={colors.onPrimary} />
-                                        <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold', fontSize: 14 }}>{t('curation.aiGenerate')}</Text>
-                                    </Pressable>
-                                ) : (
-                                    <View style={{ alignItems: 'center', gap: 8 }}>
-                                        <Text style={{ color: colors.textTertiary, fontSize: 13, fontFamily: 'Pretendard_400Regular' }}>{t('curation.aiApiKeyRequired')}</Text>
-                                        <Pressable
-                                            onPress={() => router.push('/(tabs)/settings')}
-                                            style={{ flexDirection: 'row', alignItems: 'center', gap: 4, paddingHorizontal: 14, paddingVertical: 8, borderRadius: 12, backgroundColor: colors.primaryLight }}
-                                        >
-                                            <Ionicons name="settings-outline" size={16} color={colors.primary} />
-                                            <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_600SemiBold' }}>{t('curation.aiGoToSettings')}</Text>
-                                        </Pressable>
-                                    </View>
+                                {activeTab === 'official' && (
+                                    <Text style={{ marginTop: 8, color: colors.textTertiary, fontSize: 13, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 18 }}>
+                                        {t('curation.noThemeFoundHint')}
+                                    </Text>
                                 )}
                             </View>
                         )}
@@ -1053,9 +1192,6 @@ const styles = StyleSheet.create({
     langChipContainer: { paddingHorizontal: 20, paddingVertical: 2, flexDirection: 'row', alignItems: 'center' },
     langChip: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, marginRight: 8 },
     langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
-    inlineFallback: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 20, marginTop: 8, borderTopWidth: StyleSheet.hairlineWidth },
-    fallbackText: { fontSize: 13, fontFamily: 'Pretendard_500Medium', flex: 1, marginRight: 12 },
-    fallbackBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 16, paddingVertical: 10, borderRadius: 12 },
     detailHero: { minHeight: 160, position: 'relative', padding: 20, justifyContent: 'flex-end' },
     backBtn: { position: 'absolute', top: 52, left: 20, width: 44, height: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
     heroContent: { position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'center', opacity: 0.1 },

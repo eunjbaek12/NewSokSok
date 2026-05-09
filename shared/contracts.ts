@@ -177,6 +177,10 @@ export type StudyResult = z.infer<typeof StudyResultSchema>;
 // AI (Gemini) responses — unified across server/gemini.ts and lib/types.ts
 // ============================================================================
 
+// Tag injected into every AI-generated word. Used by ListCard to detect
+// AI-origin lists and render the AI-generated badge.
+export const AI_GENERATED_TAG = 'AI생성';
+
 export const AIWordResultSchema = z.object({
   term: z.string(),
   definition: z.string(),

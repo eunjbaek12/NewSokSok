@@ -10,6 +10,7 @@ import { computePlanStatus } from '@/features/study';
 import ProgressBar from '@/components/ui/ProgressBar';
 import StatusBadge, { StatusBadgeType } from '@/components/ui/StatusBadge';
 import { Radius } from '@/constants/tokens';
+import { AI_GENERATED_TAG } from '@shared/contracts';
 
 export function getRelativeTime(timestamp: number | undefined, t: (key: string, opts?: any) => string): string {
   if (!timestamp) return t('listCard.noStudyRecord');
@@ -49,14 +50,21 @@ export default function ListCard({
     [item]
   );
 
+  const words = React.useMemo(() => getWordsForList(item.id), [item.id, getWordsForList]);
+
+  const isAiGenerated = React.useMemo(
+    () => words.some(w => w.tags?.includes(AI_GENERATED_TAG)),
+    [words]
+  );
+
   const statusType = React.useMemo((): StatusBadgeType | null => {
     if (planStatus === 'in-progress') return 'learning';
+    if (isAiGenerated) return 'ai-generated';
     if (item.isCurated) return 'curated';
     return null;
-  }, [planStatus, item.isCurated]);
+  }, [planStatus, isAiGenerated, item.isCurated]);
 
   const topTags = React.useMemo(() => {
-    const words = getWordsForList(item.id);
     const counts: Record<string, number> = {};
     for (const w of words) {
       if (w.tags) {
@@ -69,7 +77,7 @@ export default function ListCard({
       .sort((a, b) => b[1] - a[1])
       .slice(0, 3)
       .map(entry => entry[0]);
-  }, [item.id, getWordsForList]);
+  }, [words]);
 
   const handlePress = () => {
     router.push({ pathname: '/list/[id]', params: { id: item.id } });

@@ -824,33 +824,35 @@ export default function CurationScreen() {
                             <Text style={[styles.headerTitle, { color: colors.text, fontFamily: fontFamily.bold }]}>{t('curation.title')}</Text>
                             <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={1}>{dailyTip}</Text>
                         </View>
-                        <Pressable
-                            onPress={handleOpenAiModal}
-                            style={[styles.actionBtn, { borderColor: colors.border }]}
-                            accessibilityLabel={t('curation.aiGenerate')}
-                        >
-                            <Ionicons name="sparkles" size={22} color={colors.accent} />
-                        </Pressable>
                         <Pressable onPress={() => setViewMode(prev => prev === 'detailed' ? 'compact' : 'detailed')} style={[styles.actionBtn, { borderColor: colors.border }]}>
                             <Ionicons name={viewMode === 'detailed' ? 'reorder-three-outline' : 'reader-outline'} size={22} color={colors.textSecondary} />
                         </Pressable>
                     </View>
 
                     <View style={{ paddingHorizontal: 20, paddingVertical: 8 }}>
-                        <View style={[styles.searchBox, { backgroundColor: colors.surface, borderColor: colors.borderLight, shadowColor: colors.shadow }]}>
-                            <Ionicons name="search" size={20} color={colors.textTertiary} />
-                            <TextInput
-                                placeholder={t('curation.searchPlaceholder')}
-                                placeholderTextColor={colors.textTertiary}
-                                value={searchQuery}
-                                onChangeText={setSearchQuery}
-                                style={[styles.searchInput, { color: colors.text }]}
-                            />
-                            {searchQuery.length > 0 && (
-                                <Pressable onPress={() => setSearchQuery('')}>
-                                    <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
-                                </Pressable>
-                            )}
+                        <View style={styles.searchRow}>
+                            <View style={[styles.searchBox, { flex: 1, backgroundColor: colors.surface, borderColor: colors.borderLight, shadowColor: colors.shadow }]}>
+                                <Ionicons name="search" size={20} color={colors.textTertiary} />
+                                <TextInput
+                                    placeholder={t('curation.searchPlaceholder')}
+                                    placeholderTextColor={colors.textTertiary}
+                                    value={searchQuery}
+                                    onChangeText={setSearchQuery}
+                                    style={[styles.searchInput, { color: colors.text }]}
+                                />
+                                {searchQuery.length > 0 && (
+                                    <Pressable onPress={() => setSearchQuery('')}>
+                                        <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
+                                    </Pressable>
+                                )}
+                            </View>
+                            <Pressable
+                                onPress={handleOpenAiModal}
+                                style={[styles.searchAiBtn, { backgroundColor: colors.surface, borderColor: colors.borderLight, shadowColor: colors.shadow }]}
+                                accessibilityLabel={t('curation.aiGenerate')}
+                            >
+                                <Ionicons name="sparkles" size={22} color={colors.accent} />
+                            </Pressable>
                         </View>
                     </View>
 
@@ -1166,7 +1168,9 @@ const styles = StyleSheet.create({
     headerTitle: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
     headerSubtitle: { fontSize: 14, fontFamily: 'Pretendard_400Regular', marginTop: 2, lineHeight: 20 },
     actionBtn: { width: 44, height: 44, borderRadius: 12, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
+    searchRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
     searchBox: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14, borderRadius: 16, borderWidth: 1, gap: 10, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 8, elevation: 2 },
+    searchAiBtn: { width: 48, height: 48, borderRadius: 16, borderWidth: 1, alignItems: 'center', justifyContent: 'center', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 8, elevation: 2 },
     searchInput: { flex: 1, fontFamily: 'Pretendard_400Regular', fontSize: 15, fontWeight: '400', padding: 0 },
     tabContainer: { flexDirection: 'row', paddingHorizontal: 20, marginBottom: 16, borderBottomWidth: 1 },
     tabButton: { flex: 1, paddingVertical: 12, alignItems: 'center' },

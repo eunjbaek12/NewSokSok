@@ -6498,5 +6498,3515 @@
     "meaningKr": "작동, 운영",
     "exampleEn": "The machine is currently in operation, so please do not touch any of the moving parts.",
     "exampleKr": "기계가 현재 작동 중이므로 움직이는 부품을 만지지 마십시오."
+  },
+  {
+    "rank": 850,
+    "term": "match",
+    "definition": "a sports competition between two people or teams",
+    "phonetic": "/mætʃ/",
+    "pos": "noun",
+    "meaningKr": "경기, 시합",
+    "exampleEn": "I am going to watch a football match with my friends this weekend at the stadium.",
+    "exampleKr": "나는 이번 주말에 친구들과 경기장에서 축구 경기를 볼 예정이다."
+  },
+  {
+    "rank": 851,
+    "term": "avoid",
+    "definition": "to prevent from happening, or stay away from",
+    "phonetic": "/əˈvɔɪd/",
+    "pos": "verb",
+    "meaningKr": "피하다, 방지하다",
+    "exampleEn": "You should try to avoid the heavy traffic by leaving for work a little bit earlier.",
+    "exampleKr": "조금 더 일찍 출근해서 교통 체증을 피하도록 노력하는 것이 좋습니다."
+  },
+  {
+    "rank": 852,
+    "term": "seat",
+    "definition": "something on which a person can sit",
+    "phonetic": "/siːt/",
+    "pos": "noun",
+    "meaningKr": "좌석, 자리",
+    "exampleEn": "Please make sure to find your assigned seat before the movie starts in the theater.",
+    "exampleKr": "영화가 시작되기 전에 영화관 내 지정된 좌석을 반드시 찾아 앉으세요."
+  },
+  {
+    "rank": 853,
+    "term": "throw",
+    "definition": "to use your arm to make a thing fly through the air",
+    "phonetic": "/θroʊ/",
+    "pos": "verb",
+    "meaningKr": "던지다",
+    "exampleEn": "The little boy decided to throw the ball to his father in the park yesterday afternoon.",
+    "exampleKr": "그 어린 소년은 어제 오후 공원에서 아버지에게 공을 던지기로 했습니다."
+  },
+  {
+    "rank": 854,
+    "term": "task",
+    "definition": "big or small piece of work someone has to do",
+    "phonetic": "/tæsk/",
+    "pos": "noun",
+    "meaningKr": "일, 과업, 과제",
+    "exampleEn": "Completing this difficult task will take a lot of time and effort from everyone on the team.",
+    "exampleKr": "이 어려운 과업을 완료하려면 팀원 모두의 많은 시간과 노력이 필요할 것입니다."
+  },
+  {
+    "rank": 855,
+    "term": "normal",
+    "definition": "standard or regular way of doing something",
+    "phonetic": "/ˈnɔːrml/",
+    "pos": "adjective",
+    "meaningKr": "보통의, 정상적인",
+    "exampleEn": "It is perfectly normal to feel a bit nervous before you give a presentation in front of people.",
+    "exampleKr": "사람들 앞에서 발표를 하기 전에 약간 긴장되는 것은 지극히 정상적인 일입니다."
+  },
+  {
+    "rank": 856,
+    "term": "goal",
+    "definition": "something you try to do or achieve; an aim",
+    "phonetic": "/ɡoʊl/",
+    "pos": "noun",
+    "meaningKr": "목표, 목적",
+    "exampleEn": "My main goal for this year is to learn how to speak English fluently and confidently.",
+    "exampleKr": "올해 나의 주요 목표는 영어를 유창하고 자신감 있게 말하는 법을 배우는 것입니다."
+  },
+  {
+    "rank": 857,
+    "term": "associate",
+    "definition": "partner in professional work (e.g., in law)",
+    "phonetic": "/əˈsoʊʃieɪt/",
+    "pos": "noun",
+    "meaningKr": "동료, 파트너",
+    "exampleEn": "He is a senior associate at a famous law firm located in the center of the city.",
+    "exampleKr": "그는 도시 중심가에 위치한 유명 법률 사무소의 선임 변호사입니다."
+  },
+  {
+    "rank": 858,
+    "term": "blue",
+    "definition": "color of the clear sky",
+    "phonetic": "/bluː/",
+    "pos": "adjective",
+    "meaningKr": "파란색의, 푸른",
+    "exampleEn": "The sky looks so beautiful and blue today because there are no clouds in the air at all.",
+    "exampleKr": "구름이 전혀 없어서 오늘 하늘이 정말 아름답고 파랗게 보입니다."
+  },
+  {
+    "rank": 859,
+    "term": "positive",
+    "definition": "good or useful in qualities, constructive, confident",
+    "phonetic": "/ˈpɑːzətɪv/",
+    "pos": "adjective",
+    "meaningKr": "긍정적인, 낙관적인",
+    "exampleEn": "Staying positive even during hard times can help you find a better solution to your current problems.",
+    "exampleKr": "어려운 시기에도 긍정적인 태도를 유지하면 현재 문제에 대한 더 나은 해결책을 찾는 데 도움이 될 수 있습니다."
+  },
+  {
+    "rank": 860,
+    "term": "option",
+    "definition": "possibility out of several that can be chosen; choice",
+    "phonetic": "/ˈɑːpʃn/",
+    "pos": "noun",
+    "meaningKr": "선택, 선택권",
+    "exampleEn": "We have the option to either go out for dinner or stay home and order some pizza.",
+    "exampleKr": "우리는 저녁을 먹으러 밖으로 나가거나 집에 머물면서 피자를 주문할 선택권이 있습니다."
+  },
+  {
+    "rank": 861,
+    "term": "box",
+    "definition": "a container with (usually) four straight sides and a lid",
+    "phonetic": "/bɑːks/",
+    "pos": "noun",
+    "meaningKr": "상자, 박스",
+    "exampleEn": "Please put all of your old books into this large cardboard box before we move to the new house.",
+    "exampleKr": "새 집으로 이사하기 전에 오래된 책들을 모두 이 큰 판지 상자에 담아주세요."
+  },
+  {
+    "rank": 862,
+    "term": "huge",
+    "definition": "very very large",
+    "phonetic": "/hjuːdʒ/",
+    "pos": "adjective",
+    "meaningKr": "거대한, 매우 큰",
+    "exampleEn": "There was a huge crowd of people waiting outside the store for the big holiday sale to begin.",
+    "exampleKr": "대규모 명절 세일이 시작되기를 기다리는 엄청난 인파가 가게 밖에 모여 있었습니다."
+  },
+  {
+    "rank": 863,
+    "term": "message",
+    "definition": "piece of information that is told/given to someone",
+    "phonetic": "/ˈmesɪdʒ/",
+    "pos": "noun",
+    "meaningKr": "메시지, 전갈",
+    "exampleEn": "I left a voice message for my sister because she did not answer her phone when I called.",
+    "exampleKr": "언니가 전화를 받지 않아서 그녀에게 음성 메시지를 남겼습니다."
+  },
+  {
+    "rank": 864,
+    "term": "instance",
+    "definition": "an example of something; case",
+    "phonetic": "/ˈɪnstəns/",
+    "pos": "noun",
+    "meaningKr": "사례, 경우",
+    "exampleEn": "For instance, you can use this mobile application to order groceries and have them delivered to your door.",
+    "exampleKr": "예를 들어, 이 모바일 앱을 사용해 식료품을 주문하고 집 앞까지 배달받을 수 있습니다."
+  },
+  {
+    "rank": 865,
+    "term": "style",
+    "definition": "the particular way something is done or made",
+    "phonetic": "/staɪl/",
+    "pos": "noun",
+    "meaningKr": "방식, 스타일",
+    "exampleEn": "I really like the way she decorated her living room in a modern and simple style.",
+    "exampleKr": "나는 그녀가 거실을 현대적이고 심플한 스타일로 꾸민 방식이 정말 마음에 듭니다."
+  },
+  {
+    "rank": 866,
+    "term": "refer",
+    "definition": "to talk about or write about something",
+    "phonetic": "/rɪˈfɜːr/",
+    "pos": "verb",
+    "meaningKr": "언급하다, 참조하다",
+    "exampleEn": "When you write your report, please refer to the notes we took during the meeting last Monday.",
+    "exampleKr": "보고서를 작성할 때 지난 월요일 회의 중에 적었던 노트를 참고해 주시기 바랍니다."
+  },
+  {
+    "rank": 867,
+    "term": "cold",
+    "definition": "having a very low temperature",
+    "phonetic": "/koʊld/",
+    "pos": "adjective",
+    "meaningKr": "추운, 차가운",
+    "exampleEn": "It is very cold outside today, so make sure to wear a heavy coat and a warm scarf.",
+    "exampleKr": "오늘 밖이 매우 추우니 두꺼운 코트와 따뜻한 목도리를 꼭 챙겨 입으세요."
+  },
+  {
+    "rank": 868,
+    "term": "push",
+    "definition": "to force something away from you",
+    "phonetic": "/pʊʃ/",
+    "pos": "verb",
+    "meaningKr": "밀다",
+    "exampleEn": "You need to push the door hard to open it because the lock is a little bit rusty.",
+    "exampleKr": "잠금장치가 약간 녹슬었기 때문에 문을 세게 밀어야 열립니다."
+  },
+  {
+    "rank": 869,
+    "term": "quarter",
+    "definition": "one of four equal parts of something",
+    "phonetic": "/ˈkwɔːrtər/",
+    "pos": "noun",
+    "meaningKr": "4분의 1",
+    "exampleEn": "Cut the apple into a quarter so that everyone can have a small piece of the fruit.",
+    "exampleKr": "모두가 과일을 한 조각씩 먹을 수 있도록 사과를 4분의 1로 자르세요."
+  },
+  {
+    "rank": 870,
+    "term": "assume",
+    "definition": "to believe, based on the evidence; suppose",
+    "phonetic": "/əˈsuːm/",
+    "pos": "verb",
+    "meaningKr": "가정하다, 추측하다",
+    "exampleEn": "I assume that the meeting will be canceled since the manager has not arrived at the office yet.",
+    "exampleKr": "매니저가 아직 사무실에 도착하지 않은 것으로 보아 회의가 취소될 것으로 추측됩니다."
+  },
+  {
+    "rank": 871,
+    "term": "baby",
+    "definition": "very young child, who cannot yet speak",
+    "phonetic": "/ˈbeɪbi/",
+    "pos": "noun",
+    "meaningKr": "아기",
+    "exampleEn": "The baby started to cry loudly because he was hungry and wanted someone to give him some milk.",
+    "exampleKr": "아기는 배가 고파서 누군가 우유를 주기를 바라며 크게 울기 시작했습니다."
+  },
+  {
+    "rank": 872,
+    "term": "successful",
+    "definition": "having the desired effect or result",
+    "phonetic": "/səkˈsesfl/",
+    "pos": "adjective",
+    "meaningKr": "성공적인",
+    "exampleEn": "The company launched a successful marketing campaign that resulted in a significant increase in sales this year.",
+    "exampleKr": "그 회사는 올해 매출의 상당한 증가를 가져온 성공적인 마케팅 캠페인을 시작했습니다."
+  },
+  {
+    "rank": 873,
+    "term": "sing",
+    "definition": "to make musical sounds with your voice",
+    "phonetic": "/sɪŋ/",
+    "pos": "verb",
+    "meaningKr": "노래하다",
+    "exampleEn": "She loves to sing her favorite songs while she is taking a long shower in the morning.",
+    "exampleKr": "그녀는 아침에 길게 샤워를 하는 동안 자신이 가장 좋아하는 노래를 부르는 것을 좋아합니다."
+  },
+  {
+    "rank": 874,
+    "term": "doubt",
+    "definition": "not being sure of something; lack of certainty",
+    "phonetic": "/daʊt/",
+    "pos": "noun",
+    "meaningKr": "의심, 의혹",
+    "exampleEn": "There is no doubt that he is the most talented musician in our local community orchestra right now.",
+    "exampleKr": "그가 현재 우리 지역 사회 오케스트라에서 가장 재능 있는 음악가라는 점에는 의심의 여지가 없습니다."
+  },
+  {
+    "rank": 875,
+    "term": "competition",
+    "definition": "fighting against others when trying to win something",
+    "phonetic": "/ˌkɑːmpəˈtɪʃn/",
+    "pos": "noun",
+    "meaningKr": "경쟁, 대회",
+    "exampleEn": "She entered a photography competition and won first prize for her beautiful picture of the autumn forest.",
+    "exampleKr": "그녀는 사진 대회에 참가하여 아름다운 가을 숲 사진으로 1등상을 받았습니다."
+  },
+  {
+    "rank": 876,
+    "term": "theory",
+    "definition": "idea or set of ideas that try to explain facts or events",
+    "phonetic": "/ˈiːəri/",
+    "pos": "noun",
+    "meaningKr": "이론",
+    "exampleEn": "The scientist developed a new theory to explain how the universe began billions of years ago in space.",
+    "exampleKr": "그 과학자는 수십억 년 전 우주에서 우주가 어떻게 시작되었는지를 설명하기 위해 새로운 이론을 개발했습니다."
+  },
+  {
+    "rank": 877,
+    "term": "propose",
+    "definition": "to offer or put forward an idea for consideration",
+    "phonetic": "/prəˈpoʊz/",
+    "pos": "verb",
+    "meaningKr": "제안하다",
+    "exampleEn": "I would like to propose a new plan for our upcoming summer vacation to the beautiful beach.",
+    "exampleKr": "다가오는 아름다운 해변으로의 여름 휴가를 위해 새로운 계획을 제안하고 싶습니다."
+  },
+  {
+    "rank": 878,
+    "term": "reference",
+    "definition": "to cite a piece of research in speech or in writing",
+    "phonetic": "/ˈrefrəns/",
+    "pos": "verb",
+    "meaningKr": "인용하다, 참조하다",
+    "exampleEn": "The author decided to reference several famous studies to support the main argument in his new book.",
+    "exampleKr": "작가는 그의 새 책에서 주요 주장을 뒷받침하기 위해 몇 가지 유명한 연구를 인용하기로 했습니다."
+  },
+  {
+    "rank": 879,
+    "term": "argument",
+    "definition": "a discussion in which you disagree with another's opinion",
+    "phonetic": "/ˈɑːrɡjumənt/",
+    "pos": "noun",
+    "meaningKr": "논쟁, 말다툼",
+    "exampleEn": "They had a long argument about which movie to watch at the cinema on Friday night.",
+    "exampleKr": "그들은 금요일 밤 영화관에서 어떤 영화를 볼지에 대해 긴 논쟁을 벌였습니다."
+  },
+  {
+    "rank": 880,
+    "term": "adult",
+    "definition": "person or animal that is fully grown",
+    "phonetic": "/əˈdʌlt/",
+    "pos": "noun",
+    "meaningKr": "성인, 어른",
+    "exampleEn": "Now that you are an adult, you have to take responsibility for all of your own actions.",
+    "exampleKr": "이제 당신은 성인이 되었으므로 자신의 모든 행동에 대해 책임을 져야 합니다."
+  },
+  {
+    "rank": 881,
+    "term": "fly",
+    "definition": "to travel through the air using wings",
+    "phonetic": "/flaɪ/",
+    "pos": "verb",
+    "meaningKr": "날다, 비행하다",
+    "exampleEn": "Birds use their strong wings to fly high in the sky and travel long distances every year.",
+    "exampleKr": "새들은 강한 날개를 이용해 하늘 높이 날아 매년 먼 거리를 이동합니다."
+  },
+  {
+    "rank": 882,
+    "term": "document",
+    "definition": "official (printed) record that gives information",
+    "phonetic": "/ˈdɑːkjumənt/",
+    "pos": "noun",
+    "meaningKr": "서류, 문서",
+    "exampleEn": "Please sign this legal document and return it to the office as soon as you possibly can.",
+    "exampleKr": "이 법적 서류에 서명하여 가능한 한 빨리 사무실로 돌려보내 주십시오."
+  },
+  {
+    "rank": 883,
+    "term": "pattern",
+    "definition": "regular repeated behavior",
+    "phonetic": "/ˈpætərn/",
+    "pos": "noun",
+    "meaningKr": "패턴, 양식",
+    "exampleEn": "The dress has a beautiful floral pattern that makes it perfect for wearing during the spring season.",
+    "exampleKr": "그 드레스에는 아름다운 꽃무늬 패턴이 있어 봄철에 입기에 아주 좋습니다."
+  },
+  {
+    "rank": 884,
+    "term": "application",
+    "definition": "formal request for a job, building permission, etc.",
+    "phonetic": "/ˌæplɪˈkeɪʃn/",
+    "pos": "noun",
+    "meaningKr": "지원(서), 신청(서)",
+    "exampleEn": "He submitted his job application to several different companies, hoping to get an interview very soon.",
+    "exampleKr": "그는 곧 면접을 보기를 희망하며 여러 회사에 입사 지원서를 제출했습니다."
+  },
+  {
+    "rank": 885,
+    "term": "hot",
+    "definition": "having a high temperature",
+    "phonetic": "/hɑːt/",
+    "pos": "adjective",
+    "meaningKr": "뜨거운, 더운",
+    "exampleEn": "Be careful because the soup is very hot and you might burn your tongue if you eat fast.",
+    "exampleKr": "수프가 매우 뜨거우니 빨리 먹으면 혀를 데일 수 있으므로 조심하세요."
+  },
+  {
+    "rank": 886,
+    "term": "obviously",
+    "definition": "in a way that is obvious/easy to see or understand",
+    "phonetic": "/ˈɑːbviəsli/",
+    "pos": "adverb",
+    "meaningKr": "분명히, 명백히",
+    "exampleEn": "She was obviously upset because she didn't say a single word during the entire dinner last night.",
+    "exampleKr": "그녀는 어제 저녁 식사 내내 한마디도 하지 않았기 때문에 분명히 화가 난 상태였습니다."
+  },
+  {
+    "rank": 887,
+    "term": "unclear",
+    "definition": "not easy to understand; not obvious",
+    "phonetic": "/ˌʌnˈklɪr/",
+    "pos": "adjective",
+    "meaningKr": "불분명한, 모호한",
+    "exampleEn": "The instructions for the new game are very unclear, so I don't know how to start playing.",
+    "exampleKr": "새 게임에 대한 설명이 매우 불분명해서 어떻게 게임을 시작해야 할지 모르겠습니다."
+  },
+  {
+    "rank": 888,
+    "term": "bill",
+    "definition": "piece of paper showing what you have to pay",
+    "phonetic": "/bɪl/",
+    "pos": "noun",
+    "meaningKr": "고지서, 청구서",
+    "exampleEn": "I forgot to pay the electricity bill this month, so I need to do it right away today.",
+    "exampleKr": "이번 달 전기 요금 고지서를 내는 것을 잊어버려서 오늘 바로 처리해야 합니다."
+  },
+  {
+    "rank": 889,
+    "term": "search",
+    "definition": "to carefully look for something",
+    "phonetic": "/sɜːrtʃ/",
+    "pos": "verb",
+    "meaningKr": "찾다, 수색하다",
+    "exampleEn": "I spent the whole morning trying to search for my lost keys, but I still cannot find them.",
+    "exampleKr": "잃어버린 열쇠를 찾으려고 아침 내내 애를 썼지만 여전히 찾을 수가 없습니다."
+  },
+  {
+    "rank": 890,
+    "term": "separate",
+    "definition": "to divide into parts, or to make something divide into parts",
+    "phonetic": "/ˈsepəreɪt/",
+    "pos": "verb",
+    "meaningKr": "분리하다, 나누다",
+    "exampleEn": "You should separate the white clothes from the colored ones before you start doing the laundry today.",
+    "exampleKr": "오늘 빨래를 시작하기 전에 흰 옷과 색깔 있는 옷을 분리해야 합니다."
+  },
+  {
+    "rank": 891,
+    "term": "central",
+    "definition": "being in the middle",
+    "phonetic": "/ˈsentrəl/",
+    "pos": "adjective",
+    "meaningKr": "중심의, 중앙의",
+    "exampleEn": "The hotel is located in a central part of the city, making it easy to visit museums.",
+    "exampleKr": "그 호텔은 도시의 중심부에 위치해 있어 박물관을 방문하기에 편리합니다."
+  },
+  {
+    "rank": 892,
+    "term": "career",
+    "definition": "particular occupation in professional life",
+    "phonetic": "/kəˈrɪr/",
+    "pos": "noun",
+    "meaningKr": "경력, 직업",
+    "exampleEn": "She decided to change her career path and become a professional chef after working in an office.",
+    "exampleKr": "그녀는 사무실에서 일한 후 경력을 바꿔 전문 요리사가 되기로 결심했습니다."
+  },
+  {
+    "rank": 893,
+    "term": "anyway",
+    "definition": "a word people use to change the topic of a conversation",
+    "phonetic": "/ˈeniweɪ/",
+    "pos": "adverb",
+    "meaningKr": "어쨌든, 아무튼",
+    "exampleEn": "I don't really like that restaurant, but let's go there anyway because it is very close.",
+    "exampleKr": "나는 그 식당을 별로 좋아하지 않지만, 아주 가까우니까 어쨌든 거기로 갑시다."
+  },
+  {
+    "rank": 894,
+    "term": "speech",
+    "definition": "expression of ideas or opinions",
+    "phonetic": "/spiːtʃ/",
+    "pos": "noun",
+    "meaningKr": "연설, 말",
+    "exampleEn": "The president gave an inspiring speech about the importance of education for the future of our country.",
+    "exampleKr": "대통령은 우리 나라의 미래를 위한 교육의 중요성에 대해 영감을 주는 연설을 했습니다."
+  },
+  {
+    "rank": 895,
+    "term": "dog",
+    "definition": "small 4-legged animal that barks kept as a pet",
+    "phonetic": "/dɔːɡ/",
+    "pos": "noun",
+    "meaningKr": "개, 강아지",
+    "exampleEn": "My dog always barks at the mailman when he comes to deliver letters to our front door.",
+    "exampleKr": "우리 집 개는 우체부 아저씨가 현관으로 편지를 배달하러 올 때마다 항상 짖습니다."
+  },
+  {
+    "rank": 896,
+    "term": "officer",
+    "definition": "person with an important position in an organization",
+    "phonetic": "/ˈɔːfɪsər/",
+    "pos": "noun",
+    "meaningKr": "공무원, 장교, 경찰관",
+    "exampleEn": "The police officer stopped the car because the driver was going way over the speed limit yesterday.",
+    "exampleKr": "어제 운전자가 제한 속도를 크게 초과했기 때문에 경찰관이 차를 세웠습니다."
+  },
+  {
+    "rank": 897,
+    "term": "throughout",
+    "definition": "over or across an entire thing or place, or in every part of something",
+    "phonetic": "/θruːˈaʊt/",
+    "pos": "phrase",
+    "meaningKr": "~동안 내내, 곳곳에",
+    "exampleEn": "It rained heavily throughout the entire day, so we had to cancel our plans for the outdoor picnic.",
+    "exampleKr": "하루 종일 비가 많이 내려서 야외 소풍 계획을 취소해야만 했습니다."
+  },
+  {
+    "rank": 898,
+    "term": "oil",
+    "definition": "thick, black liquid in the ground used as fuel",
+    "phonetic": "/ɔɪl/",
+    "pos": "noun",
+    "meaningKr": "기름, 석유",
+    "exampleEn": "The price of oil has increased significantly, which has caused the cost of gasoline to go up.",
+    "exampleKr": "석유 가격이 크게 올라 휘발유 가격이 상승하는 원인이 되었습니다."
+  },
+  {
+    "rank": 899,
+    "term": "dress",
+    "definition": "women's garment with a top part and a skirt",
+    "phonetic": "/dres/",
+    "pos": "noun",
+    "meaningKr": "드레스, 원피스",
+    "exampleEn": "She bought a beautiful new dress to wear to her best friend's wedding ceremony next Saturday afternoon.",
+    "exampleKr": "그녀는 다음 주 토요일 오후에 열리는 절친의 결혼식에 입고 갈 아름다운 새 원피스를 샀습니다."
+  },
+  {
+    "rank": 900,
+    "term": "profit",
+    "definition": "To earn money from a business or investment after all costs are paid.",
+    "phonetic": "/ˈprɒfɪt/",
+    "pos": "verb",
+    "meaningKr": "이익을 얻다, 수익을 내다",
+    "exampleEn": "The small company managed to profit from its new online marketing strategy this year.",
+    "exampleKr": "그 작은 회사는 올해 새로운 온라인 마케팅 전략으로 수익을 내는 데 성공했습니다."
+  },
+  {
+    "rank": 901,
+    "term": "guess",
+    "definition": "To give an answer or opinion without being sure of all the facts.",
+    "phonetic": "/ɡes/",
+    "pos": "verb",
+    "meaningKr": "추측하다, 맞히다",
+    "exampleEn": "Can you guess how many jelly beans are in this large glass jar?",
+    "exampleKr": "이 커다란 유리병 안에 젤리빈이 몇 개나 들어있는지 맞힐 수 있나요?"
+  },
+  {
+    "rank": 902,
+    "term": "fun",
+    "definition": "Something that provides amusement, enjoyment, or lighthearted pleasure.",
+    "phonetic": "/fʌn/",
+    "pos": "adjective",
+    "meaningKr": "재미있는, 즐거운",
+    "exampleEn": "We had a lot of fun playing board games with our friends last night.",
+    "exampleKr": "우리는 어젯밤 친구들과 보드게임을 하며 아주 즐거운 시간을 보냈습니다."
+  },
+  {
+    "rank": 903,
+    "term": "protect",
+    "definition": "To keep someone or something safe from injury, damage, or loss.",
+    "phonetic": "/prəˈtekt/",
+    "pos": "verb",
+    "meaningKr": "보호하다, 지키다",
+    "exampleEn": "You should wear sunscreen to protect your skin from the bright summer sun.",
+    "exampleKr": "밝은 여름 햇살로부터 피부를 보호하려면 자외선 차단제를 발라야 합니다."
+  },
+  {
+    "rank": 904,
+    "term": "resource",
+    "definition": "A stock or supply of money, materials, or assets that can be used.",
+    "phonetic": "/rɪˈsɔːrs/",
+    "pos": "noun",
+    "meaningKr": "자원, 재원",
+    "exampleEn": "The library is a great resource for students who need to find reliable information.",
+    "exampleKr": "도서관은 신뢰할 수 있는 정보를 찾아야 하는 학생들에게 아주 좋은 자원입니다."
+  },
+  {
+    "rank": 905,
+    "term": "science",
+    "definition": "The systematic study of the structure and behavior of the physical world.",
+    "phonetic": "/ˈsaɪəns/",
+    "pos": "noun",
+    "meaningKr": "과학",
+    "exampleEn": "My younger brother is very interested in science and wants to be an astronaut.",
+    "exampleKr": "제 남동생은 과학에 관심이 아주 많아서 우주비행사가 되고 싶어 합니다."
+  },
+  {
+    "rank": 906,
+    "term": "disease",
+    "definition": "A disorder of structure or function in a human, animal, or plant.",
+    "phonetic": "/dɪˈziːz/",
+    "pos": "noun",
+    "meaningKr": "질병, 병",
+    "exampleEn": "Regular exercise and a healthy diet can help prevent many types of heart disease.",
+    "exampleKr": "규칙적인 운동과 건강한 식단은 여러 종류의 심장병을 예방하는 데 도움이 됩니다."
+  },
+  {
+    "rank": 907,
+    "term": "balance",
+    "definition": "To keep or put something in a steady position so it does not fall.",
+    "phonetic": "/ˈbæləns/",
+    "pos": "verb",
+    "meaningKr": "균형을 잡다, 평형을 유지하다",
+    "exampleEn": "It is often difficult to balance a busy work schedule with a personal life.",
+    "exampleKr": "바쁜 업무 일정과 개인 생활 사이의 균형을 맞추는 것은 종종 어렵습니다."
+  },
+  {
+    "rank": 908,
+    "term": "damage",
+    "definition": "Physical harm caused to something in a way that impairs its value or function.",
+    "phonetic": "/ˈdæmɪdʒ/",
+    "pos": "noun",
+    "meaningKr": "손상, 피해",
+    "exampleEn": "The heavy rain caused a lot of damage to the roof of our old house.",
+    "exampleKr": "폭우로 인해 우리 오래된 집의 지붕에 많은 피해가 발생했습니다."
+  },
+  {
+    "rank": 909,
+    "term": "basis",
+    "definition": "The underlying support or foundation for an idea, argument, or process.",
+    "phonetic": "/ˈbeɪsɪs/",
+    "pos": "noun",
+    "meaningKr": "기초, 근거",
+    "exampleEn": "We meet on a regular basis to discuss the progress of our group project.",
+    "exampleKr": "우리는 그룹 프로젝트의 진행 상황을 논의하기 위해 정기적으로 만납니다."
+  },
+  {
+    "rank": 910,
+    "term": "author",
+    "definition": "A writer of a book, article, or report.",
+    "phonetic": "/ˈɔːθər/",
+    "pos": "noun",
+    "meaningKr": "작가, 저자",
+    "exampleEn": "The famous author is coming to the local bookstore to sign her latest novel.",
+    "exampleKr": "그 유명한 작가가 최신 소설에 사인해 주기 위해 지역 서점에 옵니다."
+  },
+  {
+    "rank": 911,
+    "term": "basic",
+    "definition": "Forming an essential foundation or starting point; fundamental.",
+    "phonetic": "/ˈbeɪsɪk/",
+    "pos": "adjective",
+    "meaningKr": "기본적인, 기초적인",
+    "exampleEn": "You need to learn the basic rules of the game before you start playing.",
+    "exampleKr": "게임을 시작하기 전에 게임의 기본적인 규칙을 배워야 합니다."
+  },
+  {
+    "rank": 912,
+    "term": "encourage",
+    "definition": "To give someone support, confidence, or hope to do something.",
+    "phonetic": "/ɪnˈkɜːrɪdʒ/",
+    "pos": "verb",
+    "meaningKr": "격려하다, 권장하다",
+    "exampleEn": "My parents always encourage me to try new things and follow my personal dreams.",
+    "exampleKr": "부모님은 항상 제가 새로운 것을 시도하고 개인적인 꿈을 따르도록 격려해 주십니다."
+  },
+  {
+    "rank": 913,
+    "term": "hair",
+    "definition": "Any of the fine thread-like strands growing from the skin of mammals.",
+    "phonetic": "/her/",
+    "pos": "noun",
+    "meaningKr": "머리카락, 털",
+    "exampleEn": "She decided to cut her hair short because it is much easier to manage.",
+    "exampleKr": "그녀는 관리하기가 훨씬 편해서 머리카락을 짧게 자르기로 결정했습니다."
+  },
+  {
+    "rank": 914,
+    "term": "male",
+    "definition": "Of or denoting the sex that produces small, typically motile gametes.",
+    "phonetic": "/meɪl/",
+    "pos": "adjective",
+    "meaningKr": "남성의, 수컷의",
+    "exampleEn": "The choir is looking for more male singers to join their upcoming holiday performance.",
+    "exampleKr": "합창단은 다가오는 연휴 공연에 함께할 남성 가수를 더 찾고 있습니다."
+  },
+  {
+    "rank": 915,
+    "term": "operate",
+    "definition": "To control the functioning of a machine, process, or system.",
+    "phonetic": "/ˈɒpəreɪt/",
+    "pos": "verb",
+    "meaningKr": "작동하다, 운영하다",
+    "exampleEn": "Do you know how to operate this new coffee machine in the office kitchen?",
+    "exampleKr": "사무실 탕비실에 있는 이 새로운 커피 머신을 어떻게 작동하는지 아세요?"
+  },
+  {
+    "rank": 916,
+    "term": "reflect",
+    "definition": "To throw back light, heat, or sound from a surface without absorbing it.",
+    "phonetic": "/rɪˈflekt/",
+    "pos": "verb",
+    "meaningKr": "반사하다, 비추다",
+    "exampleEn": "The calm water of the lake perfectly reflects the beautiful mountains in the distance.",
+    "exampleKr": "호수의 잔잔한 물결이 멀리 있는 아름다운 산들을 완벽하게 비추고 있습니다."
+  },
+  {
+    "rank": 917,
+    "term": "exercise",
+    "definition": "To engage in physical activity to sustain or improve health and fitness.",
+    "phonetic": "/ˈeksərsaɪz/",
+    "pos": "verb",
+    "meaningKr": "운동하다",
+    "exampleEn": "I try to exercise for at least thirty minutes every morning before I go to work.",
+    "exampleKr": "나는 매일 아침 출근하기 전에 적어도 30분 동안 운동하려고 노력합니다."
+  },
+  {
+    "rank": 918,
+    "term": "useful",
+    "definition": "Able to be used for a practical purpose or in several ways.",
+    "phonetic": "/ˈjuːsfl/",
+    "pos": "adjective",
+    "meaningKr": "유용한, 도움이 되는",
+    "exampleEn": "This mobile application is very useful for tracking your daily steps and water intake.",
+    "exampleKr": "이 모바일 앱은 일일 걸음 수와 수분 섭취량을 기록하는 데 매우 유용합니다."
+  },
+  {
+    "rank": 919,
+    "term": "restaurant",
+    "definition": "A place where people pay to sit and eat meals that are cooked on the premises.",
+    "phonetic": "/ˈrestrɒnt/",
+    "pos": "noun",
+    "meaningKr": "식당, 레스토랑",
+    "exampleEn": "Let's go to that new Italian restaurant that opened recently in the city center.",
+    "exampleKr": "최근 시내 중심가에 새로 문을 연 이탈리안 레스토랑에 갑시다."
+  },
+  {
+    "rank": 920,
+    "term": "income",
+    "definition": "Money received on a regular basis for work or through investments.",
+    "phonetic": "/ˈɪnkʌm/",
+    "pos": "noun",
+    "meaningKr": "소득, 수입",
+    "exampleEn": "They are looking for ways to increase their monthly income to save for a house.",
+    "exampleKr": "그들은 집을 사기 위해 저축하려고 월 소득을 늘릴 방법을 찾고 있습니다."
+  },
+  {
+    "rank": 921,
+    "term": "property",
+    "definition": "A thing or things belonging to someone; possessions collectively.",
+    "phonetic": "/ˈprɒpəti/",
+    "pos": "noun",
+    "meaningKr": "재산, 부동산",
+    "exampleEn": "The owner of the property decided to build a small garden in the backyard.",
+    "exampleKr": "그 부동산의 소유주는 뒷마당에 작은 정원을 만들기로 결정했습니다."
+  },
+  {
+    "rank": 922,
+    "term": "previous",
+    "definition": "Existing or occurring before in time or order.",
+    "phonetic": "/ˈpriːviəs/",
+    "pos": "adjective",
+    "meaningKr": "이전의, 앞선",
+    "exampleEn": "I had met him once before at a previous meeting a few months ago.",
+    "exampleKr": "나는 몇 달 전 이전 회의에서 그를 한 번 만난 적이 있습니다."
+  },
+  {
+    "rank": 923,
+    "term": "dark",
+    "definition": "With little or no light; having a color that reflects little light.",
+    "phonetic": "/dɑːrk/",
+    "pos": "adjective",
+    "meaningKr": "어두운, 캄캄한",
+    "exampleEn": "It was so dark in the room that I could not find my glasses.",
+    "exampleKr": "방 안이 너무 어두워서 안경을 찾을 수가 없었습니다."
+  },
+  {
+    "rank": 924,
+    "term": "imagine",
+    "definition": "To form a mental image or concept of something not present to the senses.",
+    "phonetic": "/ɪˈmædʒɪn/",
+    "pos": "verb",
+    "meaningKr": "상상하다, 생각하다",
+    "exampleEn": "Can you imagine what life will be like fifty years from now in the future?",
+    "exampleKr": "지금으로부터 50년 후 미래의 삶이 어떨지 상상할 수 있나요?"
+  },
+  {
+    "rank": 925,
+    "term": "okay",
+    "definition": "Used to express agreement or acceptance of something.",
+    "phonetic": "/ˌəʊˈkeɪ/",
+    "pos": "phrase",
+    "meaningKr": "괜찮은, 알았어",
+    "exampleEn": "Is it okay if I borrow your umbrella for a few hours this afternoon?",
+    "exampleKr": "오늘 오후에 몇 시간 동안 우산을 빌려도 괜찮을까요?"
+  },
+  {
+    "rank": 926,
+    "term": "earn",
+    "definition": "To obtain money in return for labor or services.",
+    "phonetic": "/ɜːrn/",
+    "pos": "verb",
+    "meaningKr": "(돈을) 벌다",
+    "exampleEn": "She works part-time at a cafe to earn some extra money for her university.",
+    "exampleKr": "그녀는 대학 등록금을 위해 추가 비용을 벌려고 카페에서 아르바이트를 합니다."
+  },
+  {
+    "rank": 927,
+    "term": "daughter",
+    "definition": "A female child in relation to her parents.",
+    "phonetic": "/ˈɔːtər/",
+    "pos": "noun",
+    "meaningKr": "딸",
+    "exampleEn": "Their daughter is studying medicine because she wants to become a doctor one day.",
+    "exampleKr": "그들의 딸은 언젠가 의사가 되고 싶어서 의학을 공부하고 있습니다."
+  },
+  {
+    "rank": 928,
+    "term": "post",
+    "definition": "To send a letter or parcel by mail.",
+    "phonetic": "/əʊst/",
+    "pos": "verb",
+    "meaningKr": "우편을 보내다, 게시하다",
+    "exampleEn": "I need to go to the post office to post this package to my friend.",
+    "exampleKr": "친구에게 이 소포를 부치기 위해 우체국에 가야 합니다."
+  },
+  {
+    "rank": 929,
+    "term": "newspaper",
+    "definition": "A printed publication consisting of folded unstapled sheets and containing news.",
+    "phonetic": "/ˈnjuːzpeɪpər/",
+    "pos": "noun",
+    "meaningKr": "신문",
+    "exampleEn": "My grandfather still likes to read the physical newspaper while he drinks his morning coffee.",
+    "exampleKr": "우리 할아버지는 여전히 아침 커피를 마시며 종이 신문을 읽는 것을 좋아하십니다."
+  },
+  {
+    "rank": 930,
+    "term": "define",
+    "definition": "To state or describe exactly the nature, scope, or meaning of something.",
+    "phonetic": "/dɪˈfaɪn/",
+    "pos": "verb",
+    "meaningKr": "정의하다, 규정하다",
+    "exampleEn": "It is sometimes difficult to define exactly what makes a person truly happy.",
+    "exampleKr": "무엇이 사람을 진정으로 행복하게 만드는지 정확히 정의하는 것은 때로 어렵습니다."
+  },
+  {
+    "rank": 931,
+    "term": "conclusion",
+    "definition": "A judgment or decision reached by reasoning.",
+    "phonetic": "/kənˈkluːʒn/",
+    "pos": "noun",
+    "meaningKr": "결론, 판단",
+    "exampleEn": "After discussing the matter for hours, we finally reached a conclusion about the plan.",
+    "exampleKr": "그 문제에 대해 몇 시간 동안 논의한 끝에, 우리는 마침내 그 계획에 대한 결론에 도달했습니다."
+  },
+  {
+    "rank": 932,
+    "term": "clock",
+    "definition": "A mechanical or electrical device for measuring and showing time.",
+    "phonetic": "/klɒk/",
+    "pos": "noun",
+    "meaningKr": "시계",
+    "exampleEn": "The old clock on the wall stopped working because it needs a new battery.",
+    "exampleKr": "벽에 걸린 낡은 시계가 새 건전지가 필요해서 작동을 멈췄습니다."
+  },
+  {
+    "rank": 933,
+    "term": "everybody",
+    "definition": "Every person; all people.",
+    "phonetic": "/ˈevribɒdi/",
+    "pos": "noun",
+    "meaningKr": "모든 사람, 모두",
+    "exampleEn": "Everybody was surprised when the famous actor made a sudden appearance at the party.",
+    "exampleKr": "그 유명 배우가 파티에 갑자기 나타나자 모든 사람이 놀랐습니다."
+  },
+  {
+    "rank": 934,
+    "term": "weekend",
+    "definition": "The period from Friday evening through Sunday evening.",
+    "phonetic": "/ˌwiːkˈend/",
+    "pos": "noun",
+    "meaningKr": "주말",
+    "exampleEn": "What are your plans for the weekend since the weather is supposed to be nice?",
+    "exampleKr": "날씨가 좋을 예정인데 이번 주말에 무슨 계획이 있나요?"
+  },
+  {
+    "rank": 935,
+    "term": "perform",
+    "definition": "To carry out, accomplish, or fulfill an action, task, or function.",
+    "phonetic": "/pərˈfɔːrm/",
+    "pos": "verb",
+    "meaningKr": "수행하다, 공연하다",
+    "exampleEn": "The students worked very hard to perform their roles perfectly in the school play.",
+    "exampleKr": "학생들은 학교 연극에서 자신의 역할을 완벽하게 수행하기 위해 매우 열심히 노력했습니다."
+  },
+  {
+    "rank": 936,
+    "term": "professional",
+    "definition": "Relating to or connected with a profession.",
+    "phonetic": "/prəˈfeʃənl/",
+    "pos": "adjective",
+    "meaningKr": "전문적인, 직업의",
+    "exampleEn": "You should seek professional advice before you make any major decisions about your finances.",
+    "exampleKr": "재정에 관한 중요한 결정을 내리기 전에 전문가의 조언을 구해야 합니다."
+  },
+  {
+    "rank": 937,
+    "term": "mine",
+    "definition": "Used to refer to a thing or things belonging to or associated with the speaker.",
+    "phonetic": "/maɪn/",
+    "pos": "pronoun",
+    "meaningKr": "나의 것, 내 것",
+    "exampleEn": "That blue bicycle over there is mine, but you can borrow it if you need.",
+    "exampleKr": "저기 있는 저 파란색 자전거는 제 것이지만, 필요하시면 빌려 가셔도 됩니다."
+  },
+  {
+    "rank": 938,
+    "term": "debate",
+    "definition": "A formal discussion on a particular topic in a public meeting.",
+    "phonetic": "/dɪˈbeɪt/",
+    "pos": "noun",
+    "meaningKr": "토론, 논쟁",
+    "exampleEn": "There has been a lot of public debate regarding the new laws about environmental protection.",
+    "exampleKr": "환경 보호에 관한 새로운 법률과 관련하여 많은 대중적 논쟁이 있어 왔습니다."
+  },
+  {
+    "rank": 939,
+    "term": "memory",
+    "definition": "The faculty by which the mind stores and remembers information.",
+    "phonetic": "/ˈmeməri/",
+    "pos": "noun",
+    "meaningKr": "기억, 추억",
+    "exampleEn": "I have a very clear memory of my first day at elementary school many years ago.",
+    "exampleKr": "나는 수년 전 초등학교 첫날에 대한 아주 선명한 기억을 가지고 있습니다."
+  },
+  {
+    "rank": 940,
+    "term": "green",
+    "definition": "Of the color between blue and yellow in the spectrum; colored like grass.",
+    "phonetic": "/ɡriːn/",
+    "pos": "adjective",
+    "meaningKr": "초록색의, 녹색의",
+    "exampleEn": "The hills look so green and beautiful after the heavy rain in the early spring.",
+    "exampleKr": "이른 봄에 내린 폭우가 지나간 뒤 언덕들이 아주 푸르고 아름다워 보입니다."
+  },
+  {
+    "rank": 941,
+    "term": "song",
+    "definition": "A short poem or other set of words set to music or meant to be sung.",
+    "phonetic": "/sɒŋ/",
+    "pos": "noun",
+    "meaningKr": "노래",
+    "exampleEn": "That catchy song has been stuck in my head all day since I heard it.",
+    "exampleKr": "그 중독성 있는 노래를 들은 이후로 하루 종일 머릿속에서 맴돌고 있습니다."
+  },
+  {
+    "rank": 942,
+    "term": "object",
+    "definition": "To say something to express one's disapproval of or disagreement with something.",
+    "phonetic": "/əbˈdʒekt/",
+    "pos": "verb",
+    "meaningKr": "반대하다, 이의를 제기하다",
+    "exampleEn": "Many local residents decided to object to the plan to build a highway near their homes.",
+    "exampleKr": "많은 지역 주민들이 집 근처에 고속도로를 건설하려는 계획에 반대하기로 결정했습니다."
+  },
+  {
+    "rank": 943,
+    "term": "maintain",
+    "definition": "To cause or enable a condition or state of affairs to continue.",
+    "phonetic": "/meɪnˈteɪn/",
+    "pos": "verb",
+    "meaningKr": "유지하다, 지속하다",
+    "exampleEn": "It is important to maintain a healthy weight by eating well and exercising regularly.",
+    "exampleKr": "잘 먹고 규칙적으로 운동함으로써 건강한 체중을 유지하는 것이 중요합니다."
+  },
+  {
+    "rank": 944,
+    "term": "credit",
+    "definition": "The ability of a customer to obtain goods or services before payment.",
+    "phonetic": "/ˈkredɪt/",
+    "pos": "noun",
+    "meaningKr": "신용, 외상",
+    "exampleEn": "I prefer to pay with a credit card because it is more convenient than cash.",
+    "exampleKr": "현금보다 편리하기 때문에 저는 신용카드로 결제하는 것을 선호합니다."
+  },
+  {
+    "rank": 945,
+    "term": "ring",
+    "definition": "To make a clear resonant or vibrating sound, like a bell.",
+    "phonetic": "/rɪŋ/",
+    "pos": "verb",
+    "meaningKr": "(벨이) 울리다, 전화를 걸다",
+    "exampleEn": "Please give me a call and let the phone ring until I answer it.",
+    "exampleKr": "저에게 전화를 주시고 제가 받을 때까지 벨이 울리게 두세요."
+  },
+  {
+    "rank": 946,
+    "term": "discover",
+    "definition": "To find unexpectedly or during a search.",
+    "phonetic": "/dɪˈskʌvər/",
+    "pos": "verb",
+    "meaningKr": "발견하다, 알아내다",
+    "exampleEn": "Scientists hope to discover new ways to produce clean energy without harming the environment.",
+    "exampleKr": "과학자들은 환경을 해치지 않고 청정에너지를 생산하는 새로운 방법을 발견하기를 희망합니다."
+  },
+  {
+    "rank": 947,
+    "term": "dead",
+    "definition": "No longer alive.",
+    "phonetic": "/ded/",
+    "pos": "adjective",
+    "meaningKr": "죽은",
+    "exampleEn": "The plant on the windowsill is dead because I forgot to water it for weeks.",
+    "exampleKr": "몇 주 동안 물 주는 것을 잊었더니 창가에 있는 식물이 죽어버렸습니다."
+  },
+  {
+    "rank": 948,
+    "term": "afternoon",
+    "definition": "The time from noon or lunchtime to evening.",
+    "phonetic": "/ˌæftərˈnuːn/",
+    "pos": "noun",
+    "meaningKr": "오후",
+    "exampleEn": "I usually feel a bit tired in the afternoon and need a cup of tea.",
+    "exampleKr": "나는 보통 오후에 약간 피곤함을 느껴서 차 한 잔이 필요합니다."
+  },
+  {
+    "rank": 949,
+    "term": "prefer",
+    "definition": "To like one thing or person better than another or others.",
+    "phonetic": "/prɪˈfɜːr/",
+    "pos": "verb",
+    "meaningKr": "선호하다, ~을 더 좋아하다",
+    "exampleEn": "I prefer drinking tea over coffee because it helps me feel more relaxed and calm.",
+    "exampleKr": "차를 마시면 더 편안하고 차분해지기 때문에 저는 커피보다 차를 마시는 것을 선호합니다."
+  },
+  {
+    "rank": 950,
+    "term": "extend",
+    "definition": "To straighten or stretch something out to its full length.",
+    "phonetic": "/ɪkˈstend/",
+    "pos": "verb",
+    "meaningKr": "뻗다, 연장하다",
+    "exampleEn": "You should extend your legs fully while doing these stretching exercises every morning.",
+    "exampleKr": "매일 아침 이 스트레칭 운동을 할 때 다리를 완전히 뻗어야 합니다."
+  },
+  {
+    "rank": 951,
+    "term": "possibility",
+    "definition": "Something that has a chance of happening or being true.",
+    "phonetic": "/ˌpɒsəˈbɪləti/",
+    "pos": "noun",
+    "meaningKr": "가능성",
+    "exampleEn": "There is a strong possibility that it will rain during our outdoor picnic tomorrow.",
+    "exampleKr": "내일 야외 소풍 중에 비가 올 가능성이 매우 높습니다."
+  },
+  {
+    "rank": 952,
+    "term": "direction",
+    "definition": "The way in which someone or something moves or faces.",
+    "phonetic": "/dəˈrekʃn/",
+    "pos": "noun",
+    "meaningKr": "방향, 길 안내",
+    "exampleEn": "Could you please tell me which direction I should walk to find the nearest station?",
+    "exampleKr": "가장 가까운 역을 찾으려면 어느 방향으로 걸어가야 하는지 말씀해 주시겠어요?"
+  },
+  {
+    "rank": 953,
+    "term": "facility",
+    "definition": "A place, amenity, or piece of equipment provided for a particular purpose.",
+    "phonetic": "/fəˈsɪləti/",
+    "pos": "noun",
+    "meaningKr": "시설, 편의 시설",
+    "exampleEn": "The local community center has a great sports facility including a large swimming pool.",
+    "exampleKr": "지역 커뮤니티 센터에는 대형 수영장을 포함한 훌륭한 운동 시설이 있습니다."
+  },
+  {
+    "rank": 954,
+    "term": "variety",
+    "definition": "The quality or state of being different or diverse.",
+    "phonetic": "/vəˈraɪəti/",
+    "pos": "noun",
+    "meaningKr": "다양성, 종류",
+    "exampleEn": "This bakery offers a wide variety of delicious breads and cakes for its customers.",
+    "exampleKr": "이 빵집은 고객들을 위해 매우 다양한 종류의 맛있는 빵과 케이크를 제공합니다."
+  },
+  {
+    "rank": 955,
+    "term": "daily",
+    "definition": "Happening, done, or produced every day or every weekday.",
+    "phonetic": "/ˈdeɪli/",
+    "pos": "adjective",
+    "meaningKr": "매일의, 일상의",
+    "exampleEn": "Reading the news has become a daily habit for me before I start my work.",
+    "exampleKr": "업무를 시작하기 전에 뉴스를 읽는 것은 저의 매일의 습관이 되었습니다."
+  },
+  {
+    "rank": 956,
+    "term": "clothes",
+    "definition": "Items worn to cover the body, such as shirts and pants.",
+    "phonetic": "/kləʊðz/",
+    "pos": "noun",
+    "meaningKr": "옷, 의류",
+    "exampleEn": "I need to buy some warm clothes because the weather is getting much colder lately.",
+    "exampleKr": "최근에 날씨가 훨씬 추워지고 있어서 따뜻한 옷을 좀 사야겠어요."
+  },
+  {
+    "rank": 957,
+    "term": "screen",
+    "definition": "A flat surface on which images or data are displayed.",
+    "phonetic": "/skriːn/",
+    "pos": "noun",
+    "meaningKr": "화면, 스크린",
+    "exampleEn": "I spent too much time looking at my computer screen and my eyes feel tired.",
+    "exampleKr": "컴퓨터 화면을 너무 오래 보고 있었더니 눈이 피로하게 느껴집니다."
+  },
+  {
+    "rank": 958,
+    "term": "track",
+    "definition": "To follow the course or movements of someone or something.",
+    "phonetic": "/træk/",
+    "pos": "verb",
+    "meaningKr": "추적하다, 뒤쫓다",
+    "exampleEn": "The security guards had to track the suspicious person through the crowded shopping mall today.",
+    "exampleKr": "보안 요원들은 오늘 붐비는 쇼핑몰을 통해 수상한 사람을 추적해야 했습니다."
+  },
+  {
+    "rank": 959,
+    "term": "dance",
+    "definition": "To move rhythmically to music, typically following a set sequence of steps.",
+    "phonetic": "/dɑːns/",
+    "pos": "verb",
+    "meaningKr": "춤을 추다",
+    "exampleEn": "They decided to dance together when their favorite song started playing at the wedding party.",
+    "exampleKr": "그들은 결혼 파티에서 좋아하는 노래가 나오기 시작하자 함께 춤을 추기로 했습니다."
+  },
+  {
+    "rank": 960,
+    "term": "completely",
+    "definition": "Totally and utterly; in every way or as much as possible.",
+    "phonetic": "/kəmˈpliːtli/",
+    "pos": "adverb",
+    "meaningKr": "완전히, 전적으로",
+    "exampleEn": "I completely forgot about our meeting because I was so busy with my other projects.",
+    "exampleKr": "다른 프로젝트들로 너무 바빠서 우리 회의에 대해 완전히 잊어버렸습니다."
+  },
+  {
+    "rank": 961,
+    "term": "female",
+    "definition": "Of or denoting the sex that can bear offspring or produce eggs.",
+    "phonetic": "/ˈfiːmeɪl/",
+    "pos": "noun",
+    "meaningKr": "여성, 암컷",
+    "exampleEn": "The doctor confirmed that the cat we found in the park is a young female.",
+    "exampleKr": "의사는 우리가 공원에서 발견한 고양이가 어린 암컷임을 확인해 주었습니다."
+  },
+  {
+    "rank": 962,
+    "term": "responsibility",
+    "definition": "The state or fact of having a duty to deal with something.",
+    "phonetic": "/rɪˌspɒnsəˈbɪləti/",
+    "pos": "noun",
+    "meaningKr": "책임, 의무",
+    "exampleEn": "It is your responsibility to make sure that all the windows are closed before leaving.",
+    "exampleKr": "떠나기 전에 모든 창문이 닫혀 있는지 확인하는 것은 당신의 책임입니다."
+  },
+  {
+    "rank": 963,
+    "term": "original",
+    "definition": "Present or existing from the beginning; first or earliest.",
+    "phonetic": "/əˈrɪdʒənl/",
+    "pos": "adjective",
+    "meaningKr": "원래의, 독창적인",
+    "exampleEn": "The original plan was to go hiking, but we stayed home due to the rain.",
+    "exampleKr": "원래 계획은 등산을 가는 것이었지만, 비 때문에 우리는 집에 머물렀습니다."
+  },
+  {
+    "rank": 964,
+    "term": "sister",
+    "definition": "A woman or girl in relation to other daughters and sons of her parents.",
+    "phonetic": "/ˈsɪstə(r)//",
+    "pos": "noun",
+    "meaningKr": "자매, 여동생, 언니",
+    "exampleEn": "My older sister is currently studying abroad to become a professional chef in Paris.",
+    "exampleKr": "저의 언니는 현재 파리에서 전문 요리사가 되기 위해 유학 중입니다."
+  },
+  {
+    "rank": 965,
+    "term": "rock",
+    "definition": "The solid mineral material forming part of the surface of the earth.",
+    "phonetic": "/rɒk/",
+    "pos": "noun",
+    "meaningKr": "바위, 암석",
+    "exampleEn": "We sat on a large rock by the river and enjoyed the beautiful sunset together.",
+    "exampleKr": "우리는 강가에 있는 큰 바위에 앉아 아름다운 일몰을 함께 즐겼습니다."
+  },
+  {
+    "rank": 966,
+    "term": "dream",
+    "definition": "A series of thoughts, images, and sensations occurring in a person's mind during sleep.",
+    "phonetic": "/driːm/",
+    "pos": "noun",
+    "meaningKr": "꿈",
+    "exampleEn": "I had a very strange dream last night about flying over a city made of gold.",
+    "exampleKr": "어제저녁에 금으로 만들어진 도시 위를 날아다니는 아주 이상한 꿈을 꿨습니다."
+  },
+  {
+    "rank": 967,
+    "term": "nor",
+    "definition": "Used to introduce a further negative statement.",
+    "phonetic": "/nɔː(r)/",
+    "pos": "conjunction",
+    "meaningKr": "~도 아니다",
+    "exampleEn": "He does not like to eat spicy food, nor does he enjoy drinking cold soda.",
+    "exampleKr": "그는 매운 음식을 먹는 것을 좋아하지 않으며, 차가운 탄산음료를 마시는 것도 즐기지 않습니다."
+  },
+  {
+    "rank": 968,
+    "term": "university",
+    "definition": "An educational institution designed for instruction and examination of students at a high level.",
+    "phonetic": "/ˌjuːnɪˈvɜːsəti/",
+    "pos": "noun",
+    "meaningKr": "대학교",
+    "exampleEn": "She is planning to apply for a university in Seoul to study computer science next year.",
+    "exampleKr": "그녀는 내년에 컴퓨터 공학을 공부하기 위해 서울에 있는 대학교에 지원할 계획입니다."
+  },
+  {
+    "rank": 969,
+    "term": "easily",
+    "definition": "Without problems or great effort; very readily.",
+    "phonetic": "/ˈiːzɪli/",
+    "pos": "adverb",
+    "meaningKr": "쉽게, 용이하게",
+    "exampleEn": "You can easily find the library if you follow the signs posted along the main street.",
+    "exampleKr": "주요 도로를 따라 게시된 표지판을 따라가면 도서관을 쉽게 찾을 수 있습니다."
+  },
+  {
+    "rank": 970,
+    "term": "agency",
+    "definition": "A business or organization established to provide a particular service.",
+    "phonetic": "/ˈeɪdʒənsi/",
+    "pos": "noun",
+    "meaningKr": "대행사, 에이전시",
+    "exampleEn": "We booked our flight tickets through a local travel agency to get a better price.",
+    "exampleKr": "우리는 더 좋은 가격을 받기 위해 현지 여행사를 통해 항공권을 예약했습니다."
+  },
+  {
+    "rank": 971,
+    "term": "dollar",
+    "definition": "The basic monetary unit of the US, Canada, Australia, and other countries.",
+    "phonetic": "/ˈdɒlə(r)/",
+    "pos": "noun",
+    "meaningKr": "달러",
+    "exampleEn": "The price of this souvenir is only one dollar, so I decided to buy several.",
+    "exampleKr": "이 기념품의 가격은 단 1달러라서 여러 개를 사기로 결정했습니다."
+  },
+  {
+    "rank": 972,
+    "term": "garden",
+    "definition": "A piece of ground adjoining a house, used for growing flowers, fruit, or vegetables.",
+    "phonetic": "/ˈɡɑːdn/",
+    "pos": "noun",
+    "meaningKr": "정원, 마당",
+    "exampleEn": "My grandmother spends most of her free time growing beautiful flowers in her small garden.",
+    "exampleKr": "우리 할머니는 자유 시간의 대부분을 작은 정원에서 아름다운 꽃을 가꾸며 보내십니다."
+  },
+  {
+    "rank": 973,
+    "term": "fix",
+    "definition": "To fasten something securely or repair something that is broken.",
+    "phonetic": "/fɪks/",
+    "pos": "verb",
+    "meaningKr": "고치다, 수리하다",
+    "exampleEn": "I need to find someone who can fix my broken laptop as soon as possible.",
+    "exampleKr": "제 고장 난 노트북을 가능한 한 빨리 고칠 수 있는 사람을 찾아야 합니다."
+  },
+  {
+    "rank": 974,
+    "term": "ahead",
+    "definition": "Further forward in space; in the lead or in front.",
+    "phonetic": "/əˈhed/",
+    "pos": "adverb",
+    "meaningKr": "앞에, 앞으로",
+    "exampleEn": "The car ahead of us stopped suddenly, so we had to hit the brakes quickly.",
+    "exampleKr": "우리 앞의 차가 갑자기 멈춰서 우리는 급하게 브레이크를 밟아야 했습니다."
+  },
+  {
+    "rank": 975,
+    "term": "cross",
+    "definition": "To go or extend across or to the other side of something.",
+    "phonetic": "/krɒs/",
+    "pos": "verb",
+    "meaningKr": "건너다, 교차하다",
+    "exampleEn": "Be very careful when you cross the busy street even if the light is green.",
+    "exampleKr": "신호등이 초록불이라 하더라도 붐비는 거리를 건널 때는 매우 조심해야 합니다."
+  },
+  {
+    "rank": 976,
+    "term": "yeah",
+    "definition": "A non-standard spelling of 'yes', used to represent the informal pronunciation.",
+    "phonetic": "/jeə/",
+    "pos": "adverb",
+    "meaningKr": "응, 그래",
+    "exampleEn": "Yeah, I would love to join you for dinner tonight at that new Italian restaurant.",
+    "exampleKr": "응, 오늘 밤 그 새로운 이탈리아 레스토랑에서 저녁 식사를 함께하고 싶어."
+  },
+  {
+    "rank": 977,
+    "term": "candidate",
+    "definition": "A person who applies for a job or is nominated for election.",
+    "phonetic": "/ˈkændɪdət/",
+    "pos": "noun",
+    "meaningKr": "후보자, 지원자",
+    "exampleEn": "The hiring manager interviewed every candidate who applied for the marketing position this morning.",
+    "exampleKr": "채용 담당자는 오늘 아침 마케팅 직무에 지원한 모든 후보자를 면접했습니다."
+  },
+  {
+    "rank": 978,
+    "term": "weight",
+    "definition": "A body's relative mass or the quantity of matter contained by it.",
+    "phonetic": "/weɪt/",
+    "pos": "noun",
+    "meaningKr": "무게, 체중",
+    "exampleEn": "I am trying to lose some weight by exercising every day and eating healthier food.",
+    "exampleKr": "저는 매일 운동하고 더 건강한 음식을 먹음으로써 체중을 감량하려고 노력 중입니다."
+  },
+  {
+    "rank": 979,
+    "term": "legal",
+    "definition": "Of, based on, or concerned with the law.",
+    "phonetic": "/ˈliːɡl/",
+    "pos": "adjective",
+    "meaningKr": "법률적인, 합법적인",
+    "exampleEn": "You should seek legal advice before signing any important documents for your new business venture.",
+    "exampleKr": "새로운 사업을 위한 중요한 서류에 서명하기 전에 법률 자문을 구해야 합니다."
+  },
+  {
+    "rank": 980,
+    "term": "proposal",
+    "definition": "A plan or suggestion, especially a formal or written one, put forward for consideration.",
+    "phonetic": "/prəˈpəʊzl/",
+    "pos": "noun",
+    "meaningKr": "제안, 계획",
+    "exampleEn": "The committee is currently reviewing the proposal for building a new park in our neighborhood.",
+    "exampleKr": "위원회는 현재 우리 동네에 새로운 공원을 조성하자는 제안을 검토하고 있습니다."
+  },
+  {
+    "rank": 981,
+    "term": "version",
+    "definition": "A particular form of something differing in certain respects from an earlier form.",
+    "phonetic": "/ˈvɜːʃn/",
+    "pos": "noun",
+    "meaningKr": "버전, 판",
+    "exampleEn": "I downloaded the latest version of the app to see all the new features available.",
+    "exampleKr": "사용 가능한 모든 새로운 기능을 확인하기 위해 앱의 최신 버전을 다운로드했습니다."
+  },
+  {
+    "rank": 982,
+    "term": "conversation",
+    "definition": "A talk, especially an informal one, between two or more people.",
+    "phonetic": "/ˌkɒnvəˈseɪʃn/",
+    "pos": "noun",
+    "meaningKr": "대화, 회화",
+    "exampleEn": "We had a long conversation about our future plans while walking along the quiet beach.",
+    "exampleKr": "우리는 조용한 해변을 따라 걸으며 우리의 미래 계획에 대해 긴 대화를 나누었습니다."
+  },
+  {
+    "rank": 983,
+    "term": "somebody",
+    "definition": "A person of importance or a person who is unknown.",
+    "phonetic": "/ˈsʌmbədi/",
+    "pos": "pronoun",
+    "meaningKr": "누군가, 어떤 사람",
+    "exampleEn": "Somebody left their umbrella in the hallway, so I hope they come back for it.",
+    "exampleKr": "누군가 복도에 우산을 두고 갔는데, 다시 찾으러 오길 바랍니다."
+  },
+  {
+    "rank": 984,
+    "term": "pound",
+    "definition": "A unit of weight in general use equal to 16 oz. avoirdupois (0.4536 kg).",
+    "phonetic": "/paʊnd/",
+    "pos": "noun",
+    "meaningKr": "파운드",
+    "exampleEn": "I bought a few pounds of fresh apples from the local market to make juice.",
+    "exampleKr": "주스를 만들기 위해 현지 시장에서 신선한 사과 몇 파운드를 샀습니다."
+  },
+  {
+    "rank": 985,
+    "term": "magazine",
+    "definition": "A periodical publication containing articles and illustrations, typically covering a particular subject.",
+    "phonetic": "/ˌmæɡəˈziːn/",
+    "pos": "noun",
+    "meaningKr": "잡지",
+    "exampleEn": "She likes to read a fashion magazine while waiting for her appointment at the salon.",
+    "exampleKr": "그녀는 미용실에서 예약 시간을 기다리는 동안 패션 잡지 읽는 것을 좋아합니다."
+  },
+  {
+    "rank": 986,
+    "term": "shape",
+    "definition": "The external form or appearance of someone or something.",
+    "phonetic": "/ʃeɪp/",
+    "pos": "noun",
+    "meaningKr": "모양, 형태",
+    "exampleEn": "The clouds in the sky today are in the shape of many different fluffy animals.",
+    "exampleKr": "오늘 하늘의 구름들은 여러 가지 다양한 푹신한 동물들의 모양을 하고 있습니다."
+  },
+  {
+    "rank": 987,
+    "term": "sea",
+    "definition": "The expanse of salt water that covers most of the earth's surface.",
+    "phonetic": "/siː/",
+    "pos": "noun",
+    "meaningKr": "바다",
+    "exampleEn": "We spent our entire summer vacation swimming in the clear blue sea and relaxing.",
+    "exampleKr": "우리는 여름 휴가 내내 맑고 푸른 바다에서 수영하고 휴식을 취하며 보냈습니다."
+  },
+  {
+    "rank": 988,
+    "term": "immediately",
+    "definition": "At once; instantly.",
+    "phonetic": "/ɪˈmiːdiətli/",
+    "pos": "adverb",
+    "meaningKr": "즉시, 당장",
+    "exampleEn": "Please call me immediately if you have any problems with the new equipment I installed.",
+    "exampleKr": "제가 설치한 새 장비에 문제가 생기면 즉시 저에게 전화해 주세요."
+  },
+  {
+    "rank": 989,
+    "term": "welcome",
+    "definition": "An instance or manner of greeting someone.",
+    "phonetic": "/ˈwelkəm/",
+    "pos": "noun",
+    "meaningKr": "환영",
+    "exampleEn": "The hotel staff gave us a warm welcome when we arrived late at night yesterday.",
+    "exampleKr": "어제 늦은 밤에 도착했을 때 호텔 직원들은 우리를 따뜻하게 환영해 주었습니다."
+  },
+  {
+    "rank": 990,
+    "term": "smile",
+    "definition": "To form one's features into a pleased or kind expression.",
+    "phonetic": "/smaɪl/",
+    "pos": "verb",
+    "meaningKr": "미소 짓다",
+    "exampleEn": "The baby started to smile as soon as she saw her mother walking into the room.",
+    "exampleKr": "아기는 엄마가 방으로 들어오는 것을 보자마자 미소 짓기 시작했습니다."
+  },
+  {
+    "rank": 991,
+    "term": "communication",
+    "definition": "The imparting or exchanging of information or news.",
+    "phonetic": "/kəˌmjuːnɪˈkeɪʃn/",
+    "pos": "noun",
+    "meaningKr": "소통, 통신",
+    "exampleEn": "Effective communication is very important for maintaining a healthy relationship with your friends and family.",
+    "exampleKr": "효과적인 소통은 친구 및 가족과 건강한 관계를 유지하는 데 매우 중요합니다."
+  },
+  {
+    "rank": 992,
+    "term": "agent",
+    "definition": "A person who acts on behalf of another person or group.",
+    "phonetic": "/ˈeɪdʒənt/",
+    "pos": "noun",
+    "meaningKr": "대리인, 에이전트",
+    "exampleEn": "The real estate agent showed us several apartments that were within our budget this afternoon.",
+    "exampleKr": "부동산 중개인은 오늘 오후 우리 예산 안에 있는 아파트 몇 군데를 보여주었습니다."
+  },
+  {
+    "rank": 993,
+    "term": "traditional",
+    "definition": "Existing in or as part of a long-established custom or belief.",
+    "phonetic": "/trəˈdɪʃənl/",
+    "pos": "adjective",
+    "meaningKr": "전통적인",
+    "exampleEn": "My family always wears traditional clothes during the holiday to celebrate our culture and history.",
+    "exampleKr": "우리 가족은 우리의 문화와 역사를 기리기 위해 명절 동안 항상 전통 의상을 입습니다."
+  },
+  {
+    "rank": 994,
+    "term": "replace",
+    "definition": "To take the place of something or to provide a substitute.",
+    "phonetic": "/rɪˈpleɪs/",
+    "pos": "verb",
+    "meaningKr": "바꾸다, 교체하다",
+    "exampleEn": "It is finally time to replace my old phone with a newer and faster model.",
+    "exampleKr": "드디어 제 낡은 휴대폰을 더 새롭고 빠른 모델로 교체할 때가 되었습니다."
+  },
+  {
+    "rank": 995,
+    "term": "judge",
+    "definition": "To form an opinion or conclusion about someone or something.",
+    "phonetic": "/dʒʌdʒ/",
+    "pos": "verb",
+    "meaningKr": "판단하다, 심사하다",
+    "exampleEn": "It is not fair to judge a person before you actually get to know them.",
+    "exampleKr": "실제로 알게 되기도 전에 사람을 판단하는 것은 공정하지 않습니다."
+  },
+  {
+    "rank": 996,
+    "term": "herself",
+    "definition": "Used as the object of a verb or preposition to refer to a female person previously mentioned.",
+    "phonetic": "/hɜːˈself/",
+    "pos": "pronoun",
+    "meaningKr": "그녀 자신",
+    "exampleEn": "She bought herself a beautiful new dress for the party to celebrate her recent promotion.",
+    "exampleKr": "그녀는 최근 승진을 축하하기 위해 파티용으로 자신에게 예쁜 새 드레스를 사주었습니다."
+  },
+  {
+    "rank": 997,
+    "term": "suddenly",
+    "definition": "Quickly and unexpectedly.",
+    "phonetic": "/ˈsʌdənli/",
+    "pos": "adverb",
+    "meaningKr": "갑자기",
+    "exampleEn": "The lights went out suddenly while we were watching a scary movie in the living room.",
+    "exampleKr": "거실에서 무서운 영화를 보고 있는 동안 갑자기 불이 꺼졌습니다."
+  },
+  {
+    "rank": 998,
+    "term": "generation",
+    "definition": "All of the people born and living at about the same time.",
+    "phonetic": "/ˌdʒenəˈreɪʃn/",
+    "pos": "noun",
+    "meaningKr": "세대",
+    "exampleEn": "There is often a big difference in opinions between the older and the younger generation.",
+    "exampleKr": "기성세대와 젊은 세대 사이에는 종종 의견 차이가 크게 나타납니다."
+  },
+  {
+    "rank": 999,
+    "term": "estimate",
+    "definition": "An approximate calculation or judgment of the value, number, or quantity of something.",
+    "phonetic": "/ˈestɪmeɪt/",
+    "pos": "noun",
+    "meaningKr": "추정치, 견적",
+    "exampleEn": "The mechanic gave me an estimate of how much it would cost to fix the car.",
+    "exampleKr": "정비사는 차를 고치는 데 비용이 얼마나 들지에 대한 견적을 저에게 주었습니다."
+  },
+  {
+    "rank": 1000,
+    "term": "favorite",
+    "definition": "most liked; best loved",
+    "phonetic": "/ˈfeɪvərɪt/",
+    "pos": "adjective",
+    "meaningKr": "가장 좋아하는",
+    "exampleEn": "Pizza is my favorite food to eat for dinner on Friday nights.",
+    "exampleKr": "피자는 제가 금요일 저녁 식사로 가장 좋아하는 음식입니다."
+  },
+  {
+    "rank": 1001,
+    "term": "difficulty",
+    "definition": "something that is hard to do",
+    "phonetic": "/ˈdɪfɪkəlti/",
+    "pos": "noun",
+    "meaningKr": "어려움, 곤란",
+    "exampleEn": "She had some difficulty understanding the instructions for the new coffee machine.",
+    "exampleKr": "그녀는 새로운 커피 머신의 사용 설명서를 이해하는 데 약간의 어려움을 겪었습니다."
+  },
+  {
+    "rank": 1002,
+    "term": "purchase",
+    "definition": "to buy something; to get by paying money for it",
+    "phonetic": "/ˈpɜːrtʃəs/",
+    "pos": "verb",
+    "meaningKr": "구매하다, 구입하다",
+    "exampleEn": "I need to purchase a new pair of shoes for the upcoming wedding.",
+    "exampleKr": "다가오는 결혼식을 위해 새 신발 한 켤레를 구매해야 합니다."
+  },
+  {
+    "rank": 1003,
+    "term": "shoot",
+    "definition": "to kick or throw a ball at a goal",
+    "phonetic": "/ʃuːt/",
+    "pos": "verb",
+    "meaningKr": "(골을 향해) 쏘다, 슛을 하다",
+    "exampleEn": "You should shoot the ball whenever you have a clear opening at the goal.",
+    "exampleKr": "골문에 빈 공간이 생길 때마다 공을 슛해야 합니다."
+  },
+  {
+    "rank": 1004,
+    "term": "announce",
+    "definition": "to make a public statement about a plan, decision",
+    "phonetic": "/əˈnaʊns/",
+    "pos": "verb",
+    "meaningKr": "발표하다, 알리다",
+    "exampleEn": "The principal will announce the winners of the science fair during the morning assembly.",
+    "exampleKr": "교장 선생님은 아침 조회 시간에 과학 박람회 우승자들을 발표할 것입니다."
+  },
+  {
+    "rank": 1005,
+    "term": "unless",
+    "definition": "negative of 'if'",
+    "phonetic": "/ənˈles/",
+    "pos": "conjunction",
+    "meaningKr": "~하지 않는 한",
+    "exampleEn": "We will go for a walk in the park unless it starts to rain.",
+    "exampleKr": "비가 오기 시작하지 않는 한 우리는 공원으로 산책을 나갈 것입니다."
+  },
+  {
+    "rank": 1006,
+    "term": "independent",
+    "definition": "making your own decisions; not controlled by others",
+    "phonetic": "/ˌɪndɪˈpendənt/",
+    "pos": "adjective",
+    "meaningKr": "독립적인",
+    "exampleEn": "Moving into his own apartment made him feel much more independent and responsible.",
+    "exampleKr": "자신의 아파트로 이사한 것은 그를 훨씬 더 독립적이고 책임감 있게 느끼게 했습니다."
+  },
+  {
+    "rank": 1007,
+    "term": "recommend",
+    "definition": "to say something is good and deserves to be chosen",
+    "phonetic": "/ˌrekəˈmend/",
+    "pos": "verb",
+    "meaningKr": "추천하다",
+    "exampleEn": "Can you recommend a good Italian restaurant nearby for our anniversary dinner tonight?",
+    "exampleKr": "오늘 밤 저희 기념일 저녁 식사를 위해 근처에 좋은 이탈리아 레스토랑을 추천해 주시겠어요?"
+  },
+  {
+    "rank": 1008,
+    "term": "survey",
+    "definition": "to ask people a question about a particular topic",
+    "phonetic": "/ˈsɜːrveɪ/",
+    "pos": "verb",
+    "meaningKr": "설문 조사하다, 조사하다",
+    "exampleEn": "The company will survey its customers to find out what they think of the product.",
+    "exampleKr": "그 회사는 고객들이 제품에 대해 어떻게 생각하는지 알아보기 위해 설문 조사를 할 것입니다."
+  },
+  {
+    "rank": 1009,
+    "term": "majority",
+    "definition": "amount that is more than half of a group",
+    "phonetic": "/məˈdʒɔːrəti/",
+    "pos": "noun",
+    "meaningKr": "대다수, 대부분",
+    "exampleEn": "The majority of the students voted to have the party on Friday afternoon.",
+    "exampleKr": "대다수의 학생들이 금요일 오후에 파티를 여는 것에 투표했습니다."
+  },
+  {
+    "rank": 1010,
+    "term": "stick",
+    "definition": "long thin piece of wood from a tree",
+    "phonetic": "/stɪk/",
+    "pos": "noun",
+    "meaningKr": "나뭇가지, 막대기",
+    "exampleEn": "The dog ran across the yard to fetch the stick that I threw.",
+    "exampleKr": "개는 내가 던진 나뭇가지를 물어오기 위해 마당을 가로질러 달려갔습니다."
+  },
+  {
+    "rank": 1011,
+    "term": "request",
+    "definition": "to ask for something",
+    "phonetic": "/rɪˈkwest/",
+    "pos": "verb",
+    "meaningKr": "요청하다, 신청하다",
+    "exampleEn": "I would like to request a day off next week to visit my parents.",
+    "exampleKr": "부모님을 뵙기 위해 다음 주에 하루 휴가를 요청하고 싶습니다."
+  },
+  {
+    "rank": 1012,
+    "term": "rich",
+    "definition": "having a lot of money, possessions, or resources",
+    "phonetic": "/rɪtʃ/",
+    "pos": "adjective",
+    "meaningKr": "부유한, 돈이 많은",
+    "exampleEn": "He became very rich after his small tech company was bought by a giant corporation.",
+    "exampleKr": "그의 작은 기술 회사가 거대 기업에 인수된 후 그는 매우 부유해졌습니다."
+  },
+  {
+    "rank": 1013,
+    "term": "wind",
+    "definition": "natural movement of outside air as part of the weather",
+    "phonetic": "/wɪnd/",
+    "pos": "noun",
+    "meaningKr": "바람",
+    "exampleEn": "The strong wind blew the colorful leaves all across the street this morning.",
+    "exampleKr": "오늘 아침 강한 바람이 형형색색의 잎들을 거리 곳곳으로 날려 보냈습니다."
+  },
+  {
+    "rank": 1014,
+    "term": "none",
+    "definition": "not one of a group; not at all or in no way",
+    "phonetic": "/nʌn/",
+    "pos": "pronoun",
+    "meaningKr": "아무도 ~않다, 하나도 없음",
+    "exampleEn": "None of my friends could come to the movie because they were all busy.",
+    "exampleKr": "제 친구들 중 누구도 모두 바빠서 영화를 보러 올 수 없었습니다."
+  },
+  {
+    "rank": 1015,
+    "term": "exchange",
+    "definition": "to give things of similar value to each other",
+    "phonetic": "/ɪksˈtʃeɪndʒ/",
+    "pos": "verb",
+    "meaningKr": "교환하다, 주고받다",
+    "exampleEn": "We decided to exchange phone numbers so we could stay in touch after the trip.",
+    "exampleKr": "우리는 여행 후에 계속 연락할 수 있도록 전화번호를 교환하기로 했습니다."
+  },
+  {
+    "rank": 1016,
+    "term": "budget",
+    "definition": "amount of money planned to be spent on something",
+    "phonetic": "/ˈbʌdʒɪt/",
+    "pos": "noun",
+    "meaningKr": "예산",
+    "exampleEn": "We need to plan our monthly budget carefully to save money for a new car.",
+    "exampleKr": "우리는 새 차를 위한 돈을 모으기 위해 한 달 예산을 신중하게 짜야 합니다."
+  },
+  {
+    "rank": 1017,
+    "term": "famous",
+    "definition": "widely known; recognized by many people",
+    "phonetic": "/ˈfeɪməs/",
+    "pos": "adjective",
+    "meaningKr": "유명한",
+    "exampleEn": "This small bakery is famous for its delicious homemade strawberry cakes and bread.",
+    "exampleKr": "이 작은 빵집은 맛있는 수제 딸기 케이크와 빵으로 유명합니다."
+  },
+  {
+    "rank": 1018,
+    "term": "blood",
+    "definition": "red liquid in the bodies of people and animals",
+    "phonetic": "/blʌd/",
+    "pos": "noun",
+    "meaningKr": "피, 혈액",
+    "exampleEn": "The nurse took a small sample of my blood to check my overall health.",
+    "exampleKr": "간호사는 제 전반적인 건강을 확인하기 위해 제 혈액 샘플을 조금 채취했습니다."
+  },
+  {
+    "rank": 1019,
+    "term": "appropriate",
+    "definition": "right or suitable for some situation or purpose",
+    "phonetic": "/əˈproʊpriət/",
+    "pos": "adjective",
+    "meaningKr": "적절한, 알맞은",
+    "exampleEn": "Please make sure you wear appropriate clothes for the formal job interview tomorrow.",
+    "exampleKr": "내일 정식 취업 면접을 위해 적절한 옷을 입었는지 꼭 확인하세요."
+  },
+  {
+    "rank": 1020,
+    "term": "block",
+    "definition": "to stop from going forward or making progress",
+    "phonetic": "/blɑːk/",
+    "pos": "verb",
+    "meaningKr": "막다, 차단하다",
+    "exampleEn": "The fallen tree continues to block the main road, so we have to take a detour.",
+    "exampleKr": "쓰러진 나무가 계속해서 큰길을 막고 있어서 우리는 우회해서 가야 합니다."
+  },
+  {
+    "rank": 1021,
+    "term": "warm",
+    "definition": "slightly hot; not very hot",
+    "phonetic": "/wɔːrm/",
+    "pos": "adjective",
+    "meaningKr": "따뜻한",
+    "exampleEn": "It is finally warm enough outside to go for a walk without a heavy jacket.",
+    "exampleKr": "드디어 두꺼운 재킷 없이 산책을 나갈 수 있을 만큼 밖이 따뜻합니다."
+  },
+  {
+    "rank": 1022,
+    "term": "count",
+    "definition": "to add things together to find the total number",
+    "phonetic": "/kaʊnt/",
+    "pos": "verb",
+    "meaningKr": "세다, 계산하다",
+    "exampleEn": "Can you help me count the number of chairs we need for the meeting?",
+    "exampleKr": "회의에 필요한 의자 수를 세는 것을 도와주실 수 있나요?"
+  },
+  {
+    "rank": 1023,
+    "term": "scene",
+    "definition": "part of an act in a play",
+    "phonetic": "/siːn/",
+    "pos": "noun",
+    "meaningKr": "장면",
+    "exampleEn": "My favorite scene in the movie is when the two main characters finally meet.",
+    "exampleKr": "그 영화에서 제가 가장 좋아하는 장면은 두 주인공이 마침내 만나는 장면입니다."
+  },
+  {
+    "rank": 1024,
+    "term": "writer",
+    "definition": "professional who writes books, articles, etc.",
+    "phonetic": "/ˈraɪtər/",
+    "pos": "noun",
+    "meaningKr": "작가, 필자",
+    "exampleEn": "The writer spent three years working on her first novel before it was published.",
+    "exampleKr": "그 작가는 첫 소설이 출판되기 전까지 3년 동안 그 작품을 썼습니다."
+  },
+  {
+    "rank": 1025,
+    "term": "content",
+    "definition": "information in something (e.g., a book or computer program)",
+    "phonetic": "/ˈkɑːntent/",
+    "pos": "noun",
+    "meaningKr": "내용, 콘텐츠",
+    "exampleEn": "The website provides a lot of useful content for people who want to learn English.",
+    "exampleKr": "그 웹사이트는 영어를 배우고 싶은 사람들을 위해 유용한 콘텐츠를 많이 제공합니다."
+  },
+  {
+    "rank": 1026,
+    "term": "prevent",
+    "definition": "to stop something from happening or existing",
+    "phonetic": "/prɪˈvent/",
+    "pos": "verb",
+    "meaningKr": "예방하다, 막다",
+    "exampleEn": "Wearing a seatbelt is the best way to prevent serious injuries during a car accident.",
+    "exampleKr": "안전벨트를 매는 것은 교통사고 시 심각한 부상을 예방하는 가장 좋은 방법입니다."
+  },
+  {
+    "rank": 1027,
+    "term": "safe",
+    "definition": "being out of danger",
+    "phonetic": "/seɪf/",
+    "pos": "adjective",
+    "meaningKr": "안전한",
+    "exampleEn": "It is important to keep your passwords in a safe place where no one else can find them.",
+    "exampleKr": "비밀번호를 다른 사람이 찾을 수 없는 안전한 곳에 보관하는 것이 중요합니다."
+  },
+  {
+    "rank": 1028,
+    "term": "invite",
+    "definition": "to ask someone to go somewhere or do something",
+    "phonetic": "/ɪnˈvaɪt/",
+    "pos": "verb",
+    "meaningKr": "초대하다",
+    "exampleEn": "I want to invite all my coworkers to my house for a small dinner party.",
+    "exampleKr": "저는 모든 동료를 저희 집으로 초대해서 작은 저녁 파티를 열고 싶습니다."
+  },
+  {
+    "rank": 1029,
+    "term": "mix",
+    "definition": "to combine two or more things to make one",
+    "phonetic": "/mɪks/",
+    "pos": "verb",
+    "meaningKr": "섞다, 혼합하다",
+    "exampleEn": "You need to mix the flour and eggs together before adding the milk to the bowl.",
+    "exampleKr": "그릇에 우유를 넣기 전에 밀가루와 계란을 함께 섞어야 합니다."
+  },
+  {
+    "rank": 1030,
+    "term": "element",
+    "definition": "essential or particular part of something",
+    "phonetic": "/ˈelɪmənt/",
+    "pos": "noun",
+    "meaningKr": "요소, 성분",
+    "exampleEn": "Trust is a very important element in building a strong and lasting friendship.",
+    "exampleKr": "신뢰는 강하고 지속적인 우정을 쌓는 데 매우 중요한 요소입니다."
+  },
+  {
+    "rank": 1031,
+    "term": "effective",
+    "definition": "working efficiently to produce a desired result",
+    "phonetic": "/ɪˈfektɪv/",
+    "pos": "adjective",
+    "meaningKr": "효과적인",
+    "exampleEn": "Using a planner is an effective way to manage your time and stay organized every day.",
+    "exampleKr": "플래너를 사용하는 것은 시간을 관리하고 매일 체계적으로 지내는 효과적인 방법입니다."
+  },
+  {
+    "rank": 1032,
+    "term": "correct",
+    "definition": "true or accurate",
+    "phonetic": "/kəˈrekt/",
+    "pos": "adjective",
+    "meaningKr": "옳은, 정확한",
+    "exampleEn": "Please check your answers to make sure they are correct before you submit the test.",
+    "exampleKr": "시험지를 제출하기 전에 답이 맞는지 확인하기 위해 답안을 점검해 주세요."
+  },
+  {
+    "rank": 1033,
+    "term": "medical",
+    "definition": "of or relating to physical health or medicine",
+    "phonetic": "/ˈmedɪkl/",
+    "pos": "adjective",
+    "meaningKr": "의학의, 의료의",
+    "exampleEn": "He decided to go to medical school because he wanted to help sick people.",
+    "exampleKr": "그는 아픈 사람들을 돕고 싶었기 때문에 의과대학에 가기로 결심했습니다."
+  },
+  {
+    "rank": 1034,
+    "term": "admit",
+    "definition": "to agree that you did something bad, or that something bad is true",
+    "phonetic": "/ədˈmɪt/",
+    "pos": "verb",
+    "meaningKr": "인정하다, 시인하다",
+    "exampleEn": "It takes a lot of courage to admit that you were wrong about the situation.",
+    "exampleKr": "그 상황에 대해 자신이 틀렸다는 것을 인정하는 데는 많은 용기가 필요합니다."
+  },
+  {
+    "rank": 1035,
+    "term": "beat",
+    "definition": "to win against another person or team; defeat",
+    "phonetic": "/biːt/",
+    "pos": "verb",
+    "meaningKr": "이기다, 물리치다",
+    "exampleEn": "Our school team managed to beat the champions in the final game of the season.",
+    "exampleKr": "우리 학교 팀은 이번 시즌 마지막 경기에서 챔피언 팀을 이겨냈습니다."
+  },
+  {
+    "rank": 1036,
+    "term": "telephone",
+    "definition": "machine used to talk to someone who is far away",
+    "phonetic": "/ˈtelɪfoʊn/",
+    "pos": "noun",
+    "meaningKr": "전화, 전화기",
+    "exampleEn": "The telephone in the office has been ringing all morning with calls from customers.",
+    "exampleKr": "사무실 전화기가 아침 내내 고객들의 전화로 울리고 있습니다."
+  },
+  {
+    "rank": 1037,
+    "term": "copy",
+    "definition": "to make something that looks the same as the original",
+    "phonetic": "/ˈkɑːpi/",
+    "pos": "verb",
+    "meaningKr": "복사하다, 베끼다",
+    "exampleEn": "Could you please copy these documents for me before the meeting starts at ten?",
+    "exampleKr": "10시에 회의가 시작되기 전에 이 서류들을 복사해 주실 수 있나요?"
+  },
+  {
+    "rank": 1038,
+    "term": "committee",
+    "definition": "group of people who do or decide something",
+    "phonetic": "/kəˈmɪti/",
+    "pos": "noun",
+    "meaningKr": "위원회",
+    "exampleEn": "The committee will meet tomorrow to discuss the new rules for the community center.",
+    "exampleKr": "위원회는 내일 커뮤니티 센터의 새로운 규칙을 논의하기 위해 모일 것입니다."
+  },
+  {
+    "rank": 1039,
+    "term": "aware",
+    "definition": "knowing or feeling that something exists",
+    "phonetic": "/əˈwer/",
+    "pos": "adjective",
+    "meaningKr": "알고 있는, 의식하는",
+    "exampleEn": "Are you aware of the changes that were made to the schedule for next week?",
+    "exampleKr": "다음 주 일정에 변경된 사항이 있다는 것을 알고 계신가요?"
+  },
+  {
+    "rank": 1040,
+    "term": "advice",
+    "definition": "suggestion about what someone should do",
+    "phonetic": "/ədˈvaɪs/",
+    "pos": "noun",
+    "meaningKr": "조언, 충고",
+    "exampleEn": "I need some advice on which computer I should buy for my university studies.",
+    "exampleKr": "대학 공부를 위해 어떤 컴퓨터를 사야 할지에 대한 조언이 필요합니다."
+  },
+  {
+    "rank": 1041,
+    "term": "handle",
+    "definition": "to have the ability to cope with or take responsibility for",
+    "phonetic": "/ˈhændl/",
+    "pos": "verb",
+    "meaningKr": "다루다, 처리하다",
+    "exampleEn": "She knows how to handle difficult customers with a calm and professional attitude.",
+    "exampleKr": "그녀는 차분하고 전문적인 태도로 까다로운 고객을 다루는 법을 압니다."
+  },
+  {
+    "rank": 1042,
+    "term": "glass",
+    "definition": "hard transparent material used for making windows",
+    "phonetic": "/ɡlæs/",
+    "pos": "noun",
+    "meaningKr": "유리",
+    "exampleEn": "Be careful not to break the glass vase when you are cleaning the living room.",
+    "exampleKr": "거실을 청소할 때 유리 꽃병을 깨지 않도록 조심하세요."
+  },
+  {
+    "rank": 1043,
+    "term": "trial",
+    "definition": "concerning or used in a trial",
+    "phonetic": "/ˈtraɪəl/",
+    "pos": "adjective",
+    "meaningKr": "재판의, 시험의",
+    "exampleEn": "The trial lawyer presented new evidence that could prove his client was innocent.",
+    "exampleKr": "그 재판 변호사는 의뢰인의 무죄를 증명할 수 있는 새로운 증거를 제시했습니다."
+  },
+  {
+    "rank": 1044,
+    "term": "stress",
+    "definition": "to be in a state of mental tension due to problems",
+    "phonetic": "/stres/",
+    "pos": "verb",
+    "meaningKr": "스트레스를 받다",
+    "exampleEn": "I tend to stress about small things when I have a lot of work to do.",
+    "exampleKr": "저는 할 일이 많을 때 사소한 일에 스트레스를 받는 경향이 있습니다."
+  },
+  {
+    "rank": 1045,
+    "term": "radio",
+    "definition": "system for sending and receiving signals through the air",
+    "phonetic": "/ˈreɪdioʊ/",
+    "pos": "noun",
+    "meaningKr": "라디오",
+    "exampleEn": "I like to listen to the radio while I am driving to work in the morning.",
+    "exampleKr": "저는 아침에 차를 타고 출근하면서 라디오 듣는 것을 좋아합니다."
+  },
+  {
+    "rank": 1046,
+    "term": "administration",
+    "definition": "the work of running something (e.g., a business)",
+    "phonetic": "/ədˌmɪnɪˈstreɪʃn/",
+    "pos": "noun",
+    "meaningKr": "관리, 행정, 집행",
+    "exampleEn": "The school administration decided to improve the cafeteria menu based on student feedback.",
+    "exampleKr": "학교 행정실은 학생들의 피드백을 바탕으로 식당 메뉴를 개선하기로 결정했습니다."
+  },
+  {
+    "rank": 1047,
+    "term": "complex",
+    "definition": "difficult, not easy to understand or explain",
+    "phonetic": "/kəmˈpleks/",
+    "pos": "adjective",
+    "meaningKr": "복잡한",
+    "exampleEn": "The math problem was so complex that it took me an hour to solve it.",
+    "exampleKr": "그 수학 문제는 너무 복잡해서 푸는 데 한 시간이나 걸렸습니다."
+  },
+  {
+    "rank": 1048,
+    "term": "text",
+    "definition": "written part of a book or other work",
+    "phonetic": "/tekst/",
+    "pos": "noun",
+    "meaningKr": "본문, 글, 텍스트",
+    "exampleEn": "I read the text of the speech but I still didn't understand the main point.",
+    "exampleKr": "연설문을 읽었지만 여전히 요점을 이해하지 못했습니다."
+  },
+  {
+    "rank": 1049,
+    "term": "context",
+    "definition": "set of facts surrounding a person or event",
+    "phonetic": "/ˈkɑːntekst/",
+    "pos": "noun",
+    "meaningKr": "맥락, 문맥",
+    "exampleEn": "It is often easier to understand a new word if you look at its context.",
+    "exampleKr": "새로운 단어는 문맥을 살펴보면 이해하기가 더 쉬울 때가 많습니다."
+  },
+  {
+    "rank": 1050,
+    "term": "ride",
+    "definition": "To sit on and control the movement of a horse or a vehicle.",
+    "phonetic": "/raɪd/",
+    "pos": "verb",
+    "meaningKr": "타다, 승마하다",
+    "exampleEn": "I love to ride my bike through the park on warm summer afternoons with friends.",
+    "exampleKr": "나는 따뜻한 여름 오후에 친구들과 함께 공원에서 자전거 타는 것을 정말 좋아한다."
+  },
+  {
+    "rank": 1051,
+    "term": "directly",
+    "definition": "In a frank, honest, or straightforward manner without any delay.",
+    "phonetic": "/dəˈrektli/",
+    "pos": "adverb",
+    "meaningKr": "솔직하게, 직접적으로",
+    "exampleEn": "I will speak to the manager directly about the issue to find a quick solution.",
+    "exampleKr": "빠른 해결책을 찾기 위해 그 문제에 대해 매니저에게 직접 이야기하겠습니다."
+  },
+  {
+    "rank": 1052,
+    "term": "heavy",
+    "definition": "Having great weight and being difficult to lift or move.",
+    "phonetic": "/ˈhevi/",
+    "pos": "adjective",
+    "meaningKr": "무거운, 심한",
+    "exampleEn": "The box is too heavy for me to lift alone, so please help me move it.",
+    "exampleKr": "상자가 너무 무거워서 혼자 들 수 없으니 제가 옮기는 것을 좀 도와주세요."
+  },
+  {
+    "rank": 1053,
+    "term": "remove",
+    "definition": "To take something away from a place or to get rid of it.",
+    "phonetic": "/rɪˈmuːv/",
+    "pos": "verb",
+    "meaningKr": "치우다, 제거하다",
+    "exampleEn": "Please remove your shoes before entering the house to keep the carpet clean and tidy.",
+    "exampleKr": "카펫을 깨끗하고 정돈된 상태로 유지하기 위해 집 안에 들어가기 전에 신발을 벗어주세요."
+  },
+  {
+    "rank": 1054,
+    "term": "conduct",
+    "definition": "To organize and carry out a particular activity or process.",
+    "phonetic": "/kənˈdʌkt/",
+    "pos": "verb",
+    "meaningKr": "수행하다, 지휘하다",
+    "exampleEn": "The professor will conduct a series of experiments to test the new theory next semester.",
+    "exampleKr": "교수님은 다음 학기에 새로운 이론을 테스트하기 위해 일련의 실험을 수행할 것입니다."
+  },
+  {
+    "rank": 1055,
+    "term": "equipment",
+    "definition": "The set of articles or physical resources serving to equip a person or thing.",
+    "phonetic": "/ɪˈkwɪpmənt/",
+    "pos": "noun",
+    "meaningKr": "장비, 용품",
+    "exampleEn": "We need to buy some new camping equipment before we head out for our trip.",
+    "exampleKr": "우리는 여행을 떠나기 전에 몇 가지 새로운 캠핑 장비를 사야 합니다."
+  },
+  {
+    "rank": 1056,
+    "term": "otherwise",
+    "definition": "In a different way or if the circumstances were different.",
+    "phonetic": "/ˈʌðərwaɪz/",
+    "pos": "adverb",
+    "meaningKr": "그렇지 않으면",
+    "exampleEn": "You should leave now; otherwise, you might miss the last train home and be late.",
+    "exampleKr": "지금 출발해야 해요. 그렇지 않으면 막차를 놓쳐서 늦을지도 몰라요."
+  },
+  {
+    "rank": 1057,
+    "term": "title",
+    "definition": "The name given to a book, movie, or other work to identify it.",
+    "phonetic": "/ˈtaɪtl/",
+    "pos": "noun",
+    "meaningKr": "제목, 직함",
+    "exampleEn": "The title of the book was so interesting that I decided to buy it immediately.",
+    "exampleKr": "그 책의 제목이 너무 흥미로워서 나는 그것을 즉시 사기로 결정했습니다."
+  },
+  {
+    "rank": 1058,
+    "term": "extra",
+    "definition": "Added to what is normal or expected; more than what is necessary.",
+    "phonetic": "/ˈekstrə/",
+    "pos": "adjective",
+    "meaningKr": "추가의, 여분의",
+    "exampleEn": "I always carry an extra set of keys in my bag just in case I lose mine.",
+    "exampleKr": "열쇠를 잃어버릴 경우를 대비해서 가방에 항상 여분의 열쇠 뭉치를 가지고 다닙니다."
+  },
+  {
+    "rank": 1059,
+    "term": "executive",
+    "definition": "A person with senior managerial responsibility in a business organization.",
+    "phonetic": "/ɪɡˈzekjətɪv/",
+    "pos": "noun",
+    "meaningKr": "경영진, 임원",
+    "exampleEn": "The company executive decided to change the marketing strategy to attract more young customers this year.",
+    "exampleKr": "그 회사 임원은 올해 더 많은 젊은 고객을 유치하기 위해 마케팅 전략을 바꾸기로 했습니다."
+  },
+  {
+    "rank": 1060,
+    "term": "chair",
+    "definition": "A separate seat for one person, typically with a back and four legs.",
+    "phonetic": "/tʃer/",
+    "pos": "noun",
+    "meaningKr": "의자",
+    "exampleEn": "Please pull up a chair and join us for dinner; there is plenty of food.",
+    "exampleKr": "의자를 끌어당겨 앉아서 우리와 함께 저녁 식사를 하세요. 음식이 아주 넉넉합니다."
+  },
+  {
+    "rank": 1061,
+    "term": "expensive",
+    "definition": "Costing a lot of money; having a high price.",
+    "phonetic": "/ɪkˈspensɪv/",
+    "pos": "adjective",
+    "meaningKr": "비싼",
+    "exampleEn": "Buying a brand new car can be very expensive, so I am looking at used ones.",
+    "exampleKr": "완전 새 차를 사는 것은 매우 비쌀 수 있어서 저는 중고차를 알아보고 있습니다."
+  },
+  {
+    "rank": 1062,
+    "term": "sample",
+    "definition": "To try a small amount of something to see what it is like.",
+    "phonetic": "/ˈæmpl/",
+    "pos": "verb",
+    "meaningKr": "시식하다, 맛보다",
+    "exampleEn": "The chef invited us to sample the new dessert before it was added to the menu.",
+    "exampleKr": "셰프는 새로운 디저트가 메뉴에 추가되기 전에 우리를 초대해 시식하게 해주었습니다."
+  },
+  {
+    "rank": 1063,
+    "term": "sex",
+    "definition": "Either of the two main categories into which humans are divided based on biology.",
+    "phonetic": "/seks/",
+    "pos": "noun",
+    "meaningKr": "성별, 성",
+    "exampleEn": "The application form asks for your name, age, and sex for the official records.",
+    "exampleKr": "신청서에는 공식 기록을 위해 이름, 나이, 성별을 기재하도록 되어 있습니다."
+  },
+  {
+    "rank": 1064,
+    "term": "deliver",
+    "definition": "To bring and hand over a letter, package, or goods to the recipient.",
+    "phonetic": "/dɪˈlɪvər/",
+    "pos": "verb",
+    "meaningKr": "배달하다, 전달하다",
+    "exampleEn": "The courier will deliver the package to your office by the end of the day tomorrow.",
+    "exampleKr": "택배 기사가 내일 업무 시간 종료 전까지 사무실로 소포를 배달해 줄 것입니다."
+  },
+  {
+    "rank": 1065,
+    "term": "video",
+    "definition": "A recording of moving visual images, often accompanied by sound.",
+    "phonetic": "/ˈvɪdioʊ/",
+    "pos": "noun",
+    "meaningKr": "비디오, 영상",
+    "exampleEn": "We watched a funny video of a cat playing with a ball of yarn yesterday evening.",
+    "exampleKr": "우리는 어제 저녁에 고양이가 털실 뭉치를 가지고 노는 재미있는 영상을 보았습니다."
+  },
+  {
+    "rank": 1066,
+    "term": "connection",
+    "definition": "A relationship in which a person, thing, or idea is linked with something else.",
+    "phonetic": "/kəˈnekʃn/",
+    "pos": "noun",
+    "meaningKr": "연결, 관계",
+    "exampleEn": "I have a very poor internet connection today, so I cannot join the online meeting.",
+    "exampleKr": "오늘 인터넷 연결 상태가 매우 좋지 않아서 온라인 회의에 참석할 수 없습니다."
+  },
+  {
+    "rank": 1067,
+    "term": "primary",
+    "definition": "Of chief importance; principal or fundamental.",
+    "phonetic": "/ˈpraɪmeri/",
+    "pos": "adjective",
+    "meaningKr": "주요한, 기본적인",
+    "exampleEn": "Her primary reason for moving to the city was to find a better job opportunity.",
+    "exampleKr": "그녀가 도시로 이사한 주된 이유는 더 좋은 직업 기회를 찾기 위해서였습니다."
+  },
+  {
+    "rank": 1068,
+    "term": "weather",
+    "definition": "The state of the atmosphere at a place and time regarding heat, dryness, etc.",
+    "phonetic": "/ˈweðər/",
+    "pos": "noun",
+    "meaningKr": "날씨",
+    "exampleEn": "The weather has been so unpredictable lately that I always carry an umbrella with me.",
+    "exampleKr": "요즘 날씨가 너무 예측 불가능해서 나는 항상 우산을 가지고 다닙니다."
+  },
+  {
+    "rank": 1069,
+    "term": "collect",
+    "definition": "To bring or gather together things or people into one place.",
+    "phonetic": "/kəˈlekt/",
+    "pos": "verb",
+    "meaningKr": "모으다, 수집하다",
+    "exampleEn": "I like to collect colorful postcards from every city I visit during my summer vacations.",
+    "exampleKr": "저는 여름 휴가 동안 방문하는 모든 도시에서 화려한 엽서를 수집하는 것을 좋아합니다."
+  },
+  {
+    "rank": 1070,
+    "term": "inform",
+    "definition": "To give someone facts or information about something.",
+    "phonetic": "/ɪnˈfɔːrm/",
+    "pos": "verb",
+    "meaningKr": "알리다, 통지하다",
+    "exampleEn": "Please inform the staff about the meeting schedule so that everyone can attend on time.",
+    "exampleKr": "모두가 제시간에 참석할 수 있도록 직원들에게 회의 일정을 알려주시기 바랍니다."
+  },
+  {
+    "rank": 1071,
+    "term": "principle",
+    "definition": "A fundamental truth or proposition that serves as the foundation for a belief.",
+    "phonetic": "/ˈprɪnsəpl/",
+    "pos": "noun",
+    "meaningKr": "원칙, 신념",
+    "exampleEn": "It is against my principle to lie to my friends, even about small and unimportant things.",
+    "exampleKr": "아무리 작고 사소한 일이라도 친구에게 거짓말을 하는 것은 제 원칙에 어긋납니다."
+  },
+  {
+    "rank": 1072,
+    "term": "straight",
+    "definition": "Extending or moving uniformly in one direction without a curve or bend.",
+    "phonetic": "/streɪt/",
+    "pos": "adjective",
+    "meaningKr": "직선의, 똑바른",
+    "exampleEn": "Go straight down this road for two blocks and you will see the post office.",
+    "exampleKr": "이 길을 따라 두 블록만 똑바로 가면 우체국이 보일 것입니다."
+  },
+  {
+    "rank": 1073,
+    "term": "appeal",
+    "definition": "To make a serious or urgent request, typically to a higher authority.",
+    "phonetic": "/əˈpiːl/",
+    "pos": "verb",
+    "meaningKr": "항소하다, 호소하다",
+    "exampleEn": "The lawyer decided to appeal the court's decision because he believed the verdict was unfair.",
+    "exampleKr": "변호사는 판결이 불공정하다고 믿었기 때문에 법원의 결정에 항소하기로 했습니다."
+  },
+  {
+    "rank": 1074,
+    "term": "highly",
+    "definition": "To a high degree or level; very much.",
+    "phonetic": "/ˈhaɪli/",
+    "pos": "adverb",
+    "meaningKr": "매우, 대단히",
+    "exampleEn": "The teacher highly recommended that we read this book to improve our English writing skills.",
+    "exampleKr": "선생님은 영어 작문 실력을 향상시키기 위해 이 책을 읽을 것을 강력히 추천하셨습니다."
+  },
+  {
+    "rank": 1075,
+    "term": "trust",
+    "definition": "To believe in the reliability, truth, ability, or strength of someone or something.",
+    "phonetic": "/trʌst/",
+    "pos": "verb",
+    "meaningKr": "신뢰하다, 믿다",
+    "exampleEn": "It takes a long time to build trust, but it can be lost in a second.",
+    "exampleKr": "신뢰를 쌓는 데는 오랜 시간이 걸리지만, 잃는 데는 순식간일 수 있습니다."
+  },
+  {
+    "rank": 1076,
+    "term": "wonderful",
+    "definition": "Inspiring delight, pleasure, or admiration; extremely good.",
+    "phonetic": "/ˈwʌndərfl/",
+    "pos": "adjective",
+    "meaningKr": "멋진, 훌륭한",
+    "exampleEn": "We had a wonderful time at the beach yesterday, swimming and playing in the sand.",
+    "exampleKr": "어제 해변에서 수영도 하고 모래 놀이도 하며 정말 멋진 시간을 보냈습니다."
+  },
+  {
+    "rank": 1077,
+    "term": "flat",
+    "definition": "Having a level surface; without raised areas or indentations.",
+    "phonetic": "/flæt/",
+    "pos": "adjective",
+    "meaningKr": "평평한, 납작한",
+    "exampleEn": "The ground is perfectly flat here, making it the ideal spot to set up our tent.",
+    "exampleKr": "이곳의 지면은 완벽하게 평평해서 텐트를 치기에 아주 이상적인 장소입니다."
+  },
+  {
+    "rank": 1078,
+    "term": "absolutely",
+    "definition": "With no qualification, restriction, or limitation; totally.",
+    "phonetic": "/ˌæbsəˈluːtli/",
+    "pos": "adverb",
+    "meaningKr": "전적으로, 틀림없이",
+    "exampleEn": "I am absolutely sure that I locked the front door before we left the house earlier.",
+    "exampleKr": "아까 집을 나오기 전에 현관문을 잠갔다는 것을 저는 아주 확실히 기억합니다."
+  },
+  {
+    "rank": 1079,
+    "term": "flow",
+    "definition": "To move steadily and continuously in a current or stream.",
+    "phonetic": "/floʊ/",
+    "pos": "verb",
+    "meaningKr": "흐르다",
+    "exampleEn": "The water began to flow through the pipes once the plumber finished fixing the leak.",
+    "exampleKr": "배관공이 누수 수리를 마치자 파이프를 통해 물이 흐르기 시작했습니다."
+  },
+  {
+    "rank": 1080,
+    "term": "fair",
+    "definition": "Treating people equally without favoritism or discrimination.",
+    "phonetic": "/fer/",
+    "pos": "adjective",
+    "meaningKr": "공정한, 공평한",
+    "exampleEn": "It is only fair that everyone gets an equal chance to speak during the group discussion.",
+    "exampleKr": "그룹 토론 중에 모든 사람이 말할 수 있는 동등한 기회를 갖는 것이 공평합니다."
+  },
+  {
+    "rank": 1081,
+    "term": "additional",
+    "definition": "Added, extra, or supplementary to what is already present.",
+    "phonetic": "/əˈdɪʃənl/",
+    "pos": "adjective",
+    "meaningKr": "추가적인, 부가적인",
+    "exampleEn": "If you need any additional information, please do not hesitate to contact our customer service.",
+    "exampleKr": "추가 정보가 필요하시면 주저하지 마시고 저희 고객 서비스 센터로 연락해 주시기 바랍니다."
+  },
+  {
+    "rank": 1082,
+    "term": "responsible",
+    "definition": "Having an obligation to do something, or having control over or care for someone.",
+    "phonetic": "/rɪˈspɑːnsəbl/",
+    "pos": "adjective",
+    "meaningKr": "책임이 있는, 책임감 있는",
+    "exampleEn": "As the project manager, you are responsible for making sure that all tasks are completed.",
+    "exampleKr": "프로젝트 매니저로서 당신은 모든 업무가 완료되도록 할 책임이 있습니다."
+  },
+  {
+    "rank": 1083,
+    "term": "farm",
+    "definition": "An area of land and its buildings used for growing crops and rearing animals.",
+    "phonetic": "/fɑːrm/",
+    "pos": "noun",
+    "meaningKr": "농장",
+    "exampleEn": "My grandparents own a small farm where they grow organic vegetables and raise some chickens.",
+    "exampleKr": "우리 조부모님은 유기농 채소를 재배하고 닭을 몇 마리 키우는 작은 농장을 운영하십니다."
+  },
+  {
+    "rank": 1084,
+    "term": "collection",
+    "definition": "A group of things or people that have been gathered together.",
+    "phonetic": "/kəˈlekʃn/",
+    "pos": "noun",
+    "meaningKr": "수집품, 모음",
+    "exampleEn": "He has an impressive collection of rare coins that he has been gathering for many years.",
+    "exampleKr": "그는 수년 동안 수집해 온 아주 인상적인 희귀 동전 수집품을 가지고 있습니다."
+  },
+  {
+    "rank": 1085,
+    "term": "hang",
+    "definition": "To suspend or be suspended from above with the lower part free.",
+    "phonetic": "/hæŋ/",
+    "pos": "verb",
+    "meaningKr": "걸다, 매달다",
+    "exampleEn": "I want to hang this beautiful painting in the living room where everyone can see it.",
+    "exampleKr": "모든 사람이 볼 수 있도록 이 아름다운 그림을 거실에 걸어두고 싶습니다."
+  },
+  {
+    "rank": 1086,
+    "term": "negative",
+    "definition": "Consisting in or characterized by the absence rather than the presence of distinguishing features.",
+    "phonetic": "/ˈneɡətɪv/",
+    "pos": "adjective",
+    "meaningKr": "부정적인, 해로운",
+    "exampleEn": "The news had a negative impact on the stock market, causing prices to drop significantly.",
+    "exampleKr": "그 소식은 주식 시장에 부정적인 영향을 미쳐 가격이 상당히 하락하게 만들었습니다."
+  },
+  {
+    "rank": 1087,
+    "term": "band",
+    "definition": "A group of people who have a common interest or purpose, especially musicians.",
+    "phonetic": "/bænd/",
+    "pos": "noun",
+    "meaningKr": "밴드, 무리",
+    "exampleEn": "My favorite rock band is performing live at the stadium this weekend; I have tickets.",
+    "exampleKr": "내가 가장 좋아하는 록 밴드가 이번 주말에 경기장에서 공연을 하는데, 티켓을 구했습니다."
+  },
+  {
+    "rank": 1088,
+    "term": "relative",
+    "definition": "Considered in relation or in proportion to something else.",
+    "phonetic": "/ˈrelətɪv/",
+    "pos": "adjective",
+    "meaningKr": "상대적인, 비교상의",
+    "exampleEn": "The relative success of the project depended on how well the team members worked together.",
+    "exampleKr": "그 프로젝트의 상대적인 성공 여부는 팀원들이 얼마나 잘 협력하느냐에 달려 있었습니다."
+  },
+  {
+    "rank": 1089,
+    "term": "tour",
+    "definition": "A journey for pleasure in which several different places are visited.",
+    "phonetic": "/tʊr/",
+    "pos": "noun",
+    "meaningKr": "여행, 견학",
+    "exampleEn": "We took a guided tour of the historical museum to learn more about the local culture.",
+    "exampleKr": "우리는 지역 문화에 대해 더 많이 배우기 위해 역사 박물관 가이드 투어를 했습니다."
+  },
+  {
+    "rank": 1090,
+    "term": "alternative",
+    "definition": "Available as another possibility or choice.",
+    "phonetic": "/ɔːlˈtɜːrnətɪv/",
+    "pos": "noun",
+    "meaningKr": "대안, 선택 가능한 것",
+    "exampleEn": "If the main road is closed, we will have to find an alternative route to work.",
+    "exampleKr": "만약 주 도로가 폐쇄된다면, 우리는 직장까지 가는 대안 경로를 찾아야 할 것입니다."
+  },
+  {
+    "rank": 1091,
+    "term": "software",
+    "definition": "The programs and other operating information used by a computer.",
+    "phonetic": "/ˈsɔːftwer/",
+    "pos": "noun",
+    "meaningKr": "소프트웨어",
+    "exampleEn": "The company recently updated its software to improve the overall performance of the computer system.",
+    "exampleKr": "회사는 컴퓨터 시스템의 전반적인 성능을 향상시키기 위해 최근 소프트웨어를 업데이트했습니다."
+  },
+  {
+    "rank": 1092,
+    "term": "pair",
+    "definition": "A set of two things used together or regarded as a unit.",
+    "phonetic": "/per/",
+    "pos": "noun",
+    "meaningKr": "쌍, 한 켤레",
+    "exampleEn": "I need to buy a new pair of running shoes before the marathon next month.",
+    "exampleKr": "다음 달 마라톤을 하기 전에 새 러닝화 한 켤레를 사야 합니다."
+  },
+  {
+    "rank": 1093,
+    "term": "ship",
+    "definition": "A large boat for transporting people or goods by sea.",
+    "phonetic": "/ʃɪp/",
+    "pos": "noun",
+    "meaningKr": "배, 선박",
+    "exampleEn": "The large cargo ship arrived at the port early this morning carrying goods from overseas.",
+    "exampleKr": "해외에서 온 물건들을 실은 대형 화물선이 오늘 아침 일찍 항구에 도착했습니다."
+  },
+  {
+    "rank": 1094,
+    "term": "attitude",
+    "definition": "A settled way of thinking or feeling about someone or something.",
+    "phonetic": "/ˈætɪtuːd/",
+    "pos": "noun",
+    "meaningKr": "태도, 사고방식",
+    "exampleEn": "Having a positive attitude can make a big difference when you are facing difficult challenges.",
+    "exampleKr": "긍정적인 태도를 갖는 것은 어려운 도전에 직면했을 때 큰 차이를 만들 수 있습니다."
+  },
+  {
+    "rank": 1095,
+    "term": "cheap",
+    "definition": "Low in price, especially in relation to similar items or services.",
+    "phonetic": "/tʃiːp/",
+    "pos": "adjective",
+    "meaningKr": "싼, 저렴한",
+    "exampleEn": "The flight tickets were surprisingly cheap, so we decided to book a trip to Jeju Island.",
+    "exampleKr": "항공권이 놀라울 정도로 저렴해서 우리는 제주도 여행을 예약하기로 결정했습니다."
+  },
+  {
+    "rank": 1096,
+    "term": "double",
+    "definition": "Consisting of two equal, identical, or similar parts or things.",
+    "phonetic": "/ˈdʌbl/",
+    "pos": "adjective",
+    "meaningKr": "두 배의",
+    "exampleEn": "The price of coffee is almost double what it was just a few years ago.",
+    "exampleKr": "커피 가격이 불과 몇 년 전과 비교해 거의 두 배가 되었습니다."
+  },
+  {
+    "rank": 1097,
+    "term": "leg",
+    "definition": "Each of the limbs on which a person or animal walks and stands.",
+    "phonetic": "/leɡ/",
+    "pos": "noun",
+    "meaningKr": "다리",
+    "exampleEn": "I hurt my leg while playing soccer yesterday, so I have to rest for a week.",
+    "exampleKr": "어제 축구를 하다가 다리를 다쳐서 일주일 동안 쉬어야 할 것 같습니다."
+  },
+  {
+    "rank": 1098,
+    "term": "observe",
+    "definition": "To watch someone or something carefully and attentively.",
+    "phonetic": "/əbˈzɜːrv/",
+    "pos": "verb",
+    "meaningKr": "관찰하다, 준수하다",
+    "exampleEn": "Scientists spend many years in the field to observe the behavior of wild animals closely.",
+    "exampleKr": "과학자들은 야생 동물의 행동을 면밀히 관찰하기 위해 현장에서 수년을 보냅니다."
+  },
+  {
+    "rank": 1099,
+    "term": "sentence",
+    "definition": "A set of words that is complete in itself, typically containing a subject and predicate.",
+    "phonetic": "/ˈsentəns/",
+    "pos": "noun",
+    "meaningKr": "문장, 판결",
+    "exampleEn": "Please write a complete sentence using the new vocabulary word we learned in class today.",
+    "exampleKr": "오늘 수업 시간에 배운 새 어휘를 사용하여 완전한 문장을 하나 써 보세요."
+  },
+  {
+    "rank": 1100,
+    "term": "print",
+    "definition": "To make many copies of a page, magazine, or book.",
+    "phonetic": "/ˈprɪnt/",
+    "pos": "verb",
+    "meaningKr": "인쇄하다, 찍다",
+    "exampleEn": "I need to print ten copies of the meeting agenda for our team today.",
+    "exampleKr": "오늘 우리 팀을 위해 회의 안건을 열 부 인쇄해야 합니다."
+  },
+  {
+    "rank": 1101,
+    "term": "progress",
+    "definition": "To move forward or toward a place or goal.",
+    "phonetic": "/prəˈɡres/",
+    "pos": "verb",
+    "meaningKr": "진전하다, 나아가다",
+    "exampleEn": "The students are making good progress with their English conversation skills this semester.",
+    "exampleKr": "이번 학기에 학생들은 영어 회화 실력에서 좋은 진전을 보이고 있습니다."
+  },
+  {
+    "rank": 1102,
+    "term": "truth",
+    "definition": "Real facts about something.",
+    "phonetic": "/truːθ/",
+    "pos": "noun",
+    "meaningKr": "진실, 사실",
+    "exampleEn": "It is always better to tell the truth even when it is very difficult.",
+    "exampleKr": "아무리 어려울 때라도 항상 진실을 말하는 것이 더 낫습니다."
+  },
+  {
+    "rank": 1103,
+    "term": "nobody",
+    "definition": "No person; no one; not any person.",
+    "phonetic": "/ˈnoʊbədi/",
+    "pos": "noun",
+    "meaningKr": "아무도 ~않다",
+    "exampleEn": "I knocked on the door several times, but nobody answered from inside the house.",
+    "exampleKr": "문을 여러 번 두드렸지만, 집 안에서는 아무도 대답하지 않았습니다."
+  },
+  {
+    "rank": 1104,
+    "term": "examine",
+    "definition": "To look at someone or something very carefully in order to learn more.",
+    "phonetic": "/ɪɡˈzæmɪn/",
+    "pos": "verb",
+    "meaningKr": "조사하다, 검사하다",
+    "exampleEn": "The doctor needs to examine your throat to see why it has been hurting.",
+    "exampleKr": "의사 선생님은 목이 왜 아픈지 알아보기 위해 목을 검사해야 합니다."
+  },
+  {
+    "rank": 1105,
+    "term": "lay",
+    "definition": "To put or set something down in a flat position.",
+    "phonetic": "/leɪ/",
+    "pos": "verb",
+    "meaningKr": "놓다, 두다",
+    "exampleEn": "Please lay the clean towels on the bed after you finish doing the laundry.",
+    "exampleKr": "빨래를 다 마친 후에 깨끗한 수건들을 침대 위에 놓아 주세요."
+  },
+  {
+    "rank": 1106,
+    "term": "speed",
+    "definition": "The quality of being fast or quick.",
+    "phonetic": "/spiːd/",
+    "pos": "noun",
+    "meaningKr": "속도, 속력",
+    "exampleEn": "The driver was warned by the police for driving at a very high speed.",
+    "exampleKr": "운전자는 아주 높은 속도로 주행하다가 경찰에게 경고를 받았습니다."
+  },
+  {
+    "rank": 1107,
+    "term": "politics",
+    "definition": "Activities influencing the policies of a government.",
+    "phonetic": "/ˈpɑːlətɪks/",
+    "pos": "noun",
+    "meaningKr": "정치, 정치학",
+    "exampleEn": "Many young people are becoming more interested in local politics and community issues lately.",
+    "exampleKr": "최근 많은 젊은이들이 지역 정치와 커뮤니티 문제에 더 많은 관심을 갖게 되었습니다."
+  },
+  {
+    "rank": 1108,
+    "term": "reply",
+    "definition": "To answer someone's question.",
+    "phonetic": "/rɪˈplaɪ/",
+    "pos": "verb",
+    "meaningKr": "대답하다, 답장을 보내다",
+    "exampleEn": "I will reply to your email as soon as I get home from work.",
+    "exampleKr": "퇴근해서 집에 도착하자마자 당신의 이메일에 답장을 보낼게요."
+  },
+  {
+    "rank": 1109,
+    "term": "display",
+    "definition": "To put something so it can be seen or be bought.",
+    "phonetic": "/dɪˈspleɪ/",
+    "pos": "verb",
+    "meaningKr": "전시하다, 보여주다",
+    "exampleEn": "The store will display the new clothing collection in the front window next week.",
+    "exampleKr": "그 상점은 다음 주에 정면 쇼윈도에 새로운 의류 컬렉션을 전시할 것입니다."
+  },
+  {
+    "rank": 1110,
+    "term": "transfer",
+    "definition": "To move something from one place to another.",
+    "phonetic": "/trænsˈfɜːr/",
+    "pos": "verb",
+    "meaningKr": "옮기다, 이동하다",
+    "exampleEn": "I need to transfer some money from my savings account to my checking account.",
+    "exampleKr": "저축 계좌에서 당좌 계좌로 돈을 조금 이체해야 합니다."
+  },
+  {
+    "rank": 1111,
+    "term": "perfect",
+    "definition": "So good it or they cannot be improved.",
+    "phonetic": "/ˈpɜːrfɪkt/",
+    "pos": "adjective",
+    "meaningKr": "완벽한, 온전한",
+    "exampleEn": "The weather today is absolutely perfect for having a picnic at the local park.",
+    "exampleKr": "오늘 날씨는 지역 공원에서 소풍을 즐기기에 정말 완벽합니다."
+  },
+  {
+    "rank": 1112,
+    "term": "slightly",
+    "definition": "Concerning a small quantity or degree.",
+    "phonetic": "/ˈslaɪtli/",
+    "pos": "adverb",
+    "meaningKr": "약간, 조금",
+    "exampleEn": "The price of milk has increased slightly compared to what it was last month.",
+    "exampleKr": "우유 가격이 지난달과 비교했을 때 약간 올랐습니다."
+  },
+  {
+    "rank": 1113,
+    "term": "overall",
+    "definition": "Viewed as a whole; in general, not as details.",
+    "phonetic": "/ˌoʊvərˈɔːl/",
+    "pos": "adverb",
+    "meaningKr": "전반적으로, 대체로",
+    "exampleEn": "Overall, the movie was very entertaining despite having a few slow parts in it.",
+    "exampleKr": "전반적으로, 그 영화는 몇몇 지루한 부분이 있었음에도 불구하고 매우 재미있었습니다."
+  },
+  {
+    "rank": 1114,
+    "term": "intend",
+    "definition": "To plan or want to do something.",
+    "phonetic": "/ɪnˈtend/",
+    "pos": "verb",
+    "meaningKr": "의도하다, ~할 작정이다",
+    "exampleEn": "I intend to start a new exercise routine next Monday to improve my health.",
+    "exampleKr": "건강을 개선하기 위해 다음 주 월요일부터 새로운 운동 루틴을 시작할 계획입니다."
+  },
+  {
+    "rank": 1115,
+    "term": "user",
+    "definition": "A person that uses a service or thing (e.g., a website).",
+    "phonetic": "/ˈjuːzər/",
+    "pos": "noun",
+    "meaningKr": "사용자, 이용자",
+    "exampleEn": "The new app is very easy to navigate for the average smartphone user today.",
+    "exampleKr": "그 새로운 앱은 오늘날의 일반적인 스마트폰 사용자가 이용하기에 매우 쉽습니다."
+  },
+  {
+    "rank": 1116,
+    "term": "respond",
+    "definition": "To say or write to answer the question.",
+    "phonetic": "/rɪˈpɑːnd/",
+    "pos": "verb",
+    "meaningKr": "응답하다, 반응하다",
+    "exampleEn": "Please respond to the wedding invitation by the end of this current week.",
+    "exampleKr": "이번 주말까지 결혼식 초대장에 대한 응답을 주시기 바랍니다."
+  },
+  {
+    "rank": 1117,
+    "term": "dinner",
+    "definition": "The main meal of the day, usually in the evening.",
+    "phonetic": "/ˈdɪnər/",
+    "pos": "noun",
+    "meaningKr": "저녁 식사, 만찬",
+    "exampleEn": "We are planning to go out for a nice Italian dinner this Friday night.",
+    "exampleKr": "우리는 이번 주 금요일 밤에 멋진 이탈리아식 저녁 식사를 하러 나갈 계획입니다."
+  },
+  {
+    "rank": 1118,
+    "term": "slow",
+    "definition": "Moving or happening without speed; not fast.",
+    "phonetic": "/sloʊ/",
+    "pos": "adjective",
+    "meaningKr": "느린, 천천히 하는",
+    "exampleEn": "The traffic was very slow this morning because of the heavy rain and wind.",
+    "exampleKr": "오늘 아침에는 폭우와 바람 때문에 교통 흐름이 매우 느렸습니다."
+  },
+  {
+    "rank": 1119,
+    "term": "regular",
+    "definition": "Occurring or being done frequently.",
+    "phonetic": "/ˈreɡjələr/",
+    "pos": "adjective",
+    "meaningKr": "규칙적인, 정기적인",
+    "exampleEn": "It is important to have a regular sleep schedule to maintain your energy levels.",
+    "exampleKr": "에너지 수준을 유지하기 위해서는 규칙적인 수면 일정을 갖는 것이 중요합니다."
+  },
+  {
+    "rank": 1120,
+    "term": "physical",
+    "definition": "Concerning the body of a person.",
+    "phonetic": "/ˈfɪzɪkl/",
+    "pos": "adjective",
+    "meaningKr": "신체적인, 물리적인",
+    "exampleEn": "Regular physical activity can help reduce stress and improve your overall mood every day.",
+    "exampleKr": "규칙적인 신체 활동은 매일 스트레스를 줄이고 전반적인 기분을 개선하는 데 도움이 됩니다."
+  },
+  {
+    "rank": 1121,
+    "term": "apart",
+    "definition": "Separated by an amount of time or space.",
+    "phonetic": "/əˈpɑːrt/",
+    "pos": "adverb",
+    "meaningKr": "떨어져, 따로",
+    "exampleEn": "The two houses are located about one mile apart from each other in town.",
+    "exampleKr": "그 두 집은 마을에서 서로 약 1마일 정도 떨어져 위치해 있습니다."
+  },
+  {
+    "rank": 1122,
+    "term": "suit",
+    "definition": "To be appropriate for a given situation.",
+    "phonetic": "/suːt/",
+    "pos": "verb",
+    "meaningKr": "어울리다, 적합하다",
+    "exampleEn": "This casual style of clothing doesn't really suit a formal job interview at all.",
+    "exampleKr": "이런 캐주얼한 옷차림은 정식 취업 면접에는 전혀 어울리지 않습니다."
+  },
+  {
+    "rank": 1123,
+    "term": "federal",
+    "definition": "A system of government.",
+    "phonetic": "/ˈfedərəl/",
+    "pos": "adjective",
+    "meaningKr": "연방의, 연방 정부의",
+    "exampleEn": "The federal government is responsible for making decisions that affect the entire country.",
+    "exampleKr": "연방 정부는 국가 전체에 영향을 미치는 결정을 내릴 책임이 있습니다."
+  },
+  {
+    "rank": 1124,
+    "term": "reveal",
+    "definition": "To make known, to show or prove.",
+    "phonetic": "/rɪˈviːl/",
+    "pos": "verb",
+    "meaningKr": "드러내다, 밝히다",
+    "exampleEn": "The company will reveal its new product design at the conference tomorrow morning.",
+    "exampleKr": "그 회사는 내일 아침 컨퍼런스에서 새로운 제품 디자인을 공개할 예정입니다."
+  },
+  {
+    "rank": 1125,
+    "term": "percentage",
+    "definition": "A part of a whole divided into hundredths.",
+    "phonetic": "/pərˈsentɪdʒ/",
+    "pos": "noun",
+    "meaningKr": "백분율, 비율",
+    "exampleEn": "A high percentage of the students passed the final exam with excellent grades.",
+    "exampleKr": "높은 비율의 학생들이 기말고사를 우수한 성적으로 통과했습니다."
+  },
+  {
+    "rank": 1126,
+    "term": "peace",
+    "definition": "A time when there is no war or fighting.",
+    "phonetic": "/piːs/",
+    "pos": "noun",
+    "meaningKr": "평화, 화평",
+    "exampleEn": "After many years of conflict, the two nations are finally living in peace.",
+    "exampleKr": "수년간의 갈등 끝에, 두 나라는 마침내 평화롭게 지내고 있습니다."
+  },
+  {
+    "rank": 1127,
+    "term": "status",
+    "definition": "A position or rank relative to others in a society.",
+    "phonetic": "/ˈsteɪtəs/",
+    "pos": "noun",
+    "meaningKr": "지위, 상태",
+    "exampleEn": "You can check the current status of your online order on our website anytime.",
+    "exampleKr": "언제든지 저희 웹사이트에서 온라인 주문의 현재 상태를 확인하실 수 있습니다."
+  },
+  {
+    "rank": 1128,
+    "term": "crime",
+    "definition": "An act that is against the law.",
+    "phonetic": "/kraɪm/",
+    "pos": "noun",
+    "meaningKr": "범죄, 죄",
+    "exampleEn": "The police are working very hard to reduce the level of crime in this neighborhood.",
+    "exampleKr": "경찰은 이 동네의 범죄 수준을 낮추기 위해 매우 열심히 노력하고 있습니다."
+  },
+  {
+    "rank": 1129,
+    "term": "decline",
+    "definition": "To not accept an invitation or offer; refuse.",
+    "phonetic": "/dɪˈskaɪn/",
+    "pos": "verb",
+    "meaningKr": "거절하다, 감소하다",
+    "exampleEn": "I had to decline the invitation to the party because I was already busy.",
+    "exampleKr": "이미 바쁜 일이 있어서 파티 초대를 거절해야만 했습니다."
+  },
+  {
+    "rank": 1130,
+    "term": "decade",
+    "definition": "A period of 10 years.",
+    "phonetic": "/ˈdekeɪd/",
+    "pos": "noun",
+    "meaningKr": "10년",
+    "exampleEn": "The city has changed significantly over the last decade with many new buildings.",
+    "exampleKr": "그 도시는 지난 10년 동안 많은 새 건물들이 들어서며 크게 변했습니다."
+  },
+  {
+    "rank": 1131,
+    "term": "launch",
+    "definition": "To put a rocket into the air or a ship into the water.",
+    "phonetic": "/lɔːntʃ/",
+    "pos": "verb",
+    "meaningKr": "시작하다, 출시하다",
+    "exampleEn": "The tech company plans to launch its new smartphone model early next month.",
+    "exampleKr": "그 기술 기업은 다음 달 초에 새로운 스마트폰 모델을 출시할 계획입니다."
+  },
+  {
+    "rank": 1132,
+    "term": "warn",
+    "definition": "To tell someone about possible danger.",
+    "phonetic": "/wɔːrn/",
+    "pos": "verb",
+    "meaningKr": "경고하다, 주의를 주다",
+    "exampleEn": "The signs warn visitors not to feed the wild animals in the national park.",
+    "exampleKr": "표지판들은 방문객들에게 국립공원 내 야생 동물들에게 먹이를 주지 말라고 경고합니다."
+  },
+  {
+    "rank": 1133,
+    "term": "consumer",
+    "definition": "A person who uses goods or services; an individual buyer.",
+    "phonetic": "/kənˈsuːmər/",
+    "pos": "noun",
+    "meaningKr": "소비자",
+    "exampleEn": "Every consumer should compare prices before making a major purchase at the store.",
+    "exampleKr": "모든 소비자는 매장에서 큰 물건을 사기 전에 가격을 비교해야 합니다."
+  },
+  {
+    "rank": 1134,
+    "term": "favor",
+    "definition": "A helpful act of kindness.",
+    "phonetic": "/ˈfeɪvər/",
+    "pos": "noun",
+    "meaningKr": "호의, 부탁",
+    "exampleEn": "Could you do me a favor and help me move this heavy table tonight?",
+    "exampleKr": "부탁 하나만 들어주실래요? 오늘 밤에 이 무거운 테이블 옮기는 것 좀 도와주세요."
+  },
+  {
+    "rank": 1135,
+    "term": "dry",
+    "definition": "Without water; not wet.",
+    "phonetic": "/draɪ/",
+    "pos": "adjective",
+    "meaningKr": "마른, 건조한",
+    "exampleEn": "The weather has been very dry lately, so we need to water the garden.",
+    "exampleKr": "최근 날씨가 매우 건조해서 정원에 물을 주어야 합니다."
+  },
+  {
+    "rank": 1136,
+    "term": "partner",
+    "definition": "Someone you have a business or personal relationship with.",
+    "phonetic": "/ˈpɑːrtnər/",
+    "pos": "noun",
+    "meaningKr": "동반자, 파트너",
+    "exampleEn": "My business partner and I are opening a new cafe in the city center.",
+    "exampleKr": "제 사업 파트너와 저는 시내 중심가에 새로운 카페를 열 예정입니다."
+  },
+  {
+    "rank": 1137,
+    "term": "institution",
+    "definition": "An organization created for a particular cause or purpose.",
+    "phonetic": "/ˌɪnstɪˈtuːʃn/",
+    "pos": "noun",
+    "meaningKr": "기관, 제도",
+    "exampleEn": "The university is a respected institution that has been around for over a century.",
+    "exampleKr": "그 대학교는 한 세기 넘게 존재해 온 존경받는 기관입니다."
+  },
+  {
+    "rank": 1138,
+    "term": "spot",
+    "definition": "To see someone or something by chance.",
+    "phonetic": "/spɑːt/",
+    "pos": "verb",
+    "meaningKr": "발견하다, 찾다",
+    "exampleEn": "I was able to spot my friend in the crowded stadium during the game.",
+    "exampleKr": "경기 도중 붐비는 경기장에서 친구를 발견할 수 있었습니다."
+  },
+  {
+    "rank": 1139,
+    "term": "horse",
+    "definition": "A large animal with 4 legs used for riding.",
+    "phonetic": "/hɔːrs/",
+    "pos": "noun",
+    "meaningKr": "말",
+    "exampleEn": "She learned how to ride a horse when she was just a young girl.",
+    "exampleKr": "그녀는 아주 어린 소녀였을 때 말 타는 법을 배웠습니다."
+  },
+  {
+    "rank": 1140,
+    "term": "eventually",
+    "definition": "Finally; in the end.",
+    "phonetic": "/ɪˈventʃuəli/",
+    "pos": "adverb",
+    "meaningKr": "결국, 마침내",
+    "exampleEn": "If you keep practicing every day, you will eventually become fluent in English.",
+    "exampleKr": "매일 꾸준히 연습한다면, 결국에는 영어를 유창하게 할 수 있게 될 것입니다."
+  },
+  {
+    "rank": 1141,
+    "term": "heat",
+    "definition": "To make something hot or hotter.",
+    "phonetic": "/hiːt/",
+    "pos": "verb",
+    "meaningKr": "데우다, 가열하다",
+    "exampleEn": "You can heat the leftover pizza in the oven for about five minutes.",
+    "exampleKr": "남은 피자를 오븐에서 5분 정도 데우면 됩니다."
+  },
+  {
+    "rank": 1142,
+    "term": "excite",
+    "definition": "To make someone feel happy, interested, or eager.",
+    "phonetic": "/ɪkˈsaɪt/",
+    "pos": "verb",
+    "meaningKr": "흥분시키다, 자극하다",
+    "exampleEn": "The news of the upcoming concert will certainly excite all of the young fans.",
+    "exampleKr": "곧 열릴 콘서트 소식은 분명 모든 어린 팬들을 설레게 할 것입니다."
+  },
+  {
+    "rank": 1143,
+    "term": "reader",
+    "definition": "A person who reads written or printed materials.",
+    "phonetic": "/ˈriːdər/",
+    "pos": "noun",
+    "meaningKr": "독자, 읽는 사람",
+    "exampleEn": "The author wrote a special message to every reader at the beginning of the book.",
+    "exampleKr": "작가는 책의 앞부분에 모든 독자들에게 전하는 특별한 메시지를 썼습니다."
+  },
+  {
+    "rank": 1144,
+    "term": "importance",
+    "definition": "The state of being important; having a big effect on.",
+    "phonetic": "/ɪmˈpɔːrtns/",
+    "pos": "noun",
+    "meaningKr": "중요성, 중대함",
+    "exampleEn": "The teacher emphasized the importance of completing all homework assignments on time.",
+    "exampleKr": "선생님은 모든 숙제를 제시간에 마치는 것의 중요성을 강조하셨습니다."
+  },
+  {
+    "rank": 1145,
+    "term": "distance",
+    "definition": "The amount of space between two places or things.",
+    "phonetic": "/ˈdɪstəns/",
+    "pos": "noun",
+    "meaningKr": "거리, 간격",
+    "exampleEn": "The distance between my house and the office is about ten kilometers.",
+    "exampleKr": "우리 집과 사무실 사이의 거리는 약 10킬로미터 정도입니다."
+  },
+  {
+    "rank": 1146,
+    "term": "guide",
+    "definition": "To lead people visiting a new or unknown place.",
+    "phonetic": "/ɡaɪd/",
+    "pos": "verb",
+    "meaningKr": "안내하다, 이끌다",
+    "exampleEn": "The tour leader will guide us through the historical museum this afternoon.",
+    "exampleKr": "투어 가이드가 오늘 오후에 역사 박물관을 안내해 줄 것입니다."
+  },
+  {
+    "rank": 1147,
+    "term": "grant",
+    "definition": "To give or let someone do what they want.",
+    "phonetic": "/ɡrænt/",
+    "pos": "verb",
+    "meaningKr": "승인하다, 부여하다",
+    "exampleEn": "The manager decided to grant her request for a few days off work.",
+    "exampleKr": "매니저는 며칠간의 휴가 요청을 승인하기로 결정했습니다."
+  },
+  {
+    "rank": 1148,
+    "term": "taxi",
+    "definition": "A car that transports people for money.",
+    "phonetic": "/ˈtæksi/",
+    "pos": "noun",
+    "meaningKr": "택시",
+    "exampleEn": "We should call a taxi because it is raining too hard to walk home.",
+    "exampleKr": "집까지 걸어가기엔 비가 너무 많이 오니 택시를 불러야겠어요."
+  },
+  {
+    "rank": 1149,
+    "term": "feed",
+    "definition": "To give food (e.g., to an animal or a baby).",
+    "phonetic": "/fiːd/",
+    "pos": "verb",
+    "meaningKr": "먹이를 주다, 먹이다",
+    "exampleEn": "Don't forget to feed the cat before you leave the house for work.",
+    "exampleKr": "출근하러 집을 나서기 전에 고양이에게 먹이 주는 것을 잊지 마세요."
+  },
+  {
+    "rank": 1150,
+    "term": "pain",
+    "definition": "A strong feeling of physical hurt or discomfort in the body.",
+    "phonetic": "/peɪn/",
+    "pos": "noun",
+    "meaningKr": "통증, 고통",
+    "exampleEn": "After the long hike, I felt a sharp pain in my left knee every time I walked.",
+    "exampleKr": "긴 하이킹 후에 걸을 때마다 왼쪽 무릎에 날카로운 통증을 느꼈습니다."
+  },
+  {
+    "rank": 1151,
+    "term": "sector",
+    "definition": "An area of an economy or society that includes certain kinds of jobs.",
+    "phonetic": "/ˈsektər/",
+    "pos": "noun",
+    "meaningKr": "부문, 분야, 구역",
+    "exampleEn": "The government is trying to create more jobs in the private sector to help the local economy.",
+    "exampleKr": "정부는 지역 경제를 돕기 위해 민간 부문에서 더 많은 일자리를 창출하려고 노력하고 있습니다."
+  },
+  {
+    "rank": 1152,
+    "term": "mistake",
+    "definition": "Something that is done wrong or an error in judgment or calculation.",
+    "phonetic": "/mɪˈsteɪk/",
+    "pos": "noun",
+    "meaningKr": "실수, 잘못",
+    "exampleEn": "I made a small mistake on the report, but my boss helped me fix it very quickly.",
+    "exampleKr": "보고서에 작은 실수를 했지만, 상사가 아주 빨리 수정하도록 도와주었습니다."
+  },
+  {
+    "rank": 1153,
+    "term": "ensure",
+    "definition": "To make something sure, certain, or safe for someone.",
+    "phonetic": "/ɪnˈʃʊər/",
+    "pos": "verb",
+    "meaningKr": "확실하게 하다, 보장하다",
+    "exampleEn": "Please double-check the lock on the front door to ensure that the house is safe tonight.",
+    "exampleKr": "오늘 밤 집이 안전하도록 현관문 잠금장치를 다시 한번 확인해 주세요."
+  },
+  {
+    "rank": 1154,
+    "term": "satisfy",
+    "definition": "To be happy or pleased because you met an expectation or need.",
+    "phonetic": "/ˈsætɪsfaɪ/",
+    "pos": "verb",
+    "meaningKr": "만족시키다, 충족시키다",
+    "exampleEn": "This delicious meal will certainly satisfy your hunger after working hard in the garden all day.",
+    "exampleKr": "이 맛있는 식사는 하루 종일 정원에서 열심히 일한 후의 배고픔을 확실히 채워줄 것입니다."
+  },
+  {
+    "rank": 1155,
+    "term": "chief",
+    "definition": "The most important or main person or thing in a group.",
+    "phonetic": "/tʃiːf/",
+    "pos": "adjective",
+    "meaningKr": "주요한, 최고의",
+    "exampleEn": "The chief reason for his success is that he practices playing the piano for several hours daily.",
+    "exampleKr": "그의 성공의 주요 원인은 매일 몇 시간씩 피아노 연주를 연습한다는 것입니다."
+  },
+  {
+    "rank": 1156,
+    "term": "cool",
+    "definition": "A temperature that is almost cold or not warm.",
+    "phonetic": "/kuːl/",
+    "pos": "adjective",
+    "meaningKr": "시원한, 서늘한",
+    "exampleEn": "It is a very cool evening, so you should probably wear a light jacket when you go out.",
+    "exampleKr": "저녁 날씨가 매우 서늘하니 외출할 때 얇은 재킷을 입는 것이 좋겠습니다."
+  },
+  {
+    "rank": 1157,
+    "term": "expert",
+    "definition": "A person with special knowledge or skills in a particular area.",
+    "phonetic": "/ˈekspɜːrt/",
+    "pos": "noun",
+    "meaningKr": "전문가",
+    "exampleEn": "My older brother is an expert at fixing computers and often helps our neighbors with their technical problems.",
+    "exampleKr": "우리 형은 컴퓨터 수리 전문가라서 이웃들의 기술적인 문제를 자주 도와주곤 합니다."
+  },
+  {
+    "rank": 1158,
+    "term": "wave",
+    "definition": "To move your hand or arm as a way to say hello or goodbye.",
+    "phonetic": "/weɪv/",
+    "pos": "verb",
+    "meaningKr": "손을 흔들다",
+    "exampleEn": "She began to wave her hand excitedly when she saw her best friend waiting at the airport gate.",
+    "exampleKr": "그녀는 공항 게이트에서 기다리고 있는 절친을 보자 신나게 손을 흔들기 시작했습니다."
+  },
+  {
+    "rank": 1159,
+    "term": "south",
+    "definition": "The direction that is the opposite of north.",
+    "phonetic": "/saʊθ/",
+    "pos": "noun",
+    "meaningKr": "남쪽, 남쪽의",
+    "exampleEn": "Many birds fly to the south during the winter because the weather is much warmer and more pleasant.",
+    "exampleKr": "많은 새들이 겨울 동안 날씨가 훨씬 더 따뜻하고 쾌적한 남쪽으로 날아갑니다."
+  },
+  {
+    "rank": 1160,
+    "term": "labor",
+    "definition": "To work very hard, often physically, for many hours.",
+    "phonetic": "/ˈleɪbər/",
+    "pos": "verb",
+    "meaningKr": "노동하다, 애쓰다",
+    "exampleEn": "Farmers have to labor in the fields for many hours under the hot sun to harvest their crops.",
+    "exampleKr": "농부들은 농작물을 수확하기 위해 뜨거운 태양 아래 들판에서 여러 시간 동안 노동해야 합니다."
+  },
+  {
+    "rank": 1161,
+    "term": "surface",
+    "definition": "The top layer of an object or the outside part of something.",
+    "phonetic": "/ˈsɜːrfɪs/",
+    "pos": "noun",
+    "meaningKr": "표면, 겉면",
+    "exampleEn": "The surface of the wooden table is very smooth because it was polished with special oil yesterday morning.",
+    "exampleKr": "어제 아침에 특수 오일로 닦았기 때문에 나무 테이블의 표면이 매우 매끄럽습니다."
+  },
+  {
+    "rank": 1162,
+    "term": "library",
+    "definition": "A place where books, magazines, and other media are kept for people to use.",
+    "phonetic": "/ˈlaɪbreri/",
+    "pos": "noun",
+    "meaningKr": "도서관",
+    "exampleEn": "I am going to the library to borrow some books for my school project about ancient history.",
+    "exampleKr": "고대 역사에 관한 학교 과제를 위해 책을 몇 권 빌리러 도서관에 갈 예정입니다."
+  },
+  {
+    "rank": 1163,
+    "term": "excellent",
+    "definition": "Something that is extremely good or of very high quality.",
+    "phonetic": "/ˈeksələnt/",
+    "pos": "adjective",
+    "meaningKr": "훌륭한, 뛰어난",
+    "exampleEn": "The hotel we stayed at last summer provided excellent service and had a beautiful view of the ocean.",
+    "exampleKr": "지난여름에 묵었던 호텔은 훌륭한 서비스를 제공했고 바다의 아름다운 전망을 갖추고 있었습니다."
+  },
+  {
+    "rank": 1164,
+    "term": "edge",
+    "definition": "The boundary or outer line of a surface or object.",
+    "phonetic": "/edʒ/",
+    "pos": "noun",
+    "meaningKr": "가장자리, 모서리",
+    "exampleEn": "Please do not put your glass so close to the edge of the table because it might fall.",
+    "exampleKr": "컵이 떨어질 수도 있으니 테이블 가장자리에 너무 가까이 두지 마세요."
+  },
+  {
+    "rank": 1165,
+    "term": "camp",
+    "definition": "A place where people live for a short time, usually in tents.",
+    "phonetic": "/kæmp/",
+    "pos": "noun",
+    "meaningKr": "캠프, 야영지",
+    "exampleEn": "Our family decided to camp in the mountains this weekend to enjoy the fresh air and the stars.",
+    "exampleKr": "우리 가족은 이번 주말에 신선한 공기와 별을 즐기기 위해 산에서 야영을 하기로 했습니다."
+  },
+  {
+    "rank": 1166,
+    "term": "audience",
+    "definition": "A group of people listening to or watching a play, movie, or performance.",
+    "phonetic": "/ˈɔːdiəns/",
+    "pos": "noun",
+    "meaningKr": "청중, 관객",
+    "exampleEn": "The audience clapped loudly for several minutes after the talented young musicians finished their amazing concert performance.",
+    "exampleKr": "재능 있는 젊은 음악가들이 멋진 콘서트 공연을 마친 후 관객들은 몇 분 동안 크게 박수를 쳤습니다."
+  },
+  {
+    "rank": 1167,
+    "term": "lift",
+    "definition": "To move something or someone to a higher position.",
+    "phonetic": "/lɪft/",
+    "pos": "verb",
+    "meaningKr": "들어 올리다",
+    "exampleEn": "Could you please help me lift this heavy box and put it on the top shelf in the garage?",
+    "exampleKr": "이 무거운 상자를 들어서 차고의 맨 위 선반에 올리는 것 좀 도와주시겠어요?"
+  },
+  {
+    "rank": 1168,
+    "term": "procedure",
+    "definition": "The usual or standard way in which something is done step by step.",
+    "phonetic": "/prəˈsiːdʒər/",
+    "pos": "noun",
+    "meaningKr": "절차, 순서",
+    "exampleEn": "You must follow the safety procedure carefully before starting any of the experiments in the science laboratory.",
+    "exampleKr": "과학 실험실에서 실험을 시작하기 전에 안전 절차를 주의 깊게 따라야 합니다."
+  },
+  {
+    "rank": 1169,
+    "term": "email",
+    "definition": "A system for sending messages from one computer to another through the internet.",
+    "phonetic": "/ˈiːmeɪl/",
+    "pos": "noun",
+    "meaningKr": "이메일",
+    "exampleEn": "I will send you an email with all the details about our meeting by the end of today.",
+    "exampleKr": "오늘 일과가 끝나기 전까지 우리 회의에 관한 모든 세부 사항을 담은 이메일을 보내겠습니다."
+  },
+  {
+    "rank": 1170,
+    "term": "global",
+    "definition": "Concerning, affecting, or involving the entire world.",
+    "phonetic": "/ˈɡloʊbl/",
+    "pos": "adjective",
+    "meaningKr": "세계적인, 지구의",
+    "exampleEn": "Climate change is a global problem that requires cooperation from every country around the world to solve effectively.",
+    "exampleKr": "기후 변화는 효과적으로 해결하기 위해 전 세계 모든 국가의 협력이 필요한 지구촌 문제입니다."
+  },
+  {
+    "rank": 1171,
+    "term": "struggle",
+    "definition": "To try very hard to do something that is difficult or challenging.",
+    "phonetic": "/ˈstrʌɡl/",
+    "pos": "verb",
+    "meaningKr": "고군분투하다, 애를 먹다",
+    "exampleEn": "Many students struggle to learn a new language, but they get better if they practice every single day.",
+    "exampleKr": "많은 학생이 새로운 언어를 배우는 데 애를 먹지만, 매일 연습하면 실력이 향상됩니다."
+  },
+  {
+    "rank": 1172,
+    "term": "advertise",
+    "definition": "To show how good a product is to encourage people to buy it.",
+    "phonetic": "/ˈædvərtaɪz/",
+    "pos": "verb",
+    "meaningKr": "광고하다, 알리다",
+    "exampleEn": "The company plans to advertise its new smartphone on television and social media to reach more young customers.",
+    "exampleKr": "그 회사는 더 많은 젊은 고객에게 다가가기 위해 TV와 소셜 미디어에 새 스마트폰을 광고할 계획입니다."
+  },
+  {
+    "rank": 1173,
+    "term": "select",
+    "definition": "To choose someone or something from a group as the most suitable one.",
+    "phonetic": "/sɪˈlekt/",
+    "pos": "verb",
+    "meaningKr": "선택하다, 고르다",
+    "exampleEn": "You can select any dish from the menu, and I will pay for our dinner tonight as a gift.",
+    "exampleKr": "메뉴에서 어떤 요리든 고르세요. 오늘 저녁 식사는 제가 선물로 계산하겠습니다."
+  },
+  {
+    "rank": 1174,
+    "term": "surround",
+    "definition": "To be on every side of something or someone.",
+    "phonetic": "/səˈraʊnd/",
+    "pos": "verb",
+    "meaningKr": "둘러싸다, 에워싸다",
+    "exampleEn": "Beautiful tall trees and colorful flowers surround the small cottage where my grandparents live in the countryside.",
+    "exampleKr": "조부모님이 사시는 시골의 작은 오두막은 아름답고 큰 나무들과 형형색색의 꽃들로 둘러싸여 있습니다."
+  },
+  {
+    "rank": 1175,
+    "term": "extent",
+    "definition": "The range, size, or space that is included in something.",
+    "phonetic": "/ɪkˈstent/",
+    "pos": "noun",
+    "meaningKr": "정도, 규모, 범위",
+    "exampleEn": "We do not yet know the full extent of the damage caused by the heavy storm last night.",
+    "exampleKr": "우리는 아직 어젯밤 심한 폭풍으로 인한 피해의 전체 규모를 알지 못합니다."
+  },
+  {
+    "rank": 1176,
+    "term": "river",
+    "definition": "A large natural flow of water that runs across land into the sea.",
+    "phonetic": "/ˈrɪvər/",
+    "pos": "noun",
+    "meaningKr": "강",
+    "exampleEn": "We spent the entire afternoon fishing by the river and watching the beautiful sunset behind the green hills.",
+    "exampleKr": "우리는 오후 내내 강가에서 낚시를 하고 푸른 언덕 너머로 지는 아름다운 일몰을 보며 보냈습니다."
+  },
+  {
+    "rank": 1177,
+    "term": "annual",
+    "definition": "Happening once every year or once a year.",
+    "phonetic": "/ˈænjuəl/",
+    "pos": "adjective",
+    "meaningKr": "매년의, 연례의",
+    "exampleEn": "Our company holds an annual picnic every summer to celebrate another successful year with all the employees.",
+    "exampleKr": "우리 회사는 전 직원과 함께 또 다른 성공적인 한 해를 축하하기 위해 매년 여름 소풍을 엽니다."
+  },
+  {
+    "rank": 1178,
+    "term": "fully",
+    "definition": "Completely or entirely in every way.",
+    "phonetic": "/ˈfʊli/",
+    "pos": "adverb",
+    "meaningKr": "충분히, 완전히",
+    "exampleEn": "I did not fully understand the instructions, so I had to ask the teacher to explain them again.",
+    "exampleKr": "설명을 완전히 이해하지 못해서 선생님께 다시 한번 설명해 달라고 부탁해야 했습니다."
+  },
+  {
+    "rank": 1179,
+    "term": "contrast",
+    "definition": "To compare things to show clear and obvious differences between them.",
+    "phonetic": "/ˈkɒntræst/",
+    "pos": "verb",
+    "meaningKr": "대조하다, 대비시키다",
+    "exampleEn": "It is interesting to contrast the quiet life in the countryside with the busy life in the city.",
+    "exampleKr": "시골의 조용한 삶과 도시의 바쁜 삶을 대조해 보는 것은 흥미로운 일입니다."
+  },
+  {
+    "rank": 1180,
+    "term": "roll",
+    "definition": "To move along a surface by turning over and over many times.",
+    "phonetic": "/roʊl/",
+    "pos": "verb",
+    "meaningKr": "구르다, 굴리다",
+    "exampleEn": "The children laughed as they watched the ball roll down the hill and land in the tall grass.",
+    "exampleKr": "아이들은 공이 언덕 아래로 굴러 내려가 긴 풀숲에 떨어지는 것을 보며 웃었습니다."
+  },
+  {
+    "rank": 1181,
+    "term": "reality",
+    "definition": "What is actually true or real as opposed to what is imagined.",
+    "phonetic": "/riˈæləti/",
+    "pos": "noun",
+    "meaningKr": "현실, 실제",
+    "exampleEn": "In reality, the project was much more difficult and time-consuming than we had originally expected it to be.",
+    "exampleKr": "현실적으로 그 프로젝트는 우리가 처음에 예상했던 것보다 훨씬 더 어렵고 시간이 많이 걸렸습니다."
+  },
+  {
+    "rank": 1182,
+    "term": "photograph",
+    "definition": "A picture made with a camera that shows how things look in real life.",
+    "phonetic": "/ˈfoʊtəɡræf/",
+    "pos": "noun",
+    "meaningKr": "사진",
+    "exampleEn": "My grandmother showed me an old photograph of her family taken many years ago in her hometown.",
+    "exampleKr": "할머니께서는 오래전 고향에서 찍은 가족사진 한 장을 나에게 보여주셨습니다."
+  },
+  {
+    "rank": 1183,
+    "term": "artist",
+    "definition": "A person who is skilled and creative in art, such as painting or sculpture.",
+    "phonetic": "/ˈɑːrtɪst/",
+    "pos": "noun",
+    "meaningKr": "예술가, 화가",
+    "exampleEn": "The local artist spent many months painting a beautiful mural on the wall of the community center.",
+    "exampleKr": "그 지역 예술가는 커뮤니티 센터 벽에 아름다운 벽화를 그리는 데 수개월을 보냈습니다."
+  },
+  {
+    "rank": 1184,
+    "term": "conflict",
+    "definition": "To have opposite ideas or to disagree strongly with something else.",
+    "phonetic": "/ˈkɒnflɪkt/",
+    "pos": "verb",
+    "meaningKr": "상충하다, 갈등을 빚다",
+    "exampleEn": "His busy work schedule began to conflict with his personal life, so he decided to change his job.",
+    "exampleKr": "그의 바쁜 업무 일정이 개인 생활과 상충하기 시작해서 그는 직업을 바꾸기로 결심했습니다."
+  },
+  {
+    "rank": 1185,
+    "term": "entire",
+    "definition": "Complete or full with no part left out.",
+    "phonetic": "/ɪnˈtaɪər/",
+    "pos": "adjective",
+    "meaningKr": "전체의, 내내",
+    "exampleEn": "I was so hungry that I ate the entire pizza by myself while watching a movie last night.",
+    "exampleKr": "어젯밤 영화를 보면서 너무 배가 고파서 피자 한 판을 통째로 혼자 다 먹었습니다."
+  },
+  {
+    "rank": 1186,
+    "term": "presence",
+    "definition": "The fact that someone or something is in a particular place at a particular time.",
+    "phonetic": "/ˈprezns/",
+    "pos": "noun",
+    "meaningKr": "존재, 참석",
+    "exampleEn": "Your presence at the wedding ceremony would mean a lot to both the bride and the groom.",
+    "exampleKr": "결혼식에 당신이 참석해 주신다면 신랑 신부 두 사람 모두에게 큰 의미가 될 것입니다."
+  },
+  {
+    "rank": 1187,
+    "term": "crowd",
+    "definition": "A large group of people gathered together in one place.",
+    "phonetic": "/kraʊd/",
+    "pos": "noun",
+    "meaningKr": "군중, 무리",
+    "exampleEn": "A large crowd gathered in the city square to watch the colorful parade during the holiday festival.",
+    "exampleKr": "축제 기간 동안 화려한 퍼레이드를 보기 위해 시내 광장에 큰 군중이 모였습니다."
+  },
+  {
+    "rank": 1188,
+    "term": "corner",
+    "definition": "The place where two lines, sides, or streets meet.",
+    "phonetic": "/ˈkɔːrnər/",
+    "pos": "noun",
+    "meaningKr": "모퉁이, 구석",
+    "exampleEn": "There is a small coffee shop on the corner of the street that serves the best lattes.",
+    "exampleKr": "길모퉁이에 라떼를 아주 잘 만드는 작은 커피숍이 하나 있습니다."
+  },
+  {
+    "rank": 1189,
+    "term": "gas",
+    "definition": "A substance like air that is neither solid nor liquid.",
+    "phonetic": "/ɡæs/",
+    "pos": "noun",
+    "meaningKr": "기체, 가스",
+    "exampleEn": "Oxygen is a gas that is necessary for humans and animals to breathe and stay alive every day.",
+    "exampleKr": "산소는 인간과 동물이 매일 숨을 쉬고 살아가는 데 필요한 기체입니다."
+  },
+  {
+    "rank": 1190,
+    "term": "shift",
+    "definition": "To change in position, direction, or focus.",
+    "phonetic": "/ʃɪft/",
+    "pos": "verb",
+    "meaningKr": "바꾸다, 옮기다",
+    "exampleEn": "The factory workers have to shift their focus to quality control to make sure every product is perfect.",
+    "exampleKr": "공장 노동자들은 모든 제품이 완벽하도록 품질 관리에 초점을 맞춰야 합니다."
+  },
+  {
+    "rank": 1191,
+    "term": "net",
+    "definition": "A material made of string tied together to catch fish or other animals.",
+    "phonetic": "/net/",
+    "pos": "noun",
+    "meaningKr": "그물, 망",
+    "exampleEn": "The fisherman used a large net to catch many fish in the deep blue waters of the ocean.",
+    "exampleKr": "어부는 깊고 푸른 바다에서 많은 물고기를 잡기 위해 커다란 그물을 사용했습니다."
+  },
+  {
+    "rank": 1192,
+    "term": "category",
+    "definition": "A group of things that are similar in some way.",
+    "phonetic": "/ˈkætəɡɔːri/",
+    "pos": "noun",
+    "meaningKr": "범주, 카테고리",
+    "exampleEn": "You can find the fiction books in this category on the second floor of the public library.",
+    "exampleKr": "공공 도서관 2층에서 이 카테고리에 속하는 소설책들을 찾을 수 있습니다."
+  },
+  {
+    "rank": 1193,
+    "term": "secretary",
+    "definition": "An employee who does office work, keeps records, and handles correspondence for another person.",
+    "phonetic": "/ˈsekrəteri/",
+    "pos": "noun",
+    "meaningKr": "비서",
+    "exampleEn": "The secretary is responsible for organizing the manager's schedule and answering phone calls from important clients.",
+    "exampleKr": "비서는 매니저의 일정을 정리하고 중요한 고객으로부터 걸려오는 전화를 받는 일을 담당합니다."
+  },
+  {
+    "rank": 1194,
+    "term": "defense",
+    "definition": "The process or act of protecting something or someone from attack.",
+    "phonetic": "/dɪˈfens/",
+    "pos": "noun",
+    "meaningKr": "방어, 수비",
+    "exampleEn": "The team's strong defense prevented the other players from scoring any goals during the entire soccer match.",
+    "exampleKr": "그 팀의 강력한 수비는 축구 경기 내내 상대 선수들이 골을 넣지 못하게 막았습니다."
+  },
+  {
+    "rank": 1195,
+    "term": "quick",
+    "definition": "Done in a short time or moving at a fast speed.",
+    "phonetic": "/kwɪk/",
+    "pos": "adjective",
+    "meaningKr": "빠른, 신속한",
+    "exampleEn": "He took a quick shower and grabbed his bag before running out the door to catch the bus.",
+    "exampleKr": "그는 버스를 타기 위해 문밖으로 달려나가기 전 빠르게 샤워를 하고 가방을 챙겼습니다."
+  },
+  {
+    "rank": 1196,
+    "term": "cook",
+    "definition": "To prepare food for eating by using heat.",
+    "phonetic": "/kʊk/",
+    "pos": "verb",
+    "meaningKr": "요리하다",
+    "exampleEn": "My father loves to cook delicious pasta for the whole family every Sunday evening after we go out.",
+    "exampleKr": "아버지는 매주 일요일 저녁 외출 후에 온 가족을 위해 맛있는 파스타를 요리하는 것을 좋아하십니다."
+  },
+  {
+    "rank": 1197,
+    "term": "spread",
+    "definition": "To place something over or cover a large area with it.",
+    "phonetic": "/spred/",
+    "pos": "verb",
+    "meaningKr": "퍼뜨리다, 바르다",
+    "exampleEn": "You should spread some butter on the warm bread while it is still fresh from the kitchen oven.",
+    "exampleKr": "오븐에서 갓 나온 따뜻한 빵에 버터를 좀 발라 먹는 것이 좋습니다."
+  },
+  {
+    "rank": 1198,
+    "term": "nuclear",
+    "definition": "Relating to or using the energy released from the center of an atom.",
+    "phonetic": "/ˈnuːkliər/",
+    "pos": "adjective",
+    "meaningKr": "핵의, 원자력의",
+    "exampleEn": "Scientists are studying how to use nuclear energy safely to provide electricity for cities around the whole world.",
+    "exampleKr": "과학자들은 전 세계 도시들에 전기를 공급하기 위해 원자력 에너지를 안전하게 사용하는 방법을 연구하고 있습니다."
+  },
+  {
+    "rank": 1199,
+    "term": "scale",
+    "definition": "A device that is used to measure the weight of a person or thing.",
+    "phonetic": "/skeɪl/",
+    "pos": "noun",
+    "meaningKr": "저울, 규모",
+    "exampleEn": "She stepped on the scale this morning to see if she had lost any weight after her diet.",
+    "exampleKr": "그녀는 다이어트 후에 몸무게가 줄었는지 확인하기 위해 오늘 아침 저울 위에 올라갔습니다."
+  },
+  {
+    "rank": 1200,
+    "term": "driver",
+    "definition": "A person who operates a motor vehicle such as a car, bus, or truck.",
+    "phonetic": "/ˈdraɪvər/",
+    "pos": "noun",
+    "meaningKr": "운전자, 기사",
+    "exampleEn": "The taxi driver was very kind and helped me carry my heavy bags to the door.",
+    "exampleKr": "택시 기사님은 매우 친절하셨고 제 무거운 가방들을 문 앞까지 옮겨 주셨습니다."
   }
 ]

@@ -2,6 +2,17038 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-ngsl-1",
+    "title": "기초 영어 필수 1000",
+    "icon": "🌱",
+    "isCurated": true,
+    "category": "기초",
+    "level": "beginner",
+    "description": "일상 영어 필수 1000. NGSL by Browne & Culligan (CC BY-SA 4.0) 기반, 뜻·예문 AI 생성",
+    "sourceLanguage": "en",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1778314103073,
+    "words": [
+      {
+        "id": "word-ngsl-0-1778314103073",
+        "term": "move",
+        "definition": "to cause something to change to a different place",
+        "meaningKr": "움직이다, 옮기다",
+        "exampleEn": "Can you help me move this heavy table to the other side of the living room?",
+        "exampleKr": "이 무거운 테이블을 거실 반대편으로 옮기는 것 좀 도와줄 수 있니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/muːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-1-1778314103073",
+        "term": "money",
+        "definition": "coins or notes we use to pay for things",
+        "meaningKr": "돈, 자금",
+        "exampleEn": "I need to save some money so I can buy a new laptop for school soon.",
+        "exampleKr": "곧 학교에서 쓸 새 노트북을 사려면 돈을 좀 모아야 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmʌni/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-2-1778314103073",
+        "term": "fact",
+        "definition": "something that is known or proved to be true",
+        "meaningKr": "사실, 실제",
+        "exampleEn": "It is a well-known fact that eating fresh vegetables is good for your overall health.",
+        "exampleKr": "신선한 채소를 먹는 것이 전반적인 건강에 좋다는 것은 잘 알려진 사실입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fækt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-3-1778314103073",
+        "term": "however",
+        "definition": "used to say something is different from what was said before; but",
+        "meaningKr": "하지만, 그러나",
+        "exampleEn": "The movie was very long; however, I enjoyed every minute of the exciting and emotional story.",
+        "exampleKr": "그 영화는 매우 길었지만, 저는 그 흥미진진하고 감동적인 이야기의 모든 순간을 즐겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/haʊˈevər/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-4-1778314103073",
+        "term": "area",
+        "definition": "a specific section or space; part of a region",
+        "meaningKr": "지역, 구역",
+        "exampleEn": "There are many nice restaurants and small cafes in this specific area of the city.",
+        "exampleKr": "도시의 이 특정 지역에는 좋은 식당과 작은 카페들이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeriə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-5-1778314103073",
+        "term": "provide",
+        "definition": "to make available; to supply for use",
+        "meaningKr": "제공하다, 공급하다",
+        "exampleEn": "The hotel will provide a free breakfast for all guests staying in the building this week.",
+        "exampleKr": "호텔은 이번 주에 건물에 머무는 모든 투숙객에게 무료 조식을 제공할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈvaɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-6-1778314103073",
+        "term": "name",
+        "definition": "what something or someone is called",
+        "meaningKr": "이름, 성함",
+        "exampleEn": "Please write your full name at the top of the application form before submitting it.",
+        "exampleKr": "신청서를 제출하기 전에 양식 상단에 성함을 정자로 기재해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/neɪm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-7-1778314103073",
+        "term": "read",
+        "definition": "to look at and comprehend the meaning some writing",
+        "meaningKr": "읽다, 독서하다",
+        "exampleEn": "I like to read a few pages of a book before I go to sleep tonight.",
+        "exampleKr": "저는 오늘 밤 잠들기 전에 책을 몇 페이지 읽는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/riːd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-8-1778314103073",
+        "term": "friend",
+        "definition": "person who you like and enjoy being with",
+        "meaningKr": "친구",
+        "exampleEn": "My best friend and I have known each other since we were in elementary school.",
+        "exampleKr": "제 절친한 친구와 저는 초등학교 때부터 서로 알고 지낸 사이입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/frend/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-9-1778314103073",
+        "term": "month",
+        "definition": "one of 12 time periods that make a year, each from 28 to 31 days long",
+        "meaningKr": "달, 월",
+        "exampleEn": "I am planning to go on a vacation to Europe next month with my whole family.",
+        "exampleKr": "저는 다음 달에 온 가족과 함께 유럽으로 휴가를 갈 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/mʌnθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-10-1778314103073",
+        "term": "large",
+        "definition": "big; of great size; broad, tall, wide, long, or fat",
+        "meaningKr": "큰, 대규모의",
+        "exampleEn": "We need a large box to pack all these clothes for our move next week.",
+        "exampleKr": "다음 주 이사를 위해 이 옷들을 모두 담을 큰 상자가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɑːrdʒ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-11-1778314103073",
+        "term": "business",
+        "definition": "the making, buying, or selling goods or services for money",
+        "meaningKr": "사업, 일",
+        "exampleEn": "He decided to start his own business selling handmade furniture online late last year.",
+        "exampleKr": "그는 작년 말에 수제 가구를 온라인으로 판매하는 자신의 사업을 시작하기로 결심했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbɪznəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-12-1778314103073",
+        "term": "without",
+        "definition": "used to say you don't have something or it isn't in a place",
+        "meaningKr": "~없이",
+        "exampleEn": "I cannot imagine starting my morning without a hot cup of coffee to wake me up.",
+        "exampleKr": "잠을 깨워줄 뜨거운 커피 한 잔 없이 아침을 시작하는 것은 상상할 수 없어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɪˈðaʊt/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-13-1778314103073",
+        "term": "information",
+        "definition": "collection of facts and details about something",
+        "meaningKr": "정보",
+        "exampleEn": "You can find more information about the event on our official website or social media pages.",
+        "exampleKr": "행사에 대한 더 많은 정보는 공식 웹사이트나 소셜 미디어 페이지에서 찾으실 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɪnfərˈmeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-14-1778314103073",
+        "term": "open",
+        "definition": "not closed or shut",
+        "meaningKr": "열려 있는, 개방된",
+        "exampleEn": "Is the grocery store still open at this late hour of the night in this neighborhood?",
+        "exampleKr": "이 동네 식료품점은 밤늦은 이 시간에도 여전히 문을 여나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈoʊpən/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-15-1778314103073",
+        "term": "order",
+        "definition": "to ask for something you want to buy (e.g., a meal)",
+        "meaningKr": "주문하다",
+        "exampleEn": "We should order some pizza for dinner because nobody feels like cooking in the kitchen tonight.",
+        "exampleKr": "오늘 밤은 아무도 요리하고 싶어 하지 않으니 저녁으로 피자를 주문하는 게 좋겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːrdər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-16-1778314103073",
+        "term": "government",
+        "definition": "group of people and system which rule a nation",
+        "meaningKr": "정부",
+        "exampleEn": "The government is introducing new laws to protect the environment and reduce plastic waste effectively.",
+        "exampleKr": "정부는 환경을 보호하고 플라스틱 폐기물을 효과적으로 줄이기 위해 새로운 법안을 도입하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɡʌvərnmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-17-1778314103073",
+        "term": "word",
+        "definition": "unit of language that has a meaning",
+        "meaningKr": "단어, 말",
+        "exampleEn": "I did not understand that specific word, so I had to look it up in the dictionary.",
+        "exampleKr": "그 특정 단어를 이해하지 못해서 사전에서 찾아봐야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɜːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-18-1778314103073",
+        "term": "issue",
+        "definition": "important topic discussed, debated, or argued over",
+        "meaningKr": "문제, 쟁점",
+        "exampleEn": "The main issue we need to discuss today is how to improve our internal team communication.",
+        "exampleKr": "오늘 우리가 논의해야 할 주요 쟁점은 내부 팀 소통을 어떻게 개선할 것인가입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɪʃuː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-19-1778314103073",
+        "term": "market",
+        "definition": "public event where people sell goods on tables",
+        "meaningKr": "시장",
+        "exampleEn": "I love going to the local market on Saturdays to buy fresh fruits and organic vegetables.",
+        "exampleKr": "저는 토요일마다 지역 시장에 가서 신선한 과일과 유기농 채소를 사는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmɑːrkɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-20-1778314103073",
+        "term": "pay",
+        "definition": "to give money for goods or work done",
+        "meaningKr": "지불하다, 내다",
+        "exampleEn": "How much did you have to pay for those beautiful flowers at the shop down the street?",
+        "exampleKr": "길 아래쪽 가게에 있는 저 예쁜 꽃들을 사기 위해 얼마를 내야 했나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/peɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-21-1778314103073",
+        "term": "build",
+        "definition": "to make (e.g., a house, by putting materials together)",
+        "meaningKr": "짓다, 세우다",
+        "exampleEn": "The company plans to build a new office building in the center of the city next year.",
+        "exampleKr": "그 회사는 내년에 도심에 새로운 사옥을 지을 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪld/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-22-1778314103073",
+        "term": "hold",
+        "definition": "to use hands or arms to carry or keep something",
+        "meaningKr": "잡다, 쥐다",
+        "exampleEn": "Could you please hold my heavy bag for a moment while I look for my car keys?",
+        "exampleKr": "차 열쇠를 찾는 동안 제 무거운 가방을 잠시만 들어주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hoʊld/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-23-1778314103073",
+        "term": "service",
+        "definition": "to maintain a piece of machinery so it runs well",
+        "meaningKr": "점검하다, 정비하다",
+        "exampleEn": "I need to take my car to the garage to have the engine serviced before our trip.",
+        "exampleKr": "여행을 가기 전에 엔진을 점검받으러 차를 정비소에 맡겨야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɜːrvɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-24-1778314103073",
+        "term": "against",
+        "definition": "in opposition to; disagreeing with",
+        "meaningKr": "~에 반대하여, ~에 대항하여",
+        "exampleEn": "Our local team played very well against their rivals in the final match of the season yesterday.",
+        "exampleKr": "우리 지역 팀은 어제 시즌 마지막 경기에서 라이벌 팀을 상대로 매우 잘 싸웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈɡenst/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-25-1778314103073",
+        "term": "believe",
+        "definition": "to think or accept that something is true",
+        "meaningKr": "믿다, 생각하다",
+        "exampleEn": "I firmly believe that hard work and dedication are the keys to achieving your personal goals.",
+        "exampleKr": "저는 노력과 헌신이 개인적인 목표를 달성하는 열쇠라고 굳게 믿습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪˈliːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-26-1778314103073",
+        "term": "second",
+        "definition": "2nd; the one following first",
+        "meaningKr": "두 번째의",
+        "exampleEn": "This is the second time I have visited this beautiful park during my stay in this city.",
+        "exampleKr": "이 도시에 머무는 동안 이 아름다운 공원을 방문한 것은 이번이 두 번째입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsekənd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-27-1778314103073",
+        "term": "though",
+        "definition": "although, despite the fact that",
+        "meaningKr": "하지만, 비록 ~일지라도",
+        "exampleEn": "The food was a bit expensive, though it tasted absolutely delicious and the service was great.",
+        "exampleKr": "음식이 좀 비싸긴 했지만, 정말 맛있었고 서비스도 훌륭했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ðoʊ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-28-1778314103073",
+        "term": "yes",
+        "definition": "way to say you agree or will do something",
+        "meaningKr": "네, 예",
+        "exampleEn": "Yes, I would be very happy to help you with your English homework this afternoon after class.",
+        "exampleKr": "네, 오늘 오후 수업이 끝난 후에 기꺼이 당신의 영어 숙제를 도와드릴게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/jes/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-29-1778314103073",
+        "term": "love",
+        "definition": "to care for and like someone very strong and deeply",
+        "meaningKr": "사랑하다, 아주 좋아하다",
+        "exampleEn": "I love spending quality time with my family and friends during the winter holidays every year.",
+        "exampleKr": "저는 매년 겨울 휴가 기간에 가족, 친구들과 소중한 시간을 보내는 것을 아주 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lʌv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-30-1778314103073",
+        "term": "increase",
+        "definition": "to make or become something larger in size or amount",
+        "meaningKr": "증가하다, 늘리다",
+        "exampleEn": "The company hopes to increase its sales by launching a new creative advertising campaign next month.",
+        "exampleKr": "그 회사는 다음 달에 새로운 창의적인 광고 캠페인을 시작하여 매출을 늘리기를 희망합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈkriːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-31-1778314103073",
+        "term": "job",
+        "definition": "regular work of earning money",
+        "meaningKr": "직업, 일",
+        "exampleEn": "She is looking for a new job that offers a better salary and more flexible working hours.",
+        "exampleKr": "그녀는 더 나은 급여와 더 유연한 근무 시간을 제공하는 새로운 직장을 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dʒɑːb/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-32-1778314103073",
+        "term": "plan",
+        "definition": "to decide a set of actions to do something",
+        "meaningKr": "계획하다",
+        "exampleEn": "We need to plan our summer trip carefully to make sure we see all the famous sights.",
+        "exampleKr": "유명한 명소들을 모두 볼 수 있도록 여름 여행 계획을 신중하게 세워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/plæn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-33-1778314103073",
+        "term": "result",
+        "definition": "to be the outcome of other causes and effects",
+        "meaningKr": "(결과로) 발생하다, 생기다",
+        "exampleEn": "Eating too much sugar can result in various health problems over a long period of time.",
+        "exampleKr": "설탕을 너무 많이 섭취하면 장기적으로 다양한 건강 문제를 일으킬 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈzʌlt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-34-1778314103073",
+        "term": "away",
+        "definition": "not here; far from here; in a different direction",
+        "meaningKr": "떨어져, 멀리",
+        "exampleEn": "Please put your toys away before you start doing your homework for school today.",
+        "exampleKr": "오늘 학교 숙제를 시작하기 전에 장난감들을 제자리에 치워주렴.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈweɪ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-35-1778314103073",
+        "term": "example",
+        "definition": "something or someone who represents a group",
+        "meaningKr": "예, 사례",
+        "exampleEn": "Can you give me a clear example of how to use this grammar rule correctly in conversation?",
+        "exampleKr": "대화에서 이 문법 규칙을 어떻게 올바르게 사용하는지 명확한 예를 들어주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪɡˈzæmpl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-36-1778314103073",
+        "term": "happen",
+        "definition": "to take place or occur",
+        "meaningKr": "일어나다, 발생하다",
+        "exampleEn": "I wonder what will happen if we do not finish this important project by the final deadline.",
+        "exampleKr": "우리가 이 중요한 프로젝트를 최종 마감일까지 끝내지 못하면 어떻게 될지 궁금합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈæpən/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-37-1778314103073",
+        "term": "offer",
+        "definition": "to give the opportunity to accept something",
+        "meaningKr": "제안하다, 제공하다",
+        "exampleEn": "The company decided to offer him a higher position after his successful performance during the past year.",
+        "exampleKr": "회사는 지난 한 해 동안의 성공적인 성과를 바탕으로 그에게 더 높은 직책을 제안하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːfər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-38-1778314103073",
+        "term": "young",
+        "definition": "at an early stage of existence; not mature",
+        "meaningKr": "어린, 젊은",
+        "exampleEn": "When I was young, I used to dream of becoming a famous musician and traveling the world.",
+        "exampleKr": "제가 어렸을 때, 저는 유명한 음악가가 되어 세계를 여행하는 꿈을 꾸곤 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/jʌŋ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-39-1778314103073",
+        "term": "close",
+        "definition": "next to; only a short distance away",
+        "meaningKr": "가까운",
+        "exampleEn": "My house is very close to the subway station, so commuting to work is very easy for me.",
+        "exampleKr": "우리 집은 지하철역과 매우 가까워서 출퇴근하는 것이 저에게는 매우 쉽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kloʊs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-40-1778314103073",
+        "term": "program",
+        "definition": "planned set of actions; a schematic system",
+        "meaningKr": "프로그램, 계획",
+        "exampleEn": "The local school offers a special program for students who want to learn a foreign language quickly.",
+        "exampleKr": "지역 학교는 외국어를 빨리 배우고 싶어 하는 학생들을 위한 특별 프로그램을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈproʊɡræm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-41-1778314103073",
+        "term": "lead",
+        "definition": "to show the way or guide others",
+        "meaningKr": "이끌다, 안내하다",
+        "exampleEn": "The professional tour guide will lead us through the ancient ruins and explain their fascinating history today.",
+        "exampleKr": "전문 가이드가 오늘 우리를 고대 유적지로 안내하며 그 매혹적인 역사에 대해 설명해 줄 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/liːd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-42-1778314103073",
+        "term": "buy",
+        "definition": "to get something by paying money for it",
+        "meaningKr": "사다, 구입하다",
+        "exampleEn": "I want to buy a new pair of comfortable running shoes for the marathon next weekend.",
+        "exampleKr": "저는 다음 주말 마라톤을 위해 편안한 새 러닝화 한 켤레를 사고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/baɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-43-1778314103073",
+        "term": "understand",
+        "definition": "to know the meaning of language, what someone says",
+        "meaningKr": "이해하다, 알아듣다",
+        "exampleEn": "It took me a while to understand the complex instructions for setting up the new office computer.",
+        "exampleKr": "새 사무용 컴퓨터를 설치하는 복잡한 지침을 이해하는 데 시간이 좀 걸렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌʌndərˈstænd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-44-1778314103073",
+        "term": "thank",
+        "definition": "to tell someone you are grateful to them",
+        "meaningKr": "감사하다, 고마워하다",
+        "exampleEn": "I want to thank you for all the kind help you have given me during this week.",
+        "exampleKr": "이번 주 동안 저에게 베풀어 주신 모든 친절한 도움에 감사드리고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/θæŋk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-45-1778314103073",
+        "term": "far",
+        "definition": "a long way away",
+        "meaningKr": "멀리",
+        "exampleEn": "How far is it from your current house to the nearest grocery store in this small town?",
+        "exampleKr": "당신의 현재 집에서 이 작은 마을의 가장 가까운 식료품점까지 거리가 얼마나 되나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɑːr/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-46-1778314103073",
+        "term": "today",
+        "definition": "on this day; at the time that is happening now",
+        "meaningKr": "오늘",
+        "exampleEn": "Today is a beautiful day to go for a long walk in the park with your friends.",
+        "exampleKr": "오늘은 친구들과 함께 공원에서 긴 산책을 하기에 아주 아름다운 날입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/təˈdeɪ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-47-1778314103073",
+        "term": "hour",
+        "definition": "60 minutes; one of 24 equal units of time in a day",
+        "meaningKr": "시간",
+        "exampleEn": "It takes about an hour to drive from my home to the city center during rush hour.",
+        "exampleKr": "혼잡 시간대에 우리 집에서 도심까지 차로 운전해서 가는 데 약 한 시간이 걸립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈaʊər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-48-1778314103073",
+        "term": "student",
+        "definition": "person studying at school",
+        "meaningKr": "학생",
+        "exampleEn": "Every student in this class must submit their final essay by the end of the day Friday.",
+        "exampleKr": "이 반의 모든 학생은 금요일 일과 종료 전까지 최종 에세이를 제출해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈstuːdnt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-49-1778314103073",
+        "term": "face",
+        "definition": "front part of the head where eyes, nose, and mouth are",
+        "meaningKr": "얼굴",
+        "exampleEn": "She had a big smile on her face when she heard the wonderful news from her family.",
+        "exampleKr": "그녀는 가족으로부터 멋진 소식을 들었을 때 얼굴에 커다란 미소를 지었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/feɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-50-1778314103073",
+        "term": "hope",
+        "definition": "To wish for something to happen or be true.",
+        "meaningKr": "바라다, 희망하다",
+        "exampleEn": "I hope that we can all meet up for dinner sometime next weekend.",
+        "exampleKr": "나는 우리가 다음 주말 언젠가 저녁 식사를 위해 모두 만날 수 있기를 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hoʊp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-51-1778314103073",
+        "term": "idea",
+        "definition": "A thought, suggestion, or plan for doing something.",
+        "meaningKr": "생각, 아이디어",
+        "exampleEn": "Do you have any good ideas for where we should go on our vacation?",
+        "exampleKr": "우리 휴가 때 어디로 가야 할지에 대해 좋은 생각이 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/aɪˈdiːə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-52-1778314103073",
+        "term": "cost",
+        "definition": "The amount of money needed to buy or do something.",
+        "meaningKr": "비용, 가격",
+        "exampleEn": "The cost of living in this city has increased significantly over the past few years.",
+        "exampleKr": "이 도시의 생활비는 지난 몇 년 동안 상당히 많이 올랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kɔːst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-53-1778314103073",
+        "term": "less",
+        "definition": "A smaller amount or degree of something.",
+        "meaningKr": "더 적은, 덜한",
+        "exampleEn": "You should try to spend less money on things that you do not really need.",
+        "exampleKr": "정말로 필요하지 않은 것들에 돈을 더 적게 쓰도록 노력해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/les/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-54-1778314103073",
+        "term": "room",
+        "definition": "A part of a building that is enclosed by walls.",
+        "meaningKr": "방, 공간",
+        "exampleEn": "My new apartment has a large living room where I can host many of my friends.",
+        "exampleKr": "제 새 아파트는 많은 친구들을 초대할 수 있는 넓은 거실이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ruːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-55-1778314103073",
+        "term": "until",
+        "definition": "Up to a particular point in time.",
+        "meaningKr": "~까지",
+        "exampleEn": "I will stay at the library until it closes so that I can finish my homework.",
+        "exampleKr": "숙제를 끝낼 수 있도록 도서관이 문을 닫을 때까지 그곳에 머물 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʌnˈtɪl/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-56-1778314103073",
+        "term": "reason",
+        "definition": "A cause or explanation for an action or event.",
+        "meaningKr": "이유, 근거",
+        "exampleEn": "Could you please tell me the reason why you were late for the meeting this morning?",
+        "exampleKr": "오늘 아침 회의에 왜 늦었는지 그 이유를 저에게 말씀해 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈriːzn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-57-1778314103073",
+        "term": "form",
+        "definition": "A document with blank spaces for information to be inserted.",
+        "meaningKr": "서식, 양식, 형태",
+        "exampleEn": "Please fill out this application form and return it to the front desk when you finish.",
+        "exampleKr": "이 신청 서류를 작성하시고 다 끝나면 안내 데스크에 다시 제출해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɔːrm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-58-1778314103073",
+        "term": "spend",
+        "definition": "To use money to buy goods or services.",
+        "meaningKr": "(돈을) 쓰다, (시간을) 보내다",
+        "exampleEn": "We spent the entire afternoon walking around the park and enjoying the beautiful sunny weather.",
+        "exampleKr": "우리는 오후 내내 공원을 산책하고 아름답고 화창한 날씨를 즐기며 시간을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-59-1778314103073",
+        "term": "head",
+        "definition": "The part of the body that contains the brain, eyes, ears, nose, and mouth.",
+        "meaningKr": "머리, 고개",
+        "exampleEn": "He wore a warm hat on his head to protect himself from the cold winter wind.",
+        "exampleKr": "그는 추운 겨울 바람으로부터 자신을 보호하기 위해 머리에 따뜻한 모자를 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hed/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-60-1778314103073",
+        "term": "car",
+        "definition": "A road vehicle with four wheels and an engine.",
+        "meaningKr": "자동차, 차",
+        "exampleEn": "My brother bought a new car last week because his old one was constantly breaking down.",
+        "exampleKr": "제 남동생은 예전 차가 계속 고장이 나서 지난주에 새 차를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kɑːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-61-1778314103073",
+        "term": "learn",
+        "definition": "To gain knowledge or skill by studying or practicing.",
+        "meaningKr": "배우다, 익히다",
+        "exampleEn": "It is never too late to learn a new language or pick up a new hobby.",
+        "exampleKr": "새로운 언어를 배우거나 새로운 취미를 시작하기에 너무 늦은 때란 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɜːrn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-62-1778314103073",
+        "term": "level",
+        "definition": "To make a surface flat or even.",
+        "meaningKr": "평평하게 하다, 고르다",
+        "exampleEn": "The workers need to level the ground before they can start building the new house here.",
+        "exampleKr": "일꾼들은 이곳에 새 집을 짓기 시작하기 전에 땅을 평평하게 고를 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈlevl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-63-1778314103073",
+        "term": "person",
+        "definition": "A human being regarded as an individual.",
+        "meaningKr": "사람, 개인",
+        "exampleEn": "She is the most kind and helpful person I have ever met in my entire life.",
+        "exampleKr": "그녀는 제가 평생 동안 만나본 사람 중 가장 친절하고 도움이 되는 사람입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɜːrsn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-64-1778314103073",
+        "term": "experience",
+        "definition": "Knowledge or skill that comes from having done or seen things.",
+        "meaningKr": "경험, 경력",
+        "exampleEn": "Traveling to different countries is a great way to gain new experiences and learn about cultures.",
+        "exampleKr": "다른 나라들을 여행하는 것은 새로운 경험을 쌓고 문화에 대해 배우는 아주 좋은 방법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈspɪriəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-65-1778314103073",
+        "term": "once",
+        "definition": "On one occasion or one time only.",
+        "meaningKr": "한 번, 예전에",
+        "exampleEn": "I only visited that famous museum once when I was a student living in London.",
+        "exampleKr": "저는 런던에 사는 학생이었을 때 그 유명한 박물관을 딱 한 번 방문했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wʌns/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-66-1778314103073",
+        "term": "member",
+        "definition": "A person or thing belonging to a particular group.",
+        "meaningKr": "구성원, 회원",
+        "exampleEn": "Every member of the team worked very hard to ensure that the project was a success.",
+        "exampleKr": "팀의 모든 구성원은 프로젝트가 성공할 수 있도록 정말 열심히 일했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmembər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-67-1778314103073",
+        "term": "enough",
+        "definition": "As much or as many as required.",
+        "meaningKr": "충분한",
+        "exampleEn": "We have enough food in the refrigerator to last us for the rest of the week.",
+        "exampleKr": "우리에게는 이번 주 남은 기간 동안 먹기에 충분한 음식이 냉장고에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈnʌf/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-68-1778314103073",
+        "term": "bad",
+        "definition": "Of poor quality or low standard.",
+        "meaningKr": "나쁜, 좋지 않은",
+        "exampleEn": "I had a really bad headache today so I decided to stay home and rest.",
+        "exampleKr": "오늘 머리가 너무 아파서 집에 머물며 휴식을 취하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bæd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-69-1778314103073",
+        "term": "city",
+        "definition": "A large town with many people and buildings.",
+        "meaningKr": "도시, 시",
+        "exampleEn": "Seoul is a very busy city with a lot of people and many interesting places to visit.",
+        "exampleKr": "서울은 사람도 많고 방문할 흥미로운 장소도 많은 매우 바쁜 도시입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɪti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-70-1778314103073",
+        "term": "night",
+        "definition": "The period of time when it is dark outside.",
+        "meaningKr": "밤, 야간",
+        "exampleEn": "The stars look so beautiful in the sky during a clear night in the countryside.",
+        "exampleKr": "시골의 맑은 밤에는 하늘의 별들이 정말 아름답게 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/naɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-71-1778314103073",
+        "term": "able",
+        "definition": "Having the power, skill, or means to do something.",
+        "meaningKr": "할 수 있는, 유능한",
+        "exampleEn": "After practicing for many months, he was finally able to play the piano very well.",
+        "exampleKr": "몇 달 동안 연습한 끝에, 그는 마침내 피아노를 아주 잘 칠 수 있게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeɪbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-72-1778314103073",
+        "term": "support",
+        "definition": "To give assistance or encouragement to someone.",
+        "meaningKr": "지지하다, 지원하다",
+        "exampleEn": "My family always gives me a lot of support whenever I want to try something new.",
+        "exampleKr": "우리 가족은 제가 새로운 것을 시도하고 싶어 할 때마다 항상 많은 지지를 해줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈpɔːrt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-73-1778314103073",
+        "term": "whether",
+        "definition": "Expressing a doubt or choice between alternatives.",
+        "meaningKr": "~인지 아닌지",
+        "exampleEn": "I am not sure whether I should go to the party or stay home tonight.",
+        "exampleKr": "오늘 밤 파티에 가야 할지 아니면 집에 있어야 할지 잘 모르겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈweðər/",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-ngsl-74-1778314103073",
+        "term": "line",
+        "definition": "A long, narrow mark or band.",
+        "meaningKr": "선, 줄",
+        "exampleEn": "Please stand in a straight line and wait for your turn to enter the cinema.",
+        "exampleKr": "일직선으로 줄을 서서 영화관에 입장할 여러분의 차례를 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/laɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-75-1778314103073",
+        "term": "present",
+        "definition": "A thing given to someone as a gift.",
+        "meaningKr": "선물, 현재",
+        "exampleEn": "I bought a special birthday present for my best friend who is turning thirty this year.",
+        "exampleKr": "올해 서른 살이 되는 제 절친한 친구를 위해 특별한 생일 선물을 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpreznt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-76-1778314103073",
+        "term": "side",
+        "definition": "A position to the left or right of an object.",
+        "meaningKr": "쪽, 측면",
+        "exampleEn": "There are many small shops and cafes on both sides of the main street.",
+        "exampleKr": "중심가 양쪽에는 작은 가게들과 카페들이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/saɪd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-77-1778314103073",
+        "term": "quite",
+        "definition": "To a certain or fairly significant degree.",
+        "meaningKr": "꽤, 상당히",
+        "exampleEn": "The weather today is quite warm so you might not need to wear a heavy jacket.",
+        "exampleKr": "오늘 날씨가 꽤 따뜻해서 두꺼운 재킷을 입을 필요가 없을 수도 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kwaɪt/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-78-1778314103073",
+        "term": "although",
+        "definition": "In spite of the fact that.",
+        "meaningKr": "비록 ~일지라도",
+        "exampleEn": "Although it was raining heavily outside, we decided to go for a walk in the park.",
+        "exampleKr": "밖에는 비가 많이 내리고 있었지만, 우리는 공원으로 산책을 나가기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɔːlˈðoʊ/",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-ngsl-79-1778314103073",
+        "term": "sure",
+        "definition": "Completely confident that one is right.",
+        "meaningKr": "확신하는, 확실한",
+        "exampleEn": "Are you sure that you locked the front door before we left the house earlier?",
+        "exampleKr": "우리가 아까 집을 나서기 전에 현관문을 잠근 것이 확실합니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃʊr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-80-1778314103073",
+        "term": "term",
+        "definition": "A fixed period of time in a school or university year.",
+        "meaningKr": "학기, 기간, 용어",
+        "exampleEn": "Students are usually very busy studying for their final exams at the end of the term.",
+        "exampleKr": "학생들은 보통 학기 말에 기말고사를 위해 공부하느라 매우 바쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tɜːrm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-81-1778314103073",
+        "term": "least",
+        "definition": "Smallest in amount, extent, or significance.",
+        "meaningKr": "최소의, 적어도",
+        "exampleEn": "You should drink at least eight glasses of water every day to stay healthy and hydrated.",
+        "exampleKr": "건강과 수분 유지를 위해 매일 적어도 여덟 잔의 물을 마셔야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/liːst/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-82-1778314103073",
+        "term": "age",
+        "definition": "The length of time that a person has lived.",
+        "meaningKr": "나이, 연령, 시대",
+        "exampleEn": "It is amazing how much technology has changed since the time of my grandfather's age.",
+        "exampleKr": "할아버지 세대의 시대 이후로 기술이 얼마나 많이 변했는지는 정말 놀랍습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/eɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-83-1778314103073",
+        "term": "low",
+        "definition": "Situated or occurring far below the usual level.",
+        "meaningKr": "낮은, 낮게",
+        "exampleEn": "The shelves in the kitchen are too low for me to reach without bending down.",
+        "exampleKr": "주방의 선반들이 너무 낮아서 몸을 굽히지 않고는 손이 닿지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/loʊ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-84-1778314103073",
+        "term": "speak",
+        "definition": "To say something in order to convey information.",
+        "meaningKr": "말하다, 이야기하다",
+        "exampleEn": "Please speak more slowly so that I can understand everything you are trying to say.",
+        "exampleKr": "당신이 말하려는 모든 것을 이해할 수 있도록 좀 더 천천히 말씀해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spiːk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-85-1778314103073",
+        "term": "within",
+        "definition": "Inside the range or limits of something.",
+        "meaningKr": "~이내에, 안쪽에",
+        "exampleEn": "You must complete the assignment within two weeks and submit it to your teacher.",
+        "exampleKr": "당신은 2주 이내에 과제를 완료하고 선생님께 제출해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɪˈðɪn/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-86-1778314103073",
+        "term": "process",
+        "definition": "To perform a series of mechanical or chemical operations on something.",
+        "meaningKr": "처리하다, 가공하다",
+        "exampleEn": "The factory uses a special machine to process the raw materials into finished products quickly.",
+        "exampleKr": "그 공장은 원자재를 완제품으로 빠르게 처리하기 위해 특수 기계를 사용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɑːses/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-87-1778314103073",
+        "term": "public",
+        "definition": "Relating to or concerning the people as a whole.",
+        "meaningKr": "공공의, 대중의",
+        "exampleEn": "Public transportation like buses and subways is very convenient for traveling around the city.",
+        "exampleKr": "버스와 지하철 같은 대중교통은 도시 곳곳을 여행하기에 매우 편리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpʌblɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-88-1778314103073",
+        "term": "often",
+        "definition": "Frequently or many times.",
+        "meaningKr": "자주, 종종",
+        "exampleEn": "I often go to the local library on weekends to read books and study quietly.",
+        "exampleKr": "저는 주말에 책을 읽고 조용히 공부하기 위해 지역 도서관에 자주 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːfn/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-89-1778314103073",
+        "term": "train",
+        "definition": "A series of connected railway carriages or wagons.",
+        "meaningKr": "기차, 열차",
+        "exampleEn": "Taking the train is often faster than driving a car when there is a lot of traffic.",
+        "exampleKr": "교통 체증이 심할 때는 기차를 타는 것이 차를 운전하는 것보다 종종 더 빠릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/treɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-90-1778314103073",
+        "term": "possible",
+        "definition": "Able to be done or achieved.",
+        "meaningKr": "가능한",
+        "exampleEn": "Is it possible for us to move our meeting to a later time this afternoon?",
+        "exampleKr": "오늘 오후 우리 회의를 더 늦은 시간으로 옮기는 것이 가능할까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɑːsəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-91-1778314103073",
+        "term": "actually",
+        "definition": "Used to emphasize that something is true.",
+        "meaningKr": "실제로, 사실은",
+        "exampleEn": "I thought the movie would be boring, but it was actually very exciting and fun.",
+        "exampleKr": "영화가 지루할 줄 알았는데, 실제로는 매우 흥미진진하고 재미있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈæktʃuəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-92-1778314103073",
+        "term": "rather",
+        "definition": "To a certain extent or degree.",
+        "meaningKr": "꽤, 다소, 오히려",
+        "exampleEn": "I would rather stay at home and watch a movie than go out tonight.",
+        "exampleKr": "저는 오늘 밤 외출하는 것보다 집에 머물며 영화를 보는 편이 더 좋겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈræðər/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-93-1778314103073",
+        "term": "view",
+        "definition": "The ability to see something from a particular place.",
+        "meaningKr": "전망, 경치, 견해",
+        "exampleEn": "The hotel room offered a spectacular view of the ocean and the surrounding mountains.",
+        "exampleKr": "그 호텔 방은 바다와 주변 산들의 멋진 전망을 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/vjuː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-94-1778314103073",
+        "term": "together",
+        "definition": "With or in proximity to another person or people.",
+        "meaningKr": "함께, 같이",
+        "exampleEn": "Let's get together this weekend to celebrate your promotion and have a nice dinner.",
+        "exampleKr": "이번 주말에 함께 모여 당신의 승진을 축하하고 멋진 저녁 식사를 합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/təˈɡeðər/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-95-1778314103073",
+        "term": "consider",
+        "definition": "To think carefully about something, typically before making a decision.",
+        "meaningKr": "고려하다, 생각하다",
+        "exampleEn": "You should carefully consider all your options before making such an important life decision.",
+        "exampleKr": "그렇게 중요한 인생의 결정을 내리기 전에 모든 선택지를 신중하게 고려해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈsɪdər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-96-1778314103073",
+        "term": "price",
+        "definition": "To decide the amount of money for which something will be sold.",
+        "meaningKr": "가격을 매기다, 가격",
+        "exampleEn": "The shopkeeper decided to price the handmade items higher because they take a long time.",
+        "exampleKr": "가게 주인은 수공예품이 시간이 오래 걸리기 때문에 가격을 더 높게 책정하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/praɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-97-1778314103073",
+        "term": "parent",
+        "definition": "A father or mother of a person.",
+        "meaningKr": "부모, 어버이",
+        "exampleEn": "Being a parent is a difficult job that requires a lot of patience and love.",
+        "exampleKr": "부모가 되는 것은 많은 인내와 사랑이 필요한 어려운 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈperənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-98-1778314103073",
+        "term": "hard",
+        "definition": "Solid, firm, and resistant to pressure.",
+        "meaningKr": "딱딱한, 어려운, 열심히",
+        "exampleEn": "The ground was so hard after the frost that it was impossible to plant anything.",
+        "exampleKr": "서리가 내린 후 땅이 너무 딱딱해져서 아무것도 심을 수가 없었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hɑːrd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-99-1778314103073",
+        "term": "party",
+        "definition": "A social gathering of invited guests.",
+        "meaningKr": "파티, 모임",
+        "exampleEn": "We are planning to throw a big surprise party for my sister's graduation next month.",
+        "exampleKr": "우리는 다음 달 제 여동생의 졸업을 위해 큰 깜짝 파티를 열 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɑːrti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-100-1778314103073",
+        "term": "local",
+        "definition": "Relating or restricted to a particular area, city, or town.",
+        "meaningKr": "지역의, 현지의",
+        "exampleEn": "I always try to buy fresh vegetables at the local market near my house.",
+        "exampleKr": "나는 항상 집 근처 지역 시장에서 신선한 채소를 사려고 노력해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈloʊkl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-101-1778314103073",
+        "term": "control",
+        "definition": "To direct or influence the behavior of something.",
+        "meaningKr": "통제하다, 조절하다",
+        "exampleEn": "It is important to learn how to control your emotions in difficult situations.",
+        "exampleKr": "어려운 상황에서 자신의 감정을 조절하는 법을 배우는 것은 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈtroʊl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-102-1778314103073",
+        "term": "already",
+        "definition": "Having happened or been done before this time.",
+        "meaningKr": "이미, 벌써",
+        "exampleEn": "I have already finished my homework, so I can go out and play now.",
+        "exampleKr": "나는 이미 숙제를 다 끝내서 이제 나가서 놀 수 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɔːlˈredi/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-103-1778314103073",
+        "term": "concern",
+        "definition": "Feeling of worry or anxiety.",
+        "meaningKr": "우려, 걱정",
+        "exampleEn": "There is a lot of concern about the rising cost of living these days.",
+        "exampleKr": "요즘 생활비 상승에 대해 많은 우려가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈsɜːrn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-104-1778314103073",
+        "term": "product",
+        "definition": "Item that can be bought.",
+        "meaningKr": "제품, 상품",
+        "exampleEn": "This company is famous for making high-quality beauty products for sensitive skin.",
+        "exampleKr": "이 회사는 민감한 피부를 위한 고품질 미용 제품을 만드는 것으로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɑːdʌkt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-105-1778314103073",
+        "term": "lose",
+        "definition": "To be unable to find something you once had.",
+        "meaningKr": "잃어버리다, 지다",
+        "exampleEn": "Please be careful not to lose your passport while you are traveling abroad.",
+        "exampleKr": "해외 여행을 하는 동안 여권을 잃어버리지 않도록 주의하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/luːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-106-1778314103073",
+        "term": "story",
+        "definition": "An account or description of how something happened.",
+        "meaningKr": "이야기",
+        "exampleEn": "My grandfather used to tell me an interesting story every night before bed.",
+        "exampleKr": "우리 할아버지는 매일 밤 자기 전에 나에게 흥미로운 이야기를 해주시곤 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈstɔːri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-107-1778314103073",
+        "term": "almost",
+        "definition": "Only a little less than, nearly, not quite.",
+        "meaningKr": "거의",
+        "exampleEn": "I have almost finished reading this book, and the ending is very exciting.",
+        "exampleKr": "나는 이 책을 거의 다 읽어가는데, 결말이 정말 흥미진진해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːlmoʊst/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-108-1778314103073",
+        "term": "continue",
+        "definition": "To do something without stopping, or after pausing.",
+        "meaningKr": "계속하다",
+        "exampleEn": "Even though it started to rain, they decided to continue their walk in the park.",
+        "exampleKr": "비가 내리기 시작했지만, 그들은 공원에서 산책을 계속하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈtɪnjuː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-109-1778314103073",
+        "term": "stand",
+        "definition": "To be upright; not be sitting or lying down.",
+        "meaningKr": "서다, 서 있다",
+        "exampleEn": "We had to stand in a long line for an hour to get tickets.",
+        "exampleKr": "우리는 티켓을 사기 위해 한 시간 동안 긴 줄을 서 있어야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stænd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-110-1778314103073",
+        "term": "whole",
+        "definition": "Complete or full; all of.",
+        "meaningKr": "전체의, 모든",
+        "exampleEn": "I was so hungry that I ate the whole pizza by myself for dinner.",
+        "exampleKr": "나는 너무 배가 고파서 저녁으로 피자 한 판을 혼자 다 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hoʊl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-111-1778314103073",
+        "term": "yet",
+        "definition": "Until now; up to the present.",
+        "meaningKr": "아직",
+        "exampleEn": "I haven't decided where to go for my summer vacation this year yet.",
+        "exampleKr": "나는 올해 여름 휴가를 어디로 갈지 아직 결정하지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/jet/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-112-1778314103073",
+        "term": "rate",
+        "definition": "Speed or frequency of events over time.",
+        "meaningKr": "속도, 비율",
+        "exampleEn": "The rate of technological change is much faster than it was in the past.",
+        "exampleKr": "기술 변화의 속도는 과거보다 훨씬 더 빠릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/reɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-113-1778314103073",
+        "term": "care",
+        "definition": "To look after someone or something.",
+        "meaningKr": "돌보다, 신경 쓰다",
+        "exampleEn": "It is very important to care for your health by eating well and exercising.",
+        "exampleKr": "잘 먹고 운동함으로써 건강을 돌보는 것은 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ker/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-114-1778314103073",
+        "term": "expect",
+        "definition": "To believe something is probably going to happen.",
+        "meaningKr": "기대하다, 예상하다",
+        "exampleEn": "I expect that the weather will be sunny tomorrow, so let's go for a picnic.",
+        "exampleKr": "내일 날씨가 맑을 것으로 예상되니 소풍을 가도록 합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈspekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-115-1778314103073",
+        "term": "effect",
+        "definition": "Change brought about by a cause; result.",
+        "meaningKr": "효과, 영향",
+        "exampleEn": "The medicine had a positive effect on my health and I feel much better now.",
+        "exampleKr": "그 약은 내 건강에 긍정적인 효과를 주었고 지금은 훨씬 기분이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈfekt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-116-1778314103073",
+        "term": "sort",
+        "definition": "Group or class of similar things or people.",
+        "meaningKr": "종류, 부류",
+        "exampleEn": "What sort of music do you usually like to listen to when you are working?",
+        "exampleKr": "일할 때 보통 어떤 종류의 음악을 듣는 것을 좋아하시나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɔːrt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-117-1778314103073",
+        "term": "ever",
+        "definition": "At any time; at all times in the future.",
+        "meaningKr": "언젠가, 이전에",
+        "exampleEn": "Have you ever been to Jeju Island during the beautiful spring cherry blossom season?",
+        "exampleKr": "아름다운 봄 벚꽃 시즌에 제주도에 가본 적이 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈevər/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-118-1778314103073",
+        "term": "anything",
+        "definition": "Thing of any kind; used to refer to a thing in questions.",
+        "meaningKr": "무엇이든, 아무것도",
+        "exampleEn": "If you need anything from the grocery store, please let me know before I leave.",
+        "exampleKr": "식료품점에서 필요한 것이 있으면 제가 떠나기 전에 말씀해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeniθɪŋ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-119-1778314103073",
+        "term": "cause",
+        "definition": "To make something happen; create effect or result.",
+        "meaningKr": "원인이 되다, 야기하다",
+        "exampleEn": "Driving too fast on a rainy day can cause a serious accident on the road.",
+        "exampleKr": "비 오는 날 너무 빨리 운전하는 것은 도로에서 심각한 사고를 유발할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kɔːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-120-1778314103073",
+        "term": "fall",
+        "definition": "Dropping from a standing position to the ground.",
+        "meaningKr": "넘어짐, 하락",
+        "exampleEn": "He had a bad fall while playing soccer and hurt his left knee quite badly.",
+        "exampleKr": "그는 축구를 하다가 심하게 넘어져서 왼쪽 무릎을 꽤 심하게 다쳤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɔːl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-121-1778314103073",
+        "term": "deal",
+        "definition": "To give out (cards, etc.) to; distribute.",
+        "meaningKr": "나누어 주다, 다루다",
+        "exampleEn": "The dealer started to deal the cards to everyone sitting around the table.",
+        "exampleKr": "딜러는 테이블에 앉아 있는 모든 사람들에게 카드를 나누어 주기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/diːl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-122-1778314103073",
+        "term": "water",
+        "definition": "Clear liquid that forms the seas, rivers, and rain.",
+        "meaningKr": "물",
+        "exampleEn": "Drinking enough water every day is essential for keeping your body healthy and hydrated.",
+        "exampleKr": "매일 충분한 물을 마시는 것은 몸의 건강과 수분을 유지하는 데 필수적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwɔːtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-123-1778314103073",
+        "term": "send",
+        "definition": "To cause mail or package to go to another place.",
+        "meaningKr": "보내다",
+        "exampleEn": "I will send you an email with all the details about our meeting tomorrow.",
+        "exampleKr": "내일 우리 회의에 대한 모든 세부 사항이 담긴 이메일을 보내드리겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/send/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-124-1778314103073",
+        "term": "allow",
+        "definition": "To let or permit someone do something.",
+        "meaningKr": "허락하다, 허용하다",
+        "exampleEn": "My parents don't allow me to stay out late on school nights during the week.",
+        "exampleKr": "우리 부모님은 평일 학교 가는 날에 내가 늦게까지 밖에 있는 것을 허락하지 않으십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈlaʊ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-125-1778314103073",
+        "term": "soon",
+        "definition": "At a time not long from now.",
+        "meaningKr": "곧, 머지않아",
+        "exampleEn": "I hope to see you soon so we can catch up on everything since last year.",
+        "exampleKr": "작년 이후의 모든 소식을 나눌 수 있도록 곧 뵙기를 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/suːn/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-126-1778314103073",
+        "term": "watch",
+        "definition": "To look at carefully to work out what is happening.",
+        "meaningKr": "지켜보다, 보다",
+        "exampleEn": "We should watch the sunset at the beach because the view is absolutely beautiful today.",
+        "exampleKr": "오늘 경치가 정말 아름다우니 해변에서 일몰을 지켜봐야 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɑːtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-127-1778314103073",
+        "term": "base",
+        "definition": "Origin or start from which something came.",
+        "meaningKr": "기초, 토대",
+        "exampleEn": "Good communication is the base of a strong and healthy relationship between two people.",
+        "exampleKr": "좋은 의사소통은 두 사람 사이의 강하고 건강한 관계의 기초입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/beɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-128-1778314103073",
+        "term": "probably",
+        "definition": "Likely to happen or be true.",
+        "meaningKr": "아마도",
+        "exampleEn": "It will probably rain this afternoon, so you should take an umbrella with you.",
+        "exampleKr": "오늘 오후에 아마도 비가 올 것이니 우산을 챙겨가는 것이 좋겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɑːbəbli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-129-1778314103073",
+        "term": "suggest",
+        "definition": "To mention something that could be done; propose.",
+        "meaningKr": "제안하다, 추천하다",
+        "exampleEn": "Can you suggest a good restaurant nearby where we can have a quiet dinner together?",
+        "exampleKr": "우리가 함께 조용한 저녁을 먹을 수 있는 근처의 좋은 식당을 추천해 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈdʒest/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-130-1778314103073",
+        "term": "past",
+        "definition": "The time that existed before now (e.g., long ago).",
+        "meaningKr": "과거",
+        "exampleEn": "We can learn many valuable lessons from the past to make better decisions today.",
+        "exampleKr": "우리는 오늘 더 나은 결정을 내리기 위해 과거로부터 많은 귀중한 교훈을 얻을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pæst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-131-1778314103073",
+        "term": "power",
+        "definition": "Legal or official right to perform certain actions.",
+        "meaningKr": "권한, 힘",
+        "exampleEn": "The president has the power to make important decisions for the future of the country.",
+        "exampleKr": "대통령은 국가의 미래를 위해 중요한 결정을 내릴 수 있는 권한을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpaʊər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-132-1778314103073",
+        "term": "test",
+        "definition": "Examination; questions to measure knowledge.",
+        "meaningKr": "시험, 검사",
+        "exampleEn": "I have a big English test tomorrow morning, so I need to study tonight.",
+        "exampleKr": "내일 아침에 큰 영어 시험이 있어서 오늘 밤에 공부를 해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/test/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-133-1778314103073",
+        "term": "visit",
+        "definition": "To go to a place for a time, usually for a reason.",
+        "meaningKr": "방문하다",
+        "exampleEn": "I plan to visit my grandparents in the countryside during the upcoming long weekend.",
+        "exampleKr": "나는 다가오는 긴 주말 동안 시골에 계신 조부모님을 방문할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈvɪzɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-134-1778314103073",
+        "term": "center",
+        "definition": "Place in the middle of something.",
+        "meaningKr": "중심, 센터",
+        "exampleEn": "The shopping center is located in the middle of the city for everyone's convenience.",
+        "exampleKr": "쇼핑 센터는 모든 사람의 편의를 위해 도시 한복판에 위치해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsentər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-135-1778314103073",
+        "term": "grow",
+        "definition": "To develop and become bigger or taller over time.",
+        "meaningKr": "자라다, 성장하다",
+        "exampleEn": "Children grow very quickly, so they need new clothes and shoes almost every year.",
+        "exampleKr": "아이들은 매우 빨리 자라서 거의 매년 새 옷과 신발이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡroʊ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-136-1778314103073",
+        "term": "nothing",
+        "definition": "Not anything, not a single thing.",
+        "meaningKr": "아무것도",
+        "exampleEn": "There is nothing in the refrigerator, so we should go grocery shopping this afternoon.",
+        "exampleKr": "냉장고에 아무것도 없어서 오늘 오후에 식료품 쇼핑을 하러 가야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnʌθɪŋ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-137-1778314103073",
+        "term": "return",
+        "definition": "To come back to a place again.",
+        "meaningKr": "돌아오다, 반납하다",
+        "exampleEn": "Please remember to return the books to the library by the end of this week.",
+        "exampleKr": "이번 주말까지 도서관에 책을 반납하는 것을 잊지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈtɜːrn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-138-1778314103073",
+        "term": "mother",
+        "definition": "A female who has a child or children.",
+        "meaningKr": "어머니, 엄마",
+        "exampleEn": "My mother is the person who taught me how to be kind to other people.",
+        "exampleKr": "우리 어머니는 나에게 다른 사람들에게 친절하게 대하는 법을 가르쳐 주신 분입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmʌðər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-139-1778314103073",
+        "term": "walk",
+        "definition": "To move with your legs at a slowish pace.",
+        "meaningKr": "걷다",
+        "exampleEn": "I like to walk to work every morning to get some fresh air and exercise.",
+        "exampleKr": "나는 신선한 공기를 마시고 운동하기 위해 매일 아침 직장까지 걷는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɔːk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-140-1778314103073",
+        "term": "matter",
+        "definition": "Problem or reason for concern.",
+        "meaningKr": "문제, 일",
+        "exampleEn": "I need to discuss an important matter with you before we start the project.",
+        "exampleKr": "프로젝트를 시작하기 전에 당신과 중요한 문제에 대해 논의해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmætər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-141-1778314103073",
+        "term": "mind",
+        "definition": "Part of humans that allows us to think or feel.",
+        "meaningKr": "마음, 정신",
+        "exampleEn": "Keeping a positive mind can help you overcome many challenges in your daily life.",
+        "exampleKr": "긍정적인 마음을 갖는 것은 일상 생활에서 많은 도전을 극복하는 데 도움이 될 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/maɪnd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-142-1778314103073",
+        "term": "value",
+        "definition": "To say how much money something is worth.",
+        "meaningKr": "가치를 매기다, 평가하다",
+        "exampleEn": "An expert will come tomorrow to value the antique furniture in my living room.",
+        "exampleKr": "전문가가 내일 우리 거실에 있는 골동품 가구의 가치를 평가하러 올 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈvæljuː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-143-1778314103073",
+        "term": "office",
+        "definition": "Building of set of rooms used to do business or professional activities.",
+        "meaningKr": "사무실",
+        "exampleEn": "My office is located on the tenth floor of a very tall building downtown.",
+        "exampleKr": "제 사무실은 시내의 아주 높은 건물 10층에 위치해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːfɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-144-1778314103073",
+        "term": "record",
+        "definition": "Being the highest or most extreme level achieved in an area.",
+        "meaningKr": "기록적인, 최고 수준의",
+        "exampleEn": "The temperature reached a record high today, making it the hottest day of summer.",
+        "exampleKr": "오늘 기온이 기록적인 최고치에 도달하여 올여름 가장 더운 날이 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrekərd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-145-1778314103073",
+        "term": "stay",
+        "definition": "To spend time visiting a place or someone's home.",
+        "meaningKr": "머무르다, 지내다",
+        "exampleEn": "You are welcome to stay at my house whenever you visit this city again.",
+        "exampleKr": "이 도시를 다시 방문할 때마다 언제든지 저희 집에서 머무르셔도 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/steɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-146-1778314103073",
+        "term": "force",
+        "definition": "To use physical strength or violence to persuade.",
+        "meaningKr": "강요하다, 강제로 ~하게 하다",
+        "exampleEn": "You cannot force someone to change their mind if they are not ready yet.",
+        "exampleKr": "누군가가 아직 준비되지 않았다면 그들의 마음을 바꾸도록 강요할 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɔːrs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-147-1778314103073",
+        "term": "stop",
+        "definition": "To finish moving or to come to an end.",
+        "meaningKr": "멈추다, 그만두다",
+        "exampleEn": "Please stop making that loud noise because I am trying to focus on my work.",
+        "exampleKr": "제가 업무에 집중하려고 하니 그 시끄러운 소리를 내는 것을 멈춰 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stɑːp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-148-1778314103073",
+        "term": "several",
+        "definition": "More than two but not many.",
+        "meaningKr": "여러, 몇몇의",
+        "exampleEn": "I have visited several different countries in Europe during my summer vacation last year.",
+        "exampleKr": "나는 작년 여름 휴가 동안 유럽의 여러 나라를 방문했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsevrəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-149-1778314103073",
+        "term": "light",
+        "definition": "Not heavy; weighing only a little.",
+        "meaningKr": "가벼운",
+        "exampleEn": "This suitcase is very light, so it will be easy to carry during our trip.",
+        "exampleKr": "이 여행 가방은 매우 가벼워서 우리 여행 중에 들고 다니기 쉬울 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/laɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-150-1778314103073",
+        "term": "develop",
+        "definition": "To grow bigger, more complex, or more advanced over a period of time.",
+        "meaningKr": "발달하다, 성장하다",
+        "exampleEn": "The small village started to develop into a busy town with many new shops and cafes.",
+        "exampleKr": "그 작은 마을은 많은 새로운 상점과 카페가 생기며 번화한 마을로 발달하기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈveləp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-151-1778314103073",
+        "term": "remember",
+        "definition": "To bring a previous image, idea, or piece of information back to your mind.",
+        "meaningKr": "기억하다, 생각나다",
+        "exampleEn": "I can't remember where I put my car keys, so I need to search the house.",
+        "exampleKr": "차 열쇠를 어디에 두었는지 기억나지 않아서 집을 찾아봐야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈmembər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-152-1778314103073",
+        "term": "bit",
+        "definition": "A small piece or a small amount of something.",
+        "meaningKr": "조금, 약간",
+        "exampleEn": "I only need a little bit of sugar in my coffee to make it taste perfect.",
+        "exampleKr": "커피 맛을 완벽하게 만들기 위해 설탕이 아주 조금만 더 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-153-1778314103073",
+        "term": "share",
+        "definition": "A part of a company that you own, usually shown by a certificate.",
+        "meaningKr": "주식, 지분",
+        "exampleEn": "He decided to invest his savings by buying a share in a popular technology company recently.",
+        "exampleKr": "그는 최근 인기 있는 기술 회사의 주식을 사서 저축한 돈을 투자하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃer/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-154-1778314103073",
+        "term": "real",
+        "definition": "Actually existing or happening in life rather than being imagined or fake.",
+        "meaningKr": "진짜의, 실제의",
+        "exampleEn": "Is that a real diamond on your ring, or is it just a piece of glass?",
+        "exampleKr": "당신의 반지에 있는 것은 진짜 다이아몬드인가요, 아니면 그냥 유리 조각인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/riːəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-155-1778314103073",
+        "term": "answer",
+        "definition": "The solution to a problem, a test question, or a response to a query.",
+        "meaningKr": "대답, 정답",
+        "exampleEn": "I spent a long time thinking, but I finally found the correct answer to the question.",
+        "exampleKr": "오랫동안 고민했지만, 마침내 그 질문에 대한 정답을 찾아냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈænsər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-156-1778314103073",
+        "term": "sit",
+        "definition": "To be in a resting position on a chair or other furniture.",
+        "meaningKr": "앉다",
+        "exampleEn": "Please feel free to sit on the sofa while you wait for the doctor to arrive.",
+        "exampleKr": "의사 선생님이 도착하기를 기다리는 동안 소파에 편하게 앉아 계세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-157-1778314103073",
+        "term": "figure",
+        "definition": "To understand or solve something after thinking about it carefully.",
+        "meaningKr": "생각하다, 판단하다",
+        "exampleEn": "I figure that we should leave early to avoid the heavy traffic on the main highway.",
+        "exampleKr": "고속도로의 극심한 정체를 피하려면 우리가 일찍 출발해야 한다고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɪɡjər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-158-1778314103073",
+        "term": "letter",
+        "definition": "A written message that you put in an envelope and send by post.",
+        "meaningKr": "편지",
+        "exampleEn": "She wrote a long letter to her grandmother to tell her all about her new job.",
+        "exampleKr": "그녀는 할머니께 새 직장에 대한 모든 것을 말씀드리기 위해 긴 편지를 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈletər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-159-1778314103073",
+        "term": "decide",
+        "definition": "To make a choice about something after considering different possibilities.",
+        "meaningKr": "결정하다, 결심하다",
+        "exampleEn": "It took me a long time to decide which dress I should wear to the party.",
+        "exampleKr": "파티에 어떤 드레스를 입고 가야 할지 결정하는 데 오랜 시간이 걸렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈsaɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-160-1778314103073",
+        "term": "language",
+        "definition": "The words or signs used by people to communicate messages to each other.",
+        "meaningKr": "언어",
+        "exampleEn": "Learning a new language is a great way to understand the culture of a different country.",
+        "exampleKr": "새로운 언어를 배우는 것은 다른 나라의 문화를 이해하는 아주 좋은 방법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈlæŋɡwɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-161-1778314103073",
+        "term": "subject",
+        "definition": "The person or thing that is being discussed, described, or written about.",
+        "meaningKr": "주제, 대상",
+        "exampleEn": "The main subject of our meeting today will be the new project starting next month.",
+        "exampleKr": "오늘 우리 회의의 주요 주제는 다음 달에 시작되는 새로운 프로젝트가 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsʌbdʒɪkt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-162-1778314103073",
+        "term": "class",
+        "definition": "A rank or level in society based on social or economic status.",
+        "meaningKr": "계층, 계급",
+        "exampleEn": "In some countries, people are still divided into different social classes based on family background.",
+        "exampleKr": "일부 국가에서는 여전히 가족 배경에 따라 사람들이 서로 다른 사회 계층으로 나뉩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/klæs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-163-1778314103073",
+        "term": "development",
+        "definition": "The act or process of growing bigger, stronger, or more advanced.",
+        "meaningKr": "발달, 발전",
+        "exampleEn": "The rapid development of technology has changed the way we communicate with each other every day.",
+        "exampleKr": "기술의 급격한 발전은 우리가 매일 서로 소통하는 방식을 변화시켰습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈveləpmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-164-1778314103073",
+        "term": "town",
+        "definition": "A place where people live and work that is smaller than a city.",
+        "meaningKr": "마을, 읍",
+        "exampleEn": "My family lives in a small town where everyone knows each other's names very well.",
+        "exampleKr": "우리 가족은 모두가 서로의 이름을 아주 잘 아는 작은 마을에 삽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/taʊn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-165-1778314103073",
+        "term": "half",
+        "definition": "One of two equal parts into which something can be divided.",
+        "meaningKr": "절반, 2분의 1",
+        "exampleEn": "I was so hungry that I ate half of the pizza before my friends even arrived.",
+        "exampleKr": "배가 너무 고파서 친구들이 도착하기도 전에 피자 절반을 먹어버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hæf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-166-1778314103073",
+        "term": "minute",
+        "definition": "A unit of time that is equal to sixty seconds.",
+        "meaningKr": "분, 잠깐",
+        "exampleEn": "Could you please wait for a minute while I finish writing this important email right now?",
+        "exampleKr": "이 중요한 이메일을 다 쓰는 동안 잠시만 기다려 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmɪnɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-167-1778314103073",
+        "term": "food",
+        "definition": "The things that people and animals eat to stay alive and grow.",
+        "meaningKr": "음식, 식품",
+        "exampleEn": "Italian food like pasta and pizza is very popular among people all over the world.",
+        "exampleKr": "파스타와 피자 같은 이탈리아 음식은 전 세계 사람들 사이에서 매우 인기가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fuːd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-168-1778314103073",
+        "term": "break",
+        "definition": "To separate into pieces by force or by accidentally dropping something.",
+        "meaningKr": "깨뜨리다, 부수다",
+        "exampleEn": "Be careful not to break the glass vase when you are cleaning the living room table.",
+        "exampleKr": "거실 탁자를 청소할 때 유리 꽃병을 깨뜨리지 않도록 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/breɪk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-169-1778314103073",
+        "term": "clear",
+        "definition": "Easy to understand, well-explained, or obvious to everyone.",
+        "meaningKr": "명확한, 분명한",
+        "exampleEn": "The instructions for the new game were very clear, so we started playing right away.",
+        "exampleKr": "새 게임의 설명이 매우 명확해서 우리는 즉시 게임을 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/klɪər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-170-1778314103073",
+        "term": "future",
+        "definition": "The period of time that will come after the present time.",
+        "meaningKr": "미래",
+        "exampleEn": "I am working hard now because I want to have a successful career in the future.",
+        "exampleKr": "미래에 성공적인 경력을 쌓고 싶기 때문에 지금 열심히 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfjuːtʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-171-1778314103073",
+        "term": "either",
+        "definition": "Used to refer to one or the other of two people or things.",
+        "meaningKr": "어느 한 쪽의",
+        "exampleEn": "You can choose either the red shirt or the blue one for your birthday gift today.",
+        "exampleKr": "오늘 생일 선물로 빨간색 셔츠나 파란색 셔츠 중 하나를 고를 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈiːðər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-172-1778314103073",
+        "term": "ago",
+        "definition": "At a specific length of time in the past from now.",
+        "meaningKr": "~전에",
+        "exampleEn": "I met my best friend ten years ago when we were both studying at the university.",
+        "exampleKr": "우리가 둘 다 대학교에서 공부하던 10년 전에 나의 가장 친한 친구를 만났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈɡoʊ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-173-1778314103073",
+        "term": "per",
+        "definition": "Used to express the amount or frequency for each person or unit.",
+        "meaningKr": "~당, ~마다",
+        "exampleEn": "The speed limit on this road is sixty kilometers per hour to ensure everyone stays safe.",
+        "exampleKr": "모두의 안전을 보장하기 위해 이 도로의 제한 속도는 시속 60킬로미터입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pər/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-174-1778314103073",
+        "term": "remain",
+        "definition": "To stay in the same place or to continue to exist.",
+        "meaningKr": "남다, 여전히 ~이다",
+        "exampleEn": "Although many people left the party early, a few friends decided to remain until the end.",
+        "exampleKr": "많은 사람들이 파티를 일찍 떠났지만, 몇몇 친구들은 끝까지 남기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈmeɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-175-1778314103073",
+        "term": "top",
+        "definition": "The highest or upper part, point, or surface of something.",
+        "meaningKr": "꼭대기, 정상",
+        "exampleEn": "We hiked for three hours to reach the top of the mountain and see the view.",
+        "exampleKr": "우리는 산 정상에 도착해서 경치를 보기 위해 세 시간 동안 등산했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tɑːp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-176-1778314103073",
+        "term": "among",
+        "definition": "In the middle of or surrounded by other things or people.",
+        "meaningKr": "~사이에, ~중에",
+        "exampleEn": "The secret was shared among the three friends, and nobody else knew anything about it.",
+        "exampleKr": "그 비밀은 세 친구 사이에서만 공유되었고, 다른 누구도 그것에 대해 알지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈmʌŋ/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-177-1778314103073",
+        "term": "win",
+        "definition": "To be the most successful in a competition, game, or race.",
+        "meaningKr": "이기다, 우승하다",
+        "exampleEn": "Our team practiced every day because we really wanted to win the championship game this year.",
+        "exampleKr": "우리 팀은 올해 결승전에서 정말 이기고 싶었기 때문에 매일 연습했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-178-1778314103073",
+        "term": "color",
+        "definition": "The quality of an object that you see when light reflects off it.",
+        "meaningKr": "색깔, 색채",
+        "exampleEn": "What is your favorite color to wear when you go out for a special dinner party?",
+        "exampleKr": "특별한 저녁 파티에 갈 때 당신이 가장 즐겨 입는 색깔은 무엇인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkʌlər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-179-1778314103073",
+        "term": "involve",
+        "definition": "To include someone or something as a necessary part of an activity.",
+        "meaningKr": "포함하다, 수반하다",
+        "exampleEn": "The new project will involve a lot of research and many meetings with the design team.",
+        "exampleKr": "새로운 프로젝트는 많은 조사와 디자인 팀과의 잦은 회의를 수반할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈvɑːlv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-180-1778314103073",
+        "term": "reach",
+        "definition": "To arrive at a particular place or achieve a specific goal.",
+        "meaningKr": "도달하다, 도착하다",
+        "exampleEn": "If we drive fast, we can reach the airport before the flight starts boarding the passengers.",
+        "exampleKr": "빨리 운전하면 비행기 탑승이 시작되기 전에 공항에 도착할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/riːtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-181-1778314103073",
+        "term": "social",
+        "definition": "Relating to activities involving other people or society in general.",
+        "meaningKr": "사회적인, 사교적인",
+        "exampleEn": "He has a very busy social life and goes out with his friends almost every weekend.",
+        "exampleKr": "그는 사교 생활이 매우 바빠서 거의 매 주말마다 친구들과 외출합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsoʊʃl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-182-1778314103073",
+        "term": "period",
+        "definition": "A particular length of time during which specific events take place.",
+        "meaningKr": "기간, 시기",
+        "exampleEn": "The high school students have a short break period between their morning and afternoon study classes.",
+        "exampleKr": "고등학생들은 오전 수업과 오후 수업 사이에 짧은 쉬는 시간을 갖습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɪriəd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-183-1778314103073",
+        "term": "across",
+        "definition": "From one side of something to the other side.",
+        "meaningKr": "가로질러, 건너서",
+        "exampleEn": "The little boy ran across the street to catch the ice cream truck before it left.",
+        "exampleKr": "어린 소년은 아이스크림 트럭이 떠나기 전에 잡으려고 길을 가로질러 달려갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈkrɔːs/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-184-1778314103073",
+        "term": "note",
+        "definition": "To mention something or pay attention to a specific detail.",
+        "meaningKr": "언급하다, 주목하다",
+        "exampleEn": "Please note that the office will be closed tomorrow for the national holiday celebration event.",
+        "exampleKr": "국경일 축하 행사로 인해 내일 사무실이 휴무임을 유의하시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/noʊt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-185-1778314103073",
+        "term": "history",
+        "definition": "The study of past events, particularly in human affairs.",
+        "meaningKr": "역사",
+        "exampleEn": "I enjoy reading books about world history to learn how people lived in past centuries.",
+        "exampleKr": "나는 지난 수세기 동안 사람들이 어떻게 살았는지 배우기 위해 세계사 책 읽는 것을 즐깁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhɪstri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-186-1778314103073",
+        "term": "create",
+        "definition": "To make something new or bring something into existence.",
+        "meaningKr": "창조하다, 만들다",
+        "exampleEn": "The artist used bright colors to create a beautiful painting of the ocean during the sunset.",
+        "exampleKr": "그 예술가는 일몰 중인 바다의 아름다운 그림을 만들기 위해 밝은 색상들을 사용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kriˈeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-187-1778314103073",
+        "term": "drive",
+        "definition": "To operate and control the movement of a motor vehicle.",
+        "meaningKr": "운전하다",
+        "exampleEn": "My father taught me how to drive a car when I was eighteen years old last summer.",
+        "exampleKr": "작년 여름 내가 18살이었을 때 아버지는 내게 자동차 운전하는 법을 가르쳐 주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/draɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-188-1778314103073",
+        "term": "along",
+        "definition": "Moving in a constant direction on or beside a road or path.",
+        "meaningKr": "~을 따라",
+        "exampleEn": "We enjoyed a peaceful walk along the river bank while watching the birds fly in the sky.",
+        "exampleKr": "우리는 새들이 하늘을 나는 것을 보며 강둑을 따라 평화로운 산책을 즐겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈlɔːŋ/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-189-1778314103073",
+        "term": "type",
+        "definition": "A category of people or things having common characteristics.",
+        "meaningKr": "종류, 유형",
+        "exampleEn": "What type of music do you usually listen to when you are relaxing at home alone?",
+        "exampleKr": "집에서 혼자 쉴 때 보통 어떤 종류의 음악을 들으시나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/taɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-190-1778314103073",
+        "term": "sound",
+        "definition": "Vibrations that travel through the air and can be heard by the ear.",
+        "meaningKr": "소리",
+        "exampleEn": "The sound of the rain hitting the window helped me fall into a deep sleep last night.",
+        "exampleKr": "창문을 두드리는 빗소리가 어젯밤 내가 깊은 잠에 들도록 도와주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/saʊnd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-191-1778314103073",
+        "term": "eye",
+        "definition": "The organ of the body that allows you to see things.",
+        "meaningKr": "눈",
+        "exampleEn": "She has a very good eye for detail and noticed the small mistake in the report.",
+        "exampleKr": "그녀는 세부 사항을 보는 눈이 매우 뛰어나서 보고서의 작은 실수를 발견했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/aɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-192-1778314103073",
+        "term": "music",
+        "definition": "Vocal or instrumental sounds combined in such a way as to produce beauty.",
+        "meaningKr": "음악",
+        "exampleEn": "Listening to soft music is a great way to reduce stress after a long day at work.",
+        "exampleKr": "부드러운 음악을 듣는 것은 직장에서의 긴 하루 끝에 스트레스를 줄이는 좋은 방법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmjuːzɪk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-193-1778314103073",
+        "term": "game",
+        "definition": "An activity that one engages in for amusement or fun, usually with rules.",
+        "meaningKr": "게임, 경기",
+        "exampleEn": "Let's play a board game tonight instead of watching television all evening in the living room.",
+        "exampleKr": "오늘 저녁에는 거실에서 내내 텔레비전을 보는 대신 보드게임을 합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡeɪm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-194-1778314103073",
+        "term": "political",
+        "definition": "Relating to the government or the public affairs of a country.",
+        "meaningKr": "정치의, 정치적인",
+        "exampleEn": "The two candidates had very different political views on how to improve the country's economy soon.",
+        "exampleKr": "두 후보는 국가 경제를 곧 개선하는 방법에 대해 매우 다른 정치적 견해를 가지고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pəˈlɪtɪkl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-195-1778314103073",
+        "term": "free",
+        "definition": "Available without any cost or payment required.",
+        "meaningKr": "무료의, 자유로운",
+        "exampleEn": "The museum offers free admission to students on the first Sunday of every month all year.",
+        "exampleKr": "그 박물관은 일년 내내 매월 첫 번째 일요일에 학생들에게 무료 입장을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/friː/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-196-1778314103073",
+        "term": "receive",
+        "definition": "To be given, presented with, or paid something.",
+        "meaningKr": "받다, 수령하다",
+        "exampleEn": "I was very happy to receive a surprise gift from my sister on my birthday last week.",
+        "exampleKr": "지난주 내 생일에 여동생으로부터 깜짝 선물을 받아서 정말 기뻤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈsiːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-197-1778314103073",
+        "term": "moment",
+        "definition": "A very brief or short period of time.",
+        "meaningKr": "순간, 잠시",
+        "exampleEn": "Wait just a moment while I grab my coat before we leave for the dinner party.",
+        "exampleKr": "저녁 파티에 가기 위해 코트를 챙기는 동안 잠시만 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmoʊmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-198-1778314103073",
+        "term": "sale",
+        "definition": "The exchange of a commodity for money; the action of selling something.",
+        "meaningKr": "판매, 매출, 세일",
+        "exampleEn": "The department store is having a big sale with discounts up to fifty percent off everything.",
+        "exampleKr": "그 백화점은 모든 품목에 대해 최대 50%까지 할인하는 대규모 세일을 진행하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/seɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-199-1778314103073",
+        "term": "policy",
+        "definition": "A course or principle of action adopted or proposed by an organization.",
+        "meaningKr": "정책, 방침",
+        "exampleEn": "The company has a strict policy against using mobile phones during important business meetings or presentations.",
+        "exampleKr": "그 회사는 중요한 비즈니스 회의나 발표 중에 휴대폰을 사용하는 것에 대해 엄격한 방침을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɑːləsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-200-1778314103073",
+        "term": "further",
+        "definition": "Being extra or in addition to what already exists.",
+        "meaningKr": "더 이상의, 추가의",
+        "exampleEn": "Please contact our customer service team if you need any further information about the product.",
+        "exampleKr": "제품에 대해 더 이상의 정보가 필요하시면 저희 고객 서비스 팀에 문의해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɜːrðər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-201-1778314103073",
+        "term": "body",
+        "definition": "The physical structure of a person or an animal.",
+        "meaningKr": "몸, 신체",
+        "exampleEn": "It is very important to drink enough water every day to keep your body healthy.",
+        "exampleKr": "몸을 건강하게 유지하기 위해 매일 충분한 양의 물을 마시는 것은 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbɒdi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-202-1778314103073",
+        "term": "require",
+        "definition": "To need something or to make something necessary.",
+        "meaningKr": "필요로 하다, 요구하다",
+        "exampleEn": "Most modern smartphones require a stable internet connection to use all of their useful features.",
+        "exampleKr": "대부분의 최신 스마트폰은 모든 유용한 기능을 사용하기 위해 안정적인 인터넷 연결을 필요로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈkwaɪər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-203-1778314103073",
+        "term": "wait",
+        "definition": "To stay in one place until something expected happens.",
+        "meaningKr": "기다리다",
+        "exampleEn": "I had to wait for nearly thirty minutes at the bus stop this morning because of traffic.",
+        "exampleKr": "교통 체증 때문에 오늘 아침 버스 정류장에서 거의 30분 동안 기다려야만 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/weɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-204-1778314103073",
+        "term": "general",
+        "definition": "Affecting or concerning all or most people or things.",
+        "meaningKr": "일반적인, 전반적인",
+        "exampleEn": "The general opinion among the students is that the new school cafeteria food is much better.",
+        "exampleKr": "학생들 사이의 일반적인 의견은 새로운 학교 식당 음식이 훨씬 더 나아졌다는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdʒenrəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-205-1778314103073",
+        "term": "appear",
+        "definition": "To start to be seen or to become visible.",
+        "meaningKr": "나타나다, ~인 것 같다",
+        "exampleEn": "A small rainbow started to appear in the sky after the heavy rain finally stopped falling.",
+        "exampleKr": "폭우가 마침내 그친 후 하늘에 작은 무지개가 나타나기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈpɪər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-206-1778314103073",
+        "term": "toward",
+        "definition": "Moving or facing in the direction of someone or something.",
+        "meaningKr": "쪽으로, ~을 향해",
+        "exampleEn": "The young children ran quickly toward the ice cream truck when they heard the familiar music.",
+        "exampleKr": "어린 아이들은 익숙한 음악 소리를 듣자마자 아이스크림 트럭을 향해 빠르게 달려갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/təˈwɔːrd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-207-1778314103073",
+        "term": "team",
+        "definition": "A group of people who work together on a task.",
+        "meaningKr": "팀, 조",
+        "exampleEn": "Our team worked very hard together to finish the big project before the deadline next Friday.",
+        "exampleKr": "우리 팀은 다음 주 금요일 마감일 전에 큰 프로젝트를 마치기 위해 함께 열심히 일했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tiːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-208-1778314103073",
+        "term": "easy",
+        "definition": "Something that is not difficult or hard to do.",
+        "meaningKr": "쉬운, 용이한",
+        "exampleEn": "The instructions for building this new bookshelf were very easy to follow and understand clearly.",
+        "exampleKr": "이 새로운 책장을 조립하기 위한 설명서는 따라 하기 매우 쉽고 명확하게 이해되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈiːzi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-209-1778314103073",
+        "term": "individual",
+        "definition": "A single person considered separately from a group or society.",
+        "meaningKr": "개인, 개별적인 사람",
+        "exampleEn": "Each individual in the group has a unique perspective on how we should solve this problem.",
+        "exampleKr": "그룹의 각 개인은 우리가 이 문제를 어떻게 해결해야 하는지에 대해 독특한 관점을 가집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɪndɪˈvɪdʒuəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-210-1778314103073",
+        "term": "full",
+        "definition": "Containing or holding as much or as many as possible.",
+        "meaningKr": "가득 찬, 배부른",
+        "exampleEn": "The restaurant was so full of people that we had to wait outside for a table.",
+        "exampleKr": "식당에 사람들이 너무 가득 차 있어서 우리는 테이블을 잡기 위해 밖에서 기다려야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fʊl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-211-1778314103073",
+        "term": "black",
+        "definition": "Having the very darkest color, like the sky at night.",
+        "meaningKr": "검은색의, 어두운",
+        "exampleEn": "She decided to wear a simple black dress to the formal dinner party last Saturday night.",
+        "exampleKr": "그녀는 지난 토요일 밤 공식 저녁 파티에 입고 갈 심플한 검은색 드레스를 선택했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/blæk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-212-1778314103073",
+        "term": "sense",
+        "definition": "To perceive or become aware of something through the senses.",
+        "meaningKr": "느끼다, 감지하다",
+        "exampleEn": "Dogs can often sense when their owners are feeling sad or stressed after a long day.",
+        "exampleKr": "개들은 종종 주인이 긴 하루를 보낸 후 슬프거나 스트레스를 받을 때 이를 감지할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sens/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-213-1778314103073",
+        "term": "perhaps",
+        "definition": "Used to express uncertainty or a possibility; maybe.",
+        "meaningKr": "아마도, 어쩌면",
+        "exampleEn": "Perhaps we should check the weather forecast before we decide to go hiking this coming weekend.",
+        "exampleKr": "이번 주말에 하이킹을 갈지 결정하기 전에 아마도 일기 예보를 확인해 보는 것이 좋겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pərˈhæps/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-214-1778314103073",
+        "term": "add",
+        "definition": "To put something together with something else to increase the size.",
+        "meaningKr": "추가하다, 더하다",
+        "exampleEn": "You should add a little bit more salt to the soup to make it taste better.",
+        "exampleKr": "수프 맛을 더 좋게 만들기 위해 소금을 조금 더 추가하는 것이 좋겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/æd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-215-1778314103073",
+        "term": "rule",
+        "definition": "A statement that tells you what is allowed or not allowed.",
+        "meaningKr": "규칙, 원칙",
+        "exampleEn": "The most important rule in this library is that everyone must keep their voices very quiet.",
+        "exampleKr": "이 도서관에서 가장 중요한 규칙은 모든 사람이 목소리를 아주 작게 유지해야 한다는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ruːl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-216-1778314103073",
+        "term": "pass",
+        "definition": "To move past something or to go by a place.",
+        "meaningKr": "지나가다, 통과하다",
+        "exampleEn": "I usually pass by a small coffee shop on my way to work every single morning.",
+        "exampleKr": "나는 보통 매일 아침 출근하는 길에 작은 커피숍 앞을 지나가곤 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pæs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-217-1778314103073",
+        "term": "produce",
+        "definition": "To make or create something, usually through a process.",
+        "meaningKr": "생산하다, 제작하다",
+        "exampleEn": "This local farm aims to produce high-quality organic vegetables for the people living in the city.",
+        "exampleKr": "이 지역 농장은 도시에 사는 사람들을 위해 고품질의 유기농 채소를 생산하는 것을 목표로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈdjuːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-218-1778314103073",
+        "term": "sell",
+        "definition": "To give something to someone in exchange for money.",
+        "meaningKr": "팔다, 판매하다",
+        "exampleEn": "They sell fresh bread and delicious pastries at the bakery just around the corner from here.",
+        "exampleKr": "그들은 여기 모퉁이 바로 옆에 있는 빵집에서 신선한 빵과 맛있는 과자들을 팝니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sel/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-219-1778314103073",
+        "term": "short",
+        "definition": "Having a small distance from one end to the other.",
+        "meaningKr": "짧은, 키가 작은",
+        "exampleEn": "The movie was quite short, so we still had plenty of time to grab dinner afterwards.",
+        "exampleKr": "영화가 꽤 짧았기 때문에 우리는 그 후에 저녁을 먹을 수 있는 충분한 시간이 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃɔːrt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-220-1778314103073",
+        "term": "agree",
+        "definition": "To have the same opinion or to say yes to something.",
+        "meaningKr": "동의하다, 의견이 일치하다",
+        "exampleEn": "I completely agree with your suggestion to start the meeting a few minutes earlier than planned.",
+        "exampleKr": "회의를 예정보다 몇 분 더 일찍 시작하자는 당신의 제안에 전적으로 동의합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈɡriː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-221-1778314103073",
+        "term": "law",
+        "definition": "A system of rules created by a government for a country.",
+        "meaningKr": "법, 법률",
+        "exampleEn": "It is against the law to park your car in front of a fire hydrant here.",
+        "exampleKr": "이곳 소화전 앞에 차를 주차하는 것은 법에 어긋나는 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɔː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-222-1778314103073",
+        "term": "everything",
+        "definition": "All of the things or all parts of a situation.",
+        "meaningKr": "모든 것",
+        "exampleEn": "He packed everything he needed for the camping trip into his large green backpack last night.",
+        "exampleKr": "그는 어젯밤 캠핑 여행에 필요한 모든 것을 커다란 초록색 배낭에 챙겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈevriθɪŋ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-223-1778314103073",
+        "term": "research",
+        "definition": "To study a subject carefully to discover new information.",
+        "meaningKr": "연구하다, 조사하다",
+        "exampleEn": "She spent many hours at the library to research the history of her family for school.",
+        "exampleKr": "그녀는 학교 과제를 위해 가족의 역사를 조사하느라 도서관에서 많은 시간을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈsɜːrtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-224-1778314103073",
+        "term": "cover",
+        "definition": "Something that is put over an object to protect or hide it.",
+        "meaningKr": "덮개, 표지",
+        "exampleEn": "The colorful cover of the book immediately caught my eye while I was browsing the shop.",
+        "exampleKr": "가게를 둘러보는 동안 책의 화려한 표지가 즉시 내 시선을 사로잡았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkʌvər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-225-1778314103073",
+        "term": "paper",
+        "definition": "A thin material used for writing, printing, or wrapping things.",
+        "meaningKr": "종이, 신문",
+        "exampleEn": "Please write your name and phone number on this piece of paper before you leave today.",
+        "exampleKr": "오늘 떠나기 전에 이 종이 한 장에 당신의 이름과 전화번호를 적어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpeɪpər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-226-1778314103073",
+        "term": "position",
+        "definition": "The specific place where someone or something is located.",
+        "meaningKr": "위치, 제자리",
+        "exampleEn": "The solar panels were placed in a specific position to catch as much sunlight as possible.",
+        "exampleKr": "태양광 패널은 가능한 한 많은 햇빛을 받기 위해 특정한 위치에 설치되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pəˈzɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-227-1778314103073",
+        "term": "near",
+        "definition": "Located a short distance away from something or someone.",
+        "meaningKr": "가까운, 근처에",
+        "exampleEn": "There is a very convenient convenience store located near my apartment that stays open all night.",
+        "exampleKr": "내 아파트 근처에는 밤새도록 영업하는 매우 편리한 편의점이 위치해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/nɪər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-228-1778314103073",
+        "term": "human",
+        "definition": "A person, rather than an animal or a machine.",
+        "meaningKr": "인간, 사람",
+        "exampleEn": "It is only human to make mistakes sometimes when you are learning something completely new today.",
+        "exampleKr": "오늘 새로운 것을 배울 때 가끔 실수를 하는 것은 단지 인간일 뿐입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhjuːmən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-229-1778314103073",
+        "term": "computer",
+        "definition": "An electronic machine that stores information and follows instructions.",
+        "meaningKr": "컴퓨터",
+        "exampleEn": "I use my laptop computer every day to complete my work and watch some interesting videos.",
+        "exampleKr": "나는 업무를 완수하고 흥미로운 영상을 보기 위해 매일 노트북 컴퓨터를 사용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəmˈpjuːtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-230-1778314103073",
+        "term": "situation",
+        "definition": "The set of things that are happening at a particular time.",
+        "meaningKr": "상황, 처지",
+        "exampleEn": "We need to analyze the current situation carefully before we make any big changes to the plan.",
+        "exampleKr": "계획에 큰 변화를 주기 전에 현재 상황을 주의 깊게 분석할 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌsɪtʃuˈeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-231-1778314103073",
+        "term": "staff",
+        "definition": "The group of people who work for an organization.",
+        "meaningKr": "직원, 전체 직원",
+        "exampleEn": "The hotel staff were very friendly and helped us with our heavy luggage when we arrived.",
+        "exampleKr": "호텔 직원들은 매우 친절했고 우리가 도착했을 때 무거운 짐을 옮기는 것을 도와주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stæf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-232-1778314103073",
+        "term": "activity",
+        "definition": "Something that you do for enjoyment, work, or exercise.",
+        "meaningKr": "활동",
+        "exampleEn": "Swimming is a great physical activity that helps you stay healthy and strong during the summer.",
+        "exampleKr": "수영은 여름 동안 건강하고 튼튼하게 유지하도록 도와주는 아주 좋은 신체 활동입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ækˈtɪvəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-233-1778314103073",
+        "term": "film",
+        "definition": "A story shown in moving pictures at a cinema or on TV.",
+        "meaningKr": "영화",
+        "exampleEn": "We decided to watch an old black and white film at the local cinema last night.",
+        "exampleKr": "우리는 어젯밤 지역 영화관에서 오래된 흑백 영화를 한 편 보기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɪlm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-234-1778314103073",
+        "term": "morning",
+        "definition": "The early part of the day between sunrise and noon.",
+        "meaningKr": "아침",
+        "exampleEn": "I like to drink a hot cup of coffee every morning to help me feel awake.",
+        "exampleKr": "나는 잠을 깨는 데 도움을 주기 위해 매일 아침 따뜻한 커피 한 잔을 마시는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmɔːrnɪŋ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-235-1778314103073",
+        "term": "war",
+        "definition": "A period of fighting between countries or groups using weapons.",
+        "meaningKr": "전쟁",
+        "exampleEn": "The history book explains the causes and effects of the long war between the two countries.",
+        "exampleKr": "그 역사 책은 두 나라 사이의 긴 전쟁의 원인과 결과에 대해 설명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɔːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-236-1778314103073",
+        "term": "account",
+        "definition": "An arrangement with a bank to keep your money there.",
+        "meaningKr": "계좌, 계정",
+        "exampleEn": "I need to go to the bank to open a new savings account for my daughter.",
+        "exampleKr": "딸을 위해 새로운 저축 계좌를 개설하기 위해 은행에 가야 할 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈkaʊnt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-237-1778314103073",
+        "term": "shop",
+        "definition": "A place where you can buy goods or services.",
+        "meaningKr": "가게, 상점",
+        "exampleEn": "My sister works at a small flower shop that sells beautiful roses and other colorful plants.",
+        "exampleKr": "제 여동생은 아름다운 장미와 다른 화려한 식물들을 파는 작은 꽃집에서 일합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃɒp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-238-1778314103073",
+        "term": "major",
+        "definition": "Very large, important, or serious in scale or effect.",
+        "meaningKr": "주요한, 중대한",
+        "exampleEn": "Traffic congestion is a major problem in many large cities around the world during rush hour.",
+        "exampleKr": "교통 체증은 전 세계 많은 대도시에서 출퇴근 시간 동안 발생하는 주요한 문제입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmeɪdʒər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-239-1778314103073",
+        "term": "someone",
+        "definition": "Used to refer to a person who is not named.",
+        "meaningKr": "누군가",
+        "exampleEn": "Someone left their umbrella in the hallway, so I hope they come back to find it.",
+        "exampleKr": "누군가 복도에 우산을 두고 갔으니, 그들이 그것을 찾으러 다시 돌아오기를 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsʌmwʌn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-240-1778314103073",
+        "term": "above",
+        "definition": "In or to a higher position than something else.",
+        "meaningKr": "~의 위에, ~보다 위에",
+        "exampleEn": "The birds were flying high above the trees as the sun began to set in the evening.",
+        "exampleKr": "저녁에 해가 지기 시작할 때 새들이 나무들 위로 높이 날아가고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈbʌv/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-241-1778314103073",
+        "term": "design",
+        "definition": "To draw or plan something before it is made.",
+        "meaningKr": "디자인하다, 설계하다",
+        "exampleEn": "The architect spent several months trying to design a modern house that is also very energy-efficient.",
+        "exampleKr": "건축가는 또한 매우 에너지 효율적인 현대적인 집을 설계하기 위해 몇 달을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈzaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-242-1778314103073",
+        "term": "event",
+        "definition": "Something that happens, especially something important or planned.",
+        "meaningKr": "사건, 행사",
+        "exampleEn": "The annual music festival is the biggest social event in our small town every single year.",
+        "exampleKr": "연례 음악 축제는 매년 우리 작은 마을에서 열리는 가장 큰 사교 행사입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈvent/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-243-1778314103073",
+        "term": "special",
+        "definition": "Better, greater, or otherwise different from what is usual.",
+        "meaningKr": "특별한",
+        "exampleEn": "My mother made a very special dinner for my birthday with all of my favorite dishes.",
+        "exampleKr": "어머니는 내 생일을 위해 내가 가장 좋아하는 모든 음식들로 아주 특별한 저녁을 만들어 주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈspeʃl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-244-1778314103073",
+        "term": "sometimes",
+        "definition": "Occasionally or at certain times, but not all the time.",
+        "meaningKr": "때때로, 가끔",
+        "exampleEn": "Sometimes I prefer to stay at home and read a book instead of going out with friends.",
+        "exampleKr": "가끔 나는 친구들과 밖으로 나가는 대신 집에 머물며 책을 읽는 것을 더 선호합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsʌmtaɪmz/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-245-1778314103073",
+        "term": "condition",
+        "definition": "The particular state that something or someone is in.",
+        "meaningKr": "상태, 조건",
+        "exampleEn": "The used car I bought last week is still in excellent condition and runs very smoothly.",
+        "exampleKr": "지난주에 산 중고차는 여전히 상태가 매우 좋고 아주 부드럽게 잘 달립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈdɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-246-1778314103073",
+        "term": "carry",
+        "definition": "To hold something and take it from one place to another.",
+        "meaningKr": "운반하다, 들고 있다",
+        "exampleEn": "He had to carry the heavy boxes up three flights of stairs because the elevator was broken.",
+        "exampleKr": "엘리베이터가 고장 났기 때문에 그는 무거운 상자들을 들고 계단을 3층이나 올라가야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkæri/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-247-1778314103073",
+        "term": "choose",
+        "definition": "To decide which thing you want from a range of possibilities.",
+        "meaningKr": "선택하다, 고르다",
+        "exampleEn": "It was difficult to choose which dress to buy because they all looked so beautiful on her.",
+        "exampleKr": "모든 드레스가 그녀에게 너무 잘 어울려서 어떤 것을 살지 선택하기가 어려웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃuːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-248-1778314103073",
+        "term": "father",
+        "definition": "A male parent of a child or an animal.",
+        "meaningKr": "아버지",
+        "exampleEn": "My father taught me how to ride a bicycle in the park when I was very young.",
+        "exampleKr": "아버지는 내가 아주 어렸을 때 공원에서 자전거 타는 법을 가르쳐 주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɑːðər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-249-1778314103073",
+        "term": "decision",
+        "definition": "A choice that you make after thinking about several options.",
+        "meaningKr": "결정, 판단",
+        "exampleEn": "After thinking about it for a long time, I finally made a decision to change my job.",
+        "exampleKr": "오랜 시간 고민한 끝에, 나는 마침내 직업을 바꾸기로 결정을 내렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈsɪʒn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-250-1778314103073",
+        "term": "table",
+        "definition": "A piece of furniture with a flat top and legs used for eating or working.",
+        "meaningKr": "탁자, 테이블",
+        "exampleEn": "Please put the flowers in the vase on the wooden table in the kitchen.",
+        "exampleKr": "부엌에 있는 나무 탁자 위 화병에 꽃을 꽂아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈteɪbl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-251-1778314103073",
+        "term": "certain",
+        "definition": "Having no doubt about something or being completely sure.",
+        "meaningKr": "확실한, 확신하는",
+        "exampleEn": "I am absolutely certain that I left my keys on the desk this morning.",
+        "exampleKr": "오늘 아침에 책상 위에 열쇠를 둔 것이 정말 확실합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɜːrtn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-252-1778314103073",
+        "term": "forward",
+        "definition": "Moving toward the direction that is in front of you.",
+        "meaningKr": "앞으로, 앞쪽으로",
+        "exampleEn": "Please step forward so that everyone in the back can see you more clearly.",
+        "exampleKr": "뒤에 있는 모든 사람이 당신을 더 잘 볼 수 있게 앞으로 나와 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɔːrwərd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-253-1778314103073",
+        "term": "main",
+        "definition": "The most important or largest part of something.",
+        "meaningKr": "가장 중요한, 주된",
+        "exampleEn": "The main reason I moved to this city was to find a better job.",
+        "exampleKr": "내가 이 도시로 이사 온 가장 큰 이유는 더 좋은 직장을 구하기 위해서였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/meɪn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-254-1778314103073",
+        "term": "die",
+        "definition": "To stop living or to come to the end of life.",
+        "meaningKr": "죽다, 사망하다",
+        "exampleEn": "Many plants in the garden will die if they do not get enough water daily.",
+        "exampleKr": "매일 충분한 물을 주지 않으면 정원의 많은 식물이 죽을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/daɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-255-1778314103073",
+        "term": "bear",
+        "definition": "A large, heavy wild animal with thick fur and sharp claws.",
+        "meaningKr": "곰",
+        "exampleEn": "We saw a large brown bear while we were hiking through the national park.",
+        "exampleKr": "국립공원에서 하이킹을 하는 동안 커다란 갈색 곰 한 마리를 보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ber/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-256-1778314103073",
+        "term": "cut",
+        "definition": "To divide something into pieces using a sharp tool like a knife.",
+        "meaningKr": "자르다, 베다",
+        "exampleEn": "You should use a sharp knife to cut the vegetables for the salad tonight.",
+        "exampleKr": "오늘 밤 샐러드에 넣을 채소를 자르려면 날카로운 칼을 사용해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kʌt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-257-1778314103073",
+        "term": "describe",
+        "definition": "To say what someone or something is like using words.",
+        "meaningKr": "묘사하다, 설명하다",
+        "exampleEn": "Can you describe the person you saw at the bus stop in more detail?",
+        "exampleKr": "버스 정류장에서 본 사람을 좀 더 자세히 설명해 줄 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈskraɪb/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-258-1778314103073",
+        "term": "himself",
+        "definition": "The reflexive form of the pronoun 'he' used as an object.",
+        "meaningKr": "그 자신",
+        "exampleEn": "He decided to fix the broken bicycle himself instead of taking it to a shop.",
+        "exampleKr": "그는 고장 난 자전거를 가게에 맡기는 대신 직접 고치기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hɪmˈself/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-259-1778314103073",
+        "term": "available",
+        "definition": "Able to be used, bought, or reached at a certain time.",
+        "meaningKr": "이용 가능한, 시간이 있는",
+        "exampleEn": "I am available to meet for coffee tomorrow afternoon if you have some free time.",
+        "exampleKr": "내일 오후에 시간이 괜찮으시다면 커피 한잔하러 만날 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈveɪləbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-260-1778314103073",
+        "term": "especially",
+        "definition": "Used to single out one person, thing, or situation above others.",
+        "meaningKr": "특히, 유난히",
+        "exampleEn": "I love all kinds of fruit, but I especially enjoy eating sweet red strawberries.",
+        "exampleKr": "나는 모든 종류의 과일을 좋아하지만, 특히 달콤한 빨간 딸기를 즐겨 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈspeʃəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-261-1778314103073",
+        "term": "strong",
+        "definition": "Having great physical power or ability to resist pressure.",
+        "meaningKr": "강한, 힘센",
+        "exampleEn": "You need to be very strong to lift those heavy boxes into the moving truck.",
+        "exampleKr": "이삿짐 트럭에 저 무거운 상자들을 실으려면 힘이 아주 세야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/strɔːŋ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-262-1778314103073",
+        "term": "rise",
+        "definition": "To move upward or to increase in amount or level.",
+        "meaningKr": "오르다, 올라가다",
+        "exampleEn": "The sun will rise at six o'clock tomorrow morning, so we should wake up early.",
+        "exampleKr": "내일 아침 6시에 해가 뜰 것이니 우리는 일찍 일어나야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/raɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-263-1778314103073",
+        "term": "girl",
+        "definition": "A female child or a young woman.",
+        "meaningKr": "소녀, 여자아이",
+        "exampleEn": "The little girl is playing happily with her new doll in the backyard right now.",
+        "exampleKr": "어린 소녀가 지금 뒷마당에서 새 인형을 가지고 즐겁게 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡɜːrl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-264-1778314103073",
+        "term": "maybe",
+        "definition": "Used to show that something is possible but not certain.",
+        "meaningKr": "아마도, 어쩌면",
+        "exampleEn": "Maybe we can go to the movies this weekend if the weather is not good.",
+        "exampleKr": "날씨가 좋지 않으면 이번 주말에 영화를 보러 갈 수도 있을 것 같아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmeɪbi/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-265-1778314103073",
+        "term": "community",
+        "definition": "A group of people living in the same place or having a common interest.",
+        "meaningKr": "지역 사회, 공동체",
+        "exampleEn": "Our local community organized a big festival to celebrate the beginning of the spring season.",
+        "exampleKr": "우리 지역 사회는 봄의 시작을 축하하기 위해 큰 축제를 열었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˈmjuːnəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-266-1778314103073",
+        "term": "else",
+        "definition": "In a different way or used to refer to other things.",
+        "meaningKr": "그렇지 않으면, 다른",
+        "exampleEn": "You must leave now, or else you will be late for your important meeting.",
+        "exampleKr": "지금 떠나야 해요, 그렇지 않으면 중요한 회의에 늦을 거예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/els/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-267-1778314103073",
+        "term": "particular",
+        "definition": "Referring to a specific person, thing, or detail.",
+        "meaningKr": "특정한, 특별한",
+        "exampleEn": "Is there a particular reason why you decided to choose this specific color for the room?",
+        "exampleKr": "방에 이 특정 색상을 선택하기로 결정한 특별한 이유가 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pərˈtɪkjələr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-268-1778314103073",
+        "term": "role",
+        "definition": "The part played by a person in a particular situation or play.",
+        "meaningKr": "역할, 배역",
+        "exampleEn": "She played the leading role in the school play and did an absolutely wonderful job.",
+        "exampleKr": "그녀는 학교 연극에서 주연을 맡았고 정말 훌륭하게 해냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/roʊl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-269-1778314103073",
+        "term": "join",
+        "definition": "To become a member of a group or to connect things together.",
+        "meaningKr": "가입하다, 함께하다",
+        "exampleEn": "Would you like to join our book club and discuss interesting stories with us every month?",
+        "exampleKr": "우리 독서 클럽에 가입해서 매달 흥미로운 이야기를 함께 나누고 싶으신가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dʒɔɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-270-1778314103073",
+        "term": "difficult",
+        "definition": "Needing much effort or skill to do or understand.",
+        "meaningKr": "어려운, 힘든",
+        "exampleEn": "It was very difficult to finish the homework because the instructions were not very clear.",
+        "exampleKr": "설명이 명확하지 않아서 숙제를 끝내는 것이 매우 어려웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɪfɪkəlt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-271-1778314103073",
+        "term": "please",
+        "definition": "Used as a polite way of asking for something.",
+        "meaningKr": "부디, 제발",
+        "exampleEn": "Could you please pass me the salt and pepper from the other side of the table?",
+        "exampleKr": "탁자 반대편에 있는 소금과 후추 좀 건네주실 수 있을까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pliːz/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-272-1778314103073",
+        "term": "detail",
+        "definition": "A small individual fact or item that is part of a larger whole.",
+        "meaningKr": "세부 사항, 상세",
+        "exampleEn": "Please pay attention to every small detail when you are filling out this important form.",
+        "exampleKr": "이 중요한 서류를 작성할 때 모든 작은 세부 사항에 주의를 기울여 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdiːteɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-273-1778314103073",
+        "term": "difference",
+        "definition": "A way in which two or more things are not the same.",
+        "meaningKr": "차이, 다름",
+        "exampleEn": "There is a big difference between the two laptops, especially in terms of their speed.",
+        "exampleKr": "두 노트북 사이에는 특히 속도 면에서 큰 차이가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɪfrəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-274-1778314103073",
+        "term": "action",
+        "definition": "The process of doing something to achieve an aim.",
+        "meaningKr": "행동, 조치",
+        "exampleEn": "We need to take immediate action to solve this problem before it gets much worse.",
+        "exampleKr": "문제가 훨씬 더 악화되기 전에 이 문제를 해결하기 위한 즉각적인 조치를 취해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈækʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-275-1778314103073",
+        "term": "health",
+        "definition": "The state of being free from illness or injury.",
+        "meaningKr": "건강, 상태",
+        "exampleEn": "Regular exercise and a balanced diet are very important for maintaining good physical health.",
+        "exampleKr": "규칙적인 운동과 균형 잡힌 식단은 신체 건강을 유지하는 데 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/helθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-276-1778314103073",
+        "term": "eat",
+        "definition": "To put food into the mouth and swallow it.",
+        "meaningKr": "먹다, 식사하다",
+        "exampleEn": "We usually eat dinner together as a family at around seven o'clock every evening.",
+        "exampleKr": "우리는 보통 매일 저녁 7시쯤에 온 가족이 함께 모여 저녁을 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/iːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-277-1778314103073",
+        "term": "step",
+        "definition": "A flat surface on a stairway where you put your foot.",
+        "meaningKr": "계단, 발걸음",
+        "exampleEn": "Please be careful because the bottom step of the wooden stairs is a bit loose.",
+        "exampleKr": "나무 계단의 맨 아래 칸이 약간 헐거우니 조심해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/step/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-278-1778314103073",
+        "term": "true",
+        "definition": "Based on facts rather than being invented or guessed.",
+        "meaningKr": "사실인, 진짜의",
+        "exampleEn": "It is true that he won the competition, but he worked very hard for it.",
+        "exampleKr": "그가 대회에서 우승한 것은 사실이지만, 그는 그것을 위해 정말 열심히 노력했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/truː/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-279-1778314103073",
+        "term": "phone",
+        "definition": "To call someone using a telephone.",
+        "meaningKr": "전화하다",
+        "exampleEn": "I will phone you as soon as I arrive at the airport tomorrow afternoon.",
+        "exampleKr": "내일 오후에 공항에 도착하자마자 당신에게 전화하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/foʊn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-280-1778314103073",
+        "term": "themselves",
+        "definition": "The reflexive form of the pronoun 'they' used as an object.",
+        "meaningKr": "그들 자신",
+        "exampleEn": "They taught themselves how to play the guitar by watching videos on the internet.",
+        "exampleKr": "그들은 인터넷으로 영상을 보면서 기타 치는 법을 독학했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ðəmˈselvz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-281-1778314103073",
+        "term": "draw",
+        "definition": "To produce a picture or diagram by making lines on paper.",
+        "meaningKr": "그리다, 끌다",
+        "exampleEn": "My younger sister loves to draw beautiful pictures of flowers and trees in her notebook.",
+        "exampleKr": "내 여동생은 공책에 꽃과 나무의 아름다운 그림을 그리는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/drɔː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-282-1778314103073",
+        "term": "white",
+        "definition": "The color of milk or fresh snow.",
+        "meaningKr": "하얀, 흰색의",
+        "exampleEn": "She wore a beautiful white dress to the party and everyone said she looked lovely.",
+        "exampleKr": "그녀는 파티에 아름다운 흰색 드레스를 입고 왔고, 모두가 그녀가 사랑스럽다고 말했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/waɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-283-1778314103073",
+        "term": "date",
+        "definition": "A particular day of a month or year.",
+        "meaningKr": "날짜, 데이트",
+        "exampleEn": "What is the exact date of your birthday so I can mark it on my calendar?",
+        "exampleKr": "달력에 표시해 둘 수 있게 당신의 생일이 정확히 몇 월 며칠인지 알려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/deɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-284-1778314103073",
+        "term": "practice",
+        "definition": "To do something repeatedly to become better at it.",
+        "meaningKr": "연습하다, 실습하다",
+        "exampleEn": "You need to practice playing the piano every day if you want to become better.",
+        "exampleKr": "더 실력을 키우고 싶다면 매일 피아노 치는 것을 연습해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpræktɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-285-1778314103073",
+        "term": "model",
+        "definition": "A small representation of an object or a standard to follow.",
+        "meaningKr": "모델, 모형",
+        "exampleEn": "The architect showed us a small scale model of the new building they are designing.",
+        "exampleKr": "건축가는 그들이 설계 중인 새 건물의 작은 축소 모형을 우리에게 보여주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmɑːdl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-286-1778314103073",
+        "term": "raise",
+        "definition": "To lift something up or to increase a level or amount.",
+        "meaningKr": "올리다, 기르다",
+        "exampleEn": "The company decided to raise the prices of their products due to the higher costs.",
+        "exampleKr": "회사는 원가 상승으로 인해 제품 가격을 인상하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/reɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-287-1778314103073",
+        "term": "customer",
+        "definition": "A person who buys goods or services from a shop or business.",
+        "meaningKr": "고객, 손님",
+        "exampleEn": "The shop owner always greets every customer with a warm smile and a friendly hello.",
+        "exampleKr": "가게 주인은 항상 따뜻한 미소와 친절한 인사로 모든 손님을 맞이합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkʌstəmər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-288-1778314103073",
+        "term": "front",
+        "definition": "The part of an object that faces forward or is most prominent.",
+        "meaningKr": "앞면, 정면",
+        "exampleEn": "Please wait for me in front of the library at ten o'clock tomorrow morning.",
+        "exampleKr": "내일 오전 10시에 도서관 앞에서 저를 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/frʌnt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-289-1778314103073",
+        "term": "explain",
+        "definition": "To make something clear by giving details or reasons.",
+        "meaningKr": "설명하다, 해명하다",
+        "exampleEn": "Could you please explain this math problem to me because I do not understand it?",
+        "exampleKr": "이 수학 문제를 잘 이해하지 못하겠는데 저에게 설명해 주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈspleɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-290-1778314103073",
+        "term": "door",
+        "definition": "A movable barrier used to open or close an entrance.",
+        "meaningKr": "문",
+        "exampleEn": "Please remember to lock the front door when you leave the house this morning.",
+        "exampleKr": "오늘 아침 집을 나설 때 현관문을 잠그는 것을 잊지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɔːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-291-1778314103073",
+        "term": "outside",
+        "definition": "In or to the area that is not inside a building.",
+        "meaningKr": "밖에, 야외에서",
+        "exampleEn": "It is a beautiful day, so the children are playing soccer outside in the garden.",
+        "exampleKr": "날씨가 화창해서 아이들이 밖의 정원에서 축구를 하며 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌaʊtˈsaɪd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-292-1778314103073",
+        "term": "behind",
+        "definition": "At or toward the back of someone or something.",
+        "meaningKr": "뒤에, 뒤쪽에",
+        "exampleEn": "I found my lost wallet behind the sofa while I was cleaning the living room.",
+        "exampleKr": "거실을 청소하다가 소파 뒤에서 잃어버린 지갑을 찾았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪˈhaɪnd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-293-1778314103073",
+        "term": "economic",
+        "definition": "Relating to the system of trade, industry, and money.",
+        "meaningKr": "경제의, 경제적인",
+        "exampleEn": "The country is currently facing some serious economic problems that are affecting many people's lives.",
+        "exampleKr": "그 나라는 현재 많은 사람들의 삶에 영향을 미치는 심각한 경제 문제에 직면해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌiːkəˈnɑːmɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-294-1778314103073",
+        "term": "site",
+        "definition": "A place where a building or activity is located.",
+        "meaningKr": "장소, 위치",
+        "exampleEn": "This is the perfect site for our new house because it has a great view.",
+        "exampleKr": "이곳은 전망이 아주 좋아서 우리 새 집을 짓기에 완벽한 장소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/saɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-295-1778314103073",
+        "term": "approach",
+        "definition": "To come nearer to someone or something in distance or time.",
+        "meaningKr": "다가가다, 접근하다",
+        "exampleEn": "We watched the dark clouds approach from the distance and knew it would rain soon.",
+        "exampleKr": "우리는 멀리서 먹구름이 다가오는 것을 보고 곧 비가 올 것이라는 것을 알았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈproʊtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-296-1778314103073",
+        "term": "teacher",
+        "definition": "A person whose job is to help students learn in a school.",
+        "meaningKr": "선생님, 교사",
+        "exampleEn": "My English teacher is very patient and always helps me when I make a mistake.",
+        "exampleKr": "나의 영어 선생님은 매우 인내심이 강하시고 내가 실수할 때마다 항상 도와주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtiːtʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-297-1778314103073",
+        "term": "land",
+        "definition": "The solid part of the earth's surface that is not covered by water.",
+        "meaningKr": "땅, 육지",
+        "exampleEn": "The farmer owns a large piece of land where he grows corn and wheat.",
+        "exampleKr": "그 농부는 옥수수와 밀을 재배하는 넓은 땅을 소유하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lænd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-298-1778314103073",
+        "term": "charge",
+        "definition": "To ask for an amount of money as a price for something.",
+        "meaningKr": "청구하다, 충전하다",
+        "exampleEn": "How much does the mechanic charge for fixing the brakes on a car like this?",
+        "exampleKr": "이런 차의 브레이크를 수리하는 데 정비사가 비용을 얼마나 청구하나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃɑːrdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-299-1778314103073",
+        "term": "finally",
+        "definition": "After a long time or as the last in a series of events.",
+        "meaningKr": "마침내, 결국",
+        "exampleEn": "After searching for my keys for an hour, I finally found them in my pocket.",
+        "exampleKr": "한 시간 동안 열쇠를 찾은 끝에 마침내 주머니 속에서 열쇠를 발견했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfaɪnəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-300-1778314103073",
+        "term": "sign",
+        "definition": "A mark or event that shows something exists, is true, or is happening.",
+        "meaningKr": "징후, 표지판, 신호",
+        "exampleEn": "Dark clouds in the sky are a clear sign that it will rain very soon.",
+        "exampleKr": "하늘의 먹구름은 곧 비가 올 것이라는 분명한 징후입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsaɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-301-1778314103073",
+        "term": "claim",
+        "definition": "To state that something is true even though others may not believe it.",
+        "meaningKr": "주장하다, 요구하다",
+        "exampleEn": "He tried to claim that he was not responsible for the broken window yesterday.",
+        "exampleKr": "그는 어제 깨진 창문에 대해 자신의 책임이 아니라고 주장하려고 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkleɪm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-302-1778314103073",
+        "term": "relationship",
+        "definition": "The way in which two or more people or groups behave toward each other.",
+        "meaningKr": "관계, 사이",
+        "exampleEn": "Building a strong relationship with your coworkers can make your work life much easier.",
+        "exampleKr": "동료들과 강력한 관계를 구축하는 것은 직장 생활을 훨씬 더 쉽게 만들어 줄 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈleɪʃnʃɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-303-1778314103073",
+        "term": "travel",
+        "definition": "To go from one place to another, especially over a long distance.",
+        "meaningKr": "여행하다, 이동하다",
+        "exampleEn": "My sister wants to travel around Europe for a month after she graduates from university.",
+        "exampleKr": "제 여동생은 대학교를 졸업한 후에 한 달 동안 유럽을 여행하고 싶어 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtrævl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-304-1778314103073",
+        "term": "enjoy",
+        "definition": "To get pleasure or satisfaction from an activity or experience.",
+        "meaningKr": "즐기다, 누리다",
+        "exampleEn": "I really enjoy drinking a hot cup of coffee while reading a book on weekends.",
+        "exampleKr": "저는 주말에 책을 읽으면서 따뜻한 커피 한 잔을 마시는 것을 정말 즐깁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈdʒɔɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-305-1778314103073",
+        "term": "death",
+        "definition": "The action or fact of dying or being killed; the end of life.",
+        "meaningKr": "죽음, 사망",
+        "exampleEn": "The sudden death of the famous actor shocked fans all over the world this morning.",
+        "exampleKr": "그 유명 배우의 갑작스러운 죽음은 오늘 아침 전 세계 팬들을 놀라게 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdeθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-306-1778314103073",
+        "term": "nice",
+        "definition": "Pleasant, agreeable, or satisfactory in nature or quality.",
+        "meaningKr": "좋은, 친절한",
+        "exampleEn": "It was very nice of you to help me carry these heavy boxes upstairs today.",
+        "exampleKr": "오늘 제가 이 무거운 상자들을 위층으로 옮기는 것을 도와주셔서 정말 친절하시네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnaɪs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-307-1778314103073",
+        "term": "amount",
+        "definition": "A quantity of something, especially the total of a thing or things in number.",
+        "meaningKr": "양, 액수",
+        "exampleEn": "Please add a small amount of salt to the soup to make it taste better.",
+        "exampleKr": "국물 맛이 더 좋아지도록 소금을 아주 조금만 더 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈmaʊnt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-308-1778314103073",
+        "term": "improve",
+        "definition": "To make or become better in quality or condition.",
+        "meaningKr": "향상시키다, 나아지다",
+        "exampleEn": "I am taking an online course to improve my English speaking skills for my job.",
+        "exampleKr": "저는 업무를 위해 영어 회화 실력을 향상시키려고 온라인 강의를 듣고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪmˈpruːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-309-1778314103073",
+        "term": "picture",
+        "definition": "A painting, drawing, or photograph that represents a person or thing.",
+        "meaningKr": "사진, 그림",
+        "exampleEn": "Could you please take a picture of us in front of this beautiful fountain?",
+        "exampleKr": "이 아름다운 분수 앞에서 저희 사진을 한 장 찍어 주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɪktʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-310-1778314103073",
+        "term": "boy",
+        "definition": "A male child or a young male person.",
+        "meaningKr": "소년, 남자아이",
+        "exampleEn": "The little boy is playing with his toy cars on the living room floor right now.",
+        "exampleKr": "어린 소년이 지금 거실 바닥에서 장난감 자동차를 가지고 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbɔɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-311-1778314103073",
+        "term": "regard",
+        "definition": "To consider or think of someone or something in a specified way.",
+        "meaningKr": "여기다, 간주하다",
+        "exampleEn": "Many people regard him as one of the most talented musicians of our generation.",
+        "exampleKr": "많은 사람들은 그를 우리 세대에서 가장 재능 있는 음악가 중 한 명으로 여깁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈɡɑːrd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-312-1778314103073",
+        "term": "organization",
+        "definition": "An organized group of people with a particular purpose, such as a business.",
+        "meaningKr": "조직, 단체",
+        "exampleEn": "She works for a non-profit organization that helps children who are in need of food.",
+        "exampleKr": "그녀는 음식이 필요한 아이들을 돕는 비영리 단체에서 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɔːrɡənəˈzeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-313-1778314103073",
+        "term": "happy",
+        "definition": "Feeling or showing pleasure or contentment.",
+        "meaningKr": "행복한, 기쁜",
+        "exampleEn": "I am so happy to hear that you finally found a job that you love.",
+        "exampleKr": "당신이 마침내 사랑하는 직업을 찾았다는 소식을 들어서 정말 기쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhæpi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-314-1778314103073",
+        "term": "couple",
+        "definition": "Two people or things that are similar or considered together.",
+        "meaningKr": "커플, 두 개, 부부",
+        "exampleEn": "The young couple decided to go for a walk in the park after finishing dinner.",
+        "exampleKr": "젊은 커플은 저녁 식사를 마친 후 공원으로 산책을 가기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkʌpl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-315-1778314103073",
+        "term": "act",
+        "definition": "To take action or behave in a particular way.",
+        "meaningKr": "행동하다, 연기하다",
+        "exampleEn": "It is important to act quickly when you see someone who needs medical help immediately.",
+        "exampleKr": "즉각적인 의료 도움이 필요한 사람을 보았을 때는 신속하게 행동하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈækt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-316-1778314103073",
+        "term": "range",
+        "definition": "The area or limits within which something can vary or extend.",
+        "meaningKr": "범위, 다양성",
+        "exampleEn": "The store offers a wide range of products from fresh vegetables to electronic devices.",
+        "exampleKr": "그 상점은 신선한 채소부터 전자 기기까지 넓은 범위의 제품을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈreɪndʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-317-1778314103073",
+        "term": "quality",
+        "definition": "The standard of something as measured against other things of a similar kind.",
+        "meaningKr": "품질, 질",
+        "exampleEn": "The quality of the food at this restaurant is excellent for such a low price.",
+        "exampleKr": "이 레스토랑의 음식 품질은 그렇게 낮은 가격에 비해 매우 훌륭합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkwɑːləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-318-1778314103073",
+        "term": "project",
+        "definition": "An individual or collaborative enterprise that is carefully planned to achieve a goal.",
+        "meaningKr": "프로젝트, 과제",
+        "exampleEn": "Our team is working hard to finish the marketing project before the deadline next Friday.",
+        "exampleKr": "우리 팀은 다음 주 금요일 마감일 전에 마케팅 프로젝트를 끝내기 위해 열심히 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɑːdʒekt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-319-1778314103073",
+        "term": "round",
+        "definition": "Shaped like a circle or cylinder; having a curved surface.",
+        "meaningKr": "둥근, 원형의",
+        "exampleEn": "The children sat in a round circle on the floor to listen to the story.",
+        "exampleKr": "아이들은 선생님의 이야기를 듣기 위해 바닥에 둥글게 모여 앉았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈraʊnd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-320-1778314103073",
+        "term": "opportunity",
+        "definition": "A set of circumstances that makes it possible to do something.",
+        "meaningKr": "기회",
+        "exampleEn": "Studying abroad is a great opportunity to learn about different cultures and meet new people.",
+        "exampleKr": "유학은 다양한 문화에 대해 배우고 새로운 사람들을 만날 수 있는 좋은 기회입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɑːpərˈtuːnəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-321-1778314103073",
+        "term": "road",
+        "definition": "A wide way leading from one place to another, especially one with a hard surface.",
+        "meaningKr": "도로, 길",
+        "exampleEn": "The road was very busy this morning because of the heavy rain and some accidents.",
+        "exampleKr": "폭우와 몇 건의 사고 때문에 오늘 아침 도로는 매우 혼잡했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈroʊd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-322-1778314103073",
+        "term": "accord",
+        "definition": "An official agreement or treaty.",
+        "meaningKr": "합의, 일치",
+        "exampleEn": "The two countries signed an accord to work together on protecting the environment and oceans.",
+        "exampleKr": "두 나라는 환경과 해양을 보호하기 위해 협력한다는 합의서에 서명했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈkɔːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-323-1778314103073",
+        "term": "list",
+        "definition": "A number of connected items or names written or printed consecutively.",
+        "meaningKr": "목록, 명단",
+        "exampleEn": "I need to make a shopping list before I go to the supermarket this afternoon.",
+        "exampleKr": "오늘 오후에 슈퍼마켓에 가기 전에 쇼핑 목록을 만들어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈlɪst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-324-1778314103073",
+        "term": "wish",
+        "definition": "To feel or express a strong desire or hope for something that is unlikely.",
+        "meaningKr": "바라다, 원하다",
+        "exampleEn": "I wish I could go on a vacation to a tropical island right now.",
+        "exampleKr": "지금 당장 열대 섬으로 휴가를 떠날 수 있으면 좋겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwɪʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-325-1778314103073",
+        "term": "therefore",
+        "definition": "For that reason; consequently.",
+        "meaningKr": "그러므로, 따라서",
+        "exampleEn": "He didn't study for the exam and therefore he was not surprised by his low grade.",
+        "exampleKr": "그는 시험 공부를 하지 않았고, 따라서 낮은 점수에 놀라지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈðerfɔːr/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-326-1778314103073",
+        "term": "wear",
+        "definition": "To have on one's body as clothing, decoration, or protection.",
+        "meaningKr": "입다, 착용하다",
+        "exampleEn": "You should wear a warm coat today because the temperature is going to drop significantly.",
+        "exampleKr": "기온이 크게 떨어질 예정이니 오늘은 따뜻한 코트를 입는 것이 좋겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwer/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-327-1778314103073",
+        "term": "fund",
+        "definition": "To provide with money for a particular purpose.",
+        "meaningKr": "자금을 제공하다",
+        "exampleEn": "The local government decided to fund the construction of a new public library in town.",
+        "exampleKr": "지방 정부는 마을에 새로운 공공 도서관을 건설하는 데 자금을 지원하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfʌnd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-328-1778314103073",
+        "term": "rest",
+        "definition": "An instance or period of relaxing or ceasing to engage in strenuous activity.",
+        "meaningKr": "휴식, 나머지",
+        "exampleEn": "You look very tired today so you should get some rest after you finish your work.",
+        "exampleKr": "오늘 매우 피곤해 보이니 업무를 마친 후에 휴식을 좀 취해야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrest/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-329-1778314103073",
+        "term": "kid",
+        "definition": "A child or young person.",
+        "meaningKr": "아이, 어린이",
+        "exampleEn": "When I was a kid, I used to spend all my summer holidays at my grandmother's.",
+        "exampleKr": "내가 어렸을 때, 여름 방학을 모두 할머니 댁에서 보내곤 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɪd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-330-1778314103073",
+        "term": "industry",
+        "definition": "Economic activity concerned with the processing of raw materials and manufacture of goods.",
+        "meaningKr": "산업, 업계",
+        "exampleEn": "The tourism industry has been growing very fast in this city over the last few years.",
+        "exampleKr": "지난 몇 년 동안 이 도시에서 관광 산업이 매우 빠르게 성장하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɪndəstri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-331-1778314103073",
+        "term": "education",
+        "definition": "The process of receiving or giving systematic instruction, especially at a school.",
+        "meaningKr": "교육",
+        "exampleEn": "A good education is very important for finding a stable and well-paying job in the future.",
+        "exampleKr": "미래에 안정적이고 보수가 좋은 직업을 찾기 위해 좋은 교육은 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌedʒuˈkeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-332-1778314103073",
+        "term": "measure",
+        "definition": "To ascertain the size, amount, or degree of something by using an instrument.",
+        "meaningKr": "측정하다, 재다",
+        "exampleEn": "The tailor needs to measure your waist and shoulders to make a custom suit for you.",
+        "exampleKr": "재단사가 당신에게 맞는 맞춤 정장을 만들기 위해 허리와 어깨 치수를 재야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmeʒər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-333-1778314103073",
+        "term": "kill",
+        "definition": "To cause the death of a person, animal, or other living thing.",
+        "meaningKr": "죽이다, 끝내다",
+        "exampleEn": "The gardener used a special spray to kill the weeds that were growing in the backyard.",
+        "exampleKr": "정원사는 뒷마당에 자라고 있던 잡초들을 죽이기 위해 특수 스프레이를 사용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-334-1778314103073",
+        "term": "serve",
+        "definition": "To present food or drink to someone.",
+        "meaningKr": "제공하다, 서빙하다",
+        "exampleEn": "The restaurant will serve a special three-course meal for all customers on Valentine's Day.",
+        "exampleKr": "그 레스토랑은 밸런타인데이에 모든 고객에게 특별한 3코스 식사를 제공할 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɜːrv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-335-1778314103073",
+        "term": "likely",
+        "definition": "Such as well might happen or be true; probable.",
+        "meaningKr": "~할 것 같은, 유망한",
+        "exampleEn": "It is likely that the flight will be delayed because of the heavy snow storm.",
+        "exampleKr": "폭설 때문에 비행기가 지연될 가능성이 높습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈlaɪkli/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-336-1778314103073",
+        "term": "certainly",
+        "definition": "Used to emphasize the speaker's belief that what is said is true.",
+        "meaningKr": "확실히, 틀림없이",
+        "exampleEn": "I will certainly call you as soon as I arrive at the airport this evening.",
+        "exampleKr": "오늘 저녁에 공항에 도착하자마자 틀림없이 당신에게 전화하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɜːrtnli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-337-1778314103073",
+        "term": "national",
+        "definition": "Relating to or characteristic of a whole nation.",
+        "meaningKr": "국가의, 전국적인",
+        "exampleEn": "The museum is holding a national exhibition to celebrate the country's independence day next month.",
+        "exampleKr": "박물관은 다음 달 국가 독립 기념일을 축하하기 위해 전국적인 전시회를 개최합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnæʃnəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-338-1778314103073",
+        "term": "itself",
+        "definition": "Used as the object of a verb or preposition to refer to a thing or animal previously mentioned.",
+        "meaningKr": "그 자체, 스스로",
+        "exampleEn": "The house itself is quite old but the garden surrounding it is very beautiful and large.",
+        "exampleKr": "집 자체는 꽤 낡았지만 그것을 둘러싼 정원은 매우 아름답고 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪtˈself/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-339-1778314103073",
+        "term": "teach",
+        "definition": "To impart knowledge to or instruct someone as to how to do something.",
+        "meaningKr": "가르치다",
+        "exampleEn": "My father taught me how to ride a bicycle when I was only five years old.",
+        "exampleKr": "아버지는 제가 겨우 다섯 살이었을 때 자전거 타는 법을 가르쳐 주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtiːtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-340-1778314103073",
+        "term": "field",
+        "definition": "An area of open land, especially one planted with crops or used for pasture.",
+        "meaningKr": "들판, 분야",
+        "exampleEn": "The cows are grazing peacefully in the green field behind the old red barn.",
+        "exampleKr": "소들이 오래된 빨간 헛간 뒤의 초원에서 평화롭게 풀을 뜯고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfiːld/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-341-1778314103073",
+        "term": "security",
+        "definition": "The state of being free from danger or threat.",
+        "meaningKr": "보안, 안보, 안심",
+        "exampleEn": "The airport has very strict security measures to ensure the safety of all its passengers.",
+        "exampleKr": "공항은 모든 승객의 안전을 보장하기 위해 매우 엄격한 보안 조치를 취하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɪˈkjʊrəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-342-1778314103073",
+        "term": "air",
+        "definition": "The invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen.",
+        "meaningKr": "공기, 대기",
+        "exampleEn": "We should open the window to let some fresh air into the room right now.",
+        "exampleKr": "지금 방 안에 신선한 공기가 들어오도록 창문을 열어야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈer/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-343-1778314103073",
+        "term": "benefit",
+        "definition": "An advantage or profit gained from something.",
+        "meaningKr": "혜택, 이득",
+        "exampleEn": "One major benefit of regular exercise is that it helps to reduce stress and anxiety.",
+        "exampleKr": "규칙적인 운동의 한 가지 주요 혜택은 스트레스와 불안을 줄이는 데 도움이 된다는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbenɪfɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-344-1778314103073",
+        "term": "trade",
+        "definition": "The action of buying and selling goods and services.",
+        "meaningKr": "거래하다, 교환하다",
+        "exampleEn": "The two boys decided to trade their baseball cards during the lunch break at school.",
+        "exampleKr": "두 소년은 학교 점심시간 동안 자신들의 야구 카드를 교환하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtreɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-345-1778314103073",
+        "term": "risk",
+        "definition": "To expose someone or something to a dangerous or harmful situation.",
+        "meaningKr": "위험을 무릅쓰다",
+        "exampleEn": "You should not risk driving your car if you are feeling very tired or sleepy.",
+        "exampleKr": "매우 피곤하거나 졸음이 온다면 차를 운전하는 위험을 무릅써서는 안 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrɪsk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-346-1778314103073",
+        "term": "news",
+        "definition": "Newly received or noteworthy information, especially about recent events.",
+        "meaningKr": "뉴스, 소식",
+        "exampleEn": "I was very surprised to hear the news that my best friend is moving to Canada.",
+        "exampleKr": "제 절친이 캐나다로 이사 간다는 소식을 듣고 매우 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnuːz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-347-1778314103073",
+        "term": "standard",
+        "definition": "A level of quality or attainment.",
+        "meaningKr": "표준, 기준",
+        "exampleEn": "This hotel maintains a high standard of service for all its guests throughout the year.",
+        "exampleKr": "이 호텔은 일 년 내내 모든 투숙객에게 높은 수준의 서비스를 유지합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈstændərd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-348-1778314103073",
+        "term": "vote",
+        "definition": "To give or register a vote in an election or meeting.",
+        "meaningKr": "투표하다",
+        "exampleEn": "Every citizen over eighteen has the right to vote in the upcoming presidential election.",
+        "exampleKr": "18세 이상의 모든 시민은 다가오는 대통령 선거에서 투표할 권리가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈvoʊt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-349-1778314103073",
+        "term": "percent",
+        "definition": "By a specified amount in or for every hundred.",
+        "meaningKr": "퍼센트, 백분율",
+        "exampleEn": "More than eighty percent of the students passed the final exam with very high scores.",
+        "exampleKr": "80퍼센트 이상의 학생들이 매우 높은 점수로 기말고사를 통과했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pərˈsent/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-350-1778314103073",
+        "term": "focus",
+        "definition": "The main purpose or center of interest or activity.",
+        "meaningKr": "초점, 중심",
+        "exampleEn": "The main focus of today's meeting will be our plans for the upcoming summer vacation.",
+        "exampleKr": "오늘 회의의 주된 초점은 다가오는 여름 휴가에 대한 우리의 계획이 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfoʊkəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-351-1778314103073",
+        "term": "stage",
+        "definition": "A place where actors or musicians perform for others.",
+        "meaningKr": "무대, 단계",
+        "exampleEn": "The band walked onto the stage and started playing their most popular song for the fans.",
+        "exampleKr": "밴드는 무대 위로 걸어 나와 팬들을 위해 가장 인기 있는 노래를 연주하기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/steɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-352-1778314103073",
+        "term": "space",
+        "definition": "An empty area with nothing in it.",
+        "meaningKr": "공간, 장소",
+        "exampleEn": "I need to find some extra space in the closet to store all my winter clothes.",
+        "exampleKr": "겨울 옷을 모두 보관하기 위해 옷장에 여분의 공간을 좀 찾아야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/speɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-353-1778314103073",
+        "term": "instead",
+        "definition": "When one thing is replaced by another.",
+        "meaningKr": "대신에",
+        "exampleEn": "I decided to walk to the office instead of taking the bus to get some exercise.",
+        "exampleKr": "운동을 좀 하기 위해 버스를 타는 대신 사무실까지 걸어가기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈsted/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-354-1778314103073",
+        "term": "realize",
+        "definition": "To become aware of or understand something mentally.",
+        "meaningKr": "깨닫다, 실감하다",
+        "exampleEn": "I didn't realize how late it was until I looked at the clock on the wall.",
+        "exampleKr": "벽에 걸린 시계를 보고 나서야 시간이 얼마나 늦었는지 깨달았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈriːəlaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-355-1778314103073",
+        "term": "usually",
+        "definition": "Normally or regularly.",
+        "meaningKr": "보통, 대개",
+        "exampleEn": "We usually go to the park on Saturday mornings to play soccer with our neighborhood friends.",
+        "exampleKr": "우리는 보통 토요일 아침에 동네 친구들과 축구를 하러 공원에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈjuːʒuəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-356-1778314103073",
+        "term": "data",
+        "definition": "Facts or information used to calculate or analyze.",
+        "meaningKr": "자료, 데이터",
+        "exampleEn": "The company collected a lot of data to understand what customers like to buy online.",
+        "exampleKr": "회사는 고객들이 온라인에서 무엇을 사고 싶어하는지 이해하기 위해 많은 자료를 수집했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdeɪtə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-357-1778314103073",
+        "term": "single",
+        "definition": "Only one; merely.",
+        "meaningKr": "단 하나의, 독신의",
+        "exampleEn": "I couldn't find a single person in the library who knew where the history books were.",
+        "exampleKr": "도서관에서 역사 책이 어디에 있는지 아는 사람을 단 한 명도 찾을 수 없었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɪŋɡl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-358-1778314103073",
+        "term": "address",
+        "definition": "The exact street location of a place.",
+        "meaningKr": "주소",
+        "exampleEn": "Please write your current home address on this form so we can send you the package.",
+        "exampleKr": "저희가 패키지를 보내드릴 수 있도록 이 양식에 현재 거주지 주소를 적어주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈdres/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-359-1778314103073",
+        "term": "performance",
+        "definition": "An activity done to entertain an audience.",
+        "meaningKr": "공연, 실적",
+        "exampleEn": "The actor gave a wonderful performance in the play and the audience cheered for a long time.",
+        "exampleKr": "배우는 연극에서 멋진 공연을 보여주었고 관객들은 오랫동안 환호했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pərˈfɔːrməns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-360-1778314103073",
+        "term": "chance",
+        "definition": "The possibility that something will happen.",
+        "meaningKr": "기회, 가능성",
+        "exampleEn": "This is a great chance for you to learn how to cook traditional Italian food at home.",
+        "exampleKr": "이것은 집에서 전통적인 이탈리아 음식을 요리하는 법을 배울 수 있는 좋은 기회입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃæns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-361-1778314103073",
+        "term": "accept",
+        "definition": "To agree to receive or take something offered.",
+        "meaningKr": "받아들이다, 수락하다",
+        "exampleEn": "She was very happy to accept the job offer after searching for a position for three months.",
+        "exampleKr": "그녀는 3개월 동안 일자리를 찾은 끝에 입사 제안을 기쁘게 받아들였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əkˈsept/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-362-1778314103073",
+        "term": "society",
+        "definition": "A community of people living together.",
+        "meaningKr": "사회, 집단",
+        "exampleEn": "We should work together to build a better society for the next generation of children.",
+        "exampleKr": "우리는 다음 세대 아이들을 위해 더 나은 사회를 만들기 위해 함께 노력해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈsaɪəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-363-1778314103073",
+        "term": "technology",
+        "definition": "The use or knowledge of science in industry or engineering.",
+        "meaningKr": "기술",
+        "exampleEn": "Modern technology has changed the way we communicate with our friends and family every single day.",
+        "exampleKr": "현대 기술은 우리가 친구나 가족과 매일 소통하는 방식을 변화시켰습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tekˈnɑːlədʒi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-364-1778314103073",
+        "term": "mention",
+        "definition": "To refer to or talk or write about something.",
+        "meaningKr": "언급하다, 말하다",
+        "exampleEn": "Did you remember to mention the party to your brother when you saw him yesterday?",
+        "exampleKr": "어제 형을 만났을 때 파티에 대해 언급하는 것을 기억했나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmenʃn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-365-1778314103073",
+        "term": "choice",
+        "definition": "A decision between two or more possibilities.",
+        "meaningKr": "선택, 선택권",
+        "exampleEn": "You have a choice between the chocolate cake and the fruit salad for your dessert tonight.",
+        "exampleKr": "오늘 밤 디저트로 초콜릿 케이크와 과일 샐러드 중 하나를 선택할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃɔɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-366-1778314103073",
+        "term": "save",
+        "definition": "To rescue someone or something from a bad situation.",
+        "meaningKr": "구하다, 저축하다",
+        "exampleEn": "The brave firefighter entered the burning building to save the little kitten trapped in the kitchen.",
+        "exampleKr": "용감한 소방관은 부엌에 갇힌 작은 새끼 고양이를 구하기 위해 불타는 건물로 들어갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/seɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-367-1778314103073",
+        "term": "common",
+        "definition": "Typical, normal, or not unusual.",
+        "meaningKr": "공통의, 흔한",
+        "exampleEn": "It is common for people to feel a bit nervous before they give a big presentation.",
+        "exampleKr": "사람들이 큰 발표를 하기 전에 약간 긴장하는 것은 흔한 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɑːmən/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-368-1778314103073",
+        "term": "culture",
+        "definition": "The beliefs and customs of a particular group.",
+        "meaningKr": "문화",
+        "exampleEn": "Learning about a new culture is one of the most exciting parts of traveling to another country.",
+        "exampleKr": "새로운 문화에 대해 배우는 것은 다른 나라를 여행하는 가장 흥미로운 부분 중 하나입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkʌltʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-369-1778314103073",
+        "term": "total",
+        "definition": "The whole number or amount of something.",
+        "meaningKr": "합계, 총액",
+        "exampleEn": "The total cost of the groceries was much higher than I had originally expected it to be.",
+        "exampleKr": "식료품의 총비용은 제가 원래 예상했던 것보다 훨씬 더 높았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtoʊtl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-370-1778314103073",
+        "term": "demand",
+        "definition": "To strongly request someone to do something.",
+        "meaningKr": "요구하다",
+        "exampleEn": "The customers began to demand a refund because the product they bought was broken and unusable.",
+        "exampleKr": "고객들은 산 제품이 고장 나고 사용할 수 없어서 환불을 요구하기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈmænd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-371-1778314103073",
+        "term": "material",
+        "definition": "The substance from which a thing is made.",
+        "meaningKr": "재료, 소재",
+        "exampleEn": "This soft material is perfect for making warm blankets that we can use during the winter.",
+        "exampleKr": "이 부드러운 소재는 겨울 동안 사용할 수 있는 따뜻한 담요를 만들기에 완벽합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/məˈtɪriəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-372-1778314103073",
+        "term": "limit",
+        "definition": "A point beyond which it is not possible to go.",
+        "meaningKr": "한계, 제한",
+        "exampleEn": "There is a limit on how many books you can borrow from the local library at once.",
+        "exampleKr": "지역 도서관에서 한 번에 빌릴 수 있는 책의 권수에는 한계가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈlɪmɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-373-1778314103073",
+        "term": "listen",
+        "definition": "To use your ears to hear and understand things.",
+        "meaningKr": "듣다, 경청하다",
+        "exampleEn": "You should listen carefully to the instructions before you start working on your final school project.",
+        "exampleKr": "최종 학교 과제를 시작하기 전에 지침을 주의 깊게 들어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈlɪsn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-374-1778314103073",
+        "term": "due",
+        "definition": "When something is required or expected.",
+        "meaningKr": "~하기로 되어 있는, 마감인",
+        "exampleEn": "The library books are due back tomorrow so I need to finish reading them tonight.",
+        "exampleKr": "도서관 책을 내일까지 반납해야 해서 오늘 밤에 다 읽어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/duː/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-375-1778314103073",
+        "term": "wrong",
+        "definition": "Not right, incorrect, or not true.",
+        "meaningKr": "틀린, 잘못된",
+        "exampleEn": "I think I took the wrong bus because this neighborhood does not look familiar to me.",
+        "exampleKr": "이 동네가 낯이 익지 않은 것을 보니 버스를 잘못 탄 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɔːŋ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-376-1778314103073",
+        "term": "foot",
+        "definition": "The lowest part of the leg we use to stand on.",
+        "meaningKr": "발",
+        "exampleEn": "My left foot hurts a little bit because I walked too much in these new shoes today.",
+        "exampleKr": "오늘 이 새 신발을 신고 너무 많이 걸어서 왼쪽 발이 조금 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fʊt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-377-1778314103073",
+        "term": "effort",
+        "definition": "The amount of work used trying to do something.",
+        "meaningKr": "노력, 수고",
+        "exampleEn": "It took a lot of effort to finish the marathon but I felt very proud of myself.",
+        "exampleKr": "마라톤을 완주하는 데 많은 노력이 들었지만 제 자신이 매우 자랑스러웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈefərt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-378-1778314103073",
+        "term": "attention",
+        "definition": "The focus of your thoughts on something.",
+        "meaningKr": "주의, 주목",
+        "exampleEn": "Please pay attention to the teacher while she explains how to solve these difficult math problems.",
+        "exampleKr": "선생님이 이 어려운 수학 문제를 푸는 방법을 설명하시는 동안 주의를 기울여 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈtenʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-379-1778314103073",
+        "term": "upon",
+        "definition": "A more formal term for the preposition 'on'.",
+        "meaningKr": "~위에",
+        "exampleEn": "The king placed the golden crown upon his head during the special ceremony at the palace.",
+        "exampleKr": "왕은 궁전에서 열린 특별한 의식 도중에 머리 위에 황금 왕관을 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈpɔːn/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-ngsl-380-1778314103073",
+        "term": "check",
+        "definition": "To confirm that the details of something are correct.",
+        "meaningKr": "확인하다, 점검하다",
+        "exampleEn": "You should always check the weather forecast before you plan a picnic at the park.",
+        "exampleKr": "공원에서 소풍을 계획하기 전에 항상 일기 예보를 확인해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃek/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-381-1778314103073",
+        "term": "complete",
+        "definition": "To finish or reach the end of doing something.",
+        "meaningKr": "완료하다, 끝내다",
+        "exampleEn": "It will take me about two more hours to complete this report for my boss.",
+        "exampleKr": "상사에게 제출할 이 보고서를 완료하려면 약 두 시간 정도 더 걸릴 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəmˈpliːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-382-1778314103073",
+        "term": "lie",
+        "definition": "To say something that you know is not true.",
+        "meaningKr": "거짓말하다",
+        "exampleEn": "It is never a good idea to lie to your friends because they might lose trust.",
+        "exampleKr": "친구들의 신뢰를 잃을 수도 있기 때문에 친구에게 거짓말을 하는 것은 결코 좋은 생각이 아닙니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/laɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-383-1778314103073",
+        "term": "pick",
+        "definition": "To decide on a thing from various choices.",
+        "meaningKr": "고르다, 선택하다",
+        "exampleEn": "I need to pick a nice gift for my mother's birthday party this coming weekend.",
+        "exampleKr": "이번 주말에 있을 어머니의 생신 파티를 위해 멋진 선물을 골라야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pɪk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-384-1778314103073",
+        "term": "reduce",
+        "definition": "To make something smaller or use less of it.",
+        "meaningKr": "줄이다, 축소하다",
+        "exampleEn": "We are trying to reduce the amount of plastic we use in our daily lives.",
+        "exampleKr": "우리는 일상 생활에서 사용하는 플라스틱의 양을 줄이려고 노력하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈduːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-385-1778314103073",
+        "term": "personal",
+        "definition": "Done by or to a particular person.",
+        "meaningKr": "개인적인, 사적인",
+        "exampleEn": "I cannot share that information with you because it is a very personal matter to me.",
+        "exampleKr": "그 정보는 저에게 매우 개인적인 문제이기 때문에 당신과 공유할 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɜːrsənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-386-1778314103073",
+        "term": "ground",
+        "definition": "The solid surface of the earth that we stand on.",
+        "meaningKr": "땅, 지면",
+        "exampleEn": "The ground was covered with colorful leaves that had fallen from the trees in the autumn.",
+        "exampleKr": "가을에 나무에서 떨어진 알록달록한 잎들이 땅을 덮고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡraʊnd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-387-1778314103073",
+        "term": "animal",
+        "definition": "A living creature that is not a plant or person.",
+        "meaningKr": "동물",
+        "exampleEn": "My favorite animal is the elephant because they are very intelligent and have great memories.",
+        "exampleKr": "제가 가장 좋아하는 동물은 매우 영리하고 기억력이 좋은 코끼리입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈænɪml/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-388-1778314103073",
+        "term": "arrive",
+        "definition": "To reach the place you are travelling to.",
+        "meaningKr": "도착하다",
+        "exampleEn": "We should arrive at the airport at least two hours before our flight is scheduled to depart.",
+        "exampleKr": "비행기 출발 예정 시간 최소 두 시간 전에는 공항에 도착해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈraɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-389-1778314103073",
+        "term": "patient",
+        "definition": "Not getting annoyed when things take a long time.",
+        "meaningKr": "인내심 있는",
+        "exampleEn": "You need to be patient and wait for the bus even if it is running a bit late.",
+        "exampleKr": "버스가 조금 늦게 오더라도 인내심을 갖고 기다려야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpeɪʃnt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-390-1778314103073",
+        "term": "current",
+        "definition": "Happening or being in the present time.",
+        "meaningKr": "현재의, 지금의",
+        "exampleEn": "My current job is very challenging but I am learning many new things every single day.",
+        "exampleKr": "현재 직장은 매우 도전적이지만 매일 많은 새로운 것들을 배우고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɜːrənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-391-1778314103073",
+        "term": "century",
+        "definition": "A period of 100 years.",
+        "meaningKr": "세기, 100년",
+        "exampleEn": "The castle was built in the nineteenth century and is still in very good condition today.",
+        "exampleKr": "그 성은 19세기에 지어졌으며 오늘날에도 여전히 매우 좋은 상태를 유지하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsentʃəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-392-1778314103073",
+        "term": "evidence",
+        "definition": "Factual proof that helps to establish the truth.",
+        "meaningKr": "증거, 흔적",
+        "exampleEn": "The police are looking for more evidence to find out who was responsible for the accident.",
+        "exampleKr": "경찰은 사고에 책임이 있는 사람이 누구인지 밝혀내기 위해 더 많은 증거를 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈevɪdəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-393-1778314103073",
+        "term": "exist",
+        "definition": "To be present, alive, or real.",
+        "meaningKr": "존재하다",
+        "exampleEn": "Many people believe that life might exist on other planets far away from our own galaxy.",
+        "exampleKr": "많은 사람들은 우리 은하계에서 멀리 떨어진 다른 행성에도 생명체가 존재할 수 있다고 믿습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪɡˈzɪst/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-394-1778314103073",
+        "term": "similar",
+        "definition": "Being nearly the same as something else.",
+        "meaningKr": "비슷한, 유사한",
+        "exampleEn": "My sister and I have very similar tastes in music and we often go to concerts together.",
+        "exampleKr": "제 여동생과 저는 음악 취향이 매우 비슷해서 종종 콘서트에 함께 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɪmələr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-395-1778314103073",
+        "term": "fight",
+        "definition": "The act of trying to hurt someone by hitting them.",
+        "meaningKr": "싸움, 다툼",
+        "exampleEn": "The two brothers had a small fight over who would get to use the computer first.",
+        "exampleKr": "두 형제는 누가 먼저 컴퓨터를 사용할지를 두고 작은 싸움을 벌였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/faɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-396-1778314103073",
+        "term": "leader",
+        "definition": "A person who is in charge of a group or task.",
+        "meaningKr": "지도자, 리더",
+        "exampleEn": "A good leader should know how to listen to the opinions of everyone in the group.",
+        "exampleKr": "좋은 리더는 그룹 내 모든 사람의 의견을 듣는 방법을 알아야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈliːdər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-397-1778314103073",
+        "term": "fine",
+        "definition": "Good, acceptable, or satisfactory.",
+        "meaningKr": "좋은, 괜찮은",
+        "exampleEn": "I felt a bit sick yesterday but I am feeling fine and ready to work today.",
+        "exampleKr": "어제는 몸이 좀 안 좋았지만 오늘은 괜찮고 일할 준비가 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/faɪn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-398-1778314103073",
+        "term": "street",
+        "definition": "A road in a city with buildings and places to walk.",
+        "meaningKr": "거리, 도로",
+        "exampleEn": "Be careful when you cross the street and always look both ways for any oncoming cars.",
+        "exampleKr": "길을 건널 때 조심하고 항상 다가오는 차가 있는지 양쪽을 살피세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/striːt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-399-1778314103073",
+        "term": "former",
+        "definition": "Being something previously, but not now.",
+        "meaningKr": "이전의, 과거의",
+        "exampleEn": "My former teacher visited our school yesterday to say hello to all of her old students.",
+        "exampleKr": "이전 선생님께서 옛 제자들에게 인사를 하러 어제 우리 학교를 방문하셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɔːrmər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-400-1778314103073",
+        "term": "contact",
+        "definition": "To get in touch with someone through calling or messaging.",
+        "meaningKr": "연락하다",
+        "exampleEn": "Please contact me by email if you have any questions about the upcoming project.",
+        "exampleKr": "이번 프로젝트에 대해 궁금한 점이 있으면 이메일로 연락해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɒntækt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-401-1778314103073",
+        "term": "particularly",
+        "definition": "To a higher degree than is usual or average.",
+        "meaningKr": "특히, 유독",
+        "exampleEn": "I love all kinds of Italian food, but I am particularly fond of spicy pasta.",
+        "exampleKr": "저는 모든 종류의 이탈리아 음식을 좋아하지만, 특히 매콤한 파스타를 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pəˈtɪkjələli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-402-1778314103073",
+        "term": "wife",
+        "definition": "A woman to whom a person is married.",
+        "meaningKr": "아내, 부인",
+        "exampleEn": "My wife and I are planning to take a short trip to the countryside this weekend.",
+        "exampleKr": "제 아내와 저는 이번 주말에 시골로 짧은 여행을 가려고 계획 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/waɪf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-403-1778314103073",
+        "term": "sport",
+        "definition": "An activity involving physical exertion and skill in which an individual or team competes.",
+        "meaningKr": "스포츠, 운동",
+        "exampleEn": "Playing a team sport is a great way to meet new people and stay healthy.",
+        "exampleKr": "팀 스포츠를 하는 것은 새로운 사람들을 만나고 건강을 유지하는 좋은 방법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spɔːrt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-404-1778314103073",
+        "term": "prepare",
+        "definition": "To make something ready for use or consideration.",
+        "meaningKr": "준비하다",
+        "exampleEn": "I need to prepare some snacks and drinks before our guests arrive for the party.",
+        "exampleKr": "손님들이 파티에 도착하기 전에 간식과 음료를 좀 준비해야 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prɪˈpeər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-405-1778314103073",
+        "term": "discuss",
+        "definition": "To talk about something with another person or group of people.",
+        "meaningKr": "논의하다, 상의하다",
+        "exampleEn": "We should sit down and discuss our travel plans for the summer vacation next week.",
+        "exampleKr": "다음 주에 모여 앉아 여름 휴가 여행 계획을 논의해야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈskʌs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-406-1778314103073",
+        "term": "response",
+        "definition": "A verbal or written answer to a question or message.",
+        "meaningKr": "대답, 응답",
+        "exampleEn": "I sent her a message yesterday, but I haven't received a response from her yet.",
+        "exampleKr": "어제 그녀에게 메시지를 보냈지만, 아직 아무런 답장을 받지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈspɒns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-407-1778314103073",
+        "term": "voice",
+        "definition": "The sound produced in a person's larynx and uttered through the mouth.",
+        "meaningKr": "목소리",
+        "exampleEn": "She has a very beautiful singing voice that always makes everyone feel calm and happy.",
+        "exampleKr": "그녀는 모두를 차분하고 행복하게 만드는 아주 아름다운 노래 목소리를 가지고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/vɔɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-408-1778314103073",
+        "term": "piece",
+        "definition": "A portion of an object or of a material, produced by cutting or breaking.",
+        "meaningKr": "조각, 부분",
+        "exampleEn": "Would you like another piece of chocolate cake with your coffee after we finish dinner?",
+        "exampleKr": "저녁 식사를 마친 후에 커피와 함께 초콜릿 케이크 한 조각 더 드시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/piːs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-409-1778314103073",
+        "term": "finish",
+        "definition": "The end or completion of a task or event.",
+        "meaningKr": "끝, 마무리",
+        "exampleEn": "The race was very exciting from the beginning all the way to the very finish line.",
+        "exampleKr": "그 경주는 시작부터 결승선에 도착할 때까지 내내 정말 흥미진진했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɪnɪʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-410-1778314103073",
+        "term": "suppose",
+        "definition": "To assume that something is the case on the basis of evidence or probability.",
+        "meaningKr": "생각하다, 추측하다",
+        "exampleEn": "I suppose we should start heading home now before the traffic gets too heavy tonight.",
+        "exampleKr": "오늘 밤 차가 너무 막히기 전에 이제 집으로 출발해야 할 것 같아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈpəʊz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-411-1778314103073",
+        "term": "apply",
+        "definition": "To make a formal application or request.",
+        "meaningKr": "지원하다, 신청하다",
+        "exampleEn": "He decided to apply for a new job at a local company to gain more experience.",
+        "exampleKr": "그는 더 많은 경험을 쌓기 위해 지역 회사에 새 직장을 지원하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈplaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-412-1778314103073",
+        "term": "president",
+        "definition": "The elected head of a republican state or organization.",
+        "meaningKr": "대통령, 회장",
+        "exampleEn": "The company president announced a new policy to improve the working conditions for all employees.",
+        "exampleKr": "사장은 모든 직원의 근무 환경을 개선하기 위한 새로운 정책을 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprezɪdənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-413-1778314103073",
+        "term": "fire",
+        "definition": "Combustion or burning, in which substances combine chemically with oxygen from the air.",
+        "meaningKr": "불, 화재",
+        "exampleEn": "We sat around the warm fire and shared interesting stories until late into the night.",
+        "exampleKr": "우리는 따뜻한 모닥불 주위에 앉아 밤늦게까지 재미있는 이야기를 나누었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfaɪər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-414-1778314103073",
+        "term": "compare",
+        "definition": "To estimate, measure, or note the similarity or dissimilarity between things.",
+        "meaningKr": "비교하다",
+        "exampleEn": "It is always a good idea to compare prices at different stores before buying expensive electronics.",
+        "exampleKr": "비싼 가전제품을 사기 전에 여러 가게의 가격을 비교해 보는 것이 항상 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəmˈpeər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-415-1778314103073",
+        "term": "court",
+        "definition": "An area marked out for ball games such as tennis or basketball.",
+        "meaningKr": "코트, 경기장",
+        "exampleEn": "The local park has a great basketball court where we can play together this afternoon.",
+        "exampleKr": "동네 공원에 오늘 오후에 우리가 함께 농구를 할 수 있는 좋은 코트가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kɔːrt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-416-1778314103073",
+        "term": "police",
+        "definition": "The civil force of a state, responsible for the prevention and detection of crime.",
+        "meaningKr": "경찰",
+        "exampleEn": "The police arrived quickly at the scene of the accident to help the injured people.",
+        "exampleKr": "경찰이 사고 현장에 신속하게 도착하여 부상당한 사람들을 도왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pəˈliːs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-417-1778314103073",
+        "term": "store",
+        "definition": "A shop of any kind where goods are sold.",
+        "meaningKr": "가게, 상점",
+        "exampleEn": "I need to stop by the grocery store to pick up some milk and eggs.",
+        "exampleKr": "우유랑 계란을 좀 사러 식료품점에 들러야 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stɔːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-418-1778314103073",
+        "term": "poor",
+        "definition": "Lacking sufficient money to live at a standard considered comfortable.",
+        "meaningKr": "가난한, 불쌍한",
+        "exampleEn": "The charity organization provides food and clothes to poor families living in the local community.",
+        "exampleKr": "그 자선 단체는 지역 사회에 살고 있는 가난한 가정에 음식과 옷을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pɔːr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-419-1778314103073",
+        "term": "knowledge",
+        "definition": "Facts, information, and skills acquired by a person through experience or education.",
+        "meaningKr": "지식, 알고 있음",
+        "exampleEn": "Reading books is one of the best ways to gain more knowledge about the world around us.",
+        "exampleKr": "책을 읽는 것은 우리 주변 세계에 대한 더 많은 지식을 얻는 가장 좋은 방법 중 하나입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnɒlɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-420-1778314103073",
+        "term": "laugh",
+        "definition": "To make spontaneous sounds and movements of the face and body that are the instinctive expressions of lively amusement.",
+        "meaningKr": "웃다",
+        "exampleEn": "The comedian was so funny that the entire audience couldn't stop laughing during the whole show.",
+        "exampleKr": "그 코미디언이 너무 웃겨서 공연 내내 관객 전체가 웃음을 멈출 수 없었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɑːf/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-421-1778314103073",
+        "term": "arm",
+        "definition": "Each of the two upper limbs of the human body from the shoulder to the hand.",
+        "meaningKr": "팔",
+        "exampleEn": "He broke his left arm while playing soccer with his friends at the park yesterday.",
+        "exampleKr": "그는 어제 공원에서 친구들과 축구를 하다가 왼쪽 팔이 부러졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɑːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-422-1778314103073",
+        "term": "heart",
+        "definition": "A hollow muscular organ that pumps the blood through the circulatory system.",
+        "meaningKr": "심장, 마음",
+        "exampleEn": "Regular exercise is very important for keeping your heart healthy and preventing many different diseases.",
+        "exampleKr": "규칙적인 운동은 심장을 건강하게 유지하고 여러 질병을 예방하는 데 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hɑːrt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-423-1778314103073",
+        "term": "source",
+        "definition": "A place, person, or thing from which something comes or can be obtained.",
+        "meaningKr": "원천, 근원",
+        "exampleEn": "The internet is a major source of information for students who are doing their homework.",
+        "exampleKr": "인터넷은 숙제를 하는 학생들에게 주요한 정보의 원천입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɔːrs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-424-1778314103073",
+        "term": "employee",
+        "definition": "A person employed for wages or salary, especially at non-executive level.",
+        "meaningKr": "직원, 종업원",
+        "exampleEn": "Every employee in our office is required to attend the safety training session next Monday.",
+        "exampleKr": "우리 사무실의 모든 직원은 다음 주 월요일에 안전 교육 세션에 참석해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪmˈplɔɪiː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-425-1778314103073",
+        "term": "manage",
+        "definition": "To be in charge of a business, organization, or project.",
+        "meaningKr": "관리하다, 운영하다",
+        "exampleEn": "She has to manage a large team of designers to complete the project on time.",
+        "exampleKr": "그녀는 프로젝트를 제시간에 끝내기 위해 대규모 디자이너 팀을 관리해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmænɪdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-426-1778314103073",
+        "term": "simply",
+        "definition": "In a straightforward or plain manner.",
+        "meaningKr": "간단히, 단순히",
+        "exampleEn": "You can simply press this green button to start the machine whenever you are ready.",
+        "exampleKr": "준비가 되면 언제든지 이 초록색 버튼을 간단히 눌러 기계를 시작할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɪmpli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-427-1778314103073",
+        "term": "bank",
+        "definition": "A financial establishment that uses money deposited by customers for investment and pays it out when required.",
+        "meaningKr": "은행",
+        "exampleEn": "I need to go to the bank to deposit some cash into my savings account.",
+        "exampleKr": "저축 계좌에 현금을 좀 입금하러 은행에 가야 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bæŋk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-428-1778314103073",
+        "term": "firm",
+        "definition": "Solid and not yielding to pressure.",
+        "meaningKr": "딱딱한, 단단한",
+        "exampleEn": "I prefer a firm mattress because it provides better support for my back while I sleep.",
+        "exampleKr": "저는 잘 때 등을 더 잘 지지해 주기 때문에 딱딱한 매트리스를 선호합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɜːm/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-429-1778314103073",
+        "term": "cell",
+        "definition": "A short term used to refer to a cellular telephone.",
+        "meaningKr": "휴대전화",
+        "exampleEn": "Please turn off your cell phone or put it on silent during the movie performance.",
+        "exampleKr": "영화 상영 중에는 휴대전화를 끄거나 무음으로 설정해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sel/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-430-1778314103073",
+        "term": "article",
+        "definition": "A piece of writing included with others in a newspaper, magazine, or other publication.",
+        "meaningKr": "기사, 글",
+        "exampleEn": "I read an interesting article in the newspaper about the benefits of a healthy diet.",
+        "exampleKr": "신문에서 건강한 식단의 이점에 관한 흥미로운 기사를 읽었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɑːrtɪkl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-431-1778314103073",
+        "term": "fast",
+        "definition": "Moving or capable of moving at high speed.",
+        "meaningKr": "빠른",
+        "exampleEn": "He is a very fast runner and usually wins most of the races at school.",
+        "exampleKr": "그는 매우 빠른 달리기 선수이며 보통 학교의 대부분의 경주에서 우승합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɑːst/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-432-1778314103073",
+        "term": "attack",
+        "definition": "To take aggressive action against a person or place with weapons or force.",
+        "meaningKr": "공격하다",
+        "exampleEn": "The small cat tried to attack the toy mouse that was moving across the living room.",
+        "exampleKr": "작은 고양이가 거실을 가로질러 움직이는 장난감 쥐를 공격하려고 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈtæk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-433-1778314103073",
+        "term": "foreign",
+        "definition": "Of, from, in, or characteristic of a country or language other than one's own.",
+        "meaningKr": "외국의",
+        "exampleEn": "Learning a foreign language can be difficult, but it opens up many new opportunities for you.",
+        "exampleKr": "외국어를 배우는 것은 어려울 수 있지만, 여러분에게 많은 새로운 기회를 열어줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɒrən/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-434-1778314103073",
+        "term": "surprise",
+        "definition": "To cause someone to feel mild astonishment or shock.",
+        "meaningKr": "놀라게 하다",
+        "exampleEn": "We decided to surprise our mother with a special cake for her fiftieth birthday last night.",
+        "exampleKr": "우리는 어제저녁 어머니의 50번째 생신을 위해 특별한 케이크로 어머니를 놀라게 해드리기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈpraɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-435-1778314103073",
+        "term": "feature",
+        "definition": "A distinctive attribute or aspect of something.",
+        "meaningKr": "특징, 기능",
+        "exampleEn": "One key feature of this new smartphone is its incredibly long-lasting battery and high-quality camera.",
+        "exampleKr": "이 새 스마트폰의 한 가지 주요 특징은 믿을 수 없을 정도로 오래가는 배터리와 고화질 카메라입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfiːtʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-436-1778314103073",
+        "term": "factor",
+        "definition": "A circumstance, fact, or influence that contributes to a result or outcome.",
+        "meaningKr": "요인, 요소",
+        "exampleEn": "Hard work is a major factor in achieving success in any field you choose to pursue.",
+        "exampleKr": "열심히 노력하는 것은 당신이 추구하고자 하는 어떤 분야에서든 성공을 거두는 주요 요인입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfæktər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-437-1778314103073",
+        "term": "pretty",
+        "definition": "Attractive in a delicate way without being truly beautiful or handsome.",
+        "meaningKr": "예쁜, 귀여운",
+        "exampleEn": "She wore a very pretty dress to the wedding and received many compliments from the guests.",
+        "exampleKr": "그녀는 결혼식에 아주 예쁜 드레스를 입고 가서 하객들로부터 많은 칭찬을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɪti/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-438-1778314103073",
+        "term": "recently",
+        "definition": "At a recent time; not long ago.",
+        "meaningKr": "최근에",
+        "exampleEn": "I haven't seen him recently, so I'm not sure how he is doing these days.",
+        "exampleKr": "최근에 그를 본 적이 없어서 요즘 그가 어떻게 지내는지 잘 모르겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈriːsntli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-439-1778314103073",
+        "term": "affect",
+        "definition": "To have an effect on; to make a difference to.",
+        "meaningKr": "영향을 미치다",
+        "exampleEn": "The heavy rain will likely affect the traffic and cause some delays during the morning commute.",
+        "exampleKr": "폭우가 교통에 영향을 미쳐 아침 출근길에 약간의 지체를 유발할 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈfekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-440-1778314103073",
+        "term": "drop",
+        "definition": "To let or make something fall vertically.",
+        "meaningKr": "떨어뜨리다",
+        "exampleEn": "Be careful not to drop that glass bowl because it is very fragile and might break.",
+        "exampleKr": "그 유리그릇은 매우 깨지기 쉬우니 떨어뜨리지 않도록 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/drɒp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-441-1778314103073",
+        "term": "recent",
+        "definition": "Having happened, begun, or been done only a short time ago.",
+        "meaningKr": "최근의",
+        "exampleEn": "The company's recent success is due to the hard work and dedication of all its employees.",
+        "exampleKr": "그 회사의 최근 성공은 모든 직원의 노력과 헌신 덕분입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈriːsnt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-442-1778314103073",
+        "term": "relate",
+        "definition": "To feel sympathy for or identify with someone or something.",
+        "meaningKr": "공감하다, 관련시키다",
+        "exampleEn": "I can really relate to your situation because I had a very similar experience last year.",
+        "exampleKr": "저도 작년에 비슷한 경험을 했기 때문에 당신의 상황에 정말 공감할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-443-1778314103073",
+        "term": "official",
+        "definition": "Relating to an authority or public body and its duties, actions, and responsibilities.",
+        "meaningKr": "공식적인",
+        "exampleEn": "We are still waiting for an official announcement from the government regarding the new tax laws.",
+        "exampleKr": "우리는 새로운 세법에 관한 정부의 공식 발표를 여전히 기다리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈfɪʃl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-444-1778314103073",
+        "term": "financial",
+        "definition": "Relating to finance or money matters.",
+        "meaningKr": "재정의, 금융의",
+        "exampleEn": "They are seeking financial advice to help them manage their savings and investments more effectively.",
+        "exampleKr": "그들은 저축과 투자를 더 효과적으로 관리하는 데 도움을 줄 재정 상담을 구하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/faɪˈnænʃl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-445-1778314103073",
+        "term": "miss",
+        "definition": "To fail to catch a transport or be too late for an event.",
+        "meaningKr": "놓치다",
+        "exampleEn": "I woke up late this morning and ended up missing the bus to my office.",
+        "exampleKr": "오늘 아침에 늦게 일어나는 바람에 결국 회사로 가는 버스를 놓치고 말았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/mɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-446-1778314103073",
+        "term": "art",
+        "definition": "The expression or application of human creative skill and imagination.",
+        "meaningKr": "예술, 미술",
+        "exampleEn": "She enjoys visiting art galleries and seeing the beautiful paintings created by famous local artists.",
+        "exampleKr": "그녀는 미술관을 방문하여 유명한 지역 예술가들이 그린 아름다운 그림들을 보는 것을 즐깁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɑːrt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-447-1778314103073",
+        "term": "campaign",
+        "definition": "To work in an organized and active way toward a particular goal.",
+        "meaningKr": "캠페인을 벌이다",
+        "exampleEn": "The environmental group started to campaign for cleaner oceans and less plastic waste in nature.",
+        "exampleKr": "그 환경 단체는 더 깨끗한 바다와 자연 속 플라스틱 쓰레기 감소를 위해 캠페인을 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kæmˈpeɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-448-1778314103073",
+        "term": "private",
+        "definition": "Belonging to or for the use of one particular person or group only.",
+        "meaningKr": "개인적인, 사적인",
+        "exampleEn": "This is a private conversation, so please give us a moment alone to discuss the matter.",
+        "exampleKr": "이것은 사적인 대화이니, 우리가 이 문제를 논의할 수 있도록 잠시 자리를 비켜주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpraɪvət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-449-1778314103073",
+        "term": "pause",
+        "definition": "To interrupt an action or utterance for a brief period.",
+        "meaningKr": "멈추다, 중단하다",
+        "exampleEn": "Let's pause the video for a second so we can go get some more snacks.",
+        "exampleKr": "간식을 좀 더 가져올 수 있게 잠시 영상을 멈춥시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pɔːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-450-1778314103073",
+        "term": "everyone",
+        "definition": "Every person in a group or in the world.",
+        "meaningKr": "모든 사람, 모두",
+        "exampleEn": "Everyone in the office was surprised by the sudden news about the company holiday party.",
+        "exampleKr": "사무실의 모든 사람들이 회사 파티에 대한 갑작스러운 소식에 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈevriwʌn/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-451-1778314103073",
+        "term": "forget",
+        "definition": "To fail to remember something or to stop thinking about it.",
+        "meaningKr": "잊다, 잊어버리다",
+        "exampleEn": "I often forget where I put my car keys when I come home from work.",
+        "exampleKr": "나는 퇴근하고 집에 오면 종종 차 열쇠를 어디에 두었는지 잊어버리곤 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fərˈɡet/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-452-1778314103073",
+        "term": "page",
+        "definition": "One side of a sheet of paper in a book or magazine.",
+        "meaningKr": "페이지, 쪽",
+        "exampleEn": "Please turn to the next page to see the beautiful pictures of the mountain scenery.",
+        "exampleKr": "산 풍경의 아름다운 사진들을 보려면 다음 페이지로 넘겨 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/peɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-453-1778314103073",
+        "term": "worry",
+        "definition": "To feel concerned or troubled about something that might happen.",
+        "meaningKr": "걱정하다, 고민하다",
+        "exampleEn": "You don't need to worry about the presentation because you have prepared very well.",
+        "exampleKr": "준비를 아주 잘 하셨으니 발표에 대해 걱정하실 필요 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwɜːri/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-454-1778314103073",
+        "term": "summer",
+        "definition": "The warmest season of the year between spring and autumn.",
+        "meaningKr": "여름",
+        "exampleEn": "We usually spend our summer vacation at the beach to enjoy the warm weather and swimming.",
+        "exampleKr": "우리는 보통 따뜻한 날씨와 수영을 즐기기 위해 해변에서 여름 휴가를 보냅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsʌmər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-455-1778314103073",
+        "term": "drink",
+        "definition": "To take liquid into the mouth and swallow it.",
+        "meaningKr": "마시다, 음료",
+        "exampleEn": "It is very important to drink enough water throughout the day to stay healthy.",
+        "exampleKr": "건강을 유지하기 위해 하루 종일 충분한 물을 마시는 것이 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/drɪŋk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-456-1778314103073",
+        "term": "opinion",
+        "definition": "A thought or belief about something or someone.",
+        "meaningKr": "의견, 견해",
+        "exampleEn": "I would like to hear your honest opinion about the new design for our living room.",
+        "exampleKr": "우리 거실의 새로운 디자인에 대한 당신의 솔직한 의견을 듣고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈpɪnjən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-457-1778314103073",
+        "term": "park",
+        "definition": "To leave a vehicle in a particular place for a period of time.",
+        "meaningKr": "주차하다, 공원",
+        "exampleEn": "You can park your car in the garage or right in front of the main entrance.",
+        "exampleKr": "차고나 정문 바로 앞에 차를 주차하실 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pɑːrk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-458-1778314103073",
+        "term": "represent",
+        "definition": "To act or speak officially for someone or a group.",
+        "meaningKr": "대표하다, 나타내다",
+        "exampleEn": "The blue color on the map is used to represent rivers and other bodies of water.",
+        "exampleKr": "지도의 파란색은 강과 다른 수역들을 나타내는 데 사용됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌreprɪˈzent/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-459-1778314103073",
+        "term": "key",
+        "definition": "A piece of metal used to open a lock or start an engine.",
+        "meaningKr": "열쇠, 키, 핵심",
+        "exampleEn": "I cannot find my house key, so I might have left it in my office drawer.",
+        "exampleKr": "집 열쇠를 찾을 수 없는데, 사무실 서랍에 두고 온 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kiː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-460-1778314103073",
+        "term": "inside",
+        "definition": "In or into the inner part of something.",
+        "meaningKr": "안에, 내부에",
+        "exampleEn": "It was raining so hard that we decided to stay inside and watch a movie.",
+        "exampleKr": "비가 너무 많이 와서 우리는 실내에 머물며 영화를 보기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɪnˈsaɪd/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-461-1778314103073",
+        "term": "manager",
+        "definition": "A person responsible for controlling or administering an organization or group.",
+        "meaningKr": "매니저, 관리자, 경영자",
+        "exampleEn": "Our store manager is very friendly and always helps customers find what they are looking for.",
+        "exampleKr": "우리 매장 매니저님은 매우 친절하시고 고객들이 찾는 것을 항상 도와주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmænɪdʒər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-462-1778314103073",
+        "term": "international",
+        "definition": "Involving two or more nations or countries.",
+        "meaningKr": "국제의, 국제적인",
+        "exampleEn": "The airport handles many international flights from all over the world every single day.",
+        "exampleKr": "그 공항은 매일 전 세계에서 오는 많은 국제선 항공편을 처리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɪntərˈnæʃnəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-463-1778314103073",
+        "term": "contain",
+        "definition": "To have something inside or include something as a part.",
+        "meaningKr": "들어있다, 포함하다",
+        "exampleEn": "This small box should contain all the tools you need to fix the broken chair.",
+        "exampleKr": "이 작은 상자에는 부서진 의자를 고치는 데 필요한 모든 도구가 들어있을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈteɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-464-1778314103073",
+        "term": "notice",
+        "definition": "To see, hear, or become aware of something.",
+        "meaningKr": "알아차리다, 주목하다",
+        "exampleEn": "I did not notice that the shop was closed until I walked all the way there.",
+        "exampleKr": "거기까지 다 걸어가고 나서야 가게가 문을 닫았다는 것을 알아차렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnotice/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-465-1778314103073",
+        "term": "wonder",
+        "definition": "A feeling of surprise and admiration caused by something beautiful or unexpected.",
+        "meaningKr": "경이로움, 놀라움, 궁금해하다",
+        "exampleEn": "The children looked at the fireworks with wonder and excitement during the local festival.",
+        "exampleKr": "아이들은 지역 축제 기간 동안 경이로움과 흥분 속에 불꽃놀이를 바라보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwʌndər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-466-1778314103073",
+        "term": "nature",
+        "definition": "The physical world and everything in it, such as plants and animals.",
+        "meaningKr": "자연, 본성",
+        "exampleEn": "We love to go hiking on weekends to enjoy the beauty of nature and fresh air.",
+        "exampleKr": "우리는 자연의 아름다움과 신선한 공기를 즐기기 위해 주말에 등산 가는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈneɪtʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-467-1778314103073",
+        "term": "structure",
+        "definition": "The way in which the parts of a system or object are arranged.",
+        "meaningKr": "구조, 건축물",
+        "exampleEn": "The bridge has a very strong structure that can support thousands of cars every day.",
+        "exampleKr": "그 다리는 매일 수천 대의 차를 지탱할 수 있는 매우 튼튼한 구조를 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈstrʌktʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-468-1778314103073",
+        "term": "section",
+        "definition": "A separate part or division of something.",
+        "meaningKr": "부분, 구역, 섹션",
+        "exampleEn": "You can find the fresh vegetables in the produce section at the back of the supermarket.",
+        "exampleKr": "슈퍼마켓 뒤쪽의 농산물 코너에서 신선한 채소들을 찾으실 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsekʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-469-1778314103073",
+        "term": "myself",
+        "definition": "Used by a speaker to refer to himself or herself as the object of a verb.",
+        "meaningKr": "나 자신, 스스로",
+        "exampleEn": "I decided to cook a special dinner for myself after a long and busy day.",
+        "exampleKr": "길고 바쁜 하루를 보낸 후 나 자신을 위해 특별한 저녁 식사를 요리하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/maɪˈself/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-470-1778314103073",
+        "term": "exactly",
+        "definition": "In a correct or accurate way; precisely.",
+        "meaningKr": "정확히, 바로",
+        "exampleEn": "That is exactly what I was thinking about when we discussed the plans for the trip.",
+        "exampleKr": "그것이 바로 우리가 여행 계획을 논의할 때 내가 생각하고 있던 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪɡˈzæktli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-471-1778314103073",
+        "term": "plant",
+        "definition": "A living thing that grows in the ground and has leaves and roots.",
+        "meaningKr": "식물, 공장",
+        "exampleEn": "I bought a new green plant to put on my desk and make the office look better.",
+        "exampleKr": "사무실 분위기를 좋게 하려고 책상 위에 둘 새로운 초록색 식물을 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/plænt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-472-1778314103073",
+        "term": "paint",
+        "definition": "To cover a surface with a colored liquid.",
+        "meaningKr": "칠하다, 그리다",
+        "exampleEn": "We are planning to paint the kitchen walls a bright yellow color to make it feel warmer.",
+        "exampleKr": "우리는 주방을 더 따뜻하게 느끼게 하려고 벽을 밝은 노란색으로 칠할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/peɪnt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-473-1778314103073",
+        "term": "worker",
+        "definition": "A person who does a specified type of work or has a job.",
+        "meaningKr": "노동자, 직원",
+        "exampleEn": "Every worker in this factory is required to wear safety gear while they are working.",
+        "exampleKr": "이 공장의 모든 직원은 근무하는 동안 안전 장비를 착용해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwɜːrkər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-474-1778314103073",
+        "term": "press",
+        "definition": "To move or push something against something else.",
+        "meaningKr": "누르다, 압박하다",
+        "exampleEn": "You need to press the red button to start the machine and begin the process.",
+        "exampleKr": "기계를 가동하고 공정을 시작하려면 빨간색 버튼을 눌러야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pres/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-475-1778314103073",
+        "term": "whatever",
+        "definition": "Anything or everything that or no matter what.",
+        "meaningKr": "무엇이든, 어떤 것이든",
+        "exampleEn": "You can order whatever you want from the menu, and I will pay for it.",
+        "exampleKr": "메뉴에서 원하는 것은 무엇이든 주문하세요, 제가 계산하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wətˈevər/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-476-1778314103073",
+        "term": "necessary",
+        "definition": "Needed to be done, achieved, or present; essential.",
+        "meaningKr": "필요한, 필수적인",
+        "exampleEn": "It is necessary to wear a seatbelt at all times while you are driving a car.",
+        "exampleKr": "자동차를 운전하는 동안에는 항상 안전벨트를 착용하는 것이 필수적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnesəsəri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-477-1778314103073",
+        "term": "region",
+        "definition": "A particular area or part of a country or the world.",
+        "meaningKr": "지역, 지방",
+        "exampleEn": "This region is famous for its delicious apples and beautiful scenery during the autumn season.",
+        "exampleKr": "이 지역은 가을철의 맛있는 사과와 아름다운 풍경으로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈriːdʒən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-478-1778314103073",
+        "term": "growth",
+        "definition": "The process of increasing in size or developing.",
+        "meaningKr": "성장, 발전",
+        "exampleEn": "The rapid growth of the city has led to many new buildings and improved transportation.",
+        "exampleKr": "도시의 급격한 성장은 많은 새 건물과 개선된 교통수단으로 이어졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡroʊθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-479-1778314103073",
+        "term": "evening",
+        "definition": "The period of time at the end of the day.",
+        "meaningKr": "저녁, 밤",
+        "exampleEn": "I usually like to take a long walk in the evening to relax after work.",
+        "exampleKr": "나는 보통 퇴근 후 휴식을 취하기 위해 저녁에 긴 산책을 하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈiːvnɪŋ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-480-1778314103073",
+        "term": "influence",
+        "definition": "To have an effect on the character, development, or behavior of someone.",
+        "meaningKr": "영향을 주다, 감화시키다",
+        "exampleEn": "My parents' love for music did a lot to influence my decision to become a pianist.",
+        "exampleKr": "부모님의 음악 사랑은 제가 피아니스트가 되기로 결심하는 데 큰 영향을 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɪnfluəns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-481-1778314103073",
+        "term": "respect",
+        "definition": "To admire someone deeply as a result of their abilities or qualities.",
+        "meaningKr": "존경하다, 존중하다",
+        "exampleEn": "It is very important to respect other people's privacy even when you are close friends.",
+        "exampleKr": "친한 친구 사이일지라도 타인의 사생활을 존중하는 것은 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈspekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-482-1778314103073",
+        "term": "various",
+        "definition": "Different from one another; of different kinds or types.",
+        "meaningKr": "다양한, 여러 가지의",
+        "exampleEn": "The store sells various types of bread, including whole wheat and classic sourdough bread.",
+        "exampleKr": "그 가게는 통밀빵과 클래식 사워도우 빵을 포함한 다양한 종류의 빵을 팝니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈveriəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-483-1778314103073",
+        "term": "catch",
+        "definition": "To intercept and hold something which has been thrown or dropped.",
+        "meaningKr": "잡다, 받다",
+        "exampleEn": "The little boy tried his best to catch the ball before it hit the ground.",
+        "exampleKr": "어린 소년은 공이 땅에 닿기 전에 잡으려고 최선을 다했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kætʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-484-1778314103073",
+        "term": "thus",
+        "definition": "As a result or consequence of this; therefore.",
+        "meaningKr": "따라서, 그러므로",
+        "exampleEn": "He didn't study for the exam; thus, he was not surprised by the low grade.",
+        "exampleKr": "그는 시험공부를 하지 않았습니다. 따라서 낮은 성적에 놀라지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ðʌs/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-485-1778314103073",
+        "term": "skill",
+        "definition": "The ability to do something well, usually through training or experience.",
+        "meaningKr": "기술, 실력, 솜씨",
+        "exampleEn": "Learning to play the guitar takes a lot of time, patience, and a high level of skill.",
+        "exampleKr": "기타 연주를 배우는 데는 많은 시간과 인내, 그리고 높은 수준의 기술이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/skɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-486-1778314103073",
+        "term": "attempt",
+        "definition": "To try to do or achieve something, especially something difficult.",
+        "meaningKr": "시도하다, 애쓰다",
+        "exampleEn": "She will attempt to break the world record for swimming across the lake this weekend.",
+        "exampleKr": "그녀는 이번 주말에 호수 횡단 수영 세계 기록 경신에 도전할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈtempt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-487-1778314103073",
+        "term": "son",
+        "definition": "A male child in relation to his parents.",
+        "meaningKr": "아들",
+        "exampleEn": "My son is currently studying hard at university to become a successful doctor in the future.",
+        "exampleKr": "제 아들은 장래에 성공적인 의사가 되기 위해 현재 대학교에서 열심히 공부하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sʌn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-488-1778314103073",
+        "term": "simple",
+        "definition": "Easily understood or done; not complicated.",
+        "meaningKr": "단순한, 간단한",
+        "exampleEn": "The instructions for the new game are very simple and easy for everyone to understand.",
+        "exampleKr": "새 게임의 설명서는 매우 단순해서 누구나 쉽게 이해할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɪmpl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-489-1778314103073",
+        "term": "medium",
+        "definition": "Being in the middle between two points of size or quality.",
+        "meaningKr": "중간의, 매체",
+        "exampleEn": "I would like a medium coffee with a little bit of milk and no sugar.",
+        "exampleKr": "우유를 약간 넣고 설탕은 넣지 않은 중간 크기 커피로 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmiːdiəm/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-490-1778314103073",
+        "term": "average",
+        "definition": "A typical or normal amount, quality, or level.",
+        "meaningKr": "평균의, 보통의",
+        "exampleEn": "The average temperature in this city during July is around thirty degrees Celsius.",
+        "exampleKr": "이 도시의 7월 평균 기온은 섭씨 30도 정도입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈævərɪdʒ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-491-1778314103073",
+        "term": "stock",
+        "definition": "The goods or merchandise kept on the premises of a business.",
+        "meaningKr": "재고, 주식",
+        "exampleEn": "He decided to invest some of his savings in the stock market to build wealth.",
+        "exampleKr": "그는 자산을 쌓기 위해 저축한 돈의 일부를 주식 시장에 투자하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stɑːk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-492-1778314103073",
+        "term": "management",
+        "definition": "The process of dealing with or controlling things or people.",
+        "meaningKr": "경영진, 관리",
+        "exampleEn": "The management decided to give all the employees a bonus for their hard work this year.",
+        "exampleKr": "경영진은 올해 모든 직원들의 노고에 대해 보너스를 지급하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmænɪdʒmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-493-1778314103073",
+        "term": "character",
+        "definition": "The mental and moral qualities distinctive to an individual.",
+        "meaningKr": "성격, 특징, 등장인물",
+        "exampleEn": "The main character in the movie was very brave and faced many challenges with courage.",
+        "exampleKr": "영화 속 주인공은 매우 용감했으며 많은 도전을 용기로 맞섰습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkærəktər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-494-1778314103073",
+        "term": "bed",
+        "definition": "A piece of furniture for sleep or rest.",
+        "meaningKr": "침대, 잠자리",
+        "exampleEn": "I was so tired after the long trip that I went straight to bed early.",
+        "exampleKr": "긴 여행 후에 너무 피곤해서 일찍 곧장 잠자리에 들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bed/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-495-1778314103073",
+        "term": "hit",
+        "definition": "To bring one's hand or a tool into contact with someone or something quickly.",
+        "meaningKr": "치다, 때리다, 맞히다",
+        "exampleEn": "Be careful not to hit your head on the low ceiling when you enter the room.",
+        "exampleKr": "방에 들어갈 때 낮은 천장에 머리를 부딪히지 않도록 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-496-1778314103073",
+        "term": "establish",
+        "definition": "To set up an organization, system, or set of rules on a firm basis.",
+        "meaningKr": "설립하다, 확립하다",
+        "exampleEn": "The company was able to establish a strong reputation for providing high-quality service to customers.",
+        "exampleKr": "그 회사는 고객들에게 고품질 서비스를 제공함으로써 강력한 평판을 쌓을 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈstæblɪʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-497-1778314103073",
+        "term": "indeed",
+        "definition": "Used to emphasize a statement or response confirming something already suggested.",
+        "meaningKr": "정말로, 사실은",
+        "exampleEn": "The food at the new restaurant was indeed as delicious as everyone had said.",
+        "exampleKr": "새로 생긴 식당의 음식은 정말로 모든 사람들이 말했던 것만큼 맛있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈdiːd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-498-1778314103073",
+        "term": "final",
+        "definition": "Coming at the end of a series; last.",
+        "meaningKr": "마지막의, 최종적인",
+        "exampleEn": "This is the final chance for you to submit your application before the midnight deadline.",
+        "exampleKr": "이것이 자정 마감 시간 전에 지원서를 제출할 수 있는 마지막 기회입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfaɪnl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-499-1778314103073",
+        "term": "economy",
+        "definition": "The state of a country or region in terms of the production and consumption of goods.",
+        "meaningKr": "경제, 절약",
+        "exampleEn": "The country's economy is showing signs of improvement after a very challenging and difficult year.",
+        "exampleKr": "매우 힘들고 어려웠던 한 해를 보낸 후 그 나라의 경제가 개선될 조짐을 보이고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈkɑːnəmi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-500-1778314103073",
+        "term": "fit",
+        "definition": "proper or acceptable; morally or socially correct",
+        "meaningKr": "적합한, 알맞은",
+        "exampleEn": "He does not think he is fit for this leadership role in the local community center.",
+        "exampleKr": "그는 자신이 지역 문화센터의 이 리더 역할을 맡기에 적합하지 않다고 생각해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-501-1778314103073",
+        "term": "guy",
+        "definition": "informal man; boy; any person",
+        "meaningKr": "남자, 사람",
+        "exampleEn": "That guy over there in the blue shirt is the one who helped me yesterday.",
+        "exampleKr": "저기 파란 셔츠를 입고 있는 남자가 어제 나를 도와준 사람이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡaɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-502-1778314103073",
+        "term": "function",
+        "definition": "what something is intended to be used for; purpose",
+        "meaningKr": "기능, 목적",
+        "exampleEn": "I still have not figured out the main function of this new application on my smartphone.",
+        "exampleKr": "제 스마트폰에 있는 이 새로운 앱의 주요 기능을 아직 파악하지 못했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfʌŋkʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-503-1778314103073",
+        "term": "yesterday",
+        "definition": "day before today",
+        "meaningKr": "어제",
+        "exampleEn": "I went to the grocery store yesterday to buy some fresh vegetables for our dinner.",
+        "exampleKr": "나는 우리 저녁 식사를 위해 신선한 채소를 사러 어제 식료품점에 갔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈjestərdeɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-504-1778314103073",
+        "term": "image",
+        "definition": "picture, sculpture, or painting of something",
+        "meaningKr": "이미지, 모습, 영상",
+        "exampleEn": "The artist spent several hours trying to capture the perfect image of the sunset today.",
+        "exampleKr": "그 예술가는 오늘 일몰의 완벽한 모습을 담아내기 위해 몇 시간을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɪmɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-505-1778314103073",
+        "term": "size",
+        "definition": "how big or small a thing is",
+        "meaningKr": "크기, 치수",
+        "exampleEn": "Could you please check if you have this pair of shoes in a smaller size?",
+        "exampleKr": "이 신발을 더 작은 사이즈로 가지고 있는지 확인해 주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/saɪz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-506-1778314103073",
+        "term": "behavior",
+        "definition": "way a person or thing acts; manner",
+        "meaningKr": "행동, 태도",
+        "exampleEn": "The teacher was very impressed by the polite behavior of the students during the trip.",
+        "exampleKr": "선생님은 여행 동안 학생들의 예의 바른 행동에 깊은 인상을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪˈheɪvjər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-507-1778314103073",
+        "term": "addition",
+        "definition": "fact of adding something; thing that is added",
+        "meaningKr": "추가, 덧셈",
+        "exampleEn": "The new library will be a great addition to our small town and its residents.",
+        "exampleKr": "새로운 도서관은 우리 작은 마을과 주민들에게 아주 훌륭한 추가 시설이 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈdɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-508-1778314103073",
+        "term": "determine",
+        "definition": "to control exactly how something will be or act",
+        "meaningKr": "결정하다, 확정하다",
+        "exampleEn": "The committee will meet tomorrow morning to determine the final winner of the design contest.",
+        "exampleKr": "위원회는 디자인 공모전의 최종 우승자를 결정하기 위해 내일 아침에 모일 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈtɜːrmɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-509-1778314103073",
+        "term": "station",
+        "definition": "place where you can catch a train or a bus",
+        "meaningKr": "역, 정거장",
+        "exampleEn": "Let us meet in front of the train station at five o'clock so we do not miss it.",
+        "exampleKr": "기차를 놓치지 않도록 5시에 기차역 앞에서 만나기로 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsteɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-510-1778314103073",
+        "term": "population",
+        "definition": "number of people who live in a country, area, etc.",
+        "meaningKr": "인구, 주민",
+        "exampleEn": "The population of this city has grown significantly over the last ten years due to development.",
+        "exampleKr": "이 도시의 인구는 개발 덕분에 지난 10년 동안 상당히 증가했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌpɒpjuˈleɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-511-1778314103073",
+        "term": "fail",
+        "definition": "to not achieve a goal, or to go wrong",
+        "meaningKr": "실패하다, 낙제하다",
+        "exampleEn": "I worked really hard on my project because I did not want to fail the exam.",
+        "exampleKr": "시험에서 낙제하고 싶지 않았기 때문에 프로젝트를 정말 열심히 준비했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/feɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-512-1778314103073",
+        "term": "environment",
+        "definition": "natural world in which plants and animals live",
+        "meaningKr": "환경",
+        "exampleEn": "We should all try our best to protect the environment by reducing the use of plastic.",
+        "exampleKr": "우리는 플라스틱 사용을 줄임으로써 환경을 보호하기 위해 최선을 다해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈvaɪrənmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-513-1778314103073",
+        "term": "production",
+        "definition": "process of making something on a large scale",
+        "meaningKr": "생산, 제작",
+        "exampleEn": "The factory increased its production of electric cars to meet the growing demand from customers.",
+        "exampleKr": "그 공장은 고객의 증가하는 수요를 맞추기 위해 전기차 생산량을 늘렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈdʌkʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-514-1778314103073",
+        "term": "contract",
+        "definition": "legal agreement (e.g., for doing work for money)",
+        "meaningKr": "계약, 계약서",
+        "exampleEn": "Please read all the terms carefully before you sign the contract for your new apartment.",
+        "exampleKr": "새 아파트 계약서에 서명하기 전에 모든 조항을 주의 깊게 읽어보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɒntrækt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-515-1778314103073",
+        "term": "player",
+        "definition": "person who plays sports",
+        "meaningKr": "선수, 경기자",
+        "exampleEn": "He is considered the most talented player on the team because of his incredible speed.",
+        "exampleKr": "그는 놀라운 속도 덕분에 팀에서 가장 재능 있는 선수로 여겨집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpleɪər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-516-1778314103073",
+        "term": "comment",
+        "definition": "something you say; give an opinion; remark",
+        "meaningKr": "의견, 비평, 댓글",
+        "exampleEn": "She left a very kind comment on my social media post about my recent vacation.",
+        "exampleKr": "그녀는 내 최근 휴가에 관한 소셜 미디어 게시물에 아주 친절한 댓글을 남겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɒment/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-517-1778314103073",
+        "term": "enter",
+        "definition": "to go into a room",
+        "meaningKr": "들어가다, 입력하다",
+        "exampleEn": "Please knock on the door and wait for a response before you enter the office.",
+        "exampleKr": "사무실에 들어가기 전에 문을 두드리고 응답을 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈentər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-518-1778314103073",
+        "term": "occur",
+        "definition": "to come to pass or to happen",
+        "meaningKr": "일어나다, 발생하다",
+        "exampleEn": "The police explained that many traffic accidents occur because drivers are distracted by their phones.",
+        "exampleKr": "경찰은 운전자들이 휴대폰 때문에 주의가 산만해져서 많은 교통사고가 발생한다고 설명했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈkɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-519-1778314103073",
+        "term": "alone",
+        "definition": "without anyone or anything else",
+        "meaningKr": "혼자, 홀로",
+        "exampleEn": "Sometimes I enjoy spending time alone at a quiet cafe to read a book and relax.",
+        "exampleKr": "가끔 나는 조용한 카페에서 책을 읽고 휴식을 취하며 혼자 시간을 보내는 것을 즐깁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈloʊn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-520-1778314103073",
+        "term": "significant",
+        "definition": "large enough to be noticed or have an effect; important",
+        "meaningKr": "중요한, 상당한",
+        "exampleEn": "There has been a significant improvement in your English skills since you started practicing daily.",
+        "exampleKr": "매일 연습을 시작한 이후로 당신의 영어 실력에 상당한 향상이 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɪɡˈnɪfɪkənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-521-1778314103073",
+        "term": "drug",
+        "definition": "chemical used as a medicine",
+        "meaningKr": "약, 약물",
+        "exampleEn": "The doctor prescribed a specific drug to help lower my blood pressure and keep me healthy.",
+        "exampleKr": "의사는 내 혈압을 낮추고 건강을 유지하는 데 도움이 되는 특정 약을 처방해 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/drʌɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-522-1778314103073",
+        "term": "wall",
+        "definition": "high, flat side of a room or building",
+        "meaningKr": "벽, 담",
+        "exampleEn": "We decided to hang a large family photo on the living room wall near the window.",
+        "exampleKr": "우리는 거실 창문 근처 벽에 큰 가족사진을 걸기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɔːl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-523-1778314103073",
+        "term": "series",
+        "definition": "number of things that happen one after another",
+        "meaningKr": "시리즈, 연속",
+        "exampleEn": "The popular television series follows the lives of four friends living in a busy city.",
+        "exampleKr": "그 인기 TV 시리즈는 바쁜 도시에 사는 네 친구의 삶을 다룹니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɪəriːz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-524-1778314103073",
+        "term": "direct",
+        "definition": "to tell someone to do something in a straight-talking way",
+        "meaningKr": "지시하다, 안내하다",
+        "exampleEn": "Could you please direct me to the nearest post office? I need to mail this package.",
+        "exampleKr": "가장 가까운 우체국으로 가는 길을 안내해 주시겠어요? 이 소포를 부쳐야 하거든요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dəˈrekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-525-1778314103073",
+        "term": "success",
+        "definition": "achievement of a desired purpose or goal",
+        "meaningKr": "성공, 성과",
+        "exampleEn": "Hard work and persistence are the most important factors for achieving success in your career.",
+        "exampleKr": "성실함과 끈기는 당신의 경력에서 성공을 거두기 위한 가장 중요한 요소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səkˈses/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-526-1778314103073",
+        "term": "tomorrow",
+        "definition": "day after today",
+        "meaningKr": "내일",
+        "exampleEn": "I am planning to meet my friends for lunch tomorrow at that new Italian restaurant.",
+        "exampleKr": "나는 내일 새로 생긴 이탈리아 레스토랑에서 친구들과 점심을 먹을 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/təˈmɒroʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-527-1778314103073",
+        "term": "director",
+        "definition": "senior person who manages part of an organization",
+        "meaningKr": "이사, 감독, 관리자",
+        "exampleEn": "The director of the marketing agency shared some amazing ideas for the new advertising campaign.",
+        "exampleKr": "마케팅 대행사의 디렉터는 새로운 광고 캠페인을 위한 몇 가지 놀라운 아이디어를 공유했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dəˈrektər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-528-1778314103073",
+        "term": "clearly",
+        "definition": "in a way that is easy to understand; obviously",
+        "meaningKr": "명확하게, 분명히",
+        "exampleEn": "The instructions were written so clearly that everyone was able to assemble the furniture easily.",
+        "exampleKr": "설명서가 아주 명확하게 작성되어 있어서 모두가 가구를 쉽게 조립할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈklɪərli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-529-1778314103073",
+        "term": "lack",
+        "definition": "to not have, or not have enough, of something",
+        "meaningKr": "부족하다, 결핍",
+        "exampleEn": "Many students lack the confidence to speak a foreign language even when they know grammar.",
+        "exampleKr": "많은 학생은 문법을 알고 있을 때조차 외국어로 말하는 자신감이 부족합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/læk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-530-1778314103073",
+        "term": "review",
+        "definition": "to carefully look at the quality of something",
+        "meaningKr": "검토하다, 평가하다",
+        "exampleEn": "You should review your notes one more time before the meeting starts to be prepared.",
+        "exampleKr": "준비를 잘 하기 위해 회의가 시작되기 전에 노트를 한 번 더 검토해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈvjuː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-531-1778314103073",
+        "term": "depend",
+        "definition": "to need (someone or something) for support, help, etc.",
+        "meaningKr": "의존하다, ~에 달려 있다",
+        "exampleEn": "The success of our outdoor picnic will depend entirely on the weather conditions this weekend.",
+        "exampleKr": "우리의 야외 소풍 성공 여부는 전적으로 이번 주말 날씨 상황에 달려 있을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈpend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-532-1778314103073",
+        "term": "race",
+        "definition": "contest between people, animals, or vehicles, to determine which is the fastest",
+        "meaningKr": "경주, 경쟁",
+        "exampleEn": "He trained for months to participate in the local marathon race held in the city.",
+        "exampleKr": "그는 도시에서 열리는 지역 마라톤 경주에 참가하기 위해 몇 달 동안 훈련했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/reɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-533-1778314103073",
+        "term": "recognize",
+        "definition": "to remember because you have met it before",
+        "meaningKr": "알아보다, 인식하다",
+        "exampleEn": "I did not recognize my old high school friend at first because he changed so much.",
+        "exampleKr": "고등학교 친구가 너무 많이 변해서 처음에는 그를 알아보지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrekəɡnaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-534-1778314103073",
+        "term": "window",
+        "definition": "opening in a wall or door to let in light",
+        "meaningKr": "창문",
+        "exampleEn": "Please close the window if you feel cold, as the wind is blowing hard outside.",
+        "exampleKr": "밖에서 바람이 세게 불고 있으니, 추우면 창문을 닫아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwɪndoʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-535-1778314103073",
+        "term": "purpose",
+        "definition": "reason for which something is done; aim; goal",
+        "meaningKr": "목적, 의도",
+        "exampleEn": "The main purpose of this meeting is to discuss our goals for the next year.",
+        "exampleKr": "이 회의의 주요 목적은 다음 해의 목표를 논의하는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɜːrpəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-536-1778314103073",
+        "term": "department",
+        "definition": "division of a larger part or organization",
+        "meaningKr": "부서, 학과",
+        "exampleEn": "She works in the accounting department and handles all the financial reports for the company.",
+        "exampleKr": "그녀는 회계 부서에서 근무하며 회사의 모든 재무 보고서를 담당합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈpɑːrtmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-537-1778314103073",
+        "term": "gain",
+        "definition": "to get something wanted, needed, or valued",
+        "meaningKr": "얻다, 획득하다",
+        "exampleEn": "Taking this internship will help you gain valuable work experience before you graduate from university.",
+        "exampleKr": "이 인턴십을 하는 것은 당신이 대학교를 졸업하기 전에 귀중한 업무 경험을 쌓는 데 도움이 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡeɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-538-1778314103073",
+        "term": "tree",
+        "definition": "tall green plants in a forest",
+        "meaningKr": "나무",
+        "exampleEn": "There is a beautiful old oak tree in the middle of the park where people relax.",
+        "exampleKr": "사람들이 휴식을 취하는 공원 한가운데에 아름답고 오래된 오크 나무가 한 그루 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/triː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-539-1778314103073",
+        "term": "college",
+        "definition": "school or educational institution for adults",
+        "meaningKr": "대학",
+        "exampleEn": "My younger brother is planning to study computer science when he starts college this fall.",
+        "exampleKr": "내 남동생은 이번 가을에 대학에 들어가면 컴퓨터 공학을 공부할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɒlɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-540-1778314103073",
+        "term": "argue",
+        "definition": "to give reasons for or against an idea or point of view",
+        "meaningKr": "주장하다, 논쟁하다",
+        "exampleEn": "They often argue about which movie to watch, but they always end up having fun.",
+        "exampleKr": "그들은 어떤 영화를 볼지 자주 논쟁하지만, 결국에는 항상 즐거운 시간을 보냅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɑːrɡjuː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-541-1778314103073",
+        "term": "board",
+        "definition": "surface for posting or showing information",
+        "meaningKr": "게시판, 판",
+        "exampleEn": "Please check the notice board in the hallway for the schedule of the upcoming events.",
+        "exampleKr": "다가오는 행사들의 일정을 확인하려면 복도에 있는 게시판을 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɔːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-542-1778314103073",
+        "term": "holiday",
+        "definition": "day when people don't go to work or school",
+        "meaningKr": "휴일, 명절",
+        "exampleEn": "We are planning to go on a family trip to the beach during the summer holiday.",
+        "exampleKr": "우리는 여름 휴가 동안 해변으로 가족 여행을 갈 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhɒlədeɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-543-1778314103073",
+        "term": "mark",
+        "definition": "to make or leave a visible sign on something; a writing symbol",
+        "meaningKr": "표시하다, 흔적, 점수",
+        "exampleEn": "Please mark the important dates on your calendar so that you do not forget appointments.",
+        "exampleKr": "약속을 잊지 않도록 달력에 중요한 날짜들을 표시해 두세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/mɑːrk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-544-1778314103073",
+        "term": "church",
+        "definition": "building where religious people gather and pray",
+        "meaningKr": "교회",
+        "exampleEn": "The old stone church on the hill is a famous landmark that many tourists visit.",
+        "exampleKr": "언덕 위에 있는 오래된 석조 교회는 많은 관광객이 방문하는 유명한 명소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃɜːrtʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-545-1778314103073",
+        "term": "machine",
+        "definition": "piece of equipment used to do work",
+        "meaningKr": "기계",
+        "exampleEn": "This coffee machine is very easy to use and makes a delicious latte very quickly.",
+        "exampleKr": "이 커피 기계는 사용하기 매우 쉽고 단 몇 분 만에 맛있는 라떼를 만들어 줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/məˈʃiːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-546-1778314103073",
+        "term": "achieve",
+        "definition": "to succeed in doing something good, usually by working hard",
+        "meaningKr": "달성하다, 성취하다",
+        "exampleEn": "You can achieve your dreams if you stay focused and work hard toward your goals.",
+        "exampleKr": "집중력을 유지하고 목표를 향해 열심히 노력한다면 당신의 꿈을 이룰 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈtʃiːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-547-1778314103073",
+        "term": "item",
+        "definition": "distinct, individual thing, often part of a group",
+        "meaningKr": "항목, 품목, 물건",
+        "exampleEn": "I forgot to buy one important item from my shopping list while at the store.",
+        "exampleKr": "상점에 있는 동안 쇼핑 리스트에서 중요한 물건 하나를 사는 것을 깜빡했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈaɪtəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-548-1778314103073",
+        "term": "prove",
+        "definition": "to demonstrate truth by providing evidence",
+        "meaningKr": "증명하다, 입증하다",
+        "exampleEn": "The lawyer presented new evidence to prove that his client was innocent of the crime.",
+        "exampleKr": "변호사는 그의 의뢰인이 범죄에 대해 무죄임을 증명하기 위해 새로운 증거를 제시했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pruːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-549-1778314103073",
+        "term": "cent",
+        "definition": "100th of the basic unit of money (e.g., there are 100 of these in a dollar)",
+        "meaningKr": "센트",
+        "exampleEn": "The price of the candy increased by fifty cents, which surprised many of the customers.",
+        "exampleKr": "사탕 가격이 50센트 올라서 많은 손님들을 놀라게 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sent/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-550-1778314103073",
+        "term": "season",
+        "definition": "One of the four parts of the year determined mainly by the weather during that time.",
+        "meaningKr": "계절",
+        "exampleEn": "My favorite season is autumn because the weather is cool and the leaves change colors.",
+        "exampleKr": "날씨가 시원하고 단풍이 들기 때문에 제가 가장 좋아하는 계절은 가을입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsiːzn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-551-1778314103073",
+        "term": "floor",
+        "definition": "The part of a room on which you stand.",
+        "meaningKr": "바닥, 층",
+        "exampleEn": "Please don't leave your dirty clothes on the floor after you finish your shower.",
+        "exampleKr": "샤워를 마친 후에 더러운 옷을 바닥에 두지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/flɔːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-552-1778314103073",
+        "term": "stuff",
+        "definition": "A generic description for things, materials, or objects.",
+        "meaningKr": "물건, 것",
+        "exampleEn": "I have a lot of stuff in my bag that I don't really need today.",
+        "exampleKr": "제 가방 안에는 오늘 정말 필요하지 않은 물건들이 많이 들어 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stʌf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-553-1778314103073",
+        "term": "wide",
+        "definition": "Having a great distance from one side to the other.",
+        "meaningKr": "넓은, 폭이 넓은",
+        "exampleEn": "The road is very wide, so it is easy for two cars to pass each other.",
+        "exampleKr": "도로가 매우 넓어서 차 두 대가 서로 지나가기 쉽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/waɪd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-554-1778314103073",
+        "term": "anyone",
+        "definition": "Any person.",
+        "meaningKr": "누구나, 아무나",
+        "exampleEn": "Does anyone know where I can find a good coffee shop around this neighborhood?",
+        "exampleKr": "이 동네 근처에 괜찮은 커피숍이 어디 있는지 아는 사람 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeniwʌn/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-555-1778314103073",
+        "term": "method",
+        "definition": "An organized and planned way of doing something.",
+        "meaningKr": "방법, 방식",
+        "exampleEn": "This new method of learning English is much more effective than the old one.",
+        "exampleKr": "이 새로운 영어 학습 방법은 이전 방법보다 훨씬 더 효과적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmeθəd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-556-1778314103073",
+        "term": "analysis",
+        "definition": "A careful study to better understand something.",
+        "meaningKr": "분석",
+        "exampleEn": "The expert's analysis of the data helped the company make a better business decision.",
+        "exampleKr": "데이터에 대한 전문가의 분석은 회사가 더 나은 비즈니스 결정을 내리는 데 도움이 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈnæləsɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-557-1778314103073",
+        "term": "election",
+        "definition": "The process of choosing someone by voting.",
+        "meaningKr": "선거",
+        "exampleEn": "Many people went to the polling stations to vote in the local government election.",
+        "exampleKr": "많은 사람들이 지방 선거에서 투표하기 위해 투표소로 향했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈlekʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-558-1778314103073",
+        "term": "military",
+        "definition": "Concerning soldiers or the armed forces.",
+        "meaningKr": "군사의, 군대의",
+        "exampleEn": "My brother is currently serving his mandatory military service in the army.",
+        "exampleKr": "제 남동생은 현재 육군에서 의무 군 복무를 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmɪləteri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-559-1778314103073",
+        "term": "hotel",
+        "definition": "A place where people can stay when traveling.",
+        "meaningKr": "호텔, 숙박 시설",
+        "exampleEn": "We decided to stay at a small hotel near the beach during our summer vacation.",
+        "exampleKr": "우리는 여름 휴가 동안 해변 근처의 작은 호텔에서 묵기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hoʊˈtel/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-560-1778314103073",
+        "term": "club",
+        "definition": "A group of people who share an interest, as in sport.",
+        "meaningKr": "클럽, 동호회",
+        "exampleEn": "I joined a photography club to meet people who share the same hobby as me.",
+        "exampleKr": "나와 취미가 같은 사람들을 만나기 위해 사진 동호회에 가입했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/klʌb/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-561-1778314103073",
+        "term": "below",
+        "definition": "In a lower position, place, or level.",
+        "meaningKr": "~아래에, 밑에",
+        "exampleEn": "The temperature dropped below freezing last night, so the roads might be quite slippery.",
+        "exampleKr": "어젯밤 기온이 영하로 떨어졌으니 도로가 꽤 미끄러울 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪˈloʊ/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-562-1778314103073",
+        "term": "movie",
+        "definition": "A motion picture or film.",
+        "meaningKr": "영화",
+        "exampleEn": "Would you like to go see a movie with me this Saturday evening?",
+        "exampleKr": "이번 주 토요일 저녁에 저와 함께 영화 보러 가실래요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmuːvi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-563-1778314103073",
+        "term": "doctor",
+        "definition": "A professional trained and licensed to treat sick people or someone with a high degree.",
+        "meaningKr": "의사, 박사",
+        "exampleEn": "If you still feel sick tomorrow, you should probably go see a doctor for a checkup.",
+        "exampleKr": "내일도 계속 몸이 안 좋으면 병원에 가서 의사에게 진찰을 받아보는 게 좋겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɑːktər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-564-1778314103073",
+        "term": "discussion",
+        "definition": "Any long communication about some particular topic.",
+        "meaningKr": "토론, 논의",
+        "exampleEn": "We had a long discussion about where to go for our next family trip.",
+        "exampleKr": "우리는 다음 가족 여행을 어디로 갈지에 대해 긴 토론을 나누었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈskʌʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-565-1778314103073",
+        "term": "sorry",
+        "definition": "What you say to admit you were wrong.",
+        "meaningKr": "미안한, 유감스러운",
+        "exampleEn": "I am so sorry for being late to our meeting; the traffic was very heavy.",
+        "exampleKr": "회의에 늦어서 정말 죄송합니다. 교통 체증이 너무 심했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɔːri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-566-1778314103073",
+        "term": "challenge",
+        "definition": "An activity you wish to try that may be hard to do.",
+        "meaningKr": "도전, 어려운 과제",
+        "exampleEn": "Learning a new language can be a big challenge, but it is also very rewarding.",
+        "exampleKr": "새로운 언어를 배우는 것은 큰 도전일 수 있지만, 동시에 매우 보람찬 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtʃælɪndʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-567-1778314103073",
+        "term": "nation",
+        "definition": "An area or region controlled by a government and army.",
+        "meaningKr": "국가, 나라",
+        "exampleEn": "People from every nation around the world came together for the international sports event.",
+        "exampleKr": "국제 스포츠 행사를 위해 전 세계 모든 국가의 사람들이 한자리에 모였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈneɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-568-1778314103073",
+        "term": "nearly",
+        "definition": "Not completely, but almost.",
+        "meaningKr": "거의",
+        "exampleEn": "It took nearly three hours to finish the homework because it was so difficult.",
+        "exampleKr": "숙제가 너무 어려워서 끝내는 데 거의 세 시간이나 걸렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnɪrli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-569-1778314103073",
+        "term": "statement",
+        "definition": "The act or process of saying something formally.",
+        "meaningKr": "성명, 진술",
+        "exampleEn": "The company issued an official statement regarding the changes to their privacy policy.",
+        "exampleKr": "그 회사는 개인정보 보호정책 변경에 관한 공식 성명을 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsteɪtmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-570-1778314103073",
+        "term": "link",
+        "definition": "To join or connect things together.",
+        "meaningKr": "연결하다, 잇다",
+        "exampleEn": "You can link your social media account to this website for a faster login process.",
+        "exampleKr": "더 빠른 로그인을 위해 소셜 미디어 계정을 이 웹사이트에 연결할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɪŋk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-571-1778314103073",
+        "term": "despite",
+        "definition": "Without being affected by something; in spite of.",
+        "meaningKr": "~에도 불구하고",
+        "exampleEn": "We went for a walk in the park despite the light rain this morning.",
+        "exampleKr": "오늘 아침 가벼운 비가 내렸음에도 불구하고 우리는 공원으로 산책을 나갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈspaɪt/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-ngsl-572-1778314103073",
+        "term": "introduce",
+        "definition": "To make someone known to another by name.",
+        "meaningKr": "소개하다",
+        "exampleEn": "Let me introduce you to my best friend who recently moved to this city.",
+        "exampleKr": "최근에 이 도시로 이사 온 제 가장 친한 친구를 소개해 드릴게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɪntrəˈduːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-573-1778314103073",
+        "term": "advantage",
+        "definition": "A thing making the chance of success higher.",
+        "meaningKr": "장점, 유리한 점",
+        "exampleEn": "One advantage of living in a big city is having easy access to public transportation.",
+        "exampleKr": "대도시에 사는 것의 한 가지 장점은 대중교통을 쉽게 이용할 수 있다는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ədˈvæntɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-574-1778314103073",
+        "term": "ready",
+        "definition": "Prepared to do something.",
+        "meaningKr": "준비된",
+        "exampleEn": "Are you ready to order your food, or do you need a few more minutes?",
+        "exampleKr": "음식을 주문할 준비가 되셨나요, 아니면 몇 분 더 필요하신가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈredi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-575-1778314103073",
+        "term": "marry",
+        "definition": "To become the husband or wife of someone.",
+        "meaningKr": "결혼하다",
+        "exampleEn": "They decided to marry in a small ceremony with only their close friends and family.",
+        "exampleKr": "그들은 가까운 친구와 가족들만 모인 작은 예식에서 결혼하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmæri/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-576-1778314103073",
+        "term": "strike",
+        "definition": "To hit something.",
+        "meaningKr": "치다, 때리다",
+        "exampleEn": "You should strike the nail firmly with the hammer to make sure it stays in.",
+        "exampleKr": "못이 잘 고정되도록 망치로 단단하게 쳐야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/straɪk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-577-1778314103073",
+        "term": "mile",
+        "definition": "A unit of distance equal to about 1.6 kilometers.",
+        "meaningKr": "마일",
+        "exampleEn": "The nearest grocery store is about a mile away from my new apartment.",
+        "exampleKr": "가장 가까운 식료품점은 제 새 아파트에서 약 1마일 정도 떨어져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/maɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-578-1778314103073",
+        "term": "seek",
+        "definition": "To search for or try to find something.",
+        "meaningKr": "찾다, 구하다",
+        "exampleEn": "Many young people seek advice from their mentors when they face difficult life choices.",
+        "exampleKr": "많은 젊은이들이 어려운 인생의 선택에 직면했을 때 멘토에게 조언을 구합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/siːk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-579-1778314103073",
+        "term": "ability",
+        "definition": "The power, money, knowledge, or skill to do something.",
+        "meaningKr": "능력",
+        "exampleEn": "He has the ability to solve complex math problems very quickly and accurately.",
+        "exampleKr": "그는 복잡한 수학 문제를 매우 빠르고 정확하게 푸는 능력을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈbɪləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-580-1778314103073",
+        "term": "unit",
+        "definition": "A single thing or person, or a part of something larger.",
+        "meaningKr": "구성 단위, 개체",
+        "exampleEn": "The apartment building is divided into several small units for single people to live in.",
+        "exampleKr": "그 아파트 건물은 1인 가구가 살 수 있는 여러 개의 작은 세대로 나뉘어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈjuːnɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-581-1778314103073",
+        "term": "card",
+        "definition": "A small piece of paper or plastic used as identification.",
+        "meaningKr": "카드, 신분증",
+        "exampleEn": "Don't forget to bring your ID card when you go to the bank today.",
+        "exampleKr": "오늘 은행에 갈 때 신분증을 가져오는 것을 잊지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kɑːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-582-1778314103073",
+        "term": "hospital",
+        "definition": "A building for sick people, with doctors and nurses.",
+        "meaningKr": "병원",
+        "exampleEn": "The ambulance took the injured man to the hospital as quickly as possible.",
+        "exampleKr": "구급차는 부상당한 남자를 가능한 한 빨리 병원으로 이송했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhɑːspɪtl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-583-1778314103073",
+        "term": "quickly",
+        "definition": "Without taking a lot of time; fast.",
+        "meaningKr": "빨리, 빠르게",
+        "exampleEn": "Please finish your breakfast quickly so we don't miss the bus to school.",
+        "exampleKr": "학교 가는 버스를 놓치지 않도록 아침 식사를 빨리 마쳐 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkwɪkli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-584-1778314103073",
+        "term": "interview",
+        "definition": "To formally ask questions about a given topic.",
+        "meaningKr": "면접하다, 인터뷰하다",
+        "exampleEn": "The manager will interview several candidates for the new sales position tomorrow morning.",
+        "exampleKr": "매니저는 내일 아침 새로운 영업직 후보자 몇 명을 면접할 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkwɪkli/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-585-1778314103073",
+        "term": "agreement",
+        "definition": "When you share the same opinion or reach a decision.",
+        "meaningKr": "합의, 동의",
+        "exampleEn": "After hours of talking, they finally reached an agreement on the terms of the contract.",
+        "exampleKr": "몇 시간 동안의 대화 끝에 그들은 마침내 계약 조건에 대해 합의에 도달했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈɡriːmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-586-1778314103073",
+        "term": "release",
+        "definition": "To allow someone to leave a place like a jail or cage.",
+        "meaningKr": "석방하다, 풀어주다",
+        "exampleEn": "The police decided to release the suspect after they found no evidence against him.",
+        "exampleKr": "경찰은 용의자에 대한 증거를 찾지 못하자 그를 석방하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈliːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-587-1778314103073",
+        "term": "tax",
+        "definition": "Money taken by a government from its people.",
+        "meaningKr": "세금",
+        "exampleEn": "The price of the meal includes the service charge but not the local sales tax.",
+        "exampleKr": "식사 가격에는 서비스 요금은 포함되어 있지만 지방 판매세는 포함되어 있지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tæks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-588-1778314103073",
+        "term": "solution",
+        "definition": "Something that ends a problem.",
+        "meaningKr": "해결책",
+        "exampleEn": "We need to find a permanent solution to the parking problem in our neighborhood.",
+        "exampleKr": "우리 동네의 주차 문제를 해결하기 위한 영구적인 해결책을 찾아야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈluːʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-589-1778314103073",
+        "term": "capital",
+        "definition": "Main, or major.",
+        "meaningKr": "주요한, 수도의",
+        "exampleEn": "Seoul is the capital city of South Korea and its most important economic hub.",
+        "exampleKr": "서울은 대한민국의 수도이자 가장 중요한 경제 중심지입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈæpɪtl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-590-1778314103073",
+        "term": "popular",
+        "definition": "Liked or enjoyed by many people.",
+        "meaningKr": "인기 있는",
+        "exampleEn": "This cafe is very popular among students because of its cozy atmosphere and cheap coffee.",
+        "exampleKr": "이 카페는 아늑한 분위기와 저렴한 커피 덕분에 학생들 사이에서 매우 인기가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɑːpjələr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-591-1778314103073",
+        "term": "specific",
+        "definition": "Special or particular; clearly presented or stated.",
+        "meaningKr": "구체적인, 특정한",
+        "exampleEn": "Could you please be more specific about what you need me to do today?",
+        "exampleKr": "오늘 제가 무엇을 해야 하는지 좀 더 구체적으로 말씀해 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spəˈsɪfɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-592-1778314103073",
+        "term": "beautiful",
+        "definition": "Having very attractive or appealing physical qualities.",
+        "meaningKr": "아름다운",
+        "exampleEn": "The view from the top of the mountain was absolutely beautiful and breathtaking.",
+        "exampleKr": "산 정상에서 바라본 경치는 정말 아름답고 숨이 막힐 정도였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbjuːtɪfl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-593-1778314103073",
+        "term": "fear",
+        "definition": "Unpleasant feelings caused by being aware of danger.",
+        "meaningKr": "공포, 두려움",
+        "exampleEn": "Many people have a fear of public speaking, but practice can help overcome it.",
+        "exampleKr": "많은 사람들이 대중 앞에서 말하는 것에 대한 두려움이 있지만, 연습을 통해 극복할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɪr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-594-1778314103073",
+        "term": "aim",
+        "definition": "The act of pointing something at a target.",
+        "meaningKr": "조준, 목표",
+        "exampleEn": "The hunter took careful aim at the target before he decided to shoot.",
+        "exampleKr": "사냥꾼은 총을 쏘기로 결정하기 전에 목표물을 신중하게 조준했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/eɪm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-595-1778314103073",
+        "term": "television",
+        "definition": "A device that broadcasts programs, movies, or shows.",
+        "meaningKr": "텔레비전, TV",
+        "exampleEn": "My parents usually watch the news on television while they are eating dinner.",
+        "exampleKr": "우리 부모님은 보통 저녁 식사를 하시면서 텔레비전으로 뉴스를 보십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtelɪvɪʒn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-596-1778314103073",
+        "term": "serious",
+        "definition": "Needing thought or concentration; important.",
+        "meaningKr": "진지한, 심각한",
+        "exampleEn": "This is a serious matter that we need to discuss with the whole team immediately.",
+        "exampleKr": "이것은 우리가 즉시 팀 전체와 논의해야 할 심각한 문제입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɪriəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-597-1778314103073",
+        "term": "target",
+        "definition": "A goal or amount you are trying to achieve.",
+        "meaningKr": "목표, 대상",
+        "exampleEn": "The sales team reached their monthly target much earlier than they had expected.",
+        "exampleKr": "영업팀은 예상했던 것보다 훨씬 일찍 월간 목표를 달성했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtɑːrɡɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-598-1778314103073",
+        "term": "degree",
+        "definition": "A unit for measuring temperature or angles.",
+        "meaningKr": "도, 학위",
+        "exampleEn": "The water in the pool is about twenty-five degrees, which is perfect for swimming.",
+        "exampleKr": "수영장 물의 온도는 약 25도로, 수영하기에 딱 적당합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈɡriː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-599-1778314103073",
+        "term": "pull",
+        "definition": "To hold something and move it toward you.",
+        "meaningKr": "당기다, 끌다",
+        "exampleEn": "You need to pull the door hard because the handle is a bit stuck.",
+        "exampleKr": "손잡이가 약간 뻑뻑하니 문을 세게 당겨야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pʊl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-600-1778314103073",
+        "term": "red",
+        "definition": "Being the color of blood or a ripe tomato.",
+        "meaningKr": "빨간, 빨간색의",
+        "exampleEn": "She wore a bright red dress to the party and looked very elegant last night.",
+        "exampleKr": "그녀는 어젯밤 파티에 밝은 빨간색 드레스를 입고 나타나 아주 우아해 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/red/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-601-1778314103073",
+        "term": "husband",
+        "definition": "A man to whom a person is married.",
+        "meaningKr": "남편",
+        "exampleEn": "My husband is a very good cook and usually prepares dinner for us every weekend.",
+        "exampleKr": "내 남편은 요리를 아주 잘해서 보통 주말마다 우리를 위해 저녁을 준비한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhʌzbənd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-602-1778314103073",
+        "term": "access",
+        "definition": "A way of entering or reaching a place.",
+        "meaningKr": "입장, 접근 (권한)",
+        "exampleEn": "You need a special key card to get access to the laboratory after office hours.",
+        "exampleKr": "업무 시간 이후에 실험실에 들어가려면 특별한 키 카드가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈækses/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-603-1778314103073",
+        "term": "movement",
+        "definition": "A principal division of a longer musical work.",
+        "meaningKr": "악장",
+        "exampleEn": "The second movement of this symphony is much slower and more emotional than the first.",
+        "exampleKr": "이 교향곡의 2악장은 1악장보다 훨씬 느리고 감정적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmuːvmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-604-1778314103073",
+        "term": "treat",
+        "definition": "To behave toward or deal with someone in a particular way.",
+        "meaningKr": "대우하다, 다루다",
+        "exampleEn": "It is important to treat everyone with respect regardless of their background or social status.",
+        "exampleKr": "배경이나 사회적 지위에 상관없이 모든 사람을 존중하며 대우하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/triːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-605-1778314103073",
+        "term": "identify",
+        "definition": "To recognize or be able to say who or what someone or something is.",
+        "meaningKr": "확인하다, 식별하다",
+        "exampleEn": "The witness was asked to identify the person who took the bag from the bench.",
+        "exampleKr": "목격자는 벤치에서 가방을 가져간 사람이 누구인지 확인해 달라는 요청을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/aɪˈdentɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-606-1778314103073",
+        "term": "loss",
+        "definition": "The state of no longer having something or someone.",
+        "meaningKr": "상실, 손실",
+        "exampleEn": "The company reported a significant financial loss after the new product failed to sell well.",
+        "exampleKr": "그 회사는 신제품이 잘 팔리지 않자 상당한 재정적 손실을 보고했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɒs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-607-1778314103073",
+        "term": "shall",
+        "definition": "Used to express the future tense or a strong intention.",
+        "meaningKr": "~일 것이다, ~할까요",
+        "exampleEn": "We shall arrive at the station just in time to catch the last train home.",
+        "exampleKr": "우리는 집에 가는 마지막 기차를 타기에 딱 맞춰 역에 도착할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃæl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-608-1778314103073",
+        "term": "modern",
+        "definition": "Relating to the present or recent times as opposed to the remote past.",
+        "meaningKr": "현대의, 최신의",
+        "exampleEn": "This museum features many modern artworks created by young artists from all over the world.",
+        "exampleKr": "이 박물관은 전 세계의 젊은 예술가들이 만든 많은 현대 미술 작품들을 전시한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmɒdn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-609-1778314103073",
+        "term": "pressure",
+        "definition": "The continuous physical force exerted on or against an object.",
+        "meaningKr": "압박, 압력",
+        "exampleEn": "The diver felt a lot of water pressure as he swam deeper into the dark ocean.",
+        "exampleKr": "잠수부는 어두운 바다 속으로 더 깊이 헤엄쳐 들어가면서 많은 수압을 느꼈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpreʃə(r)//",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-610-1778314103073",
+        "term": "bus",
+        "definition": "A large motor vehicle carrying passengers by road.",
+        "meaningKr": "버스",
+        "exampleEn": "I usually take the bus to work because it is much cheaper than driving myself.",
+        "exampleKr": "직접 운전하는 것보다 훨씬 저렴하기 때문에 나는 보통 버스를 타고 출근한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bʌs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-611-1778314103073",
+        "term": "treatment",
+        "definition": "The manner in which someone behaves toward or deals with someone.",
+        "meaningKr": "대우, 처우",
+        "exampleEn": "The employees were unhappy with the unfair treatment they received from the new management team.",
+        "exampleKr": "직원들은 새로운 경영진으로부터 받은 불공평한 대우에 대해 불만을 가졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtriːtmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-612-1778314103073",
+        "term": "conference",
+        "definition": "A formal meeting for discussion or exchange of information.",
+        "meaningKr": "회의, 학술대회",
+        "exampleEn": "Many experts will attend the international conference to discuss the future of renewable energy sources.",
+        "exampleKr": "많은 전문가들이 재생 에너지원의 미래를 논의하기 위해 국제 회의에 참석할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɒnfərəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-613-1778314103073",
+        "term": "yourself",
+        "definition": "Used as the object of a verb or preposition when the subject is 'you'.",
+        "meaningKr": "당신 자신",
+        "exampleEn": "You should take some time for yourself and relax after working so hard all week.",
+        "exampleKr": "일주일 내내 열심히 일했으니 이제 당신 자신을 위한 시간을 갖고 좀 쉬어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/jɔːˈself/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-ngsl-614-1778314103073",
+        "term": "supply",
+        "definition": "To provide or make available something that is needed.",
+        "meaningKr": "공급하다, 제공하다",
+        "exampleEn": "The local farmers supply fresh vegetables to the grocery stores in the city every morning.",
+        "exampleKr": "지역 농부들은 매일 아침 도시의 식료품점에 신선한 채소를 공급한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈplaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-615-1778314103073",
+        "term": "village",
+        "definition": "A group of houses and associated buildings, larger than a hamlet and smaller than a town.",
+        "meaningKr": "마을, 시골 마을",
+        "exampleEn": "My grandparents live in a small village where everyone knows each other's names very well.",
+        "exampleKr": "우리 조부모님은 모든 사람이 서로의 이름을 아주 잘 아는 작은 마을에 사신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈvɪlɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-616-1778314103073",
+        "term": "worth",
+        "definition": "The value or importance of something.",
+        "meaningKr": "가치",
+        "exampleEn": "The true worth of a good friend is something that cannot be measured by money.",
+        "exampleKr": "좋은 친구의 진정한 가치는 돈으로 측정할 수 없는 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɜːθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-617-1778314103073",
+        "term": "natural",
+        "definition": "Existing in or caused by nature; not made or caused by humankind.",
+        "meaningKr": "자연의, 천연의",
+        "exampleEn": "This juice is made from natural ingredients and does not contain any added sugar or colors.",
+        "exampleKr": "이 주스는 천연 재료로 만들어졌으며 설탕이나 색소가 첨가되지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnætʃrəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-618-1778314103073",
+        "term": "express",
+        "definition": "To convey a thought or feeling in words or by gestures and conduct.",
+        "meaningKr": "표현하다, 나타내다",
+        "exampleEn": "It can sometimes be difficult to express your true feelings when you are feeling nervous.",
+        "exampleKr": "긴장될 때는 자신의 진정한 감정을 표현하는 것이 때때로 어려울 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈspres/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-619-1778314103073",
+        "term": "indicate",
+        "definition": "To point out or show something clearly.",
+        "meaningKr": "나타내다, 가리키다",
+        "exampleEn": "Please indicate your preferred choice on the form by checking the box next to the option.",
+        "exampleKr": "옵션 옆의 상자에 체크하여 양식에 선호하는 선택 사항을 표시해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɪndɪkeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-620-1778314103073",
+        "term": "attend",
+        "definition": "To be present at an event, meeting, or function.",
+        "meaningKr": "참석하다",
+        "exampleEn": "I plan to attend the wedding ceremony next Saturday to celebrate with my close friends.",
+        "exampleKr": "나는 친한 친구들과 축하하기 위해 다음 주 토요일 결혼식에 참석할 계획이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈtend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-621-1778314103073",
+        "term": "brother",
+        "definition": "A man or boy in relation to other sons and daughters of his parents.",
+        "meaningKr": "형제, 오빠, 남동생",
+        "exampleEn": "My older brother is currently studying medicine because he wants to become a successful doctor.",
+        "exampleKr": "우리 형은 성공한 의사가 되고 싶어 해서 현재 의학을 공부하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbrʌðə(r)/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-622-1778314103073",
+        "term": "investment",
+        "definition": "The action or process of investing money for profit or material result.",
+        "meaningKr": "투자, 투자금",
+        "exampleEn": "Buying a house is a big investment that requires careful planning and a lot of money.",
+        "exampleKr": "집을 사는 것은 신중한 계획과 많은 돈이 필요한 큰 투자이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈvestmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-623-1778314103073",
+        "term": "score",
+        "definition": "To gain a point, goal, or run in a competitive game.",
+        "meaningKr": "득점하다",
+        "exampleEn": "The striker managed to score a goal in the final minutes of the intense soccer match.",
+        "exampleKr": "공격수는 치열했던 축구 경기의 마지막 몇 분 만에 골을 넣는 데 성공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/skɔː(r)/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-624-1778314103073",
+        "term": "organize",
+        "definition": "To arrange several elements into a structured whole.",
+        "meaningKr": "준비하다, 정리하다",
+        "exampleEn": "We need to organize a surprise party for our teacher's retirement at the end of May.",
+        "exampleKr": "우리는 5월 말에 있을 선생님의 은퇴를 위해 깜짝 파티를 준비해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːɡənaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-625-1778314103073",
+        "term": "trip",
+        "definition": "A journey or excursion, especially for pleasure.",
+        "meaningKr": "여행",
+        "exampleEn": "Our family is planning a short trip to the mountains for the upcoming summer holiday break.",
+        "exampleKr": "우리 가족은 다가오는 여름 휴가 기간 동안 산으로 짧은 여행을 계획하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/trɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-626-1778314103073",
+        "term": "beyond",
+        "definition": "At or to the further side of something.",
+        "meaningKr": "~저편에, ~너머",
+        "exampleEn": "The small cottage is located just beyond the hills where the river flows into the sea.",
+        "exampleKr": "그 작은 오두막은 강이 바다로 흘러 들어가는 언덕 바로 너머에 위치해 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪˈjɒnd/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-ngsl-627-1778314103073",
+        "term": "sleep",
+        "definition": "To rest with the eyes closed and the body inactive.",
+        "meaningKr": "자다, 잠을 자다",
+        "exampleEn": "I need to sleep for at least eight hours tonight to feel refreshed in the morning.",
+        "exampleKr": "아침에 상쾌한 기분을 느끼려면 오늘 밤 적어도 8시간은 자야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sliːp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-628-1778314103073",
+        "term": "fish",
+        "definition": "A limbless cold-blooded vertebrate animal with gills and fins living in water.",
+        "meaningKr": "물고기, 생선",
+        "exampleEn": "There are many colorful fish swimming in the clear water of the coral reef near here.",
+        "exampleKr": "이 근처 산호초의 맑은 물 속에는 알록달록한 물고기들이 많이 헤엄치고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɪʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-629-1778314103073",
+        "term": "promise",
+        "definition": "To assure someone that one will definitely do something.",
+        "meaningKr": "약속하다",
+        "exampleEn": "I promise to call you as soon as I arrive at the hotel safely this evening.",
+        "exampleKr": "오늘 저녁 호텔에 안전하게 도착하자마자 당신에게 전화할 것을 약속합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɒmɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-630-1778314103073",
+        "term": "potential",
+        "definition": "Having or showing the capacity to become or develop into something in the future.",
+        "meaningKr": "잠재적인, 가능성 있는",
+        "exampleEn": "The manager identified several potential problems that could occur during the implementation of the new project.",
+        "exampleKr": "매니저는 새 프로젝트를 실행하는 동안 발생할 수 있는 몇 가지 잠재적인 문제들을 확인했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pəˈtenʃl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-631-1778314103073",
+        "term": "energy",
+        "definition": "The strength and vitality required for sustained physical or mental activity.",
+        "meaningKr": "에너지, 활기",
+        "exampleEn": "Drinking a cup of coffee in the morning gives me the energy I need to work.",
+        "exampleKr": "아침에 커피 한 잔을 마시는 것은 내가 일하는 데 필요한 에너지를 준다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈenədʒi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-632-1778314103073",
+        "term": "trouble",
+        "definition": "Difficulty or problems that cause worry or distress.",
+        "meaningKr": "문제, 어려움",
+        "exampleEn": "We had some trouble finding the right house because the street signs were very confusing today.",
+        "exampleKr": "오늘 거리 표지판이 매우 혼란스러워서 우리는 맞는 집을 찾는 데 약간의 어려움을 겪었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtrʌbl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-633-1778314103073",
+        "term": "relation",
+        "definition": "The way in which two or more people or things are connected.",
+        "meaningKr": "관계",
+        "exampleEn": "The two countries are working hard to improve their diplomatic relation after years of political tension.",
+        "exampleKr": "두 나라는 수년간의 정치적 긴장 끝에 외교 관계를 개선하기 위해 열심히 노력하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈleɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-634-1778314103073",
+        "term": "touch",
+        "definition": "To come into or be in contact with something.",
+        "meaningKr": "만지다, 건드리다",
+        "exampleEn": "Please do not touch the paintings in the museum as the oils can damage the artwork.",
+        "exampleKr": "손의 유분이 예술 작품을 손상시킬 수 있으니 박물관의 그림을 만지지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʌtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-635-1778314103073",
+        "term": "file",
+        "definition": "To submit a legal document or application to be placed on record.",
+        "meaningKr": "(서류를) 제출하다",
+        "exampleEn": "You must file your tax return before the deadline to avoid paying a heavy financial penalty.",
+        "exampleKr": "무거운 과태료를 내지 않으려면 마감일 전에 소득세 신고서를 제출해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/faɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-636-1778314103073",
+        "term": "middle",
+        "definition": "The point or position at an equal distance from the sides, edges, or ends.",
+        "meaningKr": "중앙, 중간",
+        "exampleEn": "The fountain is located right in the middle of the park where many people gather daily.",
+        "exampleKr": "분수는 많은 사람들이 매일 모이는 공원 바로 한가운데에 위치해 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmɪdl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-637-1778314103073",
+        "term": "bar",
+        "definition": "To prevent or forbid someone from doing something or entering a place.",
+        "meaningKr": "막다, 금하다",
+        "exampleEn": "The security guards will bar anyone from entering the building without a valid identification card tonight.",
+        "exampleKr": "오늘 밤 보안 요원들은 유효한 신분증이 없는 사람의 건물 출입을 막을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɑː(r)/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-638-1778314103073",
+        "term": "suffer",
+        "definition": "To experience or be subjected to something bad or unpleasant.",
+        "meaningKr": "시달리다, 고통받다",
+        "exampleEn": "Many people suffer from seasonal allergies when the pollen levels are high during the spring season.",
+        "exampleKr": "많은 사람들이 봄철에 꽃가루 수치가 높을 때 계절성 알레르기로 고통받는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsʌfə(r)/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-639-1778314103073",
+        "term": "strategy",
+        "definition": "A plan of action or policy designed to achieve a major or overall aim.",
+        "meaningKr": "전략, 계획",
+        "exampleEn": "The team developed a new marketing strategy to attract more young customers to their online store.",
+        "exampleKr": "그 팀은 온라인 상점에 더 많은 젊은 고객을 끌어들이기 위해 새로운 마케팅 전략을 개발했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈstrætədʒi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-640-1778314103073",
+        "term": "deep",
+        "definition": "Extending far down from the top or surface.",
+        "meaningKr": "깊은",
+        "exampleEn": "The water in this part of the lake is very deep, so please be very careful.",
+        "exampleKr": "호수의 이 부분은 물이 매우 깊으니 각별히 주의하시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/diːp/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-641-1778314103073",
+        "term": "except",
+        "definition": "Not including; other than.",
+        "meaningKr": "~을 제외하고",
+        "exampleEn": "Everyone in the office attended the meeting except for the manager who was away on business.",
+        "exampleKr": "출장 중인 매니저를 제외하고 사무실의 모든 직원이 회의에 참석했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈsept/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-ngsl-642-1778314103073",
+        "term": "clean",
+        "definition": "Free from dirt, marks, or stains.",
+        "meaningKr": "깨끗한",
+        "exampleEn": "I spent the whole afternoon making sure the kitchen was clean before the guests arrived today.",
+        "exampleKr": "나는 오늘 손님들이 도착하기 전에 주방을 깨끗하게 하느라 오후 내내 시간을 보냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kliːn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-643-1778314103073",
+        "term": "tend",
+        "definition": "To be likely to behave in a particular way or have a particular characteristic.",
+        "meaningKr": "~하는 경향이 있다",
+        "exampleEn": "I tend to drink more water during the summer because the weather is much hotter then.",
+        "exampleKr": "여름에는 날씨가 훨씬 덥기 때문에 나는 물을 더 많이 마시는 경향이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-644-1778314103073",
+        "term": "advance",
+        "definition": "To move forward in a purposeful way.",
+        "meaningKr": "전진하다, 나아가다",
+        "exampleEn": "The soldiers were ordered to advance toward the enemy position under the cover of thick fog.",
+        "exampleKr": "군인들은 짙은 안개를 틈타 적 진지를 향해 전진하라는 명령을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ədˈvɑːns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-645-1778314103073",
+        "term": "fill",
+        "definition": "To cause a space or container to become full or almost full.",
+        "meaningKr": "채우다",
+        "exampleEn": "Could you please fill this glass with cold water from the pitcher on the dining table?",
+        "exampleKr": "식탁 위에 있는 물병의 찬물로 이 잔을 채워 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-646-1778314103073",
+        "term": "star",
+        "definition": "A fixed luminous point in the night sky which is a large, remote incandescent body.",
+        "meaningKr": "별",
+        "exampleEn": "We sat on the grass and watched every bright star appear in the clear night sky.",
+        "exampleKr": "우리는 풀밭에 앉아 맑은 밤하늘에 밝은 별들이 하나둘 나타나는 것을 지켜보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stɑː(r)/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-647-1778314103073",
+        "term": "network",
+        "definition": "A group or system of interconnected people or things.",
+        "meaningKr": "네트워크, 망",
+        "exampleEn": "The company has a vast network of distributors who deliver products to customers all over the country.",
+        "exampleKr": "그 회사는 전국 각지의 고객들에게 제품을 배달하는 방대한 유통망을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnetwɜːk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-648-1778314103073",
+        "term": "generally",
+        "definition": "In most cases; usually.",
+        "meaningKr": "일반적으로, 보통",
+        "exampleEn": "It is generally believed that eating a balanced diet is essential for maintaining good physical health.",
+        "exampleKr": "균형 잡힌 식단을 섭취하는 것이 좋은 신체 건강을 유지하는 데 필수적이라고 일반적으로 믿어진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdʒenrəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-649-1778314103073",
+        "term": "operation",
+        "definition": "The action of functioning or the fact of being active or in effect.",
+        "meaningKr": "작동, 운영",
+        "exampleEn": "The machine is currently in operation, so please do not touch any of the moving parts.",
+        "exampleKr": "기계가 현재 작동 중이므로 움직이는 부품을 만지지 마십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɒpəˈreɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-650-1778314103073",
+        "term": "match",
+        "definition": "a sports competition between two people or teams",
+        "meaningKr": "경기, 시합",
+        "exampleEn": "I am going to watch a football match with my friends this weekend at the stadium.",
+        "exampleKr": "나는 이번 주말에 친구들과 경기장에서 축구 경기를 볼 예정이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/mætʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-651-1778314103073",
+        "term": "avoid",
+        "definition": "to prevent from happening, or stay away from",
+        "meaningKr": "피하다, 방지하다",
+        "exampleEn": "You should try to avoid the heavy traffic by leaving for work a little bit earlier.",
+        "exampleKr": "조금 더 일찍 출근해서 교통 체증을 피하도록 노력하는 것이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈvɔɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-652-1778314103073",
+        "term": "seat",
+        "definition": "something on which a person can sit",
+        "meaningKr": "좌석, 자리",
+        "exampleEn": "Please make sure to find your assigned seat before the movie starts in the theater.",
+        "exampleKr": "영화가 시작되기 전에 영화관 내 지정된 좌석을 반드시 찾아 앉으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/siːt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-653-1778314103073",
+        "term": "throw",
+        "definition": "to use your arm to make a thing fly through the air",
+        "meaningKr": "던지다",
+        "exampleEn": "The little boy decided to throw the ball to his father in the park yesterday afternoon.",
+        "exampleKr": "그 어린 소년은 어제 오후 공원에서 아버지에게 공을 던지기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/θroʊ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-654-1778314103073",
+        "term": "task",
+        "definition": "big or small piece of work someone has to do",
+        "meaningKr": "일, 과업, 과제",
+        "exampleEn": "Completing this difficult task will take a lot of time and effort from everyone on the team.",
+        "exampleKr": "이 어려운 과업을 완료하려면 팀원 모두의 많은 시간과 노력이 필요할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tæsk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-655-1778314103073",
+        "term": "normal",
+        "definition": "standard or regular way of doing something",
+        "meaningKr": "보통의, 정상적인",
+        "exampleEn": "It is perfectly normal to feel a bit nervous before you give a presentation in front of people.",
+        "exampleKr": "사람들 앞에서 발표를 하기 전에 약간 긴장되는 것은 지극히 정상적인 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnɔːrml/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-656-1778314103073",
+        "term": "goal",
+        "definition": "something you try to do or achieve; an aim",
+        "meaningKr": "목표, 목적",
+        "exampleEn": "My main goal for this year is to learn how to speak English fluently and confidently.",
+        "exampleKr": "올해 나의 주요 목표는 영어를 유창하고 자신감 있게 말하는 법을 배우는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡoʊl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-657-1778314103073",
+        "term": "associate",
+        "definition": "partner in professional work (e.g., in law)",
+        "meaningKr": "동료, 파트너",
+        "exampleEn": "He is a senior associate at a famous law firm located in the center of the city.",
+        "exampleKr": "그는 도시 중심가에 위치한 유명 법률 사무소의 선임 변호사입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈsoʊʃieɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-658-1778314103073",
+        "term": "blue",
+        "definition": "color of the clear sky",
+        "meaningKr": "파란색의, 푸른",
+        "exampleEn": "The sky looks so beautiful and blue today because there are no clouds in the air at all.",
+        "exampleKr": "구름이 전혀 없어서 오늘 하늘이 정말 아름답고 파랗게 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bluː/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-659-1778314103073",
+        "term": "positive",
+        "definition": "good or useful in qualities, constructive, confident",
+        "meaningKr": "긍정적인, 낙관적인",
+        "exampleEn": "Staying positive even during hard times can help you find a better solution to your current problems.",
+        "exampleKr": "어려운 시기에도 긍정적인 태도를 유지하면 현재 문제에 대한 더 나은 해결책을 찾는 데 도움이 될 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɑːzətɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-660-1778314103073",
+        "term": "option",
+        "definition": "possibility out of several that can be chosen; choice",
+        "meaningKr": "선택, 선택권",
+        "exampleEn": "We have the option to either go out for dinner or stay home and order some pizza.",
+        "exampleKr": "우리는 저녁을 먹으러 밖으로 나가거나 집에 머물면서 피자를 주문할 선택권이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɑːpʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-661-1778314103073",
+        "term": "box",
+        "definition": "a container with (usually) four straight sides and a lid",
+        "meaningKr": "상자, 박스",
+        "exampleEn": "Please put all of your old books into this large cardboard box before we move to the new house.",
+        "exampleKr": "새 집으로 이사하기 전에 오래된 책들을 모두 이 큰 판지 상자에 담아주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɑːks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-662-1778314103073",
+        "term": "huge",
+        "definition": "very very large",
+        "meaningKr": "거대한, 매우 큰",
+        "exampleEn": "There was a huge crowd of people waiting outside the store for the big holiday sale to begin.",
+        "exampleKr": "대규모 명절 세일이 시작되기를 기다리는 엄청난 인파가 가게 밖에 모여 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hjuːdʒ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-663-1778314103073",
+        "term": "message",
+        "definition": "piece of information that is told/given to someone",
+        "meaningKr": "메시지, 전갈",
+        "exampleEn": "I left a voice message for my sister because she did not answer her phone when I called.",
+        "exampleKr": "언니가 전화를 받지 않아서 그녀에게 음성 메시지를 남겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmesɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-664-1778314103073",
+        "term": "instance",
+        "definition": "an example of something; case",
+        "meaningKr": "사례, 경우",
+        "exampleEn": "For instance, you can use this mobile application to order groceries and have them delivered to your door.",
+        "exampleKr": "예를 들어, 이 모바일 앱을 사용해 식료품을 주문하고 집 앞까지 배달받을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɪnstəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-665-1778314103073",
+        "term": "style",
+        "definition": "the particular way something is done or made",
+        "meaningKr": "방식, 스타일",
+        "exampleEn": "I really like the way she decorated her living room in a modern and simple style.",
+        "exampleKr": "나는 그녀가 거실을 현대적이고 심플한 스타일로 꾸민 방식이 정말 마음에 듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/staɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-666-1778314103073",
+        "term": "refer",
+        "definition": "to talk about or write about something",
+        "meaningKr": "언급하다, 참조하다",
+        "exampleEn": "When you write your report, please refer to the notes we took during the meeting last Monday.",
+        "exampleKr": "보고서를 작성할 때 지난 월요일 회의 중에 적었던 노트를 참고해 주시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈfɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-667-1778314103073",
+        "term": "cold",
+        "definition": "having a very low temperature",
+        "meaningKr": "추운, 차가운",
+        "exampleEn": "It is very cold outside today, so make sure to wear a heavy coat and a warm scarf.",
+        "exampleKr": "오늘 밖이 매우 추우니 두꺼운 코트와 따뜻한 목도리를 꼭 챙겨 입으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/koʊld/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-668-1778314103073",
+        "term": "push",
+        "definition": "to force something away from you",
+        "meaningKr": "밀다",
+        "exampleEn": "You need to push the door hard to open it because the lock is a little bit rusty.",
+        "exampleKr": "잠금장치가 약간 녹슬었기 때문에 문을 세게 밀어야 열립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pʊʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-669-1778314103073",
+        "term": "quarter",
+        "definition": "one of four equal parts of something",
+        "meaningKr": "4분의 1",
+        "exampleEn": "Cut the apple into a quarter so that everyone can have a small piece of the fruit.",
+        "exampleKr": "모두가 과일을 한 조각씩 먹을 수 있도록 사과를 4분의 1로 자르세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkwɔːrtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-670-1778314103073",
+        "term": "assume",
+        "definition": "to believe, based on the evidence; suppose",
+        "meaningKr": "가정하다, 추측하다",
+        "exampleEn": "I assume that the meeting will be canceled since the manager has not arrived at the office yet.",
+        "exampleKr": "매니저가 아직 사무실에 도착하지 않은 것으로 보아 회의가 취소될 것으로 추측됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈsuːm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-671-1778314103073",
+        "term": "baby",
+        "definition": "very young child, who cannot yet speak",
+        "meaningKr": "아기",
+        "exampleEn": "The baby started to cry loudly because he was hungry and wanted someone to give him some milk.",
+        "exampleKr": "아기는 배가 고파서 누군가 우유를 주기를 바라며 크게 울기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbeɪbi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-672-1778314103073",
+        "term": "successful",
+        "definition": "having the desired effect or result",
+        "meaningKr": "성공적인",
+        "exampleEn": "The company launched a successful marketing campaign that resulted in a significant increase in sales this year.",
+        "exampleKr": "그 회사는 올해 매출의 상당한 증가를 가져온 성공적인 마케팅 캠페인을 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səkˈsesfl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-673-1778314103073",
+        "term": "sing",
+        "definition": "to make musical sounds with your voice",
+        "meaningKr": "노래하다",
+        "exampleEn": "She loves to sing her favorite songs while she is taking a long shower in the morning.",
+        "exampleKr": "그녀는 아침에 길게 샤워를 하는 동안 자신이 가장 좋아하는 노래를 부르는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɪŋ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-674-1778314103073",
+        "term": "doubt",
+        "definition": "not being sure of something; lack of certainty",
+        "meaningKr": "의심, 의혹",
+        "exampleEn": "There is no doubt that he is the most talented musician in our local community orchestra right now.",
+        "exampleKr": "그가 현재 우리 지역 사회 오케스트라에서 가장 재능 있는 음악가라는 점에는 의심의 여지가 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/daʊt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-675-1778314103073",
+        "term": "competition",
+        "definition": "fighting against others when trying to win something",
+        "meaningKr": "경쟁, 대회",
+        "exampleEn": "She entered a photography competition and won first prize for her beautiful picture of the autumn forest.",
+        "exampleKr": "그녀는 사진 대회에 참가하여 아름다운 가을 숲 사진으로 1등상을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌkɑːmpəˈtɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-676-1778314103073",
+        "term": "theory",
+        "definition": "idea or set of ideas that try to explain facts or events",
+        "meaningKr": "이론",
+        "exampleEn": "The scientist developed a new theory to explain how the universe began billions of years ago in space.",
+        "exampleKr": "그 과학자는 수십억 년 전 우주에서 우주가 어떻게 시작되었는지를 설명하기 위해 새로운 이론을 개발했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈiːəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-677-1778314103073",
+        "term": "propose",
+        "definition": "to offer or put forward an idea for consideration",
+        "meaningKr": "제안하다",
+        "exampleEn": "I would like to propose a new plan for our upcoming summer vacation to the beautiful beach.",
+        "exampleKr": "다가오는 아름다운 해변으로의 여름 휴가를 위해 새로운 계획을 제안하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈpoʊz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-678-1778314103073",
+        "term": "reference",
+        "definition": "to cite a piece of research in speech or in writing",
+        "meaningKr": "인용하다, 참조하다",
+        "exampleEn": "The author decided to reference several famous studies to support the main argument in his new book.",
+        "exampleKr": "작가는 그의 새 책에서 주요 주장을 뒷받침하기 위해 몇 가지 유명한 연구를 인용하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrefrəns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-679-1778314103073",
+        "term": "argument",
+        "definition": "a discussion in which you disagree with another's opinion",
+        "meaningKr": "논쟁, 말다툼",
+        "exampleEn": "They had a long argument about which movie to watch at the cinema on Friday night.",
+        "exampleKr": "그들은 금요일 밤 영화관에서 어떤 영화를 볼지에 대해 긴 논쟁을 벌였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɑːrɡjumənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-680-1778314103073",
+        "term": "adult",
+        "definition": "person or animal that is fully grown",
+        "meaningKr": "성인, 어른",
+        "exampleEn": "Now that you are an adult, you have to take responsibility for all of your own actions.",
+        "exampleKr": "이제 당신은 성인이 되었으므로 자신의 모든 행동에 대해 책임을 져야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈdʌlt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-681-1778314103073",
+        "term": "fly",
+        "definition": "to travel through the air using wings",
+        "meaningKr": "날다, 비행하다",
+        "exampleEn": "Birds use their strong wings to fly high in the sky and travel long distances every year.",
+        "exampleKr": "새들은 강한 날개를 이용해 하늘 높이 날아 매년 먼 거리를 이동합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/flaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-682-1778314103073",
+        "term": "document",
+        "definition": "official (printed) record that gives information",
+        "meaningKr": "서류, 문서",
+        "exampleEn": "Please sign this legal document and return it to the office as soon as you possibly can.",
+        "exampleKr": "이 법적 서류에 서명하여 가능한 한 빨리 사무실로 돌려보내 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɑːkjumənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-683-1778314103073",
+        "term": "pattern",
+        "definition": "regular repeated behavior",
+        "meaningKr": "패턴, 양식",
+        "exampleEn": "The dress has a beautiful floral pattern that makes it perfect for wearing during the spring season.",
+        "exampleKr": "그 드레스에는 아름다운 꽃무늬 패턴이 있어 봄철에 입기에 아주 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpætərn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-684-1778314103073",
+        "term": "application",
+        "definition": "formal request for a job, building permission, etc.",
+        "meaningKr": "지원(서), 신청(서)",
+        "exampleEn": "He submitted his job application to several different companies, hoping to get an interview very soon.",
+        "exampleKr": "그는 곧 면접을 보기를 희망하며 여러 회사에 입사 지원서를 제출했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌæplɪˈkeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-685-1778314103073",
+        "term": "hot",
+        "definition": "having a high temperature",
+        "meaningKr": "뜨거운, 더운",
+        "exampleEn": "Be careful because the soup is very hot and you might burn your tongue if you eat fast.",
+        "exampleKr": "수프가 매우 뜨거우니 빨리 먹으면 혀를 데일 수 있으므로 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hɑːt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-686-1778314103073",
+        "term": "obviously",
+        "definition": "in a way that is obvious/easy to see or understand",
+        "meaningKr": "분명히, 명백히",
+        "exampleEn": "She was obviously upset because she didn't say a single word during the entire dinner last night.",
+        "exampleKr": "그녀는 어제 저녁 식사 내내 한마디도 하지 않았기 때문에 분명히 화가 난 상태였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɑːbviəsli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-687-1778314103073",
+        "term": "unclear",
+        "definition": "not easy to understand; not obvious",
+        "meaningKr": "불분명한, 모호한",
+        "exampleEn": "The instructions for the new game are very unclear, so I don't know how to start playing.",
+        "exampleKr": "새 게임에 대한 설명이 매우 불분명해서 어떻게 게임을 시작해야 할지 모르겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌʌnˈklɪr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-688-1778314103073",
+        "term": "bill",
+        "definition": "piece of paper showing what you have to pay",
+        "meaningKr": "고지서, 청구서",
+        "exampleEn": "I forgot to pay the electricity bill this month, so I need to do it right away today.",
+        "exampleKr": "이번 달 전기 요금 고지서를 내는 것을 잊어버려서 오늘 바로 처리해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-689-1778314103073",
+        "term": "search",
+        "definition": "to carefully look for something",
+        "meaningKr": "찾다, 수색하다",
+        "exampleEn": "I spent the whole morning trying to search for my lost keys, but I still cannot find them.",
+        "exampleKr": "잃어버린 열쇠를 찾으려고 아침 내내 애를 썼지만 여전히 찾을 수가 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɜːrtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-690-1778314103073",
+        "term": "separate",
+        "definition": "to divide into parts, or to make something divide into parts",
+        "meaningKr": "분리하다, 나누다",
+        "exampleEn": "You should separate the white clothes from the colored ones before you start doing the laundry today.",
+        "exampleKr": "오늘 빨래를 시작하기 전에 흰 옷과 색깔 있는 옷을 분리해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsepəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-691-1778314103073",
+        "term": "central",
+        "definition": "being in the middle",
+        "meaningKr": "중심의, 중앙의",
+        "exampleEn": "The hotel is located in a central part of the city, making it easy to visit museums.",
+        "exampleKr": "그 호텔은 도시의 중심부에 위치해 있어 박물관을 방문하기에 편리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsentrəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-692-1778314103073",
+        "term": "career",
+        "definition": "particular occupation in professional life",
+        "meaningKr": "경력, 직업",
+        "exampleEn": "She decided to change her career path and become a professional chef after working in an office.",
+        "exampleKr": "그녀는 사무실에서 일한 후 경력을 바꿔 전문 요리사가 되기로 결심했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˈrɪr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-693-1778314103073",
+        "term": "anyway",
+        "definition": "a word people use to change the topic of a conversation",
+        "meaningKr": "어쨌든, 아무튼",
+        "exampleEn": "I don't really like that restaurant, but let's go there anyway because it is very close.",
+        "exampleKr": "나는 그 식당을 별로 좋아하지 않지만, 아주 가까우니까 어쨌든 거기로 갑시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeniweɪ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-694-1778314103073",
+        "term": "speech",
+        "definition": "expression of ideas or opinions",
+        "meaningKr": "연설, 말",
+        "exampleEn": "The president gave an inspiring speech about the importance of education for the future of our country.",
+        "exampleKr": "대통령은 우리 나라의 미래를 위한 교육의 중요성에 대해 영감을 주는 연설을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spiːtʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-695-1778314103073",
+        "term": "dog",
+        "definition": "small 4-legged animal that barks kept as a pet",
+        "meaningKr": "개, 강아지",
+        "exampleEn": "My dog always barks at the mailman when he comes to deliver letters to our front door.",
+        "exampleKr": "우리 집 개는 우체부 아저씨가 현관으로 편지를 배달하러 올 때마다 항상 짖습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɔːɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-696-1778314103073",
+        "term": "officer",
+        "definition": "person with an important position in an organization",
+        "meaningKr": "공무원, 장교, 경찰관",
+        "exampleEn": "The police officer stopped the car because the driver was going way over the speed limit yesterday.",
+        "exampleKr": "어제 운전자가 제한 속도를 크게 초과했기 때문에 경찰관이 차를 세웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːfɪsər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-697-1778314103073",
+        "term": "throughout",
+        "definition": "over or across an entire thing or place, or in every part of something",
+        "meaningKr": "~동안 내내, 곳곳에",
+        "exampleEn": "It rained heavily throughout the entire day, so we had to cancel our plans for the outdoor picnic.",
+        "exampleKr": "하루 종일 비가 많이 내려서 야외 소풍 계획을 취소해야만 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/θruːˈaʊt/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-ngsl-698-1778314103073",
+        "term": "oil",
+        "definition": "thick, black liquid in the ground used as fuel",
+        "meaningKr": "기름, 석유",
+        "exampleEn": "The price of oil has increased significantly, which has caused the cost of gasoline to go up.",
+        "exampleKr": "석유 가격이 크게 올라 휘발유 가격이 상승하는 원인이 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɔɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-699-1778314103073",
+        "term": "dress",
+        "definition": "women's garment with a top part and a skirt",
+        "meaningKr": "드레스, 원피스",
+        "exampleEn": "She bought a beautiful new dress to wear to her best friend's wedding ceremony next Saturday afternoon.",
+        "exampleKr": "그녀는 다음 주 토요일 오후에 열리는 절친의 결혼식에 입고 갈 아름다운 새 원피스를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dres/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-700-1778314103073",
+        "term": "profit",
+        "definition": "To earn money from a business or investment after all costs are paid.",
+        "meaningKr": "이익을 얻다, 수익을 내다",
+        "exampleEn": "The small company managed to profit from its new online marketing strategy this year.",
+        "exampleKr": "그 작은 회사는 올해 새로운 온라인 마케팅 전략으로 수익을 내는 데 성공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɒfɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-701-1778314103073",
+        "term": "guess",
+        "definition": "To give an answer or opinion without being sure of all the facts.",
+        "meaningKr": "추측하다, 맞히다",
+        "exampleEn": "Can you guess how many jelly beans are in this large glass jar?",
+        "exampleKr": "이 커다란 유리병 안에 젤리빈이 몇 개나 들어있는지 맞힐 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡes/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-702-1778314103073",
+        "term": "fun",
+        "definition": "Something that provides amusement, enjoyment, or lighthearted pleasure.",
+        "meaningKr": "재미있는, 즐거운",
+        "exampleEn": "We had a lot of fun playing board games with our friends last night.",
+        "exampleKr": "우리는 어젯밤 친구들과 보드게임을 하며 아주 즐거운 시간을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fʌn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-703-1778314103073",
+        "term": "protect",
+        "definition": "To keep someone or something safe from injury, damage, or loss.",
+        "meaningKr": "보호하다, 지키다",
+        "exampleEn": "You should wear sunscreen to protect your skin from the bright summer sun.",
+        "exampleKr": "밝은 여름 햇살로부터 피부를 보호하려면 자외선 차단제를 발라야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈtekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-704-1778314103073",
+        "term": "resource",
+        "definition": "A stock or supply of money, materials, or assets that can be used.",
+        "meaningKr": "자원, 재원",
+        "exampleEn": "The library is a great resource for students who need to find reliable information.",
+        "exampleKr": "도서관은 신뢰할 수 있는 정보를 찾아야 하는 학생들에게 아주 좋은 자원입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈsɔːrs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-705-1778314103073",
+        "term": "science",
+        "definition": "The systematic study of the structure and behavior of the physical world.",
+        "meaningKr": "과학",
+        "exampleEn": "My younger brother is very interested in science and wants to be an astronaut.",
+        "exampleKr": "제 남동생은 과학에 관심이 아주 많아서 우주비행사가 되고 싶어 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsaɪəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-706-1778314103073",
+        "term": "disease",
+        "definition": "A disorder of structure or function in a human, animal, or plant.",
+        "meaningKr": "질병, 병",
+        "exampleEn": "Regular exercise and a healthy diet can help prevent many types of heart disease.",
+        "exampleKr": "규칙적인 운동과 건강한 식단은 여러 종류의 심장병을 예방하는 데 도움이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈziːz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-707-1778314103073",
+        "term": "balance",
+        "definition": "To keep or put something in a steady position so it does not fall.",
+        "meaningKr": "균형을 잡다, 평형을 유지하다",
+        "exampleEn": "It is often difficult to balance a busy work schedule with a personal life.",
+        "exampleKr": "바쁜 업무 일정과 개인 생활 사이의 균형을 맞추는 것은 종종 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbæləns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-708-1778314103073",
+        "term": "damage",
+        "definition": "Physical harm caused to something in a way that impairs its value or function.",
+        "meaningKr": "손상, 피해",
+        "exampleEn": "The heavy rain caused a lot of damage to the roof of our old house.",
+        "exampleKr": "폭우로 인해 우리 오래된 집의 지붕에 많은 피해가 발생했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdæmɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-709-1778314103073",
+        "term": "basis",
+        "definition": "The underlying support or foundation for an idea, argument, or process.",
+        "meaningKr": "기초, 근거",
+        "exampleEn": "We meet on a regular basis to discuss the progress of our group project.",
+        "exampleKr": "우리는 그룹 프로젝트의 진행 상황을 논의하기 위해 정기적으로 만납니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbeɪsɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-710-1778314103073",
+        "term": "author",
+        "definition": "A writer of a book, article, or report.",
+        "meaningKr": "작가, 저자",
+        "exampleEn": "The famous author is coming to the local bookstore to sign her latest novel.",
+        "exampleKr": "그 유명한 작가가 최신 소설에 사인해 주기 위해 지역 서점에 옵니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːθər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-711-1778314103073",
+        "term": "basic",
+        "definition": "Forming an essential foundation or starting point; fundamental.",
+        "meaningKr": "기본적인, 기초적인",
+        "exampleEn": "You need to learn the basic rules of the game before you start playing.",
+        "exampleKr": "게임을 시작하기 전에 게임의 기본적인 규칙을 배워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbeɪsɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-712-1778314103073",
+        "term": "encourage",
+        "definition": "To give someone support, confidence, or hope to do something.",
+        "meaningKr": "격려하다, 권장하다",
+        "exampleEn": "My parents always encourage me to try new things and follow my personal dreams.",
+        "exampleKr": "부모님은 항상 제가 새로운 것을 시도하고 개인적인 꿈을 따르도록 격려해 주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈkɜːrɪdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-713-1778314103073",
+        "term": "hair",
+        "definition": "Any of the fine thread-like strands growing from the skin of mammals.",
+        "meaningKr": "머리카락, 털",
+        "exampleEn": "She decided to cut her hair short because it is much easier to manage.",
+        "exampleKr": "그녀는 관리하기가 훨씬 편해서 머리카락을 짧게 자르기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/her/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-714-1778314103073",
+        "term": "male",
+        "definition": "Of or denoting the sex that produces small, typically motile gametes.",
+        "meaningKr": "남성의, 수컷의",
+        "exampleEn": "The choir is looking for more male singers to join their upcoming holiday performance.",
+        "exampleKr": "합창단은 다가오는 연휴 공연에 함께할 남성 가수를 더 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/meɪl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-715-1778314103073",
+        "term": "operate",
+        "definition": "To control the functioning of a machine, process, or system.",
+        "meaningKr": "작동하다, 운영하다",
+        "exampleEn": "Do you know how to operate this new coffee machine in the office kitchen?",
+        "exampleKr": "사무실 탕비실에 있는 이 새로운 커피 머신을 어떻게 작동하는지 아세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɒpəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-716-1778314103073",
+        "term": "reflect",
+        "definition": "To throw back light, heat, or sound from a surface without absorbing it.",
+        "meaningKr": "반사하다, 비추다",
+        "exampleEn": "The calm water of the lake perfectly reflects the beautiful mountains in the distance.",
+        "exampleKr": "호수의 잔잔한 물결이 멀리 있는 아름다운 산들을 완벽하게 비추고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈflekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-717-1778314103073",
+        "term": "exercise",
+        "definition": "To engage in physical activity to sustain or improve health and fitness.",
+        "meaningKr": "운동하다",
+        "exampleEn": "I try to exercise for at least thirty minutes every morning before I go to work.",
+        "exampleKr": "나는 매일 아침 출근하기 전에 적어도 30분 동안 운동하려고 노력합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeksərsaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-718-1778314103073",
+        "term": "useful",
+        "definition": "Able to be used for a practical purpose or in several ways.",
+        "meaningKr": "유용한, 도움이 되는",
+        "exampleEn": "This mobile application is very useful for tracking your daily steps and water intake.",
+        "exampleKr": "이 모바일 앱은 일일 걸음 수와 수분 섭취량을 기록하는 데 매우 유용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈjuːsfl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-719-1778314103073",
+        "term": "restaurant",
+        "definition": "A place where people pay to sit and eat meals that are cooked on the premises.",
+        "meaningKr": "식당, 레스토랑",
+        "exampleEn": "Let's go to that new Italian restaurant that opened recently in the city center.",
+        "exampleKr": "최근 시내 중심가에 새로 문을 연 이탈리안 레스토랑에 갑시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrestrɒnt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-720-1778314103073",
+        "term": "income",
+        "definition": "Money received on a regular basis for work or through investments.",
+        "meaningKr": "소득, 수입",
+        "exampleEn": "They are looking for ways to increase their monthly income to save for a house.",
+        "exampleKr": "그들은 집을 사기 위해 저축하려고 월 소득을 늘릴 방법을 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɪnkʌm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-721-1778314103073",
+        "term": "property",
+        "definition": "A thing or things belonging to someone; possessions collectively.",
+        "meaningKr": "재산, 부동산",
+        "exampleEn": "The owner of the property decided to build a small garden in the backyard.",
+        "exampleKr": "그 부동산의 소유주는 뒷마당에 작은 정원을 만들기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɒpəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-722-1778314103073",
+        "term": "previous",
+        "definition": "Existing or occurring before in time or order.",
+        "meaningKr": "이전의, 앞선",
+        "exampleEn": "I had met him once before at a previous meeting a few months ago.",
+        "exampleKr": "나는 몇 달 전 이전 회의에서 그를 한 번 만난 적이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpriːviəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-723-1778314103073",
+        "term": "dark",
+        "definition": "With little or no light; having a color that reflects little light.",
+        "meaningKr": "어두운, 캄캄한",
+        "exampleEn": "It was so dark in the room that I could not find my glasses.",
+        "exampleKr": "방 안이 너무 어두워서 안경을 찾을 수가 없었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɑːrk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-724-1778314103073",
+        "term": "imagine",
+        "definition": "To form a mental image or concept of something not present to the senses.",
+        "meaningKr": "상상하다, 생각하다",
+        "exampleEn": "Can you imagine what life will be like fifty years from now in the future?",
+        "exampleKr": "지금으로부터 50년 후 미래의 삶이 어떨지 상상할 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈmædʒɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-725-1778314103073",
+        "term": "okay",
+        "definition": "Used to express agreement or acceptance of something.",
+        "meaningKr": "괜찮은, 알았어",
+        "exampleEn": "Is it okay if I borrow your umbrella for a few hours this afternoon?",
+        "exampleKr": "오늘 오후에 몇 시간 동안 우산을 빌려도 괜찮을까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌəʊˈkeɪ/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-ngsl-726-1778314103073",
+        "term": "earn",
+        "definition": "To obtain money in return for labor or services.",
+        "meaningKr": "(돈을) 벌다",
+        "exampleEn": "She works part-time at a cafe to earn some extra money for her university.",
+        "exampleKr": "그녀는 대학 등록금을 위해 추가 비용을 벌려고 카페에서 아르바이트를 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɜːrn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-727-1778314103073",
+        "term": "daughter",
+        "definition": "A female child in relation to her parents.",
+        "meaningKr": "딸",
+        "exampleEn": "Their daughter is studying medicine because she wants to become a doctor one day.",
+        "exampleKr": "그들의 딸은 언젠가 의사가 되고 싶어서 의학을 공부하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-728-1778314103073",
+        "term": "post",
+        "definition": "To send a letter or parcel by mail.",
+        "meaningKr": "우편을 보내다, 게시하다",
+        "exampleEn": "I need to go to the post office to post this package to my friend.",
+        "exampleKr": "친구에게 이 소포를 부치기 위해 우체국에 가야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əʊst/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-729-1778314103073",
+        "term": "newspaper",
+        "definition": "A printed publication consisting of folded unstapled sheets and containing news.",
+        "meaningKr": "신문",
+        "exampleEn": "My grandfather still likes to read the physical newspaper while he drinks his morning coffee.",
+        "exampleKr": "우리 할아버지는 여전히 아침 커피를 마시며 종이 신문을 읽는 것을 좋아하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnjuːzpeɪpər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-730-1778314103073",
+        "term": "define",
+        "definition": "To state or describe exactly the nature, scope, or meaning of something.",
+        "meaningKr": "정의하다, 규정하다",
+        "exampleEn": "It is sometimes difficult to define exactly what makes a person truly happy.",
+        "exampleKr": "무엇이 사람을 진정으로 행복하게 만드는지 정확히 정의하는 것은 때로 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈfaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-731-1778314103073",
+        "term": "conclusion",
+        "definition": "A judgment or decision reached by reasoning.",
+        "meaningKr": "결론, 판단",
+        "exampleEn": "After discussing the matter for hours, we finally reached a conclusion about the plan.",
+        "exampleKr": "그 문제에 대해 몇 시간 동안 논의한 끝에, 우리는 마침내 그 계획에 대한 결론에 도달했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈkluːʒn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-732-1778314103073",
+        "term": "clock",
+        "definition": "A mechanical or electrical device for measuring and showing time.",
+        "meaningKr": "시계",
+        "exampleEn": "The old clock on the wall stopped working because it needs a new battery.",
+        "exampleKr": "벽에 걸린 낡은 시계가 새 건전지가 필요해서 작동을 멈췄습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/klɒk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-733-1778314103073",
+        "term": "everybody",
+        "definition": "Every person; all people.",
+        "meaningKr": "모든 사람, 모두",
+        "exampleEn": "Everybody was surprised when the famous actor made a sudden appearance at the party.",
+        "exampleKr": "그 유명 배우가 파티에 갑자기 나타나자 모든 사람이 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈevribɒdi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-734-1778314103073",
+        "term": "weekend",
+        "definition": "The period from Friday evening through Sunday evening.",
+        "meaningKr": "주말",
+        "exampleEn": "What are your plans for the weekend since the weather is supposed to be nice?",
+        "exampleKr": "날씨가 좋을 예정인데 이번 주말에 무슨 계획이 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌwiːkˈend/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-735-1778314103073",
+        "term": "perform",
+        "definition": "To carry out, accomplish, or fulfill an action, task, or function.",
+        "meaningKr": "수행하다, 공연하다",
+        "exampleEn": "The students worked very hard to perform their roles perfectly in the school play.",
+        "exampleKr": "학생들은 학교 연극에서 자신의 역할을 완벽하게 수행하기 위해 매우 열심히 노력했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pərˈfɔːrm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-736-1778314103073",
+        "term": "professional",
+        "definition": "Relating to or connected with a profession.",
+        "meaningKr": "전문적인, 직업의",
+        "exampleEn": "You should seek professional advice before you make any major decisions about your finances.",
+        "exampleKr": "재정에 관한 중요한 결정을 내리기 전에 전문가의 조언을 구해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈfeʃənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-737-1778314103073",
+        "term": "mine",
+        "definition": "Used to refer to a thing or things belonging to or associated with the speaker.",
+        "meaningKr": "나의 것, 내 것",
+        "exampleEn": "That blue bicycle over there is mine, but you can borrow it if you need.",
+        "exampleKr": "저기 있는 저 파란색 자전거는 제 것이지만, 필요하시면 빌려 가셔도 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/maɪn/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-738-1778314103073",
+        "term": "debate",
+        "definition": "A formal discussion on a particular topic in a public meeting.",
+        "meaningKr": "토론, 논쟁",
+        "exampleEn": "There has been a lot of public debate regarding the new laws about environmental protection.",
+        "exampleKr": "환경 보호에 관한 새로운 법률과 관련하여 많은 대중적 논쟁이 있어 왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈbeɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-739-1778314103073",
+        "term": "memory",
+        "definition": "The faculty by which the mind stores and remembers information.",
+        "meaningKr": "기억, 추억",
+        "exampleEn": "I have a very clear memory of my first day at elementary school many years ago.",
+        "exampleKr": "나는 수년 전 초등학교 첫날에 대한 아주 선명한 기억을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmeməri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-740-1778314103073",
+        "term": "green",
+        "definition": "Of the color between blue and yellow in the spectrum; colored like grass.",
+        "meaningKr": "초록색의, 녹색의",
+        "exampleEn": "The hills look so green and beautiful after the heavy rain in the early spring.",
+        "exampleKr": "이른 봄에 내린 폭우가 지나간 뒤 언덕들이 아주 푸르고 아름다워 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡriːn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-741-1778314103073",
+        "term": "song",
+        "definition": "A short poem or other set of words set to music or meant to be sung.",
+        "meaningKr": "노래",
+        "exampleEn": "That catchy song has been stuck in my head all day since I heard it.",
+        "exampleKr": "그 중독성 있는 노래를 들은 이후로 하루 종일 머릿속에서 맴돌고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɒŋ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-742-1778314103073",
+        "term": "object",
+        "definition": "To say something to express one's disapproval of or disagreement with something.",
+        "meaningKr": "반대하다, 이의를 제기하다",
+        "exampleEn": "Many local residents decided to object to the plan to build a highway near their homes.",
+        "exampleKr": "많은 지역 주민들이 집 근처에 고속도로를 건설하려는 계획에 반대하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əbˈdʒekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-743-1778314103073",
+        "term": "maintain",
+        "definition": "To cause or enable a condition or state of affairs to continue.",
+        "meaningKr": "유지하다, 지속하다",
+        "exampleEn": "It is important to maintain a healthy weight by eating well and exercising regularly.",
+        "exampleKr": "잘 먹고 규칙적으로 운동함으로써 건강한 체중을 유지하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/meɪnˈteɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-744-1778314103073",
+        "term": "credit",
+        "definition": "The ability of a customer to obtain goods or services before payment.",
+        "meaningKr": "신용, 외상",
+        "exampleEn": "I prefer to pay with a credit card because it is more convenient than cash.",
+        "exampleKr": "현금보다 편리하기 때문에 저는 신용카드로 결제하는 것을 선호합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkredɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-745-1778314103073",
+        "term": "ring",
+        "definition": "To make a clear resonant or vibrating sound, like a bell.",
+        "meaningKr": "(벨이) 울리다, 전화를 걸다",
+        "exampleEn": "Please give me a call and let the phone ring until I answer it.",
+        "exampleKr": "저에게 전화를 주시고 제가 받을 때까지 벨이 울리게 두세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪŋ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-746-1778314103073",
+        "term": "discover",
+        "definition": "To find unexpectedly or during a search.",
+        "meaningKr": "발견하다, 알아내다",
+        "exampleEn": "Scientists hope to discover new ways to produce clean energy without harming the environment.",
+        "exampleKr": "과학자들은 환경을 해치지 않고 청정에너지를 생산하는 새로운 방법을 발견하기를 희망합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈskʌvər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-747-1778314103073",
+        "term": "dead",
+        "definition": "No longer alive.",
+        "meaningKr": "죽은",
+        "exampleEn": "The plant on the windowsill is dead because I forgot to water it for weeks.",
+        "exampleKr": "몇 주 동안 물 주는 것을 잊었더니 창가에 있는 식물이 죽어버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ded/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-748-1778314103073",
+        "term": "afternoon",
+        "definition": "The time from noon or lunchtime to evening.",
+        "meaningKr": "오후",
+        "exampleEn": "I usually feel a bit tired in the afternoon and need a cup of tea.",
+        "exampleKr": "나는 보통 오후에 약간 피곤함을 느껴서 차 한 잔이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌæftərˈnuːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-749-1778314103073",
+        "term": "prefer",
+        "definition": "To like one thing or person better than another or others.",
+        "meaningKr": "선호하다, ~을 더 좋아하다",
+        "exampleEn": "I prefer drinking tea over coffee because it helps me feel more relaxed and calm.",
+        "exampleKr": "차를 마시면 더 편안하고 차분해지기 때문에 저는 커피보다 차를 마시는 것을 선호합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prɪˈfɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-750-1778314103073",
+        "term": "extend",
+        "definition": "To straighten or stretch something out to its full length.",
+        "meaningKr": "뻗다, 연장하다",
+        "exampleEn": "You should extend your legs fully while doing these stretching exercises every morning.",
+        "exampleKr": "매일 아침 이 스트레칭 운동을 할 때 다리를 완전히 뻗어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈstend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-751-1778314103073",
+        "term": "possibility",
+        "definition": "Something that has a chance of happening or being true.",
+        "meaningKr": "가능성",
+        "exampleEn": "There is a strong possibility that it will rain during our outdoor picnic tomorrow.",
+        "exampleKr": "내일 야외 소풍 중에 비가 올 가능성이 매우 높습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌpɒsəˈbɪləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-752-1778314103073",
+        "term": "direction",
+        "definition": "The way in which someone or something moves or faces.",
+        "meaningKr": "방향, 길 안내",
+        "exampleEn": "Could you please tell me which direction I should walk to find the nearest station?",
+        "exampleKr": "가장 가까운 역을 찾으려면 어느 방향으로 걸어가야 하는지 말씀해 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dəˈrekʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-753-1778314103073",
+        "term": "facility",
+        "definition": "A place, amenity, or piece of equipment provided for a particular purpose.",
+        "meaningKr": "시설, 편의 시설",
+        "exampleEn": "The local community center has a great sports facility including a large swimming pool.",
+        "exampleKr": "지역 커뮤니티 센터에는 대형 수영장을 포함한 훌륭한 운동 시설이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fəˈsɪləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-754-1778314103073",
+        "term": "variety",
+        "definition": "The quality or state of being different or diverse.",
+        "meaningKr": "다양성, 종류",
+        "exampleEn": "This bakery offers a wide variety of delicious breads and cakes for its customers.",
+        "exampleKr": "이 빵집은 고객들을 위해 매우 다양한 종류의 맛있는 빵과 케이크를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/vəˈraɪəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-755-1778314103073",
+        "term": "daily",
+        "definition": "Happening, done, or produced every day or every weekday.",
+        "meaningKr": "매일의, 일상의",
+        "exampleEn": "Reading the news has become a daily habit for me before I start my work.",
+        "exampleKr": "업무를 시작하기 전에 뉴스를 읽는 것은 저의 매일의 습관이 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdeɪli/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-756-1778314103073",
+        "term": "clothes",
+        "definition": "Items worn to cover the body, such as shirts and pants.",
+        "meaningKr": "옷, 의류",
+        "exampleEn": "I need to buy some warm clothes because the weather is getting much colder lately.",
+        "exampleKr": "최근에 날씨가 훨씬 추워지고 있어서 따뜻한 옷을 좀 사야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kləʊðz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-757-1778314103073",
+        "term": "screen",
+        "definition": "A flat surface on which images or data are displayed.",
+        "meaningKr": "화면, 스크린",
+        "exampleEn": "I spent too much time looking at my computer screen and my eyes feel tired.",
+        "exampleKr": "컴퓨터 화면을 너무 오래 보고 있었더니 눈이 피로하게 느껴집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/skriːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-758-1778314103073",
+        "term": "track",
+        "definition": "To follow the course or movements of someone or something.",
+        "meaningKr": "추적하다, 뒤쫓다",
+        "exampleEn": "The security guards had to track the suspicious person through the crowded shopping mall today.",
+        "exampleKr": "보안 요원들은 오늘 붐비는 쇼핑몰을 통해 수상한 사람을 추적해야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/træk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-759-1778314103073",
+        "term": "dance",
+        "definition": "To move rhythmically to music, typically following a set sequence of steps.",
+        "meaningKr": "춤을 추다",
+        "exampleEn": "They decided to dance together when their favorite song started playing at the wedding party.",
+        "exampleKr": "그들은 결혼 파티에서 좋아하는 노래가 나오기 시작하자 함께 춤을 추기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɑːns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-760-1778314103073",
+        "term": "completely",
+        "definition": "Totally and utterly; in every way or as much as possible.",
+        "meaningKr": "완전히, 전적으로",
+        "exampleEn": "I completely forgot about our meeting because I was so busy with my other projects.",
+        "exampleKr": "다른 프로젝트들로 너무 바빠서 우리 회의에 대해 완전히 잊어버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəmˈpliːtli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-761-1778314103073",
+        "term": "female",
+        "definition": "Of or denoting the sex that can bear offspring or produce eggs.",
+        "meaningKr": "여성, 암컷",
+        "exampleEn": "The doctor confirmed that the cat we found in the park is a young female.",
+        "exampleKr": "의사는 우리가 공원에서 발견한 고양이가 어린 암컷임을 확인해 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfiːmeɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-762-1778314103073",
+        "term": "responsibility",
+        "definition": "The state or fact of having a duty to deal with something.",
+        "meaningKr": "책임, 의무",
+        "exampleEn": "It is your responsibility to make sure that all the windows are closed before leaving.",
+        "exampleKr": "떠나기 전에 모든 창문이 닫혀 있는지 확인하는 것은 당신의 책임입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˌspɒnsəˈbɪləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-763-1778314103073",
+        "term": "original",
+        "definition": "Present or existing from the beginning; first or earliest.",
+        "meaningKr": "원래의, 독창적인",
+        "exampleEn": "The original plan was to go hiking, but we stayed home due to the rain.",
+        "exampleKr": "원래 계획은 등산을 가는 것이었지만, 비 때문에 우리는 집에 머물렀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈrɪdʒənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-764-1778314103073",
+        "term": "sister",
+        "definition": "A woman or girl in relation to other daughters and sons of her parents.",
+        "meaningKr": "자매, 여동생, 언니",
+        "exampleEn": "My older sister is currently studying abroad to become a professional chef in Paris.",
+        "exampleKr": "저의 언니는 현재 파리에서 전문 요리사가 되기 위해 유학 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɪstə(r)//",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-765-1778314103073",
+        "term": "rock",
+        "definition": "The solid mineral material forming part of the surface of the earth.",
+        "meaningKr": "바위, 암석",
+        "exampleEn": "We sat on a large rock by the river and enjoyed the beautiful sunset together.",
+        "exampleKr": "우리는 강가에 있는 큰 바위에 앉아 아름다운 일몰을 함께 즐겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɒk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-766-1778314103073",
+        "term": "dream",
+        "definition": "A series of thoughts, images, and sensations occurring in a person's mind during sleep.",
+        "meaningKr": "꿈",
+        "exampleEn": "I had a very strange dream last night about flying over a city made of gold.",
+        "exampleKr": "어제저녁에 금으로 만들어진 도시 위를 날아다니는 아주 이상한 꿈을 꿨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/driːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-767-1778314103073",
+        "term": "nor",
+        "definition": "Used to introduce a further negative statement.",
+        "meaningKr": "~도 아니다",
+        "exampleEn": "He does not like to eat spicy food, nor does he enjoy drinking cold soda.",
+        "exampleKr": "그는 매운 음식을 먹는 것을 좋아하지 않으며, 차가운 탄산음료를 마시는 것도 즐기지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/nɔː(r)/",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-ngsl-768-1778314103073",
+        "term": "university",
+        "definition": "An educational institution designed for instruction and examination of students at a high level.",
+        "meaningKr": "대학교",
+        "exampleEn": "She is planning to apply for a university in Seoul to study computer science next year.",
+        "exampleKr": "그녀는 내년에 컴퓨터 공학을 공부하기 위해 서울에 있는 대학교에 지원할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌjuːnɪˈvɜːsəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-769-1778314103073",
+        "term": "easily",
+        "definition": "Without problems or great effort; very readily.",
+        "meaningKr": "쉽게, 용이하게",
+        "exampleEn": "You can easily find the library if you follow the signs posted along the main street.",
+        "exampleKr": "주요 도로를 따라 게시된 표지판을 따라가면 도서관을 쉽게 찾을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈiːzɪli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-770-1778314103073",
+        "term": "agency",
+        "definition": "A business or organization established to provide a particular service.",
+        "meaningKr": "대행사, 에이전시",
+        "exampleEn": "We booked our flight tickets through a local travel agency to get a better price.",
+        "exampleKr": "우리는 더 좋은 가격을 받기 위해 현지 여행사를 통해 항공권을 예약했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeɪdʒənsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-771-1778314103073",
+        "term": "dollar",
+        "definition": "The basic monetary unit of the US, Canada, Australia, and other countries.",
+        "meaningKr": "달러",
+        "exampleEn": "The price of this souvenir is only one dollar, so I decided to buy several.",
+        "exampleKr": "이 기념품의 가격은 단 1달러라서 여러 개를 사기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɒlə(r)/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-772-1778314103073",
+        "term": "garden",
+        "definition": "A piece of ground adjoining a house, used for growing flowers, fruit, or vegetables.",
+        "meaningKr": "정원, 마당",
+        "exampleEn": "My grandmother spends most of her free time growing beautiful flowers in her small garden.",
+        "exampleKr": "우리 할머니는 자유 시간의 대부분을 작은 정원에서 아름다운 꽃을 가꾸며 보내십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɡɑːdn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-773-1778314103073",
+        "term": "fix",
+        "definition": "To fasten something securely or repair something that is broken.",
+        "meaningKr": "고치다, 수리하다",
+        "exampleEn": "I need to find someone who can fix my broken laptop as soon as possible.",
+        "exampleKr": "제 고장 난 노트북을 가능한 한 빨리 고칠 수 있는 사람을 찾아야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɪks/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-774-1778314103073",
+        "term": "ahead",
+        "definition": "Further forward in space; in the lead or in front.",
+        "meaningKr": "앞에, 앞으로",
+        "exampleEn": "The car ahead of us stopped suddenly, so we had to hit the brakes quickly.",
+        "exampleKr": "우리 앞의 차가 갑자기 멈춰서 우리는 급하게 브레이크를 밟아야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈhed/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-775-1778314103073",
+        "term": "cross",
+        "definition": "To go or extend across or to the other side of something.",
+        "meaningKr": "건너다, 교차하다",
+        "exampleEn": "Be very careful when you cross the busy street even if the light is green.",
+        "exampleKr": "신호등이 초록불이라 하더라도 붐비는 거리를 건널 때는 매우 조심해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/krɒs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-776-1778314103073",
+        "term": "yeah",
+        "definition": "A non-standard spelling of 'yes', used to represent the informal pronunciation.",
+        "meaningKr": "응, 그래",
+        "exampleEn": "Yeah, I would love to join you for dinner tonight at that new Italian restaurant.",
+        "exampleKr": "응, 오늘 밤 그 새로운 이탈리아 레스토랑에서 저녁 식사를 함께하고 싶어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/jeə/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-777-1778314103073",
+        "term": "candidate",
+        "definition": "A person who applies for a job or is nominated for election.",
+        "meaningKr": "후보자, 지원자",
+        "exampleEn": "The hiring manager interviewed every candidate who applied for the marketing position this morning.",
+        "exampleKr": "채용 담당자는 오늘 아침 마케팅 직무에 지원한 모든 후보자를 면접했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkændɪdət/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-778-1778314103073",
+        "term": "weight",
+        "definition": "A body's relative mass or the quantity of matter contained by it.",
+        "meaningKr": "무게, 체중",
+        "exampleEn": "I am trying to lose some weight by exercising every day and eating healthier food.",
+        "exampleKr": "저는 매일 운동하고 더 건강한 음식을 먹음으로써 체중을 감량하려고 노력 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/weɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-779-1778314103073",
+        "term": "legal",
+        "definition": "Of, based on, or concerned with the law.",
+        "meaningKr": "법률적인, 합법적인",
+        "exampleEn": "You should seek legal advice before signing any important documents for your new business venture.",
+        "exampleKr": "새로운 사업을 위한 중요한 서류에 서명하기 전에 법률 자문을 구해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈliːɡl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-780-1778314103073",
+        "term": "proposal",
+        "definition": "A plan or suggestion, especially a formal or written one, put forward for consideration.",
+        "meaningKr": "제안, 계획",
+        "exampleEn": "The committee is currently reviewing the proposal for building a new park in our neighborhood.",
+        "exampleKr": "위원회는 현재 우리 동네에 새로운 공원을 조성하자는 제안을 검토하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈpəʊzl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-781-1778314103073",
+        "term": "version",
+        "definition": "A particular form of something differing in certain respects from an earlier form.",
+        "meaningKr": "버전, 판",
+        "exampleEn": "I downloaded the latest version of the app to see all the new features available.",
+        "exampleKr": "사용 가능한 모든 새로운 기능을 확인하기 위해 앱의 최신 버전을 다운로드했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈvɜːʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-782-1778314103073",
+        "term": "conversation",
+        "definition": "A talk, especially an informal one, between two or more people.",
+        "meaningKr": "대화, 회화",
+        "exampleEn": "We had a long conversation about our future plans while walking along the quiet beach.",
+        "exampleKr": "우리는 조용한 해변을 따라 걸으며 우리의 미래 계획에 대해 긴 대화를 나누었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌkɒnvəˈseɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-783-1778314103073",
+        "term": "somebody",
+        "definition": "A person of importance or a person who is unknown.",
+        "meaningKr": "누군가, 어떤 사람",
+        "exampleEn": "Somebody left their umbrella in the hallway, so I hope they come back for it.",
+        "exampleKr": "누군가 복도에 우산을 두고 갔는데, 다시 찾으러 오길 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsʌmbədi/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-784-1778314103073",
+        "term": "pound",
+        "definition": "A unit of weight in general use equal to 16 oz. avoirdupois (0.4536 kg).",
+        "meaningKr": "파운드",
+        "exampleEn": "I bought a few pounds of fresh apples from the local market to make juice.",
+        "exampleKr": "주스를 만들기 위해 현지 시장에서 신선한 사과 몇 파운드를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/paʊnd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-785-1778314103073",
+        "term": "magazine",
+        "definition": "A periodical publication containing articles and illustrations, typically covering a particular subject.",
+        "meaningKr": "잡지",
+        "exampleEn": "She likes to read a fashion magazine while waiting for her appointment at the salon.",
+        "exampleKr": "그녀는 미용실에서 예약 시간을 기다리는 동안 패션 잡지 읽는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌmæɡəˈziːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-786-1778314103073",
+        "term": "shape",
+        "definition": "The external form or appearance of someone or something.",
+        "meaningKr": "모양, 형태",
+        "exampleEn": "The clouds in the sky today are in the shape of many different fluffy animals.",
+        "exampleKr": "오늘 하늘의 구름들은 여러 가지 다양한 푹신한 동물들의 모양을 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃeɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-787-1778314103073",
+        "term": "sea",
+        "definition": "The expanse of salt water that covers most of the earth's surface.",
+        "meaningKr": "바다",
+        "exampleEn": "We spent our entire summer vacation swimming in the clear blue sea and relaxing.",
+        "exampleKr": "우리는 여름 휴가 내내 맑고 푸른 바다에서 수영하고 휴식을 취하며 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/siː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-788-1778314103073",
+        "term": "immediately",
+        "definition": "At once; instantly.",
+        "meaningKr": "즉시, 당장",
+        "exampleEn": "Please call me immediately if you have any problems with the new equipment I installed.",
+        "exampleKr": "제가 설치한 새 장비에 문제가 생기면 즉시 저에게 전화해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈmiːdiətli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-789-1778314103073",
+        "term": "welcome",
+        "definition": "An instance or manner of greeting someone.",
+        "meaningKr": "환영",
+        "exampleEn": "The hotel staff gave us a warm welcome when we arrived late at night yesterday.",
+        "exampleKr": "어제 늦은 밤에 도착했을 때 호텔 직원들은 우리를 따뜻하게 환영해 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwelkəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-790-1778314103073",
+        "term": "smile",
+        "definition": "To form one's features into a pleased or kind expression.",
+        "meaningKr": "미소 짓다",
+        "exampleEn": "The baby started to smile as soon as she saw her mother walking into the room.",
+        "exampleKr": "아기는 엄마가 방으로 들어오는 것을 보자마자 미소 짓기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/smaɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-791-1778314103073",
+        "term": "communication",
+        "definition": "The imparting or exchanging of information or news.",
+        "meaningKr": "소통, 통신",
+        "exampleEn": "Effective communication is very important for maintaining a healthy relationship with your friends and family.",
+        "exampleKr": "효과적인 소통은 친구 및 가족과 건강한 관계를 유지하는 데 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˌmjuːnɪˈkeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-792-1778314103073",
+        "term": "agent",
+        "definition": "A person who acts on behalf of another person or group.",
+        "meaningKr": "대리인, 에이전트",
+        "exampleEn": "The real estate agent showed us several apartments that were within our budget this afternoon.",
+        "exampleKr": "부동산 중개인은 오늘 오후 우리 예산 안에 있는 아파트 몇 군데를 보여주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeɪdʒənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-793-1778314103073",
+        "term": "traditional",
+        "definition": "Existing in or as part of a long-established custom or belief.",
+        "meaningKr": "전통적인",
+        "exampleEn": "My family always wears traditional clothes during the holiday to celebrate our culture and history.",
+        "exampleKr": "우리 가족은 우리의 문화와 역사를 기리기 위해 명절 동안 항상 전통 의상을 입습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/trəˈdɪʃənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-794-1778314103073",
+        "term": "replace",
+        "definition": "To take the place of something or to provide a substitute.",
+        "meaningKr": "바꾸다, 교체하다",
+        "exampleEn": "It is finally time to replace my old phone with a newer and faster model.",
+        "exampleKr": "드디어 제 낡은 휴대폰을 더 새롭고 빠른 모델로 교체할 때가 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈpleɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-795-1778314103073",
+        "term": "judge",
+        "definition": "To form an opinion or conclusion about someone or something.",
+        "meaningKr": "판단하다, 심사하다",
+        "exampleEn": "It is not fair to judge a person before you actually get to know them.",
+        "exampleKr": "실제로 알게 되기도 전에 사람을 판단하는 것은 공정하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dʒʌdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-796-1778314103073",
+        "term": "herself",
+        "definition": "Used as the object of a verb or preposition to refer to a female person previously mentioned.",
+        "meaningKr": "그녀 자신",
+        "exampleEn": "She bought herself a beautiful new dress for the party to celebrate her recent promotion.",
+        "exampleKr": "그녀는 최근 승진을 축하하기 위해 파티용으로 자신에게 예쁜 새 드레스를 사주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hɜːˈself/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-797-1778314103073",
+        "term": "suddenly",
+        "definition": "Quickly and unexpectedly.",
+        "meaningKr": "갑자기",
+        "exampleEn": "The lights went out suddenly while we were watching a scary movie in the living room.",
+        "exampleKr": "거실에서 무서운 영화를 보고 있는 동안 갑자기 불이 꺼졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsʌdənli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-798-1778314103073",
+        "term": "generation",
+        "definition": "All of the people born and living at about the same time.",
+        "meaningKr": "세대",
+        "exampleEn": "There is often a big difference in opinions between the older and the younger generation.",
+        "exampleKr": "기성세대와 젊은 세대 사이에는 종종 의견 차이가 크게 나타납니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌdʒenəˈreɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-799-1778314103073",
+        "term": "estimate",
+        "definition": "An approximate calculation or judgment of the value, number, or quantity of something.",
+        "meaningKr": "추정치, 견적",
+        "exampleEn": "The mechanic gave me an estimate of how much it would cost to fix the car.",
+        "exampleKr": "정비사는 차를 고치는 데 비용이 얼마나 들지에 대한 견적을 저에게 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈestɪmeɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-800-1778314103073",
+        "term": "favorite",
+        "definition": "most liked; best loved",
+        "meaningKr": "가장 좋아하는",
+        "exampleEn": "Pizza is my favorite food to eat for dinner on Friday nights.",
+        "exampleKr": "피자는 제가 금요일 저녁 식사로 가장 좋아하는 음식입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfeɪvərɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-801-1778314103073",
+        "term": "difficulty",
+        "definition": "something that is hard to do",
+        "meaningKr": "어려움, 곤란",
+        "exampleEn": "She had some difficulty understanding the instructions for the new coffee machine.",
+        "exampleKr": "그녀는 새로운 커피 머신의 사용 설명서를 이해하는 데 약간의 어려움을 겪었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɪfɪkəlti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-802-1778314103073",
+        "term": "purchase",
+        "definition": "to buy something; to get by paying money for it",
+        "meaningKr": "구매하다, 구입하다",
+        "exampleEn": "I need to purchase a new pair of shoes for the upcoming wedding.",
+        "exampleKr": "다가오는 결혼식을 위해 새 신발 한 켤레를 구매해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɜːrtʃəs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-803-1778314103073",
+        "term": "shoot",
+        "definition": "to kick or throw a ball at a goal",
+        "meaningKr": "(골을 향해) 쏘다, 슛을 하다",
+        "exampleEn": "You should shoot the ball whenever you have a clear opening at the goal.",
+        "exampleKr": "골문에 빈 공간이 생길 때마다 공을 슛해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃuːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-804-1778314103073",
+        "term": "announce",
+        "definition": "to make a public statement about a plan, decision",
+        "meaningKr": "발표하다, 알리다",
+        "exampleEn": "The principal will announce the winners of the science fair during the morning assembly.",
+        "exampleKr": "교장 선생님은 아침 조회 시간에 과학 박람회 우승자들을 발표할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈnaʊns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-805-1778314103073",
+        "term": "unless",
+        "definition": "negative of 'if'",
+        "meaningKr": "~하지 않는 한",
+        "exampleEn": "We will go for a walk in the park unless it starts to rain.",
+        "exampleKr": "비가 오기 시작하지 않는 한 우리는 공원으로 산책을 나갈 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ənˈles/",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-ngsl-806-1778314103073",
+        "term": "independent",
+        "definition": "making your own decisions; not controlled by others",
+        "meaningKr": "독립적인",
+        "exampleEn": "Moving into his own apartment made him feel much more independent and responsible.",
+        "exampleKr": "자신의 아파트로 이사한 것은 그를 훨씬 더 독립적이고 책임감 있게 느끼게 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɪndɪˈpendənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-807-1778314103073",
+        "term": "recommend",
+        "definition": "to say something is good and deserves to be chosen",
+        "meaningKr": "추천하다",
+        "exampleEn": "Can you recommend a good Italian restaurant nearby for our anniversary dinner tonight?",
+        "exampleKr": "오늘 밤 저희 기념일 저녁 식사를 위해 근처에 좋은 이탈리아 레스토랑을 추천해 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌrekəˈmend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-808-1778314103073",
+        "term": "survey",
+        "definition": "to ask people a question about a particular topic",
+        "meaningKr": "설문 조사하다, 조사하다",
+        "exampleEn": "The company will survey its customers to find out what they think of the product.",
+        "exampleKr": "그 회사는 고객들이 제품에 대해 어떻게 생각하는지 알아보기 위해 설문 조사를 할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɜːrveɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-809-1778314103073",
+        "term": "majority",
+        "definition": "amount that is more than half of a group",
+        "meaningKr": "대다수, 대부분",
+        "exampleEn": "The majority of the students voted to have the party on Friday afternoon.",
+        "exampleKr": "대다수의 학생들이 금요일 오후에 파티를 여는 것에 투표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/məˈdʒɔːrəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-810-1778314103073",
+        "term": "stick",
+        "definition": "long thin piece of wood from a tree",
+        "meaningKr": "나뭇가지, 막대기",
+        "exampleEn": "The dog ran across the yard to fetch the stick that I threw.",
+        "exampleKr": "개는 내가 던진 나뭇가지를 물어오기 위해 마당을 가로질러 달려갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stɪk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-811-1778314103073",
+        "term": "request",
+        "definition": "to ask for something",
+        "meaningKr": "요청하다, 신청하다",
+        "exampleEn": "I would like to request a day off next week to visit my parents.",
+        "exampleKr": "부모님을 뵙기 위해 다음 주에 하루 휴가를 요청하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈkwest/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-812-1778314103073",
+        "term": "rich",
+        "definition": "having a lot of money, possessions, or resources",
+        "meaningKr": "부유한, 돈이 많은",
+        "exampleEn": "He became very rich after his small tech company was bought by a giant corporation.",
+        "exampleKr": "그의 작은 기술 회사가 거대 기업에 인수된 후 그는 매우 부유해졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪtʃ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-813-1778314103073",
+        "term": "wind",
+        "definition": "natural movement of outside air as part of the weather",
+        "meaningKr": "바람",
+        "exampleEn": "The strong wind blew the colorful leaves all across the street this morning.",
+        "exampleKr": "오늘 아침 강한 바람이 형형색색의 잎들을 거리 곳곳으로 날려 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɪnd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-814-1778314103073",
+        "term": "none",
+        "definition": "not one of a group; not at all or in no way",
+        "meaningKr": "아무도 ~않다, 하나도 없음",
+        "exampleEn": "None of my friends could come to the movie because they were all busy.",
+        "exampleKr": "제 친구들 중 누구도 모두 바빠서 영화를 보러 올 수 없었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/nʌn/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ngsl-815-1778314103073",
+        "term": "exchange",
+        "definition": "to give things of similar value to each other",
+        "meaningKr": "교환하다, 주고받다",
+        "exampleEn": "We decided to exchange phone numbers so we could stay in touch after the trip.",
+        "exampleKr": "우리는 여행 후에 계속 연락할 수 있도록 전화번호를 교환하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪksˈtʃeɪndʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-816-1778314103073",
+        "term": "budget",
+        "definition": "amount of money planned to be spent on something",
+        "meaningKr": "예산",
+        "exampleEn": "We need to plan our monthly budget carefully to save money for a new car.",
+        "exampleKr": "우리는 새 차를 위한 돈을 모으기 위해 한 달 예산을 신중하게 짜야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈbʌdʒɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-817-1778314103073",
+        "term": "famous",
+        "definition": "widely known; recognized by many people",
+        "meaningKr": "유명한",
+        "exampleEn": "This small bakery is famous for its delicious homemade strawberry cakes and bread.",
+        "exampleKr": "이 작은 빵집은 맛있는 수제 딸기 케이크와 빵으로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfeɪməs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-818-1778314103073",
+        "term": "blood",
+        "definition": "red liquid in the bodies of people and animals",
+        "meaningKr": "피, 혈액",
+        "exampleEn": "The nurse took a small sample of my blood to check my overall health.",
+        "exampleKr": "간호사는 제 전반적인 건강을 확인하기 위해 제 혈액 샘플을 조금 채취했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/blʌd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-819-1778314103073",
+        "term": "appropriate",
+        "definition": "right or suitable for some situation or purpose",
+        "meaningKr": "적절한, 알맞은",
+        "exampleEn": "Please make sure you wear appropriate clothes for the formal job interview tomorrow.",
+        "exampleKr": "내일 정식 취업 면접을 위해 적절한 옷을 입었는지 꼭 확인하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈproʊpriət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-820-1778314103073",
+        "term": "block",
+        "definition": "to stop from going forward or making progress",
+        "meaningKr": "막다, 차단하다",
+        "exampleEn": "The fallen tree continues to block the main road, so we have to take a detour.",
+        "exampleKr": "쓰러진 나무가 계속해서 큰길을 막고 있어서 우리는 우회해서 가야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/blɑːk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-821-1778314103073",
+        "term": "warm",
+        "definition": "slightly hot; not very hot",
+        "meaningKr": "따뜻한",
+        "exampleEn": "It is finally warm enough outside to go for a walk without a heavy jacket.",
+        "exampleKr": "드디어 두꺼운 재킷 없이 산책을 나갈 수 있을 만큼 밖이 따뜻합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɔːrm/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-822-1778314103073",
+        "term": "count",
+        "definition": "to add things together to find the total number",
+        "meaningKr": "세다, 계산하다",
+        "exampleEn": "Can you help me count the number of chairs we need for the meeting?",
+        "exampleKr": "회의에 필요한 의자 수를 세는 것을 도와주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kaʊnt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-823-1778314103073",
+        "term": "scene",
+        "definition": "part of an act in a play",
+        "meaningKr": "장면",
+        "exampleEn": "My favorite scene in the movie is when the two main characters finally meet.",
+        "exampleKr": "그 영화에서 제가 가장 좋아하는 장면은 두 주인공이 마침내 만나는 장면입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/siːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-824-1778314103073",
+        "term": "writer",
+        "definition": "professional who writes books, articles, etc.",
+        "meaningKr": "작가, 필자",
+        "exampleEn": "The writer spent three years working on her first novel before it was published.",
+        "exampleKr": "그 작가는 첫 소설이 출판되기 전까지 3년 동안 그 작품을 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈraɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-825-1778314103073",
+        "term": "content",
+        "definition": "information in something (e.g., a book or computer program)",
+        "meaningKr": "내용, 콘텐츠",
+        "exampleEn": "The website provides a lot of useful content for people who want to learn English.",
+        "exampleKr": "그 웹사이트는 영어를 배우고 싶은 사람들을 위해 유용한 콘텐츠를 많이 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɑːntent/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-826-1778314103073",
+        "term": "prevent",
+        "definition": "to stop something from happening or existing",
+        "meaningKr": "예방하다, 막다",
+        "exampleEn": "Wearing a seatbelt is the best way to prevent serious injuries during a car accident.",
+        "exampleKr": "안전벨트를 매는 것은 교통사고 시 심각한 부상을 예방하는 가장 좋은 방법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prɪˈvent/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-827-1778314103073",
+        "term": "safe",
+        "definition": "being out of danger",
+        "meaningKr": "안전한",
+        "exampleEn": "It is important to keep your passwords in a safe place where no one else can find them.",
+        "exampleKr": "비밀번호를 다른 사람이 찾을 수 없는 안전한 곳에 보관하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/seɪf/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-828-1778314103073",
+        "term": "invite",
+        "definition": "to ask someone to go somewhere or do something",
+        "meaningKr": "초대하다",
+        "exampleEn": "I want to invite all my coworkers to my house for a small dinner party.",
+        "exampleKr": "저는 모든 동료를 저희 집으로 초대해서 작은 저녁 파티를 열고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈvaɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-829-1778314103073",
+        "term": "mix",
+        "definition": "to combine two or more things to make one",
+        "meaningKr": "섞다, 혼합하다",
+        "exampleEn": "You need to mix the flour and eggs together before adding the milk to the bowl.",
+        "exampleKr": "그릇에 우유를 넣기 전에 밀가루와 계란을 함께 섞어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/mɪks/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-830-1778314103073",
+        "term": "element",
+        "definition": "essential or particular part of something",
+        "meaningKr": "요소, 성분",
+        "exampleEn": "Trust is a very important element in building a strong and lasting friendship.",
+        "exampleKr": "신뢰는 강하고 지속적인 우정을 쌓는 데 매우 중요한 요소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈelɪmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-831-1778314103073",
+        "term": "effective",
+        "definition": "working efficiently to produce a desired result",
+        "meaningKr": "효과적인",
+        "exampleEn": "Using a planner is an effective way to manage your time and stay organized every day.",
+        "exampleKr": "플래너를 사용하는 것은 시간을 관리하고 매일 체계적으로 지내는 효과적인 방법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈfektɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-832-1778314103073",
+        "term": "correct",
+        "definition": "true or accurate",
+        "meaningKr": "옳은, 정확한",
+        "exampleEn": "Please check your answers to make sure they are correct before you submit the test.",
+        "exampleKr": "시험지를 제출하기 전에 답이 맞는지 확인하기 위해 답안을 점검해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˈrekt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-833-1778314103073",
+        "term": "medical",
+        "definition": "of or relating to physical health or medicine",
+        "meaningKr": "의학의, 의료의",
+        "exampleEn": "He decided to go to medical school because he wanted to help sick people.",
+        "exampleKr": "그는 아픈 사람들을 돕고 싶었기 때문에 의과대학에 가기로 결심했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈmedɪkl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-834-1778314103073",
+        "term": "admit",
+        "definition": "to agree that you did something bad, or that something bad is true",
+        "meaningKr": "인정하다, 시인하다",
+        "exampleEn": "It takes a lot of courage to admit that you were wrong about the situation.",
+        "exampleKr": "그 상황에 대해 자신이 틀렸다는 것을 인정하는 데는 많은 용기가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ədˈmɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-835-1778314103073",
+        "term": "beat",
+        "definition": "to win against another person or team; defeat",
+        "meaningKr": "이기다, 물리치다",
+        "exampleEn": "Our school team managed to beat the champions in the final game of the season.",
+        "exampleKr": "우리 학교 팀은 이번 시즌 마지막 경기에서 챔피언 팀을 이겨냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/biːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-836-1778314103073",
+        "term": "telephone",
+        "definition": "machine used to talk to someone who is far away",
+        "meaningKr": "전화, 전화기",
+        "exampleEn": "The telephone in the office has been ringing all morning with calls from customers.",
+        "exampleKr": "사무실 전화기가 아침 내내 고객들의 전화로 울리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtelɪfoʊn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-837-1778314103073",
+        "term": "copy",
+        "definition": "to make something that looks the same as the original",
+        "meaningKr": "복사하다, 베끼다",
+        "exampleEn": "Could you please copy these documents for me before the meeting starts at ten?",
+        "exampleKr": "10시에 회의가 시작되기 전에 이 서류들을 복사해 주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɑːpi/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-838-1778314103073",
+        "term": "committee",
+        "definition": "group of people who do or decide something",
+        "meaningKr": "위원회",
+        "exampleEn": "The committee will meet tomorrow to discuss the new rules for the community center.",
+        "exampleKr": "위원회는 내일 커뮤니티 센터의 새로운 규칙을 논의하기 위해 모일 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˈmɪti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-839-1778314103073",
+        "term": "aware",
+        "definition": "knowing or feeling that something exists",
+        "meaningKr": "알고 있는, 의식하는",
+        "exampleEn": "Are you aware of the changes that were made to the schedule for next week?",
+        "exampleKr": "다음 주 일정에 변경된 사항이 있다는 것을 알고 계신가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈwer/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-840-1778314103073",
+        "term": "advice",
+        "definition": "suggestion about what someone should do",
+        "meaningKr": "조언, 충고",
+        "exampleEn": "I need some advice on which computer I should buy for my university studies.",
+        "exampleKr": "대학 공부를 위해 어떤 컴퓨터를 사야 할지에 대한 조언이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ədˈvaɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-841-1778314103073",
+        "term": "handle",
+        "definition": "to have the ability to cope with or take responsibility for",
+        "meaningKr": "다루다, 처리하다",
+        "exampleEn": "She knows how to handle difficult customers with a calm and professional attitude.",
+        "exampleKr": "그녀는 차분하고 전문적인 태도로 까다로운 고객을 다루는 법을 압니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhændl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-842-1778314103073",
+        "term": "glass",
+        "definition": "hard transparent material used for making windows",
+        "meaningKr": "유리",
+        "exampleEn": "Be careful not to break the glass vase when you are cleaning the living room.",
+        "exampleKr": "거실을 청소할 때 유리 꽃병을 깨지 않도록 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡlæs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-843-1778314103073",
+        "term": "trial",
+        "definition": "concerning or used in a trial",
+        "meaningKr": "재판의, 시험의",
+        "exampleEn": "The trial lawyer presented new evidence that could prove his client was innocent.",
+        "exampleKr": "그 재판 변호사는 의뢰인의 무죄를 증명할 수 있는 새로운 증거를 제시했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtraɪəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-844-1778314103073",
+        "term": "stress",
+        "definition": "to be in a state of mental tension due to problems",
+        "meaningKr": "스트레스를 받다",
+        "exampleEn": "I tend to stress about small things when I have a lot of work to do.",
+        "exampleKr": "저는 할 일이 많을 때 사소한 일에 스트레스를 받는 경향이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/stres/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-845-1778314103073",
+        "term": "radio",
+        "definition": "system for sending and receiving signals through the air",
+        "meaningKr": "라디오",
+        "exampleEn": "I like to listen to the radio while I am driving to work in the morning.",
+        "exampleKr": "저는 아침에 차를 타고 출근하면서 라디오 듣는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈreɪdioʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-846-1778314103073",
+        "term": "administration",
+        "definition": "the work of running something (e.g., a business)",
+        "meaningKr": "관리, 행정, 집행",
+        "exampleEn": "The school administration decided to improve the cafeteria menu based on student feedback.",
+        "exampleKr": "학교 행정실은 학생들의 피드백을 바탕으로 식당 메뉴를 개선하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ədˌmɪnɪˈstreɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-847-1778314103073",
+        "term": "complex",
+        "definition": "difficult, not easy to understand or explain",
+        "meaningKr": "복잡한",
+        "exampleEn": "The math problem was so complex that it took me an hour to solve it.",
+        "exampleKr": "그 수학 문제는 너무 복잡해서 푸는 데 한 시간이나 걸렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəmˈpleks/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-848-1778314103073",
+        "term": "text",
+        "definition": "written part of a book or other work",
+        "meaningKr": "본문, 글, 텍스트",
+        "exampleEn": "I read the text of the speech but I still didn't understand the main point.",
+        "exampleKr": "연설문을 읽었지만 여전히 요점을 이해하지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tekst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-849-1778314103073",
+        "term": "context",
+        "definition": "set of facts surrounding a person or event",
+        "meaningKr": "맥락, 문맥",
+        "exampleEn": "It is often easier to understand a new word if you look at its context.",
+        "exampleKr": "새로운 단어는 문맥을 살펴보면 이해하기가 더 쉬울 때가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɑːntekst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-850-1778314103073",
+        "term": "ride",
+        "definition": "To sit on and control the movement of a horse or a vehicle.",
+        "meaningKr": "타다, 승마하다",
+        "exampleEn": "I love to ride my bike through the park on warm summer afternoons with friends.",
+        "exampleKr": "나는 따뜻한 여름 오후에 친구들과 함께 공원에서 자전거 타는 것을 정말 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/raɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-851-1778314103073",
+        "term": "directly",
+        "definition": "In a frank, honest, or straightforward manner without any delay.",
+        "meaningKr": "솔직하게, 직접적으로",
+        "exampleEn": "I will speak to the manager directly about the issue to find a quick solution.",
+        "exampleKr": "빠른 해결책을 찾기 위해 그 문제에 대해 매니저에게 직접 이야기하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dəˈrektli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-852-1778314103073",
+        "term": "heavy",
+        "definition": "Having great weight and being difficult to lift or move.",
+        "meaningKr": "무거운, 심한",
+        "exampleEn": "The box is too heavy for me to lift alone, so please help me move it.",
+        "exampleKr": "상자가 너무 무거워서 혼자 들 수 없으니 제가 옮기는 것을 좀 도와주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhevi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-853-1778314103073",
+        "term": "remove",
+        "definition": "To take something away from a place or to get rid of it.",
+        "meaningKr": "치우다, 제거하다",
+        "exampleEn": "Please remove your shoes before entering the house to keep the carpet clean and tidy.",
+        "exampleKr": "카펫을 깨끗하고 정돈된 상태로 유지하기 위해 집 안에 들어가기 전에 신발을 벗어주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈmuːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-854-1778314103073",
+        "term": "conduct",
+        "definition": "To organize and carry out a particular activity or process.",
+        "meaningKr": "수행하다, 지휘하다",
+        "exampleEn": "The professor will conduct a series of experiments to test the new theory next semester.",
+        "exampleKr": "교수님은 다음 학기에 새로운 이론을 테스트하기 위해 일련의 실험을 수행할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈdʌkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-855-1778314103073",
+        "term": "equipment",
+        "definition": "The set of articles or physical resources serving to equip a person or thing.",
+        "meaningKr": "장비, 용품",
+        "exampleEn": "We need to buy some new camping equipment before we head out for our trip.",
+        "exampleKr": "우리는 여행을 떠나기 전에 몇 가지 새로운 캠핑 장비를 사야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈkwɪpmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-856-1778314103073",
+        "term": "otherwise",
+        "definition": "In a different way or if the circumstances were different.",
+        "meaningKr": "그렇지 않으면",
+        "exampleEn": "You should leave now; otherwise, you might miss the last train home and be late.",
+        "exampleKr": "지금 출발해야 해요. 그렇지 않으면 막차를 놓쳐서 늦을지도 몰라요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈʌðərwaɪz/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-857-1778314103073",
+        "term": "title",
+        "definition": "The name given to a book, movie, or other work to identify it.",
+        "meaningKr": "제목, 직함",
+        "exampleEn": "The title of the book was so interesting that I decided to buy it immediately.",
+        "exampleKr": "그 책의 제목이 너무 흥미로워서 나는 그것을 즉시 사기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtaɪtl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-858-1778314103073",
+        "term": "extra",
+        "definition": "Added to what is normal or expected; more than what is necessary.",
+        "meaningKr": "추가의, 여분의",
+        "exampleEn": "I always carry an extra set of keys in my bag just in case I lose mine.",
+        "exampleKr": "열쇠를 잃어버릴 경우를 대비해서 가방에 항상 여분의 열쇠 뭉치를 가지고 다닙니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈekstrə/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-859-1778314103073",
+        "term": "executive",
+        "definition": "A person with senior managerial responsibility in a business organization.",
+        "meaningKr": "경영진, 임원",
+        "exampleEn": "The company executive decided to change the marketing strategy to attract more young customers this year.",
+        "exampleKr": "그 회사 임원은 올해 더 많은 젊은 고객을 유치하기 위해 마케팅 전략을 바꾸기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪɡˈzekjətɪv/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-860-1778314103073",
+        "term": "chair",
+        "definition": "A separate seat for one person, typically with a back and four legs.",
+        "meaningKr": "의자",
+        "exampleEn": "Please pull up a chair and join us for dinner; there is plenty of food.",
+        "exampleKr": "의자를 끌어당겨 앉아서 우리와 함께 저녁 식사를 하세요. 음식이 아주 넉넉합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃer/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-861-1778314103073",
+        "term": "expensive",
+        "definition": "Costing a lot of money; having a high price.",
+        "meaningKr": "비싼",
+        "exampleEn": "Buying a brand new car can be very expensive, so I am looking at used ones.",
+        "exampleKr": "완전 새 차를 사는 것은 매우 비쌀 수 있어서 저는 중고차를 알아보고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈspensɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-862-1778314103073",
+        "term": "sample",
+        "definition": "To try a small amount of something to see what it is like.",
+        "meaningKr": "시식하다, 맛보다",
+        "exampleEn": "The chef invited us to sample the new dessert before it was added to the menu.",
+        "exampleKr": "셰프는 새로운 디저트가 메뉴에 추가되기 전에 우리를 초대해 시식하게 해주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈæmpl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-863-1778314103073",
+        "term": "sex",
+        "definition": "Either of the two main categories into which humans are divided based on biology.",
+        "meaningKr": "성별, 성",
+        "exampleEn": "The application form asks for your name, age, and sex for the official records.",
+        "exampleKr": "신청서에는 공식 기록을 위해 이름, 나이, 성별을 기재하도록 되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/seks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-864-1778314103073",
+        "term": "deliver",
+        "definition": "To bring and hand over a letter, package, or goods to the recipient.",
+        "meaningKr": "배달하다, 전달하다",
+        "exampleEn": "The courier will deliver the package to your office by the end of the day tomorrow.",
+        "exampleKr": "택배 기사가 내일 업무 시간 종료 전까지 사무실로 소포를 배달해 줄 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈlɪvər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-865-1778314103073",
+        "term": "video",
+        "definition": "A recording of moving visual images, often accompanied by sound.",
+        "meaningKr": "비디오, 영상",
+        "exampleEn": "We watched a funny video of a cat playing with a ball of yarn yesterday evening.",
+        "exampleKr": "우리는 어제 저녁에 고양이가 털실 뭉치를 가지고 노는 재미있는 영상을 보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈvɪdioʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-866-1778314103073",
+        "term": "connection",
+        "definition": "A relationship in which a person, thing, or idea is linked with something else.",
+        "meaningKr": "연결, 관계",
+        "exampleEn": "I have a very poor internet connection today, so I cannot join the online meeting.",
+        "exampleKr": "오늘 인터넷 연결 상태가 매우 좋지 않아서 온라인 회의에 참석할 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˈnekʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-867-1778314103073",
+        "term": "primary",
+        "definition": "Of chief importance; principal or fundamental.",
+        "meaningKr": "주요한, 기본적인",
+        "exampleEn": "Her primary reason for moving to the city was to find a better job opportunity.",
+        "exampleKr": "그녀가 도시로 이사한 주된 이유는 더 좋은 직업 기회를 찾기 위해서였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpraɪmeri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-868-1778314103073",
+        "term": "weather",
+        "definition": "The state of the atmosphere at a place and time regarding heat, dryness, etc.",
+        "meaningKr": "날씨",
+        "exampleEn": "The weather has been so unpredictable lately that I always carry an umbrella with me.",
+        "exampleKr": "요즘 날씨가 너무 예측 불가능해서 나는 항상 우산을 가지고 다닙니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈweðər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-869-1778314103073",
+        "term": "collect",
+        "definition": "To bring or gather together things or people into one place.",
+        "meaningKr": "모으다, 수집하다",
+        "exampleEn": "I like to collect colorful postcards from every city I visit during my summer vacations.",
+        "exampleKr": "저는 여름 휴가 동안 방문하는 모든 도시에서 화려한 엽서를 수집하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˈlekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-870-1778314103073",
+        "term": "inform",
+        "definition": "To give someone facts or information about something.",
+        "meaningKr": "알리다, 통지하다",
+        "exampleEn": "Please inform the staff about the meeting schedule so that everyone can attend on time.",
+        "exampleKr": "모두가 제시간에 참석할 수 있도록 직원들에게 회의 일정을 알려주시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈfɔːrm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-871-1778314103073",
+        "term": "principle",
+        "definition": "A fundamental truth or proposition that serves as the foundation for a belief.",
+        "meaningKr": "원칙, 신념",
+        "exampleEn": "It is against my principle to lie to my friends, even about small and unimportant things.",
+        "exampleKr": "아무리 작고 사소한 일이라도 친구에게 거짓말을 하는 것은 제 원칙에 어긋납니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɪnsəpl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-872-1778314103073",
+        "term": "straight",
+        "definition": "Extending or moving uniformly in one direction without a curve or bend.",
+        "meaningKr": "직선의, 똑바른",
+        "exampleEn": "Go straight down this road for two blocks and you will see the post office.",
+        "exampleKr": "이 길을 따라 두 블록만 똑바로 가면 우체국이 보일 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/streɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-873-1778314103073",
+        "term": "appeal",
+        "definition": "To make a serious or urgent request, typically to a higher authority.",
+        "meaningKr": "항소하다, 호소하다",
+        "exampleEn": "The lawyer decided to appeal the court's decision because he believed the verdict was unfair.",
+        "exampleKr": "변호사는 판결이 불공정하다고 믿었기 때문에 법원의 결정에 항소하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈpiːl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-874-1778314103073",
+        "term": "highly",
+        "definition": "To a high degree or level; very much.",
+        "meaningKr": "매우, 대단히",
+        "exampleEn": "The teacher highly recommended that we read this book to improve our English writing skills.",
+        "exampleKr": "선생님은 영어 작문 실력을 향상시키기 위해 이 책을 읽을 것을 강력히 추천하셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈhaɪli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-875-1778314103073",
+        "term": "trust",
+        "definition": "To believe in the reliability, truth, ability, or strength of someone or something.",
+        "meaningKr": "신뢰하다, 믿다",
+        "exampleEn": "It takes a long time to build trust, but it can be lost in a second.",
+        "exampleKr": "신뢰를 쌓는 데는 오랜 시간이 걸리지만, 잃는 데는 순식간일 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/trʌst/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-876-1778314103073",
+        "term": "wonderful",
+        "definition": "Inspiring delight, pleasure, or admiration; extremely good.",
+        "meaningKr": "멋진, 훌륭한",
+        "exampleEn": "We had a wonderful time at the beach yesterday, swimming and playing in the sand.",
+        "exampleKr": "어제 해변에서 수영도 하고 모래 놀이도 하며 정말 멋진 시간을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈwʌndərfl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-877-1778314103073",
+        "term": "flat",
+        "definition": "Having a level surface; without raised areas or indentations.",
+        "meaningKr": "평평한, 납작한",
+        "exampleEn": "The ground is perfectly flat here, making it the ideal spot to set up our tent.",
+        "exampleKr": "이곳의 지면은 완벽하게 평평해서 텐트를 치기에 아주 이상적인 장소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/flæt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-878-1778314103073",
+        "term": "absolutely",
+        "definition": "With no qualification, restriction, or limitation; totally.",
+        "meaningKr": "전적으로, 틀림없이",
+        "exampleEn": "I am absolutely sure that I locked the front door before we left the house earlier.",
+        "exampleKr": "아까 집을 나오기 전에 현관문을 잠갔다는 것을 저는 아주 확실히 기억합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌæbsəˈluːtli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-879-1778314103073",
+        "term": "flow",
+        "definition": "To move steadily and continuously in a current or stream.",
+        "meaningKr": "흐르다",
+        "exampleEn": "The water began to flow through the pipes once the plumber finished fixing the leak.",
+        "exampleKr": "배관공이 누수 수리를 마치자 파이프를 통해 물이 흐르기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/floʊ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-880-1778314103073",
+        "term": "fair",
+        "definition": "Treating people equally without favoritism or discrimination.",
+        "meaningKr": "공정한, 공평한",
+        "exampleEn": "It is only fair that everyone gets an equal chance to speak during the group discussion.",
+        "exampleKr": "그룹 토론 중에 모든 사람이 말할 수 있는 동등한 기회를 갖는 것이 공평합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fer/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-881-1778314103073",
+        "term": "additional",
+        "definition": "Added, extra, or supplementary to what is already present.",
+        "meaningKr": "추가적인, 부가적인",
+        "exampleEn": "If you need any additional information, please do not hesitate to contact our customer service.",
+        "exampleKr": "추가 정보가 필요하시면 주저하지 마시고 저희 고객 서비스 센터로 연락해 주시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈdɪʃənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-882-1778314103073",
+        "term": "responsible",
+        "definition": "Having an obligation to do something, or having control over or care for someone.",
+        "meaningKr": "책임이 있는, 책임감 있는",
+        "exampleEn": "As the project manager, you are responsible for making sure that all tasks are completed.",
+        "exampleKr": "프로젝트 매니저로서 당신은 모든 업무가 완료되도록 할 책임이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈspɑːnsəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-883-1778314103073",
+        "term": "farm",
+        "definition": "An area of land and its buildings used for growing crops and rearing animals.",
+        "meaningKr": "농장",
+        "exampleEn": "My grandparents own a small farm where they grow organic vegetables and raise some chickens.",
+        "exampleKr": "우리 조부모님은 유기농 채소를 재배하고 닭을 몇 마리 키우는 작은 농장을 운영하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fɑːrm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-884-1778314103073",
+        "term": "collection",
+        "definition": "A group of things or people that have been gathered together.",
+        "meaningKr": "수집품, 모음",
+        "exampleEn": "He has an impressive collection of rare coins that he has been gathering for many years.",
+        "exampleKr": "그는 수년 동안 수집해 온 아주 인상적인 희귀 동전 수집품을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kəˈlekʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-885-1778314103073",
+        "term": "hang",
+        "definition": "To suspend or be suspended from above with the lower part free.",
+        "meaningKr": "걸다, 매달다",
+        "exampleEn": "I want to hang this beautiful painting in the living room where everyone can see it.",
+        "exampleKr": "모든 사람이 볼 수 있도록 이 아름다운 그림을 거실에 걸어두고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hæŋ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-886-1778314103073",
+        "term": "negative",
+        "definition": "Consisting in or characterized by the absence rather than the presence of distinguishing features.",
+        "meaningKr": "부정적인, 해로운",
+        "exampleEn": "The news had a negative impact on the stock market, causing prices to drop significantly.",
+        "exampleKr": "그 소식은 주식 시장에 부정적인 영향을 미쳐 가격이 상당히 하락하게 만들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈneɡətɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-887-1778314103073",
+        "term": "band",
+        "definition": "A group of people who have a common interest or purpose, especially musicians.",
+        "meaningKr": "밴드, 무리",
+        "exampleEn": "My favorite rock band is performing live at the stadium this weekend; I have tickets.",
+        "exampleKr": "내가 가장 좋아하는 록 밴드가 이번 주말에 경기장에서 공연을 하는데, 티켓을 구했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/bænd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-888-1778314103073",
+        "term": "relative",
+        "definition": "Considered in relation or in proportion to something else.",
+        "meaningKr": "상대적인, 비교상의",
+        "exampleEn": "The relative success of the project depended on how well the team members worked together.",
+        "exampleKr": "그 프로젝트의 상대적인 성공 여부는 팀원들이 얼마나 잘 협력하느냐에 달려 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrelətɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-889-1778314103073",
+        "term": "tour",
+        "definition": "A journey for pleasure in which several different places are visited.",
+        "meaningKr": "여행, 견학",
+        "exampleEn": "We took a guided tour of the historical museum to learn more about the local culture.",
+        "exampleKr": "우리는 지역 문화에 대해 더 많이 배우기 위해 역사 박물관 가이드 투어를 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʊr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-890-1778314103073",
+        "term": "alternative",
+        "definition": "Available as another possibility or choice.",
+        "meaningKr": "대안, 선택 가능한 것",
+        "exampleEn": "If the main road is closed, we will have to find an alternative route to work.",
+        "exampleKr": "만약 주 도로가 폐쇄된다면, 우리는 직장까지 가는 대안 경로를 찾아야 할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɔːlˈtɜːrnətɪv/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-891-1778314103073",
+        "term": "software",
+        "definition": "The programs and other operating information used by a computer.",
+        "meaningKr": "소프트웨어",
+        "exampleEn": "The company recently updated its software to improve the overall performance of the computer system.",
+        "exampleKr": "회사는 컴퓨터 시스템의 전반적인 성능을 향상시키기 위해 최근 소프트웨어를 업데이트했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɔːftwer/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-892-1778314103073",
+        "term": "pair",
+        "definition": "A set of two things used together or regarded as a unit.",
+        "meaningKr": "쌍, 한 켤레",
+        "exampleEn": "I need to buy a new pair of running shoes before the marathon next month.",
+        "exampleKr": "다음 달 마라톤을 하기 전에 새 러닝화 한 켤레를 사야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/per/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-893-1778314103073",
+        "term": "ship",
+        "definition": "A large boat for transporting people or goods by sea.",
+        "meaningKr": "배, 선박",
+        "exampleEn": "The large cargo ship arrived at the port early this morning carrying goods from overseas.",
+        "exampleKr": "해외에서 온 물건들을 실은 대형 화물선이 오늘 아침 일찍 항구에 도착했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-894-1778314103073",
+        "term": "attitude",
+        "definition": "A settled way of thinking or feeling about someone or something.",
+        "meaningKr": "태도, 사고방식",
+        "exampleEn": "Having a positive attitude can make a big difference when you are facing difficult challenges.",
+        "exampleKr": "긍정적인 태도를 갖는 것은 어려운 도전에 직면했을 때 큰 차이를 만들 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈætɪtuːd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-895-1778314103073",
+        "term": "cheap",
+        "definition": "Low in price, especially in relation to similar items or services.",
+        "meaningKr": "싼, 저렴한",
+        "exampleEn": "The flight tickets were surprisingly cheap, so we decided to book a trip to Jeju Island.",
+        "exampleKr": "항공권이 놀라울 정도로 저렴해서 우리는 제주도 여행을 예약하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃiːp/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-896-1778314103073",
+        "term": "double",
+        "definition": "Consisting of two equal, identical, or similar parts or things.",
+        "meaningKr": "두 배의",
+        "exampleEn": "The price of coffee is almost double what it was just a few years ago.",
+        "exampleKr": "커피 가격이 불과 몇 년 전과 비교해 거의 두 배가 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdʌbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-897-1778314103073",
+        "term": "leg",
+        "definition": "Each of the limbs on which a person or animal walks and stands.",
+        "meaningKr": "다리",
+        "exampleEn": "I hurt my leg while playing soccer yesterday, so I have to rest for a week.",
+        "exampleKr": "어제 축구를 하다가 다리를 다쳐서 일주일 동안 쉬어야 할 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/leɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-898-1778314103073",
+        "term": "observe",
+        "definition": "To watch someone or something carefully and attentively.",
+        "meaningKr": "관찰하다, 준수하다",
+        "exampleEn": "Scientists spend many years in the field to observe the behavior of wild animals closely.",
+        "exampleKr": "과학자들은 야생 동물의 행동을 면밀히 관찰하기 위해 현장에서 수년을 보냅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əbˈzɜːrv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-899-1778314103073",
+        "term": "sentence",
+        "definition": "A set of words that is complete in itself, typically containing a subject and predicate.",
+        "meaningKr": "문장, 판결",
+        "exampleEn": "Please write a complete sentence using the new vocabulary word we learned in class today.",
+        "exampleKr": "오늘 수업 시간에 배운 새 어휘를 사용하여 완전한 문장을 하나 써 보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsentəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-900-1778314103073",
+        "term": "print",
+        "definition": "To make many copies of a page, magazine, or book.",
+        "meaningKr": "인쇄하다, 찍다",
+        "exampleEn": "I need to print ten copies of the meeting agenda for our team today.",
+        "exampleKr": "오늘 우리 팀을 위해 회의 안건을 열 부 인쇄해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprɪnt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-901-1778314103073",
+        "term": "progress",
+        "definition": "To move forward or toward a place or goal.",
+        "meaningKr": "진전하다, 나아가다",
+        "exampleEn": "The students are making good progress with their English conversation skills this semester.",
+        "exampleKr": "이번 학기에 학생들은 영어 회화 실력에서 좋은 진전을 보이고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈɡres/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-902-1778314103073",
+        "term": "truth",
+        "definition": "Real facts about something.",
+        "meaningKr": "진실, 사실",
+        "exampleEn": "It is always better to tell the truth even when it is very difficult.",
+        "exampleKr": "아무리 어려울 때라도 항상 진실을 말하는 것이 더 낫습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/truːθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-903-1778314103073",
+        "term": "nobody",
+        "definition": "No person; no one; not any person.",
+        "meaningKr": "아무도 ~않다",
+        "exampleEn": "I knocked on the door several times, but nobody answered from inside the house.",
+        "exampleKr": "문을 여러 번 두드렸지만, 집 안에서는 아무도 대답하지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnoʊbədi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-904-1778314103073",
+        "term": "examine",
+        "definition": "To look at someone or something very carefully in order to learn more.",
+        "meaningKr": "조사하다, 검사하다",
+        "exampleEn": "The doctor needs to examine your throat to see why it has been hurting.",
+        "exampleKr": "의사 선생님은 목이 왜 아픈지 알아보기 위해 목을 검사해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪɡˈzæmɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-905-1778314103073",
+        "term": "lay",
+        "definition": "To put or set something down in a flat position.",
+        "meaningKr": "놓다, 두다",
+        "exampleEn": "Please lay the clean towels on the bed after you finish doing the laundry.",
+        "exampleKr": "빨래를 다 마친 후에 깨끗한 수건들을 침대 위에 놓아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/leɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-906-1778314103073",
+        "term": "speed",
+        "definition": "The quality of being fast or quick.",
+        "meaningKr": "속도, 속력",
+        "exampleEn": "The driver was warned by the police for driving at a very high speed.",
+        "exampleKr": "운전자는 아주 높은 속도로 주행하다가 경찰에게 경고를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spiːd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-907-1778314103073",
+        "term": "politics",
+        "definition": "Activities influencing the policies of a government.",
+        "meaningKr": "정치, 정치학",
+        "exampleEn": "Many young people are becoming more interested in local politics and community issues lately.",
+        "exampleKr": "최근 많은 젊은이들이 지역 정치와 커뮤니티 문제에 더 많은 관심을 갖게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɑːlətɪks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-908-1778314103073",
+        "term": "reply",
+        "definition": "To answer someone's question.",
+        "meaningKr": "대답하다, 답장을 보내다",
+        "exampleEn": "I will reply to your email as soon as I get home from work.",
+        "exampleKr": "퇴근해서 집에 도착하자마자 당신의 이메일에 답장을 보낼게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈplaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-909-1778314103073",
+        "term": "display",
+        "definition": "To put something so it can be seen or be bought.",
+        "meaningKr": "전시하다, 보여주다",
+        "exampleEn": "The store will display the new clothing collection in the front window next week.",
+        "exampleKr": "그 상점은 다음 주에 정면 쇼윈도에 새로운 의류 컬렉션을 전시할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈspleɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-910-1778314103073",
+        "term": "transfer",
+        "definition": "To move something from one place to another.",
+        "meaningKr": "옮기다, 이동하다",
+        "exampleEn": "I need to transfer some money from my savings account to my checking account.",
+        "exampleKr": "저축 계좌에서 당좌 계좌로 돈을 조금 이체해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/trænsˈfɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-911-1778314103073",
+        "term": "perfect",
+        "definition": "So good it or they cannot be improved.",
+        "meaningKr": "완벽한, 온전한",
+        "exampleEn": "The weather today is absolutely perfect for having a picnic at the local park.",
+        "exampleKr": "오늘 날씨는 지역 공원에서 소풍을 즐기기에 정말 완벽합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɜːrfɪkt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-912-1778314103073",
+        "term": "slightly",
+        "definition": "Concerning a small quantity or degree.",
+        "meaningKr": "약간, 조금",
+        "exampleEn": "The price of milk has increased slightly compared to what it was last month.",
+        "exampleKr": "우유 가격이 지난달과 비교했을 때 약간 올랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈslaɪtli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-913-1778314103073",
+        "term": "overall",
+        "definition": "Viewed as a whole; in general, not as details.",
+        "meaningKr": "전반적으로, 대체로",
+        "exampleEn": "Overall, the movie was very entertaining despite having a few slow parts in it.",
+        "exampleKr": "전반적으로, 그 영화는 몇몇 지루한 부분이 있었음에도 불구하고 매우 재미있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌoʊvərˈɔːl/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-914-1778314103073",
+        "term": "intend",
+        "definition": "To plan or want to do something.",
+        "meaningKr": "의도하다, ~할 작정이다",
+        "exampleEn": "I intend to start a new exercise routine next Monday to improve my health.",
+        "exampleKr": "건강을 개선하기 위해 다음 주 월요일부터 새로운 운동 루틴을 시작할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈtend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-915-1778314103073",
+        "term": "user",
+        "definition": "A person that uses a service or thing (e.g., a website).",
+        "meaningKr": "사용자, 이용자",
+        "exampleEn": "The new app is very easy to navigate for the average smartphone user today.",
+        "exampleKr": "그 새로운 앱은 오늘날의 일반적인 스마트폰 사용자가 이용하기에 매우 쉽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈjuːzər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-916-1778314103073",
+        "term": "respond",
+        "definition": "To say or write to answer the question.",
+        "meaningKr": "응답하다, 반응하다",
+        "exampleEn": "Please respond to the wedding invitation by the end of this current week.",
+        "exampleKr": "이번 주말까지 결혼식 초대장에 대한 응답을 주시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈpɑːnd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-917-1778314103073",
+        "term": "dinner",
+        "definition": "The main meal of the day, usually in the evening.",
+        "meaningKr": "저녁 식사, 만찬",
+        "exampleEn": "We are planning to go out for a nice Italian dinner this Friday night.",
+        "exampleKr": "우리는 이번 주 금요일 밤에 멋진 이탈리아식 저녁 식사를 하러 나갈 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɪnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-918-1778314103073",
+        "term": "slow",
+        "definition": "Moving or happening without speed; not fast.",
+        "meaningKr": "느린, 천천히 하는",
+        "exampleEn": "The traffic was very slow this morning because of the heavy rain and wind.",
+        "exampleKr": "오늘 아침에는 폭우와 바람 때문에 교통 흐름이 매우 느렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sloʊ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-919-1778314103073",
+        "term": "regular",
+        "definition": "Occurring or being done frequently.",
+        "meaningKr": "규칙적인, 정기적인",
+        "exampleEn": "It is important to have a regular sleep schedule to maintain your energy levels.",
+        "exampleKr": "에너지 수준을 유지하기 위해서는 규칙적인 수면 일정을 갖는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈreɡjələr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-920-1778314103073",
+        "term": "physical",
+        "definition": "Concerning the body of a person.",
+        "meaningKr": "신체적인, 물리적인",
+        "exampleEn": "Regular physical activity can help reduce stress and improve your overall mood every day.",
+        "exampleKr": "규칙적인 신체 활동은 매일 스트레스를 줄이고 전반적인 기분을 개선하는 데 도움이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfɪzɪkl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-921-1778314103073",
+        "term": "apart",
+        "definition": "Separated by an amount of time or space.",
+        "meaningKr": "떨어져, 따로",
+        "exampleEn": "The two houses are located about one mile apart from each other in town.",
+        "exampleKr": "그 두 집은 마을에서 서로 약 1마일 정도 떨어져 위치해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/əˈpɑːrt/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-922-1778314103073",
+        "term": "suit",
+        "definition": "To be appropriate for a given situation.",
+        "meaningKr": "어울리다, 적합하다",
+        "exampleEn": "This casual style of clothing doesn't really suit a formal job interview at all.",
+        "exampleKr": "이런 캐주얼한 옷차림은 정식 취업 면접에는 전혀 어울리지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/suːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-923-1778314103073",
+        "term": "federal",
+        "definition": "A system of government.",
+        "meaningKr": "연방의, 연방 정부의",
+        "exampleEn": "The federal government is responsible for making decisions that affect the entire country.",
+        "exampleKr": "연방 정부는 국가 전체에 영향을 미치는 결정을 내릴 책임이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfedərəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-924-1778314103073",
+        "term": "reveal",
+        "definition": "To make known, to show or prove.",
+        "meaningKr": "드러내다, 밝히다",
+        "exampleEn": "The company will reveal its new product design at the conference tomorrow morning.",
+        "exampleKr": "그 회사는 내일 아침 컨퍼런스에서 새로운 제품 디자인을 공개할 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/rɪˈviːl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-925-1778314103073",
+        "term": "percentage",
+        "definition": "A part of a whole divided into hundredths.",
+        "meaningKr": "백분율, 비율",
+        "exampleEn": "A high percentage of the students passed the final exam with excellent grades.",
+        "exampleKr": "높은 비율의 학생들이 기말고사를 우수한 성적으로 통과했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/pərˈsentɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-926-1778314103073",
+        "term": "peace",
+        "definition": "A time when there is no war or fighting.",
+        "meaningKr": "평화, 화평",
+        "exampleEn": "After many years of conflict, the two nations are finally living in peace.",
+        "exampleKr": "수년간의 갈등 끝에, 두 나라는 마침내 평화롭게 지내고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/piːs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-927-1778314103073",
+        "term": "status",
+        "definition": "A position or rank relative to others in a society.",
+        "meaningKr": "지위, 상태",
+        "exampleEn": "You can check the current status of your online order on our website anytime.",
+        "exampleKr": "언제든지 저희 웹사이트에서 온라인 주문의 현재 상태를 확인하실 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsteɪtəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-928-1778314103073",
+        "term": "crime",
+        "definition": "An act that is against the law.",
+        "meaningKr": "범죄, 죄",
+        "exampleEn": "The police are working very hard to reduce the level of crime in this neighborhood.",
+        "exampleKr": "경찰은 이 동네의 범죄 수준을 낮추기 위해 매우 열심히 노력하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kraɪm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-929-1778314103073",
+        "term": "decline",
+        "definition": "To not accept an invitation or offer; refuse.",
+        "meaningKr": "거절하다, 감소하다",
+        "exampleEn": "I had to decline the invitation to the party because I was already busy.",
+        "exampleKr": "이미 바쁜 일이 있어서 파티 초대를 거절해야만 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈskaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-930-1778314103073",
+        "term": "decade",
+        "definition": "A period of 10 years.",
+        "meaningKr": "10년",
+        "exampleEn": "The city has changed significantly over the last decade with many new buildings.",
+        "exampleKr": "그 도시는 지난 10년 동안 많은 새 건물들이 들어서며 크게 변했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdekeɪd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-931-1778314103073",
+        "term": "launch",
+        "definition": "To put a rocket into the air or a ship into the water.",
+        "meaningKr": "시작하다, 출시하다",
+        "exampleEn": "The tech company plans to launch its new smartphone model early next month.",
+        "exampleKr": "그 기술 기업은 다음 달 초에 새로운 스마트폰 모델을 출시할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɔːntʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-932-1778314103073",
+        "term": "warn",
+        "definition": "To tell someone about possible danger.",
+        "meaningKr": "경고하다, 주의를 주다",
+        "exampleEn": "The signs warn visitors not to feed the wild animals in the national park.",
+        "exampleKr": "표지판들은 방문객들에게 국립공원 내 야생 동물들에게 먹이를 주지 말라고 경고합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/wɔːrn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-933-1778314103073",
+        "term": "consumer",
+        "definition": "A person who uses goods or services; an individual buyer.",
+        "meaningKr": "소비자",
+        "exampleEn": "Every consumer should compare prices before making a major purchase at the store.",
+        "exampleKr": "모든 소비자는 매장에서 큰 물건을 사기 전에 가격을 비교해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kənˈsuːmər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-934-1778314103073",
+        "term": "favor",
+        "definition": "A helpful act of kindness.",
+        "meaningKr": "호의, 부탁",
+        "exampleEn": "Could you do me a favor and help me move this heavy table tonight?",
+        "exampleKr": "부탁 하나만 들어주실래요? 오늘 밤에 이 무거운 테이블 옮기는 것 좀 도와주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfeɪvər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-935-1778314103073",
+        "term": "dry",
+        "definition": "Without water; not wet.",
+        "meaningKr": "마른, 건조한",
+        "exampleEn": "The weather has been very dry lately, so we need to water the garden.",
+        "exampleKr": "최근 날씨가 매우 건조해서 정원에 물을 주어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/draɪ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-936-1778314103073",
+        "term": "partner",
+        "definition": "Someone you have a business or personal relationship with.",
+        "meaningKr": "동반자, 파트너",
+        "exampleEn": "My business partner and I are opening a new cafe in the city center.",
+        "exampleKr": "제 사업 파트너와 저는 시내 중심가에 새로운 카페를 열 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈpɑːrtnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-937-1778314103073",
+        "term": "institution",
+        "definition": "An organization created for a particular cause or purpose.",
+        "meaningKr": "기관, 제도",
+        "exampleEn": "The university is a respected institution that has been around for over a century.",
+        "exampleKr": "그 대학교는 한 세기 넘게 존재해 온 존경받는 기관입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˌɪnstɪˈtuːʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-938-1778314103073",
+        "term": "spot",
+        "definition": "To see someone or something by chance.",
+        "meaningKr": "발견하다, 찾다",
+        "exampleEn": "I was able to spot my friend in the crowded stadium during the game.",
+        "exampleKr": "경기 도중 붐비는 경기장에서 친구를 발견할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spɑːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-939-1778314103073",
+        "term": "horse",
+        "definition": "A large animal with 4 legs used for riding.",
+        "meaningKr": "말",
+        "exampleEn": "She learned how to ride a horse when she was just a young girl.",
+        "exampleKr": "그녀는 아주 어린 소녀였을 때 말 타는 법을 배웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hɔːrs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-940-1778314103073",
+        "term": "eventually",
+        "definition": "Finally; in the end.",
+        "meaningKr": "결국, 마침내",
+        "exampleEn": "If you keep practicing every day, you will eventually become fluent in English.",
+        "exampleKr": "매일 꾸준히 연습한다면, 결국에는 영어를 유창하게 할 수 있게 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪˈventʃuəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-941-1778314103073",
+        "term": "heat",
+        "definition": "To make something hot or hotter.",
+        "meaningKr": "데우다, 가열하다",
+        "exampleEn": "You can heat the leftover pizza in the oven for about five minutes.",
+        "exampleKr": "남은 피자를 오븐에서 5분 정도 데우면 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/hiːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-942-1778314103073",
+        "term": "excite",
+        "definition": "To make someone feel happy, interested, or eager.",
+        "meaningKr": "흥분시키다, 자극하다",
+        "exampleEn": "The news of the upcoming concert will certainly excite all of the young fans.",
+        "exampleKr": "곧 열릴 콘서트 소식은 분명 모든 어린 팬들을 설레게 할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈsaɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-943-1778314103073",
+        "term": "reader",
+        "definition": "A person who reads written or printed materials.",
+        "meaningKr": "독자, 읽는 사람",
+        "exampleEn": "The author wrote a special message to every reader at the beginning of the book.",
+        "exampleKr": "작가는 책의 앞부분에 모든 독자들에게 전하는 특별한 메시지를 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈriːdər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-944-1778314103073",
+        "term": "importance",
+        "definition": "The state of being important; having a big effect on.",
+        "meaningKr": "중요성, 중대함",
+        "exampleEn": "The teacher emphasized the importance of completing all homework assignments on time.",
+        "exampleKr": "선생님은 모든 숙제를 제시간에 마치는 것의 중요성을 강조하셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪmˈpɔːrtns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-945-1778314103073",
+        "term": "distance",
+        "definition": "The amount of space between two places or things.",
+        "meaningKr": "거리, 간격",
+        "exampleEn": "The distance between my house and the office is about ten kilometers.",
+        "exampleKr": "우리 집과 사무실 사이의 거리는 약 10킬로미터 정도입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdɪstəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-946-1778314103073",
+        "term": "guide",
+        "definition": "To lead people visiting a new or unknown place.",
+        "meaningKr": "안내하다, 이끌다",
+        "exampleEn": "The tour leader will guide us through the historical museum this afternoon.",
+        "exampleKr": "투어 가이드가 오늘 오후에 역사 박물관을 안내해 줄 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡaɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-947-1778314103073",
+        "term": "grant",
+        "definition": "To give or let someone do what they want.",
+        "meaningKr": "승인하다, 부여하다",
+        "exampleEn": "The manager decided to grant her request for a few days off work.",
+        "exampleKr": "매니저는 며칠간의 휴가 요청을 승인하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡrænt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-948-1778314103073",
+        "term": "taxi",
+        "definition": "A car that transports people for money.",
+        "meaningKr": "택시",
+        "exampleEn": "We should call a taxi because it is raining too hard to walk home.",
+        "exampleKr": "집까지 걸어가기엔 비가 너무 많이 오니 택시를 불러야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈtæksi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-949-1778314103073",
+        "term": "feed",
+        "definition": "To give food (e.g., to an animal or a baby).",
+        "meaningKr": "먹이를 주다, 먹이다",
+        "exampleEn": "Don't forget to feed the cat before you leave the house for work.",
+        "exampleKr": "출근하러 집을 나서기 전에 고양이에게 먹이 주는 것을 잊지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/fiːd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-950-1778314103073",
+        "term": "pain",
+        "definition": "A strong feeling of physical hurt or discomfort in the body.",
+        "meaningKr": "통증, 고통",
+        "exampleEn": "After the long hike, I felt a sharp pain in my left knee every time I walked.",
+        "exampleKr": "긴 하이킹 후에 걸을 때마다 왼쪽 무릎에 날카로운 통증을 느꼈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/peɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-951-1778314103073",
+        "term": "sector",
+        "definition": "An area of an economy or society that includes certain kinds of jobs.",
+        "meaningKr": "부문, 분야, 구역",
+        "exampleEn": "The government is trying to create more jobs in the private sector to help the local economy.",
+        "exampleKr": "정부는 지역 경제를 돕기 위해 민간 부문에서 더 많은 일자리를 창출하려고 노력하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsektər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-952-1778314103073",
+        "term": "mistake",
+        "definition": "Something that is done wrong or an error in judgment or calculation.",
+        "meaningKr": "실수, 잘못",
+        "exampleEn": "I made a small mistake on the report, but my boss helped me fix it very quickly.",
+        "exampleKr": "보고서에 작은 실수를 했지만, 상사가 아주 빨리 수정하도록 도와주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/mɪˈsteɪk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-953-1778314103073",
+        "term": "ensure",
+        "definition": "To make something sure, certain, or safe for someone.",
+        "meaningKr": "확실하게 하다, 보장하다",
+        "exampleEn": "Please double-check the lock on the front door to ensure that the house is safe tonight.",
+        "exampleKr": "오늘 밤 집이 안전하도록 현관문 잠금장치를 다시 한번 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈʃʊər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-954-1778314103073",
+        "term": "satisfy",
+        "definition": "To be happy or pleased because you met an expectation or need.",
+        "meaningKr": "만족시키다, 충족시키다",
+        "exampleEn": "This delicious meal will certainly satisfy your hunger after working hard in the garden all day.",
+        "exampleKr": "이 맛있는 식사는 하루 종일 정원에서 열심히 일한 후의 배고픔을 확실히 채워줄 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsætɪsfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-955-1778314103073",
+        "term": "chief",
+        "definition": "The most important or main person or thing in a group.",
+        "meaningKr": "주요한, 최고의",
+        "exampleEn": "The chief reason for his success is that he practices playing the piano for several hours daily.",
+        "exampleKr": "그의 성공의 주요 원인은 매일 몇 시간씩 피아노 연주를 연습한다는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/tʃiːf/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-956-1778314103073",
+        "term": "cool",
+        "definition": "A temperature that is almost cold or not warm.",
+        "meaningKr": "시원한, 서늘한",
+        "exampleEn": "It is a very cool evening, so you should probably wear a light jacket when you go out.",
+        "exampleKr": "저녁 날씨가 매우 서늘하니 외출할 때 얇은 재킷을 입는 것이 좋겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kuːl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-957-1778314103073",
+        "term": "expert",
+        "definition": "A person with special knowledge or skills in a particular area.",
+        "meaningKr": "전문가",
+        "exampleEn": "My older brother is an expert at fixing computers and often helps our neighbors with their technical problems.",
+        "exampleKr": "우리 형은 컴퓨터 수리 전문가라서 이웃들의 기술적인 문제를 자주 도와주곤 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈekspɜːrt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-958-1778314103073",
+        "term": "wave",
+        "definition": "To move your hand or arm as a way to say hello or goodbye.",
+        "meaningKr": "손을 흔들다",
+        "exampleEn": "She began to wave her hand excitedly when she saw her best friend waiting at the airport gate.",
+        "exampleKr": "그녀는 공항 게이트에서 기다리고 있는 절친을 보자 신나게 손을 흔들기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/weɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-959-1778314103073",
+        "term": "south",
+        "definition": "The direction that is the opposite of north.",
+        "meaningKr": "남쪽, 남쪽의",
+        "exampleEn": "Many birds fly to the south during the winter because the weather is much warmer and more pleasant.",
+        "exampleKr": "많은 새들이 겨울 동안 날씨가 훨씬 더 따뜻하고 쾌적한 남쪽으로 날아갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/saʊθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-960-1778314103073",
+        "term": "labor",
+        "definition": "To work very hard, often physically, for many hours.",
+        "meaningKr": "노동하다, 애쓰다",
+        "exampleEn": "Farmers have to labor in the fields for many hours under the hot sun to harvest their crops.",
+        "exampleKr": "농부들은 농작물을 수확하기 위해 뜨거운 태양 아래 들판에서 여러 시간 동안 노동해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈleɪbər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-961-1778314103073",
+        "term": "surface",
+        "definition": "The top layer of an object or the outside part of something.",
+        "meaningKr": "표면, 겉면",
+        "exampleEn": "The surface of the wooden table is very smooth because it was polished with special oil yesterday morning.",
+        "exampleKr": "어제 아침에 특수 오일로 닦았기 때문에 나무 테이블의 표면이 매우 매끄럽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsɜːrfɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-962-1778314103073",
+        "term": "library",
+        "definition": "A place where books, magazines, and other media are kept for people to use.",
+        "meaningKr": "도서관",
+        "exampleEn": "I am going to the library to borrow some books for my school project about ancient history.",
+        "exampleKr": "고대 역사에 관한 학교 과제를 위해 책을 몇 권 빌리러 도서관에 갈 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈlaɪbreri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-963-1778314103073",
+        "term": "excellent",
+        "definition": "Something that is extremely good or of very high quality.",
+        "meaningKr": "훌륭한, 뛰어난",
+        "exampleEn": "The hotel we stayed at last summer provided excellent service and had a beautiful view of the ocean.",
+        "exampleKr": "지난여름에 묵었던 호텔은 훌륭한 서비스를 제공했고 바다의 아름다운 전망을 갖추고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈeksələnt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-964-1778314103073",
+        "term": "edge",
+        "definition": "The boundary or outer line of a surface or object.",
+        "meaningKr": "가장자리, 모서리",
+        "exampleEn": "Please do not put your glass so close to the edge of the table because it might fall.",
+        "exampleKr": "컵이 떨어질 수도 있으니 테이블 가장자리에 너무 가까이 두지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/edʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-965-1778314103073",
+        "term": "camp",
+        "definition": "A place where people live for a short time, usually in tents.",
+        "meaningKr": "캠프, 야영지",
+        "exampleEn": "Our family decided to camp in the mountains this weekend to enjoy the fresh air and the stars.",
+        "exampleKr": "우리 가족은 이번 주말에 신선한 공기와 별을 즐기기 위해 산에서 야영을 하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kæmp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-966-1778314103073",
+        "term": "audience",
+        "definition": "A group of people listening to or watching a play, movie, or performance.",
+        "meaningKr": "청중, 관객",
+        "exampleEn": "The audience clapped loudly for several minutes after the talented young musicians finished their amazing concert performance.",
+        "exampleKr": "재능 있는 젊은 음악가들이 멋진 콘서트 공연을 마친 후 관객들은 몇 분 동안 크게 박수를 쳤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɔːdiəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-967-1778314103073",
+        "term": "lift",
+        "definition": "To move something or someone to a higher position.",
+        "meaningKr": "들어 올리다",
+        "exampleEn": "Could you please help me lift this heavy box and put it on the top shelf in the garage?",
+        "exampleKr": "이 무거운 상자를 들어서 차고의 맨 위 선반에 올리는 것 좀 도와주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/lɪft/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-968-1778314103073",
+        "term": "procedure",
+        "definition": "The usual or standard way in which something is done step by step.",
+        "meaningKr": "절차, 순서",
+        "exampleEn": "You must follow the safety procedure carefully before starting any of the experiments in the science laboratory.",
+        "exampleKr": "과학 실험실에서 실험을 시작하기 전에 안전 절차를 주의 깊게 따라야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/prəˈsiːdʒər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-969-1778314103073",
+        "term": "email",
+        "definition": "A system for sending messages from one computer to another through the internet.",
+        "meaningKr": "이메일",
+        "exampleEn": "I will send you an email with all the details about our meeting by the end of today.",
+        "exampleKr": "오늘 일과가 끝나기 전까지 우리 회의에 관한 모든 세부 사항을 담은 이메일을 보내겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈiːmeɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-970-1778314103073",
+        "term": "global",
+        "definition": "Concerning, affecting, or involving the entire world.",
+        "meaningKr": "세계적인, 지구의",
+        "exampleEn": "Climate change is a global problem that requires cooperation from every country around the world to solve effectively.",
+        "exampleKr": "기후 변화는 효과적으로 해결하기 위해 전 세계 모든 국가의 협력이 필요한 지구촌 문제입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɡloʊbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-971-1778314103073",
+        "term": "struggle",
+        "definition": "To try very hard to do something that is difficult or challenging.",
+        "meaningKr": "고군분투하다, 애를 먹다",
+        "exampleEn": "Many students struggle to learn a new language, but they get better if they practice every single day.",
+        "exampleKr": "많은 학생이 새로운 언어를 배우는 데 애를 먹지만, 매일 연습하면 실력이 향상됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈstrʌɡl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-972-1778314103073",
+        "term": "advertise",
+        "definition": "To show how good a product is to encourage people to buy it.",
+        "meaningKr": "광고하다, 알리다",
+        "exampleEn": "The company plans to advertise its new smartphone on television and social media to reach more young customers.",
+        "exampleKr": "그 회사는 더 많은 젊은 고객에게 다가가기 위해 TV와 소셜 미디어에 새 스마트폰을 광고할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈædvərtaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-973-1778314103073",
+        "term": "select",
+        "definition": "To choose someone or something from a group as the most suitable one.",
+        "meaningKr": "선택하다, 고르다",
+        "exampleEn": "You can select any dish from the menu, and I will pay for our dinner tonight as a gift.",
+        "exampleKr": "메뉴에서 어떤 요리든 고르세요. 오늘 저녁 식사는 제가 선물로 계산하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/sɪˈlekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-974-1778314103073",
+        "term": "surround",
+        "definition": "To be on every side of something or someone.",
+        "meaningKr": "둘러싸다, 에워싸다",
+        "exampleEn": "Beautiful tall trees and colorful flowers surround the small cottage where my grandparents live in the countryside.",
+        "exampleKr": "조부모님이 사시는 시골의 작은 오두막은 아름답고 큰 나무들과 형형색색의 꽃들로 둘러싸여 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/səˈraʊnd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-975-1778314103073",
+        "term": "extent",
+        "definition": "The range, size, or space that is included in something.",
+        "meaningKr": "정도, 규모, 범위",
+        "exampleEn": "We do not yet know the full extent of the damage caused by the heavy storm last night.",
+        "exampleKr": "우리는 아직 어젯밤 심한 폭풍으로 인한 피해의 전체 규모를 알지 못합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪkˈstent/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-976-1778314103073",
+        "term": "river",
+        "definition": "A large natural flow of water that runs across land into the sea.",
+        "meaningKr": "강",
+        "exampleEn": "We spent the entire afternoon fishing by the river and watching the beautiful sunset behind the green hills.",
+        "exampleKr": "우리는 오후 내내 강가에서 낚시를 하고 푸른 언덕 너머로 지는 아름다운 일몰을 보며 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈrɪvər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-977-1778314103073",
+        "term": "annual",
+        "definition": "Happening once every year or once a year.",
+        "meaningKr": "매년의, 연례의",
+        "exampleEn": "Our company holds an annual picnic every summer to celebrate another successful year with all the employees.",
+        "exampleKr": "우리 회사는 전 직원과 함께 또 다른 성공적인 한 해를 축하하기 위해 매년 여름 소풍을 엽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈænjuəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-978-1778314103073",
+        "term": "fully",
+        "definition": "Completely or entirely in every way.",
+        "meaningKr": "충분히, 완전히",
+        "exampleEn": "I did not fully understand the instructions, so I had to ask the teacher to explain them again.",
+        "exampleKr": "설명을 완전히 이해하지 못해서 선생님께 다시 한번 설명해 달라고 부탁해야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfʊli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ngsl-979-1778314103073",
+        "term": "contrast",
+        "definition": "To compare things to show clear and obvious differences between them.",
+        "meaningKr": "대조하다, 대비시키다",
+        "exampleEn": "It is interesting to contrast the quiet life in the countryside with the busy life in the city.",
+        "exampleKr": "시골의 조용한 삶과 도시의 바쁜 삶을 대조해 보는 것은 흥미로운 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɒntræst/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-980-1778314103073",
+        "term": "roll",
+        "definition": "To move along a surface by turning over and over many times.",
+        "meaningKr": "구르다, 굴리다",
+        "exampleEn": "The children laughed as they watched the ball roll down the hill and land in the tall grass.",
+        "exampleKr": "아이들은 공이 언덕 아래로 굴러 내려가 긴 풀숲에 떨어지는 것을 보며 웃었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/roʊl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-981-1778314103073",
+        "term": "reality",
+        "definition": "What is actually true or real as opposed to what is imagined.",
+        "meaningKr": "현실, 실제",
+        "exampleEn": "In reality, the project was much more difficult and time-consuming than we had originally expected it to be.",
+        "exampleKr": "현실적으로 그 프로젝트는 우리가 처음에 예상했던 것보다 훨씬 더 어렵고 시간이 많이 걸렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/riˈæləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-982-1778314103073",
+        "term": "photograph",
+        "definition": "A picture made with a camera that shows how things look in real life.",
+        "meaningKr": "사진",
+        "exampleEn": "My grandmother showed me an old photograph of her family taken many years ago in her hometown.",
+        "exampleKr": "할머니께서는 오래전 고향에서 찍은 가족사진 한 장을 나에게 보여주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈfoʊtəɡræf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-983-1778314103073",
+        "term": "artist",
+        "definition": "A person who is skilled and creative in art, such as painting or sculpture.",
+        "meaningKr": "예술가, 화가",
+        "exampleEn": "The local artist spent many months painting a beautiful mural on the wall of the community center.",
+        "exampleKr": "그 지역 예술가는 커뮤니티 센터 벽에 아름다운 벽화를 그리는 데 수개월을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈɑːrtɪst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-984-1778314103073",
+        "term": "conflict",
+        "definition": "To have opposite ideas or to disagree strongly with something else.",
+        "meaningKr": "상충하다, 갈등을 빚다",
+        "exampleEn": "His busy work schedule began to conflict with his personal life, so he decided to change his job.",
+        "exampleKr": "그의 바쁜 업무 일정이 개인 생활과 상충하기 시작해서 그는 직업을 바꾸기로 결심했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɒnflɪkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-985-1778314103073",
+        "term": "entire",
+        "definition": "Complete or full with no part left out.",
+        "meaningKr": "전체의, 내내",
+        "exampleEn": "I was so hungry that I ate the entire pizza by myself while watching a movie last night.",
+        "exampleKr": "어젯밤 영화를 보면서 너무 배가 고파서 피자 한 판을 통째로 혼자 다 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɪnˈtaɪər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-986-1778314103073",
+        "term": "presence",
+        "definition": "The fact that someone or something is in a particular place at a particular time.",
+        "meaningKr": "존재, 참석",
+        "exampleEn": "Your presence at the wedding ceremony would mean a lot to both the bride and the groom.",
+        "exampleKr": "결혼식에 당신이 참석해 주신다면 신랑 신부 두 사람 모두에게 큰 의미가 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈprezns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-987-1778314103073",
+        "term": "crowd",
+        "definition": "A large group of people gathered together in one place.",
+        "meaningKr": "군중, 무리",
+        "exampleEn": "A large crowd gathered in the city square to watch the colorful parade during the holiday festival.",
+        "exampleKr": "축제 기간 동안 화려한 퍼레이드를 보기 위해 시내 광장에 큰 군중이 모였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kraʊd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-988-1778314103073",
+        "term": "corner",
+        "definition": "The place where two lines, sides, or streets meet.",
+        "meaningKr": "모퉁이, 구석",
+        "exampleEn": "There is a small coffee shop on the corner of the street that serves the best lattes.",
+        "exampleKr": "길모퉁이에 라떼를 아주 잘 만드는 작은 커피숍이 하나 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkɔːrnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-989-1778314103073",
+        "term": "gas",
+        "definition": "A substance like air that is neither solid nor liquid.",
+        "meaningKr": "기체, 가스",
+        "exampleEn": "Oxygen is a gas that is necessary for humans and animals to breathe and stay alive every day.",
+        "exampleKr": "산소는 인간과 동물이 매일 숨을 쉬고 살아가는 데 필요한 기체입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ɡæs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-990-1778314103073",
+        "term": "shift",
+        "definition": "To change in position, direction, or focus.",
+        "meaningKr": "바꾸다, 옮기다",
+        "exampleEn": "The factory workers have to shift their focus to quality control to make sure every product is perfect.",
+        "exampleKr": "공장 노동자들은 모든 제품이 완벽하도록 품질 관리에 초점을 맞춰야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ʃɪft/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-991-1778314103073",
+        "term": "net",
+        "definition": "A material made of string tied together to catch fish or other animals.",
+        "meaningKr": "그물, 망",
+        "exampleEn": "The fisherman used a large net to catch many fish in the deep blue waters of the ocean.",
+        "exampleKr": "어부는 깊고 푸른 바다에서 많은 물고기를 잡기 위해 커다란 그물을 사용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/net/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-992-1778314103073",
+        "term": "category",
+        "definition": "A group of things that are similar in some way.",
+        "meaningKr": "범주, 카테고리",
+        "exampleEn": "You can find the fiction books in this category on the second floor of the public library.",
+        "exampleKr": "공공 도서관 2층에서 이 카테고리에 속하는 소설책들을 찾을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈkætəɡɔːri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-993-1778314103073",
+        "term": "secretary",
+        "definition": "An employee who does office work, keeps records, and handles correspondence for another person.",
+        "meaningKr": "비서",
+        "exampleEn": "The secretary is responsible for organizing the manager's schedule and answering phone calls from important clients.",
+        "exampleKr": "비서는 매니저의 일정을 정리하고 중요한 고객으로부터 걸려오는 전화를 받는 일을 담당합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈsekrəteri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-994-1778314103073",
+        "term": "defense",
+        "definition": "The process or act of protecting something or someone from attack.",
+        "meaningKr": "방어, 수비",
+        "exampleEn": "The team's strong defense prevented the other players from scoring any goals during the entire soccer match.",
+        "exampleKr": "그 팀의 강력한 수비는 축구 경기 내내 상대 선수들이 골을 넣지 못하게 막았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/dɪˈfens/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-995-1778314103073",
+        "term": "quick",
+        "definition": "Done in a short time or moving at a fast speed.",
+        "meaningKr": "빠른, 신속한",
+        "exampleEn": "He took a quick shower and grabbed his bag before running out the door to catch the bus.",
+        "exampleKr": "그는 버스를 타기 위해 문밖으로 달려나가기 전 빠르게 샤워를 하고 가방을 챙겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kwɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-996-1778314103073",
+        "term": "cook",
+        "definition": "To prepare food for eating by using heat.",
+        "meaningKr": "요리하다",
+        "exampleEn": "My father loves to cook delicious pasta for the whole family every Sunday evening after we go out.",
+        "exampleKr": "아버지는 매주 일요일 저녁 외출 후에 온 가족을 위해 맛있는 파스타를 요리하는 것을 좋아하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/kʊk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-997-1778314103073",
+        "term": "spread",
+        "definition": "To place something over or cover a large area with it.",
+        "meaningKr": "퍼뜨리다, 바르다",
+        "exampleEn": "You should spread some butter on the warm bread while it is still fresh from the kitchen oven.",
+        "exampleKr": "오븐에서 갓 나온 따뜻한 빵에 버터를 좀 발라 먹는 것이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/spred/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ngsl-998-1778314103073",
+        "term": "nuclear",
+        "definition": "Relating to or using the energy released from the center of an atom.",
+        "meaningKr": "핵의, 원자력의",
+        "exampleEn": "Scientists are studying how to use nuclear energy safely to provide electricity for cities around the whole world.",
+        "exampleKr": "과학자들은 전 세계 도시들에 전기를 공급하기 위해 원자력 에너지를 안전하게 사용하는 방법을 연구하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈnuːkliər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ngsl-999-1778314103073",
+        "term": "scale",
+        "definition": "A device that is used to measure the weight of a person or thing.",
+        "meaningKr": "저울, 규모",
+        "exampleEn": "She stepped on the scale this morning to see if she had lost any weight after her diet.",
+        "exampleKr": "그녀는 다이어트 후에 몸무게가 줄었는지 확인하기 위해 오늘 아침 저울 위에 올라갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/skeɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ngsl-1000-1778314103073",
+        "term": "driver",
+        "definition": "A person who operates a motor vehicle such as a car, bus, or truck.",
+        "meaningKr": "운전자, 기사",
+        "exampleEn": "The taxi driver was very kind and helped me carry my heavy bags to the door.",
+        "exampleKr": "택시 기사님은 매우 친절하셨고 제 무거운 가방들을 문 앞까지 옮겨 주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "General",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "/ˈdraɪvər/",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-bsl-1",
     "title": "비즈니스 영어 핵심 1000",
     "icon": "📊",

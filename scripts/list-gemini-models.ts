@@ -4,10 +4,10 @@ import path from 'path';
 // Load .env relative to the script execution path
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 if (!GEMINI_API_KEY) {
-    console.error('EXPO_PUBLIC_GEMINI_API_KEY is not defined in .env');
+    console.error('GEMINI_API_KEY is not defined in .env');
     process.exit(1);
 }
 

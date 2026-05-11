@@ -11,9 +11,6 @@ pnpm start            # Run Expo (frontend only — no backend)
 # Linting
 pnpm run lint         # Run ESLint
 pnpm run lint:fix     # Auto-fix lint issues
-
-# Building
-pnpm run expo:static:build  # Static Expo web build
 ```
 
 There is no configured test script. Jest and ts-jest are in devDependencies with test files in `__tests__/`.
@@ -60,7 +57,7 @@ There is no configured test script. Jest and ts-jest are in devDependencies with
 EXPO_PUBLIC_SUPABASE_URL        # Supabase project URL
 EXPO_PUBLIC_SUPABASE_ANON_KEY   # Supabase anon/public key
 EXPO_PUBLIC_GOOGLE_CLIENT_ID    # Google Web Client ID (webClientId for GoogleSignin + Supabase)
-EXPO_PUBLIC_GEMINI_API_KEY      # Optional — dev scripts/tests only. Production uses user-entered key.
+GEMINI_API_KEY                  # Optional — dev scripts only. Production uses user-entered key (SecureStore). Do NOT add EXPO_PUBLIC_ prefix.
 ```
 
 ### AI Calls

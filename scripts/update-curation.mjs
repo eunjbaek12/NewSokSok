@@ -10,9 +10,9 @@ import dotenv from 'dotenv';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
 
-const API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
+const API_KEY = process.env.GEMINI_API_KEY;
 if (!API_KEY) {
-    console.error('EXPO_PUBLIC_GEMINI_API_KEY not found in .env');
+    console.error('GEMINI_API_KEY not found in .env');
     process.exit(1);
 }
 

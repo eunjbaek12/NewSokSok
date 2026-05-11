@@ -189,7 +189,7 @@ export default function WordDetailModal({
     const { t } = useTranslation();
     const { colors } = useTheme();
     const listWords = useListWords(listId);
-    const { profileSettings } = useSettings();
+    const { apiKey } = useSettings();
 
     const isEditing = wordId !== undefined && wordId !== null;
     const existingWord = word || (isEditing ? listWords.find(w => w.id === wordId) : null);
@@ -209,7 +209,7 @@ export default function WordDetailModal({
         handleSaveWord,
         isPendingFill,
         isPendingSave,
-    } = useAddWord(listId, wordId || undefined, existingWord, undefined, undefined, undefined, profileSettings.geminiApiKey || undefined);
+    } = useAddWord(listId, wordId || undefined, existingWord, undefined, undefined, undefined, apiKey || undefined);
 
     const [tagInput, setTagInput] = useState('');
 
@@ -294,9 +294,9 @@ export default function WordDetailModal({
         setTags(tags.filter(t => t !== tagToRemove));
     };
 
-    const EditableField = ({ label, value, onChangeText, multiline, placeholder, error, isCore }: {
+    const EditableField = ({ label, value, onChangeText, multiline, placeholder, error, isCore, maxLength }: {
         label: string; value: string; onChangeText: (t: string) => void;
-        multiline?: boolean; placeholder?: string; error?: string; isCore?: boolean;
+        multiline?: boolean; placeholder?: string; error?: string; isCore?: boolean; maxLength?: number;
     }) => (
         <View style={styles.fieldWrapper}>
             <Text style={[styles.fieldLabel, { color: colors.textSecondary }]}>{label}</Text>
@@ -309,6 +309,7 @@ export default function WordDetailModal({
                     ]}
                     value={value} onChangeText={onChangeText} multiline={multiline}
                     placeholder={placeholder} placeholderTextColor={colors.textTertiary}
+                    maxLength={maxLength}
                 />
             ) : (
                 <Pressable onPress={switchToEdit} style={[
@@ -421,6 +422,7 @@ export default function WordDetailModal({
                                                                 style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
                                                                 value={phonetic} onChangeText={setPhonetic}
                                                                 placeholder={t('wordDetail.phonetic')} placeholderTextColor={colors.textTertiary}
+                                                                maxLength={80}
                                                             />
                                                         </View>
                                                         <View style={{ flex: 1 }}>
@@ -429,6 +431,7 @@ export default function WordDetailModal({
                                                                 style={[styles.smallInput, { color: colors.text, backgroundColor: colors.surface, borderColor: colors.border }]}
                                                                 value={pos} onChangeText={setPos}
                                                                 placeholder={t('wordDetail.posPlaceholder')} placeholderTextColor={colors.textTertiary}
+                                                                maxLength={60}
                                                             />
                                                         </View>
                                                     </View>
@@ -455,15 +458,15 @@ export default function WordDetailModal({
                                     <View style={styles.fieldsContainer}>
                                         <EditableField label={t('wordDetail.meaningRequired')} placeholder={t('wordDetail.meaningPlaceholder')} value={meaningKr}
                                             onChangeText={(v) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
-                                            error={errors.meaningKr ? t('wordDetail.enterWord') : undefined} isCore />
+                                            error={errors.meaningKr ? t('wordDetail.enterWord') : undefined} isCore maxLength={300} />
                                         <EditableField label={t('wordDetail.definitionLabel')} placeholder={t('wordDetail.definitionPlaceholder')} value={definition}
-                                            onChangeText={setDefinition} multiline />
+                                            onChangeText={setDefinition} multiline maxLength={500} />
 
                                         <View style={[styles.exampleGroup, { backgroundColor: mode === 'read' ? 'transparent' : colors.surfaceSecondary }]}>
                                             <EditableField label={t('wordDetail.exampleLabel')} placeholder={t('wordDetail.examplePlaceholder')} value={exampleEn}
-                                                onChangeText={setExampleEn} multiline />
+                                                onChangeText={setExampleEn} multiline maxLength={300} />
                                             <EditableField label={t('wordDetail.translationLabel')} placeholder={t('wordDetail.translationPlaceholder')} value={exampleKr}
-                                                onChangeText={setExampleKr} multiline />
+                                                onChangeText={setExampleKr} multiline maxLength={300} />
                                         </View>
 
                                         <View style={styles.tagsContainer}>

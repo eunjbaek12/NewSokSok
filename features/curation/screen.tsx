@@ -59,7 +59,7 @@ const PHONETIC_INSTRUCTION: Record<string, string> = {
     zh: '병음 (성조 포함, 예: nǐ hǎo)',
 };
 
-function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty, sourceLang: string, targetLang: string): string {
+function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty, sourceLang: string, targetLang: string, excludeTerms?: string[]): string {
     const diffLabel = DIFFICULTY_PROMPT[difficulty];
     const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;
     const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
@@ -67,7 +67,10 @@ function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty,
     const sameLangNote = sourceLang === targetLang
         ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성.)`
         : '';
-    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}
+    const excludeNote = excludeTerms && excludeTerms.length > 0
+        ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`
+        : '';
+    return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
   응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며 (phonetic은 지시에 따라 비워둘 수 있음), 그 외 필드는 비워두지 마.
   - term: ${srcLabel} 단어
   - pos: 품사 (예: noun, verb, adj, adv)
@@ -89,11 +92,12 @@ const generateAIWords = async (
     difficulty: AiDifficulty,
     sourceLang: string,
     targetLang: string,
+    excludeTerms?: string[],
 ): Promise<GenerateAIWordsResult> => {
     if (!apiKey) throw new Error('API Key missing');
 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
-    const prompt = buildPrompt(query, wordCount, difficulty, sourceLang, targetLang);
+    const prompt = buildPrompt(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
 
     const payload = {
         contents: [{ parts: [{ text: prompt }] }],
@@ -260,7 +264,7 @@ export default function CurationScreen() {
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
     const { user } = useAuth();
-    const { profileSettings, inputSettings } = useSettings();
+    const { inputSettings, apiKey } = useSettings();
     const [aiModalVisible, setAiModalVisible] = useState(false);
     const [aiTopic, setAiTopic] = useState('');
     const [aiWordCount, setAiWordCount] = useState(20);
@@ -471,7 +475,7 @@ export default function CurationScreen() {
         );
     }, [t, deleteCloudCuration, selectedTheme]);
 
-    const hasApiKey = !!profileSettings.geminiApiKey;
+    const hasApiKey = !!apiKey;
 
     const handleOpenAiModal = () => {
         if (!hasApiKey) {
@@ -494,7 +498,7 @@ export default function CurationScreen() {
         const sourceLang = inputSettings.sourceLang;
         const targetLang = inputSettings.targetLang;
         try {
-            const { words, droppedCount } = await generateAIWords(topic, profileSettings.geminiApiKey, aiWordCount, aiDifficulty, sourceLang, targetLang);
+            const { words, droppedCount } = await generateAIWords(topic, apiKey, aiWordCount, aiDifficulty, sourceLang, targetLang);
             const newTheme: VocaList = {
                 id: `ai-theme-${Date.now()}`,
                 title: `AI: ${topic}`,
@@ -523,23 +527,32 @@ export default function CurationScreen() {
     };
 
     const handleRegenerate = async () => {
-        if (!lastGenParams || regenerating) return;
+        if (!lastGenParams || regenerating || !selectedTheme) return;
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         setRegenerating(true);
         try {
-            const { words, droppedCount } = await generateAIWords(
+            const excludeTerms = selectedTheme.words.map(w => w.term);
+            const { words } = await generateAIWords(
                 lastGenParams.topic,
-                profileSettings.geminiApiKey,
+                apiKey,
                 lastGenParams.wordCount,
                 lastGenParams.difficulty,
                 lastGenParams.sourceLang,
                 lastGenParams.targetLang,
+                excludeTerms,
             );
-            setSelectedTheme(prev => prev ? { ...prev, words } : prev);
-            if (droppedCount > 0) {
+            const seenLower = new Set(excludeTerms.map(t => t.trim().toLowerCase()));
+            const fresh = words.filter(w => !seenLower.has(w.term.trim().toLowerCase()));
+
+            if (fresh.length === 0) {
+                setSnackbar({ visible: true, message: t('curation.aiNoNewWords') });
+                return;
+            }
+            setSelectedTheme(prev => prev ? { ...prev, words: fresh } : prev);
+            if (fresh.length < lastGenParams.wordCount) {
                 setSnackbar({
                     visible: true,
-                    message: t('curation.aiPartialResult', { kept: words.length, dropped: droppedCount }),
+                    message: t('curation.aiRegeneratePartial', { count: fresh.length }),
                 });
             }
         } catch (e: any) {
@@ -580,13 +593,35 @@ export default function CurationScreen() {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         setSaving(true);
         setShowListPicker(false);
-        const words = getSelectedWords();
+        const incomingWords = getSelectedWords();
+        const targetList = lists.find(l => l.id === targetListId);
+
+        // sourceLang이 같을 때만 dedupe (다른 언어쌍이면 같은 철자라도 별개 단어)
+        const sameSourceLang = !!targetList && targetList.sourceLanguage === selectedTheme.sourceLanguage;
+        const normalizeTerm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+
+        let wordsToAdd = incomingWords;
+        let skippedCount = 0;
+        if (sameSourceLang && targetList) {
+            const existing = new Set(targetList.words.map(w => normalizeTerm(w.term)));
+            wordsToAdd = incomingWords.filter(w => !existing.has(normalizeTerm(w.term)));
+            skippedCount = incomingWords.length - wordsToAdd.length;
+        }
+
         try {
-            await addBatchWords(targetListId, words);
-            const targetList = lists.find(l => l.id === targetListId);
+            // 전체 중복: DB 호출 없이 알림만 표시, 단어장 이동 액션도 비활성
+            if (wordsToAdd.length === 0) {
+                setSnackbar({ visible: true, message: t('curation.allDuplicates') });
+                return;
+            }
+
+            await addBatchWords(targetListId, wordsToAdd);
+            const message = skippedCount > 0
+                ? t('curation.addedWithSkipped', { title: targetList?.title ?? '', added: wordsToAdd.length, skipped: skippedCount })
+                : t('curation.addedToExistingList', { title: targetList?.title ?? '' });
             setSnackbar({
                 visible: true,
-                message: t('curation.addedToExistingList', { title: targetList?.title ?? '' }),
+                message,
                 actionLabel: t('curation.goToVocabList'),
                 onAction: () => router.push(`/list/${targetListId}`),
             });
@@ -621,21 +656,6 @@ export default function CurationScreen() {
                                     hitSlop={8}
                                 >
                                     <Ionicons name="trash-outline" size={20} color={colors.error} />
-                                </Pressable>
-                            )}
-                            {selectedTheme.id.startsWith('ai-theme-') && lastGenParams && (
-                                <Pressable
-                                    onPress={handleRegenerate}
-                                    disabled={regenerating}
-                                    style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)', left: undefined, right: 20 }]}
-                                    hitSlop={8}
-                                    accessibilityLabel={t('curation.aiRegenerate')}
-                                >
-                                    {regenerating ? (
-                                        <ActivityIndicator size="small" color={colors.primary} />
-                                    ) : (
-                                        <Ionicons name="refresh" size={22} color={colors.text} />
-                                    )}
                                 </Pressable>
                             )}
                             <View style={styles.heroContent}>
@@ -761,6 +781,27 @@ export default function CurationScreen() {
                             tint={isDark ? 'dark' : 'light'}
                             style={StyleSheet.absoluteFill}
                         />
+                        {selectedTheme.id.startsWith('ai-theme-') && lastGenParams && (
+                            <Pressable
+                                onPress={handleRegenerate}
+                                disabled={regenerating || saving}
+                                style={({ pressed }) => [styles.regenerateBtn, { borderColor: colors.borderLight, opacity: pressed ? 0.6 : 1 }]}
+                                hitSlop={6}
+                                accessibilityLabel={t('curation.aiRegenerateAction')}
+                            >
+                                {regenerating ? (
+                                    <>
+                                        <ActivityIndicator size="small" color={colors.primary} />
+                                        <Text style={[styles.regenerateBtnText, { color: colors.primary }]}>{t('curation.aiGenerating')}</Text>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Ionicons name="refresh" size={16} color={colors.primary} />
+                                        <Text style={[styles.regenerateBtnText, { color: colors.primary }]}>{t('curation.aiRegenerateAction')}</Text>
+                                    </>
+                                )}
+                            </Pressable>
+                        )}
                         <View style={styles.masterBtnRow}>
                             <Pressable
                                 onPress={() => setShowListPicker(true)}
@@ -1099,6 +1140,7 @@ export default function CurationScreen() {
                             placeholderTextColor={colors.textTertiary}
                             autoFocus
                             editable={!generating}
+                            maxLength={100}
                         />
                     </View>
 
@@ -1214,6 +1256,8 @@ const styles = StyleSheet.create({
     selectionBar: { flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', marginBottom: 6 },
     selectionText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
     masterBar: { paddingHorizontal: 24, paddingTop: 10, borderTopWidth: StyleSheet.hairlineWidth },
+    regenerateBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 8, marginBottom: 8, borderRadius: 10, borderWidth: StyleSheet.hairlineWidth },
+    regenerateBtnText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
     masterBtnRow: { flexDirection: 'row', gap: 10 },
     masterBtnSecondary: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingVertical: 12, borderRadius: 12, borderWidth: 1.5 },
     masterBtnSecondaryText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },

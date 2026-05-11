@@ -10,7 +10,7 @@ const NEW_LIST_ID = '__new__';
 
 export function useThemeGenerator(initialTheme: string = '') {
     const lists = useLists();
-    const { profileSettings } = useSettings();
+    const { apiKey } = useSettings();
 
     const [theme, setTheme] = useState(initialTheme);
     const [results, setResults] = useState<AIWordResult[]>([]);
@@ -44,7 +44,7 @@ export function useThemeGenerator(initialTheme: string = '') {
                     difficulty,
                     wordCount,
                     existingWordsForDedup,
-                    profileSettings.geminiApiKey || undefined,
+                    apiKey || undefined,
                 );
                 if (words.length === 0) {
                     Alert.alert('No Results', 'No words found for this theme. Try a different topic.');

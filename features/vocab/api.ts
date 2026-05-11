@@ -1,7 +1,7 @@
 import type { VocaList } from '@/lib/types';
 import { supabase } from '@/lib/supabase';
 import { generateId } from './db';
-import type { CuratedThemeWithWords } from '@shared/contracts';
+import { CurationShareSchema, WordSaveSchema, type CuratedThemeWithWords } from '@shared/contracts';
 
 export type { CuratedThemeWithWords };
 
@@ -13,6 +13,18 @@ export class DuplicateCurationError extends Error {
   ) {
     super(message ?? 'DUPLICATE_CURATION');
     this.name = 'DuplicateCurationError';
+  }
+}
+
+// Capacity limits enforced both here (UX-friendly) and via Postgres triggers
+// (defense-in-depth). Keep these in sync with the trigger thresholds.
+export const MAX_WORDS_PER_CURATION = 500;
+export const MAX_CURATIONS_PER_USER = 50;
+
+export class CurationCapacityError extends Error {
+  constructor(public readonly kind: 'WORDS_PER_CURATION' | 'CURATIONS_PER_USER', public readonly limit: number) {
+    super(kind);
+    this.name = 'CurationCapacityError';
   }
 }
 
@@ -65,7 +77,25 @@ export async function shareCuration(
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) throw new Error('NOT_AUTHENTICATED');
 
-  const now = Date.now();
+  // Strict validation at the write boundary. The receive-side schemas (AI
+  // responses, cloud pulls) tolerate larger values; here we enforce the
+  // DB CHECK limits before any Supabase write.
+  CurationShareSchema.parse({ title: list.title, description, creatorName });
+  for (const w of list.words) WordSaveSchema.parse(w);
+
+  // Capacity guard. Triggers enforce the same limits at the DB layer.
+  if (list.words.length > MAX_WORDS_PER_CURATION) {
+    throw new CurationCapacityError('WORDS_PER_CURATION', MAX_WORDS_PER_CURATION);
+  }
+  if (!updateId) {
+    const { count } = await supabase
+      .from('curated_themes')
+      .select('id', { count: 'exact', head: true })
+      .eq('creator_id', user.id);
+    if ((count ?? 0) >= MAX_CURATIONS_PER_USER) {
+      throw new CurationCapacityError('CURATIONS_PER_USER', MAX_CURATIONS_PER_USER);
+    }
+  }
 
   if (updateId) {
     const { error } = await supabase
@@ -84,7 +114,6 @@ export async function shareCuration(
       example_en: w.exampleEn ?? '',
       example_kr: w.exampleKr ?? null,
       pronunciation: w.phonetic ?? null,
-      created_at: now,
     }));
     if (wordRows.length > 0) await supabase.from('curated_words').insert(wordRows);
 
@@ -112,8 +141,6 @@ export async function shareCuration(
     creator_name: creatorName,
     title: list.title,
     description: description ?? null,
-    created_at: now,
-    updated_at: now,
   });
   if (themeErr) throw themeErr;
 
@@ -126,7 +153,6 @@ export async function shareCuration(
     example_en: w.exampleEn ?? '',
     example_kr: w.exampleKr ?? null,
     pronunciation: w.phonetic ?? null,
-    created_at: now,
   }));
   if (wordRows.length > 0) {
     const { error: wordsErr } = await supabase.from('curated_words').insert(wordRows);

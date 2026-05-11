@@ -36,7 +36,7 @@ export default function SettingsScreen() {
   const { colors, isDark, skinId, setSkin, fontFamily } = useTheme();
   const { authMode, user, logout, signInWithGoogle, deleteAccount } = useAuth();
   const { locale, setLocale } = useLocale();
-  const { profileSettings, updateProfileSettings } = useSettings();
+  const { profileSettings, updateProfileSettings, apiKey, updateApiKey } = useSettings();
   const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
@@ -82,19 +82,19 @@ export default function SettingsScreen() {
   };
 
   const handleOpenApiKeyModal = () => {
-    setApiKeyInput(profileSettings.geminiApiKey || '');
+    setApiKeyInput(apiKey || '');
     setApiKeyVisible(false);
     setApiKeyModalOpen(true);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
 
   const handleSaveApiKey = async () => {
-    await updateProfileSettings({ geminiApiKey: apiKeyInput.trim() });
+    await updateApiKey(apiKeyInput.trim());
     setApiKeyModalOpen(false);
   };
 
-  const maskedApiKey = profileSettings.geminiApiKey
-    ? profileSettings.geminiApiKey.slice(0, 8) + '••••••••••••••••'
+  const maskedApiKey = apiKey
+    ? apiKey.slice(0, 8) + '••••••••••••••••'
     : '';
 
   const currentLangLabel = UI_LOCALES.find((l) => l.code === locale)?.nativeLabel ?? locale;
@@ -309,8 +309,8 @@ export default function SettingsScreen() {
               </View>
               <View style={{ flex: 1 }}>
                 <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.geminiApiKey')}</Text>
-                <Text style={[styles.rowSubtitle, { color: profileSettings.geminiApiKey ? colors.success : colors.textTertiary }]} numberOfLines={1}>
-                  {profileSettings.geminiApiKey ? maskedApiKey : t('settings.geminiApiKeyNotSet')}
+                <Text style={[styles.rowSubtitle, { color: apiKey ? colors.success : colors.textTertiary }]} numberOfLines={1}>
+                  {apiKey ? maskedApiKey : t('settings.geminiApiKeyNotSet')}
                 </Text>
               </View>
             </View>
@@ -538,8 +538,8 @@ export default function SettingsScreen() {
               <Ionicons name={apiKeyVisible ? 'eye-off-outline' : 'eye-outline'} size={18} color={colors.textTertiary} />
             </Pressable>
           </View>
-          {profileSettings.geminiApiKey ? (
-            <Pressable onPress={() => { setApiKeyInput(''); updateProfileSettings({ geminiApiKey: '' }); setApiKeyModalOpen(false); }}>
+          {apiKey ? (
+            <Pressable onPress={() => { setApiKeyInput(''); updateApiKey(''); setApiKeyModalOpen(false); }}>
               <Text style={{ color: colors.error, fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 4 }}>{t('settings.geminiApiKeyRemove')}</Text>
             </Pressable>
           ) : null}

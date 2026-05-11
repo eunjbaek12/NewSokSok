@@ -6,6 +6,7 @@ import {
   CustomStudySettingsSchema,
   ProfileSettingsSchema,
   DashboardFilterSchema,
+  NicknameSchema,
   type InputSettings,
   type StudySettings,
   type AutoPlaySettings,
@@ -14,6 +15,7 @@ import {
   type DashboardFilter,
 } from '@shared/contracts';
 import { persisted } from '@/lib/storage/persisted';
+import { loadAndMigrateApiKey, saveApiKey } from './api-key-storage';
 
 const DEFAULT_INPUT_SETTINGS: InputSettings = InputSettingsSchema.parse({}) as InputSettings;
 const DEFAULT_STUDY_SETTINGS: StudySettings = StudySettingsSchema.parse({}) as StudySettings;
@@ -26,7 +28,16 @@ const inputStore    = persisted('@soksok_user_input_settings',    InputSettingsS
 const studyStore    = persisted('@soksok_user_study_settings',    StudySettingsSchema,       DEFAULT_STUDY_SETTINGS);
 const autoplayStore = persisted('@soksok_user_autoplay_settings', AutoPlaySettingsSchema,    DEFAULT_AUTOPLAY_SETTINGS);
 const customStore   = persisted('@soksok_custom_study_settings',  CustomStudySettingsSchema, DEFAULT_CUSTOM_STUDY_SETTINGS);
-const profileStore  = persisted('@soksok_profile_settings',       ProfileSettingsSchema,     DEFAULT_PROFILE_SETTINGS);
+const profileStore  = persisted('@soksok_profile_settings',       ProfileSettingsSchema,     DEFAULT_PROFILE_SETTINGS, {
+  // Legacy nicknames written before the 20-char limit was introduced get
+  // silently truncated on load so the user keeps a usable display name.
+  onDrift: (raw) => {
+    if (typeof raw !== 'object' || raw === null) return undefined;
+    const r = raw as Record<string, unknown>;
+    const nick = typeof r.nickname === 'string' ? r.nickname.slice(0, 20) : '';
+    return ProfileSettingsSchema.parse({ ...r, nickname: nick });
+  },
+});
 
 // Dashboard filter is a bare string, not JSON-encoded. Handle separately.
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -49,6 +60,7 @@ interface SettingsState {
   autoPlaySettings: AutoPlaySettings;
   customStudySettings: CustomStudySettings;
   profileSettings: ProfileSettings;
+  apiKey: string;
   dashboardFilterMode: DashboardFilter;
   isLoading: boolean;
 
@@ -58,6 +70,7 @@ interface SettingsState {
   updateAutoPlaySettings: (updates: Partial<AutoPlaySettings>) => Promise<void>;
   updateCustomStudySettings: (updates: Partial<CustomStudySettings>) => Promise<void>;
   updateProfileSettings: (updates: Partial<ProfileSettings>) => Promise<void>;
+  updateApiKey: (key: string) => Promise<void>;
   updateDashboardFilter: (mode: DashboardFilter) => Promise<void>;
 }
 
@@ -67,11 +80,12 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   autoPlaySettings: DEFAULT_AUTOPLAY_SETTINGS,
   customStudySettings: DEFAULT_CUSTOM_STUDY_SETTINGS,
   profileSettings: DEFAULT_PROFILE_SETTINGS,
+  apiKey: '',
   dashboardFilterMode: DEFAULT_DASHBOARD_FILTER,
   isLoading: true,
 
   hydrate: async () => {
-    const [inputSettings, studySettings, autoPlaySettings, customStudySettings, profileSettings, dashboardFilterMode] =
+    const [inputSettings, studySettings, autoPlaySettings, customStudySettings, profileSettings, dashboardFilterMode, apiKey] =
       await Promise.all([
         inputStore.load(),
         studyStore.load(),
@@ -79,6 +93,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
         customStore.load(),
         profileStore.load(),
         loadDashboardFilter(),
+        loadAndMigrateApiKey(),
       ]);
     set({
       inputSettings,
@@ -86,6 +101,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       autoPlaySettings,
       customStudySettings,
       profileSettings,
+      apiKey,
       dashboardFilterMode,
       isLoading: false,
     });
@@ -116,9 +132,15 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   },
 
   updateProfileSettings: async (updates) => {
+    if (typeof updates.nickname === 'string') NicknameSchema.parse(updates.nickname);
     const next = { ...get().profileSettings, ...updates };
     set({ profileSettings: next });
     await profileStore.save(next);
+  },
+
+  updateApiKey: async (key) => {
+    set({ apiKey: key });
+    await saveApiKey(key);
   },
 
   updateDashboardFilter: async (mode) => {

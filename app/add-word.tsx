@@ -274,7 +274,7 @@ export default function AddWordScreen() {
     const isEditing = !!wordId;
     const existingWord = isEditing && listId ? getWordsForList(listId).find(w => w.id === wordId) : null;
 
-    const { inputSettings, updateInputSettings, profileSettings } = useSettings();
+    const { inputSettings, updateInputSettings, apiKey } = useSettings();
 
     const {
         term, setTerm,
@@ -291,7 +291,7 @@ export default function AddWordScreen() {
         handleSaveWord,
         isPendingFill,
         isPendingSave,
-    } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang, profileSettings.geminiApiKey || undefined);
+    } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang, apiKey || undefined);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -732,7 +732,7 @@ export default function AddWordScreen() {
                                                         placeholder={getPlaceholderText(inputSettings.sourceLang, t)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
-                                                        maxLength={200}
+                                                        maxLength={50}
                                                         onChangeText={(text) => {
                                                             setTerm(text);
                                                             if (errors.term) setErrors(e => ({ ...e, term: false }));
@@ -876,6 +876,7 @@ export default function AddWordScreen() {
                                                     placeholder={t('addWord.pos')}
                                                     value={pos}
                                                     onChangeText={setPos}
+                                                    maxLength={60}
                                                 />
                                             </Animated.View>
                                         );
@@ -889,6 +890,7 @@ export default function AddWordScreen() {
                                                     placeholder={t('addWord.phonetic')}
                                                     value={phonetic}
                                                     onChangeText={setPhonetic}
+                                                    maxLength={80}
                                                 />
                                             </Animated.View>
                                         );
@@ -926,7 +928,7 @@ export default function AddWordScreen() {
                                                     placeholder={getDefinitionLabel(inputSettings.sourceLang, t)}
                                                     value={definition}
                                                     onChangeText={setDefinition}
-                                                    maxLength={1000}
+                                                    maxLength={500}
                                                     multiline
                                                 />
                                             </Animated.View>

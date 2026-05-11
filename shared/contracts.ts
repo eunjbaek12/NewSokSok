@@ -86,7 +86,6 @@ export type StartupTab = z.infer<typeof StartupTabSchema>;
 export const ProfileSettingsSchema = z.object({
   nickname: z.string().default(''),
   startupTab: StartupTabSchema.default('index'),
-  geminiApiKey: z.string().default(''),
 });
 export type ProfileSettings = z.infer<typeof ProfileSettingsSchema>;
 
@@ -181,16 +180,20 @@ export type StudyResult = z.infer<typeof StudyResultSchema>;
 // AI-origin lists and render the AI-generated badge.
 export const AI_GENERATED_TAG = 'AI생성';
 
+// Receive-side ("lenient") limits — applied to AI responses and cloud pulls to
+// reject obviously runaway payloads while still tolerating values that a save
+// (strict) schema would reject. Save-time validation happens in WordSaveSchema.
+// Convention: lenient = strict × 3.
 export const AIWordResultSchema = z.object({
-  term: z.string(),
-  definition: z.string(),
-  exampleEn: z.string(),
-  exampleKr: z.string().optional(),
-  meaningKr: z.string(),
-  mnemonic: z.string().optional(),
-  pos: z.string().optional(),
-  phonetic: z.string().optional(),
-  tags: z.array(z.string()).optional(),
+  term: z.string().max(150),
+  definition: z.string().max(1500),
+  exampleEn: z.string().max(900),
+  exampleKr: z.string().max(900).optional(),
+  meaningKr: z.string().max(900),
+  mnemonic: z.string().max(900).optional(),
+  pos: z.string().max(60).optional(),
+  phonetic: z.string().max(240).optional(),
+  tags: z.array(z.string().max(60)).optional(),
 });
 export type AIWordResult = z.infer<typeof AIWordResultSchema>;
 
@@ -203,13 +206,13 @@ export type AIThemeGenerateResponse = z.infer<typeof AIThemeGenerateResponseSche
 export const AIWordResultArraySchema = z.array(AIWordResultSchema);
 
 export const AIAutoFillResultSchema = z.object({
-  definition: z.string(),
-  meaningKr: z.string(),
-  exampleEn: z.string(),
-  exampleKr: z.string().optional(),
-  mnemonic: z.string().optional(),
-  pos: z.string().optional(),
-  phonetic: z.string().optional(),
+  definition: z.string().max(1500),
+  meaningKr: z.string().max(900),
+  exampleEn: z.string().max(900),
+  exampleKr: z.string().max(900).optional(),
+  mnemonic: z.string().max(900).optional(),
+  pos: z.string().max(60).optional(),
+  phonetic: z.string().max(240).optional(),
 });
 
 export const ThemeListItemSchema = z.object({
@@ -239,6 +242,38 @@ export const GeminiImageWordSchema = z.object({
 
 export const GeminiImageResultSchema = z.array(GeminiImageWordSchema);
 export type GeminiImageResult = z.infer<typeof GeminiImageResultSchema>;
+
+// ============================================================================
+// Save-time ("strict") validation schemas
+// ----------------------------------------------------------------------------
+// These are invoked at write boundaries (addWord, shareCuration, profile save).
+// They are NOT used for read parsing — read schemas remain lenient to preserve
+// backward compatibility with rows written before these limits were introduced.
+// ============================================================================
+
+// Bans C0/C1 control characters (NUL, LF, CR, TAB, …) which can be used for
+// display spoofing or break renderers. Visible whitespace stays allowed.
+const NO_CONTROL = /^[^\x00-\x1F\x7F-\x9F]*$/;
+
+export const WordSaveSchema = z.object({
+  term: z.string().min(1).max(50).regex(NO_CONTROL),
+  definition: z.string().max(500).regex(NO_CONTROL).optional().default(''),
+  meaningKr: z.string().max(300).regex(NO_CONTROL).optional().default(''),
+  exampleEn: z.string().max(300).regex(NO_CONTROL).optional().default(''),
+  exampleKr: z.string().max(300).regex(NO_CONTROL).optional(),
+  phonetic: z.string().max(80).regex(NO_CONTROL).optional(),
+  pos: z.string().max(60).regex(NO_CONTROL).optional(),
+});
+export type WordSaveInput = z.infer<typeof WordSaveSchema>;
+
+export const CurationShareSchema = z.object({
+  title: z.string().min(1).max(80).regex(NO_CONTROL),
+  description: z.string().max(300).regex(NO_CONTROL).optional(),
+  creatorName: z.string().min(1).max(20).regex(NO_CONTROL),
+});
+export type CurationShareInput = z.infer<typeof CurationShareSchema>;
+
+export const NicknameSchema = z.string().max(20).regex(NO_CONTROL);
 
 // ============================================================================
 // Cloud sync row schemas (matches Supabase cloud_lists / cloud_words columns)

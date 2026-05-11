@@ -310,6 +310,7 @@ export default function ListContextMenu({
             onChangeText={setRenameValue}
             onSubmitEditing={handleRenameSubmit}
             autoFocus
+            maxLength={80}
             returnKeyType="done"
             selectTextOnFocus
             placeholder={t('contextMenu.listNameLabel')}
@@ -394,6 +395,7 @@ export default function ListContextMenu({
             placeholder={t('contextMenu.shareDescriptionPlaceholder')}
             placeholderTextColor={colors.textTertiary}
             multiline
+            maxLength={300}
             returnKeyType="done"
             blurOnSubmit
           />

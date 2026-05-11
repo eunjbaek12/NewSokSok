@@ -85,7 +85,7 @@ export default function ExamplesScreen() {
   const lists = useLists();
   const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
   const setStudyResults = useStudyResultsStore(s => s.setResults);
-  const { studySettings, updateStudySettings, profileSettings } = useSettings();
+  const { studySettings, updateStudySettings, apiKey } = useSettings();
   const list = lists.find(l => l.id === id);
 
   // Settings State
@@ -346,7 +346,7 @@ export default function ExamplesScreen() {
       setGenerateProgress(i + 1);
       const word = missing[i];
       try {
-        const result = await autoFillWord(word.term, word.sourceLang || 'en', word.targetLang || 'ko', profileSettings.geminiApiKey || undefined);
+        const result = await autoFillWord(word.term, word.sourceLang || 'en', word.targetLang || 'ko', apiKey || undefined);
         if (result.exampleEn) {
           const updates: Partial<Omit<Word, 'id'>> = { exampleEn: result.exampleEn };
           if (result.exampleKr) updates.exampleKr = result.exampleKr;

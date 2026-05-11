@@ -33,7 +33,7 @@ interface PhotoImportWorkflowProps {
 export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWords }: PhotoImportWorkflowProps) {
     const { colors } = useTheme();
     const { t } = useTranslation();
-    const { profileSettings } = useSettings();
+    const { apiKey } = useSettings();
     const insets = useSafeAreaInsets();
     const abortControllerRef = useRef<AbortController | null>(null);
     const retakeLabel = source === 'camera' ? t('photoImport.retake') : t('photoImport.reselect');
@@ -114,7 +114,7 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
         abortControllerRef.current = controller;
         setIsScanning(true);
         try {
-            const words = await fetchWordsFromImage(base64Image, 3, controller.signal, profileSettings.geminiApiKey || undefined);
+            const words = await fetchWordsFromImage(base64Image, 3, controller.signal, apiKey || undefined);
 
             if (!Array.isArray(words) || words.length === 0) {
                 Alert.alert(t('common.notice'), t('photoImport.noWordsFound'));

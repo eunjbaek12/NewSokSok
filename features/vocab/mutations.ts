@@ -22,6 +22,20 @@ import * as PlanEngine from '@/features/study/plan/engine';
 import { getDb } from '@/lib/db';
 import * as db from './db';
 import { invalidateLists } from './queries';
+import { WordSaveSchema } from '@shared/contracts';
+
+// Lenient list-title rule. Kept inline since it's only used at write boundaries
+// inside this module. Matches the strict CHECK constraint on cloud_lists.title.
+const LIST_TITLE_MAX = 80;
+function assertListTitle(title: string): void {
+  const trimmed = title.trim();
+  if (trimmed.length < 1 || trimmed.length > LIST_TITLE_MAX) {
+    throw new Error('INVALID_LIST_TITLE');
+  }
+  if (/[\x00-\x1F\x7F-\x9F]/.test(trimmed)) {
+    throw new Error('INVALID_LIST_TITLE');
+  }
+}
 
 // ---- Auth-gated sync helpers ------------------------------------------------
 
@@ -83,6 +97,7 @@ async function assertTitleUnique(title: string, ignoreId?: string): Promise<void
 // ---- List mutations --------------------------------------------------------
 
 export async function createList(title: string): Promise<VocaList> {
+  assertListTitle(title);
   await assertTitleUnique(title);
   const newList = await db.createList(title);
   markListsDirty([newList.id]);
@@ -96,6 +111,7 @@ export async function createCuratedList(
   words: Omit<Word, 'id' | 'isMemorized'>[],
   options?: { sourceLanguage?: string; targetLanguage?: string },
 ): Promise<VocaList> {
+  assertListTitle(title);
   await assertTitleUnique(title);
   const newList = await db.createCuratedList(title, icon, words, options);
   markListsDirty([newList.id]);
@@ -108,6 +124,7 @@ export async function updateList(
   id: string,
   updates: Partial<Omit<VocaList, 'id' | 'words'>>,
 ): Promise<VocaList | null> {
+  if (typeof updates.title === 'string') assertListTitle(updates.title);
   const result = await db.updateList(id, updates);
   markListsDirty([id]);
   await commit();
@@ -115,6 +132,7 @@ export async function updateList(
 }
 
 export async function renameList(id: string, newTitle: string): Promise<void> {
+  assertListTitle(newTitle);
   await assertTitleUnique(newTitle, id);
   await db.updateList(id, { title: newTitle });
   markListsDirty([id]);
@@ -175,6 +193,7 @@ export async function addWord(
   listId: string,
   wordData: Omit<Word, 'id' | 'isMemorized'>,
 ): Promise<Word> {
+  WordSaveSchema.parse(wordData);
   const newWord = await db.addWord(listId, wordData);
   markWordsDirty([newWord.id]);
   // lastStudiedAt-ish fields aren't touched here but the list still needs to
@@ -188,6 +207,7 @@ export async function addBatchWords(
   listId: string,
   wordsData: Array<Partial<Omit<Word, 'id' | 'createdAt' | 'updatedAt' | 'listId'>> & { term: string; meaningKr: string }>,
 ): Promise<Word[]> {
+  for (const w of wordsData) WordSaveSchema.parse(w);
   const words = await db.addBatchWords(listId, wordsData);
   markWordsDirty(words.map(w => w.id));
   markListsDirty([listId]);
@@ -200,6 +220,7 @@ export async function updateWord(
   wordId: string,
   updates: Partial<Omit<Word, 'id'>>,
 ): Promise<Word | null> {
+  WordSaveSchema.partial().parse(updates);
   const result = await db.updateWord(listId, wordId, updates);
   markWordsDirty([wordId]);
   markListsDirty([listId]);

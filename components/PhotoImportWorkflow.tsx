@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Alert, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,8 +9,8 @@ import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 
 import { fetchWordsFromImage } from '@/lib/gemini-api';
-import { enrichWord } from '@/lib/translation-api';
 import { filterExtractedWords } from '@/lib/stopwords';
+import { useEnrichQueue } from '@/hooks/useEnrichQueue';
 
 export type ScannedWord = {
     id: string;
@@ -58,8 +58,26 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     const [scannedWords, setScannedWords] = useState<ScannedWord[]>([]);
     const [isSaving, setIsSaving] = useState(false);
 
-    const enrichingCountRef = useRef(0);
-    const [enrichingCount, setEnrichingCount] = useState(0);
+    const { enrichBatch, enrichingCount } = useEnrichQueue(sourceLang, targetLang, apiKey || undefined, CONCURRENCY);
+
+    const handleEnrichUpdate = (id: string, result: any) => {
+        setScannedWords(prev => prev.map(w => {
+            if (w.id !== id) return w;
+            if (result) {
+                return {
+                    ...w,
+                    definition: result.definition || '',
+                    phonetic: result.phonetic || '',
+                    pos: result.pos || '',
+                    meaningKr: result.meaningKr || '',
+                    exampleEn: result.exampleEn || '',
+                    exampleKr: result.exampleKr || '',
+                    enrichStatus: 'done',
+                };
+            }
+            return { ...w, enrichStatus: 'failed' };
+        }));
+    };
 
     useEffect(() => {
         launchSource(source);
@@ -120,52 +138,6 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
         launchSource(source);
     };
 
-    // 단일 단어 보강 → 카드 업데이트 + 카운터 감소
-    const enrichOne = useCallback(async (id: string, term: string, signal: AbortSignal) => {
-        try {
-            const result = await enrichWord(term, sourceLang, targetLang, apiKey || undefined, signal);
-            setScannedWords(prev => prev.map(w => {
-                if (w.id !== id) return w;
-                if (result) {
-                    return {
-                        ...w,
-                        definition: result.definition || '',
-                        phonetic: result.phonetic || '',
-                        pos: result.pos || '',
-                        meaningKr: result.meaningKr || '',
-                        exampleEn: result.exampleEn || '',
-                        exampleKr: result.exampleKr || '',
-                        enrichStatus: 'done',
-                    };
-                }
-                return { ...w, enrichStatus: 'failed' };
-            }));
-        } catch (e: any) {
-            if (e?.name === 'AbortError') return;
-            setScannedWords(prev => prev.map(w => w.id === id ? { ...w, enrichStatus: 'failed' } : w));
-        } finally {
-            enrichingCountRef.current = Math.max(0, enrichingCountRef.current - 1);
-            setEnrichingCount(enrichingCountRef.current);
-        }
-    }, [sourceLang, targetLang, apiKey]);
-
-    // 동시성 제한 큐로 보강 실행
-    const runEnrichQueue = useCallback(async (items: { id: string; term: string }[], signal: AbortSignal) => {
-        enrichingCountRef.current += items.length;
-        setEnrichingCount(enrichingCountRef.current);
-
-        let cursor = 0;
-        const workers = Array.from({ length: Math.min(CONCURRENCY, items.length) }, async () => {
-            while (cursor < items.length) {
-                if (signal.aborted) return;
-                const idx = cursor++;
-                const it = items[idx];
-                await enrichOne(it.id, it.term, signal);
-            }
-        });
-        await Promise.all(workers);
-    }, [enrichOne]);
-
     // 사진 분석 (Gemini 추출 → 필터 → 첫 페이지 카드화 → 보강 시작)
     const processImage = async (base64Image: string) => {
         const controller = new AbortController();
@@ -206,7 +178,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             setIsScanning(false);
 
             // 보강은 백그라운드로 시작 (await 안 함)
-            runEnrichQueue(cards.map(c => ({ id: c.id, term: c.term })), controller.signal);
+            enrichBatch(cards.map(c => ({ id: c.id, term: c.term })), handleEnrichUpdate, controller.signal);
         } catch (error: any) {
             if (error?.name === 'AbortError') return;
             console.error(error);
@@ -236,7 +208,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
 
         const controller = abortControllerRef.current ?? new AbortController();
         abortControllerRef.current = controller;
-        runEnrichQueue(cards.map(c => ({ id: c.id, term: c.term })), controller.signal);
+        enrichBatch(cards.map(c => ({ id: c.id, term: c.term })), handleEnrichUpdate, controller.signal);
     };
 
     const handleCancelAnalysis = () => {

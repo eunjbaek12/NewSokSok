@@ -1311,7 +1311,7 @@ export default function AddWordScreen() {
                 )}
             </Modal>
 
-            {/* 엑셀 일괄 추가 모달 */}
+            {/* 일괄 단어 추가 모달 */}
             <Modal
                 visible={showExcel}
                 animationType="slide"
@@ -1319,12 +1319,11 @@ export default function AddWordScreen() {
             >
                 <BatchImportWorkflow
                     listId={selectedListId}
+                    sourceLang={inputSettings.sourceLang}
+                    targetLang={inputSettings.targetLang}
+                    existingTerms={getWordsForList(selectedListId).map(w => w.term)}
                     onClose={() => setShowExcel(false)}
-                    onSaved={(count) => {
-                        setToastMessage(t('addWord.batchSaveComplete', { count }));
-                        setToastVisible(true);
-                        setTimeout(() => setToastVisible(false), 2000);
-                    }}
+                    onSaveWords={handlePhotoSaveWords}
                 />
             </Modal>
         </View >

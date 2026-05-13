@@ -329,6 +329,23 @@ export default function DashboardScreen() {
                     </Text>
                   </View>
                 )}
+                {planItems.length > 0 && (
+                  <Pressable
+                    onPress={() => {
+                      Haptics.selectionAsync();
+                      Alert.alert(
+                        t('home.dayStatusHelpTitle'),
+                        t('home.dayStatusHelpMessage'),
+                      );
+                    }}
+                    style={({ pressed }) => [styles.helpButton, { opacity: pressed ? 0.4 : 0.6 }]}
+                    hitSlop={8}
+                    accessibilityRole="button"
+                    accessibilityLabel={t('home.dayStatusHelpTitle')}
+                  >
+                    <Ionicons name="help-circle-outline" size={18} color={colors.textTertiary} />
+                  </Pressable>
+                )}
               </View>
               {planItems.length > 0 && (
                 <View style={styles.filterChipRow}>
@@ -958,6 +975,10 @@ const styles = StyleSheet.create({
   closeButton: {
     marginLeft: 'auto',
     padding: 2,
+  },
+  helpButton: {
+    padding: 2,
+    marginLeft: -2,
   },
   dayBadge: {
     paddingHorizontal: 10,

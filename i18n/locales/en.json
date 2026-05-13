@@ -91,6 +91,8 @@
     "needsStudyAction": "Start Study",
     "studyingAction": "Continue",
     "completedAction": "More Study",
+    "dayStatusHelpTitle": "How \"Today's Goal\" Works",
+    "dayStatusHelpMessage": "Once you memorize 50% or more of today's assigned words, the card moves to \"Today's Goal.\"",
     "dayProgress": "Day {{day}}: {{memorized}}/{{total}} memorized",
     "circularProgress": "{{memorized}}/{{total}}",
     "expired": "Expired",

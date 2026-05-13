@@ -91,6 +91,8 @@
     "needsStudyAction": "학습하기",
     "studyingAction": "이어서 학습",
     "completedAction": "추가학습",
+    "dayStatusHelpTitle": "오늘 달성 기준",
+    "dayStatusHelpMessage": "오늘 학습할 단어의 50% 이상을 암기하면 카드가 '오늘 달성'으로 이동됩니다.",
     "dayProgress": "Day {{day}}: {{memorized}}/{{total}} 암기",
     "circularProgress": "{{memorized}}암기/{{total}}단어",
     "expired": "기간만료",

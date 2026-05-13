@@ -45,7 +45,11 @@
     "nWords": "{{count}} words",
     "nItems": "{{count}}",
     "wordUnit": "words",
-    "permissionDenied": "Permission Denied"
+    "permissionDenied": "Permission Denied",
+    "aiApiKeyRequired": "API Key Required",
+    "aiApiKeyRequiredDesc": "AI features need a Gemini API key. You can get one for free at Google AI Studio.",
+    "setupNow": "Set Up Now",
+    "later": "Later"
   },
   "tabs": {
     "home": "Home",
@@ -162,6 +166,7 @@
     "nExpertWords": "{{count}} expert words",
     "importToMyList": "Import to My List",
     "savedSuccess": "Successfully saved to your vocab lists!",
+    "createdWithSkipped": "Vocab list created · {{skipped}} duplicates excluded",
     "duplicateList": "A list with the same name already exists.",
     "saveError": "An error occurred while saving.",
     "noThemeFound": "Can't find what you're looking for?",

@@ -45,7 +45,11 @@
     "nWords": "{{count}}개 단어",
     "nItems": "{{count}}개",
     "wordUnit": "단어",
-    "permissionDenied": "권한 없음"
+    "permissionDenied": "권한 없음",
+    "aiApiKeyRequired": "API 키가 필요해요",
+    "aiApiKeyRequiredDesc": "AI 기능을 사용하려면 Gemini API 키가 필요합니다. Google AI Studio에서 무료로 발급받을 수 있어요.",
+    "setupNow": "지금 설정하기",
+    "later": "나중에"
   },
   "tabs": {
     "home": "홈",
@@ -162,6 +166,7 @@
     "nExpertWords": "{{count}}개의 전문 단어",
     "importToMyList": "내 단어장으로 가져오기",
     "savedSuccess": "나의 단어장에 성공적으로 저장되었습니다!",
+    "createdWithSkipped": "단어장이 생성되었습니다 · {{skipped}}개는 중복이라 제외됨",
     "duplicateList": "이미 같은 이름의 단어장이 존재합니다.",
     "saveError": "저장하는 중 오류가 발생했습니다.",
     "noThemeFound": "찾으시는 테마가 없나요?",

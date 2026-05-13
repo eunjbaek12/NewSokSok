@@ -479,7 +479,17 @@ export default function CurationScreen() {
 
     const handleOpenAiModal = () => {
         if (!hasApiKey) {
-            router.push('/(tabs)/settings');
+            Alert.alert(
+                t('common.aiApiKeyRequired'),
+                t('common.aiApiKeyRequiredDesc'),
+                [
+                    { text: t('common.later'), style: 'cancel' },
+                    {
+                        text: t('common.setupNow'),
+                        onPress: () => router.push('/(tabs)/settings?openApiKey=1' as any),
+                    },
+                ],
+            );
             return;
         }
         setAiTopic(searchQuery);
@@ -565,17 +575,39 @@ export default function CurationScreen() {
     const handleCreateNew = async () => {
         if (!selectedTheme) return;
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-        setSaving(true);
         const words = getSelectedWords();
+
+        // AI가 같은 lemma를 두 번 뱉거나 대소문자만 다른 단어를 만들면
+        // words 테이블의 (listId, LOWER(TRIM(term))) UNIQUE 인덱스에 걸린다.
+        // INSERT 직전에 결정론적으로 dedup.
+        const normalizeTerm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+        const seen = new Set<string>();
+        const deduped = words.filter(w => {
+            const key = normalizeTerm(w.term ?? '');
+            if (!key || seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+        const skippedCount = words.length - deduped.length;
+
+        if (deduped.length === 0) {
+            setSnackbar({ visible: true, message: t('curation.allDuplicates') });
+            return;
+        }
+
+        setSaving(true);
         try {
             const uniqueTitle = getUniqueName(selectedTheme.title, lists.map(l => l.title));
-            const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', words, {
+            const newList = await createCuratedList(uniqueTitle, selectedTheme.icon || '✨', deduped, {
                 sourceLanguage: selectedTheme.sourceLanguage,
                 targetLanguage: selectedTheme.targetLanguage,
             });
+            const message = skippedCount > 0
+                ? t('curation.createdWithSkipped', { skipped: skippedCount })
+                : t('curation.savedSuccess');
             setSnackbar({
                 visible: true,
-                message: t('curation.savedSuccess'),
+                message,
                 actionLabel: t('curation.goToVocabList'),
                 onAction: () => router.push(`/list/${newList.id}`),
             });
@@ -596,17 +628,10 @@ export default function CurationScreen() {
         const incomingWords = getSelectedWords();
         const targetList = lists.find(l => l.id === targetListId);
 
-        // sourceLang이 같을 때만 dedupe (다른 언어쌍이면 같은 철자라도 별개 단어)
-        const sameSourceLang = !!targetList && targetList.sourceLanguage === selectedTheme.sourceLanguage;
         const normalizeTerm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
-
-        let wordsToAdd = incomingWords;
-        let skippedCount = 0;
-        if (sameSourceLang && targetList) {
-            const existing = new Set(targetList.words.map(w => normalizeTerm(w.term)));
-            wordsToAdd = incomingWords.filter(w => !existing.has(normalizeTerm(w.term)));
-            skippedCount = incomingWords.length - wordsToAdd.length;
-        }
+        const existing = new Set((targetList?.words ?? []).map(w => normalizeTerm(w.term)));
+        const wordsToAdd = incomingWords.filter(w => !existing.has(normalizeTerm(w.term)));
+        const skippedCount = incomingWords.length - wordsToAdd.length;
 
         try {
             // 전체 중복: DB 호출 없이 알림만 표시, 단어장 이동 액션도 비활성

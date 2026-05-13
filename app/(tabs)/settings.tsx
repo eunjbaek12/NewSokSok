@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,7 +12,7 @@ import {
   TextInput,
   Linking,
 } from 'react-native';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
@@ -47,6 +47,22 @@ export default function SettingsScreen() {
   const [apiKeyInput, setApiKeyInput] = useState('');
   const [apiKeyVisible, setApiKeyVisible] = useState(false);
   const { markOnboardingDone } = useOnboarding();
+
+  // 다른 화면에서 ?openApiKey=1로 진입했을 때 자동으로 API 키 모달 열기 + 저장 시 자동 복귀
+  const params = useLocalSearchParams<{ openApiKey?: string }>();
+  const autoOpenedRef = useRef(false);
+  const enteredForApiKeyRef = useRef(false);
+  useEffect(() => {
+    if (params.openApiKey === '1' && !autoOpenedRef.current) {
+      autoOpenedRef.current = true;
+      enteredForApiKeyRef.current = true;
+      setApiKeyInput(apiKey || '');
+      setApiKeyVisible(false);
+      setApiKeyModalOpen(true);
+      // 다음 진입 시 stale param 재발동 방지
+      router.setParams({ openApiKey: undefined } as any);
+    }
+  }, [params.openApiKey, apiKey]);
 
   const handleResetOnboarding = () => {
     Alert.alert('온보딩 초기화', '앱을 재시작하면 온보딩이 다시 표시됩니다.', [
@@ -91,6 +107,11 @@ export default function SettingsScreen() {
   const handleSaveApiKey = async () => {
     await updateApiKey(apiKeyInput.trim());
     setApiKeyModalOpen(false);
+    // 큐레이션 등 다른 화면에서 키 설정을 위해 진입한 경우, 키 저장 후 자동으로 돌아감
+    if (enteredForApiKeyRef.current && router.canGoBack()) {
+      enteredForApiKeyRef.current = false;
+      router.back();
+    }
   };
 
   const maskedApiKey = apiKey

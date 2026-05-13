@@ -278,8 +278,9 @@ describe('computeDayStudyStatus', () => {
     expect(result.displayDay).toBe(1); // Day2가 아닌 Day1이어야 함
   });
 
-  test('[신규계획] Day1 50% 미만 암기 → Day1 studying', () => {
-    // studying 조건: dayMemorized > 0 AND dayMemorized / dayTotal < 0.5
+  test('[신규계획] Day1 단어 일부가 자유학습으로 암기됨 → 여전히 needs-study (isMemorized 무시)', () => {
+    // 신규 계획(planCurrentDay=1)은 isMemorized로 진척을 추론하지 않는다.
+    // 자유학습으로 Day1 단어를 1/3 외운 상태여도 카드는 needs-study로 표시.
     const list = makePlanList();
     const words = [
       makeWord({ assignedDay: 1, isMemorized: true }),
@@ -289,12 +290,13 @@ describe('computeDayStudyStatus', () => {
     ];
     const result = computeDayStudyStatus(list, words, NOW);
     expect(result.displayDay).toBe(1);
-    expect(result.state).toBe('studying');
+    expect(result.state).toBe('needs-study');
     expect(result.dayMemorized).toBe(1);
     expect(result.dayTotal).toBe(3);
   });
 
-  test('[신규계획] Day1 전체 암기 → Day1 completed (자유학습으로 완료된 상태)', () => {
+  test('[신규계획] Day1 전체가 자유학습으로 암기됨 → 여전히 needs-study (isMemorized 무시)', () => {
+    // 계획을 통해 학습한 적 없으면 isMemorized와 무관하게 Day1부터 시작.
     const list = makePlanList();
     const words = [
       makeWord({ assignedDay: 1, isMemorized: true }),
@@ -303,7 +305,7 @@ describe('computeDayStudyStatus', () => {
     ];
     const result = computeDayStudyStatus(list, words, NOW);
     expect(result.displayDay).toBe(1);
-    expect(result.state).toBe('completed');
+    expect(result.state).toBe('needs-study');
   });
 
   // ── 오늘 학습 완료 ────────────────────────────────────────────────────────

@@ -233,11 +233,10 @@ export const GenerateMoreResultSchema = z.object({
 });
 export type GenerateMoreResult = z.infer<typeof GenerateMoreResultSchema>;
 
-// Image OCR returns a bare array: [{ word, meaning, exampleSentence }]
+// Image OCR returns a bare array of surface-form words.
+// 의미·예문 등은 추출 후 사전(Naver)·Gemini 단어분석으로 별도 보강한다.
 export const GeminiImageWordSchema = z.object({
   word: z.string(),
-  meaning: z.string().optional().default(''),
-  exampleSentence: z.string().optional().default(''),
 }).passthrough();
 
 export const GeminiImageResultSchema = z.array(GeminiImageWordSchema);

@@ -181,6 +181,9 @@
     "aiGenerateError": "단어 생성 중 오류가 발생했습니다.",
     "aiPartialResult": "{{kept}}개 단어를 가져왔어요 ({{dropped}}개는 형식 오류로 제외)",
     "aiRegenerate": "다시 생성",
+    "aiRegenerateAction": "단어 다시 생성",
+    "aiNoNewWords": "이 주제로는 더 이상 새 단어를 찾기 어려워요. 다른 주제도 시도해보세요.",
+    "aiRegeneratePartial": "{{count}}개의 새 단어를 가져왔어요.",
     "beginner": "초급",
     "intermediate": "중급",
     "advanced": "고급",
@@ -193,6 +196,8 @@
     "chooseDestination": "저장할 단어장 선택",
     "goToVocabList": "단어장 보러가기",
     "addedToExistingList": "{{title}}에 단어가 추가되었습니다!",
+    "addedWithSkipped": "{{title}}에 {{added}}개 추가 · {{skipped}}개는 이미 있어 건너뜀",
+    "allDuplicates": "선택한 단어가 이미 모두 단어장에 있어요",
     "addToExisting": "기존 단어장에 추가",
     "saved": "저장됨",
     "deleteConfirmTitle": "단어장 삭제",
@@ -832,7 +837,13 @@
     "noWordsFound": "이미지에서 단어를 찾지 못했습니다.",
     "noWordsToSave": "저장할 단어가 없습니다.",
     "wordsAdded": "{{count}}개의 단어가 추가되었습니다.",
-    "saveError": "단어 저장 중 문제가 발생했습니다."
+    "saveError": "단어 저장 중 문제가 발생했습니다.",
+    "lookingUp": "사전에서 찾는 중…",
+    "lookupFailed": "사전에서 찾지 못했어요. 직접 입력해 주세요.",
+    "loadMore": "단어 {{count}}개 더 보기",
+    "savedWithSkip": "{{added}}개 저장됨 ({{skipped}}개는 이미 있어서 제외)",
+    "phoneticLabel": "발음기호",
+    "exampleKrLabel": "예문 한국어 해석"
   },
   "listCard": {
     "noStudyRecord": "학습 기록 없음",

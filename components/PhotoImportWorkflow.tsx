@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Alert, ScrollView, TextInput, Pressable, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,13 +9,19 @@ import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 
 import { fetchWordsFromImage } from '@/lib/gemini-api';
+import { enrichWord } from '@/lib/translation-api';
+import { filterExtractedWords } from '@/lib/stopwords';
 
-type ScannedWord = {
+export type ScannedWord = {
     id: string;
-    word: string;
-    meaning: string;
-    definition?: string;
-    exampleSentence: string;
+    term: string;
+    definition: string;
+    phonetic: string;
+    pos: string;
+    meaningKr: string;
+    exampleEn: string;
+    exampleKr: string;
+    enrichStatus: 'pending' | 'done' | 'failed';
 };
 
 type SelectedImage = {
@@ -26,11 +32,17 @@ type SelectedImage = {
 interface PhotoImportWorkflowProps {
     listId: string;
     source: 'camera' | 'gallery';
+    sourceLang: string;
+    targetLang: string;
+    existingTerms: string[];
     onClose: () => void;
-    onSaveWords: (words: Omit<ScannedWord, 'id'>[]) => Promise<void>;
+    onSaveWords: (words: ScannedWord[]) => Promise<void>;
 }
 
-export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWords }: PhotoImportWorkflowProps) {
+const PAGE_SIZE = 30;
+const CONCURRENCY = 4;
+
+export default function PhotoImportWorkflow({ listId, source, sourceLang, targetLang, existingTerms, onClose, onSaveWords }: PhotoImportWorkflowProps) {
     const { colors } = useTheme();
     const { t } = useTranslation();
     const { apiKey } = useSettings();
@@ -38,13 +50,20 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
     const abortControllerRef = useRef<AbortController | null>(null);
     const retakeLabel = source === 'camera' ? t('photoImport.retake') : t('photoImport.reselect');
 
+    const existingSet = useRef(new Set(existingTerms.map(s => s.trim().toLowerCase()))).current;
+
     const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
     const [isScanning, setIsScanning] = useState(false);
+    const [pendingTerms, setPendingTerms] = useState<string[]>([]);  // 아직 카드로 표시되지 않은 후보
     const [scannedWords, setScannedWords] = useState<ScannedWord[]>([]);
     const [isSaving, setIsSaving] = useState(false);
 
+    const enrichingCountRef = useRef(0);
+    const [enrichingCount, setEnrichingCount] = useState(0);
+
     useEffect(() => {
         launchSource(source);
+        return () => { abortControllerRef.current?.abort(); };
     }, []);
 
     const launchSource = async (src: 'camera' | 'gallery') => {
@@ -63,16 +82,11 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
             return;
         }
 
-        const result = await ImagePicker.launchCameraAsync({
-            base64: true,
-            quality: 0.8,
-        });
-
+        const result = await ImagePicker.launchCameraAsync({ base64: true, quality: 0.8 });
         if (result.canceled) {
             if (!selectedImage) onClose();
             return;
         }
-
         const asset = result.assets?.[0];
         if (asset?.base64 && asset?.uri) {
             setSelectedImage({ uri: asset.uri, base64: asset.base64 });
@@ -87,17 +101,11 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
             return;
         }
 
-        const result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ['images'],
-            base64: true,
-            quality: 0.8,
-        });
-
+        const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], base64: true, quality: 0.8 });
         if (result.canceled) {
             if (!selectedImage) onClose();
             return;
         }
-
         const asset = result.assets?.[0];
         if (asset?.base64 && asset?.uri) {
             setSelectedImage({ uri: asset.uri, base64: asset.base64 });
@@ -105,47 +113,137 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
     };
 
     const handleRetake = () => {
+        abortControllerRef.current?.abort();
         setSelectedImage(null);
+        setScannedWords([]);
+        setPendingTerms([]);
         launchSource(source);
     };
 
+    // 단일 단어 보강 → 카드 업데이트 + 카운터 감소
+    const enrichOne = useCallback(async (id: string, term: string, signal: AbortSignal) => {
+        try {
+            const result = await enrichWord(term, sourceLang, targetLang, apiKey || undefined, signal);
+            setScannedWords(prev => prev.map(w => {
+                if (w.id !== id) return w;
+                if (result) {
+                    return {
+                        ...w,
+                        definition: result.definition || '',
+                        phonetic: result.phonetic || '',
+                        pos: result.pos || '',
+                        meaningKr: result.meaningKr || '',
+                        exampleEn: result.exampleEn || '',
+                        exampleKr: result.exampleKr || '',
+                        enrichStatus: 'done',
+                    };
+                }
+                return { ...w, enrichStatus: 'failed' };
+            }));
+        } catch (e: any) {
+            if (e?.name === 'AbortError') return;
+            setScannedWords(prev => prev.map(w => w.id === id ? { ...w, enrichStatus: 'failed' } : w));
+        } finally {
+            enrichingCountRef.current = Math.max(0, enrichingCountRef.current - 1);
+            setEnrichingCount(enrichingCountRef.current);
+        }
+    }, [sourceLang, targetLang, apiKey]);
+
+    // 동시성 제한 큐로 보강 실행
+    const runEnrichQueue = useCallback(async (items: { id: string; term: string }[], signal: AbortSignal) => {
+        enrichingCountRef.current += items.length;
+        setEnrichingCount(enrichingCountRef.current);
+
+        let cursor = 0;
+        const workers = Array.from({ length: Math.min(CONCURRENCY, items.length) }, async () => {
+            while (cursor < items.length) {
+                if (signal.aborted) return;
+                const idx = cursor++;
+                const it = items[idx];
+                await enrichOne(it.id, it.term, signal);
+            }
+        });
+        await Promise.all(workers);
+    }, [enrichOne]);
+
+    // 사진 분석 (Gemini 추출 → 필터 → 첫 페이지 카드화 → 보강 시작)
     const processImage = async (base64Image: string) => {
         const controller = new AbortController();
         abortControllerRef.current = controller;
         setIsScanning(true);
         try {
-            const words = await fetchWordsFromImage(base64Image, 3, controller.signal, apiKey || undefined);
+            const raw = await fetchWordsFromImage(base64Image, 3, controller.signal, apiKey || undefined, sourceLang);
+            const rawTerms = (Array.isArray(raw) ? raw : []).map((w: any) => (w?.word || '')).filter(Boolean);
 
-            if (!Array.isArray(words) || words.length === 0) {
+            // 결정론적 필터 (stopwords·길이·중복) + 기존 리스트에 있는 단어 제거
+            const filtered = filterExtractedWords(rawTerms, sourceLang)
+                .filter(t => !existingSet.has(t.toLowerCase()));
+
+            if (filtered.length === 0) {
+                setIsScanning(false);
                 Alert.alert(t('common.notice'), t('photoImport.noWordsFound'));
                 return;
             }
 
-            const wordsWithIds = words.map((w: any, index: number) => ({
-                id: Date.now().toString() + index,
-                word: w.word || '',
-                meaning: w.meaning || '',
-                exampleSentence: w.exampleSentence || ''
+            const firstPage = filtered.slice(0, PAGE_SIZE);
+            const rest = filtered.slice(PAGE_SIZE);
+
+            const baseTs = Date.now();
+            const cards: ScannedWord[] = firstPage.map((term, i) => ({
+                id: `${baseTs}-${i}`,
+                term,
+                definition: '',
+                phonetic: '',
+                pos: '',
+                meaningKr: '',
+                exampleEn: '',
+                exampleKr: '',
+                enrichStatus: 'pending',
             }));
 
-            setScannedWords(wordsWithIds);
-        } catch (error: any) {
-            if (error.name === 'AbortError') return; // 취소 — 조용히 미리보기로 복귀
-            console.error(error);
-            Alert.alert(t('common.error'), error.message || t('photoImport.saveError'));
-        } finally {
+            setScannedWords(cards);
+            setPendingTerms(rest);
             setIsScanning(false);
-            abortControllerRef.current = null;
+
+            // 보강은 백그라운드로 시작 (await 안 함)
+            runEnrichQueue(cards.map(c => ({ id: c.id, term: c.term })), controller.signal);
+        } catch (error: any) {
+            if (error?.name === 'AbortError') return;
+            console.error(error);
+            Alert.alert(t('common.error'), error?.message || t('photoImport.saveError'));
+            setIsScanning(false);
         }
+    };
+
+    const handleLoadMore = () => {
+        if (pendingTerms.length === 0) return;
+        const next = pendingTerms.slice(0, PAGE_SIZE);
+        const rest = pendingTerms.slice(PAGE_SIZE);
+        const baseTs = Date.now();
+        const cards: ScannedWord[] = next.map((term, i) => ({
+            id: `${baseTs}-more-${i}`,
+            term,
+            definition: '',
+            phonetic: '',
+            pos: '',
+            meaningKr: '',
+            exampleEn: '',
+            exampleKr: '',
+            enrichStatus: 'pending',
+        }));
+        setScannedWords(prev => [...prev, ...cards]);
+        setPendingTerms(rest);
+
+        const controller = abortControllerRef.current ?? new AbortController();
+        abortControllerRef.current = controller;
+        runEnrichQueue(cards.map(c => ({ id: c.id, term: c.term })), controller.signal);
     };
 
     const handleCancelAnalysis = () => {
         abortControllerRef.current?.abort();
-        // isScanning은 finally 블록에서 false로 변경됨
-        // selectedImage는 유지 → 미리보기 화면으로 자동 복귀
     };
 
-    const updateWord = (id: string, field: keyof ScannedWord, value: string) => {
+    const updateWord = (id: string, field: 'term' | 'meaningKr' | 'exampleEn' | 'phonetic' | 'exampleKr', value: string) => {
         setScannedWords(prev =>
             prev.map(item => item.id === id ? { ...item, [field]: value } : item)
         );
@@ -160,18 +258,13 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
             Alert.alert(t('common.notice'), t('photoImport.noWordsToSave'));
             return;
         }
+        if (enrichingCount > 0) return; // 버튼 비활성 상태인데 안전망
 
         setIsSaving(true);
         try {
-            await onSaveWords(scannedWords.map(w => ({
-                word: w.word,
-                meaning: w.meaning,
-                exampleSentence: w.exampleSentence
-            })));
-
+            await onSaveWords(scannedWords);
             setScannedWords([]);
             onClose();
-            Alert.alert(t('common.success'), t('photoImport.wordsAdded', { count: scannedWords.length }));
         } catch (error) {
             console.error(error);
             Alert.alert(t('common.error'), t('photoImport.saveError'));
@@ -180,7 +273,7 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
         }
     };
 
-    // ── 로딩 화면 ──────────────────────────────────────────
+    // ── 로딩 화면 (Gemini 추출 중) ─────────────────────────
     if (isScanning) {
         return (
             <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -201,6 +294,11 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
 
     // ── 결과 검토 화면 ──────────────────────────────────────
     if (scannedWords.length > 0) {
+        const saveDisabled = isSaving || enrichingCount > 0;
+        const saveLabel = enrichingCount > 0
+            ? t('photoImport.lookingUp')
+            : t('photoImport.finalSave');
+
         return (
             <View style={[styles.container, { backgroundColor: colors.background }]}>
                 <View style={[styles.header, {
@@ -229,34 +327,73 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
                             <View style={styles.cardHeader}>
                                 <TextInput
                                     style={[styles.inputBold, { color: colors.text, borderBottomColor: colors.border }]}
-                                    value={item.word}
-                                    onChangeText={(val) => updateWord(item.id, 'word', val)}
+                                    value={item.term}
+                                    onChangeText={(val) => updateWord(item.id, 'term', val)}
                                     placeholder={t('photoImport.wordLabel')}
                                     placeholderTextColor={colors.textTertiary}
                                 />
+                                {item.enrichStatus === 'pending' && (
+                                    <ActivityIndicator size="small" color={colors.primary} style={{ marginRight: 8 }} />
+                                )}
                                 <Pressable onPress={() => removeWord(item.id)} hitSlop={8}>
                                     <Ionicons name="close-circle" size={20} color={colors.error} />
                                 </Pressable>
                             </View>
 
                             <TextInput
+                                style={[styles.inputSmall, { color: colors.textSecondary, borderBottomColor: colors.border }]}
+                                value={item.phonetic}
+                                onChangeText={(val) => updateWord(item.id, 'phonetic', val)}
+                                placeholder={t('photoImport.phoneticLabel')}
+                                placeholderTextColor={colors.textTertiary}
+                            />
+
+                            <TextInput
                                 style={[styles.input, { color: colors.text, borderBottomColor: colors.border }]}
-                                value={item.meaning}
-                                onChangeText={(val) => updateWord(item.id, 'meaning', val)}
+                                value={item.meaningKr}
+                                onChangeText={(val) => updateWord(item.id, 'meaningKr', val)}
                                 placeholder={t('photoImport.meaningLabel')}
                                 placeholderTextColor={colors.textTertiary}
                             />
 
                             <TextInput
-                                style={[styles.input, styles.exampleInput, { color: colors.textSecondary }]}
-                                value={item.exampleSentence}
-                                onChangeText={(val) => updateWord(item.id, 'exampleSentence', val)}
+                                style={[styles.input, styles.exampleInput, { color: colors.textSecondary, borderBottomColor: colors.border }]}
+                                value={item.exampleEn}
+                                onChangeText={(val) => updateWord(item.id, 'exampleEn', val)}
                                 placeholder={t('photoImport.exampleLabel')}
                                 placeholderTextColor={colors.textTertiary}
                                 multiline
                             />
+
+                            <TextInput
+                                style={[styles.input, styles.exampleKrInput, { color: colors.textTertiary }]}
+                                value={item.exampleKr}
+                                onChangeText={(val) => updateWord(item.id, 'exampleKr', val)}
+                                placeholder={t('photoImport.exampleKrLabel')}
+                                placeholderTextColor={colors.textTertiary}
+                                multiline
+                            />
+
+                            {item.enrichStatus === 'failed' && (
+                                <Text style={[styles.failedText, { color: colors.textTertiary }]}>
+                                    {t('photoImport.lookupFailed')}
+                                </Text>
+                            )}
                         </View>
                     ))}
+
+                    {pendingTerms.length > 0 && (
+                        <Pressable
+                            onPress={handleLoadMore}
+                            style={[styles.loadMoreBtn, { borderColor: colors.border, backgroundColor: colors.surface }]}
+                        >
+                            <Ionicons name="add-circle-outline" size={18} color={colors.primary} />
+                            <Text style={[styles.loadMoreText, { color: colors.primary }]}>
+                                {t('photoImport.loadMore', { count: pendingTerms.length })}
+                            </Text>
+                        </Pressable>
+                    )}
+
                     <View style={{ height: 16 }} />
                 </ScrollView>
 
@@ -273,12 +410,12 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
                         disabled={isSaving}
                     />
                     <Button
-                        title={t('photoImport.finalSave')}
+                        title={saveLabel}
                         variant="primary"
                         onPress={handleFinalSave}
                         style={{ flex: 2 }}
-                        loading={isSaving}
-                        disabled={isSaving}
+                        loading={isSaving || enrichingCount > 0}
+                        disabled={saveDisabled}
                     />
                 </View>
             </View>
@@ -330,14 +467,11 @@ export default function PhotoImportWorkflow({ listId, source, onClose, onSaveWor
         );
     }
 
-    // ── 초기 빈 화면 (카메라/갤러리 실행 중) ───────────────
     return <View style={[styles.container, { backgroundColor: colors.background }]} />;
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
+    container: { flex: 1 },
     header: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -346,73 +480,20 @@ const styles = StyleSheet.create({
         paddingBottom: 14,
         borderBottomWidth: StyleSheet.hairlineWidth,
     },
-    headerBtn: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 4,
-        minWidth: 60,
-    },
-    headerBtnRight: {
-        minWidth: 60,
-        alignItems: 'flex-end',
-    },
-    headerBtnText: {
-        fontSize: 14,
-        fontFamily: 'Pretendard_400Regular',
-    },
-    title: {
-        fontSize: 17,
-        fontFamily: 'Pretendard_600SemiBold',
-    },
-    subheader: {
-        padding: 16,
-        paddingBottom: 8,
-    },
-    subtitle: {
-        fontSize: 14,
-        fontFamily: 'Pretendard_400Regular',
-    },
-    previewContainer: {
-        flex: 1,
-        padding: 16,
-    },
-    previewImage: {
-        flex: 1,
-        borderRadius: 12,
-    },
-    loadingContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-        gap: 12,
-    },
-    loadingText: {
-        marginTop: 8,
-        fontSize: 16,
-        fontFamily: 'Pretendard_600SemiBold',
-    },
-    loadingSubText: {
-        fontSize: 13,
-        fontFamily: 'Pretendard_400Regular',
-        textAlign: 'center',
-    },
-    cancelBtn: {
-        marginTop: 20,
-        paddingHorizontal: 28,
-        paddingVertical: 12,
-        borderRadius: 20,
-        borderWidth: 1,
-    },
-    cancelBtnText: {
-        fontSize: 15,
-        fontFamily: 'Pretendard_500Medium',
-    },
-    listContainer: {
-        flex: 1,
-        paddingHorizontal: 16,
-        paddingTop: 8,
-    },
+    headerBtn: { flexDirection: 'row', alignItems: 'center', gap: 4, minWidth: 60 },
+    headerBtnRight: { minWidth: 60, alignItems: 'flex-end' },
+    headerBtnText: { fontSize: 14, fontFamily: 'Pretendard_400Regular' },
+    title: { fontSize: 17, fontFamily: 'Pretendard_600SemiBold' },
+    subheader: { padding: 16, paddingBottom: 8 },
+    subtitle: { fontSize: 14, fontFamily: 'Pretendard_400Regular' },
+    previewContainer: { flex: 1, padding: 16 },
+    previewImage: { flex: 1, borderRadius: 12 },
+    loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20, gap: 12 },
+    loadingText: { marginTop: 8, fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
+    loadingSubText: { fontSize: 13, fontFamily: 'Pretendard_400Regular', textAlign: 'center' },
+    cancelBtn: { marginTop: 20, paddingHorizontal: 28, paddingVertical: 12, borderRadius: 20, borderWidth: 1 },
+    cancelBtnText: { fontSize: 15, fontFamily: 'Pretendard_500Medium' },
+    listContainer: { flex: 1, paddingHorizontal: 16, paddingTop: 8 },
     card: {
         padding: 16,
         borderRadius: 12,
@@ -423,12 +504,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 1,
     },
-    cardHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        marginBottom: 8,
-    },
+    cardHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 },
     inputBold: {
         flex: 1,
         fontSize: 18,
@@ -444,12 +520,35 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
         marginBottom: 8,
     },
-    exampleInput: {
+    inputSmall: {
+        fontSize: 13,
+        fontFamily: 'Pretendard_400Regular',
+        borderBottomWidth: 1,
+        paddingVertical: 6,
+        marginBottom: 8,
+    },
+    exampleInput: { fontFamily: 'Pretendard_400Regular', fontStyle: 'italic', borderBottomWidth: 1, marginBottom: 4 },
+    exampleKrInput: {
+        fontSize: 13,
         fontFamily: 'Pretendard_400Regular',
         fontStyle: 'italic',
         borderBottomWidth: 0,
+        paddingVertical: 4,
         marginBottom: 0,
     },
+    failedText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 4 },
+    loadMoreBtn: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 6,
+        marginTop: 4,
+        marginBottom: 12,
+        paddingVertical: 12,
+        borderRadius: 10,
+        borderWidth: 1,
+    },
+    loadMoreText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
     footer: {
         flexDirection: 'row',
         padding: 16,

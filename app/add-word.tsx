@@ -476,26 +476,44 @@ export default function AddWordScreen() {
         return unsubscribe;
     }, [navigation, showExcel, isEditing]);
 
-    const handlePhotoSaveWords = async (words: { word: string; meaning: string; definition?: string; exampleSentence: string }[]) => {
+    const handlePhotoSaveWords = async (words: Array<{
+        term: string;
+        definition: string;
+        phonetic: string;
+        pos: string;
+        meaningKr: string;
+        exampleEn: string;
+        exampleKr: string;
+    }>) => {
+        const existing = new Set(getWordsForList(selectedListId).map(w => w.term.trim().toLowerCase()));
         let addedCount = 0;
+        let skippedCount = 0;
         for (const w of words) {
-            if (w.word.trim()) {
-                await addWord(selectedListId, {
-                    term: w.word.trim(),
-                    definition: w.definition || '',
-                    meaningKr: w.meaning,
-                    exampleEn: w.exampleSentence || '',
-                    exampleKr: '',
-                    isStarred: false,
-                    tags: []
-                });
-                addedCount++;
-            }
+            const normalized = w.term.trim();
+            if (!normalized) continue;
+            const key = normalized.toLowerCase();
+            if (existing.has(key)) { skippedCount++; continue; }
+            existing.add(key);
+            await addWord(selectedListId, {
+                term: normalized,
+                definition: w.definition || '',
+                phonetic: w.phonetic || '',
+                pos: w.pos || '',
+                meaningKr: w.meaningKr || '',
+                exampleEn: w.exampleEn || '',
+                exampleKr: w.exampleKr || '',
+                isStarred: false,
+                tags: [],
+            });
+            addedCount++;
         }
-        if (addedCount > 0) {
-            setToastMessage(t('addWord.batchSaveComplete', { count: addedCount }));
+        if (addedCount > 0 || skippedCount > 0) {
+            const msg = skippedCount > 0
+                ? t('photoImport.savedWithSkip', { added: addedCount, skipped: skippedCount })
+                : t('addWord.batchSaveComplete', { count: addedCount });
+            setToastMessage(msg);
             setToastVisible(true);
-            setTimeout(() => setToastVisible(false), 2000);
+            setTimeout(() => setToastVisible(false), 2500);
         }
     };
 
@@ -1284,6 +1302,9 @@ export default function AddWordScreen() {
                     <PhotoImportWorkflow
                         listId={selectedListId}
                         source={photoSource}
+                        sourceLang={inputSettings.sourceLang}
+                        targetLang={inputSettings.targetLang}
+                        existingTerms={getWordsForList(selectedListId).map(w => w.term)}
                         onClose={() => setPhotoSource(null)}
                         onSaveWords={handlePhotoSaveWords}
                     />

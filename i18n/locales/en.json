@@ -172,6 +172,9 @@
     "aiGenerateError": "An error occurred while generating words.",
     "aiPartialResult": "Imported {{kept}} words ({{dropped}} excluded due to format errors)",
     "aiRegenerate": "Regenerate",
+    "aiRegenerateAction": "Regenerate words",
+    "aiNoNewWords": "Couldn't find more new words for this topic. Try a different topic.",
+    "aiRegeneratePartial": "Got {{count}} new words.",
     "beginner": "Beginner",
     "intermediate": "Intermediate",
     "advanced": "Advanced",
@@ -184,6 +187,8 @@
     "chooseDestination": "Choose Destination",
     "goToVocabList": "Go to vocab list",
     "addedToExistingList": "Words added to {{title}}!",
+    "addedWithSkipped": "{{added}} added to {{title}} · {{skipped}} already there, skipped",
+    "allDuplicates": "All selected words are already in this list",
     "addToExisting": "Add to Existing List",
     "saved": "Saved",
     "deleteConfirmTitle": "Delete Collection",
@@ -832,7 +837,13 @@
     "noWordsFound": "No words found in the image.",
     "noWordsToSave": "No words to save.",
     "wordsAdded": "{{count}} words have been added.",
-    "saveError": "An error occurred while saving words."
+    "saveError": "An error occurred while saving words.",
+    "lookingUp": "Looking up in dictionary…",
+    "lookupFailed": "Not found in dictionary. Please enter manually.",
+    "loadMore": "Load {{count}} more words",
+    "savedWithSkip": "{{added}} saved ({{skipped}} already existed)",
+    "phoneticLabel": "Pronunciation",
+    "exampleKrLabel": "Example translation"
   },
   "listCard": {
     "noStudyRecord": "No study record",

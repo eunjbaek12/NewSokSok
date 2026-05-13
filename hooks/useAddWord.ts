@@ -1,8 +1,7 @@
 import { useState, useCallback, useRef } from 'react';
 import * as Haptics from 'expo-haptics';
 import { addWord, updateWord } from '@/features/vocab';
-import { autoFillWord } from '@/lib/translation-api';
-import { searchNaverDict } from '@/lib/naver-dict-api';
+import { enrichWord } from '@/lib/translation-api';
 
 export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string) {
 
@@ -30,35 +29,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         try {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
-            const withTimeout = <T>(promise: Promise<T>, ms: number): Promise<T> => {
-                const timeout = new Promise<never>((_, reject) =>
-                    setTimeout(() => reject(new Error('timeout')), ms)
-                );
-                return Promise.race([promise, timeout]);
-            };
-
-            // Naver 우선 시도: 결과 있으면 거기서 끝 (사용자 Gemini 토큰 절약)
-            const naverResult = await withTimeout(
-                searchNaverDict(trimmed, sourceLang, targetLang),
-                3000
-            ).catch(() => null);
-
-            if (naverResult) {
-                if (naverResult.meaningKr) setMeaningKr(naverResult.meaningKr);
-                if (naverResult.definition) setDefinition(naverResult.definition);
-                if (naverResult.phonetic) setPhonetic(naverResult.phonetic);
-                if (naverResult.pos) setPos(naverResult.pos);
-                if (naverResult.exampleEn) setExampleEn(naverResult.exampleEn);
-                if (naverResult.exampleKr) setExampleKr(naverResult.exampleKr);
-                return;
-            }
-
-            // Naver 실패 시에만 AI fallback (apiKey 있으면 Gemini, 없으면 무료 사전)
-            const result = await withTimeout(
-                autoFillWord(trimmed, sourceLang, targetLang, apiKey),
-                5000
-            ).catch(() => null);
-
+            const result = await enrichWord(trimmed, sourceLang, targetLang, apiKey).catch(() => null);
             if (result) {
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);

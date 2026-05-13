@@ -1,17 +1,31 @@
 import { GeminiImageResultSchema, type GeminiImageResult } from '@shared/contracts';
 
-export const fetchWordsFromImage = async (base64Image: string, maxRetries = 3, signal?: AbortSignal, apiKey?: string): Promise<GeminiImageResult> => {
+const LANG_NAMES: Record<string, string> = {
+    en: 'English',
+    ko: 'Korean',
+    ja: 'Japanese',
+    zh: 'Chinese',
+};
+
+export const fetchWordsFromImage = async (
+    base64Image: string,
+    maxRetries = 3,
+    signal?: AbortSignal,
+    apiKey?: string,
+    sourceLang: string = 'en',
+): Promise<GeminiImageResult> => {
     const GEMINI_API_KEY = apiKey || '';
     if (!GEMINI_API_KEY) {
         throw new Error('Gemini API 키가 설정되어 있지 않습니다. 설정에서 API 키를 입력해주세요.');
     }
 
+    const langName = LANG_NAMES[sourceLang] || 'English';
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
     const payload = {
         contents: [
             {
                 parts: [
-                    { text: "이미지에서 모르는 영단어들을 찾아내고, 각 단어의 [단어, 뜻, 예문]을 JSON 배열 형태로 응답해줘. 응답은 오직 배열만 반환해야 해. JSON 포맷: [{\"word\": \"단어\", \"meaning\": \"뜻\", \"exampleSentence\": \"예문\"}]" },
+                    { text: `Extract every ${langName} word visible in the image, exactly as it appears (preserve surface form, do not lemmatize). Return ONLY a JSON array. Format: [{"word":"..."}]` },
                     {
                         inlineData: {
                             mimeType: "image/jpeg",

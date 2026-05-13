@@ -335,7 +335,7 @@
           },
           {
             "q": "What kinds of photos can be scanned?",
-            "a": "Both printed lists and handwritten notes work, but blurry photos or pages packed with too many words reduce accuracy. Photos with words paired with their meanings work best."
+            "a": "Both printed lists and handwritten notes work. The app only extracts English words from the photo — meanings, pronunciation, and examples are filled in automatically from Naver Dictionary and other sources.\n\nEven if the photo contains Korean translations, those are ignored in favor of dictionary data for consistency. Blurry photos or pages packed with too many words reduce recognition accuracy."
           },
           {
             "q": "How does the spreadsheet paste work?",
@@ -410,15 +410,31 @@
         "items": [
           {
             "q": "What do I need to use AI features?",
-            "a": "A Google Gemini API key. Go to Settings → AI, tap \"Get an API key\" to receive one for free, then paste it in."
+            "a": "Just one Google Gemini API key. Go to Settings → AI, tap \"Gemini API Key\", follow the link inside the modal to get a key, and paste it back."
+          },
+          {
+            "q": "How do I get an API key?",
+            "a": "A Google account is all you need — no separate signup.\n\n1. Open Settings → AI → \"Gemini API Key\".\n2. Tap \"Get a key from Google AI Studio →\" in the modal to open the browser.\n3. Press \"Create API key\" — a new key is generated.\n4. Copy the key (starts with AIza...), paste it into the app, and save."
+          },
+          {
+            "q": "Do I need to register a credit card?",
+            "a": "No. The Gemini API has a free tier, and you don't need to register a card or any payment info to use it for free."
+          },
+          {
+            "q": "Will I be charged automatically?",
+            "a": "No. Charges only happen if you explicitly link a Google Cloud Billing account and switch to the paid tier.\n\nOn the free tier, once you hit the quota you'll just get temporary error responses — no card will be charged."
+          },
+          {
+            "q": "How much can I use for free?",
+            "a": "Each model has a per-minute and per-day request limit. Normal study usage (adding words, AI word generation, photo scan) fits comfortably within the free tier.\n\nGoogle adjusts the exact numbers over time, so check the latest at ai.google.dev/pricing."
+          },
+          {
+            "q": "What happens when I hit the free quota?",
+            "a": "AI calls temporarily return an error for the rest of that window, and the quota resets automatically after a short period or the next day. Non-AI features (studying, editing word lists, etc.) keep working as usual."
           },
           {
             "q": "Where is my API key stored?",
             "a": "Only on this device — never sent to our servers. AI calls go directly from your device to Google."
-          },
-          {
-            "q": "Are there usage charges?",
-            "a": "Gemini is free up to a generous quota. Check your usage on Google AI Studio."
           }
         ]
       },

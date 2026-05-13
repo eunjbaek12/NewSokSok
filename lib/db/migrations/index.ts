@@ -24,6 +24,7 @@ import migration_010 from './010_add_word_languages';
 import migration_011 from './011_add_list_last_result';
 import migration_012 from './012_add_list_plan_filter';
 import migration_013 from './013_add_soft_delete';
+import migration_014 from './014_add_word_unique_term';
 
 export const MIGRATIONS: readonly Migration[] = [
   migration_001,
@@ -39,6 +40,7 @@ export const MIGRATIONS: readonly Migration[] = [
   migration_011,
   migration_012,
   migration_013,
+  migration_014,
 ];
 
 export const SCHEMA_VERSION = MIGRATIONS.length;

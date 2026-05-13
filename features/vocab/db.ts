@@ -408,16 +408,30 @@ export async function addBatchWords(
 ): Promise<Word[]> {
   const db = await getDb();
 
-  // Use sequential ordering for insertion position so they appear in correct order
   const now = Date.now();
   const listWords = await db.getAllAsync<any>('SELECT * FROM words WHERE listId = ? AND deletedAt IS NULL ORDER BY position ASC, createdAt DESC;', [listId]);
+
+  // 기존 단어 term set (정규화)
+  const normalize = (s: string) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+  const existingTerms = new Set(listWords.map((w: any) => normalize(w.term)));
+
+  // 기존 단어와의 중복 제거 + 배치 내 자체 중복 제거
+  const seen = new Set<string>();
+  const deduped = wordsData.filter(w => {
+    const key = normalize(w.term);
+    if (existingTerms.has(key) || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  if (deduped.length === 0) return [];
 
   let currentPosition = now;
   if (listWords.length > 0) {
     currentPosition = listWords[0].position - 1000;
   }
 
-  const newWords: Word[] = wordsData.map((w, index) => ({
+  const newWords: Word[] = deduped.map((w, index) => ({
     id: generateId(),
     listId,
     term: w.term,
@@ -432,7 +446,7 @@ export async function addBatchWords(
     isStarred: w.isStarred || false,
   }));
 
-  const bulkData = wordsData.map((w, index) => ({
+  const bulkData = deduped.map((w, index) => ({
     ...newWords[index],
     position: currentPosition - (index * 1000),
     createdAt: now + index,

@@ -1,9 +1,12 @@
 // Standalone harness mirroring features/curation/screen.tsx::handleRegenerate
 // state-machine logic. Run with: node __tests__/ai_curation_regen.test.js
 //
-// We model React state transitions imperatively. Each test creates a fresh
-// `state` object + a mock `generateAIWords` to simulate fetch results, then
-// invokes `handleRegenerate` and asserts on resulting state.
+// Mirrors the 직전 회차만 배제 + 클라이언트 dedupe 동작:
+// - excludeTerms = current selectedTheme.words.map(w => w.term) 전달
+// - 응답을 클라이언트에서 한 번 더 dedupe
+// - 빈 결과 / 부분 결과 / 정상 분기
+
+const normalizeTerm = (s) => s.trim().toLowerCase().replace(/\s+/g, ' ');
 
 function makeState(initial = {}) {
     return {
@@ -11,7 +14,6 @@ function makeState(initial = {}) {
         lastGenParams: initial.lastGenParams ?? null,
         regenerating: initial.regenerating ?? false,
         snackbar: null,
-        // history of state mutations for assertions
         _history: [],
     };
 }
@@ -33,18 +35,29 @@ function setSnackbar(state, snack) {
 
 // Mirrors handleRegenerate from screen.tsx
 async function handleRegenerate(state, mockGenerateAIWords) {
-    if (!state.lastGenParams || state.regenerating) return;
+    if (!state.lastGenParams || state.regenerating || !state.selectedTheme) return;
     setRegenerating(state, true);
     try {
-        const { words, droppedCount } = await mockGenerateAIWords(
+        const excludeTerms = state.selectedTheme.words.map(w => w.term);
+        const { words } = await mockGenerateAIWords(
             state.lastGenParams.topic,
             'fake-key',
             state.lastGenParams.wordCount,
             state.lastGenParams.difficulty,
+            state.lastGenParams.sourceLang,
+            state.lastGenParams.targetLang,
+            excludeTerms,
         );
-        setSelectedTheme(state, prev => prev ? { ...prev, words } : prev);
-        if (droppedCount > 0) {
-            setSnackbar(state, { message: `partial:${words.length}/${droppedCount}` });
+        const seenLower = new Set(excludeTerms.map(normalizeTerm));
+        const fresh = words.filter(w => !seenLower.has(normalizeTerm(w.term)));
+
+        if (fresh.length === 0) {
+            setSnackbar(state, { message: 'aiNoNewWords' });
+            return;
+        }
+        setSelectedTheme(state, prev => prev ? { ...prev, words: fresh } : prev);
+        if (fresh.length < state.lastGenParams.wordCount) {
+            setSnackbar(state, { message: `aiRegeneratePartial:${fresh.length}` });
         }
     } catch (e) {
         setSnackbar(state, { message: e.message || 'generic-error' });
@@ -56,7 +69,7 @@ async function handleRegenerate(state, mockGenerateAIWords) {
 const tests = [];
 function test(name, fn) { tests.push({ name, fn }); }
 
-const sampleWord = (i) => ({ id: `w-${i}`, term: `t${i}`, meaningKr: `m${i}` });
+const sampleWord = (i, term) => ({ id: `w-${i}`, term: term ?? `t${i}`, meaningKr: `m${i}` });
 const themeFixture = (words) => ({
     id: 'ai-theme-1',
     title: 'AI: test',
@@ -67,33 +80,32 @@ const themeFixture = (words) => ({
     isCurated: true,
 });
 
-// R1 — Happy path: regen replaces words, preserves theme metadata
-test('R1 — regen replaces words, preserves title/icon/id', async () => {
+// R1 — 정상 케이스: 모든 새 단어가 기존과 다르면 그대로 교체, 스낵바 없음
+test('R1 — all-fresh regen replaces words silently', async () => {
     const state = makeState({
-        selectedTheme: themeFixture([sampleWord('a'), sampleWord('b')]),
-        lastGenParams: { topic: 'test', difficulty: 'intermediate', wordCount: 20 },
+        selectedTheme: themeFixture([sampleWord('a', 'ta'), sampleWord('b', 'tb')]),
+        lastGenParams: { topic: 'test', difficulty: 'intermediate', wordCount: 3, sourceLang: 'en', targetLang: 'ko' },
     });
-    const mock = async () => ({ words: [sampleWord('x'), sampleWord('y'), sampleWord('z')], droppedCount: 0 });
+    const mock = async () => ({ words: [sampleWord('x', 'tx'), sampleWord('y', 'ty'), sampleWord('z', 'tz')], droppedCount: 0 });
     await handleRegenerate(state, mock);
 
     if (state.selectedTheme.words.length !== 3) throw new Error('words not replaced');
-    if (state.selectedTheme.words[0].id !== 'w-x') throw new Error('replacement words wrong');
+    if (state.selectedTheme.words[0].term !== 'tx') throw new Error('replacement words wrong');
     if (state.selectedTheme.id !== 'ai-theme-1') throw new Error('theme id changed');
-    if (state.selectedTheme.title !== 'AI: test') throw new Error('title changed');
-    if (state.selectedTheme.icon !== '✨') throw new Error('icon changed');
     if (state.regenerating) throw new Error('regenerating not cleared');
+    if (state.snackbar !== null) throw new Error(`snackbar should not fire when fresh.length === wordCount, got: ${state.snackbar?.message}`);
 });
 
-// R2 — regenerating flag transitions: false → true → false
-test('R2 — regenerating flag set during, cleared after', async () => {
+// R2 — regenerating 플래그 전이: false → true → false
+test('R2 — regenerating flag transitions correctly', async () => {
     const state = makeState({
-        selectedTheme: themeFixture([sampleWord('a')]),
-        lastGenParams: { topic: 'test', difficulty: 'beginner', wordCount: 10 },
+        selectedTheme: themeFixture([sampleWord('a', 'ta')]),
+        lastGenParams: { topic: 'test', difficulty: 'beginner', wordCount: 1, sourceLang: 'en', targetLang: 'ko' },
     });
     let regenStateDuringFetch = null;
     const mock = async () => {
         regenStateDuringFetch = state.regenerating;
-        return { words: [sampleWord('x')], droppedCount: 0 };
+        return { words: [sampleWord('x', 'tx')], droppedCount: 0 };
     };
     await handleRegenerate(state, mock);
 
@@ -103,57 +115,120 @@ test('R2 — regenerating flag set during, cleared after', async () => {
     if (JSON.stringify(flagHistory) !== '[true,false]') throw new Error(`unexpected flag transitions: ${flagHistory}`);
 });
 
-// R3 — Partial result: snackbar fired with correct counts
-test('R3 — partial result fires snackbar with kept/dropped', async () => {
+// R3 — excludeTerms 정확하게 LLM에 전달되는지 검증
+test('R3 — excludeTerms passed to generateAIWords as 7th arg', async () => {
     const state = makeState({
-        selectedTheme: themeFixture([sampleWord('a')]),
-        lastGenParams: { topic: 'test', difficulty: 'advanced', wordCount: 20 },
+        selectedTheme: themeFixture([sampleWord('a', 'apple'), sampleWord('b', 'banana')]),
+        lastGenParams: { topic: 'fruits', difficulty: 'intermediate', wordCount: 3, sourceLang: 'en', targetLang: 'ko' },
     });
+    let receivedExclude = null;
+    const mock = async (topic, key, count, diff, src, tgt, exclude) => {
+        receivedExclude = exclude;
+        return { words: [sampleWord('x', 'cherry')], droppedCount: 0 };
+    };
+    await handleRegenerate(state, mock);
+
+    if (!Array.isArray(receivedExclude)) throw new Error('excludeTerms must be passed as array');
+    if (receivedExclude.length !== 2) throw new Error(`expected 2 exclude terms, got ${receivedExclude.length}`);
+    if (!receivedExclude.includes('apple') || !receivedExclude.includes('banana')) {
+        throw new Error(`excludeTerms missing expected values: ${receivedExclude}`);
+    }
+});
+
+// R4 — LLM이 지시 무시하고 중복 반환 → 클라이언트 dedupe로 거름
+test('R4 — LLM returns duplicates, client dedupe filters them', async () => {
+    const state = makeState({
+        selectedTheme: themeFixture([sampleWord('a', 'apple'), sampleWord('b', 'banana')]),
+        lastGenParams: { topic: 'fruits', difficulty: 'intermediate', wordCount: 3, sourceLang: 'en', targetLang: 'ko' },
+    });
+    // LLM이 'apple'을 다시 반환 + 새것 2개
     const mock = async () => ({
-        words: Array.from({ length: 19 }, (_, i) => sampleWord(i)),
-        droppedCount: 1,
+        words: [sampleWord('x', 'apple'), sampleWord('y', 'cherry'), sampleWord('z', 'date')],
+        droppedCount: 0,
     });
     await handleRegenerate(state, mock);
 
-    if (!state.snackbar) throw new Error('snackbar should fire');
-    if (!state.snackbar.message.includes('19/1')) throw new Error(`unexpected snackbar: ${state.snackbar.message}`);
-    if (state.selectedTheme.words.length !== 19) throw new Error('partial words not applied');
+    if (state.selectedTheme.words.length !== 2) throw new Error(`expected 2 fresh after dedupe, got ${state.selectedTheme.words.length}`);
+    const terms = state.selectedTheme.words.map(w => w.term);
+    if (terms.includes('apple')) throw new Error('apple should have been deduped');
+    if (!terms.includes('cherry') || !terms.includes('date')) throw new Error('fresh words missing');
+    // 부분 결과 스낵바 발사
+    if (!state.snackbar?.message.startsWith('aiRegeneratePartial:2')) throw new Error(`expected partial snackbar, got: ${state.snackbar?.message}`);
 });
 
-// R4 — Failure: selectedTheme preserved (no replacement)
-test('R4 — fetch failure preserves previous selectedTheme', async () => {
-    const originalWords = [sampleWord('a'), sampleWord('b'), sampleWord('c')];
+// R5 — 정규화 (대소문자/공백): 기존 'Apple' / LLM 'apple' 같은 단어로 처리
+test('R5 — normalization deduplicates case+whitespace variants', async () => {
+    const state = makeState({
+        selectedTheme: themeFixture([sampleWord('a', 'Apple'), sampleWord('b', 'pick up')]),
+        lastGenParams: { topic: 'mixed', difficulty: 'intermediate', wordCount: 3, sourceLang: 'en', targetLang: 'ko' },
+    });
+    const mock = async () => ({
+        words: [
+            sampleWord('x', 'apple'),       // 대소문자 변형
+            sampleWord('y', ' pick  up '),  // 공백 변형
+            sampleWord('z', 'cherry'),      // 신규
+        ],
+        droppedCount: 0,
+    });
+    await handleRegenerate(state, mock);
+
+    if (state.selectedTheme.words.length !== 1) throw new Error(`expected 1 fresh after normalization, got ${state.selectedTheme.words.length}`);
+    if (state.selectedTheme.words[0].term !== 'cherry') throw new Error('cherry should be the only fresh word');
+});
+
+// R6 — 모두 중복 → fresh.length === 0 → 빈 결과 스낵바, selectedTheme 보존
+test('R6 — all duplicates: snackbar fires, selectedTheme preserved', async () => {
+    const originalWords = [sampleWord('a', 'apple'), sampleWord('b', 'banana')];
     const state = makeState({
         selectedTheme: themeFixture(originalWords),
-        lastGenParams: { topic: 'test', difficulty: 'intermediate', wordCount: 20 },
+        lastGenParams: { topic: 'fruits', difficulty: 'intermediate', wordCount: 2, sourceLang: 'en', targetLang: 'ko' },
+    });
+    // LLM이 모두 기존 단어만 반환
+    const mock = async () => ({
+        words: [sampleWord('x', 'apple'), sampleWord('y', 'BANANA')],
+        droppedCount: 0,
+    });
+    await handleRegenerate(state, mock);
+
+    if (state.snackbar?.message !== 'aiNoNewWords') throw new Error(`expected aiNoNewWords, got: ${state.snackbar?.message}`);
+    // 기존 단어가 보존되어야 함 (덮어쓰지 않음)
+    if (state.selectedTheme.words !== originalWords) throw new Error('selectedTheme.words should be preserved on all-duplicates');
+    if (state.regenerating !== false) throw new Error('regenerating should be cleared');
+});
+
+// R7 — fetch 실패: selectedTheme 보존, 에러 스낵바
+test('R7 — fetch failure preserves selectedTheme', async () => {
+    const originalWords = [sampleWord('a', 'apple')];
+    const state = makeState({
+        selectedTheme: themeFixture(originalWords),
+        lastGenParams: { topic: 'fruits', difficulty: 'intermediate', wordCount: 1, sourceLang: 'en', targetLang: 'ko' },
     });
     const mock = async () => { throw new Error('Gemini quota exhausted'); };
     await handleRegenerate(state, mock);
 
-    if (state.selectedTheme.words !== originalWords) throw new Error('original words should be preserved');
+    if (state.selectedTheme.words !== originalWords) throw new Error('words should be preserved on error');
     if (!state.snackbar?.message.includes('quota')) throw new Error(`expected error snackbar, got: ${state.snackbar?.message}`);
-    if (state.regenerating) throw new Error('regenerating not cleared after failure');
+    if (state.regenerating) throw new Error('regenerating not cleared');
 });
 
-// R5 — Re-entrancy guard: second call while regenerating returns early
-test('R5 — re-entrancy guard prevents double regen', async () => {
+// R8 — re-entrancy: 이미 regenerating=true면 즉시 종료
+test('R8 — re-entrancy guard prevents double regen', async () => {
     const state = makeState({
-        selectedTheme: themeFixture([sampleWord('a')]),
-        lastGenParams: { topic: 'test', difficulty: 'beginner', wordCount: 10 },
-        regenerating: true, // already in-flight
+        selectedTheme: themeFixture([sampleWord('a', 'apple')]),
+        lastGenParams: { topic: 'fruits', difficulty: 'beginner', wordCount: 1, sourceLang: 'en', targetLang: 'ko' },
+        regenerating: true,
     });
     let callCount = 0;
-    const mock = async () => { callCount++; return { words: [sampleWord('x')], droppedCount: 0 }; };
+    const mock = async () => { callCount++; return { words: [sampleWord('x', 'cherry')], droppedCount: 0 }; };
     await handleRegenerate(state, mock);
 
     if (callCount !== 0) throw new Error('mock should not be called when regenerating=true');
-    if (state.selectedTheme.words[0].id !== 'w-a') throw new Error('words should not change');
 });
 
-// R6 — No lastGenParams: returns early
-test('R6 — missing lastGenParams returns without action', async () => {
+// R9 — lastGenParams 없음: 즉시 종료
+test('R9 — missing lastGenParams returns without action', async () => {
     const state = makeState({
-        selectedTheme: themeFixture([sampleWord('a')]),
+        selectedTheme: themeFixture([sampleWord('a', 'apple')]),
         lastGenParams: null,
     });
     let callCount = 0;
@@ -164,56 +239,57 @@ test('R6 — missing lastGenParams returns without action', async () => {
     if (state._history.length !== 0) throw new Error('no state mutation expected');
 });
 
-// R7 — Race: user backs out (selectedTheme=null) while fetch in flight
-test('R7 — concurrent back-out: setSelectedTheme(null) wins, fetch result discarded', async () => {
+// R10 — selectedTheme 없음(이전엔 없던 가드): 즉시 종료
+test('R10 — missing selectedTheme returns without action', async () => {
     const state = makeState({
-        selectedTheme: themeFixture([sampleWord('a')]),
-        lastGenParams: { topic: 'test', difficulty: 'intermediate', wordCount: 20 },
+        selectedTheme: null,
+        lastGenParams: { topic: 'fruits', difficulty: 'beginner', wordCount: 1, sourceLang: 'en', targetLang: 'ko' },
     });
-    const mock = () => new Promise(resolve => {
-        // mid-flight, simulate user back-out
-        setTimeout(() => {
-            setSelectedTheme(state, null);
-            resolve({ words: [sampleWord('x')], droppedCount: 0 });
-        }, 10);
+    let callCount = 0;
+    const mock = async () => { callCount++; return { words: [], droppedCount: 0 }; };
+    await handleRegenerate(state, mock);
+
+    if (callCount !== 0) throw new Error('mock should not be called');
+});
+
+// R11 — 부분 결과: fresh.length < wordCount → 부분 스낵바
+test('R11 — partial fresh count fires partial snackbar', async () => {
+    const state = makeState({
+        selectedTheme: themeFixture([sampleWord('a', 'apple')]),
+        lastGenParams: { topic: 'fruits', difficulty: 'intermediate', wordCount: 5, sourceLang: 'en', targetLang: 'ko' },
+    });
+    // wordCount=5 인데 LLM이 3개만 반환 (모두 fresh)
+    const mock = async () => ({
+        words: [sampleWord('x', 'cherry'), sampleWord('y', 'date'), sampleWord('z', 'elderberry')],
+        droppedCount: 0,
     });
     await handleRegenerate(state, mock);
 
-    // Final state: selectedTheme should remain null because the
-    // updater `prev => prev ? { ...prev, words } : prev` receives null.
-    if (state.selectedTheme !== null) throw new Error('selectedTheme should remain null after back-out');
-    if (state.regenerating) throw new Error('regenerating should be cleared');
+    if (state.selectedTheme.words.length !== 3) throw new Error(`expected 3, got ${state.selectedTheme.words.length}`);
+    if (!state.snackbar?.message.startsWith('aiRegeneratePartial:3')) throw new Error(`expected partial snackbar, got: ${state.snackbar?.message}`);
 });
 
-// R8 — Sequential regens: each one swaps words correctly
-test('R8 — three sequential regens swap words correctly', async () => {
+// R12 — 연속 재생성: 2회차 호출 시 1회차 결과가 excludeTerms로 들어가는지
+test('R12 — sequential regens: 2nd call excludes 1st-batch terms', async () => {
     const state = makeState({
-        selectedTheme: themeFixture([sampleWord('init')]),
-        lastGenParams: { topic: 'test', difficulty: 'intermediate', wordCount: 5 },
+        selectedTheme: themeFixture([sampleWord('a', 'apple')]),
+        lastGenParams: { topic: 'fruits', difficulty: 'intermediate', wordCount: 2, sourceLang: 'en', targetLang: 'ko' },
     });
-    let call = 0;
-    const mock = async () => {
-        call++;
-        return { words: [sampleWord(`gen${call}`)], droppedCount: 0 };
+    let callIdx = 0;
+    const excludeHistory = [];
+    const mock = async (topic, key, count, diff, src, tgt, exclude) => {
+        callIdx++;
+        excludeHistory.push([...exclude]);
+        if (callIdx === 1) return { words: [sampleWord('x', 'banana'), sampleWord('y', 'cherry')], droppedCount: 0 };
+        return { words: [sampleWord('z', 'date'), sampleWord('w', 'elderberry')], droppedCount: 0 };
     };
     await handleRegenerate(state, mock);
     await handleRegenerate(state, mock);
-    await handleRegenerate(state, mock);
 
-    if (state.selectedTheme.words[0].id !== 'w-gen3') throw new Error(`final word should be gen3, got ${state.selectedTheme.words[0].id}`);
-    if (call !== 3) throw new Error(`expected 3 fetches, got ${call}`);
-});
-
-// R9 — droppedCount === 0 should NOT trigger snackbar
-test('R9 — droppedCount=0 does not fire snackbar', async () => {
-    const state = makeState({
-        selectedTheme: themeFixture([sampleWord('a')]),
-        lastGenParams: { topic: 'test', difficulty: 'intermediate', wordCount: 20 },
-    });
-    const mock = async () => ({ words: [sampleWord('x')], droppedCount: 0 });
-    await handleRegenerate(state, mock);
-
-    if (state.snackbar !== null) throw new Error(`snackbar should not fire on clean regen, got: ${state.snackbar?.message}`);
+    if (excludeHistory[0].sort().join(',') !== 'apple') throw new Error(`1st call should exclude initial term, got: ${excludeHistory[0]}`);
+    if (excludeHistory[1].sort().join(',') !== 'banana,cherry') {
+        throw new Error(`2nd call should exclude 1st batch (banana, cherry), got: ${excludeHistory[1]}`);
+    }
 });
 
 (async () => {

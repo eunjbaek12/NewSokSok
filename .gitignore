@@ -57,3 +57,6 @@ app/src/
 *.bak
 *.log
 debug.log
+
+# Claude Code runtime files
+.claude/scheduled_tasks.lock

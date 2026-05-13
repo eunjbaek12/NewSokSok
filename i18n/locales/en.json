@@ -206,6 +206,7 @@
     "aiGoToSettings": "Go to Settings",
     "aiTopicLabel": "Topic",
     "aiTopicPlaceholder": "e.g., business meetings, café orders",
+    "aiLanguagePairLabel": "Language pair",
     "aiDifficultyLabel": "Difficulty",
     "aiWordCount": "Word Count",
     "aiWordUnit": ""

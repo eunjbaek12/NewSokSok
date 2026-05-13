@@ -21,16 +21,14 @@ import {
 } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { VocaList, Word } from '@/lib/types';
-import { AIWordResultSchema, AI_GENERATED_TAG } from '@shared/contracts';
+import { AIWordResultSchema, AI_GENERATED_TAG, type AiDifficulty } from '@shared/contracts';
 import { curationPresets } from '@/constants/curationData';
 
-import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
 import WordDetailModal from '@/components/WordDetailModal';
 import { Snackbar } from '@/components/ui/Snackbar';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
-
-type AiDifficulty = 'beginner' | 'intermediate' | 'advanced';
 
 const DIFFICULTY_PROMPT: Record<AiDifficulty, string> = {
     beginner: '초급 수준의 쉬운',
@@ -264,11 +262,12 @@ export default function CurationScreen() {
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
     const { user } = useAuth();
-    const { inputSettings, apiKey } = useSettings();
+    const { apiKey, aiCurationSettings, updateAiCurationSettings } = useSettings();
+    const { sourceLang: aiSourceLang, targetLang: aiTargetLang, difficulty: aiDifficulty, wordCount: aiWordCount } = aiCurationSettings;
     const [aiModalVisible, setAiModalVisible] = useState(false);
     const [aiTopic, setAiTopic] = useState('');
-    const [aiWordCount, setAiWordCount] = useState(20);
-    const [aiDifficulty, setAiDifficulty] = useState<AiDifficulty>('intermediate');
+    const [aiSourceLangPickerOpen, setAiSourceLangPickerOpen] = useState(false);
+    const [aiTargetLangPickerOpen, setAiTargetLangPickerOpen] = useState(false);
     const [lastGenParams, setLastGenParams] = useState<{ topic: string; difficulty: AiDifficulty; wordCount: number; sourceLang: string; targetLang: string } | null>(null);
     const [regenerating, setRegenerating] = useState(false);
 
@@ -505,8 +504,8 @@ export default function CurationScreen() {
         setGenerating(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         const topic = aiTopic.trim();
-        const sourceLang = inputSettings.sourceLang;
-        const targetLang = inputSettings.targetLang;
+        const sourceLang = aiSourceLang;
+        const targetLang = aiTargetLang;
         try {
             const { words, droppedCount } = await generateAIWords(topic, apiKey, aiWordCount, aiDifficulty, sourceLang, targetLang);
             const newTheme: VocaList = {
@@ -1170,6 +1169,37 @@ export default function CurationScreen() {
                     </View>
 
                     <View style={{ gap: 6 }}>
+                        <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiLanguagePairLabel')}</Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                            <Pressable
+                                onPress={() => !generating && setAiSourceLangPickerOpen(true)}
+                                style={{
+                                    flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
+                                    paddingVertical: 10, borderRadius: 12,
+                                    backgroundColor: colors.surfaceSecondary,
+                                }}
+                            >
+                                <Text style={{ fontSize: 14 }}>{getLanguageFlag(aiSourceLang)}</Text>
+                                <Text style={{ fontSize: 14, fontFamily: 'Pretendard_600SemiBold', color: colors.text }}>{getLanguageLabel(aiSourceLang, t)}</Text>
+                                <Ionicons name="chevron-down" size={14} color={colors.textTertiary} />
+                            </Pressable>
+                            <Ionicons name="arrow-forward" size={16} color={colors.textTertiary} />
+                            <Pressable
+                                onPress={() => !generating && setAiTargetLangPickerOpen(true)}
+                                style={{
+                                    flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
+                                    paddingVertical: 10, borderRadius: 12,
+                                    backgroundColor: colors.surfaceSecondary,
+                                }}
+                            >
+                                <Text style={{ fontSize: 14 }}>{getLanguageFlag(aiTargetLang)}</Text>
+                                <Text style={{ fontSize: 14, fontFamily: 'Pretendard_600SemiBold', color: colors.text }}>{getLanguageLabel(aiTargetLang, t)}</Text>
+                                <Ionicons name="chevron-down" size={14} color={colors.textTertiary} />
+                            </Pressable>
+                        </View>
+                    </View>
+
+                    <View style={{ gap: 6 }}>
                         <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiDifficultyLabel')}</Text>
                         <View style={{ flexDirection: 'row', gap: 8 }}>
                             {([
@@ -1179,7 +1209,7 @@ export default function CurationScreen() {
                             ]).map(d => (
                                 <Pressable
                                     key={d.key}
-                                    onPress={() => !generating && setAiDifficulty(d.key)}
+                                    onPress={() => !generating && updateAiCurationSettings({ difficulty: d.key })}
                                     style={{
                                         flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
                                         backgroundColor: aiDifficulty === d.key ? colors.primaryButton : colors.surfaceSecondary,
@@ -1197,10 +1227,10 @@ export default function CurationScreen() {
                     <View style={{ gap: 6 }}>
                         <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiWordCount')}</Text>
                         <View style={{ flexDirection: 'row', gap: 8 }}>
-                            {[10, 20, 30, 50].map(n => (
+                            {([10, 20, 30, 50] as const).map(n => (
                                 <Pressable
                                     key={n}
-                                    onPress={() => !generating && setAiWordCount(n)}
+                                    onPress={() => !generating && updateAiCurationSettings({ wordCount: n })}
                                     style={{
                                         flex: 1, paddingVertical: 10, borderRadius: 12, alignItems: 'center',
                                         backgroundColor: aiWordCount === n ? colors.primaryButton : colors.surfaceSecondary,
@@ -1216,6 +1246,34 @@ export default function CurationScreen() {
                     </View>
                 </View>
             </DialogModal>
+
+            <ModalPicker
+                visible={aiSourceLangPickerOpen}
+                onClose={() => setAiSourceLangPickerOpen(false)}
+                title={t('addWord.inputLanguageSelect')}
+                options={SUPPORTED_LANGUAGES
+                    .filter(l => l.code !== aiTargetLang)
+                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                selectedValue={aiSourceLang}
+                onSelect={(code: string) => {
+                    updateAiCurationSettings({ sourceLang: code as LanguageCode });
+                    setAiSourceLangPickerOpen(false);
+                }}
+            />
+
+            <ModalPicker
+                visible={aiTargetLangPickerOpen}
+                onClose={() => setAiTargetLangPickerOpen(false)}
+                title={t('addWord.meaningLanguageSelect')}
+                options={SUPPORTED_LANGUAGES
+                    .filter(l => l.code !== aiSourceLang)
+                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                selectedValue={aiTargetLang}
+                onSelect={(code: string) => {
+                    updateAiCurationSettings({ targetLang: code as LanguageCode });
+                    setAiTargetLangPickerOpen(false);
+                }}
+            />
 
             <Snackbar
                 visible={snackbar.visible}

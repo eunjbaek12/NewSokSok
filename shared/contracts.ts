@@ -66,6 +66,20 @@ export const StudySettingsSchema = z.object({
 });
 export type StudySettings = z.infer<typeof StudySettingsSchema>;
 
+export const AiDifficultySchema = z.enum(['beginner', 'intermediate', 'advanced']);
+export type AiDifficulty = z.infer<typeof AiDifficultySchema>;
+
+export const AiWordCountSchema = z.union([z.literal(10), z.literal(20), z.literal(30), z.literal(50)]);
+export type AiWordCount = z.infer<typeof AiWordCountSchema>;
+
+export const AiCurationSettingsSchema = z.object({
+  sourceLang: LanguageCodeSchema.default('en'),
+  targetLang: LanguageCodeSchema.default('ko'),
+  difficulty: AiDifficultySchema.default('intermediate'),
+  wordCount: AiWordCountSchema.default(20),
+});
+export type AiCurationSettings = z.infer<typeof AiCurationSettingsSchema>;
+
 export const AutoPlaySettingsSchema = z.object({
   filter: z.enum(['all', 'learning', 'memorized']).default('all'),
   isStarred: z.boolean().default(false),

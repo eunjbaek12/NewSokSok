@@ -15,6 +15,7 @@ const migration: Migration = {
         icon TEXT
       );
     `);
+    // NOTE: 컬럼 exampleEn/meaningKr은 레거시 명칭. 실제로는 sourceLang 예문/targetLang 뜻을 담음. shared/contracts.ts WordSchema 주석 참고.
     await db.execAsync(`
       CREATE TABLE words (
         id TEXT PRIMARY KEY NOT NULL,

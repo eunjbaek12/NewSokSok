@@ -125,6 +125,10 @@ export type UILocaleCode = z.infer<typeof UILocaleCodeSchema>;
 // Word / VocaList (local SQLite-mirrored)
 // ============================================================================
 
+// NOTE: 필드명 `meaningKr` / `exampleEn` / `exampleKr`은 레거시(한국어 전용 시절 잔재)이며 언어와 무관.
+// 실제 의미: meaningKr = targetLang 뜻, exampleEn = sourceLang 예문, exampleKr = targetLang 예문 번역.
+// SQLite 컬럼·Supabase 컬럼·sync 매핑·AI 응답 스키마가 전부 이 이름에 묶여 있어 단독 리네이밍 보류.
+// 새 AI 프롬프트/필드 추가 시 같은 함정 주의 — `lib/ai/gemini-client.ts:analyzeWord` 패턴 참고.
 export const WordSchema = z.object({
   id: z.string(),
   term: z.string(),
@@ -210,14 +214,6 @@ export const AIWordResultSchema = z.object({
   tags: z.array(z.string().max(60)).optional(),
 });
 export type AIWordResult = z.infer<typeof AIWordResultSchema>;
-
-export const AIThemeGenerateResponseSchema = z.object({
-  title: z.string(),
-  words: z.array(AIWordResultSchema),
-});
-export type AIThemeGenerateResponse = z.infer<typeof AIThemeGenerateResponseSchema>;
-
-export const AIWordResultArraySchema = z.array(AIWordResultSchema);
 
 export const AIAutoFillResultSchema = z.object({
   definition: z.string().max(1500),

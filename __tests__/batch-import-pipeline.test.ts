@@ -9,8 +9,6 @@
 jest.mock('expo/fetch', () => ({ fetch: jest.fn() }));
 jest.mock('../lib/ai/gemini-client', () => ({
     analyzeWord: jest.fn(),
-    generateThemeList: jest.fn(),
-    generateMoreWords: jest.fn(),
 }));
 jest.mock('../lib/naver-dict-api', () => ({
     searchNaverDict: jest.fn(),

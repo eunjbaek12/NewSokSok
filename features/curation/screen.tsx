@@ -57,6 +57,8 @@ const PHONETIC_INSTRUCTION: Record<string, string> = {
     zh: '병음 (성조 포함, 예: nǐ hǎo)',
 };
 
+// NOTE: 응답 필드 meaningKr/exampleEn/exampleKr은 레거시 명칭. 실제로는 targetLang 뜻/sourceLang 예문/targetLang 예문 번역.
+// 한국어 라벨(`${tgtLabel} 뜻` 등)로 모델에 가이드를 주므로 비-한국어 쌍에서도 동작. 새 함수 추가 시 같은 함정 주의.
 function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty, sourceLang: string, targetLang: string, excludeTerms?: string[]): string {
     const diffLabel = DIFFICULTY_PROMPT[difficulty];
     const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;

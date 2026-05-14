@@ -1,11 +1,5 @@
 import { GoogleGenAI, Type } from '@google/genai';
-import {
-  AIWordResultSchema,
-  AIThemeGenerateResponseSchema,
-  AIWordResultArraySchema,
-  type AIWordResult,
-  type AIThemeGenerateResponse,
-} from '@shared/contracts';
+import { AIWordResultSchema, type AIWordResult } from '@shared/contracts';
 import { fromZodError } from 'zod-validation-error';
 
 const MODEL_NAME = 'gemini-2.5-flash-lite';
@@ -57,23 +51,30 @@ export async function analyzeWord(
       1. A simple definition in ${srcName}.
       2. One example sentence in ${srcName}.
       3. The meaning translated into ${tgtName}.
-      4. A "mnemonic" (암기법) to help remember the word easily, written in ${tgtName}.
+      4. A "mnemonic" to help remember the word easily, written in ${tgtName}.
       5. The part of speech (pos, e.g., noun, verb).
-      6. The phonetic transcription (발음기호).
-      7. A translation of the example sentence in ${tgtName}.`,
+      6. The phonetic transcription.
+      7. A translation of the example sentence in ${tgtName}.
+
+      IMPORTANT — Field naming is legacy and MUST be ignored:
+      - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
+      - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
+      - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
+      - "mnemonic" must be written in ${tgtName}.
+      Do not output ${srcName === 'Korean' || tgtName === 'Korean' ? 'any other language' : 'Korean'} unless ${tgtName} or ${srcName} is Korean.`,
     config: {
       responseMimeType: 'application/json',
       responseSchema: {
         type: Type.OBJECT,
         properties: {
-          term: { type: Type.STRING },
-          definition: { type: Type.STRING },
-          exampleEn: { type: Type.STRING },
-          exampleKr: { type: Type.STRING },
-          meaningKr: { type: Type.STRING },
-          mnemonic: { type: Type.STRING },
-          pos: { type: Type.STRING },
-          phonetic: { type: Type.STRING },
+          term: { type: Type.STRING, description: `The original word in ${srcName}` },
+          definition: { type: Type.STRING, description: `A simple definition written in ${srcName}` },
+          exampleEn: { type: Type.STRING, description: `An example sentence written in ${srcName} (field name is legacy; not necessarily English)` },
+          exampleKr: { type: Type.STRING, description: `The example sentence translated into ${tgtName} (field name is legacy; not necessarily Korean)` },
+          meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean)` },
+          mnemonic: { type: Type.STRING, description: `A memory aid written in ${tgtName}` },
+          pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb)' },
+          phonetic: { type: Type.STRING, description: 'Phonetic transcription (IPA)' },
         },
         required: ['term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
       },
@@ -83,85 +84,3 @@ export async function analyzeWord(
   return parseAIJson<AIWordResult>(response.text, AIWordResultSchema, 'analyzeWord');
 }
 
-export async function generateThemeList(
-  theme: string,
-  difficulty: string,
-  count: number,
-  existingWords: string[],
-  apiKey: string,
-): Promise<AIThemeGenerateResponse> {
-  const ai = getAIClient(apiKey);
-  const exclusionNote = existingWords.length > 0
-    ? `\nIMPORTANT: Do NOT include any of the following words that already exist: ${existingWords.slice(0, 500).join(', ')}.`
-    : '';
-  const response = await ai.models.generateContent({
-    model: MODEL_NAME,
-    contents: `Generate a vocabulary list for the theme: "${theme}". Level: ${difficulty}.
-      Return a JSON object with a suitable title for the list and an array of ${count} relevant English words suitable for this level.
-      For each word, provide the definition, an example sentence, and Korean meaning.${exclusionNote}`,
-    config: {
-      responseMimeType: 'application/json',
-      responseSchema: {
-        type: Type.OBJECT,
-        properties: {
-          title: {
-            type: Type.STRING,
-            description: 'A creative title for the vocabulary list',
-          },
-          words: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              properties: {
-                term: { type: Type.STRING },
-                definition: { type: Type.STRING },
-                exampleEn: { type: Type.STRING },
-                meaningKr: { type: Type.STRING },
-              },
-              required: ['term', 'definition', 'exampleEn', 'meaningKr'],
-            },
-          },
-        },
-        required: ['title', 'words'],
-      },
-    },
-  });
-
-  return parseAIJson<AIThemeGenerateResponse>(response.text, AIThemeGenerateResponseSchema, 'generateThemeList');
-}
-
-export async function generateMoreWords(
-  theme: string,
-  difficulty: string,
-  count: number,
-  existingWords: string[],
-  apiKey: string,
-): Promise<AIWordResult[]> {
-  const ai = getAIClient(apiKey);
-  const exclusionList = existingWords.slice(0, 300).join(', ');
-
-  const response = await ai.models.generateContent({
-    model: MODEL_NAME,
-    contents: `Generate ${count} NEW unique English vocabulary words related to the theme "${theme}" at a ${difficulty} level.
-      IMPORTANT: Do NOT include any of the following words: ${exclusionList}.
-      Return a JSON array of objects.`,
-    config: {
-      responseMimeType: 'application/json',
-      responseSchema: {
-        type: Type.ARRAY,
-        items: {
-          type: Type.OBJECT,
-          properties: {
-            term: { type: Type.STRING },
-            definition: { type: Type.STRING },
-            exampleEn: { type: Type.STRING },
-            meaningKr: { type: Type.STRING },
-          },
-          required: ['term', 'definition', 'exampleEn', 'meaningKr'],
-        },
-      },
-    },
-  });
-
-  return parseAIJson<AIWordResult[]>(response.text, AIWordResultArraySchema, 'generateMoreWords');
-}

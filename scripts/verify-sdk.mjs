@@ -33,38 +33,4 @@ console.log(`  HTTP OK (${Date.now() - t0}ms)`);
 console.log(`  term=${parsed1.term} pos=${parsed1.pos} phonetic=${parsed1.phonetic}`);
 console.log(`  meaningKr=${parsed1.meaningKr}`);
 
-console.log(`\n[B] generateThemeList 시뮬레이션 — 테마 생성기 경로`);
-const t1 = Date.now();
-const r2 = await ai.models.generateContent({
-  model: MODEL_NAME,
-  contents: `Generate a vocabulary list for the theme: "airport". Level: beginner. Return a JSON object with title and array of 3 English words with definition, exampleEn, meaningKr.`,
-  config: {
-    responseMimeType: 'application/json',
-    responseSchema: {
-      type: Type.OBJECT,
-      properties: {
-        title: { type: Type.STRING },
-        words: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              term: { type: Type.STRING },
-              definition: { type: Type.STRING },
-              exampleEn: { type: Type.STRING },
-              meaningKr: { type: Type.STRING },
-            },
-            required: ['term', 'definition', 'exampleEn', 'meaningKr'],
-          },
-        },
-      },
-      required: ['title', 'words'],
-    },
-  },
-});
-const parsed2 = JSON.parse(r2.text);
-console.log(`  HTTP OK (${Date.now() - t1}ms)`);
-console.log(`  title="${parsed2.title}" wordCount=${parsed2.words.length}`);
-console.log(`  sample: ${parsed2.words[0].term} = ${parsed2.words[0].meaningKr}`);
-
-console.log(`\n✅ SDK paths PASSED — analyzeWord & generateThemeList 모두 새 모델로 동작`);
+console.log(`\n✅ SDK path PASSED — analyzeWord 새 모델로 동작`);

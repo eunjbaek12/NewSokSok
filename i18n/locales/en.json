@@ -264,7 +264,9 @@
     "faq": "FAQ",
     "faqDesc": "Find answers to common questions",
     "terms": "Terms of Service",
-    "termsDesc": "Read our terms and conditions"
+    "termsDesc": "Read our terms and conditions",
+    "privacy": "Privacy Policy",
+    "privacyDesc": "How we collect, use, and store your data"
   },
   "terms": {
     "title": "Terms of Service",

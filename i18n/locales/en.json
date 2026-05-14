@@ -308,12 +308,16 @@
         "title": "Getting Started",
         "items": [
           {
-            "q": "What's the difference between guest mode and Google sign-in?",
+            "q": "What's the difference between Guest mode and Google sign-in?",
             "a": "Guest mode stores your lists only on this device — they'll be lost if you uninstall or switch devices.\nGoogle sign-in stores your data in the cloud, keeping it safe across devices and syncing automatically."
           },
           {
             "q": "Where should I begin?",
-            "a": "1. Import a list from Curation, or create your own from the Lists tab.\n2. Add words (6 ways: manual, AI auto-complete, AI generate, photo scan, spreadsheet paste, voice).\n3. Start studying with flashcards or quiz."
+            "a": "1. Import a list from the Curation tab, or create your own from the Lists tab.\n2. Add words (manual, AI auto-complete, photo scan, and more — 6 methods in total).\n3. Start studying with Flashcards or Quiz."
+          },
+          {
+            "q": "Can I change which tab opens when I launch the app?",
+            "a": "Yes — go to Settings → Display → Startup screen and choose Home, Lists, or Curation."
           }
         ]
       },
@@ -322,11 +326,15 @@
         "items": [
           {
             "q": "How many ways are there to add words?",
-            "a": "Six ways:\n• Manual entry\n• AI auto-complete (enter the word, AI fills meaning/example)\n• AI generate (give a topic, AI builds a list)\n• Photo scan (capture textbooks/notes)\n• Spreadsheet paste (copy from Excel/Google Sheets)\n• Voice input\n\nYou can also import others' lists from Curation."
+            "a": "Six ways:\n• Manual entry\n• AI auto-complete (enter the word, AI fills meaning/example)\n• AI generate (give a topic, AI builds a list)\n• Photo scan (capture textbooks/notes)\n• Spreadsheet paste (copy from Excel/Google Sheets)\n• Voice input\n\nYou can also import other users' lists from the Curation tab."
           },
           {
             "q": "Which method should I use?",
             "a": "Manual for one or two words, AI auto-complete when you only know the word, AI generate when you have a topic, photo scan for textbooks/notes, spreadsheet paste for organized lists.\n\nPhoto scan and AI features require a Gemini API key."
+          },
+          {
+            "q": "Can I build vocab lists in languages other than Korean?",
+            "a": "Yes. On the Add Word screen, you can pick an input language and a meaning language independently from English, Korean, Japanese, and Chinese (e.g., English → Korean, Japanese → Korean, Korean → Chinese).\n\nAI auto-complete and photo scan dictionary enrichment work best when Korean is one side of the pair (English↔Korean, Japanese↔Korean, Chinese↔Korean)."
           },
           {
             "q": "How does AI auto-complete work?",
@@ -338,11 +346,11 @@
           },
           {
             "q": "What kinds of photos can be scanned?",
-            "a": "Both printed lists and handwritten notes work. The app only extracts English words from the photo — meanings, pronunciation, and examples are filled in automatically from Naver Dictionary and other sources.\n\nEven if the photo contains Korean translations, those are ignored in favor of dictionary data for consistency. Blurry photos or pages packed with too many words reduce recognition accuracy."
+            "a": "Both printed lists and handwritten notes work. Only the English words are extracted from the photo — meanings, pronunciation, and examples are filled in automatically from Naver Dictionary and other sources.\n\nEven if the photo contains Korean translations, those are ignored in favor of dictionary data for consistency. Blurry photos or pages packed with too many words reduce recognition accuracy."
           },
           {
-            "q": "How does the spreadsheet paste work?",
-            "a": "Copy words from Excel/Google Sheets and paste them in.\n\nColumn order: term / meaning / definition / example (EN) / example (translation) / tags\n\nThe last 4 columns are optional. Header rows are auto-detected and skipped."
+            "q": "How does spreadsheet paste work?",
+            "a": "Copy words from Excel or Google Sheets and paste them in.\n\nColumn order: term / meaning / definition / example (EN) / example (translation) / tags\n\nThe last 4 columns are optional. Header rows are auto-detected and skipped."
           },
           {
             "q": "Can I add words by voice?",
@@ -355,15 +363,19 @@
         "items": [
           {
             "q": "What study modes are available?",
-            "a": "• Flashcards — flip cards to memorize\n• Quiz — multiple choice to check yourself\n• Examples — learn through context\n• Autoplay — listen and repeat (shadowing)"
+            "a": "• Flashcards — flip cards to memorize\n• Quiz — multiple choice to check yourself\n• Examples — learn through context\n• Autoplay — listen and shadow"
           },
           {
-            "q": "What's the minimum number of words to start studying?",
+            "q": "What's the minimum to start studying?",
             "a": "You need at least 2 words to start a session."
           },
           {
             "q": "Can I study a subset of words?",
-            "a": "Yes, three ways:\n• Starred — only starred words\n• Wrong words — top 50 you've gotten wrong\n• Custom study — any range you pick"
+            "a": "Yes. Open a list and use the top filter to narrow to \"Starred\" or \"Unmemorized\", then study only those. For multi-list combinations or finer control, use Custom Study from the Home tab."
+          },
+          {
+            "q": "What is Custom Study?",
+            "a": "Combine multiple lists into one session, narrow the scope with filters (All / Unmemorized / Memorized / Wrong / Recent / Starred), and pick a mode (Flashcards or Quiz). Great for mixed review."
           },
           {
             "q": "Is my progress saved if I stop mid-session?",
@@ -371,15 +383,28 @@
           },
           {
             "q": "I want to review only the words I missed.",
-            "a": "On the result screen, tap \"Restudy wrong words\"."
-          },
+            "a": "On the results screen, tap \"Restudy wrong words\"."
+          }
+        ]
+      },
+      {
+        "title": "Study Plans",
+        "items": [
           {
             "q": "Do I have to set up a study plan?",
             "a": "No. Plans are useful when you want daily portions managed automatically. Resetting a plan keeps your memorization records intact."
           },
           {
+            "q": "How do I start a study plan?",
+            "a": "Open a list, go to Study Plan, and set the duration (days) and daily portion. Each day's portion can be completed with Flashcards or Quiz."
+          },
+          {
             "q": "What if I miss a few days?",
             "a": "After 7 days of inactivity, you'll see a reset prompt. Once the period ends, the plan expires and you can do a focused session on the remaining words."
+          },
+          {
+            "q": "What is Free Study mode?",
+            "a": "It runs through the whole list without a daily portion limit. Use it when you want to study freely without a plan."
           }
         ]
       },
@@ -387,7 +412,7 @@
         "title": "Data & Sync",
         "items": [
           {
-            "q": "Will my words disappear if I switch from guest to Google?",
+            "q": "Will my words disappear if I switch from Guest to Google?",
             "a": "If this is your first Google sign-in on this device, your guest words upload to the cloud automatically.\n\nIf the same account is already in use on another device, you'll see a \"Merge / Keep Cloud\" dialog. Choose \"Merge\" to preserve your guest data."
           },
           {
@@ -421,7 +446,7 @@
           },
           {
             "q": "Do I need to register a credit card?",
-            "a": "No. The Gemini API has a free tier, and you don't need to register a card or any payment info to use it for free."
+            "a": "No. The Gemini API has a Free Tier, and you don't need to register a card or any payment info to use it for free."
           },
           {
             "q": "Will I be charged automatically?",
@@ -437,13 +462,17 @@
           },
           {
             "q": "Where is my API key stored?",
-            "a": "Only on this device — never sent to our servers. AI calls go directly from your device to Google."
+            "a": "On this device only, in secure device storage (SecureStore). It's never sent to our servers. AI calls go directly from your device to Google."
           }
         ]
       },
       {
         "title": "Curation",
         "items": [
+          {
+            "q": "What is the Curation tab for?",
+            "a": "It's a shared library where you can browse word lists shared by other users and import them into your own. Search and popularity sort are supported."
+          },
           {
             "q": "Can I share my list to Curation?",
             "a": "Only Google-signed-in users can share. Guests can import only."
@@ -459,15 +488,31 @@
         ]
       },
       {
-        "title": "Account & Security",
+        "title": "Settings & Account",
         "items": [
           {
+            "q": "How do I change the app theme (skin)?",
+            "a": "Settings → Display → Skin lets you pick from various character and color themes."
+          },
+          {
+            "q": "How do I change the app language?",
+            "a": "Settings → Language → App language. Pick Korean or English, independent of your device's system language."
+          },
+          {
+            "q": "How do I change my nickname?",
+            "a": "Settings → Account → Nickname. Up to 10 characters. Google-signed-in users get their Google display name as the default."
+          },
+          {
+            "q": "How can I quickly find a word?",
+            "a": "Use the search at the top of the Lists tab, or the search inside any list, to find words by term, meaning, or tag. Frequently used tags are shown too."
+          },
+          {
             "q": "What happens to my lists if I sign out?",
-            "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same account."
+            "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same Google account."
           },
           {
             "q": "How do I delete my account permanently?",
-            "a": "Settings → Account → Delete Account. This permanently erases your cloud data, local lists, and shared Curation entries. It cannot be undone."
+            "a": "Tap \"Delete Account\" at the bottom of Settings. This permanently erases your cloud data, local lists, and any lists you shared to Curation. It cannot be undone."
           },
           {
             "q": "Can other people see my lists?",
@@ -480,7 +525,7 @@
         "items": [
           {
             "q": "Sync isn't working.",
-            "a": "1. Check your internet connection.\n2. Send the app to the background and reopen it.\n3. If it still fails, sign out and sign back in."
+            "a": "1. Check your internet connection.\n2. Send the app to the background and reopen it — sync triggers immediately on backgrounding.\n3. If it still fails, sign out and sign back in."
           },
           {
             "q": "My lists are missing.",
@@ -488,7 +533,7 @@
           },
           {
             "q": "AI isn't returning results.",
-            "a": "Verify your API key in Settings and confirm internet is connected. If the key has expired, generate a new one."
+            "a": "Verify your API key in Settings and confirm internet is connected. If you've exceeded the free tier, wait for the cooldown or try the next day. If the key has expired, generate a new one."
           }
         ]
       }

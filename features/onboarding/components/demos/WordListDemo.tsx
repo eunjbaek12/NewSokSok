@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -10,27 +10,38 @@ import Animated, {
   SharedValue,
 } from 'react-native-reanimated';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useTheme } from '@/features/theme';
 
-const C = {
-  bg: '#FAF6EC',
-  surface: '#FFFDF5',
-  surfaceSecondary: '#F0E8D5',
-  text: '#3B2A1A',
-  textSecondary: '#7A6651',
-  textTertiary: '#A89880',
-  primary: '#6AB045',
-  primaryLight: '#E8F5D9',
-  border: '#C8BAA0',
-  borderLight: '#DDD3BF',
-  success: '#6AB045',
-  naverGreen: '#03C75A',
-  // 키보드 색상 (iOS 스타일)
-  kbBg: '#CDD0D5',
-  kbKey: '#FFFFFF',
-  kbSpecial: '#ADB5BC',
-  kbHighlight: '#A8AAAF',
-  kbText: '#000000',
-  kbReturn: '#6AB045',
+// 데모용 단축 토큰 — useTheme().colors에서 파생
+type DemoColors = {
+  bg: string;
+  surface: string;
+  surfaceSecondary: string;
+  text: string;
+  textSecondary: string;
+  textTertiary: string;
+  primary: string;
+  primaryLight: string;
+  border: string;
+  borderLight: string;
+  success: string;
+  starGold: string;
+  naverGreen: string;
+  cardShadow: string;
+  // 키보드 색상은 iOS 시스템 톤이라 테마와 독립
+  kbBg: string;
+  kbKey: string;
+  kbSpecial: string;
+  kbHighlight: string;
+  kbText: string;
+  kbReturn: string;
+};
+
+type FontFamilyMap = {
+  regular: string;
+  medium: string;
+  semiBold: string;
+  bold: string;
 };
 
 const AVAIL_W = 300;
@@ -38,12 +49,14 @@ const S = AVAIL_W / 340;
 
 // ─── 단어 카드 ───────────────────────────────────────────────
 function WordCard({
-  term, meaning, isMemorized, isStarred, opacity, translateX,
+  term, meaning, isMemorized, isStarred, opacity, translateX, C, fontFamily,
 }: {
   term: string; meaning: string;
   isMemorized: boolean; isStarred: boolean;
   opacity: SharedValue<number>;
   translateX: SharedValue<number>;
+  C: DemoColors;
+  fontFamily: FontFamilyMap;
 }) {
   const cardStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,
@@ -52,21 +65,21 @@ function WordCard({
   const p = S;
   return (
     <Animated.View style={[cardStyle, {
-      backgroundColor: C.surface,
+      backgroundColor: isMemorized ? C.surfaceSecondary : C.surface,
       borderRadius: 12 * p,
       marginBottom: 9 * p,
       borderLeftWidth: 3 * p,
-      borderLeftColor: isStarred ? '#FFD700' : isMemorized ? C.success : C.primary,
+      borderLeftColor: isStarred ? C.starGold : isMemorized ? C.border : C.primary,
     }]}>
       <View style={{ flexDirection: 'row', padding: 12 * p, gap: 10 * p, alignItems: 'center' }}>
-        <Ionicons name={isStarred ? 'star' : 'star-outline'} size={19 * p} color={isStarred ? '#FFD700' : C.textTertiary} />
+        <Ionicons name={isStarred ? 'star' : 'star-outline'} size={19 * p} color={isStarred ? C.starGold : C.textTertiary} />
         <View style={{ flex: 1, gap: 3 * p }}>
           <Text style={{
-            fontSize: 16 * p, fontFamily: 'Pretendard_700Bold',
+            fontSize: 16 * p, fontFamily: fontFamily.bold,
             color: isMemorized ? C.textTertiary : C.text,
             textDecorationLine: isMemorized ? 'line-through' : 'none',
           }}>{term}</Text>
-          <Text style={{ fontSize: 13 * p, fontFamily: 'Pretendard_500Medium', color: C.textSecondary }}>{meaning}</Text>
+          <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.medium, color: C.textSecondary }}>{meaning}</Text>
         </View>
         <Ionicons
           name={isMemorized ? 'checkmark-circle' : 'checkmark-circle-outline'}
@@ -84,10 +97,12 @@ const KB_ROW2 = ['A','S','D','F','G','H','J','K','L'];
 const KB_ROW3 = ['Z','X','C','V','B','N','M'];
 
 function Key({
-  label, isHighlighted, isSpecial, isReturn, width, height, fontSize,
+  label, isHighlighted, isSpecial, isReturn, width, height, fontSize, C, fontFamily,
 }: {
   label: React.ReactNode; isHighlighted?: boolean; isSpecial?: boolean;
   isReturn?: boolean; width: number; height: number; fontSize: number;
+  C: DemoColors;
+  fontFamily: FontFamilyMap;
 }) {
   return (
     <View style={{
@@ -106,7 +121,7 @@ function Key({
         <Text style={{
           fontSize,
           color: isReturn ? '#fff' : C.kbText,
-          fontFamily: isReturn ? 'Pretendard_600SemiBold' : 'Pretendard_400Regular',
+          fontFamily: isReturn ? fontFamily.semiBold : fontFamily.regular,
           letterSpacing: -0.3,
         }}>{label}</Text>
       ) : label}
@@ -115,10 +130,12 @@ function Key({
 }
 
 function RealisticKeyboard({
-  kbOpacity, highlightedKey,
+  kbOpacity, highlightedKey, C, fontFamily,
 }: {
   kbOpacity: SharedValue<number>;
   highlightedKey: string;
+  C: DemoColors;
+  fontFamily: FontFamilyMap;
 }) {
   const p = S;
   const kbStyle = useAnimatedStyle(() => ({
@@ -126,21 +143,16 @@ function RealisticKeyboard({
     transform: [{ translateY: (1 - kbOpacity.value) * 80 * p }],
   }));
 
-  // 키보드 치수 계산 (unscaled 기준 340 단위)
   const KB_PAD = 3 * p;
-  const ROW_GAP = 11 * p; // 행 사이 간격
-  const KEY_GAP = 6 * p;  // 키 사이 간격
+  const ROW_GAP = 11 * p;
+  const KEY_GAP = 6 * p;
   const KEY_H = 40 * p;
   const FONT = 14 * p;
 
-  // Row 1: 10 keys
   const R1_KEY_W = (AVAIL_W - KB_PAD * 2 - KEY_GAP * 9) / 10;
-  // Row 2: 9 keys (offset)
   const R2_KEY_W = (AVAIL_W - KB_PAD * 2 - KEY_GAP * 8 - R1_KEY_W) / 9;
-  // Row 3: 7 letters + 2 special
   const SPECIAL_W = R1_KEY_W * 1.5;
   const R3_KEY_W = (AVAIL_W - KB_PAD * 2 - KEY_GAP * 8 - SPECIAL_W * 2) / 7;
-  // Row 4
   const NUM_W = R1_KEY_W * 1.5;
   const RETURN_W = R1_KEY_W * 1.5;
   const SPACE_W = AVAIL_W - KB_PAD * 2 - NUM_W - RETURN_W - KEY_GAP * 2;
@@ -156,38 +168,34 @@ function RealisticKeyboard({
       paddingBottom: 8 * p,
       paddingHorizontal: KB_PAD,
     }]}>
-      {/* Row 1: Q-P */}
       <View style={{ flexDirection: 'row', gap: KEY_GAP, marginBottom: ROW_GAP }}>
         {KB_ROW1.map(k => (
-          <Key key={k} label={k} width={R1_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} />
+          <Key key={k} label={k} width={R1_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
         ))}
       </View>
 
-      {/* Row 2: A-L (offset) */}
       <View style={{ flexDirection: 'row', gap: KEY_GAP, marginBottom: ROW_GAP, paddingHorizontal: R1_KEY_W / 2 }}>
         {KB_ROW2.map(k => (
-          <Key key={k} label={k} width={R2_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} />
+          <Key key={k} label={k} width={R2_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
         ))}
       </View>
 
-      {/* Row 3: ⇧ Z-M ⌫ */}
       <View style={{ flexDirection: 'row', gap: KEY_GAP, marginBottom: ROW_GAP }}>
         <Key label={
           <Ionicons name="arrow-up" size={14 * p} color={C.kbText} />
-        } isSpecial width={SPECIAL_W} height={KEY_H} fontSize={FONT} />
+        } isSpecial width={SPECIAL_W} height={KEY_H} fontSize={FONT} C={C} fontFamily={fontFamily} />
         {KB_ROW3.map(k => (
-          <Key key={k} label={k} width={R3_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} />
+          <Key key={k} label={k} width={R3_KEY_W} height={KEY_H} fontSize={FONT} isHighlighted={isHL(k)} C={C} fontFamily={fontFamily} />
         ))}
         <Key label={
           <Ionicons name="backspace-outline" size={16 * p} color={C.kbText} />
-        } isSpecial width={SPECIAL_W} height={KEY_H} fontSize={FONT} />
+        } isSpecial width={SPECIAL_W} height={KEY_H} fontSize={FONT} C={C} fontFamily={fontFamily} />
       </View>
 
-      {/* Row 4: 123 space search */}
       <View style={{ flexDirection: 'row', gap: KEY_GAP }}>
-        <Key label="123" isSpecial width={NUM_W} height={KEY_H} fontSize={12 * p} />
-        <Key label=" " width={SPACE_W} height={KEY_H} fontSize={FONT} />
-        <Key label="search" isReturn width={RETURN_W} height={KEY_H} fontSize={11 * p} />
+        <Key label="123" isSpecial width={NUM_W} height={KEY_H} fontSize={12 * p} C={C} fontFamily={fontFamily} />
+        <Key label=" " width={SPACE_W} height={KEY_H} fontSize={FONT} C={C} fontFamily={fontFamily} />
+        <Key label="search" isReturn width={RETURN_W} height={KEY_H} fontSize={11 * p} C={C} fontFamily={fontFamily} />
       </View>
     </Animated.View>
   );
@@ -196,7 +204,7 @@ function RealisticKeyboard({
 // ─── 단어 추가 팝업 (실제 add-word.tsx UI와 동일) ─────────────
 function AddWordPopup({
   popupOpacity, popupScale, inputText, showAutofill,
-  saveFabOpacity, saveFabScale, kbOpacity, highlightedKey,
+  saveFabOpacity, saveFabScale, kbOpacity, highlightedKey, C, fontFamily,
 }: {
   popupOpacity: SharedValue<number>;
   popupScale: SharedValue<number>;
@@ -206,6 +214,8 @@ function AddWordPopup({
   saveFabScale: SharedValue<number>;
   kbOpacity: SharedValue<number>;
   highlightedKey: string;
+  C: DemoColors;
+  fontFamily: FontFamilyMap;
 }) {
   const autofillOp = useSharedValue(0);
   useEffect(() => {
@@ -247,8 +257,8 @@ function AddWordPopup({
           paddingHorizontal: 20 * p, paddingTop: 10 * p, paddingBottom: 8 * p,
           borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.borderLight,
         }}>
-          <Text style={{ fontSize: 15 * p, fontFamily: 'Pretendard_400Regular', color: C.textSecondary }}>취소</Text>
-          <Text style={{ fontSize: 16 * p, fontFamily: 'Pretendard_600SemiBold', color: C.text }}>단어 추가</Text>
+          <Text style={{ fontSize: 15 * p, fontFamily: fontFamily.regular, color: C.textSecondary }}>취소</Text>
+          <Text style={{ fontSize: 16 * p, fontFamily: fontFamily.semiBold, color: C.text }}>단어 추가</Text>
           <Ionicons name="settings-outline" size={19 * p} color={C.textSecondary} />
         </View>
 
@@ -263,44 +273,26 @@ function AddWordPopup({
             gap: 7 * p, backgroundColor: C.surface,
           }}>
             <Ionicons name="folder-outline" size={17 * p} color={C.textSecondary} />
-            <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: 'Pretendard_500Medium', color: C.text }}>✈️ 여행 영어 단어장</Text>
+            <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: fontFamily.medium, color: C.text }}>✈️ 여행 영어 단어장</Text>
             <Ionicons name="chevron-down" size={15 * p} color={C.textTertiary} />
           </View>
 
           {/* 입력 도구 모음 (mic, camera, images, excel) */}
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6 * p }}>
-            {/* 마이크 */}
-            <View style={{
-              width: 28 * p, height: 28 * p, borderRadius: 14 * p,
-              backgroundColor: C.surfaceSecondary,
-              alignItems: 'center', justifyContent: 'center',
-            }}>
-              <Ionicons name="mic-outline" size={14 * p} color={C.textSecondary} />
-            </View>
-            {/* 카메라 */}
-            <View style={{
-              width: 28 * p, height: 28 * p, borderRadius: 14 * p,
-              backgroundColor: C.surfaceSecondary,
-              alignItems: 'center', justifyContent: 'center',
-            }}>
-              <Ionicons name="camera-outline" size={14 * p} color={C.textSecondary} />
-            </View>
-            {/* 갤러리 */}
-            <View style={{
-              width: 28 * p, height: 28 * p, borderRadius: 14 * p,
-              backgroundColor: C.surfaceSecondary,
-              alignItems: 'center', justifyContent: 'center',
-            }}>
-              <Ionicons name="images-outline" size={14 * p} color={C.textSecondary} />
-            </View>
-            {/* 엑셀 */}
-            <View style={{
-              width: 28 * p, height: 28 * p, borderRadius: 14 * p,
-              backgroundColor: C.surfaceSecondary,
-              alignItems: 'center', justifyContent: 'center',
-            }}>
-              <MaterialCommunityIcons name="microsoft-excel" size={14 * p} color={C.textSecondary} />
-            </View>
+            {[
+              <Ionicons key="mic" name="mic-outline" size={14 * p} color={C.textSecondary} />,
+              <Ionicons key="cam" name="camera-outline" size={14 * p} color={C.textSecondary} />,
+              <Ionicons key="img" name="images-outline" size={14 * p} color={C.textSecondary} />,
+              <MaterialCommunityIcons key="xl" name="microsoft-excel" size={14 * p} color={C.textSecondary} />,
+            ].map((node, i) => (
+              <View key={i} style={{
+                width: 28 * p, height: 28 * p, borderRadius: 14 * p,
+                backgroundColor: C.surfaceSecondary,
+                alignItems: 'center', justifyContent: 'center',
+              }}>
+                {node}
+              </View>
+            ))}
           </View>
 
           {/* 단어 입력창 + 검색 액션 */}
@@ -316,13 +308,13 @@ function AddWordPopup({
               paddingRight: 92 * p,
               flexDirection: 'row', alignItems: 'center',
             }}>
-              <Text style={{ fontSize: 15 * p, fontFamily: 'Pretendard_600SemiBold', color: C.text }}>
+              <Text style={{ fontSize: 15 * p, fontFamily: fontFamily.semiBold, color: C.text }}>
                 {inputText || ''}
                 {inputText.length > 0 && (
                   <Text style={{ color: C.primary }}>|</Text>
                 )}
                 {inputText.length === 0 && (
-                  <Text style={{ color: C.textTertiary, fontFamily: 'Pretendard_400Regular' }}>영어 단어 입력...</Text>
+                  <Text style={{ color: C.textTertiary, fontFamily: fontFamily.regular }}>영어 단어 입력...</Text>
                 )}
               </Text>
             </View>
@@ -332,52 +324,46 @@ function AddWordPopup({
               position: 'absolute', right: 4 * p,
               flexDirection: 'row', alignItems: 'center',
             }}>
-              {/* 스피커 */}
               <View style={{ padding: 6 * p }}>
                 <Ionicons name="volume-medium-outline" size={20 * p} color={inputText.length > 0 ? C.textSecondary : C.textTertiary} />
               </View>
-              {/* 검색 */}
               <View style={{ padding: 6 * p }}>
                 <Ionicons name="search-outline" size={20 * p} color={inputText.length > 0 ? C.primary : C.textTertiary} />
               </View>
-              {/* 네이버 N */}
               <View style={{ padding: 6 * p }}>
-                <Text style={{ fontSize: 14 * p, fontFamily: 'Pretendard_700Bold', color: inputText.length > 0 ? C.naverGreen : C.textTertiary, lineHeight: 20 * p }}>N</Text>
+                <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.bold, color: inputText.length > 0 ? C.naverGreen : C.textTertiary, lineHeight: 20 * p }}>N</Text>
               </View>
             </View>
           </View>
 
           {/* ── 자동완성 결과 ── */}
           <Animated.View style={[autofillStyle, { gap: 7 * p }]}>
-            {/* 한국어 뜻 */}
             <View style={{
               borderWidth: 1, borderRadius: 12 * p, borderColor: C.border,
               paddingHorizontal: 14 * p, paddingVertical: 10 * p,
               backgroundColor: C.surface,
             }}>
-              <Text style={{ fontSize: 11 * p, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>한국어 뜻</Text>
-              <Text style={{ fontSize: 15 * p, fontFamily: 'Pretendard_600SemiBold', color: C.text }}>사과</Text>
+              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>한국어 뜻</Text>
+              <Text style={{ fontSize: 15 * p, fontFamily: fontFamily.semiBold, color: C.text }}>사과</Text>
             </View>
 
-            {/* 발음 */}
             <View style={{
               borderWidth: 1, borderRadius: 12 * p, borderColor: C.border,
               paddingHorizontal: 14 * p, paddingVertical: 9 * p,
               backgroundColor: C.surface,
               flexDirection: 'row', alignItems: 'center', gap: 8 * p,
             }}>
-              <Text style={{ fontSize: 11 * p, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary, letterSpacing: 0.8 }}>발음</Text>
-              <Text style={{ fontSize: 13 * p, fontFamily: 'Pretendard_400Regular', color: C.textSecondary }}>/æp·əl/</Text>
+              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8 }}>발음</Text>
+              <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.regular, color: C.textSecondary }}>/æp·əl/</Text>
             </View>
 
-            {/* 예문 */}
             <View style={{
               borderWidth: 1, borderRadius: 12 * p, borderColor: C.border,
               paddingHorizontal: 14 * p, paddingVertical: 9 * p,
               backgroundColor: C.surface,
             }}>
-              <Text style={{ fontSize: 11 * p, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>예문</Text>
-              <Text style={{ fontSize: 12 * p, fontFamily: 'Pretendard_400Regular', color: C.textSecondary, fontStyle: 'italic' }}>
+              <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary, letterSpacing: 0.8, marginBottom: 3 * p }}>예문</Text>
+              <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.regular, color: C.textSecondary, fontStyle: 'italic' }}>
                 I ate an apple this morning.
               </Text>
             </View>
@@ -402,12 +388,12 @@ function AddWordPopup({
           elevation: 6,
         }}>
           <Ionicons name="checkmark" size={18 * p} color="#fff" />
-          <Text style={{ color: '#fff', fontSize: 15 * p, fontFamily: 'Pretendard_700Bold' }}>저장</Text>
+          <Text style={{ color: '#fff', fontSize: 15 * p, fontFamily: fontFamily.bold }}>저장</Text>
         </View>
       </Animated.View>
 
-      {/* ── iOS 스타일 키보드 (오버레이 하단) ── */}
-      <RealisticKeyboard kbOpacity={kbOpacity} highlightedKey={highlightedKey} />
+      {/* ── iOS 스타일 키보드 ── */}
+      <RealisticKeyboard kbOpacity={kbOpacity} highlightedKey={highlightedKey} C={C} fontFamily={fontFamily} />
     </Animated.View>
   );
 }
@@ -422,7 +408,32 @@ const WORDS = [
 const CYCLE_MS = 8800;
 
 export function WordListDemo({ isActive }: { isActive: boolean }) {
+  const { colors, fontFamily } = useTheme();
   const p = S;
+
+  const C: DemoColors = useMemo(() => ({
+    bg: colors.background,
+    surface: colors.surface,
+    surfaceSecondary: colors.surfaceSecondary,
+    text: colors.text,
+    textSecondary: colors.textSecondary,
+    textTertiary: colors.textTertiary,
+    primary: colors.primary,
+    primaryLight: colors.primaryLight,
+    border: colors.border,
+    borderLight: colors.borderLight,
+    success: colors.success,
+    starGold: colors.starGold,
+    naverGreen: colors.brand.naverGreen,
+    cardShadow: colors.cardShadow,
+    // iOS 시스템 키보드 톤 — 테마와 독립적으로 유지
+    kbBg: '#CDD0D5',
+    kbKey: '#FFFFFF',
+    kbSpecial: '#ADB5BC',
+    kbHighlight: '#A8AAAF',
+    kbText: '#000000',
+    kbReturn: colors.primary,
+  }), [colors]);
 
   // 단어 목록 애니메이션
   const screenOpacity = useSharedValue(0);
@@ -466,7 +477,6 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
   };
 
   const runCycle = (offset: number) => {
-    // Phase 1: 목록 등장 (0ms)
     after(() => {
       screenOpacity.value = withTiming(1, { duration: 400 });
       progressWidth.value = withDelay(200, withTiming(0.33, { duration: 500, easing: Easing.out(Easing.quad) }));
@@ -475,22 +485,18 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
     after(() => { word2Opacity.value = withTiming(1, { duration: 300 }); word2X.value = withTiming(0, { duration: 300 }); }, offset + 570);
     after(() => { word3Opacity.value = withTiming(1, { duration: 300 }); word3X.value = withTiming(0, { duration: 300 }); }, offset + 800);
 
-    // Phase 2: + FAB 탭 (1300ms)
     after(() => { listFabScale.value = withSpring(0.82, { damping: 10, stiffness: 300 }); }, offset + 1300);
     after(() => { listFabScale.value = withSpring(1, { damping: 10, stiffness: 300 }); }, offset + 1480);
 
-    // Phase 3: 팝업 등장 (1680ms)
     after(() => {
       popupOpacity.value = withSpring(1, { damping: 20, stiffness: 200 });
       popupScale.value = withSpring(1, { damping: 20, stiffness: 200 });
     }, offset + 1680);
 
-    // Phase 4: 키보드 등장 (2050ms)
     after(() => {
       kbOpacity.value = withSpring(1, { damping: 18, stiffness: 180 });
     }, offset + 2050);
 
-    // Phase 5: 타이핑 "apple" — 각 키 하이라이트 포함 (2180ms~)
     const WORD = 'apple';
     const KEY_MAP: Record<string, string> = { a:'A', p:'P', l:'L', e:'E' };
     WORD.split('').forEach((char, i) => {
@@ -498,23 +504,19 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         setInputText(WORD.slice(0, i + 1));
         const key = KEY_MAP[char] || char.toUpperCase();
         setHighlightedKey(key);
-        // 키 하이라이트 110ms 후 해제
         setTimeout(() => setHighlightedKey(''), 110);
       }, offset + 2180 + i * 150);
     });
 
-    // Phase 6: 자동완성 + 저장 버튼 등장 (3100ms)
     after(() => {
       setShowAutofill(true);
       saveFabOpacity.value = withSpring(1, { damping: 18, stiffness: 200 });
       saveFabScale.value = withSpring(1, { damping: 14, stiffness: 200 });
     }, offset + 3100);
 
-    // Phase 7: 저장 버튼 눌림 (4500ms)
     after(() => { saveFabScale.value = withSpring(0.88, { damping: 10, stiffness: 300 }); }, offset + 4500);
     after(() => { saveFabScale.value = withSpring(1, { damping: 10, stiffness: 300 }); }, offset + 4680);
 
-    // Phase 8: 팝업 + 키보드 닫기 (4880ms)
     after(() => {
       popupOpacity.value = withTiming(0, { duration: 280, easing: Easing.in(Easing.quad) });
       popupScale.value = withTiming(0.93, { duration: 280 });
@@ -522,22 +524,18 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
       kbOpacity.value = withTiming(0, { duration: 220 });
     }, offset + 4880);
 
-    // Phase 9: 새 단어 목록에 추가됨 (5200ms)
     after(() => {
       setInputText(''); setShowAutofill(false);
       word4Opacity.value = withTiming(1, { duration: 340 });
       word4X.value = withTiming(0, { duration: 340, easing: Easing.out(Easing.quad) });
       progressWidth.value = withTiming(0.5, { duration: 400 });
     }, offset + 5200);
-
-    // Phase 10: 저장 후 목록 화면 유지 (5200ms ~ 8500ms = 3.3초 표시)
   };
 
   useEffect(() => {
     clearTimers();
     if (!isActive) { resetAll(); return; }
 
-    // 4사이클 반복
     for (let i = 0; i < 4; i++) {
       const start = CYCLE_MS * i;
       runCycle(start);
@@ -552,7 +550,12 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
   const listFabStyle = useAnimatedStyle(() => ({ transform: [{ scale: listFabScale.value }] }));
 
   return (
-    <Animated.View style={[screenStyle, styles.screen, { backgroundColor: C.bg, width: AVAIL_W, height: 420 }]}>
+    <Animated.View style={[screenStyle, styles.screen, {
+      backgroundColor: C.bg,
+      width: AVAIL_W,
+      height: 420,
+      shadowColor: C.cardShadow,
+    }]}>
       {/* ── 헤더 ── */}
       <View style={{
         paddingHorizontal: 14 * p, paddingTop: 13 * p, paddingBottom: 9 * p,
@@ -560,8 +563,8 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.border,
       }}>
         <Ionicons name="chevron-back" size={23 * p} color={C.text} />
-        <Text style={{ fontSize: 17 * p, fontFamily: 'Pretendard_700Bold', color: C.text, flex: 1 }}>✈️ 여행 영어 단어장</Text>
-        <Text style={{ fontSize: 13 * p, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>계획보기</Text>
+        <Text style={{ fontSize: 17 * p, fontFamily: fontFamily.bold, color: C.text, flex: 1 }}>✈️ 여행 영어 단어장</Text>
+        <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>계획보기</Text>
       </View>
 
       {/* ── 진행도 ── */}
@@ -573,7 +576,7 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         <View style={{ flex: 1, height: 5 * p, backgroundColor: C.surfaceSecondary, borderRadius: 3 * p, overflow: 'hidden' }}>
           <Animated.View style={[barStyle, { height: '100%', backgroundColor: C.success, borderRadius: 3 * p }]} />
         </View>
-        <Text style={{ fontSize: 12 * p, fontFamily: 'Pretendard_500Medium', color: C.textTertiary }}>1 / 4</Text>
+        <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.medium, color: C.textTertiary }}>1 / 4</Text>
       </View>
 
       {/* ── 필터 행 ── */}
@@ -585,20 +588,20 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         <Ionicons name="star-outline" size={18 * p} color={C.textTertiary} />
         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 3 * p, paddingLeft: 8 * p }}>
           <Ionicons name="time-outline" size={12 * p} color={C.textSecondary} />
-          <Text style={{ fontSize: 12 * p, fontFamily: 'Pretendard_500Medium', color: C.textSecondary }}>최신순 (4)</Text>
+          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.medium, color: C.textSecondary }}>최신순 (4)</Text>
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3 * p }}>
-          <Text style={{ fontSize: 11 * p, fontFamily: 'Pretendard_600SemiBold', color: C.textTertiary, textTransform: 'uppercase' }}>ALL</Text>
+          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textTertiary, textTransform: 'uppercase' }}>ALL</Text>
           <Ionicons name="filter-outline" size={16 * p} color={C.textTertiary} />
         </View>
       </View>
 
       {/* ── 단어 카드 목록 ── */}
       <View style={{ paddingHorizontal: 12 * p, paddingTop: 10 * p, paddingBottom: 54 * p }}>
-        <WordCard {...WORDS[0]} opacity={word1Opacity} translateX={word1X} />
-        <WordCard {...WORDS[1]} opacity={word2Opacity} translateX={word2X} />
-        <WordCard {...WORDS[2]} opacity={word3Opacity} translateX={word3X} />
-        <WordCard term="apple" meaning="사과" isMemorized={false} isStarred={false} opacity={word4Opacity} translateX={word4X} />
+        <WordCard {...WORDS[0]} opacity={word1Opacity} translateX={word1X} C={C} fontFamily={fontFamily} />
+        <WordCard {...WORDS[1]} opacity={word2Opacity} translateX={word2X} C={C} fontFamily={fontFamily} />
+        <WordCard {...WORDS[2]} opacity={word3Opacity} translateX={word3X} C={C} fontFamily={fontFamily} />
+        <WordCard term="apple" meaning="사과" isMemorized={false} isStarred={false} opacity={word4Opacity} translateX={word4X} C={C} fontFamily={fontFamily} />
       </View>
 
       {/* ── + FAB ── */}
@@ -621,6 +624,8 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
         saveFabScale={saveFabScale}
         kbOpacity={kbOpacity}
         highlightedKey={highlightedKey}
+        C={C}
+        fontFamily={fontFamily}
       />
     </Animated.View>
   );
@@ -630,7 +635,6 @@ const styles = StyleSheet.create({
   screen: {
     borderRadius: 20,
     overflow: 'hidden',
-    shadowColor: 'rgba(25,31,40,0.12)',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 1,
     shadowRadius: 20,

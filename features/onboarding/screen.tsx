@@ -21,6 +21,8 @@ import { useTheme } from '@/features/theme';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
+// 온보딩 전용 팔레트 — 슬라이드별 시각 차별화를 위해 의도적으로 유지하는 warm cream 톤.
+// 데모 내부는 useTheme().colors를 사용해 실제 앱 톤(classic teal 등)을 그대로 비춘다.
 const SLIDES = [
   {
     titleKey: 'onboarding.slide1.title',
@@ -70,7 +72,7 @@ export default function OnboardingScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
   const { markOnboardingDone } = useOnboarding();
-  const { fontFamily } = useTheme();
+  const { fontFamily, colors } = useTheme();
   const scrollRef = useRef<ScrollView>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -104,7 +106,6 @@ export default function OnboardingScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: slide.bg }]}>
-      {/* 슬라이드 */}
       <ScrollView
         ref={scrollRef}
         horizontal
@@ -122,21 +123,22 @@ export default function OnboardingScreen() {
               { backgroundColor: s.bg, paddingTop: insets.top + 16 },
             ]}
           >
-            {/* 데모 영역 */}
             <View style={styles.demoArea}>
               <SlideDemo type={s.demo} isActive={currentIndex === i} />
             </View>
 
-            {/* 텍스트 영역 */}
             <View style={styles.textArea}>
-              <Text style={[styles.title, { fontFamily: fontFamily.bold }]}>{t(s.titleKey)}</Text>
-              <Text style={styles.body}>{t(s.bodyKey)}</Text>
+              <Text style={[styles.title, { color: colors.text, fontFamily: fontFamily.bold }]}>
+                {t(s.titleKey)}
+              </Text>
+              <Text style={[styles.body, { color: colors.textSecondary, fontFamily: fontFamily.regular }]}>
+                {t(s.bodyKey)}
+              </Text>
             </View>
           </View>
         ))}
       </ScrollView>
 
-      {/* 하단 */}
       <View style={[styles.footer, { paddingBottom: insets.bottom + 24 }]}>
         <OnboardingDots total={SLIDES.length} currentIndex={currentIndex} />
         <TouchableOpacity
@@ -144,7 +146,7 @@ export default function OnboardingScreen() {
           onPress={handleNext}
           activeOpacity={0.85}
         >
-          <Text style={styles.nextBtnText}>
+          <Text style={[styles.nextBtnText, { fontFamily: fontFamily.semiBold }]}>
             {isLast ? t('onboarding.start') : t('onboarding.next')}
           </Text>
         </TouchableOpacity>
@@ -177,15 +179,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontFamily: 'Pretendard_700Bold',
-    color: '#1A1A2E',
     letterSpacing: -0.5,
     lineHeight: 38,
   },
   body: {
     fontSize: 15,
-    fontFamily: 'Pretendard_400Regular',
-    color: '#8E8EA0',
     lineHeight: 22,
   },
   footer: {
@@ -202,7 +200,6 @@ const styles = StyleSheet.create({
   },
   nextBtnText: {
     fontSize: 17,
-    fontFamily: 'Pretendard_600SemiBold',
     color: '#FFFFFF',
   },
 });

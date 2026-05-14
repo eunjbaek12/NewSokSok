@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React, { useEffect, useMemo } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -11,27 +11,32 @@ import Animated, {
   Extrapolation,
 } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
-
-const C = {
-  bg: '#FAF6EC',
-  surface: '#FFFDF5',
-  surfaceSecondary: '#F0E8D5',
-  text: '#3B2A1A',
-  textSecondary: '#7A6651',
-  textTertiary: '#A89880',
-  primary: '#6AB045',
-  primaryLight: '#E8F5D9',
-  border: '#C8BAA0',
-  borderLight: '#DDD3BF',
-  warning: '#F59E0B',
-};
+import { useTheme } from '@/features/theme';
 
 const AVAIL_W = 300;
 const SCALE = AVAIL_W / 340;
 
 export function FlashcardDemo({ isActive }: { isActive: boolean }) {
+  const { colors, fontFamily } = useTheme();
   const rotation = useSharedValue(0);
   const containerOpacity = useSharedValue(0);
+
+  // 실제 app 토큰에서 데모용 단축 매핑
+  const C = useMemo(() => ({
+    bg: colors.background,
+    surface: colors.surface,
+    surfaceSecondary: colors.surfaceSecondary,
+    text: colors.text,
+    textSecondary: colors.textSecondary,
+    textTertiary: colors.textTertiary,
+    primary: colors.primary,
+    primaryLight: colors.primaryLight,
+    border: colors.border,
+    borderLight: colors.borderLight,
+    warning: colors.warning,
+    cardShadow: colors.cardShadow,
+    starGold: colors.starGold,
+  }), [colors]);
 
   useEffect(() => {
     if (!isActive) {
@@ -78,10 +83,16 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
 
   return (
     <Animated.View style={[styles.wrapper, { opacity: containerOpacity }]}>
-      <View style={[styles.screen, { backgroundColor: C.bg, width: AVAIL_W, height: 420 }]}>
+      <View style={[styles.screen, {
+        backgroundColor: C.bg,
+        width: AVAIL_W,
+        height: 420,
+        shadowColor: C.cardShadow,
+      }]}>
 
         {/* ── 헤더 ── */}
         <View style={[styles.header, {
+          backgroundColor: C.bg,
           borderBottomColor: C.border,
           paddingHorizontal: 16 * s,
           paddingTop: 14 * s,
@@ -92,7 +103,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
             <Text style={{
               flex: 1,
               fontSize: 20 * s,
-              fontFamily: 'Pretendard_700Bold',
+              fontFamily: fontFamily.bold,
               color: C.text,
             }} numberOfLines={1}>
               카드 학습
@@ -114,7 +125,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
               <View style={{ width: '20%', height: '100%', borderRadius: 3 * s, backgroundColor: C.primary }} />
             </View>
             <Text style={{
-              fontSize: 12 * s, fontFamily: 'Pretendard_500Medium',
+              fontSize: 12 * s, fontFamily: fontFamily.medium,
               color: C.textTertiary, minWidth: 40 * s, textAlign: 'right',
             }}>
               1 / 4
@@ -137,6 +148,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 padding: 24 * s,
                 minHeight: CARD_H,
                 gap: 6 * s,
+                shadowColor: C.cardShadow,
               },
               frontStyle,
             ]}>
@@ -154,17 +166,17 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 paddingHorizontal: 7 * s, paddingVertical: 2 * s,
                 borderRadius: 8 * s, marginBottom: 6 * s,
               }}>
-                <Text style={{ fontSize: 11 * s, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>명사</Text>
+                <Text style={{ fontSize: 11 * s, fontFamily: fontFamily.semiBold, color: C.primary }}>명사</Text>
               </View>
 
               {/* cardWord */}
-              <Text style={{ fontSize: 26 * s, fontFamily: 'Pretendard_700Bold', color: C.text, textAlign: 'center' }}>
+              <Text style={{ fontSize: 26 * s, fontFamily: fontFamily.bold, color: C.text, textAlign: 'center' }}>
                 apple
               </Text>
 
               {/* cardInfoRow → phoneticText */}
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ fontSize: 13 * s, fontFamily: 'Pretendard_400Regular', color: C.textSecondary }}>
+                <Text style={{ fontSize: 13 * s, fontFamily: fontFamily.regular, color: C.textSecondary }}>
                   /æp·əl/
                 </Text>
               </View>
@@ -179,7 +191,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 position: 'absolute',
                 bottom: 14 * s,
                 fontSize: 11 * s,
-                fontFamily: 'Pretendard_600SemiBold',
+                fontFamily: fontFamily.semiBold,
                 color: C.textTertiary,
                 opacity: 0.7,
               }}>
@@ -199,6 +211,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 paddingTop: 76 * s,
                 minHeight: CARD_H,
                 gap: 6 * s,
+                shadowColor: C.cardShadow,
               },
               backStyle,
             ]}>
@@ -217,12 +230,12 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                   paddingHorizontal: 5 * s, paddingVertical: 1 * s,
                   borderRadius: 8 * s, marginBottom: 3 * s,
                 }}>
-                  <Text style={{ fontSize: 9 * s, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>명사</Text>
+                  <Text style={{ fontSize: 9 * s, fontFamily: fontFamily.semiBold, color: C.primary }}>명사</Text>
                 </View>
-                <Text style={{ fontSize: 14 * s, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary }}>
+                <Text style={{ fontSize: 14 * s, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>
                   apple
                 </Text>
-                <Text style={{ fontSize: 11 * s, fontFamily: 'Pretendard_400Regular', color: C.textSecondary }}>
+                <Text style={{ fontSize: 11 * s, fontFamily: fontFamily.regular, color: C.textSecondary }}>
                   /æp·əl/
                 </Text>
                 <View style={{ padding: 4 * s, alignItems: 'center' }}>
@@ -237,7 +250,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
               }} />
 
               {/* cardMeaning */}
-              <Text style={{ fontSize: 20 * s, fontFamily: 'Pretendard_700Bold', color: C.text, textAlign: 'center' }}>
+              <Text style={{ fontSize: 20 * s, fontFamily: fontFamily.bold, color: C.text, textAlign: 'center' }}>
                 사과
               </Text>
 
@@ -248,7 +261,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
                 width: '100%',
               }}>
                 <Text style={{
-                  fontSize: 10 * s, fontFamily: 'Pretendard_400Regular',
+                  fontSize: 10 * s, fontFamily: fontFamily.regular,
                   color: C.textSecondary, textAlign: 'center', fontStyle: 'italic',
                 }}>
                   I ate an apple this morning.
@@ -258,7 +271,7 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
           </View>
         </View>
 
-        {/* ── 하단 버튼 (일반 플로우 - 카드 아래에 위치) ── */}
+        {/* ── 하단 버튼 (실제 flashcards screen 의 actionBtn 구조) ── */}
         <View style={{
           flexDirection: 'row',
           paddingHorizontal: 16 * s,
@@ -276,8 +289,8 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
           }]}>
             <Ionicons name="chevron-back" size={20 * s} color={C.warning} />
             <View>
-              <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 13 * s, color: C.warning }}>다시 볼게요</Text>
-              <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 9 * s, color: C.warning, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Left</Text>
+              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 13 * s, color: C.warning }}>다시 볼게요</Text>
+              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 9 * s, color: C.warning, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Left</Text>
             </View>
           </View>
 
@@ -292,8 +305,8 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
             justifyContent: 'flex-end',
           }]}>
             <View style={{ alignItems: 'flex-end' }}>
-              <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 13 * s, color: C.primary }}>외웠어요</Text>
-              <Text style={{ fontFamily: 'Pretendard_600SemiBold', fontSize: 9 * s, color: C.primary, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Right</Text>
+              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 13 * s, color: C.primary }}>외웠어요</Text>
+              <Text style={{ fontFamily: fontFamily.semiBold, fontSize: 9 * s, color: C.primary, opacity: 0.5, textTransform: 'uppercase' }}>Swipe Right</Text>
             </View>
             <Ionicons name="chevron-forward" size={20 * s} color={C.primary} />
           </View>
@@ -309,14 +322,12 @@ const styles = StyleSheet.create({
   screen: {
     borderRadius: 20,
     overflow: 'hidden',
-    shadowColor: 'rgba(25,31,40,0.12)',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 1,
     shadowRadius: 20,
     elevation: 8,
   },
   header: {
-    backgroundColor: '#FAF6EC',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   card: {
@@ -324,7 +335,6 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: 'rgba(25,31,40,0.08)',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 12,

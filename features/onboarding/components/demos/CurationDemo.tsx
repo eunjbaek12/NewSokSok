@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React, { useEffect, useMemo } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -9,26 +9,33 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 import CharacterSvg from '@/components/CharacterSvg';
+import { useTheme } from '@/features/theme';
 
-// 실제 앱 colors.light 토큰
-const C = {
-  bg: '#FAF6EC',
-  surface: '#FFFDF5',
-  surfaceSecondary: '#F0E8D5',
-  text: '#3B2A1A',
-  textSecondary: '#7A6651',
-  textTertiary: '#A89880',
-  primary: '#6AB045',
-  primaryLight: '#E8F5D9',
-  primaryButton: '#6AB045',
-  border: '#C8BAA0',
-  borderLight: '#DDD3BF',
-  cardShadow: 'rgba(25,31,40,0.08)',
+type DemoColors = {
+  bg: string;
+  surface: string;
+  surfaceSecondary: string;
+  text: string;
+  textSecondary: string;
+  textTertiary: string;
+  primary: string;
+  primaryLight: string;
+  primaryButton: string;
+  border: string;
+  borderLight: string;
+  cardShadow: string;
+  onPrimary: string;
+  beginnerBg: string;
+  beginnerText: string;
+  intermediateBg: string;
+  intermediateText: string;
 };
 
-const LEVEL_STYLES = {
-  beginner: { label: '초급', bg: '#E8F5D9', color: '#16A34A' },
-  intermediate: { label: '중급', bg: '#E8F5D9', color: '#5A9438' },
+type FontFamilyMap = {
+  regular: string;
+  medium: string;
+  semiBold: string;
+  bold: string;
 };
 
 const AVAIL_W = 300;
@@ -46,7 +53,9 @@ type CardData = {
 };
 
 // ─── 실제 curation.tsx 카드(detailed 모드)와 동일한 구조 ───────────────────
-function ThemeCard({ icon, title, description, tags, wordCount, level, langPair, delay, isActive }: CardData & { isActive: boolean }) {
+function ThemeCard({
+  icon, title, description, tags, wordCount, level, langPair, delay, isActive, C, fontFamily,
+}: CardData & { isActive: boolean; C: DemoColors; fontFamily: FontFamilyMap }) {
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(10);
 
@@ -61,18 +70,19 @@ function ThemeCard({ icon, title, description, tags, wordCount, level, langPair,
     transform: [{ translateY: translateY.value }],
   }));
 
-  const levelStyle = LEVEL_STYLES[level];
+  const levelBg = level === 'beginner' ? C.beginnerBg : C.intermediateBg;
+  const levelColor = level === 'beginner' ? C.beginnerText : C.intermediateText;
+  const levelLabel = level === 'beginner' ? '초급' : '중급';
   const p = S;
 
   return (
-    // 실제 themeCard + cardDetailed: borderRadius 16, padding 16, marginBottom 12
     <Animated.View style={[cardStyle, {
       backgroundColor: C.surface,
       borderRadius: 16 * p,
       padding: 16 * p,
       marginBottom: 12 * p,
       borderWidth: 1,
-      borderColor: 'rgba(49,130,246,0.1)',
+      borderColor: C.borderLight,
       shadowColor: C.cardShadow,
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 1,
@@ -83,10 +93,10 @@ function ThemeCard({ icon, title, description, tags, wordCount, level, langPair,
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 * p }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 * p, flex: 1 }}>
           <Text style={{ fontSize: 16 * p }}>{icon}</Text>
-          <Text style={{ fontSize: 17 * p, fontFamily: 'Pretendard_700Bold', color: C.text, flex: 1 }} numberOfLines={1}>{title}</Text>
+          <Text style={{ fontSize: 17 * p, fontFamily: fontFamily.bold, color: C.text, flex: 1 }} numberOfLines={1}>{title}</Text>
         </View>
-        <View style={{ backgroundColor: levelStyle.bg, paddingHorizontal: 8 * p, paddingVertical: 3 * p, borderRadius: 10 * p }}>
-          <Text style={{ fontSize: 11 * p, fontFamily: 'Pretendard_600SemiBold', color: levelStyle.color }}>{levelStyle.label}</Text>
+        <View style={{ backgroundColor: levelBg, paddingHorizontal: 8 * p, paddingVertical: 3 * p, borderRadius: 10 * p }}>
+          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: levelColor }}>{levelLabel}</Text>
         </View>
       </View>
 
@@ -94,36 +104,35 @@ function ThemeCard({ icon, title, description, tags, wordCount, level, langPair,
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 * p, marginTop: 4 * p }}>
         {tags.map(tag => (
           <View key={tag} style={{ backgroundColor: C.surfaceSecondary, paddingHorizontal: 8 * p, paddingVertical: 2 * p, borderRadius: 4 * p }}>
-            <Text style={{ fontSize: 11 * p, fontFamily: 'Pretendard_500Medium', color: C.textSecondary }}>#{tag}</Text>
+            <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.medium, color: C.textSecondary }}>#{tag}</Text>
           </View>
         ))}
       </View>
 
       {/* cardDesc */}
-      <Text style={{ fontSize: 13 * p, fontFamily: 'Pretendard_400Regular', color: C.textSecondary, marginTop: 6 * p }} numberOfLines={1}>
+      <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.regular, color: C.textSecondary, marginTop: 6 * p }} numberOfLines={1}>
         {description}
       </Text>
 
       {/* langPair */}
-      <Text style={{ fontSize: 13 * p, fontFamily: 'Pretendard_500Medium', color: C.textTertiary, marginTop: 4 * p }}>
+      <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.medium, color: C.textTertiary, marginTop: 4 * p }}>
         {langPair}
       </Text>
 
       {/* cardFooter */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 * p }}>
         <View style={{ backgroundColor: C.primaryLight, paddingHorizontal: 8 * p, paddingVertical: 3 * p, borderRadius: 10 * p }}>
-          <Text style={{ fontSize: 12 * p, fontFamily: 'Pretendard_700Bold', color: C.primary, letterSpacing: 0.3 }}>{wordCount}개 단어</Text>
+          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.bold, color: C.primary, letterSpacing: 0.3 }}>{wordCount}개 단어</Text>
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 * p }}>
           <Ionicons name="download-outline" size={12 * p} color={C.textTertiary} />
-          <Text style={{ fontSize: 11 * p, fontFamily: 'Pretendard_500Medium', color: C.textTertiary }}>1.2k</Text>
+          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.medium, color: C.textTertiary }}>1.2k</Text>
         </View>
       </View>
     </Animated.View>
   );
 }
 
-// 카드 2개
 const THEMES: CardData[] = [
   {
     icon: '✈️',
@@ -147,11 +156,31 @@ const THEMES: CardData[] = [
   },
 ];
 
-// 실제 langFilterChips
 const CHIPS = ['전체', '영어', '한국어', '일본어', '중국어'];
 
 export function CurationDemo({ isActive }: { isActive: boolean }) {
+  const { colors, fontFamily, isDark } = useTheme();
   const screenOpacity = useSharedValue(0);
+
+  const C: DemoColors = useMemo(() => ({
+    bg: colors.background,
+    surface: colors.surface,
+    surfaceSecondary: colors.surfaceSecondary,
+    text: colors.text,
+    textSecondary: colors.textSecondary,
+    textTertiary: colors.textTertiary,
+    primary: colors.primary,
+    primaryLight: colors.primaryLight,
+    primaryButton: colors.primaryButton,
+    border: colors.border,
+    borderLight: colors.borderLight,
+    cardShadow: colors.cardShadow,
+    onPrimary: colors.onPrimary,
+    beginnerBg: colors.difficulty.beginnerBg,
+    beginnerText: colors.difficulty.beginnerText,
+    intermediateBg: colors.difficulty.intermediateBg,
+    intermediateText: colors.difficulty.intermediateText,
+  }), [colors]);
 
   useEffect(() => {
     screenOpacity.value = isActive
@@ -163,7 +192,12 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
   const p = S;
 
   return (
-    <Animated.View style={[screenStyle, styles.screen, { backgroundColor: C.bg, width: AVAIL_W, height: 420 }]}>
+    <Animated.View style={[screenStyle, styles.screen, {
+      backgroundColor: C.bg,
+      width: AVAIL_W,
+      height: 420,
+      shadowColor: C.cardShadow,
+    }]}>
 
       {/* ── 헤더 (실제 curation.tsx: paddingHorizontal 20, paddingBottom 8, gap 12) ── */}
       <View style={{
@@ -174,23 +208,20 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         paddingBottom: 8 * p,
         gap: 10 * p,
       }}>
-        {/* 실제 CharacterSvg (size 56, 스케일 적용) */}
-        <CharacterSvg size={Math.round(44 * p)} wave={isActive} isDark={false} />
+        <CharacterSvg size={Math.round(44 * p)} wave={isActive} isDark={isDark} />
 
         <View style={{ flex: 1 }}>
-          {/* headerTitle: fontSize 26 */}
           <Text style={{
             fontSize: 22 * p,
-            fontFamily: 'Pretendard_700Bold',
+            fontFamily: fontFamily.bold,
             color: C.text,
             letterSpacing: -0.5,
           }}>
             단어 모음
           </Text>
-          {/* headerSubtitle: fontSize 14 */}
           <Text style={{
             fontSize: 11 * p,
-            fontFamily: 'Pretendard_400Regular',
+            fontFamily: fontFamily.regular,
             color: C.textSecondary,
             marginTop: 1,
             lineHeight: 16 * p,
@@ -199,7 +230,6 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
           </Text>
         </View>
 
-        {/* actionBtn: width 44, height 44, borderRadius 12, border */}
         <View style={{
           width: 36 * p, height: 36 * p,
           borderRadius: 10 * p,
@@ -212,7 +242,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         </View>
       </View>
 
-      {/* ── 검색창 (실제: paddingHorizontal 20, searchBox: paddingH 16, paddingV 14, borderRadius 16) ── */}
+      {/* ── 검색창 ── */}
       <View style={{ paddingHorizontal: 14 * p, paddingVertical: 6 * p }}>
         <View style={{
           flexDirection: 'row',
@@ -224,20 +254,20 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
           borderColor: C.borderLight,
           backgroundColor: C.surface,
           gap: 8 * p,
-          shadowColor: '#000',
+          shadowColor: C.cardShadow,
           shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.05,
+          shadowOpacity: 1,
           shadowRadius: 6,
           elevation: 1,
         }}>
           <Ionicons name="search" size={18 * p} color={C.textTertiary} />
-          <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: 'Pretendard_400Regular', color: C.textTertiary }}>
+          <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: fontFamily.regular, color: C.textTertiary }}>
             단어장 검색
           </Text>
         </View>
       </View>
 
-      {/* ── 언어 필터 칩 (실제: horizontal ScrollView, paddingHorizontal 20, langChip: paddingH 14, paddingV 7) ── */}
+      {/* ── 언어 필터 칩 ── */}
       <View style={{ flexDirection: 'row', paddingHorizontal: 14 * p, paddingVertical: 2 * p, gap: 7 * p }}>
         {CHIPS.map((chip, i) => (
           <View key={chip} style={{
@@ -248,8 +278,8 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
           }}>
             <Text style={{
               fontSize: 12 * p,
-              fontFamily: 'Pretendard_600SemiBold',
-              color: i === 0 ? '#FFFFFF' : C.textSecondary,
+              fontFamily: fontFamily.semiBold,
+              color: i === 0 ? C.onPrimary : C.textSecondary,
             }}>
               {chip}
             </Text>
@@ -257,7 +287,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         ))}
       </View>
 
-      {/* ── 탭 (실제: tabContainer: paddingHorizontal 20, paddingVertical 12, fontSize 16) ── */}
+      {/* ── 탭 ── */}
       <View style={{
         flexDirection: 'row',
         paddingHorizontal: 14 * p,
@@ -265,7 +295,6 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         borderBottomWidth: StyleSheet.hairlineWidth,
         borderBottomColor: C.border,
       }}>
-        {/* 공식 탭 (active) */}
         <View style={{
           flex: 1,
           paddingVertical: 10 * p,
@@ -273,18 +302,17 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
           borderBottomWidth: 2,
           borderBottomColor: C.primary,
         }}>
-          <Text style={{ fontSize: 14 * p, fontFamily: 'Pretendard_600SemiBold', color: C.primary }}>공식 단어장</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>공식 단어장</Text>
         </View>
-        {/* 공유 단어장 탭 */}
         <View style={{ flex: 1, paddingVertical: 10 * p, alignItems: 'center' }}>
-          <Text style={{ fontSize: 14 * p, fontFamily: 'Pretendard_600SemiBold', color: C.textSecondary }}>공유 단어장</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>공유 단어장</Text>
         </View>
       </View>
 
-      {/* ── 카드 목록 (2개, detailed 모드) ── */}
+      {/* ── 카드 목록 ── */}
       <View style={{ paddingHorizontal: 14 * p, paddingBottom: 12 * p }}>
         {THEMES.map(theme => (
-          <ThemeCard key={theme.title} {...theme} isActive={isActive} />
+          <ThemeCard key={theme.title} {...theme} isActive={isActive} C={C} fontFamily={fontFamily} />
         ))}
       </View>
     </Animated.View>
@@ -295,7 +323,6 @@ const styles = StyleSheet.create({
   screen: {
     borderRadius: 20,
     overflow: 'hidden',
-    shadowColor: 'rgba(25,31,40,0.12)',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 1,
     shadowRadius: 20,

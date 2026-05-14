@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:540px;background:#1a1a1a;}
+  body{display:flex;align-items:center;justify-content:space-around;padding:30px;font-family:system-ui;color:#eee;}
+  .mask-cell{display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .icon-wrap{
+    width:240px;height:240px;position:relative;overflow:hidden;
+    background:#2A7B78;
+  }
+  .icon-wrap img{
+    position:absolute;left:-22px;top:-22px;
+    width:284px;height:284px;
+    /* Scale 240/216 = 1.111 to simulate 108dp container masked to 72dp visible.
+       Actually adaptive icon visible area is 72/108 of the asset.
+       So we display icon at 240*(108/72) = 360 to visualize foreground at full size,
+       cropped by 240 viewport.
+       But simpler: render full icon then mask down to 72/108 = 67% center area
+       via the mask itself. So foreground is 240*108/72 = 360, offset -60. */
+    left:-60px;top:-60px;width:360px;height:360px;
+  }
+  .label{font-size:13px;opacity:0.8;}
+  .circle .icon-wrap{border-radius:50%;}
+  .squircle .icon-wrap{border-radius:54px;}
+  .rounded .icon-wrap{border-radius:28px;}
+  .teardrop .icon-wrap{border-radius:50% 50% 50% 8px;}
+</style></head>
+<body>
+  <div class="mask-cell circle">
+    <div class="icon-wrap"><img src="../../assets/images/icon.png"></div>
+    <div class="label">원형 (Pixel 등)</div>
+  </div>
+  <div class="mask-cell squircle">
+    <div class="icon-wrap"><img src="../../assets/images/icon.png"></div>
+    <div class="label">스쿼클 (Samsung One UI)</div>
+  </div>
+  <div class="mask-cell rounded">
+    <div class="icon-wrap"><img src="../../assets/images/icon.png"></div>
+    <div class="label">둥근 사각형</div>
+  </div>
+  <div class="mask-cell teardrop">
+    <div class="icon-wrap"><img src="../../assets/images/icon.png"></div>
+    <div class="label">티어드롭 (Pixel 일부)</div>
+  </div>
+</body>
+</html>

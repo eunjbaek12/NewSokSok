@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Feature Graphic — EN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1024px; height: 500px; overflow: hidden; }
+  body {
+    position: relative;
+    background: radial-gradient(ellipse at 25% 35%, #348C89 0%, #2A7B78 45%, #1F6764 100%);
+    display: flex;
+    align-items: center;
+    padding: 0 72px;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    color: #fff;
+  }
+  .deco {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-8deg);
+    width: 380px;
+    height: 240px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+  }
+  .deco::before {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+  }
+  .character {
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    margin-right: 40px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
+  }
+  .character img { width: 100%; height: 100%; object-fit: contain; }
+  .text { position: relative; z-index: 2; flex: 1; }
+  .headline {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2.5px;
+  }
+  .headline .emph {
+    color: #C8E8A8;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  .subline {
+    margin-top: 22px;
+    font-size: 19px;
+    font-weight: 500;
+    opacity: 0.88;
+    letter-spacing: 0.2px;
+  }
+  .brand {
+    position: absolute;
+    bottom: 32px;
+    left: 72px;
+    font-size: 15px;
+    font-weight: 700;
+    opacity: 0.72;
+    letter-spacing: 3px;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <div class="deco"></div>
+  <div class="character">
+    <img src="../../assets/images/Avocado-main character.svg" alt="Avocado">
+  </div>
+  <div class="text">
+    <div class="headline">Build. Find.<br><span class="emph">Memorize.</span></div>
+    <div class="subline">Vocabulary for KO · EN · JA · ZH learners</div>
+  </div>
+  <div class="brand">AVOCADO</div>
+</body>
+</html>

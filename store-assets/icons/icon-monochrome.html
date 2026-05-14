@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:2048px;height:2048px;overflow:hidden;}
+  body{background:transparent;display:grid;place-items:center;}
+  .char{width:1200px;height:1200px;}
+  /* Flatten any non-transparent pixel to opaque black; OS tints with theme color */
+  .char img{width:100%;height:100%;object-fit:contain;filter:brightness(0) saturate(100%);}
+</style></head>
+<body><div class="char"><img src="../../assets/images/Avocado-main character.svg"></div></body>
+</html>

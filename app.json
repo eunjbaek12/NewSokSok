@@ -18,7 +18,9 @@
       "bundleIdentifier": "com.soksokvoca",
       "infoPlist": {
         "NSSpeechRecognitionUsageDescription": "Allow 아보카도 to use speech recognition for voice input.",
-        "NSMicrophoneUsageDescription": "Allow 아보카도 to use the microphone for voice input."
+        "NSMicrophoneUsageDescription": "Allow 아보카도 to use the microphone for voice input.",
+        "NSCameraUsageDescription": "Allow 아보카도 to use the camera to scan word lists from photos.",
+        "NSPhotoLibraryUsageDescription": "Allow 아보카도 to import word list photos from your library."
       }
     },
     "android": {
@@ -31,7 +33,8 @@
         "backgroundColor": "#2A7B78"
       },
       "permissions": [
-        "android.permission.RECORD_AUDIO"
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA"
       ]
     },
     "web": {
@@ -53,6 +56,13 @@
         {
           "microphonePermission": "Allow 아보카도 to use the microphone for voice input.",
           "speechRecognitionPermission": "Allow 아보카도 to use speech recognition for voice input."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow 아보카도 to import word list photos from your library.",
+          "cameraPermission": "Allow 아보카도 to use the camera to scan word lists from photos."
         }
       ]
     ],

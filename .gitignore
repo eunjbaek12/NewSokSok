@@ -60,3 +60,6 @@ debug.log
 
 # Claude Code runtime files
 .claude/scheduled_tasks.lock
+
+# Play Store raw screenshots (대용량 PNG. final/만 commit)
+store-assets/screenshots/raw/

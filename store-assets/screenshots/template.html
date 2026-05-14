@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1080px;height:2400px;overflow:hidden;}
+  body{
+    background:radial-gradient(ellipse at 40% 20%, #348C89 0%, #2A7B78 50%, #1F6764 100%);
+    font-family:'Pretendard',-apple-system,sans-serif;
+    color:#fff;
+    position:relative;
+  }
+  .caption-zone{
+    position:absolute;left:0;right:0;top:120px;
+    padding:0 64px;
+    text-align:center;
+  }
+  .caption{
+    font-family:'Jua','Pretendard',sans-serif;
+    font-size:88px;line-height:1.18;letter-spacing:-2px;
+    text-shadow:0 4px 12px rgba(0,0,0,0.18);
+  }
+  .caption.en{
+    font-family:'Pretendard',sans-serif;font-weight:800;
+    letter-spacing:-3px;
+  }
+  .sub{
+    margin-top:28px;
+    font-size:32px;line-height:1.4;opacity:0.85;
+    font-weight:500;letter-spacing:-0.3px;
+  }
+  .screenshot-zone{
+    position:absolute;left:0;right:0;bottom:120px;
+    display:flex;justify-content:center;align-items:flex-end;
+  }
+  .frame{
+    width:780px;
+    border-radius:48px;
+    overflow:hidden;
+    box-shadow:
+      0 24px 48px rgba(0,0,0,0.35),
+      0 6px 12px rgba(0,0,0,0.18),
+      inset 0 0 0 2px rgba(255,255,255,0.06);
+    background:#000;
+  }
+  .frame img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .brand{
+    position:absolute;left:0;right:0;bottom:40px;
+    text-align:center;
+    font-size:22px;font-weight:700;letter-spacing:4px;
+    opacity:0.55;
+  }
+</style></head>
+<body>
+  <div class="caption-zone">
+    <div class="caption" id="caption">{{CAPTION}}</div>
+    <div class="sub" id="sub">{{SUB}}</div>
+  </div>
+  <div class="screenshot-zone">
+    <div class="frame">
+      <img id="shot" src="{{SHOT}}" alt="">
+    </div>
+  </div>
+  <div class="brand">AVOCADO</div>
+</body>
+</html>

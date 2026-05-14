@@ -1,0 +1,62 @@
+{
+  "viewport": { "width": 1080, "height": 2400 },
+  "deviceTarget": "Pixel 7 (1080×2400, ~412dp width, ~917dp height)",
+  "screenshots": [
+    {
+      "id": "01-home",
+      "screen": "(tabs)/index.tsx — 홈 대시보드",
+      "captureHint": "단어장 1–3개 + 학습 진행도 그래프가 보이게. 라이트 테마.",
+      "ko": { "caption": "한눈에 보는 오늘의 학습", "sub": "오늘 외울 단어, 진척, 다음 할 일까지 한 화면에" },
+      "en": { "caption": "Today's study at a glance", "sub": "Today's words, progress, and what's next — all in one view" }
+    },
+    {
+      "id": "02-flashcard",
+      "screen": "플래시카드 학습 화면",
+      "captureHint": "단어 카드 한 장이 펼쳐진 상태. 단어 + 뜻이 함께 보이도록.",
+      "ko": { "caption": "직관적인 카드 학습", "sub": "터치 한 번으로 뜻 확인, 스와이프로 다음 카드" },
+      "en": { "caption": "Intuitive card-based learning", "sub": "Tap to flip, swipe to advance" }
+    },
+    {
+      "id": "03-quiz",
+      "screen": "퀴즈 학습 화면",
+      "captureHint": "객관식 4지선다 또는 주관식 입력 화면.",
+      "ko": { "caption": "퀴즈로 빠르게 점검", "sub": "객관식·주관식 자동 분배" },
+      "en": { "caption": "Quick check with quizzes", "sub": "Multiple choice and short answer, mixed" }
+    },
+    {
+      "id": "04-ai-generate",
+      "screen": "features/curation/screen.tsx — AI 단어 생성 모달",
+      "captureHint": "주제 입력 칸 + 언어쌍·난이도 선택 + 생성된 단어 리스트가 일부 보이게.",
+      "ko": { "caption": "주제만 입력하면 단어장 완성", "sub": "AI가 만든 단어를 골라서 담아요" },
+      "en": { "caption": "Type a topic, get a full list", "sub": "Pick the words you love" }
+    },
+    {
+      "id": "05-add-word",
+      "screen": "app/add-word.tsx — 단어 추가 화면",
+      "captureHint": "직접 입력 폼 또는 사진/일괄 입력 옵션 메뉴.",
+      "ko": { "caption": "사진·엑셀로 빠르게 추가", "sub": "한 화면에서 6가지 입력 방법" },
+      "en": { "caption": "Photo and CSV, fast", "sub": "Six ways to add words in one place" }
+    },
+    {
+      "id": "06-curation",
+      "screen": "features/curation/screen.tsx — 단어 모음 (커뮤니티)",
+      "captureHint": "공유된 단어장 카드들이 나열된 상태.",
+      "ko": { "caption": "내가 찾던 단어장, 모음에서", "sub": "다른 학습자의 단어장 즐겨가기" },
+      "en": { "caption": "The list you've been looking for", "sub": "Browse and import community lists" }
+    },
+    {
+      "id": "07-plan-progress",
+      "screen": "단어장 상세 / 학습 계획 화면",
+      "captureHint": "Day별 진척, 암기율 그래프가 보이는 화면.",
+      "ko": { "caption": "매일의 흐름이 한눈에", "sub": "암기율과 학습 패턴까지" },
+      "en": { "caption": "See your daily rhythm", "sub": "Mastery and patterns visualized" }
+    },
+    {
+      "id": "08-skin",
+      "screen": "설정 → 표시 → 테마/스킨",
+      "captureHint": "스킨 선택 화면 또는 Y2K·다크고요 등 특이한 스킨이 적용된 메인 화면.",
+      "ko": { "caption": "분위기를 바꿔 학습", "sub": "클래식·다크 고요·Y2K·실험실" },
+      "en": { "caption": "Change the mood", "sub": "Classic, Dark Calm, Y2K, Lab" }
+    }
+  ]
+}

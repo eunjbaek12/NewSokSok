@@ -88,100 +88,57 @@ jest.mock('expo/fetch', () => ({
 jest.mock('../lib/ai/gemini-client', () => ({
     analyzeWord: jest.fn(),
 }));
-jest.mock('../lib/naver-dict-api', () => ({
-    searchNaverDict: jest.fn(),
-}));
 
 import { enrichWord } from '../lib/translation-api';
-import { searchNaverDict } from '../lib/naver-dict-api';
 import { analyzeWord } from '../lib/ai/gemini-client';
 import { fetch as expoFetch } from 'expo/fetch';
 
-const mockedSearchNaverDict = searchNaverDict as jest.MockedFunction<typeof searchNaverDict>;
 const mockedAnalyzeWord = analyzeWord as jest.MockedFunction<typeof analyzeWord>;
 const mockedExpoFetch = expoFetch as unknown as jest.Mock;
 
-describe('Scenario E: enrichWord — Naver 사전이 단어를 찾았을 때', () => {
+describe('Scenario E: enrichWord — 사용자 키로 Gemini 호출', () => {
     beforeEach(() => {
-        mockedSearchNaverDict.mockReset();
         mockedAnalyzeWord.mockReset();
         mockedExpoFetch.mockReset();
     });
 
-    it('Naver 결과를 그대로 반환하고 Gemini fallback은 호출하지 않는다', async () => {
-        mockedSearchNaverDict.mockResolvedValue({
+    it('apiKey 있으면 Gemini로 채운다', async () => {
+        mockedAnalyzeWord.mockResolvedValue({
+            term: 'apple',
             meaningKr: '사과',
-            definition: '',
-            phonetic: 'ǽpl',
-            pos: 'noun',
+            definition: 'a round fruit',
             exampleEn: 'I ate an apple.',
             exampleKr: '나는 사과를 먹었다.',
+            phonetic: 'ǽpl',
+            pos: 'noun',
+            mnemonic: '',
         });
 
         const result = await enrichWord('apple', 'en', 'ko', 'fake-api-key');
 
         expect(result?.meaningKr).toBe('사과');
         expect(result?.exampleKr).toBe('나는 사과를 먹었다.');
-        expect(mockedSearchNaverDict).toHaveBeenCalledWith('apple', 'en', 'ko');
-        expect(mockedAnalyzeWord).not.toHaveBeenCalled();
-        expect(mockedExpoFetch).not.toHaveBeenCalled();
+        expect(mockedAnalyzeWord).toHaveBeenCalledWith('apple', 'en', 'ko', 'fake-api-key');
     });
 
-    it('term의 앞뒤 공백은 제거되어 사전 조회된다', async () => {
-        mockedSearchNaverDict.mockResolvedValue({
-            meaningKr: '사과', definition: '', phonetic: '', pos: '', exampleEn: '', exampleKr: '',
+    it('term의 앞뒤 공백은 제거되어 호출된다', async () => {
+        mockedAnalyzeWord.mockResolvedValue({
+            term: 'apple', meaningKr: '사과', definition: '', exampleEn: '', exampleKr: '', phonetic: '', pos: '', mnemonic: '',
         });
 
-        await enrichWord('  apple  ', 'en', 'ko');
+        await enrichWord('  apple  ', 'en', 'ko', 'key');
 
-        expect(mockedSearchNaverDict).toHaveBeenCalledWith('apple', 'en', 'ko');
+        expect(mockedAnalyzeWord).toHaveBeenCalledWith('apple', 'en', 'ko', 'key');
     });
 });
 
-describe('Scenario F: enrichWord — Naver가 실패하면 Gemini로 fallback', () => {
+describe('Scenario F: enrichWord — apiKey 없을 때', () => {
     beforeEach(() => {
-        mockedSearchNaverDict.mockReset();
         mockedAnalyzeWord.mockReset();
         mockedExpoFetch.mockReset();
     });
 
-    it('Naver가 null을 반환하면 사용자 키로 Gemini를 호출해서 채운다', async () => {
-        mockedSearchNaverDict.mockResolvedValue(null);
-        mockedAnalyzeWord.mockResolvedValue({
-            term: 'rareword',
-            meaningKr: '특이한단어',
-            definition: 'rare word',
-            exampleEn: 'A rare word.',
-            exampleKr: '특이한 단어다.',
-            phonetic: '',
-            pos: '',
-            mnemonic: '',
-        });
-
-        const result = await enrichWord('rareword', 'en', 'ko', 'user-key');
-
-        expect(result?.meaningKr).toBe('특이한단어');
-        expect(result?.definition).toBe('rare word');
-        expect(mockedAnalyzeWord).toHaveBeenCalledWith('rareword', 'en', 'ko', 'user-key');
-    });
-
-    it('Naver가 의미 없는 빈 결과만 주면 fallback이 실행된다', async () => {
-        mockedSearchNaverDict.mockResolvedValue({
-            meaningKr: '', definition: '', phonetic: '', pos: '', exampleEn: '', exampleKr: '',
-        });
-        mockedAnalyzeWord.mockResolvedValue({
-            term: 'term', meaningKr: '뜻', definition: '', exampleEn: 'ex', exampleKr: '', phonetic: '', pos: '', mnemonic: '',
-        });
-
-        const result = await enrichWord('term', 'en', 'ko', 'key');
-
-        expect(result?.meaningKr).toBe('뜻');
-        expect(mockedAnalyzeWord).toHaveBeenCalled();
-    });
-
-    it('API 키가 없으면 (Gemini fallback 불가) 영어는 무료 사전 fallback', async () => {
-        mockedSearchNaverDict.mockResolvedValue(null);
-        // dictionaryapi.dev의 표준 응답 구조
+    it('apiKey 없으면 영어는 dictionaryapi.dev로 fallback', async () => {
         mockedExpoFetch.mockResolvedValue({
             ok: true,
             json: () => Promise.resolve([{
@@ -193,66 +150,57 @@ describe('Scenario F: enrichWord — Naver가 실패하면 Gemini로 fallback', 
             }]),
         });
 
-        const result = await enrichWord('free', 'en', 'ko'); // apiKey 없음
+        const result = await enrichWord('free', 'en', 'ko');
 
         expect(result?.definition).toBe('not under the control');
         expect(result?.phonetic).toBe('fri');
         expect(mockedAnalyzeWord).not.toHaveBeenCalled();
     });
 
-    it('Naver와 Gemini 모두 의미 있는 결과 없으면 null을 반환', async () => {
-        mockedSearchNaverDict.mockResolvedValue(null);
+    it('apiKey 없고 영어가 아니면 빈 결과로 null 반환', async () => {
+        const result = await enrichWord('사과', 'ko', 'en');
+
+        expect(result).toBeNull();
+        expect(mockedAnalyzeWord).not.toHaveBeenCalled();
+    });
+
+    it('Gemini가 의미 없는 빈 결과만 주면 null', async () => {
         mockedAnalyzeWord.mockResolvedValue({
             term: 'xyzabc', definition: '', meaningKr: '', exampleEn: '', exampleKr: '', phonetic: '', pos: '', mnemonic: '',
         });
-        mockedExpoFetch.mockResolvedValue({ ok: false, json: () => Promise.resolve([]) });
 
         const result = await enrichWord('xyzabc', 'en', 'ko', 'key');
 
         expect(result).toBeNull();
     });
-
-    it('Naver가 예외를 던져도 fallback이 동작한다 (네트워크 에러)', async () => {
-        mockedSearchNaverDict.mockRejectedValue(new Error('Network error'));
-        mockedAnalyzeWord.mockResolvedValue({
-            term: 'term', meaningKr: '뜻', definition: '', exampleEn: 'ex', exampleKr: '', phonetic: '', pos: '', mnemonic: '',
-        });
-
-        const result = await enrichWord('term', 'en', 'ko', 'key');
-
-        expect(result?.meaningKr).toBe('뜻');
-    });
 });
 
 describe('Scenario H: 사진 흐름 — 추출 → 필터 → 단어별 enrichWord 호출 시퀀스', () => {
     beforeEach(() => {
-        mockedSearchNaverDict.mockReset();
         mockedAnalyzeWord.mockReset();
         mockedExpoFetch.mockReset();
     });
 
-    it('Gemini가 8개 단어를 뽑고 stopwords 4개가 제거되면, 남은 4개가 각각 Naver 조회된다', async () => {
+    it('Gemini가 8개 단어를 뽑고 stopwords 4개가 제거되면, 남은 4개가 각각 enrich 호출된다', async () => {
         const geminiRaw = ['The', 'apple', 'is', 'a', 'fruit', 'that', 'grows', 'tree'];
         const filtered = filterExtractedWords(geminiRaw, 'en');
         expect(filtered).toEqual(['apple', 'fruit', 'grows', 'tree']);
 
-        mockedSearchNaverDict.mockImplementation(async (term: string) => ({
+        mockedAnalyzeWord.mockImplementation(async (term: string) => ({
+            term,
             meaningKr: `${term}-뜻`,
             definition: '',
             phonetic: `phon-${term}`,
             pos: '',
             exampleEn: `Sentence with ${term}.`,
             exampleKr: `${term} 예문 번역.`,
+            mnemonic: '',
         }));
 
-        const results = await Promise.all(filtered.map(t => enrichWord(t, 'en', 'ko')));
+        const results = await Promise.all(filtered.map(t => enrichWord(t, 'en', 'ko', 'key')));
 
-        expect(mockedSearchNaverDict).toHaveBeenCalledTimes(4);
-        expect(mockedSearchNaverDict).toHaveBeenCalledWith('apple', 'en', 'ko');
-        expect(mockedSearchNaverDict).toHaveBeenCalledWith('fruit', 'en', 'ko');
-        expect(mockedSearchNaverDict).toHaveBeenCalledWith('grows', 'en', 'ko');
-        expect(mockedSearchNaverDict).toHaveBeenCalledWith('tree', 'en', 'ko');
-        expect(results.every(r => r?.meaningKr && r?.phonetic && r?.exampleKr)).toBe(true);
+        expect(mockedAnalyzeWord).toHaveBeenCalledTimes(4);
+        expect(results.every(r => r?.meaningKr && r?.phonetic)).toBe(true);
     });
 
     it('기존 리스트에 있는 단어는 사진 흐름 진입 전에 제외되어 enrichWord 호출도 안 됨', async () => {
@@ -261,40 +209,19 @@ describe('Scenario H: 사진 흐름 — 추출 → 필터 → 단어별 enrichWo
         const filtered = filterExtractedWords(geminiRaw, 'en').filter(t => !existing.has(t.toLowerCase()));
         expect(filtered).toEqual(['cherry']);
 
-        mockedSearchNaverDict.mockResolvedValue({
-            meaningKr: '체리', definition: '', phonetic: 'tʃéri', pos: '', exampleEn: '', exampleKr: '',
-        });
-
-        await Promise.all(filtered.map(t => enrichWord(t, 'en', 'ko')));
-
-        expect(mockedSearchNaverDict).toHaveBeenCalledTimes(1);
-        expect(mockedSearchNaverDict).toHaveBeenCalledWith('cherry', 'en', 'ko');
-    });
-
-    it('Naver가 일부만 성공해도 나머지는 fallback으로 보강된다 (부분 실패 허용)', async () => {
-        const terms = ['common', 'rareword'];
-        mockedSearchNaverDict.mockImplementation(async (term: string) => {
-            if (term === 'common') {
-                return { meaningKr: '흔한', definition: '', phonetic: 'kámən', pos: '', exampleEn: '', exampleKr: '' };
-            }
-            return null;
-        });
         mockedAnalyzeWord.mockResolvedValue({
-            term: 'rareword', meaningKr: '드문', definition: '', exampleEn: '', exampleKr: '', phonetic: '', pos: '', mnemonic: '',
+            term: 'cherry', meaningKr: '체리', definition: '', exampleEn: '', exampleKr: '', phonetic: 'tʃéri', pos: '', mnemonic: '',
         });
 
-        const [r1, r2] = await Promise.all(terms.map(t => enrichWord(t, 'en', 'ko', 'key')));
+        await Promise.all(filtered.map(t => enrichWord(t, 'en', 'ko', 'key')));
 
-        expect(r1?.meaningKr).toBe('흔한');
-        expect(r2?.meaningKr).toBe('드문');
-        expect(mockedSearchNaverDict).toHaveBeenCalledTimes(2);
         expect(mockedAnalyzeWord).toHaveBeenCalledTimes(1);
+        expect(mockedAnalyzeWord).toHaveBeenCalledWith('cherry', 'en', 'ko', 'key');
     });
 });
 
 describe('Scenario G: enrichWord — 엣지 케이스', () => {
     beforeEach(() => {
-        mockedSearchNaverDict.mockReset();
         mockedAnalyzeWord.mockReset();
         mockedExpoFetch.mockReset();
     });
@@ -302,16 +229,15 @@ describe('Scenario G: enrichWord — 엣지 케이스', () => {
     it('AbortSignal이 이미 abort된 상태로 호출되면 AbortError', async () => {
         const controller = new AbortController();
         controller.abort();
-        mockedSearchNaverDict.mockImplementation(() => new Promise(() => {})); // 응답 없음
+        mockedAnalyzeWord.mockImplementation(() => new Promise(() => {})); // 응답 없음
 
-        await expect(enrichWord('apple', 'en', 'ko', undefined, controller.signal))
+        await expect(enrichWord('apple', 'en', 'ko', 'key', controller.signal))
             .rejects.toMatchObject({ name: 'AbortError' });
     });
 
     it('빈 단어가 들어오면 즉시 null (API 호출 없음)', async () => {
         const result = await enrichWord('   ', 'en', 'ko');
         expect(result).toBeNull();
-        expect(mockedSearchNaverDict).not.toHaveBeenCalled();
         expect(mockedAnalyzeWord).not.toHaveBeenCalled();
     });
 });

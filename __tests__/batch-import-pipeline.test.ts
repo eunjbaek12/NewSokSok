@@ -10,9 +10,6 @@ jest.mock('expo/fetch', () => ({ fetch: jest.fn() }));
 jest.mock('../lib/ai/gemini-client', () => ({
     analyzeWord: jest.fn(),
 }));
-jest.mock('../lib/naver-dict-api', () => ({
-    searchNaverDict: jest.fn(),
-}));
 
 import { parseImportedText } from '../utils/importParser';
 import { runEnrichWorkerQueue } from '../hooks/useEnrichQueue';

@@ -41,7 +41,7 @@ import BatchImportWorkflow from '@/components/BatchImportWorkflow';
 import PhotoImportWorkflow from '@/components/PhotoImportWorkflow';
 import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
-import { searchNaverDict, fetchNaverAutocomplete, fetchDatamuseAutocomplete } from '@/lib/naver-dict-api';
+import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
 import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
@@ -761,15 +761,9 @@ export default function AddWordScreen() {
                                                                 return;
                                                             }
                                                             autocompleteTimerRef.current = setTimeout(async () => {
-                                                                const dictCode = getNaverDictCode(inputSettings.sourceLang, inputSettings.targetLang);
-                                                                let results: string[];
-                                                                if (inputSettings.sourceLang === 'en') {
-                                                                    results = await fetchDatamuseAutocomplete(text.trim());
-                                                                } else if (dictCode) {
-                                                                    results = await fetchNaverAutocomplete(text.trim(), inputSettings.sourceLang, inputSettings.targetLang);
-                                                                } else {
-                                                                    results = [];
-                                                                }
+                                                                const results = inputSettings.sourceLang === 'en'
+                                                                    ? await fetchDatamuseAutocomplete(text.trim())
+                                                                    : [];
                                                                 setSuggestions(results);
                                                                 setShowSuggestions(results.length > 0);
                                                             }, 300);

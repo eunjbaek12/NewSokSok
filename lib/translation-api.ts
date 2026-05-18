@@ -1,10 +1,9 @@
 import { AutoFillResult } from './types';
 import { fetch } from 'expo/fetch';
 import { analyzeWord } from '@/lib/ai/gemini-client';
-import { searchNaverDict } from '@/lib/naver-dict-api';
 
 // 단어 1개를 (sourceLang → targetLang) 페어로 보강한다.
-// 우선순위: Naver 사전 → 실패 시 autoFillWord(사용자 키 있으면 Gemini, 없으면 무료 사전).
+// 사용자 키 있으면 Gemini, 없으면 영어 dictionaryapi.dev fallback (그 외 언어는 빈 결과).
 // 단일 추가 흐름(useAddWord.runAutoFill)과 사진 흐름이 공유하는 단일 진입점.
 export async function enrichWord(
   term: string,
@@ -34,15 +33,6 @@ export async function enrichWord(
         .catch(e => { clearTimeout(timer); signal?.removeEventListener('abort', onAbort); reject(e); });
     });
   };
-
-  try {
-    const naver = await withTimeout(searchNaverDict(trimmed, sourceLang, targetLang), 5000).catch(() => null);
-    if (naver && (naver.meaningKr || naver.exampleEn || naver.phonetic)) {
-      return naver;
-    }
-  } catch (e: any) {
-    if (e?.name === 'AbortError') throw e;
-  }
 
   try {
     const result = await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey), 8000);

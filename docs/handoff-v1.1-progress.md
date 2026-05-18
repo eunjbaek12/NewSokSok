@@ -138,7 +138,7 @@ v1.2 (이후): Pro Lite 추가 검토
 | #4 | AdMob SDK 통합 (`react-native-google-mobile-ads`) + 배너 + 보상형 | AdMob 광고 단위 ID | ⏳ |
 | #5 | Pro 인앱구매 통합 (Play Billing) + 영수증 검증 | Play 구독 상품 ID | ⏳ |
 | #6 | 클라이언트 enrich 흐름 → Edge Function 호출로 교체 | #3 완료 후 | ✅ #3과 함께 완료 (EXPO_PUBLIC_ENRICH_VIA_EDGE=1 으로 활성) |
-| #7 | 설정 UI 개편 (BYOK 고급 설정 격하, Pro 결제 화면) | #4·#5 완료 후 | ⏳ |
+| #7 | 설정 UI 개편 (BYOK 고급 설정 격하, Pro 결제 화면) | #4·#5 완료 후 | ✅ UI 골격 완료 (2026-05-18). Pro 구독 버튼은 "곧 출시" — #5 인앱구매 통합 시 활성화 |
 | #10 | FAQ 전면 개정 (Naver 출처 제거, BYOK/Pro 정책 반영, 사진 스캔 다국어) | 사용자 결정 무관 | ✅ 완료 (2026-05-18) |
 | #11 | 개인정보 처리방침 + 약관 업데이트 (광고·결제 반영) | #4·#5 완료 후 | ⏳ |
 | #14 | 통합 테스트 + Production AAB 재빌드 | 모든 작업 완료 후 | ⏳ |

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,7 +12,7 @@ import {
   TextInput,
   Linking,
 } from 'react-native';
-import { router, useLocalSearchParams } from 'expo-router';
+import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
@@ -36,33 +36,14 @@ export default function SettingsScreen() {
   const { colors, isDark, skinId, setSkin, fontFamily } = useTheme();
   const { authMode, user, logout, signInWithGoogle, deleteAccount } = useAuth();
   const { locale, setLocale } = useLocale();
-  const { profileSettings, updateProfileSettings, apiKey, updateApiKey } = useSettings();
+  const { profileSettings, updateProfileSettings } = useSettings();
   const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
   const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
   const [nicknameInput, setNicknameInput] = useState('');
   const [nicknameFromGoogle, setNicknameFromGoogle] = useState(false);
-  const [apiKeyModalOpen, setApiKeyModalOpen] = useState(false);
-  const [apiKeyInput, setApiKeyInput] = useState('');
-  const [apiKeyVisible, setApiKeyVisible] = useState(false);
   const { markOnboardingDone } = useOnboarding();
-
-  // 다른 화면에서 ?openApiKey=1로 진입했을 때 자동으로 API 키 모달 열기 + 저장 시 자동 복귀
-  const params = useLocalSearchParams<{ openApiKey?: string }>();
-  const autoOpenedRef = useRef(false);
-  const enteredForApiKeyRef = useRef(false);
-  useEffect(() => {
-    if (params.openApiKey === '1' && !autoOpenedRef.current) {
-      autoOpenedRef.current = true;
-      enteredForApiKeyRef.current = true;
-      setApiKeyInput(apiKey || '');
-      setApiKeyVisible(false);
-      setApiKeyModalOpen(true);
-      // 다음 진입 시 stale param 재발동 방지
-      router.setParams({ openApiKey: undefined } as any);
-    }
-  }, [params.openApiKey, apiKey]);
 
   const handleResetOnboarding = () => {
     Alert.alert('온보딩 초기화', '앱을 재시작하면 온보딩이 다시 표시됩니다.', [
@@ -96,27 +77,6 @@ export default function SettingsScreen() {
     await updateProfileSettings({ nickname: nicknameInput.trim() });
     setNicknameModalOpen(false);
   };
-
-  const handleOpenApiKeyModal = () => {
-    setApiKeyInput(apiKey || '');
-    setApiKeyVisible(false);
-    setApiKeyModalOpen(true);
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-  };
-
-  const handleSaveApiKey = async () => {
-    await updateApiKey(apiKeyInput.trim());
-    setApiKeyModalOpen(false);
-    // 큐레이션 등 다른 화면에서 키 설정을 위해 진입한 경우, 키 저장 후 자동으로 돌아감
-    if (enteredForApiKeyRef.current && router.canGoBack()) {
-      enteredForApiKeyRef.current = false;
-      router.back();
-    }
-  };
-
-  const maskedApiKey = apiKey
-    ? apiKey.slice(0, 8) + '••••••••••••••••'
-    : '';
 
   const currentLangLabel = UI_LOCALES.find((l) => l.code === locale)?.nativeLabel ?? locale;
 
@@ -321,17 +281,43 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.ai')}</Text>
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.plansAndMore')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-          <Pressable style={styles.row} onPress={handleOpenApiKeyModal}>
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/plans' as any);
+            }}
+          >
             <View style={styles.rowLeft}>
               <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-                <Ionicons name="key-outline" size={18} color={colors.primary} />
+                <Ionicons name="pricetag-outline" size={18} color={colors.primary} />
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.geminiApiKey')}</Text>
-                <Text style={[styles.rowSubtitle, { color: apiKey ? colors.success : colors.textTertiary }]} numberOfLines={1}>
-                  {apiKey ? maskedApiKey : t('settings.geminiApiKeyNotSet')}
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.plans')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {t('settings.plansDesc')}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+          </Pressable>
+          <Pressable
+            style={styles.row}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              router.push('/advanced-settings' as any);
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="construct-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.advanced')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {t('settings.advancedDesc')}
                 </Text>
               </View>
             </View>
@@ -546,64 +532,6 @@ export default function SettingsScreen() {
               {t('settings.nicknameFromGoogle')}
             </Text>
           )}
-        </View>
-      </DialogModal>
-      <DialogModal
-        visible={apiKeyModalOpen}
-        onClose={() => setApiKeyModalOpen(false)}
-        title={t('settings.geminiApiKeyTitle')}
-        scrollable={false}
-        footer={
-          <View style={styles.modalActions}>
-            <Pressable
-              onPress={() => setApiKeyModalOpen(false)}
-              style={[styles.modalBtn, { backgroundColor: colors.surfaceSecondary, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
-            >
-              <Text style={[styles.modalBtnText, { color: colors.text, fontSize: btn.fontSize }]}>{t('common.cancel')}</Text>
-            </Pressable>
-            <Pressable
-              onPress={handleSaveApiKey}
-              style={[styles.modalBtn, { backgroundColor: colors.primaryButton, paddingVertical: btn.paddingVertical, borderRadius: btn.borderRadius }]}
-            >
-              <Text style={[styles.modalBtnText, { color: colors.onPrimary, fontSize: btn.fontSize }]}>{t('common.save')}</Text>
-            </Pressable>
-          </View>
-        }
-      >
-        <View style={styles.modalBody}>
-          <Text style={[styles.nicknameDesc, { color: colors.textSecondary }]}>
-            {t('settings.geminiApiKeyDesc')}
-          </Text>
-          <Pressable
-            onPress={() => Linking.openURL('https://aistudio.google.com/apikey')}
-          >
-            <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_500Medium', marginBottom: 4 }}>
-              {t('settings.geminiApiKeyLink')} →
-            </Text>
-          </Pressable>
-          <View style={[styles.apiKeyInputRow, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}>
-            <TextInput
-              style={[styles.apiKeyInput, { color: colors.text }]}
-              value={apiKeyInput}
-              onChangeText={setApiKeyInput}
-              placeholder="AIza..."
-              placeholderTextColor={colors.textTertiary}
-              autoFocus
-              autoCapitalize="none"
-              autoCorrect={false}
-              secureTextEntry={!apiKeyVisible}
-              returnKeyType="done"
-              onSubmitEditing={handleSaveApiKey}
-            />
-            <Pressable onPress={() => setApiKeyVisible(v => !v)} style={{ padding: 4 }}>
-              <Ionicons name={apiKeyVisible ? 'eye-off-outline' : 'eye-outline'} size={18} color={colors.textTertiary} />
-            </Pressable>
-          </View>
-          {apiKey ? (
-            <Pressable onPress={() => { setApiKeyInput(''); updateApiKey(''); setApiKeyModalOpen(false); }}>
-              <Text style={{ color: colors.error, fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 4 }}>{t('settings.geminiApiKeyRemove')}</Text>
-            </Pressable>
-          ) : null}
         </View>
       </DialogModal>
     </View>

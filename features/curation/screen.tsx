@@ -487,7 +487,7 @@ export default function CurationScreen() {
                     { text: t('common.later'), style: 'cancel' },
                     {
                         text: t('common.setupNow'),
-                        onPress: () => router.push('/(tabs)/settings?openApiKey=1' as any),
+                        onPress: () => router.push('/advanced-settings?openApiKey=1' as any),
                     },
                 ],
             );

@@ -266,7 +266,35 @@
     "terms": "이용약관",
     "termsDesc": "서비스 이용 조건을 확인하세요",
     "privacy": "개인정보 처리방침",
-    "privacyDesc": "수집·이용·보관 정책을 확인하세요"
+    "privacyDesc": "수집·이용·보관 정책을 확인하세요",
+    "licenses": "오픈소스 및 데이터 출처",
+    "licensesDesc": "사용한 외부 데이터와 오픈소스를 확인하세요"
+  },
+  "licenses": {
+    "title": "오픈소스 및 데이터 출처",
+    "lastUpdated": "최종 업데이트: 2026년 5월",
+    "sections": [
+      {
+        "title": "공식 큐레이션 단어장",
+        "body": "다음 단어장은 Browne, Culligan, Phillips의 학술 어휘 목록을 기반으로 합니다. 모두 CC BY-SA 4.0 라이선스로 자유 이용 가능하며, 본 앱은 동일 라이선스 조건을 준수합니다.\n\n• 기초 영어 필수 1000 — NGSL (New General Service List)\n• 실무 비즈니스 영어 1000 — BSL (Business Service List)\n• 수능·TOEFL·IELTS 학술 어휘 — NAWL (New Academic Word List)\n• TOEIC 핵심 어휘 600 — TSL (TOEIC Service List)\n\n출처: www.newgeneralservicelist.com\n\n각 단어장의 뜻·예문은 Google Gemini로 자동 생성된 AI 콘텐츠입니다."
+      },
+      {
+        "title": "AI 기능 (자동완성·단어 생성·사진 스캔)",
+        "body": "Google Gemini API를 사용합니다. 사용자 입력은 Google의 처리를 거쳐 응답이 생성되며, Google의 데이터 처리 정책이 적용됩니다."
+      },
+      {
+        "title": "외부 사전 데이터",
+        "body": "• Free Dictionary API (dictionaryapi.dev) — 영어 단어 사전 정의 보조. 사용자가 AI 키를 등록하지 않은 경우의 영어 단어 자동 보강에 사용됩니다.\n\n• Datamuse API (api.datamuse.com) — 영어 입력 자동완성 제안에 사용됩니다.\n\n두 서비스 모두 무료·오픈 데이터 기반입니다."
+      },
+      {
+        "title": "외부 사전 링크 안내",
+        "body": "단어 검색 시 'N' 버튼은 외부 브라우저로 Naver 사전 검색 결과 페이지를 여는 단순 링크입니다. 본 앱은 Naver 사전의 콘텐츠를 직접 수집·저장·표시하지 않습니다. 모든 사전 콘텐츠 표시는 Naver 사전 웹사이트에서 이루어집니다."
+      },
+      {
+        "title": "오픈소스 소프트웨어",
+        "body": "본 앱은 다음을 비롯한 다수의 오픈소스 라이브러리를 사용합니다.\n\n• React Native (MIT)\n• Expo (MIT)\n• Supabase JS SDK (MIT)\n• Zustand (MIT)\n• React Native Reanimated (MIT)\n• Pretendard 폰트 (SIL OFL 1.1)\n\n각 라이브러리의 전체 라이선스 텍스트는 해당 프로젝트 저장소를 참고하세요."
+      }
+    ]
   },
   "terms": {
     "title": "이용약관",
@@ -352,7 +380,7 @@
           },
           {
             "q": "엑셀 업로드는 어떻게 쓰나요?",
-            "a": "엑셀이나 구글시트에서 단어들을 복사한 뒤 붙여넣기 하면 돼요.\n\n열 순서: 단어 / 뜻 / 영어 정의 / 영어 예문 / 예문 해석 / 태그\n\n뒤쪽 4개 열은 비워둬도 됩니다. 첫 행이 헤더면 자동으로 건너뛰어요."
+            "a": "엑셀이나 구글시트에서 단어 한 열만 복사해 붙여넣으면 돼요.\n\n뜻·예문은 AI 자동 완성이 채워주니 단어만 적으면 됩니다. 영어·한국어·일본어 등 어떤 언어든 지원해요.\n\n탭이나 콤마가 섞여 있으면 첫 컬럼만 단어로 쓰고, 첫 행이 헤더면 자동으로 건너뛰어요."
           },
           {
             "q": "음성으로도 추가할 수 있나요?",

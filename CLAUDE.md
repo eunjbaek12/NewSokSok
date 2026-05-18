@@ -30,13 +30,13 @@ There is no configured test script. Jest and ts-jest are in devDependencies with
 
 ### Key Architectural Decisions
 
-**Offline-first dual-database:** All data is stored locally in SQLite first. Google-authenticated users sync to Supabase Postgres with a 2-second debounce (`features/sync/engine.ts`). Guest mode is local-only.
+**Offline-first dual-database:** All data is stored locally in SQLite first. Google-authenticated users sync to Supabase Postgres with a 30-second debounce (`features/sync/engine.ts`, `DEBOUNCE_MS = 30000`). Guest mode is local-only.
 
 **Supabase Auth:** Google Sign-In via `@react-native-google-signin/google-signin` → `idToken` → `supabase.auth.signInWithIdToken`. Session is managed automatically by the Supabase SDK. See `features/auth/store.ts`.
 
-**RLS security:** Supabase Row Level Security enforces that users can only read/write their own rows. `user_id` column defaults to `auth.uid()` on insert. No server needed.
+**RLS security:** Supabase Row Level Security enforces that users can only read/write their own rows. `user_id` column defaults to `auth.uid()` on insert.
 
-**No backend server:** The Express backend has been removed. All data operations go directly to Supabase via `@supabase/supabase-js`. Hosting cost: $0 (Supabase free tier).
+**Backend strategy:** No long-running server. Data operations go directly to Supabase via `@supabase/supabase-js`. AI enrich proxy uses **Supabase Edge Functions** (planned v1.1) with operator's Agent Platform (= Vertex AI, rebranded 2026-04) service-account key — fits BaaS/serverless model, not Express revival. Hosting cost: $0 (Supabase free tier) until DAU scale.
 
 **State management stores** (Zustand via `features/*/store.ts`):
 - `useAuthStore` — Google / guest mode, Supabase session
@@ -62,7 +62,16 @@ GEMINI_API_KEY                  # Optional — dev scripts only. Production uses
 
 ### AI Calls
 
-AI features (Gemini) are called **directly from the client** using the user's own API key (entered in settings). See `lib/ai/gemini-client.ts` for the SDK wrapper and `lib/translation-api.ts` / `features/curation/screen.tsx` for the call sites.
+**Current (v1):** Two paths in `lib/translation-api.ts:enrichWord`:
+1. User has Gemini key (BYOK) → `lib/ai/gemini-client.ts:analyzeWord` (direct client → Google)
+2. No key, source = English → `dictionaryapi.dev` fallback (definition + example, no Korean)
+3. No key, other source language → empty result
+
+**Planned (v1.1):** Add operator-key path via Supabase Edge Function (`enrich-word`) using Google Cloud Agent Platform (`aiplatform.googleapis.com`, formerly Vertex AI — rebranded 2026-04). Default for non-BYOK users. Quota-gated (Free 100단어/일, Pro 1,000단어/일).
+
+**Removed (2026-05-17):** Naver dict unofficial API (`lib/naver-dict-api.ts`) — browser-impersonating scraper, ToS/DB-rights risk. External "Naver 사전" links via `WebBrowser.openBrowserAsync` in `app/add-word.tsx` and `components/WordDetailModal.tsx` remain (legal).
+
+**Datamuse** autocomplete (English-only) lives in `lib/datamuse-api.ts`. Used for typing suggestions in add-word search field.
 
 ### SQLite Schema Migrations
 
@@ -73,3 +82,33 @@ Migrations are manually versioned in `lib/db/`. When modifying the local schema,
 - Google login required to share. Guests see the share button disabled with a login prompt.
 - `features/vocab/api.ts` — `fetchCloudCurations`, `shareCuration`, `deleteCloudCuration` (all Supabase SDK calls).
 - Admin accounts in `app_admins` table can delete any curation.
+
+### Monetization (v1.1 planned)
+
+3-tier model. Unit displayed to users is **"단어 수" (word count)**, not points.
+
+| Tier | Price | Ads | AI quota (per day) | Key |
+|---|---|---|---|---|
+| Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300) | Operator (Vertex AI) |
+| BYOK | 0 | Banner only | Unlimited (own key) | User's Gemini |
+| Pro | ₩3,900/month or ₩35,900/year (14% off) | None | 1,000 단어 | Operator (Vertex AI) |
+| Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
+
+**Word-count weighting** (for quota):
+- Auto-complete 1 word = 1 단어
+- AI word generation 1 set = 20 단어
+- Photo scan 1 image = 15 단어 (operator absorbs OCR overhead via banner revenue)
+
+**Free trial:** 7-day Pro trial on signup, auto-converts to Free (no auto-charge).
+
+**Under-14 users:** Ads disabled (AdMob policy + KR child-protection regs).
+
+**BYOK location:** Settings → 고급 설정 (hidden by default; not advertised to general users to avoid confusion).
+
+### Curation Licensing
+
+Built-in curated lists (`constants/curationData.ts`):
+- NGSL / BSL / NAWL / TSL by Browne & Culligan — **CC BY-SA 4.0**, attribution in `description`.
+- Theme decks (Alice, Sherlock, Little Prince, etc.) — copyright review pending. Some works (e.g. Le Petit Prince) still under copyright in some jurisdictions.
+
+Per CC BY-SA 4.0 ShareAlike: in-app license/attribution page required for derivative redistribution (see Task #9, #12 in v1.1 work).

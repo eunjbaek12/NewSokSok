@@ -238,19 +238,93 @@ Phase 4 (Part B~E 완료 후) ← 다음 작업
 
 ---
 
-## 다음 세션 시작 흐름
+## 다음 세션에서 진행할 작업 (우선순위 순)
 
-1. **사용자 측 Part B~E 진척 확인** — AdMob ID 받았는지, Play 상품 등록됐는지, Play SA 권한 부여 반영됐는지, Edge deploy 완료됐는지
-2. **개발자 측 Part F 정리** — `pnpm install` + `pnpm lint` + 타입 점검
-3. **학습 화면 16dp 정밀 보정** (출시 차단 위험 항목 우선 해소)
-4. **EAS dev build** — 테스트 광고 ID + 테스트 결제로 통합 시나리오 검증
-   - 배너 노출/숨김 (Free / Pro / 게스트 / under14 가드)
-   - 보상형 광고 시청 → +50단어 반영
-   - Pro 구독 → quota 1,000단어 반영 + 광고 제거
-   - Pro 구독 복원 (재설치 시나리오)
-   - 한도 초과 → RewardedAdModal 자동 트리거
-5. **Production AAB 빌드** + Play Console 내부 테스트 트랙 업로드
-6. **Play Console 정책 갱신** — 광고 ID '사용함', 데이터 보안 폼, 콘텐츠 등급 재답변
+### A. 사용자 측 진척 확인 (대화 시작 시 묻기)
+
+- [ ] **Part B (AdMob)** — 광고 단위 ID 발급 완료? EAS Secret 등록 완료?
+- [ ] **Part C (Play 구독)** — `pro_monthly`/`pro_yearly` 상품 등록 + 7일 trial offer 완료?
+- [ ] **Part D (Play Developer API SA)** — 서비스 계정 생성 + Play Console 권한 부여 (~24h 반영)?
+- [ ] **Part E (Supabase)** — `db push` + Secret 6종 + `enrich-word`/`verify-purchase` deploy 완료?
+- [ ] **Part F (`pnpm install`)** — OneDrive 직접 편집한 의존성 보정 완료?
+
+### B. 코드 작업 (사용자 사전 작업과 병렬 진행 가능)
+
+#### B-1. 🔴 학습 화면 답 버튼 16dp 정밀 보정 — **즉시 시작 권장**
+
+**왜 우선**: AdMob 정책 위반 시 광고 거부 → 출시 차단 위험. 의존성 없이 즉시 가능.
+
+작업 대상 4개 화면:
+- `features/study/flashcards/screen.tsx`
+- `features/study/quiz/screen.tsx`
+- `features/study/examples/screen.tsx`
+- `features/study/autoplay/screen.tsx`
+
+각 화면에 이미 `// TODO(#4): bottom-anchor 배너 + 답 버튼 영역 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16 정밀 보정` 코멘트 있음.
+
+수정 패턴:
+1. 답 버튼이 들어가는 wrapper View (flex column 마지막에 있는 답 버튼 영역) 찾기
+2. 그 wrapper의 `paddingBottom`을 `insets.bottom + BANNER_SLOT_HEIGHT + 16`으로 변경
+3. `BANNER_SLOT_HEIGHT`는 `@/components/ads/AppBannerAd`에서 import
+4. 광고 가드(`useQuota` + `useAuth`)로 광고 없을 때는 `insets.bottom`만 적용 — 빈 공간 회피
+   - 단순화 옵션: 항상 50px 보정 (광고 없을 때 50px 추가 공간만 발생, UX 손상 최소)
+
+#### B-2. 🟡 14세 미만 자가 신고 동의 흐름
+
+**왜 필요**: `isAdsAllowed`의 `isUnder14`가 현재 하드코딩 `false`. AdMob 정책 + KR 아동 보호 규정상 14세 미만은 광고 비활성 필수.
+
+옵션:
+- 가장 가벼운: `ProfileSettings`에 `isUnder14: boolean` 추가 + 설정 화면에 토글 (자가 신고)
+- 표준: 약관 동의 onboarding 단계에 만 14세 미만 체크박스
+- 엄격: 생년 입력 → 만 나이 자동 계산
+
+v1.1 출시 단계는 가장 가벼운 옵션으로 충분. v1.2에서 강화.
+
+수정 지점:
+- `shared/contracts` `ProfileSettingsSchema`에 필드 추가
+- `features/settings/store.ts` 기본값
+- `components/ads/AppBannerAd.tsx` 의 `useAuth + useSettings`로 isUnder14 주입
+- `app/(tabs)/settings.tsx`에 토글 UI
+
+#### B-3. 🟡 Pro 한도 초과 UX
+
+**증상**: Pro 사용자가 1,000단어/일 초과 시 현재 fallback 동작(영어 dictionaryapi 또는 빈 결과). "내일 다시" 안내 없음.
+
+수정:
+- `lib/translation-api.ts:autoFillWord`에서 quota_exceeded + tier='pro'면 별도 상태로 분리
+- `useQuotaStore`에 `proLimitReachedAt` 필드 추가
+- RewardedAdModal과는 별개의 모달 (Pro는 광고 시청 X — Pro 약속 무결성)
+- 또는 단순히 plans.tsx로 리다이렉트하지 않고 Snackbar로 "내일 자정 초기화" 안내
+
+### C. 통합 테스트 (Part B~E 완료 후, B-1·B-2 완료 후)
+
+EAS dev build로 다음 시나리오 검증:
+
+1. **배너 가드** — Free/Pro/게스트/under14 각 케이스에서 배너 노출/숨김 검증
+2. **보상형 광고** — Free 한도 100단어 초과 → 자동 모달 → 시청 → +50 단어 → 추가 enrich 동작 확인
+3. **보상형 일 cap** — 보상 4회(+200) 후엔 모달이 "오늘 광고 보너스 상한" 메시지 표시
+4. **Pro 구독** — 월/연 각각 결제 → verify-purchase 응답 ok → tier='pro' 반영 + 광고 제거
+5. **Pro 트라이얼** — 신규 가입 7일 트라이얼 → Pro 동급 동작
+6. **Pro 복원** — 앱 재설치 후 "이전 구매 복원" → tier='pro' 복원
+7. **Pro 한도 초과** — 1,000단어 초과 시 UX (B-3 완료 후)
+8. **KST 자정 초기화** — 한국 표준시 자정에 사용량 0으로 리셋
+
+### D. Production AAB 빌드 + 출시
+
+1. `EAS_SKIP_AUTO_FINGERPRINT=1` + `eas build --profile production --platform android`
+2. Play Console 정책 갱신:
+   - 광고 ID 선언 '사용함'으로 변경
+   - 데이터 보안 폼: 광고 ID + 구매 내역 + Pro 구독 데이터 추가
+   - 콘텐츠 등급 설문: "디지털 구매 = 예", "광고 = 예" 재답변
+3. `eas submit -p android --latest` → 내부 테스트 트랙
+4. 본인 기기 옵트인·설치·검증
+
+### v1.2로 미루는 항목
+
+- iOS Liquid Glass NativeTabs 배너
+- AdMob SSV(서버측 검증)
+- iOS StoreKit 검증 (verify-purchase iOS 지원)
+- 실시간 갱신 알림(RTDN) webhook
 
 ---
 

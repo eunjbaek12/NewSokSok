@@ -336,6 +336,17 @@
     "byokRowDesc": "고급 설정에서 직접 등록 (선택)",
     "footnote": "결제는 Google Play를 통해 진행되며, 해지는 Google Play \"내 구독\"에서 언제든지 가능합니다."
   },
+  "ads": {
+    "rewardedTitle": "오늘의 단어 한도를 모두 사용했어요",
+    "rewardedBody": "광고를 한 번 보면 단어 한도가 +{{amount}} 추가돼요. (현재 {{used}} / {{limit}}단어)",
+    "rewardedExhausted": "오늘의 광고 보너스 상한(+200단어)에 도달했어요. 내일 자정에 한도가 초기화됩니다.",
+    "rewardedCta": "광고 보고 +50단어",
+    "rewardedGrantedTitle": "+{{amount}}단어 추가됐어요",
+    "rewardedGrantedBody": "이어서 단어를 추가할 수 있어요.",
+    "rewardedLoadFailed": "광고를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.",
+    "rewardedShowFailed": "광고를 표시하지 못했어요.",
+    "rewardGrantFailed": "한도 추가에 실패했어요. 잠시 후 다시 시도해 주세요."
+  },
   "terms": {
     "title": "이용약관",
     "lastUpdated": "최종 업데이트: 2026년 5월",

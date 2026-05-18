@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -16,17 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useAuth } from '@/features/auth';
 import { useSettings } from '@/features/settings';
-import { supabase } from '@/lib/supabase/client';
-
-interface QuotaStatus {
-  tier: 'free' | 'pro';
-  used: number;
-  limit: number;
-  bonus: number;
-  trial_ends_at: string | null;
-  pro_until: string | null;
-  reset_at: string;
-}
+import { useQuota } from '@/features/quota';
 
 export default function PlansScreen() {
   const insets = useSafeAreaInsets();
@@ -34,30 +24,14 @@ export default function PlansScreen() {
   const { colors } = useTheme();
   const { authMode } = useAuth();
   const { apiKey } = useSettings();
-  const [status, setStatus] = useState<QuotaStatus | null>(null);
-  const [loading, setLoading] = useState(false);
+  const { status, refresh } = useQuota();
 
   const isLoggedIn = authMode === 'google';
   const isByok = !!apiKey;
 
   useEffect(() => {
-    if (!isLoggedIn) return;
-    let cancelled = false;
-    (async () => {
-      setLoading(true);
-      try {
-        const { data: userData } = await supabase.auth.getUser();
-        if (!userData?.user) return;
-        const { data, error } = await supabase.rpc('get_ai_quota_status', {
-          p_user_id: userData.user.id,
-        });
-        if (!cancelled && !error && data) setStatus(data as QuotaStatus);
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    })();
-    return () => { cancelled = true; };
-  }, [isLoggedIn]);
+    if (isLoggedIn) refresh();
+  }, [isLoggedIn, refresh]);
 
   const handleSubscribe = () => {
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);

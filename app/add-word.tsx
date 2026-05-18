@@ -43,6 +43,8 @@ import { AutoFillResult } from '@/lib/types';
 import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
+import { useQuota } from '@/features/quota';
+import { useAuth } from '@/features/auth';
 import { speak } from '@/lib/tts';
 import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
 import Animated, {
@@ -275,6 +277,12 @@ export default function AddWordScreen() {
     const existingWord = isEditing && listId ? getWordsForList(listId).find(w => w.id === wordId) : null;
 
     const { inputSettings, updateInputSettings, apiKey } = useSettings();
+    const { authMode } = useAuth();
+    const { status: quotaStatus, refresh: refreshQuota } = useQuota();
+    // 화면 진입 시 1회 한도 갱신 (보상형 광고 + Edge 차감으로 carrier 갱신될 수 있음)
+    useEffect(() => { if (authMode === 'google') refreshQuota(); }, [authMode, refreshQuota]);
+
+    const showQuotaChip = authMode === 'google' && !apiKey && quotaStatus && quotaStatus.tier === 'free';
 
     const {
         term, setTerm,
@@ -685,6 +693,26 @@ export default function AddWordScreen() {
                         {isEditing ? t('addWord.editWord') : t('addWord.addWordTitle')}
                     </Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                        {showQuotaChip && (
+                            <Pressable
+                                onPress={() => router.push('/plans')}
+                                hitSlop={8}
+                                style={{
+                                    paddingHorizontal: 8,
+                                    paddingVertical: 3,
+                                    borderRadius: 10,
+                                    backgroundColor: colors.surfaceSecondary,
+                                }}
+                            >
+                                <Text style={{
+                                    fontSize: 11,
+                                    fontFamily: 'Pretendard_600SemiBold',
+                                    color: colors.textSecondary,
+                                }}>
+                                    {quotaStatus!.used} / {quotaStatus!.limit + quotaStatus!.bonus}
+                                </Text>
+                            </Pressable>
+                        )}
                         <Pressable onPress={() => setFieldSettingsOpen(true)} hitSlop={12} style={{ padding: 6 }}>
                             <Ionicons name="settings-outline" size={20} color={colors.textSecondary} />
                         </Pressable>

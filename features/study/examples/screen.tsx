@@ -5,6 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/features/theme';
+// TODO(#4): bottom-anchor 배너 + 답 버튼 영역 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16 정밀 보정
+import { AppBannerAd } from '@/components/ads/AppBannerAd';
 import {
   useLists,
   selectWordsForList,
@@ -675,6 +677,8 @@ export default function ExamplesScreen() {
           finishSession();
         }}
       />
+
+      <AppBannerAd mode="bottom-anchor" />
     </View>
   );
 }

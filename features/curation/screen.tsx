@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import CharacterSvg from '@/components/CharacterSvg';
+import { AppBannerAd } from '@/components/ads/AppBannerAd';
 import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
@@ -1284,6 +1285,8 @@ export default function CurationScreen() {
                 onAction={snackbar.onAction}
                 onDismiss={() => setSnackbar(prev => ({ ...prev, visible: false }))}
             />
+
+            <AppBannerAd mode="tab-anchor" />
         </KeyboardAvoidingView>
     );
 }

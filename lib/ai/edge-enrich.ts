@@ -9,6 +9,7 @@
 // quota 정보는 응답으로 함께 받아 캐시.
 
 import { supabase } from '@/lib/supabase/client';
+import { useQuotaStore } from '@/features/quota';
 import type { AIWordResult } from '@shared/contracts';
 
 export type EnrichMode = 'autocomplete' | 'generate' | 'photo';
@@ -68,6 +69,8 @@ export async function enrichWordViaEdge(
 
       if (status === 401) return { kind: 'unauthorized' };
       if (status === 429 && code === 'quota_exceeded') {
+        // 전역 store 신호 → RewardedAdModal trigger
+        useQuotaStore.getState().notifyQuotaExceeded(body?.quota as QuotaInfo | undefined);
         return { kind: 'quota_exceeded', quota: body?.quota };
       }
       if (status === 429 && code === 'rate_limited') {

@@ -18,6 +18,8 @@ import Animated, {
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
+// TODO(#4): bottom-anchor 배너 + 컨트롤 영역 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16 정밀 보정
+import { AppBannerAd } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
@@ -484,6 +486,8 @@ export default function AutoPlayScreen() {
                 onClose={() => setSettingsVisible(false)}
                 onApply={applySettings}
             />
+
+            <AppBannerAd mode="bottom-anchor" />
         </View>
     );
 }

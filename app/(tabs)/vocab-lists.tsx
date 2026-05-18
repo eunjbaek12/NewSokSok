@@ -13,6 +13,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import CharacterSvg from '@/components/CharacterSvg';
+import { AppBannerAd } from '@/components/ads/AppBannerAd';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
@@ -316,6 +317,8 @@ export default function VocabListsScreen() {
         reorderLists={reorderLists}
         refreshData={invalidateLists}
       />
+
+      <AppBannerAd mode="tab-anchor" />
     </View>
   );
 }

@@ -16,6 +16,9 @@ import { LocaleProvider } from "@/features/locale";
 import { useFonts } from "expo-font";
 import { Jua_400Regular } from "@expo-google-fonts/jua";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
+import { useQuotaStore } from "@/features/quota";
+import { initAdMob } from "@/lib/ads/admob";
+import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
 import "@/i18n";
 
 SplashScreen.preventAutoHideAsync();
@@ -62,6 +65,7 @@ export default function RootLayout() {
                   <KeyboardProvider>
                     <GestureHandlerRootView style={{ flex: 1 }}>
                       <AppStack />
+                      <GlobalRewardedAdModal />
                     </GestureHandlerRootView>
                   </KeyboardProvider>
                 </VocabBootstrapper>
@@ -80,13 +84,38 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
     useSettingsStore.getState().hydrate();
     useOnboardingStore.getState().hydrate();
     useSkinStore.getState().hydrate();
+    initAdMob();
   }, []);
+
+  // 로그인 직후 / 토큰 갱신 직후에 quota 1회 새로고침.
+  const authMode = useAuthStore(s => s.mode);
+  useEffect(() => {
+    if (authMode === 'google') {
+      useQuotaStore.getState().refresh(true);
+    } else {
+      useQuotaStore.getState().clear();
+    }
+  }, [authMode]);
+
   return <>{children}</>;
 }
 
 function VocabBootstrapper({ children }: { children: React.ReactNode }) {
   useVocabBootstrap();
   return <>{children}</>;
+}
+
+// quota_exceeded 발생 시 자동으로 띄우는 글로벌 보상형 광고 모달.
+function GlobalRewardedAdModal() {
+  const quotaExceededAt = useQuotaStore(s => s.quotaExceededAt);
+  const dismiss = useQuotaStore(s => s.dismissQuotaExceeded);
+  return (
+    <RewardedAdModal
+      visible={quotaExceededAt > 0}
+      onClose={dismiss}
+      onGranted={() => { /* 사용자가 모달 닫고 다시 enrich 시도 — v1.2에 자동 재시도 검토 */ }}
+    />
+  );
 }
 
 function AppStack() {

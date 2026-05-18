@@ -29,6 +29,7 @@ import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/fea
 import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/features/study/components/CustomStudyModal';
 import ProgressBar from '@/components/ui/ProgressBar';
+import { AppBannerAd } from '@/components/ads/AppBannerAd';
 
 function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
   const size = 148;
@@ -772,6 +773,8 @@ export default function DashboardScreen() {
         visible={showCustomStudy}
         onClose={() => setShowCustomStudy(false)}
       />
+
+      <AppBannerAd mode="tab-anchor" />
     </View>
   );
 }

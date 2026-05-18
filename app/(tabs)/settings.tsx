@@ -28,6 +28,7 @@ import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/features/settings';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
+import { AppBannerAd } from '@/components/ads/AppBannerAd';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
@@ -534,6 +535,8 @@ export default function SettingsScreen() {
           )}
         </View>
       </DialogModal>
+
+      <AppBannerAd mode="tab-anchor" />
     </View>
   );
 }

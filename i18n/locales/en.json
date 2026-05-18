@@ -336,6 +336,17 @@
     "byokRowDesc": "Register directly in Advanced Settings (optional)",
     "footnote": "Billing runs through Google Play. You can cancel anytime under \"My Subscriptions\" in Google Play."
   },
+  "ads": {
+    "rewardedTitle": "You've used today's word quota",
+    "rewardedBody": "Watch a short ad to add +{{amount}} words to today's quota. (Currently {{used}} / {{limit}})",
+    "rewardedExhausted": "You've reached today's bonus cap (+200 words). The quota will reset at midnight (KST).",
+    "rewardedCta": "Watch ad for +50 words",
+    "rewardedGrantedTitle": "+{{amount}} words added",
+    "rewardedGrantedBody": "You can continue adding words.",
+    "rewardedLoadFailed": "Failed to load ad. Please try again later.",
+    "rewardedShowFailed": "Failed to show ad.",
+    "rewardGrantFailed": "Failed to add quota. Please try again later."
+  },
   "terms": {
     "title": "Terms of Service",
     "lastUpdated": "Last updated: May 2026",

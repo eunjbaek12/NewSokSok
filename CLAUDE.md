@@ -54,11 +54,19 @@ There is no configured test script. Jest and ts-jest are in devDependencies with
 ### Environment Variables
 
 ```
-EXPO_PUBLIC_SUPABASE_URL        # Supabase project URL
-EXPO_PUBLIC_SUPABASE_ANON_KEY   # Supabase anon/public key
-EXPO_PUBLIC_GOOGLE_CLIENT_ID    # Google Web Client ID (webClientId for GoogleSignin + Supabase)
-EXPO_PUBLIC_ENRICH_VIA_EDGE     # "1" to route non-BYOK enrich calls through Supabase Edge Function (default unset = off, falls back to v1 behavior)
-GEMINI_API_KEY                  # Optional — dev scripts only. Production uses user-entered key (SecureStore). Do NOT add EXPO_PUBLIC_ prefix.
+EXPO_PUBLIC_SUPABASE_URL              # Supabase project URL
+EXPO_PUBLIC_SUPABASE_ANON_KEY         # Supabase anon/public key
+EXPO_PUBLIC_GOOGLE_CLIENT_ID          # Google Web Client ID (webClientId for GoogleSignin + Supabase)
+EXPO_PUBLIC_ENRICH_VIA_EDGE           # "1" to route non-BYOK enrich calls through Supabase Edge Function
+EXPO_PUBLIC_ADMOB_ANDROID_APP_ID      # AdMob Android App ID. Unset = test App ID
+EXPO_PUBLIC_ADMOB_ANDROID_BANNER_ID   # AdMob banner unit. Unset = TestIds.BANNER
+EXPO_PUBLIC_ADMOB_ANDROID_REWARDED_ID # AdMob rewarded unit. Unset = TestIds.REWARDED
+EXPO_PUBLIC_ADMOB_IOS_APP_ID          # iOS App ID (v1.2 — currently Android-only release)
+EXPO_PUBLIC_ADMOB_IOS_BANNER_ID
+EXPO_PUBLIC_ADMOB_IOS_REWARDED_ID
+EXPO_PUBLIC_PRO_MONTHLY_SKU           # Play subscription SKU (defaults to 'pro_monthly')
+EXPO_PUBLIC_PRO_YEARLY_SKU            # Play subscription SKU (defaults to 'pro_yearly')
+GEMINI_API_KEY                        # Optional — dev scripts only. Production uses user-entered key (SecureStore). Do NOT add EXPO_PUBLIC_ prefix.
 ```
 
 ### AI Calls

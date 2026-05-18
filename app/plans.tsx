@@ -6,6 +6,7 @@ import {
   ScrollView,
   Pressable,
   Platform,
+  ActivityIndicator,
   Alert,
 } from 'react-native';
 import { router } from 'expo-router';
@@ -17,6 +18,8 @@ import { useTheme } from '@/features/theme';
 import { useAuth } from '@/features/auth';
 import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
+import { usePurchaseFlow } from '@/features/billing';
+import { SKU_PRO_MONTHLY, SKU_PRO_YEARLY } from '@/lib/billing/skus';
 
 export default function PlansScreen() {
   const insets = useSafeAreaInsets();
@@ -25,17 +28,43 @@ export default function PlansScreen() {
   const { authMode } = useAuth();
   const { apiKey } = useSettings();
   const { status, refresh } = useQuota();
+  const flow = usePurchaseFlow();
 
   const isLoggedIn = authMode === 'google';
   const isByok = !!apiKey;
+  const isPro = status?.tier === 'pro';
 
   useEffect(() => {
     if (isLoggedIn) refresh();
   }, [isLoggedIn, refresh]);
 
-  const handleSubscribe = () => {
-    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-    Alert.alert(t('plans.comingSoonTitle'), t('plans.comingSoonMessage'));
+  // 결제 성공/실패 알림
+  useEffect(() => {
+    if (flow.stage === 'success') {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      Alert.alert(t('plans.purchaseSuccessTitle'), t('plans.purchaseSuccessMessage'), [
+        { text: t('common.done'), onPress: flow.resetStage },
+      ]);
+    } else if (flow.stage === 'failed' && flow.error) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      Alert.alert(t('plans.purchaseFailedTitle'), t('plans.purchaseFailedMessage'), [
+        { text: t('common.done'), onPress: flow.resetStage },
+      ]);
+    }
+  }, [flow.stage, flow.error, flow.resetStage, t]);
+
+  const handleBuy = (sku: typeof SKU_PRO_MONTHLY | typeof SKU_PRO_YEARLY) => {
+    if (!isLoggedIn) {
+      Alert.alert(t('plans.loginRequiredTitle'), t('plans.loginRequiredMessage'));
+      return;
+    }
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    flow.buy(sku);
+  };
+
+  const handleRestore = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    flow.restore();
   };
 
   const handleByokShortcut = () => {
@@ -44,15 +73,19 @@ export default function PlansScreen() {
   };
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
+  const busy = flow.stage === 'purchasing' || flow.stage === 'verifying';
 
   const currentBadge = (() => {
     if (!isLoggedIn) return t('plans.tierGuest');
-    if (status?.tier === 'pro') {
-      const onTrial = status.pro_until == null && status.trial_ends_at != null;
+    if (isPro) {
+      const onTrial = status?.pro_until == null && status?.trial_ends_at != null;
       return onTrial ? t('plans.tierTrial') : t('plans.tierPro');
     }
     return t('plans.tierFree');
   })();
+
+  const monthlyPrice = flow.priceFor(SKU_PRO_MONTHLY) ?? t('plans.proPrice');
+  const yearlyPrice = flow.priceFor(SKU_PRO_YEARLY) ?? t('plans.proSubPrice');
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -86,36 +119,91 @@ export default function PlansScreen() {
         </View>
 
         {/* Free 카드 */}
-        <PlanCard
-          title={t('plans.freeTitle')}
-          price={t('plans.freePrice')}
-          features={[
-            t('plans.freeFeat1'),
-            t('plans.freeFeat2'),
-            t('plans.freeFeat3'),
-          ]}
-          highlight={false}
-          colors={colors}
-        />
+        <View style={[styles.planCard, { backgroundColor: colors.surface, borderColor: colors.borderLight, borderWidth: 1 }]}>
+          <Text style={[styles.planTitle, { color: colors.text }]}>{t('plans.freeTitle')}</Text>
+          <View style={styles.priceRow}>
+            <Text style={[styles.planPrice, { color: colors.text }]}>{t('plans.freePrice')}</Text>
+          </View>
+          <View style={styles.featureList}>
+            {[t('plans.freeFeat1'), t('plans.freeFeat2'), t('plans.freeFeat3')].map((f, i) => (
+              <View key={i} style={styles.featureRow}>
+                <Ionicons name="checkmark-circle" size={16} color={colors.textSecondary} />
+                <Text style={[styles.featureText, { color: colors.textSecondary }]}>{f}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
 
         {/* Pro 카드 */}
-        <PlanCard
-          title={t('plans.proTitle')}
-          price={t('plans.proPrice')}
-          subPrice={t('plans.proSubPrice')}
-          features={[
-            t('plans.proFeat1'),
-            t('plans.proFeat2'),
-            t('plans.proFeat3'),
-            t('plans.proFeat4'),
-          ]}
-          highlight
-          colors={colors}
-          ctaLabel={t('plans.subscribeCta')}
-          ctaSubLabel={t('plans.subscribeSubCta')}
-          ctaDisabled
-          onCta={handleSubscribe}
-        />
+        <View style={[styles.planCard, { backgroundColor: colors.primaryLight, borderColor: colors.primary, borderWidth: 1.5 }]}>
+          <Text style={[styles.planTitle, { color: colors.primary }]}>{t('plans.proTitle')}</Text>
+          <View style={styles.featureList}>
+            {[t('plans.proFeat1'), t('plans.proFeat2'), t('plans.proFeat3'), t('plans.proFeat4')].map((f, i) => (
+              <View key={i} style={styles.featureRow}>
+                <Ionicons name="checkmark-circle" size={16} color={colors.primary} />
+                <Text style={[styles.featureText, { color: colors.textSecondary }]}>{f}</Text>
+              </View>
+            ))}
+          </View>
+
+          {isPro ? (
+            <View style={[styles.proActiveBadge, { backgroundColor: colors.surface }]}>
+              <Ionicons name="checkmark-circle" size={16} color={colors.primary} />
+              <Text style={[styles.proActiveText, { color: colors.primary }]}>
+                {t('plans.proActiveNote')}
+              </Text>
+            </View>
+          ) : (
+            <View style={styles.ctaColumn}>
+              <Pressable
+                onPress={() => handleBuy(SKU_PRO_YEARLY)}
+                disabled={busy || !flow.connected}
+                style={[styles.cta, { backgroundColor: colors.primaryButton, opacity: (busy || !flow.connected) ? 0.6 : 1 }]}
+              >
+                {busy ? (
+                  <ActivityIndicator size="small" color={colors.onPrimary} />
+                ) : (
+                  <>
+                    <Text style={[styles.ctaLabel, { color: colors.onPrimary }]}>
+                      {t('plans.subscribeYearlyCta', { price: yearlyPrice })}
+                    </Text>
+                    <Text style={[styles.ctaSubLabel, { color: colors.onPrimary }]}>
+                      {t('plans.subscribeYearlySubCta')}
+                    </Text>
+                  </>
+                )}
+              </Pressable>
+
+              <Pressable
+                onPress={() => handleBuy(SKU_PRO_MONTHLY)}
+                disabled={busy || !flow.connected}
+                style={[styles.ctaSecondary, { borderColor: colors.primary, opacity: (busy || !flow.connected) ? 0.6 : 1 }]}
+              >
+                <Text style={[styles.ctaSecondaryLabel, { color: colors.primary }]}>
+                  {t('plans.subscribeMonthlyCta', { price: monthlyPrice })}
+                </Text>
+              </Pressable>
+
+              {!flow.connected && (
+                <Text style={[styles.connectingNote, { color: colors.textTertiary }]}>
+                  {t('plans.billingConnecting')}
+                </Text>
+              )}
+            </View>
+          )}
+        </View>
+
+        {/* 복원 */}
+        {isLoggedIn && !isPro && (
+          <Pressable
+            onPress={handleRestore}
+            disabled={busy}
+            style={[styles.restoreRow, { borderColor: colors.borderLight, backgroundColor: colors.surface, opacity: busy ? 0.6 : 1 }]}
+          >
+            <Ionicons name="refresh" size={16} color={colors.textSecondary} />
+            <Text style={[styles.restoreText, { color: colors.textSecondary }]}>{t('plans.restoreCta')}</Text>
+          </Pressable>
+        )}
 
         {/* BYOK 단축 */}
         <Pressable onPress={handleByokShortcut} style={[styles.byokRow, { borderColor: colors.borderLight, backgroundColor: colors.surface }]}>
@@ -135,55 +223,6 @@ export default function PlansScreen() {
           {t('plans.footnote')}
         </Text>
       </ScrollView>
-    </View>
-  );
-}
-
-interface PlanCardProps {
-  title: string;
-  price: string;
-  subPrice?: string;
-  features: string[];
-  highlight: boolean;
-  colors: any;
-  ctaLabel?: string;
-  ctaSubLabel?: string;
-  ctaDisabled?: boolean;
-  onCta?: () => void;
-}
-
-function PlanCard({ title, price, subPrice, features, highlight, colors, ctaLabel, ctaSubLabel, ctaDisabled, onCta }: PlanCardProps) {
-  return (
-    <View style={[
-      styles.planCard,
-      {
-        backgroundColor: highlight ? colors.primaryLight : colors.surface,
-        borderColor: highlight ? colors.primary : colors.borderLight,
-        borderWidth: highlight ? 1.5 : 1,
-      },
-    ]}>
-      <Text style={[styles.planTitle, { color: highlight ? colors.primary : colors.text }]}>{title}</Text>
-      <View style={styles.priceRow}>
-        <Text style={[styles.planPrice, { color: colors.text }]}>{price}</Text>
-        {subPrice ? <Text style={[styles.planSubPrice, { color: colors.textSecondary }]}>· {subPrice}</Text> : null}
-      </View>
-      <View style={styles.featureList}>
-        {features.map((f, i) => (
-          <View key={i} style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={16} color={highlight ? colors.primary : colors.textSecondary} />
-            <Text style={[styles.featureText, { color: colors.textSecondary }]}>{f}</Text>
-          </View>
-        ))}
-      </View>
-      {ctaLabel && (
-        <Pressable
-          onPress={ctaDisabled ? onCta : onCta}
-          style={[styles.cta, { backgroundColor: colors.primaryButton, opacity: ctaDisabled ? 0.6 : 1 }]}
-        >
-          <Text style={[styles.ctaLabel, { color: colors.onPrimary }]}>{ctaLabel}</Text>
-          {ctaSubLabel && <Text style={[styles.ctaSubLabel, { color: colors.onPrimary }]}>{ctaSubLabel}</Text>}
-        </Pressable>
-      )}
     </View>
   );
 }
@@ -225,18 +264,50 @@ const styles = StyleSheet.create({
   planTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold' },
   priceRow: { flexDirection: 'row', alignItems: 'baseline', gap: 6 },
   planPrice: { fontSize: 22, fontFamily: 'Pretendard_700Bold' },
-  planSubPrice: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
   featureList: { gap: 6, marginTop: 4 },
   featureRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   featureText: { flex: 1, fontSize: 14, fontFamily: 'Pretendard_400Regular', lineHeight: 19 },
+  ctaColumn: { gap: 8, marginTop: 8 },
   cta: {
-    marginTop: 8,
     paddingVertical: 12,
     borderRadius: 12,
     alignItems: 'center',
   },
+  ctaSecondary: {
+    paddingVertical: 12,
+    borderRadius: 12,
+    alignItems: 'center',
+    borderWidth: 1,
+    backgroundColor: 'transparent',
+  },
   ctaLabel: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold' },
   ctaSubLabel: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
+  ctaSecondaryLabel: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
+  connectingNote: { fontSize: 12, fontFamily: 'Pretendard_400Regular', textAlign: 'center', marginTop: 4 },
+  proActiveBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    alignSelf: 'flex-start',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 10,
+    marginTop: 6,
+  },
+  proActiveText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
+  restoreRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderWidth: 1,
+    borderRadius: 12,
+    marginTop: 4,
+    marginBottom: 12,
+  },
+  restoreText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
   byokRow: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -58,7 +58,8 @@ v1.2 (이후): Pro Lite 추가 검토
 | `8d74ac8` | **FAQ v1.1 정책 반영** — 요금제·광고 카테고리 신설 + 사진 스캔 안내 수정 (#10 완료) |
 | `af3bde4` | **AI quota Edge Function 도입** — Vertex AI + 사용자별 일일 한도 (#3·#6 완료) |
 | `d2e6738` | **설정 UI 개편** — 요금제 화면 + BYOK 고급 설정 격하 (#7 완료) |
-| _(미커밋)_ | **#4 AdMob SDK 통합** — 배너 (8개 화면) + 보상형 모달 + 한도 카운터 + Edge 클라이언트 grant 마이그레이션 |
+| `a530683` | **#4 AdMob SDK 통합** — 배너 (8개 화면) + 보상형 모달 + 한도 카운터 + Edge 클라이언트 grant 마이그레이션 |
+| _(미커밋)_ | **#5 Pro 인앱구매 골격** — expo-iap + plans.tsx 결제 흐름 + verify-purchase Edge Function |
 
 ### #4 작업 상세 (미커밋, 2026-05-18)
 
@@ -85,6 +86,36 @@ v1.2 (이후): Pro Lite 추가 검토
 - **학습 화면 답 버튼 정밀 보정 미완** — 현재 배너가 답 버튼 영역과 인접. 각 학습 화면에서 답 영역 `paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16` 조정 follow-up.
 - **iOS Liquid Glass NativeTabs** — 배너가 보이지 않을 수 있음. iOS 출시 전 검증/수정.
 
+### #5 작업 상세 (미커밋, 2026-05-18)
+
+신규/수정 파일:
+- `package.json` — `expo-iap ^3.1.23` 추가
+- `app.json` — `expo-iap` plugin 등록
+- `lib/billing/skus.ts` — `SKU_PRO_MONTHLY` / `SKU_PRO_YEARLY` 상수 (env override)
+- `features/billing/usePurchaseFlow.ts` — useIAP wrapper. `connected/products/stage/error` + `buy/restore`
+- `features/billing/index.ts`
+- `app/plans.tsx` — '곧 출시' Alert 제거 → 월/연 구매 버튼 + 복원 + 성공/실패 Alert
+- `i18n/locales/{ko,en}.json` — `plans.subscribeYearlyCta/MonthlyCta/restoreCta` 등 추가
+- `supabase/functions/_shared/google-auth.ts` — 범용 Google SA OAuth2 토큰 발급 (vertex-auth를 일반화)
+- `supabase/functions/verify-purchase/index.ts` — Play Developer API로 subscription 검증 + `user_subscriptions` 업데이트
+- `supabase/functions/verify-purchase/README.md` — Play API 서비스 계정 등록 + Secret + deploy 가이드
+- `CLAUDE.md` — 환경변수 섹션 갱신 (AdMob + Play SKU)
+
+알려진 한계:
+- **iOS 미지원** — `verify-purchase`는 Android만. iOS는 StoreKit 2 JWS 검증 (v1.2).
+- **실시간 갱신 알림(RTDN) 미연동** — 사용자가 앱 진입 시점에만 상태 동기화. 취소/환불은 만료 시점까지 Pro 유지. Pub/Sub topic + 별도 webhook은 v1.2.
+- **`finishTransaction` 타이밍** — 현재 hook에서 verify 성공 후 호출. verify 실패 시 미finished 상태 유지 → Play가 재전송할 가능성 있으니 다음 진입 시 동일 토큰 재검증 필요 (현 흐름이 처리).
+- **테스트 결제** — Play Console에 상품(`pro_monthly`, `pro_yearly`) 등록 + 라이선스 테스터 등록 후에만 작동.
+
+### 사용자 측 새 사전 작업 (#5)
+
+1. **Play Console 구독 상품 등록** — `pro_monthly` (₩3,900/월), `pro_yearly` (₩35,900/연), 7일 무료 체험 offer 추가
+2. **Play Developer API 서비스 계정 생성** — Vertex AI 계정과 별개 권장 (`supabase/functions/verify-purchase/README.md` 참조)
+3. **Play Console "API 접근"에서 SA 권한 부여** — 재무 데이터/주문/구독 보기 (~24h 반영)
+4. **Supabase Secret 등록** — `PLAY_SA_CLIENT_EMAIL`, `PLAY_SA_PRIVATE_KEY`, `ANDROID_PACKAGE_NAME`
+5. **`supabase functions deploy verify-purchase`** — Edge Function 배포
+6. **EAS Secret** — 필요 시 `EXPO_PUBLIC_PRO_MONTHLY_SKU`, `EXPO_PUBLIC_PRO_YEARLY_SKU` 등록 (테스트 SKU와 다르게 갈 때)
+
 > 미커밋: `.claude/settings.local.json` (로컬 설정, 커밋 X).
 
 ---
@@ -94,9 +125,10 @@ v1.2 (이후): Pro Lite 추가 검토
 | Task | 작업 | 사용자 사전 작업 필요 |
 |---|---|---|
 | ~~#4~~ | ~~AdMob SDK 통합 + 배너 + 보상형~~ | ✅ 골격 완료 (테스트 ID). 실 ID는 EAS Secret만 설정 |
+| ~~#5~~ | ~~Pro 인앱구매 통합 + 영수증 검증~~ | ✅ 골격 완료. Play 상품 등록 + Play SA + Edge deploy 필요 |
 | #4-follow-up | 학습 화면 답 버튼 16dp 정밀 보정 + iOS NativeTabs 배너 + AdMob SSV (v1.2) | — |
-| #5 | **Pro 인앱구매 통합** (Play Billing) + 영수증 검증 | Play 구독 상품 ID (`pro_monthly`, `pro_yearly`) |
-| #11 | **개인정보 처리방침 + 약관 업데이트** (광고·결제 반영) | #5 완료 후 |
+| #5-follow-up | iOS StoreKit 검증 + 실시간 갱신 알림(RTDN) webhook (v1.2) | — |
+| #11 | **개인정보 처리방침 + 약관 업데이트** (광고·결제 반영) | — |
 | #14 | **통합 테스트 + Production AAB 재빌드** | 모든 작업 완료 후 |
 
 ### Edge Function deploy (사용자 측, 미진행)

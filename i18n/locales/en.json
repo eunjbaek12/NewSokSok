@@ -360,23 +360,23 @@
           },
           {
             "q": "Which method should I use?",
-            "a": "Manual for one or two words, AI auto-complete when you only know the word, AI generate when you have a topic, photo scan for textbooks/notes, spreadsheet paste for organized lists.\n\nPhoto scan and AI features require a Gemini API key."
+            "a": "Manual for one or two words, AI auto-complete when you only know the word, AI generate when you have a topic, photo scan for textbooks/notes, spreadsheet paste for organized lists.\n\nAuto-complete, generate, and photo scan all work out of the box. A daily quota is included even on the free tier."
           },
           {
             "q": "Can I build vocab lists in languages other than Korean?",
-            "a": "Yes. On the Add Word screen, you can pick an input language and a meaning language independently from English, Korean, Japanese, and Chinese (e.g., English → Korean, Japanese → Korean, Korean → Chinese).\n\nAI auto-complete and photo scan dictionary enrichment work best when Korean is one side of the pair (English↔Korean, Japanese↔Korean, Chinese↔Korean)."
+            "a": "Yes. On the Add Word screen, you can pick an input language and a meaning language independently from English, Korean, Japanese, and Chinese (e.g., English → Korean, Japanese → Korean, Korean → Chinese).\n\nAI auto-complete and photo scan work in all four languages."
           },
           {
             "q": "How does AI auto-complete work?",
-            "a": "Type just the word and tap auto-complete — AI fills in the meaning, example, pronunciation, and part of speech. Edit or regenerate if you don't like the result."
+            "a": "Type just the word and tap auto-complete — AI fills in the meaning, example, pronunciation, and part of speech. Edit or regenerate if you don't like the result.\n\nEach auto-complete call counts as 1 word against your daily quota."
           },
           {
             "q": "What about AI generate?",
-            "a": "Enter a topic like \"TOEIC business\" or \"100 travel English\" and AI creates a word list. Pick the words you like and import only those."
+            "a": "Enter a topic like \"TOEIC business\" or \"100 travel English\" and AI creates a word list. Pick the words you like and import only those.\n\nOne AI-generate set (~20 words) counts as 20 words against your daily quota."
           },
           {
             "q": "What kinds of photos can be scanned?",
-            "a": "Both printed lists and handwritten notes work. Only the English words are extracted from the photo — meanings, pronunciation, and examples are filled in automatically from Naver Dictionary and other sources.\n\nEven if the photo contains Korean translations, those are ignored in favor of dictionary data for consistency. Blurry photos or pages packed with too many words reduce recognition accuracy."
+            "a": "Both printed lists/textbooks and handwritten notes work. English, Korean, Japanese, and Chinese pages are all supported, and AI fills in the word, meaning, example, and pronunciation together.\n\nBlurry photos or pages packed with too many words reduce accuracy. One photo scan counts as roughly 15 words against your daily quota."
           },
           {
             "q": "How does spreadsheet paste work?",
@@ -468,31 +468,60 @@
         "items": [
           {
             "q": "What do I need to use AI features?",
-            "a": "Just one Google Gemini API key. Go to Settings → AI, tap \"Gemini API Key\", follow the link inside the modal to get a key, and paste it back."
+            "a": "Nothing extra — AI auto-complete, generate, and photo scan work out of the box. The free tier includes a daily quota.\n\nIf you want more, you can upgrade to Pro, watch a rewarded ad to extend your daily quota, or register your own Gemini API key under Advanced Settings. See the \"Plans & Ads\" section for details."
           },
           {
-            "q": "How do I get an API key?",
-            "a": "A Google account is all you need — no separate signup.\n\n1. Open Settings → AI → \"Gemini API Key\".\n2. Tap \"Get a key from Google AI Studio →\" in the modal to open the browser.\n3. Press \"Create API key\" — a new key is generated.\n4. Copy the key (starts with AIza...), paste it into the app, and save."
+            "q": "How accurate are the AI results?",
+            "a": "AI uses Google Gemini, which handles common vocabulary very accurately. Specialized jargon or rare expressions may occasionally be off — you can always edit or regenerate."
           },
           {
-            "q": "Do I need to register a credit card?",
-            "a": "No. The Gemini API has a Free Tier, and you don't need to register a card or any payment info to use it for free."
+            "q": "Can I trust AI-generated words for serious study?",
+            "a": "Yes for general use. For exams or certifications, double-check against official sources. Any incorrect meaning or example can be edited directly on the word."
           },
           {
-            "q": "Will I be charged automatically?",
-            "a": "No. Charges only happen if you explicitly link a Google Cloud Billing account and switch to the paid tier.\n\nOn the free tier, once you hit the quota you'll just get temporary error responses — no card will be charged."
+            "q": "Is my input used to train AI?",
+            "a": "This app does not use your vocabulary data for any external model training. AI calls are routed to the Google Gemini API and are subject to Google's processing policy — see Google's terms for details."
           },
           {
-            "q": "How much can I use for free?",
-            "a": "Each model has a per-minute and per-day request limit. Normal study usage (adding words, AI word generation, photo scan) fits comfortably within the free tier.\n\nGoogle adjusts the exact numbers over time, so check the latest at ai.google.dev/pricing."
+            "q": "AI isn't returning results.",
+            "a": "1. Check your internet connection.\n2. You may have hit your daily quota — wait for the next reset, or watch a rewarded ad to extend it immediately.\n3. If you're using your own key (Advanced Settings), the key may be expired or rate-limited."
+          }
+        ]
+      },
+      {
+        "title": "Plans & Ads",
+        "items": [
+          {
+            "q": "What plans are there?",
+            "a": "• Free — all study and management features. AI daily quota: 100 words. A small banner ad is shown at the bottom of the screen.\n• Pro — ₩3,900/month or ₩35,900/year (~14% off). All ads removed + AI daily quota of 1,000 words.\n\nPro offers a 7-day free trial that won't auto-charge after it ends."
           },
           {
-            "q": "What happens when I hit the free quota?",
-            "a": "AI calls temporarily return an error for the rest of that window, and the quota resets automatically after a short period or the next day. Non-AI features (studying, editing word lists, etc.) keep working as usual."
+            "q": "How is the \"word count\" measured?",
+            "a": "AI calls are weighted by how heavy they are:\n• AI auto-complete: 1 word per call\n• AI generate (1 set, ~20 words): 20 words\n• Photo scan (1 image): ~15 words\n\nThe unit reflects Gemini API consumption, so one photo costs more than several auto-completes."
           },
           {
-            "q": "Where is my API key stored?",
-            "a": "On this device only, in secure device storage (SecureStore). It's never sent to our servers. AI calls go directly from your device to Google."
+            "q": "What happens when I hit the daily quota?",
+            "a": "AI calls pause for the rest of the day. Two options:\n\n1. Watch a rewarded ad to instantly add 50 words (up to 300 words per day).\n2. Upgrade to Pro for a 1,000-word daily quota plus no ads.\n\nNon-AI features (studying, editing) keep working regardless of quota."
+          },
+          {
+            "q": "How does the Pro free trial work?",
+            "a": "New sign-ups get a Pro trial period — no ads, Pro daily quota — automatically. When the trial ends, your account drops back to Free.\n\nThere's no auto-charge, so a credit card isn't required."
+          },
+          {
+            "q": "How do I subscribe to or cancel Pro?",
+            "a": "Billing runs through the Google Play Store. Start a Pro subscription from Settings → Plans.\n\nCancel anytime from Google Play's \"My Subscriptions\". Pro features stay active until the next renewal date. Refunds follow Google Play's policy."
+          },
+          {
+            "q": "How are ads shown?",
+            "a": "On the Free tier, a small banner sits at the bottom of the screen, spaced well away from study answer buttons to avoid mis-taps.\n\nIf you want to extend your daily quota, you can opt in to watch a rewarded video ad on demand."
+          },
+          {
+            "q": "Are ads shown to children?",
+            "a": "Accounts registered as under 14 don't see ads. The same applies when a parent manages the account through Google Family Link.\n\nSee Google Play's family group settings for more."
+          },
+          {
+            "q": "I just signed up and I don't see any ads. Is that normal?",
+            "a": "Yes — new accounts are ad-free for the first 7 days. After that, Free-tier users see a banner ad. Upgrade to Pro to remove ads entirely."
           }
         ]
       },
@@ -537,6 +566,10 @@
             "a": "Use the search at the top of the Lists tab, or the search inside any list, to find words by term, meaning, or tag. Frequently used tags are shown too."
           },
           {
+            "q": "Can I use my own Gemini API key? (Advanced)",
+            "a": "Yes — if you have a Gemini API key from Google AI Studio, register it under Settings → Advanced Settings. While your own key is in use, your daily quota is replaced by your key's own rate limits (as defined by Google).\n\nThe key is stored only in this device's secure storage. AI calls go directly from your device to Google — never through our servers. Most users don't need to set this up; the default quotas are plenty for typical study."
+          },
+          {
             "q": "What happens to my lists if I sign out?",
             "a": "Signing out hides this device's lists. They'll all return when you sign back in with the same Google account."
           },
@@ -562,8 +595,12 @@
             "a": "Google users: sign in with the same account to restore them. Guest users who reinstalled the app: data is unrecoverable."
           },
           {
-            "q": "AI isn't returning results.",
-            "a": "Verify your API key in Settings and confirm internet is connected. If you've exceeded the free tier, wait for the cooldown or try the next day. If the key has expired, generate a new one."
+            "q": "AI calls keep failing.",
+            "a": "1. Check your internet connection.\n2. You may have hit your daily quota — watch a rewarded ad to extend it, or wait until reset.\n3. Very blurry photos or pages crammed with text can fail to scan.\n4. If you're on your own key (Advanced Settings), the key may be expired or over its rate limit."
+          },
+          {
+            "q": "Ads feel too frequent.",
+            "a": "Free-tier users see a banner ad at the bottom at all times. Upgrade to Pro to remove all ads. Rewarded ads (the ones that extend your quota) only play when you choose to watch them."
           }
         ]
       }

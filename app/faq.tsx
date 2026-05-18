@@ -38,9 +38,10 @@ const CATEGORY_ICONS: IoniconName[] = [
   'calendar-outline',         // 3 학습 계획
   'sync-outline',             // 4 데이터 및 동기화
   'sparkles-outline',         // 5 AI 기능
-  'albums-outline',           // 6 단어 모음
-  'settings-outline',         // 7 설정 · 계정
-  'construct-outline',        // 8 문제 해결
+  'pricetag-outline',         // 6 요금제 · 광고
+  'albums-outline',           // 7 단어 모음
+  'settings-outline',         // 8 설정 · 계정
+  'construct-outline',        // 9 문제 해결
 ];
 
 if (

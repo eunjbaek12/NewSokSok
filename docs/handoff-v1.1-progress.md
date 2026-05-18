@@ -126,9 +126,9 @@ v1.2 (이후): Pro Lite 추가 검토
 |---|---|---|
 | ~~#4~~ | ~~AdMob SDK 통합 + 배너 + 보상형~~ | ✅ 골격 완료 (테스트 ID). 실 ID는 EAS Secret만 설정 |
 | ~~#5~~ | ~~Pro 인앱구매 통합 + 영수증 검증~~ | ✅ 골격 완료. Play 상품 등록 + Play SA + Edge deploy 필요 |
+| ~~#11~~ | ~~개인정보 처리방침 + 약관 업데이트 (광고·결제 반영)~~ | ✅ 갱신 완료. GitHub Pages 자동 배포 |
 | #4-follow-up | 학습 화면 답 버튼 16dp 정밀 보정 + iOS NativeTabs 배너 + AdMob SSV (v1.2) | — |
 | #5-follow-up | iOS StoreKit 검증 + 실시간 갱신 알림(RTDN) webhook (v1.2) | — |
-| #11 | **개인정보 처리방침 + 약관 업데이트** (광고·결제 반영) | — |
 | #14 | **통합 테스트 + Production AAB 재빌드** | 모든 작업 완료 후 |
 
 ### Edge Function deploy (사용자 측, 미진행)

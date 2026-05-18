@@ -361,7 +361,7 @@
   },
   "terms": {
     "title": "Terms of Service",
-    "lastUpdated": "Last updated: May 2026",
+    "lastUpdated": "Last updated: May 18, 2026",
     "sections": [
       {
         "title": "Use of Service",
@@ -376,12 +376,20 @@
         "body": "Official word lists provided in the App (TOEIC, academic, etc.) are based on open-licensed data (CC BY-SA 4.0) and AI-generated content. Sources are noted in each list's description."
       },
       {
-        "title": "AI Features",
-        "body": "AI autocomplete and translation features operate using your own Gemini API key. Any costs incurred from API usage are your responsibility. The developer does not guarantee the accuracy of AI-generated content."
+        "title": "AI Features & Daily Quota",
+        "body": "AI autocomplete, word generation, and photo scan are offered through two paths:\n\n1) Operator key (default): Signed-in users receive a daily quota — Free 100 words/day, Pro 1,000 words/day, resetting at midnight KST. Free users may watch optional rewarded ads to add +50 words each (up to +200/day).\n\n2) Bring-your-own-key (BYOK): Register your own Gemini API key under Settings → Advanced Settings. No quota applies, but you cover the API costs. The key is stored only in this device's SecureStore and never touches our servers.\n\nThe developer does not guarantee the accuracy of AI-generated content."
+      },
+      {
+        "title": "Pro Subscription & Billing",
+        "body": "Pro subscription is provided through Google Play in-app billing. Pricing: ₩3,900/month or ₩35,900/year (annual saves ~14% vs. monthly). A 7-day free trial is granted automatically at signup, with no auto-charge — you only pay if you subscribe explicitly.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows Google Play policy. Cancel anytime via Google Play app → Menu → Payments and subscriptions → Subscriptions. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow Google Play's refund policy and must be requested through Google Play."
+      },
+      {
+        "title": "Advertising",
+        "body": "Free users see Google AdMob banner ads, and may optionally watch rewarded ads to extend the daily AI quota. Pro subscribers see no ads.\n\nThe App uses the Android Advertising ID for ad serving only and does not combine it with other identifiers. To revoke consent or reset the Advertising ID, use System Settings → Google → Ads.\n\nAds are disabled for users under 14 in compliance with the Advertising ID policy and child protection regulations."
       },
       {
         "title": "Privacy",
-        "body": "If you use Google Sign-In, your email and display name are used to operate the service. User data is stored securely on Supabase and is never sold or shared with third parties."
+        "body": "If you use Google Sign-In, your email and display name are used to operate the service. Vocabulary data is stored securely on Supabase and is never sold or shared with third parties.\n\nWhen you subscribe to Pro, the Google Play purchase token and product ID are stored to verify subscription status. Payment instrument details (card number, etc.) are handled exclusively by Google Play and are never stored by us. See the Privacy Policy for full details."
       },
       {
         "title": "Disclaimer",

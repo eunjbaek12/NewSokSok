@@ -95,7 +95,7 @@
   <div class="container">
     <header>
       <h1>개인정보 처리방침</h1>
-      <p>아보카도 (Avocado) &nbsp;·&nbsp; 시행일: 2026년 4월 15일</p>
+      <p>아보카도 (Avocado) &nbsp;·&nbsp; 시행일: 2026년 5월 18일</p>
     </header>
 
     <section>
@@ -124,6 +124,21 @@
             <td>앱 사용 중</td>
           </tr>
           <tr>
+            <td>AI 사용량 통계</td>
+            <td>일일 단어 카운트, 보상형 광고 시청 횟수, 호출 횟수 (사용자 ID와 연결, 한국 표준시 자정 초기화)</td>
+            <td>AI 기능 사용 시 (로그인 사용자, 운영자 키 경로 한정)</td>
+          </tr>
+          <tr>
+            <td>Pro 구독 정보</td>
+            <td>Google Play 구매 토큰, 구독 상품 ID, 구독 만료일</td>
+            <td>Pro 구독 결제 시</td>
+          </tr>
+          <tr>
+            <td>광고 ID (Android Advertising ID)</td>
+            <td>Google AdMob 광고 표시 목적. 다른 식별자와 결합하지 않음</td>
+            <td>Free 사용자가 광고 노출되는 동안</td>
+          </tr>
+          <tr>
             <td>게스트 모드</td>
             <td>개인정보 수집 없음 (기기 내 로컬 저장만)</td>
             <td>—</td>
@@ -137,7 +152,10 @@
       <ul>
         <li>회원 식별 및 로그인 처리</li>
         <li>여러 기기 간 학습 데이터 클라우드 동기화</li>
-        <li>AI 기반 예문 생성 서비스 제공 (Google Gemini API)</li>
+        <li>AI 기반 단어·예문 생성 서비스 제공 (Google Gemini / Vertex AI)</li>
+        <li>AI 일일 한도 관리 및 보상형 광고 시청 보너스 누적</li>
+        <li>Pro 구독 상태 확인 및 결제 영수증 검증 (Google Play Developer API)</li>
+        <li>광고 표시 (Free 사용자 한정, Google AdMob)</li>
         <li>서비스 오류 분석 및 품질 개선</li>
       </ul>
     </section>
@@ -164,19 +182,30 @@
             <td>Google 계정 토큰</td>
           </tr>
           <tr>
-            <td>Google Gemini API</td>
-            <td>AI 예문 자동 생성</td>
-            <td>사용자가 입력한 단어 (개인 식별 정보 미포함)</td>
+            <td>Google Gemini / Vertex AI</td>
+            <td>AI 단어·예문·이미지 텍스트 인식</td>
+            <td>사용자가 입력한 단어 또는 사진 텍스트 (개인 식별 정보 미포함)</td>
+          </tr>
+          <tr>
+            <td>Google AdMob</td>
+            <td>Free 사용자에게 배너·보상형 광고 노출</td>
+            <td>광고 ID (Android Advertising ID), 기기 정보</td>
+          </tr>
+          <tr>
+            <td>Google Play Billing / Developer API</td>
+            <td>Pro 구독 결제 및 영수증 검증</td>
+            <td>구매 토큰, 구독 상품 ID</td>
           </tr>
           <tr>
             <td>Supabase (AWS)</td>
-            <td>클라우드 데이터베이스 저장</td>
-            <td>학습 데이터, 계정 정보</td>
+            <td>클라우드 데이터베이스 저장, Edge Function 실행</td>
+            <td>학습 데이터, 계정 정보, AI 사용량 통계, 구독 상태</td>
           </tr>
         </tbody>
       </table>
       <p style="margin-top:10px; font-size:0.85rem; color:#666;">
         위 업체들은 서비스 제공에 필요한 최소한의 정보만 처리하며, 수탁 목적 외 이용을 금지합니다.
+        결제 수단 정보(카드 번호 등)는 Google Play가 전적으로 처리하며 본 앱 또는 우리 서버에 저장되지 않습니다.
       </p>
     </section>
 
@@ -184,6 +213,20 @@
       <h2>5. 앱 권한 사용 목적</h2>
       <ul>
         <li><strong>마이크 / 음성인식:</strong> 단어 음성 입력 기능에만 사용. 음성 데이터는 기기 내에서 처리되며 서버로 전송되지 않습니다.</li>
+        <li><strong>카메라:</strong> 사진 스캔으로 단어를 추가할 때만 사용. 촬영된 이미지는 텍스트 인식 후 즉시 폐기되며 저장되지 않습니다.</li>
+        <li><strong>사진 라이브러리 (선택):</strong> 갤러리에서 단어장 사진을 불러올 때만 사용. 선택한 사진만 텍스트 인식에 활용됩니다.</li>
+        <li><strong>광고 ID (com.google.android.gms.permission.AD_ID):</strong> Free 사용자에게 광고를 노출하는 데만 사용. Pro 사용자에게는 광고가 표시되지 않습니다.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5-1. Pro 구독 결제 및 환불</h2>
+      <ul>
+        <li><strong>결제 처리:</strong> Pro 구독 결제는 전적으로 Google Play를 통해 진행되며, 카드 정보 등 결제 수단은 Google Play가 처리합니다.</li>
+        <li><strong>저장 항목:</strong> 본 앱은 구독 활성화에 필요한 구매 토큰(purchase token)과 상품 ID, 만료일만 저장합니다.</li>
+        <li><strong>해지:</strong> Google Play 앱 → 메뉴 → 결제 및 정기 결제 → 정기 결제에서 언제든 해지할 수 있습니다.</li>
+        <li><strong>환불:</strong> Google Play 환불 정책을 따르며, 환불 요청은 Google Play를 통해 진행됩니다.</li>
+        <li><strong>해지 후 데이터:</strong> 구독 해지·만료 후에도 단어장·학습 데이터는 그대로 유지됩니다 (Free 한도로 자동 전환).</li>
       </ul>
     </section>
 
@@ -204,6 +247,9 @@
         앱은 만 14세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다.
         만 14세 미만은 법정대리인의 동의 없이 Google 로그인을 이용할 수 없습니다.
       </p>
+      <p style="margin-top:8px;">
+        또한 만 14세 미만 사용자에게는 광고 ID 정책 및 국내 아동 보호 규정에 따라 광고(배너·보상형)가 표시되지 않습니다.
+      </p>
     </section>
 
     <section>
@@ -222,7 +268,7 @@
     </section>
 
     <footer>
-      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 4월 15일</p>
+      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 5월 18일</p>
     </footer>
   </div>
 </body>

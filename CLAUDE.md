@@ -57,17 +57,19 @@ There is no configured test script. Jest and ts-jest are in devDependencies with
 EXPO_PUBLIC_SUPABASE_URL        # Supabase project URL
 EXPO_PUBLIC_SUPABASE_ANON_KEY   # Supabase anon/public key
 EXPO_PUBLIC_GOOGLE_CLIENT_ID    # Google Web Client ID (webClientId for GoogleSignin + Supabase)
+EXPO_PUBLIC_ENRICH_VIA_EDGE     # "1" to route non-BYOK enrich calls through Supabase Edge Function (default unset = off, falls back to v1 behavior)
 GEMINI_API_KEY                  # Optional — dev scripts only. Production uses user-entered key (SecureStore). Do NOT add EXPO_PUBLIC_ prefix.
 ```
 
 ### AI Calls
 
-**Current (v1):** Two paths in `lib/translation-api.ts:enrichWord`:
-1. User has Gemini key (BYOK) → `lib/ai/gemini-client.ts:analyzeWord` (direct client → Google)
-2. No key, source = English → `dictionaryapi.dev` fallback (definition + example, no Korean)
-3. No key, other source language → empty result
+**Current (v1.1):** Three paths in `lib/translation-api.ts:enrichWord` (priority order):
+1. User has Gemini key (BYOK) → `lib/ai/gemini-client.ts:analyzeWord` (direct client → Google). No quota; user's own key.
+2. Logged-in + `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` → `lib/ai/edge-enrich.ts:enrichWordViaEdge` → Supabase Edge Function (`supabase/functions/enrich-word`) → Vertex AI Gemini. Quota-gated (Free 100단어/일, Pro 1,000단어/일, KST midnight reset).
+3. Source = English → `dictionaryapi.dev` fallback (definition + example, no Korean).
+4. Other source language → empty result.
 
-**Planned (v1.1):** Add operator-key path via Supabase Edge Function (`enrich-word`) using Google Cloud Agent Platform (`aiplatform.googleapis.com`, formerly Vertex AI — rebranded 2026-04). Default for non-BYOK users. Quota-gated (Free 100단어/일, Pro 1,000단어/일).
+Edge Function uses operator's GCP Agent Platform service account key (stored in Supabase Secrets, never in app bundle). See `supabase/functions/enrich-word/README.md` for deploy steps and `supabase/migrations/20260518000000_ai_quota.sql` for `user_subscriptions` / `ai_usage_daily` / RPC definitions.
 
 **Removed (2026-05-17):** Naver dict unofficial API (`lib/naver-dict-api.ts`) — browser-impersonating scraper, ToS/DB-rights risk. External "Naver 사전" links via `WebBrowser.openBrowserAsync` in `app/add-word.tsx` and `components/WordDetailModal.tsx` remain (legal).
 

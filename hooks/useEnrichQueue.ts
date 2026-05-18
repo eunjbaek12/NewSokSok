@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { enrichWord } from '@/lib/translation-api';
 import type { AutoFillResult } from '@/lib/types';
+import type { EnrichMode } from '@/lib/ai/edge-enrich';
 
 const DEFAULT_CONCURRENCY = 4;
 
@@ -16,8 +17,11 @@ interface UseEnrichQueueResult {
   enrichingCount: number;
 }
 
-// (sourceLang, targetLang, apiKey) 컨텍스트로 N개 단어를 Naver 사전·Gemini 보강하는
+// (sourceLang, targetLang, apiKey) 컨텍스트로 N개 단어를 Gemini 보강하는
 // 공용 hook. 사진 임포트·일괄 임포트가 공유.
+//
+// mode는 quota 차감 가중치에 영향: 'photo'=15, 'generate'=20, 'autocomplete'=1.
+// 사진 흐름은 'photo' 명시 필수.
 //
 // 호출자는 본인 state(예: scannedWords)를 갖고, onUpdate 콜백으로 결과를 받아
 // setState 함. hook은 worker queue·abort·카운터만 관리.
@@ -26,6 +30,7 @@ export function useEnrichQueue(
   targetLang: string,
   apiKey: string | undefined,
   concurrency: number = DEFAULT_CONCURRENCY,
+  mode: EnrichMode = 'autocomplete',
 ): UseEnrichQueueResult {
   const enrichingCountRef = useRef(0);
   const [enrichingCount, setEnrichingCount] = useState(0);
@@ -36,7 +41,7 @@ export function useEnrichQueue(
     signal: AbortSignal,
   ) => {
     try {
-      const result = await enrichWord(item.term, sourceLang, targetLang, apiKey, signal);
+      const result = await enrichWord(item.term, sourceLang, targetLang, apiKey, signal, mode);
       onUpdate(item.id, result);
     } catch (e: any) {
       if (e?.name === 'AbortError') return;
@@ -45,7 +50,7 @@ export function useEnrichQueue(
       enrichingCountRef.current = Math.max(0, enrichingCountRef.current - 1);
       setEnrichingCount(enrichingCountRef.current);
     }
-  }, [sourceLang, targetLang, apiKey]);
+  }, [sourceLang, targetLang, apiKey, mode]);
 
   const enrichBatch = useCallback(async (
     items: EnrichItem[],

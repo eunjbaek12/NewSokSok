@@ -132,16 +132,27 @@ v1.2 (이후): Pro Lite 추가 검토
 
 ## v1.1 코드 작업 (남은 Task)
 
-| Task | 작업 | 사용자 사전 작업 필요 |
-|---|---|---|
-| #3 | Supabase Edge Function (`enrich-word`) — Agent Platform Gemini 호출 + 사용자별 quota | Vertex AI JSON 키 |
-| #4 | AdMob SDK 통합 (`react-native-google-mobile-ads`) + 배너 + 보상형 | AdMob 광고 단위 ID |
-| #5 | Pro 인앱구매 통합 (Play Billing) + 영수증 검증 | Play 구독 상품 ID |
-| #6 | 클라이언트 enrich 흐름 → Edge Function 호출로 교체 | #3 완료 후 |
-| #7 | 설정 UI 개편 (BYOK 고급 설정 격하, Pro 결제 화면) | #4·#5 완료 후 |
-| #10 | FAQ 전면 개정 (Naver 출처 제거, BYOK/Pro 정책 반영, 사진 스캔 다국어) | 사용자 결정 무관 |
-| #11 | 개인정보 처리방침 + 약관 업데이트 (광고·결제 반영) | #4·#5 완료 후 |
-| #14 | 통합 테스트 + Production AAB 재빌드 | 모든 작업 완료 후 |
+| Task | 작업 | 사용자 사전 작업 필요 | 상태 |
+|---|---|---|---|
+| #3 | Supabase Edge Function (`enrich-word`) — Agent Platform Gemini 호출 + 사용자별 quota | Vertex AI JSON 키 (deploy 시) | ✅ 코드 작성 완료 (2026-05-18). deploy 대기 |
+| #4 | AdMob SDK 통합 (`react-native-google-mobile-ads`) + 배너 + 보상형 | AdMob 광고 단위 ID | ⏳ |
+| #5 | Pro 인앱구매 통합 (Play Billing) + 영수증 검증 | Play 구독 상품 ID | ⏳ |
+| #6 | 클라이언트 enrich 흐름 → Edge Function 호출로 교체 | #3 완료 후 | ✅ #3과 함께 완료 (EXPO_PUBLIC_ENRICH_VIA_EDGE=1 으로 활성) |
+| #7 | 설정 UI 개편 (BYOK 고급 설정 격하, Pro 결제 화면) | #4·#5 완료 후 | ⏳ |
+| #10 | FAQ 전면 개정 (Naver 출처 제거, BYOK/Pro 정책 반영, 사진 스캔 다국어) | 사용자 결정 무관 | ✅ 완료 (2026-05-18) |
+| #11 | 개인정보 처리방침 + 약관 업데이트 (광고·결제 반영) | #4·#5 완료 후 | ⏳ |
+| #14 | 통합 테스트 + Production AAB 재빌드 | 모든 작업 완료 후 | ⏳ |
+
+### #3 Edge Function deploy 체크리스트 (사용자 측)
+
+1. Supabase CLI 설치 (`scoop install supabase` 또는 `brew install supabase/tap/supabase`)
+2. `supabase login` + `supabase link --project-ref <ref>`
+3. DB 마이그레이션 적용: `supabase db push` (`supabase/migrations/20260518000000_ai_quota.sql`)
+4. Secrets 설정 (`supabase/functions/enrich-word/README.md` 참고)
+   - `VERTEX_PROJECT_ID`, `VERTEX_LOCATION`, `VERTEX_SA_CLIENT_EMAIL`, `VERTEX_SA_PRIVATE_KEY`
+5. 배포: `supabase functions deploy enrich-word`
+6. 앱 환경변수에 `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` 추가 (EAS Secret 권장)
+7. GCP Budget cap 설정 (월 $20 등) + Vertex AI Quotas cap 권장
 
 ### 작업 의존도 그래프
 ```

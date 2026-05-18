@@ -58,7 +58,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     const [scannedWords, setScannedWords] = useState<ScannedWord[]>([]);
     const [isSaving, setIsSaving] = useState(false);
 
-    const { enrichBatch, enrichingCount } = useEnrichQueue(sourceLang, targetLang, apiKey || undefined, CONCURRENCY);
+    const { enrichBatch, enrichingCount } = useEnrichQueue(sourceLang, targetLang, apiKey || undefined, CONCURRENCY, 'photo');
 
     const handleEnrichUpdate = (id: string, result: any) => {
         setScannedWords(prev => prev.map(w => {

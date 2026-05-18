@@ -1,16 +1,27 @@
 import { AutoFillResult } from './types';
 import { fetch } from 'expo/fetch';
 import { analyzeWord } from '@/lib/ai/gemini-client';
+import { enrichWordViaEdge, type EnrichMode } from '@/lib/ai/edge-enrich';
+import { supabase } from '@/lib/supabase/client';
+
+const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
 // 단어 1개를 (sourceLang → targetLang) 페어로 보강한다.
-// 사용자 키 있으면 Gemini, 없으면 영어 dictionaryapi.dev fallback (그 외 언어는 빈 결과).
+// 우선순위:
+//   1. BYOK(사용자 키) → 클라이언트에서 Gemini SDK 직접 호출 (서버 비용 0)
+//   2. 로그인 + Edge 활성화 → Supabase Edge Function (운영자 키 + quota)
+//   3. 영어 source → dictionaryapi.dev fallback
+//   4. 그 외 → null
+//
 // 단일 추가 흐름(useAddWord.runAutoFill)과 사진 흐름이 공유하는 단일 진입점.
+// 사진 흐름은 mode='photo'를 명시해 단어당 15단어 가중치를 적용.
 export async function enrichWord(
   term: string,
   sourceLang: string,
   targetLang: string,
   apiKey?: string,
   signal?: AbortSignal,
+  mode: EnrichMode = 'autocomplete',
 ): Promise<AutoFillResult | null> {
   const trimmed = term.trim();
   if (!trimmed) return null;
@@ -35,7 +46,7 @@ export async function enrichWord(
   };
 
   try {
-    const result = await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey), 8000);
+    const result = await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal), 12000);
     if (result && (result.meaningKr || result.exampleEn || result.definition)) {
       return result;
     }
@@ -50,12 +61,15 @@ export async function autoFillWord(
   sourceLang: string = 'en',
   targetLang: string = 'ko',
   apiKey?: string,
+  mode: EnrichMode = 'autocomplete',
+  signal?: AbortSignal,
 ): Promise<AutoFillResult> {
   const trimmed = term.trim().toLowerCase();
   if (!trimmed) {
     return { definition: '', meaningKr: '', exampleEn: '' };
   }
 
+  // 1) BYOK
   if (apiKey) {
     try {
       const data = await analyzeWord(trimmed, sourceLang, targetLang, apiKey);
@@ -69,11 +83,36 @@ export async function autoFillWord(
         phonetic: data.phonetic || '',
       };
     } catch {
-      // AI 실패 시 사전 fallback
+      // BYOK 실패 시에도 Edge로 fallback하지 않음 — 사용자가 명시적으로 키 등록한 의도 존중
     }
   }
 
-  // API 키 없을 때: 영어만 무료 사전 사용, 그 외 언어는 빈 결과 반환
+  // 2) Edge Function (운영자 키, quota 적용)
+  if (!apiKey && EDGE_ENABLED) {
+    try {
+      const session = await supabase.auth.getSession();
+      if (session.data.session) {
+        const edge = await enrichWordViaEdge(trimmed, sourceLang, targetLang, mode, signal);
+        if (edge.kind === 'ok') {
+          const d = edge.result;
+          return {
+            definition: d.definition || '',
+            meaningKr: d.meaningKr || '',
+            exampleEn: d.exampleEn || '',
+            exampleKr: d.exampleKr || '',
+            mnemonic: d.mnemonic || '',
+            pos: d.pos || '',
+            phonetic: d.phonetic || '',
+          };
+        }
+        // quota_exceeded/rate_limited/upstream — 사전 fallback으로 계속
+      }
+    } catch {
+      // 세션 조회 실패 등 → 사전 fallback
+    }
+  }
+
+  // 3) API 키 없을 때: 영어만 무료 사전 사용, 그 외 언어는 빈 결과 반환
   // (MyMemory 등 저품질 번역 서비스 사용 안 함 — 오역 저장 방지)
   if (sourceLang === 'en') {
     try {

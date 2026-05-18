@@ -23,6 +23,7 @@
     "attached_assets",
     "reference",
     "server",
-    "server_dist"
+    "server_dist",
+    "supabase/functions"
   ]
 }

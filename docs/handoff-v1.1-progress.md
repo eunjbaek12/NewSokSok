@@ -1,14 +1,14 @@
 # v1.1 (광고·인앱구독) 작업 인수인계
 
-작성일: 2026-05-18 (AdMob 배너·보상형·한도 카운터 커밋 반영 예정)
+작성일: 2026-05-19 (약관·정책 갱신 커밋 반영)
 
-다음 세션으로 이어갈 인수인계 문서. v1 내부 테스트 출시 + v1.1 코드 작업 계속.
+다음 세션으로 이어갈 인수인계 문서. v1 내부 테스트 출시 완료 + v1.1 코드 작업은 거의 마무리 단계.
 
 ---
 
 ## 한 줄 현재 상황
 
-**v1 AAB** Play 내부 테스트 트랙 업로드 성공. **v1.1 코드 작업**은 AdMob 배너·보상형·한도 카운터 골격까지 완료 (테스트 광고 ID로 동작) — **남은 건 Pro 인앱구매 / 약관 / 통합 테스트** 3개.
+**v1 AAB** Play 내부 테스트 트랙 업로드 성공. **v1.1 코드 작업**은 AdMob + Pro 인앱구매 + 약관·정책까지 모두 완료. **남은 건 #14 통합 테스트 + Production AAB 재빌드** 하나 (사용자 측 인프라 사전 작업 마무리 후).
 
 ---
 
@@ -17,12 +17,12 @@
 ### 단계적 출시 (v1 → v1.1)
 
 ```
-v1 (현재): 3-tier 골격
+v1 (출시 완료): 3-tier 골격
    • Free (게스트 + 로그인 무료)
    • BYOK (자기 Gemini 키, 고급 설정에 격하 완료)
    • Pro 미구현 — 인앱구매 통합 후 활성화
 
-v1.1 (목표): 3-tier + 광고 + 결제
+v1.1 (코드 완료, 인프라 대기): 3-tier + 광고 + 결제
    • Free: 배너 광고 + AI 단어 추가 일 100단어
        한도 초과 시 보상형 광고 → +50단어 (선택)
        일 절대 상한 300단어
@@ -55,20 +55,20 @@ v1.2 (이후): Pro Lite 추가 검토
 | `6b85162` | 오픈소스 및 데이터 출처 페이지 추가 (`app/licenses.tsx`) |
 | `4453c7e` | v1.1 정책·인프라 가이드 + CLAUDE.md 갱신 |
 | `0d69260` | Play Console 최종 스크린샷 추가 |
-| `8d74ac8` | **FAQ v1.1 정책 반영** — 요금제·광고 카테고리 신설 + 사진 스캔 안내 수정 (#10 완료) |
+| `8d74ac8` | **FAQ v1.1 정책 반영** (#10 완료) |
 | `af3bde4` | **AI quota Edge Function 도입** — Vertex AI + 사용자별 일일 한도 (#3·#6 완료) |
 | `d2e6738` | **설정 UI 개편** — 요금제 화면 + BYOK 고급 설정 격하 (#7 완료) |
-| `a530683` | **#4 AdMob SDK 통합** — 배너 (8개 화면) + 보상형 모달 + 한도 카운터 + Edge 클라이언트 grant 마이그레이션 |
-| _(미커밋)_ | **#5 Pro 인앱구매 골격** — expo-iap + plans.tsx 결제 흐름 + verify-purchase Edge Function |
+| `a530683` | **#4 AdMob SDK 통합** — 배너 (8개 화면) + 보상형 모달 + 한도 카운터 + 클라이언트 RPC grant 마이그레이션 |
+| `09cee4a` | **#5 Pro 인앱구매 골격** — expo-iap + plans.tsx 결제 흐름 + verify-purchase Edge Function |
+| `83509b5` | **#11 약관·개인정보·계정삭제 페이지** — 광고·결제 조항 반영 |
 
-### #4 작업 상세 (미커밋, 2026-05-18)
+### #4 작업 상세 (`a530683`)
 
 신규/수정 파일:
-- `package.json` — `react-native-google-mobile-ads ^15.4.0` 추가 (OneDrive 이슈로 직접 편집, **`pnpm install` 보정 필요**)
+- `package.json` — `react-native-google-mobile-ads ^15.4.0` 추가
 - `app.config.js` — AdMob Expo plugin 등록 + `EXPO_PUBLIC_ADMOB_*_APP_ID` env → 테스트 App ID fallback
 - `lib/ads/admob.ts` — 광고 단위 ID resolver (`AD_UNIT_BANNER`, `AD_UNIT_REWARDED`) + `initAdMob()` + `isAdsAllowed()` 가드 (Pro/트라이얼/under14 차단)
 - `features/quota/store.ts` — 전역 quota Zustand 스토어 + `notifyQuotaExceeded` 이벤트
-- `features/quota/index.ts`
 - `components/ads/AppBannerAd.tsx` — `mode='tab-anchor' | 'bottom-anchor' | 'inline'` 배너
 - `components/ads/RewardedAdModal.tsx` — Free 한도 초과 시 보상형 광고 + `grant_rewarded_bonus` RPC 호출
 - `supabase/migrations/20260519000000_quota_status_client_grant.sql` — `get_ai_quota_status` / `grant_rewarded_bonus`를 authenticated 클라이언트에 grant + `auth.uid()` 검증
@@ -81,96 +81,69 @@ v1.2 (이후): Pro Lite 추가 검토
   - 탭 4개 (`mode="tab-anchor"`): `app/(tabs)/index.tsx`, `vocab-lists.tsx`, `settings.tsx`, `features/curation/screen.tsx`
   - 학습 모드 4개 (`mode="bottom-anchor"`, **TODO: 답 버튼 16dp 정밀 보정 follow-up**): `features/study/{flashcards,quiz,examples,autoplay}/screen.tsx`
 
-알려진 한계:
-- **AdMob SSV(서버측 검증) 미통합** — 클라이언트가 직접 `grant_rewarded_bonus` RPC 호출. 일 cap 200으로 어뷰징 제한. v1.2에 SSV + Edge Function 경유로 전환 권장.
-- **학습 화면 답 버튼 정밀 보정 미완** — 현재 배너가 답 버튼 영역과 인접. 각 학습 화면에서 답 영역 `paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16` 조정 follow-up.
-- **iOS Liquid Glass NativeTabs** — 배너가 보이지 않을 수 있음. iOS 출시 전 검증/수정.
-
-### #5 작업 상세 (미커밋, 2026-05-18)
+### #5 작업 상세 (`09cee4a`)
 
 신규/수정 파일:
 - `package.json` — `expo-iap ^3.1.23` 추가
 - `app.json` — `expo-iap` plugin 등록
 - `lib/billing/skus.ts` — `SKU_PRO_MONTHLY` / `SKU_PRO_YEARLY` 상수 (env override)
 - `features/billing/usePurchaseFlow.ts` — useIAP wrapper. `connected/products/stage/error` + `buy/restore`
-- `features/billing/index.ts`
 - `app/plans.tsx` — '곧 출시' Alert 제거 → 월/연 구매 버튼 + 복원 + 성공/실패 Alert
 - `i18n/locales/{ko,en}.json` — `plans.subscribeYearlyCta/MonthlyCta/restoreCta` 등 추가
-- `supabase/functions/_shared/google-auth.ts` — 범용 Google SA OAuth2 토큰 발급 (vertex-auth를 일반화)
+- `supabase/functions/_shared/google-auth.ts` — 범용 Google SA OAuth2 토큰 발급
 - `supabase/functions/verify-purchase/index.ts` — Play Developer API로 subscription 검증 + `user_subscriptions` 업데이트
 - `supabase/functions/verify-purchase/README.md` — Play API 서비스 계정 등록 + Secret + deploy 가이드
 - `CLAUDE.md` — 환경변수 섹션 갱신 (AdMob + Play SKU)
 
-알려진 한계:
-- **iOS 미지원** — `verify-purchase`는 Android만. iOS는 StoreKit 2 JWS 검증 (v1.2).
-- **실시간 갱신 알림(RTDN) 미연동** — 사용자가 앱 진입 시점에만 상태 동기화. 취소/환불은 만료 시점까지 Pro 유지. Pub/Sub topic + 별도 webhook은 v1.2.
-- **`finishTransaction` 타이밍** — 현재 hook에서 verify 성공 후 호출. verify 실패 시 미finished 상태 유지 → Play가 재전송할 가능성 있으니 다음 진입 시 동일 토큰 재검증 필요 (현 흐름이 처리).
-- **테스트 결제** — Play Console에 상품(`pro_monthly`, `pro_yearly`) 등록 + 라이선스 테스터 등록 후에만 작동.
+### #11 작업 상세 (`83509b5`)
 
-### 사용자 측 새 사전 작업 (#5)
-
-1. **Play Console 구독 상품 등록** — `pro_monthly` (₩3,900/월), `pro_yearly` (₩35,900/연), 7일 무료 체험 offer 추가
-2. **Play Developer API 서비스 계정 생성** — Vertex AI 계정과 별개 권장 (`supabase/functions/verify-purchase/README.md` 참조)
-3. **Play Console "API 접근"에서 SA 권한 부여** — 재무 데이터/주문/구독 보기 (~24h 반영)
-4. **Supabase Secret 등록** — `PLAY_SA_CLIENT_EMAIL`, `PLAY_SA_PRIVATE_KEY`, `ANDROID_PACKAGE_NAME`
-5. **`supabase functions deploy verify-purchase`** — Edge Function 배포
-6. **EAS Secret** — 필요 시 `EXPO_PUBLIC_PRO_MONTHLY_SKU`, `EXPO_PUBLIC_PRO_YEARLY_SKU` 등록 (테스트 SKU와 다르게 갈 때)
+- `i18n/locales/{ko,en}.json` — "AI 기능 및 일일 한도" / "Pro 구독 및 결제" / "광고" 섹션 신설 + "개인정보" 보강
+- `docs/privacy-policy.html` — 수집 항목/제3자 위탁/앱 권한 표 보강, "5-1. Pro 구독 결제 및 환불" 섹션 신설, 14세 미만 광고 비활성 명시
+- `docs/account-deletion.html` — "3-1. Pro 구독 사용자 안내" 신설 (계정 삭제 ≠ 구독 자동 해지)
 
 > 미커밋: `.claude/settings.local.json` (로컬 설정, 커밋 X).
 
 ---
 
-## 남은 작업 한눈에 (v1.1)
+## 남은 작업 (v1.1)
 
-| Task | 작업 | 사용자 사전 작업 필요 |
+### 코드 작업
+
+| Task | 작업 | 상태 | 차단 |
+|---|---|---|---|
+| ~~#4~~ | ~~AdMob SDK 통합 + 배너 + 보상형~~ | ✅ 완료 (테스트 ID) | 실 ID는 EAS Secret 등록만 |
+| ~~#5~~ | ~~Pro 인앱구매 통합 + 영수증 검증~~ | ✅ 완료 (Android) | Play 상품 등록 + Play SA + Edge deploy 필요 |
+| ~~#10~~ | ~~FAQ v1.1 정책 반영~~ | ✅ | — |
+| ~~#11~~ | ~~약관·개인정보·계정삭제 갱신~~ | ✅ | — |
+| **#14** | **통합 테스트 + Production AAB 재빌드** | 🟡 시작 가능 | 사용자 측 인프라 사전 작업 완료 후 의미 있음 |
+
+### Follow-up (출시 차단 위험 / v1.2)
+
+| 항목 | 우선순위 | 비고 |
 |---|---|---|
-| ~~#4~~ | ~~AdMob SDK 통합 + 배너 + 보상형~~ | ✅ 골격 완료 (테스트 ID). 실 ID는 EAS Secret만 설정 |
-| ~~#5~~ | ~~Pro 인앱구매 통합 + 영수증 검증~~ | ✅ 골격 완료. Play 상품 등록 + Play SA + Edge deploy 필요 |
-| ~~#11~~ | ~~개인정보 처리방침 + 약관 업데이트 (광고·결제 반영)~~ | ✅ 갱신 완료. GitHub Pages 자동 배포 |
-| #4-follow-up | 학습 화면 답 버튼 16dp 정밀 보정 + iOS NativeTabs 배너 + AdMob SSV (v1.2) | — |
-| #5-follow-up | iOS StoreKit 검증 + 실시간 갱신 알림(RTDN) webhook (v1.2) | — |
-| #14 | **통합 테스트 + Production AAB 재빌드** | 모든 작업 완료 후 |
-
-### Edge Function deploy (사용자 측, 미진행)
-
-코드는 작성 완료, 배포만 남음:
-
-1. Supabase CLI 설치: `scoop install supabase`
-2. `supabase login` + `supabase link --project-ref <ref>`
-3. DB 마이그레이션 적용: `supabase db push` (`supabase/migrations/20260518000000_ai_quota.sql`)
-4. Secrets 설정 (`supabase/functions/enrich-word/README.md` 참고)
-   - `VERTEX_PROJECT_ID`, `VERTEX_LOCATION`, `VERTEX_SA_CLIENT_EMAIL`, `VERTEX_SA_PRIVATE_KEY`
-5. 배포: `supabase functions deploy enrich-word`
-6. 앱 환경변수 `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` 추가 (EAS Secret 권장)
-7. GCP Budget cap 설정 (월 $20 등) + Vertex AI Quotas cap 권장
-
-> 미배포 동안에는 코드가 v1 동작 유지 (BYOK 또는 dictionaryapi.dev fallback).
+| **학습 화면 답 버튼 16dp 정밀 보정** | 🔴 **출시 차단 위험** | flashcards/quiz/examples/autoplay 4개 화면. AdMob 정책 위반 시 광고 거부 가능. 각 화면 답 영역 wrapper에 `paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16` 추가. TODO 코멘트로 표시되어 있음 |
+| **iOS Liquid Glass NativeTabs 배너** | 🟡 iOS 출시 시 | Android 출시엔 영향 없음. iOS 출시 결정 시 `app/(tabs)/_layout.tsx`의 NativeTabLayout 경로 검토 |
+| **AdMob SSV(서버측 검증)** | 🟡 v1.2 | 현재 클라이언트가 직접 `grant_rewarded_bonus` RPC 호출. 일 cap 200으로 어뷰징 제한. SSV 통합 시 어뷰징 완전 차단 |
+| **iOS StoreKit 검증** | 🟡 v1.2 | `verify-purchase`가 platform='android'만 허용. iOS StoreKit 2 JWS 검증 (`@apple/server-api-jws`) 추가 필요 |
+| **실시간 갱신 알림(RTDN) webhook** | 🟡 v1.2 | Pub/Sub topic + Edge webhook. 취소/환불 즉시 반영. 현재는 만료 시점까지 Pro 유지 |
+| **`finishTransaction` 타이밍** | 🟢 동작은 OK | verify 실패 시 미finished 상태 유지 → Play가 재전송할 가능성. 다음 진입 시 동일 토큰 재검증 (현 흐름이 처리) |
 
 ---
 
 ## 사용자 측 진행 상황 (운영자 작업)
 
-### Play Console v1 등록 (진행 중)
+### Play Console v1 등록 — ✅ 완료
 
 | 단계 | 상태 |
 |---|---|
 | 1. 앱 생성 | ✅ |
 | 2. 정책 선언 10개 | ✅ |
 | 3. 스토어 등록정보 | ✅ |
-| 4. AAB 업로드 (내부 테스트 트랙) | ⏳ **광고 ID 선언 충돌 해결 후 재시도** |
-| 5. SHA-1 → Google OAuth 등록 | ⏳ |
-| 6. 본인 기기 옵트인·설치·검증 | ⏳ |
+| 4. AAB 업로드 (내부 테스트 트랙) | ✅ 광고 ID '사용 안 함'으로 변경 후 성공 |
+| 5. SHA-1 → Google OAuth 등록 | ⏳ 확인 필요 |
+| 6. 본인 기기 옵트인·설치·검증 | ⏳ 확인 필요 |
 
-### 광고 ID 선언 충돌 해결법 (진행 중인 이슈)
-
-**원인**: Play Console "광고 ID 사용함" + v1 AAB에 AdMob SDK 없음 → `AD_ID` 권한 매니페스트에 없음 → 충돌.
-
-**해결**:
-1. Play Console → 정책 → 앱 콘텐츠 → 광고 ID → **"사용 안 함"** 으로 변경
-2. 데이터 보안 폼에서도 광고 ID 항목 체크 해제
-3. AAB 업로드 재시도
-
-> v1.1 빌드에 AdMob SDK 추가하면 `AD_ID` 권한 자동 포함 → 그때 "사용함"으로 다시 변경.
+> v1.1 빌드 업로드 시 광고 ID 선언을 다시 **"사용함"** 으로 변경 + 데이터 보안 폼에 광고 ID·구매 내역 추가.
 
 ### Part A — GCP Agent Platform (구 Vertex AI) ✅ 완료
 | 항목 | 값 |
@@ -181,85 +154,133 @@ v1.2 (이후): Pro Lite 추가 검토
 | 역할 | `roles/aiplatform.user` |
 | JSON 키 | ✅ 발급·보관 |
 
-### Part B — AdMob ⏳ 미완료
-- 앱 ID, 배너 광고 단위 ID, 보상형 광고 단위 ID 발급 필요
-- 신규 단위는 활성화까지 ~24시간
+### Part B — AdMob ⏳ 미완료 (v1.1 출시 차단)
 
-### Part C — Play 인앱구독 ⏳ 미완료
-- Play Console 앱 등록 완료 후 가능
-- 상품 ID 등록: `pro_monthly` (₩3,900), `pro_yearly` (₩35,900)
-- 7일 무료 체험 설정
+- [ ] AdMob 앱 등록 → App ID (Android) 발급
+- [ ] 배너 광고 단위 ID 발급
+- [ ] 보상형 광고 단위 ID 발급
+- [ ] EAS Secret 등록:
+  - `EXPO_PUBLIC_ADMOB_ANDROID_APP_ID`
+  - `EXPO_PUBLIC_ADMOB_ANDROID_BANNER_ID`
+  - `EXPO_PUBLIC_ADMOB_ANDROID_REWARDED_ID`
+
+> 신규 광고 단위는 활성화까지 ~24시간. 테스트 ID로 동작 검증은 이미 가능.
+
+### Part C — Play 인앱구독 ⏳ 미완료 (v1.1 출시 차단)
+
+- [ ] Play Console에 구독 상품 등록:
+  - `pro_monthly` (₩3,900/월)
+  - `pro_yearly` (₩35,900/연)
+- [ ] 각 상품에 7일 무료 체험 offer 추가
+- [ ] 라이선스 테스터 등록 (테스트 결제용)
+
+### Part D — Play Developer API 서비스 계정 ⏳ 미완료 (`verify-purchase` 동작 조건)
+
+- [ ] GCP Console에서 별도 서비스 계정 생성 (Vertex와 분리 권장)
+  - 이름 예: `soksok-play-verify`
+- [ ] JSON 키 다운로드
+- [ ] Play Console → 설정 → API 접근에서 Cloud 프로젝트 연결 + 위 SA에 권한 부여 (재무 데이터/주문/구독 보기)
+- [ ] 권한 반영 대기 (~24시간)
+
+자세한 절차: `supabase/functions/verify-purchase/README.md`
+
+### Part E — Supabase ⏳ 미완료
+
+- [ ] Supabase CLI 설치 + `supabase login` + `supabase link --project-ref <ref>`
+- [ ] DB 마이그레이션 적용: `supabase db push`
+  - `supabase/migrations/20260518000000_ai_quota.sql`
+  - `supabase/migrations/20260519000000_quota_status_client_grant.sql`
+- [ ] Secret 등록:
+  - **enrich-word용**: `VERTEX_PROJECT_ID`, `VERTEX_LOCATION`, `VERTEX_SA_CLIENT_EMAIL`, `VERTEX_SA_PRIVATE_KEY`
+  - **verify-purchase용**: `PLAY_SA_CLIENT_EMAIL`, `PLAY_SA_PRIVATE_KEY`, `ANDROID_PACKAGE_NAME=com.soksokvoca`
+- [ ] Edge Function 배포:
+  - `supabase functions deploy enrich-word`
+  - `supabase functions deploy verify-purchase`
+- [ ] 앱 환경변수 `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` (EAS Secret)
+- [ ] GCP Budget cap (월 $20 등) + Vertex AI Quotas cap 권장
+
+### Part F — 패키지 보정 ⏳ 미완료 (개발자 측)
+
+- [ ] `pnpm install` — OneDrive 이슈로 직접 편집한 의존성(react-native-google-mobile-ads, expo-iap) 잠금파일 보정
+- [ ] `pnpm lint` — 변경분 점검
+- [ ] EAS dev build (네이티브 모듈 포함이라 새 빌드 필요)
 
 ---
 
 ## 작업 의존도 그래프
 
 ```
-Phase 0 (사용자 인프라, 병렬 — 미완)
+Phase 0 (사용자 인프라, 병렬 — Part B·C·D·E 미완)
    • Part B AdMob 등록·광고 단위 발급
    • Part C Play 인앱구독 등록
-   • Edge Function deploy (코드 완료, 사용자가 deploy)
+   • Part D Play Developer API SA 생성·권한 부여
+   • Part E Supabase 마이그레이션 + Secret + Edge deploy
 
 Phase 1 ✅ 완료
    • #10 FAQ 전면 개정
-   • #3 Edge Function 코드
+   • #3 Edge Function 코드 (enrich-word)
    • #6 클라이언트 enrich 흐름 교체
-   • #7 설정 UI 개편 (Pro 구독 버튼은 "곧 출시" placeholder)
+   • #7 설정 UI 개편
 
-Phase 2 (Part B·C 완료 후) ← 다음 작업
-   • #4 AdMob SDK 통합 (배너 + 보상형)
-   • #5 Pro 인앱구매 통합 (Play Billing)
-       → app/plans.tsx의 "곧 출시" 모달 → 실제 결제 흐름 교체
-       → 보상형 광고 모달 (Free 한도 초과 시 +50)
+Phase 2 ✅ 완료
+   • #4 AdMob SDK 통합 (배너 + 보상형 + 한도 카운터)
+   • #5 Pro 인앱구매 통합 (verify-purchase Edge Function 포함)
 
-Phase 3
-   • #11 개인정보 처리방침·약관 갱신 (광고·결제 반영)
+Phase 3 ✅ 완료
+   • #11 약관·개인정보·계정삭제 페이지 갱신
 
-Phase 4
+Phase 4 (Part B~E 완료 후) ← 다음 작업
+   • 학습 화면 답 버튼 16dp 정밀 보정 (출시 차단 위험)
    • #14 통합 테스트 + Production AAB 재빌드 → 내부 테스트 트랙 업데이트
+   • 데이터 보안 폼 갱신 (광고 ID + 구매 내역)
+   • 콘텐츠 등급 설문 재답변 (디지털 구매·광고 = 예)
 ```
 
 ---
 
 ## 다음 세션 시작 흐름
 
-1. **현 변경분 점검** — `pnpm install` (OneDrive 이슈 시 직접 편집 → `pnpm install`로 보정) → `pnpm lint` → 타입 점검
-2. **EAS dev build** — `react-native-google-mobile-ads`가 네이티브 모듈이라 새 빌드 필요. 테스트 광고 ID로 동작 확인.
-3. **Supabase 마이그레이션 deploy** — `supabase db push` (20260518 + 20260519 모두). 20260519는 클라이언트 RPC grant 보강.
-4. **Edge Function deploy** — `supabase functions deploy enrich-word` (코드는 이미 작성됨, Part A GCP는 완료)
-5. **Phase 2 진입** — Play 구독 상품 ID 받으면 #5 Pro 인앱구매. 둘 다 안 됐으면 #11 약관 초안 먼저.
-6. **실 AdMob ID 받으면** — EAS Secret에 `EXPO_PUBLIC_ADMOB_ANDROID_APP_ID` / `EXPO_PUBLIC_ADMOB_ANDROID_BANNER_ID` / `EXPO_PUBLIC_ADMOB_ANDROID_REWARDED_ID` 등록만 하면 자동 교체.
-
-### 사용자 측 즉시 가능 작업
-- `pnpm install` (의존성 보정)
-- `supabase db push` (마이그레이션 2개 적용)
-- AdMob 등록 진행 (광고 단위 ID 확보) → EAS Secret 등록
-- Play 구독 상품 등록 (#5 차단 해제)
-- Edge Function deploy (`enrich-word` 활성화)
+1. **사용자 측 Part B~E 진척 확인** — AdMob ID 받았는지, Play 상품 등록됐는지, Play SA 권한 부여 반영됐는지, Edge deploy 완료됐는지
+2. **개발자 측 Part F 정리** — `pnpm install` + `pnpm lint` + 타입 점검
+3. **학습 화면 16dp 정밀 보정** (출시 차단 위험 항목 우선 해소)
+4. **EAS dev build** — 테스트 광고 ID + 테스트 결제로 통합 시나리오 검증
+   - 배너 노출/숨김 (Free / Pro / 게스트 / under14 가드)
+   - 보상형 광고 시청 → +50단어 반영
+   - Pro 구독 → quota 1,000단어 반영 + 광고 제거
+   - Pro 구독 복원 (재설치 시나리오)
+   - 한도 초과 → RewardedAdModal 자동 트리거
+5. **Production AAB 빌드** + Play Console 내부 테스트 트랙 업로드
+6. **Play Console 정책 갱신** — 광고 ID '사용함', 데이터 보안 폼, 콘텐츠 등급 재답변
 
 ---
 
 ## 알려진 이슈 / 주의사항
 
-### Play Console
-- 광고 ID 선언과 매니페스트 권한 일치 필수 (v1.1 시점에 다시 "사용함"으로)
-- 데이터 보안 폼: v1.1 빌드 시 "광고 ID 수집" + "구매 내역 수집" 추가
-- 콘텐츠 등급 설문: v1.1엔 "디지털 구매 = 예", "광고 = 예"로 재답변 필요할 수도
+### Play Console 정책 (v1.1 업로드 시 필수)
+- **광고 ID 선언**: '사용함'으로 다시 변경 (v1.1엔 AdMob SDK 포함 → `AD_ID` 권한 자동 매니페스트)
+- **데이터 보안 폼**: "광고 ID 수집" + "구매 내역 수집" + "Pro 구독 관련 데이터" 추가
+- **콘텐츠 등급 설문**: "디지털 구매 = 예", "광고 = 예"로 재답변 필요할 수 있음
 
-### AdMob 정책
+### AdMob 정책 (출시 차단 위험)
 - 신규 광고 단위는 활성화까지 ~24시간
-- 14세 미만 사용자에게는 광고 비활성 (코드에서 처리 필요)
-- 학습 화면에 배너 노출 시 퀴즈 답 버튼과 16dp 이상 간격 필수 (오탭 방지)
+- 14세 미만 사용자에게는 광고 비활성 — **현재 코드는 가드 함수에 `isUnder14: false` 하드코딩**. 약관 동의 흐름에 생년/만 14세 미만 자가 신고 추가 필요 (v1.1 출시 전 권장, 또는 v1.1엔 모두 광고 노출 + v1.2에 동의 흐름)
+- **학습 화면 배너 16dp 간격** — 답 버튼과 거리 미흡. 정밀 보정 follow-up 필수
 
 ### Pro 결제 UX
-- 현재 `app/plans.tsx`의 Pro 구독 버튼은 "곧 출시" 모달
-- #5 인앱구매 통합 시 실제 Play Billing 흐름으로 교체
-- Pro 사용자가 1,000단어 한도 초과 → "내일 다시" 메시지 (광고 X — Pro 약속 무결성)
+- Pro 사용자가 1,000단어 한도 초과 → 현재 fallback 동작(영어 dictionaryapi 또는 빈 결과). "내일 다시" 안내 메시지가 없어 UX 개선 follow-up 권장
+- Pro 구독 활성 상태에서 plans.tsx의 구매 버튼은 숨김 처리됨 (코드 확인됨)
 
 ### EAS 빌드
 - `EAS_SKIP_AUTO_FINGERPRINT=1` 환경변수 다음 빌드에도 필요 (brace-expansion 이슈, 출시 후 해결)
 - versionCode 자동 증분 (3 → 4 → ...)
 - GOOGLE_SERVICES_JSON EAS Secret으로 주입됨
+- AdMob plugin이 추가됐으므로 dev build 캐시 무효화 필수
+
+### Supabase 마이그레이션
+- 마이그레이션 2개를 순서대로 적용:
+  1. `20260518000000_ai_quota.sql` (user_subscriptions, ai_usage_daily, RPC들)
+  2. `20260519000000_quota_status_client_grant.sql` (클라이언트 RPC grant 보강)
+- 마이그레이션 미적용 상태에서 클라이언트가 RPC 호출하면 권한 에러
 
 ### CLAUDE.md "No backend server" 정책
 - Supabase Edge Function은 BaaS 서버리스라 정책 준수 OK
@@ -281,22 +302,29 @@ Phase 4
 | Play 패키지명 | `com.soksokvoca` |
 | Firebase 프로젝트 | `avocado-491710` |
 | GCP 프로젝트 (Agent Platform) | 사용자가 별도 보관 |
-| 서비스 계정 | `avocado-ai-proxy@...iam.gserviceaccount.com` |
+| 서비스 계정 (Vertex) | `avocado-ai-proxy@...iam.gserviceaccount.com` |
+| 서비스 계정 (Play Verify) | ⏳ 신규 생성 필요 — `soksok-play-verify@...iam.gserviceaccount.com` 권장 |
 | Supabase URL | `https://ithqbclnwvyeultkyxbn.supabase.co` |
 | 개인정보 처리방침 | https://eunjbaek12.github.io/NewSokSok/privacy-policy.html |
 | 계정 삭제 안내 | https://eunjbaek12.github.io/NewSokSok/account-deletion.html |
 | v1 AAB | https://expo.dev/artifacts/eas/jSwoo5f88KR1C2jf4PMXL8.aab |
 | 출시 가격 | Pro 월 3,900원 / 연 35,900원 |
+| Pro 상품 SKU | `pro_monthly`, `pro_yearly` (env override 가능) |
 
 ---
 
 ## 빠른 명령 모음
 
 ```bash
+# === 개발자 측 ===
+# 의존성 보정 (OneDrive 이슈로 직접 편집한 package.json)
+pnpm install
+pnpm lint
+
 # 빌드 상태
 eas build:list --platform android --limit 3
 
-# 새 빌드 (v1.1)
+# 새 빌드 (v1.1) — AdMob/expo-iap 네이티브 모듈 포함이라 dev/production 모두 새 빌드 필요
 $env:EAS_SKIP_AUTO_FINGERPRINT=1; eas build --profile production --platform android --non-interactive
 
 # Secret 점검
@@ -308,9 +336,30 @@ eas credentials --platform android
 # Play 제출
 eas submit -p android --latest
 
-# Edge Function 배포 (사용자 측)
-supabase functions deploy enrich-word
+# === 사용자 측 (Supabase) ===
+# CLI 설치
+scoop install supabase
+
+# 로그인 + 프로젝트 연결
+supabase login
+supabase link --project-ref ithqbclnwvyeultkyxbn
+
+# 마이그레이션 적용 (2개 순서대로 자동 적용)
 supabase db push
+
+# Secret 등록 예시
+supabase secrets set \
+  VERTEX_PROJECT_ID=<project> \
+  VERTEX_LOCATION=us-central1 \
+  PLAY_SA_CLIENT_EMAIL=soksok-play-verify@<project>.iam.gserviceaccount.com \
+  ANDROID_PACKAGE_NAME=com.soksokvoca
+# private key는 파일에서 추출 (jq 사용 시)
+supabase secrets set VERTEX_SA_PRIVATE_KEY="$(cat vertex-key.json | jq -r .private_key)"
+supabase secrets set PLAY_SA_PRIVATE_KEY="$(cat play-key.json | jq -r .private_key)"
+
+# Edge Function 배포
+supabase functions deploy enrich-word
+supabase functions deploy verify-purchase
 ```
 
 ---
@@ -321,5 +370,6 @@ supabase db push
 - `docs/handoff-play-release.md` — v1 빌드 시점 인수인계 (2026-05-15)
 - `docs/handoff-monetization-setup.md` — 사용자 인프라 가이드 (GCP·AdMob·Play 인앱)
 - `docs/handoff-play-console-setup.md` — Play Console 등록 가이드
-- `supabase/functions/enrich-word/README.md` — Edge Function deploy 가이드
+- `supabase/functions/enrich-word/README.md` — enrich-word Edge Function deploy 가이드
+- `supabase/functions/verify-purchase/README.md` — verify-purchase Edge Function deploy 가이드 + Play SA 등록 절차
 - `store-assets/` — 스토어 자산 (스크린샷·아이콘·그래픽·정책 답변지)

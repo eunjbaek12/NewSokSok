@@ -599,7 +599,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_400Regular',
   },
   choicesArea: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
     gap: 8,
     marginTop: 12,
   },

@@ -1286,7 +1286,8 @@ export default function CurationScreen() {
                 onDismiss={() => setSnackbar(prev => ({ ...prev, visible: false }))}
             />
 
-            <AppBannerAd mode="tab-anchor" />
+            {/* 상세 화면 진입 시엔 배너 숨김 — masterBar(단어장 추가) 가림 방지 */}
+            {!selectedTheme && <AppBannerAd mode="tab-anchor" />}
         </KeyboardAvoidingView>
     );
 }

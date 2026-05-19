@@ -428,11 +428,6 @@ export default function AutoPlayScreen() {
 
             {/* Controls */}
             <View style={[styles.controlsArea, { paddingBottom: insets.bottom + (adsBottomInset || 40) }]}>
-                <LinearGradient
-                    colors={[colors.background + '00', colors.background]}
-                    style={styles.controlsGradient}
-                    pointerEvents="none"
-                />
                 <Pressable onPress={goToPrev} disabled={currentIndex === 0} hitSlop={20} style={[styles.navBtn, { borderColor: colors.border }]}>
                     <Ionicons
                         name="play-skip-back"
@@ -518,7 +513,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
-        paddingBottom: 12,
+        paddingBottom: 8,
     },
     progressBarBg: {
         flex: 1,
@@ -533,7 +528,7 @@ const styles = StyleSheet.create({
     progressText: {
         fontSize: 12,
         fontFamily: 'Pretendard_500Medium',
-        minWidth: 60,
+        minWidth: 70,
         textAlign: 'right',
     },
     cardContainer: {
@@ -541,10 +536,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 24, // 플래시카드와 동일하게 (24px)
+        paddingTop: 16,
     },
     card: {
         width: '100%',
-        minHeight: 450, // 플래시카드와 비슷하게 최소 높이 상향
+        minHeight: 400, // 자동재생 모드 카드
         borderRadius: 16,
         padding: 32,
         alignItems: 'center',
@@ -591,13 +587,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 24,
         position: 'relative',
-    },
-    controlsGradient: {
-        position: 'absolute',
-        top: -32,
-        left: 0,
-        right: 0,
-        height: 32,
     },
     playBtnWrapper: {
         alignItems: 'center',

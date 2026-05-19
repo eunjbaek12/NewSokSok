@@ -606,7 +606,7 @@ export default function FlashcardsScreen() {
           </Animated.View>
         </GestureDetector>
 
-        <View style={[styles.bottomBar, { bottom: insets.bottom + (adsBottomInset || 76), paddingHorizontal: 24, gap: 16 }]}>
+        <View style={[styles.bottomBar, { bottom: insets.bottom + (adsBottomInset || 76) + 32, paddingHorizontal: 24, gap: 16 }]}>
           <Animated.View style={[{ flex: 1 }, leftBtnScale]}>
             <Pressable
               onPress={() => handleNext(false)}
@@ -725,7 +725,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    paddingBottom: 12,
+    paddingBottom: 8,
   },
   progressBarBg: {
     flex: 1,
@@ -740,7 +740,7 @@ const styles = StyleSheet.create({
   progressText: {
     fontSize: 12,
     fontFamily: 'Pretendard_500Medium',
-    minWidth: 60,
+    minWidth: 70,
     textAlign: 'right',
   },
   cardArea: {
@@ -756,6 +756,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 24,
+    paddingTop: 16,
     paddingBottom: 200,
   },
   card: {

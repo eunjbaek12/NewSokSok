@@ -505,7 +505,7 @@ export default function ExamplesScreen() {
         style={{ flex: 1 }}
         contentContainerStyle={{
           flexGrow: 1,
-          paddingTop: 0,
+          paddingTop: 16,
           paddingBottom: 16,
           justifyContent: 'space-evenly'
         }}
@@ -710,7 +710,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    paddingBottom: 12,
+    paddingBottom: 8,
   },
   progressBarBg: {
     flex: 1,
@@ -725,7 +725,7 @@ const styles = StyleSheet.create({
   progressText: {
     fontSize: 12,
     fontFamily: 'Pretendard_500Medium',
-    minWidth: 60,
+    minWidth: 70,
     textAlign: 'right',
   },
   cardArea: {
@@ -798,7 +798,7 @@ const styles = StyleSheet.create({
   choicesArea: {
     paddingHorizontal: 20,
     gap: 8,
-    marginTop: -12,
+    marginTop: 12,
   },
   choiceBtn: {
     flexDirection: 'row',

@@ -18,6 +18,17 @@
     "slide4": {
       "title": "Ready to\nGet Started?",
       "body": "Create your personal vocabulary list\nand begin your learning journey"
+    },
+    "birthday": {
+      "title": "Enter your birthday",
+      "subtitle": "Required once per Terms of Service",
+      "migrationNotice": "A one-time update is required due to policy changes",
+      "year": "Year",
+      "month": "Month",
+      "day": "Day",
+      "confirm": "Confirm",
+      "invalid": "Not a valid date",
+      "future": "Birthday cannot be in the future"
     }
   },
   "common": {
@@ -247,6 +258,10 @@
     "advancedDesc": "Bring your own AI key, etc. (optional)",
     "under14": "Under 14",
     "under14Desc": "Turning this on disables all ads (child protection)",
+    "birthday": "Birthday",
+    "birthdayNotSet": "Not set",
+    "birthdayChangeNotice": "Birthday can only be set once. Contact support to make changes.",
+    "adsDisabledUnder14": "Under 14 — ads disabled",
     "ai": "AI",
     "geminiApiKey": "Gemini API Key",
     "geminiApiKeyNotSet": "Not set",

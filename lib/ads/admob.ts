@@ -42,14 +42,26 @@ export async function initAdMob(): Promise<void> {
   initialized = true;
 
   try {
-    await mobileAds().setRequestConfiguration({
-      maxAdContentRating: MaxAdContentRating.PG,
-      tagForChildDirectedTreatment: false,
-      tagForUnderAgeOfConsent: false,
-    });
     await mobileAds().initialize();
+    // 초기 안전 기본값. 이후 _layout.tsx effect가 profileSettings.isUnder14 반영해 재설정.
+    await applyAdMobChildTags({ isUnder14: false });
   } catch {
     // 초기화 실패해도 앱 동작은 유지. 광고만 로드 실패.
+  }
+}
+
+// 14세 미만 여부에 따라 AdMob ad request 구성 재설정.
+// COPPA(미국) + GDPR-K(EU) + KISA(한국) 모두 동일 플래그로 처리.
+// SDK 문서: setRequestConfiguration은 언제든 호출 가능. 이후 광고 요청부터 적용.
+export async function applyAdMobChildTags(opts: { isUnder14: boolean }): Promise<void> {
+  try {
+    await mobileAds().setRequestConfiguration({
+      maxAdContentRating: opts.isUnder14 ? MaxAdContentRating.G : MaxAdContentRating.PG,
+      tagForChildDirectedTreatment: opts.isUnder14,
+      tagForUnderAgeOfConsent: opts.isUnder14,
+    });
+  } catch {
+    // 무시 — 광고 미초기화 상태에서도 호출될 수 있음.
   }
 }
 

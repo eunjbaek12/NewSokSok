@@ -18,6 +18,17 @@
     "slide4": {
       "title": "지금 바로\n시작해볼까요?",
       "body": "나만의 단어장을 만들고\n학습을 시작해보세요"
+    },
+    "birthday": {
+      "title": "생년월일을 알려주세요",
+      "subtitle": "이용 약관에 따라 한 번만 입력합니다",
+      "migrationNotice": "서비스 정책 업데이트로 한 번만 입력이 필요해요",
+      "year": "년",
+      "month": "월",
+      "day": "일",
+      "confirm": "확인",
+      "invalid": "올바른 날짜가 아닙니다",
+      "future": "미래 날짜는 입력할 수 없습니다"
     }
   },
   "common": {
@@ -247,6 +258,10 @@
     "advancedDesc": "AI 키 직접 등록 등 (선택 사항)",
     "under14": "만 14세 미만",
     "under14Desc": "켜면 광고가 모두 비활성화됩니다 (아동 보호)",
+    "birthday": "생년월일",
+    "birthdayNotSet": "미입력",
+    "birthdayChangeNotice": "생년월일은 한 번만 설정할 수 있습니다. 변경이 필요하면 고객센터로 문의해 주세요.",
+    "adsDisabledUnder14": "만 14세 미만 — 광고 비활성",
     "ai": "AI 기능",
     "geminiApiKey": "Gemini API 키",
     "geminiApiKeyNotSet": "미설정",

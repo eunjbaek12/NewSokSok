@@ -91,7 +91,7 @@ export default function OnboardingScreen() {
 
   const handleFinish = async () => {
     await markOnboardingDone();
-    router.replace('/login');
+    router.replace('/age-gate?from=onboarding' as any);
   };
 
   const handleScroll = (e: any) => {

@@ -97,11 +97,20 @@ export type AutoPlaySettings = z.infer<typeof AutoPlaySettingsSchema>;
 export const StartupTabSchema = z.enum(['index', 'vocab-lists', 'curation']);
 export type StartupTab = z.infer<typeof StartupTabSchema>;
 
+export const BirthdayStringSchema = z
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}$/, 'invalid_birthday')
+  .refine((s) => !Number.isNaN(Date.parse(s)), 'invalid_birthday');
+
 export const ProfileSettingsSchema = z.object({
   nickname: z.string().default(''),
   startupTab: StartupTabSchema.default('index'),
-  // AdMob/KR 아동 보호 규정. 자가 신고 토글. true → 모든 광고 비활성.
+  // birthday로부터 매 hydrate 시 파생. UI에서 직접 토글 불가 (온보딩/age-gate 한 번만 설정).
   isUnder14: z.boolean().default(false),
+  // 'YYYY-MM-DD'. undefined = age gate 필요 (신규 또는 기존 사용자 마이그레이션).
+  birthday: BirthdayStringSchema.optional(),
+  // 변조 흔적용 timestamp. v1.1 범위에선 best-effort.
+  birthdaySetAt: z.number().int().optional(),
 });
 export type ProfileSettings = z.infer<typeof ProfileSettingsSchema>;
 

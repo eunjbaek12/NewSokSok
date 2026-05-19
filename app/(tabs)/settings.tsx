@@ -4,7 +4,6 @@ import {
   Text,
   View,
   ScrollView,
-  Switch,
   Pressable,
   Platform,
   Alert,
@@ -30,6 +29,16 @@ import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd } from '@/components/ads/AppBannerAd';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+function formatBirthday(iso: string, locale: string): string {
+  const [y, m, d] = iso.split('-');
+  const mNum = parseInt(m, 10);
+  const dNum = parseInt(d, 10);
+  if (locale === 'ko') return `${y}년 ${mNum}월 ${dNum}일`;
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${months[mNum - 1]} ${dNum}, ${y}`;
+}
+
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const tabBarHeight = useBottomTabBarHeight();
@@ -324,27 +333,28 @@ export default function SettingsScreen() {
             </View>
             <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
           </Pressable>
-          <View style={styles.row}>
+          <Pressable
+            style={styles.row}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              Alert.alert(t('settings.birthday'), t('settings.birthdayChangeNotice'));
+            }}
+          >
             <View style={styles.rowLeft}>
               <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-                <Ionicons name="happy-outline" size={18} color={colors.primary} />
+                <Ionicons name="calendar-outline" size={18} color={colors.primary} />
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.under14')}</Text>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.birthday')}</Text>
                 <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={2}>
-                  {t('settings.under14Desc')}
+                  {profileSettings.birthday
+                    ? formatBirthday(profileSettings.birthday, locale)
+                    : t('settings.birthdayNotSet')}
+                  {profileSettings.isUnder14 ? ` · ${t('settings.adsDisabledUnder14')}` : ''}
                 </Text>
               </View>
             </View>
-            <Switch
-              value={profileSettings.isUnder14 === true}
-              onValueChange={(v) => {
-                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                updateProfileSettings({ isUnder14: v });
-              }}
-              trackColor={{ false: colors.borderLight, true: colors.primary }}
-            />
-          </View>
+          </Pressable>
         </View>
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.info')}</Text>

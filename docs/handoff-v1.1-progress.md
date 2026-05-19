@@ -1,14 +1,14 @@
 # v1.1 (광고·인앱구독) 작업 인수인계
 
-작성일: 2026-05-19 (UI 일관성 개선 + dev build 일부 검증 반영)
+작성일: 2026-05-20 (온보딩 생년월일 게이트 정공법 도입 반영)
 
-다음 세션으로 이어갈 인수인계 문서. v1.1 코드·인프라·UI 일관성 모두 완료. **다음 세션은 Production AAB 빌드부터 시작 가능**.
+다음 세션으로 이어갈 인수인계 문서. v1.1 코드·인프라·UI 일관성 + 14세 미만 컴플라이언스 정공법 모두 완료. **다음 세션은 dev build 재빌드 + 신규 게이트 검증 → Production AAB 빌드**.
 
 ---
 
 ## 한 줄 현재 상황
 
-**v1.1 코드(기능 + UI 일관성) + 사용자 인프라(A/B/D/E/F) 모두 완료.** Part B(AdMob)·Part D(Play SA) 활성화 24h 자동 대기 중(시작 2026-05-19, 만료 ~2026-05-20). **dev build로 헤더·배너·UI 검증 완료**. 남은 건 Production AAB 빌드 → Play 업로드 → Part C(구독 등록) → 내부 테스트 트랙 제출.
+**v1.1 코드(기능 + UI 일관성 + 온보딩 생년월일 게이트) + 사용자 인프라(A/B/D/E/F) 모두 완료.** Part B(AdMob)·Part D(Play SA) 활성화 24h 만료(2026-05-20). dev build 재빌드 필요(네이티브 코드 변경 없음, OTA 가능). 남은 건 게이트 검증 → Production AAB 빌드 → Play 업로드 → Part C(구독 등록) → 내부 테스트 트랙 제출.
 
 ---
 
@@ -21,14 +21,21 @@
 | Part B AdMob 광고 활성화 | EAS Secret 등록은 완료. 실제 광고 노출은 24h 후. 임시 확인 불필요 |
 | Part D Play SA 권한 전파 | 별도 확인 없음. verify-purchase Edge Function 호출 시 정상 응답 받으면 OK |
 
-### 2. dev build 잔여 시나리오 검증 (필요 시)
+### 2. dev build 재빌드 + 신규 게이트 검증
 
-이번 세션에서 검증 완료:
+이전 세션에서 검증 완료:
 - ✅ 배너 가드 (게스트 모드)
 - ✅ 학습 화면 4종 배너 16dp 간격 + UI 일관성
+- ✅ 퀴즈/예문학습 카드↔선택지 가로폭 정렬
+
+신규 검증 필요 (B-4 — 온보딩 생년월일 게이트):
+- ⏳ **신규 사용자**: 온보딩 → /age-gate → 14세 미만 입력 → AdMob 광고 차단 + child-directed 태그 전파
+- ⏳ **기존 사용자 마이그레이션**: 앱 진입 → /age-gate?from=migration 자동 라우팅 → 입력 후 탭 복귀
+- ⏳ **기존 토글러**: birthday 입력 결과 14세 이상 시 isUnder14 자동 false 덮어쓰기
+- ⏳ **자동 해제**: 시스템 시간 변경 후 cold start → isUnder14 재계산 → 광고 자동 노출
+- ⏳ **변경 잠금**: 설정 → "생년월일" 탭 → Alert 안내만 표시
 
 검증 미완 (Production AAB 후 가능):
-- ⏳ **14세 미만 토글** — 설정에서 토글 ON → 모든 배너 사라지는지
 - ⏳ **Pro 결제 흐름** — Production AAB + Play 구독 상품 등록 후 가능
 - ⏳ **보상형 광고** — Free 한도 100단어 초과 → 자동 모달
 - ⏳ **Pro 한도 모달** — Pro 사용자 1,000단어 초과 시 안내
@@ -118,6 +125,8 @@ v1.2 (이후): Pro Lite 추가 검토
 | `f501900` | **B-1·B-2·B-3 follow-up** — 학습 화면 16dp 정밀 보정 + 14세 미만 자가 신고 토글 + Pro 한도 초과 모달 |
 | `0a40eea` | **인프라 Part B/D/E/F 완료 반영** — EAS Secret + Supabase 마이그레이션·Secret·Edge Function deploy + pnpm-lock 보정 |
 | `0cfde98` | **학습 화면 UI 일관성** — 헤더 통일(progressContainer 8dp, minWidth 70) + 카드 크기 통일(400) + 퀴즈/예문 카드↔선택지 간격 + 자동재생 페이드 제거 + 큐레이션 상세 배너 가림 해소 |
+| `f6c1f93` | 퀴즈/예문학습 카드↔선택지 가로폭 정렬 (`choicesArea.paddingHorizontal` 20 → 24) |
+| **다음 커밋** | **B-4 — 온보딩 생년월일 게이트(정공법) + AdMob child-directed 태그 전파** — 14세 미만 자가 신고 토글을 neutral age screen으로 교체. Google Play Families Policy + KISA 가이드라인 동시 충족 |
 
 ### #4 작업 상세 (`a530683`)
 
@@ -189,6 +198,45 @@ v1.2 (이후): Pro Lite 추가 검토
 - `components/ads/ProLimitReachedModal.tsx` — 신규. 시계 아이콘 + 제목 + "KST 자정 자동 초기화" 안내 + 닫기. 광고 시청 흐름 없음.
 - `app/_layout.tsx` — `GlobalProLimitReachedModal` 마운트
 - `i18n/locales/{ko,en}.json` — `ads.proLimitTitle` / `ads.proLimitBody` 키 추가
+
+### B-4 작업 상세 (다음 커밋) — 온보딩 생년월일 게이트
+
+**배경**: B-2(설정 화면 14세 미만 자가 신고 토글)가 자유 ON/OFF여서 광고 회피 목적으로 악용 가능. 추가 조사 결과:
+1. Google Play Families Policy "neutral age screen" 표준 — Duolingo/Quizlet/Memrise 모두 가입 시점 1회 수집
+2. 한국 KISA 가이드라인 — "법정 생년월일" 직접 입력 또는 "만 14세 이상" 체크
+3. `lib/ads/admob.ts`의 `tagForChildDirectedTreatment` / `tagForUnderAgeOfConsent` 둘 다 `false` 박혀 있어 AdMob 정책 누락 1건
+
+→ 정공법으로 전환: 온보딩에서 생년월일 1회 수집 + 변경 시 고객센터 문의.
+
+**신규/수정 파일**:
+- `shared/contracts.ts` — `BirthdayStringSchema` 신설 + `ProfileSettingsSchema`에 `birthday?: string` (YYYY-MM-DD) + `birthdaySetAt?: number` 추가. `isUnder14`는 birthday 파생 필드로 격하 (직접 토글 불가)
+- `lib/age.ts` (신규) — `computeAgeYears(iso, now)`, `isUnder14From(iso, now)`, `validateBirthday(iso, now)` 순수 함수
+- `features/onboarding/BirthdayGateScreen.tsx` (신규) — Year/Month/Day TextInput 3개 (number-pad). placeholder 출발, 자동 포커스 이동, validate 후 confirm. Google neutral age screen 정책 준수 (기본값 미리 채우기 X, 연령 힌트 X)
+- `app/age-gate.tsx` (신규) — `useLocalSearchParams<{from?: string}>()`로 'onboarding' vs 'migration' 분기. BackHandler 차단. submit 시 `updateProfileSettings({birthday, isUnder14, birthdaySetAt})` + `applyAdMobChildTags({isUnder14})` + 적절한 라우팅
+- `features/onboarding/screen.tsx` — `handleFinish`가 `/login` 대신 `/age-gate?from=onboarding`으로 이동. `markOnboardingDone()`은 그대로 호출
+- `app/_layout.tsx`:
+  - `AppHydrators`: hydrate를 `Promise.all` await → birthday 있으면 `isUnder14From(birthday)` 재계산 → store 동기화 → `initAdMob()` 호출. 만 14세 생일 도래 시 cold start만으로 자동 해제됨
+  - `applyAdMobChildTags`를 `isUnder14` 변경 감지 effect로 호출 (idempotent, 다음 광고 요청부터 적용)
+  - `AppStack`: birthday 빈 값 + isOnboardingDone=true 시 `/age-gate`로 replace (기존 사용자 마이그레이션). auth 가드의 `inAuthScreen`에 'age-gate' 추가
+  - `<Stack.Screen name="age-gate" />` 등록 (headerShown:false, gestureEnabled:false, animation:'fade')
+- `app/(tabs)/settings.tsx` — `Switch` 제거. read-only Pressable row로 교체 → 좌측 calendar 아이콘 + "생년월일" + 값(`formatBirthday(iso, locale)`) + 14세 미만이면 " · 광고 비활성" 부착. 탭하면 Alert로 "한 번만 설정 가능, 변경은 고객센터 문의" 안내
+- `lib/ads/admob.ts` — `applyAdMobChildTags({isUnder14})` 함수 분리. `setRequestConfiguration`이 `tagForChildDirectedTreatment` + `tagForUnderAgeOfConsent` + `maxAdContentRating`(14세 미만은 G, 아니면 PG)을 동적 반영. `initAdMob()`은 보수적 기본값(`isUnder14: false`)으로 초기 호출 후 effect가 실제 값으로 덮어씀
+- `i18n/locales/{ko,en}.json` — 신규 키 13개:
+  - `onboarding.birthday.title` / `.subtitle` / `.migrationNotice` / `.year` / `.month` / `.day` / `.confirm` / `.invalid` / `.future`
+  - `settings.birthday` / `.birthdayNotSet` / `.birthdayChangeNotice` / `.adsDisabledUnder14`
+  - 기존 `settings.under14` / `.under14Desc`은 deprecated (사용처 없음, 삭제는 v1.2)
+
+**검증 시나리오** (dev build 재빌드 후 진행):
+1. 신규 사용자: 온보딩 4 슬라이드 → "시작하기" → `/age-gate` → 14세 미만 입력 → AdMob 광고 차단
+2. 기존 사용자(`isOnboardingDone=true`, birthday 빈 값): 앱 진입 즉시 `/age-gate?from=migration` → 입력 → 원래 탭 복귀
+3. 기존 v1.0 토글러: 위 (2)와 동일. 14세 이상 입력 시 isUnder14 자동 false 덮어쓰기
+4. AdMob 태그: ad request 헤더에 `tagForChildDirectedTreatment=true` 전파 확인 (logcat)
+5. 자동 해제: 시스템 시간 +1년 조작 후 cold start → `isUnder14From` 재계산 → 광고 자동 노출
+
+**위험/트레이드오프**:
+- 입력 거부 시 앱 사용 불가 (정공법 표준 — Duolingo/Quizlet 동일)
+- 변조 가능성: 루팅 단말에서 AsyncStorage 조작 가능. `birthdaySetAt`은 best-effort 흔적용 (v1.2에서 SecureStore 검토)
+- 번역 초안: ko/en만. 일/중 출시 시점에 보강
 
 ### 학습 화면 UI 일관성 작업 상세 (`0cfde98`)
 

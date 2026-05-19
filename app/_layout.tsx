@@ -19,6 +19,8 @@ import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import { useQuotaStore } from "@/features/quota";
 import { initAdMob } from "@/lib/ads/admob";
 import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
+import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
+import { useAdsAllowed } from "@/components/ads/AppBannerAd";
 import "@/i18n";
 
 SplashScreen.preventAutoHideAsync();
@@ -66,6 +68,7 @@ export default function RootLayout() {
                     <GestureHandlerRootView style={{ flex: 1 }}>
                       <AppStack />
                       <GlobalRewardedAdModal />
+                      <GlobalProLimitReachedModal />
                     </GestureHandlerRootView>
                   </KeyboardProvider>
                 </VocabBootstrapper>
@@ -109,11 +112,24 @@ function VocabBootstrapper({ children }: { children: React.ReactNode }) {
 function GlobalRewardedAdModal() {
   const quotaExceededAt = useQuotaStore(s => s.quotaExceededAt);
   const dismiss = useQuotaStore(s => s.dismissQuotaExceeded);
+  const adsAllowed = useAdsAllowed();
   return (
     <RewardedAdModal
-      visible={quotaExceededAt > 0}
+      visible={adsAllowed && quotaExceededAt > 0}
       onClose={dismiss}
       onGranted={() => { /* 사용자가 모달 닫고 다시 enrich 시도 — v1.2에 자동 재시도 검토 */ }}
+    />
+  );
+}
+
+// Pro 사용자가 일 한도 초과 시 안내 모달. 광고 시청 흐름 없음 (Pro 약속 무결성).
+function GlobalProLimitReachedModal() {
+  const proLimitReachedAt = useQuotaStore(s => s.proLimitReachedAt);
+  const dismiss = useQuotaStore(s => s.dismissProLimitReached);
+  return (
+    <ProLimitReachedModal
+      visible={proLimitReachedAt > 0}
+      onClose={dismiss}
     />
   );
 }

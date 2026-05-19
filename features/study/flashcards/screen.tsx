@@ -18,8 +18,7 @@ import Animated, {
   type SharedValue
 } from 'react-native-reanimated';
 import { useTheme } from '@/features/theme';
-// TODO(#4): bottom-anchor 배너 + 답 버튼 영역 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16 정밀 보정
-import { AppBannerAd } from '@/components/ads/AppBannerAd';
+import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import {
   useLists,
   selectWordsForList,
@@ -169,6 +168,7 @@ export default function FlashcardsScreen() {
   const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
   const setStudyResults = useStudyResultsStore(s => s.setResults);
   const { studySettings, updateStudySettings } = useSettings();
+  const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
 
   // Settings State
@@ -606,7 +606,7 @@ export default function FlashcardsScreen() {
           </Animated.View>
         </GestureDetector>
 
-        <View style={[styles.bottomBar, { bottom: insets.bottom + 76, paddingHorizontal: 24, gap: 16 }]}>
+        <View style={[styles.bottomBar, { bottom: insets.bottom + (adsBottomInset || 76), paddingHorizontal: 24, gap: 16 }]}>
           <Animated.View style={[{ flex: 1 }, leftBtnScale]}>
             <Pressable
               onPress={() => handleNext(false)}

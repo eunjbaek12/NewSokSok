@@ -245,6 +245,8 @@
     "plansDesc": "Compare Free / Pro and view usage",
     "advanced": "Advanced Settings",
     "advancedDesc": "Bring your own AI key, etc. (optional)",
+    "under14": "Under 14",
+    "under14Desc": "Turning this on disables all ads (child protection)",
     "ai": "AI",
     "geminiApiKey": "Gemini API Key",
     "geminiApiKeyNotSet": "Not set",
@@ -357,7 +359,9 @@
     "rewardedGrantedBody": "You can continue adding words.",
     "rewardedLoadFailed": "Failed to load ad. Please try again later.",
     "rewardedShowFailed": "Failed to show ad.",
-    "rewardGrantFailed": "Failed to add quota. Please try again later."
+    "rewardGrantFailed": "Failed to add quota. Please try again later.",
+    "proLimitTitle": "Daily Pro word limit reached",
+    "proLimitBody": "Used {{used}} of {{limit}} today. Your quota will reset automatically at midnight KST (00:00 Korea time)."
   },
   "terms": {
     "title": "Terms of Service",

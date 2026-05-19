@@ -245,6 +245,8 @@
     "plansDesc": "무료·Pro 비교 및 사용량 확인",
     "advanced": "고급 설정",
     "advancedDesc": "AI 키 직접 등록 등 (선택 사항)",
+    "under14": "만 14세 미만",
+    "under14Desc": "켜면 광고가 모두 비활성화됩니다 (아동 보호)",
     "ai": "AI 기능",
     "geminiApiKey": "Gemini API 키",
     "geminiApiKeyNotSet": "미설정",
@@ -357,7 +359,9 @@
     "rewardedGrantedBody": "이어서 단어를 추가할 수 있어요.",
     "rewardedLoadFailed": "광고를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.",
     "rewardedShowFailed": "광고를 표시하지 못했어요.",
-    "rewardGrantFailed": "한도 추가에 실패했어요. 잠시 후 다시 시도해 주세요."
+    "rewardGrantFailed": "한도 추가에 실패했어요. 잠시 후 다시 시도해 주세요.",
+    "proLimitTitle": "오늘의 Pro 단어 한도에 도달했어요",
+    "proLimitBody": "현재 {{used}} / {{limit}}단어 사용. 한국 시간 자정(KST 00:00)에 한도가 자동 초기화됩니다."
   },
   "terms": {
     "title": "이용약관",

@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 import { useQuota } from '@/features/quota';
 import { useAuth } from '@/features/auth';
+import { useSettings } from '@/features/settings';
 import { AD_UNIT_BANNER, isAdsAllowed } from '@/lib/ads/admob';
 
 /**
@@ -30,18 +31,39 @@ interface Props {
   mode?: 'tab-anchor' | 'bottom-anchor' | 'inline';
 }
 
-export function AppBannerAd({ mode = 'inline' }: Props) {
+/**
+ * 광고 노출 여부를 판단하는 단일 진입점.
+ * AppBannerAd와 useAdsBottomInset이 공유.
+ */
+export function useAdsAllowed(): boolean {
   const { authMode } = useAuth();
   const { status } = useQuota();
-  const insets = useSafeAreaInsets();
+  const { profileSettings } = useSettings();
+  const isUnder14 = profileSettings.isUnder14 === true;
 
-  const allowed = useMemo(() => {
+  return useMemo(() => {
+    if (Platform.OS === 'web') return false;
     // 게스트는 quota 정보 없음 → tier=null → Free 동급으로 광고 노출
     const tier = authMode === 'google' ? (status?.tier ?? null) : null;
-    return isAdsAllowed({ tier, isUnder14: false });
-  }, [authMode, status?.tier]);
+    return isAdsAllowed({ tier, isUnder14 });
+  }, [authMode, status?.tier, isUnder14]);
+}
 
-  if (Platform.OS === 'web') return null;
+/**
+ * 학습 화면의 답 버튼/컨트롤 영역에 추가해야 할 paddingBottom 보정값.
+ * 배너가 화면 하단에 mode="bottom-anchor"로 떠 있을 때, 답 영역이 배너 위로 16dp 간격을 두도록.
+ *
+ * 사용 예: paddingBottom: insets.bottom + 36 + useAdsBottomInset()
+ */
+export function useAdsBottomInset(): number {
+  const allowed = useAdsAllowed();
+  return allowed ? BANNER_SLOT_HEIGHT + 16 : 0;
+}
+
+export function AppBannerAd({ mode = 'inline' }: Props) {
+  const allowed = useAdsAllowed();
+  const insets = useSafeAreaInsets();
+
   if (!allowed) return null;
 
   const banner = <BannerAd unitId={AD_UNIT_BANNER} size={BannerAdSize.BANNER} />;

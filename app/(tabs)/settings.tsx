@@ -305,7 +305,7 @@ export default function SettingsScreen() {
             <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
           </Pressable>
           <Pressable
-            style={styles.row}
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
               router.push('/advanced-settings' as any);
@@ -324,6 +324,27 @@ export default function SettingsScreen() {
             </View>
             <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
           </Pressable>
+          <View style={styles.row}>
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="happy-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.under14')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={2}>
+                  {t('settings.under14Desc')}
+                </Text>
+              </View>
+            </View>
+            <Switch
+              value={profileSettings.isUnder14 === true}
+              onValueChange={(v) => {
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                updateProfileSettings({ isUnder14: v });
+              }}
+              trackColor={{ false: colors.borderLight, true: colors.primary }}
+            />
+          </View>
         </View>
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.info')}</Text>

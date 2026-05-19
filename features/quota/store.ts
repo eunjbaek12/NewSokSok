@@ -26,14 +26,17 @@ interface QuotaState {
   status: QuotaStatus | null;
   loading: boolean;
   lastFetchedAt: number;
-  /** Edge가 quota_exceeded 응답을 돌려준 마지막 시각. RewardedAdModal trigger. */
+  /** Free 사용자의 quota_exceeded 시각. RewardedAdModal trigger. */
   quotaExceededAt: number;
+  /** Pro 사용자의 quota_exceeded 시각. ProLimitReachedModal trigger (광고 X, 안내만). */
+  proLimitReachedAt: number;
 
   refresh: (force?: boolean) => Promise<void>;
   set: (s: QuotaStatus) => void;
   clear: () => void;
   notifyQuotaExceeded: (status?: Partial<QuotaStatus> | null) => void;
   dismissQuotaExceeded: () => void;
+  dismissProLimitReached: () => void;
 }
 
 const STALE_MS = 90 * 1000; // 90초
@@ -43,6 +46,7 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
   loading: false,
   lastFetchedAt: 0,
   quotaExceededAt: 0,
+  proLimitReachedAt: 0,
 
   refresh: async (force = false) => {
     if (!force && Date.now() - get().lastFetchedAt < STALE_MS) return;
@@ -67,11 +71,14 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
   },
 
   set: (s) => set({ status: s, lastFetchedAt: Date.now() }),
-  clear: () => set({ status: null, lastFetchedAt: 0, quotaExceededAt: 0 }),
+  clear: () => set({ status: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0 }),
   notifyQuotaExceeded: (status) => {
-    const next: Partial<QuotaState> = { quotaExceededAt: Date.now() };
+    const current = get().status;
+    // tier 우선순위: Edge 응답 quota > 기존 status > 'free' (게스트는 여기 도달 X)
+    const tier = (status?.tier ?? current?.tier ?? 'free') as 'free' | 'pro';
+    const next: Partial<QuotaState> =
+      tier === 'pro' ? { proLimitReachedAt: Date.now() } : { quotaExceededAt: Date.now() };
     if (status) {
-      const current = get().status;
       // Edge 응답 quota는 trial_ends_at/pro_until 미포함 → 기존 값과 머지
       next.status = {
         trial_ends_at: current?.trial_ends_at ?? null,
@@ -83,6 +90,7 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
     set(next);
   },
   dismissQuotaExceeded: () => set({ quotaExceededAt: 0 }),
+  dismissProLimitReached: () => set({ proLimitReachedAt: 0 }),
 }));
 
 export function useQuota() {

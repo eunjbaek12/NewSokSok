@@ -100,6 +100,8 @@ export type StartupTab = z.infer<typeof StartupTabSchema>;
 export const ProfileSettingsSchema = z.object({
   nickname: z.string().default(''),
   startupTab: StartupTabSchema.default('index'),
+  // AdMob/KR 아동 보호 규정. 자가 신고 토글. true → 모든 광고 비활성.
+  isUnder14: z.boolean().default(false),
 });
 export type ProfileSettings = z.infer<typeof ProfileSettingsSchema>;
 

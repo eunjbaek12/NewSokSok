@@ -5,8 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/features/theme';
-// TODO(#4): bottom-anchor 배너 + 답 버튼 영역 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16 정밀 보정
-import { AppBannerAd } from '@/components/ads/AppBannerAd';
+import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import {
   useLists,
   selectWordsForList,
@@ -50,6 +49,7 @@ export default function QuizScreen() {
   const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
   const setStudyResults = useStudyResultsStore(s => s.setResults);
   const { studySettings, updateStudySettings } = useSettings();
+  const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
 
   // Settings State
@@ -438,7 +438,7 @@ export default function QuizScreen() {
 
       </ScrollView>
 
-      <View style={[styles.navFooter, { paddingBottom: insets.bottom + 36 }]}>
+      <View style={[styles.navFooter, { paddingBottom: insets.bottom + (adsBottomInset || 36) }]}>
           <Pressable
             style={[styles.navBtn, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }, currentIndex === 0 && { opacity: 0.4 }]}
             disabled={currentIndex === 0}

@@ -18,8 +18,7 @@ import Animated, {
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-// TODO(#4): bottom-anchor 배너 + 컨트롤 영역 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16 정밀 보정
-import { AppBannerAd } from '@/components/ads/AppBannerAd';
+import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
@@ -37,6 +36,7 @@ export default function AutoPlayScreen() {
     const lists = useLists();
     const getWordsForList = useCallback((listId: string) => selectWordsForList(lists, listId), [lists]);
     const { studySettings, updateStudySettings, autoPlaySettings, updateAutoPlaySettings } = useSettings();
+    const adsBottomInset = useAdsBottomInset();
     const list = lists.find(l => l.id === id);
 
     const [words, setWords] = useState(() => {
@@ -427,7 +427,7 @@ export default function AutoPlayScreen() {
             )}
 
             {/* Controls */}
-            <View style={[styles.controlsArea, { paddingBottom: insets.bottom + 40 }]}>
+            <View style={[styles.controlsArea, { paddingBottom: insets.bottom + (adsBottomInset || 40) }]}>
                 <LinearGradient
                     colors={[colors.background + '00', colors.background]}
                     style={styles.controlsGradient}

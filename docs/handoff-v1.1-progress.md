@@ -1,14 +1,68 @@
 # v1.1 (광고·인앱구독) 작업 인수인계
 
-작성일: 2026-05-19 (사용자 인프라 Part B/D/E/F 완료 반영)
+작성일: 2026-05-19 (UI 일관성 개선 + dev build 일부 검증 반영)
 
-다음 세션으로 이어갈 인수인계 문서. v1 내부 테스트 출시 완료 + v1.1 코드 + 인프라 거의 모두 완료. 통합 테스트와 Production AAB 재빌드만 남음.
+다음 세션으로 이어갈 인수인계 문서. v1.1 코드·인프라·UI 일관성 모두 완료. **다음 세션은 Production AAB 빌드부터 시작 가능**.
 
 ---
 
 ## 한 줄 현재 상황
 
-**v1.1 코드 + 사용자 인프라(Part A/B/D/E/F) 모두 완료.** Part B(AdMob 광고 단위 활성화)와 Part D(Play SA 권한 전파)는 ~24h 자동 대기 중. **남은 건 v1.1 Production AAB 빌드 + Play Console 업로드 + Part C(인앱 구독 등록) + #14 통합 테스트.**
+**v1.1 코드(기능 + UI 일관성) + 사용자 인프라(A/B/D/E/F) 모두 완료.** Part B(AdMob)·Part D(Play SA) 활성화 24h 자동 대기 중(시작 2026-05-19, 만료 ~2026-05-20). **dev build로 헤더·배너·UI 검증 완료**. 남은 건 Production AAB 빌드 → Play 업로드 → Part C(구독 등록) → 내부 테스트 트랙 제출.
+
+---
+
+## 다음 세션 즉시 진행할 작업
+
+### 1. 대기 만료 확인 (2026-05-20 이후 자동 OK 예상)
+
+| 항목 | 상태 확인 방법 |
+|---|---|
+| Part B AdMob 광고 활성화 | EAS Secret 등록은 완료. 실제 광고 노출은 24h 후. 임시 확인 불필요 |
+| Part D Play SA 권한 전파 | 별도 확인 없음. verify-purchase Edge Function 호출 시 정상 응답 받으면 OK |
+
+### 2. dev build 잔여 시나리오 검증 (필요 시)
+
+이번 세션에서 검증 완료:
+- ✅ 배너 가드 (게스트 모드)
+- ✅ 학습 화면 4종 배너 16dp 간격 + UI 일관성
+
+검증 미완 (Production AAB 후 가능):
+- ⏳ **14세 미만 토글** — 설정에서 토글 ON → 모든 배너 사라지는지
+- ⏳ **Pro 결제 흐름** — Production AAB + Play 구독 상품 등록 후 가능
+- ⏳ **보상형 광고** — Free 한도 100단어 초과 → 자동 모달
+- ⏳ **Pro 한도 모달** — Pro 사용자 1,000단어 초과 시 안내
+- ⏳ **KST 자정 초기화** — 한국 표준시 자정 사용량 리셋
+
+### 3. Production AAB 빌드
+
+```powershell
+$env:EAS_SKIP_AUTO_FINGERPRINT=1
+eas build --profile production --platform android --non-interactive
+```
+
+versionCode 자동 증분. GOOGLE_SERVICES_JSON·AdMob·Supabase Secret 이미 등록되어 자동 주입됨.
+
+### 4. Play Console 업로드 + Part C (인앱 구독 등록)
+
+Production AAB 업로드되면 **"정기결제"** 메뉴가 활성화됨:
+- `pro_monthly` (₩3,900/월) + 7일 무료 체험
+- `pro_yearly` (₩35,900/연) + 7일 무료 체험
+- 라이선스 테스터 등록
+
+### 5. Play Console 정책 갱신
+
+- **광고 ID 선언**: '사용함'으로 변경
+- **데이터 보안 폼**: "광고 ID" + "구매 내역" + "Pro 구독" 추가
+- **콘텐츠 등급 설문**: 디지털 구매 = 예, 광고 = 예
+
+### 6. 내부 테스트 트랙 제출
+
+```powershell
+eas submit -p android --latest
+```
+
+본인 기기 옵트인·설치·검증.
 
 ---
 
@@ -62,6 +116,8 @@ v1.2 (이후): Pro Lite 추가 검토
 | `09cee4a` | **#5 Pro 인앱구매 골격** — expo-iap + plans.tsx 결제 흐름 + verify-purchase Edge Function |
 | `83509b5` | **#11 약관·개인정보·계정삭제 페이지** — 광고·결제 조항 반영 |
 | `f501900` | **B-1·B-2·B-3 follow-up** — 학습 화면 16dp 정밀 보정 + 14세 미만 자가 신고 토글 + Pro 한도 초과 모달 |
+| `0a40eea` | **인프라 Part B/D/E/F 완료 반영** — EAS Secret + Supabase 마이그레이션·Secret·Edge Function deploy + pnpm-lock 보정 |
+| `0cfde98` | **학습 화면 UI 일관성** — 헤더 통일(progressContainer 8dp, minWidth 70) + 카드 크기 통일(400) + 퀴즈/예문 카드↔선택지 간격 + 자동재생 페이드 제거 + 큐레이션 상세 배너 가림 해소 |
 
 ### #4 작업 상세 (`a530683`)
 
@@ -133,6 +189,33 @@ v1.2 (이후): Pro Lite 추가 검토
 - `components/ads/ProLimitReachedModal.tsx` — 신규. 시계 아이콘 + 제목 + "KST 자정 자동 초기화" 안내 + 닫기. 광고 시청 흐름 없음.
 - `app/_layout.tsx` — `GlobalProLimitReachedModal` 마운트
 - `i18n/locales/{ko,en}.json` — `ads.proLimitTitle` / `ads.proLimitBody` 키 추가
+
+### 학습 화면 UI 일관성 작업 상세 (`0cfde98`)
+
+dev build 검증으로 발견한 5개 학습 흐름 UI 이슈 일괄 정리 (1차/2차/4차 라운드 통합):
+
+**헤더 통일**:
+- 단어장 상세(`app/list/[id].tsx`) + 학습 화면 4종 `progressContainer.paddingBottom: 8dp` 통일
+- 학습 화면 4종 `progressText.minWidth: 60 → 70` (단어장 상세 따라감) — progressBar 길이 일치
+
+**카드 크기 통일** (`features/study/{flashcards,autoplay}/screen.tsx`):
+- 플래시카드: `card.minHeight: 400` 유지
+- 자동재생: `card.minHeight: 450 → 400` (플래시카드와 동일)
+
+**퀴즈/예문 (`features/study/{quiz,examples}/screen.tsx`)**:
+- `choicesArea.marginTop: -12 → 12` (음수 margin 제거)
+- ScrollView contentContainerStyle `paddingTop: 0 → 16` (헤더 ↔ 카드 16dp)
+
+**자동재생** (`features/study/autoplay/screen.tsx`):
+- `controlsGradient` LinearGradient + 스타일 제거 (사용자에겐 '뿌옇게' 거슬림)
+
+**큐레이션 상세 배너 가림 해소** (`features/curation/screen.tsx`):
+- `selectedTheme` 진입 시 `mode="tab-anchor"` 배너 숨김 — masterBar(단어장 추가) 가려지던 버그 해소
+
+**플래시카드 카드 ↔ bottomBar trade-off (의도적 결정)**:
+- 1차에서 paddingBottom 200 → 120, 4차에서 자동재생과 카드 시작 위치 통일 시도했으나 작은 폰에서 카드/버튼 간섭 발생
+- 최종: paddingBottom 200, bottomBar offset +32 유지 (안전 우선)
+- 자동재생과의 카드 시작 위치 절대 일치는 화면 크기 변동성 때문에 포기. 각 화면에서 안전한 자연 spacing 유지
 
 > 미커밋: `.claude/settings.local.json` (로컬 설정, 커밋 X).
 

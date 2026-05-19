@@ -1,6 +1,6 @@
 # v1.1 (광고·인앱구독) 작업 인수인계
 
-작성일: 2026-05-19 (약관·정책 갱신 커밋 반영)
+작성일: 2026-05-19 (B-1·B-2·B-3 follow-up 커밋 반영)
 
 다음 세션으로 이어갈 인수인계 문서. v1 내부 테스트 출시 완료 + v1.1 코드 작업은 거의 마무리 단계.
 
@@ -8,7 +8,7 @@
 
 ## 한 줄 현재 상황
 
-**v1 AAB** Play 내부 테스트 트랙 업로드 성공. **v1.1 코드 작업**은 AdMob + Pro 인앱구매 + 약관·정책까지 모두 완료. **남은 건 #14 통합 테스트 + Production AAB 재빌드** 하나 (사용자 측 인프라 사전 작업 마무리 후).
+**v1 AAB** Play 내부 테스트 트랙 업로드 성공. **v1.1 코드 작업**은 AdMob + Pro 인앱구매 + 약관·정책 + 16dp 정밀 보정 + 14세 미만 토글 + Pro 한도 모달까지 모두 완료. **남은 건 #14 통합 테스트 + Production AAB 재빌드** 하나 (사용자 측 인프라 사전 작업 마무리 후).
 
 ---
 
@@ -61,6 +61,7 @@ v1.2 (이후): Pro Lite 추가 검토
 | `a530683` | **#4 AdMob SDK 통합** — 배너 (8개 화면) + 보상형 모달 + 한도 카운터 + 클라이언트 RPC grant 마이그레이션 |
 | `09cee4a` | **#5 Pro 인앱구매 골격** — expo-iap + plans.tsx 결제 흐름 + verify-purchase Edge Function |
 | `83509b5` | **#11 약관·개인정보·계정삭제 페이지** — 광고·결제 조항 반영 |
+| `f501900` | **B-1·B-2·B-3 follow-up** — 학습 화면 16dp 정밀 보정 + 14세 미만 자가 신고 토글 + Pro 한도 초과 모달 |
 
 ### #4 작업 상세 (`a530683`)
 
@@ -101,6 +102,38 @@ v1.2 (이후): Pro Lite 추가 검토
 - `docs/privacy-policy.html` — 수집 항목/제3자 위탁/앱 권한 표 보강, "5-1. Pro 구독 결제 및 환불" 섹션 신설, 14세 미만 광고 비활성 명시
 - `docs/account-deletion.html` — "3-1. Pro 구독 사용자 안내" 신설 (계정 삭제 ≠ 구독 자동 해지)
 
+### B-1·B-2·B-3 작업 상세 (`f501900`)
+
+**B-1 — 학습 화면 답 버튼 16dp 정밀 보정** (출시 차단 위험 해소)
+
+- `components/ads/AppBannerAd.tsx`
+  - `useAdsAllowed()` 훅 추출 — 광고 노출 판단 단일 진입점
+  - `useAdsBottomInset()` 훅 신설 — 학습 화면이 광고 위 16dp 간격 확보용 padding 보정값 반환 (광고 표시 시 `BANNER_SLOT_HEIGHT + 16 = 66`, 미표시 시 `0`)
+- 4개 학습 화면 모두 TODO 제거 + 적용 패턴 통일:
+  - `features/study/flashcards/screen.tsx` — `bottom: insets.bottom + (adsBottomInset || 76)`
+  - `features/study/quiz/screen.tsx` — `paddingBottom: insets.bottom + (adsBottomInset || 36)`
+  - `features/study/examples/screen.tsx` — `paddingBottom: insets.bottom + (adsBottomInset || 36)`
+  - `features/study/autoplay/screen.tsx` — `paddingBottom: insets.bottom + (adsBottomInset || 40)`
+- 기존 버그 수정: quiz/examples(`+36`)·autoplay(`+40`)은 배너 높이(50)보다 작아 배너가 답 버튼을 가렸음. 이제 광고 표시 시 정확히 16dp 간격.
+
+**B-2 — 14세 미만 자가 신고 토글** (AdMob + KR 아동 보호 컴플라이언스)
+
+- `shared/contracts.ts` — `ProfileSettingsSchema`에 `isUnder14: z.boolean().default(false)` 추가. 기존 데이터는 default로 false 채워져 마이그레이션 불필요.
+- `components/ads/AppBannerAd.tsx` — `useAdsAllowed`가 `profileSettings.isUnder14`까지 평가. 배너·`useAdsBottomInset` 자동 차단.
+- `app/_layout.tsx` — `GlobalRewardedAdModal`에 `useAdsAllowed` 가드 추가. 14세 미만은 보상형 광고도 표시 안 됨.
+- `app/(tabs)/settings.tsx` — "요금제 · 더보기" 섹션에 `Switch` row 추가 (고급 설정 아래)
+- `i18n/locales/{ko,en}.json` — `settings.under14` / `settings.under14Desc` 키 추가
+
+**B-3 — Pro 한도 초과 안내 모달** (Pro 약속 무결성 유지)
+
+- `features/quota/store.ts`
+  - `proLimitReachedAt: number` 필드 신설 (Free의 `quotaExceededAt`과 분리)
+  - `notifyQuotaExceeded`에서 tier 분기: Pro면 `proLimitReachedAt`만 설정 (광고 trigger 안 함). Free는 기존 흐름.
+  - `dismissProLimitReached` 메서드 추가
+- `components/ads/ProLimitReachedModal.tsx` — 신규. 시계 아이콘 + 제목 + "KST 자정 자동 초기화" 안내 + 닫기. 광고 시청 흐름 없음.
+- `app/_layout.tsx` — `GlobalProLimitReachedModal` 마운트
+- `i18n/locales/{ko,en}.json` — `ads.proLimitTitle` / `ads.proLimitBody` 키 추가
+
 > 미커밋: `.claude/settings.local.json` (로컬 설정, 커밋 X).
 
 ---
@@ -121,7 +154,9 @@ v1.2 (이후): Pro Lite 추가 검토
 
 | 항목 | 우선순위 | 비고 |
 |---|---|---|
-| **학습 화면 답 버튼 16dp 정밀 보정** | 🔴 **출시 차단 위험** | flashcards/quiz/examples/autoplay 4개 화면. AdMob 정책 위반 시 광고 거부 가능. 각 화면 답 영역 wrapper에 `paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16` 추가. TODO 코멘트로 표시되어 있음 |
+| ~~학습 화면 답 버튼 16dp 정밀 보정~~ | ✅ 완료 (`f501900`) | quiz/examples/autoplay 배너 겹침 버그 함께 해소 |
+| ~~14세 미만 자가 신고 동의 흐름~~ | ✅ 완료 (`f501900`) | 설정 화면 토글. v1.1은 가장 가벼운 옵션 (자가 신고). v1.2에서 onboarding 동의 강화 검토 |
+| ~~Pro 한도 초과 UX~~ | ✅ 완료 (`f501900`) | ProLimitReachedModal + tier 분기 |
 | **iOS Liquid Glass NativeTabs 배너** | 🟡 iOS 출시 시 | Android 출시엔 영향 없음. iOS 출시 결정 시 `app/(tabs)/_layout.tsx`의 NativeTabLayout 경로 검토 |
 | **AdMob SSV(서버측 검증)** | 🟡 v1.2 | 현재 클라이언트가 직접 `grant_rewarded_bonus` RPC 호출. 일 cap 200으로 어뷰징 제한. SSV 통합 시 어뷰징 완전 차단 |
 | **iOS StoreKit 검증** | 🟡 v1.2 | `verify-purchase`가 platform='android'만 허용. iOS StoreKit 2 JWS 검증 (`@apple/server-api-jws`) 추가 필요 |
@@ -229,8 +264,12 @@ Phase 2 ✅ 완료
 Phase 3 ✅ 완료
    • #11 약관·개인정보·계정삭제 페이지 갱신
 
-Phase 4 (Part B~E 완료 후) ← 다음 작업
-   • 학습 화면 답 버튼 16dp 정밀 보정 (출시 차단 위험)
+Phase 4 ✅ 완료 (B-1·B-2·B-3, `f501900`)
+   • 학습 화면 답 버튼 16dp 정밀 보정 (출시 차단 위험 해소)
+   • 14세 미만 자가 신고 토글
+   • Pro 한도 초과 안내 모달
+
+Phase 5 (Part B~E 완료 후) ← 다음 작업
    • #14 통합 테스트 + Production AAB 재빌드 → 내부 테스트 트랙 업데이트
    • 데이터 보안 폼 갱신 (광고 ID + 구매 내역)
    • 콘텐츠 등급 설문 재답변 (디지털 구매·광고 = 예)
@@ -248,55 +287,13 @@ Phase 4 (Part B~E 완료 후) ← 다음 작업
 - [ ] **Part E (Supabase)** — `db push` + Secret 6종 + `enrich-word`/`verify-purchase` deploy 완료?
 - [ ] **Part F (`pnpm install`)** — OneDrive 직접 편집한 의존성 보정 완료?
 
-### B. 코드 작업 (사용자 사전 작업과 병렬 진행 가능)
+### B. 코드 작업 — ✅ 완료 (`f501900`)
 
-#### B-1. 🔴 학습 화면 답 버튼 16dp 정밀 보정 — **즉시 시작 권장**
+B-1·B-2·B-3 모두 완료. 상세는 위 "B-1·B-2·B-3 작업 상세" 섹션 참고.
 
-**왜 우선**: AdMob 정책 위반 시 광고 거부 → 출시 차단 위험. 의존성 없이 즉시 가능.
+남은 코드 follow-up은 모두 v1.2 또는 iOS 출시 시점 항목 (위 Follow-up 표 참조).
 
-작업 대상 4개 화면:
-- `features/study/flashcards/screen.tsx`
-- `features/study/quiz/screen.tsx`
-- `features/study/examples/screen.tsx`
-- `features/study/autoplay/screen.tsx`
-
-각 화면에 이미 `// TODO(#4): bottom-anchor 배너 + 답 버튼 영역 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16 정밀 보정` 코멘트 있음.
-
-수정 패턴:
-1. 답 버튼이 들어가는 wrapper View (flex column 마지막에 있는 답 버튼 영역) 찾기
-2. 그 wrapper의 `paddingBottom`을 `insets.bottom + BANNER_SLOT_HEIGHT + 16`으로 변경
-3. `BANNER_SLOT_HEIGHT`는 `@/components/ads/AppBannerAd`에서 import
-4. 광고 가드(`useQuota` + `useAuth`)로 광고 없을 때는 `insets.bottom`만 적용 — 빈 공간 회피
-   - 단순화 옵션: 항상 50px 보정 (광고 없을 때 50px 추가 공간만 발생, UX 손상 최소)
-
-#### B-2. 🟡 14세 미만 자가 신고 동의 흐름
-
-**왜 필요**: `isAdsAllowed`의 `isUnder14`가 현재 하드코딩 `false`. AdMob 정책 + KR 아동 보호 규정상 14세 미만은 광고 비활성 필수.
-
-옵션:
-- 가장 가벼운: `ProfileSettings`에 `isUnder14: boolean` 추가 + 설정 화면에 토글 (자가 신고)
-- 표준: 약관 동의 onboarding 단계에 만 14세 미만 체크박스
-- 엄격: 생년 입력 → 만 나이 자동 계산
-
-v1.1 출시 단계는 가장 가벼운 옵션으로 충분. v1.2에서 강화.
-
-수정 지점:
-- `shared/contracts` `ProfileSettingsSchema`에 필드 추가
-- `features/settings/store.ts` 기본값
-- `components/ads/AppBannerAd.tsx` 의 `useAuth + useSettings`로 isUnder14 주입
-- `app/(tabs)/settings.tsx`에 토글 UI
-
-#### B-3. 🟡 Pro 한도 초과 UX
-
-**증상**: Pro 사용자가 1,000단어/일 초과 시 현재 fallback 동작(영어 dictionaryapi 또는 빈 결과). "내일 다시" 안내 없음.
-
-수정:
-- `lib/translation-api.ts:autoFillWord`에서 quota_exceeded + tier='pro'면 별도 상태로 분리
-- `useQuotaStore`에 `proLimitReachedAt` 필드 추가
-- RewardedAdModal과는 별개의 모달 (Pro는 광고 시청 X — Pro 약속 무결성)
-- 또는 단순히 plans.tsx로 리다이렉트하지 않고 Snackbar로 "내일 자정 초기화" 안내
-
-### C. 통합 테스트 (Part B~E 완료 후, B-1·B-2 완료 후)
+### C. 통합 테스트 (Part B~E 완료 후)
 
 EAS dev build로 다음 시나리오 검증:
 
@@ -306,7 +303,7 @@ EAS dev build로 다음 시나리오 검증:
 4. **Pro 구독** — 월/연 각각 결제 → verify-purchase 응답 ok → tier='pro' 반영 + 광고 제거
 5. **Pro 트라이얼** — 신규 가입 7일 트라이얼 → Pro 동급 동작
 6. **Pro 복원** — 앱 재설치 후 "이전 구매 복원" → tier='pro' 복원
-7. **Pro 한도 초과** — 1,000단어 초과 시 UX (B-3 완료 후)
+7. **Pro 한도 초과** — 1,000단어 초과 시 ProLimitReachedModal 표시 + "KST 자정 초기화" 안내 (광고 흐름 없음)
 8. **KST 자정 초기화** — 한국 표준시 자정에 사용량 0으로 리셋
 
 ### D. Production AAB 빌드 + 출시
@@ -335,13 +332,13 @@ EAS dev build로 다음 시나리오 검증:
 - **데이터 보안 폼**: "광고 ID 수집" + "구매 내역 수집" + "Pro 구독 관련 데이터" 추가
 - **콘텐츠 등급 설문**: "디지털 구매 = 예", "광고 = 예"로 재답변 필요할 수 있음
 
-### AdMob 정책 (출시 차단 위험)
+### AdMob 정책
 - 신규 광고 단위는 활성화까지 ~24시간
-- 14세 미만 사용자에게는 광고 비활성 — **현재 코드는 가드 함수에 `isUnder14: false` 하드코딩**. 약관 동의 흐름에 생년/만 14세 미만 자가 신고 추가 필요 (v1.1 출시 전 권장, 또는 v1.1엔 모두 광고 노출 + v1.2에 동의 흐름)
-- **학습 화면 배너 16dp 간격** — 답 버튼과 거리 미흡. 정밀 보정 follow-up 필수
+- ~~14세 미만~~ ✅ `f501900` 설정 화면 자가 신고 토글로 해결. v1.2에서 onboarding 동의 흐름으로 강화 검토.
+- ~~학습 화면 배너 16dp 간격~~ ✅ `f501900` `useAdsBottomInset` 훅으로 4개 화면 모두 정밀 보정
 
 ### Pro 결제 UX
-- Pro 사용자가 1,000단어 한도 초과 → 현재 fallback 동작(영어 dictionaryapi 또는 빈 결과). "내일 다시" 안내 메시지가 없어 UX 개선 follow-up 권장
+- ~~Pro 사용자 1,000단어 한도 초과 안내 부재~~ ✅ `f501900` ProLimitReachedModal 추가. `notifyQuotaExceeded`가 tier별 분기.
 - Pro 구독 활성 상태에서 plans.tsx의 구매 버튼은 숨김 처리됨 (코드 확인됨)
 
 ### EAS 빌드

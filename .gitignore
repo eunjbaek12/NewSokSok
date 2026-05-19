@@ -63,3 +63,6 @@ debug.log
 
 # Play Store raw screenshots (대용량 PNG. final/만 commit)
 store-assets/screenshots/raw/
+
+# Supabase CLI 캐시 (link 정보, 버전 캐시 등 로컬 한정)
+supabase/.temp/

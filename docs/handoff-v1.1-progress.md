@@ -1,14 +1,14 @@
 # v1.1 (광고·인앱구독) 작업 인수인계
 
-작성일: 2026-05-19 (B-1·B-2·B-3 follow-up 커밋 반영)
+작성일: 2026-05-19 (사용자 인프라 Part B/D/E/F 완료 반영)
 
-다음 세션으로 이어갈 인수인계 문서. v1 내부 테스트 출시 완료 + v1.1 코드 작업은 거의 마무리 단계.
+다음 세션으로 이어갈 인수인계 문서. v1 내부 테스트 출시 완료 + v1.1 코드 + 인프라 거의 모두 완료. 통합 테스트와 Production AAB 재빌드만 남음.
 
 ---
 
 ## 한 줄 현재 상황
 
-**v1 AAB** Play 내부 테스트 트랙 업로드 성공. **v1.1 코드 작업**은 AdMob + Pro 인앱구매 + 약관·정책 + 16dp 정밀 보정 + 14세 미만 토글 + Pro 한도 모달까지 모두 완료. **남은 건 #14 통합 테스트 + Production AAB 재빌드** 하나 (사용자 측 인프라 사전 작업 마무리 후).
+**v1.1 코드 + 사용자 인프라(Part A/B/D/E/F) 모두 완료.** Part B(AdMob 광고 단위 활성화)와 Part D(Play SA 권한 전파)는 ~24h 자동 대기 중. **남은 건 v1.1 Production AAB 빌드 + Play Console 업로드 + Part C(인앱 구독 등록) + #14 통합 테스트.**
 
 ---
 
@@ -189,55 +189,60 @@ v1.2 (이후): Pro Lite 추가 검토
 | 역할 | `roles/aiplatform.user` |
 | JSON 키 | ✅ 발급·보관 |
 
-### Part B — AdMob ⏳ 미완료 (v1.1 출시 차단)
+### Part B — AdMob ✅ 완료 (2026-05-19)
 
-- [ ] AdMob 앱 등록 → App ID (Android) 발급
-- [ ] 배너 광고 단위 ID 발급
-- [ ] 보상형 광고 단위 ID 발급
-- [ ] EAS Secret 등록:
+- [x] AdMob 앱 등록 — "아보카도"
+- [x] 배너 광고 단위 ID 발급: `ca-app-pub-2552217172819688/1006191991`
+- [x] 보상형 광고 단위 ID 발급: `ca-app-pub-2552217172819688/9960062757`
+- [x] App ID: `ca-app-pub-2552217172819688~7571600348`
+- [x] EAS Secret 3종 등록:
   - `EXPO_PUBLIC_ADMOB_ANDROID_APP_ID`
   - `EXPO_PUBLIC_ADMOB_ANDROID_BANNER_ID`
   - `EXPO_PUBLIC_ADMOB_ANDROID_REWARDED_ID`
 
-> 신규 광고 단위는 활성화까지 ~24시간. 테스트 ID로 동작 검증은 이미 가능.
+> ⏳ 광고 단위 활성화까지 ~24시간 대기 (그동안 테스트 ID로 동작 검증 가능)
 
-### Part C — Play 인앱구독 ⏳ 미완료 (v1.1 출시 차단)
+### Part C — Play 인앱구독 ⏳ 미완료 (Production AAB 업로드 후 가능)
 
-- [ ] Play Console에 구독 상품 등록:
+- [ ] Play Console에 정기결제 상품 등록:
   - `pro_monthly` (₩3,900/월)
   - `pro_yearly` (₩35,900/연)
 - [ ] 각 상품에 7일 무료 체험 offer 추가
 - [ ] 라이선스 테스터 등록 (테스트 결제용)
 
-### Part D — Play Developer API 서비스 계정 ⏳ 미완료 (`verify-purchase` 동작 조건)
+> Play Console은 결제 라이브러리(`expo-iap`) 포함된 빌드가 업로드되어야 구독 메뉴 활성화. v1.1 Production AAB 업로드 후 진행 가능.
 
-- [ ] GCP Console에서 별도 서비스 계정 생성 (Vertex와 분리 권장)
-  - 이름 예: `soksok-play-verify`
-- [ ] JSON 키 다운로드
-- [ ] Play Console → 설정 → API 접근에서 Cloud 프로젝트 연결 + 위 SA에 권한 부여 (재무 데이터/주문/구독 보기)
-- [ ] 권한 반영 대기 (~24시간)
+### Part D — Play Developer API 서비스 계정 ✅ 완료 (2026-05-19)
 
-자세한 절차: `supabase/functions/verify-purchase/README.md`
+- [x] GCP Console에서 SA 생성: `avocado-play-verify@avocado-491710.iam.gserviceaccount.com`
+- [x] JSON 키 다운로드 + 채팅 노출 사고 후 재발급 1회
+- [x] Play Console "사용자 및 권한"에서 SA 초대 + 권한 부여
+  - 재무 데이터, 주문 및 취소 결제 조사 보기 ✓
+  - 주문 및 구독 보기 ✓
 
-### Part E — Supabase ⏳ 미완료
+> ⏳ 권한 전파 ~24시간 대기. (Play Console "API 액세스" 메뉴는 신규 계정엔 사이드바에서 숨겨져 있어 "사용자 및 권한" 경로로 우회)
 
-- [ ] Supabase CLI 설치 + `supabase login` + `supabase link --project-ref <ref>`
-- [ ] DB 마이그레이션 적용: `supabase db push`
-  - `supabase/migrations/20260518000000_ai_quota.sql`
-  - `supabase/migrations/20260519000000_quota_status_client_grant.sql`
-- [ ] Secret 등록:
-  - **enrich-word용**: `VERTEX_PROJECT_ID`, `VERTEX_LOCATION`, `VERTEX_SA_CLIENT_EMAIL`, `VERTEX_SA_PRIVATE_KEY`
-  - **verify-purchase용**: `PLAY_SA_CLIENT_EMAIL`, `PLAY_SA_PRIVATE_KEY`, `ANDROID_PACKAGE_NAME=com.soksokvoca`
-- [ ] Edge Function 배포:
-  - `supabase functions deploy enrich-word`
-  - `supabase functions deploy verify-purchase`
-- [ ] 앱 환경변수 `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` (EAS Secret)
-- [ ] GCP Budget cap (월 $20 등) + Vertex AI Quotas cap 권장
+### Part E — Supabase ✅ 완료 (2026-05-19)
 
-### Part F — 패키지 보정 ⏳ 미완료 (개발자 측)
+- [x] `supabase link --project-ref ithqbclnwvyeultkyxbn`
+- [x] DB 마이그레이션 2개 적용:
+  - `20260518000000_ai_quota.sql` ✓ (user_subscriptions, ai_usage_daily, RPC)
+  - `20260519000000_quota_status_client_grant.sql` ✓ (클라이언트 RPC grant)
+- [x] Supabase Secrets 7종 등록:
+  - **enrich-word용**: `VERTEX_PROJECT_ID=avocado-491710`, `VERTEX_LOCATION=us-central1`, `VERTEX_SA_CLIENT_EMAIL`, `VERTEX_SA_PRIVATE_KEY`
+  - **verify-purchase용**: `ANDROID_PACKAGE_NAME=com.soksokvoca`, `PLAY_SA_CLIENT_EMAIL`, `PLAY_SA_PRIVATE_KEY`
+- [x] Edge Function 2개 배포 (둘 다 status `ACTIVE`):
+  - `enrich-word` (version 2)
+  - `verify-purchase` (version 2)
+- [x] EAS Secret `EXPO_PUBLIC_ENRICH_VIA_EDGE=1` 등록
+- [ ] GCP Budget cap (월 $20 등) + Vertex AI Quotas cap (선택, 출시 후 권장)
 
-- [ ] `pnpm install` — OneDrive 이슈로 직접 편집한 의존성(react-native-google-mobile-ads, expo-iap) 잠금파일 보정
-- [ ] `pnpm lint` — 변경분 점검
+> Vertex AI SA: `avocado-ai-proxy-806@avocado-491710.iam.gserviceaccount.com`. Private key 2종은 PEM 줄바꿈 파싱 이슈로 Supabase 웹 대시보드에서 직접 등록 (CLI env-file은 BOM 이슈로 실패).
+
+### Part F — 패키지 보정 ✅ 완료 (2026-05-19)
+
+- [x] `pnpm install` — `expo-iap`, `react-native-google-mobile-ads` lock 보정 완료 (+5 −101 packages)
+- [ ] `pnpm lint` — 변경분 점검 (선택)
 - [ ] EAS dev build (네이티브 모듈 포함이라 새 빌드 필요)
 
 ---
@@ -245,11 +250,12 @@ v1.2 (이후): Pro Lite 추가 검토
 ## 작업 의존도 그래프
 
 ```
-Phase 0 (사용자 인프라, 병렬 — Part B·C·D·E 미완)
-   • Part B AdMob 등록·광고 단위 발급
-   • Part C Play 인앱구독 등록
-   • Part D Play Developer API SA 생성·권한 부여
-   • Part E Supabase 마이그레이션 + Secret + Edge deploy
+Phase 0 (사용자 인프라)
+   ✅ Part B AdMob 등록·광고 단위 발급·EAS Secret (활성화 24h 대기)
+   ⏳ Part C Play 인앱구독 등록 (Production AAB 업로드 후 가능)
+   ✅ Part D Play Developer API SA 생성·권한 부여 (전파 24h 대기)
+   ✅ Part E Supabase 마이그레이션 + Secret + Edge deploy
+   ✅ Part F pnpm install 보정
 
 Phase 1 ✅ 완료
    • #10 FAQ 전면 개정
@@ -281,11 +287,13 @@ Phase 5 (Part B~E 완료 후) ← 다음 작업
 
 ### A. 사용자 측 진척 확인 (대화 시작 시 묻기)
 
-- [ ] **Part B (AdMob)** — 광고 단위 ID 발급 완료? EAS Secret 등록 완료?
-- [ ] **Part C (Play 구독)** — `pro_monthly`/`pro_yearly` 상품 등록 + 7일 trial offer 완료?
-- [ ] **Part D (Play Developer API SA)** — 서비스 계정 생성 + Play Console 권한 부여 (~24h 반영)?
-- [ ] **Part E (Supabase)** — `db push` + Secret 6종 + `enrich-word`/`verify-purchase` deploy 완료?
-- [ ] **Part F (`pnpm install`)** — OneDrive 직접 편집한 의존성 보정 완료?
+- [x] **Part B (AdMob)** — App ID + Banner + Rewarded ID 발급, EAS Secret 등록 완료 ✅
+- [ ] **Part C (Play 구독)** — Production AAB 업로드 후 진행. 라이선스 테스터 등록 포함
+- [x] **Part D (Play Verify SA)** — SA 생성, 권한 부여 완료 ✅ (전파 ~24h 대기)
+- [x] **Part E (Supabase)** — 마이그레이션 적용, Secret 7종, Edge Function 2개 deploy 모두 완료 ✅
+- [x] **Part F (`pnpm install`)** — 의존성 보정 완료 ✅
+- [ ] **광고 단위 활성화** — Part B 등록 후 ~24h 대기 (시작: 2026-05-19)
+- [ ] **Play SA 권한 전파** — Part D 부여 후 ~24h 대기 (시작: 2026-05-19)
 
 ### B. 코드 작업 — ✅ 완료 (`f501900`)
 

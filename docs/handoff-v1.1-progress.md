@@ -16,26 +16,25 @@
 
 ## 다음 세션 즉시 진행할 작업
 
-### 1. 대기 만료 확인 (2026-05-20 이후 자동 OK 예상)
+> **출시 범위 결정**: v1.1은 **한국 first** (Play Console "Countries"에서 한국만 선택). 다국어(ko/en)는 한국 내 외국인 사용자(영어 학습용) 대응으로 유지. 글로벌 확장은 v1.2 별도 작업.
+> **이전 세션 갱신**: B-4 (온보딩 생년월일 게이트) 롤백 완료(`1fb6e17`). 약관·처리방침 명시 + AdMob 태그 중립화로 한국 학습 앱 표준에 맞춤. Play Console 운영자 후속 작업 남음.
 
-| 항목 | 상태 확인 방법 |
-|---|---|
-| Part B AdMob 광고 활성화 | EAS Secret 등록은 완료. 실제 광고 노출은 24h 후. 임시 확인 불필요 |
-| Part D Play SA 권한 전파 | 별도 확인 없음. verify-purchase Edge Function 호출 시 정상 응답 받으면 OK |
+---
 
-### 2. dev build 재빌드 + 신규 게이트 검증
+### A. 잔여 검증 (dev server reload, 5분)
 
-이전 세션에서 검증 완료:
+사용자가 이미 부분 검증 완료:
+- ✅ 설정 화면 "생년월일" row 사라짐
+
+남은 빠른 체크:
+- [ ] **신규 사용자 흐름** — 설정 → 개발자 섹션 → "온보딩 다시 보기" → 앱 재시작 → 4슬라이드 → "시작하기" → **/login 직행 (age-gate 미발화)**
+- [ ] **광고 정상 노출** — Free 모드 탭에서 테스트 배너 보이는지
+- [ ] **약관 화면** — 설정 → 이용약관 → sections[1] 위치에 "이용 대상 연령" 표시
+
+이전 세션 검증 완료(여전히 유효):
 - ✅ 배너 가드 (게스트 모드)
 - ✅ 학습 화면 4종 배너 16dp 간격 + UI 일관성
 - ✅ 퀴즈/예문학습 카드↔선택지 가로폭 정렬
-
-신규 검증 필요 (B-4 — 온보딩 생년월일 게이트):
-- ⏳ **신규 사용자**: 온보딩 → /age-gate → 14세 미만 입력 → AdMob 광고 차단 + child-directed 태그 전파
-- ⏳ **기존 사용자 마이그레이션**: 앱 진입 → /age-gate?from=migration 자동 라우팅 → 입력 후 탭 복귀
-- ⏳ **기존 토글러**: birthday 입력 결과 14세 이상 시 isUnder14 자동 false 덮어쓰기
-- ⏳ **자동 해제**: 시스템 시간 변경 후 cold start → isUnder14 재계산 → 광고 자동 노출
-- ⏳ **변경 잠금**: 설정 → "생년월일" 탭 → Alert 안내만 표시
 
 검증 미완 (Production AAB 후 가능):
 - ⏳ **Pro 결제 흐름** — Production AAB + Play 구독 상품 등록 후 가능
@@ -43,35 +42,88 @@
 - ⏳ **Pro 한도 모달** — Pro 사용자 1,000단어 초과 시 안내
 - ⏳ **KST 자정 초기화** — 한국 표준시 자정 사용량 리셋
 
-### 3. Production AAB 빌드
+---
+
+### B. GitHub Pages privacy-policy.html 갱신 push (1분)
+
+`docs/privacy-policy.html` §7이 B-4 롤백 반영해 새 본문으로 변경됨 (이미 `1fb6e17`에 포함). GitHub Pages는 push만 하면 자동 배포.
+
+```bash
+git push origin main
+# 1~2분 후 https://eunjbaek12.github.io/NewSokSok/privacy-policy.html §7이 새 문구로 렌더되는지 브라우저 확인
+```
+
+→ Play Console 데이터 보안 폼 점검 시점에 정책 페이지 최신 상태여야 함. 다음 작업 D보다 먼저.
+
+---
+
+### C. Production AAB 빌드 (15~25분, 백그라운드)
 
 ```powershell
 $env:EAS_SKIP_AUTO_FINGERPRINT=1
 eas build --profile production --platform android --non-interactive
 ```
 
-versionCode 자동 증분. GOOGLE_SERVICES_JSON·AdMob·Supabase Secret 이미 등록되어 자동 주입됨.
+- versionCode 자동 증분
+- GOOGLE_SERVICES_JSON·AdMob·Supabase Secret 이미 등록되어 자동 주입
+- 빌드 진행 중 D·E 병렬 가능
 
-### 4. Play Console 업로드 + Part C (인앱 구독 등록)
+---
 
-Production AAB 업로드되면 **"정기결제"** 메뉴가 활성화됨:
+### D. Play Console 정책 갱신 (운영자 작업, 5~10분)
+
+| 항목 | 값 |
+|---|---|
+| **Target audience** | "13세 이상" 또는 "성인" 선택 (mixed audience 분류 회피) |
+| **Countries** | 한국만 선택 (v1.2 글로벌 확장 시 추가) |
+| **광고 ID 선언** | '사용함'으로 변경 (v1.1엔 AdMob SDK 포함 → AD_ID 권한 매니페스트) |
+| **데이터 보안 폼** | "광고 ID" + "구매 내역" + "Pro 구독" 추가. **생년월일은 미포함** (수집 안 함) |
+| **콘텐츠 등급 설문** | "디지털 구매 = 예", "광고 = 예" 재답변 |
+| **개인정보 처리방침 URL** | 변경 없음 (https://eunjbaek12.github.io/NewSokSok/privacy-policy.html) — B 작업 완료 후 페이지가 최신 상태 |
+
+---
+
+### E. Part C — 인앱 구독 등록 (운영자 작업, Production AAB 업로드 후)
+
+Production AAB가 Play Console에 업로드되면 **"정기결제"** 메뉴 활성화:
 - `pro_monthly` (₩3,900/월) + 7일 무료 체험
 - `pro_yearly` (₩35,900/연) + 7일 무료 체험
-- 라이선스 테스터 등록
+- 라이선스 테스터 등록 (테스트 결제용 본인 이메일)
 
-### 5. Play Console 정책 갱신
+---
 
-- **광고 ID 선언**: '사용함'으로 변경
-- **데이터 보안 폼**: "광고 ID" + "구매 내역" + "Pro 구독" 추가
-- **콘텐츠 등급 설문**: 디지털 구매 = 예, 광고 = 예
-
-### 6. 내부 테스트 트랙 제출
+### F. 내부 테스트 트랙 제출 (C 완료 후)
 
 ```powershell
 eas submit -p android --latest
 ```
 
-본인 기기 옵트인·설치·검증.
+본인 기기 옵트인 → 설치 → Production 검증 시나리오:
+1. Pro 구독 흐름 (월/연 결제 → verify-purchase → tier='pro' 반영)
+2. Pro 트라이얼 (신규 가입 7일 → Pro 동급)
+3. Pro 복원 (앱 재설치 후 이전 구매 복원)
+4. 보상형 광고 (Free 한도 초과 → RewardedAdModal → +50단어)
+5. KST 자정 초기화
+
+---
+
+## 권장 진행 순서
+
+```
+B (push, 1분)
+   ↓
+C (production build 시작, 백그라운드 15~25분)
+   ↓ ┌── 빌드 진행 중 병렬
+   │  D (Play Console 정책 갱신, 5~10분)
+   │
+빌드 완료
+   ↓
+E (Play Console에서 구독 상품 등록, 30~60분)
+   ↓
+F (eas submit → 내부 테스트 → 기기 검증)
+```
+
+A(검증)는 언제든 가능. dev server가 떠 있으면 즉시 체크.
 
 ---
 

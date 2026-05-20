@@ -5,7 +5,6 @@
 // 확인 가능. 실 ID 발급 후엔 환경변수만 바꾸면 됨 (코드 변경 X).
 //
 // 광고 활성 정책:
-//   - 14세 미만: 모든 광고 차단 (KR 아동 보호 + AdMob 정책)
 //   - Pro / 트라이얼: 모든 광고 차단 (Pro 약속 무결성)
 //   - 그 외 (Free / 게스트): 광고 노출
 
@@ -43,25 +42,13 @@ export async function initAdMob(): Promise<void> {
 
   try {
     await mobileAds().initialize();
-    // 초기 안전 기본값. 이후 _layout.tsx effect가 profileSettings.isUnder14 반영해 재설정.
-    await applyAdMobChildTags({ isUnder14: false });
-  } catch {
-    // 초기화 실패해도 앱 동작은 유지. 광고만 로드 실패.
-  }
-}
-
-// 14세 미만 여부에 따라 AdMob ad request 구성 재설정.
-// COPPA(미국) + GDPR-K(EU) + KISA(한국) 모두 동일 플래그로 처리.
-// SDK 문서: setRequestConfiguration은 언제든 호출 가능. 이후 광고 요청부터 적용.
-export async function applyAdMobChildTags(opts: { isUnder14: boolean }): Promise<void> {
-  try {
+    // tagForChildDirectedTreatment / tagForUnderAgeOfConsent는 생략 → SDK 상 "운영자가 신원 모름" 표명.
+    // 앱은 만 14세 이상 대상이고 연령을 수집하지 않으므로 child-directed treatment를 단언하지 않는다.
     await mobileAds().setRequestConfiguration({
-      maxAdContentRating: opts.isUnder14 ? MaxAdContentRating.G : MaxAdContentRating.PG,
-      tagForChildDirectedTreatment: opts.isUnder14,
-      tagForUnderAgeOfConsent: opts.isUnder14,
+      maxAdContentRating: MaxAdContentRating.PG,
     });
   } catch {
-    // 무시 — 광고 미초기화 상태에서도 호출될 수 있음.
+    // 초기화 실패해도 앱 동작은 유지. 광고만 로드 실패.
   }
 }
 
@@ -71,12 +58,9 @@ export async function applyAdMobChildTags(opts: { isUnder14: boolean }): Promise
 export interface AdEligibilityInput {
   /** Edge Function get_ai_quota_status 응답의 tier ('free' | 'pro'). 게스트면 null. */
   tier: 'free' | 'pro' | null;
-  /** 14세 미만 자가 신고 (ProfileSettings 등에서). #11 약관 동의 흐름에서 입력 예정. */
-  isUnder14?: boolean;
 }
 
 export function isAdsAllowed(input: AdEligibilityInput): boolean {
-  if (input.isUnder14) return false;
   if (input.tier === 'pro') return false; // 트라이얼 포함 (RPC에서 trial → tier='pro' 매핑)
   return true;
 }

@@ -18,17 +18,6 @@
     "slide4": {
       "title": "Ready to\nGet Started?",
       "body": "Create your personal vocabulary list\nand begin your learning journey"
-    },
-    "birthday": {
-      "title": "Enter your birthday",
-      "subtitle": "Required once per Terms of Service",
-      "migrationNotice": "A one-time update is required due to policy changes",
-      "year": "Year",
-      "month": "Month",
-      "day": "Day",
-      "confirm": "Confirm",
-      "invalid": "Not a valid date",
-      "future": "Birthday cannot be in the future"
     }
   },
   "common": {
@@ -256,12 +245,6 @@
     "plansDesc": "Compare Free / Pro and view usage",
     "advanced": "Advanced Settings",
     "advancedDesc": "Bring your own AI key, etc. (optional)",
-    "under14": "Under 14",
-    "under14Desc": "Turning this on disables all ads (child protection)",
-    "birthday": "Birthday",
-    "birthdayNotSet": "Not set",
-    "birthdayChangeNotice": "Birthday can only be set once. Contact support to make changes.",
-    "adsDisabledUnder14": "Under 14 — ads disabled",
     "ai": "AI",
     "geminiApiKey": "Gemini API Key",
     "geminiApiKeyNotSet": "Not set",
@@ -387,6 +370,10 @@
         "body": "Avocado (the 'App') is a personal vocabulary learning tool. By using the App, you agree to these terms."
       },
       {
+        "title": "Eligible Age",
+        "body": "This service is intended for users aged 14 and over. We do not collect personal information from children under 14. If we become aware that a child under 14 has signed up, we will promptly delete the account and related information. If you suspect that an under-14 user has signed up, please report it through the in-app feedback feature."
+      },
+      {
         "title": "User Content & Copyright",
         "body": "You are solely responsible for the copyright of any content (words, meanings, example sentences, etc.) that you create or share in the App.\n\nDo not share content that infringes on others' copyrights. Sharing content from copyrighted sources (dictionaries, textbooks, etc.) without permission is prohibited."
       },
@@ -404,7 +391,7 @@
       },
       {
         "title": "Advertising",
-        "body": "Free users see Google AdMob banner ads, and may optionally watch rewarded ads to extend the daily AI quota. Pro subscribers see no ads.\n\nThe App uses the Android Advertising ID for ad serving only and does not combine it with other identifiers. To revoke consent or reset the Advertising ID, use System Settings → Google → Ads.\n\nAds are disabled for users under 14 in compliance with the Advertising ID policy and child protection regulations."
+        "body": "Free users see Google AdMob banner ads, and may optionally watch rewarded ads to extend the daily AI quota. Pro subscribers see no ads.\n\nThe App uses the Android Advertising ID for ad serving only and does not combine it with other identifiers. To revoke consent or reset the Advertising ID, use System Settings → Google → Ads."
       },
       {
         "title": "Privacy",
@@ -604,10 +591,6 @@
           {
             "q": "How are ads shown?",
             "a": "On the Free tier, a small banner sits at the bottom of the screen, spaced well away from study answer buttons to avoid mis-taps.\n\nIf you want to extend your daily quota, you can opt in to watch a rewarded video ad on demand."
-          },
-          {
-            "q": "Are ads shown to children?",
-            "a": "Accounts registered as under 14 don't see ads. The same applies when a parent manages the account through Google Family Link.\n\nSee Google Play's family group settings for more."
           },
           {
             "q": "I just signed up and I don't see any ads. Is that normal?",

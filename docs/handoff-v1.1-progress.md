@@ -1,14 +1,16 @@
 # v1.1 (광고·인앱구독) 작업 인수인계
 
-작성일: 2026-05-20 (온보딩 생년월일 게이트 정공법 도입 반영)
+작성일: 2026-05-20 (B-4 롤백 — 한국 학습 앱 표준 미수집 패턴 채택)
 
-다음 세션으로 이어갈 인수인계 문서. v1.1 코드·인프라·UI 일관성 + 14세 미만 컴플라이언스 정공법 모두 완료. **다음 세션은 dev build 재빌드 + 신규 게이트 검증 → Production AAB 빌드**.
+다음 세션으로 이어갈 인수인계 문서. v1.1 코드·인프라·UI 일관성 완료. **다음 세션은 dev build reload 검증 → Production AAB 빌드**.
+
+> **2026-05-20 갱신**: B-4 (온보딩 생년월일 게이트) 롤백. 자가 신고 생년월일 실효성 부재 + 한국 학습 앱 표준 미수집 패턴 채택(클래스카드/산타토익/해커스 등 동일). 운영자 ignorance 보호는 약관·처리방침 명시 + AdMob 태그 중립화(`tagForChildDirectedTreatment` 필드 생략)로 전환. Play Console target audience 14세+ 설정은 운영자 후속 작업.
 
 ---
 
 ## 한 줄 현재 상황
 
-**v1.1 코드(기능 + UI 일관성 + 온보딩 생년월일 게이트) + 사용자 인프라(A/B/D/E/F) 모두 완료.** Part B(AdMob)·Part D(Play SA) 활성화 24h 만료(2026-05-20). dev build 재빌드 필요(네이티브 코드 변경 없음, OTA 가능). 남은 건 게이트 검증 → Production AAB 빌드 → Play 업로드 → Part C(구독 등록) → 내부 테스트 트랙 제출.
+**v1.1 코드(기능 + UI 일관성) + 사용자 인프라(A/B/D/E/F) 모두 완료. B-4 게이트는 롤백.** Part B(AdMob)·Part D(Play SA) 활성화 24h 만료(2026-05-20). dev server reload만 하면 새 코드 반영. 남은 건 검증 → Production AAB 빌드 → Play 업로드 → Part C(구독 등록) → 내부 테스트 트랙 제출. **운영자 후속 작업**: Play Console "Target audience" 14세+ 설정.
 
 ---
 

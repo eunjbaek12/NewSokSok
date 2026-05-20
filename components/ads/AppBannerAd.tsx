@@ -1,5 +1,5 @@
 // 광고 배너 — 가드/플랫폼 분기를 자체 처리.
-// Pro / 트라이얼 / 14세 미만 사용자에겐 null 반환.
+// Pro / 트라이얼 사용자에겐 null 반환.
 //
 // 사용 패턴:
 //   1. 탭 화면(메인 화면): mode="tab-anchor"로 탭바 위에 absolute 고정.
@@ -14,7 +14,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 import { useQuota } from '@/features/quota';
 import { useAuth } from '@/features/auth';
-import { useSettings } from '@/features/settings';
 import { AD_UNIT_BANNER, isAdsAllowed } from '@/lib/ads/admob';
 
 /**
@@ -38,15 +37,13 @@ interface Props {
 export function useAdsAllowed(): boolean {
   const { authMode } = useAuth();
   const { status } = useQuota();
-  const { profileSettings } = useSettings();
-  const isUnder14 = profileSettings.isUnder14 === true;
 
   return useMemo(() => {
     if (Platform.OS === 'web') return false;
     // 게스트는 quota 정보 없음 → tier=null → Free 동급으로 광고 노출
     const tier = authMode === 'google' ? (status?.tier ?? null) : null;
-    return isAdsAllowed({ tier, isUnder14 });
-  }, [authMode, status?.tier, isUnder14]);
+    return isAdsAllowed({ tier });
+  }, [authMode, status?.tier]);
 }
 
 /**

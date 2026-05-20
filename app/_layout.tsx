@@ -17,11 +17,10 @@ import { useFonts } from "expo-font";
 import { Jua_400Regular } from "@expo-google-fonts/jua";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import { useQuotaStore } from "@/features/quota";
-import { initAdMob, applyAdMobChildTags } from "@/lib/ads/admob";
+import { initAdMob } from "@/lib/ads/admob";
 import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
 import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
 import { useAdsAllowed } from "@/components/ads/AppBannerAd";
-import { isUnder14From } from "@/lib/age";
 import "@/i18n";
 
 SplashScreen.preventAutoHideAsync();
@@ -91,26 +90,9 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
         useOnboardingStore.getState().hydrate(),
         useSkinStore.getState().hydrate(),
       ]);
-      // birthday가 있으면 만 14세 도달 여부 매 cold start마다 재계산 (자동 해제).
-      const settings = useSettingsStore.getState();
-      const profile = settings.profileSettings;
-      if (profile.birthday) {
-        const derived = isUnder14From(profile.birthday);
-        if (derived !== profile.isUnder14) {
-          await settings.updateProfileSettings({ isUnder14: derived });
-        }
-      }
       await initAdMob();
     })();
   }, []);
-
-  // isUnder14 변경 감지 → AdMob 태그 즉시 재설정. setRequestConfiguration은 호출 후 광고 요청부터 적용.
-  const isUnder14 = useSettingsStore(s => s.profileSettings.isUnder14);
-  const settingsLoading = useSettingsStore(s => s.isLoading);
-  useEffect(() => {
-    if (settingsLoading) return;
-    applyAdMobChildTags({ isUnder14 }).catch(() => {});
-  }, [isUnder14, settingsLoading]);
 
   // 로그인 직후 / 토큰 갱신 직후에 quota 1회 새로고침.
   const authMode = useAuthStore(s => s.mode);
@@ -160,8 +142,6 @@ function AppStack() {
   const { inputSettings } = useSettings();
   const { isOnboardingDone } = useOnboarding();
   const { authMode, loading: authLoading } = useAuth();
-  const profileSettings = useSettingsStore(s => s.profileSettings);
-  const settingsLoading = useSettingsStore(s => s.isLoading);
   const segments = useSegments();
 
   useEffect(() => {
@@ -171,21 +151,10 @@ function AppStack() {
     }
   }, [isOnboardingDone]);
 
-  // 기존 사용자(자동 isOnboardingDone=true)와 v1.0 토글러 마이그레이션 — birthday 없으면 age-gate.
-  useEffect(() => {
-    if (!isOnboardingDone) return;
-    if (settingsLoading) return;
-    if (profileSettings.birthday) return;
-    const first = segments[0] as string;
-    if (first !== 'age-gate' && first !== 'onboarding') {
-      router.replace('/age-gate' as any);
-    }
-  }, [isOnboardingDone, settingsLoading, profileSettings.birthday, segments]);
-
   useEffect(() => {
     if (authLoading) return;
     const first = segments[0] as string;
-    const inAuthScreen = first === 'login' || first === 'onboarding' || first === 'age-gate';
+    const inAuthScreen = first === 'login' || first === 'onboarding';
     if (authMode === 'none' && !inAuthScreen) {
       router.replace('/login');
     }
@@ -194,7 +163,6 @@ function AppStack() {
   return (
     <Stack screenOptions={{ headerBackTitle: "Back" }}>
       <Stack.Screen name="onboarding" options={{ headerShown: false, gestureEnabled: false, animation: 'none' }} />
-      <Stack.Screen name="age-gate" options={{ headerShown: false, gestureEnabled: false, animation: 'fade' }} />
       <Stack.Screen name="login" options={{ headerShown: false, gestureEnabled: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="list/[id]" options={{ headerShown: false }} />

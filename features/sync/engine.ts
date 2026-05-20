@@ -137,9 +137,22 @@ export async function pullChanges(): Promise<void> {
         );
       }
 
+      // Guard against cloud orphan words (list soft-deleted but word not, or
+      // list_id pointing to a row that no longer exists). Without this filter,
+      // a single inconsistent cloud row would FK-fail the entire pull and brick
+      // the device's first sync. See first-login merge flow in features/sync/first-login.ts.
+      const validListRows = await db.getAllAsync<{ id: string }>(
+        'SELECT id FROM lists WHERE deletedAt IS NULL',
+      );
+      const validListIds = new Set(validListRows.map(r => r.id));
+
       for (const w of (words ?? [])) {
         if (w.is_deleted) {
           await db.runAsync('DELETE FROM words WHERE id = ?', w.id);
+          continue;
+        }
+        if (!validListIds.has(w.list_id)) {
+          console.warn('[sync] skipping orphan cloud word', w.id, 'list_id', w.list_id);
           continue;
         }
         const word = dbRowToWord(w);

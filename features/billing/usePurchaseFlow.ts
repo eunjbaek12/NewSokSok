@@ -19,6 +19,7 @@ import {
 import { supabase } from '@/lib/supabase/client';
 import { useQuotaStore } from '@/features/quota';
 import { PRO_SKUS, type ProSku } from '@/lib/billing/skus';
+import { mapPurchaseError, type MappedPurchaseError } from './error-mapping';
 
 // Module-level flag: auto-reconcile runs at most once per app session, not
 // once per plans-screen mount. Re-runs on app restart (which is when we'd
@@ -37,7 +38,8 @@ export interface PurchaseFlow {
   connected: boolean;
   products: ProductSubscription[];
   stage: PurchaseStage;
-  error: string | null;
+  /** Mapped error for UI consumption — null when no error pending. */
+  error: MappedPurchaseError | null;
 
   /** SKU별 표시 가격 (없으면 null) */
   priceFor: (sku: ProSku) => string | null;
@@ -51,7 +53,7 @@ export interface PurchaseFlow {
 
 export function usePurchaseFlow(): PurchaseFlow {
   const [stage, setStage] = useState<PurchaseStage>('idle');
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<MappedPurchaseError | null>(null);
 
   const handleSuccess = useCallback(async (purchase: Purchase) => {
     // [billing-diag] checkpoint logs use console.warn so they survive
@@ -98,7 +100,7 @@ export function usePurchaseFlow(): PurchaseFlow {
       setStage('success');
     } catch (e: any) {
       console.warn('[billing-diag] handleSuccess threw', 'msg=', e?.message ?? String(e));
-      setError(e?.message ?? 'verify_failed');
+      setError(mapPurchaseError(e));
       setStage('failed');
     }
   }, []);
@@ -112,8 +114,12 @@ export function usePurchaseFlow(): PurchaseFlow {
       'code=', err?.code ?? null,
       'msg=', err?.message ?? String(err),
     );
-    setError(err?.message ?? 'purchase_failed');
-    setStage('failed');
+    const mapped = mapPurchaseError(err);
+    setError(mapped);
+    // User-cancelled isn't a "failure" worth showing an alert for — drop
+    // straight back to idle so the buttons aren't disabled and no error
+    // dialog pops up. plans.tsx still checks `error?.silent` defensively.
+    setStage(mapped.silent ? 'idle' : 'failed');
   }, []);
 
   const {
@@ -139,7 +145,10 @@ export function usePurchaseFlow(): PurchaseFlow {
         if (!cancelled) setStage('idle');
       } catch (e: any) {
         if (!cancelled) {
-          setError(e?.message ?? 'load_products_failed');
+          // Prefer the underlying expo-iap code (NetworkError, ServiceError…)
+          // when present so the user sees a specific reason; fall back to a
+          // generic load-products marker only when there's no code at all.
+          setError(mapPurchaseError(e?.code ? e : new Error('load_products_failed')));
           setStage('failed');
         }
       }
@@ -273,7 +282,7 @@ export function usePurchaseFlow(): PurchaseFlow {
         setStage('idle');
       }
     } catch (e: any) {
-      setError(e?.message ?? 'restore_failed');
+      setError(mapPurchaseError(e?.message ? e : new Error('restore_failed')));
       setStage('failed');
     }
   }, [getAvailablePurchases, finishTransaction]);

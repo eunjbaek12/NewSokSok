@@ -44,20 +44,30 @@ export default function PlansScreen() {
     if (isLoggedIn) refresh();
   }, [isLoggedIn, refresh]);
 
-  // 결제 성공/실패 알림
+  // 결제 성공/실패 알림. 실패 메시지는 expo-iap 에러 코드별로 세분화 —
+  // "이미 구독중", "결제 취소", "네트워크 오류" 등 사용자가 자가 진단할 수
+  // 있는 카피로 분기 (features/billing/error-mapping.ts).
   useEffect(() => {
     if (flow.stage === 'success') {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
       Alert.alert(t('plans.purchaseSuccessTitle'), t('plans.purchaseSuccessMessage'), [
         { text: t('common.done'), onPress: flow.resetStage },
       ]);
-    } else if (flow.stage === 'failed' && flow.error) {
+    } else if (flow.stage === 'failed' && flow.error && !flow.error.silent) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-      Alert.alert(t('plans.purchaseFailedTitle'), t('plans.purchaseFailedMessage'), [
-        { text: t('common.done'), onPress: flow.resetStage },
-      ]);
+      const message = t(`plans.errors.${flow.error.key}`, t('plans.purchaseFailedMessage'));
+      // "이미 구독중"·"verify 실패" 등은 복원이 정답 — Alert에 복원 버튼을 직접 노출.
+      const buttons = flow.error.suggestRestore
+        ? [
+            { text: t('common.done'), onPress: flow.resetStage, style: 'cancel' as const },
+            { text: t('plans.restoreCta'), onPress: () => { flow.resetStage(); flow.restore(); } },
+          ]
+        : [
+            { text: t('common.done'), onPress: flow.resetStage },
+          ];
+      Alert.alert(t('plans.purchaseFailedTitle'), message, buttons);
     }
-  }, [flow.stage, flow.error, flow.resetStage, t]);
+  }, [flow.stage, flow.error, flow.resetStage, flow.restore, flow, t]);
 
   const handleBuy = (sku: typeof SKU_PRO_MONTHLY | typeof SKU_PRO_YEARLY) => {
     if (!isLoggedIn) {

@@ -21,6 +21,7 @@ type DemoColors = {
   primary: string;
   primaryLight: string;
   primaryButton: string;
+  accent: string;
   border: string;
   borderLight: string;
   cardShadow: string;
@@ -122,11 +123,7 @@ function ThemeCard({
       {/* cardFooter */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 * p }}>
         <View style={{ backgroundColor: C.primaryLight, paddingHorizontal: 8 * p, paddingVertical: 3 * p, borderRadius: 10 * p }}>
-          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.bold, color: C.primary, letterSpacing: 0.3 }}>{wordCount}개 단어</Text>
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 * p }}>
-          <Ionicons name="download-outline" size={12 * p} color={C.textTertiary} />
-          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.medium, color: C.textTertiary }}>1.2k</Text>
+          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.bold, color: C.primary, letterSpacing: 0.3 }}>{wordCount} 단어 수록</Text>
         </View>
       </View>
     </Animated.View>
@@ -172,6 +169,7 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
     primary: colors.primary,
     primaryLight: colors.primaryLight,
     primaryButton: colors.primaryButton,
+    accent: colors.accent,
     border: colors.border,
     borderLight: colors.borderLight,
     cardShadow: colors.cardShadow,
@@ -196,7 +194,8 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
       backgroundColor: C.bg,
       width: AVAIL_W,
       height: 420,
-      shadowColor: C.cardShadow,
+      borderColor: C.border,
+      shadowColor: colors.shadow,
     }]}>
 
       {/* ── 헤더 (실제 curation.tsx: paddingHorizontal 20, paddingBottom 8, gap 12) ── */}
@@ -226,29 +225,30 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
             marginTop: 1,
             lineHeight: 16 * p,
           }} numberOfLines={1}>
-            오늘도 새로운 단어를 배워봐요
+            단어장을 바로 내 것으로 가져와요
           </Text>
         </View>
 
         <View style={{
-          width: 36 * p, height: 36 * p,
-          borderRadius: 10 * p,
+          width: 40 * p, height: 40 * p,
+          borderRadius: 12 * p,
           borderWidth: 1,
           borderColor: C.border,
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-          <Ionicons name="reorder-three-outline" size={20 * p} color={C.textSecondary} />
+          <Ionicons name="reorder-three-outline" size={22 * p} color={C.textSecondary} />
         </View>
       </View>
 
-      {/* ── 검색창 ── */}
-      <View style={{ paddingHorizontal: 14 * p, paddingVertical: 6 * p }}>
+      {/* ── 검색창 + AI 생성 버튼 ── */}
+      <View style={{ paddingHorizontal: 14 * p, paddingVertical: 6 * p, flexDirection: 'row', alignItems: 'center', gap: 8 * p }}>
         <View style={{
+          flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
           paddingHorizontal: 14 * p,
-          paddingVertical: 11 * p,
+          paddingVertical: 12 * p,
           borderRadius: 14 * p,
           borderWidth: 1,
           borderColor: C.borderLight,
@@ -262,8 +262,24 @@ export function CurationDemo({ isActive }: { isActive: boolean }) {
         }}>
           <Ionicons name="search" size={18 * p} color={C.textTertiary} />
           <Text style={{ flex: 1, fontSize: 14 * p, fontFamily: fontFamily.regular, color: C.textTertiary }}>
-            단어장 검색
+            주제나 상황을 입력하세요
           </Text>
+        </View>
+        <View style={{
+          width: 42 * p, height: 42 * p,
+          borderRadius: 14 * p,
+          borderWidth: 1,
+          borderColor: C.borderLight,
+          backgroundColor: C.surface,
+          alignItems: 'center',
+          justifyContent: 'center',
+          shadowColor: C.cardShadow,
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 1,
+          shadowRadius: 6,
+          elevation: 1,
+        }}>
+          <Ionicons name="sparkles" size={20 * p} color={C.accent} />
         </View>
       </View>
 
@@ -323,9 +339,10 @@ const styles = StyleSheet.create({
   screen: {
     borderRadius: 20,
     overflow: 'hidden',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 1,
-    shadowRadius: 20,
-    elevation: 8,
+    borderWidth: 1.5,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.22,
+    shadowRadius: 24,
+    elevation: 10,
   },
 });

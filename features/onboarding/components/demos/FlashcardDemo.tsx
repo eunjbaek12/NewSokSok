@@ -87,7 +87,8 @@ export function FlashcardDemo({ isActive }: { isActive: boolean }) {
         backgroundColor: C.bg,
         width: AVAIL_W,
         height: 420,
-        shadowColor: C.cardShadow,
+        borderColor: C.border,
+        shadowColor: colors.shadow,
       }]}>
 
         {/* ── 헤더 ── */}
@@ -322,10 +323,11 @@ const styles = StyleSheet.create({
   screen: {
     borderRadius: 20,
     overflow: 'hidden',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 1,
-    shadowRadius: 20,
-    elevation: 8,
+    borderWidth: 1.5,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.22,
+    shadowRadius: 24,
+    elevation: 10,
   },
   header: {
     borderBottomWidth: StyleSheet.hairlineWidth,

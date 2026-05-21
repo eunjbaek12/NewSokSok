@@ -479,7 +479,7 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
   const runCycle = (offset: number) => {
     after(() => {
       screenOpacity.value = withTiming(1, { duration: 400 });
-      progressWidth.value = withDelay(200, withTiming(0.33, { duration: 500, easing: Easing.out(Easing.quad) }));
+      progressWidth.value = withDelay(200, withTiming(0.5, { duration: 500, easing: Easing.out(Easing.quad) }));
     }, offset);
     after(() => { word1Opacity.value = withTiming(1, { duration: 300 }); word1X.value = withTiming(0, { duration: 300 }); }, offset + 350);
     after(() => { word2Opacity.value = withTiming(1, { duration: 300 }); word2X.value = withTiming(0, { duration: 300 }); }, offset + 570);
@@ -554,45 +554,44 @@ export function WordListDemo({ isActive }: { isActive: boolean }) {
       backgroundColor: C.bg,
       width: AVAIL_W,
       height: 420,
-      shadowColor: C.cardShadow,
+      borderColor: C.border,
+      shadowColor: colors.shadow,
     }]}>
-      {/* ── 헤더 ── */}
+      {/* ── 헤더 (제목 행 + 진행도 한 블록) ── */}
       <View style={{
-        paddingHorizontal: 14 * p, paddingTop: 13 * p, paddingBottom: 9 * p,
-        flexDirection: 'row', alignItems: 'center', gap: 10 * p,
+        paddingHorizontal: 16 * p, paddingTop: 13 * p,
         borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.border,
       }}>
-        <Ionicons name="chevron-back" size={23 * p} color={C.text} />
-        <Text style={{ fontSize: 17 * p, fontFamily: fontFamily.bold, color: C.text, flex: 1 }}>✈️ 여행 영어 단어장</Text>
-        <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>계획보기</Text>
+        {/* headerRow */}
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 * p }}>
+          <Ionicons name="chevron-back" size={28 * p} color={C.text} />
+          <Text style={{ fontSize: 20 * p, fontFamily: fontFamily.bold, color: C.text, flex: 1 }} numberOfLines={1}>✈️ 여행 영어 단어장</Text>
+          <Text style={{ fontSize: 14 * p, fontFamily: fontFamily.semiBold, color: C.primary }}>계획보기</Text>
+        </View>
+
+        {/* progressContainer */}
+        <View style={{ marginTop: 10 * p, paddingBottom: 8 * p, flexDirection: 'row', alignItems: 'center', gap: 10 * p }}>
+          <View style={{ flex: 1, height: 6 * p, backgroundColor: C.surfaceSecondary, borderRadius: 3 * p, overflow: 'hidden' }}>
+            <Animated.View style={[barStyle, { height: '100%', backgroundColor: C.success, borderRadius: 3 * p }]} />
+          </View>
+          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.medium, color: C.textTertiary, minWidth: 70 * p, textAlign: 'right' }}>2/4 (50%)</Text>
+        </View>
       </View>
 
-      {/* ── 진행도 ── */}
+      {/* ── 필터 행 (visualFilterHeader) ── */}
       <View style={{
-        paddingHorizontal: 14 * p, paddingVertical: 8 * p,
-        flexDirection: 'row', alignItems: 'center', gap: 10 * p,
+        paddingHorizontal: 12 * p, paddingVertical: 6 * p,
+        flexDirection: 'row', alignItems: 'center', gap: 12 * p,
         borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.borderLight,
       }}>
-        <View style={{ flex: 1, height: 5 * p, backgroundColor: C.surfaceSecondary, borderRadius: 3 * p, overflow: 'hidden' }}>
-          <Animated.View style={[barStyle, { height: '100%', backgroundColor: C.success, borderRadius: 3 * p }]} />
+        <Ionicons name="star-outline" size={22 * p} color={C.textTertiary} />
+        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 4 * p }}>
+          <Ionicons name="time-outline" size={13 * p} color={C.textSecondary} />
+          <Text style={{ fontSize: 13 * p, fontFamily: fontFamily.semiBold, color: C.textSecondary }}>최신순 (4)</Text>
         </View>
-        <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.medium, color: C.textTertiary }}>1 / 4</Text>
-      </View>
-
-      {/* ── 필터 행 ── */}
-      <View style={{
-        paddingHorizontal: 12 * p, paddingVertical: 7 * p,
-        flexDirection: 'row', alignItems: 'center',
-        borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: C.borderLight,
-      }}>
-        <Ionicons name="star-outline" size={18 * p} color={C.textTertiary} />
-        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 3 * p, paddingLeft: 8 * p }}>
-          <Ionicons name="time-outline" size={12 * p} color={C.textSecondary} />
-          <Text style={{ fontSize: 12 * p, fontFamily: fontFamily.medium, color: C.textSecondary }}>최신순 (4)</Text>
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3 * p }}>
-          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textTertiary, textTransform: 'uppercase' }}>ALL</Text>
-          <Ionicons name="filter-outline" size={16 * p} color={C.textTertiary} />
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 * p, paddingRight: 4 * p }}>
+          <Text style={{ fontSize: 11 * p, fontFamily: fontFamily.semiBold, color: C.textTertiary, textTransform: 'uppercase' }}>전체</Text>
+          <Ionicons name="filter-outline" size={20 * p} color={C.textTertiary} />
         </View>
       </View>
 
@@ -635,9 +634,10 @@ const styles = StyleSheet.create({
   screen: {
     borderRadius: 20,
     overflow: 'hidden',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 1,
-    shadowRadius: 20,
-    elevation: 8,
+    borderWidth: 1.5,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.22,
+    shadowRadius: 24,
+    elevation: 10,
   },
 });

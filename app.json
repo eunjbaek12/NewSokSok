@@ -2,7 +2,7 @@
   "expo": {
     "name": "아보카도",
     "slug": "soksok-voca",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "soksokvoca",

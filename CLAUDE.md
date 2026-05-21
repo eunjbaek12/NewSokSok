@@ -111,7 +111,7 @@ Migrations are manually versioned in `lib/db/`. When modifying the local schema,
 
 **Free trial:** 7-day Pro trial on signup, auto-converts to Free (no auto-charge).
 
-**Under-14 users:** Ads disabled (AdMob policy + KR child-protection regs).
+**Age/ads policy:** App is targeted at ages 14+ and does not collect age. Ads (banner + rewarded) are shown to all non-Pro users — there is no per-user under-14 ad gating. `initAdMob` deliberately omits `tagForChildDirectedTreatment` / `tagForUnderAgeOfConsent` and sets `maxAdContentRating: PG` (`lib/ads/admob.ts`).
 
 **BYOK location:** Settings → 고급 설정 (hidden by default; not advertised to general users to avoid confusion).
 

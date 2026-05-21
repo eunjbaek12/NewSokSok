@@ -299,13 +299,22 @@ export default function AddWordScreen() {
         handleSaveWord,
         isPendingFill,
         isPendingSave,
+        aiQuotaHitAt,
     } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang, apiKey || undefined);
+
+    useEffect(() => {
+        if (aiQuotaHitAt) {
+            Alert.alert(t('addWord.aiQuotaTitle'), t('addWord.aiQuotaMessage'));
+        }
+    }, [aiQuotaHitAt]);
 
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [inputWrapperHeight, setInputWrapperHeight] = useState(50);
     const autocompleteTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
     const suppressBlurRef = React.useRef(false);
+    // 검색/선택 후 진행 중이던 자동완성 응답이 늦게 도착해 드롭다운을 다시 펼치는 경합 방지
+    const suggestionsDismissedRef = React.useRef(false);
 
     const [fieldSettingsOpen, setFieldSettingsOpen] = useState(false);
     const [tempSettings, setTempSettings] = useState(inputSettings);
@@ -540,6 +549,7 @@ export default function AddWordScreen() {
     // Use handleAutoFill from useAddWord hook instead of re-implementing it localy
     const handleSearch = () => {
         if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+        suggestionsDismissedRef.current = true;
         setSuggestions([]);
         setShowSuggestions(false);
         handleAutoFill();
@@ -579,8 +589,12 @@ export default function AddWordScreen() {
                     }, 300);
                 }
             },
-            () => {
-                handleOpenListPicker();
+            (reason) => {
+                if (reason === 'duplicate') {
+                    Alert.alert(t('addWord.duplicateWord'), t('addWord.duplicateWordMessage', { term: term.trim() }));
+                } else {
+                    handleOpenListPicker();
+                }
             }
         );
     };
@@ -783,6 +797,8 @@ export default function AddWordScreen() {
                                                             setTerm(text);
                                                             if (errors.term) setErrors(e => ({ ...e, term: false }));
                                                             if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+                                                            // 새 입력이 시작되면 자동완성 다시 허용
+                                                            suggestionsDismissedRef.current = false;
                                                             if (!inputSettings.enableAutocomplete || text.trim().length < 2) {
                                                                 setSuggestions([]);
                                                                 setShowSuggestions(false);
@@ -792,6 +808,8 @@ export default function AddWordScreen() {
                                                                 const results = inputSettings.sourceLang === 'en'
                                                                     ? await fetchDatamuseAutocomplete(text.trim())
                                                                     : [];
+                                                                // 검색/선택으로 닫힌 뒤 늦게 도착한 응답이면 무시
+                                                                if (suggestionsDismissedRef.current) return;
                                                                 setSuggestions(results);
                                                                 setShowSuggestions(results.length > 0);
                                                             }, 300);
@@ -862,6 +880,7 @@ export default function AddWordScreen() {
                                                                 key={s}
                                                                 onPress={() => {
                                                                     if (autocompleteTimerRef.current) clearTimeout(autocompleteTimerRef.current);
+                                                                    suggestionsDismissedRef.current = true;
                                                                     setTerm(s);
                                                                     setSuggestions([]);
                                                                     setShowSuggestions(false);

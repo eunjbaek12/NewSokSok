@@ -20,6 +20,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     const [isPendingFill, setIsPendingFill] = useState(false);
     const isPendingFillRef = useRef(false);
     const [isPendingSave, setIsPendingSave] = useState(false);
+    const [aiQuotaHitAt, setAiQuotaHitAt] = useState(0);
 
     const runAutoFill = useCallback(async (searchTerm: string) => {
         if (!searchTerm.trim() || isPendingFillRef.current) return;
@@ -29,7 +30,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         try {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
-            const result = await enrichWord(trimmed, sourceLang, targetLang, apiKey).catch(() => null);
+            const result = await enrichWord(
+                trimmed, sourceLang, targetLang, apiKey, undefined, 'autocomplete',
+                () => setAiQuotaHitAt(Date.now()),
+            ).catch(() => null);
             if (result) {
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
@@ -49,7 +53,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     const handleAutoFill = () => runAutoFill(term);
     const handleAutoFillWithTerm = (overrideTerm: string) => runAutoFill(overrideTerm);
 
-    const handleSaveWord = async (selectedListId: string, onSuccess: (savedTerm: string) => void, onError: () => void) => {
+    const handleSaveWord = async (selectedListId: string, onSuccess: (savedTerm: string) => void, onError: (reason?: 'no-list' | 'duplicate' | 'error') => void) => {
         const newErrors: { term?: boolean; meaningKr?: boolean } = {};
         if (!term.trim()) newErrors.term = true;
         if (!meaningKr.trim()) newErrors.meaningKr = true;
@@ -81,7 +85,7 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             } else {
                 if (!selectedListId) {
                     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-                    onError();
+                    onError('no-list');
                     return;
                 }
                 const savedTerm = term.trim();
@@ -112,10 +116,14 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 setErrors({});
                 onSuccess(savedTerm);
             }
-        } catch (error) {
-            console.error("Failed to save word:", error);
+        } catch (error: any) {
             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-            onError();
+            if (error?.message === 'DUPLICATE_WORD') {
+                onError('duplicate');
+            } else {
+                console.error("Failed to save word:", error);
+                onError('error');
+            }
         } finally {
             setIsPendingSave(false);
         }
@@ -137,5 +145,6 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         handleSaveWord,
         isPendingFill,
         isPendingSave,
+        aiQuotaHitAt,
     };
 }

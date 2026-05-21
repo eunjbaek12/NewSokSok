@@ -376,28 +376,37 @@ export async function addWord(
     createdAt: now,
   };
 
-  await db.withTransactionAsync(async () => {
-    await db.runAsync(
-      `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [
-        newWord.id,
-        listId,
-        newWord.term ?? '',
-        newWord.definition ?? '',
-        newWord.phonetic ?? null,
-        newWord.pos ?? null,
-        newWord.exampleEn ?? '',
-        newWord.exampleKr || null,
-        newWord.meaningKr ?? '',
-        0,
-        0,
-        JSON.stringify(newWord.tags ?? []),
-        now,
-        newWord.sourceLang ?? 'en',
-        newWord.targetLang ?? 'ko',
-      ]
-    );
-  });
+  try {
+    await db.withTransactionAsync(async () => {
+      await db.runAsync(
+        `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          newWord.id,
+          listId,
+          newWord.term ?? '',
+          newWord.definition ?? '',
+          newWord.phonetic ?? null,
+          newWord.pos ?? null,
+          newWord.exampleEn ?? '',
+          newWord.exampleKr || null,
+          newWord.meaningKr ?? '',
+          0,
+          0,
+          JSON.stringify(newWord.tags ?? []),
+          now,
+          newWord.sourceLang ?? 'en',
+          newWord.targetLang ?? 'ko',
+        ]
+      );
+    });
+  } catch (e: any) {
+    // 같은 단어장 내 동일 term — idx_words_listid_term_unique 위반.
+    // 원본 SQLite 에러 대신 UI가 친절히 안내할 수 있게 코드로 변환.
+    if (String(e?.message ?? '').includes('UNIQUE constraint failed')) {
+      throw new Error('DUPLICATE_WORD');
+    }
+    throw e;
+  }
 
   return newWord;
 }

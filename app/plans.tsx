@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useAuth } from '@/features/auth';
 import { useSettings } from '@/features/settings';
-import { useQuota } from '@/features/quota';
+import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
 import { usePurchaseFlow } from '@/features/billing';
 import { SKU_PRO_MONTHLY, SKU_PRO_YEARLY } from '@/lib/billing/skus';
 
@@ -33,6 +33,10 @@ export default function PlansScreen() {
   const isLoggedIn = authMode === 'google';
   const isByok = !!apiKey;
   const isPro = status?.tier === 'pro';
+  // 서버는 트라이얼/유료를 모두 tier='pro'로 내려보낸다(같은 한도·동일 기능).
+  // UI에선 둘을 구분해야 사용자가 "이미 결제했다"고 오해하지 않는다.
+  const proMode = getProMode(status);
+  const trialDaysLeft = getTrialDaysLeft(status);
   // 체험을 한 번도 받지 않은 신규 후보(로그인 + 비Pro + trial_ends_at 부재)에게만 7일 체험 배너 노출
   const showTrialBanner = isLoggedIn && !isPro && (status?.trial_ends_at == null);
 
@@ -177,7 +181,14 @@ export default function PlansScreen() {
 
         {/* Pro 카드 — 최상단, 추천 배지 */}
         <View style={[styles.planCard, styles.planCardPro, { backgroundColor: colors.surface, borderColor: colors.primary }]}>
-          {isPro ? (
+          {proMode === 'trial' ? (
+            <View style={[styles.recommendedBadge, { backgroundColor: colors.primary }]}>
+              <Ionicons name="hourglass" size={11} color={colors.onPrimary} />
+              <Text style={[styles.recommendedBadgeText, { color: colors.onPrimary }]}>
+                {t('plans.planCardTrial', { daysLeft: trialDaysLeft ?? 0 })}
+              </Text>
+            </View>
+          ) : isPro ? (
             <View style={[styles.recommendedBadge, { backgroundColor: colors.primary }]}>
               <Ionicons name="checkmark-circle" size={11} color={colors.onPrimary} />
               <Text style={[styles.recommendedBadgeText, { color: colors.onPrimary }]}>
@@ -213,7 +224,14 @@ export default function PlansScreen() {
             ))}
           </View>
 
-          {isPro ? (
+          {proMode === 'trial' ? (
+            <View style={[styles.proActiveBadge, { backgroundColor: colors.primaryLight }]}>
+              <Ionicons name="hourglass" size={16} color={colors.primary} />
+              <Text style={[styles.proActiveText, { color: colors.primary }]}>
+                {t('plans.trialActiveNote', { daysLeft: trialDaysLeft ?? 0 })}
+              </Text>
+            </View>
+          ) : isPro ? (
             <View style={[styles.proActiveBadge, { backgroundColor: colors.primaryLight }]}>
               <Ionicons name="checkmark-circle" size={16} color={colors.primary} />
               <Text style={[styles.proActiveText, { color: colors.primary }]}>

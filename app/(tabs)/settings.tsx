@@ -24,7 +24,7 @@ import { UI_LOCALES } from '@/i18n';
 import { ModalPicker } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/features/settings';
-import { useQuota } from '@/features/quota';
+import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -94,6 +94,15 @@ export default function SettingsScreen() {
     if (authMode !== 'google') return { label: t('settings.accountTierGuest'), onPress: () => handleGoogleUpgrade() };
     if (!quotaStatus) return null;
     if (quotaStatus.tier === 'pro') {
+      // 트라이얼과 유료를 구분 — 둘 다 서버 tier='pro'지만 사용자에겐 매우 다른 상태.
+      const proMode = getProMode(quotaStatus);
+      if (proMode === 'trial') {
+        const daysLeft = getTrialDaysLeft(quotaStatus) ?? 0;
+        return {
+          label: t('settings.accountTierTrial', { daysLeft, used: quotaStatus.used, limit: quotaStatus.limit }),
+          onPress: undefined,
+        };
+      }
       return { label: t('settings.accountTierPro', { used: quotaStatus.used, limit: quotaStatus.limit }), onPress: undefined };
     }
     return {

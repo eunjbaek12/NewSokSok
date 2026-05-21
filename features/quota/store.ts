@@ -99,3 +99,31 @@ export function useQuota() {
   const refresh = useQuotaStore((s) => s.refresh);
   return { status, loading, refresh };
 }
+
+// ---- Pro tier disambiguation ----
+//
+// The server's get_ai_quota_status RPC returns tier='pro' for both paid
+// subscribers (pro_until in the future) and trial users (trial_ends_at in
+// the future). Same tier value, very different account states. The UI
+// distinguishes them via these helpers so trial users see "체험 D-N" instead
+// of identical paid-subscriber copy — which previously caused users to
+// believe they had already paid.
+
+export type ProMode = 'paid' | 'trial' | null;
+
+/** Returns 'paid' for active subscription, 'trial' for active free trial, null otherwise. */
+export function getProMode(status: QuotaStatus | null): ProMode {
+  if (!status || status.tier !== 'pro') return null;
+  const now = Date.now();
+  if (status.pro_until && new Date(status.pro_until).getTime() > now) return 'paid';
+  if (status.trial_ends_at && new Date(status.trial_ends_at).getTime() > now) return 'trial';
+  return null;
+}
+
+/** Whole days remaining until trial expiry (ceil — partial day = 1). Null if no active trial. */
+export function getTrialDaysLeft(status: QuotaStatus | null): number | null {
+  if (!status?.trial_ends_at) return null;
+  const ms = new Date(status.trial_ends_at).getTime() - Date.now();
+  if (ms <= 0) return null;
+  return Math.max(1, Math.ceil(ms / (24 * 60 * 60 * 1000)));
+}

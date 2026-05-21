@@ -60,6 +60,8 @@ debug.log
 
 # Claude Code runtime files
 .claude/scheduled_tasks.lock
+# 머신 로컬 권한·설정 (액세스 토큰 등 시크릿이 섞일 수 있어 추적 제외)
+.claude/settings.local.json
 
 # Play Store raw screenshots (대용량 PNG. final/만 commit)
 store-assets/screenshots/raw/

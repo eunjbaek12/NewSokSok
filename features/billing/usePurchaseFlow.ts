@@ -54,11 +54,22 @@ export function usePurchaseFlow(): PurchaseFlow {
   const [error, setError] = useState<string | null>(null);
 
   const handleSuccess = useCallback(async (purchase: Purchase) => {
+    // [billing-diag] checkpoint logs use console.warn so they survive
+    // babel-plugin-transform-remove-console in production AABs (which only
+    // strips console.log). They never print the token value itself — only
+    // whether it exists. Remove these logs after the listener-loss root
+    // cause is confirmed via real-world repro.
+    const purchaseToken = purchase.purchaseToken ?? '';
+    console.warn(
+      '[billing-diag] onPurchaseSuccess fired',
+      'productId=', purchase.productId,
+      'hasToken=', !!purchaseToken,
+    );
     setStage('verifying');
     try {
-      const purchaseToken = purchase.purchaseToken ?? '';
       if (!purchaseToken) throw new Error('no_token');
 
+      console.warn('[billing-diag] invoking verify-purchase', 'productId=', purchase.productId);
       const { data, error: edgeErr } = await supabase.functions.invoke('verify-purchase', {
         body: {
           purchaseToken,
@@ -66,9 +77,15 @@ export function usePurchaseFlow(): PurchaseFlow {
           platform: Platform.OS,
         },
       });
+      console.warn(
+        '[billing-diag] verify response',
+        'ok=', data?.ok,
+        'edgeErrMsg=', edgeErr?.message ?? null,
+      );
       if (edgeErr || !data?.ok) throw edgeErr ?? new Error('verify_failed');
 
       await finishTransaction({ purchase, isConsumable: false });
+      console.warn('[billing-diag] acknowledged', 'productId=', purchase.productId);
       // Past this point the purchase is verified (server already set tier=pro)
       // and acknowledged, so it's a success regardless of whether the local
       // quota refresh happens to fail — the screen re-fetches on focus anyway.
@@ -80,12 +97,21 @@ export function usePurchaseFlow(): PurchaseFlow {
       }
       setStage('success');
     } catch (e: any) {
+      console.warn('[billing-diag] handleSuccess threw', 'msg=', e?.message ?? String(e));
       setError(e?.message ?? 'verify_failed');
       setStage('failed');
     }
   }, []);
 
   const handleError = useCallback((err: any) => {
+    // [billing-diag] capture the failure path too — useful to tell apart
+    // "callback never fired" (no log at all) from "fired but Play returned
+    // error" (this log present).
+    console.warn(
+      '[billing-diag] onPurchaseError fired',
+      'code=', err?.code ?? null,
+      'msg=', err?.message ?? String(err),
+    );
     setError(err?.message ?? 'purchase_failed');
     setStage('failed');
   }, []);

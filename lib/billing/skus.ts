@@ -1,5 +1,5 @@
 // Play 구독 상품 ID — Play Console에서 동일 ID로 등록 필요.
-// 가격: 월 ₩3,900 / 연 ₩35,900 (14% 할인). 7일 무료 체험은 Play Console offer에서 설정.
+// 가격: 월 ₩3,900 / 연 ₩35,900 (월 환산 시 약 23% 할인). 7일 무료 체험은 Play Console offer에서 설정.
 //
 // EAS Secret으로 오버라이드 가능 (테스트 SKU와 분리 운영).
 

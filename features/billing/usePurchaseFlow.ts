@@ -20,6 +20,11 @@ import { supabase } from '@/lib/supabase/client';
 import { useQuotaStore } from '@/features/quota';
 import { PRO_SKUS, type ProSku } from '@/lib/billing/skus';
 
+// Module-level flag: auto-reconcile runs at most once per app session, not
+// once per plans-screen mount. Re-runs on app restart (which is when we'd
+// pick up new orphaned purchases anyway).
+let autoReconcileAttempted = false;
+
 export type PurchaseStage =
   | 'idle'
   | 'loadingProducts'
@@ -64,7 +69,15 @@ export function usePurchaseFlow(): PurchaseFlow {
       if (edgeErr || !data?.ok) throw edgeErr ?? new Error('verify_failed');
 
       await finishTransaction({ purchase, isConsumable: false });
-      await useQuotaStore.getState().refresh(true);
+      // Past this point the purchase is verified (server already set tier=pro)
+      // and acknowledged, so it's a success regardless of whether the local
+      // quota refresh happens to fail — the screen re-fetches on focus anyway.
+      // Guarding this prevents a "payment OK but failure Alert" mismatch.
+      try {
+        await useQuotaStore.getState().refresh(true);
+      } catch (refreshErr) {
+        console.warn('[billing] post-purchase quota refresh failed:', refreshErr);
+      }
       setStage('success');
     } catch (e: any) {
       setError(e?.message ?? 'verify_failed');
@@ -107,6 +120,59 @@ export function usePurchaseFlow(): PurchaseFlow {
     })();
     return () => { cancelled = true; };
   }, [connected, fetchProducts]);
+
+  // Auto-reconcile orphaned purchases.
+  //
+  // Why: useIAP's onPurchaseSuccess listener only lives while the plans screen
+  // is mounted. If a purchase completes on Play while the listener is gone
+  // (user backgrounded the app, navigated away mid-purchase, network blip
+  // during the callback round-trip), the event is lost. The purchase is left
+  // un-acknowledged on Play's side and Play then blocks any re-purchase /
+  // plan change with "developer has not acknowledged the purchase". Our
+  // backend also never hears about it via verify-purchase.
+  //
+  // Recovery: on every fresh connect (once per session), sweep
+  // getAvailablePurchases and silently verify+acknowledge anything pending.
+  // No UI stage change, no alerts — this is invisible recovery, not the
+  // user-facing buy flow. If a sweep entry fails we just log and move on;
+  // Google auto-refunds un-acknowledged purchases after 3 days as a safety
+  // net.
+  useEffect(() => {
+    if (!connected) return;
+    if (autoReconcileAttempted) return;
+    autoReconcileAttempted = true;
+    let cancelled = false;
+    (async () => {
+      try {
+        const purchases = await getAvailablePurchases();
+        if (cancelled) return;
+        let reconciled = false;
+        for (const p of purchases) {
+          if (cancelled) return;
+          if (!PRO_SKUS.includes(p.productId as ProSku)) continue;
+          const token = p.purchaseToken ?? '';
+          if (!token) continue;
+          try {
+            const { data } = await supabase.functions.invoke('verify-purchase', {
+              body: { purchaseToken: token, productId: p.productId, platform: Platform.OS },
+            });
+            if (data?.ok) {
+              await finishTransaction({ purchase: p, isConsumable: false });
+              reconciled = true;
+            }
+          } catch (e) {
+            console.warn('[billing] auto-reconcile entry failed:', e);
+          }
+        }
+        if (reconciled && !cancelled) {
+          try { await useQuotaStore.getState().refresh(true); } catch {}
+        }
+      } catch (e) {
+        console.warn('[billing] auto-reconcile sweep failed:', e);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [connected, getAvailablePurchases, finishTransaction]);
 
   const priceFor = useCallback((sku: ProSku): string | null => {
     const sub = subscriptions.find((s) => s.id === sku);
@@ -165,7 +231,14 @@ export function usePurchaseFlow(): PurchaseFlow {
         const { data } = await supabase.functions.invoke('verify-purchase', {
           body: { purchaseToken: token, productId: p.productId, platform: Platform.OS },
         });
-        if (data?.ok) restored = true;
+        if (data?.ok) {
+          // Acknowledge the purchase. Without this, an un-acknowledged purchase
+          // lingers and Play blocks any re-purchase / plan change with
+          // "developer has not acknowledged the purchase". The success path
+          // (handleSuccess) finishes the transaction; restore must too.
+          await finishTransaction({ purchase: p, isConsumable: false });
+          restored = true;
+        }
       }
       if (restored) {
         await useQuotaStore.getState().refresh(true);
@@ -177,7 +250,7 @@ export function usePurchaseFlow(): PurchaseFlow {
       setError(e?.message ?? 'restore_failed');
       setStage('failed');
     }
-  }, [getAvailablePurchases]);
+  }, [getAvailablePurchases, finishTransaction]);
 
   const resetStage = useCallback(() => {
     setError(null);

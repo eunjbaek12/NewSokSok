@@ -295,8 +295,8 @@ export default function PlansScreen() {
           );
         })()}
 
-        {/* 복원 */}
-        {isLoggedIn && !isPro && (
+        {/* 복원 — Pro/트라이얼 상태에서도 노출: 미승인 구매 정리·기기 변경 복원 경로 */}
+        {isLoggedIn && (
           <Pressable
             onPress={handleRestore}
             disabled={busy}

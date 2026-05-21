@@ -586,7 +586,7 @@
         "items": [
           {
             "q": "What plans are there?",
-            "a": "• Free — all study and management features. AI daily quota: 100 words. A small banner ad is shown at the bottom of the screen.\n• Pro — ₩3,900/month or ₩35,900/year (~14% off). All ads removed + AI daily quota of 1,000 words.\n\nPro offers a 7-day free trial that won't auto-charge after it ends."
+            "a": "• Free — all study and management features. AI daily quota: 100 words. A small banner ad is shown at the bottom of the screen.\n• Pro — ₩3,900/month or ₩35,900/year (~23% off). All ads removed + AI daily quota of 1,000 words.\n\nPro offers a 7-day free trial that won't auto-charge after it ends."
           },
           {
             "q": "How is the \"word count\" measured?",
@@ -598,7 +598,7 @@
           },
           {
             "q": "How does the Pro free trial work?",
-            "a": "New sign-ups get a Pro trial period — no ads, Pro daily quota — automatically. When the trial ends, your account drops back to Free.\n\nThere's no auto-charge, so a credit card isn't required."
+            "a": "New sign-ups get a 7-day Pro trial — no ads, Pro daily quota — automatically. When the trial ends, your account drops back to Free.\n\nThere's no auto-charge, so a credit card isn't required."
           },
           {
             "q": "How do I subscribe to or cancel Pro?",
@@ -632,6 +632,10 @@
           {
             "q": "Can I remove a list I shared?",
             "a": "You can remove your own shares. Copies others have already imported are unaffected."
+          },
+          {
+            "q": "Where do the built-in word lists come from?",
+            "a": "The built-in official lists (TOEIC, Korean SAT, etc.) are based on CC BY-SA 4.0 open data and AI-generated content. Each list's source is noted in its description, and the full list of open-source libraries and data sources is available under Settings → Open Source & Data Sources."
           }
         ]
       },

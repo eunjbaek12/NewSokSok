@@ -1,46 +1,72 @@
 # v1.1 (광고·인앱구독) 작업 인수인계
 
-작성일: 2026-05-20 (B-4 롤백 — 한국 학습 앱 표준 미수집 패턴 채택)
+작성일: 2026-05-22 (Pro 결제 흐름 견고화 세션)
 
-다음 세션으로 이어갈 인수인계 문서. v1.1 코드·인프라·UI 일관성 완료. **다음 세션은 dev build reload 검증 → Production AAB 빌드**.
+다음 세션으로 이어갈 인수인계 문서. v1.1 코드·인프라·UI 일관성 + Pro 결제 흐름 견고화 + 계정 격리 + UGC 정책 준수 완료. **다음 단계는 supabase db push → Production AAB 빌드 → Play 업로드**.
 
-> **2026-05-20 갱신**: B-4 (온보딩 생년월일 게이트) 롤백. 자가 신고 생년월일 실효성 부재 + 한국 학습 앱 표준 미수집 패턴 채택(클래스카드/산타토익/해커스 등 동일). 운영자 ignorance 보호는 약관·처리방침 명시 + AdMob 태그 중립화(`tagForChildDirectedTreatment` 필드 생략)로 전환. Play Console target audience 14세+ 설정은 운영자 후속 작업.
+> **2026-05-22 갱신**: 12개 커밋 추가 (`a92080d..73744c2`, push 완료). Pro 결제 미승인 구매 자동 복구 + 결제 에러 코드별 세분화 + 트라이얼/Pro UX 구분 + 계정 전환 시 SQLite/sync/settings(닉네임·BYOK 키 포함)/quota 격리 + UGC 신고 경로(Play 정책 준수) + production env-var 빌드 시점 가드 + i18n 누락 키 보강 + CC BY-SA 4.0 attribution 강화. 새 마이그레이션 1개(`20260522000000_curation_reports.sql`) — `supabase db push` 필요. **이전 2026-05-20 갱신은 보존**: B-4 (온보딩 생년월일 게이트) 롤백, AdMob 태그 중립화, Play Console target audience 14세+ 설정은 운영자 후속.
 
 ---
 
 ## 한 줄 현재 상황
 
-**v1.1 코드(기능 + UI 일관성) + 사용자 인프라(A/B/D/E/F) 모두 완료. B-4 게이트는 롤백.** Part B(AdMob)·Part D(Play SA) 활성화 24h 만료(2026-05-20). dev server reload만 하면 새 코드 반영. 남은 건 검증 → Production AAB 빌드 → Play 업로드 → Part C(구독 등록) → 내부 테스트 트랙 제출. **운영자 후속 작업**: Play Console "Target audience" 14세+ 설정.
+**v1.1 코드 전체 + 결제·격리·UGC 보강 완료, push까지 origin/main 반영(73744c2).** Part B/D/E/F 모두 완료, Part C(Play 구독 등록)만 Production AAB 업로드 후 가능. 다음 액션: ① `supabase db push`(curation_reports 마이그) ② `EAS_SKIP_AUTO_FINGERPRINT=1 eas build --profile production --platform android` ③ Play Console 정책 갱신 + 구독 등록 + 내부 테스트 트랙. **운영자 후속 작업**: Play Console "Target audience" 14세+ 설정 + 광고 ID 선언 '사용함'.
 
 ---
 
 ## 다음 세션 즉시 진행할 작업
 
 > **출시 범위 결정**: v1.1은 **한국 first** (Play Console "Countries"에서 한국만 선택). 다국어(ko/en)는 한국 내 외국인 사용자(영어 학습용) 대응으로 유지. 글로벌 확장은 v1.2 별도 작업.
-> **이전 세션 갱신**: B-4 (온보딩 생년월일 게이트) 롤백 완료(`1fb6e17`). 약관·처리방침 명시 + AdMob 태그 중립화로 한국 학습 앱 표준에 맞춤. Play Console 운영자 후속 작업 남음.
 
 ---
 
-### A. 잔여 검증 (dev server reload, 5분)
+### A. DB 마이그레이션 + 빌드 (15~30분)
 
-사용자가 이미 부분 검증 완료:
-- ✅ 설정 화면 "생년월일" row 사라짐
+```powershell
+# 1) UGC 신고용 신규 마이그레이션 반영
+supabase db push
 
-남은 빠른 체크:
-- [ ] **신규 사용자 흐름** — 설정 → 개발자 섹션 → "온보딩 다시 보기" → 앱 재시작 → 4슬라이드 → "시작하기" → **/login 직행 (age-gate 미발화)**
-- [ ] **광고 정상 노출** — Free 모드 탭에서 테스트 배너 보이는지
-- [ ] **약관 화면** — 설정 → 이용약관 → sections[1] 위치에 "이용 대상 연령" 표시
+# 2) Production AAB 빌드 (env-var 빌드 시점 가드 적용됨 — 누락 시 즉시 throw)
+$env:EAS_SKIP_AUTO_FINGERPRINT=1
+eas build --profile production --platform android --non-interactive
+```
 
-이전 세션 검증 완료(여전히 유효):
-- ✅ 배너 가드 (게스트 모드)
-- ✅ 학습 화면 4종 배너 16dp 간격 + UI 일관성
-- ✅ 퀴즈/예문학습 카드↔선택지 가로폭 정렬
+빌드 가드(`app.config.js`)가 production 빌드 시 다음을 검증:
+- `EXPO_PUBLIC_SUPABASE_URL` / `_ANON_KEY` / `_GOOGLE_CLIENT_ID`
+- `EXPO_PUBLIC_ADMOB_ANDROID_APP_ID` / `_BANNER_ID` / `_REWARDED_ID`
 
-검증 미완 (Production AAB 후 가능):
-- ⏳ **Pro 결제 흐름** — Production AAB + Play 구독 상품 등록 후 가능
-- ⏳ **보상형 광고** — Free 한도 100단어 초과 → 자동 모달
-- ⏳ **Pro 한도 모달** — Pro 사용자 1,000단어 초과 시 안내
-- ⏳ **KST 자정 초기화** — 한국 표준시 자정 사용량 리셋
+누락 시 빌드 즉시 실패 + 누락 변수 목록 출력.
+
+### B. 내부 테스트 + Pro 결제 검증 (Production AAB 업로드 후)
+
+새 빌드 설치 후 검증 시나리오:
+
+**결제 흐름** (이번 세션 핵심):
+- [ ] 신규 구매 정상 흐름 → 성공 Alert + `play_purchase_token` DB 반영
+- [ ] 결제 도중 백그라운드/이탈 → 다음 앱 실행 시 자동 복구 (logcat `[billing]`)
+- [ ] 라이선스 테스터 "이미 구독중" 케이스 → AlreadyOwned 에러 매핑 → Alert에 "이전 구매 복원" 버튼 노출
+- [ ] 사용자 취소 → silent (Alert 없음)
+- [ ] verify-purchase 누락 시 logcat `[billing-diag]` 체크포인트 패턴 확인:
+  - 첫 로그 부재 → listener 유실 (plans.tsx unmount 가설)
+  - `hasToken=false` → expo-iap token 누락
+  - 응답 단계 실패 → 네트워크/Edge 응답 문제
+
+**계정 격리**:
+- [ ] A 로그인 → 단어 추가/닉네임 변경 → 로그아웃 → B 로그인 → A 흔적 없음
+- [ ] A에서 BYOK Gemini 키 등록 → 로그아웃 → B 로그인 → 키 없음 확인 (고급 설정)
+- [ ] 계정 삭제 → 모든 로컬 데이터 wipe + SecureStore 키 삭제
+
+**UGC 신고**:
+- [ ] 다른 계정 공유 큐레이션 상세 → 우측 상단 깃발 아이콘 → 사유 선택 → 신고
+- [ ] Supabase Dashboard `curation_reports` 행 생성 확인
+- [ ] 같은 큐레이션 재신고 → "이미 신고하셨어요" Alert
+
+**기존 검증** (변경 없음, 빌드 후 재확인):
+- [ ] 보상형 광고 (Free 한도 초과 → 자동 모달)
+- [ ] Pro 한도 모달 (1,000단어 초과)
+- [ ] KST 자정 초기화
+- [ ] 배너 가드 (Pro/트라이얼은 배너 안 보임)
+- [ ] 트라이얼 vs Pro 시각적 구분 (plans 카드 "체험 D-N" 표시)
 
 ---
 
@@ -180,7 +206,19 @@ v1.2 (이후): Pro Lite 추가 검토
 | `0a40eea` | **인프라 Part B/D/E/F 완료 반영** — EAS Secret + Supabase 마이그레이션·Secret·Edge Function deploy + pnpm-lock 보정 |
 | `0cfde98` | **학습 화면 UI 일관성** — 헤더 통일(progressContainer 8dp, minWidth 70) + 카드 크기 통일(400) + 퀴즈/예문 카드↔선택지 간격 + 자동재생 페이드 제거 + 큐레이션 상세 배너 가림 해소 |
 | `f6c1f93` | 퀴즈/예문학습 카드↔선택지 가로폭 정렬 (`choicesArea.paddingHorizontal` 20 → 24) |
-| **다음 커밋** | **B-4 — 온보딩 생년월일 게이트(정공법) + AdMob child-directed 태그 전파** — 14세 미만 자가 신고 토글을 neutral age screen으로 교체. Google Play Families Policy + KISA 가이드라인 동시 충족 |
+| `1fb6e17` | B-4 롤백 — 온보딩 생년월일 게이트 제거, AdMob 태그 중립화. 한국 학습 앱 표준 미수집 패턴 채택 |
+| `a92080d` | 계정 전환 시 이전 계정 로컬 SQLite 데이터 격리 (logout flush + clearAllData + 계정-id 가드) |
+| `fa6fda1` | Pro 결제: 미승인 구매 자동 복구 + restore acknowledge + handleSuccess 후처리 견고화 + 복원 버튼 상시 노출 |
+| `2b7c0cc` | 계정 격리 — 닉네임(profileSettings) + customStudySettings (stale list ID 참조) |
+| `216d4f3` | 계정 격리 — BYOK Gemini 키(SecureStore) 포함 |
+| `0436334` | verify-purchase 누락 진단용 `[billing-diag]` console.warn 체크포인트 4개 (콜백 유실 vs token 누락 vs 응답 실패 식별) |
+| `704ae6f` | 7일 무료 체험 vs 유료 Pro 시각적 구분 — plans 배지·active note·settings tier chip 모두 "체험 D-N" 분기 (getProMode·getTrialDaysLeft helpers) |
+| `c9c9c02` | 라이선스 페이지 CC BY-SA 4.0 attribution 완성 (라이선스 URL + 변경 사항 + ShareAlike) + 퍼블릭 도메인 고전 문학 섹션 신규 |
+| `b575416` | Pro 결제 에러 코드별 세분화 (expo-iap ErrorCode 13종 + 내부 throw 6종 매핑) — silent/suggestRestore 플래그로 UserCancelled silence + AlreadyOwned 복원 버튼 자동 노출 |
+| `dbee6f4` | Production env-var 빌드 시점 가드 (`app.config.js`) — 누락 시 EAS 빌드 즉시 실패. 런타임 console.warn 2차 방어선 |
+| `c879a93` | i18n 누락 호출 키 2개 보강 (`common.done`, `addWord.voiceNotSupported`) + 점검 스크립트 `scripts/i18n-check.mjs` |
+| `3d78362` | UGC 신고 경로 — Play 정책 준수. `curation_reports` 테이블 + RLS + 신고 모달 + T&C 섹션 |
+| `73744c2` | deleteAccount + logout + 계정전환 격리에 누락된 store/SecureStore 정리 보강 (BYOK SecureStore + Zustand 메모리 reset) |
 
 ### #4 작업 상세 (`a530683`)
 
@@ -531,19 +569,31 @@ EAS dev build로 다음 시나리오 검증:
 - ~~학습 화면 배너 16dp 간격~~ ✅ `f501900` `useAdsBottomInset` 훅으로 4개 화면 모두 정밀 보정
 
 ### Pro 결제 UX
-- ~~Pro 사용자 1,000단어 한도 초과 안내 부재~~ ✅ `f501900` ProLimitReachedModal 추가. `notifyQuotaExceeded`가 tier별 분기.
-- Pro 구독 활성 상태에서 plans.tsx의 구매 버튼은 숨김 처리됨 (코드 확인됨)
+- ~~Pro 사용자 1,000단어 한도 초과 안내 부재~~ ✅ `f501900` ProLimitReachedModal 추가
+- ~~결제 실패 시 일반화된 메시지로 자가 진단 불가~~ ✅ `b575416` ErrorCode 13종 + 내부 throw 6종 매핑
+- ~~미승인 구매로 인한 재구매 차단 ("개발자가 구매를 확인하지 않았습니다")~~ ✅ `fa6fda1` 자동 복구 + restore acknowledge
+- ~~트라이얼 vs 유료 Pro 시각적 동일~~ ✅ `704ae6f` "체험 D-N" 분기
+
+### [billing-diag] follow-up (다음 빌드 검증 후)
+- `0436334`로 추가한 `[billing-diag]` console.warn 4개는 verify-purchase 누락 시나리오 식별용 임시 로그
+- 다음 결제 테스트에서 logcat 패턴으로 원인 확정:
+  - 로그 0건 → listener 유실 (plans.tsx unmount)
+  - `hasToken=false` → expo-iap token 누락
+  - 응답 단계 실패 → 네트워크/Edge 응답
+- 원인 확정 후 제거 또는 필요 라인만 유지로 정리
 
 ### EAS 빌드
 - `EAS_SKIP_AUTO_FINGERPRINT=1` 환경변수 다음 빌드에도 필요 (brace-expansion 이슈, 출시 후 해결)
 - versionCode 자동 증분 (3 → 4 → ...)
 - GOOGLE_SERVICES_JSON EAS Secret으로 주입됨
 - AdMob plugin이 추가됐으므로 dev build 캐시 무효화 필수
+- **신규: env-var 빌드 시점 가드** (`app.config.js`, `dbee6f4`) — production 빌드 시 6개 필수 변수 누락 즉시 throw. EAS_BUILD_PROFILE=production 환경에서만 적용. 로컬·dev 빌드 영향 없음.
 
 ### Supabase 마이그레이션
-- 마이그레이션 2개를 순서대로 적용:
+- 마이그레이션 3개를 순서대로 적용:
   1. `20260518000000_ai_quota.sql` (user_subscriptions, ai_usage_daily, RPC들)
   2. `20260519000000_quota_status_client_grant.sql` (클라이언트 RPC grant 보강)
+  3. **`20260522000000_curation_reports.sql` (이번 세션 신규)** — UGC 신고 테이블 + RLS 3개(insert_own, select_own, admin_all) + UNIQUE(theme_id, reporter_id) 중복 차단. `supabase db push`로 빌드 전 반드시 적용 — 안 하면 신고 기능 작동 X.
 - 마이그레이션 미적용 상태에서 클라이언트가 RPC 호출하면 권한 에러
 
 ### CLAUDE.md "No backend server" 정책
@@ -624,6 +674,30 @@ supabase secrets set PLAY_SA_PRIVATE_KEY="$(cat play-key.json | jq -r .private_k
 # Edge Function 배포
 supabase functions deploy enrich-word
 supabase functions deploy verify-purchase
+```
+
+### UGC 신고 운영자 검토 (Supabase Dashboard SQL Editor)
+
+전용 admin UI는 v1.x 후속 — 당분간 Dashboard에서 직접 검토:
+
+```sql
+-- 미처리 신고 (오래된 순)
+select cr.id, cr.reason, cr.detail, cr.created_at, ct.title, ct.creator_name
+from curation_reports cr
+join curated_themes ct on ct.id = cr.theme_id
+where cr.status = 'pending'
+order by cr.created_at;
+
+-- 신고 누적순 (악성 콘텐츠 우선 파악)
+select theme_id, count(*) as reports
+from curation_reports where status = 'pending'
+group by theme_id order by reports desc;
+
+-- 위반 확인 → 큐레이션 삭제 (curated_words·reports 모두 cascade)
+delete from curated_themes where id = '<theme_id>';
+
+-- 무혐의 → 신고 닫기
+update curation_reports set status = 'dismissed' where id = '<report_id>';
 ```
 
 ---

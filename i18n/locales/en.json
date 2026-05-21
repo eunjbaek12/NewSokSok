@@ -212,7 +212,27 @@
     "aiLanguagePairLabel": "Language pair",
     "aiDifficultyLabel": "Difficulty",
     "aiWordCount": "Word Count",
-    "aiWordUnit": ""
+    "aiWordUnit": "",
+    "report": {
+      "title": "Report Collection",
+      "targetPrefix": "Target: ",
+      "reasonLabel": "Reason",
+      "reason": {
+        "inappropriate": "Inappropriate content (hate, harassment, adult)",
+        "copyright": "Copyright infringement",
+        "spam": "Spam or advertising",
+        "misinformation": "Misinformation",
+        "other": "Other"
+      },
+      "detailLabel": "Additional details (optional)",
+      "detailPlaceholder": "Tell us what specifically is wrong so we can review faster.",
+      "submit": "Report",
+      "successTitle": "Report submitted",
+      "successMessage": "We'll review and take action. Thanks for helping.",
+      "alreadyTitle": "Already reported",
+      "alreadyMessage": "You've already reported this collection.",
+      "failedMessage": "Couldn't submit your report. Please try again later."
+    }
   },
   "settings": {
     "title": "Settings",
@@ -413,7 +433,11 @@
       },
       {
         "title": "User Content & Copyright",
-        "body": "You are solely responsible for the copyright of any content (words, meanings, example sentences, etc.) that you create or share in the App.\n\nDo not share content that infringes on others' copyrights. Sharing content from copyrighted sources (dictionaries, textbooks, etc.) without permission is prohibited."
+        "body": "You are solely responsible for the copyright of any content (words, meanings, example sentences, etc.) that you create or share in the App.\n\nDo not share content that infringes on others' copyrights. Sharing content from copyrighted sources (dictionaries, textbooks, etc.) without permission is prohibited.\n\nProhibited content: adult/violent/hateful material, harassment of others, advertising/spam, clearly false information, personal data."
+      },
+      {
+        "title": "Community Reporting & Moderation",
+        "body": "If you find objectionable content in a shared word list, you can report it using the flag button at the top of the list detail screen. Choose a reason: inappropriate content, copyright infringement, spam, misinformation, or other.\n\nReports are reviewed by the operator. Confirmed violations result in the offending list being unpublished or deleted, and repeat-violator accounts may have their sharing privileges restricted. We may not respond to individual reports.\n\nRepeated false reports may lead to reporting privileges being limited."
       },
       {
         "title": "Official Curated Lists",

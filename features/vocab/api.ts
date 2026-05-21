@@ -62,6 +62,49 @@ export async function deleteCloudCuration(curationId: string): Promise<void> {
   if (error) throw error;
 }
 
+export type CurationReportReason =
+  | 'inappropriate' | 'copyright' | 'spam' | 'misinformation' | 'other';
+
+export class AlreadyReportedError extends Error {
+  constructor() {
+    super('ALREADY_REPORTED');
+    this.name = 'AlreadyReportedError';
+  }
+}
+
+/**
+ * Submit a moderation report on a community-shared curation.
+ *
+ * Required by Google Play's UGC policy: apps that surface user-generated
+ * content must let users flag objectionable items in-app. The DB-side unique
+ * (theme_id, reporter_id) constraint enforces one report per user/theme;
+ * Postgres returns SQLSTATE 23505 which we surface as AlreadyReportedError
+ * so the UI can show a "이미 신고하셨어요" message instead of a generic error.
+ *
+ * Operator review happens in Supabase Dashboard against `curation_reports`
+ * (admin RLS policy allows full access for `app_admins` members) until a
+ * dedicated admin UI ships.
+ */
+export async function reportCuration(
+  themeId: string,
+  reason: CurationReportReason,
+  detail?: string,
+): Promise<void> {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error('NOT_AUTHENTICATED');
+
+  const { error } = await supabase.from('curation_reports').insert({
+    theme_id: themeId,
+    reporter_id: user.id,
+    reason,
+    detail: detail?.trim() ? detail.trim().slice(0, 500) : null,
+  });
+  if (error) {
+    if (error.code === '23505') throw new AlreadyReportedError();
+    throw error;
+  }
+}
+
 export interface ShareCurationOptions {
   creatorName: string;
   description?: string;

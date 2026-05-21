@@ -25,6 +25,7 @@ import { VocaList, Word } from '@/lib/types';
 import { AIWordResultSchema, AI_GENERATED_TAG, type AiDifficulty } from '@shared/contracts';
 import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
 import { curationPresets } from '@/constants/curationData';
+import ReportCurationModal from './ReportCurationModal';
 
 // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
@@ -488,6 +489,16 @@ export default function CurationScreen() {
         return theme.creatorId === user.id || user.isAdmin;
     }, [user]);
 
+    // 신고는 로그인 사용자가 자신의 큐레이션이 아닌 경우 노출. admin은 신고 대신
+    // 삭제가 정답이라 신고 버튼은 안 보임 (canDeleteCuration이 admin도 포함).
+    const canReportCuration = useCallback((theme: VocaList): boolean => {
+        if (!user) return false;
+        if (canDeleteCuration(theme)) return false;
+        return true;
+    }, [user, canDeleteCuration]);
+
+    const [reportModalTheme, setReportModalTheme] = useState<VocaList | null>(null);
+
     const handleDeleteCuration = useCallback((theme: VocaList) => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         Alert.alert(
@@ -721,6 +732,15 @@ export default function CurationScreen() {
                                     hitSlop={8}
                                 >
                                     <Ionicons name="trash-outline" size={20} color={colors.error} />
+                                </Pressable>
+                            )}
+                            {activeTab === 'community' && canReportCuration(selectedTheme) && (
+                                <Pressable
+                                    onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); setReportModalTheme(selectedTheme); }}
+                                    style={[styles.backBtn, { backgroundColor: 'rgba(255,255,255,0.7)', left: undefined, right: 20 }]}
+                                    hitSlop={8}
+                                >
+                                    <Ionicons name="flag-outline" size={20} color={colors.text} />
                                 </Pressable>
                             )}
                             <View style={styles.heroContent}>
@@ -1326,6 +1346,16 @@ export default function CurationScreen() {
 
             {/* 상세 화면 진입 시엔 배너 숨김 — masterBar(단어장 추가) 가림 방지 */}
             {!selectedTheme && <AppBannerAd mode="tab-anchor" />}
+
+            {/* UGC 신고 모달 — Play 정책 준수 (features/curation/ReportCurationModal.tsx). */}
+            {reportModalTheme && (
+                <ReportCurationModal
+                    visible={!!reportModalTheme}
+                    onClose={() => setReportModalTheme(null)}
+                    themeId={reportModalTheme.id}
+                    themeTitle={reportModalTheme.title}
+                />
+            )}
         </KeyboardAvoidingView>
     );
 }

@@ -286,7 +286,11 @@
     "sections": [
       {
         "title": "공식 큐레이션 단어장",
-        "body": "다음 단어장은 Browne, Culligan, Phillips의 학술 어휘 목록을 기반으로 합니다. 모두 CC BY-SA 4.0 라이선스로 자유 이용 가능하며, 본 앱은 동일 라이선스 조건을 준수합니다.\n\n• 기초 영어 필수 1000 — NGSL (New General Service List)\n• 실무 비즈니스 영어 1000 — BSL (Business Service List)\n• 수능·TOEFL·IELTS 학술 어휘 — NAWL (New Academic Word List)\n• TOEIC 핵심 어휘 600 — TSL (TOEIC Service List)\n\n출처: www.newgeneralservicelist.com\n\n각 단어장의 뜻·예문은 Google Gemini로 자동 생성된 AI 콘텐츠입니다."
+        "body": "다음 단어장은 Browne, Culligan, Phillips의 학술 어휘 목록을 기반으로 합니다. 모두 CC BY-SA 4.0 라이선스로 자유 이용 가능합니다.\n\n• 기초 영어 필수 1000 — NGSL (New General Service List)\n• 실무 비즈니스 영어 1000 — BSL (Business Service List)\n• 수능·TOEFL·IELTS 학술 어휘 — NAWL (New Academic Word List)\n• TOEIC 핵심 어휘 600 — TSL (TOEIC Service List)\n\n출처: www.newgeneralservicelist.com\n라이선스 전문: https://creativecommons.org/licenses/by-sa/4.0/\n\n변경 사항: 원본 어휘 목록에 한국어 뜻과 한·영 예문(Google Gemini로 자동 생성)을 추가하여 학습용으로 재구성했습니다.\n\nShareAlike: 본 단어장을 복제·재배포하거나 파생물을 만들 경우 동일한 CC BY-SA 4.0 라이선스를 적용해야 합니다."
+      },
+      {
+        "title": "고전 문학 단어장 (퍼블릭 도메인)",
+        "body": "다음 단어장은 저작권이 만료된 공공 영역(퍼블릭 도메인) 작품에서 영감을 받은 어휘 모음입니다. 원작 텍스트를 직접 복제하지 않으며 뜻과 예문은 AI로 자동 생성되었습니다.\n\n• Lewis Carroll, 『이상한 나라의 앨리스』 (1865)\n• Arthur Conan Doyle, 『셜록 홈즈』 시리즈\n• F. Scott Fitzgerald, 『위대한 개츠비』 (1925; 미국 2021년·한국 2011년 퍼블릭 도메인 진입)"
       },
       {
         "title": "AI 기능 (자동완성·단어 생성·사진 스캔)",

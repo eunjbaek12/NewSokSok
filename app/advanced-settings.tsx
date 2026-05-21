@@ -121,6 +121,7 @@ export default function AdvancedSettingsScreen() {
         onClose={() => setApiKeyModalOpen(false)}
         title={t('settings.geminiApiKeyTitle')}
         scrollable={false}
+        avoidKeyboard
         footer={
           <View style={styles.modalActions}>
             <Pressable
@@ -142,8 +143,12 @@ export default function AdvancedSettingsScreen() {
           <Text style={[styles.modalDesc, { color: colors.textSecondary }]}>
             {t('settings.geminiApiKeyDesc')}
           </Text>
-          <Pressable onPress={() => Linking.openURL('https://aistudio.google.com/apikey')}>
-            <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_500Medium', marginBottom: 4 }}>
+          <Pressable
+            onPress={() => Linking.openURL('https://aistudio.google.com/apikey')}
+            hitSlop={8}
+            style={{ alignSelf: 'flex-start' }}
+          >
+            <Text style={{ color: colors.primary, fontSize: 13, fontFamily: 'Pretendard_500Medium' }}>
               {t('settings.geminiApiKeyLink')} →
             </Text>
           </Pressable>
@@ -166,8 +171,12 @@ export default function AdvancedSettingsScreen() {
             </Pressable>
           </View>
           {apiKey ? (
-            <Pressable onPress={() => { setApiKeyInput(''); updateApiKey(''); setApiKeyModalOpen(false); }}>
-              <Text style={{ color: colors.error, fontSize: 13, fontFamily: 'Pretendard_400Regular', marginTop: 4 }}>
+            <Pressable
+              onPress={() => { setApiKeyInput(''); updateApiKey(''); setApiKeyModalOpen(false); }}
+              hitSlop={8}
+              style={{ alignSelf: 'flex-start', marginTop: 4 }}
+            >
+              <Text style={{ color: colors.error, fontSize: 13, fontFamily: 'Pretendard_500Medium' }}>
                 {t('settings.geminiApiKeyRemove')}
               </Text>
             </Pressable>
@@ -239,11 +248,12 @@ const styles = StyleSheet.create({
   modalActions: { flexDirection: 'row', gap: 8 },
   modalBtn: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   modalBtnText: { fontFamily: 'Pretendard_600SemiBold' },
-  modalBody: { gap: 8 },
-  modalDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 19 },
+  modalBody: { paddingHorizontal: 24, gap: 10, paddingBottom: 8 },
+  modalDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 19, marginBottom: 2 },
   apiKeyInputRow: {
     flexDirection: 'row', alignItems: 'center', gap: 4,
-    borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 4,
+    borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 2,
+    marginTop: 2,
   },
-  apiKeyInput: { flex: 1, fontSize: 14, fontFamily: 'Pretendard_400Regular', paddingVertical: 8 },
+  apiKeyInput: { flex: 1, fontSize: 14, fontFamily: 'Pretendard_400Regular', paddingVertical: 10 },
 });

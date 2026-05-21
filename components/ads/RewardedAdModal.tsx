@@ -11,6 +11,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View, ActivityIndicator, Platform } from 'react-native';
+import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { RewardedAd, RewardedAdEventType, AdEventType } from 'react-native-google-mobile-ads';
@@ -164,6 +165,20 @@ export function RewardedAdModal({ visible, onClose, onGranted }: Props) {
                     {t('ads.rewardedCta')}
                   </Text>
                 )}
+              </Pressable>
+            )}
+
+            {grantedAmount === null && exhausted && (
+              <Pressable
+                onPress={() => {
+                  onClose();
+                  router.push('/plans' as any);
+                }}
+                style={[styles.btn, styles.btnPrimary, { backgroundColor: colors.primaryButton }]}
+              >
+                <Text style={[styles.btnText, { color: colors.onPrimary }]}>
+                  {t('ads.rewardedExhaustedProCta')}
+                </Text>
               </Pressable>
             )}
           </View>

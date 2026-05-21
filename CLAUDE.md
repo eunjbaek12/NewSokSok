@@ -101,7 +101,7 @@ Migrations are manually versioned in `lib/db/`. When modifying the local schema,
 |---|---|---|---|---|
 | Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300) | Operator (Vertex AI) |
 | BYOK | 0 | Banner only | Unlimited (own key) | User's Gemini |
-| Pro | ₩3,900/month or ₩35,900/year (14% off) | None | 1,000 단어 | Operator (Vertex AI) |
+| Pro | ₩3,900/month or ₩35,900/year (~23% off vs 12× monthly) | None | 1,000 단어 | Operator (Vertex AI) |
 | Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
 
 **Word-count weighting** (for quota):

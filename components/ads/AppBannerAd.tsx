@@ -12,6 +12,7 @@ import React, { useMemo } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useQuota } from '@/features/quota';
 import { useAuth } from '@/features/auth';
 import { AD_UNIT_BANNER, isAdsAllowed } from '@/lib/ads/admob';
@@ -55,6 +56,20 @@ export function useAdsAllowed(): boolean {
 export function useAdsBottomInset(): number {
   const allowed = useAdsAllowed();
   return allowed ? BANNER_SLOT_HEIGHT + 16 : 0;
+}
+
+/**
+ * 탭 화면의 ScrollView/FlatList contentContainerStyle.paddingBottom 계산용 훅.
+ * 탭바 높이 + 배너 영역(광고 ON일 때만) + 여백(extra)을 합산해 반환.
+ * 광고 유무에 따라 자동 조정되므로 호출 측에서 광고 분기 불필요.
+ *
+ * 사용 예: <ScrollView contentContainerStyle={{ paddingBottom: useTabContentBottomInset() }}>
+ */
+export function useTabContentBottomInset(extra: number = 16): number {
+  const tabBarHeight = useBottomTabBarHeight();
+  const adsInset = useAdsBottomInset();
+  if (Platform.OS === 'web') return 154;
+  return tabBarHeight + adsInset + extra;
 }
 
 export function AppBannerAd({ mode = 'inline' }: Props) {

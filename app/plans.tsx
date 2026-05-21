@@ -25,7 +25,7 @@ export default function PlansScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
   const { colors } = useTheme();
-  const { authMode } = useAuth();
+  const { authMode, signInWithGoogle } = useAuth();
   const { apiKey } = useSettings();
   const { status, refresh } = useQuota();
   const flow = usePurchaseFlow();
@@ -33,6 +33,8 @@ export default function PlansScreen() {
   const isLoggedIn = authMode === 'google';
   const isByok = !!apiKey;
   const isPro = status?.tier === 'pro';
+  // 체험을 한 번도 받지 않은 신규 후보(로그인 + 비Pro + trial_ends_at 부재)에게만 7일 체험 배너 노출
+  const showTrialBanner = isLoggedIn && !isPro && (status?.trial_ends_at == null);
 
   useEffect(() => {
     if (isLoggedIn) refresh();
@@ -67,25 +69,32 @@ export default function PlansScreen() {
     flow.restore();
   };
 
-  const handleByokShortcut = () => {
+  const handleGuestSignIn = async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    router.push('/advanced-settings?openApiKey=1' as any);
+    try {
+      await signInWithGoogle();
+    } catch {
+      // 로그인 실패는 SDK 측 alert에 의존
+    }
+  };
+
+  const handleOpenTerms = () => {
+    Haptics.selectionAsync();
+    router.push('/terms' as any);
   };
 
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
   const busy = flow.stage === 'purchasing' || flow.stage === 'verifying';
 
-  const currentBadge = (() => {
-    if (!isLoggedIn) return t('plans.tierGuest');
-    if (isPro) {
-      const onTrial = status?.pro_until == null && status?.trial_ends_at != null;
-      return onTrial ? t('plans.tierTrial') : t('plans.tierPro');
-    }
-    return t('plans.tierFree');
-  })();
-
   const monthlyPrice = flow.priceFor(SKU_PRO_MONTHLY) ?? t('plans.proPrice');
   const yearlyPrice = flow.priceFor(SKU_PRO_YEARLY) ?? t('plans.proSubPrice');
+
+  // 진행률 (Free/Pro 사용자만 의미 있음 — BYOK/게스트는 별도 표시)
+  const used = status?.used ?? 0;
+  const limit = status?.limit ?? 100;
+  const totalCap = limit + (status?.bonus ?? 0);
+  const progressRatio = totalCap > 0 ? Math.min(1, used / totalCap) : 0;
+  const progressColor = progressRatio >= 0.9 ? colors.error : progressRatio >= 0.7 ? colors.warning : colors.primary;
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -101,53 +110,111 @@ export default function PlansScreen() {
         contentContainerStyle={[styles.scrollContent, { paddingBottom: insets.bottom + 32 }]}
         showsVerticalScrollIndicator={false}
       >
-        {/* 현재 상태 카드 */}
-        <View style={[styles.currentCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-          <View style={[styles.badge, { backgroundColor: colors.primaryLight }]}>
-            <Text style={[styles.badgeText, { color: colors.primary }]}>{currentBadge}</Text>
-          </View>
-          <Text style={[styles.currentTitle, { color: colors.text }]}>
-            {isLoggedIn
-              ? t('plans.currentLoggedIn', { used: status?.used ?? 0, limit: status?.limit ?? 100 })
-              : t('plans.currentGuest')}
-          </Text>
-          {isByok && (
-            <Text style={[styles.currentDesc, { color: colors.textSecondary }]}>
-              {t('plans.byokActive')}
+        {/* 사용량 카드 — tier 식별은 계정 행/플랜 카드 배지가 담당. 여기선 사용량·CTA만 */}
+        {!isLoggedIn ? (
+          // 게스트: /plans 유일 로그인 동선이라 CTA 유지
+          <View style={[styles.currentCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+            <Text style={[styles.currentTitle, { color: colors.text }]}>
+              {t('plans.currentGuestTitle')}
             </Text>
+            <Text style={[styles.currentDesc, { color: colors.textSecondary }]}>
+              {t('plans.currentGuestDesc')}
+            </Text>
+            <Pressable
+              onPress={handleGuestSignIn}
+              style={[styles.guestCta, { backgroundColor: colors.primaryButton }]}
+            >
+              <Ionicons name="logo-google" size={16} color={colors.onPrimary} />
+              <Text style={[styles.guestCtaText, { color: colors.onPrimary }]}>
+                {t('plans.currentGuestCta')}
+              </Text>
+            </Pressable>
+          </View>
+        ) : isByok ? (
+          // BYOK: 사용량 없음 → 한 줄 안내만
+          <View style={[styles.currentCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+            <Text style={[styles.currentDesc, { color: colors.textSecondary }]}>
+              {t('plans.currentByokDesc')}
+            </Text>
+          </View>
+        ) : (
+          // Free/Pro: 사용량 미터 (한도 초과 진입 경로에서 중요)
+          <View style={[styles.currentCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+            <Text style={[styles.usageLabel, { color: colors.textTertiary }]}>
+              {t('plans.currentUsageLabel')}
+            </Text>
+            <Text style={[styles.usageValue, { color: colors.text }]}>
+              {t('plans.currentUsageValue', { used, limit: isPro ? limit : totalCap })}
+            </Text>
+            <View style={[styles.progressTrack, { backgroundColor: colors.borderLight }]}>
+              <View style={[styles.progressFill, { width: `${progressRatio * 100}%`, backgroundColor: progressColor }]} />
+            </View>
+            <Text style={[styles.usageNote, { color: colors.textTertiary }]}>
+              {t('plans.currentResetNote')}
+            </Text>
+          </View>
+        )}
+
+        {/* 7일 무료 체험 배너 — 신규 사용자 한정 */}
+        {showTrialBanner && (
+          <View style={[styles.trialBanner, { backgroundColor: colors.primaryLight, borderColor: colors.primary }]}>
+            <View style={[styles.trialIcon, { backgroundColor: colors.surface }]}>
+              <Ionicons name="gift" size={18} color={colors.primary} />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={[styles.trialTitle, { color: colors.primary }]}>
+                {t('plans.trialBannerTitle')}
+              </Text>
+              <Text style={[styles.trialBody, { color: colors.text }]}>
+                {t('plans.trialBannerBody')}
+              </Text>
+              <Text style={[styles.trialNote, { color: colors.textSecondary }]}>
+                {t('plans.trialBannerNote')}
+              </Text>
+            </View>
+          </View>
+        )}
+
+        {/* Pro 카드 — 최상단, 추천 배지 */}
+        <View style={[styles.planCard, styles.planCardPro, { backgroundColor: colors.surface, borderColor: colors.primary }]}>
+          {isPro ? (
+            <View style={[styles.recommendedBadge, { backgroundColor: colors.primary }]}>
+              <Ionicons name="checkmark-circle" size={11} color={colors.onPrimary} />
+              <Text style={[styles.recommendedBadgeText, { color: colors.onPrimary }]}>
+                {t('plans.planCardCurrent')}
+              </Text>
+            </View>
+          ) : (
+            <View style={[styles.recommendedBadge, { backgroundColor: colors.primary }]}>
+              <Ionicons name="star" size={11} color={colors.onPrimary} />
+              <Text style={[styles.recommendedBadgeText, { color: colors.onPrimary }]}>
+                {t('plans.recommendedBadge')}
+              </Text>
+            </View>
           )}
-        </View>
 
-        {/* Free 카드 */}
-        <View style={[styles.planCard, { backgroundColor: colors.surface, borderColor: colors.borderLight, borderWidth: 1 }]}>
-          <Text style={[styles.planTitle, { color: colors.text }]}>{t('plans.freeTitle')}</Text>
-          <View style={styles.priceRow}>
-            <Text style={[styles.planPrice, { color: colors.text }]}>{t('plans.freePrice')}</Text>
-          </View>
-          <View style={styles.featureList}>
-            {[t('plans.freeFeat1'), t('plans.freeFeat2'), t('plans.freeFeat3')].map((f, i) => (
-              <View key={i} style={styles.featureRow}>
-                <Ionicons name="checkmark-circle" size={16} color={colors.textSecondary} />
-                <Text style={[styles.featureText, { color: colors.textSecondary }]}>{f}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
-
-        {/* Pro 카드 */}
-        <View style={[styles.planCard, { backgroundColor: colors.primaryLight, borderColor: colors.primary, borderWidth: 1.5 }]}>
           <Text style={[styles.planTitle, { color: colors.primary }]}>{t('plans.proTitle')}</Text>
+
+          <View style={styles.priceBlock}>
+            <Text style={[styles.planPrice, { color: colors.text }]}>{t('plans.proPrice')}</Text>
+            <Text style={[styles.priceOr, { color: colors.textTertiary }]}>또는</Text>
+            <Text style={[styles.planSubPrice, { color: colors.text }]}>{t('plans.proSubPrice')}</Text>
+            <Text style={[styles.priceSaveBadge, { color: colors.primary, backgroundColor: colors.primaryLight }]}>
+              {t('plans.proMonthlyEquivalent')}
+            </Text>
+          </View>
+
           <View style={styles.featureList}>
-            {[t('plans.proFeat1'), t('plans.proFeat2'), t('plans.proFeat3'), t('plans.proFeat4')].map((f, i) => (
+            {[t('plans.proFeat1'), t('plans.proFeat2'), t('plans.proFeat3')].map((f, i) => (
               <View key={i} style={styles.featureRow}>
                 <Ionicons name="checkmark-circle" size={16} color={colors.primary} />
-                <Text style={[styles.featureText, { color: colors.textSecondary }]}>{f}</Text>
+                <Text style={[styles.featureText, { color: colors.text }]}>{f}</Text>
               </View>
             ))}
           </View>
 
           {isPro ? (
-            <View style={[styles.proActiveBadge, { backgroundColor: colors.surface }]}>
+            <View style={[styles.proActiveBadge, { backgroundColor: colors.primaryLight }]}>
               <Ionicons name="checkmark-circle" size={16} color={colors.primary} />
               <Text style={[styles.proActiveText, { color: colors.primary }]}>
                 {t('plans.proActiveNote')}
@@ -193,6 +260,41 @@ export default function PlansScreen() {
           )}
         </View>
 
+        {/* Free 카드 — Pro 아래. 로그인 + 비Pro면 "현재 사용 중" */}
+        {(() => {
+          const isCurrentFree = isLoggedIn && !isPro;
+          return (
+        <View style={[styles.planCard, { backgroundColor: colors.surface, borderColor: isCurrentFree ? colors.primary : colors.borderLight }]}>
+          {isCurrentFree && (
+            <View style={[styles.recommendedBadge, { backgroundColor: colors.primary }]}>
+              <Ionicons name="checkmark-circle" size={11} color={colors.onPrimary} />
+              <Text style={[styles.recommendedBadgeText, { color: colors.onPrimary }]}>
+                {t('plans.planCardCurrent')}
+              </Text>
+            </View>
+          )}
+          <Text style={[styles.planTitle, { color: colors.text }]}>{t('plans.freeTitle')}</Text>
+          <Text style={[styles.planPrice, { color: colors.text }]}>{t('plans.freePrice')}</Text>
+
+          <View style={styles.featureList}>
+            {[t('plans.freeFeat1'), t('plans.freeFeat2'), t('plans.freeFeat3')].map((f, i) => (
+              <View key={i} style={styles.featureRow}>
+                <Ionicons name="checkmark-circle" size={16} color={colors.textSecondary} />
+                <Text style={[styles.featureText, { color: colors.textSecondary }]}>{f}</Text>
+              </View>
+            ))}
+          </View>
+
+          <View style={[styles.freeAdNote, { backgroundColor: colors.surfaceSecondary }]}>
+            <Ionicons name="information-circle-outline" size={14} color={colors.textTertiary} />
+            <Text style={[styles.freeAdNoteText, { color: colors.textTertiary }]}>
+              {t('plans.freeIncludesAd')}
+            </Text>
+          </View>
+        </View>
+          );
+        })()}
+
         {/* 복원 */}
         {isLoggedIn && !isPro && (
           <Pressable
@@ -205,23 +307,27 @@ export default function PlansScreen() {
           </Pressable>
         )}
 
-        {/* BYOK 단축 */}
-        <Pressable onPress={handleByokShortcut} style={[styles.byokRow, { borderColor: colors.borderLight, backgroundColor: colors.surface }]}>
-          <View style={styles.rowLeft}>
-            <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
-              <Ionicons name="key-outline" size={16} color={colors.primary} />
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={[styles.byokTitle, { color: colors.text }]}>{t('plans.byokRowTitle')}</Text>
-              <Text style={[styles.byokDesc, { color: colors.textTertiary }]}>{t('plans.byokRowDesc')}</Text>
-            </View>
+        {/* 신뢰 카드 — 결제·해지·약관 안내 */}
+        <View style={[styles.trustCard, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <Text style={[styles.trustTitle, { color: colors.text }]}>{t('plans.trustTitle')}</Text>
+          <View style={styles.trustRow}>
+            <Ionicons name="card-outline" size={15} color={colors.textSecondary} />
+            <Text style={[styles.trustText, { color: colors.textSecondary }]}>{t('plans.trustBilling')}</Text>
           </View>
-          <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
-        </Pressable>
-
-        <Text style={[styles.footnote, { color: colors.textTertiary }]}>
-          {t('plans.footnote')}
-        </Text>
+          <View style={styles.trustRow}>
+            <Ionicons name="close-circle-outline" size={15} color={colors.textSecondary} />
+            <Text style={[styles.trustText, { color: colors.textSecondary }]}>{t('plans.trustCancel')}</Text>
+          </View>
+          <View style={styles.trustRow}>
+            <Ionicons name="calendar-outline" size={15} color={colors.textSecondary} />
+            <Text style={[styles.trustText, { color: colors.textSecondary }]}>{t('plans.trustGrace')}</Text>
+          </View>
+          <Pressable onPress={handleOpenTerms} style={styles.trustLinkRow}>
+            <Ionicons name="document-text-outline" size={15} color={colors.primary} />
+            <Text style={[styles.trustLinkText, { color: colors.primary }]}>{t('plans.trustTerms')}</Text>
+            <Ionicons name="chevron-forward" size={14} color={colors.primary} />
+          </Pressable>
+        </View>
       </ScrollView>
     </View>
   );
@@ -239,6 +345,8 @@ const styles = StyleSheet.create({
   backBtn: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
   headerTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.3 },
   scrollContent: { paddingHorizontal: 20, paddingTop: 8 },
+
+  // 현재 상태 카드
   currentCard: {
     padding: 16,
     borderRadius: 16,
@@ -246,27 +354,103 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     gap: 8,
   },
-  badge: {
-    alignSelf: 'flex-start',
+  currentTitle: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
+  currentDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 18 },
+  usageLabel: { fontSize: 12, fontFamily: 'Pretendard_500Medium', marginTop: 4 },
+  usageValue: { fontSize: 20, fontFamily: 'Pretendard_700Bold' },
+  progressTrack: {
+    height: 8,
+    borderRadius: 4,
+    overflow: 'hidden',
+    marginTop: 6,
+  },
+  progressFill: {
+    height: '100%',
+    borderRadius: 4,
+  },
+  usageNote: { fontSize: 11, fontFamily: 'Pretendard_400Regular', marginTop: 4 },
+  guestCta: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 12,
+    borderRadius: 12,
+    marginTop: 8,
+  },
+  guestCtaText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+
+  // 7일 체험 배너
+  trialBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    padding: 14,
+    borderRadius: 14,
+    borderWidth: 1,
+    marginBottom: 12,
+  },
+  trialIcon: {
+    width: 36, height: 36, borderRadius: 18,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  trialTitle: { fontSize: 12, fontFamily: 'Pretendard_700Bold' },
+  trialBody: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold', marginTop: 2 },
+  trialNote: { fontSize: 11, fontFamily: 'Pretendard_400Regular', marginTop: 2, lineHeight: 15 },
+
+  // 플랜 카드 공통
+  planCard: {
+    padding: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    marginBottom: 12,
+    gap: 10,
+  },
+  planCardPro: {
+    borderWidth: 1.5,
+  },
+  recommendedBadge: {
+    position: 'absolute',
+    top: -10,
+    right: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 12,
   },
-  badgeText: { fontSize: 12, fontFamily: 'Pretendard_600SemiBold' },
-  currentTitle: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
-  currentDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 18 },
-  planCard: {
-    padding: 16,
-    borderRadius: 16,
-    marginBottom: 12,
-    gap: 10,
-  },
+  recommendedBadgeText: { fontSize: 11, fontFamily: 'Pretendard_700Bold' },
   planTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold' },
-  priceRow: { flexDirection: 'row', alignItems: 'baseline', gap: 6 },
+  priceBlock: { gap: 4 },
   planPrice: { fontSize: 22, fontFamily: 'Pretendard_700Bold' },
+  priceOr: { fontSize: 11, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
+  planSubPrice: { fontSize: 16, fontFamily: 'Pretendard_600SemiBold' },
+  priceSaveBadge: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_600SemiBold',
+    alignSelf: 'flex-start',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 8,
+    marginTop: 2,
+    overflow: 'hidden',
+  },
   featureList: { gap: 6, marginTop: 4 },
   featureRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   featureText: { flex: 1, fontSize: 14, fontFamily: 'Pretendard_400Regular', lineHeight: 19 },
+  freeAdNote: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10,
+    marginTop: 4,
+  },
+  freeAdNoteText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_400Regular' },
+
+  // CTA
   ctaColumn: { gap: 8, marginTop: 8 },
   cta: {
     paddingVertical: 12,
@@ -295,6 +479,8 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   proActiveText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
+
+  // 복원
   restoreRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -308,28 +494,24 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   restoreText: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
-  byokRow: {
+
+  // 신뢰 카드
+  trustCard: {
+    padding: 14,
+    borderRadius: 14,
+    borderWidth: 1,
+    marginTop: 8,
+    gap: 8,
+  },
+  trustTitle: { fontSize: 13, fontFamily: 'Pretendard_700Bold', marginBottom: 2 },
+  trustRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  trustText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_400Regular', lineHeight: 17 },
+  trustLinkRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 12,
-    paddingHorizontal: 14,
-    borderWidth: 1,
-    borderRadius: 12,
-    marginTop: 4,
+    gap: 6,
+    paddingTop: 6,
+    marginTop: 2,
   },
-  rowLeft: { flexDirection: 'row', alignItems: 'center', gap: 12, flex: 1 },
-  iconCircle: {
-    width: 28, height: 28, borderRadius: 10,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  byokTitle: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
-  byokDesc: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
-  footnote: {
-    fontSize: 11,
-    fontFamily: 'Pretendard_400Regular',
-    lineHeight: 17,
-    marginTop: 12,
-    marginHorizontal: 4,
-  },
+  trustLinkText: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_500Medium' },
 });

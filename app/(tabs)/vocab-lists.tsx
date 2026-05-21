@@ -13,7 +13,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import CharacterSvg from '@/components/CharacterSvg';
-import { AppBannerAd } from '@/components/ads/AppBannerAd';
+import { AppBannerAd, useTabContentBottomInset, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { useScrollToTop } from '@react-navigation/native';
@@ -90,7 +90,8 @@ export default function VocabListsScreen() {
   }, [scrollY, fabAnim]);
 
   const topPadding = Platform.OS === 'web' ? insets.top + 67 : insets.top;
-  const bottomPadding = Platform.OS === 'web' ? 120 + 34 : 120;
+  const bottomPadding = useTabContentBottomInset(16);
+  const adsInset = useAdsBottomInset();
   const visibleLists = lists.filter((l) => l.isVisible);
 
   const handleOpenMenu = useCallback((list: VocaList, pos: MenuPos) => {
@@ -249,7 +250,7 @@ export default function VocabListsScreen() {
           style={{
             position: 'absolute',
             right: 20,
-            bottom: insets.bottom + 84,
+            bottom: insets.bottom + 84 + adsInset,
             opacity: fabAnim,
             transform: [{
               scale: fabAnim.interpolate({

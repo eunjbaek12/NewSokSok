@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
@@ -25,19 +24,21 @@ import { UI_LOCALES } from '@/i18n';
 import { ModalPicker } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/features/settings';
+import { useQuota } from '@/features/quota';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
-import { AppBannerAd } from '@/components/ads/AppBannerAd';
+import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
-  const tabBarHeight = useBottomTabBarHeight();
+  const bottomPadding = useTabContentBottomInset(24);
   const { t } = useTranslation();
   const { colors, isDark, skinId, setSkin, fontFamily } = useTheme();
   const { authMode, user, logout, signInWithGoogle, deleteAccount } = useAuth();
   const { locale, setLocale } = useLocale();
-  const { profileSettings, updateProfileSettings } = useSettings();
+  const { profileSettings, updateProfileSettings, apiKey } = useSettings();
+  const { status: quotaStatus, refresh: refreshQuota } = useQuota();
   const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
@@ -45,6 +46,11 @@ export default function SettingsScreen() {
   const [nicknameInput, setNicknameInput] = useState('');
   const [nicknameFromGoogle, setNicknameFromGoogle] = useState(false);
   const { markOnboardingDone } = useOnboarding();
+
+  // 로그인 사용자는 진입 시 한도 갱신 (계정 행 tier 칩 표시용)
+  useEffect(() => {
+    if (authMode === 'google') refreshQuota();
+  }, [authMode, refreshQuota]);
 
   const handleResetOnboarding = () => {
     Alert.alert('온보딩 초기화', '앱을 재시작하면 온보딩이 다시 표시됩니다.', [
@@ -80,6 +86,21 @@ export default function SettingsScreen() {
   };
 
   const currentLangLabel = UI_LOCALES.find((l) => l.code === locale)?.nativeLabel ?? locale;
+
+  // 계정 행 tier 칩 — 분기 우선순위: BYOK > 로그인 tier(Pro/Free) > 게스트.
+  // 게스트는 quota 없음(로그인 유도), 로그인 직후 status 로딩 중이면 칩 생략.
+  const accountTierChip = (() => {
+    if (apiKey) return { label: t('settings.accountTierByok'), onPress: undefined as undefined | (() => void) };
+    if (authMode !== 'google') return { label: t('settings.accountTierGuest'), onPress: () => handleGoogleUpgrade() };
+    if (!quotaStatus) return null;
+    if (quotaStatus.tier === 'pro') {
+      return { label: t('settings.accountTierPro', { used: quotaStatus.used, limit: quotaStatus.limit }), onPress: undefined };
+    }
+    return {
+      label: t('settings.accountTierFree', { used: quotaStatus.used, limit: quotaStatus.limit + quotaStatus.bonus }),
+      onPress: undefined,
+    };
+  })();
 
   const handleGoogleUpgrade = async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -145,7 +166,7 @@ export default function SettingsScreen() {
       </View>
 
       <ScrollView
-        contentContainerStyle={[styles.scrollContent, { paddingBottom: tabBarHeight + 24 }]}
+        contentContainerStyle={[styles.scrollContent, { paddingBottom: bottomPadding }]}
         showsVerticalScrollIndicator={false}
       >
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.account')}</Text>
@@ -177,6 +198,18 @@ export default function SettingsScreen() {
                     ? user.email
                     : t('settings.localStorageInUse')}
                 </Text>
+                {accountTierChip && (
+                  <Pressable
+                    onPress={accountTierChip.onPress}
+                    disabled={!accountTierChip.onPress}
+                    style={[styles.tierChip, { backgroundColor: colors.primaryLight }]}
+                    hitSlop={6}
+                  >
+                    <Text style={[styles.tierChipText, { color: colors.primary }]} numberOfLines={1}>
+                      {accountTierChip.label}
+                    </Text>
+                  </Pressable>
+                )}
               </View>
             </View>
             {authMode === 'google' && (
@@ -620,6 +653,17 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   cloudBadgeText: {
+    fontSize: 11,
+    fontFamily: 'Pretendard_600SemiBold',
+  },
+  tierChip: {
+    alignSelf: 'flex-start',
+    marginTop: 5,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 8,
+  },
+  tierChipText: {
     fontSize: 11,
     fontFamily: 'Pretendard_600SemiBold',
   },

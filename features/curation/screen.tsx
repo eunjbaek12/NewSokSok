@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import CharacterSvg from '@/components/CharacterSvg';
-import { AppBannerAd } from '@/components/ads/AppBannerAd';
+import { AppBannerAd, useTabContentBottomInset, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useScrollToTop } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTranslation } from 'react-i18next';
@@ -393,6 +393,8 @@ export default function CurationScreen() {
     }, [t]);
     const tabBarHeight = useBottomTabBarHeight();
     const bottomInset = Platform.OS === 'web' ? 84 + 34 : tabBarHeight;
+    const tabContentBottomPadding = useTabContentBottomInset(24);
+    const adsInset = useAdsBottomInset();
 
     const selectedCount = selectedWordIds.size;
     const totalCount = selectedTheme?.words.length ?? 0;
@@ -962,7 +964,7 @@ export default function CurationScreen() {
                     <ScrollView
                         ref={scrollRef}
                         style={{ flex: 1 }}
-                        contentContainerStyle={[{ paddingHorizontal: 20, paddingTop: 4, paddingBottom: bottomInset + 24 }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
+                        contentContainerStyle={[{ paddingHorizontal: 20, paddingTop: 4, paddingBottom: tabContentBottomPadding }, viewMode === 'compact' && { flexDirection: 'column', gap: 12 }]}
                         onScroll={RNAnimated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
                         scrollEventThrottle={16}
                     >
@@ -1085,7 +1087,7 @@ export default function CurationScreen() {
                         style={{
                             position: 'absolute',
                             right: 20,
-                            bottom: insets.bottom + 84,
+                            bottom: insets.bottom + 84 + adsInset,
                             opacity: fabAnim,
                             transform: [{ scale: fabAnim.interpolate({ inputRange: [0, 1], outputRange: [0.7, 1] }) }],
                         }}

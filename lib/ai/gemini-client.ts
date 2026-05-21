@@ -8,6 +8,46 @@ function getAIClient(apiKey: string): GoogleGenAI {
   return new GoogleGenAI({ apiKey });
 }
 
+// 모델 과부하(503/UNAVAILABLE)만 일시적이라 짧은 백오프로 재시도한다.
+// 429/RESOURCE_EXHAUSTED(quota 소진)는 일일 한도라 수십 초~다음날까지 안 풀리므로
+// 재시도하지 않는다 — 재시도해봐야 지연만 늘고 남은 한도만 더 깎는다.
+//
+// @google/genai의 ApiError는 상태 코드를 구조화된 프로퍼티가 아니라 e.message에
+// JSON 문자열로 담는다(예: '{"error":{"code":503,"status":"UNAVAILABLE"}}'). 따라서
+// 프로퍼티와 메시지 문자열을 모두 검사한다.
+// BYOK 키의 일일 quota 소진(429/RESOURCE_EXHAUSTED) 판별. UI 안내용.
+export function isQuotaError(e: any): boolean {
+  const code = e?.error?.code ?? e?.code ?? e?.status;
+  const status = String(e?.error?.status ?? e?.status ?? '');
+  if (code === 429 || status === 'RESOURCE_EXHAUSTED') return true;
+  const msg = String(e?.message ?? '');
+  return /\b429\b|RESOURCE_EXHAUSTED|exceeded your current quota/i.test(msg);
+}
+
+function isTransient(e: any): boolean {
+  const code = e?.error?.code ?? e?.code ?? e?.status;
+  const status = String(e?.error?.status ?? e?.status ?? '');
+  if (code === 503 || status === 'UNAVAILABLE') {
+    return true;
+  }
+  const msg = String(e?.message ?? '');
+  return /\b503\b|UNAVAILABLE|overloaded|high demand/i.test(msg);
+}
+
+async function withRetry<T>(fn: () => Promise<T>, retries = 2, baseDelayMs = 600): Promise<T> {
+  let lastErr: any;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await fn();
+    } catch (e: any) {
+      lastErr = e;
+      if (attempt === retries || !isTransient(e)) throw e;
+      await new Promise(r => setTimeout(r, baseDelayMs * (attempt + 1)));
+    }
+  }
+  throw lastErr;
+}
+
 function getFullLanguageName(code: string): string {
   const map: Record<string, string> = {
     en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese',
@@ -45,7 +85,7 @@ export async function analyzeWord(
   const srcName = getFullLanguageName(sourceLang);
   const tgtName = getFullLanguageName(targetLang);
 
-  const response = await ai.models.generateContent({
+  const response = await withRetry(() => ai.models.generateContent({
     model: MODEL_NAME,
     contents: `Analyze the ${srcName} word/phrase "${word}". Provide:
       1. A simple definition in ${srcName}.
@@ -79,7 +119,7 @@ export async function analyzeWord(
         required: ['term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
       },
     },
-  });
+  }));
 
   return parseAIJson<AIWordResult>(response.text, AIWordResultSchema, 'analyzeWord');
 }

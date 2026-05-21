@@ -1,8 +1,10 @@
 import { AutoFillResult } from './types';
 import { fetch } from 'expo/fetch';
-import { analyzeWord } from '@/lib/ai/gemini-client';
+import { analyzeWord, isQuotaError } from '@/lib/ai/gemini-client';
+import { fetchSharedEnrich } from './enrich-cache-shared';
 import { enrichWordViaEdge, type EnrichMode } from '@/lib/ai/edge-enrich';
 import { supabase } from '@/lib/supabase/client';
+import { getCachedEnrich, setCachedEnrich } from './enrich-cache';
 
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
@@ -22,9 +24,13 @@ export async function enrichWord(
   apiKey?: string,
   signal?: AbortSignal,
   mode: EnrichMode = 'autocomplete',
+  onByokQuota?: () => void,
 ): Promise<AutoFillResult | null> {
   const trimmed = term.trim();
   if (!trimmed) return null;
+
+  const cached = await getCachedEnrich(trimmed, sourceLang, targetLang);
+  if (cached) return cached;
 
   const withTimeout = <T>(promise: Promise<T>, ms: number): Promise<T> => {
     return new Promise<T>((resolve, reject) => {
@@ -46,8 +52,9 @@ export async function enrichWord(
   };
 
   try {
-    const result = await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal), 12000);
+    const result = await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota), 12000);
     if (result && (result.meaningKr || result.exampleEn || result.definition)) {
+      void setCachedEnrich(trimmed, sourceLang, targetLang, result);
       return result;
     }
   } catch (e: any) {
@@ -63,6 +70,7 @@ export async function autoFillWord(
   apiKey?: string,
   mode: EnrichMode = 'autocomplete',
   signal?: AbortSignal,
+  onByokQuota?: () => void,
 ): Promise<AutoFillResult> {
   const trimmed = term.trim().toLowerCase();
   if (!trimmed) {
@@ -71,6 +79,9 @@ export async function autoFillWord(
 
   // 1) BYOK
   if (apiKey) {
+    // 본인 키 호출 전에 공용 캐시(L2) 확인 — 다른 사용자가 이미 만든 결과면 즉시 반환.
+    const shared = await fetchSharedEnrich(trimmed, sourceLang, targetLang);
+    if (shared && shared.meaningKr) return shared;
     try {
       const data = await analyzeWord(trimmed, sourceLang, targetLang, apiKey);
       return {
@@ -82,7 +93,8 @@ export async function autoFillWord(
         pos: data.pos || '',
         phonetic: data.phonetic || '',
       };
-    } catch {
+    } catch (e: any) {
+      if (isQuotaError(e)) onByokQuota?.();
       // BYOK 실패 시에도 Edge로 fallback하지 않음 — 사용자가 명시적으로 키 등록한 의도 존중
     }
   }

@@ -5,13 +5,26 @@
 ## 흐름
 
 ```
-[App] ──Bearer JWT──> [Edge Function] ──> [consume_ai_quota RPC]
-                              │                    │ (quota 차감)
-                              │                    ↓
-                              │           [ai_usage_daily / user_subscriptions]
-                              │
-                              └─ Service Account JWT → OAuth2 → Vertex AI Gemini
+[App] ──Bearer JWT──> [Edge Function] ──> [enrich_cache 조회]
+                              │                    │
+                              │              히트 ─┤→ 즉시 반환 (quota 무차감, Vertex 미호출)
+                              │                    │
+                              │              미스 ─┴> [consume_ai_quota RPC] (quota 차감)
+                              │                              ↓
+                              │           Service Account JWT → OAuth2 → Vertex AI Gemini
+                              │                              ↓
+                              └──────────────────── enrich_cache 기록 (다음 사용자부터 즉시)
 ```
+
+## 공용 캐시 (enrich_cache)
+
+enrich 결과는 `(term, sourceLang, targetLang)`에만 의존하는 일반 사전 데이터라 전 사용자 공용 캐시(`public.enrich_cache`)에 저장한다. 흔한 단어는 첫 호출만 Vertex를 타고, 이후 모든 사용자가 DB에서 즉시(~100~300ms) 받는다 → 지연·운영비 동시 절감.
+
+- **키**: `(source_lang, target_lang, term)` — `term`은 소문자 정규화(`termKey`).
+- **쓰기**: service_role(이 Edge Function)만. RLS상 일반/BYOK 클라이언트는 쓰기 불가 → 캐시 오염 방지.
+- **읽기**: 캐시 히트는 **quota를 차감하지 않는다** (Vertex 비용 0).
+- **무효화**: `PROMPT_VERSION` 상수. `_shared/gemini-vertex.ts`의 프롬프트나 `AIWordResult` **필드 구조**가 바뀌면 이 값을 bump → 옛 버전 행은 미스 처리되어 재생성·덮어쓰기(self-healing).
+- **분석**: `hit_count`로 인기 단어 추적(`increment_enrich_cache_hit` RPC, service_role 전용).
 
 ## 환경변수 (Supabase Secrets)
 
@@ -92,6 +105,8 @@ Content-Type: application/json
   }
 }
 ```
+
+> 공용 캐시 히트 시 응답에 `"cached": true`가 포함되고, `quota.used`는 변하지 않는다(무차감).
 
 ### 429 quota_exceeded
 ```json

@@ -174,11 +174,19 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     // Nickname is account identity; clearing it stops A's name from showing
     // up under B's session on the same device. customStudySettings holds
     // list IDs from A's local DB which become stale once we clear SQLite on
-    // logout, so wipe it too.
-    await Promise.all([profileStore.remove(), customStore.remove()]);
+    // logout, so wipe it too. apiKey (BYOK Gemini) is also account-scoped:
+    // billing/quota is on the key owner, so A's key leaking into B's session
+    // would charge A for B's usage. saveApiKey('') routes through
+    // deleteSecureString.
+    await Promise.all([
+      profileStore.remove(),
+      customStore.remove(),
+      saveApiKey(''),
+    ]);
     set({
       profileSettings: DEFAULT_PROFILE_SETTINGS,
       customStudySettings: DEFAULT_CUSTOM_STUDY_SETTINGS,
+      apiKey: '',
     });
   },
 }));

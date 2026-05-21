@@ -120,8 +120,33 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
   },
 
   logout: async () => {
+    // Best-effort: flush any un-synced local changes to the cloud before we
+    // clear them, so the user doesn't lose edits made within the push debounce
+    // window. Still authed here (mode is flipped at the end), so RLS passes.
+    // Dynamic imports break the auth ↔ sync require cycle (sync/engine imports
+    // useAuthStore).
+    try {
+      const { flushPush } = await import('@/features/sync/engine');
+      await flushPush();
+    } catch (e: any) {
+      console.warn('[auth] pre-logout flush failed:', e?.message ?? e);
+    }
+
     try { await GoogleSignin.signOut(); } catch {}
     await supabase.auth.signOut();
+
+    // Account isolation: local SQLite is just a cache of the cloud account.
+    // Clear it (and the sync watermark/dirty sets) so the next account that
+    // logs in on this device never sees the previous account's words.
+    try {
+      const { clearAllData } = await import('@/features/vocab/db');
+      await clearAllData();
+      const { useSyncStore } = await import('@/features/sync/store');
+      await useSyncStore.getState().resetAll();
+    } catch (e: any) {
+      console.warn('[auth] post-logout local clear failed:', e?.message ?? e);
+    }
+
     await persist({ mode: 'none', user: null }, set);
   },
 

@@ -12,7 +12,7 @@ import {
   applyFirstLoginCloudReset,
   markAllLocalDirty,
 } from '@/features/sync';
-import { initSeedDataIfEmpty } from './db';
+import { initSeedDataIfEmpty, clearAllData } from './db';
 import { invalidateLists } from './queries';
 
 const LAST_GOOGLE_ID_KEY = '@soksok_last_google_id';
@@ -83,6 +83,17 @@ export function useVocabBootstrap(): void {
 
     const run = async () => {
       if (authMode === 'google' && user?.id) {
+        // Account-switch guard (safety net for paths that bypass logout(): app
+        // reinstall, restored session on a different account, etc.). If the
+        // device last synced under a *different* google id, the local SQLite
+        // and sync watermark belong to that other account — wipe them so the
+        // pull below repopulates from this account instead of leaking the old
+        // account's words.
+        const prevId = await AsyncStorage.getItem(LAST_GOOGLE_ID_KEY);
+        if (prevId && prevId !== user.id) {
+          await clearAllData();
+          await useSyncStore.getState().resetAll();
+        }
         await AsyncStorage.setItem(LAST_GOOGLE_ID_KEY, user.id);
         await useSyncStore.getState().hydrateLastPulled();
         await loadCloudData();

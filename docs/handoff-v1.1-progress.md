@@ -370,7 +370,7 @@ dev build 검증으로 발견한 5개 학습 흐름 UI 이슈 일괄 정리 (1�
 |---|---|
 | Agent Platform API | ✅ 활성화 |
 | 결제 등록 | ✅ |
-| 서비스 계정 | `avocado-ai-proxy@<project>.iam.gserviceaccount.com` |
+| 서비스 계정 | `avocado-ai-proxy-806@avocado-491710.iam.gserviceaccount.com` |
 | 역할 | `roles/aiplatform.user` |
 | JSON 키 | ✅ 발급·보관 |
 
@@ -566,7 +566,7 @@ EAS dev build로 다음 시나리오 검증:
 | Play 패키지명 | `com.soksokvoca` |
 | Firebase 프로젝트 | `avocado-491710` |
 | GCP 프로젝트 (Agent Platform) | 사용자가 별도 보관 |
-| 서비스 계정 (Vertex) | `avocado-ai-proxy@...iam.gserviceaccount.com` |
+| 서비스 계정 (Vertex) | `avocado-ai-proxy-806@avocado-491710.iam.gserviceaccount.com` |
 | 서비스 계정 (Play Verify) | ⏳ 신규 생성 필요 — `soksok-play-verify@...iam.gserviceaccount.com` 권장 |
 | Supabase URL | `https://ithqbclnwvyeultkyxbn.supabase.co` |
 | 개인정보 처리방침 | https://eunjbaek12.github.io/NewSokSok/privacy-policy.html |

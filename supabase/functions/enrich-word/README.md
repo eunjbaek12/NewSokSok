@@ -33,7 +33,7 @@ enrich 결과는 `(term, sourceLang, targetLang)`에만 의존하는 일반 사�
 supabase secrets set VERTEX_PROJECT_ID="avocado-491710"
 supabase secrets set VERTEX_LOCATION="us-central1"           # 또는 asia-northeast3
 supabase secrets set VERTEX_MODEL="gemini-2.5-flash-lite"    # 기본값
-supabase secrets set VERTEX_SA_CLIENT_EMAIL="avocado-ai-proxy@avocado-491710.iam.gserviceaccount.com"
+supabase secrets set VERTEX_SA_CLIENT_EMAIL="avocado-ai-proxy-806@avocado-491710.iam.gserviceaccount.com"
 
 # private_key는 JSON 파일에서 그대로 복사 (\n 이스케이프 포함된 1줄 형태)
 supabase secrets set VERTEX_SA_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADAN...\n-----END PRIVATE KEY-----\n"

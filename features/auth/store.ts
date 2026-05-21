@@ -143,6 +143,10 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       await clearAllData();
       const { useSyncStore } = await import('@/features/sync/store');
       await useSyncStore.getState().resetAll();
+      // Also clear account-scoped settings (nickname, custom study selection
+      // referencing now-cleared list IDs). Device preferences are preserved.
+      const { useSettingsStore } = await import('@/features/settings/store');
+      await useSettingsStore.getState().clearAccountScopedSettings();
     } catch (e: any) {
       console.warn('[auth] post-logout local clear failed:', e?.message ?? e);
     }

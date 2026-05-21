@@ -78,6 +78,13 @@ interface SettingsState {
   updateAiCurationSettings: (updates: Partial<AiCurationSettings>) => Promise<void>;
   updateApiKey: (key: string) => Promise<void>;
   updateDashboardFilter: (mode: DashboardFilter) => Promise<void>;
+  /**
+   * Clear settings that belong to the previously-signed-in account so they
+   * don't leak into the next account on the same device. Used by logout and
+   * account-switch flows. Device preferences (typing/study/autoplay/AI gen
+   * defaults, dashboard filter, BYOK key) are intentionally preserved.
+   */
+  clearAccountScopedSettings: () => Promise<void>;
 }
 
 export const useSettingsStore = create<SettingsState>((set, get) => ({
@@ -161,6 +168,18 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   updateDashboardFilter: async (mode) => {
     set({ dashboardFilterMode: mode });
     await AsyncStorage.setItem(DASHBOARD_FILTER_KEY, mode);
+  },
+
+  clearAccountScopedSettings: async () => {
+    // Nickname is account identity; clearing it stops A's name from showing
+    // up under B's session on the same device. customStudySettings holds
+    // list IDs from A's local DB which become stale once we clear SQLite on
+    // logout, so wipe it too.
+    await Promise.all([profileStore.remove(), customStore.remove()]);
+    set({
+      profileSettings: DEFAULT_PROFILE_SETTINGS,
+      customStudySettings: DEFAULT_CUSTOM_STUDY_SETTINGS,
+    });
   },
 }));
 

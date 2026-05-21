@@ -93,6 +93,16 @@ export function useVocabBootstrap(): void {
         if (prevId && prevId !== user.id) {
           await clearAllData();
           await useSyncStore.getState().resetAll();
+          // Mirror logout's account-scoped settings clear so nickname/custom
+          // study selection from the previous account don't leak in (e.g. if
+          // the previous session was ended by app reinstall or by signing in
+          // as a different account without going through logout()).
+          try {
+            const { useSettingsStore } = await import('@/features/settings/store');
+            await useSettingsStore.getState().clearAccountScopedSettings();
+          } catch (e: any) {
+            console.warn('[bootstrap] settings clear failed:', e?.message ?? e);
+          }
         }
         await AsyncStorage.setItem(LAST_GOOGLE_ID_KEY, user.id);
         await useSyncStore.getState().hydrateLastPulled();

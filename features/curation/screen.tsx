@@ -23,7 +23,11 @@ import {
 import { useSettings } from '@/features/settings';
 import { VocaList, Word } from '@/lib/types';
 import { AIWordResultSchema, AI_GENERATED_TAG, type AiDifficulty } from '@shared/contracts';
+import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
 import { curationPresets } from '@/constants/curationData';
+
+// 키 없는 로그인 사용자는 운영자 키(Edge)로 생성. 단어 자동완성과 동일한 게이트 환경변수.
+const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
 import { SUPPORTED_LANGUAGES, getLanguageFlag, getLanguageLabel, type LanguageCode } from '@/constants/languages';
 import WordDetailModal from '@/components/WordDetailModal';
@@ -86,7 +90,7 @@ function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty,
 
 type GenerateAIWordsResult = { words: Word[]; droppedCount: number };
 
-const generateAIWords = async (
+const generateViaByok = async (
     query: string,
     apiKey: string,
     wordCount: number,
@@ -94,9 +98,7 @@ const generateAIWords = async (
     sourceLang: string,
     targetLang: string,
     excludeTerms?: string[],
-): Promise<GenerateAIWordsResult> => {
-    if (!apiKey) throw new Error('API Key missing');
-
+): Promise<unknown> => {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
     const prompt = buildPrompt(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
 
@@ -167,12 +169,44 @@ const generateAIWords = async (
         }
     }
 
-    let raw: unknown;
     try {
-        raw = JSON.parse(textResponse);
+        return JSON.parse(textResponse);
     } catch (e) {
         console.error('Failed to parse AI response:', textResponse);
         throw new Error('응답을 파싱할 수 없습니다.');
+    }
+};
+
+const edgeGenerateErrorMessage = (kind: string): string => {
+    switch (kind) {
+        case 'quota_exceeded':
+            return '오늘의 AI 생성 한도를 모두 사용했어요. 광고를 보거나 잠시 후 다시 시도해주세요.';
+        case 'rate_limited':
+            return '요청이 많아요. 잠시 후 다시 시도해주세요.';
+        case 'unauthorized':
+            return '로그인이 필요해요. 다시 로그인한 뒤 시도해주세요.';
+        default:
+            return 'AI 생성에 실패했어요. 잠시 후 다시 시도해주세요.';
+    }
+};
+
+const generateAIWords = async (
+    query: string,
+    apiKey: string,
+    wordCount: number,
+    difficulty: AiDifficulty,
+    sourceLang: string,
+    targetLang: string,
+    excludeTerms?: string[],
+): Promise<GenerateAIWordsResult> => {
+    // BYOK 키가 있으면 본인 키로 직접 호출, 없으면 운영자 키(Edge, quota 적용).
+    let raw: unknown;
+    if (apiKey) {
+        raw = await generateViaByok(query, apiKey, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
+    } else {
+        const res = await generateWordsViaEdge(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
+        if (res.kind !== 'ok') throw new Error(edgeGenerateErrorMessage(res.kind));
+        raw = res.result;
     }
 
     if (!Array.isArray(raw)) {
@@ -264,7 +298,7 @@ export default function CurationScreen() {
     const lists = useLists();
     const fetchCloudCurations = useFetchCloudCurations();
     const deleteCloudCuration = useDeleteCloudCuration();
-    const { user } = useAuth();
+    const { user, authMode } = useAuth();
     const { apiKey, aiCurationSettings, updateAiCurationSettings } = useSettings();
     const { sourceLang: aiSourceLang, targetLang: aiTargetLang, difficulty: aiDifficulty, wordCount: aiWordCount } = aiCurationSettings;
     const [aiModalVisible, setAiModalVisible] = useState(false);
@@ -480,9 +514,11 @@ export default function CurationScreen() {
     }, [t, deleteCloudCuration, selectedTheme]);
 
     const hasApiKey = !!apiKey;
+    // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성 가능. 게스트(미로그인)·키없음만 차단.
+    const canGenerateAi = hasApiKey || (authMode === 'google' && EDGE_ENABLED);
 
     const handleOpenAiModal = () => {
-        if (!hasApiKey) {
+        if (!canGenerateAi) {
             Alert.alert(
                 t('common.aiApiKeyRequired'),
                 t('common.aiApiKeyRequiredDesc'),

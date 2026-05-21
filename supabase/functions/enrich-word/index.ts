@@ -22,7 +22,9 @@ const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const COST_BY_MODE: Record<string, number> = {
   autocomplete: 1,
   generate: 20,
-  photo: 15,
+  // 사진: 추출 오버헤드는 scan-image가 장당 5로 별도 차감하고, 추출된 단어의 보강은
+  // 단어당 1(자동완성과 동일). 캐시 히트는 무차감.
+  photo: 1,
 };
 
 // 공용 enrich 캐시 스키마/프롬프트 버전. _shared/gemini-vertex.ts의 프롬프트나

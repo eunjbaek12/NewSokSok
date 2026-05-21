@@ -64,6 +64,9 @@ import {
     GestureHandlerRootView
 } from 'react-native-gesture-handler';
 
+// 키 없는 로그인 사용자는 운영자 키(Edge)로 사진 스캔 가능.
+const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
+
 
 // 드래그 가능한 필드 항목 컴포넌트
 const DraggableFieldItem = ({
@@ -555,6 +558,23 @@ export default function AddWordScreen() {
         handleAutoFill();
     };
 
+    // 사진 스캔 진입: BYOK 키 또는 로그인+Edge면 허용. 그 외(게스트·키없음)는 안내.
+    const canScanPhoto = !!apiKey || (authMode === 'google' && EDGE_ENABLED);
+    const openPhotoScan = (src: 'camera' | 'gallery') => {
+        if (!canScanPhoto) {
+            Alert.alert(
+                t('common.aiApiKeyRequired'),
+                t('common.aiApiKeyRequiredDesc'),
+                [
+                    { text: t('common.later'), style: 'cancel' },
+                    { text: t('common.setupNow'), onPress: () => router.push('/advanced-settings?openApiKey=1' as any) },
+                ],
+            );
+            return;
+        }
+        setPhotoSource(src);
+    };
+
     const handleAddTag = () => {
         const newTags = tagInput
             .split(/[\s,]+/)
@@ -766,10 +786,10 @@ export default function AddWordScreen() {
                                                         <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? colors.onPrimary : colors.textSecondary} />
                                                         </Pressable>
-                                                        <Pressable onPress={() => setPhotoSource('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                        <Pressable onPress={() => openPhotoScan('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
                                                         </Pressable>
-                                                        <Pressable onPress={() => setPhotoSource('gallery')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                        <Pressable onPress={() => openPhotoScan('gallery')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name="images-outline" size={16} color={colors.textSecondary} />
                                                         </Pressable>
                                                         <Pressable onPress={() => setShowExcel(true)} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>

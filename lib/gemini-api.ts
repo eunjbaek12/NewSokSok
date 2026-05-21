@@ -1,10 +1,24 @@
 import { GeminiImageResultSchema, type GeminiImageResult } from '@shared/contracts';
+import { scanImageViaEdge } from '@/lib/ai/edge-scan';
 
 const LANG_NAMES: Record<string, string> = {
     en: 'English',
     ko: 'Korean',
     ja: 'Japanese',
     zh: 'Chinese',
+};
+
+const scanEdgeErrorMessage = (kind: string): string => {
+    switch (kind) {
+        case 'quota_exceeded':
+            return '오늘의 AI 한도를 모두 사용했어요. 광고를 보거나 잠시 후 다시 시도해주세요.';
+        case 'rate_limited':
+            return '요청이 많아요. 잠시 후 다시 시도해주세요.';
+        case 'unauthorized':
+            return '로그인이 필요해요. 다시 로그인한 뒤 시도해주세요.';
+        default:
+            return '사진 분석에 실패했어요. 잠시 후 다시 시도해주세요.';
+    }
 };
 
 export const fetchWordsFromImage = async (
@@ -15,8 +29,17 @@ export const fetchWordsFromImage = async (
     sourceLang: string = 'en',
 ): Promise<GeminiImageResult> => {
     const GEMINI_API_KEY = apiKey || '';
+
+    // BYOK 키가 없으면 운영자 키(Edge, quota 적용) 경로로 추출.
     if (!GEMINI_API_KEY) {
-        throw new Error('Gemini API 키가 설정되어 있지 않습니다. 설정에서 API 키를 입력해주세요.');
+        const res = await scanImageViaEdge(base64Image, sourceLang, signal);
+        if (res.kind !== 'ok') throw new Error(scanEdgeErrorMessage(res.kind));
+        const parsed = GeminiImageResultSchema.safeParse(res.result);
+        if (!parsed.success) {
+            console.error('scan-image 응답 스키마 불일치:', parsed.error.issues, 'raw:', res.result);
+            throw new Error('API 응답 형식이 예상과 다릅니다. 다시 시도해주세요.');
+        }
+        return parsed.data;
     }
 
     const langName = LANG_NAMES[sourceLang] || 'English';

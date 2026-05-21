@@ -135,3 +135,186 @@ interface VertexResponse {
     content?: { parts?: Array<{ text?: string }> };
   }>;
 }
+
+// ────────────────────────────────────────────────────────────
+// 주제 → 단어 목록 생성 (AI 단어 생성)
+// 클라이언트 features/curation/screen.tsx의 buildPrompt를 그대로 이식.
+// 응답은 JSON 배열(각 항목: term/pos/phonetic/definition/meaningKr/exampleEn/exampleKr/tags).
+// 검증·매핑은 클라이언트가 AIWordResultSchema로 수행하므로 여기선 배열 파싱까지만.
+// ────────────────────────────────────────────────────────────
+
+const LANG_LABEL_KO: Record<string, string> = {
+  en: '영어', ko: '한국어', ja: '일본어', zh: '중국어',
+};
+
+const DIFFICULTY_PROMPT: Record<string, string> = {
+  beginner: '초급 수준의 쉬운',
+  intermediate: '중급 수준의',
+  advanced: '고급/전문적인',
+};
+
+const PHONETIC_INSTRUCTION: Record<string, string> = {
+  en: 'IPA 발음기호 (슬래시 없이, 예: prəˈnʌnsiˌeɪʃən)',
+  ko: '비워두기 (한글 자체가 발음 표기)',
+  ja: '후리가나 (예: ありがとう)',
+  zh: '병음 (성조 포함, 예: nǐ hǎo)',
+};
+
+function buildGeneratePrompt(
+  query: string,
+  wordCount: number,
+  difficulty: string,
+  sourceLang: string,
+  targetLang: string,
+  excludeTerms?: string[],
+): string {
+  const diffLabel = DIFFICULTY_PROMPT[difficulty] ?? '중급 수준의';
+  const srcLabel = LANG_LABEL_KO[sourceLang] ?? sourceLang;
+  const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
+  const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
+  const sameLangNote = sourceLang === targetLang
+    ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성.)`
+    : '';
+  const excludeNote = excludeTerms && excludeTerms.length > 0
+    ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`
+    : '';
+  return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
+  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며 (phonetic은 지시에 따라 비워둘 수 있음), 그 외 필드는 비워두지 마.
+  - term: ${srcLabel} 단어
+  - pos: 품사 (예: noun, verb, adj, adv)
+  - phonetic: ${phoneticInstr}
+  - definition: ${srcLabel}로 작성한 정의
+  - meaningKr: ${tgtLabel} 뜻
+  - exampleEn: ${srcLabel} 예문
+  - exampleKr: 위 예문의 ${tgtLabel} 번역
+  - tags: 주제 태그 배열
+  포맷: [{"term": "단어", "pos": "noun", "phonetic": "발음기호", "definition": "${srcLabel} 정의", "meaningKr": "${tgtLabel} 뜻", "exampleEn": "${srcLabel} 예문", "exampleKr": "${tgtLabel} 번역", "tags": ["${query}"]}]`;
+}
+
+// ────────────────────────────────────────────────────────────
+// 이미지 → 단어 추출 (사진 스캔). 표면형 단어 배열 [{word}] 반환.
+// 의미·예문 보강은 추출 후 enrich-word로 단어별 처리(클라이언트 큐).
+// ────────────────────────────────────────────────────────────
+const LANG_NAMES_EN: Record<string, string> = {
+  en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese',
+};
+
+export async function extractWordsFromImage(
+  base64Image: string,
+  sourceLang: string,
+): Promise<unknown[]> {
+  const projectId = Deno.env.get('VERTEX_PROJECT_ID');
+  const location = Deno.env.get('VERTEX_LOCATION') ?? 'us-central1';
+  const model = Deno.env.get('VERTEX_MODEL') ?? DEFAULT_MODEL;
+  if (!projectId) throw new Error('VERTEX_PROJECT_ID not configured');
+
+  const langName = LANG_NAMES_EN[sourceLang] ?? 'English';
+  const token = await getVertexAccessToken();
+  const endpoint =
+    `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
+    `/locations/${location}/publishers/google/models/${model}:generateContent`;
+
+  const body = {
+    contents: [{
+      role: 'user',
+      parts: [
+        { text: `Extract every ${langName} word visible in the image, exactly as it appears (preserve surface form, do not lemmatize). Return ONLY a JSON array. Format: [{"word":"..."}]` },
+        { inlineData: { mimeType: 'image/jpeg', data: base64Image } },
+      ],
+    }],
+    generationConfig: {
+      responseMimeType: 'application/json',
+      temperature: 0.1,
+    },
+  };
+
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`vertex image extract failed (${res.status}): ${text}`);
+  }
+
+  const json = await res.json() as VertexResponse;
+  const text = json?.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!text) throw new Error('vertex image extract returned no text');
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch (e) {
+    throw new Error(`vertex image extract returned non-JSON: ${(e as Error).message}`);
+  }
+  if (!Array.isArray(parsed)) {
+    throw new Error('vertex image extract did not return an array');
+  }
+  return parsed;
+}
+
+export async function generateWords(
+  query: string,
+  wordCount: number,
+  difficulty: string,
+  sourceLang: string,
+  targetLang: string,
+  excludeTerms?: string[],
+): Promise<unknown[]> {
+  const projectId = Deno.env.get('VERTEX_PROJECT_ID');
+  const location = Deno.env.get('VERTEX_LOCATION') ?? 'us-central1';
+  const model = Deno.env.get('VERTEX_MODEL') ?? DEFAULT_MODEL;
+  if (!projectId) throw new Error('VERTEX_PROJECT_ID not configured');
+
+  const token = await getVertexAccessToken();
+  const endpoint =
+    `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
+    `/locations/${location}/publishers/google/models/${model}:generateContent`;
+
+  const prompt = buildGeneratePrompt(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
+
+  const body = {
+    contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    generationConfig: {
+      responseMimeType: 'application/json',
+      temperature: 0.7,
+      thinkingConfig: { thinkingBudget: 0 },
+    },
+  };
+
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`vertex generate call failed (${res.status}): ${text}`);
+  }
+
+  const json = await res.json() as VertexResponse;
+  let text = json?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+  text = text.trim();
+  if (text.startsWith('```')) {
+    const firstNewLine = text.indexOf('\n');
+    const lastBacktick = text.lastIndexOf('```');
+    if (firstNewLine !== -1 && lastBacktick !== -1) {
+      text = text.slice(firstNewLine, lastBacktick).trim();
+    }
+  }
+  if (!text) throw new Error('vertex generate returned no text');
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch (e) {
+    throw new Error(`vertex generate returned non-JSON: ${(e as Error).message}`);
+  }
+  if (!Array.isArray(parsed)) {
+    throw new Error('vertex generate did not return an array');
+  }
+  return parsed;
+}

@@ -104,10 +104,10 @@ Migrations are manually versioned in `lib/db/`. When modifying the local schema,
 | Pro | ₩3,900/month or ₩35,900/year (~23% off vs 12× monthly) | None | 1,000 단어 | Operator (Vertex AI) |
 | Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
 
-**Word-count weighting** (for quota):
-- Auto-complete 1 word = 1 단어
-- AI word generation 1 set = 20 단어
-- Photo scan 1 image = 15 단어 (operator absorbs OCR overhead via banner revenue)
+**Word-count weighting** (for quota; operator/Edge path only — BYOK is uncharged):
+- Auto-complete 1 word = 1 단어 (`enrich-word`, mode `autocomplete`)
+- AI word generation = 1 단어 per generated word, charged by requested count (`generate-words`, e.g. 20-word set = 20)
+- Photo scan = 5 단어 extraction overhead per image (`scan-image`) + 1 단어 per enriched word (`enrich-word` mode `photo`, cache hits free)
 
 **Free trial:** 7-day Pro trial on signup, auto-converts to Free (no auto-charge).
 

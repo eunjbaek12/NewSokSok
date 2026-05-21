@@ -469,7 +469,7 @@
           },
           {
             "q": "What kinds of photos can be scanned?",
-            "a": "Both printed lists/textbooks and handwritten notes work. English, Korean, Japanese, and Chinese pages are all supported, and AI fills in the word, meaning, example, and pronunciation together.\n\nBlurry photos or pages packed with too many words reduce accuracy. One photo scan counts as roughly 15 words against your daily quota."
+            "a": "Both printed lists/textbooks and handwritten notes work. English, Korean, Japanese, and Chinese pages are all supported, and AI fills in the word, meaning, example, and pronunciation together.\n\nBlurry photos or pages packed with too many words reduce accuracy. A photo scan costs 5 words for extraction plus 1 word per recognized word against your daily quota (common words you already have are free)."
           },
           {
             "q": "How does spreadsheet paste work?",
@@ -590,7 +590,7 @@
           },
           {
             "q": "How is the \"word count\" measured?",
-            "a": "AI calls are weighted by how heavy they are:\n• AI auto-complete: 1 word per call\n• AI generate (1 set, ~20 words): 20 words\n• Photo scan (1 image): ~15 words\n\nThe unit reflects Gemini API consumption, so one photo costs more than several auto-completes."
+            "a": "AI calls are weighted by how heavy they are:\n• AI auto-complete: 1 word per call\n• AI generate (1 set, ~20 words): 20 words\n• Photo scan (1 image): 5 words extraction + 1 word per recognized word\n\nThe unit reflects Gemini API consumption, so one photo costs more than several auto-completes."
           },
           {
             "q": "What happens when I hit the daily quota?",

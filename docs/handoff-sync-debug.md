@@ -50,7 +50,11 @@ where not exists (select 1 from cloud_lists l where l.id = w.list_id and l.is_de
 3. 합치기 **반복**(게스트 단어→구글 합치기→로그아웃 반복) → Supabase 고아 count **0 유지**, conflict 숫자 정상
 
 ### 미해결/선택 (출시 후 검토)
-- **빌트인 큐레이션 단어를 사용자별 클라우드에 복제 동기화**하는 구조(`engine.ts` push에 `isCurated` 필터 없음) — 모든 사용자 × 수천 행 복제. 비효율이나 출시 차단 아님. 큐레이션은 constants에 오프라인 상시 존재하므로 cloud 동기화 제외 검토 여지.
+- **설치된 큐레이션 단어의 사용자별 클라우드 복제** (출시 후, 우선순위 낮음). 2026-05-23 재조사로 핸드오프 이전 기술("모든 사용자 × 수천 행 복제 / isCurated 필터로 cloud 제외")이 **부정확**함을 확인. 정정 내용:
+  - **다운받지 않으면 DB에 없음**: 큐레이션 프리셋은 `curationPresets`(constants/curationData.ts)에서 화면에 *보여주기만* 함(`features/curation/screen.tsx:27,383`). 단어가 로컬 DB에 들어가는 건 사용자가 "설치"를 눌러 `createCuratedList`(`features/vocab/db.ts:243`)가 호출될 때뿐. → 안 받은 덱은 로컬·클라우드 어디에도 없음. 실제 복제 규모는 "모든 사용자 × 모든 단어"가 아니라 **"각 사용자 × 자기가 설치한 덱"**, 즉 인기 덱이 설치 횟수만큼 중복되는 수준. 핸드오프가 우려한 규모보다 훨씬 작음.
+  - **단순 `isCurated` 필터는 금지(데이터 유실)**: `isCurated=true`는 빌트인 덱과 **AI 생성 덱(`AI: 주제`, screen.tsx:570)** 모두에 붙음. push에 `isCurated` 필터를 넣으면 AI 덱이 클라우드에 안 올라가 **영구 유실**(오프라인 재현 불가). 설치한 빌트인 덱의 학습 진행상태(isMemorized/plan 등)도 함께 막힘.
+  - **제대로 하려면 콘텐츠/진행상태 분리**: 단어별로 "원본 그대로 vs 사용자 수정/삭제/추가"를 추적해, 안 건드린 빌트인 단어만 콘텐츠를 cloud 제외하고 constants에서 rehydrate. 수정·삭제·신규 단어와 AI 덱은 콘텐츠까지 동기화. 스키마 마이그레이션 + pull 분기가 따르는 중간 규모 작업이고, 어긋나면 사용자 수정분/AI 덱 유실 버그라 출시 직전엔 부적합.
+  - **결론**: 기능은 정상 동작(수정·삭제·추가·진도 다 동기화됨). 버그가 아니라 비효율이고, 절약 대상이 "인기 덱 중복"으로 좁아 효과 대비 위험이 큼 → DAU/용량이 실제로 압박될 때 착수.
 - **빌드 전 점검 결과(2026-05-23)**: tsc 6건·lint 11건 모두 sync 작업과 무관한 기존 부채(usePurchaseFlow expo-iap 타입 좁히기 5건=런타임 안전, CharacterAccessory/SkinSelector hex·barrel, voca_app_ui.jsx 미사용, fetch-wiktionary 정규식 오타). EAS는 Metro/babel 번들이라 tsc/lint가 빌드를 막지 않음. **production 빌드 차단 요소 없음.**
 
 ---

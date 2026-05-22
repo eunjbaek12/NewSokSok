@@ -10,9 +10,9 @@
  *   2. If `state === 'conflict'`, the caller prompts the user. The data
  *      layer itself is Alert-free; prompting lives in the UI layer.
  *   3. Based on the choice:
- *        - `applyFirstLoginMerge()` — remap every local id to a fresh uuid
- *          (so it can coexist with server rows having the same id) and mark
- *          everything dirty for push.
+ *        - `applyFirstLoginMerge()` — keep local rows under their existing ids
+ *          and mark them dirty for push (random-uuid ids can't collide, so the
+ *          upsert is idempotent and won't orphan/duplicate cloud rows).
  *        - `applyFirstLoginCloudReset()` — drop local data and reset sync
  *          store so the next pull populates from cloud.
  *        - On `'cloud-only-empty'` (cloud empty, local has data) the caller
@@ -28,7 +28,7 @@ import { supabase } from '@/lib/supabase';
 // eslint-disable-next-line no-restricted-imports
 import { fetchAllLists } from '@/features/vocab/queries';
 // eslint-disable-next-line no-restricted-imports
-import { generateId, clearAllData } from '@/features/vocab/db';
+import { clearAllData } from '@/features/vocab/db';
 import { useSyncStore } from './store';
 
 export type FirstLoginState =
@@ -47,13 +47,17 @@ export interface FirstLoginProbe {
  * Count cloud (non-deleted) words and local words to decide the reconciliation branch.
  */
 export async function probeFirstLoginState(): Promise<FirstLoginProbe> {
-  const { data: cloudWords, error } = await supabase
+  // count: 'exact' + head: true returns the true row count without fetching
+  // rows. A plain .select('id') is capped at Supabase's default 1000-row page,
+  // so .length would silently max out at 1000 — making the conflict prompt
+  // report "1000" for any account with ≥1000 cloud words.
+  const { count, error } = await supabase
     .from('cloud_words')
-    .select('id')
+    .select('*', { count: 'exact', head: true })
     .eq('is_deleted', false);
   if (error) throw error;
 
-  const cloudWordCount = cloudWords?.length ?? 0;
+  const cloudWordCount = count ?? 0;
   const localLists = await fetchAllLists();
   const localWordCount = localLists.reduce((sum, l) => sum + l.words.length, 0);
 
@@ -66,49 +70,30 @@ export async function probeFirstLoginState(): Promise<FirstLoginProbe> {
 }
 
 /**
- * Merge path: re-issue uuids for every local list + word so they can coexist
- * with any identically-id'd server rows (server does per-row LWW, so a
- * collision would silently clobber), then mark them dirty for push.
+ * Merge path: keep every live local list + word with its existing id and just
+ * mark them dirty so the next push uploads them alongside the cloud's rows.
  *
- * Uses an in-transaction rewrite with FK guard flipped off — we're changing
- * parent PKs while children reference them, so the `PRAGMA foreign_keys = OFF`
- * window is required and must be scoped to the transaction.
+ * We deliberately do NOT re-issue ids. All ids are `Crypto.randomUUID()`
+ * (see features/vocab/db.generateId — sample/curated/regular alike), so a
+ * collision with a server row is cryptographically impossible. The old
+ * re-issue (rewrite every id to a fresh uuid before pushing) was the source of
+ * orphan/duplicate cloud rows: each merge uploaded the same data under a brand
+ * new id, abandoning the previously-uploaded rows in the cloud (the client no
+ * longer references their ids, so it can never delete them). Pushing under the
+ * existing id makes the upsert (onConflict: 'id') idempotent — a re-upload
+ * updates the same row instead of spawning a duplicate.
  */
 export async function applyFirstLoginMerge(): Promise<void> {
   const db = await getDb();
   const listRows = await db.getAllAsync<{ id: string }>(
     'SELECT id FROM lists WHERE deletedAt IS NULL',
   );
-  const wordRows = await db.getAllAsync<{ id: string; listId: string }>(
-    'SELECT id, listId FROM words WHERE deletedAt IS NULL',
+  const wordRows = await db.getAllAsync<{ id: string }>(
+    'SELECT id FROM words WHERE deletedAt IS NULL',
   );
-  if (listRows.length === 0 && wordRows.length === 0) return;
-
-  const listIdMap = new Map<string, string>();
-  for (const r of listRows) listIdMap.set(r.id, generateId());
-  const wordIdMap = new Map<string, string>();
-  for (const r of wordRows) wordIdMap.set(r.id, generateId());
-
-  // PRAGMA foreign_keys cannot be changed inside a transaction (SQLite silently ignores it).
-  // Disable FK enforcement before opening the transaction, then restore after.
-  await db.execAsync('PRAGMA foreign_keys = OFF');
-  try {
-    await db.withTransactionAsync(async () => {
-      for (const [oldId, newId] of listIdMap) {
-        await db.runAsync('UPDATE lists SET id = ? WHERE id = ?', newId, oldId);
-        await db.runAsync('UPDATE words SET listId = ? WHERE listId = ?', newId, oldId);
-      }
-      for (const [oldId, newId] of wordIdMap) {
-        await db.runAsync('UPDATE words SET id = ? WHERE id = ?', newId, oldId);
-      }
-    });
-  } finally {
-    await db.execAsync('PRAGMA foreign_keys = ON');
-  }
-
   const { markListsDirty, markWordsDirty } = useSyncStore.getState();
-  markListsDirty(Array.from(listIdMap.values()));
-  markWordsDirty(Array.from(wordIdMap.values()));
+  markListsDirty(listRows.map(r => r.id));
+  markWordsDirty(wordRows.map(r => r.id));
 }
 
 /**

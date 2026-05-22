@@ -112,7 +112,17 @@ export function useVocabBootstrap(): void {
         await loadCloudData();
       } else {
         await AsyncStorage.removeItem(LAST_GOOGLE_ID_KEY);
-        await initSeedDataIfEmpty();
+        // Seed sample data ONLY for guest mode (first-run experience). Do NOT
+        // seed in mode='none' (the brief logged-out window right after
+        // logout): logout clears local data, so seeding here would refill it
+        // with samples, and on the next google sign-in those samples collide
+        // with the account's cloud data → first-login "conflict" branch that
+        // blocks the cloud pull. That's how an account's words appear to
+        // vanish after a logout/login round-trip even though they're safe in
+        // the cloud.
+        if (authMode === 'guest') {
+          await initSeedDataIfEmpty();
+        }
       }
       await invalidateLists();
       if (!cancelled) useBootstrapStore.getState().setLoading(false);

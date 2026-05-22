@@ -109,8 +109,84 @@ export async function pullChanges(): Promise<void> {
       : Date.now();
 
     const db = await getDb();
+
+    // Parent-list backfill — fixes orphaned-word permanent loss.
+    //
+    // A pulled word may reference a list that is neither in this batch nor
+    // already local (its parent list's updated_at is <= lastPulledAt, so the
+    // `.gt(updated_at, lastPulledAt)` filter excludes it). Previously such
+    // words were skipped as orphans while the watermark advanced past them —
+    // so they could NEVER be pulled again, even though they live in the cloud.
+    // (This is exactly how an account's words silently vanished locally.)
+    //
+    // Fix: fetch those parent lists directly, watermark-independent, so the
+    // words below insert normally. Only alive parents are fetched; a word
+    // whose parent was genuinely deleted stays skipped and the watermark
+    // advances past it (correct — that's stale cloud data).
+    const batchListIds = new Set((lists ?? []).map((l: any) => l.id as string));
+    const localListRows = await db.getAllAsync<{ id: string }>(
+      'SELECT id FROM lists WHERE deletedAt IS NULL',
+    );
+    const localListIds = new Set(localListRows.map(r => r.id));
+    const missingParentIds = [...new Set(
+      (words ?? [])
+        .filter((w: any) => !w.is_deleted && !batchListIds.has(w.list_id) && !localListIds.has(w.list_id))
+        .map((w: any) => w.list_id as string),
+    )];
+    let extraLists: any[] = [];
+    if (missingParentIds.length > 0) {
+      const { data: parents, error: parentErr } = await supabase
+        .from('cloud_lists')
+        .select('*')
+        .in('id', missingParentIds)
+        .eq('is_deleted', false);
+      if (parentErr) throw parentErr;
+      extraLists = parents ?? [];
+      if (extraLists.length > 0) {
+        console.warn('[sync] backfilled', extraLists.length, 'parent list(s) for orphaned words');
+      }
+    }
+
+    // List→word completeness fetch — fixes the inverse asymmetry.
+    //
+    // A list can carry a *newer* updated_at than its own words (e.g. the list
+    // row is touched by a later plan-settings change while the words stay as
+    // first created). When lastPulledAt lands between the word timestamp and
+    // the list timestamp, the list passes `.gt(updated_at)` but its words do
+    // NOT — so the list arrives empty and its words are stranded behind the
+    // watermark forever. (This is the exact cause of "list shows up but has no
+    // words" after a sync.)
+    //
+    // Whenever a live list is part of this pull (regular batch OR backfilled
+    // parent), fetch ALL its words by list_id, watermark-independent, so the
+    // children always travel with the parent.
+    const aliveListIds = [...new Set([
+      ...(lists ?? []).filter((l: any) => !l.is_deleted).map((l: any) => l.id as string),
+      ...extraLists.map((l: any) => l.id as string),
+    ])];
+    let listWords: any[] = [];
+    if (aliveListIds.length > 0) {
+      const { data: lw, error: lwErr } = await supabase
+        .from('cloud_words')
+        .select('*')
+        .in('list_id', aliveListIds)
+        .eq('is_deleted', false);
+      if (lwErr) throw lwErr;
+      listWords = lw ?? [];
+    }
+    // Merge gt-batch words with by-list words, de-duped by id. The by-list set
+    // is intentionally excluded from newWatermark (it may predate it) — only
+    // the regular gt batch advances the watermark.
+    const wordById = new Map<string, any>();
+    for (const w of (words ?? [])) wordById.set(w.id, w);
+    for (const w of listWords) if (!wordById.has(w.id)) wordById.set(w.id, w);
+    const allWords = [...wordById.values()];
+
     await db.withTransactionAsync(async () => {
-      for (const l of (lists ?? [])) {
+      // Backfilled parents are merged into the lists loop so they populate
+      // validListIds. They're intentionally excluded from newWatermark (they
+      // predate it) — only the regular batch advances the watermark.
+      for (const l of [...(lists ?? []), ...extraLists]) {
         if (l.is_deleted) {
           await db.runAsync('DELETE FROM words WHERE listId = ?', l.id);
           await db.runAsync('DELETE FROM lists WHERE id = ?', l.id);
@@ -146,7 +222,7 @@ export async function pullChanges(): Promise<void> {
       );
       const validListIds = new Set(validListRows.map(r => r.id));
 
-      for (const w of (words ?? [])) {
+      for (const w of allWords) {
         if (w.is_deleted) {
           await db.runAsync('DELETE FROM words WHERE id = ?', w.id);
           continue;

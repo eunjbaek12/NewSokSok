@@ -124,6 +124,8 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     // window. Still authed here (mode is flipped at the end), so RLS passes.
     // Dynamic imports break the auth ↔ sync require cycle (sync/engine imports
     // useAuthStore).
+    // 1) Best-effort flush while still authenticated (RLS passes), so edits
+    //    made within the push debounce window aren't lost.
     try {
       const { flushPush } = await import('@/features/sync/engine');
       await flushPush();
@@ -131,28 +133,35 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       console.warn('[auth] pre-logout flush failed:', e?.message ?? e);
     }
 
-    try { await GoogleSignin.signOut(); } catch {}
-    await supabase.auth.signOut();
-
-    // Account isolation: local SQLite is just a cache of the cloud account.
-    // Clear it (and the sync watermark/dirty sets) so the next account that
-    // logs in on this device never sees the previous account's words.
+    // 2) Clear local account state BEFORE signing out.
+    //    supabase.auth.signOut() fires onAuthStateChange('SIGNED_OUT'), which
+    //    re-renders the tree (and in dev can remount the root → splash). If
+    //    the cleanup ran *after* signOut, that remount could interrupt logout
+    //    and skip resetAll()/clearAllData(), leaving lastPulledAt stale — then
+    //    the next login can't re-pull the account's data (it stays "behind the
+    //    watermark"). This cleanup is local-only and auth-independent, so
+    //    running it first is safe and guarantees it completes.
     try {
       const { clearAllData } = await import('@/features/vocab/db');
       await clearAllData();
       const { useSyncStore } = await import('@/features/sync/store');
       await useSyncStore.getState().resetAll();
-      // Also clear account-scoped settings (nickname, custom study selection
-      // referencing now-cleared list IDs). Device preferences are preserved.
+      // Account-scoped settings (nickname, custom study selection referencing
+      // now-cleared list IDs, BYOK key). Device preferences are preserved.
       const { useSettingsStore } = await import('@/features/settings/store');
       await useSettingsStore.getState().clearAccountScopedSettings();
-      // In-memory quota status belongs to the logged-out account. Without
-      // reset, a brief guest-mode session right after logout would still see
-      // the previous tier ("Pro") until a refresh — confusing UX.
+      // In-memory quota status belongs to the logged-out account.
       const { useQuotaStore } = await import('@/features/quota');
       useQuotaStore.getState().clear();
     } catch (e: any) {
-      console.warn('[auth] post-logout local clear failed:', e?.message ?? e);
+      console.warn('[auth] logout local clear failed:', e?.message ?? e);
+    }
+
+    // 3) Sign out of Google + Supabase. Each wrapped so a failure can't skip
+    //    the final state flip below.
+    try { await GoogleSignin.signOut(); } catch {}
+    try { await supabase.auth.signOut(); } catch (e: any) {
+      console.warn('[auth] supabase signOut failed:', e?.message ?? e);
     }
 
     await persist({ mode: 'none', user: null }, set);

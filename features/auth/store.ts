@@ -93,7 +93,17 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
 
     supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_OUT') {
-        await persist({ mode: 'none', user: null }, set);
+        // React to SIGNED_OUT ONLY if we still consider ourselves in a Google
+        // session. supabase fires this event asynchronously (the callback isn't
+        // awaited by signOut()), so a SIGNED_OUT emitted during logout() can
+        // land *after* the user has already tapped "게스트로 시작" and
+        // loginAsGuest() set mode='guest'. Without this guard it would clobber
+        // the fresh guest session back to 'none', and AppStack would bounce the
+        // user to /login — exactly the "have to log in as guest twice" bug.
+        // Genuine external session loss still works: mode is 'google' then.
+        if (useAuthStore.getState().mode === 'google') {
+          await persist({ mode: 'none', user: null }, set);
+        }
       } else if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user) {
         const user = await buildUser(session.user);
         await persist({ mode: 'google', user }, set);

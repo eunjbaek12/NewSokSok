@@ -1,10 +1,57 @@
 # 동기화 디버깅 세션 Handoff
 
-작성일: 2026-05-22. dev client(Expo dev build)에서 계정 전환/동기화 버그를 추적한 세션.
+작성일: 2026-05-22, 갱신: 2026-05-23. dev client(Expo dev build)에서 계정 전환/동기화 버그를 추적한 세션.
 
 ## 한 줄 현재 상황
 
-계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. **미커밋 3파일**(`features/auth/store.ts`, `features/sync/engine.ts`, `features/vocab/use-bootstrap.ts`)이 있고, **dev client 검증(나는솔로 단어장 21개 복구 확인) 후 커밋 예정**. 클라우드 데이터는 안전(손실 없음), 로컬 pull만 막혔던 문제.
+계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22의 3파일 수정은 **커밋·push 완료**(`10280c0`). 2026-05-23 후속 세션에서 닉네임 복원·게스트 데이터 보존·first-login 고아 방지를 추가 수정해 **2개 커밋 push 완료**(`c4c5d63`, `cc5ebd8`). 클라우드 데이터는 안전(손실 없음). **다음 세션은 아래 "2026-05-23 후속 세션" 섹션부터 읽기.**
+
+---
+
+## 2026-05-23 후속 세션 (닉네임 + 게스트 보존 + 고아 방지)
+
+> push 완료: `c4c5d63` feat(auth), `cc5ebd8` fix(sync). dev client 검증 체크리스트는 이 섹션 끝.
+
+### 발견 1 — 후속 보강 #1(word push updated_at 명시)은 무효
+2026-05-22 핸드오프의 "후속 보강 #1"은 **trigger 때문에 불필요**. `cloud_words`/`cloud_lists`의 `updated_at`은 `BEFORE INSERT OR UPDATE` trigger가 `(extract(epoch from now())*1000)::bigint`로 **서버에서 강제**(시계 skew 방지, B-supabase-migration-plan.md L58-59). 클라이언트가 `wordToCloudRow`에 `updated_at`을 넣어도 trigger가 덮어씀. 버그1 비대칭의 진짜 원인은 timestamp 누락이 아니라 "list만 갱신돼 push되고 word는 dirty가 아니라 애초에 push 안 됨"이라, 이미 커밋된 engine.ts의 list→word completeness fetch가 유일하게 유효한 해결책. **mapping.ts는 손대지 않음(맞는 결정).**
+
+### 수정 A — 닉네임 클라우드 백업/복원 (`c4c5d63`)
+- **증상**: 로그아웃할 때마다 닉네임 초기화. 구글 계정조차 사라짐.
+- **원인**: 닉네임이 로컬 `profileStore`(AsyncStorage)에만 저장 → `logout`의 `clearAccountScopedSettings`가 격리 목적(`2b7c0cc`)으로 삭제하는데 **복원 짝이 없었음**. 클라우드 백업 경로 자체가 없음.
+- **수정**: `updateProfileSettings`가 `supabase.auth.updateUser({data:{nickname}})`로 user_metadata에 백업(best-effort, 게스트는 세션 없어 skip). `buildUser`가 `user_metadata.nickname`을 `GoogleUser`에 포함. `use-bootstrap` 구글 로그인 부트스트랩이 **로컬이 비었을 때만** user_metadata에서 복원. `contracts.ts` `GoogleUserSchema`에 `nickname` optional(기존 persist 호환 — 안 그러면 onDrift로 기존 사용자 로그아웃됨).
+- **잔여 엣지(합의됨)**: 게스트가 닉네임 설정 → 로그아웃 → **다른** 구글 계정 로그인 시 그 계정에 닉네임 없으면 게스트 닉네임이 잠깐 노출. 표시 이름일 뿐이고 드물어 그대로 둠.
+
+### 수정 B — 게스트 로그아웃 시 로컬 데이터 보존 (`c4c5d63`)
+- **증상(데이터 손실)**: 게스트 로그아웃 시 닉네임뿐 아니라 **단어·단어장까지 전부 삭제**. 게스트 로그아웃 안내문 "저장된 단어는 이 기기에 유지됩니다"와 정면 모순.
+- **원인**: `logout`이 모드 구분 없이 `clearAllData()`(`db.ts:141`, 가드 없음) + `clearAccountScopedSettings()` 실행. 구글용으로 견고화된 정리가 게스트엔 파괴가 됨(로컬이 유일한 원본).
+- **수정**: `const wasGoogle = useAuthStore.getState().mode === 'google'`로 캡처해 **파괴적 정리를 `wasGoogle`일 때만** 실행. flush·signOut은 게스트에선 자연 no-op이라 그대로.
+- **결정(사용자 확정)**: "계정 데이터는 그 계정으로만 보임" 현재 동작 유지. 게스트→구글 합치기는 first-login conflict Alert(`use-bootstrap.ts:40`)가 처리하므로 손대지 않음.
+
+### 수정 C — first-login conflict 개수 정확도 + merge 고아 방지 (`cc5ebd8`)
+- **증상**: 구글 로그인 시 "클라우드에 2436개" 합치기 메시지. 실제 단어는 몇 개 없음.
+- **원인 1 (개수)**: `probeFirstLoginState`가 `.select('id')` 후 `.length` → Supabase 기본 1000행 제한에 걸려 ≥1000이면 "1000" 고정. → `count:'exact'`+`head:true`로 정확 개수 조회.
+- **원인 2 (고아)**: 진단 결과 2436 중 ~2363이 **고아 단어**(부모 list는 `is_deleted=true`인데 word는 `is_deleted=false`로 클라우드에 잔존). 출처는 (a) 게스트 모드 삭제 시 dirty 마킹 skip, (b) **`applyFirstLoginMerge`가 합치기마다 모든 로컬 id를 새 UUID로 재발급→새 행 업로드→옛 행 고아화**(반복 merge 시 중복 누적, f33ae4ea에 2배 복사 확인).
+- **수정**: 모든 id가 `Crypto.randomUUID`(고정 id 전무)라 충돌 불가 → `applyFirstLoginMerge`의 **재발급 제거**, 기존 id로 dirty 마킹만. upsert(onConflict:id)가 멱등이 되어 재업로드가 행을 갱신만 함. PRAGMA FK off 트랜잭션 코드도 제거.
+- **클라우드 정리 완료**: 테스트 계정의 고아 2363건을 Supabase에서 직접 정리(아래 SQL). 재실행 시 count 0 확인됨.
+
+```sql
+-- 고아(부모 list 삭제/부재) 단어 개수
+select count(*) from cloud_words w
+where w.is_deleted = false
+  and not exists (select 1 from cloud_lists l where l.id = w.list_id and l.is_deleted = false)
+-- 고아 하드 삭제 (Dashboard는 service role → 다중 계정이면 and w.user_id='uid' 추가)
+delete from cloud_words w
+where not exists (select 1 from cloud_lists l where l.id = w.list_id and l.is_deleted = false)
+```
+
+### 다음 세션 dev client 검증 체크리스트 (`pnpm start`)
+1. 구글: 닉네임 설정 → 로그아웃 → 재로그인 → **닉네임 복원** 확인
+2. 게스트: 단어·닉네임 설정 → 로그아웃 → 다시 게스트 → **유지** 확인
+3. 합치기 **반복**(게스트 단어→구글 합치기→로그아웃 반복) → Supabase 고아 count **0 유지**, conflict 숫자 정상
+
+### 미해결/선택 (출시 후 검토)
+- **빌트인 큐레이션 단어를 사용자별 클라우드에 복제 동기화**하는 구조(`engine.ts` push에 `isCurated` 필터 없음) — 모든 사용자 × 수천 행 복제. 비효율이나 출시 차단 아님. 큐레이션은 constants에 오프라인 상시 존재하므로 cloud 동기화 제외 검토 여지.
+- **빌드 전 점검 결과(2026-05-23)**: tsc 6건·lint 11건 모두 sync 작업과 무관한 기존 부채(usePurchaseFlow expo-iap 타입 좁히기 5건=런타임 안전, CharacterAccessory/SkinSelector hex·barrel, voca_app_ui.jsx 미사용, fetch-wiktionary 정규식 오타). EAS는 Metro/babel 번들이라 tsc/lint가 빌드를 막지 않음. **production 빌드 차단 요소 없음.**
 
 ---
 
@@ -40,7 +87,9 @@
 
 ---
 
-## 다음 세션 즉시 할 일
+## 2026-05-22 계획 (✅ 전부 완료 — 아래는 당시 기록)
+
+> 이 3파일 수정은 검증·커밋(`10280c0`)·push 완료. 후속 작업은 위 "2026-05-23 후속 세션" 섹션 참고.
 
 ### 1. dev client 검증 (engine.ts 수정 반영 확인)
 - Metro에서 `r`로 reload (engine.ts 수정 반영 필수)
@@ -65,8 +114,8 @@ fix(sync): list/word updated_at 비대칭으로 인한 단어 영구 누락 + �
 ```
 커밋 후 `git push origin main`.
 
-### 3. 후속 보강 (선택, 별도 커밋)
-- **word push에 `updated_at` 명시** (`features/sync/mapping.ts:wordToCloudRow`): 현재 word push 시 `updated_at`을 안 보내 DB default로 채워짐. word 갱신 시 list와 timestamp가 어긋나는 구조 → 버그 1 비대칭의 간접 원인. push 시 `updated_at: Date.now()`(또는 word.updatedAt) 명시하면 근본 보강. (engine fetch 수정으로 증상은 이미 차단됨)
+### 3. 후속 보강
+- ~~**word push에 `updated_at` 명시**~~ → ❌ **무효로 판명, 진행 안 함**. `updated_at`은 서버 trigger가 강제하므로 클라이언트 명시가 무시됨. 상세는 위 "2026-05-23 후속 세션 > 발견 1" 참고.
 - **splash 리마운트 트리거 정밀 진단**: logout 견고화로 데이터 정리는 보장됐으나, dev에서 RootLayout이 왜 리마운트되는지(splash) 정확한 트리거는 logcat 미확인. production 빌드에서 재현되는지 확인 필요. dev client 특유(Fast Refresh/store 리셋)일 가능성.
 
 ---

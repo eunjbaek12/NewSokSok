@@ -20,6 +20,10 @@ export const GoogleUserSchema = z.object({
   displayName: z.string().nullable(),
   avatarUrl: z.string().nullable(),
   isAdmin: z.boolean(),
+  // Custom display name backed up to Supabase user_metadata. Optional so
+  // auth states persisted before this field existed still parse (otherwise
+  // onDrift would log existing users out on upgrade).
+  nickname: z.string().nullable().optional(),
 });
 export type GoogleUser = z.infer<typeof GoogleUserSchema>;
 

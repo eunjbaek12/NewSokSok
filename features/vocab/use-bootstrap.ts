@@ -108,6 +108,22 @@ export function useVocabBootstrap(): void {
           }
         }
         await AsyncStorage.setItem(LAST_GOOGLE_ID_KEY, user.id);
+        // Restore the nickname backed up to Supabase user_metadata. logout()
+        // clears the local copy for account isolation, so without this a
+        // re-login (same account) would leave the nickname blank — it'd appear
+        // to "reset" on every logout. Only restore when local is empty so we
+        // never clobber an edit the user just made in this session.
+        if (user.nickname) {
+          try {
+            const { useSettingsStore } = await import('@/features/settings/store');
+            const local = useSettingsStore.getState().profileSettings.nickname.trim();
+            if (!local) {
+              await useSettingsStore.getState().updateProfileSettings({ nickname: user.nickname });
+            }
+          } catch (e: any) {
+            console.warn('[bootstrap] nickname restore failed:', e?.message ?? e);
+          }
+        }
         await useSyncStore.getState().hydrateLastPulled();
         await loadCloudData();
       } else {

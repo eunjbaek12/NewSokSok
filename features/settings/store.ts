@@ -17,7 +17,25 @@ import {
   type AiCurationSettings,
 } from '@shared/contracts';
 import { persisted } from '@/lib/storage/persisted';
+import { supabase } from '@/lib/supabase';
 import { loadAndMigrateApiKey, saveApiKey } from './api-key-storage';
+
+/**
+ * Back the nickname up to Supabase user_metadata so a logout (which clears the
+ * local account-scoped copy for isolation) doesn't permanently lose it — the
+ * next login restores it via buildUser → use-bootstrap. Best-effort and
+ * fire-and-forget: guests/logged-out have no session (skip silently), and a
+ * network failure must never block the local save or the settings UI.
+ */
+async function backupNicknameToCloud(nickname: string): Promise<void> {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return;
+    await supabase.auth.updateUser({ data: { nickname } });
+  } catch (e: any) {
+    console.warn('[settings] nickname cloud backup failed:', e?.message ?? e);
+  }
+}
 
 const DEFAULT_INPUT_SETTINGS: InputSettings = InputSettingsSchema.parse({}) as InputSettings;
 const DEFAULT_STUDY_SETTINGS: StudySettings = StudySettingsSchema.parse({}) as StudySettings;
@@ -152,6 +170,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     const next = { ...get().profileSettings, ...updates };
     set({ profileSettings: next });
     await profileStore.save(next);
+    if (typeof updates.nickname === 'string') void backupNicknameToCloud(updates.nickname);
   },
 
   updateAiCurationSettings: async (updates) => {

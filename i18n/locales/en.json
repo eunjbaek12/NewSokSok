@@ -680,6 +680,10 @@
             "a": "You can remove your own shares. Copies others have already imported are unaffected."
           },
           {
+            "q": "How do I report an objectionable shared list?",
+            "a": "Open a list shared by another user in the Curation tab and tap the report (flag) icon at the top. Pick a reason — inappropriate content, copyright infringement, spam, misinformation, or other — and optionally add up to 500 characters of detail.\n\nReporting requires Google sign-in, and you can report the same list only once. Submitted reports are reviewed and acted on. (The report button doesn't appear on lists you shared yourself.)"
+          },
+          {
             "q": "Where do the built-in word lists come from?",
             "a": "The built-in official lists (TOEIC, Korean SAT, etc.) are based on CC BY-SA 4.0 open data and AI-generated content. Each list's source is noted in its description, and the full list of open-source libraries and data sources is available under Settings → Open Source & Data Sources."
           }

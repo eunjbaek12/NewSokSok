@@ -71,6 +71,8 @@ export async function generateWordsViaEdge(
     }
 
     if (!data?.result || !data?.quota) return { kind: 'upstream' };
+    // 성공 → 응답에 담긴 최신 quota를 store에 즉시 반영.
+    useQuotaStore.getState().applyEdgeQuota(data.quota);
     return { kind: 'ok', result: data.result, quota: data.quota };
   } catch (e: any) {
     if (e?.name === 'AbortError') throw e;

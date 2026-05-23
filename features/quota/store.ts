@@ -33,6 +33,8 @@ interface QuotaState {
 
   refresh: (force?: boolean) => Promise<void>;
   set: (s: QuotaStatus) => void;
+  /** enrich/generate/scan 성공 응답의 quota를 즉시 반영. RPC 없이 카운터 갱신. */
+  applyEdgeQuota: (quota: Partial<QuotaStatus> | null | undefined) => void;
   clear: () => void;
   notifyQuotaExceeded: (status?: Partial<QuotaStatus> | null) => void;
   dismissQuotaExceeded: () => void;
@@ -71,6 +73,21 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
   },
 
   set: (s) => set({ status: s, lastFetchedAt: Date.now() }),
+  applyEdgeQuota: (quota) => {
+    if (!quota) return;
+    const current = get().status;
+    // Edge 응답 quota는 trial_ends_at/pro_until 미포함 → 기존 status 값 보존 머지.
+    // (notifyQuotaExceeded와 동일 패턴.) 성공 호출이므로 lastFetchedAt도 갱신해
+    // 직후 화면 진입 시 STALE 윈도 내 불필요한 refresh를 막는다.
+    set({
+      status: {
+        trial_ends_at: current?.trial_ends_at ?? null,
+        pro_until: current?.pro_until ?? null,
+        ...quota,
+      } as QuotaStatus,
+      lastFetchedAt: Date.now(),
+    });
+  },
   clear: () => set({ status: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0 }),
   notifyQuotaExceeded: (status) => {
     const current = get().status;

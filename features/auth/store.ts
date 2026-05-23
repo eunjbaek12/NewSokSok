@@ -75,19 +75,33 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
   hydrate: async () => {
     configureGoogleSignIn();
 
+    // Our own persisted intent (@soksok_auth) is authoritative — NOT whatever
+    // supabase.auth.getSession() happens to return. supabase.auth.signOut()
+    // skips removing the LOCAL session when its network revoke call fails
+    // (auth-js GoTrueClient._signOut early-returns on a non-401/403/404 error),
+    // so a logged-out user can have a lingering session in AsyncStorage. If we
+    // trusted getSession() here, the root remount that logout triggers (splash)
+    // — or the next cold start — would silently resurrect that account. So we
+    // honor the saved intent and only restore Google when WE believe we're
+    // Google AND a session actually exists.
+    const loaded = await authStore.load();
     const { data: { session } } = await supabase.auth.getSession();
-    if (session?.user) {
+
+    if (loaded.mode === 'google' && session?.user) {
       const user = await buildUser(session.user);
       await persist({ mode: 'google', user }, set);
+    } else if (loaded.mode === 'google') {
+      // We believed we were signed in but supabase has no session — external
+      // session loss. Drop to logged-out.
+      await authStore.remove();
+      set({ mode: 'none', user: null });
     } else {
-      const loaded = await authStore.load();
-      if (loaded.mode === 'google') {
-        // No valid Supabase session — reset to logged-out
-        await authStore.remove();
-        set({ mode: 'none', user: null });
-      } else {
-        set({ mode: loaded.mode, user: null });
+      // Intent is 'none' or 'guest'. Honor it, and proactively clear any orphan
+      // session a failed signOut left behind so it can't resurrect later.
+      if (session) {
+        try { await supabase.auth.signOut({ scope: 'local' }); } catch {}
       }
+      set({ mode: loaded.mode, user: null });
     }
     set({ loading: false });
 
@@ -181,14 +195,23 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       }
     }
 
-    // 3) Sign out of Google + Supabase. Each wrapped so a failure can't skip
-    //    the final state flip below. (Harmless no-ops for a guest.)
+    // 3) Flip to logged-out and PERSIST it *before* signing out. signOut fires
+    //    onAuthStateChange('SIGNED_OUT') and (in dev) can remount the root →
+    //    hydrate() re-runs mid-logout. Persisting 'none' first guarantees that
+    //    a concurrent hydrate reads logged-out intent, not the stale 'google'
+    //    we're leaving. Pairs with hydrate() treating @soksok_auth as the
+    //    source of truth. (The SIGNED_OUT handler's mode==='google' guard then
+    //    no-ops, since mode is already 'none'.)
+    await persist({ mode: 'none', user: null }, set);
+
+    // 4) Sign out of Google + Supabase (best-effort). scope:'local' wipes the
+    //    local session without depending on a server round-trip that could fail
+    //    and leave it behind; even if this throws, hydrate() now honors the
+    //    'none' intent and clears any orphan session. (No-ops for a guest.)
     try { await GoogleSignin.signOut(); } catch {}
-    try { await supabase.auth.signOut(); } catch (e: any) {
+    try { await supabase.auth.signOut({ scope: 'local' }); } catch (e: any) {
       console.warn('[auth] supabase signOut failed:', e?.message ?? e);
     }
-
-    await persist({ mode: 'none', user: null }, set);
   },
 
   deleteAccount: async () => {

@@ -230,7 +230,18 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       await GoogleSignin.signOut();
     } catch {}
 
-    await supabase.auth.signOut();
+    // delete_user로 서버 user가 이미 삭제된 상태 → 기본 scope 'global'의 signOut은
+    // 서버 /logout 호출이 실패할 수 있고, 그 throw가 아래 persist를 스킵시키면
+    // mode가 'google'로 남는다(= 탈퇴 후 로그인 화면으로 못 가고, 앱 reload 시
+    // 만료 전 access token으로 세션이 부활). scope:'local'로 서버 호출 없이 로컬
+    // 토큰만 확실히 제거하고, 실패해도 로그아웃 상태 전환은 보장한다.
+    // (logout()의 try-catch 처리와 대칭.)
+    try {
+      await supabase.auth.signOut({ scope: 'local' });
+    } catch (e: any) {
+      console.warn('[auth] delete-account signOut failed:', e?.message ?? e);
+    }
+
     await persist({ mode: 'none', user: null }, set);
   },
 }));

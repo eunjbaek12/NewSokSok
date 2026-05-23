@@ -400,10 +400,17 @@ export async function addWord(
       );
     });
   } catch (e: any) {
+    const msg = String(e?.message ?? '');
     // 같은 단어장 내 동일 term — idx_words_listid_term_unique 위반.
     // 원본 SQLite 에러 대신 UI가 친절히 안내할 수 있게 코드로 변환.
-    if (String(e?.message ?? '').includes('UNIQUE constraint failed')) {
+    if (msg.includes('UNIQUE constraint failed')) {
       throw new Error('DUPLICATE_WORD');
+    }
+    // listId가 lists에 없음 — words.listId FK 위반. UI(예: add-word)의 선택 상태가
+    // 삭제/교체된 유령 리스트를 가리킬 때 발생. 원문 노출 대신 코드로 변환해
+    // 호출부가 단어장 재선택을 유도하도록 한다.
+    if (msg.includes('FOREIGN KEY constraint failed')) {
+      throw new Error('LIST_NOT_FOUND');
     }
     throw e;
   }

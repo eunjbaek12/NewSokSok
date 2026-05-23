@@ -120,6 +120,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
             if (error?.message === 'DUPLICATE_WORD') {
                 onError('duplicate');
+            } else if (error?.message === 'LIST_NOT_FOUND') {
+                // 선택된 단어장이 더 이상 존재하지 않음(삭제/교체됨) — 예상 가능한 상황.
+                // 에러 로그 없이 단어장 재선택을 유도한다.
+                onError('no-list');
             } else {
                 console.error("Failed to save word:", error);
                 onError('error');

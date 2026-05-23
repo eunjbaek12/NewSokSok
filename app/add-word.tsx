@@ -362,6 +362,19 @@ export default function AddWordScreen() {
     const [isListening, setIsListening] = useState(false);
     const [isTermFocused, setIsTermFocused] = useState(false);
 
+    // selectedListId는 useState 초기값으로 한 번만 잡히므로, lists가 이후 갱신되면
+    // (로그인 후 cloud 교체 등) 더 이상 존재하지 않는 유령 id를 가리킬 수 있다.
+    // 그 상태로 저장하면 words.listId FK 위반("FOREIGN KEY constraint failed").
+    // lists 변화에 맞춰 무효한 선택을 유효한 리스트로 보정한다.
+    useEffect(() => {
+        if (lists.length === 0) return;
+        const valid = selectedListId && lists.some(l => l.id === selectedListId);
+        if (!valid) {
+            const fallback = listId && lists.some(l => l.id === listId) ? listId : lists[0].id;
+            setSelectedListId(fallback);
+        }
+    }, [lists, listId, selectedListId]);
+
     useSpeechRecognitionEvent('start', () => setIsListening(true));
     useSpeechRecognitionEvent('end', () => setIsListening(false));
     useSpeechRecognitionEvent('result', (event: any) => {

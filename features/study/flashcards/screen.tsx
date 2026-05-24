@@ -1,12 +1,12 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import { GestureDetector, Gesture } from 'react-native-gesture-handler';
+import { GestureDetector, Gesture, ScrollView } from 'react-native-gesture-handler';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -37,7 +37,7 @@ import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
 
-function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean, t: (key: string) => string }) {
+function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, cardMaxHeight, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean, cardMaxHeight?: number, t: (key: string) => string }) {
   const frontStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [0, 180]);
     return {
@@ -56,6 +56,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, t }:
         shadowColor: colors.cardShadow,
         borderColor: colors.borderLight,
         borderWidth: 1,
+        maxHeight: cardMaxHeight,
       },
       frontStyle
     ]}>
@@ -88,7 +89,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, t }:
   );
 }
 
-function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, showExample, showExampleKr, showPhonetic, showPos, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean, showExampleKr: boolean, showPhonetic: boolean, showPos: boolean, t: (key: string) => string }) {
+function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, showExample, showExampleKr, showPhonetic, showPos, cardMaxHeight, exampleMaxHeight, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean, showExampleKr: boolean, showPhonetic: boolean, showPos: boolean, cardMaxHeight?: number, exampleMaxHeight: number, t: (key: string) => string }) {
   const backStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [180, 360]);
     return {
@@ -108,6 +109,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
         shadowColor: colors.cardShadow,
         borderColor: colors.borderLight,
         borderWidth: 1,
+        maxHeight: cardMaxHeight,
       },
       backStyle
     ]}>
@@ -148,12 +150,17 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
       )}
 
       {showExample && word.exampleEn ? (
-        <View style={[styles.cardExampleBox, { backgroundColor: colors.surfaceSecondary }]}>
-          <Text style={[styles.cardExample, { color: colors.textSecondary }]} numberOfLines={4} ellipsizeMode="tail">{word.exampleEn}</Text>
+        <ScrollView
+          style={[styles.cardExampleBox, { backgroundColor: colors.surfaceSecondary, maxHeight: exampleMaxHeight }]}
+          contentContainerStyle={styles.cardExampleContent}
+          showsVerticalScrollIndicator
+          nestedScrollEnabled
+        >
+          <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
           {showExampleKr && word.exampleKr ? (
-            <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]} numberOfLines={3} ellipsizeMode="tail">{word.exampleKr}</Text>
+            <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
           ) : null}
-        </View>
+        </ScrollView>
       ) : null}
     </Animated.View>
   );
@@ -170,6 +177,9 @@ export default function FlashcardsScreen() {
   const { studySettings, updateStudySettings } = useSettings();
   const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
+
+  // 카드 영역 실측 높이 — 카드가 버튼 영역까지 자라지 않도록 maxHeight 계산에 사용
+  const [cardAreaHeight, setCardAreaHeight] = useState(0);
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
@@ -533,6 +543,16 @@ export default function FlashcardsScreen() {
     );
   }
 
+  // 버튼 영역(액션 버튼 높이 + 광고 + safe-area + 여백)을 제외한 만큼만 카드가 차지하도록 한다.
+  const BTN_BLOCK = 64;       // 액션 버튼 대략 높이
+  const CARD_BTN_GAP = 20;    // 카드와 버튼 사이 최소 간격
+  const bottomReserve = insets.bottom + (adsBottomInset || 76) + 12 + BTN_BLOCK + CARD_BTN_GAP;
+  const cardMaxHeight = cardAreaHeight > 0
+    ? Math.max(320, cardAreaHeight - 16 /* cardContainer paddingTop */ - bottomReserve)
+    : undefined;
+  // 예문 스크롤 영역: 카드 상한에서 단어/뜻 등 고정 요소(대략 300)를 뺀 만큼
+  const exampleMaxHeight = cardMaxHeight ? Math.max(96, cardMaxHeight - 300) : 150;
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={[styles.header, { paddingTop: topInset + 12, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
@@ -570,7 +590,7 @@ export default function FlashcardsScreen() {
         </View>
       </View>
 
-      <View style={styles.cardArea}>
+      <View style={styles.cardArea} onLayout={(e) => setCardAreaHeight(e.nativeEvent.layout.height)}>
         <Animated.View style={[styles.indicator, styles.leftIndicator, reviewIndicatorStyle]}>
           <View style={[styles.indicatorBox, { borderColor: colors.warning }]}>
             <Ionicons name="arrow-back" size={32} color={colors.warning} />
@@ -586,15 +606,17 @@ export default function FlashcardsScreen() {
         </Animated.View>
 
         <GestureDetector gesture={panGesture}>
-          <Animated.View style={[styles.cardContainer, animatedCardStyle]}>
+          <Animated.View style={[styles.cardContainer, { paddingBottom: bottomReserve }, animatedCardStyle]}>
             <Pressable style={{ flex: 1, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} onPress={handleFlip}>
-              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} t={t} />
+              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} cardMaxHeight={cardMaxHeight} t={t} />
               <CardBack
                 word={currentWord}
                 colors={colors}
                 isDark={isDark}
                 rotation={rotation}
                 onToggleStar={handleToggleStar}
+                cardMaxHeight={cardMaxHeight}
+                exampleMaxHeight={exampleMaxHeight}
                 showMeaning={!!settings.showMeaning}
                 showExample={!!settings.showExample}
                 showExampleKr={!!settings.showExampleKr}
@@ -606,7 +628,7 @@ export default function FlashcardsScreen() {
           </Animated.View>
         </GestureDetector>
 
-        <View style={[styles.bottomBar, { bottom: insets.bottom + (adsBottomInset || 76) + 32, paddingHorizontal: 24, gap: 16 }]}>
+        <View style={[styles.bottomBar, { bottom: insets.bottom + (adsBottomInset || 76) + 12, paddingHorizontal: 24, gap: 16 }]}>
           <Animated.View style={[{ flex: 1 }, leftBtnScale]}>
             <Pressable
               onPress={() => handleNext(false)}
@@ -842,8 +864,10 @@ const styles = StyleSheet.create({
   },
   cardExampleBox: {
     borderRadius: 12,
-    padding: 16,
     width: '100%',
+  },
+  cardExampleContent: {
+    padding: 16,
   },
   cardBackTerm: {
     fontSize: 18,

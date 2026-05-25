@@ -806,6 +806,11 @@ export async function savePlan(
       `UPDATE lists SET planTotalDays = ?, planCurrentDay = 1, planWordsPerDay = ?, planStartedAt = ?, planUpdatedAt = NULL, planFilter = ? WHERE id = ?`,
       [totalDays, wordsPerDay, now, filter, listId]
     );
+    // Clear stale assignments first: when re-planning with a partial filter
+    // (unmemorized/memorized), words excluded from `assignedDays` must lose
+    // their previous day so they don't leak into the plan view. For filter='all'
+    // every word is reassigned below, so this is a no-op there.
+    await db.runAsync('UPDATE words SET assignedDay = NULL WHERE listId = ?', [listId]);
     for (const { wordId, day } of assignedDays) {
       await db.runAsync('UPDATE words SET assignedDay = ? WHERE id = ?', [day, wordId]);
     }

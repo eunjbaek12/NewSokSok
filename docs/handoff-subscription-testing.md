@@ -16,24 +16,27 @@
 |---|---|---|---|---|
 | ① 순수 로직 | `error-mapping.ts`, quota 헬퍼 | Jest | 없음 | ✅ 작성+통과 |
 | ③ 구독 판정 | `verify-purchase/verify-logic.ts` | Jest | 없음 | ✅ 작성+통과 |
-| ② DB RPC | quota/trial 마이그레이션 | pgTAP (`supabase test db`) | Docker | ✅ 작성 / ⏳ 실행 셋업 필요 |
-| ③ 핸들러 통합 | `verify-purchase/index.ts` 전체 | Deno + Play API mock | Deno | ⬜ 미작성 (선택) |
+| ③ 핸들러 통합 | `verify-purchase/handler.ts` | Jest (의존성 주입) | 없음 | ✅ 작성+통과 |
+| ② DB RPC | quota/trial 마이그레이션 | pgTAP (원격 러너 / `supabase test db`) | 클라우드 Postgres / Docker | ✅ 작성+통과 |
 | ④ 결제 E2E | `usePurchaseFlow.ts` + Play | 라이선스 테스터 실기기 | 실기기 | 📋 수동 체크리스트 |
 
 ---
 
-## ① + ③(판정) — Jest (즉시 실행, 검증 완료)
+## ① + ③ — Jest (즉시 실행, 검증 완료)
 
 ```bash
-pnpm test                                  # 전체
-npx jest billing-verify-logic billing-error-mapping quota-pro-mode   # 구독 관련만
+npx jest billing-verify-handler billing-verify-logic billing-error-mapping quota-pro-mode
 ```
+
+> ⚠️ `pnpm test`(전체)는 일부 기존 `*.test.js`가 standalone 스크립트(`process.exit`)이거나
+> native mock 의존이라 깨끗하지 않다. 구독 테스트는 위처럼 파일을 지정해 돌린다.
 
 | 파일 | 커버 | 핵심 케이스 |
 |---|---|---|
 | `__tests__/billing-error-mapping.test.ts` | `mapPurchaseError` | 17개 expo-iap 코드 + 자체 throw 메시지, 취소 silent, 복원 제안 |
 | `__tests__/quota-pro-mode.test.ts` | `getProMode` / `getTrialDaysLeft` | trial vs paid 구분, 만료 경계, 잔여일 ceil |
 | `__tests__/billing-verify-logic.test.ts` | `evaluateSubscription` | ACTIVE/GRACE 인정, 상태·상품·만료 거부, now 주입 경계 |
+| `__tests__/billing-verify-handler.test.ts` | `createVerifyHandler` (핸들러 통합) | 405/401/400/429/402/500/200 전 분기, upsert row, subscriptionsv2 URL |
 
 > `getProMode` 는 서버가 trial/paid 를 모두 `tier='pro'` 로 반환하는 것을 클라이언트에서
 > 구분하는 **유일한 지점**이다. ("체험인데 결제된 것처럼 보이던" 과거 버그.)
@@ -76,21 +79,25 @@ npx jest billing-verify-logic billing-error-mapping quota-pro-mode   # 구독 �
 
 ---
 
-## ③ 핸들러 통합 — Deno (선택, 미작성)
+## ③ 핸들러 통합 — Jest (의존성 주입, 검증 완료)
 
-`verify-logic.ts` 가 판정 로직을 커버하므로 핸들러 통합은 우선순위가 낮다. 다만
-다음은 `index.ts` 핸들러를 직접 때려야 검증된다 → Deno 설치 후 작성 권장:
+핸들러 제어 흐름을 `handler.ts`(`createVerifyHandler(deps)`)로 추출했다. 외부 I/O
+(getUser·checkRate·getPlayConfig·getAccessToken·fetchPlay·upsertSubscription)를 모두
+deps 로 주입받고 요청/응답도 단순 인터페이스로 추상화해, Deno 없이 Jest 로 전 분기를
+검증한다. `index.ts` 는 실제 Deno/esm.sh 구현을 주입하고 `Deno.serve` 로 감싸는 wiring 만 담당.
 
-- JWT 없음 → 401, 잘못된 JSON → 400
-- `platform='ios'` → 400 (v1.1 미지원)
-- **rate limit**: 같은 user 6번째 호출 → 429
-- Play API 404/410 → 402, 그 외 5xx → 500 (`fetch` mock)
-- 인정 시 `user_subscriptions` upsert (tier=pro) (supabase client mock)
+`__tests__/billing-verify-handler.test.ts` 가 다음을 커버:
 
-```bash
-# deno 설치 후
-deno test --allow-env supabase/functions/verify-purchase/index.test.ts
-```
+- 405 (POST 아님)
+- 401 (헤더 없음 / Bearer 아님 / JWT 검증 실패) — getUser 미호출 검증 포함
+- 400 (malformed JSON / token·productId 누락 / `platform='ios'`)
+- 429 (rate limit) — checkRate 가 식별된 userId 로 호출되는지 포함
+- 500 (Play 설정 누락 / 토큰 실패 / fetch 예외 / upstream 5xx / DB upsert 실패)
+- 402 (Play 404·410 / 비활성 상태 / 상품 불일치) — upsert 미호출 검증 포함
+- 200 (성공 + upsert row 필드 + 정확한 subscriptionsv2 URL)
+
+> `.ts` 확장자 상대 import(Deno 필수)를 Jest 가 다루도록 `jest.config.js`(moduleNameMapper +
+> transform → `tsconfig.jest.json` 의 isolatedModules)를 보강했다.
 
 ---
 
@@ -121,7 +128,6 @@ deno test --allow-env supabase/functions/verify-purchase/index.test.ts
 
 ## 현재 환경 제약 (2026-05-26 기준)
 
-- Jest + ts-jest: ✅ → ①③ 즉시 실행·검증됨
-- supabase CLI 2.101.0: 있음 / **Docker 없음** + `supabase init` 미실행 → ② 실행 셋업 필요
-- **Deno 없음** → ③ 핸들러 통합 테스트는 런타임 설치 필요
-- OneDrive 경로 간섭 이력(prebuild fs 복사 실패) → 로컬 DB 컨테이너도 같은 위험
+- Jest + ts-jest: ✅ → ①③(판정·핸들러 통합) 모두 즉시 실행·검증됨 (Deno 불필요)
+- ②: Docker 없음 → 로컬 `supabase test db` 대신 `scripts/run-db-tests.mjs`(클라우드 Postgres)로 검증 완료
+- OneDrive 경로 간섭 이력: `pnpm add` ENOENT, prebuild fs 복사 실패 → 로컬 DB 컨테이너도 같은 위험이라 클라우드 경로 선택

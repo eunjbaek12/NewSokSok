@@ -32,12 +32,13 @@ import {
 import { useStudyResultsStore } from '@/features/study';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
+import { getTtsLang } from '@/constants/languages';
 import { Word, StudyResult } from '@/lib/types';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
 
-function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, cardMaxHeight, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean, cardMaxHeight?: number, t: (key: string) => string }) {
+function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, cardMaxHeight, t, ttsLang }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showPos: boolean, cardMaxHeight?: number, t: (key: string) => string, ttsLang: string }) {
   const frontStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [0, 180]);
     return {
@@ -78,7 +79,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, card
         </View>
       )}
 
-      <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
+      <Pressable onPress={() => speak(word.term, ttsLang)} hitSlop={12} style={styles.speakerBtn}>
         {({ pressed }) => (
           <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
         )}
@@ -89,7 +90,7 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, card
   );
 }
 
-function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, showExample, showExampleKr, showPhonetic, showPos, cardMaxHeight, exampleMaxHeight, t }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean, showExampleKr: boolean, showPhonetic: boolean, showPos: boolean, cardMaxHeight?: number, exampleMaxHeight: number, t: (key: string) => string }) {
+function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, showExample, showExampleKr, showPhonetic, showPos, cardMaxHeight, exampleMaxHeight, t, ttsLang }: { word: Word; colors: any; isDark: boolean; rotation: SharedValue<number>, onToggleStar: (id: string) => void, showMeaning: boolean, showExample: boolean, showExampleKr: boolean, showPhonetic: boolean, showPos: boolean, cardMaxHeight?: number, exampleMaxHeight: number, t: (key: string) => string, ttsLang: string }) {
   const backStyle = useAnimatedStyle(() => {
     const rotateY = interpolate(rotation.value, [0, 1], [180, 360]);
     return {
@@ -129,7 +130,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
           <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14, marginTop: 4 }]}>/{word.phonetic}/</Text>
         )}
 
-        <Pressable onPress={() => speak(word.term)} hitSlop={12} style={styles.speakerBtn}>
+        <Pressable onPress={() => speak(word.term, ttsLang)} hitSlop={12} style={styles.speakerBtn}>
           {({ pressed }) => (
             <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
           )}
@@ -177,6 +178,7 @@ export default function FlashcardsScreen() {
   const { studySettings, updateStudySettings } = useSettings();
   const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
+  const ttsLang = getTtsLang(list?.sourceLanguage);
 
   // 카드 영역 실측 높이 — 카드가 버튼 영역까지 자라지 않도록 maxHeight 계산에 사용
   const [cardAreaHeight, setCardAreaHeight] = useState(0);
@@ -341,10 +343,10 @@ export default function FlashcardsScreen() {
     if (settings.autoPlaySound) {
       const nextWord = currentBatchWords[currentIndex + 1];
       if (nextWord) {
-        speak(nextWord.term);
+        speak(nextWord.term, ttsLang);
       }
     }
-  }, [currentWord, currentIndex, currentBatchWords, rotation, setStudyResults, setWordsMemorized, id, settings.autoPlaySound, currentBatchIndex, batchSizeNum, studyWords.length]);
+  }, [currentWord, currentIndex, currentBatchWords, rotation, setStudyResults, setWordsMemorized, id, settings.autoPlaySound, currentBatchIndex, batchSizeNum, studyWords.length, ttsLang]);
 
   const finishSession = async () => {
     const finalResults = results.current;
@@ -608,7 +610,7 @@ export default function FlashcardsScreen() {
         <GestureDetector gesture={panGesture}>
           <Animated.View style={[styles.cardContainer, { paddingBottom: bottomReserve }, animatedCardStyle]}>
             <Pressable style={{ flex: 1, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} onPress={handleFlip}>
-              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} cardMaxHeight={cardMaxHeight} t={t} />
+              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} cardMaxHeight={cardMaxHeight} t={t} ttsLang={ttsLang} />
               <CardBack
                 word={currentWord}
                 colors={colors}
@@ -623,6 +625,7 @@ export default function FlashcardsScreen() {
                 showPhonetic={!!settings.showPhonetic}
                 showPos={!!settings.showPos}
                 t={t}
+                ttsLang={ttsLang}
               />
             </Pressable>
           </Animated.View>
@@ -699,7 +702,7 @@ export default function FlashcardsScreen() {
           if (settings.autoPlaySound) {
             const nextStart = (currentBatchIndex + 1) * batchSizeNum;
             const nextWord = studyWords[nextStart];
-            if (nextWord) speak(nextWord.term);
+            if (nextWord) speak(nextWord.term, ttsLang);
           }
         }}
         onRetryBatch={() => {

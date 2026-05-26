@@ -20,6 +20,7 @@ import { useStudyResultsStore } from '@/features/study';
 import { useSettings } from '@/features/settings';
 import { Word, StudyResult } from '@/lib/types';
 import { speak } from '@/lib/tts';
+import { getTtsLang } from '@/constants/languages';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
@@ -51,6 +52,7 @@ export default function QuizScreen() {
   const { studySettings, updateStudySettings } = useSettings();
   const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
+  const ttsLang = getTtsLang(list?.sourceLanguage);
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
@@ -372,7 +374,7 @@ export default function QuizScreen() {
 
             <Text style={[styles.questionText, { color: colors.text }]} numberOfLines={4} adjustsFontSizeToFit minimumFontScale={0.5}>{questionContent}</Text>
 
-            <Pressable onPress={() => speak(currentWord.term)} hitSlop={12} style={styles.speakerBtn}>
+            <Pressable onPress={() => speak(currentWord.term, ttsLang)} hitSlop={12} style={styles.speakerBtn}>
               {({ pressed }) => (
                 <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
               )}

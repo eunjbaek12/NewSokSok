@@ -11,6 +11,24 @@ export function getLanguageFlag(code: string): string {
   return SUPPORTED_LANGUAGES.find(l => l.code === code)?.flag ?? '🌐';
 }
 
+/** App language code → BCP-47 tag for TTS (expo-speech). */
+const TTS_LANG: Record<string, string> = {
+  en: 'en-US',
+  ko: 'ko-KR',
+  ja: 'ja-JP',
+  zh: 'zh-CN',
+};
+
+/**
+ * Returns a BCP-47 language tag for TTS. Falls back to en-US.
+ * Passing the wrong tag (e.g. en-US for Japanese text) makes the device
+ * TTS engine produce no audio, so every speak() call must pass the term's
+ * actual source language.
+ */
+export function getTtsLang(code?: string): string {
+  return TTS_LANG[code ?? ''] ?? 'en-US';
+}
+
 /** Returns localized language name using i18n. Falls back to uppercase code. */
 export function getLanguageLabel(code: string, t: (key: string) => string): string {
   return t(`languages.${code}`) || code.toUpperCase();

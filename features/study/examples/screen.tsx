@@ -19,6 +19,7 @@ import {
 import { useStudyResultsStore } from '@/features/study';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
+import { getTtsLang } from '@/constants/languages';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
@@ -378,9 +379,9 @@ export default function ExamplesScreen() {
 
   const handleSpeak = useCallback(() => {
     if (currentWord?.exampleEn) {
-      speak(currentWord.exampleEn);
+      speak(currentWord.exampleEn, getTtsLang(list?.sourceLanguage));
     }
-  }, [currentWord]);
+  }, [currentWord, list?.sourceLanguage]);
 
   if (showGenerateModal) {
     return (

@@ -22,6 +22,7 @@ import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
+import { getTtsLang } from '@/constants/languages';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import TimerRing from '@/components/ui/TimerRing';
 
@@ -38,6 +39,7 @@ export default function AutoPlayScreen() {
     const { studySettings, updateStudySettings, autoPlaySettings, updateAutoPlaySettings } = useSettings();
     const adsBottomInset = useAdsBottomInset();
     const list = lists.find(l => l.id === id);
+    const ttsLang = getTtsLang(list?.sourceLanguage);
 
     const [words, setWords] = useState(() => {
         let all = getWordsForList(id!);
@@ -180,7 +182,7 @@ export default function AutoPlayScreen() {
         setIsRevealed(false);
 
         if (settings.autoPlaySound) {
-            await speak(currentWord.term);
+            await speak(currentWord.term, ttsLang);
         }
 
         setRingResetKey(k => k + 1);
@@ -192,7 +194,7 @@ export default function AutoPlayScreen() {
                 goToNext();
             }, delayMs) as unknown as NodeJS.Timeout;
         }, 1500) as unknown as NodeJS.Timeout;
-    }, [currentWord, goToNext, settings.autoPlaySound, settings.delay]);
+    }, [currentWord, goToNext, settings.autoPlaySound, settings.delay, ttsLang]);
 
     const handleCardClick = () => {
         if (!isRevealed) {
@@ -377,7 +379,7 @@ export default function AutoPlayScreen() {
                             )}
 
                             <Pressable
-                                onPress={(e) => { e.stopPropagation(); speak(currentWord.term); }}
+                                onPress={(e) => { e.stopPropagation(); speak(currentWord.term, ttsLang); }}
                                 hitSlop={12}
                                 style={styles.speakerBtn}
                             >

@@ -27,6 +27,7 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
 import { getGoogleAccessToken } from '../_shared/google-auth.ts';
+import { evaluateSubscription, type PlaySubscriptionV2Response } from './verify-logic.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
@@ -142,25 +143,12 @@ Deno.serve(async (req) => {
 
   const playData = await playRes.json() as PlaySubscriptionV2Response;
 
-  // 상태 검증
-  const state = playData.subscriptionState ?? '';
-  const validStates = new Set([
-    'SUBSCRIPTION_STATE_ACTIVE',
-    'SUBSCRIPTION_STATE_IN_GRACE_PERIOD',
-  ]);
-  if (!validStates.has(state)) {
-    return json(402, { ok: false, error: 'subscription_invalid', detail: state });
+  // 상태 검증 (순수 로직은 verify-logic.ts 로 추출 — Jest 로 단위 테스트)
+  const evaluation = evaluateSubscription(playData, productId);
+  if (!evaluation.ok) {
+    return json(evaluation.status, { ok: false, error: evaluation.error, detail: evaluation.detail });
   }
-
-  const lineItem = (playData.lineItems ?? []).find((li) => li.productId === productId);
-  if (!lineItem) {
-    return json(402, { ok: false, error: 'subscription_invalid', detail: 'product_mismatch' });
-  }
-
-  const expiryTime = lineItem.expiryTime;
-  if (!expiryTime || new Date(expiryTime).getTime() <= Date.now()) {
-    return json(402, { ok: false, error: 'subscription_invalid', detail: 'expired' });
-  }
+  const expiryTime = evaluation.expiryTime;
 
   // user_subscriptions 갱신 (service_role)
   const svc = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
@@ -187,13 +175,3 @@ Deno.serve(async (req) => {
     product_id: productId,
   });
 });
-
-interface PlaySubscriptionV2Response {
-  subscriptionState?: string;
-  lineItems?: Array<{
-    productId: string;
-    expiryTime?: string;
-    autoRenewingPlan?: { autoRenewEnabled?: boolean };
-  }>;
-  // 그 외 필드 다수 — 검증엔 위 세 가지만 사용
-}

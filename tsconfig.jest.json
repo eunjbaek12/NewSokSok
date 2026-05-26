@@ -1,0 +1,11 @@
+{
+  // Jest(ts-jest) 전용. 메인 tsconfig 를 그대로 쓰되 isolatedModules 만 켠다.
+  // ts-jest 가 jest 용으로 module 을 commonjs 로 바꾸면서 expo base 의
+  // module:"preserve"(.ts 확장자 import 허용) 이점이 사라지는데, isolatedModules
+  // 는 파일별 transpile-only 라 Deno Edge Function 의 .ts 상대 import(TS5097)를
+  // 타입체크 단계에서 막지 않는다. 타입 검증은 별도 tsc/lint 가 담당.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "isolatedModules": true
+  }
+}

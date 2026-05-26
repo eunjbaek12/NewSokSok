@@ -22,7 +22,7 @@ import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
-import { getTtsLang } from '@/constants/languages';
+import { getTtsLang, getSpeakableText } from '@/constants/languages';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import TimerRing from '@/components/ui/TimerRing';
 
@@ -39,7 +39,8 @@ export default function AutoPlayScreen() {
     const { studySettings, updateStudySettings, autoPlaySettings, updateAutoPlaySettings } = useSettings();
     const adsBottomInset = useAdsBottomInset();
     const list = lists.find(l => l.id === id);
-    const ttsLang = getTtsLang(list?.sourceLanguage);
+    const sourceLang = list?.sourceLanguage;
+    const ttsLang = getTtsLang(sourceLang);
 
     const [words, setWords] = useState(() => {
         let all = getWordsForList(id!);
@@ -182,7 +183,7 @@ export default function AutoPlayScreen() {
         setIsRevealed(false);
 
         if (settings.autoPlaySound) {
-            await speak(currentWord.term, ttsLang);
+            await speak(getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang), ttsLang);
         }
 
         setRingResetKey(k => k + 1);
@@ -194,7 +195,7 @@ export default function AutoPlayScreen() {
                 goToNext();
             }, delayMs) as unknown as NodeJS.Timeout;
         }, 1500) as unknown as NodeJS.Timeout;
-    }, [currentWord, goToNext, settings.autoPlaySound, settings.delay, ttsLang]);
+    }, [currentWord, goToNext, settings.autoPlaySound, settings.delay, ttsLang, sourceLang]);
 
     const handleCardClick = () => {
         if (!isRevealed) {
@@ -379,7 +380,7 @@ export default function AutoPlayScreen() {
                             )}
 
                             <Pressable
-                                onPress={(e) => { e.stopPropagation(); speak(currentWord.term, ttsLang); }}
+                                onPress={(e) => { e.stopPropagation(); speak(getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang), ttsLang); }}
                                 hitSlop={12}
                                 style={styles.speakerBtn}
                             >

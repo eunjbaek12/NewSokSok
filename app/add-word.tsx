@@ -46,7 +46,7 @@ import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
 import { useAuth } from '@/features/auth';
 import { speak } from '@/lib/tts';
-import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
     FadeOut,
@@ -901,7 +901,7 @@ export default function AddWordScreen() {
                                                             onPress={() => {
                                                                 if (term.trim()) {
                                                                     Haptics.selectionAsync();
-                                                                    speak(term.trim(), getTtsLang(inputSettings.sourceLang));
+                                                                    speak(getSpeakableText(term, phonetic, inputSettings.sourceLang).trim(), getTtsLang(inputSettings.sourceLang));
                                                                 }
                                                             }}
                                                             disabled={!term.trim()}

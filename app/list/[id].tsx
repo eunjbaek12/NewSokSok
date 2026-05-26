@@ -36,7 +36,7 @@ import {
   moveWords,
 } from '@/features/vocab';
 import { speak } from '@/lib/tts';
-import { getTtsLang } from '@/constants/languages';
+import { getTtsLang, getSpeakableText } from '@/constants/languages';
 import { Word } from '@/lib/types';
 import { computePlanStatus } from '@/features/study/plan/engine';
 import { useTranslation } from 'react-i18next';
@@ -176,7 +176,8 @@ export default function ListDetailScreen() {
 
   const handleSpeak = useCallback(async (word: Word) => {
     setSpeakingWordId(word.id);
-    await speak(word.term, getTtsLang(list?.sourceLanguage ?? word.sourceLang));
+    const src = list?.sourceLanguage ?? word.sourceLang;
+    await speak(getSpeakableText(word.term, word.phonetic, src), getTtsLang(src));
     setSpeakingWordId(null);
   }, [list?.sourceLanguage]);
 

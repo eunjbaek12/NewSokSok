@@ -22,7 +22,7 @@ import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
 import { speak } from '@/lib/tts';
-import { getTtsLang } from '@/constants/languages';
+import { getTtsLang, getSpeakableText } from '@/constants/languages';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -41,12 +41,13 @@ interface WordDetailModalProps {
 
 // ─── Read-only content view ────────────────────────────────────────────────────
 
-function ReadOnlyView({ word, onClose, colors, t, ttsLang }: {
+function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang }: {
     word: Word;
     onClose: () => void;
     colors: any;
     t: (key: string) => string;
     ttsLang: string;
+    sourceLang: string | undefined;
 }) {
     const hasExample = !!(word.exampleEn || word.exampleKr);
 
@@ -78,7 +79,7 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang }: {
                         </Text>
                         {word.term?.trim() ? (
                             <Pressable
-                                onPress={() => { Haptics.selectionAsync(); speak(word.term.trim(), ttsLang); }}
+                                onPress={() => { Haptics.selectionAsync(); speak(getSpeakableText(word.term, word.phonetic, sourceLang).trim(), ttsLang); }}
                                 hitSlop={12}
                                 style={[styles.roTtsBtn, { backgroundColor: colors.surfaceSecondary }]}
                             >
@@ -201,7 +202,8 @@ export default function WordDetailModal({
 
     // TTS 언어: 명시 prop > 단어 자체의 sourceLang > en. 영어 보이스로 일본어를
     // 읽으면 무음이 되므로 발음 재생은 반드시 단어의 실제 출발어로 호출한다.
-    const ttsLang = getTtsLang(sourceLanguage ?? existingWord?.sourceLang);
+    const resolvedSourceLang = sourceLanguage ?? existingWord?.sourceLang;
+    const ttsLang = getTtsLang(resolvedSourceLang);
 
     const {
         term, setTerm,
@@ -359,6 +361,7 @@ export default function WordDetailModal({
                                 colors={colors}
                                 t={t}
                                 ttsLang={ttsLang}
+                                sourceLang={resolvedSourceLang}
                             />
                         ) : (
                             <>
@@ -397,7 +400,7 @@ export default function WordDetailModal({
                                             </Pressable>
                                             {mode === 'read' && term.trim() ? (
                                                 <Pressable
-                                                    onPress={() => { Haptics.selectionAsync(); speak(term.trim(), ttsLang); }}
+                                                    onPress={() => { Haptics.selectionAsync(); speak(getSpeakableText(term, phonetic, resolvedSourceLang).trim(), ttsLang); }}
                                                     hitSlop={12}
                                                     style={[styles.termActionBtn, { backgroundColor: colors.surfaceSecondary }]}
                                                 >

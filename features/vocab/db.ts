@@ -66,6 +66,8 @@ function rowToVocaList(row: any, words: Word[] = []): VocaList {
     lastResultMemorized: row.lastResultMemorized ?? 0,
     lastResultTotal: row.lastResultTotal ?? 0,
     lastResultPercent: row.lastResultPercent ?? 0,
+    sourceLanguage: row.sourceLanguage ?? undefined,
+    targetLanguage: row.targetLanguage ?? undefined,
   };
 }
 

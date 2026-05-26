@@ -268,18 +268,26 @@ export async function generateWords(
   const model = Deno.env.get('VERTEX_MODEL') ?? DEFAULT_MODEL;
   if (!projectId) throw new Error('VERTEX_PROJECT_ID not configured');
 
+  const t0 = performance.now();
   const token = await getVertexAccessToken();
+  const tToken = performance.now();
+
   const endpoint =
     `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
     `/locations/${location}/publishers/google/models/${model}:generateContent`;
 
   const prompt = buildGeneratePrompt(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
 
+  // 출력 길이 상한. 단어당 약 250토큰(7~8필드 + 예문) + 여유 버퍼로 산정해
+  // 모델이 폭주(장황한 JSON)하는 꼬리 지연을 막되, 정상 출력은 잘리지 않게 넉넉히.
+  const maxOutputTokens = Math.min(16384, wordCount * 250 + 1024);
+
   const body = {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],
     generationConfig: {
       responseMimeType: 'application/json',
       temperature: 0.7,
+      maxOutputTokens,
       thinkingConfig: { thinkingBudget: 0 },
     },
   };
@@ -292,10 +300,18 @@ export async function generateWords(
 
   if (!res.ok) {
     const text = await res.text().catch(() => '');
+    console.error(
+      `[generate-words:timing] FAILED status=${res.status} ` +
+      `token=${(tToken - t0).toFixed(0)}ms vertex=${(performance.now() - tToken).toFixed(0)}ms`,
+    );
     throw new Error(`vertex generate call failed (${res.status}): ${text}`);
   }
 
   const json = await res.json() as VertexResponse;
+  const tVertex = performance.now();
+  // 응답이 maxOutputTokens에 막혀 잘렸는지 확인 — 잘리면 아래 JSON.parse가 실패하므로 원인 진단용 로그.
+  const finishReason = (json as { candidates?: Array<{ finishReason?: string }> })
+    ?.candidates?.[0]?.finishReason;
   let text = json?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
   text = text.trim();
   if (text.startsWith('```')) {
@@ -311,10 +327,23 @@ export async function generateWords(
   try {
     parsed = JSON.parse(text);
   } catch (e) {
+    console.error(
+      `[generate-words:timing] PARSE_FAIL finishReason=${finishReason} ` +
+      `maxOutputTokens=${maxOutputTokens} textLen=${text.length}`,
+    );
     throw new Error(`vertex generate returned non-JSON: ${(e as Error).message}`);
   }
   if (!Array.isArray(parsed)) {
     throw new Error('vertex generate did not return an array');
   }
+
+  const tParse = performance.now();
+  console.log(
+    `[generate-words:timing] token=${(tToken - t0).toFixed(0)}ms ` +
+    `vertex=${(tVertex - tToken).toFixed(0)}ms parse=${(tParse - tVertex).toFixed(0)}ms ` +
+    `total=${(tParse - t0).toFixed(0)}ms reqWords=${wordCount} gotWords=${parsed.length} ` +
+    `finishReason=${finishReason} maxOutputTokens=${maxOutputTokens} location=${location} model=${model}`,
+  );
+
   return parsed;
 }

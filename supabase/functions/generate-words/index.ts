@@ -38,6 +38,9 @@ function json(status: number, body: unknown) {
 Deno.serve(async (req) => {
   if (req.method !== 'POST') return json(405, { error: 'method_not_allowed' });
 
+  // 콜드 스타트 진단용 구간 타이밍. reqStart는 핸들러 진입(=콜드면 isolate 부팅 직후) 시각.
+  const reqStart = performance.now();
+
   const authHeader = req.headers.get('Authorization');
   if (!authHeader?.startsWith('Bearer ')) {
     return json(401, { error: 'unauthorized' });
@@ -51,6 +54,7 @@ Deno.serve(async (req) => {
     return json(401, { error: 'unauthorized' });
   }
   const userId = userData.user.id;
+  const tAuth = performance.now();
 
   let body: {
     topic?: string; wordCount?: number; difficulty?: string;
@@ -101,12 +105,24 @@ Deno.serve(async (req) => {
   if (!quota.allowed) {
     return json(429, { error: 'quota_exceeded', quota });
   }
+  const tQuota = performance.now();
 
   // Vertex AI 생성
   try {
     const result = await generateWords(topic, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
+    const tGen = performance.now();
+    console.log(
+      `[generate-words:timing] auth=${(tAuth - reqStart).toFixed(0)}ms ` +
+      `quota=${(tQuota - tAuth).toFixed(0)}ms generate=${(tGen - tQuota).toFixed(0)}ms ` +
+      `total=${(tGen - reqStart).toFixed(0)}ms wordCount=${wordCount}`,
+    );
     return json(200, { result, quota });
   } catch (e) {
+    console.error(
+      `[generate-words:timing] FAILED auth=${(tAuth - reqStart).toFixed(0)}ms ` +
+      `quota=${(tQuota - tAuth).toFixed(0)}ms generate=${(performance.now() - tQuota).toFixed(0)}ms ` +
+      `total=${(performance.now() - reqStart).toFixed(0)}ms`,
+    );
     console.error('vertex generate failed', e);
     // 차감 환불 — 사용자 잘못 아닌 실패는 한도 소모하지 않도록
     const { error: refundErr } = await svc.rpc('refund_ai_quota', {

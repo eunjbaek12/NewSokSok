@@ -596,6 +596,9 @@ export default function CurationScreen() {
         const targetLang = aiTargetLang;
         try {
             const { words, droppedCount } = await generateAIWords(topic, apiKey, aiWordCount, aiDifficulty, sourceLang, targetLang, undefined, controller.signal);
+            // supabase.functions.invoke의 signal이 fetch까지 전파되지 않는 환경이 있어,
+            // abort 후 응답이 늦게 도착할 수 있다. abort된 요청의 결과는 버린다.
+            if (controller.signal.aborted) return;
             const newTheme: VocaList = {
                 id: `ai-theme-${Date.now()}`,
                 title: `AI: ${topic}`,
@@ -617,26 +620,34 @@ export default function CurationScreen() {
                 });
             }
         } catch (e: any) {
-            // 사용자가 직접 중단(AbortError)한 경우는 에러 토스트 없이 조용히 모달만 닫는다.
-            if (e?.name === 'AbortError') {
-                setAiModalVisible(false);
-                return;
-            }
+            // 사용자가 직접 중단했거나 abort 이후 도착한 에러는 조용히 무시 — UI는 cancel 시 이미 정리됨.
+            if (e?.name === 'AbortError' || controller.signal.aborted) return;
             setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
         } finally {
-            setGenerating(false);
-            genAbortRef.current = null;
+            // abort된 요청은 cancel 핸들러가 이미 generating=false로 만들었으니 덮어쓰지 않는다.
+            if (!controller.signal.aborted) setGenerating(false);
+            if (genAbortRef.current === controller) genAbortRef.current = null;
         }
     };
 
-    // 진행 중 닫기 시도 → 중단 확인. 확인하면 abort(요청 취소), 취소하면 계속 생성.
+    // 진행 중 닫기 시도 → 중단 확인. "중단" 누르면 UI는 즉시 정리하고, 백엔드 요청은
+    // best-effort로 abort. supabase.functions.invoke의 signal이 fetch까지 전파되지 않는
+    // 환경이 있어, abort가 통하지 않아도 UI는 안 막히도록 동기적으로 닫는다.
     const handleCancelGenerate = () => {
         Alert.alert(
             t('curation.aiCancelTitle'),
             t('curation.aiCancelMessage'),
             [
                 { text: t('curation.aiCancelKeep'), style: 'cancel' },
-                { text: t('curation.aiCancelConfirm'), style: 'destructive', onPress: () => genAbortRef.current?.abort() },
+                {
+                    text: t('curation.aiCancelConfirm'),
+                    style: 'destructive',
+                    onPress: () => {
+                        genAbortRef.current?.abort();
+                        setGenerating(false);
+                        setAiModalVisible(false);
+                    },
+                },
             ],
         );
     };

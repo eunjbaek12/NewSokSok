@@ -22,6 +22,9 @@ android/
 # Metro
 .metro-health-check*
 
+# Curation build raw data (re-downloadable; see scripts/build-jp-source.ts)
+scripts/data/
+
 # debug
 npm-debug.*
 yarn-debug.*

@@ -18,10 +18,12 @@ interface TranslatedEntry {
   rank: number;
   term: string;
   definition: string;
-  phonetic: string;
+  phonetic?: string;   // EN: IPA. JP: hiragana reading (from `reading`)
+  reading?: string;    // JP only
   pos: string;
   meaningKr: string;
-  exampleEn: string;
+  exampleEn?: string;  // EN: English example. JP: Japanese example (filled from `exampleJa`)
+  exampleJa?: string;  // JP only
   exampleKr: string;
 }
 
@@ -33,6 +35,8 @@ interface ListMeta {
   level: string;
   description: string;
   tags: string[];
+  sourceLanguage?: string;  // default 'en'
+  targetLanguage?: string;  // default 'ko'
 }
 
 const META: Record<string, ListMeta> = {
@@ -63,6 +67,17 @@ const META: Record<string, ListMeta> = {
     description: '일상 영어 필수 1000. NGSL by Browne & Culligan (CC BY-SA 4.0) 기반, 뜻·예문 AI 생성',
     tags: ['General', 'Daily', 'Foundation'],
   },
+  jp: {
+    id: 'curated-jp-basic-1',
+    title: '기초 일본어 500',
+    icon: '🍣',
+    category: '기초',
+    level: 'beginner',
+    description: '일상 일본어 기초 500. Wiktionary "1000 Japanese basic words" (CC BY-SA 4.0) 기반, JMdict로 POS·읽기 검증, 한국어 뜻·예문 AI 생성',
+    tags: ['Japanese', 'Daily', 'Foundation'],
+    sourceLanguage: 'ja',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];
@@ -85,7 +100,14 @@ function main() {
   const items: TranslatedEntry[] = JSON.parse(fs.readFileSync(TRANSLATED_PATH, 'utf8'));
   console.log(`📚 번역된 ${items.length}개 단어 로드`);
 
-  const missing = items.filter(w => !w.meaningKr || !w.exampleEn);
+  // JP 스키마(`reading`/`exampleJa`)를 공통 필드(`phonetic`/`exampleEn`)로 정규화
+  const normalized = items.map(w => ({
+    ...w,
+    phonetic: w.phonetic ?? w.reading ?? '',
+    exampleEn: w.exampleEn ?? w.exampleJa ?? '',
+  }));
+
+  const missing = normalized.filter(w => !w.meaningKr || !w.exampleEn);
   if (missing.length > 0) {
     console.error(`❌ ${missing.length}개 단어에 meaningKr/exampleEn 누락`);
     console.error('샘플:', missing.slice(0, 5).map(m => m.term));
@@ -100,16 +122,16 @@ function main() {
     category: meta.category,
     level: meta.level,
     description: meta.description,
-    sourceLanguage: 'en',
-    targetLanguage: 'ko',
+    sourceLanguage: meta.sourceLanguage ?? 'en',
+    targetLanguage: meta.targetLanguage ?? 'ko',
     isVisible: true,
     createdAt: NOW,
-    words: items.map((w, idx) => ({
+    words: normalized.map((w, idx) => ({
       id: `word-${LIST_NAME}-${idx}-${NOW}`,
       term: w.term,
       definition: w.definition,
       meaningKr: w.meaningKr,
-      exampleEn: w.exampleEn,
+      exampleEn: w.exampleEn!,
       exampleKr: w.exampleKr,
       isMemorized: false,
       isStarred: false,

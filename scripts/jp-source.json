@@ -1,0 +1,5060 @@
+[
+  {
+    "rank": 1,
+    "term": "人間",
+    "reading": "にんげん",
+    "pos": "noun",
+    "definition": "human being; human; person; man; mankind; humankind",
+    "category": "Nouns > People",
+    "romaji": "ningen"
+  },
+  {
+    "rank": 2,
+    "term": "人類",
+    "reading": "じんるい",
+    "pos": "noun",
+    "definition": "humanity",
+    "category": "Nouns > People",
+    "romaji": "jinrui"
+  },
+  {
+    "rank": 3,
+    "term": "人",
+    "reading": "ひと",
+    "pos": "noun",
+    "definition": "person; someone; somebody",
+    "category": "Nouns > People",
+    "romaji": "hito"
+  },
+  {
+    "rank": 4,
+    "term": "男",
+    "reading": "おとこ",
+    "pos": "noun",
+    "definition": "man; male",
+    "category": "Nouns > People",
+    "romaji": "otoko"
+  },
+  {
+    "rank": 5,
+    "term": "男の人",
+    "reading": "おとこのひと",
+    "pos": "phrase, noun",
+    "definition": "man",
+    "category": "Nouns > People",
+    "romaji": "otokonohito"
+  },
+  {
+    "rank": 6,
+    "term": "男の子",
+    "reading": "おとこのこ",
+    "pos": "phrase, noun",
+    "definition": "boy; son; baby boy",
+    "category": "Nouns > People",
+    "romaji": "otokonoko"
+  },
+  {
+    "rank": 7,
+    "term": "女",
+    "reading": "おんな",
+    "pos": "noun",
+    "definition": "woman; female",
+    "category": "Nouns > People",
+    "romaji": "onna"
+  },
+  {
+    "rank": 8,
+    "term": "女の人",
+    "reading": "おんなのひと",
+    "pos": "phrase, noun",
+    "definition": "woman",
+    "category": "Nouns > People",
+    "romaji": "onnanohito"
+  },
+  {
+    "rank": 9,
+    "term": "女の子",
+    "reading": "おんなのこ",
+    "pos": "phrase, noun",
+    "definition": "girl; daughter; baby girl",
+    "category": "Nouns > People",
+    "romaji": "onnanoko"
+  },
+  {
+    "rank": 10,
+    "term": "赤ちゃん",
+    "reading": "あかちゃん",
+    "pos": "noun",
+    "definition": "baby; infant",
+    "category": "Nouns > People",
+    "romaji": "akachan"
+  },
+  {
+    "rank": 11,
+    "term": "若者",
+    "reading": "わかもの",
+    "pos": "noun",
+    "definition": "youth, young person",
+    "category": "Nouns > People",
+    "romaji": "wakamono"
+  },
+  {
+    "rank": 12,
+    "term": "私",
+    "reading": "わたし",
+    "pos": "pronoun",
+    "definition": "I, myself",
+    "category": "Nouns > People",
+    "romaji": "watashi"
+  },
+  {
+    "rank": 13,
+    "term": "私",
+    "reading": "わたくし",
+    "pos": "pronoun",
+    "definition": "I, myself",
+    "category": "Nouns > People",
+    "romaji": "watakushi"
+  },
+  {
+    "rank": 14,
+    "term": "僕",
+    "reading": "ぼく",
+    "pos": "pronoun",
+    "definition": "I, myself",
+    "category": "Nouns > People",
+    "romaji": "boku"
+  },
+  {
+    "rank": 15,
+    "term": "俺",
+    "reading": "おれ",
+    "pos": "pronoun",
+    "definition": "I, myself",
+    "category": "Nouns > People",
+    "romaji": "ore"
+  },
+  {
+    "rank": 16,
+    "term": "私",
+    "reading": "あたし",
+    "pos": "pronoun",
+    "definition": "I, myself",
+    "category": "Nouns > People",
+    "romaji": "atashi"
+  },
+  {
+    "rank": 17,
+    "term": "少女",
+    "reading": "しょうじょ",
+    "pos": "noun",
+    "definition": "girl (usu. between 7 and 17); young lady",
+    "category": "Nouns > People",
+    "romaji": "shoujo"
+  },
+  {
+    "rank": 18,
+    "term": "少年",
+    "reading": "しょうねん",
+    "pos": "noun",
+    "definition": "boy",
+    "category": "Nouns > People",
+    "romaji": "shounen"
+  },
+  {
+    "rank": 19,
+    "term": "医者",
+    "reading": "いしゃ",
+    "pos": "noun",
+    "definition": "doctor; physician",
+    "category": "Nouns > People > Occupations",
+    "romaji": "isha"
+  },
+  {
+    "rank": 20,
+    "term": "看護師",
+    "reading": "かんごし",
+    "pos": "noun",
+    "definition": "(hospital) nurse; registered nurse; RN",
+    "category": "Nouns > People > Occupations",
+    "romaji": "kangoshi"
+  },
+  {
+    "rank": 21,
+    "term": "看護婦",
+    "reading": "かんごふ",
+    "pos": "noun",
+    "definition": "female nurse",
+    "category": "Nouns > People > Occupations",
+    "romaji": "kangofu"
+  },
+  {
+    "rank": 22,
+    "term": "歯科医",
+    "reading": "しかい",
+    "pos": "noun",
+    "definition": "dentist",
+    "category": "Nouns > People > Occupations",
+    "romaji": "shikai, ha-isha"
+  },
+  {
+    "rank": 23,
+    "term": "政治家",
+    "reading": "せいじか",
+    "pos": "noun",
+    "definition": "politician",
+    "category": "Nouns > People > Occupations",
+    "romaji": "seijika"
+  },
+  {
+    "rank": 24,
+    "term": "弁護士",
+    "reading": "べんごし",
+    "pos": "noun",
+    "definition": "lawyer; attorney",
+    "category": "Nouns > People > Occupations",
+    "romaji": "bengoshi"
+  },
+  {
+    "rank": 25,
+    "term": "消防士",
+    "reading": "しょうぼうし",
+    "pos": "",
+    "definition": "firefighter",
+    "category": "Nouns > People > Occupations",
+    "romaji": "shouboushi"
+  },
+  {
+    "rank": 26,
+    "term": "警察官",
+    "reading": "けいさつかん",
+    "pos": "noun",
+    "definition": "police officer",
+    "category": "Nouns > People > Occupations",
+    "romaji": "keisatsukan"
+  },
+  {
+    "rank": 27,
+    "term": "兵士",
+    "reading": "へいし",
+    "pos": "noun",
+    "definition": "soldier",
+    "category": "Nouns > People > Occupations",
+    "romaji": "heishi"
+  },
+  {
+    "rank": 28,
+    "term": "建築家",
+    "reading": "けんちくか",
+    "pos": "noun",
+    "definition": "architect",
+    "category": "Nouns > People > Occupations",
+    "romaji": "kenchikuka"
+  },
+  {
+    "rank": 29,
+    "term": "先生",
+    "reading": "せんせい",
+    "pos": "noun",
+    "definition": "teacher; instructor; master",
+    "category": "Nouns > People > Occupations",
+    "romaji": "sensei"
+  },
+  {
+    "rank": 30,
+    "term": "教師",
+    "reading": "きょうし",
+    "pos": "noun",
+    "definition": "(academic) teacher",
+    "category": "Nouns > People > Occupations",
+    "romaji": "kyoushi"
+  },
+  {
+    "rank": 31,
+    "term": "歌手",
+    "reading": "かしゅ",
+    "pos": "noun",
+    "definition": "singer",
+    "category": "Nouns > People > Occupations",
+    "romaji": "kashu"
+  },
+  {
+    "rank": 32,
+    "term": "足",
+    "reading": "あし",
+    "pos": "noun",
+    "definition": "foot, leg",
+    "category": "Nouns > People > Body",
+    "romaji": "ashi"
+  },
+  {
+    "rank": 33,
+    "term": "踵",
+    "reading": "かかと",
+    "pos": "noun",
+    "definition": "heel (of foot, shoe, stocking, etc.)",
+    "category": "Nouns > People > Body",
+    "romaji": "kakato"
+  },
+  {
+    "rank": 34,
+    "term": "脛",
+    "reading": "すね",
+    "pos": "noun",
+    "definition": "shin; shank; lower leg",
+    "category": "Nouns > People > Body",
+    "romaji": "sune"
+  },
+  {
+    "rank": 35,
+    "term": "膝",
+    "reading": "ひざ",
+    "pos": "noun",
+    "definition": "knee",
+    "category": "Nouns > People > Body",
+    "romaji": "hiza"
+  },
+  {
+    "rank": 36,
+    "term": "腿",
+    "reading": "もも",
+    "pos": "noun",
+    "definition": "thigh",
+    "category": "Nouns > People > Body",
+    "romaji": "momo"
+  },
+  {
+    "rank": 37,
+    "term": "頭",
+    "reading": "あたま",
+    "pos": "noun",
+    "definition": "head",
+    "category": "Nouns > People > Body",
+    "romaji": "atama"
+  },
+  {
+    "rank": 38,
+    "term": "顔",
+    "reading": "かお",
+    "pos": "noun",
+    "definition": "face; visage; looks; (facial) features",
+    "category": "Nouns > People > Body",
+    "romaji": "kao"
+  },
+  {
+    "rank": 39,
+    "term": "口",
+    "reading": "くち",
+    "pos": "noun",
+    "definition": "mouth",
+    "category": "Nouns > People > Body",
+    "romaji": "kuchi"
+  },
+  {
+    "rank": 40,
+    "term": "唇",
+    "reading": "くちびる",
+    "pos": "noun",
+    "definition": "lip; lips",
+    "category": "Nouns > People > Body",
+    "romaji": "kuchibiru"
+  },
+  {
+    "rank": 41,
+    "term": "歯",
+    "reading": "は",
+    "pos": "noun",
+    "definition": "tooth; teeth",
+    "category": "Nouns > People > Body",
+    "romaji": "ha"
+  },
+  {
+    "rank": 42,
+    "term": "鼻",
+    "reading": "はな",
+    "pos": "noun",
+    "definition": "nose",
+    "category": "Nouns > People > Body",
+    "romaji": "hana"
+  },
+  {
+    "rank": 43,
+    "term": "目",
+    "reading": "め",
+    "pos": "noun",
+    "definition": "eye; eyeball",
+    "category": "Nouns > People > Body",
+    "romaji": "me"
+  },
+  {
+    "rank": 44,
+    "term": "髭",
+    "reading": "ひげ",
+    "pos": "noun",
+    "definition": "moustache, beard",
+    "category": "Nouns > People > Body",
+    "romaji": "hige"
+  },
+  {
+    "rank": 45,
+    "term": "髪",
+    "reading": "かみ",
+    "pos": "noun",
+    "definition": "hair (on the head)",
+    "category": "Nouns > People > Body",
+    "romaji": "kami"
+  },
+  {
+    "rank": 46,
+    "term": "耳",
+    "reading": "みみ",
+    "pos": "noun",
+    "definition": "ear",
+    "category": "Nouns > People > Body",
+    "romaji": "mimi"
+  },
+  {
+    "rank": 47,
+    "term": "御腹",
+    "reading": "おなか",
+    "pos": "noun",
+    "definition": "belly; abdomen; stomach",
+    "category": "Nouns > People > Body",
+    "romaji": "onaka"
+  },
+  {
+    "rank": 48,
+    "term": "腕",
+    "reading": "うで",
+    "pos": "noun",
+    "definition": "arm",
+    "category": "Nouns > People > Body",
+    "romaji": "ude"
+  },
+  {
+    "rank": 49,
+    "term": "肘",
+    "reading": "ひじ",
+    "pos": "noun",
+    "definition": "elbow",
+    "category": "Nouns > People > Body",
+    "romaji": "hiji"
+  },
+  {
+    "rank": 50,
+    "term": "肩",
+    "reading": "かた",
+    "pos": "noun",
+    "definition": "shoulder",
+    "category": "Nouns > People > Body",
+    "romaji": "kata"
+  },
+  {
+    "rank": 51,
+    "term": "爪",
+    "reading": "つめ",
+    "pos": "noun",
+    "definition": "nail (e.g. fingernail, toenail); claw; talon; hoof",
+    "category": "Nouns > People > Body",
+    "romaji": "tsume"
+  },
+  {
+    "rank": 52,
+    "term": "手",
+    "reading": "て",
+    "pos": "noun",
+    "definition": "hand; arm",
+    "category": "Nouns > People > Body",
+    "romaji": "te"
+  },
+  {
+    "rank": 53,
+    "term": "手首",
+    "reading": "てくび",
+    "pos": "noun",
+    "definition": "wrist",
+    "category": "Nouns > People > Body",
+    "romaji": "tekubi"
+  },
+  {
+    "rank": 54,
+    "term": "掌",
+    "reading": "てのひら",
+    "pos": "noun",
+    "definition": "palm of hand",
+    "category": "Nouns > People > Body",
+    "romaji": "te-no-hira"
+  },
+  {
+    "rank": 55,
+    "term": "指",
+    "reading": "ゆび",
+    "pos": "noun",
+    "definition": "finger, toe",
+    "category": "Nouns > People > Body",
+    "romaji": "yubi"
+  },
+  {
+    "rank": 56,
+    "term": "尻",
+    "reading": "しり",
+    "pos": "noun",
+    "definition": "buttocks",
+    "category": "Nouns > People > Body",
+    "romaji": "shiri"
+  },
+  {
+    "rank": 57,
+    "term": "お腹",
+    "reading": "おなか",
+    "pos": "noun",
+    "definition": "belly; abdomen; stomach",
+    "category": "Nouns > People > Body",
+    "romaji": "o-naka"
+  },
+  {
+    "rank": 58,
+    "term": "肝臓",
+    "reading": "かんぞう",
+    "pos": "noun",
+    "definition": "liver",
+    "category": "Nouns > People > Body",
+    "romaji": "kanzō"
+  },
+  {
+    "rank": 59,
+    "term": "肝",
+    "reading": "きも",
+    "pos": "noun",
+    "definition": "liver; innards",
+    "category": "Nouns > People > Body",
+    "romaji": "kimo"
+  },
+  {
+    "rank": 60,
+    "term": "筋肉",
+    "reading": "きんにく",
+    "pos": "noun",
+    "definition": "muscle",
+    "category": "Nouns > People > Body",
+    "romaji": ""
+  },
+  {
+    "rank": 61,
+    "term": "首",
+    "reading": "くび",
+    "pos": "noun",
+    "definition": "neck",
+    "category": "Nouns > People > Body",
+    "romaji": "kubi"
+  },
+  {
+    "rank": 62,
+    "term": "心",
+    "reading": "こころ",
+    "pos": "noun",
+    "definition": "heart [as in feelings]",
+    "category": "Nouns > People > Body",
+    "romaji": "kokoro"
+  },
+  {
+    "rank": 63,
+    "term": "腰",
+    "reading": "こし",
+    "pos": "noun",
+    "definition": "waist, hip",
+    "category": "Nouns > People > Body",
+    "romaji": "koshi"
+  },
+  {
+    "rank": 64,
+    "term": "心臓",
+    "reading": "しんぞう",
+    "pos": "noun",
+    "definition": "heart",
+    "category": "Nouns > People > Body",
+    "romaji": "shinzō"
+  },
+  {
+    "rank": 65,
+    "term": "背中",
+    "reading": "せなか",
+    "pos": "noun",
+    "definition": "back (of the body)",
+    "category": "Nouns > People > Body",
+    "romaji": "senaka"
+  },
+  {
+    "rank": 66,
+    "term": "血",
+    "reading": "ち",
+    "pos": "noun",
+    "definition": "blood",
+    "category": "Nouns > People > Body",
+    "romaji": "chi"
+  },
+  {
+    "rank": 67,
+    "term": "肉",
+    "reading": "にく",
+    "pos": "noun",
+    "definition": "flesh",
+    "category": "Nouns > People > Body",
+    "romaji": "niku"
+  },
+  {
+    "rank": 68,
+    "term": "肌",
+    "reading": "はだ",
+    "pos": "noun",
+    "definition": "skin",
+    "category": "Nouns > People > Body",
+    "romaji": "hada"
+  },
+  {
+    "rank": 69,
+    "term": "皮膚",
+    "reading": "ひふ",
+    "pos": "noun",
+    "definition": "skin",
+    "category": "Nouns > People > Body",
+    "romaji": "hifu"
+  },
+  {
+    "rank": 70,
+    "term": "骨",
+    "reading": "ほね",
+    "pos": "noun",
+    "definition": "bone",
+    "category": "Nouns > People > Body",
+    "romaji": "hone"
+  },
+  {
+    "rank": 71,
+    "term": "胸",
+    "reading": "むね",
+    "pos": "noun",
+    "definition": "chest; breast",
+    "category": "Nouns > People > Body",
+    "romaji": "mune"
+  },
+  {
+    "rank": 72,
+    "term": "風邪",
+    "reading": "かぜ",
+    "pos": "noun",
+    "definition": "cold [illness]",
+    "category": "Nouns > People > Body",
+    "romaji": "kaze"
+  },
+  {
+    "rank": 73,
+    "term": "下痢",
+    "reading": "げり",
+    "pos": "noun, verb",
+    "definition": "diarrhea",
+    "category": "Nouns > People > Body",
+    "romaji": "geri"
+  },
+  {
+    "rank": 74,
+    "term": "病気",
+    "reading": "びょうき",
+    "pos": "noun",
+    "definition": "illness (usu. excluding minor ailments, e.g. common cold); disease; sickness",
+    "category": "Nouns > People > Body",
+    "romaji": "byōki"
+  },
+  {
+    "rank": 75,
+    "term": "家族",
+    "reading": "かぞく",
+    "pos": "noun",
+    "definition": "family",
+    "category": "Nouns > Family",
+    "romaji": "kazoku"
+  },
+  {
+    "rank": 76,
+    "term": "両親",
+    "reading": "りょうしん",
+    "pos": "noun",
+    "definition": "parents; both parents",
+    "category": "Nouns > Family",
+    "romaji": "ryoushin"
+  },
+  {
+    "rank": 77,
+    "term": "子供",
+    "reading": "こども",
+    "pos": "noun",
+    "definition": "children, child",
+    "category": "Nouns > Family",
+    "romaji": "kodomo"
+  },
+  {
+    "rank": 78,
+    "term": "父",
+    "reading": "ちち",
+    "pos": "noun",
+    "definition": "father",
+    "category": "Nouns > Family",
+    "romaji": "chichi"
+  },
+  {
+    "rank": 79,
+    "term": "母",
+    "reading": "はは",
+    "pos": "noun",
+    "definition": "mother",
+    "category": "Nouns > Family",
+    "romaji": "haha"
+  },
+  {
+    "rank": 80,
+    "term": "妻",
+    "reading": "つま",
+    "pos": "noun",
+    "definition": "wife",
+    "category": "Nouns > Family",
+    "romaji": "tsuma"
+  },
+  {
+    "rank": 81,
+    "term": "夫",
+    "reading": "おっと",
+    "pos": "noun",
+    "definition": "husband",
+    "category": "Nouns > Family",
+    "romaji": "otto"
+  },
+  {
+    "rank": 82,
+    "term": "兄",
+    "reading": "あに",
+    "pos": "noun",
+    "definition": "older brother",
+    "category": "Nouns > Family",
+    "romaji": "ani"
+  },
+  {
+    "rank": 83,
+    "term": "姉",
+    "reading": "あね",
+    "pos": "noun",
+    "definition": "older sister",
+    "category": "Nouns > Family",
+    "romaji": "ane"
+  },
+  {
+    "rank": 84,
+    "term": "弟",
+    "reading": "おとうと",
+    "pos": "noun",
+    "definition": "younger brother",
+    "category": "Nouns > Family",
+    "romaji": "otōto"
+  },
+  {
+    "rank": 85,
+    "term": "妹",
+    "reading": "いもうと",
+    "pos": "noun",
+    "definition": "younger sister",
+    "category": "Nouns > Family",
+    "romaji": "imōto"
+  },
+  {
+    "rank": 86,
+    "term": "兄弟",
+    "reading": "きょうだい",
+    "pos": "noun",
+    "definition": "brothers, siblings",
+    "category": "Nouns > Family",
+    "romaji": "kyōdai"
+  },
+  {
+    "rank": 87,
+    "term": "姉妹",
+    "reading": "しまい",
+    "pos": "noun",
+    "definition": "sisters",
+    "category": "Nouns > Family",
+    "romaji": "shimai"
+  },
+  {
+    "rank": 88,
+    "term": "祖父",
+    "reading": "そふ",
+    "pos": "noun",
+    "definition": "grandfather",
+    "category": "Nouns > Family",
+    "romaji": "sofu"
+  },
+  {
+    "rank": 89,
+    "term": "祖母",
+    "reading": "そぼ",
+    "pos": "noun",
+    "definition": "grandmother",
+    "category": "Nouns > Family",
+    "romaji": "sobo"
+  },
+  {
+    "rank": 90,
+    "term": "孫",
+    "reading": "まご",
+    "pos": "noun",
+    "definition": "grandchild",
+    "category": "Nouns > Family",
+    "romaji": "mago"
+  },
+  {
+    "rank": 91,
+    "term": "伯父",
+    "reading": "おじ",
+    "pos": "noun",
+    "definition": "uncle",
+    "category": "Nouns > Family",
+    "romaji": "oji"
+  },
+  {
+    "rank": 92,
+    "term": "伯母",
+    "reading": "おば",
+    "pos": "noun",
+    "definition": "aunt",
+    "category": "Nouns > Family",
+    "romaji": "oba"
+  },
+  {
+    "rank": 93,
+    "term": "従兄弟",
+    "reading": "いとこ",
+    "pos": "noun",
+    "definition": "cousin (male)",
+    "category": "Nouns > Family",
+    "romaji": "itoko"
+  },
+  {
+    "rank": 94,
+    "term": "姪",
+    "reading": "めい",
+    "pos": "noun",
+    "definition": "niece",
+    "category": "Nouns > Family",
+    "romaji": "mei"
+  },
+  {
+    "rank": 95,
+    "term": "甥",
+    "reading": "おい",
+    "pos": "noun",
+    "definition": "nephew",
+    "category": "Nouns > Family",
+    "romaji": "oi"
+  },
+  {
+    "rank": 96,
+    "term": "生き物",
+    "reading": "いきもの",
+    "pos": "noun",
+    "definition": "living creatures",
+    "category": "Nouns > Life",
+    "romaji": "ikimono"
+  },
+  {
+    "rank": 97,
+    "term": "化け物",
+    "reading": "ばけもの",
+    "pos": "noun",
+    "definition": "goblin; apparition; monster; ghost; phantom; spectre; specter",
+    "category": "Nouns > Life",
+    "romaji": "bakemono"
+  },
+  {
+    "rank": 98,
+    "term": "動物",
+    "reading": "どうぶつ",
+    "pos": "noun",
+    "definition": "animal",
+    "category": "Nouns > Life > Animals",
+    "romaji": "dōbutsu"
+  },
+  {
+    "rank": 99,
+    "term": "犬",
+    "reading": "いぬ",
+    "pos": "noun",
+    "definition": "dog (Canis (lupus) familiaris); canine",
+    "category": "Nouns > Life > Animals",
+    "romaji": "inu"
+  },
+  {
+    "rank": 100,
+    "term": "猫",
+    "reading": "ねこ",
+    "pos": "noun",
+    "definition": "cat (esp. the domestic cat, Felis catus); feline",
+    "category": "Nouns > Life > Animals",
+    "romaji": "neko"
+  },
+  {
+    "rank": 101,
+    "term": "牛",
+    "reading": "うし",
+    "pos": "noun",
+    "definition": "cattle (Bos taurus); cow; bull; ox; calf",
+    "category": "Nouns > Life > Animals",
+    "romaji": "ushi"
+  },
+  {
+    "rank": 102,
+    "term": "豚",
+    "reading": "ぶた",
+    "pos": "noun",
+    "definition": "pig (Sus scrofa domesticus)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "buta"
+  },
+  {
+    "rank": 103,
+    "term": "馬",
+    "reading": "うま",
+    "pos": "noun",
+    "definition": "horse",
+    "category": "Nouns > Life > Animals",
+    "romaji": "uma"
+  },
+  {
+    "rank": 104,
+    "term": "羊",
+    "reading": "ひつじ",
+    "pos": "noun",
+    "definition": "sheep (Ovis aries)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "hitsuji"
+  },
+  {
+    "rank": 105,
+    "term": "猿",
+    "reading": "さる",
+    "pos": "noun",
+    "definition": "monkey (esp. the Japanese macaque, Macaca fuscata); ape; non-human primate",
+    "category": "Nouns > Life > Animals",
+    "romaji": "saru"
+  },
+  {
+    "rank": 106,
+    "term": "鼠",
+    "reading": "ねずみ",
+    "pos": "noun",
+    "definition": "mouse, rat",
+    "category": "Nouns > Life > Animals",
+    "romaji": "nezumi"
+  },
+  {
+    "rank": 107,
+    "term": "虎",
+    "reading": "とら",
+    "pos": "noun",
+    "definition": "tiger (Panthera tigris)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "tora"
+  },
+  {
+    "rank": 108,
+    "term": "兎",
+    "reading": "うさぎ",
+    "pos": "noun",
+    "definition": "rabbit; hare; coney; cony; lagomorph (esp. leporids)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "usagi"
+  },
+  {
+    "rank": 109,
+    "term": "竜",
+    "reading": "りゅう",
+    "pos": "noun",
+    "definition": "dragon (esp. a Chinese dragon)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "ryū"
+  },
+  {
+    "rank": 110,
+    "term": "鹿",
+    "reading": "しか",
+    "pos": "noun",
+    "definition": "deer (esp. the sika deer, Cervus nippon); cervid",
+    "category": "Nouns > Life > Animals",
+    "romaji": "shika"
+  },
+  {
+    "rank": 111,
+    "term": "蛙",
+    "reading": "かえる",
+    "pos": "noun",
+    "definition": "frog",
+    "category": "Nouns > Life > Animals",
+    "romaji": "kaeru"
+  },
+  {
+    "rank": 112,
+    "term": "蟇",
+    "reading": "がま",
+    "pos": "",
+    "definition": "toad",
+    "category": "Nouns > Life > Animals",
+    "romaji": "gama"
+  },
+  {
+    "rank": 113,
+    "term": "獅子",
+    "reading": "しし",
+    "pos": "noun",
+    "definition": "lion",
+    "category": "Nouns > Life > Animals",
+    "romaji": "shishi"
+  },
+  {
+    "rank": 114,
+    "term": "象",
+    "reading": "ぞう",
+    "pos": "noun",
+    "definition": "elephant",
+    "category": "Nouns > Life > Animals",
+    "romaji": "zō"
+  },
+  {
+    "rank": 115,
+    "term": "鳥",
+    "reading": "とり",
+    "pos": "noun",
+    "definition": "bird",
+    "category": "Nouns > Life > Animals",
+    "romaji": "tori"
+  },
+  {
+    "rank": 116,
+    "term": "鶏",
+    "reading": "にわとり",
+    "pos": "noun",
+    "definition": "chicken (Gallus gallus domesticus); domestic chicken",
+    "category": "Nouns > Life > Animals",
+    "romaji": "niwatori"
+  },
+  {
+    "rank": 117,
+    "term": "雀",
+    "reading": "すずめ",
+    "pos": "noun",
+    "definition": "tree sparrow (Passer montanus)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "suzume"
+  },
+  {
+    "rank": 118,
+    "term": "烏",
+    "reading": "からす",
+    "pos": "noun",
+    "definition": "crow, raven",
+    "category": "Nouns > Life > Animals",
+    "romaji": "karasu"
+  },
+  {
+    "rank": 119,
+    "term": "鷲",
+    "reading": "わし",
+    "pos": "noun",
+    "definition": "eagle (Accipitridae family)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "washi"
+  },
+  {
+    "rank": 120,
+    "term": "鷹",
+    "reading": "たか",
+    "pos": "noun",
+    "definition": "hawk, falcon",
+    "category": "Nouns > Life > Animals",
+    "romaji": "taka"
+  },
+  {
+    "rank": 121,
+    "term": "魚",
+    "reading": "さかな",
+    "pos": "noun",
+    "definition": "fish",
+    "category": "Nouns > Life > Animals",
+    "romaji": "sakana"
+  },
+  {
+    "rank": 122,
+    "term": "鯛",
+    "reading": "たい",
+    "pos": "noun",
+    "definition": "red snapper",
+    "category": "Nouns > Life > Animals",
+    "romaji": "tai"
+  },
+  {
+    "rank": 123,
+    "term": "海老",
+    "reading": "えび",
+    "pos": "noun",
+    "definition": "shrimp, lobster",
+    "category": "Nouns > Life > Animals",
+    "romaji": "ebi"
+  },
+  {
+    "rank": 124,
+    "term": "鰯",
+    "reading": "いわし",
+    "pos": "noun",
+    "definition": "pilchard (esp. Japanese pilchard, Sardinops melanostictus); sardine",
+    "category": "Nouns > Life > Animals",
+    "romaji": "iwashi"
+  },
+  {
+    "rank": 125,
+    "term": "鮪",
+    "reading": "まぐろ",
+    "pos": "noun",
+    "definition": "tuna (Thunnus spp.; esp. the Pacific bluefin)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "maguro"
+  },
+  {
+    "rank": 126,
+    "term": "鰹",
+    "reading": "かつお",
+    "pos": "",
+    "definition": "bonito",
+    "category": "Nouns > Life > Animals",
+    "romaji": "katsuo"
+  },
+  {
+    "rank": 127,
+    "term": "秋刀魚",
+    "reading": "さんま",
+    "pos": "",
+    "definition": "pike",
+    "category": "Nouns > Life > Animals",
+    "romaji": "sanma"
+  },
+  {
+    "rank": 128,
+    "term": "鰺",
+    "reading": "あじ",
+    "pos": "noun",
+    "definition": "horse mackerel",
+    "category": "Nouns > Life > Animals",
+    "romaji": "aji"
+  },
+  {
+    "rank": 129,
+    "term": "鯖",
+    "reading": "さば",
+    "pos": "noun",
+    "definition": "mackerel",
+    "category": "Nouns > Life > Animals",
+    "romaji": "saba"
+  },
+  {
+    "rank": 130,
+    "term": "虫",
+    "reading": "むし",
+    "pos": "noun",
+    "definition": "insect; bug; cricket; moth",
+    "category": "Nouns > Life > Animals",
+    "romaji": "mushi"
+  },
+  {
+    "rank": 131,
+    "term": "蝶",
+    "reading": "ちょう",
+    "pos": "noun",
+    "definition": "butterfly",
+    "category": "Nouns > Life > Animals",
+    "romaji": "chō"
+  },
+  {
+    "rank": 132,
+    "term": "蝉",
+    "reading": "せみ",
+    "pos": "noun",
+    "definition": "cicada; locust",
+    "category": "Nouns > Life > Animals",
+    "romaji": "semi"
+  },
+  {
+    "rank": 133,
+    "term": "貝",
+    "reading": "かい",
+    "pos": "noun",
+    "definition": "shellfish",
+    "category": "Nouns > Life > Animals",
+    "romaji": "kai"
+  },
+  {
+    "rank": 134,
+    "term": "貝殻",
+    "reading": "かいがら",
+    "pos": "noun",
+    "definition": "seashell; shell",
+    "category": "Nouns > Life > Animals",
+    "romaji": "kaigara"
+  },
+  {
+    "rank": 135,
+    "term": "蛇",
+    "reading": "へび",
+    "pos": "noun",
+    "definition": "snake",
+    "category": "Nouns > Life > Animals",
+    "romaji": "hebi"
+  },
+  {
+    "rank": 136,
+    "term": "熊",
+    "reading": "くま",
+    "pos": "noun",
+    "definition": "bear (any mammal of family Ursidae)",
+    "category": "Nouns > Life > Animals",
+    "romaji": "kuma"
+  },
+  {
+    "rank": 137,
+    "term": "米",
+    "reading": "こめ",
+    "pos": "noun",
+    "definition": "uncooked rice",
+    "category": "Nouns > Life > Crops",
+    "romaji": "kome"
+  },
+  {
+    "rank": 138,
+    "term": "稲",
+    "reading": "いね",
+    "pos": "noun",
+    "definition": "rice growing in a field",
+    "category": "Nouns > Life > Crops",
+    "romaji": "ine"
+  },
+  {
+    "rank": 139,
+    "term": "麦",
+    "reading": "むぎ",
+    "pos": "noun",
+    "definition": "wheat, barley, oats",
+    "category": "Nouns > Life > Crops",
+    "romaji": "mugi"
+  },
+  {
+    "rank": 140,
+    "term": "野菜",
+    "reading": "やさい",
+    "pos": "noun",
+    "definition": "vegetable",
+    "category": "Nouns > Life > Crops",
+    "romaji": "yasai"
+  },
+  {
+    "rank": 141,
+    "term": "果物",
+    "reading": "くだもの",
+    "pos": "noun",
+    "definition": "fruit for eating",
+    "category": "Nouns > Life > Crops",
+    "romaji": "kudamono"
+  },
+  {
+    "rank": 142,
+    "term": "芋",
+    "reading": "いも",
+    "pos": "noun",
+    "definition": "yam, potato, taro",
+    "category": "Nouns > Life > Crops",
+    "romaji": "imo"
+  },
+  {
+    "rank": 143,
+    "term": "豆",
+    "reading": "まめ",
+    "pos": "noun",
+    "definition": "beans, peas",
+    "category": "Nouns > Life > Crops",
+    "romaji": "mame"
+  },
+  {
+    "rank": 144,
+    "term": "大根",
+    "reading": "だいこん",
+    "pos": "noun",
+    "definition": "Japanese white radish",
+    "category": "Nouns > Life > Crops",
+    "romaji": "daikon"
+  },
+  {
+    "rank": 145,
+    "term": "人参",
+    "reading": "にんじん",
+    "pos": "noun",
+    "definition": "carrot (Daucus carota)",
+    "category": "Nouns > Life > Crops",
+    "romaji": "ninjin"
+  },
+  {
+    "rank": 146,
+    "term": "バナナ",
+    "reading": "かんしょう",
+    "pos": "noun, verb",
+    "definition": "encouragement; stimulation",
+    "category": "Nouns > Life > Crops",
+    "romaji": "banana"
+  },
+  {
+    "rank": 147,
+    "term": "トマト",
+    "reading": "ばんか",
+    "pos": "",
+    "definition": "tomato",
+    "category": "Nouns > Life > Crops",
+    "romaji": "tomato"
+  },
+  {
+    "rank": 148,
+    "term": "時間",
+    "reading": "じかん",
+    "pos": "noun",
+    "definition": "time",
+    "category": "Nouns > Time",
+    "romaji": "jikan"
+  },
+  {
+    "rank": 149,
+    "term": "時",
+    "reading": "とき",
+    "pos": "noun",
+    "definition": "time; hour; moment",
+    "category": "Nouns > Time",
+    "romaji": "toki"
+  },
+  {
+    "rank": 150,
+    "term": "カレンダー",
+    "reading": "こよみ",
+    "pos": "noun, suffix",
+    "definition": "calendar",
+    "category": "Nouns > Time",
+    "romaji": "koyomi"
+  },
+  {
+    "rank": 151,
+    "term": "分",
+    "reading": "ふん",
+    "pos": "noun",
+    "definition": "minute (unit of time)",
+    "category": "Nouns > Time",
+    "romaji": "fun"
+  },
+  {
+    "rank": 152,
+    "term": "秒",
+    "reading": "びょう",
+    "pos": "noun",
+    "definition": "second (unit of time)",
+    "category": "Nouns > Time",
+    "romaji": "byō"
+  },
+  {
+    "rank": 153,
+    "term": "日",
+    "reading": "ひ",
+    "pos": "noun",
+    "definition": "day; days",
+    "category": "Nouns > Time",
+    "romaji": "hi"
+  },
+  {
+    "rank": 154,
+    "term": "月",
+    "reading": "つき",
+    "pos": "noun",
+    "definition": "Moon",
+    "category": "Nouns > Time",
+    "romaji": "tsuki"
+  },
+  {
+    "rank": 155,
+    "term": "年",
+    "reading": "とし",
+    "pos": "noun",
+    "definition": "year",
+    "category": "Nouns > Time",
+    "romaji": "toshi"
+  },
+  {
+    "rank": 156,
+    "term": "昨日",
+    "reading": "きのう",
+    "pos": "noun, adverb",
+    "definition": "yesterday",
+    "category": "Nouns > Time",
+    "romaji": "kinō"
+  },
+  {
+    "rank": 157,
+    "term": "今日",
+    "reading": "きょう",
+    "pos": "noun, adverb",
+    "definition": "today; this day",
+    "category": "Nouns > Time",
+    "romaji": "kyō"
+  },
+  {
+    "rank": 158,
+    "term": "明日",
+    "reading": "あした",
+    "pos": "noun, adverb",
+    "definition": "tomorrow",
+    "category": "Nouns > Time",
+    "romaji": "ashita"
+  },
+  {
+    "rank": 159,
+    "term": "朝",
+    "reading": "あさ",
+    "pos": "noun, adverb",
+    "definition": "morning",
+    "category": "Nouns > Time",
+    "romaji": "asa"
+  },
+  {
+    "rank": 160,
+    "term": "昼",
+    "reading": "ひる",
+    "pos": "noun",
+    "definition": "afternoon",
+    "category": "Nouns > Time",
+    "romaji": "hiru"
+  },
+  {
+    "rank": 161,
+    "term": "夕方",
+    "reading": "ゆうがた",
+    "pos": "noun, adverb",
+    "definition": "early evening (usu. from 3pm to 6pm); dusk",
+    "category": "Nouns > Time",
+    "romaji": "yūgata"
+  },
+  {
+    "rank": 162,
+    "term": "晩",
+    "reading": "ばん",
+    "pos": "noun, adverb",
+    "definition": "evening; night",
+    "category": "Nouns > Time",
+    "romaji": "ban"
+  },
+  {
+    "rank": 163,
+    "term": "夜",
+    "reading": "よる",
+    "pos": "noun, adverb",
+    "definition": "evening, night",
+    "category": "Nouns > Time",
+    "romaji": "yoru"
+  },
+  {
+    "rank": 164,
+    "term": "曜日",
+    "reading": "ようび",
+    "pos": "noun",
+    "definition": "day of the week",
+    "category": "Nouns > Time",
+    "romaji": "yōbi"
+  },
+  {
+    "rank": 165,
+    "term": "週",
+    "reading": "しゅう",
+    "pos": "noun",
+    "definition": "week",
+    "category": "Nouns > Time",
+    "romaji": "shū"
+  },
+  {
+    "rank": 166,
+    "term": "一週間",
+    "reading": "いっしゅうかん",
+    "pos": "noun",
+    "definition": "one week",
+    "category": "Nouns > Time",
+    "romaji": "isshūkan"
+  },
+  {
+    "rank": 167,
+    "term": "日曜日",
+    "reading": "にちようび",
+    "pos": "noun, adverb",
+    "definition": "Sunday",
+    "category": "Nouns > Week Days",
+    "romaji": "nichi-yōbi"
+  },
+  {
+    "rank": 168,
+    "term": "月曜日",
+    "reading": "げつようび",
+    "pos": "noun, adverb",
+    "definition": "Monday",
+    "category": "Nouns > Week Days",
+    "romaji": "getsu-yōbi"
+  },
+  {
+    "rank": 169,
+    "term": "火曜日",
+    "reading": "かようび",
+    "pos": "noun, adverb",
+    "definition": "Tuesday",
+    "category": "Nouns > Week Days",
+    "romaji": "ka-yōbi"
+  },
+  {
+    "rank": 170,
+    "term": "水曜日",
+    "reading": "すいようび",
+    "pos": "noun, adverb",
+    "definition": "Wednesday",
+    "category": "Nouns > Week Days",
+    "romaji": "sui-yōbi"
+  },
+  {
+    "rank": 171,
+    "term": "木曜日",
+    "reading": "もくようび",
+    "pos": "noun, adverb",
+    "definition": "Thursday",
+    "category": "Nouns > Week Days",
+    "romaji": "moku-yōbi"
+  },
+  {
+    "rank": 172,
+    "term": "金曜日",
+    "reading": "きんようび",
+    "pos": "noun, adverb",
+    "definition": "Friday",
+    "category": "Nouns > Week Days",
+    "romaji": "kin-yōbi"
+  },
+  {
+    "rank": 173,
+    "term": "土曜日",
+    "reading": "どようび",
+    "pos": "noun, adverb",
+    "definition": "Saturday",
+    "category": "Nouns > Week Days",
+    "romaji": "do-yōbi"
+  },
+  {
+    "rank": 174,
+    "term": "太陽",
+    "reading": "たいよう",
+    "pos": "noun",
+    "definition": "Sun",
+    "category": "Nouns > Weather",
+    "romaji": "taiyō"
+  },
+  {
+    "rank": 175,
+    "term": "星",
+    "reading": "ほし",
+    "pos": "noun",
+    "definition": "star (usu. excluding the Sun); planet (usu. excluding Earth); heavenly body",
+    "category": "Nouns > Weather",
+    "romaji": "hoshi"
+  },
+  {
+    "rank": 176,
+    "term": "天気",
+    "reading": "てんき",
+    "pos": "noun",
+    "definition": "weather",
+    "category": "Nouns > Weather",
+    "romaji": "tenki"
+  },
+  {
+    "rank": 177,
+    "term": "晴れ",
+    "reading": "はれ",
+    "pos": "noun, adjective",
+    "definition": "clear weather",
+    "category": "Nouns > Weather",
+    "romaji": "hare"
+  },
+  {
+    "rank": 178,
+    "term": "雨",
+    "reading": "あめ",
+    "pos": "noun",
+    "definition": "rain",
+    "category": "Nouns > Weather",
+    "romaji": "ame"
+  },
+  {
+    "rank": 179,
+    "term": "曇り",
+    "reading": "くもり",
+    "pos": "noun",
+    "definition": "cloudiness; cloudy weather",
+    "category": "Nouns > Weather",
+    "romaji": "kumori"
+  },
+  {
+    "rank": 180,
+    "term": "雪",
+    "reading": "ゆき",
+    "pos": "noun",
+    "definition": "snow; snowfall",
+    "category": "Nouns > Weather",
+    "romaji": "yuki"
+  },
+  {
+    "rank": 181,
+    "term": "風",
+    "reading": "かぜ",
+    "pos": "noun",
+    "definition": "wind; breeze; draught; draft",
+    "category": "Nouns > Weather",
+    "romaji": "kaze"
+  },
+  {
+    "rank": 182,
+    "term": "雷",
+    "reading": "かみなり",
+    "pos": "noun",
+    "definition": "thunder, lightning",
+    "category": "Nouns > Weather",
+    "romaji": "kaminari"
+  },
+  {
+    "rank": 183,
+    "term": "台風",
+    "reading": "たいふう",
+    "pos": "noun",
+    "definition": "typhoon; hurricane",
+    "category": "Nouns > Weather",
+    "romaji": "taifū"
+  },
+  {
+    "rank": 184,
+    "term": "嵐",
+    "reading": "あらし",
+    "pos": "noun",
+    "definition": "storm; tempest",
+    "category": "Nouns > Weather",
+    "romaji": "arashi"
+  },
+  {
+    "rank": 185,
+    "term": "空",
+    "reading": "そら",
+    "pos": "noun",
+    "definition": "sky; the air; the heavens",
+    "category": "Nouns > Weather",
+    "romaji": "sora"
+  },
+  {
+    "rank": 186,
+    "term": "北",
+    "reading": "きた",
+    "pos": "noun",
+    "definition": "north",
+    "category": "Nouns > Directions and positions",
+    "romaji": "kita"
+  },
+  {
+    "rank": 187,
+    "term": "東",
+    "reading": "ひがし",
+    "pos": "noun",
+    "definition": "east",
+    "category": "Nouns > Directions and positions",
+    "romaji": "higashi"
+  },
+  {
+    "rank": 188,
+    "term": "南",
+    "reading": "みなみ",
+    "pos": "noun",
+    "definition": "south",
+    "category": "Nouns > Directions and positions",
+    "romaji": "minami"
+  },
+  {
+    "rank": 189,
+    "term": "西",
+    "reading": "にし",
+    "pos": "noun",
+    "definition": "west",
+    "category": "Nouns > Directions and positions",
+    "romaji": "nishi"
+  },
+  {
+    "rank": 190,
+    "term": "ここ",
+    "reading": "ここ",
+    "pos": "pronoun",
+    "definition": "here; this place",
+    "category": "Nouns > Directions and positions",
+    "romaji": "koko"
+  },
+  {
+    "rank": 191,
+    "term": "そこ",
+    "reading": "そこ",
+    "pos": "pronoun",
+    "definition": "there (place relatively near listener)",
+    "category": "Nouns > Directions and positions",
+    "romaji": "soko"
+  },
+  {
+    "rank": 192,
+    "term": "あそこ",
+    "reading": "あそこ",
+    "pos": "pronoun",
+    "definition": "over there",
+    "category": "Nouns > Directions and positions",
+    "romaji": "asoko"
+  },
+  {
+    "rank": 193,
+    "term": "右",
+    "reading": "みぎ",
+    "pos": "noun, adjective",
+    "definition": "right; right-hand side",
+    "category": "Nouns > Directions and positions",
+    "romaji": "migi"
+  },
+  {
+    "rank": 194,
+    "term": "左",
+    "reading": "ひだり",
+    "pos": "noun, adjective",
+    "definition": "left; left-hand side",
+    "category": "Nouns > Directions and positions",
+    "romaji": "hidari"
+  },
+  {
+    "rank": 195,
+    "term": "上",
+    "reading": "うえ",
+    "pos": "noun, adjective",
+    "definition": "above, up",
+    "category": "Nouns > Directions and positions",
+    "romaji": "ue"
+  },
+  {
+    "rank": 196,
+    "term": "下",
+    "reading": "した",
+    "pos": "noun",
+    "definition": "below, down",
+    "category": "Nouns > Directions and positions",
+    "romaji": "shita"
+  },
+  {
+    "rank": 197,
+    "term": "前",
+    "reading": "まえ",
+    "pos": "noun",
+    "definition": "in front (of); before (e.g. a building)",
+    "category": "Nouns > Directions and positions",
+    "romaji": "mae"
+  },
+  {
+    "rank": 198,
+    "term": "後",
+    "reading": "うしろ",
+    "pos": "noun, adjective",
+    "definition": "back; behind; rear",
+    "category": "Nouns > Directions and positions",
+    "romaji": "ushiro"
+  },
+  {
+    "rank": 199,
+    "term": "向こう",
+    "reading": "むこう",
+    "pos": "noun",
+    "definition": "the other side, opposite side",
+    "category": "Nouns > Directions and positions",
+    "romaji": "mukō"
+  },
+  {
+    "rank": 200,
+    "term": "斜め",
+    "reading": "ななめ",
+    "pos": "adjective, noun",
+    "definition": "diagonal",
+    "category": "Nouns > Directions and positions",
+    "romaji": "naname"
+  },
+  {
+    "rank": 201,
+    "term": "手前",
+    "reading": "てまえ",
+    "pos": "noun",
+    "definition": "nearer, more in front",
+    "category": "Nouns > Directions and positions",
+    "romaji": "temae"
+  },
+  {
+    "rank": 202,
+    "term": "遠い",
+    "reading": "とおい",
+    "pos": "adjective",
+    "definition": "far; distant; far away; a long way off; in the distance",
+    "category": "Nouns > Directions and positions",
+    "romaji": "tooi"
+  },
+  {
+    "rank": 203,
+    "term": "近い",
+    "reading": "ちかい",
+    "pos": "adjective",
+    "definition": "near, close",
+    "category": "Nouns > Directions and positions",
+    "romaji": "chikai"
+  },
+  {
+    "rank": 204,
+    "term": "水",
+    "reading": "みず",
+    "pos": "noun",
+    "definition": "water (esp. cool or cold)",
+    "category": "Nouns > Materials",
+    "romaji": "mizu"
+  },
+  {
+    "rank": 205,
+    "term": "湯",
+    "reading": "ゆ",
+    "pos": "noun",
+    "definition": "hot water",
+    "category": "Nouns > Materials",
+    "romaji": "yu"
+  },
+  {
+    "rank": 206,
+    "term": "氷",
+    "reading": "こおり",
+    "pos": "noun",
+    "definition": "ice",
+    "category": "Nouns > Materials",
+    "romaji": "kōri"
+  },
+  {
+    "rank": 207,
+    "term": "湯気",
+    "reading": "ゆげ",
+    "pos": "noun",
+    "definition": "steam; vapour; vapor",
+    "category": "Nouns > Materials",
+    "romaji": "yuge"
+  },
+  {
+    "rank": 208,
+    "term": "火",
+    "reading": "ひ",
+    "pos": "noun",
+    "definition": "fire; flame; blaze",
+    "category": "Nouns > Materials",
+    "romaji": "hi"
+  },
+  {
+    "rank": 209,
+    "term": "空気",
+    "reading": "くうき",
+    "pos": "noun",
+    "definition": "air, atmosphere",
+    "category": "Nouns > Materials",
+    "romaji": "kūki"
+  },
+  {
+    "rank": 210,
+    "term": "土",
+    "reading": "つち",
+    "pos": "noun",
+    "definition": "earth, ground",
+    "category": "Nouns > Materials",
+    "romaji": "tsuchi"
+  },
+  {
+    "rank": 211,
+    "term": "金属",
+    "reading": "きんぞく",
+    "pos": "noun",
+    "definition": "metal, metallic",
+    "category": "Nouns > Materials",
+    "romaji": "kinzoku"
+  },
+  {
+    "rank": 212,
+    "term": "泥",
+    "reading": "どろ",
+    "pos": "noun",
+    "definition": "mud, mire, clay, plaster",
+    "category": "Nouns > Materials",
+    "romaji": "doro"
+  },
+  {
+    "rank": 213,
+    "term": "煙",
+    "reading": "けむり",
+    "pos": "noun",
+    "definition": "smoke, tobacco, opium",
+    "category": "Nouns > Materials",
+    "romaji": "kemuri"
+  },
+  {
+    "rank": 214,
+    "term": "鉄",
+    "reading": "てつ",
+    "pos": "noun",
+    "definition": "iron [Fe]",
+    "category": "Nouns > Materials",
+    "romaji": "tetsu"
+  },
+  {
+    "rank": 215,
+    "term": "銅",
+    "reading": "どう",
+    "pos": "noun",
+    "definition": "copper [Cu]",
+    "category": "Nouns > Materials",
+    "romaji": "dō"
+  },
+  {
+    "rank": 216,
+    "term": "金",
+    "reading": "きん",
+    "pos": "noun",
+    "definition": "gold [Au]; money",
+    "category": "Nouns > Materials",
+    "romaji": "kin"
+  },
+  {
+    "rank": 217,
+    "term": "銀",
+    "reading": "ぎん",
+    "pos": "noun",
+    "definition": "silver [Ag]; wealth",
+    "category": "Nouns > Materials",
+    "romaji": "gin"
+  },
+  {
+    "rank": 218,
+    "term": "鉛",
+    "reading": "なまり",
+    "pos": "noun",
+    "definition": "lead [Pb]",
+    "category": "Nouns > Materials",
+    "romaji": "namari"
+  },
+  {
+    "rank": 219,
+    "term": "塩",
+    "reading": "しお",
+    "pos": "noun",
+    "definition": "salt [NaCl]",
+    "category": "Nouns > Materials",
+    "romaji": "shio"
+  },
+  {
+    "rank": 220,
+    "term": "社会",
+    "reading": "しゃかい",
+    "pos": "noun",
+    "definition": "society; public; community; the world",
+    "category": "Nouns > Society",
+    "romaji": "shakai"
+  },
+  {
+    "rank": 221,
+    "term": "経済",
+    "reading": "けいざい",
+    "pos": "noun",
+    "definition": "economy, economics",
+    "category": "Nouns > Society",
+    "romaji": "keizai"
+  },
+  {
+    "rank": 222,
+    "term": "会社",
+    "reading": "かいしゃ",
+    "pos": "noun",
+    "definition": "company; corporation; firm",
+    "category": "Nouns > Society",
+    "romaji": "kaisha"
+  },
+  {
+    "rank": 223,
+    "term": "会議",
+    "reading": "かいぎ",
+    "pos": "noun, verb",
+    "definition": "meeting; conference; session; assembly; council; convention; congress",
+    "category": "Nouns > Society",
+    "romaji": "kaigi"
+  },
+  {
+    "rank": 224,
+    "term": "学校",
+    "reading": "がっこう",
+    "pos": "noun",
+    "definition": "school",
+    "category": "Nouns > Society",
+    "romaji": "gakkō"
+  },
+  {
+    "rank": 225,
+    "term": "役所",
+    "reading": "やくしょ",
+    "pos": "noun",
+    "definition": "local government office",
+    "category": "Nouns > Society",
+    "romaji": "yakusho"
+  },
+  {
+    "rank": 226,
+    "term": "店",
+    "reading": "みせ",
+    "pos": "noun",
+    "definition": "store; shop; establishment; restaurant",
+    "category": "Nouns > Society",
+    "romaji": "mise"
+  },
+  {
+    "rank": 227,
+    "term": "工場",
+    "reading": "こうじょう",
+    "pos": "noun",
+    "definition": "factory; plant; mill; workshop",
+    "category": "Nouns > Society",
+    "romaji": "kōjō"
+  },
+  {
+    "rank": 228,
+    "term": "金",
+    "reading": "かね",
+    "pos": "noun",
+    "definition": "money",
+    "category": "Nouns > Society",
+    "romaji": "kane"
+  },
+  {
+    "rank": 229,
+    "term": "札",
+    "reading": "さつ",
+    "pos": "noun",
+    "definition": "bill [of money, e.g., a thousand-yen bill]",
+    "category": "Nouns > Society",
+    "romaji": "satsu"
+  },
+  {
+    "rank": 230,
+    "term": "小銭",
+    "reading": "こぜに",
+    "pos": "noun",
+    "definition": "small change",
+    "category": "Nouns > Society",
+    "romaji": "kozeni"
+  },
+  {
+    "rank": 231,
+    "term": "釣り銭",
+    "reading": "つりせん",
+    "pos": "noun",
+    "definition": "change (for a purchase)",
+    "category": "Nouns > Society",
+    "romaji": "tsurisen"
+  },
+  {
+    "rank": 232,
+    "term": "自動販売機",
+    "reading": "じどうはんばいき",
+    "pos": "noun",
+    "definition": "vending machine, slot machine",
+    "category": "Nouns > Society",
+    "romaji": "jidōhanbaiki"
+  },
+  {
+    "rank": 233,
+    "term": "切符",
+    "reading": "きっぷ",
+    "pos": "noun",
+    "definition": "ticket",
+    "category": "Nouns > Society",
+    "romaji": "public transport, fine"
+  },
+  {
+    "rank": 234,
+    "term": "切手",
+    "reading": "きって",
+    "pos": "noun",
+    "definition": "stamp (postage)",
+    "category": "Nouns > Society",
+    "romaji": "kitte"
+  },
+  {
+    "rank": 235,
+    "term": "机",
+    "reading": "つくえ",
+    "pos": "noun",
+    "definition": "desk",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "tsukue"
+  },
+  {
+    "rank": 236,
+    "term": "椅子",
+    "reading": "いす",
+    "pos": "noun",
+    "definition": "chair, position",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "isu"
+  },
+  {
+    "rank": 237,
+    "term": "畳",
+    "reading": "たたみ",
+    "pos": "noun",
+    "definition": "a tatami mat",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "tatami"
+  },
+  {
+    "rank": 238,
+    "term": "戸",
+    "reading": "と",
+    "pos": "noun",
+    "definition": "door, family",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "to"
+  },
+  {
+    "rank": 239,
+    "term": "扉",
+    "reading": "とびら",
+    "pos": "noun",
+    "definition": "door panel",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "tobira"
+  },
+  {
+    "rank": 240,
+    "term": "窓",
+    "reading": "まど",
+    "pos": "noun",
+    "definition": "window",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "mado"
+  },
+  {
+    "rank": 241,
+    "term": "布団",
+    "reading": "ふとん",
+    "pos": "noun",
+    "definition": "futon; Japanese bedding consisting of a mattress and a duvet",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "futon"
+  },
+  {
+    "rank": 242,
+    "term": "玄関",
+    "reading": "げんかん",
+    "pos": "noun",
+    "definition": "entrance",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "genkan"
+  },
+  {
+    "rank": 243,
+    "term": "家",
+    "reading": "いえ",
+    "pos": "noun",
+    "definition": "house, home",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "ie"
+  },
+  {
+    "rank": 244,
+    "term": "電気",
+    "reading": "でんき",
+    "pos": "noun",
+    "definition": "electricity",
+    "category": "Nouns > Human made objects > Home",
+    "romaji": "denki"
+  },
+  {
+    "rank": 245,
+    "term": "釘",
+    "reading": "くぎ",
+    "pos": "noun",
+    "definition": "nail, spike",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "kugi"
+  },
+  {
+    "rank": 246,
+    "term": "紐",
+    "reading": "ひも",
+    "pos": "noun",
+    "definition": "string, cord",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "himo"
+  },
+  {
+    "rank": 247,
+    "term": "縄",
+    "reading": "なわ",
+    "pos": "noun",
+    "definition": "rope, string",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "nawa"
+  },
+  {
+    "rank": 248,
+    "term": "袋",
+    "reading": "ふくろ",
+    "pos": "noun",
+    "definition": "pocket, bag",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "fukuro"
+  },
+  {
+    "rank": 249,
+    "term": "鞄",
+    "reading": "かばん",
+    "pos": "noun",
+    "definition": "leather bag",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "kaban"
+  },
+  {
+    "rank": 250,
+    "term": "傘",
+    "reading": "かさ",
+    "pos": "noun",
+    "definition": "umbrella, parasol",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "kasa"
+  },
+  {
+    "rank": 251,
+    "term": "鍵",
+    "reading": "かぎ",
+    "pos": "noun",
+    "definition": "door bolt, key",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "kagi"
+  },
+  {
+    "rank": 252,
+    "term": "彫刻",
+    "reading": "ちょうこく",
+    "pos": "noun, verb",
+    "definition": "sculpture, engraving",
+    "category": "Nouns > Human made objects > Tools",
+    "romaji": "chōkoku"
+  },
+  {
+    "rank": 253,
+    "term": "文房具",
+    "reading": "ぶんぼうぐ",
+    "pos": "noun",
+    "definition": "stationery ​",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "bunbōgu"
+  },
+  {
+    "rank": 254,
+    "term": "万年筆",
+    "reading": "まんねんひつ",
+    "pos": "noun",
+    "definition": "fountain pen",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "mannenhitsu"
+  },
+  {
+    "rank": 255,
+    "term": "鉛筆",
+    "reading": "えんぴつ",
+    "pos": "noun",
+    "definition": "(wooden) pencil",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "enpitsu"
+  },
+  {
+    "rank": 256,
+    "term": "筆",
+    "reading": "ふで",
+    "pos": "noun",
+    "definition": "brush for writing or painting",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "fude"
+  },
+  {
+    "rank": 257,
+    "term": "鉛筆削り",
+    "reading": "えんぴつけずり",
+    "pos": "",
+    "definition": "pencil sharpener",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "enpitsu-kezuri"
+  },
+  {
+    "rank": 258,
+    "term": "定規",
+    "reading": "じょうぎ",
+    "pos": "noun",
+    "definition": "(measuring) ruler",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "jōgi"
+  },
+  {
+    "rank": 259,
+    "term": "日記",
+    "reading": "にっき",
+    "pos": "noun",
+    "definition": "diary; journal",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "nikki"
+  },
+  {
+    "rank": 260,
+    "term": "封筒",
+    "reading": "ふうとう",
+    "pos": "noun",
+    "definition": "envelope",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "fūtō"
+  },
+  {
+    "rank": 261,
+    "term": "鋏",
+    "reading": "はさみ",
+    "pos": "noun",
+    "definition": "scissors",
+    "category": "Nouns > Human made objects > Stationery",
+    "romaji": "hasami"
+  },
+  {
+    "rank": 262,
+    "term": "服",
+    "reading": "ふく",
+    "pos": "noun",
+    "definition": "clothes (esp. Western clothes); clothing; dress; costume; suit; outfit",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "fuku"
+  },
+  {
+    "rank": 263,
+    "term": "洋服",
+    "reading": "ようふく",
+    "pos": "noun",
+    "definition": "western clothing",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "yōfuku"
+  },
+  {
+    "rank": 264,
+    "term": "着物",
+    "reading": "きもの",
+    "pos": "noun",
+    "definition": "kimono; Japanese traditional clothing (esp. full-length)",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "kimono"
+  },
+  {
+    "rank": 265,
+    "term": "和服",
+    "reading": "わふく",
+    "pos": "noun",
+    "definition": "Japanese clothing",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "wafuku"
+  },
+  {
+    "rank": 266,
+    "term": "袖",
+    "reading": "そで",
+    "pos": "noun",
+    "definition": "sleeve",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "sode"
+  },
+  {
+    "rank": 267,
+    "term": "襟",
+    "reading": "えり",
+    "pos": "noun",
+    "definition": "lapel, collar",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "eri"
+  },
+  {
+    "rank": 268,
+    "term": "靴",
+    "reading": "くつ",
+    "pos": "noun",
+    "definition": "shoe; shoes; boots; footwear; footgear",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "kutsu"
+  },
+  {
+    "rank": 269,
+    "term": "靴下",
+    "reading": "くつした",
+    "pos": "noun",
+    "definition": "socks; sock; stockings; stocking",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "kutsushita"
+  },
+  {
+    "rank": 270,
+    "term": "眼鏡",
+    "reading": "めがね",
+    "pos": "noun",
+    "definition": "glasses; eyeglasses; spectacles",
+    "category": "Nouns > Human made objects > Clothes",
+    "romaji": "megane"
+  },
+  {
+    "rank": 271,
+    "term": "鉄道",
+    "reading": "てつどう",
+    "pos": "noun",
+    "definition": "railroad; railway; rail transport",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "tetsudō"
+  },
+  {
+    "rank": 272,
+    "term": "駅",
+    "reading": "えき",
+    "pos": "noun",
+    "definition": "railway station; train station",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "eki"
+  },
+  {
+    "rank": 273,
+    "term": "飛行機",
+    "reading": "ひこうき",
+    "pos": "noun",
+    "definition": "airplane",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "hikōki"
+  },
+  {
+    "rank": 274,
+    "term": "空港",
+    "reading": "くうこう",
+    "pos": "noun",
+    "definition": "airport",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "kūkō"
+  },
+  {
+    "rank": 275,
+    "term": "道",
+    "reading": "みち",
+    "pos": "noun",
+    "definition": "street, way, road",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "michi"
+  },
+  {
+    "rank": 276,
+    "term": "道路",
+    "reading": "どうろ",
+    "pos": "noun",
+    "definition": "road; highway",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "dōro"
+  },
+  {
+    "rank": 277,
+    "term": "通り",
+    "reading": "とおり",
+    "pos": "noun",
+    "definition": "street; road; avenue; thoroughfare",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "tōri"
+  },
+  {
+    "rank": 278,
+    "term": "電車",
+    "reading": "でんしゃ",
+    "pos": "noun",
+    "definition": "train; electric train",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "densha"
+  },
+  {
+    "rank": 279,
+    "term": "車",
+    "reading": "くるま",
+    "pos": "noun",
+    "definition": "car; automobile; vehicle",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "kuruma"
+  },
+  {
+    "rank": 280,
+    "term": "自転車",
+    "reading": "じてんしゃ",
+    "pos": "noun",
+    "definition": "bicycle; bike",
+    "category": "Nouns > Human made objects > Transport",
+    "romaji": "Jitensha"
+  },
+  {
+    "rank": 281,
+    "term": "文字",
+    "reading": "もじ",
+    "pos": "noun",
+    "definition": "letter, character, script",
+    "category": "Nouns > Language",
+    "romaji": "moji"
+  },
+  {
+    "rank": 282,
+    "term": "字",
+    "reading": "じ",
+    "pos": "noun",
+    "definition": "a letter, character",
+    "category": "Nouns > Language",
+    "romaji": "ji"
+  },
+  {
+    "rank": 283,
+    "term": "漢字",
+    "reading": "かんじ",
+    "pos": "noun",
+    "definition": "Chinese character",
+    "category": "Nouns > Language",
+    "romaji": "kanji"
+  },
+  {
+    "rank": 284,
+    "term": "平仮名",
+    "reading": "ひらがな",
+    "pos": "noun",
+    "definition": "hiragana syllabary characters",
+    "category": "Nouns > Language",
+    "romaji": "hiragana"
+  },
+  {
+    "rank": 285,
+    "term": "数字",
+    "reading": "すうじ",
+    "pos": "noun",
+    "definition": "numeral; digit; numeric character",
+    "category": "Nouns > Language",
+    "romaji": "sūji"
+  },
+  {
+    "rank": 286,
+    "term": "外国語",
+    "reading": "がいこくご",
+    "pos": "noun",
+    "definition": "foreign language",
+    "category": "Nouns > Language",
+    "romaji": "gaikokugo"
+  },
+  {
+    "rank": 287,
+    "term": "日本語",
+    "reading": "にほんご",
+    "pos": "noun",
+    "definition": "Japanese [language]",
+    "category": "Nouns > Language",
+    "romaji": "nihongo"
+  },
+  {
+    "rank": 288,
+    "term": "英語",
+    "reading": "えいご",
+    "pos": "noun",
+    "definition": "English [language]",
+    "category": "Nouns > Language",
+    "romaji": "eigo"
+  },
+  {
+    "rank": 289,
+    "term": "中国語",
+    "reading": "ちゅうごくご",
+    "pos": "noun",
+    "definition": "Chinese [language]",
+    "category": "Nouns > Language",
+    "romaji": "chūgokugo"
+  },
+  {
+    "rank": 290,
+    "term": "ドイツ語",
+    "reading": "どいつご",
+    "pos": "noun",
+    "definition": "German [language]",
+    "category": "Nouns > Language",
+    "romaji": "doitsugo"
+  },
+  {
+    "rank": 291,
+    "term": "スペイン語",
+    "reading": "すぺいんご",
+    "pos": "noun",
+    "definition": "Spanish [language]",
+    "category": "Nouns > Language",
+    "romaji": "supeingo"
+  },
+  {
+    "rank": 292,
+    "term": "フランス語",
+    "reading": "ふらんすご",
+    "pos": "noun",
+    "definition": "French [language]",
+    "category": "Nouns > Language",
+    "romaji": "furansugo"
+  },
+  {
+    "rank": 293,
+    "term": "朝鮮語",
+    "reading": "ちょうせんご",
+    "pos": "noun",
+    "definition": "Korean [language], South Korean [language]",
+    "category": "Nouns > Language",
+    "romaji": "chōsengo"
+  },
+  {
+    "rank": 294,
+    "term": "本",
+    "reading": "ほん",
+    "pos": "noun",
+    "definition": "book; volume; script",
+    "category": "Nouns > Media",
+    "romaji": "hon"
+  },
+  {
+    "rank": 295,
+    "term": "紙",
+    "reading": "かみ",
+    "pos": "noun",
+    "definition": "paper",
+    "category": "Nouns > Media",
+    "romaji": "kami"
+  },
+  {
+    "rank": 296,
+    "term": "手紙",
+    "reading": "てがみ",
+    "pos": "noun",
+    "definition": "letter; note",
+    "category": "Nouns > Media",
+    "romaji": "tegami"
+  },
+  {
+    "rank": 297,
+    "term": "新聞",
+    "reading": "しんぶん",
+    "pos": "noun",
+    "definition": "newspaper",
+    "category": "Nouns > Media",
+    "romaji": "shinbun"
+  },
+  {
+    "rank": 298,
+    "term": "辞書",
+    "reading": "じしょ",
+    "pos": "noun",
+    "definition": "dictionary",
+    "category": "Nouns > Media",
+    "romaji": "jisho"
+  },
+  {
+    "rank": 299,
+    "term": "色",
+    "reading": "いろ",
+    "pos": "noun",
+    "definition": "colour; color; hue; tint; tinge; shade",
+    "category": "Nouns > Colors",
+    "romaji": "iro"
+  },
+  {
+    "rank": 300,
+    "term": "赤",
+    "reading": "あか",
+    "pos": "noun, adjective",
+    "definition": "red; crimson; scarlet",
+    "category": "Nouns > Colors",
+    "romaji": "aka"
+  },
+  {
+    "rank": 301,
+    "term": "黄色",
+    "reading": "きいろ",
+    "pos": "noun, adjective",
+    "definition": "yellow; amber",
+    "category": "Nouns > Colors",
+    "romaji": "kiiro"
+  },
+  {
+    "rank": 302,
+    "term": "緑",
+    "reading": "みどり",
+    "pos": "noun, adjective",
+    "definition": "green",
+    "category": "Nouns > Colors",
+    "romaji": "midori"
+  },
+  {
+    "rank": 303,
+    "term": "青",
+    "reading": "あお",
+    "pos": "noun, adjective",
+    "definition": "blue; azure",
+    "category": "Nouns > Colors",
+    "romaji": "ao"
+  },
+  {
+    "rank": 304,
+    "term": "紫",
+    "reading": "むらさき",
+    "pos": "noun, adjective",
+    "definition": "purple; violet",
+    "category": "Nouns > Colors",
+    "romaji": "murasaki"
+  },
+  {
+    "rank": 305,
+    "term": "白",
+    "reading": "しろ",
+    "pos": "noun, adjective",
+    "definition": "white",
+    "category": "Nouns > Colors",
+    "romaji": "shiro"
+  },
+  {
+    "rank": 306,
+    "term": "黒",
+    "reading": "くろ",
+    "pos": "noun, adjective",
+    "definition": "black",
+    "category": "Nouns > Colors",
+    "romaji": "kuro"
+  },
+  {
+    "rank": 307,
+    "term": "茶色",
+    "reading": "ちゃいろ",
+    "pos": "noun, adjective",
+    "definition": "brown; light brown; tawny",
+    "category": "Nouns > Colors",
+    "romaji": "chairo"
+  },
+  {
+    "rank": 308,
+    "term": "灰色",
+    "reading": "はいいろ",
+    "pos": "noun, adjective",
+    "definition": "grey; gray; ashen",
+    "category": "Nouns > Colors",
+    "romaji": "haiiro"
+  },
+  {
+    "rank": 309,
+    "term": "絵",
+    "reading": "え",
+    "pos": "noun",
+    "definition": "picture; drawing; painting; sketch",
+    "category": "Nouns > Others",
+    "romaji": "e"
+  },
+  {
+    "rank": 310,
+    "term": "音楽",
+    "reading": "おんがく",
+    "pos": "noun",
+    "definition": "music",
+    "category": "Nouns > Others",
+    "romaji": "ongaku"
+  },
+  {
+    "rank": 311,
+    "term": "理科",
+    "reading": "りか",
+    "pos": "noun",
+    "definition": "science (natural sciences and related fields, incl. mathematics, engineering, medicine, etc.)",
+    "category": "Nouns > Others",
+    "romaji": "rika"
+  },
+  {
+    "rank": 312,
+    "term": "算数",
+    "reading": "さんすう",
+    "pos": "noun",
+    "definition": "arithmetic",
+    "category": "Nouns > Others",
+    "romaji": "sansū"
+  },
+  {
+    "rank": 313,
+    "term": "歴史",
+    "reading": "れきし",
+    "pos": "noun",
+    "definition": "history",
+    "category": "Nouns > Others",
+    "romaji": "rekishi"
+  },
+  {
+    "rank": 314,
+    "term": "地理",
+    "reading": "ちり",
+    "pos": "noun",
+    "definition": "geography",
+    "category": "Nouns > Others",
+    "romaji": "chiri"
+  },
+  {
+    "rank": 315,
+    "term": "体育",
+    "reading": "たいいく",
+    "pos": "noun",
+    "definition": "physical education",
+    "category": "Nouns > Others",
+    "romaji": "taiiku"
+  },
+  {
+    "rank": 316,
+    "term": "情報",
+    "reading": "じょうほう",
+    "pos": "noun",
+    "definition": "information, news",
+    "category": "Nouns > Others",
+    "romaji": "jōhō"
+  },
+  {
+    "rank": 317,
+    "term": "必要",
+    "reading": "ひつよう",
+    "pos": "adjective",
+    "definition": "necessity",
+    "category": "Nouns > Others",
+    "romaji": "hitsuyō"
+  },
+  {
+    "rank": 318,
+    "term": "勉強",
+    "reading": "べんきょう",
+    "pos": "noun, verb",
+    "definition": "study",
+    "category": "Nouns > Others",
+    "romaji": "benkyō"
+  },
+  {
+    "rank": 319,
+    "term": "依頼",
+    "reading": "いらい",
+    "pos": "noun, verb",
+    "definition": "request; commission; entrusting (with a matter)",
+    "category": "Nouns > Others",
+    "romaji": "irai"
+  },
+  {
+    "rank": 320,
+    "term": "ゼロ",
+    "reading": "れい",
+    "pos": "noun",
+    "definition": "zero; nought",
+    "category": "Nouns > Numbers",
+    "romaji": "rei, zero"
+  },
+  {
+    "rank": 321,
+    "term": "一",
+    "reading": "いち",
+    "pos": "number, prefix",
+    "definition": "one; 1",
+    "category": "Nouns > Numbers",
+    "romaji": "ichi"
+  },
+  {
+    "rank": 322,
+    "term": "二",
+    "reading": "に",
+    "pos": "number",
+    "definition": "two; 2",
+    "category": "Nouns > Numbers",
+    "romaji": "ni"
+  },
+  {
+    "rank": 323,
+    "term": "三",
+    "reading": "さん",
+    "pos": "number",
+    "definition": "three; 3",
+    "category": "Nouns > Numbers",
+    "romaji": "san"
+  },
+  {
+    "rank": 324,
+    "term": "四",
+    "reading": "よん",
+    "pos": "number",
+    "definition": "four; 4",
+    "category": "Nouns > Numbers",
+    "romaji": "yon"
+  },
+  {
+    "rank": 325,
+    "term": "五",
+    "reading": "ご",
+    "pos": "number",
+    "definition": "five; 5",
+    "category": "Nouns > Numbers",
+    "romaji": "go"
+  },
+  {
+    "rank": 326,
+    "term": "六",
+    "reading": "ろく",
+    "pos": "number",
+    "definition": "six; 6",
+    "category": "Nouns > Numbers",
+    "romaji": "roku"
+  },
+  {
+    "rank": 327,
+    "term": "七",
+    "reading": "なな",
+    "pos": "number",
+    "definition": "seven",
+    "category": "Nouns > Numbers",
+    "romaji": "nana"
+  },
+  {
+    "rank": 328,
+    "term": "八",
+    "reading": "はち",
+    "pos": "number",
+    "definition": "eight; 8",
+    "category": "Nouns > Numbers",
+    "romaji": "hachi"
+  },
+  {
+    "rank": 329,
+    "term": "九",
+    "reading": "きゅう",
+    "pos": "number",
+    "definition": "nine; 9",
+    "category": "Nouns > Numbers",
+    "romaji": "kyū"
+  },
+  {
+    "rank": 330,
+    "term": "十",
+    "reading": "じゅう",
+    "pos": "number",
+    "definition": "ten; 10",
+    "category": "Nouns > Numbers",
+    "romaji": "jū"
+  },
+  {
+    "rank": 331,
+    "term": "百",
+    "reading": "ひゃく",
+    "pos": "number",
+    "definition": "hundred; 100",
+    "category": "Nouns > Numbers",
+    "romaji": "hyaku"
+  },
+  {
+    "rank": 332,
+    "term": "千",
+    "reading": "せん",
+    "pos": "number",
+    "definition": "thousand",
+    "category": "Nouns > Numbers",
+    "romaji": "sen"
+  },
+  {
+    "rank": 333,
+    "term": "万",
+    "reading": "まん",
+    "pos": "number",
+    "definition": "ten thousand",
+    "category": "Nouns > Numbers",
+    "romaji": "man"
+  },
+  {
+    "rank": 334,
+    "term": "億",
+    "reading": "おく",
+    "pos": "number",
+    "definition": "one hundred million",
+    "category": "Nouns > Numbers",
+    "romaji": "oku"
+  },
+  {
+    "rank": 335,
+    "term": "一つ",
+    "reading": "ひとつ",
+    "pos": "number",
+    "definition": "one, one thing",
+    "category": "Nouns > Numbers",
+    "romaji": "hitotsu"
+  },
+  {
+    "rank": 336,
+    "term": "二つ",
+    "reading": "ふたつ",
+    "pos": "number",
+    "definition": "two, two things",
+    "category": "Nouns > Numbers",
+    "romaji": "futatsu"
+  },
+  {
+    "rank": 337,
+    "term": "三つ",
+    "reading": "みっつ",
+    "pos": "number",
+    "definition": "three, three things",
+    "category": "Nouns > Numbers",
+    "romaji": "mittsu"
+  },
+  {
+    "rank": 338,
+    "term": "四つ",
+    "reading": "よっつ",
+    "pos": "number",
+    "definition": "four, four things",
+    "category": "Nouns > Numbers",
+    "romaji": "yottsu"
+  },
+  {
+    "rank": 339,
+    "term": "五つ",
+    "reading": "いつつ",
+    "pos": "number",
+    "definition": "five, five things",
+    "category": "Nouns > Numbers",
+    "romaji": "itsutsu"
+  },
+  {
+    "rank": 340,
+    "term": "六つ",
+    "reading": "むっつ",
+    "pos": "number",
+    "definition": "six, six things",
+    "category": "Nouns > Numbers",
+    "romaji": "muttsu"
+  },
+  {
+    "rank": 341,
+    "term": "七つ",
+    "reading": "ななつ",
+    "pos": "number",
+    "definition": "seven, seven things",
+    "category": "Nouns > Numbers",
+    "romaji": "nanatsu"
+  },
+  {
+    "rank": 342,
+    "term": "八つ",
+    "reading": "やっつ",
+    "pos": "number",
+    "definition": "eight, eight things",
+    "category": "Nouns > Numbers",
+    "romaji": "yattsu"
+  },
+  {
+    "rank": 343,
+    "term": "九つ",
+    "reading": "ここのつ",
+    "pos": "number",
+    "definition": "nine, nine things",
+    "category": "Nouns > Numbers",
+    "romaji": "kokonotsu"
+  },
+  {
+    "rank": 344,
+    "term": "十",
+    "reading": "とお",
+    "pos": "number",
+    "definition": "ten, ten things",
+    "category": "Nouns > Numbers",
+    "romaji": "tō"
+  },
+  {
+    "rank": 345,
+    "term": "これ",
+    "reading": "これ",
+    "pos": "pronoun",
+    "definition": "this, it",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "kore"
+  },
+  {
+    "rank": 346,
+    "term": "それ",
+    "reading": "それ",
+    "pos": "pronoun",
+    "definition": "that; it",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "sore"
+  },
+  {
+    "rank": 347,
+    "term": "あれ",
+    "reading": "あれ",
+    "pos": "pronoun",
+    "definition": "that over there",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "are"
+  },
+  {
+    "rank": 348,
+    "term": "どれ",
+    "reading": "どれ",
+    "pos": "pronoun",
+    "definition": "which (of three or more)",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "dore"
+  },
+  {
+    "rank": 349,
+    "term": "こちら",
+    "reading": "こちら",
+    "pos": "pronoun",
+    "definition": "this direction, thing, person, or place",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "kochira"
+  },
+  {
+    "rank": 350,
+    "term": "そちら",
+    "reading": "そちら",
+    "pos": "pronoun",
+    "definition": "that direction, thing, person, or place",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "sochira"
+  },
+  {
+    "rank": 351,
+    "term": "あちら",
+    "reading": "あちら",
+    "pos": "pronoun",
+    "definition": "that direction, thing, person, or place over there",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "achira"
+  },
+  {
+    "rank": 352,
+    "term": "どちら",
+    "reading": "どちら",
+    "pos": "pronoun",
+    "definition": "which direction, thing, person, or place",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "dochira"
+  },
+  {
+    "rank": 353,
+    "term": "秘密",
+    "reading": "ひみつ",
+    "pos": "noun, adjective",
+    "definition": "secret; secrecy; confidentiality; privacy",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "himitsu"
+  },
+  {
+    "rank": 354,
+    "term": "自動",
+    "reading": "じどう",
+    "pos": "adjective, noun",
+    "definition": "automatic",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "jidō"
+  },
+  {
+    "rank": 355,
+    "term": "内容",
+    "reading": "ないよう",
+    "pos": "noun",
+    "definition": "contents; content; substance; matter; detail; import",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "naiyō"
+  },
+  {
+    "rank": 356,
+    "term": "幅",
+    "reading": "はば",
+    "pos": "noun",
+    "definition": "width, breadth, free room, difference",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "haba"
+  },
+  {
+    "rank": 357,
+    "term": "正式",
+    "reading": "せいしき",
+    "pos": "adjective, noun",
+    "definition": "formality",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "seishiki"
+  },
+  {
+    "rank": 358,
+    "term": "結婚",
+    "reading": "けっこん",
+    "pos": "noun, verb",
+    "definition": "marriage",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "kekkon"
+  },
+  {
+    "rank": 359,
+    "term": "現在",
+    "reading": "げんざい",
+    "pos": "noun, adverb, adjective",
+    "definition": "the present; present time; now",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "genzai"
+  },
+  {
+    "rank": 360,
+    "term": "今",
+    "reading": "いま",
+    "pos": "noun, adjective, adverb",
+    "definition": "now; the present time; just now; soon; immediately",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "ima"
+  },
+  {
+    "rank": 361,
+    "term": "過去",
+    "reading": "かこ",
+    "pos": "noun, adverb, adjective",
+    "definition": "the past; bygone days",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "kako"
+  },
+  {
+    "rank": 362,
+    "term": "未来",
+    "reading": "みらい",
+    "pos": "noun",
+    "definition": "(distant) future",
+    "category": "Nouns > Abstract nouns",
+    "romaji": "mirai"
+  },
+  {
+    "rank": 363,
+    "term": "良い",
+    "reading": "いい",
+    "pos": "adjective",
+    "definition": "good; excellent; fine; nice; pleasant; agreeable",
+    "category": "Adjectives > Forms",
+    "romaji": "ii"
+  },
+  {
+    "rank": 364,
+    "term": "凄い",
+    "reading": "すごい",
+    "pos": "adjective",
+    "definition": "terrible; dreadful",
+    "category": "Adjectives > Forms",
+    "romaji": "sugoi"
+  },
+  {
+    "rank": 365,
+    "term": "素晴らしい",
+    "reading": "すばらしい",
+    "pos": "adjective",
+    "definition": "wonderful",
+    "category": "Adjectives > Forms",
+    "romaji": "subarashii"
+  },
+  {
+    "rank": 366,
+    "term": "悪い",
+    "reading": "わるい",
+    "pos": "adjective",
+    "definition": "bad, inferior",
+    "category": "Adjectives > Forms",
+    "romaji": "warui"
+  },
+  {
+    "rank": 367,
+    "term": "高い",
+    "reading": "たかい",
+    "pos": "adjective",
+    "definition": "expensive, high",
+    "category": "Adjectives > Forms",
+    "romaji": "takai"
+  },
+  {
+    "rank": 368,
+    "term": "低い",
+    "reading": "ひくい",
+    "pos": "adjective",
+    "definition": "low (rank, degree, value, content, quality, etc.)",
+    "category": "Adjectives > Forms",
+    "romaji": "hikui"
+  },
+  {
+    "rank": 369,
+    "term": "安い",
+    "reading": "やすい",
+    "pos": "adjective",
+    "definition": "cheap; inexpensive",
+    "category": "Adjectives > Forms",
+    "romaji": "yasui"
+  },
+  {
+    "rank": 370,
+    "term": "大きい",
+    "reading": "おおきい",
+    "pos": "adjective",
+    "definition": "big; large; great",
+    "category": "Adjectives > Forms",
+    "romaji": "ōkii"
+  },
+  {
+    "rank": 371,
+    "term": "小さい",
+    "reading": "ちいさい",
+    "pos": "adjective",
+    "definition": "small; little; tiny",
+    "category": "Adjectives > Forms",
+    "romaji": "chiisai"
+  },
+  {
+    "rank": 372,
+    "term": "細い",
+    "reading": "ほそい",
+    "pos": "adjective",
+    "definition": "thin; slender; fine",
+    "category": "Adjectives > Forms",
+    "romaji": "hosoi"
+  },
+  {
+    "rank": 373,
+    "term": "太い",
+    "reading": "ふとい",
+    "pos": "adjective",
+    "definition": "fat; thick",
+    "category": "Adjectives > Forms",
+    "romaji": "futoi"
+  },
+  {
+    "rank": 374,
+    "term": "古い",
+    "reading": "ふるい",
+    "pos": "adjective",
+    "definition": "old; aged; ancient; antiquated; antique; timeworn",
+    "category": "Adjectives > Forms",
+    "romaji": "furui"
+  },
+  {
+    "rank": 375,
+    "term": "新しい",
+    "reading": "あたらしい",
+    "pos": "adjective",
+    "definition": "new; novel; fresh; recent; latest; up-to-date; modern",
+    "category": "Adjectives > Forms",
+    "romaji": "atarashii"
+  },
+  {
+    "rank": 376,
+    "term": "若い",
+    "reading": "わかい",
+    "pos": "adjective",
+    "definition": "young; youthful",
+    "category": "Adjectives > Forms",
+    "romaji": "wakai"
+  },
+  {
+    "rank": 377,
+    "term": "軽い",
+    "reading": "かるい",
+    "pos": "adjective",
+    "definition": "light, easy",
+    "category": "Adjectives > Forms",
+    "romaji": "karui"
+  },
+  {
+    "rank": 378,
+    "term": "重い",
+    "reading": "おもい",
+    "pos": "adjective",
+    "definition": "heavy; weighty",
+    "category": "Adjectives > Forms",
+    "romaji": "omoi"
+  },
+  {
+    "rank": 379,
+    "term": "易しい",
+    "reading": "やさしい",
+    "pos": "adjective",
+    "definition": "easy, simple",
+    "category": "Adjectives > Forms",
+    "romaji": "yasashii"
+  },
+  {
+    "rank": 380,
+    "term": "難しい",
+    "reading": "むずかしい",
+    "pos": "adjective",
+    "definition": "difficult",
+    "category": "Adjectives > Forms",
+    "romaji": "muzukashii"
+  },
+  {
+    "rank": 381,
+    "term": "柔らかい",
+    "reading": "やわらかい",
+    "pos": "adjective",
+    "definition": "soft; tender; supple; flexible; limber; limp",
+    "category": "Adjectives > Forms",
+    "romaji": "yawarakai"
+  },
+  {
+    "rank": 382,
+    "term": "硬い",
+    "reading": "かたい",
+    "pos": "adjective",
+    "definition": "hard; solid; tough",
+    "category": "Adjectives > Forms",
+    "romaji": "katai"
+  },
+  {
+    "rank": 383,
+    "term": "熱い",
+    "reading": "あつい",
+    "pos": "adjective",
+    "definition": "hot (to the touch)",
+    "category": "Adjectives > Forms",
+    "romaji": "atsui"
+  },
+  {
+    "rank": 384,
+    "term": "冷たい",
+    "reading": "つめたい",
+    "pos": "adjective",
+    "definition": "cold (to the touch); chilly; icy; freezing",
+    "category": "Adjectives > Forms",
+    "romaji": "tsumetai"
+  },
+  {
+    "rank": 385,
+    "term": "寒い",
+    "reading": "さむい",
+    "pos": "adjective",
+    "definition": "cold (e.g. weather)",
+    "category": "Adjectives > Forms",
+    "romaji": "samui"
+  },
+  {
+    "rank": 386,
+    "term": "美味しい",
+    "reading": "おいしい",
+    "pos": "adjective",
+    "definition": "delicious",
+    "category": "Adjectives > Forms",
+    "romaji": "oishii"
+  },
+  {
+    "rank": 387,
+    "term": "美味い",
+    "reading": "うまい",
+    "pos": "adjective",
+    "definition": "delicious, appetizing",
+    "category": "Adjectives > Forms",
+    "romaji": "umai"
+  },
+  {
+    "rank": 388,
+    "term": "不味い",
+    "reading": "まずい",
+    "pos": "adjective",
+    "definition": "tastes awful",
+    "category": "Adjectives > Forms",
+    "romaji": "mazui"
+  },
+  {
+    "rank": 389,
+    "term": "甘い",
+    "reading": "あまい",
+    "pos": "adjective",
+    "definition": "sweet-tasting; sweet; sugary; sugared",
+    "category": "Adjectives > Forms",
+    "romaji": "amai"
+  },
+  {
+    "rank": 390,
+    "term": "辛い",
+    "reading": "からい",
+    "pos": "adjective",
+    "definition": "hot [spicy]",
+    "category": "Adjectives > Forms",
+    "romaji": "karai"
+  },
+  {
+    "rank": 391,
+    "term": "塩っぱい",
+    "reading": "しょっぱい",
+    "pos": "",
+    "definition": "salty",
+    "category": "Adjectives > Forms",
+    "romaji": "shoppai"
+  },
+  {
+    "rank": 392,
+    "term": "苦い",
+    "reading": "にがい",
+    "pos": "adjective",
+    "definition": "bitter",
+    "category": "Adjectives > Forms",
+    "romaji": "nigai"
+  },
+  {
+    "rank": 393,
+    "term": "美しい",
+    "reading": "うつくしい",
+    "pos": "adjective",
+    "definition": "beautiful",
+    "category": "Adjectives > Forms",
+    "romaji": "utsukushii"
+  },
+  {
+    "rank": 394,
+    "term": "嬉しい",
+    "reading": "うれしい",
+    "pos": "adjective",
+    "definition": "happy; glad; pleased; delighted; overjoyed",
+    "category": "Adjectives > Feelings",
+    "romaji": "ureshii"
+  },
+  {
+    "rank": 395,
+    "term": "楽しい",
+    "reading": "たのしい",
+    "pos": "adjective",
+    "definition": "enjoyable; fun; pleasant; happy; delightful",
+    "category": "Adjectives > Feelings",
+    "romaji": "tanoshii"
+  },
+  {
+    "rank": 396,
+    "term": "悲しい",
+    "reading": "かなしい",
+    "pos": "adjective",
+    "definition": "sad; miserable; unhappy; sorrowful",
+    "category": "Adjectives > Feelings",
+    "romaji": "kanashii"
+  },
+  {
+    "rank": 397,
+    "term": "寂しい",
+    "reading": "さびしい",
+    "pos": "adjective",
+    "definition": "lonely; lonesome; solitary; desolate",
+    "category": "Adjectives > Feelings",
+    "romaji": "sabishii"
+  },
+  {
+    "rank": 398,
+    "term": "寂しい",
+    "reading": "さみしい",
+    "pos": "adjective",
+    "definition": "sad, lonely",
+    "category": "Adjectives > Feelings",
+    "romaji": "samishii"
+  },
+  {
+    "rank": 399,
+    "term": "怖い",
+    "reading": "こわい",
+    "pos": "adjective",
+    "definition": "scary; frightening; eerie; dreadful",
+    "category": "Adjectives > Feelings",
+    "romaji": "kowai"
+  },
+  {
+    "rank": 400,
+    "term": "痛い",
+    "reading": "いたい",
+    "pos": "adjective",
+    "definition": "painful; sore",
+    "category": "Adjectives > Feelings",
+    "romaji": "itai"
+  },
+  {
+    "rank": 401,
+    "term": "痒い",
+    "reading": "かゆい",
+    "pos": "adjective",
+    "definition": "itchy",
+    "category": "Adjectives > Feelings",
+    "romaji": "kayui"
+  },
+  {
+    "rank": 402,
+    "term": "臭い",
+    "reading": "くさい",
+    "pos": "adjective",
+    "definition": "stinking; smelly",
+    "category": "Adjectives > Feelings",
+    "romaji": "kusai"
+  },
+  {
+    "rank": 403,
+    "term": "辛い",
+    "reading": "つらい",
+    "pos": "adjective",
+    "definition": "painful, heart-breaking",
+    "category": "Adjectives > Feelings",
+    "romaji": "tsurai"
+  },
+  {
+    "rank": 404,
+    "term": "する",
+    "reading": "する",
+    "pos": "verb",
+    "definition": "to do; to carry out; to perform",
+    "category": "Verbs",
+    "romaji": "suru"
+  },
+  {
+    "rank": 405,
+    "term": "やる",
+    "reading": "やる",
+    "pos": "verb",
+    "definition": "to do; to undertake; to perform; to play (a game); to study",
+    "category": "Verbs",
+    "romaji": "yaru"
+  },
+  {
+    "rank": 406,
+    "term": "いる",
+    "reading": "いる",
+    "pos": "verb",
+    "definition": "to exist [for animate objects]",
+    "category": "Verbs > Existence",
+    "romaji": "iru"
+  },
+  {
+    "rank": 407,
+    "term": "ある",
+    "reading": "ある",
+    "pos": "verb",
+    "definition": "to exist [for inanimate objects]",
+    "category": "Verbs > Existence",
+    "romaji": "aru"
+  },
+  {
+    "rank": 408,
+    "term": "なる",
+    "reading": "なる",
+    "pos": "verb",
+    "definition": "to become",
+    "category": "Verbs > Existence",
+    "romaji": "naru"
+  },
+  {
+    "rank": 409,
+    "term": "起こる",
+    "reading": "おこる",
+    "pos": "verb",
+    "definition": "to happen",
+    "category": "Verbs > Existence",
+    "romaji": "okoru"
+  },
+  {
+    "rank": 410,
+    "term": "現れる",
+    "reading": "あらわれる",
+    "pos": "verb",
+    "definition": "to appear",
+    "category": "Verbs > Existence",
+    "romaji": "arawareru"
+  },
+  {
+    "rank": 411,
+    "term": "生きる",
+    "reading": "いきる",
+    "pos": "verb",
+    "definition": "to live; to exist",
+    "category": "Verbs > Existence",
+    "romaji": "ikiru"
+  },
+  {
+    "rank": 412,
+    "term": "生む",
+    "reading": "うむ",
+    "pos": "verb",
+    "definition": "to give birth",
+    "category": "Verbs > Existence",
+    "romaji": "umu"
+  },
+  {
+    "rank": 413,
+    "term": "死ぬ",
+    "reading": "しぬ",
+    "pos": "verb",
+    "definition": "to die; to pass away",
+    "category": "Verbs > Existence",
+    "romaji": "shinu"
+  },
+  {
+    "rank": 414,
+    "term": "壊れる",
+    "reading": "こわれる",
+    "pos": "verb",
+    "definition": "to break<sup>in</sup>",
+    "category": "Verbs > Existence",
+    "romaji": "kowareru"
+  },
+  {
+    "rank": 415,
+    "term": "行く",
+    "reading": "いく",
+    "pos": "verb",
+    "definition": "to go; to move (towards); to head (towards); to leave (for)",
+    "category": "Verbs > Movement",
+    "romaji": "iku"
+  },
+  {
+    "rank": 416,
+    "term": "来る",
+    "reading": "くる",
+    "pos": "verb",
+    "definition": "to come (spatially or temporally); to approach; to arrive",
+    "category": "Verbs > Movement",
+    "romaji": "kuru"
+  },
+  {
+    "rank": 417,
+    "term": "帰る",
+    "reading": "かえる",
+    "pos": "verb",
+    "definition": "to return",
+    "category": "Verbs > Movement",
+    "romaji": "kaeru"
+  },
+  {
+    "rank": 418,
+    "term": "歩く",
+    "reading": "あるく",
+    "pos": "verb",
+    "definition": "to walk",
+    "category": "Verbs > Movement",
+    "romaji": "aruku"
+  },
+  {
+    "rank": 419,
+    "term": "飛ぶ",
+    "reading": "とぶ",
+    "pos": "verb",
+    "definition": "to jump, to fly",
+    "category": "Verbs > Movement",
+    "romaji": "tobu"
+  },
+  {
+    "rank": 420,
+    "term": "泳ぐ",
+    "reading": "およぐ",
+    "pos": "verb",
+    "definition": "to swim",
+    "category": "Verbs > Movement",
+    "romaji": "oyogu"
+  },
+  {
+    "rank": 421,
+    "term": "動く",
+    "reading": "うごく",
+    "pos": "verb",
+    "definition": "to move<sup>in</sup>",
+    "category": "Verbs > Actions",
+    "romaji": "ugoku"
+  },
+  {
+    "rank": 422,
+    "term": "踊る",
+    "reading": "おどる",
+    "pos": "verb",
+    "definition": "to dance",
+    "category": "Verbs > Actions",
+    "romaji": "odoru"
+  },
+  {
+    "rank": 423,
+    "term": "寝る",
+    "reading": "ねる",
+    "pos": "verb",
+    "definition": "to sleep",
+    "category": "Verbs > Actions",
+    "romaji": "neru"
+  },
+  {
+    "rank": 424,
+    "term": "歌う",
+    "reading": "うたう",
+    "pos": "verb",
+    "definition": "to sing",
+    "category": "Verbs > Actions",
+    "romaji": "utau"
+  },
+  {
+    "rank": 425,
+    "term": "噛む",
+    "reading": "かむ",
+    "pos": "verb",
+    "definition": "to bite",
+    "category": "Verbs > Actions",
+    "romaji": "kamu"
+  },
+  {
+    "rank": 426,
+    "term": "食べる",
+    "reading": "たべる",
+    "pos": "verb",
+    "definition": "to eat",
+    "category": "Verbs > Actions",
+    "romaji": "taberu"
+  },
+  {
+    "rank": 427,
+    "term": "飲む",
+    "reading": "のむ",
+    "pos": "verb",
+    "definition": "to drink",
+    "category": "Verbs > Actions",
+    "romaji": "nomu"
+  },
+  {
+    "rank": 428,
+    "term": "触る",
+    "reading": "さわる",
+    "pos": "verb",
+    "definition": "to touch",
+    "category": "Verbs > Actions",
+    "romaji": "sawaru"
+  },
+  {
+    "rank": 429,
+    "term": "投げる",
+    "reading": "なげる",
+    "pos": "verb",
+    "definition": "to throw",
+    "category": "Verbs > Actions",
+    "romaji": "nageru"
+  },
+  {
+    "rank": 430,
+    "term": "持つ",
+    "reading": "もつ",
+    "pos": "verb",
+    "definition": "to hold (in one's hand); to take; to carry",
+    "category": "Verbs > Actions",
+    "romaji": "motsu"
+  },
+  {
+    "rank": 431,
+    "term": "打つ",
+    "reading": "うつ",
+    "pos": "verb",
+    "definition": "to hit, to strike",
+    "category": "Verbs > Actions",
+    "romaji": "utsu"
+  },
+  {
+    "rank": 432,
+    "term": "殴る",
+    "reading": "なぐる",
+    "pos": "verb",
+    "definition": "to hit, to strike",
+    "category": "Verbs > Actions",
+    "romaji": "naguru"
+  },
+  {
+    "rank": 433,
+    "term": "指す",
+    "reading": "さす",
+    "pos": "verb",
+    "definition": "to point",
+    "category": "Verbs > Actions",
+    "romaji": "sasu"
+  },
+  {
+    "rank": 434,
+    "term": "刺す",
+    "reading": "さす",
+    "pos": "verb",
+    "definition": "to pierce; to stab; to prick; to stick; to thrust",
+    "category": "Verbs > Actions",
+    "romaji": "sasu"
+  },
+  {
+    "rank": 435,
+    "term": "差す",
+    "reading": "さす",
+    "pos": "verb",
+    "definition": "to raise or extend one's hands",
+    "category": "Verbs > Actions",
+    "romaji": "sasu"
+  },
+  {
+    "rank": 436,
+    "term": "蹴る",
+    "reading": "ける",
+    "pos": "verb",
+    "definition": "to kick",
+    "category": "Verbs > Actions",
+    "romaji": "keru"
+  },
+  {
+    "rank": 437,
+    "term": "座る",
+    "reading": "すわる",
+    "pos": "verb",
+    "definition": "to sit (down); to have a seat; to be seated; to kneel (on the floor)",
+    "category": "Verbs > Actions",
+    "romaji": "suwaru"
+  },
+  {
+    "rank": 438,
+    "term": "立つ",
+    "reading": "たつ",
+    "pos": "verb",
+    "definition": "to stand",
+    "category": "Verbs > Actions",
+    "romaji": "tatsu"
+  },
+  {
+    "rank": 439,
+    "term": "走る",
+    "reading": "はしる",
+    "pos": "verb",
+    "definition": "to run",
+    "category": "Verbs > Actions",
+    "romaji": "hashiru"
+  },
+  {
+    "rank": 440,
+    "term": "見る",
+    "reading": "みる",
+    "pos": "verb",
+    "definition": "to see; to look; to watch; to view; to observe",
+    "category": "Verbs > Senses",
+    "romaji": "miru"
+  },
+  {
+    "rank": 441,
+    "term": "聞く",
+    "reading": "きく",
+    "pos": "verb",
+    "definition": "to hear, to listen",
+    "category": "Verbs > Senses",
+    "romaji": "kiku"
+  },
+  {
+    "rank": 442,
+    "term": "嗅ぐ",
+    "reading": "かぐ",
+    "pos": "verb",
+    "definition": "to smell",
+    "category": "Verbs > Senses",
+    "romaji": "kagu"
+  },
+  {
+    "rank": 443,
+    "term": "言う",
+    "reading": "いう",
+    "pos": "verb",
+    "definition": "to say; to utter; to declare",
+    "category": "Verbs > Speech",
+    "romaji": "iu"
+  },
+  {
+    "rank": 444,
+    "term": "話す",
+    "reading": "はなす",
+    "pos": "verb",
+    "definition": "to speak",
+    "category": "Verbs > Speech",
+    "romaji": "hanasu"
+  },
+  {
+    "rank": 445,
+    "term": "語る",
+    "reading": "かたる",
+    "pos": "verb",
+    "definition": "to talk about; to speak of; to tell; to narrate",
+    "category": "Verbs > Speech",
+    "romaji": "kataru"
+  },
+  {
+    "rank": 446,
+    "term": "書く",
+    "reading": "かく",
+    "pos": "verb",
+    "definition": "to write",
+    "category": "Verbs > Speech",
+    "romaji": "kaku"
+  },
+  {
+    "rank": 447,
+    "term": "読む",
+    "reading": "よむ",
+    "pos": "verb",
+    "definition": "to read",
+    "category": "Verbs > Speech",
+    "romaji": "yomu"
+  },
+  {
+    "rank": 448,
+    "term": "使う",
+    "reading": "つかう",
+    "pos": "verb",
+    "definition": "to use (a tool, method, etc.); to make use of; to put to use",
+    "category": "Verbs > Work",
+    "romaji": "tsukau"
+  },
+  {
+    "rank": 449,
+    "term": "作る",
+    "reading": "つくる",
+    "pos": "verb",
+    "definition": "to make; to produce; to manufacture; to build; to construct",
+    "category": "Verbs > Work",
+    "romaji": "tsukuru"
+  },
+  {
+    "rank": 450,
+    "term": "直す",
+    "reading": "なおす",
+    "pos": "verb",
+    "definition": "to fix, repair",
+    "category": "Verbs > Work",
+    "romaji": "naosu"
+  },
+  {
+    "rank": 451,
+    "term": "捨てる",
+    "reading": "すてる",
+    "pos": "verb",
+    "definition": "to discard, throw away",
+    "category": "Verbs > Work",
+    "romaji": "suteru"
+  },
+  {
+    "rank": 452,
+    "term": "取る",
+    "reading": "とる",
+    "pos": "verb",
+    "definition": "to take; to pick up; to grab; to catch; to hold",
+    "category": "Verbs > Work",
+    "romaji": "toru"
+  },
+  {
+    "rank": 453,
+    "term": "置く",
+    "reading": "おく",
+    "pos": "verb",
+    "definition": "to put; to place",
+    "category": "Verbs > Work",
+    "romaji": "oku"
+  },
+  {
+    "rank": 454,
+    "term": "悲しむ",
+    "reading": "かなしむ",
+    "pos": "verb",
+    "definition": "to be sad",
+    "category": "Verbs > Emotions",
+    "romaji": "kanashimu"
+  },
+  {
+    "rank": 455,
+    "term": "泣く",
+    "reading": "なく",
+    "pos": "verb",
+    "definition": "to cry; to shed tears; to weep; to sob",
+    "category": "Verbs > Emotions",
+    "romaji": "naku"
+  },
+  {
+    "rank": 456,
+    "term": "笑う",
+    "reading": "わらう",
+    "pos": "verb",
+    "definition": "to laugh",
+    "category": "Verbs > Emotions",
+    "romaji": "warau"
+  },
+  {
+    "rank": 457,
+    "term": "怒る",
+    "reading": "おこる",
+    "pos": "verb",
+    "definition": "to be angry",
+    "category": "Verbs > Emotions",
+    "romaji": "okoru"
+  },
+  {
+    "rank": 458,
+    "term": "褒める",
+    "reading": "ほめる",
+    "pos": "verb",
+    "definition": "to encourage",
+    "category": "Verbs > Emotions",
+    "romaji": "homeru"
+  },
+  {
+    "rank": 459,
+    "term": "叱る",
+    "reading": "しかる",
+    "pos": "verb",
+    "definition": "to scold",
+    "category": "Verbs > Emotions",
+    "romaji": "shikaru"
+  },
+  {
+    "rank": 460,
+    "term": "喜ぶ",
+    "reading": "よろこぶ",
+    "pos": "verb",
+    "definition": "to celebrate, to be jubilant, to have joy, to have delight, to have rapture",
+    "category": "Verbs > Emotions",
+    "romaji": "yorokobu"
+  },
+  {
+    "rank": 461,
+    "term": "喜び",
+    "reading": "よろこび",
+    "pos": "noun",
+    "definition": "joy, delight, rapture",
+    "category": "Verbs > Emotions",
+    "romaji": "yorokobi"
+  },
+  {
+    "rank": 462,
+    "term": "慰める",
+    "reading": "なぐさめる",
+    "pos": "verb",
+    "definition": "to console, to consolate, to provide empathy",
+    "category": "Verbs > Emotions",
+    "romaji": "nagusameru"
+  },
+  {
+    "rank": 463,
+    "term": "飽きる",
+    "reading": "あきる",
+    "pos": "verb, suffix",
+    "definition": "to be disinterested, to be bored, to be tired of, to be weary",
+    "category": "Verbs > Emotions",
+    "romaji": "akiru"
+  },
+  {
+    "rank": 464,
+    "term": "驚く",
+    "reading": "おどろく",
+    "pos": "verb",
+    "definition": "to be astonished, to be surprised, to be scared",
+    "category": "Verbs > Emotions",
+    "romaji": "odoroku"
+  },
+  {
+    "rank": 465,
+    "term": "会う",
+    "reading": "あう",
+    "pos": "verb",
+    "definition": "to meet, to interview",
+    "category": "Verbs > Activities",
+    "romaji": "au"
+  },
+  {
+    "rank": 466,
+    "term": "開ける",
+    "reading": "あける",
+    "pos": "verb",
+    "definition": "to open<sup>tr</sup>, to unwrap<sup>tr</sup>",
+    "category": "Verbs > Activities",
+    "romaji": "akeru"
+  },
+  {
+    "rank": 467,
+    "term": "遊ぶ",
+    "reading": "あそぶ",
+    "pos": "verb",
+    "definition": "to play (games, sports); to enjoy oneself; to have a good time",
+    "category": "Verbs > Activities",
+    "romaji": "asobu"
+  },
+  {
+    "rank": 468,
+    "term": "集まる",
+    "reading": "あつまる",
+    "pos": "verb",
+    "definition": "to gather<sup>in</sup>",
+    "category": "Verbs > Activities",
+    "romaji": "atsumaru"
+  },
+  {
+    "rank": 469,
+    "term": "売る",
+    "reading": "うる",
+    "pos": "verb",
+    "definition": "to sell",
+    "category": "Verbs > Activities",
+    "romaji": "uru"
+  },
+  {
+    "rank": 470,
+    "term": "得る",
+    "reading": "える",
+    "pos": "verb",
+    "definition": "to obtain [some benefit or knowledge]",
+    "category": "Verbs > Activities",
+    "romaji": "eru"
+  },
+  {
+    "rank": 471,
+    "term": "折る",
+    "reading": "おる",
+    "pos": "verb",
+    "definition": "to break<sup>tr</sup>, to fold<sup>tr</sup>",
+    "category": "Verbs > Activities",
+    "romaji": "oru"
+  },
+  {
+    "rank": 472,
+    "term": "買う",
+    "reading": "かう",
+    "pos": "verb",
+    "definition": "to buy; to purchase",
+    "category": "Verbs > Activities",
+    "romaji": "kau"
+  },
+  {
+    "rank": 473,
+    "term": "切る",
+    "reading": "きる",
+    "pos": "verb",
+    "definition": "to cut; to cut through; to perform (surgery)",
+    "category": "Verbs > Activities",
+    "romaji": "kiru"
+  },
+  {
+    "rank": 474,
+    "term": "着る",
+    "reading": "きる",
+    "pos": "verb",
+    "definition": "to wear [on the upper body]",
+    "category": "Verbs > Activities",
+    "romaji": "kiru"
+  },
+  {
+    "rank": 475,
+    "term": "履く",
+    "reading": "はく",
+    "pos": "verb",
+    "definition": "to wear [on the lower body]",
+    "category": "Verbs > Activities",
+    "romaji": "haku"
+  },
+  {
+    "rank": 476,
+    "term": "変える",
+    "reading": "かえる",
+    "pos": "verb",
+    "definition": "to change<sup>tr</sup>",
+    "category": "Verbs > Activities",
+    "romaji": "kaeru"
+  },
+  {
+    "rank": 477,
+    "term": "代える",
+    "reading": "かえる",
+    "pos": "verb",
+    "definition": "to exchange, to substitute, to replace",
+    "category": "Verbs > Activities",
+    "romaji": "kaeru"
+  },
+  {
+    "rank": 478,
+    "term": "閉める",
+    "reading": "しめる",
+    "pos": "verb",
+    "definition": "to close<sup>tr</sup>",
+    "category": "Verbs > Activities",
+    "romaji": "shimeru"
+  },
+  {
+    "rank": 479,
+    "term": "締める",
+    "reading": "しめる",
+    "pos": "verb",
+    "definition": "to tie, to fasten",
+    "category": "Verbs > Activities",
+    "romaji": "shimeru"
+  },
+  {
+    "rank": 480,
+    "term": "占める",
+    "reading": "しめる",
+    "pos": "verb",
+    "definition": "to comprise, to account for",
+    "category": "Verbs > Activities",
+    "romaji": "shimeru"
+  },
+  {
+    "rank": 481,
+    "term": "知る",
+    "reading": "しる",
+    "pos": "verb",
+    "definition": "to know; to be aware (of); to be conscious (of); to learn (of); to find out; to discover",
+    "category": "Verbs > Activities",
+    "romaji": "shiru"
+  },
+  {
+    "rank": 482,
+    "term": "疲れる",
+    "reading": "つかれる",
+    "pos": "verb",
+    "definition": "to get tired",
+    "category": "Verbs > Activities",
+    "romaji": "tsukareru"
+  },
+  {
+    "rank": 483,
+    "term": "出掛ける",
+    "reading": "でかける",
+    "pos": "verb",
+    "definition": "to go out, to depart",
+    "category": "Verbs > Activities",
+    "romaji": "dekakeru"
+  },
+  {
+    "rank": 484,
+    "term": "働く",
+    "reading": "はたらく",
+    "pos": "verb",
+    "definition": "to work [e.g., at a job]",
+    "category": "Verbs > Activities",
+    "romaji": "hataraku"
+  },
+  {
+    "rank": 485,
+    "term": "放す",
+    "reading": "はなす",
+    "pos": "verb",
+    "definition": "to let go of",
+    "category": "Verbs > Activities",
+    "romaji": "hanasu"
+  },
+  {
+    "rank": 486,
+    "term": "休む",
+    "reading": "やすむ",
+    "pos": "verb",
+    "definition": "to rest, to take a break, to go to bed",
+    "category": "Verbs > Activities",
+    "romaji": "yasumu"
+  },
+  {
+    "rank": 487,
+    "term": "分かれる",
+    "reading": "わかれる",
+    "pos": "verb",
+    "definition": "to split into<sup>in</sup>, to be divided",
+    "category": "Verbs > Activities",
+    "romaji": "wakareru"
+  },
+  {
+    "rank": 488,
+    "term": "別れる",
+    "reading": "わかれる",
+    "pos": "verb",
+    "definition": "to part<sup>in</sup>, to separate<sup>in</sup>, to break up<sup>in</sup>",
+    "category": "Verbs > Activities",
+    "romaji": "wakareru"
+  },
+  {
+    "rank": 489,
+    "term": "もう",
+    "reading": "もう",
+    "pos": "adverb",
+    "definition": "already; yet; by now; now; (not) any more; (not) any longer",
+    "category": "Adverbs",
+    "romaji": "mō"
+  },
+  {
+    "rank": 490,
+    "term": "まだ",
+    "reading": "まだ",
+    "pos": "adverb",
+    "definition": "still, yet",
+    "category": "Adverbs",
+    "romaji": "mada"
+  },
+  {
+    "rank": 491,
+    "term": "ずっと",
+    "reading": "ずっと",
+    "pos": "adverb",
+    "definition": "continuously; the whole time; all the way; throughout",
+    "category": "Adverbs",
+    "romaji": "zutto"
+  },
+  {
+    "rank": 492,
+    "term": "とても",
+    "reading": "とても",
+    "pos": "adverb",
+    "definition": "very; awfully; exceedingly",
+    "category": "Adverbs",
+    "romaji": "totemo"
+  },
+  {
+    "rank": 493,
+    "term": "こう",
+    "reading": "こう",
+    "pos": "adverb",
+    "definition": "like this",
+    "category": "Adverbs",
+    "romaji": "kō"
+  },
+  {
+    "rank": 494,
+    "term": "そう",
+    "reading": "そう",
+    "pos": "auxiliary, adjective",
+    "definition": "like that",
+    "category": "Adverbs",
+    "romaji": "sō"
+  },
+  {
+    "rank": 495,
+    "term": "ああ",
+    "reading": "ああ",
+    "pos": "interjection",
+    "definition": "in that other way",
+    "category": "Adverbs",
+    "romaji": "ā"
+  },
+  {
+    "rank": 496,
+    "term": "どう",
+    "reading": "どう",
+    "pos": "adverb",
+    "definition": "how; in what way; how about",
+    "category": "Adverbs",
+    "romaji": "dō"
+  },
+  {
+    "rank": 497,
+    "term": "しばしば",
+    "reading": "しばしば",
+    "pos": "adverb",
+    "definition": "often; again and again; frequently; repeatedly",
+    "category": "Adverbs",
+    "romaji": "shibashiba"
+  },
+  {
+    "rank": 498,
+    "term": "この",
+    "reading": "この",
+    "pos": "number",
+    "definition": "nine; 9",
+    "category": "Pre-noun adjectival",
+    "romaji": "kono"
+  },
+  {
+    "rank": 499,
+    "term": "その",
+    "reading": "その",
+    "pos": "adjective",
+    "definition": "that; the",
+    "category": "Pre-noun adjectival",
+    "romaji": "sono"
+  },
+  {
+    "rank": 500,
+    "term": "あの",
+    "reading": "あの",
+    "pos": "adjective",
+    "definition": "that; those; the",
+    "category": "Pre-noun adjectival",
+    "romaji": "ano"
+  },
+  {
+    "rank": 501,
+    "term": "どの",
+    "reading": "どの",
+    "pos": "suffix",
+    "definition": "Mr.; Mrs.; Miss; Ms.",
+    "category": "Pre-noun adjectival",
+    "romaji": "dono"
+  },
+  {
+    "rank": 502,
+    "term": "はい",
+    "reading": "はい",
+    "pos": "interjection",
+    "definition": "yes; that is correct",
+    "category": "Interjections",
+    "romaji": "hai"
+  },
+  {
+    "rank": 503,
+    "term": "いいえ",
+    "reading": "いいえ",
+    "pos": "interjection",
+    "definition": "no",
+    "category": "Interjections",
+    "romaji": "iie"
+  },
+  {
+    "rank": 504,
+    "term": "でも",
+    "reading": "でも",
+    "pos": "conjunction",
+    "definition": "but; however; though; nevertheless; still; yet; even so; also; as well",
+    "category": "[[:Category:Japanese conjunctions|Conjunctions]]",
+    "romaji": "demo"
+  },
+  {
+    "rank": 505,
+    "term": "しかし",
+    "reading": "しかし",
+    "pos": "conjunction",
+    "definition": "but, however",
+    "category": "[[:Category:Japanese conjunctions|Conjunctions]]",
+    "romaji": "shikashi"
+  },
+  {
+    "rank": 506,
+    "term": "そして",
+    "reading": "そして",
+    "pos": "conjunction",
+    "definition": "and then, Then…",
+    "category": "[[:Category:Japanese conjunctions|Conjunctions]]",
+    "romaji": "soshite"
+  },
+  {
+    "rank": 507,
+    "term": "それに",
+    "reading": "それに",
+    "pos": "conjunction",
+    "definition": "besides; in addition; also; moreover",
+    "category": "[[:Category:Japanese conjunctions|Conjunctions]]",
+    "romaji": "soreni"
+  },
+  {
+    "rank": 508,
+    "term": "なぜなら",
+    "reading": "なぜなら",
+    "pos": "conjunction",
+    "definition": "that is because, being because",
+    "category": "[[:Category:Japanese conjunctions|Conjunctions]]",
+    "romaji": "nazenara"
+  },
+  {
+    "rank": 509,
+    "term": "う",
+    "reading": "う",
+    "pos": "noun",
+    "definition": "volitional ending [う for ''u''-verbs, よう for ''ru''-verbs]: \"Let's…\" or \"I will\"",
+    "category": "Terminations of verbs",
+    "romaji": "u"
+  },
+  {
+    "rank": 510,
+    "term": "せる",
+    "reading": "せる",
+    "pos": "verb",
+    "definition": "causative ending [せる for ''u''-verbs, させる for ''ru''-verbs]: to make [someone do something], to allow",
+    "category": "Terminations of verbs",
+    "romaji": "seru"
+  },
+  {
+    "rank": 511,
+    "term": "れる",
+    "reading": "れる",
+    "pos": "",
+    "definition": "passive verb ending [れる for ''u''-verbs, られる for ''ru''-verbs]: to be <verbed> [e.g., 食べられる, \"to be eaten\"]",
+    "category": "Terminations of verbs",
+    "romaji": "reru"
+  },
+  {
+    "rank": 512,
+    "term": "た",
+    "reading": "た",
+    "pos": "noun, prefix",
+    "definition": "informal past-tense",
+    "category": "Terminations of verbs",
+    "romaji": "ta"
+  },
+  {
+    "rank": 513,
+    "term": "たい",
+    "reading": "たい",
+    "pos": "noun",
+    "definition": "indicates desire to perform verb",
+    "category": "Terminations of verbs",
+    "romaji": "tai"
+  },
+  {
+    "rank": 514,
+    "term": "だろう",
+    "reading": "だろう",
+    "pos": "phrase",
+    "definition": "indicates that it ''seems'' the verb occurs; also used to ask whether the verb occurs",
+    "category": "Terminations of verbs",
+    "romaji": "darō"
+  },
+  {
+    "rank": 515,
+    "term": "ない",
+    "reading": "ない",
+    "pos": "adjective",
+    "definition": "informal negative",
+    "category": "Terminations of verbs",
+    "romaji": "nai"
+  },
+  {
+    "rank": 516,
+    "term": "ぬ",
+    "reading": "ぬ",
+    "pos": "",
+    "definition": "archaic informal negative [\"he hath\", \"thou didst\", etc.]",
+    "category": "Terminations of verbs",
+    "romaji": "nu"
+  },
+  {
+    "rank": 517,
+    "term": "ます",
+    "reading": "ます",
+    "pos": "noun",
+    "definition": "formal non-past ending",
+    "category": "Terminations of verbs",
+    "romaji": "masu"
+  },
+  {
+    "rank": 518,
+    "term": "が",
+    "reading": "が",
+    "pos": "noun",
+    "definition": "subject marker, but",
+    "category": "Particles > Case",
+    "romaji": "ga"
+  },
+  {
+    "rank": 519,
+    "term": "で",
+    "reading": "で",
+    "pos": "noun",
+    "definition": "coming out; going out; outflow; efflux; rising (of the Sun or the Moon)",
+    "category": "Particles > Case",
+    "romaji": "de"
+  },
+  {
+    "rank": 520,
+    "term": "と",
+    "reading": "と",
+    "pos": "particle, conjunction",
+    "definition": "and, with",
+    "category": "Particles > Case",
+    "romaji": "to"
+  },
+  {
+    "rank": 521,
+    "term": "に",
+    "reading": "に",
+    "pos": "noun",
+    "definition": "indirect object marker",
+    "category": "Particles > Case",
+    "romaji": "ni"
+  },
+  {
+    "rank": 522,
+    "term": "の",
+    "reading": "の",
+    "pos": "particle",
+    "definition": "possession marker, of",
+    "category": "Particles > Case",
+    "romaji": "no"
+  },
+  {
+    "rank": 523,
+    "term": "へ",
+    "reading": "へ",
+    "pos": "particle",
+    "definition": "to; towards; for",
+    "category": "Particles > Case",
+    "romaji": "e"
+  },
+  {
+    "rank": 524,
+    "term": "まで",
+    "reading": "まで",
+    "pos": "particle",
+    "definition": "until (a time); till; to; up to",
+    "category": "Particles > Case",
+    "romaji": "made"
+  },
+  {
+    "rank": 525,
+    "term": "から",
+    "reading": "から",
+    "pos": "particle",
+    "definition": "from (e.g. time, place, numerical quantity); since",
+    "category": "Particles > Case",
+    "romaji": "kara"
+  },
+  {
+    "rank": 526,
+    "term": "より",
+    "reading": "より",
+    "pos": "particle",
+    "definition": "than",
+    "category": "Particles > Case",
+    "romaji": "yori"
+  },
+  {
+    "rank": 527,
+    "term": "を",
+    "reading": "を",
+    "pos": "particle",
+    "definition": "direct object marker",
+    "category": "Particles > Case",
+    "romaji": "o"
+  },
+  {
+    "rank": 528,
+    "term": "及び",
+    "reading": "および",
+    "pos": "conjunction",
+    "definition": "and; as well as",
+    "category": "Particles > Conjunctive",
+    "romaji": "oyobi"
+  },
+  {
+    "rank": 529,
+    "term": "か",
+    "reading": "か",
+    "pos": "noun",
+    "definition": "addition",
+    "category": "Particles > Conjunctive",
+    "romaji": "ka"
+  },
+  {
+    "rank": 530,
+    "term": "かも",
+    "reading": "かも",
+    "pos": "noun",
+    "definition": "might be, possible that",
+    "category": "Particles > Conjunctive",
+    "romaji": "kamo"
+  },
+  {
+    "rank": 531,
+    "term": "それとも",
+    "reading": "それとも",
+    "pos": "conjunction",
+    "definition": "or; or else",
+    "category": "Particles > Conjunctive",
+    "romaji": "soretomo"
+  },
+  {
+    "rank": 532,
+    "term": "だの",
+    "reading": "だの",
+    "pos": "particle",
+    "definition": "things like <list of things>, including, such things as",
+    "category": "Particles > Conjunctive",
+    "romaji": "dano"
+  },
+  {
+    "rank": 533,
+    "term": "つつ",
+    "reading": "つつ",
+    "pos": "particle",
+    "definition": "ongoing occurrence",
+    "category": "Particles > Conjunctive",
+    "romaji": "tsutsu"
+  },
+  {
+    "rank": 534,
+    "term": "て",
+    "reading": "て",
+    "pos": "noun",
+    "definition": "''te'' form of verb or adjective [see [[wikipedia:Japanese verb conjugations and adjective declensions#Te form|explanation]]]",
+    "category": "Particles > Conjunctive",
+    "romaji": ""
+  },
+  {
+    "rank": 535,
+    "term": "ながら",
+    "reading": "ながら",
+    "pos": "particle, conjunction",
+    "definition": "while, though, both",
+    "category": "Particles > Conjunctive",
+    "romaji": "nagara"
+  },
+  {
+    "rank": 536,
+    "term": "ならびに",
+    "reading": "ならびに",
+    "pos": "conjunction",
+    "definition": "as well as",
+    "category": "Particles > Conjunctive",
+    "romaji": "narabini"
+  },
+  {
+    "rank": 537,
+    "term": "なり",
+    "reading": "なり",
+    "pos": "noun",
+    "definition": "whether or not",
+    "category": "Particles > Conjunctive",
+    "romaji": "nari"
+  },
+  {
+    "rank": 538,
+    "term": "ので",
+    "reading": "ので",
+    "pos": "particle, conjunction",
+    "definition": "because; as; since; so; therefore",
+    "category": "Particles > Conjunctive",
+    "romaji": "node"
+  },
+  {
+    "rank": 539,
+    "term": "又",
+    "reading": "また",
+    "pos": "adverb",
+    "definition": "also, again",
+    "category": "Particles > Conjunctive",
+    "romaji": "mata"
+  },
+  {
+    "rank": 540,
+    "term": "又は",
+    "reading": "または",
+    "pos": "conjunction",
+    "definition": "or alternatively",
+    "category": "Particles > Conjunctive",
+    "romaji": "matawa"
+  },
+  {
+    "rank": 541,
+    "term": "も",
+    "reading": "も",
+    "pos": "noun, adjective",
+    "definition": "also, too",
+    "category": "Particles > Conjunctive",
+    "romaji": "mo"
+  },
+  {
+    "rank": 542,
+    "term": "や",
+    "reading": "や",
+    "pos": "noun",
+    "definition": "arrow",
+    "category": "Particles > Conjunctive",
+    "romaji": "ya"
+  },
+  {
+    "rank": 543,
+    "term": "ね",
+    "reading": "ね",
+    "pos": "noun",
+    "definition": "emphasis and question marker, equivalent to \"right?\"",
+    "category": "Particles > Final",
+    "romaji": "ne"
+  },
+  {
+    "rank": 544,
+    "term": "な",
+    "reading": "な",
+    "pos": "noun",
+    "definition": "the copula particle used after quasi-adjectives",
+    "category": "Particles > Final",
+    "romaji": "na"
+  },
+  {
+    "rank": 545,
+    "term": "かしら",
+    "reading": "かしら",
+    "pos": "particle",
+    "definition": "I wonder",
+    "category": "Particles > Final",
+    "romaji": "kashira"
+  },
+  {
+    "rank": 546,
+    "term": "さ",
+    "reading": "さ",
+    "pos": "noun",
+    "definition": "difference; variation",
+    "category": "Particles > Final",
+    "romaji": "sa"
+  },
+  {
+    "rank": 547,
+    "term": "っけ",
+    "reading": "っけ",
+    "pos": "",
+    "definition": "particle indicating that the speaker is trying to recall some information [\"What class is next ''-kke''?\"]",
+    "category": "Particles > Final",
+    "romaji": "-kke"
+  },
+  {
+    "rank": 548,
+    "term": "こそ",
+    "reading": "こそ",
+    "pos": "particle",
+    "definition": "emphasis",
+    "category": "Particles > Adverbial",
+    "romaji": "koso"
+  },
+  {
+    "rank": 549,
+    "term": "さえ",
+    "reading": "さえ",
+    "pos": "particle",
+    "definition": "even",
+    "category": "Particles > Adverbial",
+    "romaji": "sae"
+  },
+  {
+    "rank": 550,
+    "term": "しか",
+    "reading": "しか",
+    "pos": "particle",
+    "definition": "nothing but; except; no more than",
+    "category": "Particles > Adverbial",
+    "romaji": "shika"
+  },
+  {
+    "rank": 551,
+    "term": "すら",
+    "reading": "すら",
+    "pos": "particle",
+    "definition": "even",
+    "category": "Particles > Adverbial",
+    "romaji": "sura"
+  },
+  {
+    "rank": 552,
+    "term": "くらい",
+    "reading": "くらい",
+    "pos": "adjective",
+    "definition": "approximately, about",
+    "category": "Particles > Adverbial",
+    "romaji": "kurai"
+  },
+  {
+    "rank": 553,
+    "term": "だけ",
+    "reading": "だけ",
+    "pos": "particle",
+    "definition": "only, as much as",
+    "category": "Particles > Adverbial",
+    "romaji": "dake"
+  },
+  {
+    "rank": 554,
+    "term": "だって",
+    "reading": "だって",
+    "pos": "conjunction",
+    "definition": "after all; because",
+    "category": "Particles > Adverbial",
+    "romaji": "datte"
+  },
+  {
+    "rank": 555,
+    "term": "ったら",
+    "reading": "ったら",
+    "pos": "particle, conjunction",
+    "definition": "casual topic marker",
+    "category": "Particles > Adverbial",
+    "romaji": "ttara"
+  },
+  {
+    "rank": 556,
+    "term": "って",
+    "reading": "って",
+    "pos": "particle",
+    "definition": "said that",
+    "category": "Particles > Adverbial",
+    "romaji": "tte"
+  },
+  {
+    "rank": 557,
+    "term": "など",
+    "reading": "など",
+    "pos": "particle",
+    "definition": "for example",
+    "category": "Particles > Adverbial",
+    "romaji": "nado"
+  },
+  {
+    "rank": 558,
+    "term": "なら",
+    "reading": "なら",
+    "pos": "auxiliary",
+    "definition": "if [for verbs]; subject marker [for nouns]",
+    "category": "Particles > Adverbial",
+    "romaji": "nara"
+  },
+  {
+    "rank": 559,
+    "term": "なんか",
+    "reading": "なんか",
+    "pos": "particle, adverb",
+    "definition": "casual undervalue, dislike, lack",
+    "category": "Particles > Adverbial",
+    "romaji": "nanka"
+  },
+  {
+    "rank": 560,
+    "term": "なんて",
+    "reading": "なんて",
+    "pos": "adjective, adverb",
+    "definition": "casual undervalue, dislike, lack",
+    "category": "Particles > Adverbial",
+    "romaji": "nante"
+  },
+  {
+    "rank": 561,
+    "term": "は",
+    "reading": "は",
+    "pos": "noun",
+    "definition": "topic marker",
+    "category": "Particles > Adverbial",
+    "romaji": "wa"
+  },
+  {
+    "rank": 562,
+    "term": "ばかり",
+    "reading": "ばかり",
+    "pos": "particle",
+    "definition": "just, full of, only",
+    "category": "Particles > Adverbial",
+    "romaji": "bakari"
+  }
+]

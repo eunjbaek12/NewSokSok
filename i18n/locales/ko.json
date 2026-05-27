@@ -313,8 +313,12 @@
     "lastUpdated": "최종 업데이트: 2026년 5월",
     "sections": [
       {
-        "title": "공식 큐레이션 단어장",
+        "title": "공식 큐레이션 단어장 (영어)",
         "body": "다음 단어장은 Browne, Culligan, Phillips의 학술 어휘 목록을 기반으로 합니다. 모두 CC BY-SA 4.0 라이선스로 자유 이용 가능합니다.\n\n• 기초 영어 필수 1000 — NGSL (New General Service List)\n• 실무 비즈니스 영어 1000 — BSL (Business Service List)\n• 수능·TOEFL·IELTS 학술 어휘 — NAWL (New Academic Word List)\n• TOEIC 핵심 어휘 600 — TSL (TOEIC Service List)\n\n출처: www.newgeneralservicelist.com\n라이선스 전문: https://creativecommons.org/licenses/by-sa/4.0/\n\n변경 사항: 원본 어휘 목록에 한국어 뜻과 한·영 예문(Google Gemini로 자동 생성)을 추가하여 학습용으로 재구성했습니다.\n\nShareAlike: 본 단어장을 복제·재배포하거나 파생물을 만들 경우 동일한 CC BY-SA 4.0 라이선스를 적용해야 합니다."
+      },
+      {
+        "title": "공식 큐레이션 단어장 (일본어)",
+        "body": "다음 단어장은 자유 라이선스 데이터를 기반으로 합니다. 모두 CC BY-SA 4.0.\n\n• 기초 일본어 500 — Wiktionary \"Appendix:1000 Japanese basic words\" 기반\n\n출처:\n• Wiktionary (en.wiktionary.org) — 표제어 리스트 및 의미 카테고리, CC BY-SA 4.0\n• JMdict by Electronic Dictionary Research and Development Group (www.edrdg.org) — 품사·읽기 검증, CC BY-SA 4.0\n\n라이선스 전문: https://creativecommons.org/licenses/by-sa/4.0/\n\n변경 사항: Wiktionary 표제어 리스트에 JMdict의 품사·읽기 정보를 결합하고 한국어 뜻과 일·한 예문(Google Gemini로 자동 생성)을 추가하여 학습용으로 재구성했습니다.\n\nShareAlike: 본 단어장을 복제·재배포하거나 파생물을 만들 경우 동일한 CC BY-SA 4.0 라이선스를 적용해야 합니다."
       },
       {
         "title": "고전 문학 단어장 (퍼블릭 도메인)",

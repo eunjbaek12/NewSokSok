@@ -2,6 +2,8810 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-jp-basic-1",
+    "title": "기초 일본어 500",
+    "icon": "🍣",
+    "isCurated": true,
+    "category": "기초",
+    "level": "beginner",
+    "description": "일상 일본어 기초 500. Wiktionary \"1000 Japanese basic words\" (CC BY-SA 4.0) 기반, JMdict로 POS·읽기 검증, 한국어 뜻·예문 AI 생성",
+    "sourceLanguage": "ja",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1779862085697,
+    "words": [
+      {
+        "id": "word-jp-0-1779862085697",
+        "term": "人間",
+        "definition": "human being; human; person; man; mankind; humankind",
+        "meaningKr": "인간, 사람",
+        "exampleEn": "人間は一人で生きることができません。",
+        "exampleKr": "인간은 혼자서 살 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にんげん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-1-1779862085697",
+        "term": "人類",
+        "definition": "humanity",
+        "meaningKr": "인류",
+        "exampleEn": "人類の歴史について図書館で本を借りました。",
+        "exampleKr": "인류의 역사에 대해 도서관에서 책을 빌렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じんるい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-2-1779862085697",
+        "term": "人",
+        "definition": "person; someone; somebody",
+        "meaningKr": "사람, 타인",
+        "exampleEn": "あの親切な人は私の日本語の先生です。",
+        "exampleKr": "저 친절한 사람은 제 일본어 선생님입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-3-1779862085697",
+        "term": "男",
+        "definition": "man; male",
+        "meaningKr": "남자, 남성",
+        "exampleEn": "その男は黒い帽子をかぶっていました。",
+        "exampleKr": "그 남자는 검은 모자를 쓰고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おとこ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-4-1779862085697",
+        "term": "男の人",
+        "definition": "man",
+        "meaningKr": "남자, 남성",
+        "exampleEn": "向こうに立っている男の人は私の兄です。",
+        "exampleKr": "저쪽에 서 있는 남자는 제 형입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おとこのひと",
+        "pos": "phrase, noun"
+      },
+      {
+        "id": "word-jp-5-1779862085697",
+        "term": "男の子",
+        "definition": "boy; son; baby boy",
+        "meaningKr": "남자 아이, 아들",
+        "exampleEn": "公園で元気な男の子が走っています。",
+        "exampleKr": "공원에서 활기찬 남자 아이가 달리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おとこのこ",
+        "pos": "phrase, noun"
+      },
+      {
+        "id": "word-jp-6-1779862085697",
+        "term": "女",
+        "definition": "woman; female",
+        "meaningKr": "여자, 여성",
+        "exampleEn": "この映画には強い女の主人公が登場します。",
+        "exampleKr": "이 영화에는 강한 여자 주인공이 등장합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おんな",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-7-1779862085697",
+        "term": "女の人",
+        "definition": "woman",
+        "meaningKr": "여자, 여성",
+        "exampleEn": "あの綺麗な女の人は誰の奥さんですか。",
+        "exampleKr": "저 예쁜 여자는 누구의 아내입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おんなのひと",
+        "pos": "phrase, noun"
+      },
+      {
+        "id": "word-jp-8-1779862085697",
+        "term": "女の子",
+        "definition": "girl; daughter; baby girl",
+        "meaningKr": "여자 아이, 딸",
+        "exampleEn": "可愛い女の子が人形で遊んでいます。",
+        "exampleKr": "귀여운 여자 아이가 인형을 가지고 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おんなのこ",
+        "pos": "phrase, noun"
+      },
+      {
+        "id": "word-jp-9-1779862085697",
+        "term": "赤ちゃん",
+        "definition": "baby; infant",
+        "meaningKr": "아기, 갓난아기",
+        "exampleEn": "赤ちゃんが気持ちよさそうに眠っています。",
+        "exampleKr": "아기가 기분 좋은 듯이 잠들어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あかちゃん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-10-1779862085697",
+        "term": "若者",
+        "definition": "youth, young person",
+        "meaningKr": "젊은이, 청년",
+        "exampleEn": "最近の若者はスマートフォンの使い方が上手です。",
+        "exampleKr": "요즘 젊은이들은 스마트폰 사용법이 능숙합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わかもの",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-11-1779862085697",
+        "term": "私",
+        "definition": "I, myself",
+        "meaningKr": "나, 저",
+        "exampleEn": "私は毎朝早く起きて散歩をします。",
+        "exampleKr": "저는 매일 아침 일찍 일어나서 산책을 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わたし",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-12-1779862085697",
+        "term": "私",
+        "definition": "I, myself",
+        "meaningKr": "저, 나 (격식 있는 표현)",
+        "exampleEn": "私から本日の予定を説明いたします。",
+        "exampleKr": "제가 오늘의 일정을 설명해 드리겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わたくし",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-13-1779862085697",
+        "term": "僕",
+        "definition": "I, myself",
+        "meaningKr": "나 (남성이 주로 쓰는 표현)",
+        "exampleEn": "僕は将来、宇宙飛行士になりたいです。",
+        "exampleKr": "나는 장래에 우주비행사가 되고 싶어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ぼく",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-14-1779862085697",
+        "term": "俺",
+        "definition": "I, myself",
+        "meaningKr": "나 (남성의 친근하고 거친 표현)",
+        "exampleEn": "俺は明日のテストのために今夜勉強するよ。",
+        "exampleKr": "난 내일 시험을 위해서 오늘 밤 공부할 거야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おれ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-15-1779862085697",
+        "term": "私",
+        "definition": "I, myself",
+        "meaningKr": "나 (여성이 주로 쓰는 친근한 표현)",
+        "exampleEn": "私、その映画はもう見ちゃった。",
+        "exampleKr": "나, 그 영화는 이미 봐 버렸어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あたし",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-16-1779862085697",
+        "term": "少女",
+        "definition": "girl (usu. between 7 and 17); young lady",
+        "meaningKr": "소녀",
+        "exampleEn": "その少女は赤いリボンを髪につけていました。",
+        "exampleKr": "그 소녀는 붉은 리본을 머리에 매고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しょうじょ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-17-1779862085697",
+        "term": "少年",
+        "definition": "boy",
+        "meaningKr": "소년",
+        "exampleEn": "少年は自転車に乗って公園へ行きました。",
+        "exampleKr": "소년은 자전거를 타고 공원으로 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しょうねん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-18-1779862085697",
+        "term": "医者",
+        "definition": "doctor; physician",
+        "meaningKr": "의사",
+        "exampleEn": "風邪をひいたので、午後から医者に行きます。",
+        "exampleKr": "감기에 걸려서 오후부터 병원에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いしゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-19-1779862085697",
+        "term": "看護師",
+        "definition": "(hospital) nurse; registered nurse; RN",
+        "meaningKr": "간호사",
+        "exampleEn": "彼女は大きな病院で看護師として働いています。",
+        "exampleKr": "그녀는 큰 병원에서 간호사로 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かんごし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-20-1779862085697",
+        "term": "看護婦",
+        "definition": "female nurse",
+        "meaningKr": "간호부, 여성 간호사",
+        "exampleEn": "昔は看護師のことを看護婦と呼んでいました。",
+        "exampleKr": "옛날에는 간호사를 간호부라고 불렀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かんごふ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-21-1779862085697",
+        "term": "歯科医",
+        "definition": "dentist",
+        "meaningKr": "치과 의사",
+        "exampleEn": "歯が痛いので、明日は歯科医の予約をしました。",
+        "exampleKr": "이가 아파서 내일은 치과 의사 예약을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しかい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-22-1779862085697",
+        "term": "政治家",
+        "definition": "politician",
+        "meaningKr": "정치인, 정치가",
+        "exampleEn": "あの政治家はいつも国民のために働いています。",
+        "exampleKr": "저 정치가는 언제나 국민을 위해 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "せいじか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-23-1779862085697",
+        "term": "弁護士",
+        "definition": "lawyer; attorney",
+        "meaningKr": "변호사",
+        "exampleEn": "困ったことがあったので、弁護士に相談しました。",
+        "exampleKr": "어려운 일이 있어서 변호사에게 상담했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "べんごし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-24-1779862085697",
+        "term": "消防士",
+        "definition": "firefighter",
+        "meaningKr": "소방관, 소방수",
+        "exampleEn": "消防士たちは急いで火を消すために走りました。",
+        "exampleKr": "소방관들은 서둘러 불을 끄기 위해 달렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しょうぼうし",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-25-1779862085697",
+        "term": "警察官",
+        "definition": "police officer",
+        "meaningKr": "경찰관",
+        "exampleEn": "あの警察官はいつも親切に道を教えてくれます。",
+        "exampleKr": "저 경찰관은 항상 친절하게 길을 가르쳐 줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "けいさつかん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-26-1779862085697",
+        "term": "兵士",
+        "definition": "soldier",
+        "meaningKr": "병사, 군인",
+        "exampleEn": "若い兵士たちが国の平和を守っています。",
+        "exampleKr": "젊은 병사들이 나라의 평화를 지키고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "へいし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-27-1779862085697",
+        "term": "建築家",
+        "definition": "architect",
+        "meaningKr": "건축가",
+        "exampleEn": "私の将来の夢は、有名な建築家になることです。",
+        "exampleKr": "제 장래 희망은 유명한 건축가가 되는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "けんちくか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-28-1779862085697",
+        "term": "先生",
+        "definition": "teacher; instructor; master",
+        "meaningKr": "선생님",
+        "exampleEn": "日本語の先生はいつも優しく教えてくれます。",
+        "exampleKr": "일본어 선생님은 항상 친절하게 가르쳐 주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "せんせい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-29-1779862085697",
+        "term": "教師",
+        "definition": "(academic) teacher",
+        "meaningKr": "교사",
+        "exampleEn": "父は高校で数学の教師をしています。",
+        "exampleKr": "아버지는 고등학교에서 수학 교사를 하고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きょうし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-30-1779862085697",
+        "term": "歌手",
+        "definition": "singer",
+        "meaningKr": "가수",
+        "exampleEn": "彼女は歌がとても上手で、将来歌手になりたいそうです。",
+        "exampleKr": "그녀는 노래를 아주 잘해서 장래에 가수가 되고 싶다고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かしゅ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-31-1779862085697",
+        "term": "足",
+        "definition": "foot, leg",
+        "meaningKr": "발, 다리",
+        "exampleEn": "昨日たくさん歩いたので、今日は足が痛いです。",
+        "exampleKr": "어제 많이 걸어서 오늘은 다리가 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-32-1779862085697",
+        "term": "踵",
+        "definition": "heel (of foot, shoe, stocking, etc.)",
+        "meaningKr": "뒤꿈치",
+        "exampleEn": "新しい靴を履いたら、踵が痛くなってしまいました。",
+        "exampleKr": "새 신발을 신었더니 뒤꿈치가 아파졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かかと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-33-1779862085697",
+        "term": "脛",
+        "definition": "shin; shank; lower leg",
+        "meaningKr": "정강이",
+        "exampleEn": "サッカーの練習中に、ボールが脛に当たりました。",
+        "exampleKr": "축구 연습 중에 공이 정강이에 맞았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-34-1779862085697",
+        "term": "膝",
+        "definition": "knee",
+        "meaningKr": "무릎",
+        "exampleEn": "階段を上るときに、少し膝が痛みます。",
+        "exampleKr": "계단을 올라갈 때 무릎이 조금 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひざ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-35-1779862085697",
+        "term": "腿",
+        "definition": "thigh",
+        "meaningKr": "허벅지",
+        "exampleEn": "スクワットをしすぎて、腿の筋肉が痛いです。",
+        "exampleKr": "스쿼트를 너무 많이 해서 허벅지 근육이 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "もも",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-36-1779862085697",
+        "term": "頭",
+        "definition": "head",
+        "meaningKr": "머리",
+        "exampleEn": "風邪をひいて、朝から頭が少し痛いです。",
+        "exampleKr": "감기에 걸려서 아침부터 머리가 조금 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あたま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-37-1779862085697",
+        "term": "顔",
+        "definition": "face; visage; looks; (facial) features",
+        "meaningKr": "얼굴",
+        "exampleEn": "朝起きたら、まず冷たい水で顔を洗います。",
+        "exampleKr": "아침에 일어나면 먼저 찬물로 세수를 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かお",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-38-1779862085697",
+        "term": "口",
+        "definition": "mouth",
+        "meaningKr": "입",
+        "exampleEn": "ご飯を食べるときは、口を閉じて食べましょう。",
+        "exampleKr": "밥을 먹을 때는 입을 다물고 먹읍시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-39-1779862085697",
+        "term": "唇",
+        "definition": "lip; lips",
+        "meaningKr": "입술",
+        "exampleEn": "冬は空気が乾燥するので、唇が荒れやすいです。",
+        "exampleKr": "겨울에는 공기가 건조해서 입술이 트기 쉽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くちびる",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-40-1779862085697",
+        "term": "歯",
+        "definition": "tooth; teeth",
+        "meaningKr": "이, 치아",
+        "exampleEn": "虫歯にならないように、毎日ご飯の後に歯を磨きます。",
+        "exampleKr": "충치가 생기지 않도록 매일 식사 후에 이를 닦습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "は",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-41-1779862085697",
+        "term": "鼻",
+        "definition": "nose",
+        "meaningKr": "코",
+        "exampleEn": "花粉症のせいで、朝から鼻がムズムズします。",
+        "exampleKr": "꽃가루 알레르기 때문에 아침부터 코가 간질간질합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はな",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-42-1779862085697",
+        "term": "目",
+        "definition": "eye; eyeball",
+        "meaningKr": "눈",
+        "exampleEn": "パソコンを長く使うと、目がとても疲れます。",
+        "exampleKr": "컴퓨터를 오래 사용하면 눈이 아주 피로해집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "め",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-43-1779862085697",
+        "term": "髭",
+        "definition": "moustache, beard",
+        "meaningKr": "수염",
+        "exampleEn": "父は毎朝、仕事に行く前に髭を剃ります。",
+        "exampleKr": "아버지는 매일 아침 출근하기 전에 수염을 깎으십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひげ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-44-1779862085697",
+        "term": "髪",
+        "definition": "hair (on the head)",
+        "meaningKr": "머리카락, 머리",
+        "exampleEn": "来週の大切な面接の前に、髪を短く切ります。",
+        "exampleKr": "다음 주 중요한 면접 전에 머리를 짧게 자르겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-45-1779862085697",
+        "term": "耳",
+        "definition": "ear",
+        "meaningKr": "귀",
+        "exampleEn": "寒い日は耳が冷たくなるので、帽子をかぶります。",
+        "exampleKr": "추운 날은 귀가 시려지기 때문에 모자를 씁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-46-1779862085697",
+        "term": "御腹",
+        "definition": "belly; abdomen; stomach",
+        "meaningKr": "배",
+        "exampleEn": "お昼ご飯をたくさん食べたので、御腹がいっぱいです。",
+        "exampleKr": "점심을 많이 먹어서 배가 부릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おなか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-47-1779862085697",
+        "term": "腕",
+        "definition": "arm",
+        "meaningKr": "팔",
+        "exampleEn": "重い荷物を運んだので、腕がとてもだるいです。",
+        "exampleKr": "무거운 짐을 옮겼더니 팔이 아주 나른합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うで",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-48-1779862085697",
+        "term": "肘",
+        "definition": "elbow",
+        "meaningKr": "팔꿈치",
+        "exampleEn": "机に肘をついて話を聞くのは、行儀が悪いです。",
+        "exampleKr": "책상에 팔꿈치를 괴고 이야기를 듣는 것은 버릇이 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-49-1779862085697",
+        "term": "肩",
+        "definition": "shoulder",
+        "meaningKr": "어깨",
+        "exampleEn": "最近パソコンばかりしているので、肩が凝りました。",
+        "exampleKr": "요즘 컴퓨터만 했더니 어깨가 결립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かた",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-50-1779862085697",
+        "term": "爪",
+        "definition": "nail (e.g. fingernail, toenail); claw; talon; hoof",
+        "meaningKr": "손톱, 발톱",
+        "exampleEn": "お風呂に入ったあとに、爪を切ると爪が柔らかくて切りやすいです。",
+        "exampleKr": "목욕을 한 후에 손톱을 깎으면 손톱이 부드러워서 깎기 쉽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つめ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-51-1779862085697",
+        "term": "手",
+        "definition": "hand; arm",
+        "meaningKr": "손",
+        "exampleEn": "ご飯を食べる前に、石鹸できれいに手を洗います。",
+        "exampleKr": "밥을 먹기 전에 비누로 깨끗이 손을 씻습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "て",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-52-1779862085697",
+        "term": "手首",
+        "definition": "wrist",
+        "meaningKr": "손목",
+        "exampleEn": "テニスをしすぎて、少し手首が痛くなりました。",
+        "exampleKr": "테니스를 너무 많이 쳐서 손목이 조금 아파졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "てくび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-53-1779862085697",
+        "term": "掌",
+        "definition": "palm of hand",
+        "meaningKr": "손바닥",
+        "exampleEn": "冷たい雪が私の掌の上ですぐに溶けました。",
+        "exampleKr": "차가운 눈이 내 손바닥 위에서 바로 녹았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "てのひら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-54-1779862085697",
+        "term": "指",
+        "definition": "finger, toe",
+        "meaningKr": "손가락, 발가락",
+        "exampleEn": "彼女は薬指にかわいい銀の指輪をはめています。",
+        "exampleKr": "그녀는 약지에 귀여운 은반지를 끼고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ゆび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-55-1779862085697",
+        "term": "尻",
+        "definition": "buttocks",
+        "meaningKr": "엉덩이",
+        "exampleEn": "一日中椅子に座っていたので、お尻が痛いです。",
+        "exampleKr": "하루 종일 의자에 앉아 있어서 엉덩이가 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-56-1779862085697",
+        "term": "お腹",
+        "definition": "belly; abdomen; stomach",
+        "meaningKr": "배, 복부",
+        "exampleEn": "お腹が空いたので、近くの食堂でラーメンを食べます。",
+        "exampleKr": "배가 고파서 근처 식당에서 라면을 먹을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おなか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-57-1779862085697",
+        "term": "肝臓",
+        "definition": "liver",
+        "meaningKr": "간, 간장",
+        "exampleEn": "お酒を飲みすぎると、肝臓に悪い影響を与えます。",
+        "exampleKr": "술을 너무 많이 마시면 간에 나쁜 영향을 줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かんぞう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-58-1779862085697",
+        "term": "肝",
+        "definition": "liver; innards",
+        "meaningKr": "간, 담력, 핵심",
+        "exampleEn": "この仕事で一番大切な肝の部分を説明します。",
+        "exampleKr": "이 일에서 가장 중요한 핵심 부분을 설명하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きも",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-59-1779862085697",
+        "term": "筋肉",
+        "definition": "muscle",
+        "meaningKr": "근육",
+        "exampleEn": "毎日ジムで筋トレをして、筋肉を鍛えています。",
+        "exampleKr": "매일 헬스장에서 근력 운동을 하며 근육을 단련하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きんにく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-60-1779862085697",
+        "term": "首",
+        "definition": "neck",
+        "meaningKr": "목",
+        "exampleEn": "パソコンをずっと見ていると、首が凝ってしまいます。",
+        "exampleKr": "컴퓨터를 계속 보고 있으면 목이 뻐근해집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-61-1779862085697",
+        "term": "心",
+        "definition": "heart [as in feelings]",
+        "meaningKr": "마음, 정신",
+        "exampleEn": "彼の温かい言葉を聞いて、心がとても軽くなりました。",
+        "exampleKr": "그의 따뜻한 말을 듣고 마음이 무척 가벼워졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こころ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-62-1779862085697",
+        "term": "腰",
+        "definition": "waist, hip",
+        "meaningKr": "허리",
+        "exampleEn": "重い荷物を持ち上げた時に、腰を痛めてしまいました。",
+        "exampleKr": "무거운 짐을 들어 올렸을 때 허리를 다치고 말았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-63-1779862085697",
+        "term": "心臓",
+        "definition": "heart",
+        "meaningKr": "심장",
+        "exampleEn": "緊張すると、胸の奥で心臓が速く鼓動します。",
+        "exampleKr": "긴장하면 가슴 깊은 곳에서 심장이 빠르게 뜁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しんぞう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-64-1779862085697",
+        "term": "背中",
+        "definition": "back (of the body)",
+        "meaningKr": "등",
+        "exampleEn": "背中が痒いのですが、手が届かなくて困っています。",
+        "exampleKr": "등이 가려운데 손이 닿지 않아서 곤란해하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "せなか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-65-1779862085697",
+        "term": "血",
+        "definition": "blood",
+        "meaningKr": "피, 혈액",
+        "exampleEn": "転んで膝に擦り傷ができて、少し血が出ました。",
+        "exampleKr": "넘어져서 무릎에 찰과상이 생겨 피가 조금 났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-66-1779862085697",
+        "term": "肉",
+        "definition": "flesh",
+        "meaningKr": "살, 육체, 고기",
+        "exampleEn": "最近太ってしまって、お腹に肉がついてきました。",
+        "exampleKr": "요즘 살이 쪄서 배에 살이 붙기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-67-1779862085697",
+        "term": "肌",
+        "definition": "skin",
+        "meaningKr": "피부, 살결",
+        "exampleEn": "冬は空気が乾燥するので、肌が荒れやすいです。",
+        "exampleKr": "겨울에는 공기가 건조해서 피부가 거칠어지기 쉽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はだ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-68-1779862085697",
+        "term": "皮膚",
+        "definition": "skin",
+        "meaningKr": "피부",
+        "exampleEn": "皮膚の病気かもしれないので、病院へ行って診てもらいます。",
+        "exampleKr": "피부병일지도 모르기 때문에 병원에 가서 진찰을 받겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひふ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-69-1779862085697",
+        "term": "骨",
+        "definition": "bone",
+        "meaningKr": "뼈",
+        "exampleEn": "牛乳をたくさん飲むと、骨が丈夫になると言われています。",
+        "exampleKr": "우유를 많이 마시면 뼈가 튼튼해진다고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ほね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-70-1779862085697",
+        "term": "胸",
+        "definition": "chest; breast",
+        "meaningKr": "가슴",
+        "exampleEn": "悲しいニュースを見て、胸が締め付けられる思いでした。",
+        "exampleKr": "슬픈 뉴스를 보고 가슴이 메이는 듯한 느낌이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "むね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-71-1779862085697",
+        "term": "風邪",
+        "definition": "cold [illness]",
+        "meaningKr": "감기",
+        "exampleEn": "昨日は風邪をひいて、一日中熱が下がりませんでした。",
+        "exampleKr": "어제는 감기에 걸려서 하루 종일 열이 내리지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かぜ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-72-1779862085697",
+        "term": "下痢",
+        "definition": "diarrhea",
+        "meaningKr": "설사",
+        "exampleEn": "冷たいものをたくさん食べて、下痢をしてしまいました。",
+        "exampleKr": "찬 것을 많이 먹어서 설사를 하고 말았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "げり",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-73-1779862085697",
+        "term": "病気",
+        "definition": "illness (usu. excluding minor ailments, e.g. common cold); disease; sickness",
+        "meaningKr": "병, 질병",
+        "exampleEn": "祖父は重い病気ですが、毎日元気に過ごしています。",
+        "exampleKr": "할아버지는 큰 병을 앓고 계시지만 매일 건강하게 지내고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "びょうき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-74-1779862085697",
+        "term": "家族",
+        "definition": "family",
+        "meaningKr": "가족",
+        "exampleEn": "お正月に家族みんなで集まって、美味しい料理を食べました。",
+        "exampleKr": "설날에 온 가족이 함께 모여 맛있는 음식을 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かぞく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-75-1779862085697",
+        "term": "両親",
+        "definition": "parents; both parents",
+        "meaningKr": "부모, 부모님",
+        "exampleEn": "私は週末に両親と一緒に美味しいご飯を食べました。",
+        "exampleKr": "저는 주말에 부모님과 함께 맛있는 밥을 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "りょうしん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-76-1779862085697",
+        "term": "子供",
+        "definition": "children, child",
+        "meaningKr": "아이, 자녀",
+        "exampleEn": "公園で子供たちが楽しそうにサッカーをしています。",
+        "exampleKr": "공원에서 아이들이 즐겁게 축구를 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こども",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-77-1779862085697",
+        "term": "父",
+        "definition": "father",
+        "meaningKr": "아버지, 아빠",
+        "exampleEn": "私の父は毎朝早く起きて仕事をしています。",
+        "exampleKr": "우리 아버지는 매일 아침 일찍 일어나서 일을 하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-78-1779862085697",
+        "term": "母",
+        "definition": "mother",
+        "meaningKr": "어머니, 엄마",
+        "exampleEn": "母は料理が得意で、毎日美味しいお弁当を作ってくれます。",
+        "exampleKr": "어머니는 요리를 잘하셔서 매일 맛있는 도시락을 만들어 주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はは",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-79-1779862085697",
+        "term": "妻",
+        "definition": "wife",
+        "meaningKr": "아내, 처",
+        "exampleEn": "私の妻は図書館で司書として働いています。",
+        "exampleKr": "제 아내는 도서관에서 사서로 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-80-1779862085697",
+        "term": "夫",
+        "definition": "husband",
+        "meaningKr": "남편",
+        "exampleEn": "私の夫はコーヒーが大好きで、毎日自分で淹れます。",
+        "exampleKr": "제 남편은 커피를 아주 좋아해서 매일 직접 내립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おっと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-81-1779862085697",
+        "term": "兄",
+        "definition": "older brother",
+        "meaningKr": "형, 오빠",
+        "exampleEn": "私の兄は東京の大学で経済を勉強しています。",
+        "exampleKr": "우리 형은 도쿄의 대학에서 경제를 공부하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あに",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-82-1779862085697",
+        "term": "姉",
+        "definition": "older sister",
+        "meaningKr": "누나, 언니",
+        "exampleEn": "私の姉は英語が上手で、今アメリカに住んでいます。",
+        "exampleKr": "우리 언니는 영어를 잘해서 지금 미국에 살고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-83-1779862085697",
+        "term": "弟",
+        "definition": "younger brother",
+        "meaningKr": "남동생",
+        "exampleEn": "私の弟は高校生で、毎日遅くまで部活をしています。",
+        "exampleKr": "제 남동생은 고등학생이라 매일 늦게까지 동아리 활동을 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おとうと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-84-1779862085697",
+        "term": "妹",
+        "definition": "younger sister",
+        "meaningKr": "여동생",
+        "exampleEn": "私の妹は絵を描くことがとても好きです。",
+        "exampleKr": "제 여동생은 그림 그리는 것을 아주 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いもうと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-85-1779862085697",
+        "term": "兄弟",
+        "definition": "brothers, siblings",
+        "meaningKr": "형제, 남매",
+        "exampleEn": "私は三人兄弟で、兄が一人と妹が一人います。",
+        "exampleKr": "저는 3형제(남매)로, 형이 한 명과 여동생이 한 명 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きょうだい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-86-1779862085697",
+        "term": "姉妹",
+        "definition": "sisters",
+        "meaningKr": "자매",
+        "exampleEn": "彼女たちはとても仲が良い姉妹で、よく一緒に買い物をします。",
+        "exampleKr": "그녀들은 매우 사이가 좋은 자매로, 자주 함께 쇼핑을 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しまい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-87-1779862085697",
+        "term": "祖父",
+        "definition": "grandfather",
+        "meaningKr": "할아버지",
+        "exampleEn": "私の祖父は今年で八十歳になりますが、とても元気です。",
+        "exampleKr": "저희 할아버지는 올해로 여든 살이 되시지만 아주 건강하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そふ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-88-1779862085697",
+        "term": "祖母",
+        "definition": "grandmother",
+        "meaningKr": "할머니",
+        "exampleEn": "私の祖母はいつも優しい笑顔で私を迎えてくれます。",
+        "exampleKr": "저희 할머니는 항상 상냥한 미소로 저를 맞이해 주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そぼ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-89-1779862085697",
+        "term": "孫",
+        "definition": "grandchild",
+        "meaningKr": "손주, 손자, 손녀",
+        "exampleEn": "祖父は孫たちに会うのをいつも楽しみにしています。",
+        "exampleKr": "할아버지는 손주들을 만나는 것을 항상 기대하고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-90-1779862085697",
+        "term": "伯父",
+        "definition": "uncle",
+        "meaningKr": "백부, 큰아버지, 아저씨",
+        "exampleEn": "私の伯父は北海道で大きな農場を経営しています。",
+        "exampleKr": "저희 큰아버지는 홋카이도에서 큰 농장을 경영하고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-91-1779862085697",
+        "term": "伯母",
+        "definition": "aunt",
+        "meaningKr": "백모, 큰어머니, 아줌마",
+        "exampleEn": "私の伯母はピアノの先生で、子供たちに教えています。",
+        "exampleKr": "저희 큰어머니는 피아노 선생님이시라 아이들을 가르치고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おば",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-92-1779862085697",
+        "term": "従兄弟",
+        "definition": "cousin (male)",
+        "meaningKr": "사촌, 사촌 형제",
+        "exampleEn": "私の従兄弟は私と同い年で、とても仲が良いです。",
+        "exampleKr": "제 사촌은 저와 동갑이라 아주 사이가 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いとこ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-93-1779862085697",
+        "term": "姪",
+        "definition": "niece",
+        "meaningKr": "조카딸, 여자 조카",
+        "exampleEn": "私の姪は今年小学校に入学したので、ランドセルをプレゼントしました。",
+        "exampleKr": "제 조카딸이 올해 초등학교에 입학해서 책가방을 선물했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "めい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-94-1779862085697",
+        "term": "甥",
+        "definition": "nephew",
+        "meaningKr": "조카, 남자 조카",
+        "exampleEn": "甥は野球が大好きで、将来はプロ選手になりたいそうです。",
+        "exampleKr": "조카는 야구를 아주 좋아해서 장래에 프로 선수가 되고 싶다고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-95-1779862085697",
+        "term": "生き物",
+        "definition": "living creatures",
+        "meaningKr": "생물, 살아 있는 것",
+        "exampleEn": "地球にはたくさんの種類の生き物が暮らしています。",
+        "exampleKr": "지구에는 많은 종류의 생물들이 살고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いきもの",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-96-1779862085697",
+        "term": "化け物",
+        "definition": "goblin; apparition; monster; ghost; phantom; spectre; specter",
+        "meaningKr": "괴물, 요괴, 도깨비",
+        "exampleEn": "昔話に出てくる化け物は、少し怖いけれど面白いです。",
+        "exampleKr": "옛날이야기에 나오는 괴물은 조금 무섭지만 재미있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ばけもの",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-97-1779862085697",
+        "term": "動物",
+        "definition": "animal",
+        "meaningKr": "동물",
+        "exampleEn": "週末に家族と一緒に上野動物園へ動物を見に行きました。",
+        "exampleKr": "주말에 가족과 함께 우에노 동물원에 동물을 보러 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どうぶつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-98-1779862085697",
+        "term": "犬",
+        "definition": "dog (Canis (lupus) familiaris); canine",
+        "meaningKr": "개",
+        "exampleEn": "私は白い犬を飼っていて、毎日公園を散歩します。",
+        "exampleKr": "저는 흰 개를 키우고 있어서 매일 공원을 산책합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いぬ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-99-1779862085697",
+        "term": "猫",
+        "definition": "cat (esp. the domestic cat, Felis catus); feline",
+        "meaningKr": "고양이",
+        "exampleEn": "隣の家の猫はいつも窓の近くで昼寝をしています。",
+        "exampleKr": "옆집 고양이는 항상 창문 근처에서 낮잠을 자고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ねこ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-100-1779862085697",
+        "term": "牛",
+        "definition": "cattle (Bos taurus); cow; bull; ox; calf",
+        "meaningKr": "소",
+        "exampleEn": "牧場には白と黒の大きな牛がのんびり歩いています。",
+        "exampleKr": "목장에는 흰색과 검은색의 큰 소가 한가롭게 걷고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-101-1779862085697",
+        "term": "豚",
+        "definition": "pig (Sus scrofa domesticus)",
+        "meaningKr": "돼지",
+        "exampleEn": "この農場では、可愛い豚たちが毎日たくさんご飯を食べます。",
+        "exampleKr": "이 농장에서는 귀여운 돼지들이 매일 밥을 많이 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ぶた",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-102-1779862085697",
+        "term": "馬",
+        "definition": "horse",
+        "meaningKr": "말",
+        "exampleEn": "天気がいいので、公園でかっこいい馬に乗る体験をしました。",
+        "exampleKr": "날씨가 좋아서 공원에서 멋진 말을 타는 체험을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-103-1779862085697",
+        "term": "羊",
+        "definition": "sheep (Ovis aries)",
+        "meaningKr": "양",
+        "exampleEn": "ニュージーランドの山には、白い羊がたくさんいて綺麗です。",
+        "exampleKr": "뉴질랜드 산에는 하얀 양이 많이 있어서 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひつじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-104-1779862085697",
+        "term": "猿",
+        "definition": "monkey (esp. the Japanese macaque, Macaca fuscata); ape; non-human primate",
+        "meaningKr": "원숭이",
+        "exampleEn": "動物園の猿は、バナナを美味しそうに食べていました。",
+        "exampleKr": "동물원의 원숭이는 바나나를 맛있게 먹고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さる",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-105-1779862085697",
+        "term": "鼠",
+        "definition": "mouse, rat",
+        "meaningKr": "쥐",
+        "exampleEn": "古い家の台所に小さな鼠が走っていくのを見ました。",
+        "exampleKr": "오래된 집 부엌에 작은 쥐가 달려가는 것을 보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ねずみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-106-1779862085697",
+        "term": "虎",
+        "definition": "tiger (Panthera tigris)",
+        "meaningKr": "호랑이",
+        "exampleEn": "虎はとても強くてかっこいい動物なので、私は大好きです。",
+        "exampleKr": "호랑이는 매우 강하고 멋진 동물이라서 저는 아주 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-107-1779862085697",
+        "term": "兎",
+        "definition": "rabbit; hare; coney; cony; lagomorph (esp. leporids)",
+        "meaningKr": "토끼",
+        "exampleEn": "妹は耳が長い白い兎を家で大切に飼っています。",
+        "exampleKr": "여동생은 귀가 긴 하얀 토끼를 집에서 소중히 키우고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うさぎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-108-1779862085697",
+        "term": "竜",
+        "definition": "dragon (esp. a Chinese dragon)",
+        "meaningKr": "용",
+        "exampleEn": "お寺の天井には、大きな竜の素晴らしい絵が描かれています。",
+        "exampleKr": "절의 천장에는 커다란 용의 훌륭한 그림이 그려져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "りゅう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-109-1779862085697",
+        "term": "鹿",
+        "definition": "deer (esp. the sika deer, Cervus nippon); cervid",
+        "meaningKr": "사슴",
+        "exampleEn": "奈良公園に行くと、たくさんの可愛い鹿が近くに集まってきます。",
+        "exampleKr": "나라 공원에 가면 많은 귀여운 사슴들이 근처로 모여듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-110-1779862085697",
+        "term": "蛙",
+        "definition": "frog",
+        "meaningKr": "개구리",
+        "exampleEn": "雨の日になると、庭の池から蛙の鳴き声が聞こえます。",
+        "exampleKr": "비 오는 날이 되면 정원 연못에서 개구리 울음소리가 들립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かえる",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-111-1779862085697",
+        "term": "蟇",
+        "definition": "toad",
+        "meaningKr": "두꺼비",
+        "exampleEn": "雨上がりの森の道で、大きな蟇がゆっくり動いていました。",
+        "exampleKr": "비가 개인 뒤의 숲길에서 커다란 두꺼비가 천천히 움직이고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "がま",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-112-1779862085697",
+        "term": "獅子",
+        "definition": "lion",
+        "meaningKr": "사자",
+        "exampleEn": "獅子は百獣の王と呼ばれており、とても迫力があります。",
+        "exampleKr": "사자는 백수의 왕이라 불리며, 매우 박력이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-113-1779862085697",
+        "term": "象",
+        "definition": "elephant",
+        "meaningKr": "코끼리",
+        "exampleEn": "象は鼻がとても長くて、水や食べ物を上手に掴みます。",
+        "exampleKr": "코끼리는 코가 매우 길어서 물이나 음식을 잘 잡습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ぞう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-114-1779862085697",
+        "term": "鳥",
+        "definition": "bird",
+        "meaningKr": "새",
+        "exampleEn": "毎朝、窓の外で可愛い鳥たちが楽しそうに歌っています。",
+        "exampleKr": "매일 아침 창밖에서 귀여운 새들이 즐겁게 노래하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-115-1779862085697",
+        "term": "鶏",
+        "definition": "chicken (Gallus gallus domesticus); domestic chicken",
+        "meaningKr": "닭",
+        "exampleEn": "祖父の家では、毎日新鮮な卵を産む鶏を飼っています。",
+        "exampleKr": "할아버지 댁에서는 매일 신선한 달걀을 낳는 닭을 키우고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にわとり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-116-1779862085697",
+        "term": "雀",
+        "definition": "tree sparrow (Passer montanus)",
+        "meaningKr": "참새",
+        "exampleEn": "公園のベンチでパンを食べていると、小さな雀が集まりました。",
+        "exampleKr": "공원 벤치에서 빵을 먹고 있으니 작은 참새가 모여들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すずめ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-117-1779862085697",
+        "term": "烏",
+        "definition": "crow, raven",
+        "meaningKr": "까마귀",
+        "exampleEn": "夕方になると、黒い烏が群れを作って空を飛んでいます。",
+        "exampleKr": "저녁때가 되면 검은 까마귀가 무리를 지어 하늘을 날고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "からす",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-118-1779862085697",
+        "term": "鷲",
+        "definition": "eagle (Accipitridae family)",
+        "meaningKr": "독수리",
+        "exampleEn": "高い山の空を、大きな鷲がゆっくりと飛んでいました。",
+        "exampleKr": "높은 산 하늘을 커다란 독수리가 천천히 날고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-119-1779862085697",
+        "term": "鷹",
+        "definition": "hawk, falcon",
+        "meaningKr": "매",
+        "exampleEn": "鷹はとても目が良いので、遠くの獲物も見つけられます。",
+        "exampleKr": "매는 매우 눈이 좋아서 멀리 있는 먹이도 찾아낼 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-120-1779862085697",
+        "term": "魚",
+        "definition": "fish",
+        "meaningKr": "물고기, 생선",
+        "exampleEn": "川の綺麗な水の中で、小さな魚がたくさん泳いでいます。",
+        "exampleKr": "강의 깨끗한 물속에서 작은 물고기가 많이 헤엄치고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さかな",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-121-1779862085697",
+        "term": "鯛",
+        "definition": "red snapper",
+        "meaningKr": "도미",
+        "exampleEn": "日本では、お祝いの席で赤い鯛を食べる習慣があります。",
+        "exampleKr": "일본에서는 축하하는 자리에서 붉은 도미를 먹는 습관이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-122-1779862085697",
+        "term": "海老",
+        "definition": "shrimp, lobster",
+        "meaningKr": "새우",
+        "exampleEn": "私はサクサクした衣の美味しい海老の天ぷらが大好きです。",
+        "exampleKr": "저는 바삭바삭한 튀김옷의 맛있는 새우튀김을 아주 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "えび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-123-1779862085697",
+        "term": "鰯",
+        "definition": "pilchard (esp. Japanese pilchard, Sardinops melanostictus); sardine",
+        "meaningKr": "정어리",
+        "exampleEn": "スーパーで新鮮な鰯を買って、夜ご飯に塩焼きにしました。",
+        "exampleKr": "마트에서 신선한 정어리를 사서 저녁밥으로 소금구이를 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いわし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-124-1779862085697",
+        "term": "鮪",
+        "definition": "tuna (Thunnus spp.; esp. the Pacific bluefin)",
+        "meaningKr": "참치",
+        "exampleEn": "お寿司屋さんに行くと、いつも最初に新鮮な鮪を注文します。",
+        "exampleKr": "초밥집에 가면 항상 먼저 신선한 참치를 주문합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まぐろ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-125-1779862085697",
+        "term": "鰹",
+        "definition": "bonito",
+        "meaningKr": "가다랑어",
+        "exampleEn": "高知県で美味しい鰹のたたきを食べました。",
+        "exampleKr": "고치현에서 맛있는 가다랑어 타타키를 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かつお",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-126-1779862085697",
+        "term": "秋刀魚",
+        "definition": "pike",
+        "meaningKr": "꽁치",
+        "exampleEn": "秋になると、美味しい秋刀魚が食べたくなります。",
+        "exampleKr": "가을이 되면 맛있는 꽁치가 먹고 싶어집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さんま",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-127-1779862085697",
+        "term": "鰺",
+        "definition": "horse mackerel",
+        "meaningKr": "전갱이",
+        "exampleEn": "今日の晩ご飯は鰺の塩焼きです。",
+        "exampleKr": "오늘 저녁 식사는 전갱이 소금구이입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-128-1779862085697",
+        "term": "鯖",
+        "definition": "mackerel",
+        "meaningKr": "고등어",
+        "exampleEn": "母が作った鯖の味噌煮はとても美味しいです。",
+        "exampleKr": "어머니가 만드신 고등어 된장조림은 정말 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さば",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-129-1779862085697",
+        "term": "虫",
+        "definition": "insect; bug; cricket; moth",
+        "meaningKr": "벌레, 곤충",
+        "exampleEn": "夏になると、庭にたくさんの虫が集まります。",
+        "exampleKr": "여름이 되면 마당에 많은 벌레가 모입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "むし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-130-1779862085697",
+        "term": "蝶",
+        "definition": "butterfly",
+        "meaningKr": "나비",
+        "exampleEn": "きれいな蝶が花の上を飛んでいます。",
+        "exampleKr": "예쁜 나비가 꽃 위를 날아가고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-131-1779862085697",
+        "term": "蝉",
+        "definition": "cicada; locust",
+        "meaningKr": "매미",
+        "exampleEn": "公園の木で蝉が大きな声で鳴いています。",
+        "exampleKr": "공원 나무에서 매미가 큰 소리로 울고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "せみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-132-1779862085697",
+        "term": "貝",
+        "definition": "shellfish",
+        "meaningKr": "조개",
+        "exampleEn": "海で綺麗な貝をたくさん拾いました。",
+        "exampleKr": "바다에서 예쁜 조개를 많이 주웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-133-1779862085697",
+        "term": "貝殻",
+        "definition": "seashell; shell",
+        "meaningKr": "조개껍데기, 조개껍질",
+        "exampleEn": "砂浜で拾った貝殻を部屋に飾りました。",
+        "exampleKr": "모래사장에서 주운 조개껍데기를 방에 장식했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かいがら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-134-1779862085697",
+        "term": "蛇",
+        "definition": "snake",
+        "meaningKr": "뱀",
+        "exampleEn": "森を歩いているときに、大きな蛇を見ました。",
+        "exampleKr": "숲을 걷고 있을 때 큰 뱀을 보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "へび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-135-1779862085697",
+        "term": "熊",
+        "definition": "bear (any mammal of family Ursidae)",
+        "meaningKr": "곰",
+        "exampleEn": "山に登るときは、熊に気をつけてください。",
+        "exampleKr": "산에 오를 때는 곰을 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-136-1779862085697",
+        "term": "米",
+        "definition": "uncooked rice",
+        "meaningKr": "쌀",
+        "exampleEn": "日本では毎日美味しい米を食べています。",
+        "exampleKr": "일본에서는 매일 맛있는 쌀을 먹고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こめ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-137-1779862085697",
+        "term": "稲",
+        "definition": "rice growing in a field",
+        "meaningKr": "벼",
+        "exampleEn": "秋になると、田んぼの稲が黄色くなります。",
+        "exampleKr": "가을이 되면 논의 벼가 노랗게 변합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-138-1779862085697",
+        "term": "麦",
+        "definition": "wheat, barley, oats",
+        "meaningKr": "보리, 밀",
+        "exampleEn": "このパンは体に良い麦で作られています。",
+        "exampleKr": "이 빵은 몸에 좋은 밀로 만들어졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "むぎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-139-1779862085697",
+        "term": "野菜",
+        "definition": "vegetable",
+        "meaningKr": "야채, 채소",
+        "exampleEn": "健康のために、毎日新鮮な野菜を食べます。",
+        "exampleKr": "건강을 위해 매일 신선한 채소를 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やさい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-140-1779862085697",
+        "term": "果物",
+        "definition": "fruit for eating",
+        "meaningKr": "과일",
+        "exampleEn": "デパートで甘くて美味しい果物を買いました。",
+        "exampleKr": "백화점에서 달고 맛있는 과일을 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くだもの",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-141-1779862085697",
+        "term": "芋",
+        "definition": "yam, potato, taro",
+        "meaningKr": "감자, 고구마, 토란",
+        "exampleEn": "冬には温かい焼き芋が食べたくなります。",
+        "exampleKr": "겨울에는 따뜻한 군고구마가 먹고 싶어집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いも",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-142-1779862085697",
+        "term": "豆",
+        "definition": "beans, peas",
+        "meaningKr": "콩",
+        "exampleEn": "体に良いので、毎日豆を食べるようにしています。",
+        "exampleKr": "몸에 좋기 때문에 매일 콩을 먹으려고 노력하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まめ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-143-1779862085697",
+        "term": "大根",
+        "definition": "Japanese white radish",
+        "meaningKr": "무",
+        "exampleEn": "冬の寒い日には、大根が入ったおでんが美味しいです。",
+        "exampleKr": "겨울의 추운 날에는 무가 들어간 오뎅이 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "だいこん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-144-1779862085697",
+        "term": "人参",
+        "definition": "carrot (Daucus carota)",
+        "meaningKr": "당근",
+        "exampleEn": "カレーを作るために、人参と玉ねぎを買いました。",
+        "exampleKr": "카레를 만들기 위해 당근과 양파를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にんじん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-145-1779862085697",
+        "term": "バナナ",
+        "definition": "encouragement; stimulation",
+        "meaningKr": "바나나",
+        "exampleEn": "毎朝、朝ご飯の代わりにバナナを食べています。",
+        "exampleKr": "매일 아침, 아침 식사 대신 바나나를 먹고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かんしょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-146-1779862085697",
+        "term": "トマト",
+        "definition": "tomato",
+        "meaningKr": "토마토",
+        "exampleEn": "冷たくて赤いトマトをサラダに入れて食べました。",
+        "exampleKr": "차갑고 빨간 토마토를 샐러드에 넣어 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ばんか",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-147-1779862085697",
+        "term": "時間",
+        "definition": "time",
+        "meaningKr": "시간",
+        "exampleEn": "友達と会う約束の時間に遅れてしまいました。",
+        "exampleKr": "친구와 만날 약속 시간에 늦어 버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じかん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-148-1779862085697",
+        "term": "時",
+        "definition": "time; hour; moment",
+        "meaningKr": "때, 시간",
+        "exampleEn": "困った時は、いつでも私に相談してください。",
+        "exampleKr": "곤란할 때는 언제든 저에게 상담해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-149-1779862085697",
+        "term": "カレンダー",
+        "definition": "calendar",
+        "meaningKr": "달력",
+        "exampleEn": "来月の予定をカレンダーに書き込みました。",
+        "exampleKr": "다음 달 일정을 달력에 적었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こよみ",
+        "pos": "noun, suffix"
+      },
+      {
+        "id": "word-jp-150-1779862085697",
+        "term": "分",
+        "definition": "minute (unit of time)",
+        "meaningKr": "분 (시간의 단위)",
+        "exampleEn": "駅から家まで歩いて十分かかります。",
+        "exampleKr": "역에서 집까지 걸어서 10분 걸립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-151-1779862085697",
+        "term": "秒",
+        "definition": "second (unit of time)",
+        "meaningKr": "초 (시간의 단위)",
+        "exampleEn": "このカメラは一秒間に十枚の写真が撮れます。",
+        "exampleKr": "이 카메라는 1초에 열 장의 사진을 찍을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "びょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-152-1779862085697",
+        "term": "日",
+        "definition": "day; days",
+        "meaningKr": "날, 하루, 해",
+        "exampleEn": "天気がいい日は公園を散歩するのが好きです。",
+        "exampleKr": "날씨가 좋은 날에는 공원을 산책하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-153-1779862085697",
+        "term": "月",
+        "definition": "Moon",
+        "meaningKr": "달",
+        "exampleEn": "今夜は空がきれいで、月がよく見えます。",
+        "exampleKr": "오늘 밤은 하늘이 맑아서 달이 잘 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-154-1779862085697",
+        "term": "年",
+        "definition": "year",
+        "meaningKr": "해, 나이, 연도",
+        "exampleEn": "新しい年が始まって、もう一ヶ月が経ちました。",
+        "exampleKr": "새로운 해가 시작되고 벌써 한 달이 지났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-155-1779862085697",
+        "term": "昨日",
+        "definition": "yesterday",
+        "meaningKr": "어제",
+        "exampleEn": "昨日は友達と一緒に図書館で勉強しました。",
+        "exampleKr": "어제는 친구와 함께 도서관에서 공부했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きのう",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-156-1779862085697",
+        "term": "今日",
+        "definition": "today; this day",
+        "meaningKr": "오늘",
+        "exampleEn": "今日の夜は美味しいカレーを食べる予定です。",
+        "exampleKr": "오늘 저녁에는 맛있는 카레를 먹을 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きょう",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-157-1779862085697",
+        "term": "明日",
+        "definition": "tomorrow",
+        "meaningKr": "내일",
+        "exampleEn": "明日は朝早く起きて散歩をしようと思います。",
+        "exampleKr": "내일은 아침 일찍 일어나서 산책을 하려고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あした",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-158-1779862085697",
+        "term": "朝",
+        "definition": "morning",
+        "meaningKr": "아침",
+        "exampleEn": "私は毎朝、コーヒーを飲みながら新聞を読みます。",
+        "exampleKr": "저는 매일 아침 커피를 마시면서 신문을 읽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あさ",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-159-1779862085697",
+        "term": "昼",
+        "definition": "afternoon",
+        "meaningKr": "낮, 점심",
+        "exampleEn": "昼は近くのレストランで友達とランチを食べました。",
+        "exampleKr": "낮에는 근처 레스토랑에서 친구와 점심을 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひる",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-160-1779862085697",
+        "term": "夕方",
+        "definition": "early evening (usu. from 3pm to 6pm); dusk",
+        "meaningKr": "저녁때, 해질녘",
+        "exampleEn": "夕方になると、涼しい風が吹いて気持ちがいいです。",
+        "exampleKr": "저녁때가 되면 시원한 바람이 불어서 기분이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ゆうがた",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-161-1779862085697",
+        "term": "晩",
+        "definition": "evening; night",
+        "meaningKr": "밤, 저녁",
+        "exampleEn": "今日の晩ご飯は温かいスープを作ります。",
+        "exampleKr": "오늘 저녁밥은 따뜻한 수프를 만들겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ばん",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-162-1779862085697",
+        "term": "夜",
+        "definition": "evening, night",
+        "meaningKr": "밤",
+        "exampleEn": "夜は遅くまで勉強しないで、早く寝たほうがいいです。",
+        "exampleKr": "밤에는 늦게까지 공부하지 말고 일찍 자는 편이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "よる",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-163-1779862085697",
+        "term": "曜日",
+        "definition": "day of the week",
+        "meaningKr": "요일",
+        "exampleEn": "一週間の中で、あなたは何曜日が一番好きですか。",
+        "exampleKr": "일주일 중에서 당신은 무슨 요일을 가장 좋아합니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ようび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-164-1779862085697",
+        "term": "週",
+        "definition": "week",
+        "meaningKr": "주, 일주일",
+        "exampleEn": "来週の週末に、家族と一緒に旅行へ行きます。",
+        "exampleKr": "다음 주 주말에 가족과 함께 여행을 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しゅう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-165-1779862085697",
+        "term": "一週間",
+        "definition": "one week",
+        "meaningKr": "일주일",
+        "exampleEn": "一週間に二回、日本語のクラスに通っています。",
+        "exampleKr": "일주일에 두 번, 일본어 클래스에 다니고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いっしゅうかん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-166-1779862085697",
+        "term": "日曜日",
+        "definition": "Sunday",
+        "meaningKr": "일요일",
+        "exampleEn": "日曜日は家でゆっくり音楽を聴いて過ごします。",
+        "exampleKr": "일요일에는 집에서 느긋하게 음악을 들으며 보냅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にちようび",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-167-1779862085697",
+        "term": "月曜日",
+        "definition": "Monday",
+        "meaningKr": "월요일",
+        "exampleEn": "月曜日の朝はいつも仕事が忙しくて大変です。",
+        "exampleKr": "월요일 아침은 항상 일이 바빠서 힘듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "げつようび",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-168-1779862085697",
+        "term": "火曜日",
+        "definition": "Tuesday",
+        "meaningKr": "화요일",
+        "exampleEn": "毎週火曜日の午後は、図書館で本を借ります。",
+        "exampleKr": "매주 화요일 오후에는 도서관에서 책을 빌립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かようび",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-169-1779862085697",
+        "term": "水曜日",
+        "definition": "Wednesday",
+        "meaningKr": "수요일",
+        "exampleEn": "水曜日の夜は、デパートで買い物をします。",
+        "exampleKr": "수요일 밤에는 백화점에서 쇼핑을 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すいようび",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-170-1779862085697",
+        "term": "木曜日",
+        "definition": "Thursday",
+        "meaningKr": "목요일",
+        "exampleEn": "木曜日までにこのレポートを書いて提出してください。",
+        "exampleKr": "목요일까지 이 보고서를 써서 제출해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "もくようび",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-171-1779862085697",
+        "term": "金曜日",
+        "definition": "Friday",
+        "meaningKr": "금요일",
+        "exampleEn": "金曜日の夜は友達と一緒にお酒を飲みます。",
+        "exampleKr": "금요일 밤에는 친구와 함께 술을 마십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きんようび",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-172-1779862085697",
+        "term": "土曜日",
+        "definition": "Saturday",
+        "meaningKr": "토요일",
+        "exampleEn": "土曜日の午前中は、部屋の掃除をすることが多いです。",
+        "exampleKr": "토요일 오전에는 방 청소를 하는 경우가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どようび",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-173-1779862085697",
+        "term": "太陽",
+        "definition": "Sun",
+        "meaningKr": "태양, 해",
+        "exampleEn": "太陽が昇ると、部屋の中がとても明るくなります。",
+        "exampleKr": "태양이 뜨면 방 안이 아주 밝아집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たいよう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-174-1779862085697",
+        "term": "星",
+        "definition": "star (usu. excluding the Sun); planet (usu. excluding Earth); heavenly body",
+        "meaningKr": "별",
+        "exampleEn": "夜空にたくさんの綺麗な星が光っています。",
+        "exampleKr": "밤하늘에 많은 아름다운 별이 빛나고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ほし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-175-1779862085697",
+        "term": "天気",
+        "definition": "weather",
+        "meaningKr": "날씨",
+        "exampleEn": "今日は天気がとてもいいですから、一緒に公園を散歩しましょう。",
+        "exampleKr": "오늘은 날씨가 아주 좋으니까 같이 공원을 산책합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "てんき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-176-1779862085697",
+        "term": "晴れ",
+        "definition": "clear weather",
+        "meaningKr": "맑음, 맑은 날씨",
+        "exampleEn": "明日の天気予報は晴れですから、朝から洗濯物をたくさん干します。",
+        "exampleKr": "내일 일기예보는 맑음이니까 아침부터 빨래를 많이 널겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はれ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-177-1779862085697",
+        "term": "雨",
+        "definition": "rain",
+        "meaningKr": "비",
+        "exampleEn": "突然強い雨が降ってきたので、近くの店に入って雨宿りをしました。",
+        "exampleKr": "갑자기 강한 비가 내리기 시작해서 근처 가게에 들어가 비를 피했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あめ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-178-1779862085697",
+        "term": "曇り",
+        "definition": "cloudiness; cloudy weather",
+        "meaningKr": "흐림, 흐린 날씨",
+        "exampleEn": "今日の空は曇りですが、午後からは少し晴れると思います。",
+        "exampleKr": "오늘 하늘은 흐리지만 오후부터는 조금 맑아질 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くもり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-179-1779862085697",
+        "term": "雪",
+        "definition": "snow; snowfall",
+        "meaningKr": "눈",
+        "exampleEn": "冬になると、この静かな山にはたくさんの白い雪が降ります。",
+        "exampleKr": "겨울이 되면 이 조용한 산에는 많은 하얀 눈이 내립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ゆき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-180-1779862085697",
+        "term": "風",
+        "definition": "wind; breeze; draught; draft",
+        "meaningKr": "바람",
+        "exampleEn": "今日は風がとても強いので、帽子が飛ばされないようにしてください。",
+        "exampleKr": "오늘은 바람이 매우 강하니까 모자가 날아가지 않도록 주의하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かぜ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-181-1779862085697",
+        "term": "雷",
+        "definition": "thunder, lightning",
+        "meaningKr": "천둥, 번개",
+        "exampleEn": "遠くで急に雷の音が聞こえたので、急いで家に帰りました。",
+        "exampleKr": "멀리서 갑자기 천둥소리가 들려서 서둘러 집으로 돌아갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かみなり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-182-1779862085697",
+        "term": "台風",
+        "definition": "typhoon; hurricane",
+        "meaningKr": "태풍",
+        "exampleEn": "大きな台風が近づいているので、明日は学校が休みになりました。",
+        "exampleKr": "큰 태풍이 다가오고 있어서 내일은 학교가 쉬게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たいふう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-183-1779862085697",
+        "term": "嵐",
+        "definition": "storm; tempest",
+        "meaningKr": "폭풍, 폭풍우",
+        "exampleEn": "昨日の夜は激しい嵐で、部屋の窓がずっとガタガタ鳴っていました。",
+        "exampleKr": "어젯밤은 격렬한 폭풍우로 방 창문이 계속 덜컹거렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あらし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-184-1779862085697",
+        "term": "空",
+        "definition": "sky; the air; the heavens",
+        "meaningKr": "하늘",
+        "exampleEn": "青い空に白い雲がゆっくりと浮かんでいて、とてもきれいです。",
+        "exampleKr": "푸른 하늘에 하얀 구름이 천천히 떠 있어서 아주 예쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-185-1779862085697",
+        "term": "北",
+        "definition": "north",
+        "meaningKr": "북쪽",
+        "exampleEn": "私たちが通う学校は、この駅から北の方角にあります。",
+        "exampleKr": "우리가 다니는 학교는 이 역에서 북쪽 방향에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きた",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-186-1779862085697",
+        "term": "東",
+        "definition": "east",
+        "meaningKr": "동쪽",
+        "exampleEn": "太陽はいつも東から昇って、夕方には西の空に沈んでいきます。",
+        "exampleKr": "태양은 항상 동쪽에서 떠올라 저녁에는 서쪽 하늘로 집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひがし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-187-1779862085697",
+        "term": "南",
+        "definition": "south",
+        "meaningKr": "남쪽",
+        "exampleEn": "寒い冬には暖かい南の国へ旅行に行って、のんびり過ごしたいです。",
+        "exampleKr": "추운 겨울에는 따뜻한 남쪽 나라로 여행을 가서 여유롭게 지내고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みなみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-188-1779862085697",
+        "term": "西",
+        "definition": "west",
+        "meaningKr": "서쪽",
+        "exampleEn": "西の空が赤く染まって、今日の夕焼けはとてもきれいです。",
+        "exampleKr": "서쪽 하늘이 붉게 물들어 오늘의 노을은 아주 예쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-189-1779862085697",
+        "term": "ここ",
+        "definition": "here; this place",
+        "meaningKr": "여기, 이쪽",
+        "exampleEn": "ここはとても静かで勉強に集中できる、私のお気に入りの場所です。",
+        "exampleKr": "여기는 매우 조용해서 공부에 집중할 수 있는 제가 마음에 들어 하는 장소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ここ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-190-1779862085697",
+        "term": "そこ",
+        "definition": "there (place relatively near listener)",
+        "meaningKr": "거기, 그쪽",
+        "exampleEn": "そこにある辞書を、私のところまで持ってきてもらえませんか。",
+        "exampleKr": "거기 있는 사전을 저에게 가져다주시겠습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そこ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-191-1779862085697",
+        "term": "あそこ",
+        "definition": "over there",
+        "meaningKr": "저기, 저쪽",
+        "exampleEn": "あそこに見える高いビルが、新しくできた近代的な美術館です。",
+        "exampleKr": "저기 보이는 높은 빌딩이 새로 생긴 현대적인 미술관입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あそこ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-192-1779862085697",
+        "term": "右",
+        "definition": "right; right-hand side",
+        "meaningKr": "오른쪽",
+        "exampleEn": "次の交差点を右に曲がると、右側に大きな郵便局があります。",
+        "exampleKr": "다음 교차로에서 우회전하면 오른쪽에 큰 우체국이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みぎ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-193-1779862085697",
+        "term": "左",
+        "definition": "left; left-hand side",
+        "meaningKr": "왼쪽",
+        "exampleEn": "日本では、車は道路の左側を走らなければなりません。",
+        "exampleKr": "일본에서는 차가 도로의 왼쪽으로 달려야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひだり",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-194-1779862085697",
+        "term": "上",
+        "definition": "above, up",
+        "meaningKr": "위, 위쪽",
+        "exampleEn": "机の上に置いてあった車の鍵を、どこかに失くしてしまいました。",
+        "exampleKr": "책상 위에 두었던 차 열쇠를 어딘가에 잃어버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うえ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-195-1779862085697",
+        "term": "下",
+        "definition": "below, down",
+        "meaningKr": "아래, 밑",
+        "exampleEn": "私の部屋のベッドの下に、丸いボールが転がっていきました。",
+        "exampleKr": "제 방 침대 밑으로 둥근 공이 굴러갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "した",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-196-1779862085697",
+        "term": "前",
+        "definition": "in front (of); before (e.g. a building)",
+        "meaningKr": "앞, 전",
+        "exampleEn": "駅の前で友達と待ち合わせをして、一緒に映画を見に行きました。",
+        "exampleKr": "역 앞에서 친구와 만나기로 약속을 하고 함께 영화를 보러 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-197-1779862085697",
+        "term": "後",
+        "definition": "back; behind; rear",
+        "meaningKr": "뒤, 뒤쪽",
+        "exampleEn": "白い椅子の後ろに小さな黒い猫が隠れて、こちらを見ています。",
+        "exampleKr": "하얀 의자 뒤에 작은 검은 고양이가 숨어서 이쪽을 보고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うしろ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-198-1779862085697",
+        "term": "向こう",
+        "definition": "the other side, opposite side",
+        "meaningKr": "저편, 맞은편, 건너편",
+        "exampleEn": "冷たい川の向こうに、きれいな桜の木がたくさん並んでいます。",
+        "exampleKr": "차가운 강 건너편에 예쁜 벚꽃 나무가 많이 늘어서 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "むこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-199-1779862085697",
+        "term": "斜め",
+        "definition": "diagonal",
+        "meaningKr": "비스듬함, 대각선, 사선",
+        "exampleEn": "私の家の斜め向かいに、新しくて大きなコンビニができました。",
+        "exampleKr": "우리 집 비스듬히 맞은편에 새롭고 큰 편의점이 생겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ななめ",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-200-1779862085697",
+        "term": "手前",
+        "definition": "nearer, more in front",
+        "meaningKr": "앞, 이쪽, 직전",
+        "exampleEn": "駅の手前に新しいコンビニができました。",
+        "exampleKr": "역 앞에 새로운 편의점이 생겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "てまえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-201-1779862085697",
+        "term": "遠い",
+        "definition": "far; distant; far away; a long way off; in the distance",
+        "meaningKr": "멀다",
+        "exampleEn": "私の家から学校までは少し遠いです。",
+        "exampleKr": "우리 집에서 학교까지는 조금 멉니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とおい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-202-1779862085697",
+        "term": "近い",
+        "definition": "near, close",
+        "meaningKr": "가깝다",
+        "exampleEn": "このホテルは駅からとても近くて便利です。",
+        "exampleKr": "이 호텔은 역에서 아주 가까워서 편리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちかい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-203-1779862085697",
+        "term": "水",
+        "definition": "water (esp. cool or cold)",
+        "meaningKr": "물",
+        "exampleEn": "暑いので、冷たい水を一杯ください。",
+        "exampleKr": "더우니까 시원한 물 한 잔 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みず",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-204-1779862085697",
+        "term": "湯",
+        "definition": "hot water",
+        "meaningKr": "뜨거운 물, 온수",
+        "exampleEn": "お風呂にお湯を沸かしてください。",
+        "exampleKr": "욕조에 뜨거운 물을 데워 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ゆ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-205-1779862085697",
+        "term": "氷",
+        "definition": "ice",
+        "meaningKr": "얼음",
+        "exampleEn": "ジュースに氷を二つ入れてください。",
+        "exampleKr": "주스에 얼음을 두 개 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こおり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-206-1779862085697",
+        "term": "湯気",
+        "definition": "steam; vapour; vapor",
+        "meaningKr": "김, 수증기",
+        "exampleEn": "温かいスープから白い湯気が立っています。",
+        "exampleKr": "따뜻한 수프에서 하얀 김이 피어오르고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ゆげ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-207-1779862085697",
+        "term": "火",
+        "definition": "fire; flame; blaze",
+        "meaningKr": "불, 불꽃",
+        "exampleEn": "危ないですから、火を使わないでください。",
+        "exampleKr": "위험하니까 불을 사용하지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-208-1779862085697",
+        "term": "空気",
+        "definition": "air, atmosphere",
+        "meaningKr": "공기, 분위기",
+        "exampleEn": "山の上は空気がきれいで気持ちがいいです。",
+        "exampleKr": "산 위는 공기가 맑아서 기분이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くうき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-209-1779862085697",
+        "term": "土",
+        "definition": "earth, ground",
+        "meaningKr": "흙, 땅",
+        "exampleEn": "庭の土に花の種を植えました。",
+        "exampleKr": "마당의 흙에 꽃씨를 심었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-210-1779862085697",
+        "term": "金属",
+        "definition": "metal, metallic",
+        "meaningKr": "금속",
+        "exampleEn": "このスプーンは金属で作られています。",
+        "exampleKr": "이 숟가락은 금속으로 만들어져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きんぞく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-211-1779862085697",
+        "term": "泥",
+        "definition": "mud, mire, clay, plaster",
+        "meaningKr": "진흙, 진창",
+        "exampleEn": "雨の日に歩いて靴が泥で汚れました。",
+        "exampleKr": "비 오는 날에 걸어서 구두가 진흙으로 더러워졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どろ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-212-1779862085697",
+        "term": "煙",
+        "definition": "smoke, tobacco, opium",
+        "meaningKr": "연기",
+        "exampleEn": "工場の煙突から黒い煙が出ています。",
+        "exampleKr": "공장 굴뚝에서 검은 연기가 나오고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "けむり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-213-1779862085697",
+        "term": "鉄",
+        "definition": "iron [Fe]",
+        "meaningKr": "철, 쇠",
+        "exampleEn": "この頑丈な箱は鉄でできています。",
+        "exampleKr": "이 튼튼한 상자는 철로 만들어져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "てつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-214-1779862085697",
+        "term": "銅",
+        "definition": "copper [Cu]",
+        "meaningKr": "구리, 동",
+        "exampleEn": "彼はオリンピックの大会で銅メダルを取りました。",
+        "exampleKr": "그는 올림픽 대회에서 동메달을 땄습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-215-1779862085697",
+        "term": "金",
+        "definition": "gold [Au]; money",
+        "meaningKr": "금, 돈",
+        "exampleEn": "彼女は誕生日にきれいな金の指輪をもらいました。",
+        "exampleKr": "그녀는 생일에 예쁜 금반지를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-216-1779862085697",
+        "term": "銀",
+        "definition": "silver [Ag]; wealth",
+        "meaningKr": "은",
+        "exampleEn": "この銀のスプーンは祖母からもらったものです。",
+        "exampleKr": "이 은숟가락은 할머니께 받은 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ぎん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-217-1779862085697",
+        "term": "鉛",
+        "definition": "lead [Pb]",
+        "meaningKr": "납",
+        "exampleEn": "鉛はとても重い金属の一つです。",
+        "exampleKr": "납은 아주 무거운 금속 중 하나입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なまり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-218-1779862085697",
+        "term": "塩",
+        "definition": "salt [NaCl]",
+        "meaningKr": "소금",
+        "exampleEn": "味を調えるために、塩を少し入れました。",
+        "exampleKr": "맛을 맞추기 위해 소금을 조금 넣었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しお",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-219-1779862085697",
+        "term": "社会",
+        "definition": "society; public; community; the world",
+        "meaningKr": "사회",
+        "exampleEn": "大学生は卒業して、新しい社会に出ます。",
+        "exampleKr": "대학생은 졸업하고 새로운 사회로 나갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しゃかい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-220-1779862085697",
+        "term": "経済",
+        "definition": "economy, economics",
+        "meaningKr": "경제",
+        "exampleEn": "最近は国の経済が少し悪くなっています。",
+        "exampleKr": "최근에는 나라의 경제가 조금 나빠지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "けいざい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-221-1779862085697",
+        "term": "会社",
+        "definition": "company; corporation; firm",
+        "meaningKr": "회사",
+        "exampleEn": "毎朝、八時に電車に乗って会社に行きます。",
+        "exampleKr": "매일 아침 8시에 전철을 타고 회사에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かいしゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-222-1779862085697",
+        "term": "会議",
+        "definition": "meeting; conference; session; assembly; council; convention; congress",
+        "meaningKr": "회의",
+        "exampleEn": "午後から大切な会議があるので、準備をします。",
+        "exampleKr": "오후부터 중요한 회의가 있어서 준비를 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かいぎ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-223-1779862085697",
+        "term": "学校",
+        "definition": "school",
+        "meaningKr": "학교",
+        "exampleEn": "友達と一緒に歩いて学校に通っています。",
+        "exampleKr": "친구와 함께 걸어서 학교에 다니고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "がっこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-224-1779862085697",
+        "term": "役所",
+        "definition": "local government office",
+        "meaningKr": "관공서, 구청, 시청",
+        "exampleEn": "住所を変更するために、近くの役所に行きました。",
+        "exampleKr": "주소를 변경하기 위해 근처 관공서에 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やくしょ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-225-1779862085697",
+        "term": "店",
+        "definition": "store; shop; establishment; restaurant",
+        "meaningKr": "가게, 상점",
+        "exampleEn": "この店は美味しいケーキをたくさん売っています。",
+        "exampleKr": "이 가게는 맛있는 케이크를 많이 팔고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みせ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-226-1779862085697",
+        "term": "工場",
+        "definition": "factory; plant; mill; workshop",
+        "meaningKr": "공장",
+        "exampleEn": "私の父は自動車を作る工場で働いています。",
+        "exampleKr": "우리 아버지는 자동차를 만드는 공장에서 일하고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こうじょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-227-1779862085697",
+        "term": "金",
+        "definition": "money",
+        "meaningKr": "돈",
+        "exampleEn": "旅行に行くためにお金をたくさん貯めました。",
+        "exampleKr": "여행을 가기 위해 돈을 많이 모았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-228-1779862085697",
+        "term": "札",
+        "definition": "bill [of money, e.g., a thousand-yen bill]",
+        "meaningKr": "지폐, 표",
+        "exampleEn": "財布の中には千円札が一枚しか入っていません。",
+        "exampleKr": "지갑 속에는 천엔짜리 지폐가 한 장밖에 들어있지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-229-1779862085697",
+        "term": "小銭",
+        "definition": "small change",
+        "meaningKr": "동전, 잔돈",
+        "exampleEn": "バスに乗るために、財布から小銭を出しました。",
+        "exampleKr": "버스를 타기 위해 지갑에서 동전을 꺼냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こぜに",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-230-1779862085697",
+        "term": "釣り銭",
+        "definition": "change (for a purchase)",
+        "meaningKr": "거스름돈",
+        "exampleEn": "レジで買い物をした後に、釣り銭を受け取りました。",
+        "exampleKr": "계산대에서 물건을 산 후에 거스름돈을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つりせん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-231-1779862085697",
+        "term": "自動販売機",
+        "definition": "vending machine, slot machine",
+        "meaningKr": "자동판매기, 자판기",
+        "exampleEn": "喉が渇いたので、自動販売機で冷たいお茶を買いました。",
+        "exampleKr": "목이 말라서 자동판매기에서 시원한 차를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じどうはんばいき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-232-1779862085697",
+        "term": "切符",
+        "definition": "ticket",
+        "meaningKr": "표, 차표, 티켓",
+        "exampleEn": "電車の切符をなくしてしまったので、新しく買いました。",
+        "exampleKr": "전철 표를 잃어버려서 새로 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きっぷ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-233-1779862085697",
+        "term": "切手",
+        "definition": "stamp (postage)",
+        "meaningKr": "우표",
+        "exampleEn": "手紙を送るために、郵便局で切手を三枚買いました。",
+        "exampleKr": "편지를 보내기 위해 우체국에서 우표를 세 장 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きって",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-234-1779862085697",
+        "term": "机",
+        "definition": "desk",
+        "meaningKr": "책상",
+        "exampleEn": "毎日この机の上で日本語の勉強をしています。",
+        "exampleKr": "매일 이 책상 위에서 일본어 공부를 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つくえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-235-1779862085697",
+        "term": "椅子",
+        "definition": "chair, position",
+        "meaningKr": "의자",
+        "exampleEn": "この椅子はとても座り心地が良くて疲れません。",
+        "exampleKr": "이 의자는 아주 앉기 편해서 피곤하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いす",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-236-1779862085697",
+        "term": "畳",
+        "definition": "a tatami mat",
+        "meaningKr": "다타미, 돗자리",
+        "exampleEn": "日本の伝統的な部屋には、畳が敷いてあります。",
+        "exampleKr": "일본의 전통적인 방에는 다타미가 깔려 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たたみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-237-1779862085697",
+        "term": "戸",
+        "definition": "door, family",
+        "meaningKr": "문, 미닫이문",
+        "exampleEn": "風が強いので、部屋の戸をしっかりと閉めてください。",
+        "exampleKr": "바람이 강하니까 방 문을 꽉 닫아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "と",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-238-1779862085697",
+        "term": "扉",
+        "definition": "door panel",
+        "meaningKr": "문, 문짝",
+        "exampleEn": "図書館の大きな扉を開けて、中に入りました。",
+        "exampleKr": "도서관의 큰 문을 열고 안으로 들어갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とびら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-239-1779862085697",
+        "term": "窓",
+        "definition": "window",
+        "meaningKr": "창문",
+        "exampleEn": "部屋が暑いので、窓を開けて風を通しましょう。",
+        "exampleKr": "방이 더우니까 창문을 열고 바람을 쐽시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まど",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-240-1779862085697",
+        "term": "布団",
+        "definition": "futon; Japanese bedding consisting of a mattress and a duvet",
+        "meaningKr": "이불, 요",
+        "exampleEn": "夜は温かい布団に入って、ゆっくり眠ります。",
+        "exampleKr": "밤에는 따뜻한 이불 속에 들어가서 푹 잡니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふとん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-241-1779862085697",
+        "term": "玄関",
+        "definition": "entrance",
+        "meaningKr": "현관",
+        "exampleEn": "玄関で靴を脱いでから、部屋に入ってください。",
+        "exampleKr": "현관에서 신발을 벗고 나서 방으로 들어가 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "げんかん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-242-1779862085697",
+        "term": "家",
+        "definition": "house, home",
+        "meaningKr": "집, 가옥",
+        "exampleEn": "私の家は駅から歩いて五分くらいのところにあります。",
+        "exampleKr": "우리 집은 역에서 걸어서 5분 정도 거리에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-243-1779862085697",
+        "term": "電気",
+        "definition": "electricity",
+        "meaningKr": "전기, 전등",
+        "exampleEn": "部屋を出るときは、電気を消すのを忘れないでください。",
+        "exampleKr": "방을 나갈 때는 불을 끄는 것을 잊지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "でんき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-244-1779862085697",
+        "term": "釘",
+        "definition": "nail, spike",
+        "meaningKr": "못",
+        "exampleEn": "ハンマーを使って、壁に釘をしっかりと打ちました。",
+        "exampleKr": "망치를 사용해서 벽에 못을 단단히 박았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くぎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-245-1779862085697",
+        "term": "紐",
+        "definition": "string, cord",
+        "meaningKr": "끈",
+        "exampleEn": "靴の紐がほどけてしまったので、結び直しました。",
+        "exampleKr": "신발 끈이 풀려서 다시 묶었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひも",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-246-1779862085697",
+        "term": "縄",
+        "definition": "rope, string",
+        "meaningKr": "밧줄, 새끼줄",
+        "exampleEn": "太い縄を使って、大きな荷物をしっかりと縛りました。",
+        "exampleKr": "굵은 밧줄을 사용해서 큰 짐을 단단히 묶었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なわ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-247-1779862085697",
+        "term": "袋",
+        "definition": "pocket, bag",
+        "meaningKr": "봉지, 자루, 주머니",
+        "exampleEn": "スーパーで買い物をしたとき、ビニール袋をもらいました。",
+        "exampleKr": "마트에서 장을 보았을 때 비닐봉지를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふくろ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-248-1779862085697",
+        "term": "鞄",
+        "definition": "leather bag",
+        "meaningKr": "가방",
+        "exampleEn": "この黒い鞄の中に、教科書とノートが入っています。",
+        "exampleKr": "이 검은 가방 안에 교과서와 공책이 들어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かばん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-249-1779862085697",
+        "term": "傘",
+        "definition": "umbrella, parasol",
+        "meaningKr": "우산",
+        "exampleEn": "雨が降りそうなので、出かけるときは傘を持って行ってください。",
+        "exampleKr": "비가 올 것 같으니 외출할 때는 우산을 가지고 가세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かさ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-250-1779862085697",
+        "term": "鍵",
+        "definition": "door bolt, key",
+        "meaningKr": "열쇠",
+        "exampleEn": "出かける前に、必ず部屋の鍵をかけてください。",
+        "exampleKr": "외출하기 전에 반드시 방 열쇠를 잠그세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かぎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-251-1779862085697",
+        "term": "彫刻",
+        "definition": "sculpture, engraving",
+        "meaningKr": "조각, 조각품",
+        "exampleEn": "美術館の庭には、綺麗な彫刻がたくさんあります。",
+        "exampleKr": "미술관 정원에는 예쁜 조각이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちょうこく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-252-1779862085697",
+        "term": "文房具",
+        "definition": "stationery ​",
+        "meaningKr": "문방구, 문구",
+        "exampleEn": "新しい学期が始まるので、文房具を買いに行きます。",
+        "exampleKr": "새 학기가 시작되기 때문에 문구를 사러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ぶんぼうぐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-253-1779862085697",
+        "term": "万年筆",
+        "definition": "fountain pen",
+        "meaningKr": "만년필",
+        "exampleEn": "誕生日に、父から素敵な万年筆をもらいました。",
+        "exampleKr": "생일에 아버지로부터 멋진 만년필을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まんねんひつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-254-1779862085697",
+        "term": "鉛筆",
+        "definition": "(wooden) pencil",
+        "meaningKr": "연필",
+        "exampleEn": "テストの時は、ボールペンではなく鉛筆を使ってください。",
+        "exampleKr": "시험을 볼 때는 볼펜이 아니라 연필을 사용해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "えんぴつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-255-1779862085697",
+        "term": "筆",
+        "definition": "brush for writing or painting",
+        "meaningKr": "붓",
+        "exampleEn": "書道の授業では、墨と筆を使って漢字を書きます。",
+        "exampleKr": "서예 수업에서는 먹과 붓을 사용하여 한자를 씁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふで",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-256-1779862085697",
+        "term": "鉛筆削り",
+        "definition": "pencil sharpener",
+        "meaningKr": "연필깎이",
+        "exampleEn": "鉛筆の先が丸くなったので、鉛筆削りで削ります。",
+        "exampleKr": "연필심이 뭉툭해져서 연필깎이로 깎습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "えんぴつけずり",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-257-1779862085697",
+        "term": "定規",
+        "definition": "(measuring) ruler",
+        "meaningKr": "자",
+        "exampleEn": "ノートにまっすぐな線を引くために、定規を使います。",
+        "exampleKr": "공책에 곧은 선을 긋기 위해 자를 사용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じょうぎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-258-1779862085697",
+        "term": "日記",
+        "definition": "diary; journal",
+        "meaningKr": "일기",
+        "exampleEn": "私は毎晩、寝る前に日本語で日記を書いています。",
+        "exampleKr": "저는 매일 밤 자기 전에 일본어로 일기를 쓰고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にっき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-259-1779862085697",
+        "term": "封筒",
+        "definition": "envelope",
+        "meaningKr": "봉투",
+        "exampleEn": "手紙を封筒に入れて、切手を貼って出しました。",
+        "exampleKr": "편지를 봉투에 넣고 우표를 붙여서 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふうとう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-260-1779862085697",
+        "term": "鋏",
+        "definition": "scissors",
+        "meaningKr": "가위",
+        "exampleEn": "この画用紙を、鋏できれいに半分に切ってください。",
+        "exampleKr": "이 도화지를 가위로 예쁘게 반으로 잘라 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はさみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-261-1779862085697",
+        "term": "服",
+        "definition": "clothes (esp. Western clothes); clothing; dress; costume; suit; outfit",
+        "meaningKr": "옷, 의복",
+        "exampleEn": "明日は友達とデパートに行って、冬の服を買います。",
+        "exampleKr": "내일은 친구와 백화점에 가서 겨울 옷을 살 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-262-1779862085697",
+        "term": "洋服",
+        "definition": "western clothing",
+        "meaningKr": "양복, 옷, 서양식 의복",
+        "exampleEn": "日本の若者は、普段は着物ではなく洋服を着ます。",
+        "exampleKr": "일본의 젊은이들은 평소에 기모노가 아니라 양복(평상복)을 입습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ようふく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-263-1779862085697",
+        "term": "着物",
+        "definition": "kimono; Japanese traditional clothing (esp. full-length)",
+        "meaningKr": "기모노, 옷",
+        "exampleEn": "お正月に、姉は綺麗な着物を着て神社に行きました。",
+        "exampleKr": "새해에 언니는 예쁜 기모노를 입고 신사에 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きもの",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-264-1779862085697",
+        "term": "和服",
+        "definition": "Japanese clothing",
+        "meaningKr": "화복, 일본 전통 옷",
+        "exampleEn": "京都には、和服を着て歩いている観光客が多いです。",
+        "exampleKr": "교토에는 화복(일본 전통 옷)을 입고 걷는 관광객이 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わふく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-265-1779862085697",
+        "term": "袖",
+        "definition": "sleeve",
+        "meaningKr": "소매",
+        "exampleEn": "スープを飲む時に、服の袖が汚れないようにします。",
+        "exampleKr": "수프를 먹을 때 옷소매가 더러워지지 않도록 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そで",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-266-1779862085697",
+        "term": "襟",
+        "definition": "lapel, collar",
+        "meaningKr": "깃, 칼라",
+        "exampleEn": "シャツの襟が少し汚れているので、洗濯をします。",
+        "exampleKr": "셔츠 깃이 조금 더러워져서 세탁을 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "えり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-267-1779862085697",
+        "term": "靴",
+        "definition": "shoe; shoes; boots; footwear; footgear",
+        "meaningKr": "구두, 신발",
+        "exampleEn": "日本の家に入る時は、玄関で靴を脱いでください。",
+        "exampleKr": "일본 집에 들어갈 때는 현관에서 신발을 벗어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-268-1779862085697",
+        "term": "靴下",
+        "definition": "socks; sock; stockings; stocking",
+        "meaningKr": "양말",
+        "exampleEn": "冬は足元が寒いので、厚い靴下を履いて寝ます。",
+        "exampleKr": "겨울에는 발끝이 시려서 두꺼운 양말을 신고 잡니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くつした",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-269-1779862085697",
+        "term": "眼鏡",
+        "definition": "glasses; eyeglasses; spectacles",
+        "meaningKr": "안경",
+        "exampleEn": "眼鏡をかけないと、黒板の文字がよく見えません。",
+        "exampleKr": "안경을 쓰지 않으면 칠판의 글씨가 잘 보이지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "めがね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-270-1779862085697",
+        "term": "鉄道",
+        "definition": "railroad; railway; rail transport",
+        "meaningKr": "철도",
+        "exampleEn": "日本の鉄道は、時間がとても正確なことで有名です。",
+        "exampleKr": "일본의 철도는 시간이 매우 정확한 것으로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "てつどう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-271-1779862085697",
+        "term": "駅",
+        "definition": "railway station; train station",
+        "meaningKr": "역",
+        "exampleEn": "駅から歩いて５分のところに、私の家があります。",
+        "exampleKr": "역에서 걸어서 5분 거리에 저희 집이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "えき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-272-1779862085697",
+        "term": "飛行機",
+        "definition": "airplane",
+        "meaningKr": "비행기",
+        "exampleEn": "東京からソウルまで、飛行機で約２時間半かかります。",
+        "exampleKr": "도쿄에서 서울까지 비행기로 약 2시간 반 걸립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひこうき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-273-1779862085697",
+        "term": "空港",
+        "definition": "airport",
+        "meaningKr": "공항",
+        "exampleEn": "友達が日本に来るので、空港まで迎えに行きます。",
+        "exampleKr": "친구들이 일본에 오기 때문에 공항까지 마중하러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くうこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-274-1779862085697",
+        "term": "道",
+        "definition": "street, way, road",
+        "meaningKr": "길, 도로",
+        "exampleEn": "初めて行く場所なので、途中で道に迷いました。",
+        "exampleKr": "처음 가는 장소라서 도중에 길을 잃었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-275-1779862085697",
+        "term": "道路",
+        "definition": "road; highway",
+        "meaningKr": "도로, 길",
+        "exampleEn": "この道路は広くて、車がたくさん走っています。",
+        "exampleKr": "이 도로는 넓어서 차가 많이 달리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どうろ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-276-1779862085697",
+        "term": "通り",
+        "definition": "street; road; avenue; thoroughfare",
+        "meaningKr": "거리, 길, 통로",
+        "exampleEn": "この通りには、おしゃれなカフェがたくさんあります。",
+        "exampleKr": "이 거리에는 멋진 카페가 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とおり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-277-1779862085697",
+        "term": "電車",
+        "definition": "train; electric train",
+        "meaningKr": "전철, 기차",
+        "exampleEn": "毎朝、満員の電車に乗って会社に行きます。",
+        "exampleKr": "매일 아침 만원 전철을 타고 회사에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "でんしゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-278-1779862085697",
+        "term": "車",
+        "definition": "car; automobile; vehicle",
+        "meaningKr": "차, 자동차",
+        "exampleEn": "父は週末にいつも自分の車をきれいに洗います。",
+        "exampleKr": "아버지는 주말에 항상 자신의 차를 깨끗이 세차합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くるま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-279-1779862085697",
+        "term": "自転車",
+        "definition": "bicycle; bike",
+        "meaningKr": "자전거",
+        "exampleEn": "天気がいい日は、自転車で学校に通っています。",
+        "exampleKr": "날씨가 좋은 날에는 자전거로 학교에 다니고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じてんしゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-280-1779862085697",
+        "term": "文字",
+        "definition": "letter, character, script",
+        "meaningKr": "글자, 문자",
+        "exampleEn": "スマートフォンの画面の文字が小さくて読みにくいです。",
+        "exampleKr": "스마트폰 화면의 글자가 작아서 읽기 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "もじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-281-1779862085697",
+        "term": "字",
+        "definition": "a letter, character",
+        "meaningKr": "글씨, 글자",
+        "exampleEn": "あの人はとてもきれいで読みやすい字を書きます。",
+        "exampleKr": "저 사람은 아주 예쁘고 읽기 쉬운 글씨를 씁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-282-1779862085697",
+        "term": "漢字",
+        "definition": "Chinese character",
+        "meaningKr": "한자",
+        "exampleEn": "日本語の漢字は難しくて、覚えるのが大変です。",
+        "exampleKr": "일본어 한자는 어려워서 외우기가 힘듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かんじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-283-1779862085697",
+        "term": "平仮名",
+        "definition": "hiragana syllabary characters",
+        "meaningKr": "히라가나",
+        "exampleEn": "日本語を勉強するとき、最初に平仮名を習いました。",
+        "exampleKr": "일본어를 공부할 때 가장 먼저 히라가나를 배웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひらがな",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-284-1779862085697",
+        "term": "数字",
+        "definition": "numeral; digit; numeric character",
+        "meaningKr": "숫자",
+        "exampleEn": "このテストは、答えを数字で書かなければなりません。",
+        "exampleKr": "이 시험은 답을 숫자로 적어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すうじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-285-1779862085697",
+        "term": "外国語",
+        "definition": "foreign language",
+        "meaningKr": "외국어",
+        "exampleEn": "将来のために、何か新しい外国語を学びたいです。",
+        "exampleKr": "장래를 위해 무언가 새로운 외국어를 배우고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "がいこくご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-286-1779862085697",
+        "term": "日本語",
+        "definition": "Japanese [language]",
+        "meaningKr": "일본어",
+        "exampleEn": "日本の友達と話すために、毎日日本語を練習します。",
+        "exampleKr": "일본인 친구와 이야기하기 위해 매일 일본어를 연습합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にほんご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-287-1779862085697",
+        "term": "英語",
+        "definition": "English [language]",
+        "meaningKr": "영어",
+        "exampleEn": "英語の授業はとても面白いですが、文法が難しいです。",
+        "exampleKr": "영어 수업은 매우 재미있지만 문법이 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "えいご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-288-1779862085697",
+        "term": "中国語",
+        "definition": "Chinese [language]",
+        "meaningKr": "중국어",
+        "exampleEn": "私の姉は大学で中国語を専攻して勉強しています。",
+        "exampleKr": "우리 언니는 대학에서 중국어를 전공하며 공부하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちゅうごくご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-289-1779862085697",
+        "term": "ドイツ語",
+        "definition": "German [language]",
+        "meaningKr": "독일어",
+        "exampleEn": "ドイツ語の発音は、日本語とは全然違って難しいです。",
+        "exampleKr": "독일어 발음은 일본어와는 전혀 달라서 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どいつご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-290-1779862085697",
+        "term": "スペイン語",
+        "definition": "Spanish [language]",
+        "meaningKr": "스페인어",
+        "exampleEn": "来年から南米へ行くので、スペイン語を習い始めました。",
+        "exampleKr": "내년부터 남미에 가기 때문에 스페인어를 배우기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すぺいんご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-291-1779862085697",
+        "term": "フランス語",
+        "definition": "French [language]",
+        "meaningKr": "프랑스어",
+        "exampleEn": "フランス語はとても美しい響きの言葉だと思います。",
+        "exampleKr": "프랑스어는 매우 아름다운 울림을 가진 언어라고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふらんすご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-292-1779862085697",
+        "term": "朝鮮語",
+        "definition": "Korean [language], South Korean [language]",
+        "meaningKr": "한국어, 조선어",
+        "exampleEn": "日本の大学では、朝鮮語を学ぶ学生が増えています。",
+        "exampleKr": "일본 대학에서는 한국어를 배우는 학생들이 늘고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちょうせんご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-293-1779862085697",
+        "term": "本",
+        "definition": "book; volume; script",
+        "meaningKr": "책",
+        "exampleEn": "休みの日は、図書館で静かに本を読むのが好きです。",
+        "exampleKr": "쉬는 날에는 도서관에서 조용히 책을 읽는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ほん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-294-1779862085697",
+        "term": "紙",
+        "definition": "paper",
+        "meaningKr": "종이",
+        "exampleEn": "先生が配った白い紙に、自分の名前を書いてください。",
+        "exampleKr": "선생님이 나눠주신 흰 종이에 자신의 이름을 적어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-295-1779862085697",
+        "term": "手紙",
+        "definition": "letter; note",
+        "meaningKr": "편지",
+        "exampleEn": "遠くに住んでいる祖母に、感謝の手紙を書きました。",
+        "exampleKr": "멀리 사시는 할머니께 감사의 편지를 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "てがみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-296-1779862085697",
+        "term": "新聞",
+        "definition": "newspaper",
+        "meaningKr": "신문",
+        "exampleEn": "父は毎朝、コーヒーを飲みながら新聞を読みます。",
+        "exampleKr": "아버지는 매일 아침 커피를 마시면서 신문을 읽으십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しんぶん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-297-1779862085697",
+        "term": "辞書",
+        "definition": "dictionary",
+        "meaningKr": "사전",
+        "exampleEn": "わからない言葉があるときは、すぐに辞書で調べます。",
+        "exampleKr": "모르는 단어가 있을 때는 바로 사전에서 찾아봅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じしょ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-298-1779862085697",
+        "term": "色",
+        "definition": "colour; color; hue; tint; tinge; shade",
+        "meaningKr": "색, 색깔",
+        "exampleEn": "あなたが一番好きな色は、何色ですか。",
+        "exampleKr": "당신이 가장 좋아하는 색은 무슨 색인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いろ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-299-1779862085697",
+        "term": "赤",
+        "definition": "red; crimson; scarlet",
+        "meaningKr": "빨강, 빨간색",
+        "exampleEn": "信号が赤のときは、道路を渡ってはいけません。",
+        "exampleKr": "신호가 빨간색일 때는 도로를 건너면 안 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あか",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-300-1779862085697",
+        "term": "黄色",
+        "definition": "yellow; amber",
+        "meaningKr": "노란색, 노랑",
+        "exampleEn": "秋になると、公園の木が黄色になります。",
+        "exampleKr": "가을이 되면 공원의 나무가 노란색이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きいろ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-301-1779862085697",
+        "term": "緑",
+        "definition": "green",
+        "meaningKr": "초록색, 녹색, 푸름",
+        "exampleEn": "私の部屋の窓から、きれいな緑の木が見えます。",
+        "exampleKr": "제 방 창문으로 예쁜 초록색 나무가 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みどり",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-302-1779862085697",
+        "term": "青",
+        "definition": "blue; azure",
+        "meaningKr": "파란색, 파랑",
+        "exampleEn": "今日の空は雲がなくて、とてもきれいな青です。",
+        "exampleKr": "오늘 하늘은 구름이 없고 아주 예쁜 파란색입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あお",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-303-1779862085697",
+        "term": "紫",
+        "definition": "purple; violet",
+        "meaningKr": "보라색, 보라",
+        "exampleEn": "私の母は、紫色の花が一番好きだと言いました。",
+        "exampleKr": "우리 어머니는 보라색 꽃을 가장 좋아한다고 말씀하셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "むらさき",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-304-1779862085697",
+        "term": "白",
+        "definition": "white",
+        "meaningKr": "하얀색, 흰색, 하양",
+        "exampleEn": "冬になると、高い山は白い雪で美しく覆われます。",
+        "exampleKr": "겨울이 되면 높은 산은 하얀 눈으로 아름답게 덮입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しろ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-305-1779862085697",
+        "term": "黒",
+        "definition": "black",
+        "meaningKr": "검은색, 검정",
+        "exampleEn": "彼はいつも黒い帽子をかぶって学校に来ます。",
+        "exampleKr": "그는 항상 검은 모자를 쓰고 학교에 옵니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くろ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-306-1779862085697",
+        "term": "茶色",
+        "definition": "brown; light brown; tawny",
+        "meaningKr": "갈색",
+        "exampleEn": "あの茶色い犬は、とても小さくて可愛いですね。",
+        "exampleKr": "저 갈색 개는 아주 작고 귀엽네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちゃいろ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-307-1779862085697",
+        "term": "灰色",
+        "definition": "grey; gray; ashen",
+        "meaningKr": "회색",
+        "exampleEn": "今日は雨が降りそうなので、空が灰色をしています。",
+        "exampleKr": "오늘은 비가 올 것 같아서 하늘이 회색빛을 띠고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はいいろ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-308-1779862085697",
+        "term": "絵",
+        "definition": "picture; drawing; painting; sketch",
+        "meaningKr": "그림",
+        "exampleEn": "私は休みの日に、美術館で静かに絵を見ます。",
+        "exampleKr": "저는 쉬는 날에 미술관에서 조용히 그림을 봅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "え",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-309-1779862085697",
+        "term": "音楽",
+        "definition": "music",
+        "meaningKr": "음악",
+        "exampleEn": "自分の部屋で、好きな音楽を聴きながら勉強をします。",
+        "exampleKr": "제 방에서 좋아하는 음악을 들으면서 공부를 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おんがく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-310-1779862085697",
+        "term": "理科",
+        "definition": "science (natural sciences and related fields, incl. mathematics, engineering, medicine, etc.)",
+        "meaningKr": "과학, 이과",
+        "exampleEn": "小学生の時、理科の授業で行った実験が面白かったです。",
+        "exampleKr": "초등학생 때 과학 수업 시간에 했던 실험이 재미있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "りか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-311-1779862085697",
+        "term": "算数",
+        "definition": "arithmetic",
+        "meaningKr": "산수",
+        "exampleEn": "私の妹は、算数の難しい宿題を一人で頑張っています。",
+        "exampleKr": "제 여동생은 어려운 산수 숙제를 혼자서 열심히 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さんすう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-312-1779862085697",
+        "term": "歴史",
+        "definition": "history",
+        "meaningKr": "역사",
+        "exampleEn": "日本の歴史について、もっと図書館で本を読んで調べたいです。",
+        "exampleKr": "일본의 역사에 대해 도서관에서 책을 더 읽고 조사해 보고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "れきし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-313-1779862085697",
+        "term": "地理",
+        "definition": "geography",
+        "meaningKr": "지리",
+        "exampleEn": "高校の地理の授業で、世界の国々の名前を覚えました。",
+        "exampleKr": "고등학교 지리 수업 시간에 세계 여러 나라의 이름을 외웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-314-1779862085697",
+        "term": "体育",
+        "definition": "physical education",
+        "meaningKr": "체육",
+        "exampleEn": "今日の体育の授業では、クラスのみんなでサッカーをしました。",
+        "exampleKr": "오늘 체육 수업에서는 반 친구들과 다 함께 축구를 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たいいく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-315-1779862085697",
+        "term": "情報",
+        "definition": "information, news",
+        "meaningKr": "정보",
+        "exampleEn": "インターネットを使って、旅行に便利で必要な情報を調べました。",
+        "exampleKr": "인터넷을 사용해서 여행에 편리하고 필요한 정보를 검색했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じょうほう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-316-1779862085697",
+        "term": "必要",
+        "definition": "necessity",
+        "meaningKr": "필요",
+        "exampleEn": "大学の図書館で本を借りるには、学生証が必要です。",
+        "exampleKr": "대학교 도서관에서 책을 빌리려면 학생증이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひつよう",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-317-1779862085697",
+        "term": "勉強",
+        "definition": "study",
+        "meaningKr": "공부",
+        "exampleEn": "毎日一生懸命日本語を勉強して、もっと上手に話したいです。",
+        "exampleKr": "매일 열심히 일본어를 공부해 더 잘 말하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "べんきょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-318-1779862085697",
+        "term": "依頼",
+        "definition": "request; commission; entrusting (with a matter)",
+        "meaningKr": "의뢰, 부탁",
+        "exampleEn": "取引先からの仕事の依頼を、メールで丁寧に断りました。",
+        "exampleKr": "거래처로부터의 업무 의뢰를 이메일로 정중히 거절했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いらい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-319-1779862085697",
+        "term": "ゼロ",
+        "definition": "zero; nought",
+        "meaningKr": "제로, 영",
+        "exampleEn": "明日のテストの点数がゼロにならないように、今夜は復習します。",
+        "exampleKr": "내일 시험 점수가 0점이 되지 않도록 오늘 밤에 복습하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "れい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-320-1779862085697",
+        "term": "一",
+        "definition": "one; 1",
+        "meaningKr": "일, 하나",
+        "exampleEn": "教室の机の上に、赤いリンゴが一つ置いてあります。",
+        "exampleKr": "교실 책상 위에 빨간 사과가 하나 놓여 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いち",
+        "pos": "number, prefix"
+      },
+      {
+        "id": "word-jp-321-1779862085697",
+        "term": "二",
+        "definition": "two; 2",
+        "meaningKr": "이, 둘",
+        "exampleEn": "私の家では、可愛い猫を二匹大切に飼っています。",
+        "exampleKr": "우리 집에서는 귀여운 고양이를 두 마리 소중히 키우고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "に",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-322-1779862085697",
+        "term": "三",
+        "definition": "three; 3",
+        "meaningKr": "삼, 셋",
+        "exampleEn": "ここから最寄りの駅まで、歩いて三分くらいで着きます。",
+        "exampleKr": "여기서 가장 가까운 역까지 걸어서 3분 정도면 도착합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さん",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-323-1779862085697",
+        "term": "四",
+        "definition": "four; 4",
+        "meaningKr": "사, 넷",
+        "exampleEn": "私の家族は、父と母と弟と私の四人です。",
+        "exampleKr": "우리 가족은 아버지와 어머니, 남동생과 저까지 네 명입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "よん",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-324-1779862085697",
+        "term": "五",
+        "definition": "five; 5",
+        "meaningKr": "오, 다섯",
+        "exampleEn": "天気が良いので、公園に桜の木を五本植えました。",
+        "exampleKr": "날씨가 좋아서 공원에 벚나무를 다섯 그루 심었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ご",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-325-1779862085697",
+        "term": "六",
+        "definition": "six; 6",
+        "meaningKr": "여섯, 육",
+        "exampleEn": "私の家族は、全部で六人います。",
+        "exampleKr": "우리 가족은 모두 여섯 명입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ろく",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-326-1779862085697",
+        "term": "七",
+        "definition": "seven",
+        "meaningKr": "일곱, 칠",
+        "exampleEn": "昨日、スーパーで赤いりんごを七個買いました。",
+        "exampleKr": "어제 슈퍼에서 빨간 사과를 일곱 개 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なな",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-327-1779862085697",
+        "term": "八",
+        "definition": "eight; 8",
+        "meaningKr": "여덟, 팔",
+        "exampleEn": "毎朝、八時に起きて学校へ行きます。",
+        "exampleKr": "매일 아침 8시에 일어나서 학교에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はち",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-328-1779862085697",
+        "term": "九",
+        "definition": "nine; 9",
+        "meaningKr": "아홉, 구",
+        "exampleEn": "私の母の誕生日は九月九日です。",
+        "exampleKr": "우리 어머니의 생신은 9월 9일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きゅう",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-329-1779862085697",
+        "term": "十",
+        "definition": "ten; 10",
+        "meaningKr": "열, 십",
+        "exampleEn": "この教室には学生が十人います。",
+        "exampleKr": "이 교실에는 학생이 열 명 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じゅう",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-330-1779862085697",
+        "term": "百",
+        "definition": "hundred; 100",
+        "meaningKr": "백",
+        "exampleEn": "この可愛いノートは一冊百円です。",
+        "exampleKr": "이 귀여운 노트는 한 권에 백 엔입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひゃく",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-331-1779862085697",
+        "term": "千",
+        "definition": "thousand",
+        "meaningKr": "천",
+        "exampleEn": "今、私の財布の中に千円しかありません。",
+        "exampleKr": "지금 제 지갑 속에 천 엔밖에 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "せん",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-332-1779862085697",
+        "term": "万",
+        "definition": "ten thousand",
+        "meaningKr": "만",
+        "exampleEn": "先週、新しい自転車を一万円で買いました。",
+        "exampleKr": "지난주에 새 자전거를 만 엔에 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まん",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-333-1779862085697",
+        "term": "億",
+        "definition": "one hundred million",
+        "meaningKr": "억",
+        "exampleEn": "もし宝くじで一億円が当たったら嬉しいです。",
+        "exampleKr": "만약 복권으로 일억 엔이 당첨된다면 기쁠 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おく",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-334-1779862085697",
+        "term": "一つ",
+        "definition": "one, one thing",
+        "meaningKr": "하나, 한 개",
+        "exampleEn": "すみません、温かいお茶を一つください。",
+        "exampleKr": "죄송합니다, 따뜻한 차 한 개 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひとつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-335-1779862085697",
+        "term": "二つ",
+        "definition": "two, two things",
+        "meaningKr": "둘, 두 개",
+        "exampleEn": "机の上に赤いりんごが二つあります。",
+        "exampleKr": "책상 위에 빨간 사과가 두 개 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふたつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-336-1779862085697",
+        "term": "三つ",
+        "definition": "three, three things",
+        "meaningKr": "셋, 세 개",
+        "exampleEn": "パンを三つ買って、友達と一緒に食べました。",
+        "exampleKr": "빵을 세 개 사서 친구와 함께 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みっつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-337-1779862085697",
+        "term": "四つ",
+        "definition": "four, four things",
+        "meaningKr": "넷, 네 개",
+        "exampleEn": "引き出しの中に鍵が四つ入っています。",
+        "exampleKr": "서랍 안에 열쇠가 네 개 들어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "よっつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-338-1779862085697",
+        "term": "五つ",
+        "definition": "five, five things",
+        "meaningKr": "다섯, 다섯 개",
+        "exampleEn": "お皿の上に美味しそうなみかんが五つあります。",
+        "exampleKr": "접시 위에 맛있어 보이는 귤이 다섯 개 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いつつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-339-1779862085697",
+        "term": "六つ",
+        "definition": "six, six things",
+        "meaningKr": "여섯, 여섯 개",
+        "exampleEn": "箱の中にチョコレートが六つ残っています。",
+        "exampleKr": "상자 안에 초콜릿이 여섯 개 남아 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "むっつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-340-1779862085697",
+        "term": "七つ",
+        "definition": "seven, seven things",
+        "meaningKr": "일곱, 일곱 개",
+        "exampleEn": "私の可愛い妹は今年、七つになります。",
+        "exampleKr": "제 귀여운 여동생은 올해 일곱 살이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ななつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-341-1779862085697",
+        "term": "八つ",
+        "definition": "eight, eight things",
+        "meaningKr": "여덟, 여덟 개",
+        "exampleEn": "デパートでお土産のお菓子を八つ買いました。",
+        "exampleKr": "백화점에서 기념품 과자를 여덟 개 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やっつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-342-1779862085697",
+        "term": "九つ",
+        "definition": "nine, nine things",
+        "meaningKr": "아홉, 아홉 개",
+        "exampleEn": "お皿の上に美味しいクッキーが九つ並んでいます。",
+        "exampleKr": "접시 위에 맛있는 쿠키가 아홉 개 놓여 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ここのつ",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-343-1779862085697",
+        "term": "十",
+        "definition": "ten, ten things",
+        "meaningKr": "열, 열 개",
+        "exampleEn": "スーパーで卵を十買って、冷蔵庫に入れました。",
+        "exampleKr": "슈퍼에서 달걀을 열 개 사서 냉장고에 넣었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とお",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-344-1779862085697",
+        "term": "これ",
+        "definition": "this, it",
+        "meaningKr": "이것, 이",
+        "exampleEn": "これは日本でとても人気があるお菓子です。",
+        "exampleKr": "이것은 일본에서 매우 인기가 있는 과자입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "これ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-345-1779862085697",
+        "term": "それ",
+        "definition": "that; it",
+        "meaningKr": "그것, 그",
+        "exampleEn": "それは私が昨日図書館で借りた本です。",
+        "exampleKr": "그것은 제가 어제 도서관에서 빌린 책입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "それ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-346-1779862085697",
+        "term": "あれ",
+        "definition": "that over there",
+        "meaningKr": "저것, 저",
+        "exampleEn": "あれは最近できた新しいレストランですね。",
+        "exampleKr": "저것은 최근에 생긴 새로운 레스토랑이네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あれ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-347-1779862085697",
+        "term": "どれ",
+        "definition": "which (of three or more)",
+        "meaningKr": "어느 것, 어느",
+        "exampleEn": "この中であなたの傘はどれですか。",
+        "exampleKr": "이 중에서 당신의 우산은 어느 것입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どれ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-348-1779862085697",
+        "term": "こちら",
+        "definition": "this direction, thing, person, or place",
+        "meaningKr": "이쪽, 이분, 이곳",
+        "exampleEn": "こちらは私の日本語の先生の鈴木さんです。",
+        "exampleKr": "이쪽은 제 일본어 선생님이신 스즈키 씨입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こちら",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-349-1779862085697",
+        "term": "そちら",
+        "definition": "that direction, thing, person, or place",
+        "meaningKr": "그쪽, 그분, 그곳",
+        "exampleEn": "そちらの窓を少し開けていただけますか。",
+        "exampleKr": "그쪽 창문을 조금 열어 주시겠습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そちら",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-350-1779862085697",
+        "term": "あちら",
+        "definition": "that direction, thing, person, or place over there",
+        "meaningKr": "저쪽, 저분, 저것",
+        "exampleEn": "あちらのテーブルに座っている人は誰ですか。",
+        "exampleKr": "저쪽 테이블에 앉아 있는 사람은 누구입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あちら",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-351-1779862085697",
+        "term": "どちら",
+        "definition": "which direction, thing, person, or place",
+        "meaningKr": "어느 쪽, 어느 것, 어느 분",
+        "exampleEn": "コーヒーと紅茶では、どちらの方が好きですか。",
+        "exampleKr": "커피와 홍차 중에서는 어느 쪽을 더 좋아합니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どちら",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-352-1779862085697",
+        "term": "秘密",
+        "definition": "secret; secrecy; confidentiality; privacy",
+        "meaningKr": "비밀",
+        "exampleEn": "この話は、他の人には絶対に秘密にしてください。",
+        "exampleKr": "이 이야기는 다른 사람에게는 절대로 비밀로 해주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひみつ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-353-1779862085697",
+        "term": "自動",
+        "definition": "automatic",
+        "meaningKr": "자동",
+        "exampleEn": "このホテルのドアは、近づくと自動で開きます。",
+        "exampleKr": "이 호텔의 문은 가까이 가면 자동으로 열립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "じどう",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-354-1779862085697",
+        "term": "内容",
+        "definition": "contents; content; substance; matter; detail; import",
+        "meaningKr": "내용",
+        "exampleEn": "今日読んだ本の詳しい内容は、あまり覚えていません。",
+        "exampleKr": "오늘 읽은 책의 자세한 내용은 별로 기억나지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ないよう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-355-1779862085697",
+        "term": "幅",
+        "definition": "width, breadth, free room, difference",
+        "meaningKr": "폭, 너비",
+        "exampleEn": "この道路は幅が狭いので、車に気をつけてください。",
+        "exampleKr": "이 도로는 폭이 좁으니 차를 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はば",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-356-1779862085697",
+        "term": "正式",
+        "definition": "formality",
+        "meaningKr": "정식",
+        "exampleEn": "彼は来月から、この会社の正式な社員になります。",
+        "exampleKr": "그는 다음 달부터 이 회사의 정식 사원이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "せいしき",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-357-1779862085697",
+        "term": "結婚",
+        "definition": "marriage",
+        "meaningKr": "결혼",
+        "exampleEn": "私の姉は、去年の秋に大学の友達と結婚しました。",
+        "exampleKr": "우리 언니는 작년 가을에 대학 친구와 결혼했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "けっこん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-358-1779862085697",
+        "term": "現在",
+        "definition": "the present; present time; now",
+        "meaningKr": "현재",
+        "exampleEn": "現在の日本の天気は、とても暖かくて気持ちがいいです。",
+        "exampleKr": "현재 일본의 날씨는 매우 따뜻해서 기분이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "げんざい",
+        "pos": "noun, adverb, adjective"
+      },
+      {
+        "id": "word-jp-359-1779862085697",
+        "term": "今",
+        "definition": "now; the present time; just now; soon; immediately",
+        "meaningKr": "지금, 현재",
+        "exampleEn": "今から友達と一緒に、美味しい晩ご飯を食べに行きます。",
+        "exampleKr": "지금부터 친구와 함께 맛있는 저녁을 먹으러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いま",
+        "pos": "noun, adjective, adverb"
+      },
+      {
+        "id": "word-jp-360-1779862085697",
+        "term": "過去",
+        "definition": "the past; bygone days",
+        "meaningKr": "과거",
+        "exampleEn": "過去の失敗を気にするより、これからのことを考えましょう。",
+        "exampleKr": "과거의 실패를 신경 쓰기보다 앞으로의 일을 생각합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かこ",
+        "pos": "noun, adverb, adjective"
+      },
+      {
+        "id": "word-jp-361-1779862085697",
+        "term": "未来",
+        "definition": "(distant) future",
+        "meaningKr": "미래",
+        "exampleEn": "未来の自分に手紙を書くという授業が楽しかったです。",
+        "exampleKr": "미래의 자신에게 편지를 쓰는 수업이 즐거웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みらい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-362-1779862085697",
+        "term": "良い",
+        "definition": "good; excellent; fine; nice; pleasant; agreeable",
+        "meaningKr": "좋다, 훌륭하다",
+        "exampleEn": "天気が良い日は、公園をゆっくり散歩するのが好きです。",
+        "exampleKr": "날씨가 좋은 날은 공원을 천천히 산책하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-363-1779862085697",
+        "term": "凄い",
+        "definition": "terrible; dreadful",
+        "meaningKr": "대단하다, 굉장하다, 엄청나다",
+        "exampleEn": "昨日見た映画は、映像が本当に凄くて感動しました。",
+        "exampleKr": "어제 본 영화는 영상이 정말 대단해서 감동했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すごい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-364-1779862085697",
+        "term": "素晴らしい",
+        "definition": "wonderful",
+        "meaningKr": "훌륭하다, 멋지다, 근사하다",
+        "exampleEn": "彼女がピアノで演奏した曲は、本当に素晴らしかったです。",
+        "exampleKr": "그녀가 피아노로 연주한 곡은 정말 훌륭했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すばらしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-365-1779862085697",
+        "term": "悪い",
+        "definition": "bad, inferior",
+        "meaningKr": "나쁘다, 못되다, 안 좋다",
+        "exampleEn": "体の調子が悪いので、今日は早く寝ることにします。",
+        "exampleKr": "몸 상태가 안 좋아서 오늘은 일찍 자려고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わるい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-366-1779862085697",
+        "term": "高い",
+        "definition": "expensive, high",
+        "meaningKr": "높다, 비싸다",
+        "exampleEn": "この店は美味しいですが、値段が少し高いですね。",
+        "exampleKr": "이 가게는 맛있지만 가격이 조금 비싸네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たかい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-367-1779862085697",
+        "term": "低い",
+        "definition": "low (rank, degree, value, content, quality, etc.)",
+        "meaningKr": "낮다",
+        "exampleEn": "この机は私の身長には少し低いので、腰が痛くなります。",
+        "exampleKr": "이 책상은 내 키에는 조금 낮아서 허리가 아릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ひくい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-368-1779862085697",
+        "term": "安い",
+        "definition": "cheap; inexpensive",
+        "meaningKr": "싸다, 저렴하다",
+        "exampleEn": "近くのスーパーで、新鮮な野菜が安く売っていました。",
+        "exampleKr": "근처 마트에서 신선한 야채가 싸게 팔고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やすい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-369-1779862085697",
+        "term": "大きい",
+        "definition": "big; large; great",
+        "meaningKr": "크다, 위대하다",
+        "exampleEn": "私の部屋の窓からは、大きい富士山がよく見えます。",
+        "exampleKr": "제 방 창문에서는 큰 후지산이 잘 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おおきい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-370-1779862085697",
+        "term": "小さい",
+        "definition": "small; little; tiny",
+        "meaningKr": "작다, 적다",
+        "exampleEn": "この靴は私には少し小さいので、足が痛いです。",
+        "exampleKr": "이 구두는 저에게 조금 작아서 발이 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ちいさい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-371-1779862085697",
+        "term": "細い",
+        "definition": "thin; slender; fine",
+        "meaningKr": "가늘다, 좁다, 날씬하다",
+        "exampleEn": "彼女は足が細いので、どんなズボンもよく似合います。",
+        "exampleKr": "그녀는 다리가 가늘어서 어떤 바지도 잘 어울립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ほそい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-372-1779862085697",
+        "term": "太い",
+        "definition": "fat; thick",
+        "meaningKr": "굵다, 뚱뚱하다",
+        "exampleEn": "この太いペンを使って、ノートに大きく文字を書きました。",
+        "exampleKr": "이 굵은 펜을 사용해서 노트에 크게 글씨를 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふとい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-373-1779862085697",
+        "term": "古い",
+        "definition": "old; aged; ancient; antiquated; antique; timeworn",
+        "meaningKr": "오래되다, 낡다, 옛날의",
+        "exampleEn": "この古いカメラは、祖父から昔もらった大切なものです。",
+        "exampleKr": "이 오래된 카메라는 할아버지에게 옛날에 받은 소중한 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ふるい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-374-1779862085697",
+        "term": "新しい",
+        "definition": "new; novel; fresh; recent; latest; up-to-date; modern",
+        "meaningKr": "새롭다, 새것이다, 신선하다",
+        "exampleEn": "来週から、新しいアパートでの生活が始まるので楽しみです。",
+        "exampleKr": "다음 주부터 새 아파트에서의 생활이 시작되어서 기대됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あたらしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-375-1779862085697",
+        "term": "若い",
+        "definition": "young; youthful",
+        "meaningKr": "젊다, 어리다",
+        "exampleEn": "あの新しい先生はまだ若くて、とても元気があります。",
+        "exampleKr": "저 새 선생님은 아직 젊고 아주 활기찹니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わかい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-376-1779862085697",
+        "term": "軽い",
+        "definition": "light, easy",
+        "meaningKr": "가볍다, 경미하다",
+        "exampleEn": "この新しいカバンはとても軽くて、持ちやすいです。",
+        "exampleKr": "이 새 가방은 아주 가벼워서 들기 편합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かるい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-377-1779862085697",
+        "term": "重い",
+        "definition": "heavy; weighty",
+        "meaningKr": "무겁다",
+        "exampleEn": "この箱は中に本がたくさん入っていて重いです。",
+        "exampleKr": "이 상자는 안에 책이 많이 들어 있어서 무겁습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おもい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-378-1779862085697",
+        "term": "易しい",
+        "definition": "easy, simple",
+        "meaningKr": "쉽다, 평이하다",
+        "exampleEn": "この日本語の教科書は易しい言葉で書いてあります。",
+        "exampleKr": "이 일본어 교과서는 쉬운 단어로 쓰여 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やさしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-379-1779862085697",
+        "term": "難しい",
+        "definition": "difficult",
+        "meaningKr": "어렵다, 까다롭다",
+        "exampleEn": "今日受けた日本語のテストはとても難しかったです。",
+        "exampleKr": "오늘 본 일본어 시험은 아주 어려웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "むずかしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-380-1779862085697",
+        "term": "柔らかい",
+        "definition": "soft; tender; supple; flexible; limber; limp",
+        "meaningKr": "부드럽다, 연하다",
+        "exampleEn": "このパンは焼き立てなので、とても柔らかくて美味しいです。",
+        "exampleKr": "이 빵은 갓 구운 것이라 아주 부드럽고 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やわらかい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-381-1779862085697",
+        "term": "硬い",
+        "definition": "hard; solid; tough",
+        "meaningKr": "단단하다, 딱딱하다",
+        "exampleEn": "このパンは昨日買ったので、少し硬くなっています。",
+        "exampleKr": "이 빵은 어제 사서 조금 딱딱해졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かたい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-382-1779862085697",
+        "term": "熱い",
+        "definition": "hot (to the touch)",
+        "meaningKr": "뜨겁다",
+        "exampleEn": "お茶がまだ熱いので、少し冷ましてから飲みましょう。",
+        "exampleKr": "차가 아직 뜨거우니 조금 식힌 후에 마십시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あつい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-383-1779862085697",
+        "term": "冷たい",
+        "definition": "cold (to the touch); chilly; icy; freezing",
+        "meaningKr": "차갑다, 식다",
+        "exampleEn": "暑い夏の日には、冷たいジュースが飲みたくなります。",
+        "exampleKr": "더운 여름날에는 차가운 주스를 마시고 싶어집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つめたい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-384-1779862085697",
+        "term": "寒い",
+        "definition": "cold (e.g. weather)",
+        "meaningKr": "춥다",
+        "exampleEn": "今日は風が強くて、昨日よりもずっと寒いです。",
+        "exampleKr": "오늘은 바람이 강해서 어제보다 훨씬 춥습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さむい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-385-1779862085697",
+        "term": "美味しい",
+        "definition": "delicious",
+        "meaningKr": "맛있다",
+        "exampleEn": "お母さんが作った料理は、いつもとても美味しいです。",
+        "exampleKr": "어머니가 만드신 요리는 항상 아주 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おいしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-386-1779862085697",
+        "term": "美味い",
+        "definition": "delicious, appetizing",
+        "meaningKr": "맛있다, 잘하다",
+        "exampleEn": "このラーメン屋のスープは、本当に美味いです。",
+        "exampleKr": "이 라면 가게의 국물은 정말 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うまい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-387-1779862085697",
+        "term": "不味い",
+        "definition": "tastes awful",
+        "meaningKr": "맛없다, 서투르다",
+        "exampleEn": "薬がとても不味いので、飲むのが嫌になります。",
+        "exampleKr": "약이 너무 맛없어서 먹기가 싫어집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まずい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-388-1779862085697",
+        "term": "甘い",
+        "definition": "sweet-tasting; sweet; sugary; sugared",
+        "meaningKr": "달다, 싱겁다",
+        "exampleEn": "私は甘いお菓子が大好きで、毎日食べています。",
+        "exampleKr": "저는 단 과자를 아주 좋아해서 매일 먹고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あまい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-389-1779862085697",
+        "term": "辛い",
+        "definition": "hot [spicy]",
+        "meaningKr": "맵다, 짜다",
+        "exampleEn": "この韓国料理は少し辛いですが、とても美味しいです。",
+        "exampleKr": "이 한국 요리는 조금 맵지만 아주 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "からい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-390-1779862085697",
+        "term": "塩っぱい",
+        "definition": "salty",
+        "meaningKr": "짜다",
+        "exampleEn": "このスープは塩を入れすぎて、少し塩っぱいです。",
+        "exampleKr": "이 국은 소금을 너무 많이 넣어서 조금 짭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しょっぱい",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-391-1779862085697",
+        "term": "苦い",
+        "definition": "bitter",
+        "meaningKr": "쓰다",
+        "exampleEn": "ブラックコーヒーは苦いので、砂糖を入れて飲みます。",
+        "exampleKr": "블랙커피는 쓰기 때문에 설탕을 넣어서 마십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "にがい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-392-1779862085697",
+        "term": "美しい",
+        "definition": "beautiful",
+        "meaningKr": "아름답다",
+        "exampleEn": "公園に咲いている桜の花が、とても美しかったです。",
+        "exampleKr": "공원에 피어 있는 벚꽃이 아주 아름다웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うつくしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-393-1779862085697",
+        "term": "嬉しい",
+        "definition": "happy; glad; pleased; delighted; overjoyed",
+        "meaningKr": "기쁘다, 반갑다",
+        "exampleEn": "友達から素敵な誕生日プレゼントをもらって嬉しいです。",
+        "exampleKr": "친구에게 멋진 생일 선물을 받아서 기쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うれしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-394-1779862085697",
+        "term": "楽しい",
+        "definition": "enjoyable; fun; pleasant; happy; delightful",
+        "meaningKr": "즐겁다, 신나다",
+        "exampleEn": "先週末は久しぶりに友達と遊んで楽しかったです。",
+        "exampleKr": "지난 주말에는 오랜만에 친구들과 놀아서 즐거웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たのしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-395-1779862085697",
+        "term": "悲しい",
+        "definition": "sad; miserable; unhappy; sorrowful",
+        "meaningKr": "슬프다",
+        "exampleEn": "昨日見た映画がとても悲しくて、涙が出ました。",
+        "exampleKr": "어제 본 영화가 너무 슬퍼서 눈물이 났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かなしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-396-1779862085697",
+        "term": "寂しい",
+        "definition": "lonely; lonesome; solitary; desolate",
+        "meaningKr": "쓸쓸하다, 외롭다",
+        "exampleEn": "一人で広い部屋にいると、少し寂しく感じます。",
+        "exampleKr": "혼자서 넓은 방에 있으면 조금 쓸쓸하게 느껴집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さびしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-397-1779862085697",
+        "term": "寂しい",
+        "definition": "sad, lonely",
+        "meaningKr": "외롭다, 쓸쓸하다",
+        "exampleEn": "友達がみんな国へ帰ってしまって、とても寂しいです。",
+        "exampleKr": "친구들이 모두 고국으로 돌아가 버려서 아주 외롭습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さみしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-398-1779862085697",
+        "term": "怖い",
+        "definition": "scary; frightening; eerie; dreadful",
+        "meaningKr": "무섭다, 두렵다",
+        "exampleEn": "夜遅くに暗い道を一人で歩くのは怖いです。",
+        "exampleKr": "밤늦게 어두운 길을 혼자 걷는 것은 무섭습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こわい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-399-1779862085697",
+        "term": "痛い",
+        "definition": "painful; sore",
+        "meaningKr": "아프다",
+        "exampleEn": "昨日からずっと頭が痛いので、病院へ行きます。",
+        "exampleKr": "어제부터 계속 머리가 아파서 병원에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いたい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-400-1779862085697",
+        "term": "痒い",
+        "definition": "itchy",
+        "meaningKr": "가렵다",
+        "exampleEn": "蚊に刺されたところがとても痒いので、薬を塗りました。",
+        "exampleKr": "모기에 물린 곳이 너무 가려워서 약을 발랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かゆい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-401-1779862085697",
+        "term": "臭い",
+        "definition": "stinking; smelly",
+        "meaningKr": "냄새나다, 고약하다",
+        "exampleEn": "この部屋は少し臭いので、窓を開けて空気を入れ替えましょう。",
+        "exampleKr": "이 방은 조금 냄새가 나니까 창문을 열고 환기시킵시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くさい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-402-1779862085697",
+        "term": "辛い",
+        "definition": "painful, heart-breaking",
+        "meaningKr": "괴롭다, 힘들다",
+        "exampleEn": "仕事が忙しくて体が辛いですが、毎日頑張っています。",
+        "exampleKr": "일이 바빠서 몸이 힘들지만, 매일 열심히 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つらい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-403-1779862085697",
+        "term": "する",
+        "definition": "to do; to carry out; to perform",
+        "meaningKr": "하다",
+        "exampleEn": "週末は友達と一緒に公園でサッカーをすることにしました。",
+        "exampleKr": "주말에는 친구와 함께 공원에서 축구를 하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "する",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-404-1779862085697",
+        "term": "やる",
+        "definition": "to do; to undertake; to perform; to play (a game); to study",
+        "meaningKr": "하다, (게임 등을) 플레이하다",
+        "exampleEn": "宿題を早くやって、それからテレビゲームをして遊びましょう。",
+        "exampleKr": "숙제를 빨리 하고, 그러고 나서 비디오 게임을 하며 놉시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-405-1779862085697",
+        "term": "いる",
+        "definition": "to exist [for animate objects]",
+        "meaningKr": "있다 (사람, 동물 등)",
+        "exampleEn": "教室の中に先生と生徒たちが何人かいます。",
+        "exampleKr": "교실 안에 선생님과 학생들이 몇 명 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-406-1779862085697",
+        "term": "ある",
+        "definition": "to exist [for inanimate objects]",
+        "meaningKr": "있다 (사물, 식물 등)",
+        "exampleEn": "机の上に新しい日本語の教科書が置いてあります。",
+        "exampleKr": "책상 위에 새로운 일본어 교과서가 놓여 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ある",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-407-1779862085697",
+        "term": "なる",
+        "definition": "to become",
+        "meaningKr": "되다",
+        "exampleEn": "将来は一生懸命勉強して、立派な医者になりたいです。",
+        "exampleKr": "장래에는 열심히 공부해서 훌륭한 의사가 되고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-408-1779862085697",
+        "term": "起こる",
+        "definition": "to happen",
+        "meaningKr": "일어나다, 발생하다",
+        "exampleEn": "地震が起こった時は、すぐに机の下に入ってください。",
+        "exampleKr": "지진이 일어났을 때는 바로 책상 밑으로 들어가 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おこる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-409-1779862085697",
+        "term": "現れる",
+        "definition": "to appear",
+        "meaningKr": "나타나다, 등장하다",
+        "exampleEn": "霧の中から静かに一匹の白い犬が現れました。",
+        "exampleKr": "안개 속에서 조용히 하얀 개 한 마리가 나타났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あらわれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-410-1779862085697",
+        "term": "生きる",
+        "definition": "to live; to exist",
+        "meaningKr": "살다, 생존하다",
+        "exampleEn": "地球の上にはたくさんの種類の動物が生きています。",
+        "exampleKr": "지구 위에는 많은 종류의 동물들이 살고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いきる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-411-1779862085697",
+        "term": "生む",
+        "definition": "to give birth",
+        "meaningKr": "낳다, 출산하다",
+        "exampleEn": "うちの猫が昨日、可愛い子猫を四匹生みました。",
+        "exampleKr": "우리 집 고양이가 어제 귀여운 새끼 고양이를 네 마리 낳았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-412-1779862085697",
+        "term": "死ぬ",
+        "definition": "to die; to pass away",
+        "meaningKr": "죽다",
+        "exampleEn": "飼っていた金魚が死んでしまったので、庭に埋めました。",
+        "exampleKr": "키우던 금붕어가 죽어 버려서 마당에 묻었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しぬ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-413-1779862085697",
+        "term": "壊れる",
+        "definition": "to break<sup>in</sup>",
+        "meaningKr": "고장 나다, 부서지다",
+        "exampleEn": "大切に使っていたスマートフォンが突然壊れてしまいました。",
+        "exampleKr": "소중히 쓰던 스마트폰이 갑자기 고장 나 버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こわれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-414-1779862085697",
+        "term": "行く",
+        "definition": "to go; to move (towards); to head (towards); to leave (for)",
+        "meaningKr": "가다",
+        "exampleEn": "明日は天気が良いので、家族と一緒に山へ行きます。",
+        "exampleKr": "내일은 날씨가 좋아서 가족과 함께 산에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-415-1779862085697",
+        "term": "来る",
+        "definition": "to come (spatially or temporally); to approach; to arrive",
+        "meaningKr": "오다",
+        "exampleEn": "友達が私の家に遊びに来るのをずっと待っています。",
+        "exampleKr": "친구가 우리 집에 놀러 오는 것을 계속 기다리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "くる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-416-1779862085697",
+        "term": "帰る",
+        "definition": "to return",
+        "meaningKr": "돌아가다, 돌아오다",
+        "exampleEn": "仕事が終わったら、すぐに家に帰って晩ご飯を食べます。",
+        "exampleKr": "일이 끝나면 바로 집에 돌아가서 저녁밥을 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-417-1779862085697",
+        "term": "歩く",
+        "definition": "to walk",
+        "meaningKr": "걷다",
+        "exampleEn": "健康のために、毎日一時間近く公園を歩くようにしています。",
+        "exampleKr": "건강을 위해서 매일 한 시간 가까이 공원을 걸으려고 노력하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あるく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-418-1779862085697",
+        "term": "飛ぶ",
+        "definition": "to jump, to fly",
+        "meaningKr": "날다, 뛰다",
+        "exampleEn": "青い空をたくさんの鳥たちが自由に飛んでいます。",
+        "exampleKr": "푸른 하늘을 많은 새들이 자유롭게 날고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とぶ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-419-1779862085697",
+        "term": "泳ぐ",
+        "definition": "to swim",
+        "meaningKr": "헤엄치다, 수영하다",
+        "exampleEn": "夏休みには、毎年友達と一緒に近くの海で泳ぎます。",
+        "exampleKr": "여름방학에는 매년 친구와 함께 근처 바다에서 수영합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "およぐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-420-1779862085697",
+        "term": "動く",
+        "definition": "to move<sup>in</sup>",
+        "meaningKr": "움직이다",
+        "exampleEn": "このおもちゃは電池を入れないと、全く動きません。",
+        "exampleKr": "이 장난감은 건전지를 넣지 않으면 전혀 움직이지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うごく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-421-1779862085697",
+        "term": "踊る",
+        "definition": "to dance",
+        "meaningKr": "춤추다",
+        "exampleEn": "お祭りのステージで、子供たちが楽しそうに踊っています。",
+        "exampleKr": "축제 무대에서 아이들이 즐거운 듯이 춤을 추고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おどる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-422-1779862085697",
+        "term": "寝る",
+        "definition": "to sleep",
+        "meaningKr": "자다, 눕다",
+        "exampleEn": "明日は朝早く起きるので、今夜はもう寝ます。",
+        "exampleKr": "내일은 아침 일찍 일어나니까 오늘 밤은 이제 자겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ねる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-423-1779862085697",
+        "term": "歌う",
+        "definition": "to sing",
+        "meaningKr": "노래하다, 부르다",
+        "exampleEn": "彼女はとても綺麗な声で日本の有名な歌を歌いました。",
+        "exampleKr": "그녀는 아주 예쁜 목소리로 일본의 유명한 노래를 불렀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うたう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-424-1779862085697",
+        "term": "噛む",
+        "definition": "to bite",
+        "meaningKr": "씹다, 물다",
+        "exampleEn": "ご飯を食べる時は、よく噛んでから飲み込んでください。",
+        "exampleKr": "밥을 먹을 때는 잘 씹은 다음에 삼켜 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-425-1779862085697",
+        "term": "食べる",
+        "definition": "to eat",
+        "meaningKr": "먹다",
+        "exampleEn": "私は毎日、朝ご飯に美味しいパンと果物を食べます。",
+        "exampleKr": "저는 매일 아침 식사로 맛있는 빵과 과일을 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たべる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-426-1779862085697",
+        "term": "飲む",
+        "definition": "to drink",
+        "meaningKr": "마시다",
+        "exampleEn": "朝起きたら、まず冷たい水を一杯飲むことにしています。",
+        "exampleKr": "아침에 일어나면 먼저 찬 물을 한 잔 마시기로 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "のむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-427-1779862085697",
+        "term": "触る",
+        "definition": "to touch",
+        "meaningKr": "만지다, 손을 대다",
+        "exampleEn": "美術館の展示品には、絶対に手を触らないでください。",
+        "exampleKr": "미술관의 전시품에는 절대로 손을 대지 마십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さわる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-428-1779862085697",
+        "term": "投げる",
+        "definition": "to throw",
+        "meaningKr": "던지다",
+        "exampleEn": "公園で犬と一緒に、赤いボールを投げて遊びました。",
+        "exampleKr": "공원에서 개와 함께 빨간 공을 던지며 놀았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なげる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-429-1779862085697",
+        "term": "持つ",
+        "definition": "to hold (in one's hand); to take; to carry",
+        "meaningKr": "쥐다, 들다, 가지다",
+        "exampleEn": "荷物が重そうですね、よろしければ私が一つ持ちましょうか。",
+        "exampleKr": "짐이 무거워 보이네요, 괜찮으시다면 제가 하나 들어 드릴까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "もつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-430-1779862085697",
+        "term": "打つ",
+        "definition": "to hit, to strike",
+        "meaningKr": "치다, 때리다",
+        "exampleEn": "彼はテニスの練習で、強いボールを何度も打ちました。",
+        "exampleKr": "그는 테니스 연습에서 강한 공을 몇 번이고 쳤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-431-1779862085697",
+        "term": "殴る",
+        "definition": "to hit, to strike",
+        "meaningKr": "때리다, 주먹으로 치다",
+        "exampleEn": "どんなに怒っても、人を殴ることは絶対に許されません。",
+        "exampleKr": "아무리 화가 나도 사람을 때리는 것은 절대로 용서받을 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なぐる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-432-1779862085697",
+        "term": "指す",
+        "definition": "to point",
+        "meaningKr": "가리키다",
+        "exampleEn": "先生は黒板の難しい漢字を指して、読み方を説明した。",
+        "exampleKr": "선생님은 칠판의 어려운 한자를 가리키며 읽는 법을 설명했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-433-1779862085697",
+        "term": "刺す",
+        "definition": "to pierce; to stab; to prick; to stick; to thrust",
+        "meaningKr": "찌르다, 쏘다",
+        "exampleEn": "夏の夜に公園を歩いていたら、蚊に足を刺されました。",
+        "exampleKr": "여름 밤에 공원을 걷고 있었더니 모기에게 다리를 물렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-434-1779862085697",
+        "term": "差す",
+        "definition": "to raise or extend one's hands",
+        "meaningKr": "우산을 쓰다, 손을 뻗치다",
+        "exampleEn": "雨が降り始めたので、カバンから折りたたみ傘を差しました。",
+        "exampleKr": "비가 내리기 시작해서 가방에서 접이식 우산을 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "さす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-435-1779862085697",
+        "term": "蹴る",
+        "definition": "to kick",
+        "meaningKr": "차다",
+        "exampleEn": "子供たちが広いグラウンドで、元気にサッカーボールを蹴っている。",
+        "exampleKr": "아이들이 넓은 운동장에서 활기차게 축구공을 차고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-436-1779862085697",
+        "term": "座る",
+        "definition": "to sit (down); to have a seat; to be seated; to kneel (on the floor)",
+        "meaningKr": "앉다",
+        "exampleEn": "電車が混んでいたので、空いている席に座ることができなかった。",
+        "exampleKr": "전철이 붐벼서 빈자리에 앉을 수 없었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すわる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-437-1779862085697",
+        "term": "立つ",
+        "definition": "to stand",
+        "meaningKr": "서다, 일어나다",
+        "exampleEn": "お年寄りが乗ってきたので、すぐに席を立って譲りました。",
+        "exampleKr": "어르신이 타셔서 바로 자리에서 일어나 양보했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-438-1779862085697",
+        "term": "走る",
+        "definition": "to run",
+        "meaningKr": "달리다",
+        "exampleEn": "遅刻しそうだったので、駅まで一生懸命に走って行きました。",
+        "exampleKr": "지각할 것 같아서 역까지 열심히 달려갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はしる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-439-1779862085697",
+        "term": "見る",
+        "definition": "to see; to look; to watch; to view; to observe",
+        "meaningKr": "보다",
+        "exampleEn": "週末は家で家族と一緒に、面白い映画を見る予定です。",
+        "exampleKr": "주말에는 집에서 가족과 함께 재미있는 영화를 볼 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "みる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-440-1779862085697",
+        "term": "聞く",
+        "definition": "to hear, to listen",
+        "meaningKr": "듣다, 묻다",
+        "exampleEn": "毎朝、通学の電車の中で英語のラジオを聞いています。",
+        "exampleKr": "매일 아침 통학하는 전철 안에서 영어 라디오를 듣고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-441-1779862085697",
+        "term": "嗅ぐ",
+        "definition": "to smell",
+        "meaningKr": "냄새를 맡다",
+        "exampleEn": "庭に咲いている綺麗な花の匂いを、近くで嗅いでみました。",
+        "exampleKr": "마당에 피어 있는 예쁜 꽃의 향기를 가까이서 맡아 보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かぐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-442-1779862085697",
+        "term": "言う",
+        "definition": "to say; to utter; to declare",
+        "meaningKr": "말하다",
+        "exampleEn": "自分の意見をはっきり言うことは、とても大切なことです。",
+        "exampleKr": "자신의 의견을 확실하게 말하는 것은 매우 중요한 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-443-1779862085697",
+        "term": "話す",
+        "definition": "to speak",
+        "meaningKr": "이야기하다, 말하다",
+        "exampleEn": "日本語が上手になりたいので、毎日友達と日本語で話します。",
+        "exampleKr": "일본어를 잘하고 싶어서 매일 친구와 일본어로 이야기합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はなす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-444-1779862085697",
+        "term": "語る",
+        "definition": "to talk about; to speak of; to tell; to narrate",
+        "meaningKr": "말하다, 이야기하다",
+        "exampleEn": "おじいちゃんは私たちに、若い頃の冒険について熱心に語った。",
+        "exampleKr": "할아버지는 우리에게 젊은 시절의 모험에 대해 열성적으로 이야기해 주셨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かたる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-445-1779862085697",
+        "term": "書く",
+        "definition": "to write",
+        "meaningKr": "쓰다",
+        "exampleEn": "来週までに、日本語で将来の夢についての作文を書きます。",
+        "exampleKr": "다음 주까지 일본어로 장래 희망에 대한 작문을 쓰겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-446-1779862085697",
+        "term": "読む",
+        "definition": "to read",
+        "meaningKr": "읽다",
+        "exampleEn": "寝る前に、ベッドの中で少しだけ小説を読むのが好きです。",
+        "exampleKr": "자기 전에 침대 안에서 조금만 소설을 읽는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "よむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-447-1779862085697",
+        "term": "使う",
+        "definition": "to use (a tool, method, etc.); to make use of; to put to use",
+        "meaningKr": "사용하다, 쓰다",
+        "exampleEn": "この図書館では、誰でも自由にパソコンを使うことができます。",
+        "exampleKr": "이 도서관에서는 누구나 자유롭게 컴퓨터를 사용할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つかう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-448-1779862085697",
+        "term": "作る",
+        "definition": "to make; to produce; to manufacture; to build; to construct",
+        "meaningKr": "만들다",
+        "exampleEn": "今日の晩ご飯は、母と一緒に美味しいカレーを作りました。",
+        "exampleKr": "오늘 저녁 식사는 어머니와 함께 맛있는 카레를 만들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つくる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-449-1779862085697",
+        "term": "直す",
+        "definition": "to fix, repair",
+        "meaningKr": "고치다, 수리하다",
+        "exampleEn": "壊れてしまった自転車を、お父さんがきれいに直してくれました。",
+        "exampleKr": "고장 나 버린 자전거를 아버지가 깨끗하게 고쳐 주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なおす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-450-1779862085697",
+        "term": "捨てる",
+        "definition": "to discard, throw away",
+        "meaningKr": "버리다",
+        "exampleEn": "この古いノートはもう使わないので捨てます。",
+        "exampleKr": "이 오래된 공책은 이제 쓰지 않아서 버립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "すてる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-451-1779862085697",
+        "term": "取る",
+        "definition": "to take; to pick up; to grab; to catch; to hold",
+        "meaningKr": "잡다, 집다, 취하다",
+        "exampleEn": "テーブルの上にある塩を取っていただけますか。",
+        "exampleKr": "테이블 위에 있는 소금을 집어 주시겠습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-452-1779862085697",
+        "term": "置く",
+        "definition": "to put; to place",
+        "meaningKr": "놓다, 두다",
+        "exampleEn": "買ってきた本を机の上に置きました。",
+        "exampleKr": "사 온 책을 책상 위에 놓았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-453-1779862085697",
+        "term": "悲しむ",
+        "definition": "to be sad",
+        "meaningKr": "슬퍼하다",
+        "exampleEn": "ペットが死んで、妹はずっと悲しんでいます。",
+        "exampleKr": "애완동물이 죽어서 여동생은 계속 슬퍼하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かなしむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-454-1779862085697",
+        "term": "泣く",
+        "definition": "to cry; to shed tears; to weep; to sob",
+        "meaningKr": "울다",
+        "exampleEn": "赤ちゃんが夜中にお腹が空いて泣いています。",
+        "exampleKr": "아기가 밤중에 배가 고파서 울고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-455-1779862085697",
+        "term": "笑う",
+        "definition": "to laugh",
+        "meaningKr": "웃다",
+        "exampleEn": "友達が面白い話を言ったので、みんなで笑いました。",
+        "exampleKr": "친구들이 재미있는 이야기를 해서 모두 함께 웃었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わらう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-456-1779862085697",
+        "term": "怒る",
+        "definition": "to be angry",
+        "meaningKr": "화내다, 노하다",
+        "exampleEn": "約束の時間を守らないと、先生が怒りますよ。",
+        "exampleKr": "약속 시간을 지키지 않으면 선생님이 화내실 거예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おこる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-457-1779862085697",
+        "term": "褒める",
+        "definition": "to encourage",
+        "meaningKr": "칭찬하다",
+        "exampleEn": "テストで満点を取ったので、母に褒められました。",
+        "exampleKr": "시험에서 만점을 받아서 어머니께 칭찬을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ほめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-458-1779862085697",
+        "term": "叱る",
+        "definition": "to scold",
+        "meaningKr": "꾸짖다, 혼내다",
+        "exampleEn": "宿題を忘れたので、先生に厳しく叱られました。",
+        "exampleKr": "숙제를 잊어버려서 선생님께 엄하게 혼났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しかる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-459-1779862085697",
+        "term": "喜ぶ",
+        "definition": "to celebrate, to be jubilant, to have joy, to have delight, to have rapture",
+        "meaningKr": "기뻐하다, 즐거わ하다",
+        "exampleEn": "誕生日プレゼントをあげたら、彼女はとても喜びました。",
+        "exampleKr": "생일 선물을 주었더니 그녀는 무척 기뻐했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "よろこぶ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-460-1779862085697",
+        "term": "喜び",
+        "definition": "joy, delight, rapture",
+        "meaningKr": "기쁨, 즐거움",
+        "exampleEn": "合格の知らせを聞いて、家族みんなで喜びを分け合いました。",
+        "exampleKr": "합격 소식을 듣고 온 가족이 함께 기쁨을 나누었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "よろこび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-461-1779862085697",
+        "term": "慰める",
+        "definition": "to console, to consolate, to provide empathy",
+        "meaningKr": "위로하다, 달래다",
+        "exampleEn": "落ち込んでいる友達を優しい言葉で慰めました。",
+        "exampleKr": "낙담하고 있는 친구를 다정한 말로 위로했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なぐさめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-462-1779862085697",
+        "term": "飽きる",
+        "definition": "to be disinterested, to be bored, to be tired of, to be weary",
+        "meaningKr": "질리다, 싫증 나다",
+        "exampleEn": "毎日同じメニューばかり食べているので、もう飽きました。",
+        "exampleKr": "매일 같은 메뉴만 먹고 있어서 이제 질렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あきる",
+        "pos": "verb, suffix"
+      },
+      {
+        "id": "word-jp-463-1779862085697",
+        "term": "驚く",
+        "definition": "to be astonished, to be surprised, to be scared",
+        "meaningKr": "놀라다",
+        "exampleEn": "突然のニュースを聞いて、私はとても驚きました。",
+        "exampleKr": "갑작스러운 뉴스를 듣고 저는 무척 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おどろく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-464-1779862085697",
+        "term": "会う",
+        "definition": "to meet, to interview",
+        "meaningKr": "만나다",
+        "exampleEn": "今週末に久しぶりに高校の友達と会う予定です。",
+        "exampleKr": "이번 주말에 오랜만에 고등학교 친구와 만날 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-465-1779862085697",
+        "term": "開ける",
+        "definition": "to open<sup>tr</sup>, to unwrap<sup>tr</sup>",
+        "meaningKr": "열다",
+        "exampleEn": "部屋の空気が少し悪いので、窓を開けてください。",
+        "exampleKr": "방 안의 공기가 조금 탁하니 창문을 열어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-466-1779862085697",
+        "term": "遊ぶ",
+        "definition": "to play (games, sports); to enjoy oneself; to have a good time",
+        "meaningKr": "놀다",
+        "exampleEn": "天気が良いので、子供たちは公園で元気に遊んでいます。",
+        "exampleKr": "날씨가 좋아서 아이들은 공원에서 건강하게 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あそぶ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-467-1779862085697",
+        "term": "集まる",
+        "definition": "to gather<sup>in</sup>",
+        "meaningKr": "모이다",
+        "exampleEn": "会議を始めますから、早く会議室に集まってください。",
+        "exampleKr": "회의를 시작할 테니 빨리 회의실에 모여 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あつまる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-468-1779862085697",
+        "term": "売る",
+        "definition": "to sell",
+        "meaningKr": "팔다",
+        "exampleEn": "この店では、毎朝おいしい手作りのパンを売っています。",
+        "exampleKr": "이 가게에서는 매일 아침 맛있는 수제 빵을 팝니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "うる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-469-1779862085697",
+        "term": "得る",
+        "definition": "to obtain [some benefit or knowledge]",
+        "meaningKr": "얻다, 획득하다",
+        "exampleEn": "本をたくさん読むことで、新しい知識を得ることができます。",
+        "exampleKr": "책을 많이 읽음으로써 새로운 지식을 얻을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "える",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-470-1779862085697",
+        "term": "折る",
+        "definition": "to break<sup>tr</sup>, to fold<sup>tr</sup>",
+        "meaningKr": "접다, 꺾다",
+        "exampleEn": "色紙を使って、綺麗な折り紙で鶴を折りました。",
+        "exampleKr": "색종이를 사용해서 예쁜 종이접기로 학을 접었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "おる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-471-1779862085697",
+        "term": "買う",
+        "definition": "to buy; to purchase",
+        "meaningKr": "사다",
+        "exampleEn": "スーパーで晩ご飯の材料と果物を買いました。",
+        "exampleKr": "마트에서 저녁 식사 재료와 과일을 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-472-1779862085697",
+        "term": "切る",
+        "definition": "to cut; to cut through; to perform (surgery)",
+        "meaningKr": "자르다, 베다",
+        "exampleEn": "ハサミを使って、この紙を半分に切ってください。",
+        "exampleKr": "가위를 사용해서 이 종이를 반으로 잘라 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-473-1779862085697",
+        "term": "着る",
+        "definition": "to wear [on the upper body]",
+        "meaningKr": "입다 (상반신)",
+        "exampleEn": "今日は少し寒いので、厚いコートを着て出かけます。",
+        "exampleKr": "오늘은 조금 추우니까 두꺼운 코트를 입고 외출합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "きる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-474-1779862085697",
+        "term": "履く",
+        "definition": "to wear [on the lower body]",
+        "meaningKr": "신다, 입다 (하반신)",
+        "exampleEn": "新しいスニーカーを履いて、近くの公園を散歩しました。",
+        "exampleKr": "새 운동화를 신고 근처 공원을 산책했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-475-1779862085697",
+        "term": "変える",
+        "definition": "to change<sup>tr</sup>",
+        "meaningKr": "바꾸다, 변경하다",
+        "exampleEn": "気分を変えるために、外の空気を吸いに行きましょう。",
+        "exampleKr": "기분을 바꾸기 위해, 바깥 공기를 마시러 갑시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-476-1779862085697",
+        "term": "代える",
+        "definition": "to exchange, to substitute, to replace",
+        "meaningKr": "대신하다, 대용하다, 바꾸다",
+        "exampleEn": "言葉に代えて、プレゼントで感謝の気持ちを伝えます。",
+        "exampleKr": "말을 대신해서, 선물로 감사의 마음을 전합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "かえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-477-1779862085697",
+        "term": "閉める",
+        "definition": "to close<sup>tr</sup>",
+        "meaningKr": "닫다",
+        "exampleEn": "部屋が寒くなったので、窓を閉めてください。",
+        "exampleKr": "방이 추워졌으니, 창문을 닫아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-478-1779862085697",
+        "term": "締める",
+        "definition": "to tie, to fasten",
+        "meaningKr": "매다, 조이다, 묶다",
+        "exampleEn": "スーツを着る時は、ネクタイをきれいに締めます。",
+        "exampleKr": "양복을 입을 때는, 넥타이를 예쁘게 맵니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-479-1779862085697",
+        "term": "占める",
+        "definition": "to comprise, to account for",
+        "meaningKr": "차지하다, 비율을 점하다",
+        "exampleEn": "この会社の売り上げは、アジア市場が半分を占める。",
+        "exampleKr": "이 회사의 매출은, 아시아 시장이 절반을 차지한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-480-1779862085697",
+        "term": "知る",
+        "definition": "to know; to be aware (of); to be conscious (of); to learn (of); to find out; to discover",
+        "meaningKr": "알다",
+        "exampleEn": "あの新しいカフェの場所を、あなたは知っていますか。",
+        "exampleKr": "저 새로운 카페의 위치를, 당신은 알고 있습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-481-1779862085697",
+        "term": "疲れる",
+        "definition": "to get tired",
+        "meaningKr": "지치다, 피곤하다",
+        "exampleEn": "一日中たくさん歩いたので、足がとても疲れました。",
+        "exampleKr": "하루 종일 많이 걸어서, 다리가 무척 피곤합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "つかれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-482-1779862085697",
+        "term": "出掛ける",
+        "definition": "to go out, to depart",
+        "meaningKr": "외출하다, 나가다",
+        "exampleEn": "天気がいいので、午後から友達と公園に出掛けます。",
+        "exampleKr": "날씨가 좋아서, 오후부터 친구와 공원으로 외출합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "でかける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-483-1779862085697",
+        "term": "働く",
+        "definition": "to work [e.g., at a job]",
+        "meaningKr": "일하다, 근무하다",
+        "exampleEn": "私の兄は、東京の大きなIT企業で働いています。",
+        "exampleKr": "우리 형은, 도쿄의 큰 IT 기업에서 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はたらく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-484-1779862085697",
+        "term": "放す",
+        "definition": "to let go of",
+        "meaningKr": "놓아주다, 놓다, 풀다",
+        "exampleEn": "危ないですから、私の手を絶対に放さないでください。",
+        "exampleKr": "위험하니까, 제 손을 절대로 놓지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はなす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-485-1779862085697",
+        "term": "休む",
+        "definition": "to rest, to take a break, to go to bed",
+        "meaningKr": "쉬다, 휴식하다, 결석하다",
+        "exampleEn": "体調が悪いので、今日は学校を休むことにしました。",
+        "exampleKr": "몸 상태가 좋지 않아서, 오늘은 학교를 쉬기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "やすむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-486-1779862085697",
+        "term": "分かれる",
+        "definition": "to split into<sup>in</sup>, to be divided",
+        "meaningKr": "갈라지다, 나뉘다",
+        "exampleEn": "この道は途中で二つに分かれているので、気をつけて。",
+        "exampleKr": "이 길은 도중에 둘로 갈라져 있으니, 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わかれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-487-1779862085697",
+        "term": "別れる",
+        "definition": "to part<sup>in</sup>, to separate<sup>in</sup>, to break up<sup>in</sup>",
+        "meaningKr": "헤어지다, 이별하다",
+        "exampleEn": "駅の改札の前で、私たちは「またね」と言って別れた。",
+        "exampleKr": "역 개찰구 앞에서, 우리는 \"또 봐\"라고 말하며 헤어졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "わかれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-488-1779862085697",
+        "term": "もう",
+        "definition": "already; yet; by now; now; (not) any more; (not) any longer",
+        "meaningKr": "이미, 벌써, 이제",
+        "exampleEn": "約束の時間はもう過ぎましたが、彼はまだ来ません。",
+        "exampleKr": "약속 시간은 이미 지났지만, 그는 아직 오지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "もう",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-489-1779862085697",
+        "term": "まだ",
+        "definition": "still, yet",
+        "meaningKr": "아직",
+        "exampleEn": "宿題はまだ終わっていないので、遊びに行けません。",
+        "exampleKr": "숙제가 아직 끝나지 않아서, 놀러 갈 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "まだ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-490-1779862085697",
+        "term": "ずっと",
+        "definition": "continuously; the whole time; all the way; throughout",
+        "meaningKr": "훨씬, 계속, 줄곧",
+        "exampleEn": "日本に来てから、ずっとこのアパートに住んでいます。",
+        "exampleKr": "일본에 온 이후로, 줄곧 이 아파트에 살고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ずっと",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-491-1779862085697",
+        "term": "とても",
+        "definition": "very; awfully; exceedingly",
+        "meaningKr": "매우, 아주, 대단히",
+        "exampleEn": "昨日食べたお寿司は、とても新鮮で美味しかったです。",
+        "exampleKr": "어제 먹은 초밥은, 매우 신선하고 맛있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "とても",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-492-1779862085697",
+        "term": "こう",
+        "definition": "like this",
+        "meaningKr": "이렇게, 이처럼",
+        "exampleEn": "漢字を書く時は、こうして筆を動かすと綺麗です。",
+        "exampleKr": "한자를 쓸 때는, 이렇게 붓을 움직이면 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "こう",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-493-1779862085697",
+        "term": "そう",
+        "definition": "like that",
+        "meaningKr": "그렇게, 그렇게 하면",
+        "exampleEn": "そう言われると、確かにその通りかもしれないですね。",
+        "exampleKr": "그렇게 들으니, 확실히 그럴지도 모르겠네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そう",
+        "pos": "auxiliary, adjective"
+      },
+      {
+        "id": "word-jp-494-1779862085697",
+        "term": "ああ",
+        "definition": "in that other way",
+        "meaningKr": "저렇게, 아아",
+        "exampleEn": "ああやって毎日練習すれば、きっと上手になりますよ。",
+        "exampleKr": "저렇게 매일 연습하면, 분명히 잘하게 될 거예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ああ",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-jp-495-1779862085697",
+        "term": "どう",
+        "definition": "how; in what way; how about",
+        "meaningKr": "어떻게, 어찌",
+        "exampleEn": "この漢字はどう読みますか、教えていただけますか。",
+        "exampleKr": "이 한자는 어떻게 읽습니까? 가르쳐 주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どう",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-496-1779862085697",
+        "term": "しばしば",
+        "definition": "often; again and again; frequently; repeatedly",
+        "meaningKr": "자주, 종종, 번번이",
+        "exampleEn": "この地域では、冬になるとしばしば大雪が降ります。",
+        "exampleKr": "이 지역에서는, 겨울이 되면 자주 폭설이 내립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しばしば",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-497-1779862085697",
+        "term": "この",
+        "definition": "nine; 9",
+        "meaningKr": "이, 이~",
+        "exampleEn": "この本は、日本語の勉強にとても役に立ちます。",
+        "exampleKr": "이 책은, 일본어 공부에 매우 도움이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "この",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-498-1779862085697",
+        "term": "その",
+        "definition": "that; the",
+        "meaningKr": "그, 그~",
+        "exampleEn": "その傘は私のものではないので、誰のか分かりません。",
+        "exampleKr": "그 우산은 제 것이 아니기 때문에, 누구 것인지 모릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "その",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-499-1779862085697",
+        "term": "あの",
+        "definition": "that; those; the",
+        "meaningKr": "저, 저~",
+        "exampleEn": "あの高いビルが、新しくできた図書館の建物です。",
+        "exampleKr": "저 높은 빌딩이, 새로 생긴 도서관 건물입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "あの",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-500-1779862085697",
+        "term": "どの",
+        "definition": "Mr.; Mrs.; Miss; Ms.",
+        "meaningKr": "~님, ~귀하",
+        "exampleEn": "織田殿、新しいお手紙が届きましたので、どうぞご覧ください。",
+        "exampleKr": "오다 님, 새 편지가 도착했으니 부디 읽어 보십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "どの",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-jp-501-1779862085697",
+        "term": "はい",
+        "definition": "yes; that is correct",
+        "meaningKr": "네, 예",
+        "exampleEn": "「明日は学校に行きますか」「はい、朝早くから行きます。」",
+        "exampleKr": "“내일은 학교에 가나요?” “네, 아침 일찍부터 갑니다.”",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "はい",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-jp-502-1779862085697",
+        "term": "いいえ",
+        "definition": "no",
+        "meaningKr": "아니요, 아닙니다",
+        "exampleEn": "「あなたは学生ですか」「いいえ、私は大学生ではなく会社員です。」",
+        "exampleKr": "“당신은 학생입니까?” “아니요, 저는 대학생이 아니라 회사원입니다.”",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "いいえ",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-jp-503-1779862085697",
+        "term": "でも",
+        "definition": "but; however; though; nevertheless; still; yet; even so; also; as well",
+        "meaningKr": "하지만, 그래도, 그렇지만",
+        "exampleEn": "旅行に行きたいです。でも、今はお金が全然ありません。",
+        "exampleKr": "여행을 가고 싶습니다. 하지만, 지금은 돈이 전혀 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "でも",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-504-1779862085697",
+        "term": "しかし",
+        "definition": "but, however",
+        "meaningKr": "그러나, 하지만, 그렇지만",
+        "exampleEn": "彼は毎日一生懸命勉強しました。しかし、試験に落ちてしまいました。",
+        "exampleKr": "그는 매일 열심히 공부했습니다. 그러나, 시험에 떨어지고 말았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "しかし",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-505-1779862085697",
+        "term": "そして",
+        "definition": "and then, Then…",
+        "meaningKr": "그리고, 그러고 나서",
+        "exampleEn": "私は朝起きて顔を洗いました。そして、すぐに朝ご飯を食べました。",
+        "exampleKr": "저는 아침에 일어나서 세수를 했습니다. 그리고, 바로 아침 식사를 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "そして",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-506-1779862085697",
+        "term": "それに",
+        "definition": "besides; in addition; also; moreover",
+        "meaningKr": "게다가, 더구나, 거기에",
+        "exampleEn": "この店の料理はとても美味しいです。それに、値段もすごく安いです。",
+        "exampleKr": "이 가게의 요리는 매우 맛있습니다. 게다가, 가격도 엄청 쌉니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "それに",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-507-1779862085697",
+        "term": "なぜなら",
+        "definition": "that is because, being because",
+        "meaningKr": "왜냐하면, 그 이유는",
+        "exampleEn": "私はこの果物が大好きです。なぜなら、とても甘くて美味しいからです。",
+        "exampleKr": "저는 이 과일을 아주 좋아합니다. 왜냐하면, 매우 달고 맛있기 때문입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "なぜなら",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-508-1779862085697",
+        "term": "う",
+        "definition": "volitional ending [う for ''u''-verbs, よう for ''ru''-verbs]: \"Let's…\" or \"I will\"",
+        "meaningKr": "~하자, ~하겠다",
+        "exampleEn": "週末に友達と一緒においしいラーメンを食べに行こうと思います。",
+        "exampleKr": "주말에 친구와 함께 맛있는 라면을 먹으러 가려고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "う",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-509-1779862085697",
+        "term": "せる",
+        "definition": "causative ending [せる for ''u''-verbs, させる for ''ru''-verbs]: to make [someone do something], to allow",
+        "meaningKr": "~하게 하다, ~시키다",
+        "exampleEn": "先生は授業中に、すべての学生に日本語の教科書を読ませます。",
+        "exampleKr": "선생님은 수업 중에, 모든 학생에게 일본어 교과서를 읽게 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "せる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-510-1779862085697",
+        "term": "れる",
+        "definition": "passive verb ending [れる for ''u''-verbs, られる for ''ru''-verbs]: to be <verbed> [e.g., 食べられる, \"to be eaten\"]",
+        "meaningKr": "~해지다, ~당하다",
+        "exampleEn": "私は昨日、帰り道で突然知らない人に名前を呼ばれました。",
+        "exampleKr": "저는 어제, 돌아가는 길에 갑자기 모르는 사람에게 이름이 불렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "れる",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-511-1779862085697",
+        "term": "た",
+        "definition": "informal past-tense",
+        "meaningKr": "~했다, ~한",
+        "exampleEn": "私は昨日、友達と一緒に近くの映画館で面白い映画を見た。",
+        "exampleKr": "나는 어제, 친구와 함께 근처 영화관에서 재미있는 영화를 보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "た",
+        "pos": "noun, prefix"
+      },
+      {
+        "id": "word-jp-512-1779862085697",
+        "term": "たい",
+        "definition": "indicates desire to perform verb",
+        "meaningKr": "~하고 싶다",
+        "exampleEn": "今年の冬休みには、家族と一緒に北海道へ旅行に行きたいです。",
+        "exampleKr": "올해 겨울방학에는, 가족과 함께 홋카이도로 여행을 가고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "たい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-513-1779862085697",
+        "term": "だろう",
+        "definition": "indicates that it ''seems'' the verb occurs; also used to ask whether the verb occurs",
+        "meaningKr": "~일 것이다, ~하겠지",
+        "exampleEn": "空が暗くなってきたので、今日の午後からは雨が降るだろう。",
+        "exampleKr": "하늘이 어두워졌기 때문에, 오늘 오후부터는 비가 내릴 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "だろう",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-jp-514-1779862085697",
+        "term": "ない",
+        "definition": "informal negative",
+        "meaningKr": "~하지 않다, 없다",
+        "exampleEn": "今日は仕事がとても忙しいので、晩ご飯を食べる時間がない。",
+        "exampleKr": "오늘은 일이 매우 바쁘기 때문에, 저녁밥을 먹을 시간이 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ない",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-515-1779862085697",
+        "term": "ぬ",
+        "definition": "archaic informal negative [\"he hath\", \"thou didst\", etc.]",
+        "meaningKr": "~하지 않다",
+        "exampleEn": "彼は何も言わぬまま、静かに部屋から出て行ってしまいました。",
+        "exampleKr": "그는 아무 말도 하지 않은 채, 조용히 방에서 나가 버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ぬ",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-516-1779862085697",
+        "term": "ます",
+        "definition": "formal non-past ending",
+        "meaningKr": "~합니다, ~겠습니다",
+        "exampleEn": "私は毎朝、近くの公園を三十分ほど散歩してから会社に行きます。",
+        "exampleKr": "저는 매일 아침, 근처 공원을 30분 정도 산책하고 나서 회사에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "ます",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-ngsl-1",
     "title": "기초 영어 필수 1000",
     "icon": "🌱",

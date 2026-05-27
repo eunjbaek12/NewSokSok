@@ -46,7 +46,7 @@ import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
 import { useAuth } from '@/features/auth';
 import { speak } from '@/lib/tts';
-import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
     FadeOut,
@@ -382,7 +382,24 @@ export default function AddWordScreen() {
             setTerm(event.results[0].transcript);
         }
     });
-    useSpeechRecognitionEvent('error', () => setIsListening(false));
+    // event.error는 BCP-47 STT 표준 코드: language-not-supported, no-speech, network,
+    // audio-capture, not-allowed, service-not-allowed 등. 무음 처리하면 "왜 안 되는지"
+    // 알 수 없으니, 사용자가 행동할 수 있는 코드에 한해 안내를 띄운다.
+    useSpeechRecognitionEvent('error', (event: any) => {
+        setIsListening(false);
+        const code: string | undefined = event?.error;
+        if (!code || code === 'no-speech' || code === 'aborted') return; // 자연 종료
+        const langLabel = getLanguageLabel(inputSettings.sourceLang, t);
+        if (code === 'language-not-supported' || code === 'language-not-allowed') {
+            Alert.alert(t('common.error'), t('addWord.voiceLangNotSupported', { lang: langLabel }));
+        } else if (code === 'network') {
+            Alert.alert(t('common.error'), t('addWord.voiceNetworkError'));
+        } else if (code === 'not-allowed' || code === 'service-not-allowed') {
+            Alert.alert(t('common.permissionDenied'), t('addWord.micPermissionMessage'));
+        } else {
+            Alert.alert(t('common.error'), t('addWord.voiceGenericError', { code }));
+        }
+    });
 
     const handleVoiceInput = async () => {
         try {
@@ -400,7 +417,29 @@ export default function AddWordScreen() {
                 return;
             }
             Haptics.selectionAsync();
-            const lang = inputSettings.sourceLang === 'ko' ? 'ko-KR' : 'en-US';
+            // STT는 TTS와 동일한 BCP-47 태그를 받는다 — ja-JP/zh-CN 등 4개 언어 공용.
+            const lang = getTtsLang(inputSettings.sourceLang);
+
+            // 미지원/미설치 로케일은 start 시 'error' 이벤트로 빠지지만, 시도 전에 잡으면
+            // 사용자가 "음성 안 되네"가 아닌 "데이터 받으세요" 같은 행동 가능한 안내를 받는다.
+            // 일부 디바이스/안드로이드 인식기는 이 API를 지원하지 않거나 빈 배열을 돌려주므로
+            // 그땐 건너뛰고 그대로 시도 → 실패하면 error 핸들러가 잡는다.
+            let supportInfo: { locales?: string[]; installedLocales?: string[] } | null = null;
+            try {
+                supportInfo = await ExpoSpeechRecognitionModule.getSupportedLocales?.();
+            } catch { /* API 미지원 디바이스 — fall through. */ }
+            const langLabel = getLanguageLabel(inputSettings.sourceLang, t);
+            const supported = supportInfo?.locales ?? [];
+            const installed = supportInfo?.installedLocales ?? [];
+            if (supported.length > 0 && !supported.includes(lang)) {
+                Alert.alert(t('common.error'), t('addWord.voiceLangNotSupported', { lang: langLabel }));
+                return;
+            }
+            if (installed.length > 0 && !installed.includes(lang)) {
+                Alert.alert(t('common.error'), t('addWord.voiceLangNotInstalled', { lang: langLabel }));
+                return;
+            }
+
             ExpoSpeechRecognitionModule.start({ lang, interimResults: true });
         } catch {
             Alert.alert(t('common.error'), t('addWord.voiceNotSupported', { defaultValue: '음성 입력이 이 기기에서 지원되지 않습니다.' }));
@@ -796,9 +835,12 @@ export default function AddWordScreen() {
                                             <View key="term" style={styles.wordSection}>
                                                 {!isEditing && (
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6, marginBottom: 6 }}>
-                                                        <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
-                                                            <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? colors.onPrimary : colors.textSecondary} />
-                                                        </Pressable>
+                                                        {/* Expo Go / 모듈 로드 실패 시 죽은 버튼 노출 방지 — 음성 인식은 dev build 이상에서만 동작. */}
+                                                        {ExpoSpeechRecognitionModule && (
+                                                            <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                                <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? colors.onPrimary : colors.textSecondary} />
+                                                            </Pressable>
+                                                        )}
                                                         <Pressable onPress={() => openPhotoScan('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
                                                             <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
                                                         </Pressable>
@@ -859,7 +901,7 @@ export default function AddWordScreen() {
                                                             onPress={() => {
                                                                 if (term.trim()) {
                                                                     Haptics.selectionAsync();
-                                                                    speak(term.trim(), inputSettings.sourceLang === 'ko' ? 'ko-KR' : 'en-US');
+                                                                    speak(getSpeakableText(term, phonetic, inputSettings.sourceLang).trim(), getTtsLang(inputSettings.sourceLang));
                                                                 }
                                                             }}
                                                             disabled={!term.trim()}

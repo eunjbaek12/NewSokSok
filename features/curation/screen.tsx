@@ -99,6 +99,7 @@ const generateViaByok = async (
     sourceLang: string,
     targetLang: string,
     excludeTerms?: string[],
+    signal?: AbortSignal,
 ): Promise<unknown> => {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
     const prompt = buildPrompt(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
@@ -112,8 +113,14 @@ const generateViaByok = async (
         },
     };
 
+    // 내부 60초 타임아웃과 외부(사용자 중단) 신호를 하나의 컨트롤러로 합친다.
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 60_000);
+    const onExternalAbort = () => controller.abort();
+    if (signal) {
+        if (signal.aborted) controller.abort();
+        else signal.addEventListener('abort', onExternalAbort);
+    }
 
     let data: any;
     try {
@@ -153,11 +160,15 @@ const generateViaByok = async (
         data = await response.json();
     } catch (e: any) {
         if (e?.name === 'AbortError') {
+            // 사용자가 직접 중단했으면 AbortError를 그대로 전파(호출부에서 조용히 처리),
+            // 그 외(내부 60초 타임아웃)는 안내 메시지로 변환.
+            if (signal?.aborted) throw e;
             throw new Error('AI 응답 시간이 초과되었습니다 (60초). 네트워크 상태를 확인하고 다시 시도해주세요.');
         }
         throw e;
     } finally {
         clearTimeout(timeoutId);
+        if (signal) signal.removeEventListener('abort', onExternalAbort);
     }
     let textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
 
@@ -199,13 +210,14 @@ const generateAIWords = async (
     sourceLang: string,
     targetLang: string,
     excludeTerms?: string[],
+    signal?: AbortSignal,
 ): Promise<GenerateAIWordsResult> => {
     // BYOK 키가 있으면 본인 키로 직접 호출, 없으면 운영자 키(Edge, quota 적용).
     let raw: unknown;
     if (apiKey) {
-        raw = await generateViaByok(query, apiKey, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
+        raw = await generateViaByok(query, apiKey, wordCount, difficulty, sourceLang, targetLang, excludeTerms, signal);
     } else {
-        const res = await generateWordsViaEdge(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
+        const res = await generateWordsViaEdge(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms, signal);
         if (res.kind !== 'ok') throw new Error(edgeGenerateErrorMessage(res.kind));
         raw = res.result;
     }
@@ -248,6 +260,8 @@ const generateAIWords = async (
             isMemorized: false,
             isStarred: false,
             tags: [...baseTags, AI_GENERATED_TAG, difficultyTag],
+            sourceLang,
+            targetLang,
         };
     });
 
@@ -308,6 +322,11 @@ export default function CurationScreen() {
     const [aiTargetLangPickerOpen, setAiTargetLangPickerOpen] = useState(false);
     const [lastGenParams, setLastGenParams] = useState<{ topic: string; difficulty: AiDifficulty; wordCount: number; sourceLang: string; targetLang: string } | null>(null);
     const [regenerating, setRegenerating] = useState(false);
+    // 진행 중 생성 요청을 취소(중단)하기 위한 AbortController. 사용자가 닫기를 누르면 abort.
+    const genAbortRef = useRef<AbortController | null>(null);
+    // 생성은 비스트리밍 단일 호출이라 보통 15~25초 걸린다. 실제 진행률은 알 수 없으므로
+    // 경과 시간에 맞춰 안내 문구를 단계적으로 바꿔 "멈춘 게 아니라 작업 중"임을 보여준다.
+    const [genStep, setGenStep] = useState(0);
 
     useEffect(() => {
         let mounted = true;
@@ -323,6 +342,21 @@ export default function CurationScreen() {
         });
         return () => { mounted = false; };
     }, [fetchCloudCurations]);
+
+    // 생성 중일 때만 안내 문구를 ~4.5초 간격으로 다음 단계로 넘긴다(마지막 단계에서 멈춤).
+    const aiGeneratingSteps = useMemo(
+        () => t('curation.aiGeneratingSteps', { returnObjects: true }) as string[],
+        [t],
+    );
+    useEffect(() => {
+        const busy = generating || regenerating;
+        if (!busy) { setGenStep(0); return; }
+        setGenStep(0);
+        const id = setInterval(() => {
+            setGenStep(prev => Math.min(prev + 1, aiGeneratingSteps.length - 1));
+        }, 4500);
+        return () => clearInterval(id);
+    }, [generating, regenerating, aiGeneratingSteps.length]);
 
     // Initialize word selection when theme is selected
     useEffect(() => {
@@ -553,13 +587,18 @@ export default function CurationScreen() {
             setSnackbar({ visible: true, message: t('curation.enterSearchFirst') });
             return;
         }
+        const controller = new AbortController();
+        genAbortRef.current = controller;
         setGenerating(true);
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
         const topic = aiTopic.trim();
         const sourceLang = aiSourceLang;
         const targetLang = aiTargetLang;
         try {
-            const { words, droppedCount } = await generateAIWords(topic, apiKey, aiWordCount, aiDifficulty, sourceLang, targetLang);
+            const { words, droppedCount } = await generateAIWords(topic, apiKey, aiWordCount, aiDifficulty, sourceLang, targetLang, undefined, controller.signal);
+            // supabase.functions.invoke의 signal이 fetch까지 전파되지 않는 환경이 있어,
+            // abort 후 응답이 늦게 도착할 수 있다. abort된 요청의 결과는 버린다.
+            if (controller.signal.aborted) return;
             const newTheme: VocaList = {
                 id: `ai-theme-${Date.now()}`,
                 title: `AI: ${topic}`,
@@ -581,10 +620,36 @@ export default function CurationScreen() {
                 });
             }
         } catch (e: any) {
+            // 사용자가 직접 중단했거나 abort 이후 도착한 에러는 조용히 무시 — UI는 cancel 시 이미 정리됨.
+            if (e?.name === 'AbortError' || controller.signal.aborted) return;
             setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
         } finally {
-            setGenerating(false);
+            // abort된 요청은 cancel 핸들러가 이미 generating=false로 만들었으니 덮어쓰지 않는다.
+            if (!controller.signal.aborted) setGenerating(false);
+            if (genAbortRef.current === controller) genAbortRef.current = null;
         }
+    };
+
+    // 진행 중 닫기 시도 → 중단 확인. "중단" 누르면 UI는 즉시 정리하고, 백엔드 요청은
+    // best-effort로 abort. supabase.functions.invoke의 signal이 fetch까지 전파되지 않는
+    // 환경이 있어, abort가 통하지 않아도 UI는 안 막히도록 동기적으로 닫는다.
+    const handleCancelGenerate = () => {
+        Alert.alert(
+            t('curation.aiCancelTitle'),
+            t('curation.aiCancelMessage'),
+            [
+                { text: t('curation.aiCancelKeep'), style: 'cancel' },
+                {
+                    text: t('curation.aiCancelConfirm'),
+                    style: 'destructive',
+                    onPress: () => {
+                        genAbortRef.current?.abort();
+                        setGenerating(false);
+                        setAiModalVisible(false);
+                    },
+                },
+            ],
+        );
     };
 
     const handleRegenerate = async () => {
@@ -617,6 +682,7 @@ export default function CurationScreen() {
                 });
             }
         } catch (e: any) {
+            if (e?.name === 'AbortError') return;
             setSnackbar({ visible: true, message: e.message || t('curation.aiGenerateError') });
         } finally {
             setRegenerating(false);
@@ -877,7 +943,7 @@ export default function CurationScreen() {
                                 {regenerating ? (
                                     <>
                                         <ActivityIndicator size="small" color={colors.primary} />
-                                        <Text style={[styles.regenerateBtnText, { color: colors.primary }]}>{t('curation.aiGenerating')}</Text>
+                                        <Text style={[styles.regenerateBtnText, { color: colors.primary }]}>{aiGeneratingSteps[genStep]}</Text>
                                     </>
                                 ) : (
                                     <>
@@ -1170,6 +1236,7 @@ export default function CurationScreen() {
                 readOnly={true}
                 listId="curation"
                 word={detailWord}
+                sourceLanguage={selectedTheme?.sourceLanguage}
                 onClose={() => setDetailWord(null)}
             />
 
@@ -1183,33 +1250,41 @@ export default function CurationScreen() {
 
             <DialogModal
                 visible={aiModalVisible}
-                onClose={() => { if (!generating) setAiModalVisible(false); }}
+                onClose={() => { if (generating) handleCancelGenerate(); else setAiModalVisible(false); }}
                 title={t('curation.aiGenerate')}
                 scrollable={false}
-                footer={
+                footer={generating ? null : (
                     <Pressable
                         onPress={handleGenerateAI}
-                        disabled={generating || !aiTopic.trim()}
+                        disabled={!aiTopic.trim()}
                         style={{
                             flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8,
-                            backgroundColor: aiTopic.trim() && !generating ? colors.accent : colors.border,
+                            backgroundColor: aiTopic.trim() ? colors.accent : colors.border,
                             paddingVertical: 14, borderRadius: 14,
                         }}
                     >
-                        {generating ? (
-                            <>
-                                <ActivityIndicator color={colors.onPrimary} size="small" />
-                                <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerating')}</Text>
-                            </>
-                        ) : (
-                            <>
-                                <Ionicons name="sparkles" size={18} color={colors.onPrimary} />
-                                <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerateAction')}</Text>
-                            </>
-                        )}
+                        <Ionicons name="sparkles" size={18} color={colors.onPrimary} />
+                        <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold', fontSize: 15 }}>{t('curation.aiGenerateAction')}</Text>
                     </Pressable>
-                }
+                )}
             >
+                {generating ? (
+                    <View style={{ paddingHorizontal: 20, paddingVertical: 28, alignItems: 'center', gap: 14 }}>
+                        <CharacterSvg size={72} isDark={isDark} />
+                        <Text style={{ fontSize: 16, fontFamily: 'Pretendard_700Bold', color: colors.text, textAlign: 'center' }}>
+                            {t('curation.aiGeneratingTitle')}
+                        </Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                            <ActivityIndicator size="small" color={colors.accent} />
+                            <Text style={{ fontSize: 14, fontFamily: 'Pretendard_600SemiBold', color: colors.accent }}>
+                                {aiGeneratingSteps[genStep]}
+                            </Text>
+                        </View>
+                        <Text style={{ fontSize: 13, fontFamily: 'Pretendard_400Regular', color: colors.textTertiary, textAlign: 'center', lineHeight: 18 }}>
+                            {t('curation.aiGeneratingHint')}
+                        </Text>
+                    </View>
+                ) : (
                 <View style={{ paddingHorizontal: 20, gap: 16, paddingBottom: 8 }}>
                     <View style={{ gap: 6 }}>
                         <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiTopicLabel')}</Text>
@@ -1306,6 +1381,7 @@ export default function CurationScreen() {
                         </View>
                     </View>
                 </View>
+                )}
             </DialogModal>
 
             <ModalPicker

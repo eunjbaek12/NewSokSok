@@ -2,6 +2,8521 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-zh-basic-1",
+    "title": "기초 중국어 500 (HSK 1급)",
+    "icon": "🐼",
+    "isCurated": true,
+    "category": "기초",
+    "level": "beginner",
+    "description": "HSK 1급 기초 중국어 500. Wiktionary HSK v3.0 어휘 목록 (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·예문 AI 생성",
+    "sourceLanguage": "zh",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1779916403380,
+    "words": [
+      {
+        "id": "word-zh-0-1779916403380",
+        "term": "爱",
+        "definition": "to love; to be fond of; to like; affection; to be inclined (to do sth); to tend to (happen)",
+        "meaningKr": "사랑하다, 좋아하다",
+        "exampleEn": "我爱我的家人。",
+        "exampleKr": "나는 나의 가족을 사랑한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-1-1779916403380",
+        "term": "吧",
+        "definition": "bar (loanword) (serving drinks, or providing Internet access etc); to puff (on a pipe etc)",
+        "meaningKr": "~하자, ~이죠 (제안, 추측)",
+        "exampleEn": "我们一起去吃饭吧。",
+        "exampleKr": "우리 같이 밥 먹으러 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ba",
+        "pos": "particle"
+      },
+      {
+        "id": "word-zh-2-1779916403380",
+        "term": "八",
+        "definition": "eight",
+        "meaningKr": "여덟, 8",
+        "exampleEn": "我早上八点起床。",
+        "exampleKr": "나는 아침 8시에 일어난다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bā",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-3-1779916403380",
+        "term": "白",
+        "definition": "Bai ethnic group",
+        "meaningKr": "하얗다, 흰색의",
+        "exampleEn": "她喜欢穿白色的衣服。",
+        "exampleKr": "그녀는 흰색 옷을 입는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bái",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-4-1779916403380",
+        "term": "百",
+        "definition": "surname Bai",
+        "meaningKr": "백, 100",
+        "exampleEn": "这本书一百块钱。",
+        "exampleKr": "이 책은 100위안입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bǎi",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-5-1779916403380",
+        "term": "班",
+        "definition": "surname Ban",
+        "meaningKr": "반, 클래스, 근무",
+        "exampleEn": "我们班有二十个学生。",
+        "exampleKr": "우리 반에는 학생이 20명 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bān",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-6-1779916403380",
+        "term": "半",
+        "definition": "half; semi-; incomplete",
+        "meaningKr": "반, 절반, 반 시간",
+        "exampleEn": "现在是三点半。",
+        "exampleKr": "지금은 3시 반입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bàn",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-7-1779916403380",
+        "term": "帮",
+        "definition": "old variant of 幫|帮[bang1]",
+        "meaningKr": "돕다, 도와주다",
+        "exampleEn": "你能帮我一个忙吗？",
+        "exampleKr": "저를 좀 도와주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bāng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-8-1779916403380",
+        "term": "包",
+        "definition": "surname Bao",
+        "meaningKr": "가방, 백, 싸다",
+        "exampleEn": "我的包在桌子上。",
+        "exampleKr": "내 가방은 책상 위에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bāo",
+        "pos": "noun, classifier, verb"
+      },
+      {
+        "id": "word-zh-9-1779916403380",
+        "term": "杯",
+        "definition": "cup; trophy cup; classifier for certain containers of liquids: glass, cup",
+        "meaningKr": "잔, 컵",
+        "exampleEn": "我想喝一杯温水。",
+        "exampleKr": "저는 따뜻한 물 한 잔을 마시고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bēi",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-10-1779916403380",
+        "term": "北",
+        "definition": "north",
+        "meaningKr": "북쪽, 북",
+        "exampleEn": "北京在中国的北方。",
+        "exampleKr": "베이징은 중국의 북쪽에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "běi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-11-1779916403380",
+        "term": "本",
+        "definition": "originally; initially; capital; principal; classifier for books, periodicals, files etc",
+        "meaningKr": "권 (책을 세는 단위)",
+        "exampleEn": "桌上有一本书。",
+        "exampleKr": "책상 위에 책 한 권이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "běn",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-12-1779916403380",
+        "term": "比",
+        "definition": "Belgium; Belgian",
+        "meaningKr": "~보다 (비교)",
+        "exampleEn": "哥哥比我高很多。",
+        "exampleKr": "형은 나보다 훨씬 크다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bǐ",
+        "pos": "preposition, verb"
+      },
+      {
+        "id": "word-zh-13-1779916403380",
+        "term": "别",
+        "definition": "surname Bie",
+        "meaningKr": "~하지 마라, 금지하다",
+        "exampleEn": "外面太冷，你别出去了。",
+        "exampleKr": "밖이 너무 추우니 나가지 마라.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bié",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-14-1779916403380",
+        "term": "病",
+        "definition": "illness; disease; to fall ill",
+        "meaningKr": "병, 아프다, 병이 나다",
+        "exampleEn": "他生病了，今天没来。",
+        "exampleKr": "그는 병이 나서 오늘 오지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bìng",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-15-1779916403380",
+        "term": "不",
+        "definition": "no; not so",
+        "meaningKr": "아니다, 안 (~하다)",
+        "exampleEn": "我今天不想去 school。",
+        "exampleKr": "나는 오늘 학교에 가고 싶지 않다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bù",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-16-1779916403380",
+        "term": "菜",
+        "definition": "vegetable; greens (CL:棵[ke1]); dish (of food) (CL:樣|样[yang4],道[dao4],盤|盘[pan2])",
+        "meaningKr": "요리, 반찬, 채소",
+        "exampleEn": "妈妈做的菜很好吃。",
+        "exampleKr": "어머니께서 만드신 요리는 매우 맛있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "cài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-17-1779916403380",
+        "term": "茶",
+        "definition": "tea; tea plant",
+        "meaningKr": "차 (마시는 차)",
+        "exampleEn": "爷爷每天下午都喝茶。",
+        "exampleKr": "할아버지는 매일 오후에 차를 마신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chá",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-18-1779916403380",
+        "term": "差",
+        "definition": "difference; discrepancy",
+        "meaningKr": "부족하다, 모자라다, 나쁘다",
+        "exampleEn": "现在是差五分十二点。",
+        "exampleKr": "지금은 12시 5분 전이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chà",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-19-1779916403380",
+        "term": "常",
+        "definition": "surname Chang",
+        "meaningKr": "자주, 흔히",
+        "exampleEn": "我常去那家书店看书。",
+        "exampleKr": "나는 자주 그 서점에 가서 책을 읽는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "cháng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-20-1779916403380",
+        "term": "唱",
+        "definition": "to sing; to call loudly; to chant",
+        "meaningKr": "노래하다, 부르다",
+        "exampleEn": "妹妹很喜欢唱歌。",
+        "exampleKr": "여동생은 노래 부르는 것을 아주 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chàng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-21-1779916403380",
+        "term": "车",
+        "definition": "surname Che",
+        "meaningKr": "차, 자동차",
+        "exampleEn": "爸爸开车去上班。",
+        "exampleKr": "아빠는 차를 운전해서 출근하신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chē",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-22-1779916403380",
+        "term": "吃",
+        "definition": "to eat; to consume; to eat at (a cafeteria etc); to eradicate; to destroy",
+        "meaningKr": "먹다",
+        "exampleEn": "我们中午吃面条吧。",
+        "exampleKr": "우리 점심으로 국수 먹자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chī",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-23-1779916403380",
+        "term": "出",
+        "definition": "to go out; to come out; to arise; to occur; to produce; to yield",
+        "meaningKr": "나가다, 나오다",
+        "exampleEn": "他已经从教室里出来了。",
+        "exampleKr": "그는 이미 교실에서 나왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chū",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-24-1779916403380",
+        "term": "穿",
+        "definition": "to wear; to put on; to dress",
+        "meaningKr": "입다, 신다",
+        "exampleEn": "今天冷，多穿点衣服。",
+        "exampleKr": "오늘 추우니 옷을 많이 입어라.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chuān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-25-1779916403380",
+        "term": "床",
+        "definition": "bed; couch (furniture that one can lie down on) (CL:張|张[zhang1]); bed; bottom (of rivers, oceans, gardens etc); frame; chassis",
+        "meaningKr": "침대",
+        "exampleEn": "我家有一张大床。",
+        "exampleKr": "우리 집에는 큰 침대가 하나 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chuáng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-26-1779916403380",
+        "term": "次",
+        "definition": "next in sequence; second; the second (day, time etc)",
+        "meaningKr": "번, 횟수",
+        "exampleEn": "我去过一次北京。",
+        "exampleKr": "저는 베이징에 한 번 가봤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "cì",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-27-1779916403380",
+        "term": "从",
+        "definition": "variant of 從|从[cong2]",
+        "meaningKr": "~에서, ~로부터",
+        "exampleEn": "我从韩国来。",
+        "exampleKr": "저는 한국에서 왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "cóng",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-28-1779916403380",
+        "term": "错",
+        "definition": "surname Cuo",
+        "meaningKr": "틀리다, 잘못되다",
+        "exampleEn": "这个字写错了。",
+        "exampleKr": "이 글자는 잘못 썼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "cuò",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-zh-29-1779916403380",
+        "term": "打",
+        "definition": "Taiwan pr. [da3]",
+        "meaningKr": "(전화를) 걸다, 치다",
+        "exampleEn": "我下午给你打电话。",
+        "exampleKr": "제가 오후에 전화할게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dǎ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-30-1779916403380",
+        "term": "大",
+        "definition": "big; large; great; older (than another person); eldest (as in 大姐[da4 jie3])",
+        "meaningKr": "크다",
+        "exampleEn": "那个苹果很大。",
+        "exampleKr": "저 사과는 매우 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dà",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-31-1779916403380",
+        "term": "到",
+        "definition": "to reach; to arrive; to leave for; to go to; to (a place); until (a time); up to (a point)",
+        "meaningKr": "도착하다, ~에 이르다",
+        "exampleEn": "火车下午三点到北京。",
+        "exampleKr": "기차는 오후 3시에 베이징에 도착합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-32-1779916403380",
+        "term": "地",
+        "definition": "-ly; structural particle: used before a verb or adjective, linking it to preceding modifying adverbial adjunct",
+        "meaningKr": "~하게, ~히",
+        "exampleEn": "他高兴地笑了。",
+        "exampleKr": "그는 기쁘게 웃었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "de",
+        "pos": "particle"
+      },
+      {
+        "id": "word-zh-33-1779916403380",
+        "term": "的",
+        "definition": "of; ~'s (possessive particle); also pr. [di4] or [di5] in poetry and songs",
+        "meaningKr": "~의, ~한 것",
+        "exampleEn": "这是我的书。",
+        "exampleKr": "이것은 제 책입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "de",
+        "pos": "particle"
+      },
+      {
+        "id": "word-zh-34-1779916403380",
+        "term": "等",
+        "definition": "to wait for; to await; by the time; when; till; and so on; etc.; et al.",
+        "meaningKr": "기다리다",
+        "exampleEn": "请在门口等我。",
+        "exampleKr": "문 앞에서 저를 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "děng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-35-1779916403380",
+        "term": "地",
+        "definition": "earth; ground; field",
+        "meaningKr": "땅, 바닥",
+        "exampleEn": "地上有一本书。",
+        "exampleKr": "바닥에 책이 한 권 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-36-1779916403380",
+        "term": "第",
+        "definition": "(prefix indicating ordinal number, as in 第六[di4 liu4] \"sixth\"); (literary) grades in which successful candidates in the imperial examinations were placed; (old) residence of a high official",
+        "meaningKr": "제~ (서수 접두사)",
+        "exampleEn": "这是我第一次来中国。",
+        "exampleKr": "이번이 제가 처음으로 중국에 온 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dì",
+        "pos": "prefix"
+      },
+      {
+        "id": "word-zh-37-1779916403380",
+        "term": "点",
+        "definition": "to touch briefly; to tap; to mark with a dot; to check off (on a list); to order (food etc); to select",
+        "meaningKr": "시, 조금, 주문하다",
+        "exampleEn": "现在是早上八点。",
+        "exampleKr": "지금은 아침 8시입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diǎn",
+        "pos": "classifier, verb, noun"
+      },
+      {
+        "id": "word-zh-38-1779916403380",
+        "term": "电",
+        "definition": "lightning; electricity; electric (bound form)",
+        "meaningKr": "전기, 전화, 영화",
+        "exampleEn": "手机没有电了。",
+        "exampleKr": "휴대폰 배터리가 다 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-39-1779916403380",
+        "term": "东",
+        "definition": "surname Dong",
+        "meaningKr": "동쪽",
+        "exampleEn": "学校的东边是一个公园。",
+        "exampleKr": "학교 동쪽은 공원입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dōng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-40-1779916403380",
+        "term": "动",
+        "definition": "to set in movement; to displace; to touch",
+        "meaningKr": "움직이다, 행동하다",
+        "exampleEn": "别动，让我看看。",
+        "exampleKr": "움직이지 마세요, 제가 좀 볼게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-41-1779916403380",
+        "term": "都",
+        "definition": "all; both; entirely; already",
+        "meaningKr": "모두, 다",
+        "exampleEn": "我们都是韩国人。",
+        "exampleKr": "우리는 모두 한국인입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dōu",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-42-1779916403380",
+        "term": "读",
+        "definition": "to read out; to read aloud; to read; to attend (school); to study (a subject in school)",
+        "meaningKr": "읽다, 공부하다",
+        "exampleEn": "我喜欢读汉语书。",
+        "exampleKr": "저는 중국어 책 읽는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-43-1779916403380",
+        "term": "对",
+        "definition": "right; correct; towards; at; for; concerning; regarding",
+        "meaningKr": "맞다, 옳다, ~에 대하여",
+        "exampleEn": "你说的很对。",
+        "exampleKr": "당신 말이 맞습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "duì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-44-1779916403380",
+        "term": "多",
+        "definition": "many; much; more; a lot of; too many; in excess; how (to what extent) (Taiwan pr. [duo2])",
+        "meaningKr": "많다, 얼마나",
+        "exampleEn": "这里的人很多。",
+        "exampleKr": "이곳에는 사람이 아주 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "duō",
+        "pos": "adjective, pronoun"
+      },
+      {
+        "id": "word-zh-45-1779916403380",
+        "term": "饿",
+        "definition": "hungry; to starve (sb)",
+        "meaningKr": "배고프다",
+        "exampleEn": "我肚子饿了，想吃饭。",
+        "exampleKr": "배가 고파서 밥을 먹고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "è",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-46-1779916403380",
+        "term": "二",
+        "definition": "two; 2",
+        "meaningKr": "둘, 이",
+        "exampleEn": "今天是二月一号。",
+        "exampleKr": "오늘은 2월 1일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "èr",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-47-1779916403380",
+        "term": "饭",
+        "definition": "cooked rice; meal; devotee",
+        "meaningKr": "밥, 식사",
+        "exampleEn": "你中午吃了什么饭？",
+        "exampleKr": "점심으로 무엇을 먹었습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-48-1779916403380",
+        "term": "放",
+        "definition": "to put; to place; to release",
+        "meaningKr": "놓다, 석방하다",
+        "exampleEn": "请把书放在桌子上。",
+        "exampleKr": "책을 책상 위에 놓아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fàng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-49-1779916403380",
+        "term": "飞",
+        "definition": "to fly",
+        "meaningKr": "날다",
+        "exampleEn": "鸟在天上飞。",
+        "exampleKr": "새가 하늘을 날고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fēi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-50-1779916403380",
+        "term": "分",
+        "definition": "to divide; to separate; to distribute; to allocate; to distinguish (good and bad)",
+        "meaningKr": "분 (시간), 점수",
+        "exampleEn": "现在是三点十分。",
+        "exampleKr": "지금은 3시 10분입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fēn",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-51-1779916403380",
+        "term": "风",
+        "definition": "wind; news; style",
+        "meaningKr": "바람",
+        "exampleEn": "今天风很大。",
+        "exampleKr": "오늘 바람이 많이 불어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-52-1779916403380",
+        "term": "干",
+        "definition": "old variant of 乾|干[gan1]",
+        "meaningKr": "마르다, 건조하다",
+        "exampleEn": "这件衣服已经干了。",
+        "exampleKr": "이 옷은 이미 다 말랐어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gān",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-53-1779916403380",
+        "term": "干",
+        "definition": "old variant of 乾|干[gan1]",
+        "meaningKr": "하다, 일하다",
+        "exampleEn": "你在干什么呢？",
+        "exampleKr": "너 지금 뭐 하고 있어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-54-1779916403380",
+        "term": "高",
+        "definition": "surname Gao",
+        "meaningKr": "높다, (키가) 크다",
+        "exampleEn": "他的个子很高。",
+        "exampleKr": "그는 키가 매우 커요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gāo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-55-1779916403380",
+        "term": "歌",
+        "definition": "song (CL:首[shou3],支[zhi1])",
+        "meaningKr": "노래",
+        "exampleEn": "我喜欢听中文歌。",
+        "exampleKr": "저는 중국 노래를 듣는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gē",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-56-1779916403380",
+        "term": "个",
+        "definition": "used in 自個兒|自个儿[zi4 ge3 r5]",
+        "meaningKr": "개, 명 (사람이나 사물을 세는 단위)",
+        "exampleEn": "我买了一个苹果。",
+        "exampleKr": "저는 사과를 한 개 샀어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gè",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-57-1779916403380",
+        "term": "给",
+        "definition": "to; for; for the benefit of",
+        "meaningKr": "주다, ~에게",
+        "exampleEn": "请给我一杯水。",
+        "exampleKr": "저에게 물 한 잔 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gěi",
+        "pos": "verb, preposition"
+      },
+      {
+        "id": "word-zh-58-1779916403380",
+        "term": "跟",
+        "definition": "heel; to follow closely; to go with",
+        "meaningKr": "~와/과, 따르다",
+        "exampleEn": "我跟他一起去学校。",
+        "exampleKr": "나는 그와 함께 학교에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gēn",
+        "pos": "preposition, conjunction, verb"
+      },
+      {
+        "id": "word-zh-59-1779916403380",
+        "term": "关",
+        "definition": "surname Guan",
+        "meaningKr": "닫다, 끄다",
+        "exampleEn": "请把门关上。",
+        "exampleKr": "문을 닫아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "guān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-60-1779916403380",
+        "term": "贵",
+        "definition": "short name for Guizhou 貴州|贵州[Gui4 zhou1]",
+        "meaningKr": "비싸다, 귀하다",
+        "exampleEn": "这件衣服太贵了。",
+        "exampleKr": "이 옷은 너무 비싸요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "guì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-61-1779916403380",
+        "term": "国",
+        "definition": "surname Guo",
+        "meaningKr": "나라, 국가",
+        "exampleEn": "中国是一个大国。",
+        "exampleKr": "중국은 큰 나라입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "guó",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-62-1779916403380",
+        "term": "过",
+        "definition": "surname Guo",
+        "meaningKr": "지나다, 보내다",
+        "exampleEn": "你生日怎么过？",
+        "exampleKr": "생일은 어떻게 보낼 거니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "guò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-63-1779916403380",
+        "term": "还",
+        "definition": "still; still in progress; still more",
+        "meaningKr": "아직, 여전히, 게다가",
+        "exampleEn": "我还在学校学习。",
+        "exampleKr": "나는 아직 학교에서 공부하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hái",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-64-1779916403380",
+        "term": "好",
+        "definition": "good; appropriate; proper; all right!",
+        "meaningKr": "좋다, 안녕하다",
+        "exampleEn": "今天天气很好。",
+        "exampleKr": "오늘 날씨가 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hǎo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-65-1779916403380",
+        "term": "号",
+        "definition": "(bound form) to wail; to howl",
+        "meaningKr": "일(날짜), 번호",
+        "exampleEn": "今天是十月一号。",
+        "exampleKr": "오늘은 10월 1일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hào",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-66-1779916403380",
+        "term": "喝",
+        "definition": "to drink",
+        "meaningKr": "마시다",
+        "exampleEn": "我想喝一杯茶。",
+        "exampleKr": "나는 차를 한 잔 마시고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hē",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-67-1779916403380",
+        "term": "和",
+        "definition": "old variant of 和[he2]",
+        "meaningKr": "~와/과",
+        "exampleEn": "我和他是好朋友。",
+        "exampleKr": "나와 그는 좋은 친구이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hé",
+        "pos": "preposition, conjunction"
+      },
+      {
+        "id": "word-zh-68-1779916403380",
+        "term": "很",
+        "definition": "very; quite",
+        "meaningKr": "매우, 아주",
+        "exampleEn": "这个汉语很难。",
+        "exampleKr": "이 중국어는 매우 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hěn",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-69-1779916403380",
+        "term": "后",
+        "definition": "surname Hou",
+        "meaningKr": "뒤, 후",
+        "exampleEn": "医院在学校后面。",
+        "exampleKr": "병원은 학교 뒤에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hòu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-70-1779916403380",
+        "term": "花",
+        "definition": "surname Hua",
+        "meaningKr": "꽃",
+        "exampleEn": "桌子上有一朵花。",
+        "exampleKr": "탁자 위에 꽃이 한 송이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huā",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-71-1779916403380",
+        "term": "话",
+        "definition": "dialect; language; spoken words",
+        "meaningKr": "말, 이야기",
+        "exampleEn": "我听不懂他的话。",
+        "exampleKr": "나는 그의 말을 알아듣지 못한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huà",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-72-1779916403380",
+        "term": "坏",
+        "definition": "bad; spoiled; broken",
+        "meaningKr": "나쁘다, 고장 나다",
+        "exampleEn": "我的电脑坏了。",
+        "exampleKr": "내 컴퓨터가 고장 났다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huài",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-73-1779916403380",
+        "term": "还",
+        "definition": "surname Huan",
+        "meaningKr": "돌려주다, 갚다",
+        "exampleEn": "我去图书馆还书。",
+        "exampleKr": "나는 도서관에 책을 반납하러 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huán",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-74-1779916403380",
+        "term": "回",
+        "definition": "Hui ethnic group (Chinese Muslims)",
+        "meaningKr": "돌아가다, 돌아오다",
+        "exampleEn": "我下午五点回家。",
+        "exampleKr": "나는 오후 5시에 집에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-75-1779916403380",
+        "term": "会",
+        "definition": "can; to have the skill; to know how to; to be likely to; to be sure to; to meet; to get together",
+        "meaningKr": "~할 수 있다, ~할 것이다",
+        "exampleEn": "我会说一点汉语。",
+        "exampleKr": "저는 중국어를 조금 할 줄 알아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-76-1779916403380",
+        "term": "几",
+        "definition": "small table",
+        "meaningKr": "몇, 어느 정도",
+        "exampleEn": "你家里有几个人？",
+        "exampleKr": "당신 집에는 식구가 몇 명 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jǐ",
+        "pos": "number, pronoun"
+      },
+      {
+        "id": "word-zh-77-1779916403380",
+        "term": "记",
+        "definition": "to record; to note; to memorize",
+        "meaningKr": "기억하다, 기록하다",
+        "exampleEn": "我记住了你的名字。",
+        "exampleKr": "저는 당신의 이름을 기억했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-78-1779916403380",
+        "term": "家",
+        "definition": "used in 傢伙|家伙[jia1 huo5] and 傢俱|家俱[jia1 ju4]",
+        "meaningKr": "집, 가족",
+        "exampleEn": "我家有四口人。",
+        "exampleKr": "우리 집에는 식구가 네 명 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiā",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-79-1779916403380",
+        "term": "间",
+        "definition": "between; among; within a definite time or space",
+        "meaningKr": "칸, 방 (방을 세는 단위)",
+        "exampleEn": "这间书房很大。",
+        "exampleKr": "이 서재는 아주 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiān",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-80-1779916403380",
+        "term": "见",
+        "definition": "to see; to meet; to appear (to be sth)",
+        "meaningKr": "만나다, 보다",
+        "exampleEn": "我们明天学校见。",
+        "exampleKr": "우리 내일 학교에서 만나요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-81-1779916403380",
+        "term": "教",
+        "definition": "surname Jiao",
+        "meaningKr": "가르치다",
+        "exampleEn": "老师教我们汉语。",
+        "exampleKr": "선생님께서 우리에게 중국어를 가르쳐 주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiāo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-82-1779916403380",
+        "term": "叫",
+        "definition": "to shout; to call; to order",
+        "meaningKr": "~라고 부르다, 이름이 ~이다",
+        "exampleEn": "我叫李明，你呢？",
+        "exampleKr": "제 이름은 이명입니다, 당신은요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-83-1779916403380",
+        "term": "进",
+        "definition": "to go forward; to advance; to go in",
+        "meaningKr": "들어오다, 들어가다",
+        "exampleEn": "请进，请坐吧。",
+        "exampleKr": "들어오세요, 앉으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jìn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-84-1779916403380",
+        "term": "九",
+        "definition": "nine; 9",
+        "meaningKr": "아홉, 9",
+        "exampleEn": "今天是九月一日。",
+        "exampleKr": "오늘은 9월 1일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiǔ",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-85-1779916403380",
+        "term": "就",
+        "definition": "only; as little as; as much as; as many as; to approach; to move towards",
+        "meaningKr": "바로, 곧",
+        "exampleEn": "我下课后就去图书馆。",
+        "exampleKr": "저는 수업이 끝난 후 바로 도서관에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiù",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-86-1779916403380",
+        "term": "开",
+        "definition": "to open (transitive or intransitive); to turn on; to put in operation; to operate; to run; to boil",
+        "meaningKr": "열다, (차를) 몰다, 켜다",
+        "exampleEn": "爸爸在开车呢。",
+        "exampleKr": "아빠는 운전을 하고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kāi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-87-1779916403380",
+        "term": "看",
+        "definition": "to look after; to take care of; to watch",
+        "meaningKr": "보다, 읽다",
+        "exampleEn": "我喜欢看中文书。",
+        "exampleKr": "저는 중국어 책을 읽는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-88-1779916403380",
+        "term": "考",
+        "definition": "to beat; to hit; to inspect",
+        "meaningKr": "시험을 치다, 시험하다",
+        "exampleEn": "明天我们要考汉语。",
+        "exampleKr": "내일 우리는 중국어 시험을 봅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-89-1779916403380",
+        "term": "渴",
+        "definition": "thirsty",
+        "meaningKr": "목마르다",
+        "exampleEn": "我有点儿渴，想喝水。",
+        "exampleKr": "저는 목이 좀 말라서 물을 마시고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kě",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-90-1779916403380",
+        "term": "课",
+        "definition": "subject; course; class",
+        "meaningKr": "수업, 과목",
+        "exampleEn": "我们今天没有课。",
+        "exampleKr": "우리는 오늘 수업이 없어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-91-1779916403380",
+        "term": "口",
+        "definition": "mouth; classifier for things with mouths (people, domestic animals, cannons, wells etc); classifier for bites or mouthfuls",
+        "meaningKr": "입, (식구 수를 세는) 명",
+        "exampleEn": "我家有三口人。",
+        "exampleKr": "우리 집은 식구가 세 명입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kǒu",
+        "pos": "classifier, noun"
+      },
+      {
+        "id": "word-zh-92-1779916403380",
+        "term": "块",
+        "definition": "lump; chunk; piece; classifier for pieces of cloth, cake, soap etc",
+        "meaningKr": "조각, (화폐 단위) 위안",
+        "exampleEn": "这本书只要十块钱。",
+        "exampleKr": "이 책은 단돈 10위안입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kuài",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-93-1779916403380",
+        "term": "快",
+        "definition": "rapid; quick; speed",
+        "meaningKr": "빠르다, 빨리, 곧",
+        "exampleEn": "火车开得很快。",
+        "exampleKr": "기차가 아주 빠르게 달립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kuài",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-94-1779916403380",
+        "term": "来",
+        "definition": "to come; hither (directional complement for motion toward the speaker, as in 回來|回来[hui2 lai5]); ever since (as in 自古以來|自古以来[zi4 gu3 yi3 lai2])",
+        "meaningKr": "오다",
+        "exampleEn": "欢迎你来我家玩。",
+        "exampleKr": "우리 집에 놀러 오는 것을 환영해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lái",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-95-1779916403380",
+        "term": "老",
+        "definition": "prefix used before the surname of a person or a numeral indicating the order of birth of the children in a family or to indicate affection or familiarity; old (of people); venerable (person)",
+        "meaningKr": "늙다, 오래되다, 경력이 많다",
+        "exampleEn": "这是一位老教师。",
+        "exampleKr": "이분은 경력이 오래된 교사입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lǎo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-96-1779916403380",
+        "term": "了",
+        "definition": "(completed action marker); (modal particle indicating change of state, situation now); (modal particle intensifying preceding clause)",
+        "meaningKr": "(완료) ~했다, (변화) ~하게 되었다",
+        "exampleEn": "我已经买到票了。",
+        "exampleKr": "저는 이미 표를 샀어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "le",
+        "pos": "particle"
+      },
+      {
+        "id": "word-zh-97-1779916403380",
+        "term": "累",
+        "definition": "to accumulate; to involve or implicate (Taiwan pr. [lei4]); continuous",
+        "meaningKr": "피곤하다, 힘들다",
+        "exampleEn": "工作了一天，我很累。",
+        "exampleKr": "하루 종일 일해서 너무 피곤해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lèi",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-98-1779916403380",
+        "term": "冷",
+        "definition": "surname Leng",
+        "meaningKr": "춥다, 차갑다",
+        "exampleEn": "今天天气非常冷。",
+        "exampleKr": "오늘 날씨가 매우 춥습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lěng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-99-1779916403380",
+        "term": "里",
+        "definition": "variant of 裡|里[li3]",
+        "meaningKr": "안, 속",
+        "exampleEn": "教室里有很多学生。",
+        "exampleKr": "교실 안에 학생들이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-100-1779916403380",
+        "term": "两",
+        "definition": "two; both; some",
+        "meaningKr": "둘, 두 개",
+        "exampleEn": "我买两个苹果。",
+        "exampleKr": "나는 사과 두 개를 산다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "liǎng",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-101-1779916403380",
+        "term": "零",
+        "definition": "zero; nought; zero sign",
+        "meaningKr": "영, 0",
+        "exampleEn": "我的房间号是三零一。",
+        "exampleKr": "내 방 번호는 301호이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "líng",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-102-1779916403380",
+        "term": "六",
+        "definition": "six; 6",
+        "meaningKr": "여섯, 6",
+        "exampleEn": "我家有六个人。",
+        "exampleKr": "우리 집은 식구가 여섯 명이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "liù",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-103-1779916403380",
+        "term": "楼",
+        "definition": "surname Lou",
+        "meaningKr": "건물, 층",
+        "exampleEn": "我住在这栋楼的三楼。",
+        "exampleKr": "나는 이 건물 3층에 산다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lóu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-104-1779916403380",
+        "term": "路",
+        "definition": "surname Lu",
+        "meaningKr": "길, 노선, (버스) 번",
+        "exampleEn": "我坐十路公共汽车。",
+        "exampleKr": "나는 10번 버스를 탄다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lù",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-105-1779916403380",
+        "term": "吗",
+        "definition": "(coll.) what?",
+        "meaningKr": "~입니까? (의문 조사)",
+        "exampleEn": "你是韩国人吗？",
+        "exampleKr": "당신은 한국인입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ma",
+        "pos": "particle"
+      },
+      {
+        "id": "word-zh-106-1779916403380",
+        "term": "买",
+        "definition": "to buy; to purchase",
+        "meaningKr": "사다, 구입하다",
+        "exampleEn": "我想买一本汉语书。",
+        "exampleKr": "나는 중국어 책 한 권을 사고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "mǎi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-107-1779916403380",
+        "term": "慢",
+        "definition": "slow",
+        "meaningKr": "느리다",
+        "exampleEn": "请慢一点儿说。",
+        "exampleKr": "조금만 천천히 말씀해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "màn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-108-1779916403380",
+        "term": "忙",
+        "definition": "busy; hurriedly; to hurry",
+        "meaningKr": "바쁘다",
+        "exampleEn": "你今天工作忙吗？",
+        "exampleKr": "너 오늘 일 바쁘니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "máng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-109-1779916403380",
+        "term": "毛",
+        "definition": "surname Mao",
+        "meaningKr": "마오 (중국 화폐 단위, 0.1위안)",
+        "exampleEn": "这个苹果五毛钱。",
+        "exampleKr": "이 사과는 5마오이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "máo",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-110-1779916403380",
+        "term": "没",
+        "definition": "(negative prefix for verbs) have not; not",
+        "meaningKr": "없다, 하지 않았다",
+        "exampleEn": "我今天没有去学校。",
+        "exampleKr": "나는 오늘 학교에 가지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "méi",
+        "pos": "adverb, verb"
+      },
+      {
+        "id": "word-zh-111-1779916403380",
+        "term": "们",
+        "definition": "plural marker for pronouns, and nouns referring to individuals",
+        "meaningKr": "~들 (복수 접사)",
+        "exampleEn": "我们都是留学生。",
+        "exampleKr": "우리는 모두 유학생이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "men",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-zh-112-1779916403380",
+        "term": "门",
+        "definition": "surname Men",
+        "meaningKr": "문, 과목",
+        "exampleEn": "请帮我开一下门。",
+        "exampleKr": "문 좀 열어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "mén",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-113-1779916403380",
+        "term": "拿",
+        "definition": "old variant of 拿[na2]",
+        "meaningKr": "잡다, 들다, 가져오다",
+        "exampleEn": "请帮我拿一下手机。",
+        "exampleKr": "휴대폰 좀 집어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ná",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-114-1779916403380",
+        "term": "哪",
+        "definition": "how; which",
+        "meaningKr": "어느, 어떤",
+        "exampleEn": "你是哪国人？",
+        "exampleKr": "당신은 어느 나라 사람입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǎ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-115-1779916403380",
+        "term": "哪儿",
+        "definition": "where?; wherever; anywhere; somewhere",
+        "meaningKr": "어디",
+        "exampleEn": "你的学校在哪儿？",
+        "exampleKr": "당신의 학교는 어디에 있습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǎr",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-116-1779916403380",
+        "term": "那",
+        "definition": "surname Na",
+        "meaningKr": "저것, 그, 저",
+        "exampleEn": "那是我的汉语老师。",
+        "exampleKr": "저분은 나의 중국어 선생님이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nà",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-117-1779916403380",
+        "term": "那儿",
+        "definition": "there",
+        "meaningKr": "저기, 거기",
+        "exampleEn": "我的书包在那儿。",
+        "exampleKr": "내 책가방은 저기에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nàr",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-118-1779916403380",
+        "term": "奶",
+        "definition": "breast; milk; to breastfeed",
+        "meaningKr": "우유, 할머니",
+        "exampleEn": "我每天喝一杯热牛奶。",
+        "exampleKr": "나는 매일 따뜻한 우유를 한 잔 마신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǎi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-119-1779916403380",
+        "term": "南",
+        "definition": "surname Nan",
+        "meaningKr": "남쪽",
+        "exampleEn": "我们的学校在南边。",
+        "exampleKr": "우리 학교는 남쪽에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-120-1779916403380",
+        "term": "男",
+        "definition": "baron, the lowest of the five ranks of nobility 五等爵位[wu3 deng3 jue2 wei4]",
+        "meaningKr": "남자, 남성의",
+        "exampleEn": "那个男孩子是我的弟弟。",
+        "exampleKr": "저 남자아이는 내 남동생이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nán",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-121-1779916403380",
+        "term": "难",
+        "definition": "difficult (to...); problem; difficulty",
+        "meaningKr": "어렵다",
+        "exampleEn": "我觉得汉字不难。",
+        "exampleKr": "나는 한자가 어렵지 않다고 생각한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nán",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-122-1779916403380",
+        "term": "呢",
+        "definition": "(sentence-final particle) used in questions to link back to prior discourse or context (\"what about...?\", \"and...?\"); (sentence-final particle) indicating that a state or situation still holds; (discourse particle) used to mark a slight pause or emphasis in speech",
+        "meaningKr": "~은/는? (의문 조사), ~하고 있다 (진행)",
+        "exampleEn": "我很好，你呢？",
+        "exampleKr": "나는 잘 지내, 너는?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ne",
+        "pos": "particle"
+      },
+      {
+        "id": "word-zh-123-1779916403380",
+        "term": "能",
+        "definition": "surname Neng",
+        "meaningKr": "~할 수 있다",
+        "exampleEn": "我今天不能去上班。",
+        "exampleKr": "나는 오늘 출근할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "néng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-124-1779916403380",
+        "term": "你",
+        "definition": "you (informal, as opposed to courteous 您[nin2])",
+        "meaningKr": "너, 당신",
+        "exampleEn": "很高兴认识你。",
+        "exampleKr": "당신을 알게 되어 아주 기쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǐ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-125-1779916403380",
+        "term": "年",
+        "definition": "surname Nian",
+        "meaningKr": "년, 해",
+        "exampleEn": "表姐在中国住了三年。",
+        "exampleKr": "사촌 언니는 중국에서 3년 동안 살았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nián",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-126-1779916403380",
+        "term": "您",
+        "definition": "you (courteous, as opposed to informal 你[ni3])",
+        "meaningKr": "당신, 어르신 (존칭)",
+        "exampleEn": "老师，您身体好吗？",
+        "exampleKr": "선생님, 건강은 좀 어떠신가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nín",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-127-1779916403380",
+        "term": "女",
+        "definition": "female; woman; daughter",
+        "meaningKr": "여자, 여성",
+        "exampleEn": "那个女学生是我的妹妹。",
+        "exampleKr": "저 여학생은 제 여동생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǚ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-128-1779916403380",
+        "term": "跑",
+        "definition": "(of an animal) to paw (the ground)",
+        "meaningKr": "달리다, 뛰다",
+        "exampleEn": "他跑得非常快。",
+        "exampleKr": "그는 매우 빠르게 달립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "pǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-129-1779916403380",
+        "term": "票",
+        "definition": "ticket; ballot; banknote",
+        "meaningKr": "표, 티켓",
+        "exampleEn": "我买了两张电影票。",
+        "exampleKr": "저는 영화표 두 장을 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "piào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-130-1779916403380",
+        "term": "七",
+        "definition": "seven; 7",
+        "meaningKr": "일곱, 7",
+        "exampleEn": "一个星期有七天。",
+        "exampleKr": "일주일은 7일이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qī",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-131-1779916403380",
+        "term": "起",
+        "definition": "to rise; to raise; to get up",
+        "meaningKr": "일어나다, 시작하다",
+        "exampleEn": "他早上六点起床。",
+        "exampleKr": "그는 아침 6시에 일어납니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-132-1779916403380",
+        "term": "前",
+        "definition": "front; forward; ahead",
+        "meaningKr": "앞, 이전",
+        "exampleEn": "学校前面有一个商店。",
+        "exampleKr": "학교 앞에 가게가 하나 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-133-1779916403380",
+        "term": "钱",
+        "definition": "surname Qian",
+        "meaningKr": "돈",
+        "exampleEn": "这个苹果多少钱？",
+        "exampleKr": "이 사과는 얼마인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-134-1779916403380",
+        "term": "请",
+        "definition": "to ask; to invite; please (do sth)",
+        "meaningKr": "~해주세요, 청하다, 초대하다",
+        "exampleEn": "请喝茶，这是绿茶。",
+        "exampleKr": "차를 드세요, 이것은 녹차입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-135-1779916403380",
+        "term": "球",
+        "definition": "ball used for playing games (variant of 球[qiu2])",
+        "meaningKr": "공, 구체",
+        "exampleEn": "我喜欢和朋友打球。",
+        "exampleKr": "저는 친구들과 공놀이하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qiú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-136-1779916403380",
+        "term": "去",
+        "definition": "to go; to go to (a place); just passed",
+        "meaningKr": "가다",
+        "exampleEn": "我们明天去北京旅游。",
+        "exampleKr": "우리는 내일 베이징으로 여행을 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-137-1779916403380",
+        "term": "热",
+        "definition": "to warm up; to heat up; hot (of weather)",
+        "meaningKr": "덥다, 뜨겁다",
+        "exampleEn": "今天的天气非常热。",
+        "exampleKr": "오늘의 날씨는 매우 덥습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "rè",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-138-1779916403380",
+        "term": "人",
+        "definition": "person; people",
+        "meaningKr": "사람, 인간",
+        "exampleEn": "商店里有很多人。",
+        "exampleKr": "상점 안에 사람들이 아주 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "rén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-139-1779916403380",
+        "term": "日",
+        "definition": "day; day of the month",
+        "meaningKr": "일, 날, 해",
+        "exampleEn": "今天是十月一日。",
+        "exampleKr": "오늘은 10월 1일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "rì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-140-1779916403380",
+        "term": "肉",
+        "definition": "meat; flesh; pulp (of a fruit)",
+        "meaningKr": "고기, 육류",
+        "exampleEn": "我不喜欢吃牛肉。",
+        "exampleKr": "저는 소고기 먹는 것을 좋아하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ròu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-141-1779916403380",
+        "term": "三",
+        "definition": "surname San",
+        "meaningKr": "셋, 3",
+        "exampleEn": "桌子上有三个苹果。",
+        "exampleKr": "탁자 위에 사과 세 개가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "sān",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-142-1779916403380",
+        "term": "山",
+        "definition": "surname Shan",
+        "meaningKr": "산",
+        "exampleEn": "这座山非常高。",
+        "exampleKr": "이 산은 매우 높습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-143-1779916403380",
+        "term": "上",
+        "definition": "used in 上聲|上声[shang3 sheng1]",
+        "meaningKr": "위, 오르다, 수업하다",
+        "exampleEn": "书在桌子上面。",
+        "exampleKr": "책이 탁자 위에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàng",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-144-1779916403380",
+        "term": "少",
+        "definition": "few; less; to lack",
+        "meaningKr": "적다, 부족하다",
+        "exampleEn": "这里的杯子很少。",
+        "exampleKr": "이곳의 컵은 매우 적습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shǎo",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-145-1779916403380",
+        "term": "谁",
+        "definition": "who; also pr. [shui2]",
+        "meaningKr": "누구",
+        "exampleEn": "谁是你的汉语老师？",
+        "exampleKr": "누가 당신의 중국어 선생님이신가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shéi",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-146-1779916403380",
+        "term": "十",
+        "definition": "ten; 10",
+        "meaningKr": "열, 10",
+        "exampleEn": "我们班有十个学生。",
+        "exampleKr": "우리 반에는 학생이 열 명 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shí",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-147-1779916403380",
+        "term": "事",
+        "definition": "matter; thing; item",
+        "meaningKr": "일, 일거리, 사건",
+        "exampleEn": "你今天有什么事吗？",
+        "exampleKr": "당신은 오늘 무슨 일이 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-148-1779916403380",
+        "term": "是",
+        "definition": "to be (followed by substantives only); correct; right; true",
+        "meaningKr": "~이다, 옳다",
+        "exampleEn": "他是我的大学同学。",
+        "exampleKr": "그는 저의 대학 동창입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-149-1779916403380",
+        "term": "试",
+        "definition": "to test; to try; experiment",
+        "meaningKr": "시험하다, 시도하다, 입어보다",
+        "exampleEn": "我可以试一下这件衣服吗？",
+        "exampleKr": "이 옷을 한번 입어봐도 될까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-150-1779916403380",
+        "term": "手",
+        "definition": "hand; person engaged in certain types of work; person skilled in certain types of work",
+        "meaningKr": "손",
+        "exampleEn": "他的手很大。",
+        "exampleKr": "그의 손은 매우 크다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-151-1779916403380",
+        "term": "书",
+        "definition": "abbr. for 書經|书经[Shu1 jing1]",
+        "meaningKr": "책",
+        "exampleEn": "我喜欢看书。",
+        "exampleKr": "나는 책 읽는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-152-1779916403380",
+        "term": "树",
+        "definition": "tree; to cultivate; to set up",
+        "meaningKr": "나무",
+        "exampleEn": "那棵树很高。",
+        "exampleKr": "저 나무는 매우 높다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-153-1779916403380",
+        "term": "水",
+        "definition": "Shui ethnic group",
+        "meaningKr": "물",
+        "exampleEn": "我想喝一杯水。",
+        "exampleKr": "나는 물 한 잔 마시고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shuǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-154-1779916403380",
+        "term": "睡",
+        "definition": "to sleep; to lie down",
+        "meaningKr": "자다, 잠을 자다",
+        "exampleEn": "你今天几点睡觉？",
+        "exampleKr": "너 오늘 몇 시에 자니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shuì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-155-1779916403380",
+        "term": "说",
+        "definition": "to speak; to talk; to say; to explain; to comment; to scold; to tell off",
+        "meaningKr": "말하다",
+        "exampleEn": "请你说慢一点。",
+        "exampleKr": "조금만 천천히 말씀해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shuō",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-156-1779916403380",
+        "term": "四",
+        "definition": "four; 4",
+        "meaningKr": "넷, 사",
+        "exampleEn": "我家有四口人。",
+        "exampleKr": "우리 가족은 네 명이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "sì",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-157-1779916403380",
+        "term": "送",
+        "definition": "to send; to deliver; to transmit; to give (as a present); to see (sb) off",
+        "meaningKr": "보내다, 선물하다, 배웅하다",
+        "exampleEn": "这是送给你的礼物。",
+        "exampleKr": "이것은 너에게 주는 선물이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "sòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-158-1779916403380",
+        "term": "岁",
+        "definition": "years old",
+        "meaningKr": "세, 살",
+        "exampleEn": "我妹妹今年十岁。",
+        "exampleKr": "내 여동생은 올해 열 살이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "suì",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-159-1779916403380",
+        "term": "他",
+        "definition": "(third-person singular) (since the early 20th century, usu. male) he; him; his; (bound form) other; another; some other (as in 他日[ta1 ri4] and 他人[ta1 ren2])",
+        "meaningKr": "그, 그 사람",
+        "exampleEn": "他是我的汉语老师。",
+        "exampleKr": "그는 나의 중국어 선생님이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tā",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-160-1779916403380",
+        "term": "她",
+        "definition": "she",
+        "meaningKr": "그녀",
+        "exampleEn": "她去商店买水果了。",
+        "exampleKr": "그녀는 과일을 사러 가게에 갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tā",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-161-1779916403380",
+        "term": "太",
+        "definition": "highest; greatest; too (much)",
+        "meaningKr": "너무, 아주",
+        "exampleEn": "这里的苹果太贵了。",
+        "exampleKr": "여기 사과는 너무 비싸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tài",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-162-1779916403380",
+        "term": "天",
+        "definition": "day; sky; heaven",
+        "meaningKr": "하늘, 날, 하루",
+        "exampleEn": "我今天不去学校。",
+        "exampleKr": "나는 오늘 학교에 가지 않는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tiān",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-163-1779916403380",
+        "term": "听",
+        "definition": "to listen to; to hear; to heed; to obey; a can (loanword from English \"tin\")",
+        "meaningKr": "듣다",
+        "exampleEn": "我喜欢听中文歌。",
+        "exampleKr": "나는 중국어 노래 듣는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tīng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-164-1779916403380",
+        "term": "外",
+        "definition": "outside; in addition; foreign",
+        "meaningKr": "밖, 바깥, 외부",
+        "exampleEn": "教室外面有很多人。",
+        "exampleKr": "교실 밖에 사람들이 많이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-165-1779916403380",
+        "term": "玩儿",
+        "definition": "to play; to have fun; to hang out",
+        "meaningKr": "놀다, 장난치다",
+        "exampleEn": "我们去公园玩儿吧。",
+        "exampleKr": "우리 공원에 놀러 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wánr",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-166-1779916403380",
+        "term": "晚",
+        "definition": "evening; night; late",
+        "meaningKr": "늦다, 저녁",
+        "exampleEn": "已经很晚了，快睡吧。",
+        "exampleKr": "이미 아주 늦었으니 어서 자라.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǎn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-167-1779916403380",
+        "term": "忘",
+        "definition": "to forget; to overlook; to neglect",
+        "meaningKr": "잊다, 잊어버리다",
+        "exampleEn": "我忘了他的名字。",
+        "exampleKr": "나는 그의 이름을 잊어버렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wàng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-168-1779916403380",
+        "term": "问",
+        "definition": "to ask; to inquire",
+        "meaningKr": "묻다, 질문하다",
+        "exampleEn": "我可以问一个问题吗？",
+        "exampleKr": "질문 하나 해도 될까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wèn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-169-1779916403380",
+        "term": "我",
+        "definition": "I; me; my",
+        "meaningKr": "나, 저",
+        "exampleEn": "我是一个大学生。",
+        "exampleKr": "나는 대학생이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǒ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-170-1779916403380",
+        "term": "五",
+        "definition": "five; 5",
+        "meaningKr": "다섯, 오",
+        "exampleEn": "星期五我们没有课。",
+        "exampleKr": "금요일에 우리는 수업이 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǔ",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-171-1779916403380",
+        "term": "西",
+        "definition": "the West; Spanish",
+        "meaningKr": "서쪽",
+        "exampleEn": "学校在医院的西边。",
+        "exampleKr": "학교는 병원 서쪽에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-172-1779916403380",
+        "term": "洗",
+        "definition": "to wash; to bathe; to develop (photographs); to shuffle (cards etc)",
+        "meaningKr": "씻다, 빨다",
+        "exampleEn": "吃饭以前要先洗手。",
+        "exampleKr": "밥 먹기 전에 먼저 손을 씻어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-173-1779916403380",
+        "term": "下",
+        "definition": "down; downwards; below",
+        "meaningKr": "아래, 밑, 내려가다",
+        "exampleEn": "外面正在下雨。",
+        "exampleKr": "밖에 비가 내리고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xià",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-174-1779916403380",
+        "term": "先",
+        "definition": "beforehand; first; earlier; at first; originally; for the time being; for now",
+        "meaningKr": "먼저, 우선",
+        "exampleEn": "我们先吃饭吧。",
+        "exampleKr": "우리 먼저 밥 먹자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiān",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-175-1779916403380",
+        "term": "想",
+        "definition": "to think (about); to think of; to devise; to think (that); to believe (that)",
+        "meaningKr": "~하고 싶다, 생각하다, 그리워하다",
+        "exampleEn": "我想去中国旅游。",
+        "exampleKr": "나는 중국에 여행 가고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-176-1779916403380",
+        "term": "小",
+        "definition": "small; tiny; few",
+        "meaningKr": "작다, 적다",
+        "exampleEn": "这个苹果很小。",
+        "exampleKr": "이 사과는 매우 작다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-177-1779916403380",
+        "term": "笑",
+        "definition": "old variant of 笑[xiao4]",
+        "meaningKr": "웃다",
+        "exampleEn": "妹妹笑得很开心。",
+        "exampleKr": "여동생이 아주 밝게 웃는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-178-1779916403380",
+        "term": "写",
+        "definition": "to write",
+        "meaningKr": "쓰다",
+        "exampleEn": "他在房间里写汉字。",
+        "exampleKr": "그는 방에서 한자를 쓰고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiě",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-179-1779916403380",
+        "term": "新",
+        "definition": "abbr. for Xinjiang 新疆[Xin1 jiang1]; abbr. for Singapore 新加坡[Xin1 jia1 po1]; surname Xin",
+        "meaningKr": "새롭다, 새",
+        "exampleEn": "这是我的新手机。",
+        "exampleKr": "이것은 나의 새 휴대폰이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xīn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-180-1779916403380",
+        "term": "行",
+        "definition": "capable; competent; all right; OK!; will do; behavior; conduct (Taiwan pr. [xing4])",
+        "meaningKr": "괜찮다, 좋다, 가능하다",
+        "exampleEn": "我们明天去，行吗？",
+        "exampleKr": "우리 내일 가는 거 괜찮아?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xíng",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-181-1779916403380",
+        "term": "学",
+        "definition": "to learn; to study; to imitate",
+        "meaningKr": "배우다, 공부하다",
+        "exampleEn": "我在学校学汉语。",
+        "exampleKr": "나는 학교에서 중국어를 배운다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xué",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-182-1779916403380",
+        "term": "要",
+        "definition": "(bound form) to demand; to coerce",
+        "meaningKr": "원하다, 필요하다, ~하려고 하다",
+        "exampleEn": "我要买一杯咖啡。",
+        "exampleKr": "나는 커피 한 잔을 사고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-183-1779916403380",
+        "term": "也",
+        "definition": "surname Ye",
+        "meaningKr": "~도, 또한",
+        "exampleEn": "我是学生，他也是。",
+        "exampleKr": "나는 학생이고, 그도 학생이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yě",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-184-1779916403380",
+        "term": "页",
+        "definition": "page; leaf",
+        "meaningKr": "쪽, 페이지",
+        "exampleEn": "请打开书第十页。",
+        "exampleKr": "책 10쪽을 펴세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yè",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-185-1779916403380",
+        "term": "一",
+        "definition": "one; single; a (article)",
+        "meaningKr": "일, 하나",
+        "exampleEn": "桌上有一本书。",
+        "exampleKr": "책상 위에 책 한 권이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yī",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-186-1779916403380",
+        "term": "用",
+        "definition": "to use; to make use of; to employ; to need; to have to (usu. used in the negative or in questions); usefulness; utility",
+        "meaningKr": "쓰다, 사용하다",
+        "exampleEn": "我可以用一下电脑吗？",
+        "exampleKr": "컴퓨터를 좀 써도 될까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-187-1779916403380",
+        "term": "有",
+        "definition": "to have; there is",
+        "meaningKr": "있다, 가지고 있다",
+        "exampleEn": "我家里有一只猫。",
+        "exampleKr": "우리 집에는 고양이 한 마리가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yǒu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-188-1779916403380",
+        "term": "右",
+        "definition": "(bound form) right; right-hand side; (bound form) (politics) right of center; (bound form) (old) west",
+        "meaningKr": "오른쪽, 우측",
+        "exampleEn": "学校在马路右边。",
+        "exampleKr": "학교는 길 오른쪽에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yòu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-189-1779916403380",
+        "term": "雨",
+        "definition": "rain",
+        "meaningKr": "비",
+        "exampleEn": "外面下着大雨。",
+        "exampleKr": "밖에 큰비가 내리고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-190-1779916403380",
+        "term": "元",
+        "definition": "Yuan dynasty (1279–1368)",
+        "meaningKr": "위안 (중국 화폐 단위)",
+        "exampleEn": "这个面包五元钱。",
+        "exampleKr": "이 빵은 5위안이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yuán",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-191-1779916403380",
+        "term": "远",
+        "definition": "far; distant; remote",
+        "meaningKr": "멀다",
+        "exampleEn": "我家离公司很远。",
+        "exampleKr": "우리 집은 회사에서 매우 멀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yuǎn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-192-1779916403380",
+        "term": "月",
+        "definition": "moon; month; monthly",
+        "meaningKr": "달, 월",
+        "exampleEn": "今天是十月一日。",
+        "exampleKr": "오늘은 10월 1일이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yuè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-193-1779916403380",
+        "term": "再",
+        "definition": "again; once more; re-; further; beyond this point of time; then (after sth, and not until then)",
+        "meaningKr": "다시, 또",
+        "exampleEn": "请你再写一遍。",
+        "exampleKr": "다시 한번 써 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zài",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-194-1779916403380",
+        "term": "在",
+        "definition": "to exist; to be alive",
+        "meaningKr": "~에 있다, ~에서",
+        "exampleEn": "爸爸在客厅看电视。",
+        "exampleKr": "아빠는 거실에서 TV를 보고 계신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zài",
+        "pos": "verb, preposition, adverb"
+      },
+      {
+        "id": "word-zh-195-1779916403380",
+        "term": "早",
+        "definition": "early; morning; Good morning!",
+        "meaningKr": "이르다, 아침",
+        "exampleEn": "今天你来得很早。",
+        "exampleKr": "오늘 너는 아주 일찍 왔구나.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zǎo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-196-1779916403380",
+        "term": "站",
+        "definition": "station; to stand; to halt",
+        "meaningKr": "역, 정류장, 서다",
+        "exampleEn": "火车站就在前面。",
+        "exampleKr": "기차역이 바로 앞에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-197-1779916403380",
+        "term": "找",
+        "definition": "to try to find; to look for; to call on sb",
+        "meaningKr": "찾다",
+        "exampleEn": "你在找什么东西？",
+        "exampleKr": "너는 무엇을 찾고 있니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-198-1779916403380",
+        "term": "着",
+        "definition": "variant of 著|着[zhe5]",
+        "meaningKr": "~한 채로 있다 (지속)",
+        "exampleEn": "门开着，请进来吧。",
+        "exampleKr": "문이 열려 있으니 들어오세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhe",
+        "pos": "particle"
+      },
+      {
+        "id": "word-zh-199-1779916403380",
+        "term": "这",
+        "definition": "(pronoun) this; these; (bound form) this; the (followed by a noun); (bound form) this; these (followed by a classifier) (in this sense, commonly pr. [zhei4], esp. in Beijing)",
+        "meaningKr": "이, 이것",
+        "exampleEn": "这是我的汉语老师。",
+        "exampleKr": "이분은 나의 중국어 선생님이시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhè",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-200-1779916403380",
+        "term": "真",
+        "definition": "really; truly; indeed",
+        "meaningKr": "정말, 진짜, 참",
+        "exampleEn": "今天天气真好。",
+        "exampleKr": "오늘 날씨가 정말 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhēn",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-zh-201-1779916403380",
+        "term": "正",
+        "definition": "first month of the lunar year",
+        "meaningKr": "마침, 딱, 마침 ~하고 있다",
+        "exampleEn": "我正想去商店呢。",
+        "exampleKr": "나는 마침 상점에 가려던 참이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhèng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-202-1779916403380",
+        "term": "这儿",
+        "definition": "here",
+        "meaningKr": "여기, 이곳",
+        "exampleEn": "这儿有很多书。",
+        "exampleKr": "여기에는 책이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhèr",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-203-1779916403380",
+        "term": "中",
+        "definition": "(bound form) China; Chinese; surname Zhong",
+        "meaningKr": "안, 속, 가운데, 중",
+        "exampleEn": "他是我们中最高的人。",
+        "exampleKr": "그는 우리 중에서 가장 키가 크다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhōng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-204-1779916403380",
+        "term": "重",
+        "definition": "heavy; serious; to attach importance to",
+        "meaningKr": "무겁다",
+        "exampleEn": "这个行李箱很重。",
+        "exampleKr": "이 캐리어는 매우 무겁다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhòng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-205-1779916403380",
+        "term": "住",
+        "definition": "to live; to reside; to stay; to stop; to cease",
+        "meaningKr": "살다, 거주하다, 머물다",
+        "exampleEn": "你住在哪个房间？",
+        "exampleKr": "당신은 어느 방에 사십니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-206-1779916403380",
+        "term": "子",
+        "definition": "son; child; seed",
+        "meaningKr": "(명사 접사) 자",
+        "exampleEn": "桌子上有一个杯子。",
+        "exampleKr": "탁자 위에 컵이 하나 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zi",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-zh-207-1779916403380",
+        "term": "字",
+        "definition": "letter; symbol; character",
+        "meaningKr": "글자, 한자",
+        "exampleEn": "这个汉字怎么写？",
+        "exampleKr": "이 한자는 어떻게 씁니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-208-1779916403380",
+        "term": "走",
+        "definition": "to walk; to go; to run",
+        "meaningKr": "걷다, 가다",
+        "exampleEn": "我们走路去学校吧。",
+        "exampleKr": "우리 걸어서 학교에 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zǒu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-209-1779916403380",
+        "term": "最",
+        "definition": "variant of 最[zui4]",
+        "meaningKr": "가장, 제일",
+        "exampleEn": "我最喜欢喝茶。",
+        "exampleKr": "나는 차 마시는 것을 가장 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuì",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-210-1779916403380",
+        "term": "左",
+        "definition": "surname Zuo",
+        "meaningKr": "왼쪽, 좌측",
+        "exampleEn": "往左走就是商店。",
+        "exampleKr": "왼쪽으로 가면 바로 상점입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuǒ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-211-1779916403380",
+        "term": "做",
+        "definition": "to make; to produce; to write; to compose; to do; to engage in; to hold (a party etc)",
+        "meaningKr": "하다, 만들다",
+        "exampleEn": "妈妈在做晚饭。",
+        "exampleKr": "어머니께서 저녁 식사를 만들고 계신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-212-1779916403380",
+        "term": "坐",
+        "definition": "surname Zuo",
+        "meaningKr": "앉다, (교통수단을) 타다",
+        "exampleEn": "请坐，请喝茶。",
+        "exampleKr": "앉으세요, 차 드세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-213-1779916403380",
+        "term": "爱好",
+        "definition": "to like; to be fond of; to take pleasure in; to be keen on; interest; hobby",
+        "meaningKr": "취미, 좋아하다",
+        "exampleEn": "我的爱好是听音乐。",
+        "exampleKr": "내 취미는 음악을 듣는 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "àihào",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-214-1779916403380",
+        "term": "爸爸",
+        "definition": "(coll.) father; dad; CL:位[wei4]",
+        "meaningKr": "아빠, 아버지",
+        "exampleEn": "我爸爸是医生。",
+        "exampleKr": "우리 아빠는 의사이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bà(ba)",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-215-1779916403380",
+        "term": "白天",
+        "definition": "daytime; during the day; day",
+        "meaningKr": "낮, 주간",
+        "exampleEn": "他白天在公司上班。",
+        "exampleKr": "그는 낮에 회사에서 일한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "báitiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-216-1779916403380",
+        "term": "半年",
+        "definition": "half a year",
+        "meaningKr": "반년, 6개월",
+        "exampleEn": "我学了半年汉语。",
+        "exampleKr": "나는 반년 동안 중국어를 배웠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bàn nián",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-217-1779916403380",
+        "term": "半天",
+        "definition": "half of the day; a long time; quite a while",
+        "meaningKr": "한참, 오랫동안, 반나절",
+        "exampleEn": "我等了你半天。",
+        "exampleKr": "내가 너를 한참 동안 기다렸어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bàntiān",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-218-1779916403380",
+        "term": "帮忙",
+        "definition": "to help; to lend a hand; to do a favor",
+        "meaningKr": "돕다, 도와주다",
+        "exampleEn": "你能帮我一个忙吗？",
+        "exampleKr": "나를 좀 도와줄 수 있니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bāng∥máng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-219-1779916403380",
+        "term": "包子",
+        "definition": "baozi; bao (steamed stuffed bun)",
+        "meaningKr": "만두, 바오쯔",
+        "exampleEn": "我早饭吃了两个包子。",
+        "exampleKr": "나는 아침으로 만두 두 개를 먹었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bāozi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-220-1779916403380",
+        "term": "杯子",
+        "definition": "cup; glass",
+        "meaningKr": "컵, 잔",
+        "exampleEn": "这个杯子很漂亮。",
+        "exampleKr": "이 컵은 매우 예쁘다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bēizi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-221-1779916403380",
+        "term": "北边",
+        "definition": "north; north side; northern part",
+        "meaningKr": "북쪽",
+        "exampleEn": "学校的北边是公园。",
+        "exampleKr": "학교 북쪽은 공원이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "běibian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-222-1779916403380",
+        "term": "北京",
+        "definition": "Beijing municipality, capital of the People's Republic of China (short name 京[Jing1])",
+        "meaningKr": "베이징 (북경)",
+        "exampleEn": "我明年去北京旅游。",
+        "exampleKr": "나는 내년에 베이징으로 여행을 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "Běijīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-223-1779916403380",
+        "term": "本子",
+        "definition": "book; notebook; Japanese-style self-published comic (esp. an erotic one), aka \"dōjinshi\"",
+        "meaningKr": "공책, 노트",
+        "exampleEn": "桌上有一本新本子。",
+        "exampleKr": "탁자 위에 새 공책이 한 권 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "běnzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-224-1779916403380",
+        "term": "别的",
+        "definition": "else; other",
+        "meaningKr": "다른, 다른 것",
+        "exampleEn": "你还要别的东西吗？",
+        "exampleKr": "다른 물건도 더 필요하십니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "biéde",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-225-1779916403380",
+        "term": "别人",
+        "definition": "other people; others; other person",
+        "meaningKr": "다른 사람, 타인",
+        "exampleEn": "这是别人的书。",
+        "exampleKr": "이것은 다른 사람의 책이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bié·rén",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-226-1779916403380",
+        "term": "病人",
+        "definition": "sick person; patient; invalid",
+        "meaningKr": "환자, 아픈 사람",
+        "exampleEn": "医院里有很多病人。",
+        "exampleKr": "병원에는 환자가 매우 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bìngrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-227-1779916403380",
+        "term": "不大",
+        "definition": "not very (clear, far away etc); not too; not often; infrequently",
+        "meaningKr": "그리 ~하지 않다, 별로 ~하지 않다",
+        "exampleEn": "我不大喜欢喝咖啡。",
+        "exampleKr": "나는 커피를 별로 좋아하지 않는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bú dà",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-228-1779916403380",
+        "term": "不对",
+        "definition": "incorrect; wrong; amiss",
+        "meaningKr": "틀리다, 맞지 않다",
+        "exampleEn": "你的回答不对。",
+        "exampleKr": "당신의 대답은 틀렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "búduì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-229-1779916403380",
+        "term": "不用",
+        "definition": "need not",
+        "meaningKr": "~할 필요가 없다, ~하지 않아도 된다",
+        "exampleEn": "你不用去学校了。",
+        "exampleKr": "너는 학교에 가지 않아도 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "búyòng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-230-1779916403380",
+        "term": "常常",
+        "definition": "frequently; often",
+        "meaningKr": "자주, 흔히",
+        "exampleEn": "我常常去图书馆看书。",
+        "exampleKr": "나는 자주 도서관에 가서 책을 읽는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chángcháng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-231-1779916403380",
+        "term": "唱歌",
+        "definition": "to sing a song",
+        "meaningKr": "노래하다, 노래를 부르다",
+        "exampleEn": "妹妹很喜欢唱歌。",
+        "exampleKr": "여동생은 노래하는 것을 아주 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chàng∥gē",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-232-1779916403380",
+        "term": "车票",
+        "definition": "ticket (for a bus or train)",
+        "meaningKr": "차표, 승차권",
+        "exampleEn": "我去买两张车票。",
+        "exampleKr": "내가 가서 차표 두 장을 살게.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chēpiào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-233-1779916403380",
+        "term": "车上",
+        "definition": "",
+        "meaningKr": "차 안, 차 위",
+        "exampleEn": "车上有很多学生。",
+        "exampleKr": "차 안에 학생들이 많이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chē shang",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-234-1779916403380",
+        "term": "车站",
+        "definition": "rail station; bus stop",
+        "meaningKr": "정류장, 역",
+        "exampleEn": "我们在车站等你。",
+        "exampleKr": "우리는 정류장에서 너를 기다릴게.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chēzhàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-235-1779916403380",
+        "term": "吃饭",
+        "definition": "to have a meal; to eat; to make a living",
+        "meaningKr": "밥을 먹다, 식사하다",
+        "exampleEn": "我们一起去吃饭吧。",
+        "exampleKr": "우리 같이 밥 먹으러 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chī∥fàn",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-236-1779916403380",
+        "term": "出来",
+        "definition": "to come out; to appear; to arise",
+        "meaningKr": "나오다",
+        "exampleEn": "你快点儿出来吧。",
+        "exampleKr": "너 빨리 좀 나와라.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chū∥·lái",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-237-1779916403380",
+        "term": "出去",
+        "definition": "to go out",
+        "meaningKr": "나가다",
+        "exampleEn": "爸爸已经出去了。",
+        "exampleKr": "아빠는 이미 나가셨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "chū∥·qù",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-238-1779916403380",
+        "term": "打车",
+        "definition": "to take a taxi (in town); to hitch a lift",
+        "meaningKr": "택시를 타다",
+        "exampleEn": "我们打车去机场吧。",
+        "exampleKr": "우리 택시 타고 공항에 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dǎ∥chē",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-239-1779916403380",
+        "term": "打开",
+        "definition": "to open; to show (a ticket); to turn on",
+        "meaningKr": "열다, (전자기기를) 켜다",
+        "exampleEn": "请打开你的电脑。",
+        "exampleKr": "당신의 컴퓨터를 켜 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dǎ∥kāi",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-240-1779916403380",
+        "term": "打球",
+        "definition": "to play ball; to play with a ball",
+        "meaningKr": "구기 운동을 하다, 공놀이를 하다",
+        "exampleEn": "哥哥下午去打球。",
+        "exampleKr": "형은 오후에 운동하러 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dǎ qiú",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-241-1779916403380",
+        "term": "大学",
+        "definition": "the Great Learning, one of the Four Books 四書|四书[Si4 shu1] in Confucianism",
+        "meaningKr": "대학교",
+        "exampleEn": "我哥哥在大学学习。",
+        "exampleKr": "우리 형은 대학교에서 공부한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dàxué",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-242-1779916403380",
+        "term": "得到",
+        "definition": "to get; to obtain; to receive",
+        "meaningKr": "얻다, 받다, 획득하다",
+        "exampleEn": "他得到了第一名。",
+        "exampleKr": "그는 1등을 차지했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dé∥dào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-243-1779916403380",
+        "term": "弟弟",
+        "definition": "younger brother",
+        "meaningKr": "남동생",
+        "exampleEn": "我弟弟今年十岁。",
+        "exampleKr": "내 남동생은 올해 열 살이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dì(di)",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-244-1779916403380",
+        "term": "地点",
+        "definition": "place; site; location",
+        "meaningKr": "지점, 장소",
+        "exampleEn": "我们见面的地点在哪儿？",
+        "exampleKr": "우리 만나는 장소가 어디야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dìdiǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-245-1779916403380",
+        "term": "地方",
+        "definition": "region; regional (away from the central administration); local",
+        "meaningKr": "곳, 장소, 지방",
+        "exampleEn": "这个地方很漂亮。",
+        "exampleKr": "이곳은 아주 아름답다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dìfang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-246-1779916403380",
+        "term": "地上",
+        "definition": "on the ground; on the floor",
+        "meaningKr": "바닥, 땅 위",
+        "exampleEn": "地上有几本书。",
+        "exampleKr": "바닥에 책이 몇 권 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dìshang",
+        "pos": "Other (N-L)"
+      },
+      {
+        "id": "word-zh-247-1779916403380",
+        "term": "地图",
+        "definition": "map",
+        "meaningKr": "지도",
+        "exampleEn": "墙上有一张地图。",
+        "exampleKr": "벽에 지도가 한 장 걸려 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dìtú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-248-1779916403380",
+        "term": "电话",
+        "definition": "telephone; phone call; phone number",
+        "meaningKr": "전화, 전화기",
+        "exampleEn": "我给你打过电话。",
+        "exampleKr": "내가 너한테 전화했었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diànhuà",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-249-1779916403380",
+        "term": "电脑",
+        "definition": "computer",
+        "meaningKr": "컴퓨터",
+        "exampleEn": "这台电脑是我的。",
+        "exampleKr": "이 컴퓨터는 내 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diànnǎo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-250-1779916403380",
+        "term": "电视",
+        "definition": "television; TV",
+        "meaningKr": "텔레비전, TV",
+        "exampleEn": "我喜欢看电视。",
+        "exampleKr": "나는 텔레비전 보는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diànshì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-251-1779916403380",
+        "term": "电影",
+        "definition": "movie; film",
+        "meaningKr": "영화",
+        "exampleEn": "我们去看电影吧。",
+        "exampleKr": "우리 영화 보러 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diànyǐng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-252-1779916403380",
+        "term": "东边",
+        "definition": "east; east side; eastern part",
+        "meaningKr": "동쪽, 동편",
+        "exampleEn": "我的学校在东边。",
+        "exampleKr": "우리 학교는 동쪽에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dōngbian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-253-1779916403380",
+        "term": "东西",
+        "definition": "east and west",
+        "meaningKr": "물건, 것",
+        "exampleEn": "你想买什么东西？",
+        "exampleKr": "너는 무슨 물건을 사고 싶니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dōngxi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-254-1779916403380",
+        "term": "动作",
+        "definition": "movement; motion; action; to act; to move",
+        "meaningKr": "동작, 움직임",
+        "exampleEn": "他的动作很慢。",
+        "exampleKr": "그의 동작은 매우 느리다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dòngzuò",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-255-1779916403380",
+        "term": "读书",
+        "definition": "to read a book; to study; to attend school",
+        "meaningKr": "책을 읽다, 공부하다",
+        "exampleEn": "我每天晚上读书。",
+        "exampleKr": "나는 매일 밤 책을 읽는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dú∥shū",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-256-1779916403380",
+        "term": "多少",
+        "definition": "number; amount; somewhat",
+        "meaningKr": "얼마, 몇",
+        "exampleEn": "这个手机多少钱？",
+        "exampleKr": "이 휴대폰은 얼마인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "duōshao",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-257-1779916403380",
+        "term": "儿子",
+        "definition": "son",
+        "meaningKr": "아들",
+        "exampleEn": "他有一个儿子。",
+        "exampleKr": "그는 아들이 한 명 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "érzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-258-1779916403380",
+        "term": "饭店",
+        "definition": "restaurant; hotel",
+        "meaningKr": "음식점, 식당, 호텔",
+        "exampleEn": "这家饭店的菜很好吃。",
+        "exampleKr": "이 식당의 요리는 매우 맛있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fàndiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-259-1779916403380",
+        "term": "房间",
+        "definition": "room",
+        "meaningKr": "방",
+        "exampleEn": "我的房间很干净。",
+        "exampleKr": "내 방은 매우 깨끗하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fángjiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-260-1779916403380",
+        "term": "房子",
+        "definition": "house; building (single- or two-story); apartment",
+        "meaningKr": "집, 주택",
+        "exampleEn": "他们买了一套新房子。",
+        "exampleKr": "그들은 새 집을 한 채 샀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fángzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-261-1779916403380",
+        "term": "放假",
+        "definition": "to have a holiday or vacation",
+        "meaningKr": "방학하다, 휴가이다",
+        "exampleEn": "我们下个星期放假。",
+        "exampleKr": "우리는 다음 주에 방학한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fàng∥jià",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-262-1779916403380",
+        "term": "放学",
+        "definition": "to dismiss students at the end of the school day",
+        "meaningKr": "하교하다, 학교가 끝나다",
+        "exampleEn": "学生们下午四点放学。",
+        "exampleKr": "학생들은 오후 4시에 하교한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fàng∥xué",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-263-1779916403380",
+        "term": "非常",
+        "definition": "very; really; unusual; extraordinary",
+        "meaningKr": "매우, 대단히",
+        "exampleEn": "今天天气非常热。",
+        "exampleKr": "오늘 날씨가 매우 덥다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fēicháng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-264-1779916403380",
+        "term": "飞机",
+        "definition": "airplane",
+        "meaningKr": "비행기",
+        "exampleEn": "我明天坐飞机去北京。",
+        "exampleKr": "나는 내일 비행기를 타고 베이징에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "fēijī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-265-1779916403380",
+        "term": "干净",
+        "definition": "clean; neat",
+        "meaningKr": "깨끗하다",
+        "exampleEn": "教室里非常干净。",
+        "exampleKr": "교실 안이 매우 깨끗하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gānjìng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-266-1779916403380",
+        "term": "高兴",
+        "definition": "happy; glad; willing (to do sth)",
+        "meaningKr": "기쁘다, 즐겁다",
+        "exampleEn": "认识你很高兴。",
+        "exampleKr": "당신을 알게 되어 매우 기쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gāoxìng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-267-1779916403380",
+        "term": "告诉",
+        "definition": "to press charges; to file a complaint",
+        "meaningKr": "알리다, 말하다",
+        "exampleEn": "请告诉他我的电话。",
+        "exampleKr": "그에게 내 전화번호를 알려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gàosu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-268-1779916403380",
+        "term": "哥哥",
+        "definition": "older brother",
+        "meaningKr": "형, 오빠",
+        "exampleEn": "我哥哥是大学生。",
+        "exampleKr": "우리 형은 대학생이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gē(ge)",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-269-1779916403380",
+        "term": "工人",
+        "definition": "worker",
+        "meaningKr": "노동자, 일꾼",
+        "exampleEn": "他的爸爸是工人。",
+        "exampleKr": "그의 아버지는 노동자이시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gōngrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-270-1779916403380",
+        "term": "工作",
+        "definition": "to work; job; work",
+        "meaningKr": "일하다, 직업",
+        "exampleEn": "你爸爸在哪里工作？",
+        "exampleKr": "너의 아버지는 어디에서 일하시니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gōngzuò",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-271-1779916403380",
+        "term": "关上",
+        "definition": "to close (a door); to turn off (light, electrical equipment etc)",
+        "meaningKr": "닫다, (불을) 끄다",
+        "exampleEn": "请帮我把门关上。",
+        "exampleKr": "문 좀 닫아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "guānshang",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-272-1779916403380",
+        "term": "国家",
+        "definition": "country; nation; state",
+        "meaningKr": "나라, 국가",
+        "exampleEn": "中国是一个伟大的国家。",
+        "exampleKr": "중국은 위대한 나라이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "guójiā",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-273-1779916403380",
+        "term": "国外",
+        "definition": "abroad; external (affairs); overseas",
+        "meaningKr": "외국, 해외",
+        "exampleEn": "他想去国外留学。",
+        "exampleKr": "그는 해외로 유학을 가고 싶어 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "guó wài",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-274-1779916403380",
+        "term": "还是",
+        "definition": "still (as before); had better; unexpectedly",
+        "meaningKr": "아직도, 아니면",
+        "exampleEn": "你喝茶还是喝咖啡？",
+        "exampleKr": "너는 차를 마실래, 아니면 커피를 마실래?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "háishi",
+        "pos": "adverb, conjunction"
+      },
+      {
+        "id": "word-zh-275-1779916403380",
+        "term": "还有",
+        "definition": "there still remain(s); there is (or are) still; in addition",
+        "meaningKr": "그리고, 게다가, 아직 있다",
+        "exampleEn": "桌子上还有两个苹果。",
+        "exampleKr": "탁자 위에 아직 사과가 두 개 더 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hái yǒu",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-276-1779916403380",
+        "term": "孩子",
+        "definition": "child",
+        "meaningKr": "아이, 어린이, 자녀",
+        "exampleEn": "那个孩子在唱歌。",
+        "exampleKr": "저 아이는 노래를 부르고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "háizi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-277-1779916403380",
+        "term": "汉语",
+        "definition": "Chinese language",
+        "meaningKr": "중국어",
+        "exampleEn": "我想学习汉语。",
+        "exampleKr": "나는 중국어를 배우고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "Hànyǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-278-1779916403380",
+        "term": "汉字",
+        "definition": "Chinese character(s)",
+        "meaningKr": "한자",
+        "exampleEn": "这个汉字怎么写？",
+        "exampleKr": "이 한자는 어떻게 쓰나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "Hànzì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-279-1779916403380",
+        "term": "好吃",
+        "definition": "tasty; delicious",
+        "meaningKr": "맛있다",
+        "exampleEn": "妈妈做的菜很好吃。",
+        "exampleKr": "어머니가 만드신 요리는 매우 맛있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hǎochī",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-280-1779916403380",
+        "term": "好看",
+        "definition": "good-looking; nice-looking; in an embarrassing situation",
+        "meaningKr": "예쁘다, 아름답다, 재미있다",
+        "exampleEn": "这部电影很好看。",
+        "exampleKr": "이 영화는 아주 재미있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hǎokàn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-281-1779916403380",
+        "term": "好听",
+        "definition": "pleasant to hear",
+        "meaningKr": "듣기 좋다, 감미롭다",
+        "exampleEn": "这首歌很好听。",
+        "exampleKr": "이 노래는 듣기 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hǎotīng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-282-1779916403380",
+        "term": "好玩儿",
+        "definition": "erhua variant of 好玩[hao3 wan2]",
+        "meaningKr": "재미있다, 놀기 좋다",
+        "exampleEn": "这个地方很好玩儿。",
+        "exampleKr": "이 곳은 아주 재미있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hǎowánr",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-283-1779916403380",
+        "term": "后边",
+        "definition": "the back; the rear; the last bit; behind; near the end; at the back; later; afterwards",
+        "meaningKr": "뒤, 뒤쪽",
+        "exampleEn": "老师站在我的后边。",
+        "exampleKr": "선생님이 내 뒤에 서 계신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hòubian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-284-1779916403380",
+        "term": "后天",
+        "definition": "the day after tomorrow; life after birth (the period in which one develops through experiences, contrasted with 先天[xian1 tian1]); acquired (not innate or congenital)",
+        "meaningKr": "모레",
+        "exampleEn": "我们后天去北京。",
+        "exampleKr": "우리는 모레 베이징에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "hòutiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-285-1779916403380",
+        "term": "回答",
+        "definition": "to reply; to answer; reply; answer",
+        "meaningKr": "대답하다, 회답하다",
+        "exampleEn": "请回答我的问题。",
+        "exampleKr": "제 질문에 대답해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huídá",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-286-1779916403380",
+        "term": "回到",
+        "definition": "to return to",
+        "meaningKr": "돌아가다, 돌아오다",
+        "exampleEn": "他昨天回到了北京。",
+        "exampleKr": "그는 어제 베이징으로 돌아왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huídào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-287-1779916403380",
+        "term": "回家",
+        "definition": "to return home",
+        "meaningKr": "집에 가다, 귀가하다",
+        "exampleEn": "我下午五点回家。",
+        "exampleKr": "나는 오후 5시에 집에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huí jiā",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-288-1779916403380",
+        "term": "回来",
+        "definition": "to return; to come back",
+        "meaningKr": "돌아오다",
+        "exampleEn": "爸爸什么时候回来？",
+        "exampleKr": "아빠는 언제 돌아오세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huí∥·lái",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-289-1779916403380",
+        "term": "回去",
+        "definition": "to return; to go back",
+        "meaningKr": "돌아가다",
+        "exampleEn": "天黑了，我们回去吧。",
+        "exampleKr": "날이 어두워졌으니 우리 돌아가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huí∥·qù",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-290-1779916403380",
+        "term": "火车",
+        "definition": "train",
+        "meaningKr": "기차, 열차",
+        "exampleEn": "我坐火车去上海。",
+        "exampleKr": "나는 기차를 타고 상하이에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "huǒchē",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-291-1779916403380",
+        "term": "机场",
+        "definition": "airport; airfield",
+        "meaningKr": "공항",
+        "exampleEn": "我们去机场接人。",
+        "exampleKr": "우리는 사람을 마중하러 공항에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jīchǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-292-1779916403380",
+        "term": "鸡蛋",
+        "definition": "hen's egg",
+        "meaningKr": "달걀, 계란",
+        "exampleEn": "我早上吃了一个鸡蛋。",
+        "exampleKr": "나는 아침에 계란을 하나 먹었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jīdàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-293-1779916403380",
+        "term": "机票",
+        "definition": "plane ticket; airline ticket",
+        "meaningKr": "비행기 표",
+        "exampleEn": "我已经买好机票了。",
+        "exampleKr": "나는 이미 비행기 표를 예매했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jīpiào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-294-1779916403380",
+        "term": "记得",
+        "definition": "to remember",
+        "meaningKr": "기억하다, 기억하고 있다",
+        "exampleEn": "你还记得我吗？",
+        "exampleKr": "너 아직 나를 기억하니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jìde",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-295-1779916403380",
+        "term": "记住",
+        "definition": "to remember; to bear in mind; to learn by heart",
+        "meaningKr": "기억하다, 명심하다",
+        "exampleEn": "你要记住这句话。",
+        "exampleKr": "너는 이 말을 명심해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jìzhù",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-296-1779916403380",
+        "term": "家里",
+        "definition": "home",
+        "meaningKr": "집, 집안",
+        "exampleEn": "今天家里没有人。",
+        "exampleKr": "오늘 집에는 아무도 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiā li",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-297-1779916403380",
+        "term": "家人",
+        "definition": "family member",
+        "meaningKr": "가족, 집안사람",
+        "exampleEn": "我和家人一起吃晚饭。",
+        "exampleKr": "나는 가족과 함께 저녁을 먹는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiārén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-298-1779916403380",
+        "term": "见面",
+        "definition": "to meet; to see each other",
+        "meaningKr": "만나다, 얼굴을 마주하다",
+        "exampleEn": "我们明天在学校见面。",
+        "exampleKr": "우리 내일 학교에서 만나자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiàn∥miàn",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-299-1779916403380",
+        "term": "姐姐",
+        "definition": "older sister",
+        "meaningKr": "누나, 언니",
+        "exampleEn": "我姐姐是医生。",
+        "exampleKr": "우리 언니는 의사이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiě(jie)",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-300-1779916403380",
+        "term": "介绍",
+        "definition": "to introduce (sb to sb); to give a presentation; to present (sb for a job etc)",
+        "meaningKr": "소개하다",
+        "exampleEn": "我来介绍一下。",
+        "exampleKr": "제가 소개해 드릴게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jièshào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-301-1779916403380",
+        "term": "今年",
+        "definition": "this year",
+        "meaningKr": "올해",
+        "exampleEn": "我今年二十岁。",
+        "exampleKr": "저는 올해 스무 살입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jīnnián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-302-1779916403380",
+        "term": "今天",
+        "definition": "today; the present time; now",
+        "meaningKr": "오늘",
+        "exampleEn": "今天天气很好。",
+        "exampleKr": "오늘 날씨가 아주 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jīntiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-303-1779916403380",
+        "term": "进来",
+        "definition": "to come in",
+        "meaningKr": "들어오다",
+        "exampleEn": "请进来说话吧。",
+        "exampleKr": "들어와서 말씀하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jìn∥·lái",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-304-1779916403380",
+        "term": "进去",
+        "definition": "to go in",
+        "meaningKr": "들어가다",
+        "exampleEn": "我们进去看看吧。",
+        "exampleKr": "우리 들어가서 봅시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jìn∥·qù",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-305-1779916403380",
+        "term": "觉得",
+        "definition": "to think that ...; to feel that ...; to feel (uncomfortable etc)",
+        "meaningKr": "생각하다, 느끼다",
+        "exampleEn": "我觉得这本书很好。",
+        "exampleKr": "저는 이 책이 좋다고 생각해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "juéde",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-306-1779916403380",
+        "term": "开车",
+        "definition": "to drive a car (or train etc)",
+        "meaningKr": "운전하다",
+        "exampleEn": "爸爸每天开车上班。",
+        "exampleKr": "아빠는 매일 차를 운전해서 출근하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kāi∥chē",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-307-1779916403380",
+        "term": "开会",
+        "definition": "to hold a meeting; to attend a meeting",
+        "meaningKr": "회의하다",
+        "exampleEn": "我们下午要开会。",
+        "exampleKr": "우리는 오후에 회의를 해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kāi∥huì",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-308-1779916403380",
+        "term": "看病",
+        "definition": "to visit a doctor; to see a patient",
+        "meaningKr": "진료를 받다, 진찰하다",
+        "exampleEn": "我去医院看病。",
+        "exampleKr": "저는 병원에 진료를 받으러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kàn∥bìng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-309-1779916403380",
+        "term": "看到",
+        "definition": "to see",
+        "meaningKr": "보다, 눈에 보이다",
+        "exampleEn": "我看到那只猫了。",
+        "exampleKr": "저는 그 고양이를 보았어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kàndào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-310-1779916403380",
+        "term": "看见",
+        "definition": "to see; to catch sight of",
+        "meaningKr": "보다, 보이다",
+        "exampleEn": "你看见我的手机了吗？",
+        "exampleKr": "내 휴대폰 봤어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kàn∥jiàn",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-311-1779916403380",
+        "term": "考试",
+        "definition": "to take an exam; exam",
+        "meaningKr": "시험, 시험을 치다",
+        "exampleEn": "明天的考试很重要。",
+        "exampleKr": "내일 시험은 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kǎo∥shì",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-312-1779916403380",
+        "term": "课本",
+        "definition": "textbook",
+        "meaningKr": "교과서, 교재",
+        "exampleEn": "请打开你的课本。",
+        "exampleKr": "교과서를 펴세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kèběn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-313-1779916403380",
+        "term": "课文",
+        "definition": "text",
+        "meaningKr": "본문",
+        "exampleEn": "我们今天读这篇课文。",
+        "exampleKr": "우리는 오늘 이 본문을 읽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kèwén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-314-1779916403380",
+        "term": "来到",
+        "definition": "to arrive; to come",
+        "meaningKr": "오다, 도착하다",
+        "exampleEn": "他来到了北京。",
+        "exampleKr": "그는 베이징에 왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "láidào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-315-1779916403380",
+        "term": "老人",
+        "definition": "old man or woman; the elderly; one's aged parents or grandparents",
+        "meaningKr": "노인, 어르신",
+        "exampleEn": "我们要尊敬老人。",
+        "exampleKr": "우리는 어르신들을 공경해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lǎorén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-316-1779916403380",
+        "term": "老师",
+        "definition": "teacher",
+        "meaningKr": "선생님",
+        "exampleEn": "他是我们的汉语老师。",
+        "exampleKr": "그는 우리의 중국어 선생님입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lǎoshī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-317-1779916403380",
+        "term": "里边",
+        "definition": "inside",
+        "meaningKr": "안, 안쪽",
+        "exampleEn": "房间里边没有人。",
+        "exampleKr": "방 안에는 아무도 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lǐbian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-318-1779916403380",
+        "term": "楼上",
+        "definition": "upstairs",
+        "meaningKr": "위층, 2층",
+        "exampleEn": "他在楼上睡觉呢。",
+        "exampleKr": "그는 위층에서 자고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lóu shàng",
+        "pos": "Other (N-L)"
+      },
+      {
+        "id": "word-zh-319-1779916403380",
+        "term": "楼下",
+        "definition": "downstairs",
+        "meaningKr": "아래층, 1층",
+        "exampleEn": "我们在楼下等你。",
+        "exampleKr": "우리는 아래층에서 당신을 기다릴게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lóu xià",
+        "pos": "Other (N-L)"
+      },
+      {
+        "id": "word-zh-320-1779916403380",
+        "term": "路口",
+        "definition": "crossing; intersection (of roads)",
+        "meaningKr": "교차로, 모퉁이",
+        "exampleEn": "在下一个路口往右拐。",
+        "exampleKr": "다음 교차로에서 우회전하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lùkǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-321-1779916403380",
+        "term": "路上",
+        "definition": "on the road; on the way; en route",
+        "meaningKr": "길 위, 가는 길에",
+        "exampleEn": "我在回家的路上。",
+        "exampleKr": "저는 집으로 가는 길입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "lùshang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-322-1779916403380",
+        "term": "妈妈",
+        "definition": "mama; mommy; mother",
+        "meaningKr": "엄마, 어머니",
+        "exampleEn": "我妈妈做的菜很好吃。",
+        "exampleKr": "우리 엄마가 만든 요리는 아주 맛있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "mā(ma)",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-323-1779916403380",
+        "term": "马路",
+        "definition": "street; road",
+        "meaningKr": "길, 도로",
+        "exampleEn": "过马路时要小心。",
+        "exampleKr": "길을 건널 때는 조심해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "mǎlù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-324-1779916403380",
+        "term": "马上",
+        "definition": "at once; right away; immediately",
+        "meaningKr": "바로, 즉시",
+        "exampleEn": "我马上就到学校。",
+        "exampleKr": "저는 바로 학교에 도착합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "mǎshàng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-325-1779916403380",
+        "term": "没事儿",
+        "definition": "to have spare time; free from work; it's not important",
+        "meaningKr": "괜찮다, 일이 없다, 한가하다",
+        "exampleEn": "我今天没事儿，可以去玩。",
+        "exampleKr": "나 오늘 아무 일 없어, 놀러 갈 수 있어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "méi∥shìr",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-326-1779916403380",
+        "term": "没有",
+        "definition": "haven't; hasn't; doesn't exist",
+        "meaningKr": "없다, 하지 않았다",
+        "exampleEn": "我家里没有电脑。",
+        "exampleKr": "우리 집에는 컴퓨터가 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "méi·yǒu",
+        "pos": "verb, adverb"
+      },
+      {
+        "id": "word-zh-327-1779916403380",
+        "term": "妹妹",
+        "definition": "younger sister; young woman",
+        "meaningKr": "여동생",
+        "exampleEn": "我妹妹今年十岁了。",
+        "exampleKr": "내 여동생은 올해 열 살이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "mèi(mei)",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-328-1779916403380",
+        "term": "门口",
+        "definition": "doorway; gate",
+        "meaningKr": "문 앞, 입구",
+        "exampleEn": "我们在学校门口见吧。",
+        "exampleKr": "우리 학교 교문 앞에서 만나자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ménkǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-329-1779916403380",
+        "term": "门票",
+        "definition": "ticket (for theater, cinema etc)",
+        "meaningKr": "입장권, 표",
+        "exampleEn": "这里的门票贵不贵？",
+        "exampleKr": "이곳의 입장권은 비쌉니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "ménpiào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-330-1779916403380",
+        "term": "米饭",
+        "definition": "(cooked) rice",
+        "meaningKr": "쌀밥, 밥",
+        "exampleEn": "我中午想吃米饭。",
+        "exampleKr": "나는 점심에 밥을 먹고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "mǐfàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-331-1779916403380",
+        "term": "面包",
+        "definition": "bread",
+        "meaningKr": "빵",
+        "exampleEn": "我早饭只吃了一个面包。",
+        "exampleKr": "나는 아침으로 빵 한 개만 먹었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "miànbāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-332-1779916403380",
+        "term": "面条儿",
+        "definition": "erhua variant of 麵條|面条[mian4 tiao2]",
+        "meaningKr": "국수, 면",
+        "exampleEn": "这家店的面条儿很好吃。",
+        "exampleKr": "이 가게의 국수는 아주 맛있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "miàntiáor",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-333-1779916403380",
+        "term": "明白",
+        "definition": "clear; obvious; unequivocal; sensible; reasonable; to understand; to realize",
+        "meaningKr": "알다, 이해하다, 분명하다",
+        "exampleEn": "老师说的话我明白了。",
+        "exampleKr": "선생님이 하신 말씀을 이해했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "míngbai",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-334-1779916403380",
+        "term": "明年",
+        "definition": "next year",
+        "meaningKr": "내년",
+        "exampleEn": "我明年要去中国留学。",
+        "exampleKr": "나는 내년에 중국으로 유학을 갈 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "míngnián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-335-1779916403380",
+        "term": "明天",
+        "definition": "tomorrow",
+        "meaningKr": "내일",
+        "exampleEn": "明天下午会下雨吗？",
+        "exampleKr": "내일 오후에 비가 올까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "míngtiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-336-1779916403380",
+        "term": "名字",
+        "definition": "name (of a person or thing)",
+        "meaningKr": "이름",
+        "exampleEn": "请问，你叫什么名字？",
+        "exampleKr": "실례지만, 이름이 무엇인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "míngzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-337-1779916403380",
+        "term": "哪里",
+        "definition": "where?; somewhere; anywhere",
+        "meaningKr": "어디",
+        "exampleEn": "请问洗手间在哪里？",
+        "exampleKr": "실례지만 화장실이 어디에 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǎ·lǐ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-338-1779916403380",
+        "term": "哪些",
+        "definition": "which ones?; who?; what?",
+        "meaningKr": "어느 것들, 어떤 것들",
+        "exampleEn": "你喜欢吃哪些水果？",
+        "exampleKr": "너는 어떤 과일들을 먹는 것을 좋아하니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǎxiē",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-339-1779916403380",
+        "term": "那边",
+        "definition": "over there; yonder",
+        "meaningKr": "저기, 저쪽",
+        "exampleEn": "那边的商店在打折。",
+        "exampleKr": "저쪽 상점이 세일 중이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nàbiān",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-340-1779916403380",
+        "term": "那里",
+        "definition": "there; that place",
+        "meaningKr": "그곳, 저기",
+        "exampleEn": "那里有很多漂亮的花。",
+        "exampleKr": "저곳에는 예쁜 꽃들이 많이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nà·lǐ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-341-1779916403380",
+        "term": "那些",
+        "definition": "those",
+        "meaningKr": "그것들, 저것들",
+        "exampleEn": "那些书都是我的。",
+        "exampleKr": "저 책들은 모두 내 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nàxiē",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-342-1779916403380",
+        "term": "奶奶",
+        "definition": "breasts",
+        "meaningKr": "할머니",
+        "exampleEn": "我奶奶今年七十岁了。",
+        "exampleKr": "우리 할머니는 올해 일흔 살이시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǎinai",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-343-1779916403380",
+        "term": "南边",
+        "definition": "south; south side; southern part",
+        "meaningKr": "남쪽, 남쪽 방향",
+        "exampleEn": "学校的南边有一家超市。",
+        "exampleKr": "학교 남쪽에 마트가 하나 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nánbian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-344-1779916403380",
+        "term": "男孩儿",
+        "definition": "erhua form of 男孩[nan2 hai2]",
+        "meaningKr": "남자아이, 소년",
+        "exampleEn": "那个男孩儿是我的弟弟。",
+        "exampleKr": "저 남자아이는 내 남동생이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nánháir",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-345-1779916403380",
+        "term": "男人",
+        "definition": "a man; a male; men",
+        "meaningKr": "남자, 남성",
+        "exampleEn": "高个子的男人是我爸爸。",
+        "exampleKr": "키가 큰 남자는 우리 아빠이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nánrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-346-1779916403380",
+        "term": "男生",
+        "definition": "schoolboy; male student; boy",
+        "meaningKr": "남학생, 남자",
+        "exampleEn": "我们班有十五个男生。",
+        "exampleKr": "우리 반에는 남학생이 15명 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nánshēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-347-1779916403380",
+        "term": "你们",
+        "definition": "you (plural)",
+        "meaningKr": "너희들, 당신들",
+        "exampleEn": "你们明天去不去学校？",
+        "exampleKr": "너희들 내일 학교에 가니 안 가니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǐmen",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-348-1779916403380",
+        "term": "牛奶",
+        "definition": "cow's milk",
+        "meaningKr": "우유",
+        "exampleEn": "我每天早上喝一杯牛奶。",
+        "exampleKr": "나는 매일 아침 우유 한 잔을 마신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "niúnǎi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-349-1779916403380",
+        "term": "女儿",
+        "definition": "daughter",
+        "meaningKr": "딸",
+        "exampleEn": "他有一个可爱的女儿。",
+        "exampleKr": "그에게는 귀여운 딸이 한 명 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǚ’ér",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-350-1779916403380",
+        "term": "女孩儿",
+        "definition": "erhua form of 女孩[nu : 3 hai2]",
+        "meaningKr": "여자아이, 소녀",
+        "exampleEn": "那个女孩儿在唱歌。",
+        "exampleKr": "저 여자아이는 노래를 부르고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǚháir",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-351-1779916403380",
+        "term": "女人",
+        "definition": "woman",
+        "meaningKr": "여자, 여성",
+        "exampleEn": "那个女人是我们的老师。",
+        "exampleKr": "저 여성은 우리의 선생님이십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǚrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-352-1779916403380",
+        "term": "女生",
+        "definition": "schoolgirl; female student; girl",
+        "meaningKr": "여학생, 여자",
+        "exampleEn": "我们班有很多女生。",
+        "exampleKr": "우리 반에는 여학생이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǚshēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-353-1779916403380",
+        "term": "旁边",
+        "definition": "side; adjacent place",
+        "meaningKr": "옆, 부근",
+        "exampleEn": "学校旁边有一家书店。",
+        "exampleKr": "학교 옆에 서점이 하나 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "pángbiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-354-1779916403380",
+        "term": "朋友",
+        "definition": "friend",
+        "meaningKr": "친구",
+        "exampleEn": "他是我的好朋友。",
+        "exampleKr": "그는 나의 좋은 친구이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "péngyou",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-355-1779916403380",
+        "term": "起床",
+        "definition": "to get out of bed; to get up",
+        "meaningKr": "일어나다, 기상하다",
+        "exampleEn": "我每天早上七点起床。",
+        "exampleKr": "나는 매일 아침 7시에 일어난다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐ∥chuáng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-356-1779916403380",
+        "term": "起来",
+        "definition": "to stand up; to get up; also pr. [qi3lai2]",
+        "meaningKr": "일어나다, 서다",
+        "exampleEn": "请大家站起来。",
+        "exampleKr": "모두 일어서 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐ∥·lái",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-357-1779916403380",
+        "term": "汽车",
+        "definition": "car; automobile; bus",
+        "meaningKr": "자동차, 차",
+        "exampleEn": "爸爸买了一辆新汽车。",
+        "exampleKr": "아빠는 새 자동차를 한 대 사셨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qìchē",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-358-1779916403380",
+        "term": "钱包",
+        "definition": "purse; wallet",
+        "meaningKr": "지갑",
+        "exampleEn": "我的钱包在桌子上。",
+        "exampleKr": "내 지갑은 책상 위에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qiánbāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-359-1779916403380",
+        "term": "前边",
+        "definition": "front; the front side; in front of",
+        "meaningKr": "앞, 앞쪽",
+        "exampleEn": "前边那个人是谁？",
+        "exampleKr": "앞에 있는 저 사람은 누구입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qiánbian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-360-1779916403380",
+        "term": "前天",
+        "definition": "the day before yesterday",
+        "meaningKr": "그저께",
+        "exampleEn": "前天下午下雨了。",
+        "exampleKr": "그저께 오후에 비가 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qiántiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-361-1779916403380",
+        "term": "请假",
+        "definition": "to request leave of absence",
+        "meaningKr": "휴가를 신청하다, 결석계를 내다",
+        "exampleEn": "我今天想向老师请假。",
+        "exampleKr": "저는 오늘 선생님께 휴가를 신청하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐng∥jià",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-362-1779916403380",
+        "term": "请进",
+        "definition": "\"please come in\"",
+        "meaningKr": "들어오세요",
+        "exampleEn": "门开着，请进吧。",
+        "exampleKr": "문이 열려 있으니, 들어오세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐng jìn",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-363-1779916403380",
+        "term": "请问",
+        "definition": "Excuse me, may I ask...?",
+        "meaningKr": "말씀 좀 여쭙겠습니다, 실례지만",
+        "exampleEn": "请问，去火车站怎么走？",
+        "exampleKr": "말씀 좀 묻겠는데, 기차역은 어떻게 가나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐngwèn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-364-1779916403380",
+        "term": "请坐",
+        "definition": "please, have a seat",
+        "meaningKr": "앉으세요",
+        "exampleEn": "别客气，请坐吧。",
+        "exampleKr": "부담 갖지 말고, 앉으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qǐng zuò",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-365-1779916403380",
+        "term": "去年",
+        "definition": "last year",
+        "meaningKr": "작년",
+        "exampleEn": "我去年去北京旅游了。",
+        "exampleKr": "나는 작년에 베이징으로 여행을 갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "qùnián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-366-1779916403380",
+        "term": "认识",
+        "definition": "to know; to recognize; to be familiar with",
+        "meaningKr": "알다, 알게 되다",
+        "exampleEn": "很高兴认识你。",
+        "exampleKr": "만나서 반갑습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "rènshi",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-367-1779916403380",
+        "term": "认真",
+        "definition": "conscientious; earnest; serious",
+        "meaningKr": "진지하다, 열심히 하다",
+        "exampleEn": "他学习非常认真。",
+        "exampleKr": "그는 공부를 아주 열심히 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "rènzhēn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-368-1779916403380",
+        "term": "日期",
+        "definition": "date",
+        "meaningKr": "날짜, 일자",
+        "exampleEn": "请写下今天的日期。",
+        "exampleKr": "오늘의 날짜를 적어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "rìqī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-369-1779916403380",
+        "term": "商场",
+        "definition": "shopping mall; shopping center; department store",
+        "meaningKr": "쇼핑몰, 백화점",
+        "exampleEn": "我们去商场买衣服吧。",
+        "exampleKr": "우리 쇼핑몰에 옷 사러 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shāngchǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-370-1779916403380",
+        "term": "商店",
+        "definition": "store; shop",
+        "meaningKr": "상점, 가게",
+        "exampleEn": "这家商店的面包很好吃。",
+        "exampleKr": "이 가게의 빵은 매우 맛있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shāngdiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-371-1779916403380",
+        "term": "上班",
+        "definition": "to go to work; to be on duty; to start work",
+        "meaningKr": "출근하다",
+        "exampleEn": "他每天坐地铁上班。",
+        "exampleKr": "그는 매일 지하철을 타고 출근한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàng∥bān",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-372-1779916403380",
+        "term": "上边",
+        "definition": "the top; above; overhead",
+        "meaningKr": "위, 위쪽",
+        "exampleEn": "书在桌子上边。",
+        "exampleKr": "책은 책상 위에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàngbian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-373-1779916403380",
+        "term": "上车",
+        "definition": "to get on or into (a bus, train, car etc)",
+        "meaningKr": "차에 타다",
+        "exampleEn": "公共汽车来了，我们上车吧。",
+        "exampleKr": "버스가 왔으니, 우리 차에 타자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàng chē",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-374-1779916403380",
+        "term": "上次",
+        "definition": "last time",
+        "meaningKr": "지난번, 지난",
+        "exampleEn": "上次考试我没考好。",
+        "exampleKr": "지난번 시험을 나는 잘 보지 못했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàng cì",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-375-1779916403380",
+        "term": "上课",
+        "definition": "to go to class; to attend class; to go to teach a class",
+        "meaningKr": "수업하다, 수업을 듣다",
+        "exampleEn": "我们明天八点上课。",
+        "exampleKr": "우리는 내일 8시에 수업을 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàng∥kè",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-376-1779916403380",
+        "term": "上网",
+        "definition": "to go online; to connect to the Internet",
+        "meaningKr": "인터넷을 하다",
+        "exampleEn": "我喜欢在家里上网。",
+        "exampleKr": "저는 집에서 인터넷 하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàng∥wǎng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-377-1779916403380",
+        "term": "上午",
+        "definition": "morning",
+        "meaningKr": "오전",
+        "exampleEn": "我上午去买水果。",
+        "exampleKr": "저는 오전에 과일을 사러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàngwǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-378-1779916403380",
+        "term": "上学",
+        "definition": "to go to school; to attend school",
+        "meaningKr": "학교에 다니다, 등교하다",
+        "exampleEn": "妹妹每天去上学。",
+        "exampleKr": "여동생은 매일 학교에 다닙니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shàng∥xué",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-379-1779916403380",
+        "term": "身上",
+        "definition": "on the body; at hand; among",
+        "meaningKr": "몸, 몸에",
+        "exampleEn": "他身上没有带钱。",
+        "exampleKr": "그는 몸에 돈을 지니고 있지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shēnshang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-380-1779916403380",
+        "term": "身体",
+        "definition": "the body; one's health",
+        "meaningKr": "몸, 건강",
+        "exampleEn": "奶奶的身体很好。",
+        "exampleKr": "할머니는 건강하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shēntǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-381-1779916403380",
+        "term": "什么",
+        "definition": "what?; something; anything",
+        "meaningKr": "무엇, 무슨",
+        "exampleEn": "你喜欢吃什么？",
+        "exampleKr": "당신은 무엇을 먹는 것을 좋아합니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shénme",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-382-1779916403380",
+        "term": "生病",
+        "definition": "to fall ill",
+        "meaningKr": "병이 나다, 아프다",
+        "exampleEn": "他生病了，没去学校。",
+        "exampleKr": "그는 병이 나서 학교에 가지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shēng∥bìng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-383-1779916403380",
+        "term": "生气",
+        "definition": "to get angry; to be furious; vitality; liveliness",
+        "meaningKr": "화를 내다, 화나다",
+        "exampleEn": "妈妈为什么生气了？",
+        "exampleKr": "어머니는 왜 화가 나셨나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shēng∥qì",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-384-1779916403380",
+        "term": "生日",
+        "definition": "birthday",
+        "meaningKr": "생일",
+        "exampleEn": "今天是我的生日。",
+        "exampleKr": "오늘은 제 생일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shēngrì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-385-1779916403380",
+        "term": "时候",
+        "definition": "time; length of time; moment",
+        "meaningKr": "때, 시간",
+        "exampleEn": "你什么时候回家？",
+        "exampleKr": "당신은 언제 집에 돌아갑니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shíhou",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-386-1779916403380",
+        "term": "时间",
+        "definition": "(concept of) time; (duration of) time; (point in) time",
+        "meaningKr": "시간",
+        "exampleEn": "我现在没有时间。",
+        "exampleKr": "저는 지금 시간이 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shíjiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-387-1779916403380",
+        "term": "手机",
+        "definition": "cell phone; mobile phone",
+        "meaningKr": "휴대전화, 핸드폰",
+        "exampleEn": "这是谁的手机？",
+        "exampleKr": "이것은 누구의 핸드폰인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shǒujī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-388-1779916403380",
+        "term": "书包",
+        "definition": "schoolbag; satchel; bookbag",
+        "meaningKr": "책가방",
+        "exampleEn": "他的书包很大。",
+        "exampleKr": "그의 책가방은 매우 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shūbāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-389-1779916403380",
+        "term": "书店",
+        "definition": "bookstore",
+        "meaningKr": "서점",
+        "exampleEn": "我们去书店买书吧。",
+        "exampleKr": "우리 서점에 책 사러 갑시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shūdiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-390-1779916403380",
+        "term": "水果",
+        "definition": "fruit",
+        "meaningKr": "과일",
+        "exampleEn": "桌子上有很多水果。",
+        "exampleKr": "탁자 위에 과일이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shuǐguǒ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-391-1779916403380",
+        "term": "睡觉",
+        "definition": "to go to bed; to sleep",
+        "meaningKr": "자다, 잠을 자다",
+        "exampleEn": "妹妹在房间里睡觉。",
+        "exampleKr": "여동생이 방에서 잠을 자고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shuì∥jiào",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-392-1779916403380",
+        "term": "说话",
+        "definition": "to speak; to say; to talk",
+        "meaningKr": "말하다, 이야기하다",
+        "exampleEn": "请不要在图书馆说话。",
+        "exampleKr": "도서관에서 말하지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shuō∥huà",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-393-1779916403380",
+        "term": "他们",
+        "definition": "they; them",
+        "meaningKr": "그들, 그 사람들",
+        "exampleEn": "他们都是我的朋友。",
+        "exampleKr": "그들은 모두 제 친구입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tāmen",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-394-1779916403380",
+        "term": "她们",
+        "definition": "they; them (females)",
+        "meaningKr": "그녀들",
+        "exampleEn": "她们正在一起看书。",
+        "exampleKr": "그녀들은 함께 책을 보고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tāmen",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-395-1779916403380",
+        "term": "天气",
+        "definition": "weather",
+        "meaningKr": "날씨",
+        "exampleEn": "今天的天气非常好。",
+        "exampleKr": "오늘의 날씨는 매우 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tiānqì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-396-1779916403380",
+        "term": "听到",
+        "definition": "to hear",
+        "meaningKr": "듣다, 들리다",
+        "exampleEn": "我听到有人在唱歌。",
+        "exampleKr": "누군가 노래를 부르는 소리를 들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tīngdào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-397-1779916403380",
+        "term": "听见",
+        "definition": "to hear",
+        "meaningKr": "들리다, 듣다",
+        "exampleEn": "你听见我说的话了吗？",
+        "exampleKr": "제 말이 들리시나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tīng∥jiàn",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-398-1779916403380",
+        "term": "听写",
+        "definition": "(of a pupil) to write down (in a dictation exercise); dictation; (music) to transcribe by ear",
+        "meaningKr": "받아쓰기, 받아쓰다",
+        "exampleEn": "我们今天有汉语听写。",
+        "exampleKr": "우리는 오늘 중국어 받아쓰기가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tīngxiě",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-399-1779916403380",
+        "term": "同学",
+        "definition": "to study at the same school; fellow student; classmate",
+        "meaningKr": "반 친구, 동창",
+        "exampleEn": "王老师很喜欢同学们。",
+        "exampleKr": "왕 선생님은 학생들을 매우 좋아하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "tóngxué",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-400-1779916403380",
+        "term": "外边",
+        "definition": "outside; outer surface; abroad",
+        "meaningKr": "밖, 바깥",
+        "exampleEn": "外边在下雨。",
+        "exampleKr": "밖에 비가 내리고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wàibian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-401-1779916403380",
+        "term": "外国",
+        "definition": "foreign country",
+        "meaningKr": "외국",
+        "exampleEn": "他想去外国旅游。",
+        "exampleKr": "그는 외국 여행을 가고 싶어 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wàiguó",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-402-1779916403380",
+        "term": "外语",
+        "definition": "foreign language",
+        "meaningKr": "외국어",
+        "exampleEn": "你会说几种外语？",
+        "exampleKr": "당신은 외국어를 몇 가지 할 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wàiyǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-403-1779916403380",
+        "term": "晚饭",
+        "definition": "evening meal; dinner; supper",
+        "meaningKr": "저녁 식사, 저녁밥",
+        "exampleEn": "你今天晚饭吃什么？",
+        "exampleKr": "오늘 저녁은 무엇을 먹을 건가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǎnfàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-404-1779916403380",
+        "term": "晚上",
+        "definition": "evening; night; in the evening",
+        "meaningKr": "저녁, 밤",
+        "exampleEn": "我晚上九点睡觉。",
+        "exampleKr": "저는 밤 9시에 잠을 잡니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǎnshang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-405-1779916403380",
+        "term": "网上",
+        "definition": "online",
+        "meaningKr": "인터넷, 온라인",
+        "exampleEn": "我喜欢在网上买书。",
+        "exampleKr": "저는 인터넷으로 책을 사는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǎng shang",
+        "pos": "Other (N-L)"
+      },
+      {
+        "id": "word-zh-406-1779916403380",
+        "term": "网友",
+        "definition": "online friend; netizen; Internet user",
+        "meaningKr": "인터넷 친구, 네티즌",
+        "exampleEn": "他是我的中国网友。",
+        "exampleKr": "그는 저의 중국 인터넷 친구입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǎngyǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-407-1779916403380",
+        "term": "忘记",
+        "definition": "to forget",
+        "meaningKr": "잊다, 잊어버리다",
+        "exampleEn": "我忘记了他的名字。",
+        "exampleKr": "저는 그의 이름을 잊어버렸어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wàngjì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-408-1779916403380",
+        "term": "我们",
+        "definition": "we; us; ourselves; our",
+        "meaningKr": "우리, 저희",
+        "exampleEn": "我们都是留学生。",
+        "exampleKr": "우리는 모두 유학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǒmen",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-409-1779916403380",
+        "term": "午饭",
+        "definition": "lunch",
+        "meaningKr": "점심 식사, 점심밥",
+        "exampleEn": "你中午几点吃午饭？",
+        "exampleKr": "점심에 몇 시에 점심을 먹나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "wǔfàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-410-1779916403380",
+        "term": "西边",
+        "definition": "west; west side; western part",
+        "meaningKr": "서쪽, 서편",
+        "exampleEn": "学校在医院的西边。",
+        "exampleKr": "학교는 병원 서쪽에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xībian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-411-1779916403380",
+        "term": "喜欢",
+        "definition": "to like; to be fond of",
+        "meaningKr": "좋아하다",
+        "exampleEn": "我很喜欢中国菜。",
+        "exampleKr": "저는 중국 음식을 아주 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xǐhuan",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-412-1779916403380",
+        "term": "下班",
+        "definition": "to finish work; to get off work; next service (train, bus etc)",
+        "meaningKr": "퇴근하다",
+        "exampleEn": "爸爸每天六点下班。",
+        "exampleKr": "아빠는 매일 6시에 퇴근하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xià∥bān",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-413-1779916403380",
+        "term": "下边",
+        "definition": "under; the underside; below",
+        "meaningKr": "아래, 밑",
+        "exampleEn": "猫在桌子下边。",
+        "exampleKr": "고양이가 탁자 아래에 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiàbian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-414-1779916403380",
+        "term": "下车",
+        "definition": "to get off or out of (a bus, train, car etc)",
+        "meaningKr": "차에서 내리다, 하차하다",
+        "exampleEn": "我们要在下一站下车。",
+        "exampleKr": "우리는 다음 역에서 내려야 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xià chē",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-415-1779916403380",
+        "term": "下次",
+        "definition": "next time",
+        "meaningKr": "다음번, 다음",
+        "exampleEn": "我们下次再见吧。",
+        "exampleKr": "우리 다음에 또 만나요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xià cì",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-416-1779916403380",
+        "term": "下课",
+        "definition": "to finish class; to get out of class; to be fired",
+        "meaningKr": "수업을 마치다",
+        "exampleEn": "老师，什么时候下课？",
+        "exampleKr": "선생님, 수업은 언제 끝나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xià∥kè",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-417-1779916403380",
+        "term": "下午",
+        "definition": "afternoon; p.m.",
+        "meaningKr": "오후",
+        "exampleEn": "我下午去买东西。",
+        "exampleKr": "저는 오후에 물건을 사러 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiàwǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-418-1779916403380",
+        "term": "下雨",
+        "definition": "to rain",
+        "meaningKr": "비가 오다",
+        "exampleEn": "明天下午会下雨。",
+        "exampleKr": "내일 오후에 비가 올 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xià yǔ",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-419-1779916403380",
+        "term": "先生",
+        "definition": "teacher; gentleman; sir; mister (Mr.); husband",
+        "meaningKr": "선생, 씨, 남편",
+        "exampleEn": "王先生今天不在家。",
+        "exampleKr": "왕 선생은 오늘 집에 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiānsheng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-420-1779916403380",
+        "term": "现在",
+        "definition": "now; at present; currently",
+        "meaningKr": "지금, 현재",
+        "exampleEn": "你现在在做什么？",
+        "exampleKr": "당신은 지금 무엇을 하고 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiànzài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-421-1779916403380",
+        "term": "小孩儿",
+        "definition": "erhua variant of 小孩[xiao3 hai2]",
+        "meaningKr": "어린아이, 아이",
+        "exampleEn": "那个小孩儿很可爱。",
+        "exampleKr": "저 아이는 아주 귀여워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎoháir",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-422-1779916403380",
+        "term": "小姐",
+        "definition": "young lady; miss",
+        "meaningKr": "아가씨, ~양",
+        "exampleEn": "张小姐在银行工作。",
+        "exampleKr": "장 양은 은행에서 일합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎojiě",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-423-1779916403380",
+        "term": "小时",
+        "definition": "hour",
+        "meaningKr": "시간",
+        "exampleEn": "我每天学习两个小时。",
+        "exampleKr": "저는 매일 두 시간 동안 공부해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎoshí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-424-1779916403380",
+        "term": "小学",
+        "definition": "elementary school; primary school",
+        "meaningKr": "초등학교",
+        "exampleEn": "我妹妹在上小学。",
+        "exampleKr": "제 여동생은 초등학교에 다녀요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎoxué",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-425-1779916403380",
+        "term": "谢谢",
+        "definition": "to thank; thanks; thank you",
+        "meaningKr": "감사하다, 고맙다",
+        "exampleEn": "谢谢你帮我。",
+        "exampleKr": "나를 도와줘서 고마워.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xièxie",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-426-1779916403380",
+        "term": "新年",
+        "definition": "New Year",
+        "meaningKr": "새해, 신년",
+        "exampleEn": "祝你新年快乐！",
+        "exampleKr": "새해 복 많이 받으세요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xīnnián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-427-1779916403380",
+        "term": "星期",
+        "definition": "week; day of the week; Sunday",
+        "meaningKr": "요일, 주",
+        "exampleEn": "今天星期三，我有课。",
+        "exampleKr": "오늘은 수요일이라서 수업이 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xīngqī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-428-1779916403380",
+        "term": "休息",
+        "definition": "rest; to rest",
+        "meaningKr": "쉬다, 휴식하다",
+        "exampleEn": "我很累，想休息。",
+        "exampleKr": "나는 너무 피곤해서 쉬고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiūxi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-429-1779916403380",
+        "term": "学生",
+        "definition": "student; schoolchild",
+        "meaningKr": "학생",
+        "exampleEn": "我们都是大学生。",
+        "exampleKr": "우리는 모두 대학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xué·shēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-430-1779916403380",
+        "term": "学习",
+        "definition": "to learn; to study",
+        "meaningKr": "공부하다, 배우다",
+        "exampleEn": "他在房间里学习汉语。",
+        "exampleKr": "그는 방에서 중국어를 공부하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xuéxí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-431-1779916403380",
+        "term": "学校",
+        "definition": "school",
+        "meaningKr": "학교",
+        "exampleEn": "我们的学校很大。",
+        "exampleKr": "우리 학교는 매우 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xuéxiào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-432-1779916403380",
+        "term": "学院",
+        "definition": "college; educational institute; school",
+        "meaningKr": "대학, 단과대학",
+        "exampleEn": "他是这个学院的学生。",
+        "exampleKr": "그는 이 대학의 학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xuéyuàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-433-1779916403380",
+        "term": "爷爷",
+        "definition": "(coll.) paternal grandfather; grandpa",
+        "meaningKr": "할아버지",
+        "exampleEn": "我爷爷今年七十岁。",
+        "exampleKr": "우리 할아버지는 올해 일흔 살이십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yéye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-434-1779916403380",
+        "term": "衣服",
+        "definition": "clothes",
+        "meaningKr": "옷",
+        "exampleEn": "这件衣服很漂亮。",
+        "exampleKr": "이 옷은 매우 예쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yīfu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-435-1779916403380",
+        "term": "医生",
+        "definition": "doctor",
+        "meaningKr": "의사",
+        "exampleEn": "我爸爸是医院的医生。",
+        "exampleKr": "우리 아빠는 병원 의사입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yīshēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-436-1779916403380",
+        "term": "医院",
+        "definition": "hospital",
+        "meaningKr": "병원",
+        "exampleEn": "他现在去医院看病。",
+        "exampleKr": "그는 지금 병원에 진료를 받으러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yīyuàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-437-1779916403380",
+        "term": "一半",
+        "definition": "half",
+        "meaningKr": "절반, 반",
+        "exampleEn": "这个西瓜我吃了一半。",
+        "exampleKr": "이 수박은 내가 절반을 먹었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yíbàn",
+        "pos": "number"
+      },
+      {
+        "id": "word-zh-438-1779916403380",
+        "term": "一会儿",
+        "definition": "a moment; a while; in a moment",
+        "meaningKr": "잠시, 잠깐, 곧",
+        "exampleEn": "请等我一会儿。",
+        "exampleKr": "잠시만 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yíhuìr",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-439-1779916403380",
+        "term": "一块儿",
+        "definition": "erhua variant of 一塊|一块[yi1 kuai4]",
+        "meaningKr": "함께, 같이",
+        "exampleEn": "我们一块儿去吃饭吧。",
+        "exampleKr": "우리 함께 밥 먹으러 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yíkuàir",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-zh-440-1779916403380",
+        "term": "一下儿",
+        "definition": "erhua form of 一下[yi1 xia4]",
+        "meaningKr": "좀 ~해보다, 한번",
+        "exampleEn": "我想看一下儿这本书。",
+        "exampleKr": "이 책을 좀 보고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yíxiàr",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-441-1779916403380",
+        "term": "一样",
+        "definition": "same; like; equal to",
+        "meaningKr": "같다, 동일하다",
+        "exampleEn": "我和他的爱好一样。",
+        "exampleKr": "나와 그의 취미는 같다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yíyàng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-442-1779916403380",
+        "term": "一边",
+        "definition": "one side; either side; on the one hand",
+        "meaningKr": "동시에 ~하다, 한쪽",
+        "exampleEn": "他喜欢一边听歌一边写字。",
+        "exampleKr": "그는 노래를 들으면서 글씨 쓰는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yìbiān",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-zh-443-1779916403380",
+        "term": "一点儿",
+        "definition": "erhua variant of 一點|一点[yi1 dian3]",
+        "meaningKr": "조금, 약간",
+        "exampleEn": "我想喝一点儿热水。",
+        "exampleKr": "따뜻한 물을 조금 마시고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yìdiǎnr",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-444-1779916403380",
+        "term": "一起",
+        "definition": "together; in company (with); altogether; in total; an instance of; a case of (murder, accident, dispute etc)",
+        "meaningKr": "같이, 함께",
+        "exampleEn": "我们一起去看电影吧。",
+        "exampleKr": "우리 같이 영화 보러 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yìqǐ",
+        "pos": "adverb, noun"
+      },
+      {
+        "id": "word-zh-445-1779916403380",
+        "term": "一些",
+        "definition": "some; a few; a little; (following an adjective) slightly ...er",
+        "meaningKr": "조금, 몇몇, 약간의",
+        "exampleEn": "桌子上有一些苹果。",
+        "exampleKr": "탁자 위에 사과가 몇 개 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yìxiē",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-446-1779916403380",
+        "term": "有的",
+        "definition": "some (exist)",
+        "meaningKr": "어떤 것, 일부",
+        "exampleEn": "有的人喜欢喝茶。",
+        "exampleKr": "어떤 사람들은 차 마시는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yǒude",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-447-1779916403380",
+        "term": "有名",
+        "definition": "famous; well-known",
+        "meaningKr": "유명하다",
+        "exampleEn": "这家北京烤鸭很有名。",
+        "exampleKr": "이 베이징 덕 가게는 매우 유명하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yǒu∥míng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-448-1779916403380",
+        "term": "有用",
+        "definition": "useful",
+        "meaningKr": "유용하다, 쓸모가 있다",
+        "exampleEn": "多听录音对学习汉语很有用。",
+        "exampleKr": "녹음을 많이 듣는 것은 중국어 공부에 매우 유용하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yǒuyòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-449-1779916403380",
+        "term": "右边",
+        "definition": "right side; right, to the right",
+        "meaningKr": "오른쪽, 우측",
+        "exampleEn": "学校的右边有一家书店。",
+        "exampleKr": "학교 오른쪽에 서점이 하나 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yòubian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-450-1779916403380",
+        "term": "在家",
+        "definition": "to be at home",
+        "meaningKr": "집에 있다",
+        "exampleEn": "爸爸今天在家休息。",
+        "exampleKr": "아빠는 오늘 집에서 쉬십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zàijiā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-451-1779916403380",
+        "term": "再见",
+        "definition": "goodbye",
+        "meaningKr": "안녕, 헤어질 때 인사",
+        "exampleEn": "老师，我们明天见，再见！",
+        "exampleKr": "선생님, 내일 봬요, 안녕히 계세요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zàijiàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-452-1779916403380",
+        "term": "早饭",
+        "definition": "breakfast",
+        "meaningKr": "아침 식사, 아침밥",
+        "exampleEn": "你今天早上吃早饭了吗？",
+        "exampleKr": "너 오늘 아침에 아침밥 먹었니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zǎofàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-453-1779916403380",
+        "term": "早上",
+        "definition": "early morning",
+        "meaningKr": "아침, 이른 아침",
+        "exampleEn": "我每天早上六点起床。",
+        "exampleKr": "나는 매일 아침 6시에 일어난다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zǎoshang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-454-1779916403380",
+        "term": "怎么",
+        "definition": "how?; what?; why?",
+        "meaningKr": "어떻게, 왜, 어째서",
+        "exampleEn": "这个汉字怎么写？",
+        "exampleKr": "이 한자는 어떻게 쓰나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zěnme",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-455-1779916403380",
+        "term": "找到",
+        "definition": "to find",
+        "meaningKr": "찾다, 찾아내다",
+        "exampleEn": "我终于找到了我的钥匙。",
+        "exampleKr": "나는 마침내 내 열쇠를 찾았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhǎodào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-456-1779916403380",
+        "term": "这边",
+        "definition": "this side; here",
+        "meaningKr": "이쪽, 여기",
+        "exampleEn": "请大家往这边走。",
+        "exampleKr": "모두 이쪽으로 걸어가세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhèbiān",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-457-1779916403380",
+        "term": "这里",
+        "definition": "variant of 這裡|这里[zhe4 li3]",
+        "meaningKr": "여기, 이곳",
+        "exampleEn": "这里的风景非常漂亮。",
+        "exampleKr": "이곳의 풍경은 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhè·lǐ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-458-1779916403380",
+        "term": "这些",
+        "definition": "these",
+        "meaningKr": "이것들, 이",
+        "exampleEn": "这些苹果都很甜。",
+        "exampleKr": "이 사과들은 모두 아주 달다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhèxiē",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-459-1779916403380",
+        "term": "真的",
+        "definition": "really; truly; indeed; real; true; genuine",
+        "meaningKr": "진짜의, 정말로, 진짜로",
+        "exampleEn": "这个电影真的很好看。",
+        "exampleKr": "이 영화는 정말 재미있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhēn de",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-460-1779916403380",
+        "term": "正在",
+        "definition": "to be in the process of (doing sth); to be currently ...-ing",
+        "meaningKr": "마침 ~하고 있다, 한창 ~하는 중이다",
+        "exampleEn": "妹妹正在房间里写作业。",
+        "exampleKr": "여동생은 지금 방에서 숙제를 하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhèngzài",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-461-1779916403380",
+        "term": "知道",
+        "definition": "to know; to become aware of; also pr. [zhi1dao5]",
+        "meaningKr": "알다, 이해하다",
+        "exampleEn": "你知道他的名字吗？",
+        "exampleKr": "너는 그의 이름을 아니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhī·dào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-462-1779916403380",
+        "term": "知识",
+        "definition": "knowledge; intellectual",
+        "meaningKr": "지식",
+        "exampleEn": "书里有很多有用的知识。",
+        "exampleKr": "책 속에는 유용한 지식이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhīshi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-463-1779916403380",
+        "term": "中国",
+        "definition": "China",
+        "meaningKr": "중국",
+        "exampleEn": "我想明年去中国旅游。",
+        "exampleKr": "나는 내년에 중국으로 여행 가고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "Zhōngguó",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-464-1779916403380",
+        "term": "中间",
+        "definition": "the middle; the inside; in the middle; within; between; among; during; in the meantime",
+        "meaningKr": "가운데, 중간, 사이",
+        "exampleEn": "我家在学校和医院中间。",
+        "exampleKr": "우리 집은 학교와 병원 사이에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhōngjiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-465-1779916403380",
+        "term": "中文",
+        "definition": "Chinese language",
+        "meaningKr": "중국어, 중국 문학",
+        "exampleEn": "他的中文说得非常好。",
+        "exampleKr": "그는 중국어를 매우 잘한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "Zhōngwén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-466-1779916403380",
+        "term": "中午",
+        "definition": "noon; midday",
+        "meaningKr": "낮, 정오, 점심",
+        "exampleEn": "我们中午十二点吃午饭。",
+        "exampleKr": "우리는 낮 12시에 점심을 먹는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhōngwǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-467-1779916403380",
+        "term": "中学",
+        "definition": "middle school",
+        "meaningKr": "중학교, 중고등학교",
+        "exampleEn": "我弟弟现在读中学。",
+        "exampleKr": "내 남동생은 지금 중학교에 다닌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhōngxué",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-468-1779916403380",
+        "term": "重要",
+        "definition": "important; significant; major",
+        "meaningKr": "중요하다",
+        "exampleEn": "健康对我们非常重要。",
+        "exampleKr": "건강은 우리에게 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhòngyào",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-469-1779916403380",
+        "term": "准备",
+        "definition": "preparation; to prepare; to intend",
+        "meaningKr": "준비하다, ~할 예정이다",
+        "exampleEn": "我正在准备明天的考试。",
+        "exampleKr": "나는 내일 시험을 준비하는 중이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhǔnbèi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-470-1779916403380",
+        "term": "桌子",
+        "definition": "table; desk",
+        "meaningKr": "탁자, 테이블, 책상",
+        "exampleEn": "桌子上放着一本书。",
+        "exampleKr": "책상 위에 책 한 권이 놓여 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhuōzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-471-1779916403380",
+        "term": "走路",
+        "definition": "to walk; to go on foot; to leave; to depart",
+        "meaningKr": "걷다, 걸어가다",
+        "exampleEn": "我每天走路去学校。",
+        "exampleKr": "나는 매일 걸어서 학교에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zǒu∥lù",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-472-1779916403380",
+        "term": "最好",
+        "definition": "best; had better ...; it would be best to ...",
+        "meaningKr": "가장 좋다, ~하는 편이 가장 좋다",
+        "exampleEn": "今天外面很冷，你最好多穿点。",
+        "exampleKr": "오늘 바깥이 매우 추우니, 옷을 많이 입는 것이 좋겠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuìhǎo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-473-1779916403380",
+        "term": "最后",
+        "definition": "final; last; ultimate; finally; in the end",
+        "meaningKr": "마지막, 최종, 결국",
+        "exampleEn": "这是我们最后一节课。",
+        "exampleKr": "이것은 우리의 마지막 수업이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuìhòu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-474-1779916403380",
+        "term": "昨天",
+        "definition": "yesterday",
+        "meaningKr": "어제",
+        "exampleEn": "昨天我和朋友去看了电影。",
+        "exampleKr": "어제 나는 친구와 영화를 보러 갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuótiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-475-1779916403380",
+        "term": "左边",
+        "definition": "left; the left side; to the left of",
+        "meaningKr": "왼쪽, 왼편",
+        "exampleEn": "他的学校在左边。",
+        "exampleKr": "그의 학교는 왼쪽에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuǒbian",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-476-1779916403380",
+        "term": "坐下",
+        "definition": "to sit down",
+        "meaningKr": "앉다",
+        "exampleEn": "请坐下，喝杯茶吧。",
+        "exampleKr": "앉아서 차 한 잔 마셔요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zuò xia",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-477-1779916403380",
+        "term": "不客气",
+        "definition": "you're welcome; don't mention it; impolite",
+        "meaningKr": "천만에요, 별말씀을요",
+        "exampleEn": "谢谢你。- 不客气。",
+        "exampleKr": "고마워요. - 천만에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "bú kèqì",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-478-1779916403380",
+        "term": "打电话",
+        "definition": "to make a telephone call",
+        "meaningKr": "전화를 걸다, 전화하다",
+        "exampleEn": "我正在给妈妈打电话。",
+        "exampleKr": "저는 지금 엄마에게 전화를 걸고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dǎ diànhuà",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-479-1779916403380",
+        "term": "大学生",
+        "definition": "university student; college student",
+        "meaningKr": "대학생",
+        "exampleEn": "我哥哥是一个大学生。",
+        "exampleKr": "우리 형은 대학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "dàxuéshēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-480-1779916403380",
+        "term": "电视机",
+        "definition": "television set",
+        "meaningKr": "텔레비전, TV",
+        "exampleEn": "家里有一台电视机。",
+        "exampleKr": "집에 텔레비전이 한 대 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diànshìjī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-481-1779916403380",
+        "term": "电影院",
+        "definition": "cinema; movie theater",
+        "meaningKr": "영화관, 극장",
+        "exampleEn": "我们去电影院看电影。",
+        "exampleKr": "우리는 영화관에 영화를 보러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "diànyǐngyuàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-482-1779916403380",
+        "term": "对不起",
+        "definition": "I'm sorry; excuse me; I beg your pardon; to let (sb) down; to disappoint",
+        "meaningKr": "미안하다, 죄송하다",
+        "exampleEn": "对不起，我来晚了。",
+        "exampleKr": "죄송합니다, 제가 늦었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "duìbuqǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-483-1779916403380",
+        "term": "干什么",
+        "definition": "what are you doing?; what's he up to?",
+        "meaningKr": "무엇을 하다, 왜, 뭐 해",
+        "exampleEn": "你周末想去干什么？",
+        "exampleKr": "너 주말에 뭐 하고 싶니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "gàn shénme",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-484-1779916403380",
+        "term": "教学楼",
+        "definition": "school building; academic building",
+        "meaningKr": "교사, 강의동, 수업 건물",
+        "exampleEn": "我们的教学楼很大。",
+        "exampleKr": "우리 강의동은 매우 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "jiàoxuélóu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-485-1779916403380",
+        "term": "开玩笑",
+        "definition": "to play a joke; to make fun of; to joke",
+        "meaningKr": "농담하다, 장난치다",
+        "exampleEn": "他喜欢和朋友开玩笑。",
+        "exampleKr": "그는 친구들과 농담하는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "kāi wánxiào",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-486-1779916403380",
+        "term": "没关系",
+        "definition": "it doesn't matter",
+        "meaningKr": "괜찮다, 상관없다",
+        "exampleEn": "没关系，我不累。",
+        "exampleKr": "괜찮아요, 저는 힘들지 않아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "méi guānxi",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-487-1779916403380",
+        "term": "没什么",
+        "definition": "it doesn't matter; it's nothing; never mind; think nothing of it; it's my pleasure; you're welcome",
+        "meaningKr": "아무것도 아니다, 괜찮다, 별일 아니다",
+        "exampleEn": "别担心，这没什么。",
+        "exampleKr": "걱정 마세요, 별일 아닙니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "méi shénme",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-488-1779916403380",
+        "term": "男朋友",
+        "definition": "boyfriend",
+        "meaningKr": "남자친구",
+        "exampleEn": "她的男朋友很高。",
+        "exampleKr": "그녀의 남자친구는 키가 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nánpéngyou",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-489-1779916403380",
+        "term": "女朋友",
+        "definition": "girlfriend",
+        "meaningKr": "여자친구",
+        "exampleEn": "我去给女朋友买礼物。",
+        "exampleKr": "저는 여자친구에게 줄 선물을 사러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "nǚpéngyou",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-490-1779916403380",
+        "term": "是不是",
+        "definition": "is or is not (used to form yes-no questions)",
+        "meaningKr": "맞는지 아닌지, 그렇지 않니",
+        "exampleEn": "你是不是明天要去北京？",
+        "exampleKr": "너 내일 베이징에 가는 거 맞니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "shì bu shì",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-491-1779916403380",
+        "term": "图书馆",
+        "definition": "library",
+        "meaningKr": "도서관",
+        "exampleEn": "我在图书馆看书。",
+        "exampleKr": "저는 도서관에서 책을 읽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "túshūguǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-492-1779916403380",
+        "term": "洗手间",
+        "definition": "toilet; lavatory; washroom",
+        "meaningKr": "화장실",
+        "exampleEn": "请问，洗手间在哪里？",
+        "exampleKr": "말씀 좀 여쭐게요, 화장실이 어디에 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xǐshǒujiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-493-1779916403380",
+        "term": "小朋友",
+        "definition": "child; kid (used to refer to a child, or by an adult to address a child, or, in Taiwan, to refer to sb's own child)",
+        "meaningKr": "어린이, 꼬마",
+        "exampleEn": "那个小朋友真可爱。",
+        "exampleKr": "저 어린이는 정말 귀엽네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎopéngyǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-494-1779916403380",
+        "term": "小学生",
+        "definition": "primary school student; schoolchild",
+        "meaningKr": "초등학생",
+        "exampleEn": "我妹妹是小学生。",
+        "exampleKr": "제 여동생은 초등학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xiǎoxuéshēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-495-1779916403380",
+        "term": "星期日",
+        "definition": "Sunday",
+        "meaningKr": "일요일",
+        "exampleEn": "星期日我们不工作。",
+        "exampleKr": "일요일에 우리는 일하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xīngqīrì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-496-1779916403380",
+        "term": "星期天",
+        "definition": "Sunday",
+        "meaningKr": "일요일",
+        "exampleEn": "我星期天去买东西。",
+        "exampleKr": "저는 일요일에 쇼핑하러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "xīngqītiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-497-1779916403380",
+        "term": "有时候",
+        "definition": "sometimes",
+        "meaningKr": "때로는, 가끔",
+        "exampleEn": "我有时候去公园跑步。",
+        "exampleKr": "저는 가끔 공원에 달리기를 하러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yǒushí(hou)",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-498-1779916403380",
+        "term": "有些",
+        "definition": "some; somewhat; rather; a bit",
+        "meaningKr": "일부, 몇몇, 약간",
+        "exampleEn": "桌子上有些水果。",
+        "exampleKr": "테이블 위에 과일이 조금 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "yǒu(yì)xiē",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-499-1779916403380",
+        "term": "中学生",
+        "definition": "middle-school student; high school student",
+        "meaningKr": "중고등학생, 중학생",
+        "exampleEn": "他弟弟现在是中学生。",
+        "exampleKr": "그의 남동생은 지금 중학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Foundation"
+        ],
+        "phonetic": "zhōngxuéshēng",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-jp-basic-1",
     "title": "기초 일본어 500",
     "icon": "🍣",

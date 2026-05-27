@@ -321,6 +321,10 @@
         "body": "다음 단어장은 자유 라이선스 데이터를 기반으로 합니다. 모두 CC BY-SA 4.0.\n\n• 기초 일본어 500 — Wiktionary \"Appendix:1000 Japanese basic words\" 기반\n\n출처:\n• Wiktionary (en.wiktionary.org) — 표제어 리스트 및 의미 카테고리, CC BY-SA 4.0\n• JMdict by Electronic Dictionary Research and Development Group (www.edrdg.org) — 품사·읽기 검증, CC BY-SA 4.0\n\n라이선스 전문: https://creativecommons.org/licenses/by-sa/4.0/\n\n변경 사항: Wiktionary 표제어 리스트에 JMdict의 품사·읽기 정보를 결합하고 한국어 뜻과 일·한 예문(Google Gemini로 자동 생성)을 추가하여 학습용으로 재구성했습니다.\n\nShareAlike: 본 단어장을 복제·재배포하거나 파생물을 만들 경우 동일한 CC BY-SA 4.0 라이선스를 적용해야 합니다."
       },
       {
+        "title": "공식 큐레이션 단어장 (중국어)",
+        "body": "다음 단어장은 자유 라이선스 데이터를 기반으로 합니다. 모두 CC BY-SA 4.0.\n\n• 기초 중국어 500 (HSK 1급) — Wiktionary \"Appendix:HSK list of Mandarin words v3.0\" 기반\n\n출처:\n• Wiktionary (en.wiktionary.org) — 간체·병음·품사 표제어 리스트, CC BY-SA 4.0\n• CC-CEDICT (cc-cedict.org) — 병음·정의 검증, CC BY-SA 4.0\n\n라이선스 전문: https://creativecommons.org/licenses/by-sa/4.0/\n\n변경 사항: Wiktionary 표제어 리스트에 CC-CEDICT의 병음·정의 정보를 결합하고 한국어 뜻과 중·한 예문(Google Gemini로 자동 생성)을 추가하여 학습용으로 재구성했습니다.\n\nShareAlike: 본 단어장을 복제·재배포하거나 파생물을 만들 경우 동일한 CC BY-SA 4.0 라이선스를 적용해야 합니다."
+      },
+      {
         "title": "고전 문학 단어장 (퍼블릭 도메인)",
         "body": "다음 단어장은 저작권이 만료된 공공 영역(퍼블릭 도메인) 작품에서 영감을 받은 어휘 모음입니다. 원작 텍스트를 직접 복제하지 않으며 뜻과 예문은 AI로 자동 생성되었습니다.\n\n• Lewis Carroll, 『이상한 나라의 앨리스』 (1865)\n• Arthur Conan Doyle, 『셜록 홈즈』 시리즈\n• F. Scott Fitzgerald, 『위대한 개츠비』 (1925; 미국 2021년·한국 2011년 퍼블릭 도메인 진입)"
       },

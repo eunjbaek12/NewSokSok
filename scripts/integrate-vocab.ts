@@ -18,12 +18,13 @@ interface TranslatedEntry {
   rank: number;
   term: string;
   definition: string;
-  phonetic?: string;   // EN: IPA. JP: hiragana reading (from `reading`)
-  reading?: string;    // JP only
+  phonetic?: string;   // EN: IPA. JP: hiragana reading. ZH: pinyin (from `reading`)
+  reading?: string;    // JP/ZH only
   pos: string;
   meaningKr: string;
-  exampleEn?: string;  // EN: English example. JP: Japanese example (filled from `exampleJa`)
+  exampleEn?: string;  // EN: English example. JP/ZH: filled from exampleJa/exampleZh
   exampleJa?: string;  // JP only
+  exampleZh?: string;  // ZH only
   exampleKr: string;
 }
 
@@ -78,6 +79,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ja',
     targetLanguage: 'ko',
   },
+  zh: {
+    id: 'curated-zh-basic-1',
+    title: '기초 중국어 500 (HSK 1급)',
+    icon: '🐼',
+    category: '기초',
+    level: 'beginner',
+    description: 'HSK 1급 기초 중국어 500. Wiktionary HSK v3.0 어휘 목록 (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·예문 AI 생성',
+    tags: ['Chinese', 'HSK', 'Foundation'],
+    sourceLanguage: 'zh',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];
@@ -100,11 +112,11 @@ function main() {
   const items: TranslatedEntry[] = JSON.parse(fs.readFileSync(TRANSLATED_PATH, 'utf8'));
   console.log(`📚 번역된 ${items.length}개 단어 로드`);
 
-  // JP 스키마(`reading`/`exampleJa`)를 공통 필드(`phonetic`/`exampleEn`)로 정규화
+  // JP/ZH 스키마(`reading`/`exampleJa`/`exampleZh`)를 공통 필드(`phonetic`/`exampleEn`)로 정규화
   const normalized = items.map(w => ({
     ...w,
     phonetic: w.phonetic ?? w.reading ?? '',
-    exampleEn: w.exampleEn ?? w.exampleJa ?? '',
+    exampleEn: w.exampleEn ?? w.exampleJa ?? w.exampleZh ?? '',
   }));
 
   const missing = normalized.filter(w => !w.meaningKr || !w.exampleEn);

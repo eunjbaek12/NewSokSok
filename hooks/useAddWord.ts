@@ -21,29 +21,36 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     const isPendingFillRef = useRef(false);
     const [isPendingSave, setIsPendingSave] = useState(false);
     const [aiQuotaHitAt, setAiQuotaHitAt] = useState(0);
+    const [autoFillFailedAt, setAutoFillFailedAt] = useState(0);
 
     const runAutoFill = useCallback(async (searchTerm: string) => {
         if (!searchTerm.trim() || isPendingFillRef.current) return;
         isPendingFillRef.current = true;
         setIsPendingFill(true);
         const trimmed = searchTerm.trim();
+        let quotaHit = false;
         try {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
             const result = await enrichWord(
                 trimmed, sourceLang, targetLang, apiKey, undefined, 'autocomplete',
-                () => setAiQuotaHitAt(Date.now()),
+                () => { quotaHit = true; setAiQuotaHitAt(Date.now()); },
             ).catch(() => null);
-            if (result) {
+            const hasAny = !!result && !!(
+                result.definition || result.meaningKr || result.exampleEn || result.phonetic || result.pos
+            );
+            if (hasAny && result) {
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
                 if (result.phonetic) setPhonetic(result.phonetic);
                 if (result.pos) setPos(result.pos);
                 if (result.exampleEn) setExampleEn(result.exampleEn);
                 if (result.exampleKr) setExampleKr(result.exampleKr);
+            } else if (!quotaHit) {
+                setAutoFillFailedAt(Date.now());
             }
         } catch {
-            // Ignore errors (including timeouts)
+            if (!quotaHit) setAutoFillFailedAt(Date.now());
         } finally {
             isPendingFillRef.current = false;
             setIsPendingFill(false);
@@ -150,5 +157,6 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         isPendingFill,
         isPendingSave,
         aiQuotaHitAt,
+        autoFillFailedAt,
     };
 }

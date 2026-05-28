@@ -104,7 +104,13 @@ export async function autoFillWord(
     try {
       const session = await supabase.auth.getSession();
       if (session.data.session) {
-        const edge = await enrichWordViaEdge(trimmed, sourceLang, targetLang, mode, signal);
+        let edge = await enrichWordViaEdge(trimmed, sourceLang, targetLang, mode, signal);
+        // Stale access token이 첨부돼 401이 떨어지는 케이스가 있다. 한 번 강제로
+        // refresh 후 재시도하면 사용자가 앱 재시작 없이 복구된다.
+        if (edge.kind === 'unauthorized') {
+          await supabase.auth.refreshSession();
+          edge = await enrichWordViaEdge(trimmed, sourceLang, targetLang, mode, signal);
+        }
         if (edge.kind === 'ok') {
           const d = edge.result;
           return {
@@ -117,7 +123,7 @@ export async function autoFillWord(
             phonetic: d.phonetic || '',
           };
         }
-        // quota_exceeded/rate_limited/upstream — 사전 fallback으로 계속
+        // unauthorized(재시도 후도 실패)/quota_exceeded/rate_limited/upstream → 사전 fallback으로 계속
       }
     } catch {
       // 세션 조회 실패 등 → 사전 fallback

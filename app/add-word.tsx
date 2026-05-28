@@ -303,6 +303,7 @@ export default function AddWordScreen() {
         isPendingFill,
         isPendingSave,
         aiQuotaHitAt,
+        autoFillFailedAt,
     } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang, apiKey || undefined);
 
     useEffect(() => {
@@ -355,6 +356,15 @@ export default function AddWordScreen() {
     const [showNewListInput, setShowNewListInput] = useState(false);
     const [toastVisible, setToastVisible] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
+
+    useEffect(() => {
+        if (autoFillFailedAt) {
+            setToastMessage(t('addWord.autoFillFailed'));
+            setToastVisible(true);
+            const id = setTimeout(() => setToastVisible(false), 2500);
+            return () => clearTimeout(id);
+        }
+    }, [autoFillFailedAt, t]);
     const [tagInput, setTagInput] = useState('');
     const [isApplying, setIsApplying] = useState(false);
     const [sourceLangPickerOpen, setSourceLangPickerOpen] = useState(false);

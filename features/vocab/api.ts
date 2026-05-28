@@ -36,8 +36,14 @@ export async function fetchCloudCurations(): Promise<CuratedThemeWithWords[]> {
       .order('created_at', { ascending: false });
     if (error) throw error;
 
+    // UI는 camelCase 컨벤션이라 owner 판정(canDeleteCuration)·작성자 표시
+    // (creatorName)이 동작하려면 snake_case 컬럼을 명시적으로 매핑해야 한다.
     return (data ?? []).map((theme: any) => ({
       ...theme,
+      creatorId: theme.creator_id,
+      creatorName: theme.creator_name,
+      createdAt: theme.created_at,
+      updatedAt: theme.updated_at,
       words: (theme.words ?? []).map((w: any) => ({
         id: w.id,
         term: w.term,

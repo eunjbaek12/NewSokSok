@@ -17,15 +17,19 @@ if (!LIST_NAME) {
 interface TranslatedEntry {
   rank: number;
   term: string;
-  definition: string;
+  definition?: string;
   phonetic?: string;   // EN: IPA. JP: hiragana reading. ZH: pinyin (from `reading`)
   reading?: string;    // JP/ZH only
   pos: string;
-  meaningKr: string;
+  meaningKr?: string;
   exampleEn?: string;  // EN: English example. JP/ZH: filled from exampleJa/exampleZh
   exampleJa?: string;  // JP only
   exampleZh?: string;  // ZH only
-  exampleKr: string;
+  exampleKr?: string;
+  // KO (ko→en, 방향 반대): meaning/example이 영어가 target
+  meaningEn?: string;  // KO: 영어 뜻 → meaningKr 슬롯
+  romaja?: string;     // KO: 로마자 → phonetic 슬롯
+  exampleKo?: string;  // KO: 한국어 예문 → exampleEn 슬롯(원어, ko TTS)
 }
 
 interface ListMeta {
@@ -90,6 +94,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'zh',
     targetLanguage: 'ko',
   },
+  ko: {
+    id: 'curated-ko-basic-1',
+    title: 'Basic Korean 500 (for English speakers)',
+    icon: '🇰🇷',
+    category: '기초',
+    level: 'beginner',
+    description: 'Basic Korean 500 for English speakers. Based on the NIKL frequency list via Wiktionary "Basic Korean Vocabulary List" (CC BY-SA 4.0); English meanings & examples AI-generated.',
+    tags: ['Korean', 'TOPIK', 'Foundation'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
 };
 
 const meta = META[LIST_NAME];
@@ -112,12 +127,22 @@ function main() {
   const items: TranslatedEntry[] = JSON.parse(fs.readFileSync(TRANSLATED_PATH, 'utf8'));
   console.log(`📚 번역된 ${items.length}개 단어 로드`);
 
-  // JP/ZH 스키마(`reading`/`exampleJa`/`exampleZh`)를 공통 필드(`phonetic`/`exampleEn`)로 정규화
-  const normalized = items.map(w => ({
-    ...w,
-    phonetic: w.phonetic ?? w.reading ?? '',
-    exampleEn: w.exampleEn ?? w.exampleJa ?? w.exampleZh ?? '',
-  }));
+  // 언어별 스키마를 앱 공통 슬롯(meaningKr/phonetic/exampleEn/exampleKr)으로 정규화.
+  // KO는 방향이 반대(target=en)라 슬롯 의미를 매핑: 뜻 슬롯=영어, 원어 예문 슬롯=한국어.
+  const normalized = LIST_NAME === 'ko'
+    ? items.map(w => ({
+        ...w,
+        definition: w.meaningEn ?? '',     // 영어 정의
+        meaningKr: w.meaningEn ?? '',       // 뜻 슬롯(카드 뒷면) = 영어
+        phonetic: w.romaja ?? '',           // 발음 = 로마자
+        exampleEn: w.exampleKo ?? '',       // 원어 예문 슬롯 = 한국어 (sourceLanguage=ko로 TTS)
+        exampleKr: w.exampleEn ?? '',       // 번역 슬롯 = 영어
+      }))
+    : items.map(w => ({
+        ...w,
+        phonetic: w.phonetic ?? w.reading ?? '',
+        exampleEn: w.exampleEn ?? w.exampleJa ?? w.exampleZh ?? '',
+      }));
 
   const missing = normalized.filter(w => !w.meaningKr || !w.exampleEn);
   if (missing.length > 0) {

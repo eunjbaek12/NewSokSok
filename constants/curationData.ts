@@ -2,6 +2,8521 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-ko-basic-1",
+    "title": "Basic Korean 500 (for English speakers)",
+    "icon": "🇰🇷",
+    "isCurated": true,
+    "category": "기초",
+    "level": "beginner",
+    "description": "Basic Korean 500 for English speakers. Based on the NIKL frequency list via Wiktionary \"Basic Korean Vocabulary List\" (CC BY-SA 4.0); English meanings & examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1780058787933,
+    "words": [
+      {
+        "id": "word-ko-0-1780058787933",
+        "term": "것",
+        "definition": "thing, object, fact",
+        "meaningKr": "thing, object, fact",
+        "exampleEn": "제가 좋아하는 것은 한국 노래입니다.",
+        "exampleKr": "The thing I like is Korean songs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geot",
+        "pos": "dependent noun"
+      },
+      {
+        "id": "word-ko-1-1780058787933",
+        "term": "하다",
+        "definition": "to do, to perform",
+        "meaningKr": "to do, to perform",
+        "exampleEn": "저는 주말에 보통 운동을 해요.",
+        "exampleKr": "I usually work out on weekends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-2-1780058787933",
+        "term": "있다",
+        "definition": "to be, to exist, to have",
+        "meaningKr": "to be, to exist, to have",
+        "exampleEn": "교실에 책상과 의자가 있습니다.",
+        "exampleKr": "There are desks and chairs in the classroom.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "itda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-3-1780058787933",
+        "term": "되다",
+        "definition": "to become, to be done",
+        "meaningKr": "to become, to be done",
+        "exampleEn": "제 동생은 커서 의사가 되고 싶어 해요.",
+        "exampleKr": "My younger sibling wants to become a doctor when they grow up.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "doeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-4-1780058787933",
+        "term": "나",
+        "definition": "I, me (informal)",
+        "meaningKr": "I, me (informal)",
+        "exampleEn": "나는 내일 친구를 만날 거야.",
+        "exampleKr": "I am going to meet my friend tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "na",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-5-1780058787933",
+        "term": "없다",
+        "definition": "to not exist, to not have, to be missing",
+        "meaningKr": "to not exist, to not have, to be missing",
+        "exampleEn": "지금 지갑에 돈이 하나도 없어요.",
+        "exampleKr": "I don't have any money in my wallet right now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-6-1780058787933",
+        "term": "사람",
+        "definition": "person, people, human",
+        "meaningKr": "person, people, human",
+        "exampleEn": "공원에 많은 사람들이 산책을 하고 있습니다.",
+        "exampleKr": "Many people are taking a walk in the park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "saram",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-7-1780058787933",
+        "term": "우리",
+        "definition": "we, us, our",
+        "meaningKr": "we, us, our",
+        "exampleEn": "우리 내일 같이 한국 음식을 먹을까요?",
+        "exampleKr": "Shall we eat Korean food together tomorrow?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "uri",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-8-1780058787933",
+        "term": "그",
+        "definition": "he, that, him",
+        "meaningKr": "he, that, him",
+        "exampleEn": "그는 매일 아침 일찍 일어납니다.",
+        "exampleKr": "He wakes up early every morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geu",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-9-1780058787933",
+        "term": "아니다",
+        "definition": "to not be, to be not",
+        "meaningKr": "to not be, to be not",
+        "exampleEn": "저는 일본 사람이 아니고 미국 사람입니다.",
+        "exampleKr": "I am not Japanese, I am American.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "anida",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-10-1780058787933",
+        "term": "보다",
+        "definition": "to see, to watch, to look at",
+        "meaningKr": "to see, to watch, to look at",
+        "exampleEn": "주말에 친구들과 재미있는 영화를 보았습니다.",
+        "exampleKr": "I watched an interesting movie with my friends over the weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "boda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-11-1780058787933",
+        "term": "때",
+        "definition": "time, when, moment",
+        "meaningKr": "time, when, moment",
+        "exampleEn": "초등학교 때 저는 아주 수줍음이 많았습니다.",
+        "exampleKr": "When I was in elementary school, I was very shy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ttae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-12-1780058787933",
+        "term": "같다",
+        "definition": "to be the same, to be like",
+        "meaningKr": "to be the same, to be like",
+        "exampleEn": "이 옷은 저 옷과 색깔이 같습니다.",
+        "exampleKr": "This clothing has the same color as that clothing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gatda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-13-1780058787933",
+        "term": "대하다",
+        "definition": "to face, to treat, to about",
+        "meaningKr": "to face, to treat, to about",
+        "exampleEn": "한국 문화에 대해 더 공부하고 싶습니다.",
+        "exampleKr": "I want to study more about Korean culture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "daehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-14-1780058787933",
+        "term": "가다",
+        "definition": "to go",
+        "meaningKr": "to go",
+        "exampleEn": "저는 매일 지하철을 타고 학교에 갑니다.",
+        "exampleKr": "I go to school by subway every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-15-1780058787933",
+        "term": "말",
+        "definition": "word, language, speech",
+        "meaningKr": "word, language, speech",
+        "exampleEn": "한국말을 더 열심히 연습해야 합니다.",
+        "exampleKr": "I need to practice Korean language harder.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-16-1780058787933",
+        "term": "일",
+        "definition": "work, job, task",
+        "meaningKr": "work, job, task",
+        "exampleEn": "오늘 회사에 일이 많아서 늦게 끝났습니다.",
+        "exampleKr": "I had a lot of work at the company today, so I finished late.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "il",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-17-1780058787933",
+        "term": "이",
+        "definition": "this, this person",
+        "meaningKr": "this, this person",
+        "exampleEn": "이 책은 제가 정말 좋아하는 소설책입니다.",
+        "exampleKr": "This book is a novel that I really like.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "i",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-18-1780058787933",
+        "term": "말하다",
+        "definition": "to speak, to talk, to say",
+        "meaningKr": "to speak, to talk, to say",
+        "exampleEn": "선생님께서 학생들에게 천천히 말해 주셨습니다.",
+        "exampleKr": "The teacher spoke slowly to the students.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "malhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-19-1780058787933",
+        "term": "위하다",
+        "definition": "to do for, to respect, to value",
+        "meaningKr": "to do for, to respect, to value",
+        "exampleEn": "부모님은 항상 자식을 위해 기도하십니다.",
+        "exampleKr": "Parents always pray for their children.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "wihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-20-1780058787933",
+        "term": "그러나",
+        "definition": "but, however",
+        "meaningKr": "but, however",
+        "exampleEn": "비가 옵니다. 그러나 저는 우산이 없습니다.",
+        "exampleKr": "It is raining. However, I do not have an umbrella.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geureona",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-21-1780058787933",
+        "term": "오다",
+        "definition": "to come",
+        "meaningKr": "to come",
+        "exampleEn": "오늘 오후에 비가 올 것 같습니다.",
+        "exampleKr": "It looks like it will rain this afternoon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "oda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-22-1780058787933",
+        "term": "알다",
+        "definition": "to know, to understand",
+        "meaningKr": "to know, to understand",
+        "exampleEn": "혹시 서울역으로 가는 길을 아십니까?",
+        "exampleKr": "By any chance, do you know the way to Seoul Station?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "alda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-23-1780058787933",
+        "term": "그렇다",
+        "definition": "to be so, to be right",
+        "meaningKr": "to be so, to be right",
+        "exampleEn": "저도 그렇게 생각하지만 의견이 다를 수 있습니다.",
+        "exampleKr": "I think so too, but opinions can differ.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geureotda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-24-1780058787933",
+        "term": "크다",
+        "definition": "to be big, to be large, to be tall",
+        "meaningKr": "to be big, to be large, to be tall",
+        "exampleEn": "제 방에는 큰 창문이 있어서 밝습니다.",
+        "exampleKr": "My room is bright because it has a big window.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "keuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-25-1780058787933",
+        "term": "또",
+        "definition": "again, once more",
+        "meaningKr": "again, once more",
+        "exampleEn": "내일 또 만나서 같이 공부해요.",
+        "exampleKr": "Let's meet again tomorrow and study together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tto",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-26-1780058787933",
+        "term": "사회",
+        "definition": "society, community",
+        "meaningKr": "society, community",
+        "exampleEn": "우리는 현대 사회에서 살고 있습니다.",
+        "exampleKr": "We are living in a modern society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sahoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-27-1780058787933",
+        "term": "많다",
+        "definition": "to be many, to be much, a lot of",
+        "meaningKr": "to be many, to be much, a lot of",
+        "exampleEn": "도서관에 재미있는 책이 정말 많아요.",
+        "exampleKr": "There are really many interesting books in the library.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "manhta",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-28-1780058787933",
+        "term": "안",
+        "definition": "not",
+        "meaningKr": "not",
+        "exampleEn": "저는 오늘 아침을 안 먹었어요.",
+        "exampleKr": "I did not eat breakfast today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "an",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-29-1780058787933",
+        "term": "좋다",
+        "definition": "to be good, to be nice",
+        "meaningKr": "to be good, to be nice",
+        "exampleEn": "오늘 날씨가 정말 따뜻하고 좋아요.",
+        "exampleKr": "Today's weather is really warm and nice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "johda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-30-1780058787933",
+        "term": "더",
+        "definition": "more",
+        "meaningKr": "more",
+        "exampleEn": "이 주스가 맛있어서 더 마시고 싶어요.",
+        "exampleKr": "This juice is delicious, so I want to drink more.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "deo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-31-1780058787933",
+        "term": "받다",
+        "definition": "to receive, to get, to take",
+        "meaningKr": "to receive, to get, to take",
+        "exampleEn": "친구에게 생일 선물을 많이 받았어요.",
+        "exampleKr": "I received many birthday presents from my friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "batda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-32-1780058787933",
+        "term": "그것",
+        "definition": "that, that thing",
+        "meaningKr": "that, that thing",
+        "exampleEn": "그것은 제가 아주 좋아하는 책입니다.",
+        "exampleKr": "That is a book that I like very much.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geugeot",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-33-1780058787933",
+        "term": "집",
+        "definition": "house, home",
+        "meaningKr": "house, home",
+        "exampleEn": "우리 집은 학교에서 아주 가깝습니다.",
+        "exampleKr": "Our house is very close to the school.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-34-1780058787933",
+        "term": "나오다",
+        "definition": "to come out, to appear",
+        "meaningKr": "to come out, to appear",
+        "exampleEn": "방에서 나와서 거실로 오세요.",
+        "exampleKr": "Please come out of the room and come to the living room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "naoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-35-1780058787933",
+        "term": "따르다",
+        "definition": "to follow, to obey, to pour",
+        "meaningKr": "to follow, to obey, to pour",
+        "exampleEn": "길을 잃지 않으려면 앞 사람을 따르세요.",
+        "exampleKr": "If you don't want to get lost, follow the person in front.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ttareuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-36-1780058787933",
+        "term": "그리고",
+        "definition": "and, and then",
+        "meaningKr": "and, and then",
+        "exampleEn": "저는 한국어를 공부해요. 그리고 친구를 만나요.",
+        "exampleKr": "I study Korean. And then I meet a friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geurigo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-37-1780058787933",
+        "term": "문제",
+        "definition": "problem, question, issue",
+        "meaningKr": "problem, question, issue",
+        "exampleEn": "시험 문제가 생각보다 너무 어려웠어요.",
+        "exampleKr": "The exam questions were much harder than I thought.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "munje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-38-1780058787933",
+        "term": "살다",
+        "definition": "to live, to reside",
+        "meaningKr": "to live, to reside",
+        "exampleEn": "저는 지금 서울에서 가족과 함께 살고 있습니다.",
+        "exampleKr": "I am living in Seoul with my family now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "salda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-39-1780058787933",
+        "term": "저",
+        "definition": "I, me (humble)",
+        "meaningKr": "I, me (humble)",
+        "exampleEn": "저는 미국에서 온 대학생입니다.",
+        "exampleKr": "I am a college student from America.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeo",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-40-1780058787933",
+        "term": "생각하다",
+        "definition": "to think, to consider",
+        "meaningKr": "to think, to consider",
+        "exampleEn": "이 문제에 대해 어떻게 생각하십니까?",
+        "exampleKr": "What do you think about this issue?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "saenggakhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-41-1780058787933",
+        "term": "모르다",
+        "definition": "to not know, to be ignorant of",
+        "meaningKr": "to not know, to be ignorant of",
+        "exampleEn": "그 사람의 연락처를 전혀 모릅니다.",
+        "exampleKr": "I do not know that person's contact information at all.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "moreuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-42-1780058787933",
+        "term": "속",
+        "definition": "inside, depth",
+        "meaningKr": "inside, depth",
+        "exampleEn": "가방 속에 책과 필통이 들어 있습니다.",
+        "exampleKr": "There are books and a pencil case inside the bag.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-43-1780058787933",
+        "term": "만들다",
+        "definition": "to make, to build, to create",
+        "meaningKr": "to make, to build, to create",
+        "exampleEn": "오늘 저녁에는 맛있는 비빔밥을 만들 거예요.",
+        "exampleKr": "I am going to make delicious bibimbap for dinner tonight.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mandeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-44-1780058787933",
+        "term": "앞",
+        "definition": "front, ahead",
+        "meaningKr": "front, ahead",
+        "exampleEn": "우리 내일 은행 앞에서 만날까요?",
+        "exampleKr": "Shall we meet in front of the bank tomorrow?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-45-1780058787933",
+        "term": "경우",
+        "definition": "case, scenario, occasion",
+        "meaningKr": "case, scenario, occasion",
+        "exampleEn": "비가 올 경우에는 실내에서 축제를 합니다.",
+        "exampleKr": "In case it rains, the festival will be held indoors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyeongu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-46-1780058787933",
+        "term": "잘",
+        "definition": "well, successfully",
+        "meaningKr": "well, successfully",
+        "exampleEn": "동생은 피아노를 아주 잘 칩니다.",
+        "exampleKr": "My younger sibling plays the piano very well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jal",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-47-1780058787933",
+        "term": "먹다",
+        "definition": "to eat, to consume",
+        "meaningKr": "to eat, to consume",
+        "exampleEn": "점심에 친구들과 같이 피자를 먹었어요.",
+        "exampleKr": "I ate pizza with my friends for lunch.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "meokda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-48-1780058787933",
+        "term": "자신",
+        "definition": "oneself, self-confidence",
+        "meaningKr": "oneself, self-confidence",
+        "exampleEn": "자기 자신을 사랑하는 것이 가장 중요합니다.",
+        "exampleKr": "Loving oneself is the most important thing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jasin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-49-1780058787933",
+        "term": "문화",
+        "definition": "culture",
+        "meaningKr": "culture",
+        "exampleEn": "한국의 전통 문화를 배우고 싶습니다.",
+        "exampleKr": "I want to learn about traditional Korean culture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "munhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-50-1780058787933",
+        "term": "생각",
+        "definition": "thought, idea, thinking",
+        "meaningKr": "thought, idea, thinking",
+        "exampleEn": "좋은 생각이에요.",
+        "exampleKr": "That's a good idea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "saenggak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-51-1780058787933",
+        "term": "어떻다",
+        "definition": "how is it, to be how",
+        "meaningKr": "how is it, to be how",
+        "exampleEn": "오늘 날씨 어떻습니까?",
+        "exampleKr": "How is the weather today?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eotteota",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-52-1780058787933",
+        "term": "통하다",
+        "definition": "to pass through, to be understood, to communicate",
+        "meaningKr": "to pass through, to be understood, to communicate",
+        "exampleEn": "이 길은 서울역으로 통합니다.",
+        "exampleKr": "This road leads to Seoul Station.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-53-1780058787933",
+        "term": "소리",
+        "definition": "sound, noise, voice",
+        "meaningKr": "sound, noise, voice",
+        "exampleEn": "무슨 소리 들려요?",
+        "exampleKr": "What sound do you hear?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-54-1780058787933",
+        "term": "다시",
+        "definition": "again, once more",
+        "meaningKr": "again, once more",
+        "exampleEn": "다시 말해주세요.",
+        "exampleKr": "Please say it again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dasi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-55-1780058787933",
+        "term": "여자",
+        "definition": "woman, girl",
+        "meaningKr": "woman, girl",
+        "exampleEn": "저 여자는 제 친구입니다.",
+        "exampleKr": "That woman is my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeoja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-56-1780058787933",
+        "term": "정도",
+        "definition": "degree, extent, approximately",
+        "meaningKr": "degree, extent, approximately",
+        "exampleEn": "이 정도면 괜찮아요.",
+        "exampleKr": "This much is fine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeongdo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-57-1780058787933",
+        "term": "뒤",
+        "definition": "back, behind, after",
+        "meaningKr": "back, behind, after",
+        "exampleEn": "의자 뒤에 가방이 있어요.",
+        "exampleKr": "There is a bag behind the chair.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-58-1780058787933",
+        "term": "듣다",
+        "definition": "to listen, to hear",
+        "meaningKr": "to listen, to hear",
+        "exampleEn": "음악 듣는 것을 좋아해요.",
+        "exampleKr": "I like listening to music.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "deutda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-59-1780058787933",
+        "term": "다",
+        "definition": "all, entirely, completely",
+        "meaningKr": "all, entirely, completely",
+        "exampleEn": "숙제를 다 했어요.",
+        "exampleKr": "I finished all my homework.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "da",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-60-1780058787933",
+        "term": "좀",
+        "definition": "a little, a bit, please",
+        "meaningKr": "a little, a bit, please",
+        "exampleEn": "물 좀 주세요.",
+        "exampleKr": "Please give me some water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jom",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-61-1780058787933",
+        "term": "들다",
+        "definition": "to hold, to carry, to enter (into), to cost",
+        "meaningKr": "to hold, to carry, to enter (into), to cost",
+        "exampleEn": "가방을 들고 가세요.",
+        "exampleKr": "Please take your bag.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "deulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-62-1780058787933",
+        "term": "보이다",
+        "definition": "to be seen, to show, to appear",
+        "meaningKr": "to be seen, to show, to appear",
+        "exampleEn": "저 산이 잘 보입니다.",
+        "exampleKr": "That mountain is clearly visible.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "boida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-63-1780058787933",
+        "term": "가지다",
+        "definition": "to have, to possess, to take, to carry",
+        "meaningKr": "to have, to possess, to take, to carry",
+        "exampleEn": "돈을 가지고 있어요.",
+        "exampleKr": "I have money.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gajida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-64-1780058787933",
+        "term": "함께",
+        "definition": "together, with",
+        "meaningKr": "together, with",
+        "exampleEn": "우리 함께 저녁 먹을까요?",
+        "exampleKr": "Shall we eat dinner together?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hamkke",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-65-1780058787933",
+        "term": "아이",
+        "definition": "child, kid, baby",
+        "meaningKr": "child, kid, baby",
+        "exampleEn": "저 아이는 몇 살이에요?",
+        "exampleKr": "How old is that child?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ai",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-66-1780058787933",
+        "term": "지나다",
+        "definition": "to pass, to go by, to elapse",
+        "meaningKr": "to pass, to go by, to elapse",
+        "exampleEn": "시간이 빨리 지나요.",
+        "exampleKr": "Time passes quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jinada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-67-1780058787933",
+        "term": "많이",
+        "definition": "a lot, much, many",
+        "meaningKr": "a lot, much, many",
+        "exampleEn": "밥을 많이 먹었어요.",
+        "exampleKr": "I ate a lot of rice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mani",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-68-1780058787933",
+        "term": "시간",
+        "definition": "time, hour",
+        "meaningKr": "time, hour",
+        "exampleEn": "지금 몇 시예요?",
+        "exampleKr": "What time is it now?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sigan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-69-1780058787933",
+        "term": "너",
+        "definition": "you (informal)",
+        "meaningKr": "you (informal)",
+        "exampleEn": "너는 어디 가니?",
+        "exampleKr": "Where are you going?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "neo",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-70-1780058787933",
+        "term": "주다",
+        "definition": "to give",
+        "meaningKr": "to give",
+        "exampleEn": "선물을 친구에게 주었어요.",
+        "exampleKr": "I gave a present to my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "juda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-71-1780058787933",
+        "term": "인간",
+        "definition": "human being, human",
+        "meaningKr": "human being, human",
+        "exampleEn": "인간은 생각하는 동물입니다.",
+        "exampleKr": "Humans are thinking animals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ingan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-72-1780058787933",
+        "term": "사실",
+        "definition": "fact, truth, in fact",
+        "meaningKr": "fact, truth, in fact",
+        "exampleEn": "그 사실을 아세요?",
+        "exampleKr": "Do you know that fact?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sasil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-73-1780058787933",
+        "term": "나다",
+        "definition": "to appear, to come out, to happen, to occur",
+        "meaningKr": "to appear, to come out, to happen, to occur",
+        "exampleEn": "좋은 생각이 났어요.",
+        "exampleKr": "A good idea came to mind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-74-1780058787933",
+        "term": "이렇다",
+        "definition": "to be like this, to be such",
+        "meaningKr": "to be like this, to be such",
+        "exampleEn": "이런 날씨는 정말 좋아요.",
+        "exampleKr": "Weather like this is really good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ireota",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-75-1780058787933",
+        "term": "어머니",
+        "definition": "mother",
+        "meaningKr": "mother",
+        "exampleEn": "우리 어머니는 요리를 잘 하세요.",
+        "exampleKr": "My mother is good at cooking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eomeoni",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-76-1780058787933",
+        "term": "눈",
+        "definition": "eye, snow",
+        "meaningKr": "eye, snow",
+        "exampleEn": "제 눈은 파란색입니다.",
+        "exampleKr": "My eyes are blue.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-77-1780058787933",
+        "term": "뭐",
+        "definition": "what (informal)",
+        "meaningKr": "what (informal)",
+        "exampleEn": "이거 뭐예요?",
+        "exampleKr": "What is this?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mwo",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-78-1780058787933",
+        "term": "점",
+        "definition": "point, dot, store",
+        "meaningKr": "point, dot, store",
+        "exampleEn": "이 그림에 점이 많아요.",
+        "exampleKr": "There are many dots in this picture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-79-1780058787933",
+        "term": "의하다",
+        "definition": "to be based on, to be due to",
+        "meaningKr": "to be based on, to be due to",
+        "exampleEn": "이 계획은 규칙에 의합니다.",
+        "exampleKr": "This plan is based on the rules.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "uihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-80-1780058787933",
+        "term": "시대",
+        "definition": "era, period, age",
+        "meaningKr": "era, period, age",
+        "exampleEn": "우리는 새로운 시대에 살고 있어요.",
+        "exampleKr": "We are living in a new era.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sidae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-81-1780058787933",
+        "term": "다음",
+        "definition": "next, following",
+        "meaningKr": "next, following",
+        "exampleEn": "다음 주에 만나요.",
+        "exampleKr": "See you next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "daeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-82-1780058787933",
+        "term": "이러하다",
+        "definition": "to be like this, to be such",
+        "meaningKr": "to be like this, to be such",
+        "exampleEn": "날씨가 이러해서 밖에 못 나가요.",
+        "exampleKr": "Because the weather is like this, I can't go outside.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ireohada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-83-1780058787933",
+        "term": "누구",
+        "definition": "who",
+        "meaningKr": "who",
+        "exampleEn": "저 사람은 누구예요?",
+        "exampleKr": "Who is that person?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nugu",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-84-1780058787933",
+        "term": "전",
+        "definition": "before, previous, entire",
+        "meaningKr": "before, previous, entire",
+        "exampleEn": "식사 전에 손을 씻어요.",
+        "exampleKr": "Wash your hands before meals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-85-1780058787933",
+        "term": "곳",
+        "definition": "place, spot",
+        "meaningKr": "place, spot",
+        "exampleEn": "여기는 좋은 곳이에요.",
+        "exampleKr": "This is a good place.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "got",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-86-1780058787933",
+        "term": "하나",
+        "definition": "one",
+        "meaningKr": "one",
+        "exampleEn": "사과 하나 주세요.",
+        "exampleKr": "Please give me one apple.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hana",
+        "pos": "numeral"
+      },
+      {
+        "id": "word-ko-87-1780058787933",
+        "term": "위",
+        "definition": "above, top, stomach",
+        "meaningKr": "above, top, stomach",
+        "exampleEn": "책이 책상 위에 있어요.",
+        "exampleKr": "The book is on the desk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "wi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-88-1780058787933",
+        "term": "운동",
+        "definition": "exercise, sport, movement",
+        "meaningKr": "exercise, sport, movement",
+        "exampleEn": "저는 매일 운동을 해요.",
+        "exampleKr": "I exercise every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "undong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-89-1780058787933",
+        "term": "학교",
+        "definition": "school",
+        "meaningKr": "school",
+        "exampleEn": "우리 학교는 커요.",
+        "exampleKr": "Our school is big.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hakgyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-90-1780058787933",
+        "term": "가장",
+        "definition": "most, best",
+        "meaningKr": "most, best",
+        "exampleEn": "이 책이 가장 좋아요.",
+        "exampleKr": "This book is the best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gajang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-91-1780058787933",
+        "term": "시작하다",
+        "definition": "to start, to begin",
+        "meaningKr": "to start, to begin",
+        "exampleEn": "수업이 9시에 시작해요.",
+        "exampleKr": "Class starts at 9 o'clock.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sijakhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-92-1780058787933",
+        "term": "바로",
+        "definition": "right away, immediately, exactly",
+        "meaningKr": "right away, immediately, exactly",
+        "exampleEn": "저는 바로 갈게요.",
+        "exampleKr": "I will go right away.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "baro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-93-1780058787933",
+        "term": "그래서",
+        "definition": "so, therefore",
+        "meaningKr": "so, therefore",
+        "exampleEn": "비가 와요. 그래서 집에 있어요.",
+        "exampleKr": "It's raining. So, I'm at home.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geuraeseo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-94-1780058787933",
+        "term": "무엇",
+        "definition": "what",
+        "meaningKr": "what",
+        "exampleEn": "무엇을 드릴까요?",
+        "exampleKr": "What can I get for you?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mueot",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-95-1780058787933",
+        "term": "그거",
+        "definition": "that thing (near the listener)",
+        "meaningKr": "that thing (near the listener)",
+        "exampleEn": "그거 주세요.",
+        "exampleKr": "Please give me that (thing).",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geugeo",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-96-1780058787933",
+        "term": "돈",
+        "definition": "money",
+        "meaningKr": "money",
+        "exampleEn": "저는 돈이 없어요.",
+        "exampleKr": "I don't have money.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "don",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-97-1780058787933",
+        "term": "그런데",
+        "definition": "but, however, by the way",
+        "meaningKr": "but, however, by the way",
+        "exampleEn": "비가 와요. 그런데 저는 우산이 없어요.",
+        "exampleKr": "It's raining. But I don't have an umbrella.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geureonde",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-98-1780058787933",
+        "term": "날",
+        "definition": "day",
+        "meaningKr": "day",
+        "exampleEn": "오늘은 좋은 날이에요.",
+        "exampleKr": "Today is a good day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-99-1780058787933",
+        "term": "여기",
+        "definition": "here",
+        "meaningKr": "here",
+        "exampleEn": "여기 앉으세요.",
+        "exampleKr": "Please sit here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeogi",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-100-1780058787933",
+        "term": "모두",
+        "definition": "all, everyone",
+        "meaningKr": "all, everyone",
+        "exampleEn": "우리 모두 학생입니다.",
+        "exampleKr": "We are all students.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "modu",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-101-1780058787933",
+        "term": "친구",
+        "definition": "friend",
+        "meaningKr": "friend",
+        "exampleEn": "저는 친구가 많아요.",
+        "exampleKr": "I have many friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "chingu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-102-1780058787933",
+        "term": "마음",
+        "definition": "heart, mind, feeling",
+        "meaningKr": "heart, mind, feeling",
+        "exampleEn": "제 마음이 슬퍼요.",
+        "exampleKr": "My heart is sad.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "maeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-103-1780058787933",
+        "term": "후",
+        "definition": "after, later",
+        "meaningKr": "after, later",
+        "exampleEn": "식사 후에 커피 마셔요.",
+        "exampleKr": "I drink coffee after the meal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-104-1780058787933",
+        "term": "아버지",
+        "definition": "father",
+        "meaningKr": "father",
+        "exampleEn": "우리 아버지는 키가 커요.",
+        "exampleKr": "My father is tall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "abeoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-105-1780058787933",
+        "term": "남자",
+        "definition": "man, male",
+        "meaningKr": "man, male",
+        "exampleEn": "저 남자는 제 오빠예요.",
+        "exampleKr": "That man is my older brother.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "namja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-106-1780058787933",
+        "term": "어디",
+        "definition": "where",
+        "meaningKr": "where",
+        "exampleEn": "화장실이 어디에 있어요?",
+        "exampleKr": "Where is the restroom?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eodi",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-107-1780058787933",
+        "term": "몸",
+        "definition": "body",
+        "meaningKr": "body",
+        "exampleEn": "저는 몸이 건강해요.",
+        "exampleKr": "My body is healthy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-108-1780058787933",
+        "term": "얼굴",
+        "definition": "face",
+        "meaningKr": "face",
+        "exampleEn": "아기의 얼굴이 귀여워요.",
+        "exampleKr": "The baby's face is cute.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eolgul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-109-1780058787933",
+        "term": "들어가다",
+        "definition": "to enter, to go in",
+        "meaningKr": "to enter, to go in",
+        "exampleEn": "방으로 들어가세요.",
+        "exampleKr": "Please go into the room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "deureogada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-110-1780058787933",
+        "term": "왜",
+        "definition": "why",
+        "meaningKr": "why",
+        "exampleEn": "왜 한국어를 공부해요?",
+        "exampleKr": "Why do you study Korean?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "wae",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-111-1780058787933",
+        "term": "다르다",
+        "definition": "to be different",
+        "meaningKr": "to be different",
+        "exampleEn": "이 옷은 저 옷과 달라요.",
+        "exampleKr": "This clothes are different from those clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dareuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-112-1780058787933",
+        "term": "물",
+        "definition": "water",
+        "meaningKr": "water",
+        "exampleEn": "목이 말라요. 물 주세요.",
+        "exampleKr": "I'm thirsty. Please give me water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-113-1780058787933",
+        "term": "만나다",
+        "definition": "to meet",
+        "meaningKr": "to meet",
+        "exampleEn": "내일 친구를 만나요.",
+        "exampleKr": "I will meet a friend tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mannada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-114-1780058787933",
+        "term": "내다",
+        "definition": "to pay, to submit, to produce",
+        "meaningKr": "to pay, to submit, to produce",
+        "exampleEn": "숙제를 내일까지 내세요.",
+        "exampleKr": "Please submit your homework by tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "naeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-115-1780058787933",
+        "term": "쓰다",
+        "definition": "to write, to use, to wear (hat/glasses)",
+        "meaningKr": "to write, to use, to wear (hat/glasses)",
+        "exampleEn": "편지를 한국어로 써요.",
+        "exampleKr": "I write a letter in Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sseuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-116-1780058787933",
+        "term": "이것",
+        "definition": "this (thing)",
+        "meaningKr": "this (thing)",
+        "exampleEn": "이것은 제 가방이에요.",
+        "exampleKr": "This is my bag.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "igeot",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-117-1780058787933",
+        "term": "이번",
+        "definition": "this time",
+        "meaningKr": "this time",
+        "exampleEn": "이번 주말에 뭐 해요?",
+        "exampleKr": "What are you doing this weekend?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ibeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-118-1780058787933",
+        "term": "길",
+        "definition": "road, street, way",
+        "meaningKr": "road, street, way",
+        "exampleEn": "이 길이 맞아요?",
+        "exampleKr": "Is this the right way?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-119-1780058787933",
+        "term": "생활",
+        "definition": "life, living",
+        "meaningKr": "life, living",
+        "exampleEn": "한국 생활이 재미있어요.",
+        "exampleKr": "Life in Korea is interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "saenghwal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-120-1780058787933",
+        "term": "지금",
+        "definition": "now",
+        "meaningKr": "now",
+        "exampleEn": "지금 몇 시예요?",
+        "exampleKr": "What time is it now?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jigeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-121-1780058787933",
+        "term": "사이",
+        "definition": "between, relationship",
+        "meaningKr": "between, relationship",
+        "exampleEn": "친구 사이가 좋아요.",
+        "exampleKr": "Our friendship is good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sai",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-122-1780058787933",
+        "term": "우리나라",
+        "definition": "our country (Korea)",
+        "meaningKr": "our country (Korea)",
+        "exampleEn": "우리나라는 아름다워요.",
+        "exampleKr": "Our country is beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "urinara",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-123-1780058787933",
+        "term": "앉다",
+        "definition": "to sit",
+        "meaningKr": "to sit",
+        "exampleEn": "의자에 앉으세요.",
+        "exampleKr": "Please sit on the chair.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "antta",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-124-1780058787933",
+        "term": "처음",
+        "definition": "first time, beginning",
+        "meaningKr": "first time, beginning",
+        "exampleEn": "한국어는 처음 배워요.",
+        "exampleKr": "I am learning Korean for the first time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "cheoeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-125-1780058787933",
+        "term": "손",
+        "definition": "hand, arm",
+        "meaningKr": "hand, arm",
+        "exampleEn": "제 손이 좀 작아요.",
+        "exampleKr": "My hands are a little small.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "son",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-126-1780058787933",
+        "term": "그때",
+        "definition": "at that time, then",
+        "meaningKr": "at that time, then",
+        "exampleEn": "그때는 아주 행복했어요.",
+        "exampleKr": "I was very happy then.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geuttae",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-127-1780058787933",
+        "term": "찾다",
+        "definition": "to find, to look for, to pick up",
+        "meaningKr": "to find, to look for, to pick up",
+        "exampleEn": "저는 제 지갑을 찾고 있어요.",
+        "exampleKr": "I am looking for my wallet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "chatda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-128-1780058787933",
+        "term": "나가다",
+        "definition": "to go out, to leave",
+        "meaningKr": "to go out, to leave",
+        "exampleEn": "지금 밖에 나가요.",
+        "exampleKr": "I'm going outside now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nagada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-129-1780058787933",
+        "term": "이야기",
+        "definition": "story, talk, conversation",
+        "meaningKr": "story, talk, conversation",
+        "exampleEn": "재미있는 이야기 좀 해주세요.",
+        "exampleKr": "Please tell me an interesting story.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "iyagi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-130-1780058787933",
+        "term": "사다",
+        "definition": "to buy",
+        "meaningKr": "to buy",
+        "exampleEn": "저는 새 옷을 사고 싶어요.",
+        "exampleKr": "I want to buy new clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-131-1780058787933",
+        "term": "아직",
+        "definition": "still, yet",
+        "meaningKr": "still, yet",
+        "exampleEn": "저는 아직 학생이에요.",
+        "exampleKr": "I am still a student.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ajik",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-132-1780058787933",
+        "term": "잡다",
+        "definition": "to catch, to grab, to hold",
+        "meaningKr": "to catch, to grab, to hold",
+        "exampleEn": "손으로 공을 잡아요.",
+        "exampleKr": "I catch the ball with my hand.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "japda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-133-1780058787933",
+        "term": "같이",
+        "definition": "together, like, as",
+        "meaningKr": "together, like, as",
+        "exampleEn": "우리 같이 영화 볼까요?",
+        "exampleKr": "Shall we watch a movie together?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gachi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-134-1780058787933",
+        "term": "선생님",
+        "definition": "teacher, instructor",
+        "meaningKr": "teacher, instructor",
+        "exampleEn": "선생님은 아주 친절해요.",
+        "exampleKr": "The teacher is very kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "seonsaengnim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-135-1780058787933",
+        "term": "서다",
+        "definition": "to stand, to stop",
+        "meaningKr": "to stand, to stop",
+        "exampleEn": "여기에 잠깐 서 주세요.",
+        "exampleKr": "Please stand here for a moment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "seoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-136-1780058787933",
+        "term": "못",
+        "definition": "cannot, unable to",
+        "meaningKr": "cannot, unable to",
+        "exampleEn": "저는 한국말을 잘 못 해요.",
+        "exampleKr": "I can't speak Korean well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mot",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-137-1780058787933",
+        "term": "역사",
+        "definition": "history",
+        "meaningKr": "history",
+        "exampleEn": "한국 역사는 정말 재미있어요.",
+        "exampleKr": "Korean history is really interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeoksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-138-1780058787933",
+        "term": "읽다",
+        "definition": "to read",
+        "meaningKr": "to read",
+        "exampleEn": "저는 책을 매일 읽어요.",
+        "exampleKr": "I read books every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ikda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-139-1780058787933",
+        "term": "이제",
+        "definition": "now, from now on",
+        "meaningKr": "now, from now on",
+        "exampleEn": "이제 집에 갈 시간이에요.",
+        "exampleKr": "It's time to go home now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ije",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-140-1780058787933",
+        "term": "물론",
+        "definition": "of course, certainly",
+        "meaningKr": "of course, certainly",
+        "exampleEn": "물론이죠, 도와드릴게요.",
+        "exampleKr": "Of course, I'll help you.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mullon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-141-1780058787933",
+        "term": "동안",
+        "definition": "during, while, for (a period of time)",
+        "meaningKr": "during, while, for (a period of time)",
+        "exampleEn": "방학 동안 여행을 갔어요.",
+        "exampleKr": "I traveled during vacation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dong-an",
+        "pos": "dependent noun"
+      },
+      {
+        "id": "word-ko-142-1780058787933",
+        "term": "책",
+        "definition": "book",
+        "meaningKr": "book",
+        "exampleEn": "이 책은 아주 좋아요.",
+        "exampleKr": "This book is very good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "chaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-143-1780058787933",
+        "term": "일어나다",
+        "definition": "to get up, to wake up, to happen",
+        "meaningKr": "to get up, to wake up, to happen",
+        "exampleEn": "아침에 일찍 일어났어요.",
+        "exampleKr": "I woke up early in the morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ireonada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-144-1780058787933",
+        "term": "시장",
+        "definition": "market",
+        "meaningKr": "market",
+        "exampleEn": "저는 시장에서 과일을 샀어요.",
+        "exampleKr": "I bought fruit at the market.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sijang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-145-1780058787933",
+        "term": "넣다",
+        "definition": "to put in, to insert",
+        "meaningKr": "to put in, to insert",
+        "exampleEn": "가방에 책을 넣으세요.",
+        "exampleKr": "Put the book in your bag.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "neota",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-146-1780058787933",
+        "term": "중요하다",
+        "definition": "to be important",
+        "meaningKr": "to be important",
+        "exampleEn": "이 정보는 아주 중요해요.",
+        "exampleKr": "This information is very important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jungyohada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-147-1780058787933",
+        "term": "어렵다",
+        "definition": "to be difficult, to be hard",
+        "meaningKr": "to be difficult, to be hard",
+        "exampleEn": "한국어는 좀 어려워요.",
+        "exampleKr": "Korean is a little difficult.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eoryeopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-148-1780058787933",
+        "term": "힘",
+        "definition": "strength, power, energy",
+        "meaningKr": "strength, power, energy",
+        "exampleEn": "운동하면 힘이 생겨요.",
+        "exampleKr": "If you exercise, you gain strength.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "him",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-149-1780058787933",
+        "term": "너무",
+        "definition": "too, very, excessively",
+        "meaningKr": "too, very, excessively",
+        "exampleEn": "이 음식은 너무 맛있어요.",
+        "exampleKr": "This food is too delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "neomu",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-150-1780058787933",
+        "term": "나라",
+        "definition": "country, nation",
+        "meaningKr": "country, nation",
+        "exampleEn": "어느 나라 사람이에요?",
+        "exampleKr": "Which country are you from?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nara",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-151-1780058787933",
+        "term": "부르다",
+        "definition": "to call, to sing",
+        "meaningKr": "to call, to sing",
+        "exampleEn": "제가 노래를 부를게요.",
+        "exampleKr": "I will sing a song.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bureuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-152-1780058787933",
+        "term": "자리",
+        "definition": "seat, spot, place",
+        "meaningKr": "seat, spot, place",
+        "exampleEn": "여기 제 자리예요.",
+        "exampleKr": "This is my seat.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jari",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-153-1780058787933",
+        "term": "죽다",
+        "definition": "to die",
+        "meaningKr": "to die",
+        "exampleEn": "식물이 물이 없어서 죽었어요.",
+        "exampleKr": "The plant died because it had no water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jukda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-154-1780058787933",
+        "term": "얘기",
+        "definition": "talk, story, conversation",
+        "meaningKr": "talk, story, conversation",
+        "exampleEn": "우리 재미있는 얘기 좀 할까요?",
+        "exampleKr": "Shall we have an interesting talk?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yaegi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-155-1780058787933",
+        "term": "학생",
+        "definition": "student",
+        "meaningKr": "student",
+        "exampleEn": "저는 한국어를 배우는 학생입니다.",
+        "exampleKr": "I am a student learning Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "haksaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-156-1780058787933",
+        "term": "엄마",
+        "definition": "mom, mother",
+        "meaningKr": "mom, mother",
+        "exampleEn": "우리 엄마는 요리를 잘해요.",
+        "exampleKr": "My mom is good at cooking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eomma",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-157-1780058787933",
+        "term": "이름",
+        "definition": "name",
+        "meaningKr": "name",
+        "exampleEn": "이름이 뭐예요?",
+        "exampleKr": "What is your name?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ireum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-158-1780058787933",
+        "term": "내리다",
+        "definition": "to get off, to descend, to fall",
+        "meaningKr": "to get off, to descend, to fall",
+        "exampleEn": "다음 역에서 내리세요.",
+        "exampleKr": "Please get off at the next station.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "naerida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-159-1780058787933",
+        "term": "쉽다",
+        "definition": "to be easy, simple",
+        "meaningKr": "to be easy, simple",
+        "exampleEn": "한국어는 재미있고 쉬워요.",
+        "exampleKr": "Korean is interesting and easy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "swipda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-160-1780058787933",
+        "term": "필요하다",
+        "definition": "to be necessary, to need",
+        "meaningKr": "to be necessary, to need",
+        "exampleEn": "물이 필요해요?",
+        "exampleKr": "Do you need water?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "piryohada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-161-1780058787933",
+        "term": "생기다",
+        "definition": "to be formed, to arise, to happen, to look",
+        "meaningKr": "to be formed, to arise, to happen, to look",
+        "exampleEn": "좋은 생각이 생겼어요.",
+        "exampleKr": "A good idea came to mind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "saenggida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-162-1780058787933",
+        "term": "사용하다",
+        "definition": "to use, to employ",
+        "meaningKr": "to use, to employ",
+        "exampleEn": "이 펜을 사용해도 돼요?",
+        "exampleKr": "May I use this pen?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sayonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-163-1780058787933",
+        "term": "남편",
+        "definition": "husband",
+        "meaningKr": "husband",
+        "exampleEn": "우리 남편은 정말 착해요.",
+        "exampleKr": "My husband is really kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nampyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-164-1780058787933",
+        "term": "들어오다",
+        "definition": "to come in, to enter",
+        "meaningKr": "to come in, to enter",
+        "exampleEn": "교실로 들어오세요.",
+        "exampleKr": "Please come into the classroom.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "deureooda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-165-1780058787933",
+        "term": "밖",
+        "definition": "outside, exterior",
+        "meaningKr": "outside, exterior",
+        "exampleEn": "지금 밖에 비가 와요.",
+        "exampleKr": "It's raining outside now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-166-1780058787933",
+        "term": "작다",
+        "definition": "to be small, little",
+        "meaningKr": "to be small, little",
+        "exampleEn": "이 방은 너무 작아요.",
+        "exampleKr": "This room is too small.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jakda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-167-1780058787933",
+        "term": "타다",
+        "definition": "to ride, to get on, to burn",
+        "meaningKr": "to ride, to get on, to burn",
+        "exampleEn": "버스를 타고 학교에 가요.",
+        "exampleKr": "I go to school by bus.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-168-1780058787933",
+        "term": "대학",
+        "definition": "university, college",
+        "meaningKr": "university, college",
+        "exampleEn": "저는 대학교에 다녀요.",
+        "exampleKr": "I attend university.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "daehak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-169-1780058787933",
+        "term": "가운데",
+        "definition": "middle, center, among",
+        "meaningKr": "middle, center, among",
+        "exampleEn": "책상 가운데에 연필이 있어요.",
+        "exampleKr": "There is a pencil in the middle of the desk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gaunde",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-170-1780058787933",
+        "term": "보내다",
+        "definition": "to send, to spend (time)",
+        "meaningKr": "to send, to spend (time)",
+        "exampleEn": "친구에게 편지를 보냈어요.",
+        "exampleKr": "I sent a letter to my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bonaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-171-1780058787933",
+        "term": "아주",
+        "definition": "very, extremely",
+        "meaningKr": "very, extremely",
+        "exampleEn": "이 영화는 아주 재미있어요.",
+        "exampleKr": "This movie is very interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "aju",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-172-1780058787933",
+        "term": "밤",
+        "definition": "night, chestnut",
+        "meaningKr": "night, chestnut",
+        "exampleEn": "어제 밤에 잠을 잘 잤어요.",
+        "exampleKr": "I slept well last night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-173-1780058787933",
+        "term": "높다",
+        "definition": "to be high, tall",
+        "meaningKr": "to be high, tall",
+        "exampleEn": "저 산은 아주 높아요.",
+        "exampleKr": "That mountain is very high.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-174-1780058787933",
+        "term": "컴퓨터",
+        "definition": "computer",
+        "meaningKr": "computer",
+        "exampleEn": "저는 새 컴퓨터를 샀어요.",
+        "exampleKr": "I bought a new computer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "keompyuteo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-175-1780058787933",
+        "term": "먼저",
+        "definition": "first, beforehand",
+        "meaningKr": "first, beforehand",
+        "exampleEn": "제가 먼저 갈게요.",
+        "exampleKr": "I will go first.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "meonjeo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-176-1780058787933",
+        "term": "다니다",
+        "definition": "to attend, to go regularly",
+        "meaningKr": "to attend, to go regularly",
+        "exampleEn": "저는 학교에 매일 다녀요.",
+        "exampleKr": "I go to school every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "danida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-177-1780058787933",
+        "term": "얼마나",
+        "definition": "how much, how long, how (to what extent)",
+        "meaningKr": "how much, how long, how (to what extent)",
+        "exampleEn": "사과가 얼마나 비싸요?",
+        "exampleKr": "How expensive are the apples?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eolmana",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-178-1780058787933",
+        "term": "열다",
+        "definition": "to open",
+        "meaningKr": "to open",
+        "exampleEn": "문을 열어 주세요.",
+        "exampleKr": "Please open the door.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-179-1780058787933",
+        "term": "머리",
+        "definition": "head, hair",
+        "meaningKr": "head, hair",
+        "exampleEn": "제 머리가 길어요.",
+        "exampleKr": "My hair is long.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "meori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-180-1780058787933",
+        "term": "묻다",
+        "definition": "to ask, to bury",
+        "meaningKr": "to ask, to bury",
+        "exampleEn": "선생님께 질문을 묻고 싶어요.",
+        "exampleKr": "I want to ask the teacher a question.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mutda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-181-1780058787933",
+        "term": "거기",
+        "definition": "there",
+        "meaningKr": "there",
+        "exampleEn": "거기에 누가 있어요?",
+        "exampleKr": "Who is there?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geogi",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-182-1780058787933",
+        "term": "아들",
+        "definition": "son",
+        "meaningKr": "son",
+        "exampleEn": "저는 아들이 한 명 있어요.",
+        "exampleKr": "I have one son.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "adeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-183-1780058787933",
+        "term": "아",
+        "definition": "Oh, Ah",
+        "meaningKr": "Oh, Ah",
+        "exampleEn": "아, 정말 몰랐어요.",
+        "exampleKr": "Oh, I really didn't know.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "a",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-184-1780058787933",
+        "term": "기다리다",
+        "definition": "to wait",
+        "meaningKr": "to wait",
+        "exampleEn": "여기서 기다려 주세요.",
+        "exampleKr": "Please wait here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gidarida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-185-1780058787933",
+        "term": "곧",
+        "definition": "soon, immediately",
+        "meaningKr": "soon, immediately",
+        "exampleEn": "저는 곧 집에 갈 거예요.",
+        "exampleKr": "I will go home soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "got",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-186-1780058787933",
+        "term": "오늘",
+        "definition": "today",
+        "meaningKr": "today",
+        "exampleEn": "오늘 날씨가 정말 좋아요.",
+        "exampleKr": "Today's weather is really good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "oneul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-187-1780058787933",
+        "term": "서로",
+        "definition": "each other, mutually",
+        "meaningKr": "each other, mutually",
+        "exampleEn": "우리는 서로 도와줘요.",
+        "exampleKr": "We help each other.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "seoro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-188-1780058787933",
+        "term": "이거",
+        "definition": "this (thing)",
+        "meaningKr": "this (thing)",
+        "exampleEn": "이거 정말 예뻐요.",
+        "exampleKr": "This is really pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "igeo",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-189-1780058787933",
+        "term": "방",
+        "definition": "room",
+        "meaningKr": "room",
+        "exampleEn": "제 방은 아주 커요.",
+        "exampleKr": "My room is very big.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-190-1780058787933",
+        "term": "아침",
+        "definition": "morning, breakfast",
+        "meaningKr": "morning, breakfast",
+        "exampleEn": "저는 아침에 커피를 마셔요.",
+        "exampleKr": "I drink coffee in the morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "achim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-191-1780058787933",
+        "term": "웃다",
+        "definition": "to laugh, to smile",
+        "meaningKr": "to laugh, to smile",
+        "exampleEn": "친구가 웃어서 저도 웃었어요.",
+        "exampleKr": "My friend laughed, so I laughed too.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "utda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-192-1780058787933",
+        "term": "떠나다",
+        "definition": "to leave, to depart",
+        "meaningKr": "to leave, to depart",
+        "exampleEn": "내일 한국으로 떠날 거예요.",
+        "exampleKr": "I will leave for Korea tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tteonada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-193-1780058787933",
+        "term": "그래",
+        "definition": "Yes, That's right, Okay",
+        "meaningKr": "Yes, That's right, Okay",
+        "exampleEn": "그래, 우리 같이 가자.",
+        "exampleKr": "Okay, let's go together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geurae",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-194-1780058787933",
+        "term": "아름답다",
+        "definition": "to be beautiful",
+        "meaningKr": "to be beautiful",
+        "exampleEn": "한국은 정말 아름다운 나라예요.",
+        "exampleKr": "Korea is a truly beautiful country.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "areumdapda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-195-1780058787933",
+        "term": "끝",
+        "definition": "end, finish",
+        "meaningKr": "end, finish",
+        "exampleEn": "영화가 이제 끝났어요.",
+        "exampleKr": "The movie has ended now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "kkeut",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-196-1780058787933",
+        "term": "입",
+        "definition": "mouth",
+        "meaningKr": "mouth",
+        "exampleEn": "입을 크게 벌려 보세요.",
+        "exampleKr": "Please open your mouth wide.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-197-1780058787933",
+        "term": "영화",
+        "definition": "movie, film",
+        "meaningKr": "movie, film",
+        "exampleEn": "저는 영화 보는 것을 좋아해요.",
+        "exampleKr": "I like watching movies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeonghwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-198-1780058787933",
+        "term": "필요",
+        "definition": "necessity, need",
+        "meaningKr": "necessity, need",
+        "exampleEn": "지금 도움이 필요해요.",
+        "exampleKr": "I need help now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "pillyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-199-1780058787933",
+        "term": "하늘",
+        "definition": "sky, heaven",
+        "meaningKr": "sky, heaven",
+        "exampleEn": "하늘이 정말 파랗고 예뻐요.",
+        "exampleKr": "The sky is really blue and pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "haneul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-200-1780058787933",
+        "term": "정말",
+        "definition": "really, truly, indeed",
+        "meaningKr": "really, truly, indeed",
+        "exampleEn": "이 음식 정말 맛있어요.",
+        "exampleKr": "This food is really delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeongmal",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-201-1780058787933",
+        "term": "밥",
+        "definition": "rice, meal",
+        "meaningKr": "rice, meal",
+        "exampleEn": "저는 아침에 밥을 먹어요.",
+        "exampleKr": "I eat rice in the morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-202-1780058787933",
+        "term": "입다",
+        "definition": "to wear, to put on (clothes)",
+        "meaningKr": "to wear, to put on (clothes)",
+        "exampleEn": "저는 새 옷을 입어요.",
+        "exampleKr": "I wear new clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ipda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-203-1780058787933",
+        "term": "네",
+        "definition": "yes, I see, okay",
+        "meaningKr": "yes, I see, okay",
+        "exampleEn": "네, 알겠습니다.",
+        "exampleKr": "Yes, I understand.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ne",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-204-1780058787933",
+        "term": "그림",
+        "definition": "picture, drawing, painting",
+        "meaningKr": "picture, drawing, painting",
+        "exampleEn": "이 그림은 정말 예뻐요.",
+        "exampleKr": "This picture is really pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geurim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-205-1780058787933",
+        "term": "마시다",
+        "definition": "to drink",
+        "meaningKr": "to drink",
+        "exampleEn": "저는 물을 많이 마셔요.",
+        "exampleKr": "I drink a lot of water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "masida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-206-1780058787933",
+        "term": "치다",
+        "definition": "to hit, to play (an instrument), to clap",
+        "meaningKr": "to hit, to play (an instrument), to clap",
+        "exampleEn": "저는 피아노를 잘 쳐요.",
+        "exampleKr": "I play the piano well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "chida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-207-1780058787933",
+        "term": "혼자",
+        "definition": "alone, by oneself",
+        "meaningKr": "alone, by oneself",
+        "exampleEn": "저는 혼자 영화를 봤어요.",
+        "exampleKr": "I watched a movie alone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "honja",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-208-1780058787933",
+        "term": "교수",
+        "definition": "professor",
+        "meaningKr": "professor",
+        "exampleEn": "우리 교수님은 친절해요.",
+        "exampleKr": "Our professor is kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyosu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-209-1780058787933",
+        "term": "술",
+        "definition": "alcohol, alcoholic drink",
+        "meaningKr": "alcohol, alcoholic drink",
+        "exampleEn": "저는 술을 안 마셔요.",
+        "exampleKr": "I don't drink alcohol.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-210-1780058787933",
+        "term": "사랑",
+        "definition": "love",
+        "meaningKr": "love",
+        "exampleEn": "사랑은 정말 중요해요.",
+        "exampleKr": "Love is really important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sarang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-211-1780058787933",
+        "term": "전화",
+        "definition": "phone, phone call",
+        "meaningKr": "phone, phone call",
+        "exampleEn": "제 전화번호를 아세요?",
+        "exampleKr": "Do you know my phone number?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeonhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-212-1780058787933",
+        "term": "끝나다",
+        "definition": "to end, to be over, to finish",
+        "meaningKr": "to end, to be over, to finish",
+        "exampleEn": "수업이 3시에 끝나요.",
+        "exampleKr": "Class ends at 3 o'clock.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "kkeunnada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-213-1780058787933",
+        "term": "돌아오다",
+        "definition": "to come back, to return",
+        "meaningKr": "to come back, to return",
+        "exampleEn": "친구가 내일 돌아와요.",
+        "exampleKr": "My friend comes back tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "doraoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-214-1780058787933",
+        "term": "아빠",
+        "definition": "dad, father",
+        "meaningKr": "dad, father",
+        "exampleEn": "우리 아빠는 키가 커요.",
+        "exampleKr": "My dad is tall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "appa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-215-1780058787933",
+        "term": "한번",
+        "definition": "once, one time, why don't you (try)",
+        "meaningKr": "once, one time, why don't you (try)",
+        "exampleEn": "우리 한번 만나요.",
+        "exampleKr": "Let's meet once.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hanbeon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-216-1780058787933",
+        "term": "커피",
+        "definition": "coffee",
+        "meaningKr": "coffee",
+        "exampleEn": "저는 매일 커피를 마셔요.",
+        "exampleKr": "I drink coffee every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "keopi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-217-1780058787933",
+        "term": "가슴",
+        "definition": "chest, breast, heart (figurative)",
+        "meaningKr": "chest, breast, heart (figurative)",
+        "exampleEn": "제 가슴이 두근거려요.",
+        "exampleKr": "My heart is pounding.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gaseum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-218-1780058787933",
+        "term": "길다",
+        "definition": "to be long",
+        "meaningKr": "to be long",
+        "exampleEn": "머리가 정말 길어요.",
+        "exampleKr": "My hair is really long.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gilda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-219-1780058787933",
+        "term": "회사",
+        "definition": "company, office",
+        "meaningKr": "company, office",
+        "exampleEn": "저는 회사에 가요.",
+        "exampleKr": "I go to the company.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hoesa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-220-1780058787933",
+        "term": "맛",
+        "definition": "taste, flavor",
+        "meaningKr": "taste, flavor",
+        "exampleEn": "이 음식은 맛이 좋아요.",
+        "exampleKr": "This food tastes good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mat",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-221-1780058787933",
+        "term": "매우",
+        "definition": "very, extremely",
+        "meaningKr": "very, extremely",
+        "exampleEn": "날씨가 매우 추워요.",
+        "exampleKr": "The weather is very cold.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "maeu",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-222-1780058787933",
+        "term": "오르다",
+        "definition": "to go up, to climb, to rise",
+        "meaningKr": "to go up, to climb, to rise",
+        "exampleEn": "산에 같이 올라요.",
+        "exampleKr": "Let's climb the mountain together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "oreuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-223-1780058787933",
+        "term": "음식",
+        "definition": "food",
+        "meaningKr": "food",
+        "exampleEn": "한국 음식은 맛있어요.",
+        "exampleKr": "Korean food is delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eumsik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-224-1780058787933",
+        "term": "꼭",
+        "definition": "surely, certainly, without fail",
+        "meaningKr": "surely, certainly, without fail",
+        "exampleEn": "내일 꼭 오세요.",
+        "exampleKr": "Please come tomorrow without fail.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "kkok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-225-1780058787933",
+        "term": "요즘",
+        "definition": "these days, recently, nowadays",
+        "meaningKr": "these days, recently, nowadays",
+        "exampleEn": "요즘 날씨가 정말 좋아요.",
+        "exampleKr": "The weather is really good these days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yojeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-226-1780058787933",
+        "term": "계획",
+        "definition": "plan",
+        "meaningKr": "plan",
+        "exampleEn": "이번 주말에 특별한 계획이 있어요?",
+        "exampleKr": "Do you have any special plans this weekend?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyehoek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-227-1780058787933",
+        "term": "얼마",
+        "definition": "how much, how many",
+        "meaningKr": "how much, how many",
+        "exampleEn": "이 사과가 얼마예요?",
+        "exampleKr": "How much is this apple?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eolma",
+        "pos": "determiner"
+      },
+      {
+        "id": "word-ko-228-1780058787933",
+        "term": "계속",
+        "definition": "continuously, constantly, keep on",
+        "meaningKr": "continuously, constantly, keep on",
+        "exampleEn": "비가 계속 오고 있어요.",
+        "exampleKr": "It keeps raining.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyesok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-229-1780058787933",
+        "term": "아내",
+        "definition": "wife",
+        "meaningKr": "wife",
+        "exampleEn": "제 아내는 요리를 잘해요.",
+        "exampleKr": "My wife is good at cooking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "anae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-230-1780058787933",
+        "term": "가족",
+        "definition": "family",
+        "meaningKr": "family",
+        "exampleEn": "우리 가족은 모두 다섯 명이에요.",
+        "exampleKr": "There are five people in my family.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gajok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-231-1780058787933",
+        "term": "놓다",
+        "definition": "to put, to place, to let go",
+        "meaningKr": "to put, to place, to let go",
+        "exampleEn": "책을 책상 위에 놓으세요.",
+        "exampleKr": "Please put the book on the desk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nota",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-232-1780058787933",
+        "term": "차",
+        "definition": "car, tea",
+        "meaningKr": "car, tea",
+        "exampleEn": "새 차를 사고 싶어요.",
+        "exampleKr": "I want to buy a new car.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "cha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-233-1780058787933",
+        "term": "놀다",
+        "definition": "to play, to hang out, to have fun",
+        "meaningKr": "to play, to hang out, to have fun",
+        "exampleEn": "아이들이 공원에서 놀고 있어요.",
+        "exampleKr": "The children are playing in the park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-234-1780058787933",
+        "term": "도시",
+        "definition": "city",
+        "meaningKr": "city",
+        "exampleEn": "서울은 큰 도시입니다.",
+        "exampleKr": "Seoul is a big city.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dosi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-235-1780058787933",
+        "term": "나이",
+        "definition": "age",
+        "meaningKr": "age",
+        "exampleEn": "나이가 어떻게 되세요?",
+        "exampleKr": "How old are you?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nai",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-236-1780058787933",
+        "term": "바꾸다",
+        "definition": "to change, to exchange",
+        "meaningKr": "to change, to exchange",
+        "exampleEn": "저는 핸드폰을 바꾸고 싶어요.",
+        "exampleKr": "I want to change my phone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bakkuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-237-1780058787933",
+        "term": "좋아하다",
+        "definition": "to like",
+        "meaningKr": "to like",
+        "exampleEn": "저는 한국 음악을 좋아해요.",
+        "exampleKr": "I like Korean music.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "joahada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-238-1780058787933",
+        "term": "그리다",
+        "definition": "to draw, to paint",
+        "meaningKr": "to draw, to paint",
+        "exampleEn": "그림을 그리는 것을 좋아해요.",
+        "exampleKr": "I like drawing pictures.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-239-1780058787933",
+        "term": "배우다",
+        "definition": "to learn",
+        "meaningKr": "to learn",
+        "exampleEn": "저는 한국어를 배우고 있어요.",
+        "exampleKr": "I am learning Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "baeuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-240-1780058787933",
+        "term": "옆",
+        "definition": "side, next to",
+        "meaningKr": "side, next to",
+        "exampleEn": "제 옆에 앉으세요.",
+        "exampleKr": "Please sit next to me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-241-1780058787933",
+        "term": "어",
+        "definition": "oh, uh, hey",
+        "meaningKr": "oh, uh, hey",
+        "exampleEn": "어, 벌써 시간이 이렇게 됐어요?",
+        "exampleKr": "Oh, is it already this late?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eo",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-242-1780058787933",
+        "term": "아래",
+        "definition": "under, below, bottom",
+        "meaningKr": "under, below, bottom",
+        "exampleEn": "책이 책상 아래에 있어요.",
+        "exampleKr": "The book is under the desk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "arae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-243-1780058787933",
+        "term": "그럼",
+        "definition": "then, in that case, of course",
+        "meaningKr": "then, in that case, of course",
+        "exampleEn": "그럼 내일 다시 만나요.",
+        "exampleKr": "Then, let's meet again tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geureom",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-244-1780058787933",
+        "term": "배",
+        "definition": "stomach, pear, boat",
+        "meaningKr": "stomach, pear, boat",
+        "exampleEn": "저는 배가 고파요.",
+        "exampleKr": "I am hungry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-245-1780058787933",
+        "term": "산",
+        "definition": "mountain",
+        "meaningKr": "mountain",
+        "exampleEn": "한국에는 아름다운 산이 많아요.",
+        "exampleKr": "There are many beautiful mountains in Korea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "san",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-246-1780058787933",
+        "term": "하지만",
+        "definition": "but, however",
+        "meaningKr": "but, however",
+        "exampleEn": "날씨가 좋아요. 하지만 바람이 많이 불어요.",
+        "exampleKr": "The weather is good. However, it's very windy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hajiman",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-ko-247-1780058787933",
+        "term": "문",
+        "definition": "door, gate",
+        "meaningKr": "door, gate",
+        "exampleEn": "문을 닫아 주세요.",
+        "exampleKr": "Please close the door.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-248-1780058787933",
+        "term": "꽃",
+        "definition": "flower",
+        "meaningKr": "flower",
+        "exampleEn": "예쁜 꽃을 선물했어요.",
+        "exampleKr": "I gave pretty flowers as a gift.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "kkot",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-249-1780058787933",
+        "term": "그동안",
+        "definition": "in the meantime, during that time, for a while",
+        "meaningKr": "in the meantime, during that time, for a while",
+        "exampleEn": "그동안 잘 지내셨어요?",
+        "exampleKr": "Have you been well during that time?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geudongan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-250-1780058787933",
+        "term": "갑자기",
+        "definition": "suddenly, abruptly",
+        "meaningKr": "suddenly, abruptly",
+        "exampleEn": "갑자기 비가 와요.",
+        "exampleKr": "It suddenly rains.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gapjagi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-251-1780058787933",
+        "term": "바람",
+        "definition": "wind, wish, desire",
+        "meaningKr": "wind, wish, desire",
+        "exampleEn": "바람이 많이 불어요.",
+        "exampleKr": "The wind blows a lot.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "baram",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-252-1780058787933",
+        "term": "잘하다",
+        "definition": "to do well, to be good at",
+        "meaningKr": "to do well, to be good at",
+        "exampleEn": "저는 한국어를 잘해요.",
+        "exampleKr": "I am good at Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jalhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-253-1780058787933",
+        "term": "노래",
+        "definition": "song",
+        "meaningKr": "song",
+        "exampleEn": "저는 노래를 좋아해요.",
+        "exampleKr": "I like songs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "norae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-254-1780058787933",
+        "term": "바다",
+        "definition": "sea, ocean",
+        "meaningKr": "sea, ocean",
+        "exampleEn": "여름에 바다에 가요.",
+        "exampleKr": "I go to the sea in summer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bada",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-255-1780058787933",
+        "term": "힘들다",
+        "definition": "to be difficult, to be hard, to be tiring",
+        "meaningKr": "to be difficult, to be hard, to be tiring",
+        "exampleEn": "일이 정말 힘들어요.",
+        "exampleKr": "The work is really hard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "himdeulda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-256-1780058787933",
+        "term": "공부",
+        "definition": "study",
+        "meaningKr": "study",
+        "exampleEn": "저는 매일 공부해요.",
+        "exampleKr": "I study every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gongbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-257-1780058787933",
+        "term": "못하다",
+        "definition": "to not be able to do, to be bad at",
+        "meaningKr": "to not be able to do, to be bad at",
+        "exampleEn": "저는 노래를 못해요.",
+        "exampleKr": "I am bad at singing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mothada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-258-1780058787933",
+        "term": "언니",
+        "definition": "older sister (used by a female)",
+        "meaningKr": "older sister (used by a female)",
+        "exampleEn": "우리 언니는 예뻐요.",
+        "exampleKr": "My older sister is pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eonni",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-259-1780058787933",
+        "term": "불",
+        "definition": "fire, light",
+        "meaningKr": "fire, light",
+        "exampleEn": "불을 켜 주세요.",
+        "exampleKr": "Please turn on the light.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-260-1780058787933",
+        "term": "학년",
+        "definition": "grade, school year",
+        "meaningKr": "grade, school year",
+        "exampleEn": "저는 1학년 학생이에요.",
+        "exampleKr": "I am a first-year student.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "haknyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-261-1780058787933",
+        "term": "신문",
+        "definition": "newspaper",
+        "meaningKr": "newspaper",
+        "exampleEn": "아버지는 신문을 읽어요.",
+        "exampleKr": "My father reads the newspaper.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sinmun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-262-1780058787933",
+        "term": "이해하다",
+        "definition": "to understand",
+        "meaningKr": "to understand",
+        "exampleEn": "저는 선생님 말씀을 이해해요.",
+        "exampleKr": "I understand what the teacher says.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ihaehanada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-263-1780058787933",
+        "term": "선생",
+        "definition": "teacher",
+        "meaningKr": "teacher",
+        "exampleEn": "우리 선생은 친절해요.",
+        "exampleKr": "Our teacher is kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "seonsaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-264-1780058787933",
+        "term": "돌아가다",
+        "definition": "to return, to go back",
+        "meaningKr": "to return, to go back",
+        "exampleEn": "저는 집에 돌아가요.",
+        "exampleKr": "I go back home.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "doragada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-265-1780058787933",
+        "term": "기분",
+        "definition": "feeling, mood",
+        "meaningKr": "feeling, mood",
+        "exampleEn": "오늘 기분이 좋아요.",
+        "exampleKr": "I feel good today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gibun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-266-1780058787933",
+        "term": "옷",
+        "definition": "clothes, clothing",
+        "meaningKr": "clothes, clothing",
+        "exampleEn": "새 옷을 샀어요.",
+        "exampleKr": "I bought new clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ot",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-267-1780058787933",
+        "term": "꿈",
+        "definition": "dream",
+        "meaningKr": "dream",
+        "exampleEn": "좋은 꿈 꾸세요.",
+        "exampleKr": "Have a good dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "kkum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-268-1780058787933",
+        "term": "할머니",
+        "definition": "grandmother",
+        "meaningKr": "grandmother",
+        "exampleEn": "우리 할머니는 요리를 잘해요.",
+        "exampleKr": "My grandmother is good at cooking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "halmeoni",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-269-1780058787933",
+        "term": "회의",
+        "definition": "meeting, conference",
+        "meaningKr": "meeting, conference",
+        "exampleEn": "오후에 회의가 있어요.",
+        "exampleKr": "I have a meeting in the afternoon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hoeui",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-270-1780058787933",
+        "term": "이야기하다",
+        "definition": "to talk, to tell a story",
+        "meaningKr": "to talk, to tell a story",
+        "exampleEn": "친구와 이야기하고 싶어요.",
+        "exampleKr": "I want to talk with my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "iyagihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-271-1780058787933",
+        "term": "나무",
+        "definition": "tree, wood",
+        "meaningKr": "tree, wood",
+        "exampleEn": "공원에 나무가 많아요.",
+        "exampleKr": "There are many trees in the park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "namu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-272-1780058787933",
+        "term": "자다",
+        "definition": "to sleep",
+        "meaningKr": "to sleep",
+        "exampleEn": "저는 일찍 자요.",
+        "exampleKr": "I sleep early.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-273-1780058787933",
+        "term": "걷다",
+        "definition": "to walk",
+        "meaningKr": "to walk",
+        "exampleEn": "저는 매일 공원을 걸어요.",
+        "exampleKr": "I walk in the park every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geotda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-274-1780058787933",
+        "term": "이때",
+        "definition": "at this time, at this moment",
+        "meaningKr": "at this time, at this moment",
+        "exampleEn": "이때 우리는 행복했어요.",
+        "exampleKr": "At this time, we were happy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ittae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-275-1780058787933",
+        "term": "물건",
+        "definition": "thing, item, object",
+        "meaningKr": "thing, item, object",
+        "exampleEn": "이 물건은 아주 비싸요.",
+        "exampleKr": "This item is very expensive.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mulgeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-276-1780058787933",
+        "term": "발",
+        "definition": "foot",
+        "meaningKr": "foot",
+        "exampleEn": "제 발이 아파요.",
+        "exampleKr": "My foot hurts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-277-1780058787933",
+        "term": "빨리",
+        "definition": "quickly, fast",
+        "meaningKr": "quickly, fast",
+        "exampleEn": "빨리 오세요!",
+        "exampleKr": "Please come quickly!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ppalli",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-278-1780058787933",
+        "term": "시작되다",
+        "definition": "to begin, to start",
+        "meaningKr": "to begin, to start",
+        "exampleEn": "수업이 곧 시작돼요.",
+        "exampleKr": "The class will start soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sijakdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-279-1780058787933",
+        "term": "둘",
+        "definition": "two",
+        "meaningKr": "two",
+        "exampleEn": "저는 사과가 둘 있어요.",
+        "exampleKr": "I have two apples.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dul",
+        "pos": "numeral"
+      },
+      {
+        "id": "word-ko-280-1780058787933",
+        "term": "말다",
+        "definition": "not to do, to stop (doing)",
+        "meaningKr": "not to do, to stop (doing)",
+        "exampleEn": "걱정하지 마세요.",
+        "exampleKr": "Please don't worry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "malda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-281-1780058787933",
+        "term": "설명하다",
+        "definition": "to explain",
+        "meaningKr": "to explain",
+        "exampleEn": "이것 좀 설명해 주세요.",
+        "exampleKr": "Please explain this to me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "seolmyeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-282-1780058787933",
+        "term": "음악",
+        "definition": "music",
+        "meaningKr": "music",
+        "exampleEn": "저는 음악 듣는 것을 좋아해요.",
+        "exampleKr": "I like listening to music.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eumak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-283-1780058787933",
+        "term": "아프다",
+        "definition": "to be sick, to hurt, to be painful",
+        "meaningKr": "to be sick, to hurt, to be painful",
+        "exampleEn": "머리가 너무 아파요.",
+        "exampleKr": "My head hurts so much.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "apeuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-284-1780058787933",
+        "term": "적다",
+        "definition": "to be few, to be little",
+        "meaningKr": "to be few, to be little",
+        "exampleEn": "돈이 너무 적어요.",
+        "exampleKr": "I have too little money.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeokda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-285-1780058787933",
+        "term": "비",
+        "definition": "rain",
+        "meaningKr": "rain",
+        "exampleEn": "오늘 비가 많이 와요.",
+        "exampleKr": "It's raining a lot today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-286-1780058787933",
+        "term": "고향",
+        "definition": "hometown, native place",
+        "meaningKr": "hometown, native place",
+        "exampleEn": "제 고향은 부산이에요.",
+        "exampleKr": "My hometown is Busan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gohyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-287-1780058787933",
+        "term": "놀라다",
+        "definition": "to be surprised, to be startled",
+        "meaningKr": "to be surprised, to be startled",
+        "exampleEn": "저는 그 소식에 놀랐어요.",
+        "exampleKr": "I was surprised by the news.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nollada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-288-1780058787933",
+        "term": "울다",
+        "definition": "to cry, to weep",
+        "meaningKr": "to cry, to weep",
+        "exampleEn": "아기가 계속 울어요.",
+        "exampleKr": "The baby keeps crying.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-289-1780058787933",
+        "term": "은행",
+        "definition": "bank",
+        "meaningKr": "bank",
+        "exampleEn": "은행이 어디에 있어요?",
+        "exampleKr": "Where is the bank?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eunhaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-290-1780058787933",
+        "term": "지내다",
+        "definition": "to spend time, to get along, to live",
+        "meaningKr": "to spend time, to get along, to live",
+        "exampleEn": "잘 지내셨어요?",
+        "exampleKr": "Have you been well?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jinaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-291-1780058787933",
+        "term": "결혼",
+        "definition": "marriage",
+        "meaningKr": "marriage",
+        "exampleEn": "결혼 축하해요!",
+        "exampleKr": "Congratulations on your marriage!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyeolhon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-292-1780058787933",
+        "term": "동생",
+        "definition": "younger sibling",
+        "meaningKr": "younger sibling",
+        "exampleEn": "제 동생은 학생이에요.",
+        "exampleKr": "My younger sibling is a student.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dongsaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-293-1780058787933",
+        "term": "오후",
+        "definition": "afternoon",
+        "meaningKr": "afternoon",
+        "exampleEn": "우리는 오후에 만나요.",
+        "exampleKr": "We meet in the afternoon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ohu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-294-1780058787933",
+        "term": "빠르다",
+        "definition": "to be fast, to be quick, to be early",
+        "meaningKr": "to be fast, to be quick, to be early",
+        "exampleEn": "이 기차는 아주 빨라요.",
+        "exampleKr": "This train is very fast.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ppareuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-295-1780058787933",
+        "term": "아기",
+        "definition": "baby",
+        "meaningKr": "baby",
+        "exampleEn": "아기가 너무 귀여워요.",
+        "exampleKr": "The baby is so cute.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "agi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-296-1780058787933",
+        "term": "아저씨",
+        "definition": "middle-aged man, mister, uncle",
+        "meaningKr": "middle-aged man, mister, uncle",
+        "exampleEn": "아저씨, 이거 얼마예요?",
+        "exampleKr": "Sir, how much is this?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ajeossi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-297-1780058787933",
+        "term": "옛날",
+        "definition": "old days, past",
+        "meaningKr": "old days, past",
+        "exampleEn": "옛날에는 달랐어요.",
+        "exampleKr": "It was different in the old days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yennal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-298-1780058787933",
+        "term": "참",
+        "definition": "truly, really, indeed",
+        "meaningKr": "truly, really, indeed",
+        "exampleEn": "참 예쁜 꽃이에요.",
+        "exampleKr": "It's a truly beautiful flower.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "cham",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-299-1780058787933",
+        "term": "이곳",
+        "definition": "this place, here",
+        "meaningKr": "this place, here",
+        "exampleEn": "이곳은 조용해요.",
+        "exampleKr": "This place is quiet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "igot",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-300-1780058787933",
+        "term": "딸",
+        "definition": "daughter",
+        "meaningKr": "daughter",
+        "exampleEn": "저는 딸이 한 명 있어요.",
+        "exampleKr": "I have one daughter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ttal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-301-1780058787933",
+        "term": "마지막",
+        "definition": "last, final, end",
+        "meaningKr": "last, final, end",
+        "exampleEn": "이것이 마지막 시험입니다.",
+        "exampleKr": "This is the last exam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "majimak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-302-1780058787933",
+        "term": "병원",
+        "definition": "hospital",
+        "meaningKr": "hospital",
+        "exampleEn": "저는 병원에 갑니다.",
+        "exampleKr": "I am going to the hospital.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "byeongwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-303-1780058787933",
+        "term": "경찰",
+        "definition": "police, police officer",
+        "meaningKr": "police, police officer",
+        "exampleEn": "경찰이 여기에 왔어요.",
+        "exampleKr": "The police came here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyeongchal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-304-1780058787933",
+        "term": "저녁",
+        "definition": "evening, dinner",
+        "meaningKr": "evening, dinner",
+        "exampleEn": "저녁에 같이 밥 먹어요.",
+        "exampleKr": "Let's eat together in the evening.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeonyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-305-1780058787933",
+        "term": "그러면",
+        "definition": "then, in that case, if so",
+        "meaningKr": "then, in that case, if so",
+        "exampleEn": "비가 오면, 그러면 집에 있어요.",
+        "exampleKr": "If it rains, then I'll stay at home.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geureomyeon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-306-1780058787933",
+        "term": "넓다",
+        "definition": "to be wide, to be spacious",
+        "meaningKr": "to be wide, to be spacious",
+        "exampleEn": "이 방은 정말 넓어요.",
+        "exampleKr": "This room is really spacious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "neolda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-307-1780058787933",
+        "term": "시험",
+        "definition": "exam, test",
+        "meaningKr": "exam, test",
+        "exampleEn": "내일 시험이 있어요.",
+        "exampleKr": "I have an exam tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "siheom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-308-1780058787933",
+        "term": "잠",
+        "definition": "sleep, slumber",
+        "meaningKr": "sleep, slumber",
+        "exampleEn": "저는 잠을 많이 자요.",
+        "exampleKr": "I sleep a lot.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-309-1780058787933",
+        "term": "건강",
+        "definition": "health",
+        "meaningKr": "health",
+        "exampleEn": "건강이 정말 중요합니다.",
+        "exampleKr": "Health is really important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geongang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-310-1780058787933",
+        "term": "가깝다",
+        "definition": "to be close, to be near",
+        "meaningKr": "to be close, to be near",
+        "exampleEn": "우리 집은 학교에서 가까워요.",
+        "exampleKr": "My house is close to school.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gakkapda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-311-1780058787933",
+        "term": "건물",
+        "definition": "building",
+        "meaningKr": "building",
+        "exampleEn": "저 큰 건물은 뭐예요?",
+        "exampleKr": "What is that big building?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geonmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-312-1780058787933",
+        "term": "외국",
+        "definition": "foreign country, overseas",
+        "meaningKr": "foreign country, overseas",
+        "exampleEn": "저는 외국에서 왔어요.",
+        "exampleKr": "I came from a foreign country.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "oeguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-313-1780058787933",
+        "term": "밑",
+        "definition": "bottom, under, below",
+        "meaningKr": "bottom, under, below",
+        "exampleEn": "책상 밑에 가방이 있어요.",
+        "exampleKr": "There is a bag under the desk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mit",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-314-1780058787933",
+        "term": "어른",
+        "definition": "adult",
+        "meaningKr": "adult",
+        "exampleEn": "저 아이는 이제 어른이 됐어요.",
+        "exampleKr": "That child has become an adult now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eoreun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-315-1780058787933",
+        "term": "팔다",
+        "definition": "to sell",
+        "meaningKr": "to sell",
+        "exampleEn": "저는 이 옷을 팔고 싶어요.",
+        "exampleKr": "I want to sell these clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "palda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-316-1780058787933",
+        "term": "열심히",
+        "definition": "diligently, hard, enthusiastically",
+        "meaningKr": "diligently, hard, enthusiastically",
+        "exampleEn": "학생들은 열심히 공부합니다.",
+        "exampleKr": "Students study diligently.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeolsimhi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-317-1780058787933",
+        "term": "일하다",
+        "definition": "to work",
+        "meaningKr": "to work",
+        "exampleEn": "저는 회사에서 일합니다.",
+        "exampleKr": "I work at a company.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ilhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-318-1780058787933",
+        "term": "조금",
+        "definition": "a little, a bit, a small amount",
+        "meaningKr": "a little, a bit, a small amount",
+        "exampleEn": "저는 한국어를 조금 알아요.",
+        "exampleKr": "I know a little Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jogeum",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-319-1780058787933",
+        "term": "팀",
+        "definition": "team",
+        "meaningKr": "team",
+        "exampleEn": "우리 팀은 정말 좋아요.",
+        "exampleKr": "Our team is really good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-320-1780058787933",
+        "term": "부모",
+        "definition": "parents",
+        "meaningKr": "parents",
+        "exampleEn": "저는 부모님을 사랑해요.",
+        "exampleKr": "I love my parents.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bumo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-321-1780058787933",
+        "term": "올라가다",
+        "definition": "to go up, to ascend, to rise",
+        "meaningKr": "to go up, to ascend, to rise",
+        "exampleEn": "산 위로 같이 올라가요.",
+        "exampleKr": "Let's go up the mountain together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ollagada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-322-1780058787933",
+        "term": "그날",
+        "definition": "that day",
+        "meaningKr": "that day",
+        "exampleEn": "우리는 그날 다시 만났어요.",
+        "exampleKr": "We met again on that day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geunal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-323-1780058787933",
+        "term": "자주",
+        "definition": "often, frequently",
+        "meaningKr": "often, frequently",
+        "exampleEn": "저는 도서관에 자주 갑니다.",
+        "exampleKr": "I often go to the library.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jaju",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-324-1780058787933",
+        "term": "담배",
+        "definition": "cigarette, tobacco",
+        "meaningKr": "cigarette, tobacco",
+        "exampleEn": "여기서는 담배를 피우지 마세요.",
+        "exampleKr": "Please don't smoke here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dambae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-325-1780058787933",
+        "term": "할아버지",
+        "definition": "grandfather",
+        "meaningKr": "grandfather",
+        "exampleEn": "우리 할아버지는 아주 친절하세요.",
+        "exampleKr": "My grandfather is very kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "harabeoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-326-1780058787933",
+        "term": "태어나다",
+        "definition": "to be born",
+        "meaningKr": "to be born",
+        "exampleEn": "저는 한국에서 태어났어요.",
+        "exampleKr": "I was born in Korea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "taeeonada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-327-1780058787933",
+        "term": "벌써",
+        "definition": "already",
+        "meaningKr": "already",
+        "exampleEn": "벌써 저녁 먹을 시간이에요.",
+        "exampleKr": "It's already time to eat dinner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "beolsseo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-328-1780058787933",
+        "term": "환자",
+        "definition": "patient",
+        "meaningKr": "patient",
+        "exampleEn": "의사 선생님이 환자를 치료해요.",
+        "exampleKr": "The doctor treats the patient.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hwanja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-329-1780058787933",
+        "term": "재미있다",
+        "definition": "to be interesting, to be fun",
+        "meaningKr": "to be interesting, to be fun",
+        "exampleEn": "이 영화는 정말 재미있어요.",
+        "exampleKr": "This movie is really interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jaemiitda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-330-1780058787933",
+        "term": "가르치다",
+        "definition": "to teach",
+        "meaningKr": "to teach",
+        "exampleEn": "선생님은 학생들을 한국어를 가르치세요.",
+        "exampleKr": "The teacher teaches students Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gareuchida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-331-1780058787933",
+        "term": "대화",
+        "definition": "conversation, dialogue",
+        "meaningKr": "conversation, dialogue",
+        "exampleEn": "친구와 즐거운 대화를 했어요.",
+        "exampleKr": "I had a pleasant conversation with my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "daehwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-332-1780058787933",
+        "term": "올해",
+        "definition": "this year",
+        "meaningKr": "this year",
+        "exampleEn": "올해는 날씨가 아주 따뜻해요.",
+        "exampleKr": "The weather is very warm this year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "olhae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-333-1780058787933",
+        "term": "형",
+        "definition": "older brother (for a male)",
+        "meaningKr": "older brother (for a male)",
+        "exampleEn": "우리 형은 키가 커요.",
+        "exampleKr": "My older brother is tall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-334-1780058787933",
+        "term": "걸다",
+        "definition": "to hang, to make a call",
+        "meaningKr": "to hang, to make a call",
+        "exampleEn": "벽에 그림을 걸었어요.",
+        "exampleKr": "I hung a picture on the wall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-335-1780058787933",
+        "term": "멀다",
+        "definition": "to be far",
+        "meaningKr": "to be far",
+        "exampleEn": "우리 집은 학교에서 멀어요.",
+        "exampleKr": "My house is far from school.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "meolda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-336-1780058787933",
+        "term": "버스",
+        "definition": "bus",
+        "meaningKr": "bus",
+        "exampleEn": "버스를 타고 학교에 가요.",
+        "exampleKr": "I go to school by bus.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "beoseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-337-1780058787933",
+        "term": "잠시",
+        "definition": "for a moment, for a while",
+        "meaningKr": "for a moment, for a while",
+        "exampleEn": "잠시만 기다려 주세요.",
+        "exampleKr": "Please wait for a moment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jamsi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-338-1780058787933",
+        "term": "사진",
+        "definition": "photo, picture",
+        "meaningKr": "photo, picture",
+        "exampleEn": "이 사진은 정말 예뻐요.",
+        "exampleKr": "This photo is really pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sajin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-339-1780058787933",
+        "term": "제일",
+        "definition": "the most, first",
+        "meaningKr": "the most, first",
+        "exampleEn": "저는 사과를 제일 좋아해요.",
+        "exampleKr": "I like apples the most.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeil",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-340-1780058787933",
+        "term": "아마",
+        "definition": "perhaps, maybe, probably",
+        "meaningKr": "perhaps, maybe, probably",
+        "exampleEn": "아마 내일 비가 올 거예요.",
+        "exampleKr": "It will probably rain tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ama",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-341-1780058787933",
+        "term": "얘기하다",
+        "definition": "to talk, to speak, to tell",
+        "meaningKr": "to talk, to speak, to tell",
+        "exampleEn": "친구와 많이 얘기했어요.",
+        "exampleKr": "I talked a lot with my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yaegihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-342-1780058787933",
+        "term": "다리",
+        "definition": "leg, bridge",
+        "meaningKr": "leg, bridge",
+        "exampleEn": "다리가 아파서 걸을 수 없어요.",
+        "exampleKr": "My leg hurts so I can't walk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dari",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-343-1780058787933",
+        "term": "항상",
+        "definition": "always, constantly",
+        "meaningKr": "always, constantly",
+        "exampleEn": "저는 항상 아침에 커피를 마셔요.",
+        "exampleKr": "I always drink coffee in the morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hangsang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-344-1780058787933",
+        "term": "해",
+        "definition": "sun, year",
+        "meaningKr": "sun, year",
+        "exampleEn": "올해는 좋은 해가 될 거예요.",
+        "exampleKr": "This year will be a good year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "hae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-345-1780058787933",
+        "term": "잃다",
+        "definition": "to lose",
+        "meaningKr": "to lose",
+        "exampleEn": "지갑을 잃어버려서 슬퍼요.",
+        "exampleKr": "I lost my wallet, so I'm sad.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ilta",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-346-1780058787933",
+        "term": "비슷하다",
+        "definition": "to be similar",
+        "meaningKr": "to be similar",
+        "exampleEn": "그 두 사람은 아주 비슷해요.",
+        "exampleKr": "Those two people are very similar.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "biseuthada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-347-1780058787933",
+        "term": "사랑하다",
+        "definition": "to love",
+        "meaningKr": "to love",
+        "exampleEn": "저는 가족을 사랑해요.",
+        "exampleKr": "I love my family.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "saranghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-348-1780058787933",
+        "term": "여름",
+        "definition": "summer",
+        "meaningKr": "summer",
+        "exampleEn": "한국의 여름은 아주 더워요.",
+        "exampleKr": "Korean summers are very hot.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeoreum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-349-1780058787933",
+        "term": "싫다",
+        "definition": "to be disliked, to hate",
+        "meaningKr": "to be disliked, to hate",
+        "exampleEn": "저는 매운 음식이 싫어요.",
+        "exampleKr": "I don't like spicy food.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "silta",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-350-1780058787933",
+        "term": "그러니까",
+        "definition": "so, therefore, that's why",
+        "meaningKr": "so, therefore, that's why",
+        "exampleEn": "날씨가 좋아요. 그러니까 산책해요.",
+        "exampleKr": "The weather is good. So, let's take a walk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geureonikka",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-351-1780058787933",
+        "term": "값",
+        "definition": "price, value",
+        "meaningKr": "price, value",
+        "exampleEn": "이 옷 값은 얼마예요?",
+        "exampleKr": "How much is the price of these clothes?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-352-1780058787933",
+        "term": "언제나",
+        "definition": "always, at all times",
+        "meaningKr": "always, at all times",
+        "exampleEn": "저는 언제나 커피를 마셔요.",
+        "exampleKr": "I always drink coffee.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eonjena",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-353-1780058787933",
+        "term": "자동차",
+        "definition": "car, automobile",
+        "meaningKr": "car, automobile",
+        "exampleEn": "저의 아버지는 자동차가 있어요.",
+        "exampleKr": "My father has a car.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jadongcha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-354-1780058787933",
+        "term": "어린이",
+        "definition": "child, kid",
+        "meaningKr": "child, kid",
+        "exampleEn": "어린이들이 공원에서 놀아요.",
+        "exampleKr": "Children are playing in the park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eorini",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-355-1780058787933",
+        "term": "공부하다",
+        "definition": "to study",
+        "meaningKr": "to study",
+        "exampleEn": "저는 한국어를 열심히 공부해요.",
+        "exampleKr": "I study Korean diligently.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gongbuhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-356-1780058787933",
+        "term": "닦다",
+        "definition": "to wipe, to polish, to clean",
+        "meaningKr": "to wipe, to polish, to clean",
+        "exampleEn": "식탁을 깨끗하게 닦아 주세요.",
+        "exampleKr": "Please wipe the table clean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dakda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-357-1780058787933",
+        "term": "말씀",
+        "definition": "speech, words, remarks (honorific)",
+        "meaningKr": "speech, words, remarks (honorific)",
+        "exampleEn": "선생님 말씀 잘 들으세요.",
+        "exampleKr": "Please listen well to the teacher's words.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "malsseum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-358-1780058787933",
+        "term": "괜찮다",
+        "definition": "to be alright, to be okay, to be fine",
+        "meaningKr": "to be alright, to be okay, to be fine",
+        "exampleEn": "저는 괜찮아요. 걱정하지 마세요.",
+        "exampleKr": "I'm okay. Don't worry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gwaenchanta",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-359-1780058787933",
+        "term": "눈물",
+        "definition": "tear, teardrop",
+        "meaningKr": "tear, teardrop",
+        "exampleEn": "슬픈 영화를 보고 눈물이 났어요.",
+        "exampleKr": "I shed tears after watching a sad movie.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nunmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-360-1780058787933",
+        "term": "주인",
+        "definition": "owner, master, landlord",
+        "meaningKr": "owner, master, landlord",
+        "exampleEn": "이 가게 주인은 친절해요.",
+        "exampleKr": "The owner of this store is kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "juin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-361-1780058787933",
+        "term": "반",
+        "definition": "class, half",
+        "meaningKr": "class, half",
+        "exampleEn": "우리는 같은 반 친구예요.",
+        "exampleKr": "We are classmates in the same class.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-362-1780058787933",
+        "term": "귀",
+        "definition": "ear",
+        "meaningKr": "ear",
+        "exampleEn": "강아지가 귀를 쫑긋 세웠어요.",
+        "exampleKr": "The puppy pricked up its ears.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-363-1780058787933",
+        "term": "어떠하다",
+        "definition": "how (to be), what kind (to be)",
+        "meaningKr": "how (to be), what kind (to be)",
+        "exampleEn": "오늘 기분은 어떠하세요?",
+        "exampleKr": "How are you feeling today?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eotteohada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-364-1780058787933",
+        "term": "아파트",
+        "definition": "apartment",
+        "meaningKr": "apartment",
+        "exampleEn": "저는 서울 아파트에 살아요.",
+        "exampleKr": "I live in an apartment in Seoul.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "apateu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-365-1780058787933",
+        "term": "가끔",
+        "definition": "sometimes, occasionally",
+        "meaningKr": "sometimes, occasionally",
+        "exampleEn": "저는 가끔 공원에 가요.",
+        "exampleKr": "I sometimes go to the park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gakkeum",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-366-1780058787933",
+        "term": "짧다",
+        "definition": "to be short",
+        "meaningKr": "to be short",
+        "exampleEn": "이 연필은 너무 짧아요.",
+        "exampleKr": "This pencil is too short.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jjalbda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-367-1780058787933",
+        "term": "고맙다",
+        "definition": "to be thankful, to be grateful",
+        "meaningKr": "to be thankful, to be grateful",
+        "exampleEn": "도와주셔서 정말 고마워요.",
+        "exampleKr": "Thank you very much for helping me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gomapda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-368-1780058787933",
+        "term": "그곳",
+        "definition": "that place, there",
+        "meaningKr": "that place, there",
+        "exampleEn": "저도 그곳에 가고 싶어요.",
+        "exampleKr": "I want to go to that place too.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geugot",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-369-1780058787933",
+        "term": "바쁘다",
+        "definition": "to be busy",
+        "meaningKr": "to be busy",
+        "exampleEn": "요즘 저는 너무 바빠요.",
+        "exampleKr": "I'm so busy these days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bappeuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-370-1780058787933",
+        "term": "나쁘다",
+        "definition": "to be bad, to be evil",
+        "meaningKr": "to be bad, to be evil",
+        "exampleEn": "이 음식은 맛이 나빠요.",
+        "exampleKr": "This food tastes bad.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nappeuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-371-1780058787933",
+        "term": "게임",
+        "definition": "game",
+        "meaningKr": "game",
+        "exampleEn": "저는 친구들과 게임을 해요.",
+        "exampleKr": "I play games with my friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-372-1780058787933",
+        "term": "잔",
+        "definition": "cup, glass (counter for drinks)",
+        "meaningKr": "cup, glass (counter for drinks)",
+        "exampleEn": "커피 한 잔 주세요.",
+        "exampleKr": "Please give me one cup of coffee.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jan",
+        "pos": "dependent noun"
+      },
+      {
+        "id": "word-ko-373-1780058787933",
+        "term": "언제",
+        "definition": "when",
+        "meaningKr": "when",
+        "exampleEn": "당신은 언제 한국에 왔어요?",
+        "exampleKr": "When did you come to Korea?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eonje",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-374-1780058787933",
+        "term": "내려오다",
+        "definition": "to come down, to descend",
+        "meaningKr": "to come down, to descend",
+        "exampleEn": "위에서 아래로 내려오세요.",
+        "exampleKr": "Please come down from the top.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "naeryeo-oda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-375-1780058787933",
+        "term": "손님",
+        "definition": "guest, customer",
+        "meaningKr": "guest, customer",
+        "exampleEn": "손님이 식당에 오셨어요.",
+        "exampleKr": "A guest came to the restaurant.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sonnim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-376-1780058787933",
+        "term": "아무",
+        "definition": "any (with ~나), no one/nothing (with ~도)",
+        "meaningKr": "any (with ~나), no one/nothing (with ~도)",
+        "exampleEn": "아무도 이 방에 없어요.",
+        "exampleKr": "No one is in this room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "amu",
+        "pos": "determiner"
+      },
+      {
+        "id": "word-ko-377-1780058787933",
+        "term": "뉴스",
+        "definition": "news",
+        "meaningKr": "news",
+        "exampleEn": "저는 매일 아침 뉴스를 봐요.",
+        "exampleKr": "I watch the news every morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nyuseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-378-1780058787933",
+        "term": "수업",
+        "definition": "class, lesson",
+        "meaningKr": "class, lesson",
+        "exampleEn": "오늘 한국어 수업이 있어요.",
+        "exampleKr": "I have a Korean class today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sueop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-379-1780058787933",
+        "term": "겨울",
+        "definition": "winter",
+        "meaningKr": "winter",
+        "exampleEn": "한국의 겨울은 정말 추워요.",
+        "exampleKr": "Winter in Korea is really cold.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyeoul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-380-1780058787933",
+        "term": "층",
+        "definition": "floor, layer",
+        "meaningKr": "floor, layer",
+        "exampleEn": "우리 집은 5층에 있어요.",
+        "exampleKr": "Our house is on the 5th floor.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "cheung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-381-1780058787933",
+        "term": "식사",
+        "definition": "meal",
+        "meaningKr": "meal",
+        "exampleEn": "저녁 식사 맛있게 하세요.",
+        "exampleKr": "Have a delicious dinner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "siksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-382-1780058787933",
+        "term": "안다",
+        "definition": "to hug, to embrace, to hold",
+        "meaningKr": "to hug, to embrace, to hold",
+        "exampleEn": "아기가 엄마를 꼭 안아요.",
+        "exampleKr": "The baby hugs its mom tightly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "anda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-383-1780058787933",
+        "term": "잊다",
+        "definition": "to forget",
+        "meaningKr": "to forget",
+        "exampleEn": "저는 중요한 약속을 잊었어요.",
+        "exampleKr": "I forgot an important appointment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "itda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-384-1780058787933",
+        "term": "텔레비전",
+        "definition": "television",
+        "meaningKr": "television",
+        "exampleEn": "거실에 큰 텔레비전이 있어요.",
+        "exampleKr": "There is a big television in the living room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tellebijeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-385-1780058787933",
+        "term": "씻다",
+        "definition": "to wash, to clean",
+        "meaningKr": "to wash, to clean",
+        "exampleEn": "손을 깨끗하게 씻으세요.",
+        "exampleKr": "Please wash your hands cleanly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ssitda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-386-1780058787933",
+        "term": "늦다",
+        "definition": "to be late",
+        "meaningKr": "to be late",
+        "exampleEn": "저는 수업에 늦어서 미안해요.",
+        "exampleKr": "I am sorry for being late to class.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "neutda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-387-1780058787933",
+        "term": "편지",
+        "definition": "letter",
+        "meaningKr": "letter",
+        "exampleEn": "친구에게 편지를 썼어요.",
+        "exampleKr": "I wrote a letter to my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "pyeonji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-388-1780058787933",
+        "term": "팔",
+        "definition": "arm",
+        "meaningKr": "arm",
+        "exampleEn": "제 팔이 좀 아파요.",
+        "exampleKr": "My arm hurts a bit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "pal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-389-1780058787933",
+        "term": "설명",
+        "definition": "explanation",
+        "meaningKr": "explanation",
+        "exampleEn": "선생님이 문제를 쉽게 설명했어요.",
+        "exampleKr": "The teacher explained the problem easily.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "seolmyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-390-1780058787933",
+        "term": "티브이",
+        "definition": "TV",
+        "meaningKr": "TV",
+        "exampleEn": "저녁에 티브이를 봤어요.",
+        "exampleKr": "I watched TV in the evening.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tibeu-i",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-391-1780058787933",
+        "term": "봄",
+        "definition": "spring",
+        "meaningKr": "spring",
+        "exampleEn": "봄에는 꽃이 많이 피어요.",
+        "exampleKr": "Many flowers bloom in spring.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-392-1780058787933",
+        "term": "낮다",
+        "definition": "to be low, to be short (height)",
+        "meaningKr": "to be low, to be short (height)",
+        "exampleEn": "이 의자는 너무 낮아요.",
+        "exampleKr": "This chair is too low.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "natda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-393-1780058787933",
+        "term": "어깨",
+        "definition": "shoulder",
+        "meaningKr": "shoulder",
+        "exampleEn": "제 어깨가 좀 아파요.",
+        "exampleKr": "My shoulder hurts a bit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "eokkae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-394-1780058787933",
+        "term": "부부",
+        "definition": "married couple, husband and wife",
+        "meaningKr": "married couple, husband and wife",
+        "exampleEn": "그 부부는 아주 행복해 보여요.",
+        "exampleKr": "That couple looks very happy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bubu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-395-1780058787933",
+        "term": "오래",
+        "definition": "for a long time",
+        "meaningKr": "for a long time",
+        "exampleEn": "우리는 여기서 오래 기다렸어요.",
+        "exampleKr": "We waited here for a long time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "orae",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-396-1780058787933",
+        "term": "여행",
+        "definition": "trip, travel",
+        "meaningKr": "trip, travel",
+        "exampleEn": "저는 제주도로 여행을 가고 싶어요.",
+        "exampleKr": "I want to go on a trip to Jeju Island.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeohaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-397-1780058787933",
+        "term": "공",
+        "definition": "ball",
+        "meaningKr": "ball",
+        "exampleEn": "아이들이 공을 가지고 놀아요.",
+        "exampleKr": "The children are playing with a ball.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-398-1780058787933",
+        "term": "오월",
+        "definition": "May (month)",
+        "meaningKr": "May (month)",
+        "exampleEn": "오월은 날씨가 아주 좋아요.",
+        "exampleKr": "The weather in May is very good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "owol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-399-1780058787933",
+        "term": "쉬다",
+        "definition": "to rest, to take a break",
+        "meaningKr": "to rest, to take a break",
+        "exampleEn": "주말에 집에서 푹 쉬었어요.",
+        "exampleKr": "I rested well at home on the weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "swida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-400-1780058787933",
+        "term": "과",
+        "definition": "department, subject",
+        "meaningKr": "department, subject",
+        "exampleEn": "저는 한국어과 학생입니다.",
+        "exampleKr": "I am a student in the Korean language department.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-401-1780058787933",
+        "term": "오빠",
+        "definition": "older brother (by a female), boyfriend",
+        "meaningKr": "older brother (by a female), boyfriend",
+        "exampleEn": "우리 오빠는 키가 커요.",
+        "exampleKr": "My older brother is tall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "oppa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-402-1780058787933",
+        "term": "즐겁다",
+        "definition": "to be joyful, to be pleasant, to be fun",
+        "meaningKr": "to be joyful, to be pleasant, to be fun",
+        "exampleEn": "오늘 파티는 정말 즐거웠어요.",
+        "exampleKr": "The party today was really fun.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jeulgeopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-403-1780058787933",
+        "term": "사월",
+        "definition": "April",
+        "meaningKr": "April",
+        "exampleEn": "제 생일은 사월입니다.",
+        "exampleKr": "My birthday is in April.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sawol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-404-1780058787933",
+        "term": "싸우다",
+        "definition": "to fight, to argue",
+        "meaningKr": "to fight, to argue",
+        "exampleEn": "우리는 어제 친구와 싸웠어요.",
+        "exampleKr": "We fought with a friend yesterday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ssauuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-405-1780058787933",
+        "term": "예쁘다",
+        "definition": "to be pretty, to be beautiful",
+        "meaningKr": "to be pretty, to be beautiful",
+        "exampleEn": "이 꽃은 정말 예뻐요.",
+        "exampleKr": "This flower is really pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeppeuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-406-1780058787933",
+        "term": "나중",
+        "definition": "later, future (time)",
+        "meaningKr": "later, future (time)",
+        "exampleEn": "나중에 다시 만나요.",
+        "exampleKr": "Let's meet again later.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "najung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-407-1780058787933",
+        "term": "맛있다",
+        "definition": "to be delicious, to be tasty",
+        "meaningKr": "to be delicious, to be tasty",
+        "exampleEn": "이 김치는 정말 맛있어요.",
+        "exampleKr": "This kimchi is really delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "masitda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-408-1780058787933",
+        "term": "며칠",
+        "definition": "how many days, a few days",
+        "meaningKr": "how many days, a few days",
+        "exampleEn": "며칠 후에 다시 올게요.",
+        "exampleKr": "I will come back in a few days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "myeochil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-409-1780058787933",
+        "term": "작년",
+        "definition": "last year",
+        "meaningKr": "last year",
+        "exampleEn": "작년에 한국에 왔어요.",
+        "exampleKr": "I came to Korea last year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jaknyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-410-1780058787933",
+        "term": "내려가다",
+        "definition": "to go down, to descend",
+        "meaningKr": "to go down, to descend",
+        "exampleEn": "저는 지금 아래층으로 내려가요.",
+        "exampleKr": "I am going downstairs now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "naeryeogada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-411-1780058787933",
+        "term": "쓰레기",
+        "definition": "trash, garbage",
+        "meaningKr": "trash, garbage",
+        "exampleEn": "쓰레기를 버리지 마세요.",
+        "exampleKr": "Please do not throw away trash.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sseuregi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-412-1780058787933",
+        "term": "고기",
+        "definition": "meat",
+        "meaningKr": "meat",
+        "exampleEn": "저는 고기를 좋아해요.",
+        "exampleKr": "I like meat.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gogi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-413-1780058787933",
+        "term": "가져오다",
+        "definition": "to bring",
+        "meaningKr": "to bring",
+        "exampleEn": "책을 가져오세요.",
+        "exampleKr": "Please bring the book.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gajyeooda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-414-1780058787933",
+        "term": "남녀",
+        "definition": "men and women, male and female",
+        "meaningKr": "men and women, male and female",
+        "exampleEn": "남녀 모두 참여할 수 있습니다.",
+        "exampleKr": "Both men and women can participate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "namnyeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-415-1780058787933",
+        "term": "준비",
+        "definition": "preparation",
+        "meaningKr": "preparation",
+        "exampleEn": "여행 준비가 다 끝났어요.",
+        "exampleKr": "All travel preparations are finished.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "junbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-416-1780058787933",
+        "term": "구월",
+        "definition": "September",
+        "meaningKr": "September",
+        "exampleEn": "저는 구월에 여행을 갈 거예요.",
+        "exampleKr": "I will travel in September.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "guwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-417-1780058787933",
+        "term": "맑다",
+        "definition": "to be clear, to be clean (weather, water)",
+        "meaningKr": "to be clear, to be clean (weather, water)",
+        "exampleEn": "오늘은 날씨가 정말 맑아요.",
+        "exampleKr": "The weather is really clear today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "makda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-418-1780058787933",
+        "term": "유월",
+        "definition": "June",
+        "meaningKr": "June",
+        "exampleEn": "유월은 여름의 시작입니다.",
+        "exampleKr": "June is the beginning of summer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yuwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-419-1780058787933",
+        "term": "허리",
+        "definition": "waist, lower back",
+        "meaningKr": "waist, lower back",
+        "exampleEn": "허리가 아파서 앉았어요.",
+        "exampleKr": "My lower back hurt, so I sat down.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "heori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-420-1780058787933",
+        "term": "새",
+        "definition": "bird",
+        "meaningKr": "bird",
+        "exampleEn": "나무 위에 새가 앉아 있어요.",
+        "exampleKr": "A bird is sitting on the tree.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-421-1780058787933",
+        "term": "영어",
+        "definition": "English (language)",
+        "meaningKr": "English (language)",
+        "exampleEn": "저는 영어를 공부하고 있어요.",
+        "exampleKr": "I am studying English.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeongeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-422-1780058787933",
+        "term": "대답하다",
+        "definition": "to answer, to reply",
+        "meaningKr": "to answer, to reply",
+        "exampleEn": "선생님 질문에 대답했어요.",
+        "exampleKr": "I answered the teacher's question.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "daedapada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-423-1780058787933",
+        "term": "벗다",
+        "definition": "to take off (clothes, shoes)",
+        "meaningKr": "to take off (clothes, shoes)",
+        "exampleEn": "신발을 벗고 들어오세요.",
+        "exampleKr": "Please take off your shoes and come in.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "beotda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-424-1780058787933",
+        "term": "준비하다",
+        "definition": "to prepare, to get ready",
+        "meaningKr": "to prepare, to get ready",
+        "exampleEn": "시험 준비를 열심히 하고 있어요.",
+        "exampleKr": "I am diligently preparing for the exam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "junbihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-425-1780058787933",
+        "term": "돕다",
+        "definition": "to help",
+        "meaningKr": "to help",
+        "exampleEn": "제가 숙제를 돕겠습니다.",
+        "exampleKr": "I will help with the homework.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dopda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-426-1780058787933",
+        "term": "달",
+        "definition": "moon, month",
+        "meaningKr": "moon, month",
+        "exampleEn": "밤에 달이 아주 밝아요.",
+        "exampleKr": "The moon is very bright at night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-427-1780058787933",
+        "term": "사장",
+        "definition": "president, boss (of a company)",
+        "meaningKr": "president, boss (of a company)",
+        "exampleEn": "우리 회사 사장님은 친절하세요.",
+        "exampleKr": "Our company president is kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sajang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-428-1780058787933",
+        "term": "삼월",
+        "definition": "March (third month)",
+        "meaningKr": "March (third month)",
+        "exampleEn": "삼월에 한국에 갈 거예요.",
+        "exampleKr": "I will go to Korea in March.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "samwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-429-1780058787933",
+        "term": "그렇지만",
+        "definition": "but, however",
+        "meaningKr": "but, however",
+        "exampleEn": "비가 와요. 그렇지만 우산이 없어요.",
+        "exampleKr": "It's raining. But I don't have an umbrella.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geureochiman",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-430-1780058787933",
+        "term": "키",
+        "definition": "height, key (for a lock)",
+        "meaningKr": "height, key (for a lock)",
+        "exampleEn": "제 키가 170cm예요.",
+        "exampleKr": "My height is 170cm.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ki",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-431-1780058787933",
+        "term": "걱정",
+        "definition": "worry, concern",
+        "meaningKr": "worry, concern",
+        "exampleEn": "걱정하지 마세요. 괜찮을 거예요.",
+        "exampleKr": "Don't worry. It will be okay.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geokjeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-432-1780058787933",
+        "term": "결혼하다",
+        "definition": "to marry, to get married",
+        "meaningKr": "to marry, to get married",
+        "exampleEn": "제 친구가 다음 달에 결혼해요.",
+        "exampleKr": "My friend is getting married next month.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyeolhonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-433-1780058787933",
+        "term": "누나",
+        "definition": "older sister (used by a male)",
+        "meaningKr": "older sister (used by a male)",
+        "exampleEn": "우리 누나는 학생이에요.",
+        "exampleKr": "My older sister is a student.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nuna",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-434-1780058787933",
+        "term": "질문",
+        "definition": "question",
+        "meaningKr": "question",
+        "exampleEn": "질문 있어요? 손을 들어 주세요.",
+        "exampleKr": "Do you have a question? Please raise your hand.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jilmun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-435-1780058787933",
+        "term": "근처",
+        "definition": "near, nearby area, vicinity",
+        "meaningKr": "near, nearby area, vicinity",
+        "exampleEn": "이 근처에 지하철역이 있어요?",
+        "exampleKr": "Is there a subway station near here?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geuncheo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-436-1780058787933",
+        "term": "부모님",
+        "definition": "parents (honorific)",
+        "meaningKr": "parents (honorific)",
+        "exampleEn": "부모님께 전화하고 싶어요.",
+        "exampleKr": "I want to call my parents.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bumonim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-437-1780058787933",
+        "term": "계시다",
+        "definition": "to be, to exist, to stay (honorific)",
+        "meaningKr": "to be, to exist, to stay (honorific)",
+        "exampleEn": "할머니는 집에 계세요.",
+        "exampleKr": "Grandmother is at home.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyesida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-438-1780058787933",
+        "term": "비행기",
+        "definition": "airplane",
+        "meaningKr": "airplane",
+        "exampleEn": "비행기로 한국에 갈 거예요.",
+        "exampleKr": "I will go to Korea by airplane.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bihaenggi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-439-1780058787933",
+        "term": "뜨겁다",
+        "definition": "to be hot (to the touch)",
+        "meaningKr": "to be hot (to the touch)",
+        "exampleEn": "커피가 너무 뜨거워서 못 마셔요.",
+        "exampleKr": "The coffee is too hot, so I can't drink it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tteugeopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-440-1780058787933",
+        "term": "낮",
+        "definition": "day, daytime",
+        "meaningKr": "day, daytime",
+        "exampleEn": "낮은 밝고 밤은 어두워요.",
+        "exampleKr": "The day is bright and the night is dark.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nat",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-441-1780058787933",
+        "term": "일찍",
+        "definition": "early",
+        "meaningKr": "early",
+        "exampleEn": "내일 일찍 일어나야 해요.",
+        "exampleKr": "I have to wake up early tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "iljjik",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-442-1780058787933",
+        "term": "찍다",
+        "definition": "to take (a picture), to stamp, to dip",
+        "meaningKr": "to take (a picture), to stamp, to dip",
+        "exampleEn": "사진을 찍어 주세요.",
+        "exampleKr": "Please take a picture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jjikda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-443-1780058787933",
+        "term": "가볍다",
+        "definition": "to be light (in weight)",
+        "meaningKr": "to be light (in weight)",
+        "exampleEn": "이 가방은 아주 가벼워요.",
+        "exampleKr": "This bag is very light.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gabyeopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-444-1780058787933",
+        "term": "오전",
+        "definition": "morning, A.M.",
+        "meaningKr": "morning, A.M.",
+        "exampleEn": "저는 오전 9시에 학교에 가요.",
+        "exampleKr": "I go to school at 9 A.M.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ojeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-445-1780058787933",
+        "term": "가게",
+        "definition": "store, shop",
+        "meaningKr": "store, shop",
+        "exampleEn": "저 가게에서 옷을 샀어요.",
+        "exampleKr": "I bought clothes at that store.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gage",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-446-1780058787933",
+        "term": "약속",
+        "definition": "promise, appointment",
+        "meaningKr": "promise, appointment",
+        "exampleEn": "친구와 저녁 약속이 있어요.",
+        "exampleKr": "I have a dinner appointment with a friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yaksok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-447-1780058787933",
+        "term": "인사",
+        "definition": "greeting, bow",
+        "meaningKr": "greeting, bow",
+        "exampleEn": "아침에 선생님께 인사를 했어요.",
+        "exampleKr": "I greeted the teacher in the morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "insa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-448-1780058787933",
+        "term": "소금",
+        "definition": "salt",
+        "meaningKr": "salt",
+        "exampleEn": "음식에 소금을 조금 넣으세요.",
+        "exampleKr": "Put a little salt in the food.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sogeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-449-1780058787933",
+        "term": "자전거",
+        "definition": "bicycle",
+        "meaningKr": "bicycle",
+        "exampleEn": "저는 매일 자전거를 타요.",
+        "exampleKr": "I ride my bicycle every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jajeongeoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-450-1780058787933",
+        "term": "목",
+        "definition": "neck, throat",
+        "meaningKr": "neck, throat",
+        "exampleEn": "제 목이 아파요.",
+        "exampleKr": "My neck hurts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-451-1780058787933",
+        "term": "피우다",
+        "definition": "to smoke, to light, to bloom",
+        "meaningKr": "to smoke, to light, to bloom",
+        "exampleEn": "담배를 피우지 마세요.",
+        "exampleKr": "Please don't smoke.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "piuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-452-1780058787933",
+        "term": "교통",
+        "definition": "traffic, transportation",
+        "meaningKr": "traffic, transportation",
+        "exampleEn": "서울은 교통이 복잡해요.",
+        "exampleKr": "Seoul has complicated traffic.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyotong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-453-1780058787933",
+        "term": "불다",
+        "definition": "to blow",
+        "meaningKr": "to blow",
+        "exampleEn": "바람이 세게 불어요.",
+        "exampleKr": "The wind blows strongly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-454-1780058787933",
+        "term": "한글",
+        "definition": "Hangeul (Korean alphabet)",
+        "meaningKr": "Hangeul (Korean alphabet)",
+        "exampleEn": "저는 한글을 공부해요.",
+        "exampleKr": "I study Hangeul.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "Hangeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-455-1780058787933",
+        "term": "가을",
+        "definition": "autumn, fall",
+        "meaningKr": "autumn, fall",
+        "exampleEn": "저는 가을을 좋아해요.",
+        "exampleKr": "I like autumn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gaeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-456-1780058787933",
+        "term": "내일",
+        "definition": "tomorrow",
+        "meaningKr": "tomorrow",
+        "exampleEn": "내일 만날까요?",
+        "exampleKr": "Shall we meet tomorrow?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "naeil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-457-1780058787933",
+        "term": "매일",
+        "definition": "every day, daily",
+        "meaningKr": "every day, daily",
+        "exampleEn": "저는 매일 한국어를 공부해요.",
+        "exampleKr": "I study Korean every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "maeil",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-458-1780058787933",
+        "term": "손가락",
+        "definition": "finger",
+        "meaningKr": "finger",
+        "exampleEn": "손가락이 아파요.",
+        "exampleKr": "My finger hurts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "songarak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-459-1780058787933",
+        "term": "급",
+        "definition": "grade, rank, urgency",
+        "meaningKr": "grade, rank, urgency",
+        "exampleEn": "한국어 능력 시험 몇 급이에요?",
+        "exampleKr": "What level is your Korean proficiency test?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-460-1780058787933",
+        "term": "날씨",
+        "definition": "weather",
+        "meaningKr": "weather",
+        "exampleEn": "오늘 날씨가 좋아요.",
+        "exampleKr": "The weather is good today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "nalssi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-461-1780058787933",
+        "term": "동물",
+        "definition": "animal",
+        "meaningKr": "animal",
+        "exampleEn": "저는 동물을 좋아해요.",
+        "exampleKr": "I like animals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dongmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-462-1780058787933",
+        "term": "의사",
+        "definition": "doctor",
+        "meaningKr": "doctor",
+        "exampleEn": "저는 의사가 되고 싶어요.",
+        "exampleKr": "I want to be a doctor.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "uisa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-463-1780058787933",
+        "term": "건강하다",
+        "definition": "to be healthy",
+        "meaningKr": "to be healthy",
+        "exampleEn": "우리 가족은 모두 건강해요.",
+        "exampleKr": "My family is all healthy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "geonganghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-464-1780058787933",
+        "term": "여러분",
+        "definition": "everyone, everybody, you all",
+        "meaningKr": "everyone, everybody, you all",
+        "exampleEn": "여러분, 안녕하세요?",
+        "exampleKr": "Hello, everyone?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "yeoreobun",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-465-1780058787933",
+        "term": "왜냐하면",
+        "definition": "because, for the reason that",
+        "meaningKr": "because, for the reason that",
+        "exampleEn": "저는 밥을 먹었어요. 왜냐하면 배고팠어요.",
+        "exampleKr": "I ate rice. Because I was hungry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "waenyahamyeon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-466-1780058787933",
+        "term": "도착하다",
+        "definition": "to arrive",
+        "meaningKr": "to arrive",
+        "exampleEn": "우리는 공항에 도착했어요.",
+        "exampleKr": "We arrived at the airport.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "dochakhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-467-1780058787933",
+        "term": "병",
+        "definition": "bottle, disease, illness",
+        "meaningKr": "bottle, disease, illness",
+        "exampleEn": "저는 병이 없어요.",
+        "exampleKr": "I don't have a disease.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "byeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-468-1780058787933",
+        "term": "따뜻하다",
+        "definition": "to be warm",
+        "meaningKr": "to be warm",
+        "exampleEn": "오늘은 날씨가 따뜻해요.",
+        "exampleKr": "The weather is warm today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ttatteuthada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-469-1780058787933",
+        "term": "축구",
+        "definition": "soccer, football",
+        "meaningKr": "soccer, football",
+        "exampleEn": "저는 축구를 좋아해요.",
+        "exampleKr": "I like soccer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "chukgu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-470-1780058787933",
+        "term": "밝다",
+        "definition": "to be bright, to be clear",
+        "meaningKr": "to be bright, to be clear",
+        "exampleEn": "방이 아주 밝아요.",
+        "exampleKr": "The room is very bright.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bakda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-471-1780058787933",
+        "term": "장소",
+        "definition": "place, location",
+        "meaningKr": "place, location",
+        "exampleEn": "이 장소는 정말 아름다워요.",
+        "exampleKr": "This place is really beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jangso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-472-1780058787933",
+        "term": "코",
+        "definition": "nose",
+        "meaningKr": "nose",
+        "exampleEn": "코가 간지러워요.",
+        "exampleKr": "My nose is itchy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ko",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-473-1780058787933",
+        "term": "고등학교",
+        "definition": "high school",
+        "meaningKr": "high school",
+        "exampleEn": "저는 고등학교에 다녀요.",
+        "exampleKr": "I go to high school.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "godeunghakgyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-474-1780058787933",
+        "term": "교실",
+        "definition": "classroom",
+        "meaningKr": "classroom",
+        "exampleEn": "교실에서 한국어를 공부해요.",
+        "exampleKr": "I study Korean in the classroom.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gyosil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-475-1780058787933",
+        "term": "별",
+        "definition": "star",
+        "meaningKr": "star",
+        "exampleEn": "하늘에 별이 많아요.",
+        "exampleKr": "There are many stars in the sky.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "byeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-476-1780058787933",
+        "term": "복잡하다",
+        "definition": "to be complicated, to be crowded",
+        "meaningKr": "to be complicated, to be crowded",
+        "exampleEn": "이 길은 너무 복잡해요.",
+        "exampleKr": "This road is too crowded.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "bokjapada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-477-1780058787933",
+        "term": "색",
+        "definition": "color",
+        "meaningKr": "color",
+        "exampleEn": "무슨 색을 좋아해요?",
+        "exampleKr": "What color do you like?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "saek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-478-1780058787933",
+        "term": "똑같다",
+        "definition": "to be identical, to be the same",
+        "meaningKr": "to be identical, to be the same",
+        "exampleEn": "이 두 개는 똑같아요.",
+        "exampleKr": "These two are identical.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "ttokgatda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-479-1780058787933",
+        "term": "말씀하다",
+        "definition": "to speak (honorific)",
+        "meaningKr": "to speak (honorific)",
+        "exampleEn": "선생님께서 말씀하셨어요.",
+        "exampleKr": "The teacher spoke.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "malsseumhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-480-1780058787933",
+        "term": "보통",
+        "definition": "usually, normally",
+        "meaningKr": "usually, normally",
+        "exampleEn": "저는 보통 아침에 커피를 마셔요.",
+        "exampleKr": "I usually drink coffee in the morning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "botong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-481-1780058787933",
+        "term": "식당",
+        "definition": "restaurant",
+        "meaningKr": "restaurant",
+        "exampleEn": "저녁은 식당에서 먹을까요?",
+        "exampleKr": "Shall we eat dinner at the restaurant?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sikdang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-482-1780058787933",
+        "term": "소개하다",
+        "definition": "to introduce",
+        "meaningKr": "to introduce",
+        "exampleEn": "제 친구를 소개해 드릴게요.",
+        "exampleKr": "I will introduce my friend to you.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sogaehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-483-1780058787933",
+        "term": "칠월",
+        "definition": "July",
+        "meaningKr": "July",
+        "exampleEn": "제 생일은 칠월이에요.",
+        "exampleKr": "My birthday is in July.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "chirwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-484-1780058787933",
+        "term": "십이월",
+        "definition": "December",
+        "meaningKr": "December",
+        "exampleEn": "십이월은 추운 달이에요.",
+        "exampleKr": "December is a cold month.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sibiwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-485-1780058787933",
+        "term": "컵",
+        "definition": "cup",
+        "meaningKr": "cup",
+        "exampleEn": "물 한 컵 주세요.",
+        "exampleKr": "Please give me a cup of water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "keop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-486-1780058787933",
+        "term": "종이",
+        "definition": "paper",
+        "meaningKr": "paper",
+        "exampleEn": "종이에 글씨를 써요.",
+        "exampleKr": "I write on the paper.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jongi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-487-1780058787933",
+        "term": "재미",
+        "definition": "fun, interest",
+        "meaningKr": "fun, interest",
+        "exampleEn": "이 게임은 정말 재미있어요.",
+        "exampleKr": "This game is really fun.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "jaemi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-488-1780058787933",
+        "term": "떡",
+        "definition": "rice cake",
+        "meaningKr": "rice cake",
+        "exampleEn": "저는 떡볶이를 좋아해요.",
+        "exampleKr": "I like tteokbokki.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "tteok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-489-1780058787933",
+        "term": "끝내다",
+        "definition": "to finish, to end",
+        "meaningKr": "to finish, to end",
+        "exampleEn": "숙제를 빨리 끝내야 해요.",
+        "exampleKr": "I have to finish my homework quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "kkeutnaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-490-1780058787933",
+        "term": "대답",
+        "definition": "answer, reply",
+        "meaningKr": "answer, reply",
+        "exampleEn": "질문에 대답해 주세요.",
+        "exampleKr": "Please answer the question.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "daedap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-491-1780058787933",
+        "term": "시작",
+        "definition": "start, beginning",
+        "meaningKr": "start, beginning",
+        "exampleEn": "수업 시작 시간이 언제예요?",
+        "exampleKr": "When is the class start time?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "sijak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-492-1780058787933",
+        "term": "일주일",
+        "definition": "one week",
+        "meaningKr": "one week",
+        "exampleEn": "저는 일주일 동안 여행할 거예요.",
+        "exampleKr": "I will travel for one week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "iljuil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-493-1780058787933",
+        "term": "춤",
+        "definition": "dance",
+        "meaningKr": "dance",
+        "exampleEn": "저는 춤추는 것을 좋아해요.",
+        "exampleKr": "I like dancing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "chum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-494-1780058787933",
+        "term": "드리다",
+        "definition": "to give (honorific, humble)",
+        "meaningKr": "to give (honorific, humble)",
+        "exampleEn": "선물을 선생님께 드렸어요.",
+        "exampleKr": "I gave a present to the teacher.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "deurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-495-1780058787933",
+        "term": "깨끗하다",
+        "definition": "to be clean, to be clear",
+        "meaningKr": "to be clean, to be clear",
+        "exampleEn": "이 방은 아주 깨끗해요.",
+        "exampleKr": "This room is very clean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "kkaekkeuthada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-496-1780058787933",
+        "term": "물어보다",
+        "definition": "to ask",
+        "meaningKr": "to ask",
+        "exampleEn": "궁금한 것을 물어보세요.",
+        "exampleKr": "Please ask what you are curious about.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mureoboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-497-1780058787933",
+        "term": "미안하다",
+        "definition": "to be sorry",
+        "meaningKr": "to be sorry",
+        "exampleEn": "늦어서 정말 미안해요.",
+        "exampleKr": "I'm really sorry for being late.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "mianhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-498-1780058787933",
+        "term": "스트레스",
+        "definition": "stress",
+        "meaningKr": "stress",
+        "exampleEn": "저는 스트레스를 많이 받아요.",
+        "exampleKr": "I get a lot of stress.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "seuteureseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-499-1780058787933",
+        "term": "과일",
+        "definition": "fruit",
+        "meaningKr": "fruit",
+        "exampleEn": "과일을 매일 먹는 것이 좋아요.",
+        "exampleKr": "It's good to eat fruit every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Foundation"
+        ],
+        "phonetic": "gwail",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-zh-basic-1",
     "title": "기초 중국어 500 (HSK 1급)",
     "icon": "🐼",

@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, router, useNavigation } from 'expo-router';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSafeAreaInsets, SafeAreaProvider } from 'react-native-safe-area-context';
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
 // expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
@@ -1423,17 +1423,21 @@ export default function AddWordScreen() {
                 visible={photoSource !== null}
                 animationType="slide"
                 onRequestClose={() => setPhotoSource(null)}
+                statusBarTranslucent
+                navigationBarTranslucent
             >
                 {photoSource !== null && (
-                    <PhotoImportWorkflow
-                        listId={selectedListId}
-                        source={photoSource}
-                        sourceLang={inputSettings.sourceLang}
-                        targetLang={inputSettings.targetLang}
-                        existingTerms={getWordsForList(selectedListId).map(w => w.term)}
-                        onClose={() => setPhotoSource(null)}
-                        onSaveWords={handlePhotoSaveWords}
-                    />
+                    <SafeAreaProvider>
+                        <PhotoImportWorkflow
+                            listId={selectedListId}
+                            source={photoSource}
+                            sourceLang={inputSettings.sourceLang}
+                            targetLang={inputSettings.targetLang}
+                            existingTerms={getWordsForList(selectedListId).map(w => w.term)}
+                            onClose={() => setPhotoSource(null)}
+                            onSaveWords={handlePhotoSaveWords}
+                        />
+                    </SafeAreaProvider>
                 )}
             </Modal>
 
@@ -1442,15 +1446,19 @@ export default function AddWordScreen() {
                 visible={showExcel}
                 animationType="slide"
                 onRequestClose={() => setShowExcel(false)}
+                statusBarTranslucent
+                navigationBarTranslucent
             >
-                <BatchImportWorkflow
-                    listId={selectedListId}
-                    sourceLang={inputSettings.sourceLang}
-                    targetLang={inputSettings.targetLang}
-                    existingTerms={getWordsForList(selectedListId).map(w => w.term)}
-                    onClose={() => setShowExcel(false)}
-                    onSaveWords={handlePhotoSaveWords}
-                />
+                <SafeAreaProvider>
+                    <BatchImportWorkflow
+                        listId={selectedListId}
+                        sourceLang={inputSettings.sourceLang}
+                        targetLang={inputSettings.targetLang}
+                        existingTerms={getWordsForList(selectedListId).map(w => w.term)}
+                        onClose={() => setShowExcel(false)}
+                        onSaveWords={handlePhotoSaveWords}
+                    />
+                </SafeAreaProvider>
             </Modal>
         </View >
     );

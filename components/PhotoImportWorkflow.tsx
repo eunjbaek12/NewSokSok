@@ -29,6 +29,9 @@ type SelectedImage = {
     base64: string;
 };
 
+// Gemini 페이로드 축소를 위한 JPEG 압축률 (ImagePicker quality: 0~1)
+const PICKER_QUALITY = 0.7;
+
 interface PhotoImportWorkflowProps {
     listId: string;
     source: 'camera' | 'gallery';
@@ -100,13 +103,13 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             return;
         }
 
-        const result = await ImagePicker.launchCameraAsync({ base64: true, quality: 0.8 });
+        const result = await ImagePicker.launchCameraAsync({ quality: PICKER_QUALITY, base64: true });
         if (result.canceled) {
             if (!selectedImage) onClose();
             return;
         }
         const asset = result.assets?.[0];
-        if (asset?.base64 && asset?.uri) {
+        if (asset?.uri && asset.base64) {
             setSelectedImage({ uri: asset.uri, base64: asset.base64 });
         }
     };
@@ -119,13 +122,13 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             return;
         }
 
-        const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], base64: true, quality: 0.8 });
+        const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], quality: PICKER_QUALITY, base64: true });
         if (result.canceled) {
             if (!selectedImage) onClose();
             return;
         }
         const asset = result.assets?.[0];
-        if (asset?.base64 && asset?.uri) {
+        if (asset?.uri && asset.base64) {
             setSelectedImage({ uri: asset.uri, base64: asset.base64 });
         }
     };
@@ -372,7 +375,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                 <View style={[styles.footer, {
                     backgroundColor: colors.background,
                     borderTopColor: colors.borderLight,
-                    paddingBottom: Math.max(insets.bottom, 16),
+                    paddingBottom: insets.bottom + 20,
                 }]}>
                     <Button
                         title={retakeLabel}
@@ -420,7 +423,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                 <View style={[styles.footer, {
                     backgroundColor: colors.background,
                     borderTopColor: colors.borderLight,
-                    paddingBottom: Math.max(insets.bottom, 16),
+                    paddingBottom: insets.bottom + 20,
                 }]}>
                     <Button
                         title={retakeLabel}

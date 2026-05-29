@@ -2,6 +2,8521 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-vi-basic-1",
+    "title": "기초 베트남어 500",
+    "icon": "🇻🇳",
+    "isCurated": true,
+    "category": "기초",
+    "level": "beginner",
+    "description": "일상 베트남어 기초 500. OpenSubtitles 빈도 리스트 (FrequencyWords, CC BY-SA 4.0) 기반, 품사·정의·한국어 뜻·예문 AI 생성",
+    "sourceLanguage": "vi",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780068314521,
+    "words": [
+      {
+        "id": "word-vi-0-1780068314521",
+        "term": "đi",
+        "definition": "To move from one place to another, to go.",
+        "meaningKr": "가다, 떠나다",
+        "exampleEn": "Tôi đi học bằng xe đạp mỗi ngày.",
+        "exampleKr": "나는 매일 자전거로 등교합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-1-1780068314521",
+        "term": "cô",
+        "definition": "A term of address for a young unmarried woman, a female teacher, or an aunt.",
+        "meaningKr": "그녀, 고모, 선생님 (여성)",
+        "exampleEn": "Cô ấy là giáo viên tiếng Anh của tôi.",
+        "exampleKr": "그녀는 나의 영어 선생님입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-2-1780068314521",
+        "term": "làm",
+        "definition": "To do, make, or perform an action or work.",
+        "meaningKr": "하다, 만들다, 일하다",
+        "exampleEn": "Hôm nay bạn làm gì ở nhà?",
+        "exampleKr": "오늘 집에서 뭐 해요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-3-1780068314521",
+        "term": "biết",
+        "definition": "To know or have knowledge about something.",
+        "meaningKr": "알다, 이해하다",
+        "exampleEn": "Tôi không biết đường đến nhà ga.",
+        "exampleKr": "나는 기차역으로 가는 길을 모릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-4-1780068314521",
+        "term": "nói",
+        "definition": "To speak, talk, or say something.",
+        "meaningKr": "말하다, 이야기하다",
+        "exampleEn": "Anh ấy nói tiếng Việt rất giỏi.",
+        "exampleKr": "그는 베트남어를 아주 잘합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-5-1780068314521",
+        "term": "thể",
+        "definition": "Form, style, or possibility (often used in 'có thể' meaning can).",
+        "meaningKr": "형태, 몸, 가능성 (또는 '할 수 있다'의 일부)",
+        "exampleEn": "Bạn có thể giúp tôi một chút không?",
+        "exampleKr": "저를 좀 도와주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-6-1780068314521",
+        "term": "cậu",
+        "definition": "A friendly pronoun for 'you' (among friends) or maternal uncle.",
+        "meaningKr": "너, 친구, 외삼촌",
+        "exampleEn": "Cậu có muốn đi ăn tối cùng tớ không?",
+        "exampleKr": "너 나랑 같이 저녁 먹으러 갈래?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-7-1780068314521",
+        "term": "lại",
+        "definition": "Again, back, or indicating a repetitive action.",
+        "meaningKr": "다시, 또, 되돌아",
+        "exampleEn": "Ngày mai chúng ta lại gặp nhau nhé.",
+        "exampleKr": "내일 우리 다시 만나요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-8-1780068314521",
+        "term": "muốn",
+        "definition": "To want or desire to do something.",
+        "meaningKr": "원하다, ~하고 싶다",
+        "exampleEn": "Tôi muốn mua một chiếc điện thoại mới.",
+        "exampleKr": "나는 새 휴대전화를 사고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-9-1780068314521",
+        "term": "như",
+        "definition": "Like, as, or similar to.",
+        "meaningKr": "~처럼, ~와 같은",
+        "exampleEn": "Cô ấy đẹp như một bông hoa.",
+        "exampleKr": "그녀는 꽃처럼 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-vi-10-1780068314521",
+        "term": "chuyện",
+        "definition": "A story, matter, affair, or conversation.",
+        "meaningKr": "이야기, 일, 사건",
+        "exampleEn": "Đừng kể chuyện này cho ai biết nhé.",
+        "exampleKr": "이 이야기를 아무에게도 말하지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-11-1780068314521",
+        "term": "cả",
+        "definition": "All, whole, entire, or even.",
+        "meaningKr": "모든, 전체의, ~도 (조사)",
+        "exampleEn": "Tôi đã ăn cả cái bánh ngọt này.",
+        "exampleKr": "나는 이 케이크를 전부 다 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-12-1780068314521",
+        "term": "giờ",
+        "definition": "Hour, time, or o'clock.",
+        "meaningKr": "시간, 시, 지금",
+        "exampleEn": "Bây giờ là mấy giờ rồi hả bạn?",
+        "exampleKr": "지금 몇 시인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-13-1780068314521",
+        "term": "thấy",
+        "definition": "To see, perceive, or feel.",
+        "meaningKr": "보다, 느끼다, 발견하다",
+        "exampleEn": "Tôi thấy thời tiết hôm nay rất đẹp.",
+        "exampleKr": "제가 보기에 오늘 날씨가 아주 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-14-1780068314521",
+        "term": "còn",
+        "definition": "Still, left over, or as for (introducing a new topic).",
+        "meaningKr": "아직, 남다, ~는 (대조)",
+        "exampleEn": "Nhà tôi còn một ít sữa trong tủ lạnh.",
+        "exampleKr": "우리 집 냉장고에 우유가 조금 남아 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-vi-15-1780068314521",
+        "term": "vào",
+        "definition": "Into, in, or to enter.",
+        "meaningKr": "안으로, ~에 (시간, 장소)",
+        "exampleEn": "Xin mời bạn vào trong nhà ngồi chơi.",
+        "exampleKr": "어서 집 안으로 들어와서 앉으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-16-1780068314521",
+        "term": "nghĩ",
+        "definition": "To think, ponder, or contemplate.",
+        "meaningKr": "생각하다, 고려하다",
+        "exampleEn": "Bạn đang nghĩ gì mà buồn thế?",
+        "exampleKr": "무슨 생각을 하길래 그렇게 슬퍼 보여요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-17-1780068314521",
+        "term": "thật",
+        "definition": "Real, true, genuine, or really.",
+        "meaningKr": "진짜의, 정말로, 사실인",
+        "exampleEn": "Câu chuyện này hoàn toàn có thật.",
+        "exampleKr": "이 이야기는 완전히 진짜입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-18-1780068314521",
+        "term": "hắn",
+        "definition": "He, him (often used with a familiar, disrespectful, or informal tone).",
+        "meaningKr": "그 녀석, 그 자식, 그 (비칭)",
+        "exampleEn": "Tôi không thích cách hắn nói chuyện chút nào.",
+        "exampleKr": "나는 그 녀석이 말하는 방식이 전혀 마음에 안 듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-19-1780068314521",
+        "term": "việc",
+        "definition": "Work, job, task, or matter.",
+        "meaningKr": "일, 직업, 사건",
+        "exampleEn": "Hôm nay tôi có rất nhiều việc phải làm.",
+        "exampleKr": "오늘 저는 해야 할 일이 아주 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-20-1780068314521",
+        "term": "nữa",
+        "definition": "More, anymore, or in addition.",
+        "meaningKr": "더, 또, 다시",
+        "exampleEn": "Tôi không muốn ăn thêm cái gì nữa.",
+        "exampleKr": "나는 더 이상 아무것도 먹고 싶지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-21-1780068314521",
+        "term": "chứ",
+        "definition": "A sentence-final particle used for emphasis, confirmation, or contrast.",
+        "meaningKr": "~지, ~잖아, 당연히",
+        "exampleEn": "Hôm nay bạn sẽ đi học chứ?",
+        "exampleKr": "오늘 너 학교에 갈 거지?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "particle"
+      },
+      {
+        "id": "word-vi-22-1780068314521",
+        "term": "điều",
+        "definition": "Thing, matter, condition, or clause.",
+        "meaningKr": "것, 사실, 조항",
+        "exampleEn": "Đây là điều tôi muốn nói với bạn.",
+        "exampleKr": "이것이 내가 너에게 말하고 싶었던 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-23-1780068314521",
+        "term": "sự",
+        "definition": "Thing, event, or prefix used to turn verbs/adjectives into abstract nouns.",
+        "meaningKr": "일, 사건, 사실 (명사화 접사)",
+        "exampleEn": "Sự thật luôn luôn là điều tốt nhất.",
+        "exampleKr": "진실은 언제나 가장 좋은 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-24-1780068314521",
+        "term": "tới",
+        "definition": "To, towards, or next.",
+        "meaningKr": "~로, ~까지, 다음의",
+        "exampleEn": "Tuần tới chúng tôi sẽ đi du lịch.",
+        "exampleKr": "다음 주에 우리는 여행을 갈 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-25-1780068314521",
+        "term": "thứ",
+        "definition": "A classifier or noun used to indicate order, day of the week, or kind of things.",
+        "meaningKr": "요일, 차례, 종류",
+        "exampleEn": "Hôm nay là thứ mấy hả bạn?",
+        "exampleKr": "오늘은 무슨 요일인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-26-1780068314521",
+        "term": "chưa",
+        "definition": "Not yet, expressing that an action has not happened up to the present.",
+        "meaningKr": "아직, 아직 ~하지 않다",
+        "exampleEn": "Tôi vẫn chưa ăn cơm tối nay.",
+        "exampleKr": "저는 오늘 저녁을 아직 안 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-27-1780068314521",
+        "term": "nhà",
+        "definition": "A house, home, or building where people live.",
+        "meaningKr": "집, 가정",
+        "exampleEn": "Ngôi nhà của tôi rất đẹp và rộng.",
+        "exampleKr": "우리 집은 아주 아름답고 넓습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-28-1780068314521",
+        "term": "lên",
+        "definition": "To go up, ascend, or board a vehicle.",
+        "meaningKr": "올라가다, 타다",
+        "exampleEn": "Chúng tôi cùng lên xe buýt đi học.",
+        "exampleKr": "우리는 함께 버스를 타고 학교에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-29-1780068314521",
+        "term": "đúng",
+        "definition": "Correct, right, or accurate.",
+        "meaningKr": "맞다, 옳다, 정확하다",
+        "exampleEn": "Câu trả lời này đúng rồi.",
+        "exampleKr": "이 답변이 맞습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-30-1780068314521",
+        "term": "mẹ",
+        "definition": "Mother, a female parent.",
+        "meaningKr": "어머니, 엄마",
+        "exampleEn": "Mẹ tôi nấu ăn rất ngon.",
+        "exampleKr": "우리 어머니는 요리를 아주 잘하십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-31-1780068314521",
+        "term": "nghe",
+        "definition": "To hear or listen to something.",
+        "meaningKr": "듣다",
+        "exampleEn": "Tôi thích nghe nhạc Việt Nam.",
+        "exampleKr": "저는 베트남 음악을 듣는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-32-1780068314521",
+        "term": "hơn",
+        "definition": "More, used to form comparative sentences.",
+        "meaningKr": "더, 보다 더",
+        "exampleEn": "Tôi cao hơn em trai tôi.",
+        "exampleKr": "저는 남동생보다 키가 더 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-33-1780068314521",
+        "term": "tớ",
+        "definition": "An informal pronoun for 'I' or 'me' used among close friends.",
+        "meaningKr": "나, 저 (친구 사이)",
+        "exampleEn": "Tớ là học sinh mới của lớp này.",
+        "exampleKr": "나는 이 반의 전학생이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-34-1780068314521",
+        "term": "chết",
+        "definition": "To die, pass away, or stop living.",
+        "meaningKr": "죽다",
+        "exampleEn": "Con chó nhỏ đã chết rồi.",
+        "exampleKr": "작은 개가 죽었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-35-1780068314521",
+        "term": "mày",
+        "definition": "An informal pronoun for 'you' used with close friends or inferiors.",
+        "meaningKr": "너, 너 녀석",
+        "exampleEn": "Mày đang làm gì ở đây thế?",
+        "exampleKr": "너 여기서 뭐 하고 있니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-36-1780068314521",
+        "term": "ơn",
+        "definition": "Favor, grace, or gratitude.",
+        "meaningKr": "은혜, 은덕, 감사",
+        "exampleEn": "Cảm ơn bạn đã giúp đỡ tôi.",
+        "exampleKr": "저를 도와주셔서 감사합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-37-1780068314521",
+        "term": "đầu",
+        "definition": "The head of a body, or the beginning part of something.",
+        "meaningKr": "머리, 처음, 시작",
+        "exampleEn": "Hôm nay tôi bị đau đầu.",
+        "exampleKr": "오늘은 머리가 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-38-1780068314521",
+        "term": "đừng",
+        "definition": "Do not, used to express prohibition or advice.",
+        "meaningKr": "~하지 마라, 금지",
+        "exampleEn": "Đừng nói chuyện to trong lớp học.",
+        "exampleKr": "교실에서 큰 소리로 이야기하지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-39-1780068314521",
+        "term": "tìm",
+        "definition": "To look for, search, or find something.",
+        "meaningKr": "찾다, 구하다",
+        "exampleEn": "Tôi đang tìm chìa khóa nhà.",
+        "exampleKr": "저는 집 열쇠를 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-40-1780068314521",
+        "term": "tốt",
+        "definition": "Good, fine, or of high quality.",
+        "meaningKr": "좋다, 우수하다",
+        "exampleEn": "Thời tiết hôm nay rất tốt.",
+        "exampleKr": "오늘 날씨가 아주 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-41-1780068314521",
+        "term": "hãy",
+        "definition": "Please, used to encourage or command someone to do something.",
+        "meaningKr": "~하세요, ~하자 (권유, 명령)",
+        "exampleEn": "Hãy đọc cuốn sách này mỗi ngày.",
+        "exampleKr": "이 책을 매일 읽으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "particle"
+      },
+      {
+        "id": "word-vi-42-1780068314521",
+        "term": "cảm",
+        "definition": "To feel, or to catch a cold.",
+        "meaningKr": "느끼다, 감기에 걸리다",
+        "exampleEn": "Tôi bị cảm từ hôm qua.",
+        "exampleKr": "저는 어제부터 감기에 걸렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-43-1780068314521",
+        "term": "ý",
+        "definition": "Meaning, idea, intention, or opinion.",
+        "meaningKr": "뜻, 의미, 의견",
+        "exampleEn": "Ý của bạn trong câu này là gì?",
+        "exampleKr": "이 문장에서 당신의 의도는 무엇입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-44-1780068314521",
+        "term": "công",
+        "definition": "Work, labor, effort, or merit.",
+        "meaningKr": "공, 노력, 공공의",
+        "exampleEn": "Anh ấy có công lớn trong việc này.",
+        "exampleKr": "그는 이 일에 큰 공이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-45-1780068314521",
+        "term": "nhất",
+        "definition": "Most, used to form superlative comparisons.",
+        "meaningKr": "가장, 제일",
+        "exampleEn": "Tôi thích học tiếng Việt nhất.",
+        "exampleKr": "저는 베트남어 공부를 가장 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-46-1780068314521",
+        "term": "bố",
+        "definition": "Father, a male parent.",
+        "meaningKr": "아버지, 아빠",
+        "exampleEn": "Bố tôi là một kỹ sư giỏi.",
+        "exampleKr": "우리 아버지는 훌륭한 엔지니어이십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-47-1780068314521",
+        "term": "tất",
+        "definition": "Socks or stockings worn on the feet.",
+        "meaningKr": "양말",
+        "exampleEn": "Tôi muốn mua một đôi tất.",
+        "exampleKr": "저는 양말 한 켤레를 사고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-48-1780068314521",
+        "term": "tên",
+        "definition": "Name, the title by which a person or thing is known.",
+        "meaningKr": "이름",
+        "exampleEn": "Tên của bạn viết như thế nào?",
+        "exampleKr": "당신의 이름은 어떻게 쓰나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-49-1780068314521",
+        "term": "lỗi",
+        "definition": "Mistake, error, or fault.",
+        "meaningKr": "잘못, 실수, 오류",
+        "exampleEn": "Đây hoàn toàn là lỗi của tôi.",
+        "exampleKr": "이것은 전적으로 제 잘못입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-50-1780068314521",
+        "term": "thành",
+        "definition": "To become or turn into something.",
+        "meaningKr": "~이 되다, 변하다",
+        "exampleEn": "Ước mơ của tôi đã thành sự thật.",
+        "exampleKr": "제 꿈이 이루어졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-51-1780068314521",
+        "term": "cháu",
+        "definition": "A grandchild, niece, nephew, or a term used by children to address elders.",
+        "meaningKr": "조카, 손주, (어린이를 부르는 호칭)",
+        "exampleEn": "Cháu chào ông bà khi đi học về.",
+        "exampleKr": "학교에서 돌아와서 조부모님께 인사드립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-52-1780068314521",
+        "term": "ngày",
+        "definition": "A day, representing a 24-hour period or the daytime.",
+        "meaningKr": "날, 하루, 일",
+        "exampleEn": "Hôm nay là một ngày rất đẹp trời.",
+        "exampleKr": "오늘은 날씨가 아주 좋은 날입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-53-1780068314521",
+        "term": "khác",
+        "definition": "Different, other, or another.",
+        "meaningKr": "다른, 그 밖의",
+        "exampleEn": "Tôi muốn xem một chiếc áo khác.",
+        "exampleKr": "저는 다른 옷을 한 벌 보고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-54-1780068314521",
+        "term": "theo",
+        "definition": "To follow, go along with, or according to.",
+        "meaningKr": "~을 따라, ~에 따르면",
+        "exampleEn": "Hãy đi theo tôi đến văn phòng.",
+        "exampleKr": "저를 따라 사무실로 오세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-55-1780068314521",
+        "term": "chắc",
+        "definition": "Probably, surely, or certainly.",
+        "meaningKr": "아마, 확실히, 틀림없이",
+        "exampleEn": "Ngày mai chắc trời sẽ mưa to.",
+        "exampleKr": "내일은 아마 비가 많이 올 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-56-1780068314521",
+        "term": "gặp",
+        "definition": "To meet, see, or encounter someone.",
+        "meaningKr": "만나다, 마주치다",
+        "exampleEn": "Rất vui được gặp bạn hôm nay.",
+        "exampleKr": "오늘 당신을 만나서 정말 반갑습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-57-1780068314521",
+        "term": "bắt",
+        "definition": "To catch, arrest, or force someone to do something.",
+        "meaningKr": "잡다, 체포하다, 시키다",
+        "exampleEn": "Cảnh sát đã bắt được tên trộm.",
+        "exampleKr": "경찰이 도둑을 잡았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-58-1780068314521",
+        "term": "yêu",
+        "definition": "To love or feel deep affection for someone or something.",
+        "meaningKr": "사랑하다, 좋아하다",
+        "exampleEn": "Tôi rất yêu gia đình của mình.",
+        "exampleKr": "저는 제 가족을 아주 사랑합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-59-1780068314521",
+        "term": "cứ",
+        "definition": "To continue doing something without hesitation or fear.",
+        "meaningKr": "계속해서 ~하다, 그냥 ~하다",
+        "exampleEn": "Bạn cứ tự nhiên ăn nhiều vào nhé.",
+        "exampleKr": "부담 갖지 말고 편하게 많이 드세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-60-1780068314521",
+        "term": "cùng",
+        "definition": "Together with someone or sharing the same action.",
+        "meaningKr": "함께, 같이",
+        "exampleEn": "Tôi muốn đi du lịch cùng bạn bè.",
+        "exampleKr": "저는 친구들과 함께 여행을 가고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-61-1780068314521",
+        "term": "ngay",
+        "definition": "Immediately, right away, or right at a specific location.",
+        "meaningKr": "즉시, 곧바로, 바로",
+        "exampleEn": "Hãy làm việc này ngay bây giờ đi.",
+        "exampleKr": "지금 바로 이 일을 하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-62-1780068314521",
+        "term": "thích",
+        "definition": "To like, prefer, or enjoy something.",
+        "meaningKr": "좋아하다, 선호하다",
+        "exampleEn": "Tôi thích uống cà phê sữa đá.",
+        "exampleKr": "저는 아이스 밀크커피를 마시는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-63-1780068314521",
+        "term": "cách",
+        "definition": "Way, method, manner, or distance.",
+        "meaningKr": "방법, 방식, 거리",
+        "exampleEn": "Bạn có biết cách làm món ăn này không?",
+        "exampleKr": "이 요리를 만드는 방법을 아시나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-64-1780068314521",
+        "term": "nhìn",
+        "definition": "To look at, watch, or gaze.",
+        "meaningKr": "보다, 바라보다",
+        "exampleEn": "Hãy nhìn lên bảng và nghe cô giáo giảng.",
+        "exampleKr": "칠판을 보고 선생님의 설명을 들으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-65-1780068314521",
+        "term": "sống",
+        "definition": "To live, reside, or exist.",
+        "meaningKr": "살다, 생존하다",
+        "exampleEn": "Gia đình tôi đang sống ở Hà Nội.",
+        "exampleKr": "우리 가족은 하노이에 살고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-66-1780068314521",
+        "term": "bọn",
+        "definition": "A group of people or creatures (often informal).",
+        "meaningKr": "무리, 패거리, 집단",
+        "exampleEn": "Bọn trẻ con đang chơi ở ngoài sân.",
+        "exampleKr": "아이들이 마당에서 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-67-1780068314521",
+        "term": "lúc",
+        "definition": "Moment, instant, or point in time.",
+        "meaningKr": "때, 순간, 시간",
+        "exampleEn": "Tôi thường đọc sách lúc rảnh rỗi.",
+        "exampleKr": "저는 보통 한가할 때 책을 읽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-68-1780068314521",
+        "term": "giết",
+        "definition": "To kill or take the life of an organism.",
+        "meaningKr": "죽이다, 살해하다",
+        "exampleEn": "Con mèo đã giết chết một con chuột.",
+        "exampleKr": "고양이가 쥐 한 마리를 죽였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-69-1780068314521",
+        "term": "mới",
+        "definition": "New, fresh, or modern.",
+        "meaningKr": "새로운, 새것의",
+        "exampleEn": "Tôi vừa mua một chiếc điện thoại mới.",
+        "exampleKr": "저는 방금 새 휴대폰을 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-70-1780068314521",
+        "term": "quan",
+        "definition": "A mandarin, government official, or officer.",
+        "meaningKr": "관원, 관리, 관리인",
+        "exampleEn": "Ông ấy là một vị quan tốt ngày xưa.",
+        "exampleKr": "그는 옛날의 훌륭한 관리였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-71-1780068314521",
+        "term": "chào",
+        "definition": "To greet, say hello, or bid farewell.",
+        "meaningKr": "인사하다, 환영하다",
+        "exampleEn": "Em chào thầy giáo khi vào lớp.",
+        "exampleKr": "교실에 들어갈 때 선생님께 인사드립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-72-1780068314521",
+        "term": "đưa",
+        "definition": "To hand over, give, or escort someone somewhere.",
+        "meaningKr": "건네다, 데려다주다, 인도하다",
+        "exampleEn": "Bố đưa tôi đi học bằng xe máy.",
+        "exampleKr": "아버지가 저를 오토바이로 등교시켜 주십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-73-1780068314521",
+        "term": "gọi",
+        "definition": "To call, summon, or name someone.",
+        "meaningKr": "부르다, 전화하다",
+        "exampleEn": "Mẹ gọi tôi dậy ăn bữa sáng.",
+        "exampleKr": "어머니가 나를 아침 식사하라고 깨우십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-74-1780068314521",
+        "term": "hết",
+        "definition": "To finish, run out of, or be completely used up.",
+        "meaningKr": "다 쓰다, 끝나다, 소진되다",
+        "exampleEn": "Tôi đã tiêu hết tiền tiêu vặt rồi.",
+        "exampleKr": "저는 용돈을 이미 다 써 버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-75-1780068314521",
+        "term": "bảo",
+        "definition": "To tell, say, or order someone to do something.",
+        "meaningKr": "말하다, 시키다, 당부하다",
+        "exampleEn": "Mẹ bảo tôi đi mua sữa.",
+        "exampleKr": "어머니께서 나에게 우유를 사러 가라고 하셨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-76-1780068314521",
+        "term": "rằng",
+        "definition": "Used to introduce a clause stating what is said, thought, or felt.",
+        "meaningKr": "~라고, ~하길, ~라고 하다",
+        "exampleEn": "Anh ấy nói rằng ngày mai sẽ mưa.",
+        "exampleKr": "그는 내일 비가 올 것이라고 말했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-vi-77-1780068314521",
+        "term": "ăn",
+        "definition": "To eat food or consume a meal.",
+        "meaningKr": "먹다, 식사하다",
+        "exampleEn": "Hôm nay bạn muốn ăn gì?",
+        "exampleKr": "오늘 당신은 무엇을 먹고 싶습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-78-1780068314521",
+        "term": "giúp",
+        "definition": "To help, assist, or aid someone in doing something.",
+        "meaningKr": "돕다, 도와주다",
+        "exampleEn": "Bạn có thể giúp tôi một chút không?",
+        "exampleKr": "저를 좀 도와주실 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-79-1780068314521",
+        "term": "hiểu",
+        "definition": "To understand or comprehend the meaning of something.",
+        "meaningKr": "이해하다, 알다",
+        "exampleEn": "Tôi không hiểu câu hỏi này.",
+        "exampleKr": "저는 이 질문을 이해하지 못하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-80-1780068314521",
+        "term": "lấy",
+        "definition": "To take, get, or obtain something.",
+        "meaningKr": "가지다, 취하다, 가져오다",
+        "exampleEn": "Hãy lấy cho tôi quyển sách kia.",
+        "exampleKr": "저기 있는 책을 저에게 가져다주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-81-1780068314521",
+        "term": "ngài",
+        "definition": "A highly respectful pronoun used for addressing or referring to an esteemed person.",
+        "meaningKr": "귀하, 당신, 그분 (존칭)",
+        "exampleEn": "Ngài cần chúng tôi giúp gì không?",
+        "exampleKr": "귀하께서는 저희가 무엇을 도와드리기를 원하십니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-82-1780068314521",
+        "term": "tự",
+        "definition": "By oneself, automatically, or voluntarily.",
+        "meaningKr": "스스로, 혼자서, 직접",
+        "exampleEn": "Em bé đã tự đi giày được rồi.",
+        "exampleKr": "아기가 벌써 스스로 신발을 신을 수 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-83-1780068314521",
+        "term": "lần",
+        "definition": "Time, occasion, or turn.",
+        "meaningKr": "번, 횟수, 차례",
+        "exampleEn": "Đây là lần đầu tiên tôi đến Việt Nam.",
+        "exampleKr": "이번이 제가 베트남에 처음 온 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-84-1780068314521",
+        "term": "chính",
+        "definition": "Main, principal, chief, or precise/exact.",
+        "meaningKr": "주요한, 정확한, 바로 그",
+        "exampleEn": "Đây là món ăn chính của nhà hàng.",
+        "exampleKr": "이것이 이 식당의 메인 요리입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-85-1780068314521",
+        "term": "nhân",
+        "definition": "On the occasion of, taking advantage of, or because of.",
+        "meaningKr": "~를 기회로, ~를 맞이하여",
+        "exampleEn": "Nhân dịp sinh nhật, chúc bạn luôn vui vẻ.",
+        "exampleKr": "생일을 맞이하여, 항상 행복하시길 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-86-1780068314521",
+        "term": "cuộc",
+        "definition": "A classifier used for meetings, conversations, matches, or games.",
+        "meaningKr": "(회의, 대화, 경기 등의) 번, 회, 판",
+        "exampleEn": "Cuộc họp sẽ bắt đầu lúc tám giờ.",
+        "exampleKr": "회의는 8시에 시작할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-87-1780068314521",
+        "term": "bỏ",
+        "definition": "To leave, abandon, quit, or put something into.",
+        "meaningKr": "버리다, 포기하다, 넣다",
+        "exampleEn": "Đừng bỏ rác ở nơi công cộng.",
+        "exampleKr": "공공장소에 쓰레기를 버리지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-88-1780068314521",
+        "term": "năm",
+        "definition": "A year (period of 365 days).",
+        "meaningKr": "해, 년",
+        "exampleEn": "Năm nay tôi hai mươi tuổi.",
+        "exampleKr": "올해 저는 스무 살입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-89-1780068314521",
+        "term": "mất",
+        "definition": "To lose something, to pass away, or to take (time/money).",
+        "meaningKr": "잃다, 잃어버리다, 걸리다",
+        "exampleEn": "Tôi đã mất chìa khóa xe máy rồi.",
+        "exampleKr": "저는 오토바이 열쇠를 잃어버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-90-1780068314521",
+        "term": "hả",
+        "definition": "A sentence-final particle used to ask for confirmation or express mild surprise.",
+        "meaningKr": "~지?, ~야?, ~인가요? (의문/확인)",
+        "exampleEn": "Hôm nay anh không đi làm hả?",
+        "exampleKr": "오늘 출근 안 해요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "particle"
+      },
+      {
+        "id": "word-vi-91-1780068314521",
+        "term": "vụ",
+        "definition": "An affair, case, incident, or crop season.",
+        "meaningKr": "사건, 일, 수확기",
+        "exampleEn": "Cảnh sát đang điều tra vụ tai nạn này.",
+        "exampleKr": "경찰이 이 사고 사건을 조사하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-92-1780068314521",
+        "term": "ngươi",
+        "definition": "You (used in historical contexts, or when speaking to an inferior/enemy).",
+        "meaningKr": "너, 네놈 (사극이나 아랫사람에게 사용)",
+        "exampleEn": "Ngươi muốn nói điều gì với ta?",
+        "exampleKr": "너는 나에게 무슨 말을 하고 싶으냐?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-93-1780068314521",
+        "term": "nhận",
+        "definition": "To receive, accept, or recognize.",
+        "meaningKr": "받다, 인정하다, 수락하다",
+        "exampleEn": "Tôi đã nhận được thư của bạn.",
+        "exampleKr": "나는 당신의 편지를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-94-1780068314521",
+        "term": "chúa",
+        "definition": "Lord, God, master, or ruler.",
+        "meaningKr": "주님, 하느님, 군주",
+        "exampleEn": "Nhiều người cầu nguyện Chúa ban phước lành.",
+        "exampleKr": "많은 사람들이 주님께서 복을 내려주시기를 기도합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-95-1780068314521",
+        "term": "khỏi",
+        "definition": "Out of, away from, or to recover from (illness).",
+        "meaningKr": "~로부터 벗어나, (병이) 낫다",
+        "exampleEn": "Tôi đã khỏi bệnh cảm cúm rồi.",
+        "exampleKr": "저는 감기 몸살이 다 나았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-96-1780068314521",
+        "term": "định",
+        "definition": "To intend, plan, decide, or determine.",
+        "meaningKr": "~할 예정이다, 결심하다, 정하다",
+        "exampleEn": "Cuối tuần này bạn định làm gì?",
+        "exampleKr": "이번 주말에 무엇을 할 예정인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-97-1780068314521",
+        "term": "tiền",
+        "definition": "Money or currency used for transactions.",
+        "meaningKr": "돈, 화폐",
+        "exampleEn": "Tôi không mang theo nhiều tiền mặt.",
+        "exampleKr": "저는 현금을 많이 가지고 오지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-98-1780068314521",
+        "term": "thời",
+        "definition": "Time, period, era, or epoch.",
+        "meaningKr": "때, 시기, 시대",
+        "exampleEn": "Tôi nhớ thời học sinh của mình.",
+        "exampleKr": "나는 나의 학창 시절이 그립다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-99-1780068314521",
+        "term": "cơ",
+        "definition": "A sentence-final particle used for emphasis, contrast, or expressing a desire.",
+        "meaningKr": "~말이야, ~거든 (강조 또는 아쉬움)",
+        "exampleEn": "Tôi muốn mua cái áo màu đỏ cơ.",
+        "exampleKr": "나는 빨간색 옷을 사고 싶단 말이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "particle"
+      },
+      {
+        "id": "word-vi-100-1780068314521",
+        "term": "trở",
+        "definition": "To turn, return, or change direction.",
+        "meaningKr": "바꾸다, 변하다, 되돌아가다",
+        "exampleEn": "Thời tiết đã trở lạnh rồi.",
+        "exampleKr": "날씨가 이미 쌀쌀해졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-101-1780068314521",
+        "term": "bé",
+        "definition": "Small in size or young in age.",
+        "meaningKr": "작은, 어린",
+        "exampleEn": "Ngôi nhà của tôi rất bé.",
+        "exampleKr": "제 집은 매우 작습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-102-1780068314521",
+        "term": "mặt",
+        "definition": "The face or the surface of an object.",
+        "meaningKr": "얼굴, 표면",
+        "exampleEn": "Cô ấy có khuôn mặt tròn.",
+        "exampleKr": "그녀는 둥근 얼굴을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-103-1780068314521",
+        "term": "đường",
+        "definition": "A road, street, or sugar used in cooking.",
+        "meaningKr": "길, 도로, 설탕",
+        "exampleEn": "Đường này đi đến siêu thị.",
+        "exampleKr": "이 길은 마트로 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-104-1780068314521",
+        "term": "vâng",
+        "definition": "A polite word used to express agreement or respect, meaning 'yes'.",
+        "meaningKr": "네, 예 (존댓말)",
+        "exampleEn": "Vâng, con sẽ đi làm ngay.",
+        "exampleKr": "네, 지금 바로 일하러 갈게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-vi-105-1780068314521",
+        "term": "gái",
+        "definition": "A girl, female, or daughter.",
+        "meaningKr": "여자, 소녀, 딸",
+        "exampleEn": "Con gái tôi thích vẽ tranh.",
+        "exampleKr": "제 딸은 그림 그리는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-106-1780068314521",
+        "term": "luôn",
+        "definition": "Always, continuously, or right away.",
+        "meaningKr": "항상, 늘, 바로",
+        "exampleEn": "Tôi luôn ăn cơm lúc bảy giờ.",
+        "exampleKr": "저는 항상 7시에 밥을 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-107-1780068314521",
+        "term": "mấy",
+        "definition": "How many, some, or a few.",
+        "meaningKr": "몇, 몇몇, 얼마",
+        "exampleEn": "Bạn muốn mua mấy quả táo?",
+        "exampleKr": "사과 몇 개를 사고 싶으세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-108-1780068314521",
+        "term": "nhau",
+        "definition": "Each other, one another, or together.",
+        "meaningKr": "서로, 함께",
+        "exampleEn": "Chúng tôi giúp đỡ lẫn nhau.",
+        "exampleKr": "우리는 서로를 돕습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-109-1780068314521",
+        "term": "lời",
+        "definition": "Spoken words, advice, or profit.",
+        "meaningKr": "말, 말씀, 이익",
+        "exampleEn": "Hãy nghe lời bố mẹ nhé.",
+        "exampleKr": "부모님 말씀을 잘 들으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-110-1780068314521",
+        "term": "nơi",
+        "definition": "A place, location, or area.",
+        "meaningKr": "곳, 장소, 부근",
+        "exampleEn": "Đây là nơi tôi sinh ra.",
+        "exampleKr": "이곳은 제가 태어난 곳입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-111-1780068314521",
+        "term": "xuống",
+        "definition": "To go down, descend, or get off a vehicle.",
+        "meaningKr": "내려가다, 내리다",
+        "exampleEn": "Xin vui lòng xuống xe ở đây.",
+        "exampleKr": "여기서 차에서 내려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-112-1780068314521",
+        "term": "bây",
+        "definition": "Now or this (commonly used as part of 'bây giờ').",
+        "meaningKr": "지금, 이",
+        "exampleEn": "Bây giờ là mấy giờ rồi?",
+        "exampleKr": "지금은 몇 시입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-113-1780068314521",
+        "term": "thưa",
+        "definition": "A polite particle used before addressing someone with respect.",
+        "meaningKr": "올림, 아뢰다 (존칭의 호칭)",
+        "exampleEn": "Thưa thầy, em có câu hỏi.",
+        "exampleKr": "선생님, 질문이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "particle"
+      },
+      {
+        "id": "word-vi-114-1780068314521",
+        "term": "số",
+        "definition": "A number, digit, or fate/destiny.",
+        "meaningKr": "숫자, 번호, 운명",
+        "exampleEn": "Số điện thoại của bạn là gì?",
+        "exampleKr": "당신의 전화번호는 무엇입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-115-1780068314521",
+        "term": "động",
+        "definition": "To move, touch, stir, or affect.",
+        "meaningKr": "움직이다, 만지다, 자극하다",
+        "exampleEn": "Đừng động vào đồ của tôi.",
+        "exampleKr": "제 물건을 만지지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-116-1780068314521",
+        "term": "đồ",
+        "definition": "Things, items, stuff, or utensils.",
+        "meaningKr": "물건, 것, 옷",
+        "exampleEn": "Tôi cần mua một ít đồ.",
+        "exampleKr": "저는 물건을 좀 사야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-117-1780068314521",
+        "term": "toàn",
+        "definition": "Whole, entire, or complete.",
+        "meaningKr": "전체의, 온전한, 전부의",
+        "exampleEn": "Toàn bộ học sinh đã đến.",
+        "exampleKr": "전체 학생이 모두 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-118-1780068314521",
+        "term": "bất",
+        "definition": "Not or sudden (used in Sino-Vietnamese compounds).",
+        "meaningKr": "아닐 (불/부), 갑작스러운",
+        "exampleEn": "Việc này thật là bất ngờ.",
+        "exampleKr": "이 일은 정말 뜻밖이네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-119-1780068314521",
+        "term": "sát",
+        "definition": "Close to, adjacent, or tight.",
+        "meaningKr": "밀접한, 바짝 붙은, 아주 가까운",
+        "exampleEn": "Nhà tôi ở sát cạnh trường.",
+        "exampleKr": "우리 집은 학교 바로 옆에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-120-1780068314521",
+        "term": "thực",
+        "definition": "Real, true, or actual.",
+        "meaningKr": "실제의, 진짜의, 사실의",
+        "exampleEn": "Đây là sự thực, không phải đùa.",
+        "exampleKr": "이것은 사실이지 농담이 아닙니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-121-1780068314521",
+        "term": "từng",
+        "definition": "Indicates past experience (have ever done) or means 'each/every'.",
+        "meaningKr": "~한 적이 있다, 매 ~, 각각의",
+        "exampleEn": "Tôi đã từng đi Hà Nội.",
+        "exampleKr": "저는 하노이에 가본 적이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "particle"
+      },
+      {
+        "id": "word-vi-122-1780068314521",
+        "term": "phòng",
+        "definition": "A room or chamber in a house or building.",
+        "meaningKr": "방, 객실, 부서",
+        "exampleEn": "Phòng của tôi rất sạch sẽ.",
+        "exampleKr": "제 방은 매우 깨끗합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-123-1780068314521",
+        "term": "thằng",
+        "definition": "A classifier or pronoun for a young boy, male peer, or male inferior (informal).",
+        "meaningKr": "녀석, 자식 (남자를 낮잡아 부르는 말)",
+        "exampleEn": "Thằng bé đó là em tôi.",
+        "exampleKr": "그 꼬마 녀석은 제 남동생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-124-1780068314521",
+        "term": "kẻ",
+        "definition": "A person (often used with a negative connotation).",
+        "meaningKr": "사람, 자 (주로 부정적인 의미)",
+        "exampleEn": "Kẻ xấu đã lấy trộm ví.",
+        "exampleKr": "나쁜 사람이 지갑을 훔쳐 갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-125-1780068314521",
+        "term": "hàng",
+        "definition": "Goods, merchandise, or a row/line of things.",
+        "meaningKr": "상품, 물건, 줄",
+        "exampleEn": "Cửa hàng này bán nhiều hàng hóa đẹp.",
+        "exampleKr": "이 가게는 예쁜 상품들을 많이 팝니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-126-1780068314521",
+        "term": "bằng",
+        "definition": "By means of, with, or equal to.",
+        "meaningKr": "~로 (수단), ~와 같은, 동등한",
+        "exampleEn": "Tôi đi làm bằng xe máy mỗi ngày.",
+        "exampleKr": "나는 매일 오토바이로 출근합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-127-1780068314521",
+        "term": "chẳng",
+        "definition": "Not (a negative particle, similar to 'không' but more emphatic).",
+        "meaningKr": "결코 ~않다, 전혀 ~ 아니다",
+        "exampleEn": "Tôi chẳng biết gì về chuyện đó cả.",
+        "exampleKr": "나는 그 일에 대해 전혀 모릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-128-1780068314521",
+        "term": "chút",
+        "definition": "A little bit or a small amount.",
+        "meaningKr": "조금, 약간",
+        "exampleEn": "Cho tôi xin một chút nước ấm nhé.",
+        "exampleKr": "따뜻한 물 조금만 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-129-1780068314521",
+        "term": "nhớ",
+        "definition": "To remember, or to miss someone or something.",
+        "meaningKr": "기억하다, 그리워하다",
+        "exampleEn": "Tôi rất nhớ gia đình ở quê nhà.",
+        "exampleKr": "나는 고향에 있는 가족이 정말 그리워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-130-1780068314521",
+        "term": "chú",
+        "definition": "Uncle (father's younger brother), or a polite term for a middle-aged man.",
+        "meaningKr": "삼촌, 아저씨",
+        "exampleEn": "Chú của tôi là một bác sĩ giỏi.",
+        "exampleKr": "우리 삼촌은 유능한 의사입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-131-1780068314521",
+        "term": "nhiên",
+        "definition": "Natural or spontaneous (often used in compounds like 'tự nhiên').",
+        "meaningKr": "자연스러운, 당연한",
+        "exampleEn": "Hãy cứ tự nhiên như ở nhà nhé.",
+        "exampleKr": "집처럼 편하게 계세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-132-1780068314521",
+        "term": "lý",
+        "definition": "Reason, logic, cause, or argument.",
+        "meaningKr": "이유, 이치, 도리",
+        "exampleEn": "Bạn có lý do gì để đi muộn không?",
+        "exampleKr": "지각한 무슨 이유라도 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-133-1780068314521",
+        "term": "chỗ",
+        "definition": "Place, spot, location, or seat.",
+        "meaningKr": "곳, 장소, 자리",
+        "exampleEn": "Chỗ này đã có người ngồi chưa ạ?",
+        "exampleKr": "이 자리에 사람 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-134-1780068314521",
+        "term": "học",
+        "definition": "To study, learn, or acquire knowledge.",
+        "meaningKr": "공부하다, 배우다",
+        "exampleEn": "Tôi học tiếng Việt vào mỗi buổi tối.",
+        "exampleKr": "나는 매일 저녁에 베트남어를 공부합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-135-1780068314521",
+        "term": "nhanh",
+        "definition": "Fast, quick, or rapid.",
+        "meaningKr": "빠른, 빨라",
+        "exampleEn": "Anh ấy chạy rất nhanh để bắt xe buýt.",
+        "exampleKr": "그는 버스를 타기 위해 매우 빨리 달립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-136-1780068314521",
+        "term": "quay",
+        "definition": "To turn, spin, rotate, or return.",
+        "meaningKr": "돌다, 회전하다, 돌아가다",
+        "exampleEn": "Hãy quay lại đây khi bạn cần giúp đỡ.",
+        "exampleKr": "도움이 필요할 때 이리로 돌아오세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-137-1780068314521",
+        "term": "sĩ",
+        "definition": "A scholar, professional, or soldier (often used as a bound morpheme or suffix).",
+        "meaningKr": "선비, 학자, 군사",
+        "exampleEn": "Bác sĩ khuyên tôi nên uống nhiều nước.",
+        "exampleKr": "의사는 나에게 물을 많이 마시라고 권했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-138-1780068314521",
+        "term": "cố",
+        "definition": "To try hard, make an effort, or strive.",
+        "meaningKr": "노력하다, 애쓰다",
+        "exampleEn": "Tôi sẽ cố học tập thật tốt hơn.",
+        "exampleKr": "나는 공부를 더 잘하도록 노력할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-139-1780068314521",
+        "term": "tuyệt",
+        "definition": "Excellent, wonderful, superb, or absolute.",
+        "meaningKr": "훌륭한, 멋진, 절대적인",
+        "exampleEn": "Thời tiết hôm nay thật là tuyệt vời.",
+        "exampleKr": "오늘 날씨가 정말로 멋지네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-140-1780068314521",
+        "term": "lẽ",
+        "definition": "Reason, truth, common sense, or probability.",
+        "meaningKr": "이치, 도리, 아마도",
+        "exampleEn": "Có lẽ ngày mai trời sẽ mưa to.",
+        "exampleKr": "아마도 내일은 비가 많이 올 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-141-1780068314521",
+        "term": "chiến",
+        "definition": "To fight, battle, or combat (often in compounds).",
+        "meaningKr": "싸우다, 전투하다",
+        "exampleEn": "Chúng ta phải chiến đấu vì hòa bình.",
+        "exampleKr": "우리는 평화를 위해 싸워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-142-1780068314521",
+        "term": "hỏi",
+        "definition": "To ask a question or inquire.",
+        "meaningKr": "묻다, 질문하다",
+        "exampleEn": "Tôi muốn hỏi đường đến bưu điện gần nhất.",
+        "exampleKr": "가장 가까운 우체국으로 가는 길을 묻고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-143-1780068314521",
+        "term": "đại",
+        "definition": "Big, great, or large (often used in Sino-Vietnamese compounds).",
+        "meaningKr": "큰, 거대한, 위대한",
+        "exampleEn": "Trường đại học của tôi rất rộng lớn.",
+        "exampleKr": "우리 대학교는 매우 넓습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-144-1780068314521",
+        "term": "tiếp",
+        "definition": "To continue, receive, or welcome.",
+        "meaningKr": "계속하다, 접대하다, 맞이하다",
+        "exampleEn": "Chúng ta hãy tiếp tục công việc này.",
+        "exampleKr": "우리 이 일을 계속합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-145-1780068314521",
+        "term": "tình",
+        "definition": "Love, affection, feeling, or situation.",
+        "meaningKr": "사랑, 정, 상황",
+        "exampleEn": "Tình cảm gia đình là điều quý giá nhất.",
+        "exampleKr": "가족의 정은 가장 소중한 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-146-1780068314521",
+        "term": "bên",
+        "definition": "Side, direction, or party.",
+        "meaningKr": "옆, 측, 방향",
+        "exampleEn": "Nhà tôi ở bên cạnh một công viên đẹp.",
+        "exampleKr": "우리 집은 아름다운 공원 옆에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-147-1780068314521",
+        "term": "đồng",
+        "definition": "Vietnamese currency (dong), copper, or a field.",
+        "meaningKr": "동 (화폐), 구리, 들판",
+        "exampleEn": "Quyển sách này có giá năm mươi nghìn đồng.",
+        "exampleKr": "이 책의 가격은 5만 동입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-148-1780068314521",
+        "term": "ổn",
+        "definition": "Fine, okay, stable, or secure.",
+        "meaningKr": "괜찮은, 안정적인, 잘 지내는",
+        "exampleEn": "Mọi công việc của tôi vẫn ổn cả.",
+        "exampleKr": "내 모든 일은 여전히 잘 돌아가고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-149-1780068314521",
+        "term": "gian",
+        "definition": "Room, booth, space, or section of a house.",
+        "meaningKr": "칸, 방, 공간, 시간",
+        "exampleEn": "Gian hàng này bán nhiều đồ lưu niệm đẹp.",
+        "exampleKr": "이 부스는 예쁜 기념품을 많이 팝니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-150-1780068314521",
+        "term": "tâm",
+        "definition": "The mind, heart, or center of something.",
+        "meaningKr": "마음, 심장, 중심",
+        "exampleEn": "Cô ấy luôn để tâm vào công việc.",
+        "exampleKr": "그녀는 항상 일에 마음을 씁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-151-1780068314521",
+        "term": "cứu",
+        "definition": "To save, rescue, or help someone in danger.",
+        "meaningKr": "구하다, 구조하다, 살리다",
+        "exampleEn": "Người lính cứu hỏa đã cứu em bé.",
+        "exampleKr": "소방관이 아기를 구했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-152-1780068314521",
+        "term": "đề",
+        "definition": "A topic, subject, or question in an exam.",
+        "meaningKr": "주제, 제목, 문제",
+        "exampleEn": "Đề thi hôm nay rất khó đối với tôi.",
+        "exampleKr": "오늘의 시험 문제는 저에게 매우 어려웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-153-1780068314521",
+        "term": "sinh",
+        "definition": "To give birth, to be born, or to live.",
+        "meaningKr": "낳다, 태어나다, 생기다",
+        "exampleEn": "Chị tôi vừa sinh một em bé dễ thương.",
+        "exampleKr": "우리 언니는 방금 귀여운 아기를 낳았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-154-1780068314521",
+        "term": "trả",
+        "definition": "To return something or to pay money.",
+        "meaningKr": "돌려주다, 갚다, 지불하다",
+        "exampleEn": "Tôi phải trả sách cho thư viện hôm nay.",
+        "exampleKr": "나는 오늘 도서관에 책을 반납해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-155-1780068314521",
+        "term": "bộ",
+        "definition": "A classifier for sets, suits, films, or series.",
+        "meaningKr": "세트, 벌, 편 (영화)",
+        "exampleEn": "Tôi rất thích bộ phim hoạt hình này.",
+        "exampleKr": "저는 이 만화 영화를 아주 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-156-1780068314521",
+        "term": "máy",
+        "definition": "A machine, device, or engine.",
+        "meaningKr": "기계, 컴퓨터, 전화기",
+        "exampleEn": "Chiếc máy tính này đã bị hỏng rồi.",
+        "exampleKr": "이 컴퓨터는 이미 고장 났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-157-1780068314521",
+        "term": "vài",
+        "definition": "A few, some, or several of something.",
+        "meaningKr": "몇몇, 몇 개의, 약간의",
+        "exampleEn": "Tôi muốn mua vài quả táo ở siêu thị.",
+        "exampleKr": "저는 마트에서 사과 몇 개를 사고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-158-1780068314521",
+        "term": "vị",
+        "definition": "Taste, flavor, or a respectful classifier for people.",
+        "meaningKr": "맛, 분 (사람을 높이는 단위)",
+        "exampleEn": "Món ăn này có vị rất ngọt và ngon.",
+        "exampleKr": "이 요리는 맛이 아주 달고 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-159-1780068314521",
+        "term": "nước",
+        "definition": "Water, liquid, or a country.",
+        "meaningKr": "물, 나라, 국가",
+        "exampleEn": "Tôi muốn uống một cốc nước mát.",
+        "exampleKr": "저는 시원한 물 한 잔을 마시고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-160-1780068314521",
+        "term": "giống",
+        "definition": "Alike, similar, or to look like.",
+        "meaningKr": "같다, 닮다, 비슷하다",
+        "exampleEn": "Hai anh em họ trông rất giống nhau.",
+        "exampleKr": "그 두 형제는 서로 매우 닮았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-161-1780068314521",
+        "term": "đánh",
+        "definition": "To hit, beat, play (an instrument/sport), or brush (teeth).",
+        "meaningKr": "때리다, 치다, 닦다 (이빨)",
+        "exampleEn": "Tôi thường đánh răng trước khi đi ngủ.",
+        "exampleKr": "저는 보통 잠자기 전에 양치를 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-162-1780068314521",
+        "term": "xảy",
+        "definition": "To happen, occur, or take place (usually with 'ra').",
+        "meaningKr": "발생하다, 일어나다",
+        "exampleEn": "Tai nạn xảy ra trên đường phố hôm qua.",
+        "exampleKr": "어제 길에서 사고가 발생했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-163-1780068314521",
+        "term": "chơi",
+        "definition": "To play, hang out, or amuse oneself.",
+        "meaningKr": "놀다, 게임하다, 연주하다",
+        "exampleEn": "Cuối tuần tôi thường đi chơi với bạn.",
+        "exampleKr": "주말에 저는 보통 친구와 놀러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-164-1780068314521",
+        "term": "trai",
+        "definition": "Male, boy, or son.",
+        "meaningKr": "남자, 아들, 남성",
+        "exampleEn": "Con trai của cô ấy năm nay mười tuổi.",
+        "exampleKr": "그녀의 아들은 올해 열 살입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-165-1780068314521",
+        "term": "tối",
+        "definition": "Evening, night, or dark.",
+        "meaningKr": "저녁, 밤, 어둡다",
+        "exampleEn": "Gia đình tôi thường ăn tối lúc bảy giờ.",
+        "exampleKr": "우리 가족은 보통 7시에 저녁을 먹습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-166-1780068314521",
+        "term": "cảnh",
+        "definition": "Scenery, view, scene, or situation.",
+        "meaningKr": "경치, 풍경, 장면",
+        "exampleEn": "Phong cảnh ở vùng núi này rất đẹp.",
+        "exampleKr": "이 산악 지역의 풍경은 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-167-1780068314521",
+        "term": "câu",
+        "definition": "A sentence, clause, or phrase.",
+        "meaningKr": "문장, 구절, 말",
+        "exampleEn": "Hãy viết một câu tiếng Việt đơn giản.",
+        "exampleKr": "쉬운 베트남어 문장을 하나 써 보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-168-1780068314521",
+        "term": "giữ",
+        "definition": "To keep, hold, preserve, or guard.",
+        "meaningKr": "유지하다, 보관하다, 지키다",
+        "exampleEn": "Bạn nên giữ lời hứa của mình nhé.",
+        "exampleKr": "당신의 약속을 꼭 지키세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-169-1780068314521",
+        "term": "hành",
+        "definition": "Onion, or action/behavior (in compounds).",
+        "meaningKr": "양파, 파, 행동",
+        "exampleEn": "Tôi không thích ăn hành trong bát phở.",
+        "exampleKr": "저는 쌀국수에 들어간 파를 먹는 것을 싫어합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-170-1780068314521",
+        "term": "vô",
+        "definition": "To enter, go in (Southern/colloquial), or without/in- (prefix).",
+        "meaningKr": "들어가다, 없다, 무 (無)",
+        "exampleEn": "Hãy vô nhà uống nước cùng chúng tôi.",
+        "exampleKr": "집으로 들어와서 저희와 물 한 잔 하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-171-1780068314521",
+        "term": "kết",
+        "definition": "To connect, tie, conclude, or finish.",
+        "meaningKr": "맺다, 결합하다, 끝나다",
+        "exampleEn": "Bộ phim này có kết thúc rất hạnh phúc.",
+        "exampleKr": "이 영화는 매우 행복한 결말을 맺습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-172-1780068314521",
+        "term": "bởi",
+        "definition": "Because, by, due to (often used in 'bởi vì').",
+        "meaningKr": "~때문에, ~에 의해",
+        "exampleEn": "Tôi đi học muộn bởi vì tắc đường.",
+        "exampleKr": "저는 교통 체증 때문에 학교에 늦게 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-vi-173-1780068314521",
+        "term": "hiện",
+        "definition": "To appear, show up, or present itself.",
+        "meaningKr": "나타나다, 드러나다, 현재",
+        "exampleEn": "Bản đồ hiện rõ các con đường nhỏ.",
+        "exampleKr": "지도가 작은 길들을 명확하게 보여줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-174-1780068314521",
+        "term": "giới",
+        "definition": "World, boundary, circle, or limit.",
+        "meaningKr": "세계, 경계, 계 (界)",
+        "exampleEn": "Tôi muốn đi du lịch khắp thế giới.",
+        "exampleKr": "저는 전 세계를 여행하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-175-1780068314521",
+        "term": "vừa",
+        "definition": "Indicating that two actions happened at the same time or in immediate succession.",
+        "meaningKr": "막, 방금, ~하자마자",
+        "exampleEn": "Tôi vừa ăn cơm xong.",
+        "exampleKr": "저는 방금 밥을 다 먹었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-176-1780068314521",
+        "term": "tiếng",
+        "definition": "The sound made by a person or animal, or the language spoken by a group of people.",
+        "meaningKr": "소리, 언어",
+        "exampleEn": "Tôi nghe tiếng chim hót.",
+        "exampleKr": "저는 새 지저귀는 소리를 들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-177-1780068314521",
+        "term": "báo",
+        "definition": "A newspaper or magazine that is published regularly.",
+        "meaningKr": "신문, 잡지",
+        "exampleEn": "Anh ấy đọc báo mỗi sáng.",
+        "exampleKr": "그는 매일 아침 신문을 읽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-178-1780068314521",
+        "term": "tưởng",
+        "definition": "To think or believe something, often incorrectly.",
+        "meaningKr": "생각하다, 여기다 (종종 틀리게)",
+        "exampleEn": "Tôi tưởng bạn là người Hàn Quốc.",
+        "exampleKr": "저는 당신이 한국 사람인 줄 알았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-179-1780068314521",
+        "term": "chờ",
+        "definition": "To wait for someone or something.",
+        "meaningKr": "기다리다",
+        "exampleEn": "Xin chờ tôi một chút.",
+        "exampleKr": "제발 저를 잠시만 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-180-1780068314521",
+        "term": "đẹp",
+        "definition": "Pleasing to the senses or mind aesthetically.",
+        "meaningKr": "아름다운, 예쁜",
+        "exampleEn": "Cô gái này rất đẹp.",
+        "exampleKr": "이 여성은 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-181-1780068314521",
+        "term": "hôm",
+        "definition": "A day, often used in combination with other words to specify a particular day.",
+        "meaningKr": "날",
+        "exampleEn": "Hôm nay trời đẹp quá.",
+        "exampleKr": "오늘 날씨가 정말 좋네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-182-1780068314521",
+        "term": "viên",
+        "definition": "A classifier for small, round objects like pills or candies.",
+        "meaningKr": "알 (약, 사탕 등)",
+        "exampleEn": "Tôi cần uống hai viên thuốc.",
+        "exampleKr": "저는 약 두 알을 먹어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-183-1780068314521",
+        "term": "hình",
+        "definition": "The external form, appearance, or shape of something.",
+        "meaningKr": "모양, 형태",
+        "exampleEn": "Quả bóng có hình tròn.",
+        "exampleKr": "공은 둥근 모양입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-184-1780068314521",
+        "term": "đáng",
+        "definition": "Worthy of or meriting something.",
+        "meaningKr": "가치 있는, ~할 만한",
+        "exampleEn": "Anh ấy là người đáng tin cậy.",
+        "exampleKr": "그는 믿을 만한 사람입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-185-1780068314521",
+        "term": "vấn",
+        "definition": "To ask a question or raise an issue.",
+        "meaningKr": "묻다, 질문하다",
+        "exampleEn": "Tôi muốn vấn bạn một câu hỏi.",
+        "exampleKr": "저는 당신에게 질문 하나를 하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-186-1780068314521",
+        "term": "trọng",
+        "definition": "Of great importance or significance.",
+        "meaningKr": "중요한",
+        "exampleEn": "Đây là một vấn đề trọng đại.",
+        "exampleKr": "이것은 중대한 문제입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-187-1780068314521",
+        "term": "bình",
+        "definition": "A container, typically made of glass or pottery, used to hold liquids.",
+        "meaningKr": "병",
+        "exampleEn": "Cho nước vào bình.",
+        "exampleKr": "병에 물을 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-188-1780068314521",
+        "term": "đủ",
+        "definition": "Having as much or as many as is needed.",
+        "meaningKr": "충분한",
+        "exampleEn": "Chúng ta có đủ tiền.",
+        "exampleKr": "우리는 충분한 돈이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-189-1780068314521",
+        "term": "cám",
+        "definition": "Rice bran, a byproduct of rice milling.",
+        "meaningKr": "쌀겨",
+        "exampleEn": "Cám dùng để nuôi lợn.",
+        "exampleKr": "쌀겨는 돼지 사료로 사용됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-190-1780068314521",
+        "term": "lớn",
+        "definition": "Of considerable size, extent, or intensity.",
+        "meaningKr": "큰",
+        "exampleEn": "Ngôi nhà này rất lớn.",
+        "exampleKr": "이 집은 매우 큽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-191-1780068314521",
+        "term": "sáng",
+        "definition": "Bright; well-lit.",
+        "meaningKr": "밝은",
+        "exampleEn": "Căn phòng này rất sáng.",
+        "exampleKr": "이 방은 매우 밝습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-192-1780068314521",
+        "term": "bác",
+        "definition": "An older brother or a term of address for an older man.",
+        "meaningKr": "아저씨, 형님 (존칭)",
+        "exampleEn": "Cháu chào bác ạ.",
+        "exampleKr": "아저씨, 안녕하세요 (인사).",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-193-1780068314521",
+        "term": "lâu",
+        "definition": "For a long time.",
+        "meaningKr": "오랫동안",
+        "exampleEn": "Tôi đã đợi bạn rất lâu.",
+        "exampleKr": "저는 당신을 아주 오랫동안 기다렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-194-1780068314521",
+        "term": "thần",
+        "definition": "A god or deity.",
+        "meaningKr": "신, 신령",
+        "exampleEn": "Người Việt tin vào nhiều vị thần.",
+        "exampleKr": "베트남 사람들은 많은 신을 믿습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-195-1780068314521",
+        "term": "sợ",
+        "definition": "To feel fear or anxiety.",
+        "meaningKr": "두려워하다, 무서워하다",
+        "exampleEn": "Tôi sợ con chó lớn.",
+        "exampleKr": "저는 큰 개가 무섭습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-196-1780068314521",
+        "term": "biệt",
+        "definition": "Different or distinct from others.",
+        "meaningKr": "특별한, 다른",
+        "exampleEn": "Anh ấy có tài năng biệt xuất.",
+        "exampleKr": "그는 비범한 재능을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-197-1780068314521",
+        "term": "thông",
+        "definition": "To penetrate or pass through.",
+        "meaningKr": "통하다, 지나가다",
+        "exampleEn": "Đường này thông ra biển.",
+        "exampleKr": "이 길은 바다로 통합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-198-1780068314521",
+        "term": "cổ",
+        "definition": "The part of the body connecting the head to the torso.",
+        "meaningKr": "목",
+        "exampleEn": "Cổ của tôi bị đau.",
+        "exampleKr": "제 목이 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-199-1780068314521",
+        "term": "giải",
+        "definition": "To solve or explain something.",
+        "meaningKr": "풀다, 설명하다",
+        "exampleEn": "Bạn có thể giải bài toán này không?",
+        "exampleKr": "이 수학 문제를 풀 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-200-1780068314521",
+        "term": "phụ",
+        "definition": "Secondary or supplementary.",
+        "meaningKr": "부차적인, 보조적인",
+        "exampleEn": "Đây là một công việc phụ.",
+        "exampleKr": "이것은 부업입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-201-1780068314521",
+        "term": "thường",
+        "definition": "Usually or often.",
+        "meaningKr": "보통, 자주",
+        "exampleEn": "Tôi thường ăn sáng lúc 7 giờ.",
+        "exampleKr": "저는 보통 아침 7시에 먹어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-202-1780068314521",
+        "term": "thương",
+        "definition": "To love or have affection for someone.",
+        "meaningKr": "사랑하다, 아끼다",
+        "exampleEn": "Mẹ thương con rất nhiều.",
+        "exampleKr": "엄마는 아이를 매우 사랑해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-203-1780068314521",
+        "term": "vẻ",
+        "definition": "Appearance or look.",
+        "meaningKr": "모습, 외양",
+        "exampleEn": "Cô ấy có vẻ rất vui.",
+        "exampleKr": "그녀는 매우 행복해 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-204-1780068314521",
+        "term": "cuối",
+        "definition": "Last or final.",
+        "meaningKr": "마지막의",
+        "exampleEn": "Đây là tuần cuối của tháng.",
+        "exampleKr": "이번 주는 달의 마지막 주입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-205-1780068314521",
+        "term": "rõ",
+        "definition": "Clear or distinct.",
+        "meaningKr": "분명한, 명확한",
+        "exampleEn": "Nói rõ hơn một chút.",
+        "exampleKr": "조금 더 분명하게 말해주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-206-1780068314521",
+        "term": "cửa",
+        "definition": "Door or gate.",
+        "meaningKr": "문",
+        "exampleEn": "Xin hãy đóng cửa lại.",
+        "exampleKr": "문을 닫아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-207-1780068314521",
+        "term": "hợp",
+        "definition": "To suit or agree with.",
+        "meaningKr": "맞다, 적합하다",
+        "exampleEn": "Bộ quần áo này hợp với tôi.",
+        "exampleKr": "이 옷은 저에게 잘 맞아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-208-1780068314521",
+        "term": "trung",
+        "definition": "Central or middle.",
+        "meaningKr": "중앙의, 중간의",
+        "exampleEn": "Anh ấy sống ở trung tâm thành phố.",
+        "exampleKr": "그는 도시 중심부에 살아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-209-1780068314521",
+        "term": "bản",
+        "definition": "Copy, version, or bản (classifier for documents).",
+        "meaningKr": "사본, 버전",
+        "exampleEn": "Đây là bản gốc của bức tranh.",
+        "exampleKr": "이것은 그림의 원본입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-210-1780068314521",
+        "term": "dùng",
+        "definition": "To use.",
+        "meaningKr": "사용하다",
+        "exampleEn": "Tôi dùng bút để viết.",
+        "exampleKr": "저는 글씨를 쓰기 위해 펜을 사용해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-211-1780068314521",
+        "term": "ôi",
+        "definition": "Oh! (expressing surprise or dismay).",
+        "meaningKr": "오!",
+        "exampleEn": "Ôi, tôi quên mất rồi!",
+        "exampleKr": "오, 제가 잊어버렸어요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-vi-212-1780068314521",
+        "term": "bắn",
+        "definition": "To shoot.",
+        "meaningKr": "쏘다, 발사하다",
+        "exampleEn": "Cảnh sát đã bắn cảnh cáo.",
+        "exampleKr": "경찰이 경고 사격을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-213-1780068314521",
+        "term": "cầu",
+        "definition": "Bridge.",
+        "meaningKr": "다리",
+        "exampleEn": "Chúng tôi đi qua cây cầu.",
+        "exampleKr": "우리는 다리를 건넜습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-214-1780068314521",
+        "term": "hội",
+        "definition": "Meeting, conference, or association.",
+        "meaningKr": "모임, 회의, 협회",
+        "exampleEn": "Hội thảo bắt đầu lúc 9 giờ.",
+        "exampleKr": "세미나는 9시에 시작합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-215-1780068314521",
+        "term": "đội",
+        "definition": "Team.",
+        "meaningKr": "팀, 조",
+        "exampleEn": "Đội bóng đá của chúng tôi thắng.",
+        "exampleKr": "우리 축구 팀이 이겼어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-216-1780068314521",
+        "term": "tiên",
+        "definition": "Fairy or immortal.",
+        "meaningKr": "요정, 선녀",
+        "exampleEn": "Cô ấy đẹp như tiên.",
+        "exampleKr": "그녀는 요정처럼 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-217-1780068314521",
+        "term": "thân",
+        "definition": "Body or self.",
+        "meaningKr": "몸, 자신",
+        "exampleEn": "Giữ gìn sức khỏe bản thân.",
+        "exampleKr": "자신의 건강을 잘 챙기세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-218-1780068314521",
+        "term": "chạy",
+        "definition": "To run.",
+        "meaningKr": "달리다, 뛰다",
+        "exampleEn": "Anh ấy chạy rất nhanh.",
+        "exampleKr": "그는 매우 빨리 달립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-219-1780068314521",
+        "term": "thêm",
+        "definition": "To add.",
+        "meaningKr": "추가하다, 더하다",
+        "exampleEn": "Cho thêm đường vào cà phê.",
+        "exampleKr": "커피에 설탕을 더 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-220-1780068314521",
+        "term": "đứa",
+        "definition": "Classifier for children or young people.",
+        "meaningKr": "아이 (분류사)",
+        "exampleEn": "Đứa bé đang ngủ.",
+        "exampleKr": "아기가 자고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-221-1780068314521",
+        "term": "thay",
+        "definition": "To change or replace.",
+        "meaningKr": "바꾸다, 교체하다",
+        "exampleEn": "Tôi cần thay quần áo.",
+        "exampleKr": "저는 옷을 갈아입어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-222-1780068314521",
+        "term": "mang",
+        "definition": "To carry or bring.",
+        "meaningKr": "가지고 가다, 데려가다",
+        "exampleEn": "Bạn mang gì đến vậy?",
+        "exampleKr": "무엇을 가져왔어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-223-1780068314521",
+        "term": "quân",
+        "definition": "Military or troops.",
+        "meaningKr": "군대, 병사",
+        "exampleEn": "Đội quân tiến về phía trước.",
+        "exampleKr": "군대가 앞으로 진격했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-224-1780068314521",
+        "term": "xác",
+        "definition": "Corpse or body (of a dead person/animal).",
+        "meaningKr": "시체, 사체",
+        "exampleEn": "Người ta tìm thấy một xác chết.",
+        "exampleKr": "사람들이 시체를 발견했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-225-1780068314521",
+        "term": "đời",
+        "definition": "Life or lifetime.",
+        "meaningKr": "삶, 인생, 일생",
+        "exampleEn": "Cuộc đời này thật đẹp.",
+        "exampleKr": "이 삶은 정말 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-226-1780068314521",
+        "term": "ngủ",
+        "definition": "To sleep.",
+        "meaningKr": "자다, 잠자다",
+        "exampleEn": "Tôi muốn đi ngủ sớm.",
+        "exampleKr": "저는 일찍 자고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-227-1780068314521",
+        "term": "trời",
+        "definition": "Sky or heaven.",
+        "meaningKr": "하늘, 천국",
+        "exampleEn": "Trời hôm nay rất xanh.",
+        "exampleKr": "오늘 하늘은 매우 파랗습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-228-1780068314521",
+        "term": "đổi",
+        "definition": "To change or exchange.",
+        "meaningKr": "바꾸다, 교환하다",
+        "exampleEn": "Tôi muốn đổi tiền.",
+        "exampleKr": "저는 돈을 바꾸고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-229-1780068314521",
+        "term": "nhỏ",
+        "definition": "Small or little.",
+        "meaningKr": "작은, 적은",
+        "exampleEn": "Con mèo này rất nhỏ.",
+        "exampleKr": "이 고양이는 매우 작습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-230-1780068314521",
+        "term": "liên",
+        "definition": "Continuously or consecutively.",
+        "meaningKr": "연속적으로, 계속",
+        "exampleEn": "Anh ấy làm việc liên tục.",
+        "exampleKr": "그는 계속 일합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-231-1780068314521",
+        "term": "tội",
+        "definition": "Crime or sin.",
+        "meaningKr": "죄, 범죄",
+        "exampleEn": "Đó là một tội lớn.",
+        "exampleKr": "그것은 큰 죄입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-232-1780068314521",
+        "term": "nghĩa",
+        "definition": "Meaning or significance.",
+        "meaningKr": "의미, 뜻",
+        "exampleEn": "Bạn hiểu nghĩa của từ này?",
+        "exampleKr": "이 단어의 뜻을 이해하셨나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-233-1780068314521",
+        "term": "điện",
+        "definition": "Electricity or electric.",
+        "meaningKr": "전기, 전력",
+        "exampleEn": "Nhà tôi bị mất điện.",
+        "exampleKr": "우리 집에 전기 공급이 끊겼어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-234-1780068314521",
+        "term": "dù",
+        "definition": "Although or even though.",
+        "meaningKr": "비록 ~일지라도, ~에도 불구하고",
+        "exampleEn": "Dù trời mưa, tôi vẫn đi.",
+        "exampleKr": "비록 비가 오지만, 저는 갈 거예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-vi-235-1780068314521",
+        "term": "nữ",
+        "definition": "Female or woman.",
+        "meaningKr": "여성, 여자",
+        "exampleEn": "Cô ấy là một người nữ.",
+        "exampleKr": "그녀는 여성입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-236-1780068314521",
+        "term": "vệ",
+        "definition": "Guard or protect.",
+        "meaningKr": "경비, 보호",
+        "exampleEn": "Anh ấy làm vệ sĩ.",
+        "exampleKr": "그는 경호원으로 일합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-237-1780068314521",
+        "term": "phát",
+        "definition": "To issue, distribute, or develop.",
+        "meaningKr": "발행하다, 배포하다, 개발하다",
+        "exampleEn": "Công ty phát quà cho nhân viên.",
+        "exampleKr": "회사는 직원들에게 선물을 배포합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-238-1780068314521",
+        "term": "đối",
+        "definition": "Towards or facing.",
+        "meaningKr": "향하여, 마주보고",
+        "exampleEn": "Nhìn đối diện tôi.",
+        "exampleKr": "저를 마주보고 보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-239-1780068314521",
+        "term": "đêm",
+        "definition": "Night.",
+        "meaningKr": "밤",
+        "exampleEn": "Tôi thích đi dạo đêm.",
+        "exampleKr": "저는 밤에 산책하는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-240-1780068314521",
+        "term": "trẻ",
+        "definition": "Child or young person.",
+        "meaningKr": "어린이, 아이",
+        "exampleEn": "Trẻ con đang chơi ngoài sân.",
+        "exampleKr": "아이들이 마당에서 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-241-1780068314521",
+        "term": "bệnh",
+        "definition": "Illness or disease.",
+        "meaningKr": "병, 질병",
+        "exampleEn": "Anh ấy bị bệnh nặng.",
+        "exampleKr": "그는 심하게 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-242-1780068314521",
+        "term": "gần",
+        "definition": "Near or close.",
+        "meaningKr": "가까운",
+        "exampleEn": "Nhà tôi gần trường học.",
+        "exampleKr": "우리 집은 학교 근처에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-243-1780068314521",
+        "term": "hoàn",
+        "definition": "To complete or finish.",
+        "meaningKr": "완료하다, 마치다",
+        "exampleEn": "Tôi đã hoàn thành công việc.",
+        "exampleKr": "저는 일을 마쳤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-244-1780068314521",
+        "term": "trường",
+        "definition": "School or field.",
+        "meaningKr": "학교, 장",
+        "exampleEn": "Con tôi đang học ở trường.",
+        "exampleKr": "제 아이는 학교에서 공부하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-245-1780068314521",
+        "term": "đợi",
+        "definition": "To wait.",
+        "meaningKr": "기다리다",
+        "exampleEn": "Xin hãy đợi tôi một chút.",
+        "exampleKr": "잠시만 기다려 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-246-1780068314521",
+        "term": "tính",
+        "definition": "To calculate or consider.",
+        "meaningKr": "계산하다, 고려하다",
+        "exampleEn": "Hãy tính toán cẩn thận.",
+        "exampleKr": "주의 깊게 계산하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-247-1780068314521",
+        "term": "đất",
+        "definition": "Earth, soil, or land.",
+        "meaningKr": "땅, 흙, 토지",
+        "exampleEn": "Cây cần đất để sống.",
+        "exampleKr": "식물은 살기 위해 흙이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-248-1780068314521",
+        "term": "đứng",
+        "definition": "To stand.",
+        "meaningKr": "서다, 서 있다",
+        "exampleEn": "Anh ấy đang đứng ở cửa.",
+        "exampleKr": "그는 문 앞에 서 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-249-1780068314521",
+        "term": "ngồi",
+        "definition": "To sit.",
+        "meaningKr": "앉다, 앉아 있다",
+        "exampleEn": "Chúng ta cùng ngồi xuống.",
+        "exampleKr": "우리 같이 앉읍시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-250-1780068314521",
+        "term": "trông",
+        "definition": "To look at or to watch someone or something.",
+        "meaningKr": "보다, 바라보다",
+        "exampleEn": "Em trông mẹ đang nấu ăn.",
+        "exampleKr": "나는 엄마가 요리하는 것을 보고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-251-1780068314521",
+        "term": "chứng",
+        "definition": "Evidence or proof of something.",
+        "meaningKr": "증거, 증명",
+        "exampleEn": "Đây là chứng cho lời nói của anh.",
+        "exampleKr": "이것은 당신 말의 증거입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-252-1780068314521",
+        "term": "ảnh",
+        "definition": "A picture or photograph.",
+        "meaningKr": "사진",
+        "exampleEn": "Bức ảnh này rất đẹp.",
+        "exampleKr": "이 사진은 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-253-1780068314521",
+        "term": "kể",
+        "definition": "To tell a story or recount an event.",
+        "meaningKr": "말하다, 이야기하다",
+        "exampleEn": "Bạn có thể kể cho tôi nghe không?",
+        "exampleKr": "나에게 이야기해 줄 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-254-1780068314521",
+        "term": "khó",
+        "definition": "Difficult to do, understand, or deal with.",
+        "meaningKr": "어려운, 힘든",
+        "exampleEn": "Bài tập này hơi khó.",
+        "exampleKr": "이 연습 문제는 좀 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-255-1780068314521",
+        "term": "quyết",
+        "definition": "To make a firm decision about something.",
+        "meaningKr": "결정하다",
+        "exampleEn": "Tôi quyết định sẽ đi du lịch.",
+        "exampleKr": "나는 여행 가기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-256-1780068314521",
+        "term": "chịu",
+        "definition": "To endure or bear something unpleasant.",
+        "meaningKr": "참다, 견디다",
+        "exampleEn": "Anh ấy chịu đựng cơn đau.",
+        "exampleKr": "그는 고통을 참아냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-257-1780068314521",
+        "term": "năng",
+        "definition": "Forms nouns related to ability or capacity.",
+        "meaningKr": "능력, 기운 (접미사)",
+        "exampleEn": "Cô ấy có năng khiếu đặc biệt.",
+        "exampleKr": "그녀는 특별한 재능이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-vi-258-1780068314521",
+        "term": "tập",
+        "definition": "To practice or do exercises.",
+        "meaningKr": "연습하다, 운동하다",
+        "exampleEn": "Tôi đi tập thể dục mỗi sáng.",
+        "exampleKr": "나는 매일 아침 운동하러 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-259-1780068314521",
+        "term": "súng",
+        "definition": "A firearm, typically a handgun or rifle.",
+        "meaningKr": "총",
+        "exampleEn": "Anh cảnh sát cầm khẩu súng.",
+        "exampleKr": "경찰관이 총을 들고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-260-1780068314521",
+        "term": "vọng",
+        "definition": "An echo or reverberation of sound.",
+        "meaningKr": "메아리, 울림",
+        "exampleEn": "Tiếng vọng trong hang động.",
+        "exampleKr": "동굴 안의 메아리 소리.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-261-1780068314521",
+        "term": "giá",
+        "definition": "The cost of something in money.",
+        "meaningKr": "가격, 가치",
+        "exampleEn": "Giá của quyển sách này là bao nhiêu?",
+        "exampleKr": "이 책의 가격은 얼마인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-262-1780068314521",
+        "term": "sắp",
+        "definition": "Indicates that something is about to happen soon.",
+        "meaningKr": "곧, 금방",
+        "exampleEn": "Trời sắp mưa rồi.",
+        "exampleKr": "비가 곧 올 것 같다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-263-1780068314521",
+        "term": "xong",
+        "definition": "To finish or complete an activity.",
+        "meaningKr": "끝내다, 마치다",
+        "exampleEn": "Tôi đã làm xong bài tập.",
+        "exampleKr": "나는 숙제를 끝냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-264-1780068314521",
+        "term": "tử",
+        "definition": "Death or to die.",
+        "meaningKr": "죽음, 사망",
+        "exampleEn": "Anh ấy đã tử trận.",
+        "exampleKr": "그는 전사했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-265-1780068314521",
+        "term": "đàn",
+        "definition": "A musical instrument played by striking or plucking strings.",
+        "meaningKr": "악기 (현악기)",
+        "exampleEn": "Cô ấy chơi đàn ghi ta rất hay.",
+        "exampleKr": "그녀는 기타를 아주 잘 연주한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-266-1780068314521",
+        "term": "sẵn",
+        "definition": "Ready or available for use.",
+        "meaningKr": "준비된, 즉시 사용 가능한",
+        "exampleEn": "Bữa tối đã sẵn sàng.",
+        "exampleKr": "저녁 식사가 준비되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-267-1780068314521",
+        "term": "kiểm",
+        "definition": "To check, inspect, or examine.",
+        "meaningKr": "검사하다, 점검하다",
+        "exampleEn": "Cảnh sát kiểm tra giấy tờ.",
+        "exampleKr": "경찰이 서류를 검사한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-268-1780068314521",
+        "term": "mở",
+        "definition": "To open something that is closed.",
+        "meaningKr": "열다",
+        "exampleEn": "Xin hãy mở cửa ra.",
+        "exampleKr": "문을 열어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-269-1780068314521",
+        "term": "uống",
+        "definition": "To take liquid into the mouth and swallow it.",
+        "meaningKr": "마시다",
+        "exampleEn": "Bạn muốn uống gì?",
+        "exampleKr": "무엇을 마시고 싶으신가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-270-1780068314521",
+        "term": "chuyển",
+        "definition": "To move from one place or position to another.",
+        "meaningKr": "옮기다, 전환하다",
+        "exampleEn": "Chúng ta cần chuyển đồ đạc.",
+        "exampleKr": "우리는 짐을 옮겨야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-271-1780068314521",
+        "term": "dừng",
+        "definition": "To stop moving or operating.",
+        "meaningKr": "멈추다, 중단하다",
+        "exampleEn": "Xe buýt dừng lại ở trạm.",
+        "exampleKr": "버스가 정류장에 멈췄다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-272-1780068314521",
+        "term": "đình",
+        "definition": "A place for religious or public gatherings, often in a village.",
+        "meaningKr": "정자, 마을 회관",
+        "exampleEn": "Làng tôi có một ngôi đình cổ.",
+        "exampleKr": "우리 마을에는 오래된 정자가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-273-1780068314521",
+        "term": "chủ",
+        "definition": "The owner, leader, or person in charge.",
+        "meaningKr": "주인, 소유주",
+        "exampleEn": "Anh ấy là chủ của cửa hàng.",
+        "exampleKr": "그는 그 가게의 주인이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-274-1780068314521",
+        "term": "chọn",
+        "definition": "To select or pick out someone or something.",
+        "meaningKr": "선택하다, 고르다",
+        "exampleEn": "Bạn thích chọn món nào?",
+        "exampleKr": "어떤 음식을 고르시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-275-1780068314521",
+        "term": "điên",
+        "definition": "Having a mental illness; crazy.",
+        "meaningKr": "미친, 정신 나간",
+        "exampleEn": "Anh ấy bị điên rồi.",
+        "exampleKr": "그는 미쳤어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-276-1780068314521",
+        "term": "vật",
+        "definition": "An object or thing.",
+        "meaningKr": "물건, 사물",
+        "exampleEn": "Cái vật này rất nặng.",
+        "exampleKr": "이 물건은 매우 무겁습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-277-1780068314521",
+        "term": "thử",
+        "definition": "To try or test something.",
+        "meaningKr": "시도하다, 시험하다",
+        "exampleEn": "Tôi muốn thử món ăn này.",
+        "exampleKr": "저는 이 음식을 맛보고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-278-1780068314521",
+        "term": "thống",
+        "definition": "A unit of measurement or a set.",
+        "meaningKr": "개, 벌 (단위)",
+        "exampleEn": "Chiếc áo này có một thống.",
+        "exampleKr": "이 셔츠는 한 벌입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-279-1780068314521",
+        "term": "kiếm",
+        "definition": "To search for or seek something.",
+        "meaningKr": "찾다, 구하다",
+        "exampleEn": "Anh ấy đang kiếm việc làm.",
+        "exampleKr": "그는 일자리를 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-280-1780068314521",
+        "term": "mắt",
+        "definition": "The organ of sight; an eye.",
+        "meaningKr": "눈",
+        "exampleEn": "Mắt cô ấy rất đẹp.",
+        "exampleKr": "그녀의 눈은 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-281-1780068314521",
+        "term": "trưởng",
+        "definition": "The leader or head of a group or organization.",
+        "meaningKr": "장, 지도자, 족장",
+        "exampleEn": "Anh ấy là trưởng nhóm.",
+        "exampleKr": "그는 팀장입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-282-1780068314521",
+        "term": "kế",
+        "definition": "A plan or strategy.",
+        "meaningKr": "계획, 방책",
+        "exampleEn": "Chúng ta cần có kế hoạch mới.",
+        "exampleKr": "우리는 새로운 계획이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-283-1780068314521",
+        "term": "phần",
+        "definition": "A part or portion of something.",
+        "meaningKr": "부분, 몫",
+        "exampleEn": "Đây là phần của tôi.",
+        "exampleKr": "이것은 제 몫입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-284-1780068314521",
+        "term": "biến",
+        "definition": "To change or transform.",
+        "meaningKr": "변하다, 바꾸다",
+        "exampleEn": "Thời tiết đã biến đổi.",
+        "exampleKr": "날씨가 변했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-285-1780068314521",
+        "term": "lòng",
+        "definition": "The inner part or core; the heart (emotionally).",
+        "meaningKr": "마음, 속",
+        "exampleEn": "Tôi cảm ơn lòng tốt của bạn.",
+        "exampleKr": "당신의 친절한 마음에 감사합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-286-1780068314521",
+        "term": "sư",
+        "definition": "A monk or religious person.",
+        "meaningKr": "스님, 승려",
+        "exampleEn": "Vị sư đó rất hiền.",
+        "exampleKr": "그 스님은 매우 온화합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-287-1780068314521",
+        "term": "loại",
+        "definition": "A kind, sort, or type.",
+        "meaningKr": "종류, 유형",
+        "exampleEn": "Đây là loại trái cây tôi thích.",
+        "exampleKr": "이것은 제가 좋아하는 과일 종류입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-288-1780068314521",
+        "term": "mạnh",
+        "definition": "Having physical strength or power.",
+        "meaningKr": "강한, 힘센",
+        "exampleEn": "Anh ấy rất mạnh.",
+        "exampleKr": "그는 매우 강합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-289-1780068314521",
+        "term": "thuốc",
+        "definition": "Medicine or drug.",
+        "meaningKr": "약",
+        "exampleEn": "Tôi cần uống thuốc.",
+        "exampleKr": "저는 약을 먹어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-290-1780068314521",
+        "term": "đấu",
+        "definition": "To fight or struggle.",
+        "meaningKr": "싸우다, 겨루다",
+        "exampleEn": "Họ đấu với nhau.",
+        "exampleKr": "그들은 서로 싸웁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-291-1780068314521",
+        "term": "thức",
+        "definition": "Food or a type of food.",
+        "meaningKr": "음식, 식",
+        "exampleEn": "Món thức này rất ngon.",
+        "exampleKr": "이 음식은 매우 맛있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-292-1780068314521",
+        "term": "dễ",
+        "definition": "Easy to do or understand.",
+        "meaningKr": "쉬운, 용이한",
+        "exampleEn": "Bài tập này rất dễ.",
+        "exampleKr": "이 연습 문제는 매우 쉽습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-293-1780068314521",
+        "term": "vợ",
+        "definition": "A wife.",
+        "meaningKr": "아내, 부인",
+        "exampleEn": "Anh ấy có một người vợ.",
+        "exampleKr": "그에게는 아내가 한 명 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-294-1780068314521",
+        "term": "dụng",
+        "definition": "To use or apply.",
+        "meaningKr": "사용하다, 쓰다",
+        "exampleEn": "Tôi dụng cụ này.",
+        "exampleKr": "저는 이 도구를 사용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-295-1780068314521",
+        "term": "trái",
+        "definition": "Fruit.",
+        "meaningKr": "과일",
+        "exampleEn": "Tôi thích ăn trái cây.",
+        "exampleKr": "저는 과일 먹는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-296-1780068314521",
+        "term": "quái",
+        "definition": "Strange, weird, or monstrous.",
+        "meaningKr": "이상한, 기괴한",
+        "exampleEn": "Con vật đó trông quái dị.",
+        "exampleKr": "그 동물은 이상하게 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-297-1780068314521",
+        "term": "phía",
+        "definition": "Towards or in the direction of.",
+        "meaningKr": "~쪽으로, ~편으로",
+        "exampleEn": "Đi về phía trước.",
+        "exampleKr": "앞쪽으로 가세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-298-1780068314521",
+        "term": "tiến",
+        "definition": "To move forward or advance.",
+        "meaningKr": "전진하다, 나아가다",
+        "exampleEn": "Chúng ta phải tiến lên.",
+        "exampleKr": "우리는 앞으로 나아가야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-299-1780068314521",
+        "term": "đau",
+        "definition": "Feeling pain or hurt.",
+        "meaningKr": "아픈, 고통스러운",
+        "exampleEn": "Tôi bị đau đầu.",
+        "exampleKr": "저는 머리가 아픕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-300-1780068314521",
+        "term": "yeah",
+        "definition": "An informal word used to express agreement or confirmation.",
+        "meaningKr": "네, 응",
+        "exampleEn": "Yeah, mình đi thôi!",
+        "exampleKr": "응, 같이 가자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-vi-301-1780068314521",
+        "term": "điểm",
+        "definition": "A mark or score in a test or competition.",
+        "meaningKr": "점수, 점",
+        "exampleEn": "Bài kiểm tra này được bao nhiêu điểm?",
+        "exampleKr": "이 시험에서 몇 점을 받았니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-302-1780068314521",
+        "term": "lực",
+        "definition": "Physical strength or power.",
+        "meaningKr": "힘, 역량",
+        "exampleEn": "Anh ấy có một lực rất mạnh.",
+        "exampleKr": "그는 아주 강한 힘을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-303-1780068314521",
+        "term": "tệ",
+        "definition": "Bad or poor in quality or condition.",
+        "meaningKr": "나쁜, 형편없는",
+        "exampleEn": "Tình hình hôm nay rất tệ.",
+        "exampleKr": "오늘 상황이 아주 나쁘다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-304-1780068314521",
+        "term": "chắn",
+        "definition": "To block or prevent something from happening.",
+        "meaningKr": "막다, 차단하다",
+        "exampleEn": "Cửa này chắn gió tốt lắm.",
+        "exampleKr": "이 문은 바람을 잘 막아준다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-305-1780068314521",
+        "term": "quả",
+        "definition": "Fruit.",
+        "meaningKr": "과일",
+        "exampleEn": "Tôi thích ăn quả táo.",
+        "exampleKr": "나는 사과를 먹는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-306-1780068314521",
+        "term": "khốn",
+        "definition": "Wretched or miserable.",
+        "meaningKr": "비참한, 불쌍한",
+        "exampleEn": "Cuộc sống của họ thật khốn khổ.",
+        "exampleKr": "그들의 삶은 정말 비참했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-307-1780068314521",
+        "term": "sàng",
+        "definition": "To sift or screen something, like flour or grain.",
+        "meaningKr": "체로 치다, 거르다",
+        "exampleEn": "Mẹ đang sàng gạo.",
+        "exampleKr": "엄마가 쌀을 체로 치고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-308-1780068314521",
+        "term": "quên",
+        "definition": "To fail to remember or bring something to mind.",
+        "meaningKr": "잊다, 잊어버리다",
+        "exampleEn": "Tôi đã quên chìa khóa ở nhà.",
+        "exampleKr": "나는 열쇠를 집에 두고 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-309-1780068314521",
+        "term": "là",
+        "definition": "To be (used to identify or describe something).",
+        "meaningKr": "이다, ~이다",
+        "exampleEn": "Đây là một cuốn sách.",
+        "exampleKr": "이것은 책이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-310-1780068314521",
+        "term": "phút",
+        "definition": "A unit of time equal to sixty seconds.",
+        "meaningKr": "분",
+        "exampleEn": "Chờ tôi một chút nhé.",
+        "exampleKr": "잠깐만 기다려줘.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-311-1780068314521",
+        "term": "minh",
+        "definition": "Self or oneself (often used in formal or literary contexts).",
+        "meaningKr": "자신, 스스로",
+        "exampleEn": "Anh ấy tự lo cho bản minh.",
+        "exampleKr": "그는 스스로를 챙긴다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-312-1780068314521",
+        "term": "gã",
+        "definition": "He or him (informal, often used for a man or boy).",
+        "meaningKr": "그 (남자)",
+        "exampleEn": "Gã kia là ai vậy?",
+        "exampleKr": "저 남자 누구야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-313-1780068314521",
+        "term": "mừng",
+        "definition": "Happy or glad.",
+        "meaningKr": "기쁜, 축하하는",
+        "exampleEn": "Tôi rất mừng khi gặp bạn.",
+        "exampleKr": "당신을 만나서 정말 기뻐요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-314-1780068314521",
+        "term": "kỳ",
+        "definition": "A period of time, like a week or a season.",
+        "meaningKr": "기간, 시기",
+        "exampleEn": "Cuối kỳ này, chúng ta thi.",
+        "exampleKr": "이번 학기 말에 우리는 시험을 본다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-315-1780068314521",
+        "term": "hơi",
+        "definition": "Slightly or a little bit.",
+        "meaningKr": "약간, 조금",
+        "exampleEn": "Trời hơi lạnh hôm nay.",
+        "exampleKr": "오늘 날씨가 약간 춥다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-316-1780068314521",
+        "term": "chân",
+        "definition": "Foot or leg.",
+        "meaningKr": "발, 다리",
+        "exampleEn": "Tôi bị đau chân.",
+        "exampleKr": "나는 다리가 아프다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-317-1780068314521",
+        "term": "kinh",
+        "definition": "Scared or frightened.",
+        "meaningKr": "겁먹은, 무서워하는",
+        "exampleEn": "Cô bé nhìn thấy con ma kinh quá.",
+        "exampleKr": "소녀는 유령을 보고 너무 무서워했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-318-1780068314521",
+        "term": "tuần",
+        "definition": "A period of seven days.",
+        "meaningKr": "주",
+        "exampleEn": "Một tuần có bảy ngày.",
+        "exampleKr": "일주일은 7일이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-319-1780068314521",
+        "term": "có",
+        "definition": "To have or possess.",
+        "meaningKr": "가지다, 있다",
+        "exampleEn": "Tôi có một chiếc xe đạp.",
+        "exampleKr": "나는 자전거 한 대를 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-320-1780068314521",
+        "term": "thủ",
+        "definition": "A defender in sports or a leader.",
+        "meaningKr": "수비수, 지도자",
+        "exampleEn": "Anh ấy là thủ môn giỏi.",
+        "exampleKr": "그는 훌륭한 골키퍼이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-321-1780068314521",
+        "term": "đặc",
+        "definition": "Special or particular.",
+        "meaningKr": "특별한, 독특한",
+        "exampleEn": "Món ăn này có vị đặc biệt.",
+        "exampleKr": "이 음식은 특별한 맛이 난다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-322-1780068314521",
+        "term": "trí",
+        "definition": "Mind, intellect, or intelligence.",
+        "meaningKr": "지능, 지성",
+        "exampleEn": "Bạn có trí nhớ tốt.",
+        "exampleKr": "당신은 기억력이 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-323-1780068314521",
+        "term": "tàu",
+        "definition": "Train.",
+        "meaningKr": "기차",
+        "exampleEn": "Chúng ta đi tàu hỏa nhé.",
+        "exampleKr": "우리 기차 타고 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-324-1780068314521",
+        "term": "sức",
+        "definition": "Strength, energy, or health.",
+        "meaningKr": "힘, 에너지, 건강",
+        "exampleEn": "Cô ấy có sức khỏe tốt.",
+        "exampleKr": "그녀는 건강이 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-325-1780068314521",
+        "term": "trò",
+        "definition": "A game, trick, or play.",
+        "meaningKr": "놀이, 장난, 연극",
+        "exampleEn": "Trò chơi này rất vui.",
+        "exampleKr": "이 게임은 정말 재미있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-326-1780068314521",
+        "term": "quyền",
+        "definition": "Right or power.",
+        "meaningKr": "권리, 힘",
+        "exampleEn": "Bạn có quyền im lặng.",
+        "exampleKr": "당신은 침묵할 권리가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-327-1780068314521",
+        "term": "kìa",
+        "definition": "Look! (used to draw attention to something distant).",
+        "meaningKr": "저기 봐!, 저것 봐!",
+        "exampleEn": "Kìa, con chim đẹp quá!",
+        "exampleKr": "저것 봐, 저 새 정말 아름답다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-vi-328-1780068314521",
+        "term": "quý",
+        "definition": "Precious, valuable, esteemed.",
+        "meaningKr": "귀한, 소중한, 귀중한",
+        "exampleEn": "Đây là món quà quý.",
+        "exampleKr": "이것은 귀한 선물입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-329-1780068314521",
+        "term": "phố",
+        "definition": "Street or road.",
+        "meaningKr": "거리, 길",
+        "exampleEn": "Chúng tôi đi dạo trên phố.",
+        "exampleKr": "우리는 거리를 산책했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-330-1780068314521",
+        "term": "buổi",
+        "definition": "Period of the day (morning, afternoon, evening).",
+        "meaningKr": "시간대 (아침, 오후, 저녁)",
+        "exampleEn": "Buổi sáng tôi đi học.",
+        "exampleKr": "아침에 저는 학교에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-331-1780068314521",
+        "term": "thư",
+        "definition": "Letter or mail.",
+        "meaningKr": "편지, 메일",
+        "exampleEn": "Tôi nhận được một lá thư.",
+        "exampleKr": "저는 편지 한 통을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-332-1780068314521",
+        "term": "hạ",
+        "definition": "Summer.",
+        "meaningKr": "여름",
+        "exampleEn": "Mùa hạ rất nóng.",
+        "exampleKr": "여름은 매우 덥습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-333-1780068314521",
+        "term": "bài",
+        "definition": "Exercise, lesson, or song.",
+        "meaningKr": "연습 문제, 수업, 노래",
+        "exampleEn": "Đây là bài tập về nhà.",
+        "exampleKr": "이것은 숙제입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-334-1780068314521",
+        "term": "đặt",
+        "definition": "To place or put something down.",
+        "meaningKr": "놓다, 두다",
+        "exampleEn": "Xin đặt sách lên bàn.",
+        "exampleKr": "책을 테이블 위에 놓아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-335-1780068314521",
+        "term": "tháng",
+        "definition": "Month.",
+        "meaningKr": "월, 달",
+        "exampleEn": "Tháng này có 30 ngày.",
+        "exampleKr": "이번 달은 30일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-336-1780068314521",
+        "term": "hôn",
+        "definition": "To kiss.",
+        "meaningKr": "키스하다",
+        "exampleEn": "Anh ấy hôn lên má cô ấy.",
+        "exampleKr": "그는 그녀의 뺨에 키스했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-337-1780068314521",
+        "term": "tài",
+        "definition": "Talent or ability.",
+        "meaningKr": "재능, 능력",
+        "exampleEn": "Cô ấy có tài ca hát.",
+        "exampleKr": "그녀는 노래하는 재능이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-338-1780068314521",
+        "term": "diễn",
+        "definition": "To perform or act.",
+        "meaningKr": "연기하다, 공연하다",
+        "exampleEn": "Anh ấy diễn rất hay.",
+        "exampleKr": "그는 연기를 아주 잘합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-339-1780068314521",
+        "term": "phép",
+        "definition": "Magic or spell.",
+        "meaningKr": "마법, 주문",
+        "exampleEn": "Đó là một phép thuật.",
+        "exampleKr": "그것은 마법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-340-1780068314521",
+        "term": "nổi",
+        "definition": "Famous or well-known.",
+        "meaningKr": "유명한, 알려진",
+        "exampleEn": "Anh ấy là người nổi tiếng.",
+        "exampleKr": "그는 유명한 사람입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-341-1780068314521",
+        "term": "pháp",
+        "definition": "Law.",
+        "meaningKr": "법",
+        "exampleEn": "Chúng ta phải tuân theo pháp luật.",
+        "exampleKr": "우리는 법을 따라야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-342-1780068314521",
+        "term": "khách",
+        "definition": "Guest or customer.",
+        "meaningKr": "손님, 고객",
+        "exampleEn": "Nhà tôi có khách.",
+        "exampleKr": "우리 집에 손님이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-343-1780068314521",
+        "term": "đôi",
+        "definition": "A pair.",
+        "meaningKr": "한 쌍",
+        "exampleEn": "Tôi mua một đôi giày.",
+        "exampleKr": "저는 신발 한 켤레를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-344-1780068314521",
+        "term": "hiệu",
+        "definition": "Brand or store.",
+        "meaningKr": "브랜드, 상점",
+        "exampleEn": "Đây là hiệu giày mới.",
+        "exampleKr": "이것은 새 신발 브랜드입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-345-1780068314521",
+        "term": "mặc",
+        "definition": "To wear clothes.",
+        "meaningKr": "입다",
+        "exampleEn": "Bạn mặc áo gì?",
+        "exampleKr": "무슨 옷을 입고 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-346-1780068314521",
+        "term": "vũ",
+        "definition": "Rain.",
+        "meaningKr": "비",
+        "exampleEn": "Trời sắp mưa rồi.",
+        "exampleKr": "하늘이 곧 비가 올 것 같아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-347-1780068314521",
+        "term": "yên",
+        "definition": "Peaceful or quiet.",
+        "meaningKr": "평화로운, 조용한",
+        "exampleEn": "Căn phòng này rất yên tĩnh.",
+        "exampleKr": "이 방은 매우 조용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-348-1780068314521",
+        "term": "quốc",
+        "definition": "Nation or country.",
+        "meaningKr": "나라, 국가",
+        "exampleEn": "Đây là quốc kỳ Việt Nam.",
+        "exampleKr": "이것은 베트남 국기입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-349-1780068314521",
+        "term": "máu",
+        "definition": "Blood.",
+        "meaningKr": "피",
+        "exampleEn": "Anh ấy bị chảy máu.",
+        "exampleKr": "그는 피가 나고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-350-1780068314521",
+        "term": "hệ",
+        "definition": "A system or a series.",
+        "meaningKr": "체계, 시스템",
+        "exampleEn": "Đây là một hệ thống mới.",
+        "exampleKr": "이것은 새로운 시스템입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-351-1780068314521",
+        "term": "đơn",
+        "definition": "Single, simple, or uncomplicated.",
+        "meaningKr": "단일의, 단순한",
+        "exampleEn": "Tôi chỉ muốn một ly cà phê đơn.",
+        "exampleKr": "저는 단 커피 한 잔만 원해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-352-1780068314521",
+        "term": "khí",
+        "definition": "Gas or air.",
+        "meaningKr": "기체, 가스",
+        "exampleEn": "Không khí trong lành rất tốt.",
+        "exampleKr": "맑은 공기는 매우 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-353-1780068314521",
+        "term": "khiến",
+        "definition": "To cause or to make something happen.",
+        "meaningKr": "하게 하다, 야기하다",
+        "exampleEn": "Tiếng cười khiến tôi vui.",
+        "exampleKr": "웃음소리는 나를 기쁘게 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-354-1780068314521",
+        "term": "phá",
+        "definition": "To break, destroy, or demolish.",
+        "meaningKr": "부수다, 파괴하다",
+        "exampleEn": "Họ phá nhà cũ để xây mới.",
+        "exampleKr": "그들은 새 집을 짓기 위해 오래된 집을 허물었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-355-1780068314521",
+        "term": "tục",
+        "definition": "Customs or traditions.",
+        "meaningKr": "관습, 풍습",
+        "exampleEn": "Phong tục ngày Tết rất hay.",
+        "exampleKr": "설날의 풍습은 매우 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-356-1780068314521",
+        "term": "thú",
+        "definition": "Animal or beast.",
+        "meaningKr": "동물, 짐승",
+        "exampleEn": "Vườn bách thú có nhiều loài.",
+        "exampleKr": "동물원에는 많은 종이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-357-1780068314521",
+        "term": "tuổi",
+        "definition": "Age.",
+        "meaningKr": "나이, 세",
+        "exampleEn": "Cháu bao nhiêu tuổi rồi ạ?",
+        "exampleKr": "몇 살이세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-358-1780068314521",
+        "term": "dân",
+        "definition": "People or populace of a region.",
+        "meaningKr": "민족, 백성, 주민",
+        "exampleEn": "Dân làng tôi rất thân thiện.",
+        "exampleKr": "우리 마을 사람들은 매우 친절합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-359-1780068314521",
+        "term": "chuẩn",
+        "definition": "Standard or accurate.",
+        "meaningKr": "표준의, 정확한",
+        "exampleEn": "Đây là cỡ chuẩn của áo.",
+        "exampleKr": "이것은 옷의 표준 사이즈입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-360-1780068314521",
+        "term": "tạo",
+        "definition": "To create or make.",
+        "meaningKr": "창조하다, 만들다",
+        "exampleEn": "Cô ấy tạo ra bức tranh đẹp.",
+        "exampleKr": "그녀는 아름다운 그림을 만들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-361-1780068314521",
+        "term": "cá",
+        "definition": "Fish.",
+        "meaningKr": "물고기, 생선",
+        "exampleEn": "Tôi thích ăn cá nướng.",
+        "exampleKr": "저는 구운 생선 먹는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-362-1780068314521",
+        "term": "luật",
+        "definition": "Law or rule.",
+        "meaningKr": "법, 규칙",
+        "exampleEn": "Chúng ta phải tuân theo luật.",
+        "exampleKr": "우리는 법을 따라야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-363-1780068314521",
+        "term": "dẫn",
+        "definition": "To lead or guide.",
+        "meaningKr": "이끌다, 인도하다",
+        "exampleEn": "Anh ấy dẫn tôi đi xem phim.",
+        "exampleKr": "그는 나를 영화 보러 데리고 갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-364-1780068314521",
+        "term": "phục",
+        "definition": "To serve or obey.",
+        "meaningKr": "복종하다, 섬기다",
+        "exampleEn": "Người lính phục tùng mệnh lệnh.",
+        "exampleKr": "병사는 명령에 복종했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-365-1780068314521",
+        "term": "nhiêu",
+        "definition": "Used to indicate quantity, often with 'bao nhiêu'.",
+        "meaningKr": "얼마나 많은 (수량)",
+        "exampleEn": "Bạn có bao nhiêu tiền?",
+        "exampleKr": "당신은 돈이 얼마나 있습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-366-1780068314521",
+        "term": "hiểm",
+        "definition": "Dangerous or risky.",
+        "meaningKr": "위험한",
+        "exampleEn": "Con đường này rất hiểm.",
+        "exampleKr": "이 길은 매우 위험합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-367-1780068314521",
+        "term": "bàn",
+        "definition": "Table.",
+        "meaningKr": "테이블, 책상",
+        "exampleEn": "Đặt sách lên bàn đi.",
+        "exampleKr": "책을 테이블 위에 올려놓으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-368-1780068314521",
+        "term": "hoàng",
+        "definition": "Emperor or king (often in compounds).",
+        "meaningKr": "황제, 왕",
+        "exampleEn": "Hoàng đế trị vì đất nước.",
+        "exampleKr": "황제는 나라를 다스렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-369-1780068314521",
+        "term": "độ",
+        "definition": "Degree (temperature, angle) or level.",
+        "meaningKr": "도 (온도, 각도), 정도",
+        "exampleEn": "Nhiệt độ hôm nay là 30 độ.",
+        "exampleKr": "오늘의 온도는 30도입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-370-1780068314521",
+        "term": "mạng",
+        "definition": "Life, network, or internet.",
+        "meaningKr": "생명, 네트워크, 인터넷",
+        "exampleEn": "Internet rất tiện lợi.",
+        "exampleKr": "인터넷은 매우 편리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-371-1780068314521",
+        "term": "sách",
+        "definition": "Book.",
+        "meaningKr": "책",
+        "exampleEn": "Tôi đang đọc một cuốn sách.",
+        "exampleKr": "저는 책 한 권을 읽고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-372-1780068314521",
+        "term": "chó",
+        "definition": "Dog.",
+        "meaningKr": "개",
+        "exampleEn": "Con chó đang sủa to.",
+        "exampleKr": "개가 크게 짖고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-373-1780068314521",
+        "term": "tiêu",
+        "definition": "To tiêu thụ (consume) or tiêu diệt (destroy).",
+        "meaningKr": "소비하다, 없애다",
+        "exampleEn": "Chúng ta cần tiêu thụ ít điện.",
+        "exampleKr": "우리는 전기를 적게 소비해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-374-1780068314521",
+        "term": "ư",
+        "definition": "An exclamation of hesitation or thinking.",
+        "meaningKr": "음, 어... (망설임)",
+        "exampleEn": "Ư, tôi không chắc lắm.",
+        "exampleKr": "음, 잘 모르겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-vi-375-1780068314521",
+        "term": "phạm",
+        "definition": "To violate or commit an offense.",
+        "meaningKr": "위반하다, 저지르다",
+        "exampleEn": "Bạn không được phạm luật giao thông.",
+        "exampleKr": "당신은 교통 법규를 위반해서는 안 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-376-1780068314521",
+        "term": "chúc",
+        "definition": "To wish someone well or offer congratulations.",
+        "meaningKr": "기원하다, 축하하다",
+        "exampleEn": "Chúc mừng năm mới bạn nhé!",
+        "exampleKr": "새해 복 많이 받으세요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-377-1780068314521",
+        "term": "nhiệm",
+        "definition": "Duty or responsibility.",
+        "meaningKr": "임무, 책임",
+        "exampleEn": "Đây là nhiệm vụ của tôi.",
+        "exampleKr": "이것은 제 임무입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-378-1780068314521",
+        "term": "thoại",
+        "definition": "To speak or converse.",
+        "meaningKr": "말하다, 대화하다",
+        "exampleEn": "Chúng tôi cần thoại với nhau.",
+        "exampleKr": "우리는 서로 대화할 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-379-1780068314521",
+        "term": "tinh",
+        "definition": "Clever, shrewd, or refined.",
+        "meaningKr": "영리한, 교활한, 세련된",
+        "exampleEn": "Anh ấy rất tinh trong công việc.",
+        "exampleKr": "그는 일에 매우 영리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-380-1780068314521",
+        "term": "tránh",
+        "definition": "To avoid or escape.",
+        "meaningKr": "피하다, 벗어나다",
+        "exampleEn": "Hãy tránh xa chỗ nguy hiểm.",
+        "exampleKr": "위험한 곳에서 멀리 떨어지세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-381-1780068314521",
+        "term": "gây",
+        "definition": "To cause or create.",
+        "meaningKr": "야기하다, 일으키다",
+        "exampleEn": "Trời mưa gây tắc đường.",
+        "exampleKr": "비가 와서 길이 막혔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-382-1780068314521",
+        "term": "thúc",
+        "definition": "To urge, push, or promote.",
+        "meaningKr": "촉구하다, 밀다, 장려하다",
+        "exampleEn": "Bố mẹ thúc giục tôi học bài.",
+        "exampleKr": "부모님께서 공부하라고 재촉하셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-383-1780068314521",
+        "term": "danh",
+        "definition": "Fame, reputation, or honor.",
+        "meaningKr": "명예, 평판, 이름",
+        "exampleEn": "Anh ấy có danh tiếng tốt.",
+        "exampleKr": "그는 좋은 평판을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-384-1780068314521",
+        "term": "tranh",
+        "definition": "To compete or contend for.",
+        "meaningKr": "경쟁하다, 다투다",
+        "exampleEn": "Hai đội tranh giải nhất.",
+        "exampleKr": "두 팀이 우승을 놓고 경쟁합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-385-1780068314521",
+        "term": "ổng",
+        "definition": "A large pot or container.",
+        "meaningKr": "항아리, 큰 솥",
+        "exampleEn": "Mẹ tôi có một cái ổng lớn.",
+        "exampleKr": "우리 어머니는 큰 항아리가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-386-1780068314521",
+        "term": "thắng",
+        "definition": "To win or be victorious.",
+        "meaningKr": "이기다, 승리하다",
+        "exampleEn": "Đội của chúng ta đã thắng.",
+        "exampleKr": "우리 팀이 이겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-387-1780068314521",
+        "term": "cây",
+        "definition": "A tree or plant.",
+        "meaningKr": "나무, 식물",
+        "exampleEn": "Cây này rất cao.",
+        "exampleKr": "이 나무는 매우 높습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-388-1780068314521",
+        "term": "xấu",
+        "definition": "Bad, ugly, or evil.",
+        "meaningKr": "나쁜, 못생긴, 사악한",
+        "exampleEn": "Thời tiết hôm nay rất xấu.",
+        "exampleKr": "오늘 날씨가 매우 나쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-389-1780068314521",
+        "term": "xuất",
+        "definition": "To go out, appear, or be produced.",
+        "meaningKr": "나가다, 나타나다, 생산되다",
+        "exampleEn": "Sản phẩm này xuất sắc lắm.",
+        "exampleKr": "이 제품은 매우 훌륭합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-390-1780068314521",
+        "term": "áo",
+        "definition": "A shirt or piece of clothing worn on the upper body.",
+        "meaningKr": "옷, 셔츠",
+        "exampleEn": "Tôi mặc một cái áo màu xanh.",
+        "exampleKr": "저는 파란색 셔츠를 입었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-391-1780068314521",
+        "term": "sếp",
+        "definition": "Boss or supervisor.",
+        "meaningKr": "사장, 상사",
+        "exampleEn": "Tôi đang đợi sếp.",
+        "exampleKr": "저는 사장님을 기다리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-392-1780068314521",
+        "term": "tiệt",
+        "definition": "To eliminate or exterminate.",
+        "meaningKr": "제거하다, 근절하다",
+        "exampleEn": "Chúng ta cần tiệt trừ tệ nạn này.",
+        "exampleKr": "우리는 이 악폐를 근절해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-393-1780068314521",
+        "term": "chí",
+        "definition": "Willpower, ambition, or aspiration.",
+        "meaningKr": "의지, 야망, 포부",
+        "exampleEn": "Anh ấy có chí làm giàu.",
+        "exampleKr": "그는 부자가 될 야망이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-394-1780068314521",
+        "term": "cấp",
+        "definition": "To provide, supply, or grant.",
+        "meaningKr": "공급하다, 제공하다, 수여하다",
+        "exampleEn": "Nhà trường cấp sách cho học sinh.",
+        "exampleKr": "학교는 학생들에게 책을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-395-1780068314521",
+        "term": "giả",
+        "definition": "Fake, false, or artificial.",
+        "meaningKr": "가짜의, 거짓의, 인공의",
+        "exampleEn": "Đây là tiền giả.",
+        "exampleKr": "이것은 위조지폐입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-396-1780068314521",
+        "term": "xử",
+        "definition": "To handle, manage, or judge.",
+        "meaningKr": "처리하다, 다루다, 재판하다",
+        "exampleEn": "Tôi sẽ xử lý việc này.",
+        "exampleKr": "제가 이 일을 처리하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-397-1780068314521",
+        "term": "tấn",
+        "definition": "To attack or assault.",
+        "meaningKr": "공격하다, 습격하다",
+        "exampleEn": "Quân đội tấn công địch.",
+        "exampleKr": "군대가 적을 공격합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-398-1780068314521",
+        "term": "mật",
+        "definition": "Honey or secret.",
+        "meaningKr": "꿀, 비밀",
+        "exampleEn": "Mật ong rất ngọt.",
+        "exampleKr": "꿀은 매우 달콤합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-399-1780068314521",
+        "term": "thiết",
+        "definition": "Essential, urgent, or earnest.",
+        "meaningKr": "필수의, 긴급한, 간절한",
+        "exampleEn": "Chúng ta cần giúp đỡ thiết tha.",
+        "exampleKr": "우리는 간절히 도움이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-400-1780068314521",
+        "term": "khá",
+        "definition": "Quite or rather.",
+        "meaningKr": "꽤, 상당히",
+        "exampleEn": "Cuốn sách này khá hay.",
+        "exampleKr": "이 책은 꽤 재미있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-401-1780068314521",
+        "term": "liệu",
+        "definition": "Whether (used in questions or to express doubt).",
+        "meaningKr": "과연, ~일지",
+        "exampleEn": "Liệu anh ấy có đến không?",
+        "exampleKr": "그가 올지 안 올지 모르겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-vi-402-1780068314521",
+        "term": "địa",
+        "definition": "Earth or ground.",
+        "meaningKr": "땅, 지구",
+        "exampleEn": "Địa hình ở đây rất đẹp.",
+        "exampleKr": "이곳의 지형은 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-403-1780068314521",
+        "term": "lạc",
+        "definition": "To get lost.",
+        "meaningKr": "길을 잃다",
+        "exampleEn": "Tôi bị lạc đường ở thành phố này.",
+        "exampleKr": "나는 이 도시에서 길을 잃었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-404-1780068314521",
+        "term": "bán",
+        "definition": "To sell.",
+        "meaningKr": "팔다",
+        "exampleEn": "Anh ấy bán hoa quả ở chợ.",
+        "exampleKr": "그는 시장에서 과일을 팝니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-405-1780068314521",
+        "term": "trình",
+        "definition": "Level or trình độ (skill level).",
+        "meaningKr": "수준, 경지",
+        "exampleEn": "Trình độ tiếng Việt của bạn rất tốt.",
+        "exampleKr": "당신의 베트남어 실력은 매우 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-406-1780068314521",
+        "term": "tượng",
+        "definition": "Statue or image.",
+        "meaningKr": "상, 조각상",
+        "exampleEn": "Đó là tượng của một vị vua.",
+        "exampleKr": "그것은 한 왕의 동상입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-407-1780068314521",
+        "term": "thoát",
+        "definition": "To escape or get out of.",
+        "meaningKr": "탈출하다, 벗어나다",
+        "exampleEn": "Anh ấy đã thoát khỏi nguy hiểm.",
+        "exampleKr": "그는 위험에서 벗어났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-408-1780068314521",
+        "term": "tạm",
+        "definition": "Temporarily or for the time being.",
+        "meaningKr": "임시로, 잠시",
+        "exampleEn": "Tôi sẽ ở đây tạm thời.",
+        "exampleKr": "나는 이곳에 임시로 머물 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-409-1780068314521",
+        "term": "ngon",
+        "definition": "Delicious.",
+        "meaningKr": "맛있는",
+        "exampleEn": "Món phở này rất ngon.",
+        "exampleKr": "이 쌀국수 요리는 매우 맛있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-410-1780068314521",
+        "term": "đoán",
+        "definition": "To guess.",
+        "meaningKr": "추측하다, 짐작하다",
+        "exampleEn": "Tôi đoán bạn là người Hà Nội.",
+        "exampleKr": "나는 당신이 하노이 사람이라고 추측합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-411-1780068314521",
+        "term": "thiên",
+        "definition": "Heavenly or celestial.",
+        "meaningKr": "하늘의, 천상의",
+        "exampleEn": "Ngôi sao này có ánh sáng thiên.",
+        "exampleKr": "이 별은 천상의 빛을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-412-1780068314521",
+        "term": "giáo",
+        "definition": "Religion or teaching.",
+        "meaningKr": "종교, 가르침",
+        "exampleEn": "Anh ấy theo đạo Phật giáo.",
+        "exampleKr": "그는 불교를 따릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-413-1780068314521",
+        "term": "mời",
+        "definition": "To invite.",
+        "meaningKr": "초대하다, 권하다",
+        "exampleEn": "Tôi muốn mời bạn đến bữa tiệc.",
+        "exampleKr": "나는 당신을 파티에 초대하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-414-1780068314521",
+        "term": "rời",
+        "definition": "To leave or depart.",
+        "meaningKr": "떠나다, 이탈하다",
+        "exampleEn": "Chúng tôi sẽ rời đi vào ngày mai.",
+        "exampleKr": "우리는 내일 떠날 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-415-1780068314521",
+        "term": "thanh",
+        "definition": "Clear or pure (sound, voice, water).",
+        "meaningKr": "맑은, 깨끗한",
+        "exampleEn": "Giọng hát của cô ấy rất thanh.",
+        "exampleKr": "그녀의 목소리는 매우 맑습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-416-1780068314521",
+        "term": "okay",
+        "definition": "Okay, alright.",
+        "meaningKr": "괜찮아, 좋아",
+        "exampleEn": "Bạn có khỏe không? Okay.",
+        "exampleKr": "괜찮으세요? 네, 괜찮아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-vi-417-1780068314521",
+        "term": "dự",
+        "definition": "To attend or participate.",
+        "meaningKr": "참석하다, 참가하다",
+        "exampleEn": "Tôi sẽ dự buổi họp.",
+        "exampleKr": "나는 회의에 참석할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-418-1780068314521",
+        "term": "chàng",
+        "definition": "A classifier for young men or boys.",
+        "meaningKr": "남자(를 세는 단위)",
+        "exampleEn": "Có một chàng trai đang đợi bạn.",
+        "exampleKr": "한 청년이 당신을 기다리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-419-1780068314521",
+        "term": "lệnh",
+        "definition": "Order or command.",
+        "meaningKr": "명령",
+        "exampleEn": "Anh ấy nhận được lệnh từ cấp trên.",
+        "exampleKr": "그는 상사로부터 명령을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-420-1780068314521",
+        "term": "hứa",
+        "definition": "To promise.",
+        "meaningKr": "약속하다",
+        "exampleEn": "Tôi hứa sẽ không quên.",
+        "exampleKr": "나는 잊지 않겠다고 약속합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-421-1780068314521",
+        "term": "nằm",
+        "definition": "To lie down or be situated.",
+        "meaningKr": "눕다, 위치하다",
+        "exampleEn": "Bệnh nhân đang nằm trên giường.",
+        "exampleKr": "환자는 침대에 누워 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-422-1780068314521",
+        "term": "sớm",
+        "definition": "Early.",
+        "meaningKr": "일찍",
+        "exampleEn": "Tôi thức dậy rất sớm.",
+        "exampleKr": "나는 아주 일찍 일어납니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-423-1780068314521",
+        "term": "dối",
+        "definition": "To lie or deceive.",
+        "meaningKr": "거짓말하다, 속이다",
+        "exampleEn": "Đừng nói dối tôi.",
+        "exampleKr": "나에게 거짓말하지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-424-1780068314521",
+        "term": "dịch",
+        "definition": "Translation or epidemic.",
+        "meaningKr": "번역, 전염병",
+        "exampleEn": "Cuốn sách này cần được dịch.",
+        "exampleKr": "이 책은 번역될 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-425-1780068314521",
+        "term": "viết",
+        "definition": "To form letters or words on a surface with a pen or pencil.",
+        "meaningKr": "쓰다, 적다",
+        "exampleEn": "Em đang tập viết chữ tiếng Việt.",
+        "exampleKr": "저는 베트남 글자를 쓰는 연습을 하고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-426-1780068314521",
+        "term": "hoạch",
+        "definition": "A plan or strategy for future action.",
+        "meaningKr": "계획, 도표",
+        "exampleEn": "Chúng ta cần có một hoạch định rõ ràng.",
+        "exampleKr": "우리는 명확한 계획이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-427-1780068314521",
+        "term": "vời",
+        "definition": "To invite or beckon someone to come.",
+        "meaningKr": "부르다, 초대하다",
+        "exampleEn": "Cô ấy vẫy tay vời tôi lại gần.",
+        "exampleKr": "그녀는 손짓으로 나를 가까이 불렀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-428-1780068314521",
+        "term": "bóng",
+        "definition": "A round or oval object used in games.",
+        "meaningKr": "공, 그림자",
+        "exampleEn": "Bọn trẻ đang chơi đá bóng ngoài sân.",
+        "exampleKr": "아이들이 마당에서 축구공을 차며 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-429-1780068314521",
+        "term": "hộ",
+        "definition": "To help or assist someone.",
+        "meaningKr": "돕다, 지원하다",
+        "exampleEn": "Anh ấy luôn hộ trợ những người khó khăn.",
+        "exampleKr": "그는 항상 어려운 사람들을 돕습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-430-1780068314521",
+        "term": "nghỉ",
+        "definition": "To rest or stop working.",
+        "meaningKr": "쉬다, 중단하다",
+        "exampleEn": "Cuối tuần tôi thường nghỉ ngơi ở nhà.",
+        "exampleKr": "주말에는 저는 보통 집에서 쉽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-431-1780068314521",
+        "term": "sử",
+        "definition": "History or the study of past events.",
+        "meaningKr": "역사",
+        "exampleEn": "Bạn có thích học môn Sử không?",
+        "exampleKr": "당신은 역사 과목 공부하는 것을 좋아하나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-432-1780068314521",
+        "term": "nạn",
+        "definition": "A disaster, calamity, or great misfortune.",
+        "meaningKr": "재난, 재해, 피해",
+        "exampleEn": "Trận lũ lụt đã gây ra nhiều nạn.",
+        "exampleKr": "홍수로 많은 피해가 발생했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-433-1780068314521",
+        "term": "hại",
+        "definition": "To cause harm or damage.",
+        "meaningKr": "해치다, 손상시키다",
+        "exampleEn": "Thuốc lá có hại cho sức khỏe.",
+        "exampleKr": "담배는 건강에 해롭습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-434-1780068314521",
+        "term": "căn",
+        "definition": "A house or apartment.",
+        "meaningKr": "집, 주택",
+        "exampleEn": "Tôi vừa mua một căn hộ mới.",
+        "exampleKr": "저는 방금 새 아파트를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-435-1780068314521",
+        "term": "nguy",
+        "definition": "Danger or risk.",
+        "meaningKr": "위험",
+        "exampleEn": "Đi bộ một mình vào ban đêm rất nguy.",
+        "exampleKr": "밤에 혼자 걷는 것은 매우 위험합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-436-1780068314521",
+        "term": "hồ",
+        "definition": "A lake or a body of water.",
+        "meaningKr": "호수, 연못",
+        "exampleEn": "Hồ Gươm rất đẹp vào buổi sáng.",
+        "exampleKr": "호안끼엠 호수는 아침에 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-437-1780068314521",
+        "term": "dậy",
+        "definition": "To get up from sleep or a lying position.",
+        "meaningKr": "일어나다, 깨다",
+        "exampleEn": "Tôi thường dậy sớm để tập thể dục.",
+        "exampleKr": "저는 보통 운동하기 위해 일찍 일어납니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-438-1780068314521",
+        "term": "băng",
+        "definition": "Ice or a strip of material used for wrapping.",
+        "meaningKr": "얼음, 붕대, 테이프",
+        "exampleEn": "Anh ấy bị thương nên phải băng bó.",
+        "exampleKr": "그는 다쳤기 때문에 붕대를 감아야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-439-1780068314521",
+        "term": "mục",
+        "definition": "An item in a list or a point in a discussion.",
+        "meaningKr": "항목, 요점, 목표",
+        "exampleEn": "Đây là mục đầu tiên trong danh sách.",
+        "exampleKr": "이것은 목록의 첫 번째 항목입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-440-1780068314521",
+        "term": "phim",
+        "definition": "A movie or a photograph.",
+        "meaningKr": "영화, 필름",
+        "exampleEn": "Tối nay chúng ta đi xem phim nhé?",
+        "exampleKr": "오늘 저녁에 영화 보러 갈까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-441-1780068314521",
+        "term": "giỏi",
+        "definition": "Skilled or talented in something.",
+        "meaningKr": "잘하다, 똑똑하다, 훌륭하다",
+        "exampleEn": "Cô ấy học tiếng Anh rất giỏi.",
+        "exampleKr": "그녀는 영어를 아주 잘 배웁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-442-1780068314521",
+        "term": "viện",
+        "definition": "An institution, such as a hospital or academy.",
+        "meaningKr": "병원, 학원, 연구소",
+        "exampleEn": "Bố tôi đang nằm viện điều trị.",
+        "exampleKr": "우리 아버지는 치료를 위해 병원에 입원해 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-443-1780068314521",
+        "term": "hướng",
+        "definition": "The direction in which something is, or is to be, moving or pointed.",
+        "meaningKr": "방향, 쪽",
+        "exampleEn": "Bạn đi hướng nào vậy?",
+        "exampleKr": "어느 쪽으로 가세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-444-1780068314521",
+        "term": "tế",
+        "definition": "A festival or celebration, often religious.",
+        "meaningKr": "제사, 축제",
+        "exampleEn": "Gia đình tôi chuẩn bị cho ngày tế.",
+        "exampleKr": "우리 가족은 제삿날을 준비합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-445-1780068314521",
+        "term": "tĩnh",
+        "definition": "Calm, quiet, or still.",
+        "meaningKr": "고요한, 조용한, 정적인",
+        "exampleEn": "Không khí trong phòng rất tĩnh lặng.",
+        "exampleKr": "방 안의 분위기는 매우 조용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-446-1780068314521",
+        "term": "thuật",
+        "definition": "A technique, art, or skill.",
+        "meaningKr": "술, 기술, 기법",
+        "exampleEn": "Đây là một thuật toán mới.",
+        "exampleKr": "이것은 새로운 알고리즘입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-447-1780068314521",
+        "term": "nhóc",
+        "definition": "A young child, often used affectionately or informally.",
+        "meaningKr": "꼬마, 아이",
+        "exampleEn": "Nhóc con kia đang chơi gì vậy?",
+        "exampleKr": "저 꼬마는 무엇을 하고 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-448-1780068314521",
+        "term": "đọc",
+        "definition": "To look at and comprehend the meaning of written or printed matter.",
+        "meaningKr": "읽다",
+        "exampleEn": "Tôi thích đọc sách vào buổi tối.",
+        "exampleKr": "저는 저녁에 책 읽는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-449-1780068314521",
+        "term": "kiểu",
+        "definition": "A style, type, or pattern.",
+        "meaningKr": "스타일, 유형, 방식",
+        "exampleEn": "Áo này có nhiều kiểu đẹp lắm.",
+        "exampleKr": "이 셔츠는 많은 예쁜 스타일이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-450-1780068314521",
+        "term": "trị",
+        "definition": "To treat or cure an illness or condition.",
+        "meaningKr": "치료하다, 다스리다",
+        "exampleEn": "Thuốc này trị được bệnh cảm.",
+        "exampleKr": "이 약은 감기를 치료할 수 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-451-1780068314521",
+        "term": "phản",
+        "definition": "To react against or oppose something.",
+        "meaningKr": "반대하다, 반항하다",
+        "exampleEn": "Anh ấy phản đối kế hoạch đó.",
+        "exampleKr": "그는 그 계획에 반대했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-452-1780068314521",
+        "term": "giao",
+        "definition": "To hand over, deliver, or exchange.",
+        "meaningKr": "넘겨주다, 전달하다, 교환하다",
+        "exampleEn": "Tôi giao hàng cho bạn rồi.",
+        "exampleKr": "제가 당신에게 물건을 전달했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-453-1780068314521",
+        "term": "tù",
+        "definition": "A place where people are kept as punishment for a crime.",
+        "meaningKr": "감옥, 교도소",
+        "exampleEn": "Anh ta bị đi tù vì ăn cắp.",
+        "exampleKr": "그는 도둑질 때문에 감옥에 갔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-454-1780068314521",
+        "term": "rối",
+        "definition": "Tangled, messy, or complicated.",
+        "meaningKr": "엉킨, 복잡한",
+        "exampleEn": "Tóc em bị rối quá.",
+        "exampleKr": "내 머리카락이 너무 엉켰어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-455-1780068314521",
+        "term": "trốn",
+        "definition": "To escape from a place or situation.",
+        "meaningKr": "도망치다, 피하다",
+        "exampleEn": "Anh ta trốn khỏi nhà tù.",
+        "exampleKr": "그는 감옥에서 도망쳤어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-456-1780068314521",
+        "term": "rượu",
+        "definition": "An alcoholic drink.",
+        "meaningKr": "술",
+        "exampleEn": "Tôi không uống được nhiều rượu.",
+        "exampleKr": "저는 술을 많이 마실 수 없어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-457-1780068314521",
+        "term": "đá",
+        "definition": "A hard, solid mineral material, used for building or as ice.",
+        "meaningKr": "돌, 얼음",
+        "exampleEn": "Ly nước này có đá không?",
+        "exampleKr": "이 음료에 얼음 있어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-458-1780068314521",
+        "term": "bước",
+        "definition": "To walk or move by taking steps.",
+        "meaningKr": "걷다, 발걸음을 옮기다",
+        "exampleEn": "Hãy bước chậm lại một chút.",
+        "exampleKr": "조금만 천천히 걸으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-459-1780068314521",
+        "term": "dấu",
+        "definition": "A mark or sign that indicates something.",
+        "meaningKr": "표시, 흔적",
+        "exampleEn": "Tìm thấy dấu chân trên cát.",
+        "exampleKr": "모래 위에서 발자국 흔적을 발견했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-460-1780068314521",
+        "term": "đức",
+        "definition": "Moral excellence or virtue.",
+        "meaningKr": "덕, 미덕",
+        "exampleEn": "Ông ấy là người có đức.",
+        "exampleKr": "그분은 덕이 있는 사람이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-461-1780068314521",
+        "term": "cười",
+        "definition": "To smile or laugh.",
+        "meaningKr": "웃다",
+        "exampleEn": "Cô bé cười rất tươi.",
+        "exampleKr": "그 여자아이는 아주 밝게 웃어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-462-1780068314521",
+        "term": "tư",
+        "definition": "Private or personal.",
+        "meaningKr": "사적인, 개인적인",
+        "exampleEn": "Đây là chuyện tư của tôi.",
+        "exampleKr": "이것은 나의 사적인 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-463-1780068314521",
+        "term": "cánh",
+        "definition": "A limb or organ of a bird, insect, or bat used for flying.",
+        "meaningKr": "날개",
+        "exampleEn": "Con chim có đôi cánh đẹp.",
+        "exampleKr": "그 새는 아름다운 날개를 가지고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-464-1780068314521",
+        "term": "vòng",
+        "definition": "A ring or circular band.",
+        "meaningKr": "고리, 반지, 원",
+        "exampleEn": "Chiếc vòng tay này thật xinh.",
+        "exampleKr": "이 팔찌는 정말 예뻐요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-465-1780068314521",
+        "term": "mỹ",
+        "definition": "Beautiful or aesthetically pleasing.",
+        "meaningKr": "아름다운",
+        "exampleEn": "Bức tranh này rất mỹ.",
+        "exampleKr": "이 그림은 매우 아름다워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-466-1780068314521",
+        "term": "lập",
+        "definition": "To establish, set up, or create.",
+        "meaningKr": "설립하다, 세우다",
+        "exampleEn": "Họ lập một công ty mới.",
+        "exampleKr": "그들은 새로운 회사를 설립했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-467-1780068314521",
+        "term": "lạ",
+        "definition": "Unfamiliar, strange, or odd.",
+        "meaningKr": "이상한, 낯선",
+        "exampleEn": "Tôi thấy người này lạ lắm.",
+        "exampleKr": "저는 이 사람이 아주 이상하다고 느껴요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-468-1780068314521",
+        "term": "tổng",
+        "definition": "Total, whole, or entire.",
+        "meaningKr": "총, 전체",
+        "exampleEn": "Đây là tổng số tiền.",
+        "exampleKr": "이것은 총액입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-469-1780068314521",
+        "term": "đóng",
+        "definition": "To close, shut, or seal.",
+        "meaningKr": "닫다, 잠그다",
+        "exampleEn": "Làm ơn đóng cửa lại.",
+        "exampleKr": "문을 닫아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-470-1780068314521",
+        "term": "tác",
+        "definition": "To act, perform, or produce an effect.",
+        "meaningKr": "작용하다, 행하다",
+        "exampleEn": "Thuốc này có tác dụng phụ.",
+        "exampleKr": "이 약은 부작용이 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-471-1780068314521",
+        "term": "hề",
+        "definition": "A comical performer, especially one in a circus, who wears a colorful costume and makeup.",
+        "meaningKr": "광대",
+        "exampleEn": "Chú hề làm mọi người cười.",
+        "exampleKr": "광대는 사람들을 웃게 만들어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-472-1780068314521",
+        "term": "lượng",
+        "definition": "An amount or quantity of something.",
+        "meaningKr": "양, 수량",
+        "exampleEn": "Cần bao nhiêu lượng đường?",
+        "exampleKr": "설탕이 얼마나 많이 필요합니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-473-1780068314521",
+        "term": "tụi",
+        "definition": "A colloquial way to refer to a group of people, often children or friends.",
+        "meaningKr": "우리들, 걔들 (비격식)",
+        "exampleEn": "Tụi mình đi chơi nhé?",
+        "exampleKr": "우리 같이 놀러 갈래?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-vi-474-1780068314521",
+        "term": "càng",
+        "definition": "Used to indicate a progressive increase or decrease in intensity.",
+        "meaningKr": "더욱 ~하다, 갈수록 ~하다",
+        "exampleEn": "Càng học càng thấy khó.",
+        "exampleKr": "공부할수록 더 어렵게 느껴진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-vi-475-1780068314521",
+        "term": "thận",
+        "definition": "The organ in the body that filters waste products from the blood.",
+        "meaningKr": "신장, 콩팥",
+        "exampleEn": "Tôi bị đau ở thận.",
+        "exampleKr": "저는 신장에 통증이 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-476-1780068314521",
+        "term": "bánh",
+        "definition": "A general term for cake, pastry, cookie, or bread.",
+        "meaningKr": "빵, 과자, 케이크",
+        "exampleEn": "Mẹ làm bánh cho tôi ăn.",
+        "exampleKr": "어머니께서 저를 위해 빵을 만드셨어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-477-1780068314521",
+        "term": "ngốc",
+        "definition": "Silly or foolish.",
+        "meaningKr": "어리석은, 바보 같은",
+        "exampleEn": "Bạn đừng nói chuyện ngốc thế.",
+        "exampleKr": "그런 바보 같은 소리 하지 마.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-478-1780068314521",
+        "term": "án",
+        "definition": "A legal judgment or sentence.",
+        "meaningKr": "판결, 선고",
+        "exampleEn": "Tòa án đã tuyên án tử hình.",
+        "exampleKr": "법원은 사형을 선고했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-479-1780068314521",
+        "term": "đám",
+        "definition": "A classifier for groups of people or things.",
+        "meaningKr": "무리, 떼",
+        "exampleEn": "Có một đám mây trên trời.",
+        "exampleKr": "하늘에 구름 한 무리가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-vi-480-1780068314521",
+        "term": "tham",
+        "definition": "To desire something greedily.",
+        "meaningKr": "탐내다, 욕심내다",
+        "exampleEn": "Anh ta tham lam tiền bạc.",
+        "exampleKr": "그는 돈을 탐냅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-481-1780068314521",
+        "term": "tức",
+        "definition": "Angry or annoyed.",
+        "meaningKr": "화난, 격분한",
+        "exampleEn": "Cô ấy tức giận vì điều đó.",
+        "exampleKr": "그녀는 그것 때문에 화가 났어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-482-1780068314521",
+        "term": "văn",
+        "definition": "Literature or writing.",
+        "meaningKr": "문학, 글",
+        "exampleEn": "Tôi thích đọc văn học Việt Nam.",
+        "exampleKr": "저는 베트남 문학 읽는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-483-1780068314521",
+        "term": "mong",
+        "definition": "To hope or wish for something.",
+        "meaningKr": "바라다, 희망하다",
+        "exampleEn": "Tôi mong bạn sớm khỏe lại.",
+        "exampleKr": "저는 당신이 빨리 낫기를 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-484-1780068314521",
+        "term": "già",
+        "definition": "Old (for people or things).",
+        "meaningKr": "늙은, 오래된",
+        "exampleEn": "Ông tôi đã rất già.",
+        "exampleKr": "우리 할아버지는 매우 늙으셨어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-485-1780068314521",
+        "term": "nghiệp",
+        "definition": "Karma or destiny, often in a Buddhist context.",
+        "meaningKr": "업보, 운명",
+        "exampleEn": "Đó là nghiệp của anh ta.",
+        "exampleKr": "그것은 그의 업보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-486-1780068314521",
+        "term": "thuyền",
+        "definition": "A boat or ship.",
+        "meaningKr": "배, 보트",
+        "exampleEn": "Chúng tôi đi thuyền trên sông.",
+        "exampleKr": "우리는 강에서 보트를 탔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-487-1780068314521",
+        "term": "bí",
+        "definition": "Secret or mysterious.",
+        "meaningKr": "비밀의, 신비로운",
+        "exampleEn": "Câu chuyện này thật bí ẩn.",
+        "exampleKr": "이 이야기는 정말 신비롭습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-488-1780068314521",
+        "term": "trang",
+        "definition": "A page (in a book or document).",
+        "meaningKr": "페이지, 장",
+        "exampleEn": "Xin hãy lật sang trang kế.",
+        "exampleKr": "다음 페이지로 넘겨주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-489-1780068314521",
+        "term": "nè",
+        "definition": "A particle used at the end of a sentence to draw attention.",
+        "meaningKr": "이봐, 저기 (주의 환기)",
+        "exampleEn": "Nhìn kìa, có con chim kìa!",
+        "exampleKr": "저기 봐, 새가 있어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "particle"
+      },
+      {
+        "id": "word-vi-490-1780068314521",
+        "term": "lũ",
+        "definition": "Flood or a large group of people/animals.",
+        "meaningKr": "홍수, 떼",
+        "exampleEn": "Trận lũ lụt rất lớn.",
+        "exampleKr": "홍수 피해가 매우 컸어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-491-1780068314521",
+        "term": "hồi",
+        "definition": "A period of time or an era.",
+        "meaningKr": "시대, 시절",
+        "exampleEn": "Tôi nhớ hồi còn bé.",
+        "exampleKr": "저는 어렸을 때를 기억해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-492-1780068314521",
+        "term": "độc",
+        "definition": "Poisonous or toxic.",
+        "meaningKr": "독이 있는, 유독한",
+        "exampleEn": "Rắn này rất độc.",
+        "exampleKr": "이 뱀은 매우 독이 강해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-493-1780068314521",
+        "term": "hạnh",
+        "definition": "Virtue, good conduct, or happiness.",
+        "meaningKr": "덕행, 행복",
+        "exampleEn": "Cô ấy sống rất hạnh phúc.",
+        "exampleKr": "그녀는 매우 행복하게 살아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      },
+      {
+        "id": "word-vi-494-1780068314521",
+        "term": "khỏe",
+        "definition": "Healthy and strong.",
+        "meaningKr": "건강한",
+        "exampleEn": "Chúc bạn luôn khỏe mạnh.",
+        "exampleKr": "당신이 항상 건강하길 바라요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-vi-495-1780068314521",
+        "term": "hẹn",
+        "definition": "To make an appointment or arrange a time to meet.",
+        "meaningKr": "약속하다",
+        "exampleEn": "Chúng ta hẹn gặp lại nhé.",
+        "exampleKr": "우리 다시 만나기로 약속해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-496-1780068314521",
+        "term": "gửi",
+        "definition": "To send or mail something.",
+        "meaningKr": "보내다, 부치다",
+        "exampleEn": "Tôi muốn gửi thư này.",
+        "exampleKr": "저는 이 편지를 보내고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-497-1780068314521",
+        "term": "đùa",
+        "definition": "To joke or tease someone.",
+        "meaningKr": "농담하다, 장난치다",
+        "exampleEn": "Đừng đùa với tôi nữa.",
+        "exampleKr": "더 이상 나랑 장난치지 마.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "verb"
+      },
+      {
+        "id": "word-vi-498-1780068314521",
+        "term": "trừ",
+        "definition": "Except for or minus.",
+        "meaningKr": "제외하고, 빼다",
+        "exampleEn": "Ai cũng đi trừ Lan.",
+        "exampleKr": "란을 제외하고 모두 갔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-vi-499-1780068314521",
+        "term": "cáo",
+        "definition": "A fox.",
+        "meaningKr": "여우",
+        "exampleEn": "Con cáo chạy rất nhanh.",
+        "exampleKr": "여우가 매우 빨리 달려요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Vietnamese",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-ko-basic-1",
     "title": "Basic Korean 500 (for English speakers)",
     "icon": "🇰🇷",

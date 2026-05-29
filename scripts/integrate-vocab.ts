@@ -18,13 +18,14 @@ interface TranslatedEntry {
   rank: number;
   term: string;
   definition?: string;
-  phonetic?: string;   // EN: IPA. JP: hiragana reading. ZH: pinyin (from `reading`)
+  phonetic?: string;   // EN: IPA. JP: hiragana reading. ZH: pinyin (from `reading`). VI: empty (정자법 내장)
   reading?: string;    // JP/ZH only
   pos: string;
   meaningKr?: string;
-  exampleEn?: string;  // EN: English example. JP/ZH: filled from exampleJa/exampleZh
+  exampleEn?: string;  // EN: English example. JP/ZH/VI: filled from exampleJa/exampleZh/exampleVi
   exampleJa?: string;  // JP only
   exampleZh?: string;  // ZH only
+  exampleVi?: string;  // VI only
   exampleKr?: string;
   // KO (ko→en, 방향 반대): meaning/example이 영어가 target
   meaningEn?: string;  // KO: 영어 뜻 → meaningKr 슬롯
@@ -105,6 +106,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  vi: {
+    id: 'curated-vi-basic-1',
+    title: '기초 베트남어 500',
+    icon: '🇻🇳',
+    category: '기초',
+    level: 'beginner',
+    description: '일상 베트남어 기초 500. OpenSubtitles 빈도 리스트 (FrequencyWords, CC BY-SA 4.0) 기반, 품사·정의·한국어 뜻·예문 AI 생성',
+    tags: ['Vietnamese', 'Daily', 'Foundation'],
+    sourceLanguage: 'vi',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];
@@ -141,7 +153,7 @@ function main() {
     : items.map(w => ({
         ...w,
         phonetic: w.phonetic ?? w.reading ?? '',
-        exampleEn: w.exampleEn ?? w.exampleJa ?? w.exampleZh ?? '',
+        exampleEn: w.exampleEn ?? w.exampleJa ?? w.exampleZh ?? w.exampleVi ?? '',
       }));
 
   const missing = normalized.filter(w => !w.meaningKr || !w.exampleEn);

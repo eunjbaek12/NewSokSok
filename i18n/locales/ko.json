@@ -1215,6 +1215,7 @@
     "ko": "한국어",
     "ja": "일본어",
     "zh": "중국어",
+    "vi": "베트남어",
     "meaningLabel": "{{lang}} 뜻",
     "definitionLabel": "{{lang}} 정의",
     "translationLabel": "{{lang}} 해석",
@@ -1222,7 +1223,8 @@
       "en": "Enter a word",
       "ko": "단어를 입력하세요",
       "ja": "単語を入力",
-      "zh": "输入单词"
+      "zh": "输入单词",
+      "vi": "Nhập từ"
     }
   },
   "time": {

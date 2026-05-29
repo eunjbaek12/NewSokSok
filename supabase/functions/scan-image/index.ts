@@ -19,7 +19,7 @@ import { checkRateLimit } from '../_shared/rate-limit.ts';
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 
-const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh']);
+const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi']);
 const EXTRACT_COST = 5;
 // base64 길이 상한 (대략 7MB 원본 이미지 ≈ 9.4MB base64). 과대 페이로드 차단.
 const MAX_IMAGE_CHARS = 10_000_000;

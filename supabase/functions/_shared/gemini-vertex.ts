@@ -11,7 +11,7 @@ import { getVertexAccessToken } from './vertex-auth.ts';
 const DEFAULT_MODEL = 'gemini-2.5-flash-lite';
 
 const LANG_NAME: Record<string, string> = {
-  en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese',
+  en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese',
 };
 
 export interface AnalyzedWord {
@@ -144,7 +144,7 @@ interface VertexResponse {
 // ────────────────────────────────────────────────────────────
 
 const LANG_LABEL_KO: Record<string, string> = {
-  en: '영어', ko: '한국어', ja: '일본어', zh: '중국어',
+  en: '영어', ko: '한국어', ja: '일본어', zh: '중국어', vi: '베트남어',
 };
 
 const DIFFICULTY_PROMPT: Record<string, string> = {
@@ -158,6 +158,7 @@ const PHONETIC_INSTRUCTION: Record<string, string> = {
   ko: '비워두기 (한글 자체가 발음 표기)',
   ja: '후리가나 (예: ありがとう)',
   zh: '병음 (성조 포함, 예: nǐ hǎo)',
+  vi: '비워두기 (베트남어 정자법에 성조·발음이 포함됨)',
 };
 
 function buildGeneratePrompt(
@@ -196,7 +197,7 @@ function buildGeneratePrompt(
 // 의미·예문 보강은 추출 후 enrich-word로 단어별 처리(클라이언트 큐).
 // ────────────────────────────────────────────────────────────
 const LANG_NAMES_EN: Record<string, string> = {
-  en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese',
+  en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese',
 };
 
 export async function extractWordsFromImage(

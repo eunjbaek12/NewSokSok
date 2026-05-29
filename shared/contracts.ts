@@ -37,7 +37,7 @@ export type AuthState = z.infer<typeof AuthStateSchema>;
 // Settings (AsyncStorage keys)
 // ============================================================================
 
-export const LanguageCodeSchema = z.enum(['en', 'ko', 'ja', 'zh']);
+export const LanguageCodeSchema = z.enum(['en', 'ko', 'ja', 'zh', 'vi']);
 export type LanguageCode = z.infer<typeof LanguageCodeSchema>;
 
 const FIELD_ORDER_KEYS = ['term', 'meaningKr', 'pos', 'phonetic', 'definition', 'example', 'tags'] as const;

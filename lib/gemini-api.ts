@@ -6,6 +6,7 @@ const LANG_NAMES: Record<string, string> = {
     ko: 'Korean',
     ja: 'Japanese',
     zh: 'Chinese',
+    vi: 'Vietnamese',
 };
 
 const scanEdgeErrorMessage = (kind: string): string => {

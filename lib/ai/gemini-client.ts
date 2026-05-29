@@ -50,7 +50,7 @@ async function withRetry<T>(fn: () => Promise<T>, retries = 2, baseDelayMs = 600
 
 function getFullLanguageName(code: string): string {
   const map: Record<string, string> = {
-    en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese',
+    en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese',
   };
   return map[code] || code;
 }

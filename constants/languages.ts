@@ -3,6 +3,7 @@ export const SUPPORTED_LANGUAGES = [
   { code: 'ko', flag: '🇰🇷' },
   { code: 'ja', flag: '🇯🇵' },
   { code: 'zh', flag: '🇨🇳' },
+  { code: 'vi', flag: '🇻🇳' },
 ] as const;
 
 export type LanguageCode = typeof SUPPORTED_LANGUAGES[number]['code'];
@@ -17,6 +18,7 @@ const TTS_LANG: Record<string, string> = {
   ko: 'ko-KR',
   ja: 'ja-JP',
   zh: 'zh-CN',
+  vi: 'vi-VN',
 };
 
 /**

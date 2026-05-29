@@ -43,7 +43,20 @@ const ZH = new Set<string>([
   '把', '被', '让', '从', '对', '向', '为', '与', '及', '或', '但', '而',
 ]);
 
-const STOPWORDS_BY_LANG: Record<string, Set<string>> = { en: EN, ko: KO, ja: JA, zh: ZH };
+const VI = new Set<string>([
+  'là', 'có', 'không', 'của', 'và', 'với', 'cho', 'về', 'để', 'từ', 'đến',
+  'ở', 'tại', 'trong', 'ngoài', 'trên', 'dưới', 'sau', 'trước', 'giữa',
+  'đã', 'đang', 'sẽ', 'rồi', 'được', 'bị', 'phải', 'cần',
+  'mà', 'thì', 'nên', 'nếu', 'khi', 'vì', 'hoặc', 'hay', 'nhưng', 'tuy',
+  'này', 'đó', 'kia', 'ấy', 'đây', 'đấy', 'nào', 'gì', 'sao', 'đâu', 'ai',
+  'tôi', 'bạn', 'anh', 'chị', 'em', 'ông', 'bà', 'họ', 'chúng', 'mình', 'nó', 'ta',
+  'chúng tôi', 'chúng ta', 'các bạn',
+  'cái', 'con', 'chiếc', 'người', 'một', 'hai', 'các', 'những', 'mọi', 'mỗi',
+  'rất', 'quá', 'lắm', 'cũng', 'vẫn', 'chỉ', 'đều', 'thế', 'vậy', 'nhiều', 'ít',
+  'nhé', 'ạ', 'à', 'ơi', 'nhỉ', 'thôi',
+]);
+
+const STOPWORDS_BY_LANG: Record<string, Set<string>> = { en: EN, ko: KO, ja: JA, zh: ZH, vi: VI };
 
 export function isStopword(word: string, lang: string): boolean {
   const set = STOPWORDS_BY_LANG[lang];

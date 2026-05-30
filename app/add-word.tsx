@@ -673,7 +673,13 @@ export default function AddWordScreen() {
             },
             (reason) => {
                 if (reason === 'duplicate') {
-                    Alert.alert(t('addWord.duplicateWord'), t('addWord.duplicateWordMessage', { term: term.trim() }));
+                    Alert.alert(
+                        t('addWord.duplicateWord'),
+                        t('addWord.duplicateWordMessage', {
+                            term: term.trim(),
+                            lang: getLanguageLabel(inputSettings.targetLang, t),
+                        }),
+                    );
                 } else {
                     handleOpenListPicker();
                 }

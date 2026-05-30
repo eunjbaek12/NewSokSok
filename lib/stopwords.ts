@@ -56,7 +56,30 @@ const VI = new Set<string>([
   'nhé', 'ạ', 'à', 'ơi', 'nhỉ', 'thôi',
 ]);
 
-const STOPWORDS_BY_LANG: Record<string, Set<string>> = { en: EN, ko: KO, ja: JA, zh: ZH, vi: VI };
+const ES = new Set<string>([
+  'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'lo', 'al', 'del',
+  'de', 'a', 'en', 'con', 'por', 'para', 'sin', 'sobre', 'entre', 'hacia',
+  'hasta', 'desde', 'contra', 'durante', 'según', 'tras',
+  'y', 'e', 'o', 'u', 'ni', 'pero', 'sino', 'aunque', 'porque', 'pues',
+  'si', 'como', 'que', 'cuando', 'mientras',
+  'yo', 'tú', 'él', 'ella', 'usted', 'nosotros', 'vosotros', 'ellos', 'ellas',
+  'me', 'te', 'se', 'nos', 'os', 'le', 'les', 'mi', 'tu', 'su',
+  'mío', 'tuyo', 'suyo', 'nuestro', 'vuestro',
+  'ser', 'soy', 'eres', 'es', 'somos', 'sois', 'son', 'era', 'eras', 'éramos',
+  'fui', 'fue', 'fueron', 'sea', 'sido', 'siendo',
+  'estar', 'está', 'están', 'estoy', 'estás', 'estamos', 'estaba', 'estuvo',
+  'haber', 'he', 'has', 'ha', 'hemos', 'han', 'había', 'hay',
+  'muy', 'más', 'menos', 'también', 'tampoco', 'ya', 'aún', 'todavía',
+  'no', 'sí', 'así', 'bien', 'mal', 'sólo', 'solo', 'casi', 'tan', 'tanto',
+  'este', 'esta', 'estos', 'estas', 'ese', 'esa', 'esos', 'esas',
+  'aquel', 'aquella', 'aquellos', 'aquellas', 'esto', 'eso', 'aquello',
+  'qué', 'quién', 'quiénes', 'cómo', 'dónde', 'cuándo', 'cuánto', 'cuál',
+  'todo', 'todos', 'toda', 'todas', 'algo', 'alguien', 'alguno', 'algunos',
+  'nada', 'nadie', 'ninguno', 'cada', 'otro', 'otra', 'otros', 'otras',
+  'mismo', 'misma', 'mismos', 'mismas',
+]);
+
+const STOPWORDS_BY_LANG: Record<string, Set<string>> = { en: EN, ko: KO, ja: JA, zh: ZH, vi: VI, es: ES };
 
 export function isStopword(word: string, lang: string): boolean {
   const set = STOPWORDS_BY_LANG[lang];

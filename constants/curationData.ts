@@ -2,6 +2,8521 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-ko-intermediate-1",
+    "title": "Intermediate Korean 500 (for English speakers)",
+    "icon": "🇰🇷",
+    "isCurated": true,
+    "category": "중급",
+    "level": "intermediate",
+    "description": "Intermediate Korean 500 for English speakers (TOPIK II 3-4). NIKL grade B from Wiktionary \"Basic Korean Vocabulary List\" (CC BY-SA 4.0); English meanings & TOPIK 3-4 examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1780143451237,
+    "words": [
+      {
+        "id": "word-ko-intermediate-0-1780143451237",
+        "term": "대하다",
+        "definition": "to face, to treat, to be about",
+        "meaningKr": "to face, to treat, to be about",
+        "exampleEn": "그는 항상 사람들을 친절하게 대하려고 노력해요.",
+        "exampleKr": "He always tries to treat people kindly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "daehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-1-1780143451237",
+        "term": "위하다",
+        "definition": "to do for, to be for the sake of",
+        "meaningKr": "to do for, to be for the sake of",
+        "exampleEn": "건강을 위해서는 규칙적인 운동과 좋은 식단이 중요합니다.",
+        "exampleKr": "For your health, regular exercise and a good diet are important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "wihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-2-1780143451237",
+        "term": "사회",
+        "definition": "society",
+        "meaningKr": "society",
+        "exampleEn": "우리는 더 나은 사회를 만들기 위해 함께 노력해야 합니다.",
+        "exampleKr": "We must work together to create a better society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sahoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-3-1780143451237",
+        "term": "따르다",
+        "definition": "to follow, to obey, to comply with",
+        "meaningKr": "to follow, to obey, to comply with",
+        "exampleEn": "규칙을 따르는 것이 중요하지만, 때로는 변화가 필요할 수도 있어요.",
+        "exampleKr": "It's important to follow the rules, but sometimes change might be needed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ttareuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-4-1780143451237",
+        "term": "경우",
+        "definition": "case, instance, situation",
+        "meaningKr": "case, instance, situation",
+        "exampleEn": "비가 오는 경우에는 실내에서 활동하는 것이 더 좋습니다.",
+        "exampleKr": "In case it rains, it's better to do activities indoors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeongu",
+        "pos": "dependent noun"
+      },
+      {
+        "id": "word-ko-intermediate-5-1780143451237",
+        "term": "자신",
+        "definition": "oneself, self, confidence",
+        "meaningKr": "oneself, self, confidence",
+        "exampleEn": "그는 항상 자신감을 가지고 새로운 도전에 임합니다.",
+        "exampleKr": "He always approaches new challenges with confidence.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jasin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-6-1780143451237",
+        "term": "문화",
+        "definition": "culture",
+        "meaningKr": "culture",
+        "exampleEn": "다른 나라의 문화를 이해하는 것은 매우 흥미로운 일입니다.",
+        "exampleKr": "Understanding the culture of other countries is a very interesting thing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "munhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-7-1780143451237",
+        "term": "통하다",
+        "definition": "to go through, to be understood, to communicate",
+        "meaningKr": "to go through, to be understood, to communicate",
+        "exampleEn": "우리는 대화를 통해 서로의 의견을 이해하고 소통할 수 있어요.",
+        "exampleKr": "We can understand each other's opinions and communicate through dialogue.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-8-1780143451237",
+        "term": "소리",
+        "definition": "sound, noise, voice",
+        "meaningKr": "sound, noise, voice",
+        "exampleEn": "밤늦게까지 시끄러운 소리가 들려서 잠을 잘 수 없었어요.",
+        "exampleKr": "I couldn't sleep because of the loud noise until late at night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-9-1780143451237",
+        "term": "정도",
+        "definition": "degree, extent, about",
+        "meaningKr": "degree, extent, about",
+        "exampleEn": "그 영화는 너무 감동적이어서 눈물이 날 정도였어요.",
+        "exampleKr": "That movie was so touching that it made me cry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeongdo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-10-1780143451237",
+        "term": "보이다",
+        "definition": "to be seen, to show, to appear",
+        "meaningKr": "to be seen, to show, to appear",
+        "exampleEn": "저 멀리 산 위에 아름다운 노을이 보입니다.",
+        "exampleKr": "A beautiful sunset can be seen far away on the mountain.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "boida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-11-1780143451237",
+        "term": "지나다",
+        "definition": "to pass, to go by, to elapse",
+        "meaningKr": "to pass, to go by, to elapse",
+        "exampleEn": "시간이 너무 빨리 지나서 벌써 한 해가 다 갔네요.",
+        "exampleKr": "Time passes so quickly that a whole year has already gone by.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jinada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-12-1780143451237",
+        "term": "인간",
+        "definition": "human, humanity",
+        "meaningKr": "human, humanity",
+        "exampleEn": "인간은 사회적 동물이며 다른 사람들과의 관계를 중요하게 생각합니다.",
+        "exampleKr": "Humans are social animals and value relationships with others.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ingan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-13-1780143451237",
+        "term": "사실",
+        "definition": "fact, truth",
+        "meaningKr": "fact, truth",
+        "exampleEn": "사실대로 말하자면, 저는 그 소식을 듣고 정말 놀랐습니다.",
+        "exampleKr": "To tell the truth, I was really surprised to hear that news.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sasil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-14-1780143451237",
+        "term": "점",
+        "definition": "point, aspect, dot",
+        "meaningKr": "point, aspect, dot",
+        "exampleEn": "이 보고서는 여러 가지 점에서 개선이 필요합니다.",
+        "exampleKr": "This report needs improvement in several aspects.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-15-1780143451237",
+        "term": "의하다",
+        "definition": "to be based on, to be due to, to depend on",
+        "meaningKr": "to be based on, to be due to, to depend on",
+        "exampleEn": "이 결과는 정확한 데이터에 의하여 분석된 것입니다.",
+        "exampleKr": "This result was analyzed based on accurate data.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "uihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-16-1780143451237",
+        "term": "시대",
+        "definition": "era, period, age",
+        "meaningKr": "era, period, age",
+        "exampleEn": "현대 시대에는 기술 발전이 매우 빠르게 이루어지고 있습니다.",
+        "exampleKr": "In the modern era, technological development is happening very rapidly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sidae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-17-1780143451237",
+        "term": "이러하다",
+        "definition": "to be like this, to be such",
+        "meaningKr": "to be like this, to be such",
+        "exampleEn": "상황이 이러하니, 우리는 새로운 계획을 세워야 합니다.",
+        "exampleKr": "Since the situation is like this, we need to make a new plan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ireohada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-18-1780143451237",
+        "term": "세계",
+        "definition": "world",
+        "meaningKr": "world",
+        "exampleEn": "세계 여러 나라의 음식 문화를 경험하는 것은 즐거운 일입니다.",
+        "exampleKr": "Experiencing the food cultures of various countries around the world is enjoyable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "segye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-19-1780143451237",
+        "term": "자기",
+        "definition": "self, oneself",
+        "meaningKr": "self, oneself",
+        "exampleEn": "그는 자기 일은 스스로 알아서 잘 처리하는 편이에요.",
+        "exampleKr": "He tends to handle his own affairs well by himself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jagi",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-intermediate-20-1780143451237",
+        "term": "대통령",
+        "definition": "president",
+        "meaningKr": "president",
+        "exampleEn": "새로운 대통령은 경제 발전을 위한 정책을 발표했습니다.",
+        "exampleKr": "The new president announced policies for economic development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "daetongnyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-21-1780143451237",
+        "term": "국가",
+        "definition": "nation, country, state",
+        "meaningKr": "nation, country, state",
+        "exampleEn": "모든 국가는 평화와 번영을 위해 협력해야 합니다.",
+        "exampleKr": "All nations must cooperate for peace and prosperity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gukga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-22-1780143451237",
+        "term": "여성",
+        "definition": "woman, female",
+        "meaningKr": "woman, female",
+        "exampleEn": "현대 사회에서는 여성의 역할이 더욱 중요해지고 있습니다.",
+        "exampleKr": "In modern society, the role of women is becoming even more important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yeoseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-23-1780143451237",
+        "term": "관계",
+        "definition": "relationship, connection, relation",
+        "meaningKr": "relationship, connection, relation",
+        "exampleEn": "좋은 인간 관계를 유지하는 것은 행복한 삶에 중요합니다.",
+        "exampleKr": "Maintaining good human relationships is important for a happy life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwangye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-24-1780143451237",
+        "term": "나타나다",
+        "definition": "to appear, to emerge, to show up",
+        "meaningKr": "to appear, to emerge, to show up",
+        "exampleEn": "갑자기 무대 위에 유명한 가수가 나타나서 모두 놀랐습니다.",
+        "exampleKr": "A famous singer suddenly appeared on stage, surprising everyone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "natanada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-25-1780143451237",
+        "term": "지역",
+        "definition": "region, area, district",
+        "meaningKr": "region, area, district",
+        "exampleEn": "이 지역은 관광객들에게 인기가 많아요.",
+        "exampleKr": "This region is very popular with tourists.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jiyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-26-1780143451237",
+        "term": "모습",
+        "definition": "appearance, shape, form, look",
+        "meaningKr": "appearance, shape, form, look",
+        "exampleEn": "그의 행복한 모습에 저도 기분이 좋아졌어요.",
+        "exampleKr": "His happy appearance made me feel good too.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "moseup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-27-1780143451237",
+        "term": "없이",
+        "definition": "without",
+        "meaningKr": "without",
+        "exampleEn": "그는 아무 말 없이 나를 쳐다보았다.",
+        "exampleKr": "He looked at me without saying anything.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eopsi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-28-1780143451237",
+        "term": "방법",
+        "definition": "method, way, means",
+        "meaningKr": "method, way, means",
+        "exampleEn": "한국어를 빨리 배우는 좋은 방법이 있을까요?",
+        "exampleKr": "Is there a good way to learn Korean quickly?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bangbeop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-29-1780143451237",
+        "term": "갖다",
+        "definition": "to have, to possess, to hold, to take",
+        "meaningKr": "to have, to possess, to hold, to take",
+        "exampleEn": "중요한 서류는 항상 잘 갖고 다녀야 해요.",
+        "exampleKr": "You should always carry important documents with you.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gatda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-30-1780143451237",
+        "term": "특히",
+        "definition": "especially, particularly",
+        "meaningKr": "especially, particularly",
+        "exampleEn": "저는 과일을 좋아하지만, 특히 수박을 제일 좋아해요.",
+        "exampleKr": "I like fruit, but I especially like watermelon the most.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "teukhi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-31-1780143451237",
+        "term": "이상",
+        "definition": "more than, above; ideal",
+        "meaningKr": "more than, above; ideal",
+        "exampleEn": "이 보고서는 10페이지 이상이어야 합니다.",
+        "exampleKr": "This report must be more than 10 pages.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "isang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-32-1780143451237",
+        "term": "교육",
+        "definition": "education, training",
+        "meaningKr": "education, training",
+        "exampleEn": "한국은 교육열이 아주 높은 나라로 알려져 있어요.",
+        "exampleKr": "Korea is known as a country with a very high passion for education.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyoyuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-33-1780143451237",
+        "term": "경제",
+        "definition": "economy",
+        "meaningKr": "economy",
+        "exampleEn": "최근 세계 경제 상황이 좋지 않아서 걱정이에요.",
+        "exampleKr": "I'm worried because the global economic situation hasn't been good recently.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeongje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-34-1780143451237",
+        "term": "예술",
+        "definition": "art",
+        "meaningKr": "art",
+        "exampleEn": "이 도시는 다양한 예술 작품을 볼 수 있는 곳이에요.",
+        "exampleKr": "This city is a place where you can see various works of art.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yesul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-35-1780143451237",
+        "term": "결과",
+        "definition": "result, outcome, consequence",
+        "meaningKr": "result, outcome, consequence",
+        "exampleEn": "시험 결과가 곧 나올 예정이라서 너무 긴장돼요.",
+        "exampleKr": "I'm so nervous because the test results will be out soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeolgwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-36-1780143451237",
+        "term": "내용",
+        "definition": "content, substance, details",
+        "meaningKr": "content, substance, details",
+        "exampleEn": "이 책의 내용은 조금 어렵지만 매우 유익해요.",
+        "exampleKr": "The content of this book is a bit difficult, but very useful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "naeyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-37-1780143451237",
+        "term": "당신",
+        "definition": "you (formal)",
+        "meaningKr": "you (formal)",
+        "exampleEn": "당신의 의견을 듣고 싶습니다.",
+        "exampleKr": "I would like to hear your opinion.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dangsin",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-intermediate-38-1780143451237",
+        "term": "느끼다",
+        "definition": "to feel, to sense, to experience",
+        "meaningKr": "to feel, to sense, to experience",
+        "exampleEn": "저는 어제 밤에 지진을 느꼈어요.",
+        "exampleKr": "I felt an earthquake last night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neukkida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-39-1780143451237",
+        "term": "의미",
+        "definition": "meaning, significance, sense",
+        "meaningKr": "meaning, significance, sense",
+        "exampleEn": "이 단어의 정확한 의미가 무엇인가요?",
+        "exampleKr": "What is the exact meaning of this word?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "uimi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-40-1780143451237",
+        "term": "밝히다",
+        "definition": "to reveal, to disclose, to make clear; to light up",
+        "meaningKr": "to reveal, to disclose, to make clear; to light up",
+        "exampleEn": "경찰은 사건의 진실을 밝히기 위해 노력하고 있어요.",
+        "exampleKr": "The police are trying to reveal the truth of the incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "balkida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-41-1780143451237",
+        "term": "이미",
+        "definition": "already",
+        "meaningKr": "already",
+        "exampleEn": "기차는 이미 출발해서 다음 기차를 타야 해요.",
+        "exampleKr": "The train has already departed, so I have to take the next one.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "imi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-42-1780143451237",
+        "term": "정치",
+        "definition": "politics, government",
+        "meaningKr": "politics, government",
+        "exampleEn": "많은 사람들이 정치에 관심을 갖고 투표에 참여해요.",
+        "exampleKr": "Many people are interested in politics and participate in voting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeongchi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-43-1780143451237",
+        "term": "국민",
+        "definition": "people, nation, citizen",
+        "meaningKr": "people, nation, citizen",
+        "exampleEn": "모든 국민은 법 앞에 평등합니다.",
+        "exampleKr": "All citizens are equal before the law.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gungmin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-44-1780143451237",
+        "term": "연구",
+        "definition": "research, study",
+        "meaningKr": "research, study",
+        "exampleEn": "새로운 암 치료법 개발을 위한 연구가 진행 중입니다.",
+        "exampleKr": "Research for developing a new cancer treatment is underway.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yeongu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-45-1780143451237",
+        "term": "및",
+        "definition": "and, as well as",
+        "meaningKr": "and, as well as",
+        "exampleEn": "회의에는 사장님 및 모든 부서장이 참석했습니다.",
+        "exampleKr": "The president and all department heads attended the meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mit",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-46-1780143451237",
+        "term": "짓다",
+        "definition": "to build, to make, to compose",
+        "meaningKr": "to build, to make, to compose",
+        "exampleEn": "우리는 새 집을 짓기 위해 계획을 세우고 있어요.",
+        "exampleKr": "We are making plans to build a new house.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jitda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-47-1780143451237",
+        "term": "또한",
+        "definition": "also, in addition, moreover",
+        "meaningKr": "also, in addition, moreover",
+        "exampleEn": "이 식당은 음식이 맛있고, 또한 분위기도 좋아요.",
+        "exampleKr": "This restaurant has delicious food, and the atmosphere is also good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ttohan",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-48-1780143451237",
+        "term": "이유",
+        "definition": "reason, cause, ground",
+        "meaningKr": "reason, cause, ground",
+        "exampleEn": "그가 왜 회사를 그만두었는지 정확한 이유를 몰라요.",
+        "exampleKr": "I don't know the exact reason why he quit the company.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "iyu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-49-1780143451237",
+        "term": "또는",
+        "definition": "or",
+        "meaningKr": "or",
+        "exampleEn": "커피 또는 차 중에서 무엇을 마시겠어요?",
+        "exampleKr": "What would you like to drink, coffee or tea?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ttoneun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-50-1780143451237",
+        "term": "글",
+        "definition": "writing, text, article",
+        "meaningKr": "writing, text, article",
+        "exampleEn": "이 책에 있는 글들은 모두 흥미롭고 유익합니다.",
+        "exampleKr": "All the writings in this book are interesting and beneficial.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-51-1780143451237",
+        "term": "세상",
+        "definition": "world, society",
+        "meaningKr": "world, society",
+        "exampleEn": "세상은 빠르게 변하고 있어서 항상 새로운 것을 배워야 해요.",
+        "exampleKr": "The world is changing rapidly, so we always have to learn new things.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sesang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-52-1780143451237",
+        "term": "두다",
+        "definition": "to put, to place, to leave",
+        "meaningKr": "to put, to place, to leave",
+        "exampleEn": "가방을 여기에 두세요. 제가 나중에 가져갈게요.",
+        "exampleKr": "Please put your bag here. I will take it later.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "duda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-53-1780143451237",
+        "term": "즉",
+        "definition": "namely, in other words, that is",
+        "meaningKr": "namely, in other words, that is",
+        "exampleEn": "그는 저의 삼촌, 즉 어머니의 남동생입니다.",
+        "exampleKr": "He is my uncle, in other words, my mother's younger brother.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeuk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-54-1780143451237",
+        "term": "이후",
+        "definition": "after, since",
+        "meaningKr": "after, since",
+        "exampleEn": "졸업 이후로 바빠서 친구들을 자주 만나지 못했어요.",
+        "exampleKr": "Since graduation, I've been busy and haven't been able to meet my friends often.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ihu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-55-1780143451237",
+        "term": "문학",
+        "definition": "literature",
+        "meaningKr": "literature",
+        "exampleEn": "저는 한국 문학을 좋아해서 고전 소설을 많이 읽습니다.",
+        "exampleKr": "I like Korean literature, so I read a lot of classic novels.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "munhak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-56-1780143451237",
+        "term": "지방",
+        "definition": "region, province, local area",
+        "meaningKr": "region, province, local area",
+        "exampleEn": "이번 휴가 때는 서울 말고 다른 지방으로 여행을 가고 싶어요.",
+        "exampleKr": "For this vacation, I want to travel to a different region, not Seoul.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jibang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-57-1780143451237",
+        "term": "최근",
+        "definition": "recently, latest, current",
+        "meaningKr": "recently, latest, current",
+        "exampleEn": "최근에 읽은 책 중에 가장 인상 깊었던 것은 무엇인가요?",
+        "exampleKr": "What was the most impressive book you've read recently?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "choegeun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-58-1780143451237",
+        "term": "환경",
+        "definition": "environment, surroundings",
+        "meaningKr": "environment, surroundings",
+        "exampleEn": "우리는 깨끗한 환경을 위해 플라스틱 사용을 줄여야 합니다.",
+        "exampleKr": "We need to reduce plastic use for a clean environment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hwangyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-59-1780143451237",
+        "term": "자체",
+        "definition": "oneself, itself, inherent",
+        "meaningKr": "oneself, itself, inherent",
+        "exampleEn": "그 문제는 해결 자체보다 과정이 더 중요하다고 생각해요.",
+        "exampleKr": "I think the process is more important than the solution itself for that problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jache",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-60-1780143451237",
+        "term": "남다",
+        "definition": "to remain, to be left over",
+        "meaningKr": "to remain, to be left over",
+        "exampleEn": "음식이 너무 많아서 반 이상이 남았어요.",
+        "exampleKr": "There was so much food that more than half was left over.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "namda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-61-1780143451237",
+        "term": "부분",
+        "definition": "part, section, portion",
+        "meaningKr": "part, section, portion",
+        "exampleEn": "이 책의 어려운 부분은 선생님께 질문해서 이해했어요.",
+        "exampleKr": "I understood the difficult part of this book by asking the teacher.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bubun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-62-1780143451237",
+        "term": "변화",
+        "definition": "change, transformation",
+        "meaningKr": "change, transformation",
+        "exampleEn": "기후 변화는 전 세계적으로 심각한 문제로 인식되고 있습니다.",
+        "exampleKr": "Climate change is recognized as a serious problem worldwide.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "byeonhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-63-1780143451237",
+        "term": "뜻",
+        "definition": "meaning, intention, will",
+        "meaningKr": "meaning, intention, will",
+        "exampleEn": "이 단어의 정확한 뜻을 모르겠어서 사전을 찾아봤어요.",
+        "exampleKr": "I didn't know the exact meaning of this word, so I looked it up in the dictionary.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tteut",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-64-1780143451237",
+        "term": "떨어지다",
+        "definition": "to fall, to drop, to run out",
+        "meaningKr": "to fall, to drop, to run out",
+        "exampleEn": "휴대폰을 바닥에 떨어뜨렸는데 다행히 고장 나지 않았어요.",
+        "exampleKr": "I dropped my phone on the floor, but luckily it didn't break.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tteoreojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-65-1780143451237",
+        "term": "관하다",
+        "definition": "to be about, to concern, to relate to",
+        "meaningKr": "to be about, to concern, to relate to",
+        "exampleEn": "이 보고서는 한국 경제 성장에 관한 중요한 정보를 담고 있습니다.",
+        "exampleKr": "This report contains important information regarding Korea's economic growth.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwanhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-66-1780143451237",
+        "term": "그냥",
+        "definition": "just, simply, without any particular reason",
+        "meaningKr": "just, simply, without any particular reason",
+        "exampleEn": "특별한 이유 없이 그냥 산책하고 싶어서 나왔어요.",
+        "exampleKr": "I came out just because I wanted to take a walk, without any special reason.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geunyang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-67-1780143451237",
+        "term": "나누다",
+        "definition": "to divide, to share, to converse",
+        "meaningKr": "to divide, to share, to converse",
+        "exampleEn": "친구들과 함께 맛있는 음식을 나누어 먹었어요.",
+        "exampleKr": "I shared and ate delicious food with my friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "nanuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-68-1780143451237",
+        "term": "이용하다",
+        "definition": "to use, to utilize, to take advantage of",
+        "meaningKr": "to use, to utilize, to take advantage of",
+        "exampleEn": "대중교통을 이용하면 차 막히는 시간을 절약할 수 있어요.",
+        "exampleKr": "If you use public transportation, you can save time stuck in traffic.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "iyonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-69-1780143451237",
+        "term": "거의",
+        "definition": "almost, nearly",
+        "meaningKr": "almost, nearly",
+        "exampleEn": "숙제를 거의 다 했으니 이제 좀 쉬어도 될 것 같아요.",
+        "exampleKr": "I've almost finished my homework, so I think I can rest a bit now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geoui",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-70-1780143451237",
+        "term": "중심",
+        "definition": "center, core, heart",
+        "meaningKr": "center, core, heart",
+        "exampleEn": "도심 중심에 있는 이 식당은 항상 손님들로 붐빕니다.",
+        "exampleKr": "This restaurant in the heart of the city is always crowded with customers.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jungsim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-71-1780143451237",
+        "term": "활동",
+        "definition": "activity, movement",
+        "meaningKr": "activity, movement",
+        "exampleEn": "주말에는 주로 야외 활동을 하면서 시간을 보냅니다.",
+        "exampleKr": "On weekends, I usually spend my time doing outdoor activities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hwalttong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-72-1780143451237",
+        "term": "관심",
+        "definition": "interest, concern, attention",
+        "meaningKr": "interest, concern, attention",
+        "exampleEn": "저는 한국 문화에 관심이 많아서 한국어를 배우기 시작했어요.",
+        "exampleKr": "I'm very interested in Korean culture, so I started learning Korean.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwansim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-73-1780143451237",
+        "term": "역시",
+        "definition": "also, too, as expected, likewise",
+        "meaningKr": "also, too, as expected, likewise",
+        "exampleEn": "제 친구는 역시 똑똑해서 어려운 문제도 쉽게 풀었어요.",
+        "exampleKr": "My friend, as expected, is smart and solved even difficult problems easily.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yeoksi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-74-1780143451237",
+        "term": "애",
+        "definition": "child, kid, baby",
+        "meaningKr": "child, kid, baby",
+        "exampleEn": "저 애는 정말 귀여워서 지나가는 사람들이 모두 웃어요.",
+        "exampleKr": "That child is so cute that everyone passing by smiles.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-75-1780143451237",
+        "term": "광고",
+        "definition": "advertisement, commercial",
+        "meaningKr": "advertisement, commercial",
+        "exampleEn": "요즘 유튜브 광고가 너무 많아서 영상을 보기가 불편해요.",
+        "exampleKr": "These days, there are too many YouTube advertisements, so it's uncomfortable to watch videos.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwanggo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-76-1780143451237",
+        "term": "정신",
+        "definition": "mind, spirit, consciousness",
+        "meaningKr": "mind, spirit, consciousness",
+        "exampleEn": "오늘 잠을 잘 못 자서 그런지 정신이 하나도 없어요.",
+        "exampleKr": "Maybe because I didn't sleep well last night, I can't concentrate at all.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeongsin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-77-1780143451237",
+        "term": "이르다",
+        "definition": "to tell, to report",
+        "meaningKr": "to tell, to report",
+        "exampleEn": "중요한 소식이 있으면 저에게 바로 이르세요.",
+        "exampleKr": "If there is important news, please tell me immediately.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ireuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-78-1780143451237",
+        "term": "땅",
+        "definition": "land, ground, earth",
+        "meaningKr": "land, ground, earth",
+        "exampleEn": "비가 너무 많이 와서 땅이 질퍽거려요.",
+        "exampleKr": "It rained so much that the ground is muddy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ttang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-79-1780143451237",
+        "term": "이루다",
+        "definition": "to achieve, to accomplish, to form",
+        "meaningKr": "to achieve, to accomplish, to form",
+        "exampleEn": "저는 올해 꼭 한국어 능력 시험 5급을 이루고 싶어요.",
+        "exampleKr": "I definitely want to achieve TOPIK Level 5 this year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "iruda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-80-1780143451237",
+        "term": "기술",
+        "definition": "technology, skill, technique",
+        "meaningKr": "technology, skill, technique",
+        "exampleEn": "이 회사는 최신 IT 기술을 사용하여 제품을 만듭니다.",
+        "exampleKr": "This company uses the latest IT technology to make its products.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gisure",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-81-1780143451237",
+        "term": "전체",
+        "definition": "the whole, the entire thing, total",
+        "meaningKr": "the whole, the entire thing, total",
+        "exampleEn": "발표는 다음 주 금요일까지 전체 내용을 완성해야 합니다.",
+        "exampleKr": "The presentation must have its entire content completed by next Friday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-82-1780143451237",
+        "term": "얻다",
+        "definition": "to get, to obtain, to gain",
+        "meaningKr": "to get, to obtain, to gain",
+        "exampleEn": "노력 끝에 드디어 좋은 결과를 얻을 수 있었어요.",
+        "exampleKr": "After much effort, I was finally able to get good results.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eotda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-83-1780143451237",
+        "term": "민족",
+        "definition": "ethnic group, nation, people",
+        "meaningKr": "ethnic group, nation, people",
+        "exampleEn": "한국 민족은 예로부터 음악과 춤을 즐겼습니다.",
+        "exampleKr": "The Korean people have enjoyed music and dance since ancient times.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "minjok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-84-1780143451237",
+        "term": "조사",
+        "definition": "investigation, survey, research",
+        "meaningKr": "investigation, survey, research",
+        "exampleEn": "경찰은 사건의 진실을 밝히기 위해 철저히 조사하고 있습니다.",
+        "exampleKr": "The police are thoroughly investigating to uncover the truth of the incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "josa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-85-1780143451237",
+        "term": "그대로",
+        "definition": "as it is, as it was, unchanged",
+        "meaningKr": "as it is, as it was, unchanged",
+        "exampleEn": "냉장고에 있는 음식은 그냥 그대로 두세요.",
+        "exampleKr": "Just leave the food in the refrigerator as it is.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geudaero",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-86-1780143451237",
+        "term": "과학",
+        "definition": "science",
+        "meaningKr": "science",
+        "exampleEn": "요즘에는 과학 기술의 발전이 정말 놀랍습니다.",
+        "exampleKr": "These days, the development of science and technology is truly amazing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwahak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-87-1780143451237",
+        "term": "자연",
+        "definition": "nature, natural",
+        "meaningKr": "nature, natural",
+        "exampleEn": "주말에 산에 가서 아름다운 자연을 즐기고 싶어요.",
+        "exampleKr": "I want to go to the mountains on the weekend and enjoy the beautiful nature.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jayeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-88-1780143451237",
+        "term": "결국",
+        "definition": "eventually, finally, after all",
+        "meaningKr": "eventually, finally, after all",
+        "exampleEn": "우리는 여러 번 회의한 끝에 결국 합의에 도달했어요.",
+        "exampleKr": "After many meetings, we eventually reached an agreement.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeolguk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-89-1780143451237",
+        "term": "프로그램",
+        "definition": "program",
+        "meaningKr": "program",
+        "exampleEn": "저는 컴퓨터 프로그램을 배우기 위해 학원에 다니고 있어요.",
+        "exampleKr": "I am attending an academy to learn computer programming.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "peurogeuraem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-90-1780143451237",
+        "term": "이루어지다",
+        "definition": "to be achieved, to be accomplished, to be formed, to consist of",
+        "meaningKr": "to be achieved, to be accomplished, to be formed, to consist of",
+        "exampleEn": "우리의 꿈은 언젠가 꼭 이루어질 거라고 믿어요.",
+        "exampleKr": "I believe our dreams will definitely come true someday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "irueojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-91-1780143451237",
+        "term": "하루",
+        "definition": "one day, a day",
+        "meaningKr": "one day, a day",
+        "exampleEn": "저는 하루 종일 공부만 해서 피곤해요.",
+        "exampleKr": "I'm tired because I studied all day long.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "haru",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-92-1780143451237",
+        "term": "맞다",
+        "definition": "to be correct, to be right, to fit",
+        "meaningKr": "to be correct, to be right, to fit",
+        "exampleEn": "선생님, 제가 한 답이 맞는지 확인해 주세요.",
+        "exampleKr": "Teacher, please check if my answer is correct.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "matda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-93-1780143451237",
+        "term": "걸리다",
+        "definition": "to be hung, to take (time), to be caught, to catch (a cold)",
+        "meaningKr": "to be hung, to take (time), to be caught, to catch (a cold)",
+        "exampleEn": "서울에서 부산까지 기차로 3시간 30분 정도 걸려요.",
+        "exampleKr": "It takes about 3 hours and 30 minutes by train from Seoul to Busan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geollida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-94-1780143451237",
+        "term": "지키다",
+        "definition": "to protect, to guard, to keep (a promise)",
+        "meaningKr": "to protect, to guard, to keep (a promise)",
+        "exampleEn": "우리는 환경을 지키기 위해 노력해야 합니다.",
+        "exampleKr": "We must strive to protect the environment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jikida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-95-1780143451237",
+        "term": "바라보다",
+        "definition": "to look at, to gaze at, to hope for",
+        "meaningKr": "to look at, to gaze at, to hope for",
+        "exampleEn": "그녀는 창밖을 조용히 바라보며 생각에 잠겼어요.",
+        "exampleKr": "She quietly looked out the window, lost in thought.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "baraboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-96-1780143451237",
+        "term": "대부분",
+        "definition": "most, majority",
+        "meaningKr": "most, majority",
+        "exampleEn": "우리 반 학생들의 대부분은 이 영화를 좋아했어요.",
+        "exampleKr": "Most of the students in our class liked this movie.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "daebubun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-97-1780143451237",
+        "term": "표정",
+        "definition": "facial expression, look",
+        "meaningKr": "facial expression, look",
+        "exampleEn": "그의 표정을 보니 기분이 좋지 않은 것 같았어요.",
+        "exampleKr": "Looking at his expression, it seemed he wasn't feeling well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pyojeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-98-1780143451237",
+        "term": "일부",
+        "definition": "part, portion, some",
+        "meaningKr": "part, portion, some",
+        "exampleEn": "그 책의 일부 내용만 읽었는데도 흥미로웠어요.",
+        "exampleKr": "Even though I only read a part of that book, it was interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ilbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-99-1780143451237",
+        "term": "느낌",
+        "definition": "feeling, sense, impression",
+        "meaningKr": "feeling, sense, impression",
+        "exampleEn": "처음 만났을 때부터 좋은 느낌을 받았어요.",
+        "exampleKr": "I had a good feeling about him from the first time we met.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neukkim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-100-1780143451237",
+        "term": "고개",
+        "definition": "head, neck (for movement)",
+        "meaningKr": "head, neck (for movement)",
+        "exampleEn": "그는 부끄러워서 고개를 들지 못했어요.",
+        "exampleKr": "He was too shy to lift his head.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gogae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-101-1780143451237",
+        "term": "성격",
+        "definition": "personality, character, nature",
+        "meaningKr": "personality, character, nature",
+        "exampleEn": "제 친구는 성격이 좋아서 주변에 사람이 많아요.",
+        "exampleKr": "My friend has a good personality, so many people are around them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "seonggyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-102-1780143451237",
+        "term": "세기",
+        "definition": "century",
+        "meaningKr": "century",
+        "exampleEn": "21세기는 정보 기술이 매우 발전한 시대입니다.",
+        "exampleKr": "The 21st century is an era where information technology has developed greatly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "se-gi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-103-1780143451237",
+        "term": "세우다",
+        "definition": "to set up, to establish, to stand (something) up",
+        "meaningKr": "to set up, to establish, to stand (something) up",
+        "exampleEn": "우리는 내년 계획을 세우기 위해 회의를 했습니다.",
+        "exampleKr": "We had a meeting to set up next year's plan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "se-uda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-104-1780143451237",
+        "term": "현재",
+        "definition": "currently, at present, now",
+        "meaningKr": "currently, at present, now",
+        "exampleEn": "현재는 식당에 손님이 많으니 조금 기다려야 합니다.",
+        "exampleKr": "Currently, there are many customers in the restaurant, so you have to wait a bit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hyeonjae",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-105-1780143451237",
+        "term": "발전",
+        "definition": "development, progress",
+        "meaningKr": "development, progress",
+        "exampleEn": "한국은 짧은 시간 안에 경제적으로 크게 발전했습니다.",
+        "exampleKr": "Korea has greatly developed economically in a short period of time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "baljeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-106-1780143451237",
+        "term": "향하다",
+        "definition": "to face, to head toward, to turn toward",
+        "meaningKr": "to face, to head toward, to turn toward",
+        "exampleEn": "우리는 바다를 향해 걸어가면서 이야기를 나누었어요.",
+        "exampleKr": "We talked while walking towards the sea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hyanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-107-1780143451237",
+        "term": "관련",
+        "definition": "relation, connection, association",
+        "meaningKr": "relation, connection, association",
+        "exampleEn": "이 문제는 환경 보호와 직접적인 관련이 있습니다.",
+        "exampleKr": "This issue has a direct connection to environmental protection.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwallyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-108-1780143451237",
+        "term": "분위기",
+        "definition": "atmosphere, mood, ambiance",
+        "meaningKr": "atmosphere, mood, ambiance",
+        "exampleEn": "카페 분위기가 좋아서 공부하기에 딱 좋아요.",
+        "exampleKr": "The cafe's atmosphere is good, so it's perfect for studying.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bunwigi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-109-1780143451237",
+        "term": "그러하다",
+        "definition": "to be so, to be true, to be like that",
+        "meaningKr": "to be so, to be true, to be like that",
+        "exampleEn": "그의 말은 언제나 그러하여 믿을 수 있습니다.",
+        "exampleKr": "His words are always like that, so they can be trusted.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geureohada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-110-1780143451237",
+        "term": "우선",
+        "definition": "first, primarily, for now",
+        "meaningKr": "first, primarily, for now",
+        "exampleEn": "우선 이메일을 확인하고 나서 다른 일을 시작할게요.",
+        "exampleKr": "First, I'll check my email, and then I'll start other tasks.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "useon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-111-1780143451237",
+        "term": "믿다",
+        "definition": "to believe, to trust",
+        "meaningKr": "to believe, to trust",
+        "exampleEn": "저는 그 사람의 말을 믿고 따르기로 결정했습니다.",
+        "exampleKr": "I decided to believe his words and follow them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mitda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-112-1780143451237",
+        "term": "낳다",
+        "definition": "to give birth, to lay (eggs), to produce",
+        "meaningKr": "to give birth, to lay (eggs), to produce",
+        "exampleEn": "그녀는 건강한 아들을 낳아서 모두 축하해 주었어요.",
+        "exampleKr": "She gave birth to a healthy son, and everyone congratulated her.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "natda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-113-1780143451237",
+        "term": "정보",
+        "definition": "information, data",
+        "meaningKr": "information, data",
+        "exampleEn": "인터넷에서 여행에 필요한 많은 정보를 찾을 수 있어요.",
+        "exampleKr": "You can find a lot of information needed for travel on the internet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeongbo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-114-1780143451237",
+        "term": "열리다",
+        "definition": "to be opened, to be held (an event)",
+        "meaningKr": "to be opened, to be held (an event)",
+        "exampleEn": "다음 주에 회사에서 중요한 회의가 열릴 예정입니다.",
+        "exampleKr": "An important meeting is scheduled to be held at the company next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yeollida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-115-1780143451237",
+        "term": "역할",
+        "definition": "role, part",
+        "meaningKr": "role, part",
+        "exampleEn": "모든 팀원들이 각자의 역할에 충실해야 합니다.",
+        "exampleKr": "All team members must be faithful to their respective roles.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yeokhal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-116-1780143451237",
+        "term": "행동",
+        "definition": "action, behavior",
+        "meaningKr": "action, behavior",
+        "exampleEn": "그의 행동은 모두에게 좋은 영향을 주었습니다.",
+        "exampleKr": "His actions had a good influence on everyone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "haengdong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-117-1780143451237",
+        "term": "국내",
+        "definition": "domestic, internal, within the country",
+        "meaningKr": "domestic, internal, within the country",
+        "exampleEn": "이 제품은 국내에서만 판매되고 해외로는 수출되지 않습니다.",
+        "exampleKr": "This product is only sold domestically and not exported overseas.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gungnae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-118-1780143451237",
+        "term": "예",
+        "definition": "example, instance",
+        "meaningKr": "example, instance",
+        "exampleEn": "이해를 돕기 위해 몇 가지 예를 들어 설명해 줄게요.",
+        "exampleKr": "To help with understanding, I will explain by giving a few examples.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-119-1780143451237",
+        "term": "나서다",
+        "definition": "to step forward, to come forward, to take action",
+        "meaningKr": "to step forward, to come forward, to take action",
+        "exampleEn": "어려운 상황에서 그가 먼저 나서서 문제를 해결했어요.",
+        "exampleKr": "In a difficult situation, he stepped forward first and solved the problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "naseoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-120-1780143451237",
+        "term": "흐르다",
+        "definition": "to flow, to stream, to pass (time)",
+        "meaningKr": "to flow, to stream, to pass (time)",
+        "exampleEn": "강물이 조용히 바다를 향해 흐르고 있습니다.",
+        "exampleKr": "The river water is quietly flowing towards the sea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "heureuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-121-1780143451237",
+        "term": "깊다",
+        "definition": "to be deep, to be profound",
+        "meaningKr": "to be deep, to be profound",
+        "exampleEn": "이 호수는 생각보다 훨씬 더 깊어서 조심해야 해요.",
+        "exampleKr": "This lake is much deeper than expected, so you need to be careful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gipda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-122-1780143451237",
+        "term": "모양",
+        "definition": "shape, form, appearance",
+        "meaningKr": "shape, form, appearance",
+        "exampleEn": "저 구름은 마치 강아지 모양 같아요.",
+        "exampleKr": "That cloud looks just like the shape of a puppy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "moyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-123-1780143451237",
+        "term": "조건",
+        "definition": "condition, term, requirement",
+        "meaningKr": "condition, term, requirement",
+        "exampleEn": "계약서의 모든 조건을 꼼꼼히 확인해야 합니다.",
+        "exampleKr": "You must carefully check all the conditions of the contract.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jogeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-124-1780143451237",
+        "term": "넘다",
+        "definition": "to cross, to go over, to exceed",
+        "meaningKr": "to cross, to go over, to exceed",
+        "exampleEn": "이 산은 높아서 넘기 어렵지만, 경치는 정말 아름다워요.",
+        "exampleKr": "This mountain is high and difficult to cross, but the scenery is truly beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neomda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-125-1780143451237",
+        "term": "마을",
+        "definition": "village, town",
+        "meaningKr": "village, town",
+        "exampleEn": "우리 마을은 작은 산과 강 옆에 있어서 경치가 정말 좋아요.",
+        "exampleKr": "Our village is next to a small mountain and a river, so the scenery is really nice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "maeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-126-1780143451237",
+        "term": "어리다",
+        "definition": "to be young, to be childish",
+        "meaningKr": "to be young, to be childish",
+        "exampleEn": "제 조카는 아직 어려서 혼자 여행을 가기에는 좀 위험해요.",
+        "exampleKr": "My nephew is still young, so it's a bit dangerous for him to travel alone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eorida",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-127-1780143451237",
+        "term": "대표",
+        "definition": "representative, delegate, representation",
+        "meaningKr": "representative, delegate, representation",
+        "exampleEn": "그는 우리 회사를 대표해서 중요한 회의에 참석할 예정입니다.",
+        "exampleKr": "He is scheduled to attend an important meeting as a representative of our company.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "daepyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-128-1780143451237",
+        "term": "가능성",
+        "definition": "possibility, potential",
+        "meaningKr": "possibility, potential",
+        "exampleEn": "이번 프로젝트는 성공할 가능성이 높으니까 열심히 해봅시다.",
+        "exampleKr": "This project has a high possibility of success, so let's work hard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ganeungseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-129-1780143451237",
+        "term": "방향",
+        "definition": "direction",
+        "meaningKr": "direction",
+        "exampleEn": "길을 잃었을 때, 스마트폰 지도로 방향을 확인했어요.",
+        "exampleKr": "When I got lost, I checked the direction with my smartphone map.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "banghyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-130-1780143451237",
+        "term": "대회",
+        "definition": "competition, convention, tournament",
+        "meaningKr": "competition, convention, tournament",
+        "exampleEn": "다음 달에 열리는 말하기 대회에 참가하기 위해 매일 연습하고 있어요.",
+        "exampleKr": "I'm practicing every day to participate in the speaking competition next month.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "daehoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-131-1780143451237",
+        "term": "목소리",
+        "definition": "voice",
+        "meaningKr": "voice",
+        "exampleEn": "선생님의 목소리가 너무 작아서 뒤에 앉은 학생들이 잘 못 들었어요.",
+        "exampleKr": "The teacher's voice was too small, so the students in the back couldn't hear well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "moksori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-132-1780143451237",
+        "term": "움직이다",
+        "definition": "to move, to stir",
+        "meaningKr": "to move, to stir",
+        "exampleEn": "아침에 일어났는데 몸이 너무 피곤해서 움직이기 싫었어요.",
+        "exampleKr": "I woke up in the morning, but my body was so tired that I didn't want to move.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "umjigida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-133-1780143451237",
+        "term": "노력",
+        "definition": "effort, endeavor",
+        "meaningKr": "effort, endeavor",
+        "exampleEn": "시험에 합격하기 위해서는 꾸준한 노력이 필요하다고 생각해요.",
+        "exampleKr": "I think consistent effort is needed to pass the exam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "noryeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-134-1780143451237",
+        "term": "전혀",
+        "definition": "not at all, completely (with negative expressions)",
+        "meaningKr": "not at all, completely (with negative expressions)",
+        "exampleEn": "그 사람은 한국말을 전혀 못하지만 한국 문화에 관심이 많아요.",
+        "exampleKr": "That person can't speak Korean at all, but they are very interested in Korean culture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonhyeo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-135-1780143451237",
+        "term": "단체",
+        "definition": "group, organization, body",
+        "meaningKr": "group, organization, body",
+        "exampleEn": "우리 단체는 어려운 이웃을 돕기 위한 봉사 활동을 계획하고 있습니다.",
+        "exampleKr": "Our organization is planning volunteer activities to help neighbors in need.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "danche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-136-1780143451237",
+        "term": "알려지다",
+        "definition": "to be known, to be famous, to be reported",
+        "meaningKr": "to be known, to be famous, to be reported",
+        "exampleEn": "이 식당은 맛있는 음식으로 이미 많은 사람들에게 널리 알려져 있어요.",
+        "exampleKr": "This restaurant is already widely known to many people for its delicious food.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "allyeojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-137-1780143451237",
+        "term": "가능하다",
+        "definition": "to be possible, to be feasible",
+        "meaningKr": "to be possible, to be feasible",
+        "exampleEn": "비행기 표를 미리 예약하면 더 저렴하게 구입하는 것이 가능합니다.",
+        "exampleKr": "If you book your plane ticket in advance, it's possible to buy it cheaper.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ganeunghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-138-1780143451237",
+        "term": "능력",
+        "definition": "ability, capability, competence",
+        "meaningKr": "ability, capability, competence",
+        "exampleEn": "이 일은 높은 집중력과 문제 해결 능력을 요구합니다.",
+        "exampleKr": "This job requires high concentration and problem-solving ability.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neungnyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-139-1780143451237",
+        "term": "주장하다",
+        "definition": "to assert, to claim, to insist",
+        "meaningKr": "to assert, to claim, to insist",
+        "exampleEn": "그는 자신의 의견이 옳다고 강력하게 주장했지만, 아무도 믿지 않았다.",
+        "exampleKr": "He strongly insisted that his opinion was correct, but no one believed him.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jujanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-140-1780143451237",
+        "term": "자식",
+        "definition": "child, offspring",
+        "meaningKr": "child, offspring",
+        "exampleEn": "부모님들은 자식들이 행복하게 살기를 항상 바라십니다.",
+        "exampleKr": "Parents always wish for their children to live happily.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jasik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-141-1780143451237",
+        "term": "돌리다",
+        "definition": "to turn, to spin, to circulate",
+        "meaningKr": "to turn, to spin, to circulate",
+        "exampleEn": "더워서 창문을 열고 선풍기를 틀어서 바람을 좀 돌렸어요.",
+        "exampleKr": "It was hot, so I opened the window and turned on the fan to circulate some air.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dollida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-142-1780143451237",
+        "term": "모으다",
+        "definition": "to collect, to gather, to save (money)",
+        "meaningKr": "to collect, to gather, to save (money)",
+        "exampleEn": "여행을 가기 위해 매달 조금씩 돈을 모으고 있어요.",
+        "exampleKr": "I'm saving a little money each month to go on a trip.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "moeuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-143-1780143451237",
+        "term": "자료",
+        "definition": "data, material, information",
+        "meaningKr": "data, material, information",
+        "exampleEn": "발표를 준비하기 위해 도서관에서 필요한 자료를 찾았습니다.",
+        "exampleKr": "I found the necessary materials at the library to prepare for my presentation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jaryo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-144-1780143451237",
+        "term": "제품",
+        "definition": "product, goods, item",
+        "meaningKr": "product, goods, item",
+        "exampleEn": "이 회사의 새로운 제품은 디자인도 좋고 성능도 뛰어나요.",
+        "exampleKr": "This company's new product has a good design and excellent performance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jepum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-145-1780143451237",
+        "term": "사업",
+        "definition": "business, enterprise, project",
+        "meaningKr": "business, enterprise, project",
+        "exampleEn": "그는 새로운 아이디어로 성공적인 사업을 시작했습니다.",
+        "exampleKr": "He started a successful business with a new idea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "saeop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-146-1780143451237",
+        "term": "지난해",
+        "definition": "last year",
+        "meaningKr": "last year",
+        "exampleEn": "지난해보다 올해 한국어를 더 열심히 공부해서 실력이 많이 늘었어요.",
+        "exampleKr": "I studied Korean harder this year than last year, so my skills have improved a lot.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jinanhae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-147-1780143451237",
+        "term": "표현",
+        "definition": "expression, representation",
+        "meaningKr": "expression, representation",
+        "exampleEn": "한국어는 존댓말과 반말 표현이 있어서 배우기 어려울 때가 있어요.",
+        "exampleKr": "Korean has polite and casual expressions, so it can sometimes be difficult to learn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pyohyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-148-1780143451237",
+        "term": "젊다",
+        "definition": "to be young",
+        "meaningKr": "to be young",
+        "exampleEn": "우리 할머니는 연세가 많으시지만 마음은 아직도 아주 젊으세요.",
+        "exampleKr": "My grandmother is old, but her heart is still very young.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeomda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-149-1780143451237",
+        "term": "동시",
+        "definition": "at the same time, simultaneously",
+        "meaningKr": "at the same time, simultaneously",
+        "exampleEn": "그는 두 가지 일을 동시에 처리하는 능력이 뛰어나요.",
+        "exampleKr": "He has an excellent ability to handle two tasks simultaneously.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dongsi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-150-1780143451237",
+        "term": "순간",
+        "definition": "moment, instant",
+        "meaningKr": "moment, instant",
+        "exampleEn": "그 순간, 모든 것이 멈춘 것 같았어요.",
+        "exampleKr": "At that moment, it felt like everything stopped.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sungan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-151-1780143451237",
+        "term": "전쟁",
+        "definition": "war",
+        "meaningKr": "war",
+        "exampleEn": "세계 평화를 위해 전쟁은 절대 일어나서는 안 됩니다.",
+        "exampleKr": "For world peace, war should never happen.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonjaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-152-1780143451237",
+        "term": "방송",
+        "definition": "broadcast, broadcasting",
+        "meaningKr": "broadcast, broadcasting",
+        "exampleEn": "이 프로그램은 매주 금요일 밤에 방송됩니다.",
+        "exampleKr": "This program is broadcast every Friday night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bangsong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-153-1780143451237",
+        "term": "마찬가지",
+        "definition": "the same, similar",
+        "meaningKr": "the same, similar",
+        "exampleEn": "저도 그와 마찬가지로 그 의견에 동의합니다.",
+        "exampleKr": "I agree with that opinion, just like him.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "machangaji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-154-1780143451237",
+        "term": "과거",
+        "definition": "past",
+        "meaningKr": "past",
+        "exampleEn": "과거의 실수를 통해 배우고 미래를 계획하는 것이 중요해요.",
+        "exampleKr": "It's important to learn from past mistakes and plan for the future.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwageo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-155-1780143451237",
+        "term": "현대",
+        "definition": "modern times, present age",
+        "meaningKr": "modern times, present age",
+        "exampleEn": "현대 사회에서는 기술의 발전이 정말 빠릅니다.",
+        "exampleKr": "In modern society, technological development is truly fast.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hyeondae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-156-1780143451237",
+        "term": "살펴보다",
+        "definition": "to examine, to look into, to check",
+        "meaningKr": "to examine, to look into, to check",
+        "exampleEn": "문제가 생기면 먼저 원인을 자세히 살펴보세요.",
+        "exampleKr": "If a problem arises, first examine the cause carefully.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "salpyeoboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-157-1780143451237",
+        "term": "차이",
+        "definition": "difference",
+        "meaningKr": "difference",
+        "exampleEn": "두 문화 사이에는 생각보다 큰 차이가 있어요.",
+        "exampleKr": "There's a bigger difference between the two cultures than you might think.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chai",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-158-1780143451237",
+        "term": "풀다",
+        "definition": "to untie, to solve, to release",
+        "meaningKr": "to untie, to solve, to release",
+        "exampleEn": "어려운 수학 문제를 드디어 혼자 힘으로 풀었어요.",
+        "exampleKr": "I finally solved the difficult math problem by myself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-159-1780143451237",
+        "term": "시절",
+        "definition": "days, times, period",
+        "meaningKr": "days, times, period",
+        "exampleEn": "저는 어릴 적 시절이 항상 그리워요.",
+        "exampleKr": "I always miss my childhood days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sijeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-160-1780143451237",
+        "term": "직접",
+        "definition": "directly, in person",
+        "meaningKr": "directly, in person",
+        "exampleEn": "궁금한 점이 있으면 저에게 직접 물어보세요.",
+        "exampleKr": "If you have any questions, ask me directly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jikjeop",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-161-1780143451237",
+        "term": "개인",
+        "definition": "individual, personal",
+        "meaningKr": "individual, personal",
+        "exampleEn": "개인 정보는 항상 안전하게 보호되어야 합니다.",
+        "exampleKr": "Personal information must always be protected safely.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gaein",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-162-1780143451237",
+        "term": "근데",
+        "definition": "but, however, by the way",
+        "meaningKr": "but, however, by the way",
+        "exampleEn": "영화는 재미있었어요. 근데 결말이 좀 아쉬웠어요.",
+        "exampleKr": "The movie was fun. But the ending was a bit disappointing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geunde",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-163-1780143451237",
+        "term": "작가",
+        "definition": "writer, author",
+        "meaningKr": "writer, author",
+        "exampleEn": "이 작가는 주로 사회 문제를 다루는 소설을 씁니다.",
+        "exampleKr": "This writer mainly writes novels that deal with social issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jakga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-164-1780143451237",
+        "term": "효과",
+        "definition": "effect, effectiveness",
+        "meaningKr": "effect, effectiveness",
+        "exampleEn": "이 약은 두통에 아주 좋은 효과가 있어요.",
+        "exampleKr": "This medicine has a very good effect on headaches.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hyogwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-165-1780143451237",
+        "term": "불교",
+        "definition": "Buddhism",
+        "meaningKr": "Buddhism",
+        "exampleEn": "한국에는 불교 사찰이 많이 있습니다.",
+        "exampleKr": "There are many Buddhist temples in Korea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bulgyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-166-1780143451237",
+        "term": "끌다",
+        "definition": "to pull, to draw, to attract",
+        "meaningKr": "to pull, to draw, to attract",
+        "exampleEn": "그의 독특한 스타일은 많은 사람들의 시선을 끕니다.",
+        "exampleKr": "His unique style attracts many people's attention.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "kkeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-167-1780143451237",
+        "term": "마치",
+        "definition": "as if, just like",
+        "meaningKr": "as if, just like",
+        "exampleEn": "그녀는 마치 아무 일도 없었던 것처럼 웃었어요.",
+        "exampleKr": "She smiled as if nothing had happened.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "machi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-168-1780143451237",
+        "term": "바라다",
+        "definition": "to wish, to hope, to desire",
+        "meaningKr": "to wish, to hope, to desire",
+        "exampleEn": "모두가 행복하고 건강하기를 진심으로 바랍니다.",
+        "exampleKr": "I sincerely hope everyone is happy and healthy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "barada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-169-1780143451237",
+        "term": "강하다",
+        "definition": "strong, powerful",
+        "meaningKr": "strong, powerful",
+        "exampleEn": "이 팀은 선수들의 정신력이 아주 강해요.",
+        "exampleKr": "This team's mental strength is very strong.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ganghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-170-1780143451237",
+        "term": "경험",
+        "definition": "experience",
+        "meaningKr": "experience",
+        "exampleEn": "다양한 경험을 통해 세상을 더 넓게 볼 수 있어요.",
+        "exampleKr": "Through diverse experiences, you can see the world more broadly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeongheom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-171-1780143451237",
+        "term": "최고",
+        "definition": "the best, the highest",
+        "meaningKr": "the best, the highest",
+        "exampleEn": "이 레스토랑의 파스타는 정말 최고예요!",
+        "exampleKr": "The pasta at this restaurant is truly the best!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "choego",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-172-1780143451237",
+        "term": "나타내다",
+        "definition": "to show, to express, to represent",
+        "meaningKr": "to show, to express, to represent",
+        "exampleEn": "그는 자신의 감정을 잘 나타내지 않는 편이에요.",
+        "exampleKr": "He tends not to express his feelings well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "natanaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-173-1780143451237",
+        "term": "다양하다",
+        "definition": "diverse, various",
+        "meaningKr": "diverse, various",
+        "exampleEn": "이 가게에는 다양한 종류의 옷이 많이 있어요.",
+        "exampleKr": "This store has many diverse types of clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dayanghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-174-1780143451237",
+        "term": "법",
+        "definition": "law, method, way",
+        "meaningKr": "law, method, way",
+        "exampleEn": "주차 금지 구역에 차를 세우면 법을 어기는 거예요.",
+        "exampleKr": "Parking your car in a no-parking zone is breaking the law.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "beop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-175-1780143451237",
+        "term": "소설",
+        "definition": "novel, fiction",
+        "meaningKr": "novel, fiction",
+        "exampleEn": "이 소설은 복잡한 인간관계를 잘 담고 있어서 인상 깊었어요.",
+        "exampleKr": "This novel was impressive because it depicted complex human relationships well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "soseol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-176-1780143451237",
+        "term": "질서",
+        "definition": "order, system, discipline",
+        "meaningKr": "order, system, discipline",
+        "exampleEn": "모든 시민들이 질서를 지키면 사회가 더 평화로워질 거예요.",
+        "exampleKr": "If all citizens maintain order, society will become more peaceful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jilseo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-177-1780143451237",
+        "term": "담다",
+        "definition": "to put in, to contain, to hold, to express",
+        "meaningKr": "to put in, to contain, to hold, to express",
+        "exampleEn": "이 가방은 생각보다 많은 물건을 담을 수 있어서 편리해요.",
+        "exampleKr": "This bag is convenient because it can hold more items than I expected.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "damda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-178-1780143451237",
+        "term": "모이다",
+        "definition": "to gather, to assemble, to collect",
+        "meaningKr": "to gather, to assemble, to collect",
+        "exampleEn": "주말에 친구들이 우리 집으로 모여서 파티를 할 예정이에요.",
+        "exampleKr": "Friends are going to gather at my house for a party this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "moida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-179-1780143451237",
+        "term": "시민",
+        "definition": "citizen, resident",
+        "meaningKr": "citizen, resident",
+        "exampleEn": "모든 시민은 투표할 권리와 의무를 가지고 있습니다.",
+        "exampleKr": "All citizens have the right and duty to vote.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "simin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-180-1780143451237",
+        "term": "회장",
+        "definition": "president (of a company, club), chairman",
+        "meaningKr": "president (of a company, club), chairman",
+        "exampleEn": "우리 동아리 회장님이 다음 주에 새로운 계획을 발표할 거예요.",
+        "exampleKr": "Our club president will announce a new plan next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hoejang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-181-1780143451237",
+        "term": "스스로",
+        "definition": "by oneself, on one's own, voluntarily",
+        "meaningKr": "by oneself, on one's own, voluntarily",
+        "exampleEn": "아이가 스스로 숙제를 다 하고 나서 놀러 나갔어요.",
+        "exampleKr": "The child went out to play after finishing all his homework by himself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "seuseuro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-182-1780143451237",
+        "term": "이날",
+        "definition": "this day, on this day",
+        "meaningKr": "this day, on this day",
+        "exampleEn": "이날 많은 사람들이 모여서 행사의 성공을 축하했습니다.",
+        "exampleKr": "Many people gathered on this day to celebrate the success of the event.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "inal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-183-1780143451237",
+        "term": "제대로",
+        "definition": "properly, correctly, as it should be",
+        "meaningKr": "properly, correctly, as it should be",
+        "exampleEn": "컴퓨터가 제대로 작동하지 않아서 수리 센터에 맡겨야 했어요.",
+        "exampleKr": "The computer wasn't working properly, so I had to leave it at the repair center.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jedaero",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-184-1780143451237",
+        "term": "던지다",
+        "definition": "to throw, to cast",
+        "meaningKr": "to throw, to cast",
+        "exampleEn": "아이들이 공원에서 공을 던지며 신나게 놀고 있었어요.",
+        "exampleKr": "The children were playing excitedly, throwing a ball in the park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "deonjida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-185-1780143451237",
+        "term": "공간",
+        "definition": "space, room, area",
+        "meaningKr": "space, room, area",
+        "exampleEn": "이 카페는 공부하기에 좋은 조용하고 넓은 공간을 제공합니다.",
+        "exampleKr": "This cafe offers a quiet and spacious area good for studying.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gonggan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-186-1780143451237",
+        "term": "벌이다",
+        "definition": "to start, to begin, to wage (a war), to set up (a business)",
+        "meaningKr": "to start, to begin, to wage (a war), to set up (a business)",
+        "exampleEn": "친구와 함께 작은 사업을 벌이기로 결정했어요.",
+        "exampleKr": "My friend and I decided to start a small business together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "beolida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-187-1780143451237",
+        "term": "강조하다",
+        "definition": "to emphasize, to stress",
+        "meaningKr": "to emphasize, to stress",
+        "exampleEn": "선생님은 시험에서 중요한 부분을 다시 한번 강조하셨어요.",
+        "exampleKr": "The teacher emphasized the important parts for the exam once again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gangjohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-188-1780143451237",
+        "term": "맡다",
+        "definition": "to take charge of, to undertake, to smell",
+        "meaningKr": "to take charge of, to undertake, to smell",
+        "exampleEn": "새로운 프로젝트를 맡게 되어서 책임감이 더 커졌어요.",
+        "exampleKr": "I took charge of a new project, so my sense of responsibility grew.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "matta",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-189-1780143451237",
+        "term": "한편",
+        "definition": "on the other hand, meanwhile, at the same time",
+        "meaningKr": "on the other hand, meanwhile, at the same time",
+        "exampleEn": "그는 열심히 공부했지만, 한편으로는 건강도 잘 챙겼습니다.",
+        "exampleKr": "He studied hard, and meanwhile, he also took good care of his health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hanpyeon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-190-1780143451237",
+        "term": "기자",
+        "definition": "reporter, journalist",
+        "meaningKr": "reporter, journalist",
+        "exampleEn": "그 기자는 사건의 진실을 밝히기 위해 밤샘 취재를 했어요.",
+        "exampleKr": "The reporter worked all night to uncover the truth of the incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gija",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-191-1780143451237",
+        "term": "주로",
+        "definition": "mainly, primarily, mostly",
+        "meaningKr": "mainly, primarily, mostly",
+        "exampleEn": "우리 회사는 주로 젊은 고객층을 대상으로 제품을 판매합니다.",
+        "exampleKr": "Our company primarily sells products targeting young customers.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "juro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-192-1780143451237",
+        "term": "훨씬",
+        "definition": "much, far, a lot (for comparison)",
+        "meaningKr": "much, far, a lot (for comparison)",
+        "exampleEn": "어제보다 오늘은 날씨가 훨씬 따뜻해서 활동하기 좋아요.",
+        "exampleKr": "The weather is much warmer today than yesterday, so it's good for activities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hwolssin",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-193-1780143451237",
+        "term": "통일",
+        "definition": "unification, unity",
+        "meaningKr": "unification, unity",
+        "exampleEn": "많은 사람들이 한반도의 평화로운 통일을 염원하고 있습니다.",
+        "exampleKr": "Many people wish for the peaceful unification of the Korean Peninsula.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tongil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-194-1780143451237",
+        "term": "들어서다",
+        "definition": "to enter, to step into, to be built/established",
+        "meaningKr": "to enter, to step into, to be built/established",
+        "exampleEn": "새로운 상점이 우리 동네에 들어서면서 분위기가 활기차졌어요.",
+        "exampleKr": "A new store opened in our neighborhood, making the atmosphere livelier.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "deureoseoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-195-1780143451237",
+        "term": "시설",
+        "definition": "facility, equipment, installation",
+        "meaningKr": "facility, equipment, installation",
+        "exampleEn": "이 체육관은 최신 운동 시설을 갖추고 있어서 인기가 많아요.",
+        "exampleKr": "This gym is popular because it's equipped with the latest exercise facilities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "siseol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-196-1780143451237",
+        "term": "주변",
+        "definition": "surroundings, vicinity, area",
+        "meaningKr": "surroundings, vicinity, area",
+        "exampleEn": "학교 주변에 맛있는 식당이 많아서 점심시간이 항상 기다려져요.",
+        "exampleKr": "There are many delicious restaurants around the school, so I always look forward to lunchtime.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jubyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-197-1780143451237",
+        "term": "대신",
+        "definition": "instead, in place of",
+        "meaningKr": "instead, in place of",
+        "exampleEn": "바빠서 회의에 참석하지 못했지만, 대신 동료가 내용을 전달해 주었어요.",
+        "exampleKr": "I couldn't attend the meeting because I was busy, but a colleague conveyed the content instead.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "daesin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-198-1780143451237",
+        "term": "차례",
+        "definition": "turn, order, sequence, ancestral rites",
+        "meaningKr": "turn, order, sequence, ancestral rites",
+        "exampleEn": "줄을 서서 자기 차례를 기다리는 것이 중요합니다.",
+        "exampleKr": "It's important to stand in line and wait for your turn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "charye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-199-1780143451237",
+        "term": "군",
+        "definition": "county, military/army",
+        "meaningKr": "county, military/army",
+        "exampleEn": "우리 가족은 여름 휴가 때 강원도 양양군으로 여행을 갔어요.",
+        "exampleKr": "Our family traveled to Yangyang County in Gangwon-do for summer vacation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-200-1780143451237",
+        "term": "재산",
+        "definition": "property, assets, fortune",
+        "meaningKr": "property, assets, fortune",
+        "exampleEn": "그분은 평생 열심히 일해서 많은 재산을 모았어요.",
+        "exampleKr": "He worked hard his whole life and accumulated a lot of property.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jaesan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-201-1780143451237",
+        "term": "약간",
+        "definition": "a little, a bit, slightly",
+        "meaningKr": "a little, a bit, slightly",
+        "exampleEn": "날씨가 약간 추워서 따뜻한 옷을 입어야겠어요.",
+        "exampleKr": "The weather is a little cold, so I should wear warm clothes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yakgan",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-202-1780143451237",
+        "term": "요구하다",
+        "definition": "to demand, to request",
+        "meaningKr": "to demand, to request",
+        "exampleEn": "회사는 직원들에게 더 많은 노력을 요구했습니다.",
+        "exampleKr": "The company demanded more effort from its employees.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yoguhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-203-1780143451237",
+        "term": "기간",
+        "definition": "period, term, duration",
+        "meaningKr": "period, term, duration",
+        "exampleEn": "이 프로젝트는 짧은 기간 안에 끝내야 합니다.",
+        "exampleKr": "This project must be finished within a short period.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gigan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-204-1780143451237",
+        "term": "일으키다",
+        "definition": "to raise, to cause, to provoke",
+        "meaningKr": "to raise, to cause, to provoke",
+        "exampleEn": "그 사건은 사회에 큰 파장을 일으켰어요.",
+        "exampleKr": "That incident caused a big stir in society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ireukida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-205-1780143451237",
+        "term": "공장",
+        "definition": "factory, plant",
+        "meaningKr": "factory, plant",
+        "exampleEn": "우리 회사는 새로운 제품을 생산하기 위해 공장을 확장하고 있습니다.",
+        "exampleKr": "Our company is expanding its factory to produce new products.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gongjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-206-1780143451237",
+        "term": "즐기다",
+        "definition": "to enjoy, to have fun",
+        "meaningKr": "to enjoy, to have fun",
+        "exampleEn": "저는 주말에 친구들과 함께 영화 보는 것을 즐겨요.",
+        "exampleKr": "I enjoy watching movies with my friends on weekends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeulgida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-207-1780143451237",
+        "term": "변하다",
+        "definition": "to change, to transform",
+        "meaningKr": "to change, to transform",
+        "exampleEn": "계절이 변하면 사람들의 옷차림도 변해요.",
+        "exampleKr": "When the season changes, people's clothing also changes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "byeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-208-1780143451237",
+        "term": "사고",
+        "definition": "accident, incident; thought, thinking",
+        "meaningKr": "accident, incident; thought, thinking",
+        "exampleEn": "운전 중에 갑자기 사고가 나서 차가 많이 망가졌어요.",
+        "exampleKr": "While driving, there was a sudden accident and the car was badly damaged.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sago",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-209-1780143451237",
+        "term": "아무리",
+        "definition": "no matter how, however much",
+        "meaningKr": "no matter how, however much",
+        "exampleEn": "아무리 바빠도 아침 식사는 꼭 챙겨 먹어야 해요.",
+        "exampleKr": "No matter how busy you are, you must eat breakfast.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "amuri",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-210-1780143451237",
+        "term": "맞추다",
+        "definition": "to adjust, to fit, to match",
+        "meaningKr": "to adjust, to fit, to match",
+        "exampleEn": "우리는 서로의 의견을 맞추기 위해 계속 이야기했어요.",
+        "exampleKr": "We kept talking to adjust our opinions to each other.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "matchuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-211-1780143451237",
+        "term": "쌀",
+        "definition": "rice (uncooked)",
+        "meaningKr": "rice (uncooked)",
+        "exampleEn": "한국 사람들은 매일 밥을 먹기 때문에 쌀이 중요해요.",
+        "exampleKr": "Rice is important because Koreans eat rice every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ssal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-212-1780143451237",
+        "term": "일반",
+        "definition": "general, common, ordinary",
+        "meaningKr": "general, common, ordinary",
+        "exampleEn": "이 제품은 일반 상점에서 쉽게 구할 수 있습니다.",
+        "exampleKr": "This product can be easily obtained at general stores.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ilban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-213-1780143451237",
+        "term": "막다",
+        "definition": "to block, to stop, to prevent",
+        "meaningKr": "to block, to stop, to prevent",
+        "exampleEn": "홍수를 막기 위해 강 주변에 튼튼한 둑을 쌓았어요.",
+        "exampleKr": "To prevent floods, strong dikes were built around the river.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "makda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-214-1780143451237",
+        "term": "버리다",
+        "definition": "to throw away, to discard",
+        "meaningKr": "to throw away, to discard",
+        "exampleEn": "더 이상 안 입는 옷들은 깨끗하게 세탁해서 버렸어요.",
+        "exampleKr": "I washed the clothes I no longer wear cleanly and threw them away.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "beorida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-215-1780143451237",
+        "term": "붙이다",
+        "definition": "to stick, to attach, to paste",
+        "meaningKr": "to stick, to attach, to paste",
+        "exampleEn": "벽에 예쁜 그림을 붙여서 방 분위기를 바꿨어요.",
+        "exampleKr": "I changed the room's atmosphere by sticking a pretty picture on the wall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "buchida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-216-1780143451237",
+        "term": "늘",
+        "definition": "always, constantly, habitually",
+        "meaningKr": "always, constantly, habitually",
+        "exampleEn": "그는 늘 아침 일찍 일어나서 운동을 합니다.",
+        "exampleKr": "He always wakes up early in the morning and exercises.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neul",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-217-1780143451237",
+        "term": "전국",
+        "definition": "the whole country, nationwide",
+        "meaningKr": "the whole country, nationwide",
+        "exampleEn": "이번 주말에는 전국적으로 비가 올 예정입니다.",
+        "exampleKr": "It is expected to rain nationwide this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-218-1780143451237",
+        "term": "마치다",
+        "definition": "to finish, to complete",
+        "meaningKr": "to finish, to complete",
+        "exampleEn": "저는 오늘 숙제를 마치고 친구들과 놀러 갈 거예요.",
+        "exampleKr": "I will finish my homework today and go play with my friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "machida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-219-1780143451237",
+        "term": "도움",
+        "definition": "help, aid, assistance",
+        "meaningKr": "help, aid, assistance",
+        "exampleEn": "어려운 일이 있을 때 친구들의 도움이 정말 컸어요.",
+        "exampleKr": "When I had a difficult time, my friends' help was really significant.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "doum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-220-1780143451237",
+        "term": "가정",
+        "definition": "home, family; assumption",
+        "meaningKr": "home, family; assumption",
+        "exampleEn": "행복한 가정을 만들기 위해 서로 노력해야 합니다.",
+        "exampleKr": "We must both try to create a happy home.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gajeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-221-1780143451237",
+        "term": "빠지다",
+        "definition": "to fall out, to drop out, to be absent; to be absorbed in",
+        "meaningKr": "to fall out, to drop out, to be absent; to be absorbed in",
+        "exampleEn": "너무 재미있는 책이라서 밤새도록 읽다가 잠에 빠졌어요.",
+        "exampleKr": "It was such an interesting book that I read it all night and fell asleep.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ppajida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-222-1780143451237",
+        "term": "오늘날",
+        "definition": "today, these days, nowadays",
+        "meaningKr": "today, these days, nowadays",
+        "exampleEn": "오늘날에는 인터넷으로 정보를 쉽게 얻을 수 있습니다.",
+        "exampleKr": "Nowadays, you can easily get information through the internet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "oneullal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-223-1780143451237",
+        "term": "농업",
+        "definition": "agriculture, farming",
+        "meaningKr": "agriculture, farming",
+        "exampleEn": "이 지역은 주로 농업에 의존하며 살아가고 있습니다.",
+        "exampleKr": "This region mainly relies on agriculture to live.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "nongup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-224-1780143451237",
+        "term": "의견",
+        "definition": "opinion, view",
+        "meaningKr": "opinion, view",
+        "exampleEn": "회의에서 모두가 자신의 의견을 자유롭게 발표했습니다.",
+        "exampleKr": "Everyone freely presented their opinions at the meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "uigyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-225-1780143451237",
+        "term": "표현하다",
+        "definition": "to express, to show",
+        "meaningKr": "to express, to show",
+        "exampleEn": "자신의 감정을 솔직하게 표현하는 것이 중요하다고 생각해요.",
+        "exampleKr": "I think it's important to express one's feelings honestly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pyohyeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-226-1780143451237",
+        "term": "이상하다",
+        "definition": "to be strange, to be weird, to be unusual",
+        "meaningKr": "to be strange, to be weird, to be unusual",
+        "exampleEn": "오늘따라 날씨가 좀 이상하네요. 갑자기 비가 올 것 같아요.",
+        "exampleKr": "The weather is a bit strange today. It feels like it's going to rain suddenly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "isanghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-227-1780143451237",
+        "term": "붙다",
+        "definition": "to stick, to attach, to pass (an exam)",
+        "meaningKr": "to stick, to attach, to pass (an exam)",
+        "exampleEn": "벽에 포스터를 붙이고 싶은데 접착제가 없어요.",
+        "exampleKr": "I want to stick a poster on the wall, but I don't have any adhesive.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "butda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-228-1780143451237",
+        "term": "경기",
+        "definition": "game, match; economy",
+        "meaningKr": "game, match; economy",
+        "exampleEn": "주말에 친구들과 함께 축구 경기를 보러 갈 예정이에요.",
+        "exampleKr": "I plan to go watch a soccer game with my friends this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeonggi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-229-1780143451237",
+        "term": "목적",
+        "definition": "purpose, aim, goal",
+        "meaningKr": "purpose, aim, goal",
+        "exampleEn": "이 프로젝트의 주된 목적은 새로운 기술을 개발하는 것입니다.",
+        "exampleKr": "The main purpose of this project is to develop new technology.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mokjeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-230-1780143451237",
+        "term": "태도",
+        "definition": "attitude, manner",
+        "meaningKr": "attitude, manner",
+        "exampleEn": "어려운 상황에서도 긍정적인 태도를 유지하는 것이 중요해요.",
+        "exampleKr": "It's important to maintain a positive attitude even in difficult situations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "taedo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-231-1780143451237",
+        "term": "남성",
+        "definition": "male, man",
+        "meaningKr": "male, man",
+        "exampleEn": "이 가게에서는 남성복과 여성복을 모두 판매하고 있습니다.",
+        "exampleKr": "This store sells both men's and women's clothing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "namseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-232-1780143451237",
+        "term": "주위",
+        "definition": "surroundings, vicinity",
+        "meaningKr": "surroundings, vicinity",
+        "exampleEn": "밤에는 혼자 다니지 말고 주위를 잘 살피고 다녀야 해요.",
+        "exampleKr": "Don't go alone at night; you should carefully look around your surroundings.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "juwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-233-1780143451237",
+        "term": "그만",
+        "definition": "stop, no more; just, only",
+        "meaningKr": "stop, no more; just, only",
+        "exampleEn": "이제 그만 싸우고 서로 화해하는 것이 어때요?",
+        "exampleKr": "Why don't you stop fighting now and make up with each other?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geuman",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-234-1780143451237",
+        "term": "발생하다",
+        "definition": "to occur, to happen, to arise",
+        "meaningKr": "to occur, to happen, to arise",
+        "exampleEn": "갑자기 문제가 발생해서 회의가 예정보다 늦게 시작되었어요.",
+        "exampleKr": "A problem suddenly occurred, so the meeting started later than planned.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "balsaenghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-235-1780143451237",
+        "term": "어쩌다",
+        "definition": "by chance, accidentally; how (did it happen)",
+        "meaningKr": "by chance, accidentally; how (did it happen)",
+        "exampleEn": "어쩌다 보니 제가 이 일을 맡게 되었는데, 열심히 해볼게요.",
+        "exampleKr": "Somehow, I ended up taking on this task, but I'll do my best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eojjeoda",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-236-1780143451237",
+        "term": "재료",
+        "definition": "ingredient, material",
+        "meaningKr": "ingredient, material",
+        "exampleEn": "이 케이크를 만드는 데 필요한 재료가 모두 준비되어 있나요?",
+        "exampleKr": "Are all the ingredients needed to make this cake prepared?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jaeryo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-237-1780143451237",
+        "term": "각각",
+        "definition": "each, severally, respectively",
+        "meaningKr": "each, severally, respectively",
+        "exampleEn": "학생들은 각각 다른 주제를 선택해서 발표를 준비했어요.",
+        "exampleKr": "The students each chose different topics and prepared their presentations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gakgak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-238-1780143451237",
+        "term": "옮기다",
+        "definition": "to move, to transfer, to convey",
+        "meaningKr": "to move, to transfer, to convey",
+        "exampleEn": "무거운 책상을 다른 방으로 옮기는 것을 좀 도와주시겠어요?",
+        "exampleKr": "Would you mind helping me move this heavy desk to another room?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "omgida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-239-1780143451237",
+        "term": "자유",
+        "definition": "freedom, liberty",
+        "meaningKr": "freedom, liberty",
+        "exampleEn": "모든 사람은 생각과 표현의 자유를 가지고 있다고 생각합니다.",
+        "exampleKr": "I believe all people have freedom of thought and expression.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jayu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-240-1780143451237",
+        "term": "책임",
+        "definition": "responsibility, duty",
+        "meaningKr": "responsibility, duty",
+        "exampleEn": "자신의 행동에 대한 책임을 지는 것은 매우 중요합니다.",
+        "exampleKr": "It is very important to take responsibility for one's actions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chaegim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-241-1780143451237",
+        "term": "바뀌다",
+        "definition": "to be changed, to be replaced",
+        "meaningKr": "to be changed, to be replaced",
+        "exampleEn": "갑자기 계획이 바뀌어서 오늘 회의는 다음 주로 연기되었어요.",
+        "exampleKr": "The plan suddenly changed, so today's meeting was postponed to next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bakkwida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-242-1780143451237",
+        "term": "심하다",
+        "definition": "to be severe, to be intense, to be extreme",
+        "meaningKr": "to be severe, to be intense, to be extreme",
+        "exampleEn": "요즘 미세먼지가 너무 심해서 외출할 때 마스크를 꼭 써야 해요.",
+        "exampleKr": "The fine dust is so severe these days that you must wear a mask when going out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "simhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-243-1780143451237",
+        "term": "아니",
+        "definition": "no, well, oh no",
+        "meaningKr": "no, well, oh no",
+        "exampleEn": "아니, 벌써 퇴근 시간이라고요? 시간이 정말 빠르네요.",
+        "exampleKr": "Oh no, is it already time to leave work? Time really flies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ani",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-intermediate-244-1780143451237",
+        "term": "자라다",
+        "definition": "to grow, to grow up",
+        "meaningKr": "to grow, to grow up",
+        "exampleEn": "아이들은 부모님의 사랑과 관심 속에서 건강하게 자라야 해요.",
+        "exampleKr": "Children should grow up healthy with their parents' love and attention.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jarada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-245-1780143451237",
+        "term": "구체적",
+        "definition": "concrete, specific",
+        "meaningKr": "concrete, specific",
+        "exampleEn": "좀 더 구체적인 예를 들어 설명해주시면 이해하기 쉬울 것 같아요.",
+        "exampleKr": "If you could explain with more specific examples, I think it would be easier to understand.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "guchejeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-246-1780143451237",
+        "term": "기회",
+        "definition": "opportunity, chance",
+        "meaningKr": "opportunity, chance",
+        "exampleEn": "이번이 한국어를 배울 수 있는 좋은 기회이니 놓치지 마세요.",
+        "exampleKr": "This is a good opportunity to learn Korean, so don't miss it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gihoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-247-1780143451237",
+        "term": "지구",
+        "definition": "Earth, globe",
+        "meaningKr": "Earth, globe",
+        "exampleEn": "우리는 지구 환경 보호를 위해 모두 노력해야 할 책임이 있어요.",
+        "exampleKr": "We all have a responsibility to work towards protecting the Earth's environment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jigu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-248-1780143451237",
+        "term": "소비자",
+        "definition": "consumer",
+        "meaningKr": "consumer",
+        "exampleEn": "이 제품은 특히 젊은 소비자들에게 인기가 많다고 합니다.",
+        "exampleKr": "This product is said to be particularly popular among young consumers.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sobija",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-249-1780143451237",
+        "term": "기준",
+        "definition": "standard, criterion",
+        "meaningKr": "standard, criterion",
+        "exampleEn": "어떤 기준으로 이 회사에서 신입 사원을 채용하는지 궁금해요.",
+        "exampleKr": "I'm curious about what standards this company uses to hire new employees.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gijun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-250-1780143451237",
+        "term": "반드시",
+        "definition": "surely, certainly, without fail",
+        "meaningKr": "surely, certainly, without fail",
+        "exampleEn": "내일까지 이 보고서를 반드시 제출해야 해요.",
+        "exampleKr": "You must submit this report by tomorrow without fail.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bandeusi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-251-1780143451237",
+        "term": "받아들이다",
+        "definition": "to accept, to receive, to embrace",
+        "meaningKr": "to accept, to receive, to embrace",
+        "exampleEn": "그의 조언을 받아들이고 계획을 수정하기로 했습니다.",
+        "exampleKr": "I decided to accept his advice and revise the plan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "badadeurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-252-1780143451237",
+        "term": "꺼내다",
+        "definition": "to take out, to pull out, to bring up (a topic)",
+        "meaningKr": "to take out, to pull out, to bring up (a topic)",
+        "exampleEn": "가방에서 책을 꺼내서 읽기 시작했어요.",
+        "exampleKr": "I took a book out of my bag and started reading.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "kkeonaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-253-1780143451237",
+        "term": "노동자",
+        "definition": "worker, laborer",
+        "meaningKr": "worker, laborer",
+        "exampleEn": "모든 노동자는 공정한 대우를 받을 권리가 있습니다.",
+        "exampleKr": "All workers have the right to receive fair treatment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "nodongja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-254-1780143451237",
+        "term": "동네",
+        "definition": "neighborhood, district, town",
+        "meaningKr": "neighborhood, district, town",
+        "exampleEn": "우리 동네에는 맛있는 식당이 많이 있어요.",
+        "exampleKr": "There are many delicious restaurants in our neighborhood.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dongne",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-255-1780143451237",
+        "term": "완전히",
+        "definition": "completely, entirely, perfectly",
+        "meaningKr": "completely, entirely, perfectly",
+        "exampleEn": "저는 그 문제를 완전히 이해하지 못했어요.",
+        "exampleKr": "I didn't completely understand that problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "wanjeonhi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-256-1780143451237",
+        "term": "전하다",
+        "definition": "to convey, to deliver, to tell, to transmit",
+        "meaningKr": "to convey, to deliver, to tell, to transmit",
+        "exampleEn": "친구에게 제 안부를 꼭 전해주세요.",
+        "exampleKr": "Please be sure to convey my regards to my friend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-257-1780143451237",
+        "term": "별로",
+        "definition": "not particularly, not really (usually with negative)",
+        "meaningKr": "not particularly, not really (usually with negative)",
+        "exampleEn": "이 영화는 별로 재미있지 않았어요.",
+        "exampleKr": "This movie wasn't very interesting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "byeollo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-258-1780143451237",
+        "term": "정하다",
+        "definition": "to decide, to determine, to set",
+        "meaningKr": "to decide, to determine, to set",
+        "exampleEn": "우리는 다음 주 회의 날짜를 정해야 해요.",
+        "exampleKr": "We need to set the date for next week's meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-259-1780143451237",
+        "term": "대중",
+        "definition": "the public, the masses",
+        "meaningKr": "the public, the masses",
+        "exampleEn": "이 공연은 대중들에게 큰 인기를 얻었습니다.",
+        "exampleKr": "This performance gained great popularity among the public.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "daejung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-260-1780143451237",
+        "term": "늘어나다",
+        "definition": "to increase, to grow, to stretch",
+        "meaningKr": "to increase, to grow, to stretch",
+        "exampleEn": "최근 스마트폰 사용 시간이 많이 늘어났어요.",
+        "exampleKr": "Recently, smartphone usage time has increased a lot.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neureonada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-261-1780143451237",
+        "term": "각종",
+        "definition": "various kinds of, all sorts of",
+        "meaningKr": "various kinds of, all sorts of",
+        "exampleEn": "백화점에서는 각종 할인 행사를 진행하고 있습니다.",
+        "exampleKr": "The department store is holding various discount events.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gakjong",
+        "pos": "determiner"
+      },
+      {
+        "id": "word-ko-intermediate-262-1780143451237",
+        "term": "빛",
+        "definition": "light, ray",
+        "meaningKr": "light, ray",
+        "exampleEn": "어두운 방에 한 줄기 빛이 들어왔어요.",
+        "exampleKr": "A ray of light came into the dark room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bit",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-263-1780143451237",
+        "term": "야",
+        "definition": "Hey!, Oh! (casual address or exclamation)",
+        "meaningKr": "Hey!, Oh! (casual address or exclamation)",
+        "exampleEn": "야, 너 어디 가? 같이 가자!",
+        "exampleKr": "Hey, where are you going? Let's go together!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ya",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-intermediate-264-1780143451237",
+        "term": "발견하다",
+        "definition": "to discover, to find",
+        "meaningKr": "to discover, to find",
+        "exampleEn": "고고학자들이 오래된 유적을 발견했어요.",
+        "exampleKr": "Archaeologists discovered ancient ruins.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "balgyeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-265-1780143451237",
+        "term": "특징",
+        "definition": "characteristic, feature, trait",
+        "meaningKr": "characteristic, feature, trait",
+        "exampleEn": "이 제품의 가장 큰 특징은 휴대하기 쉽다는 것입니다.",
+        "exampleKr": "The biggest feature of this product is that it's easy to carry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "teukjing",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-266-1780143451237",
+        "term": "선수",
+        "definition": "athlete, player",
+        "meaningKr": "athlete, player",
+        "exampleEn": "그 선수는 올림픽에서 금메달을 땄어요.",
+        "exampleKr": "That athlete won a gold medal at the Olympics.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "seonsu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-267-1780143451237",
+        "term": "마련하다",
+        "definition": "to prepare, to arrange, to provide",
+        "meaningKr": "to prepare, to arrange, to provide",
+        "exampleEn": "손님들을 위해 특별한 저녁 식사를 마련했어요.",
+        "exampleKr": "I prepared a special dinner for the guests.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "maryeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-268-1780143451237",
+        "term": "발표하다",
+        "definition": "to announce, to present, to publish",
+        "meaningKr": "to announce, to present, to publish",
+        "exampleEn": "다음 주에 새로운 연구 결과를 발표할 예정입니다.",
+        "exampleKr": "I plan to announce the new research results next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "balpyohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-269-1780143451237",
+        "term": "주제",
+        "definition": "topic, subject, theme",
+        "meaningKr": "topic, subject, theme",
+        "exampleEn": "오늘 회의의 주제는 신제품 개발입니다.",
+        "exampleKr": "Today's meeting topic is new product development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "juje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-270-1780143451237",
+        "term": "기본",
+        "definition": "basic, fundamental, basics",
+        "meaningKr": "basic, fundamental, basics",
+        "exampleEn": "한국어를 배우려면 기본 문법부터 익혀야 해요.",
+        "exampleKr": "To learn Korean, you need to master basic grammar first.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gibon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-271-1780143451237",
+        "term": "사라지다",
+        "definition": "to disappear, to vanish",
+        "meaningKr": "to disappear, to vanish",
+        "exampleEn": "마술사가 눈앞에서 갑자기 사라졌어요.",
+        "exampleKr": "The magician suddenly disappeared before my eyes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sarajida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-272-1780143451237",
+        "term": "감정",
+        "definition": "emotion, feeling, sentiment",
+        "meaningKr": "emotion, feeling, sentiment",
+        "exampleEn": "그는 자신의 감정을 잘 표현하지 못하는 편이에요.",
+        "exampleKr": "He tends not to express his feelings well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gamjeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-273-1780143451237",
+        "term": "기억",
+        "definition": "memory, recollection",
+        "meaningKr": "memory, recollection",
+        "exampleEn": "어릴 적 추억은 좋은 기억으로 남아있어요.",
+        "exampleKr": "Childhood memories remain as good recollections.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gieok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-274-1780143451237",
+        "term": "인기",
+        "definition": "popularity",
+        "meaningKr": "popularity",
+        "exampleEn": "이 가수는 젊은 세대에게 특히 인기가 많아요.",
+        "exampleKr": "This singer is especially popular among the younger generation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ingi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-275-1780143451237",
+        "term": "관리",
+        "definition": "management, administration; manager",
+        "meaningKr": "management, administration; manager",
+        "exampleEn": "이 건물은 관리가 잘 되어서 항상 깨끗해요.",
+        "exampleKr": "This building is always clean because it is well-managed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwanri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-276-1780143451237",
+        "term": "들리다",
+        "definition": "to be heard; to be lifted, to be carried",
+        "meaningKr": "to be heard; to be lifted, to be carried",
+        "exampleEn": "저 멀리서 음악 소리가 들리는데 무슨 노래인지 모르겠어요.",
+        "exampleKr": "Music is heard from far away, but I don't know what song it is.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "deullida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-277-1780143451237",
+        "term": "달리다",
+        "definition": "to run; to hang; to lack",
+        "meaningKr": "to run; to hang; to lack",
+        "exampleEn": "버스를 놓칠까 봐 정류장까지 열심히 달렸어요.",
+        "exampleKr": "I ran hard to the bus stop because I was afraid of missing the bus.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dallida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-278-1780143451237",
+        "term": "이전",
+        "definition": "relocation, transfer; before, previously",
+        "meaningKr": "relocation, transfer; before, previously",
+        "exampleEn": "회사가 다음 달에 새 건물로 이전할 예정입니다.",
+        "exampleKr": "The company is scheduled to relocate to a new building next month.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ijeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-279-1780143451237",
+        "term": "시키다",
+        "definition": "to order (food); to make (someone do something)",
+        "meaningKr": "to order (food); to make (someone do something)",
+        "exampleEn": "배고파서 중국집에 짜장면을 시켜 먹었어요.",
+        "exampleKr": "I was hungry, so I ordered jajangmyeon from a Chinese restaurant.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sikida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-280-1780143451237",
+        "term": "국제",
+        "definition": "international",
+        "meaningKr": "international",
+        "exampleEn": "한국은 국제 무역에서 중요한 역할을 하고 있습니다.",
+        "exampleKr": "Korea plays an important role in international trade.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gukje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-281-1780143451237",
+        "term": "그룹",
+        "definition": "group",
+        "meaningKr": "group",
+        "exampleEn": "우리 그룹은 다음 주에 프로젝트 발표를 할 거예요.",
+        "exampleKr": "Our group will present the project next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geurup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-282-1780143451237",
+        "term": "인생",
+        "definition": "life",
+        "meaningKr": "life",
+        "exampleEn": "인생은 예측할 수 없는 일들로 가득 차 있어서 재미있어요.",
+        "exampleKr": "Life is interesting because it's full of unpredictable things.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "insaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-283-1780143451237",
+        "term": "전통",
+        "definition": "tradition",
+        "meaningKr": "tradition",
+        "exampleEn": "한국은 아름다운 전통 문화를 많이 가지고 있습니다.",
+        "exampleKr": "Korea has many beautiful traditional cultures.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeontong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-284-1780143451237",
+        "term": "기르다",
+        "definition": "to raise, to grow, to cultivate",
+        "meaningKr": "to raise, to grow, to cultivate",
+        "exampleEn": "어릴 때부터 강아지를 기르고 싶었는데 드디어 꿈을 이뤘어요.",
+        "exampleKr": "I've wanted to raise a puppy since I was little, and I finally achieved my dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gireuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-285-1780143451237",
+        "term": "조사하다",
+        "definition": "to investigate, to survey, to examine",
+        "meaningKr": "to investigate, to survey, to examine",
+        "exampleEn": "경찰이 사건의 원인을 철저하게 조사하고 있습니다.",
+        "exampleKr": "The police are thoroughly investigating the cause of the incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "josahada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-286-1780143451237",
+        "term": "커다랗다",
+        "definition": "to be huge, to be enormous",
+        "meaningKr": "to be huge, to be enormous",
+        "exampleEn": "공원에는 커다란 나무들이 많아서 산책하기 좋아요.",
+        "exampleKr": "There are many huge trees in the park, so it's nice for a walk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "keodarata",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-287-1780143451237",
+        "term": "시인",
+        "definition": "poet",
+        "meaningKr": "poet",
+        "exampleEn": "그는 유명한 시인이 되어서 많은 사람들에게 사랑받고 있습니다.",
+        "exampleKr": "He became a famous poet and is loved by many people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "siin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-288-1780143451237",
+        "term": "위치",
+        "definition": "location, position",
+        "meaningKr": "location, position",
+        "exampleEn": "저희 집은 지하철역 바로 옆에 위치해서 교통이 편리해요.",
+        "exampleKr": "Our house is located right next to the subway station, so transportation is convenient.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "wichi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-289-1780143451237",
+        "term": "줄이다",
+        "definition": "to reduce, to decrease, to shorten",
+        "meaningKr": "to reduce, to decrease, to shorten",
+        "exampleEn": "건강을 위해 저녁 식사량을 조금 줄이려고 노력하고 있어요.",
+        "exampleKr": "I'm trying to reduce my dinner portion a bit for my health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "julida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-290-1780143451237",
+        "term": "가격",
+        "definition": "price",
+        "meaningKr": "price",
+        "exampleEn": "이 핸드폰은 성능이 좋은데도 가격이 아주 저렴해요.",
+        "exampleKr": "This phone has good performance, but the price is very cheap.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gagyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-291-1780143451237",
+        "term": "달라지다",
+        "definition": "to change, to become different",
+        "meaningKr": "to change, to become different",
+        "exampleEn": "어제와 오늘 날씨가 완전히 달라져서 옷을 따뜻하게 입었어요.",
+        "exampleKr": "The weather completely changed from yesterday to today, so I dressed warmly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dallajida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-292-1780143451237",
+        "term": "원하다",
+        "definition": "to want, to desire",
+        "meaningKr": "to want, to desire",
+        "exampleEn": "저는 안정적인 직업을 원해서 공무원 시험을 준비하고 있어요.",
+        "exampleKr": "I want a stable job, so I'm preparing for the civil service exam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "wonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-293-1780143451237",
+        "term": "통신",
+        "definition": "communication, telecommunication",
+        "meaningKr": "communication, telecommunication",
+        "exampleEn": "요즘은 인터넷 통신 기술이 정말 빠르게 발전하고 있어요.",
+        "exampleKr": "Internet communication technology is developing very quickly these days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tongsin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-294-1780143451237",
+        "term": "확인하다",
+        "definition": "to confirm, to check, to verify",
+        "meaningKr": "to confirm, to check, to verify",
+        "exampleEn": "출발하기 전에 비행기 시간을 다시 한번 확인해 주세요.",
+        "exampleKr": "Please check the flight time one more time before departing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hwaginhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-295-1780143451237",
+        "term": "모임",
+        "definition": "gathering, meeting, get-together",
+        "meaningKr": "gathering, meeting, get-together",
+        "exampleEn": "친구들과 오랜만에 모임을 가졌는데 정말 즐거웠어요.",
+        "exampleKr": "I had a get-together with friends after a long time, and it was really enjoyable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "moim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-296-1780143451237",
+        "term": "웃음",
+        "definition": "laughter, smile",
+        "meaningKr": "laughter, smile",
+        "exampleEn": "그의 농담 덕분에 회의실에 웃음꽃이 피었어요.",
+        "exampleKr": "Thanks to his joke, laughter filled the meeting room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "useum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-297-1780143451237",
+        "term": "기계",
+        "definition": "machine, machinery",
+        "meaningKr": "machine, machinery",
+        "exampleEn": "이 새로운 기계는 이전 모델보다 훨씬 효율적이에요.",
+        "exampleKr": "This new machine is much more efficient than the previous model.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gigye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-298-1780143451237",
+        "term": "아나운서",
+        "definition": "announcer",
+        "meaningKr": "announcer",
+        "exampleEn": "그녀는 꿈이었던 방송국 아나운서가 되어서 기뻐했어요.",
+        "exampleKr": "She was happy to become a broadcast announcer, which was her dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "anaunseo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-299-1780143451237",
+        "term": "펴다",
+        "definition": "to spread, to unfold, to open",
+        "meaningKr": "to spread, to unfold, to open",
+        "exampleEn": "책상에 지도를 펴고 여행 계획을 세웠어요.",
+        "exampleKr": "I spread out the map on the desk and made travel plans.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pyeoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-300-1780143451237",
+        "term": "종교",
+        "definition": "religion",
+        "meaningKr": "religion",
+        "exampleEn": "한국에는 다양한 종교가 있지만, 불교와 기독교가 가장 흔해요.",
+        "exampleKr": "There are various religions in Korea, but Buddhism and Christianity are the most common.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jonggyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-301-1780143451237",
+        "term": "자연스럽다",
+        "definition": "to be natural, to be spontaneous",
+        "meaningKr": "to be natural, to be spontaneous",
+        "exampleEn": "처음에는 어려웠지만, 이제는 한국말 하는 것이 자연스러워졌어요.",
+        "exampleKr": "It was difficult at first, but now speaking Korean has become natural.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jayeonseureopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-302-1780143451237",
+        "term": "돌다",
+        "definition": "to turn, to spin, to go around",
+        "meaningKr": "to turn, to spin, to go around",
+        "exampleEn": "아이들이 운동장에서 신나게 뛰어놀고 빙글빙글 돌고 있어요.",
+        "exampleKr": "The children are happily running and spinning around in the playground.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-303-1780143451237",
+        "term": "이해",
+        "definition": "understanding, comprehension",
+        "meaningKr": "understanding, comprehension",
+        "exampleEn": "저는 그 사람의 행동을 아직도 완전히 이해할 수 없어요.",
+        "exampleKr": "I still can't fully understand that person's actions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ihae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-304-1780143451237",
+        "term": "혹은",
+        "definition": "or, alternatively",
+        "meaningKr": "or, alternatively",
+        "exampleEn": "커피 혹은 차, 둘 중에 어떤 것을 마실래요?",
+        "exampleKr": "Coffee or tea, which one would you like to drink?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hogeun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-305-1780143451237",
+        "term": "노력하다",
+        "definition": "to make an effort, to try hard",
+        "meaningKr": "to make an effort, to try hard",
+        "exampleEn": "한국어를 잘하고 싶어서 매일 꾸준히 노력하고 있어요.",
+        "exampleKr": "I want to speak Korean well, so I'm consistently making an effort every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "noryeokada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-306-1780143451237",
+        "term": "보호",
+        "definition": "protection, safeguard",
+        "meaningKr": "protection, safeguard",
+        "exampleEn": "우리는 환경 보호를 위해 쓰레기를 줄이는 노력을 해야 합니다.",
+        "exampleKr": "We should make an effort to reduce trash for environmental protection.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "boho",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-307-1780143451237",
+        "term": "이웃",
+        "definition": "neighbor, neighborhood",
+        "meaningKr": "neighbor, neighborhood",
+        "exampleEn": "좋은 이웃과 함께 살면 더 행복한 일상을 보낼 수 있어요.",
+        "exampleKr": "If you live with good neighbors, you can have a happier daily life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "iut",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-308-1780143451237",
+        "term": "공동",
+        "definition": "common, joint, communal",
+        "meaningKr": "common, joint, communal",
+        "exampleEn": "우리는 공동의 목표를 달성하기 위해 함께 열심히 일하고 있습니다.",
+        "exampleKr": "We are working hard together to achieve a common goal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gongdong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-309-1780143451237",
+        "term": "까닭",
+        "definition": "reason, cause, motive",
+        "meaningKr": "reason, cause, motive",
+        "exampleEn": "그가 갑자기 화를 낸 까닭을 아직도 모르겠어요.",
+        "exampleKr": "I still don't know the reason why he suddenly got angry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "kkadak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-310-1780143451237",
+        "term": "소녀",
+        "definition": "girl, young girl",
+        "meaningKr": "girl, young girl",
+        "exampleEn": "어린 소녀가 길을 잃어버려서 경찰관이 도와주었어요.",
+        "exampleKr": "A young girl got lost, so a police officer helped her.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sonyeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-311-1780143451237",
+        "term": "지나가다",
+        "definition": "to pass by, to go past",
+        "meaningKr": "to pass by, to go past",
+        "exampleEn": "시간이 너무 빨리 지나가서 벌써 저녁이 되었네요.",
+        "exampleKr": "Time passed so quickly that it's already evening.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jinagada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-312-1780143451237",
+        "term": "상품",
+        "definition": "product, goods, merchandise",
+        "meaningKr": "product, goods, merchandise",
+        "exampleEn": "이 백화점에서는 다양한 종류의 고급 상품을 팔고 있어요.",
+        "exampleKr": "This department store sells various kinds of high-quality products.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sangpum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-313-1780143451237",
+        "term": "훌륭하다",
+        "definition": "to be excellent, to be splendid, to be great",
+        "meaningKr": "to be excellent, to be splendid, to be great",
+        "exampleEn": "그 학생은 항상 열심히 공부해서 훌륭한 성적을 받아요.",
+        "exampleKr": "That student always studies hard and gets excellent grades.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hullyunghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-314-1780143451237",
+        "term": "새로",
+        "definition": "newly, afresh, for the first time",
+        "meaningKr": "newly, afresh, for the first time",
+        "exampleEn": "우리는 새로 이사한 집을 예쁘게 꾸미기 위해 노력하고 있어요.",
+        "exampleKr": "We are trying to decorate our newly moved-in house beautifully.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "saero",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-315-1780143451237",
+        "term": "종류",
+        "definition": "kind, sort, type, variety",
+        "meaningKr": "kind, sort, type, variety",
+        "exampleEn": "이 가게에는 여러 종류의 과일과 채소가 아주 많아요.",
+        "exampleKr": "This store has many different kinds of fruits and vegetables.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jongnyu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-316-1780143451237",
+        "term": "키우다",
+        "definition": "to raise, to grow, to nurture",
+        "meaningKr": "to raise, to grow, to nurture",
+        "exampleEn": "저는 어렸을 때 강아지를 키우면서 많은 추억을 만들었어요.",
+        "exampleKr": "When I was young, I made many memories while raising a puppy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "kiuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-317-1780143451237",
+        "term": "눕다",
+        "definition": "to lie down",
+        "meaningKr": "to lie down",
+        "exampleEn": "너무 피곤해서 침대에 눕자마자 잠이 들었어요.",
+        "exampleKr": "I was so tired that I fell asleep as soon as I lay down on the bed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "nupda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-318-1780143451237",
+        "term": "발달하다",
+        "definition": "to develop, to grow, to progress",
+        "meaningKr": "to develop, to grow, to progress",
+        "exampleEn": "이 지역은 교통 시스템이 잘 발달해서 생활하기 편리해요.",
+        "exampleKr": "This area is convenient to live in because its transportation system is well developed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "baldalhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-319-1780143451237",
+        "term": "발전하다",
+        "definition": "to develop, to progress, to advance",
+        "meaningKr": "to develop, to progress, to advance",
+        "exampleEn": "한국은 짧은 시간 안에 경제적으로 크게 발전했습니다.",
+        "exampleKr": "Korea has greatly developed economically in a short period of time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "baljeonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-320-1780143451237",
+        "term": "죽음",
+        "definition": "death",
+        "meaningKr": "death",
+        "exampleEn": "삶과 죽음은 모든 생명체에게 피할 수 없는 운명입니다.",
+        "exampleKr": "Life and death are unavoidable fates for all living things.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jugeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-321-1780143451237",
+        "term": "고통",
+        "definition": "pain, suffering, agony",
+        "meaningKr": "pain, suffering, agony",
+        "exampleEn": "사고로 다친 사람들은 큰 고통 속에서 치료를 받고 있습니다.",
+        "exampleKr": "People injured in the accident are receiving treatment amidst great suffering.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gotong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-322-1780143451237",
+        "term": "어울리다",
+        "definition": "to get along with, to suit, to match",
+        "meaningKr": "to get along with, to suit, to match",
+        "exampleEn": "그 옷은 당신에게 아주 잘 어울리니까 꼭 사세요!",
+        "exampleKr": "Those clothes suit you very well, so definitely buy them!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eoullida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-323-1780143451237",
+        "term": "알리다",
+        "definition": "to inform, to notify, to let know",
+        "meaningKr": "to inform, to notify, to let know",
+        "exampleEn": "중요한 소식이 있으면 저에게 꼭 미리 알려주세요.",
+        "exampleKr": "If there is important news, please be sure to let me know in advance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "allida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-324-1780143451237",
+        "term": "멀리",
+        "definition": "far, far away, distantly",
+        "meaningKr": "far, far away, distantly",
+        "exampleEn": "저는 주말에 도시를 떠나 멀리 여행을 가고 싶어요.",
+        "exampleKr": "I want to leave the city and travel far away on the weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "meolli",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-325-1780143451237",
+        "term": "빼다",
+        "definition": "to take out, to remove, to subtract",
+        "meaningKr": "to take out, to remove, to subtract",
+        "exampleEn": "서랍에서 중요한 서류를 빼서 사장님께 드렸어요.",
+        "exampleKr": "I took out the important documents from the drawer and gave them to the boss.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ppaeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-326-1780143451237",
+        "term": "예정",
+        "definition": "schedule, plan, expectation",
+        "meaningKr": "schedule, plan, expectation",
+        "exampleEn": "회의는 다음 주 월요일 오전 10시로 예정되어 있습니다.",
+        "exampleKr": "The meeting is scheduled for next Monday at 10 AM.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "yejeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-327-1780143451237",
+        "term": "흔히",
+        "definition": "commonly, frequently, often",
+        "meaningKr": "commonly, frequently, often",
+        "exampleEn": "이 지역에서는 여름에 소나기가 흔히 내려요.",
+        "exampleKr": "In this area, summer showers often fall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "heunhi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-328-1780143451237",
+        "term": "느껴지다",
+        "definition": "to be felt, to be perceived",
+        "meaningKr": "to be felt, to be perceived",
+        "exampleEn": "따뜻한 햇살이 피부에 부드럽게 느껴졌어요.",
+        "exampleKr": "The warm sunlight felt soft on my skin.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neukkyeojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-329-1780143451237",
+        "term": "전문",
+        "definition": "specialty, major",
+        "meaningKr": "specialty, major",
+        "exampleEn": "그는 컴퓨터 프로그래밍이 전문이라서 어려운 문제도 잘 해결해요.",
+        "exampleKr": "Computer programming is his specialty, so he solves difficult problems well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonmun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-330-1780143451237",
+        "term": "정확하다",
+        "definition": "to be accurate, to be precise, to be exact",
+        "meaningKr": "to be accurate, to be precise, to be exact",
+        "exampleEn": "이 시계는 시간이 아주 정확해서 믿을 수 있어요.",
+        "exampleKr": "This watch is very accurate, so I can trust it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonghwakhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-331-1780143451237",
+        "term": "등",
+        "definition": "etc., and so on, back (of body)",
+        "meaningKr": "etc., and so on, back (of body)",
+        "exampleEn": "사과, 바나나, 오렌지 등 다양한 과일을 팔고 있어요.",
+        "exampleKr": "We sell various fruits like apples, bananas, oranges, etc.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "deung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-332-1780143451237",
+        "term": "찾아오다",
+        "definition": "to come to visit, to come to find",
+        "meaningKr": "to come to visit, to come to find",
+        "exampleEn": "멀리서 친구가 저를 찾아와서 오랜만에 함께 저녁을 먹었어요.",
+        "exampleKr": "A friend came to visit me from far away, so we had dinner together after a long time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chajaoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-333-1780143451237",
+        "term": "사용",
+        "definition": "use, usage",
+        "meaningKr": "use, usage",
+        "exampleEn": "휴대폰을 너무 많이 사용하면 눈이 나빠질 수 있어요.",
+        "exampleKr": "If you use your cell phone too much, your eyes can get worse.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sayong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-334-1780143451237",
+        "term": "결정하다",
+        "definition": "to decide, to determine",
+        "meaningKr": "to decide, to determine",
+        "exampleEn": "우리는 다음 주에 여행 갈 장소를 빨리 결정해야 해요.",
+        "exampleKr": "We need to decide on a place to travel next week quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeoljeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-335-1780143451237",
+        "term": "경영",
+        "definition": "management, administration",
+        "meaningKr": "management, administration",
+        "exampleEn": "그 회사의 경영 방식은 항상 혁신적이라고 평가받아요.",
+        "exampleKr": "That company's management style is always evaluated as innovative.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeongyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-336-1780143451237",
+        "term": "목표",
+        "definition": "goal, target, objective",
+        "meaningKr": "goal, target, objective",
+        "exampleEn": "올해의 가장 큰 목표는 한국어 능력 시험 5급에 합격하는 것입니다.",
+        "exampleKr": "My biggest goal this year is to pass TOPIK Level 5.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mokpyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-337-1780143451237",
+        "term": "숲",
+        "definition": "forest, woods",
+        "meaningKr": "forest, woods",
+        "exampleEn": "주말에 가족들과 함께 아름다운 숲으로 캠핑을 갔어요.",
+        "exampleKr": "On the weekend, I went camping with my family in a beautiful forest.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-338-1780143451237",
+        "term": "없어지다",
+        "definition": "to disappear, to vanish, to be lost",
+        "meaningKr": "to disappear, to vanish, to be lost",
+        "exampleEn": "어제 샀던 열쇠가 갑자기 없어져서 찾고 있어요.",
+        "exampleKr": "The keys I bought yesterday suddenly disappeared, so I'm looking for them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eopseojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-339-1780143451237",
+        "term": "떠오르다",
+        "definition": "to rise, to float up, to come to mind",
+        "meaningKr": "to rise, to float up, to come to mind",
+        "exampleEn": "갑자기 좋은 생각이 머릿속에 떠올랐어요.",
+        "exampleKr": "A good idea suddenly came to my mind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tteooreuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-340-1780143451237",
+        "term": "미치다",
+        "definition": "to reach, to extend, to affect, to influence",
+        "meaningKr": "to reach, to extend, to affect, to influence",
+        "exampleEn": "그의 연구 결과는 사회 전반에 큰 영향을 미쳤어요.",
+        "exampleKr": "His research results had a great influence on society as a whole.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "michida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-341-1780143451237",
+        "term": "새벽",
+        "definition": "dawn, daybreak",
+        "meaningKr": "dawn, daybreak",
+        "exampleEn": "저는 매일 새벽 5시에 일어나서 운동을 시작해요.",
+        "exampleKr": "I wake up at 5 AM every dawn and start exercising.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "saebyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-342-1780143451237",
+        "term": "얼른",
+        "definition": "quickly, promptly, at once",
+        "meaningKr": "quickly, promptly, at once",
+        "exampleEn": "비가 오기 전에 얼른 집에 가야 해요.",
+        "exampleKr": "I need to go home quickly before it rains.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eolleun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-343-1780143451237",
+        "term": "임금",
+        "definition": "wages, pay, salary",
+        "meaningKr": "wages, pay, salary",
+        "exampleEn": "이 회사는 다른 회사보다 임금이 높아서 인기가 많아요.",
+        "exampleKr": "This company is popular because its wages are higher than other companies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "imggeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-344-1780143451237",
+        "term": "무섭다",
+        "definition": "to be scary, to be frightening, to be afraid",
+        "meaningKr": "to be scary, to be frightening, to be afraid",
+        "exampleEn": "밤에 혼자 숲길을 걷는 것은 좀 무서워요.",
+        "exampleKr": "Walking alone on a forest path at night is a bit scary.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "museopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-345-1780143451237",
+        "term": "직장",
+        "definition": "workplace, job",
+        "meaningKr": "workplace, job",
+        "exampleEn": "새로운 직장에 적응하는 데 시간이 좀 걸렸어요.",
+        "exampleKr": "It took some time to adjust to my new workplace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jikjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-346-1780143451237",
+        "term": "참다",
+        "definition": "to bear, to endure, to suppress",
+        "meaningKr": "to bear, to endure, to suppress",
+        "exampleEn": "화가 나도 꾹 참는 것이 중요하다고 생각해요.",
+        "exampleKr": "I think it's important to hold back your anger even when you're mad.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chamda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-347-1780143451237",
+        "term": "크기",
+        "definition": "size, dimension",
+        "meaningKr": "size, dimension",
+        "exampleEn": "이 옷은 제게 너무 커서 작은 크기로 바꿔야 할 것 같아요.",
+        "exampleKr": "This clothes is too big for me, so I think I need to change it to a smaller size.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "keugi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-348-1780143451237",
+        "term": "남기다",
+        "definition": "to leave (behind), to save, to leave (a message)",
+        "meaningKr": "to leave (behind), to save, to leave (a message)",
+        "exampleEn": "식사 후에 음식을 조금도 남기지 않고 다 먹었어요.",
+        "exampleKr": "After the meal, I ate all the food without leaving even a little bit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "namgida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-349-1780143451237",
+        "term": "서양",
+        "definition": "the West, Western countries",
+        "meaningKr": "the West, Western countries",
+        "exampleEn": "서양 문화와 동양 문화는 서로 다른 점이 많아요.",
+        "exampleKr": "Western culture and Eastern culture have many differences from each other.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "seoyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-350-1780143451237",
+        "term": "주요",
+        "definition": "main, principal, major",
+        "meaningKr": "main, principal, major",
+        "exampleEn": "이 책은 한국 역사의 주요 사건들을 다루고 있습니다.",
+        "exampleKr": "This book covers the major events of Korean history.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "juyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-351-1780143451237",
+        "term": "지나치다",
+        "definition": "to be excessive, to be extreme",
+        "meaningKr": "to be excessive, to be extreme",
+        "exampleEn": "너무 지나친 걱정은 건강에 좋지 않아요.",
+        "exampleKr": "Too much excessive worry is not good for your health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jinachida",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-352-1780143451237",
+        "term": "냄새",
+        "definition": "smell, odor, scent",
+        "meaningKr": "smell, odor, scent",
+        "exampleEn": "맛있는 음식 냄새가 나서 배가 고파졌어요.",
+        "exampleKr": "I got hungry because of the delicious food smell.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "naemsae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-353-1780143451237",
+        "term": "부드럽다",
+        "definition": "to be soft, to be smooth, to be gentle",
+        "meaningKr": "to be soft, to be smooth, to be gentle",
+        "exampleEn": "이 스웨터는 정말 부드러워서 입기 좋아요.",
+        "exampleKr": "This sweater is really soft, so it's good to wear.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "budeureopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-354-1780143451237",
+        "term": "공연",
+        "definition": "performance, show",
+        "meaningKr": "performance, show",
+        "exampleEn": "주말에 친구와 함께 뮤지컬 공연을 보러 갈 거예요.",
+        "exampleKr": "I'm going to watch a musical performance with my friend on the weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gongyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-355-1780143451237",
+        "term": "내놓다",
+        "definition": "to put out, to release, to present",
+        "meaningKr": "to put out, to release, to present",
+        "exampleEn": "새로운 디자인의 휴대폰을 다음 달에 내놓을 예정입니다.",
+        "exampleKr": "We plan to release a new design of phone next month.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "naenoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-356-1780143451237",
+        "term": "떼다",
+        "definition": "to detach, to remove, to take off",
+        "meaningKr": "to detach, to remove, to take off",
+        "exampleEn": "벽에 붙어 있던 포스터를 조심스럽게 떼어냈어요.",
+        "exampleKr": "I carefully peeled off the poster that was stuck on the wall.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tteda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-357-1780143451237",
+        "term": "만들어지다",
+        "definition": "to be made, to be created",
+        "meaningKr": "to be made, to be created",
+        "exampleEn": "이 가방은 수작업으로 특별하게 만들어진 것입니다.",
+        "exampleKr": "This bag was specially made by hand.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mandeureojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-358-1780143451237",
+        "term": "속도",
+        "definition": "speed, pace, velocity",
+        "meaningKr": "speed, pace, velocity",
+        "exampleEn": "차가 너무 빠른 속도로 달려서 위험해 보였어요.",
+        "exampleKr": "The car was driving at such a high speed that it looked dangerous.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sokdo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-359-1780143451237",
+        "term": "심각하다",
+        "definition": "to be serious, to be severe, to be grave",
+        "meaningKr": "to be serious, to be severe, to be grave",
+        "exampleEn": "환경 오염 문제는 전 세계적으로 매우 심각합니다.",
+        "exampleKr": "The environmental pollution problem is very serious worldwide.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "simgakhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-360-1780143451237",
+        "term": "계속되다",
+        "definition": "to continue, to be continued",
+        "meaningKr": "to continue, to be continued",
+        "exampleEn": "지난주부터 비가 계속되어서 야외 활동을 못 했어요.",
+        "exampleKr": "It's been raining continuously since last week, so I couldn't do outdoor activities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyesokdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-361-1780143451237",
+        "term": "소년",
+        "definition": "boy, youth",
+        "meaningKr": "boy, youth",
+        "exampleEn": "그 소년은 매일 도서관에 가서 책을 읽어요.",
+        "exampleKr": "That boy goes to the library every day to read books.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sonyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-362-1780143451237",
+        "term": "소식",
+        "definition": "news, tidings, word",
+        "meaningKr": "news, tidings, word",
+        "exampleEn": "오랜만에 친구에게서 좋은 소식을 들었어요.",
+        "exampleKr": "I heard good news from my friend after a long time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sosik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-363-1780143451237",
+        "term": "그중",
+        "definition": "among them, out of them",
+        "meaningKr": "among them, out of them",
+        "exampleEn": "많은 후보자들 중에서 그가 그중 가장 유능해 보였습니다.",
+        "exampleKr": "Among many candidates, he seemed the most capable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geujung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-364-1780143451237",
+        "term": "노인",
+        "definition": "elderly person, senior citizen",
+        "meaningKr": "elderly person, senior citizen",
+        "exampleEn": "버스에서 노인에게 자리를 양보하는 것이 좋아요.",
+        "exampleKr": "It's good to offer your seat to an elderly person on the bus.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "noin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-365-1780143451237",
+        "term": "벌다",
+        "definition": "to earn (money), to make (money)",
+        "meaningKr": "to earn (money), to make (money)",
+        "exampleEn": "아르바이트를 해서 다음 학기 등록금을 벌어야 해요.",
+        "exampleKr": "I have to work part-time to earn tuition for next semester.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "beolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-366-1780143451237",
+        "term": "살리다",
+        "definition": "to save (a life), to make good use of",
+        "meaningKr": "to save (a life), to make good use of",
+        "exampleEn": "우리는 버려질 위기에 처한 동물을 살리기 위해 노력하고 있습니다.",
+        "exampleKr": "We are working to save animals at risk of being abandoned.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sallida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-367-1780143451237",
+        "term": "결정",
+        "definition": "decision, determination",
+        "meaningKr": "decision, determination",
+        "exampleEn": "중요한 결정을 내리기 전에 충분히 생각해야 해요.",
+        "exampleKr": "You should think enough before making an important decision.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeongjeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-368-1780143451237",
+        "term": "썰다",
+        "definition": "to slice, to chop, to cut",
+        "meaningKr": "to slice, to chop, to cut",
+        "exampleEn": "요리하기 전에 양파와 당근을 잘게 썰어주세요.",
+        "exampleKr": "Please finely chop the onion and carrot before cooking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sseolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-369-1780143451237",
+        "term": "이미지",
+        "definition": "image, impression",
+        "meaningKr": "image, impression",
+        "exampleEn": "좋은 인상을 주기 위해 첫 만남에서는 이미지가 중요해요.",
+        "exampleKr": "Image is important in a first meeting to give a good impression.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "imiji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-370-1780143451237",
+        "term": "업무",
+        "definition": "task, duty, work",
+        "meaningKr": "task, duty, work",
+        "exampleEn": "오늘 업무가 너무 많아서 야근해야 할 것 같아요.",
+        "exampleKr": "I have so much work today that I think I'll have to work overtime.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eopmu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-371-1780143451237",
+        "term": "청소년",
+        "definition": "adolescent, teenager, youth",
+        "meaningKr": "adolescent, teenager, youth",
+        "exampleEn": "청소년들을 위한 다양한 교육 프로그램이 필요합니다.",
+        "exampleKr": "Various educational programs are needed for teenagers.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "cheongsonyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-372-1780143451237",
+        "term": "응",
+        "definition": "yes (informal), yeah, uh-huh",
+        "meaningKr": "yes (informal), yeah, uh-huh",
+        "exampleEn": "\"이거 네 꺼야?\" \"응, 내 거야.\"",
+        "exampleKr": "\"Is this yours?\" \"Yeah, it's mine.\"",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eung",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-intermediate-373-1780143451237",
+        "term": "이기다",
+        "definition": "to win, to defeat, to overcome",
+        "meaningKr": "to win, to defeat, to overcome",
+        "exampleEn": "우리 팀이 마침내 어려운 경기를 이겨서 기뻤어요.",
+        "exampleKr": "Our team finally won the difficult game, so I was happy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "igida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-374-1780143451237",
+        "term": "찾아보다",
+        "definition": "to look for, to search for, to visit",
+        "meaningKr": "to look for, to search for, to visit",
+        "exampleEn": "궁금한 점이 있으면 인터넷에서 정보를 찾아볼 수 있어요.",
+        "exampleKr": "If you have any questions, you can look for information on the internet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chajaboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-375-1780143451237",
+        "term": "취하다",
+        "definition": "to take, to adopt, to get drunk",
+        "meaningKr": "to take, to adopt, to get drunk",
+        "exampleEn": "술을 너무 많이 마셔서 완전히 취했어요.",
+        "exampleKr": "I drank too much alcohol and got completely drunk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chwihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-376-1780143451237",
+        "term": "선배",
+        "definition": "senior, elder colleague/student",
+        "meaningKr": "senior, elder colleague/student",
+        "exampleEn": "회사 선배님께 업무에 대해 조언을 구했어요.",
+        "exampleKr": "I asked my senior colleague for advice about work.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "seonbae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-377-1780143451237",
+        "term": "구하다",
+        "definition": "to seek, to look for, to save, to rescue",
+        "meaningKr": "to seek, to look for, to save, to rescue",
+        "exampleEn": "새로운 집을 구하려고 부동산에 들렀어요.",
+        "exampleKr": "I stopped by the real estate agency to look for a new house.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "guhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-378-1780143451237",
+        "term": "그러므로",
+        "definition": "therefore, consequently",
+        "meaningKr": "therefore, consequently",
+        "exampleEn": "날씨가 좋지 않으므로, 그러므로 여행 계획을 변경해야 해요.",
+        "exampleKr": "The weather is not good, therefore we have to change our travel plans.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geureomeuro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-379-1780143451237",
+        "term": "포함하다",
+        "definition": "to include, to contain",
+        "meaningKr": "to include, to contain",
+        "exampleEn": "이 가격에는 세금과 봉사료가 모두 포함되어 있어요.",
+        "exampleKr": "This price includes all taxes and service charges.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pohamhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-380-1780143451237",
+        "term": "만약",
+        "definition": "if, in case",
+        "meaningKr": "if, in case",
+        "exampleEn": "만약 비가 오면, 우리는 실내에서 놀 거예요.",
+        "exampleKr": "If it rains, we will play indoors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "manyak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-381-1780143451237",
+        "term": "바르다",
+        "definition": "to be straight, to be upright, to be correct",
+        "meaningKr": "to be straight, to be upright, to be correct",
+        "exampleEn": "항상 바른 자세로 앉는 것이 건강에 좋아요.",
+        "exampleKr": "It's good for your health to always sit with good posture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bareuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-382-1780143451237",
+        "term": "숨",
+        "definition": "breath",
+        "meaningKr": "breath",
+        "exampleEn": "계단을 빨리 올라갔더니 숨이 가빴어요.",
+        "exampleKr": "I went up the stairs quickly and was out of breath.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-383-1780143451237",
+        "term": "행사",
+        "definition": "event, function, ceremony",
+        "meaningKr": "event, function, ceremony",
+        "exampleEn": "주말에 학교에서 큰 문화 행사가 열릴 예정이에요.",
+        "exampleKr": "A big cultural event is scheduled to be held at school this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "haengsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-384-1780143451237",
+        "term": "왕",
+        "definition": "king, monarch",
+        "meaningKr": "king, monarch",
+        "exampleEn": "옛날 이야기에는 항상 용감한 왕이 등장해요.",
+        "exampleKr": "Brave kings always appear in old stories.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "wang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-385-1780143451237",
+        "term": "점점",
+        "definition": "gradually, increasingly",
+        "meaningKr": "gradually, increasingly",
+        "exampleEn": "날씨가 점점 따뜻해져서 야외 활동하기 좋아요.",
+        "exampleKr": "The weather is gradually getting warmer, so it's good for outdoor activities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeomjeom",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-386-1780143451237",
+        "term": "특별",
+        "definition": "special, particular",
+        "meaningKr": "special, particular",
+        "exampleEn": "오늘은 제 생일이라서 특별한 저녁 식사를 했어요.",
+        "exampleKr": "Today was my birthday, so I had a special dinner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "teukbyeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-387-1780143451237",
+        "term": "판단",
+        "definition": "judgment, decision",
+        "meaningKr": "judgment, decision",
+        "exampleEn": "모든 정보를 확인한 후에 신중하게 판단해야 해요.",
+        "exampleKr": "You should make a careful judgment after checking all the information.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pandan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-388-1780143451237",
+        "term": "해결하다",
+        "definition": "to solve, to resolve",
+        "meaningKr": "to solve, to resolve",
+        "exampleEn": "이 복잡한 문제를 어떻게 하면 해결할 수 있을까요?",
+        "exampleKr": "How can we solve this complicated problem?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "haegyeolhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-389-1780143451237",
+        "term": "계속하다",
+        "definition": "to continue, to keep doing",
+        "meaningKr": "to continue, to keep doing",
+        "exampleEn": "비가 와도 우리는 연습을 계속해야 해요.",
+        "exampleKr": "Even if it rains, we have to continue practicing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyesokada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-390-1780143451237",
+        "term": "그치다",
+        "definition": "to stop, to cease",
+        "meaningKr": "to stop, to cease",
+        "exampleEn": "비가 그치면 우리는 다시 산책하러 나갈 거예요.",
+        "exampleKr": "When the rain stops, we will go out for a walk again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geuchida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-391-1780143451237",
+        "term": "너무나",
+        "definition": "too, excessively, very",
+        "meaningKr": "too, excessively, very",
+        "exampleEn": "그 소식을 듣고 너무나 기뻐서 소리를 질렀어요.",
+        "exampleKr": "I was so happy to hear the news that I screamed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "neomuna",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-392-1780143451237",
+        "term": "높이다",
+        "definition": "to raise, to heighten, to increase",
+        "meaningKr": "to raise, to heighten, to increase",
+        "exampleEn": "회사는 직원들의 사기를 높이기 위해 노력하고 있어요.",
+        "exampleKr": "The company is trying to boost the morale of its employees.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "nopida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-393-1780143451237",
+        "term": "막",
+        "definition": "just, just now, recklessly",
+        "meaningKr": "just, just now, recklessly",
+        "exampleEn": "제가 막 도착했을 때 회의가 시작했어요.",
+        "exampleKr": "The meeting started just as I arrived.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-394-1780143451237",
+        "term": "수출",
+        "definition": "export",
+        "meaningKr": "export",
+        "exampleEn": "이 나라는 자동차 수출로 경제가 발전했어요.",
+        "exampleKr": "This country's economy developed through car exports.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "suchul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-395-1780143451237",
+        "term": "자르다",
+        "definition": "to cut, to chop, to dismiss",
+        "meaningKr": "to cut, to chop, to dismiss",
+        "exampleEn": "머리카락이 너무 길어서 미용실에서 좀 잘랐어요.",
+        "exampleKr": "My hair was too long, so I had it cut at the salon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jareuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-396-1780143451237",
+        "term": "데리다",
+        "definition": "to take (a person/animal), to bring (a person/animal)",
+        "meaningKr": "to take (a person/animal), to bring (a person/animal)",
+        "exampleEn": "다음 주말에 아이들을 데리고 동물원에 갈 거예요.",
+        "exampleKr": "Next weekend, I'm going to take the children to the zoo.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "derida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-397-1780143451237",
+        "term": "무척",
+        "definition": "very, greatly, immensely",
+        "meaningKr": "very, greatly, immensely",
+        "exampleEn": "시험을 잘 봐서 부모님이 무척 자랑스러워하셨어요.",
+        "exampleKr": "My parents were very proud because I did well on the exam.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mucheok",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-398-1780143451237",
+        "term": "비용",
+        "definition": "cost, expense",
+        "meaningKr": "cost, expense",
+        "exampleEn": "여행을 계획할 때는 교통비와 숙박 비용을 고려해야 해요.",
+        "exampleKr": "When planning a trip, you need to consider transportation and accommodation costs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "biyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-399-1780143451237",
+        "term": "옳다",
+        "definition": "to be right, to be correct, to be proper",
+        "meaningKr": "to be right, to be correct, to be proper",
+        "exampleEn": "그의 주장은 논리적으로 옳다고 생각해요.",
+        "exampleKr": "I think his argument is logically correct.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "olta",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-400-1780143451237",
+        "term": "원래",
+        "definition": "originally, in the first place",
+        "meaningKr": "originally, in the first place",
+        "exampleEn": "이 식당은 원래 작은 카페였는데, 지금은 아주 유명해졌어요.",
+        "exampleKr": "This restaurant was originally a small cafe, but now it has become very famous.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "wonrae",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-401-1780143451237",
+        "term": "최초",
+        "definition": "first, initial, earliest",
+        "meaningKr": "first, initial, earliest",
+        "exampleEn": "한국인 최초로 우주에 간 사람은 이소연 씨입니다.",
+        "exampleKr": "The first Korean to go into space is Ms. Yi So-yeon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "choecho",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-402-1780143451237",
+        "term": "놀이",
+        "definition": "play, game, recreation",
+        "meaningKr": "play, game, recreation",
+        "exampleEn": "아이들은 공원에서 다양한 놀이를 하며 즐거운 시간을 보냈어요.",
+        "exampleKr": "The children had a fun time playing various games in the park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "nori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-403-1780143451237",
+        "term": "뿌리",
+        "definition": "root, origin, base",
+        "meaningKr": "root, origin, base",
+        "exampleEn": "이 나무는 뿌리가 깊어서 태풍에도 쉽게 쓰러지지 않아요.",
+        "exampleKr": "This tree has deep roots, so it doesn't easily fall over in a typhoon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ppuri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-404-1780143451237",
+        "term": "수입",
+        "definition": "income, earnings; import",
+        "meaningKr": "income, earnings; import",
+        "exampleEn": "우리 회사는 매년 외국에서 많은 물건을 수입하고 있습니다.",
+        "exampleKr": "Our company imports many goods from foreign countries every year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "suip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-405-1780143451237",
+        "term": "직원",
+        "definition": "employee, staff member",
+        "meaningKr": "employee, staff member",
+        "exampleEn": "새로 오신 직원분이 친절하게 잘 도와주셔서 감사했어요.",
+        "exampleKr": "I was grateful that the new staff member kindly helped me well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jigwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-406-1780143451237",
+        "term": "상대",
+        "definition": "opponent, counterpart, partner",
+        "meaningKr": "opponent, counterpart, partner",
+        "exampleEn": "이번 시합에서 우리 팀은 아주 강한 상대를 만났습니다.",
+        "exampleKr": "In this match, our team met a very strong opponent.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sangdae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-407-1780143451237",
+        "term": "피부",
+        "definition": "skin",
+        "meaningKr": "skin",
+        "exampleEn": "겨울에는 날씨가 건조해서 피부가 많이 트고 가려워요.",
+        "exampleKr": "In winter, the weather is dry, so my skin gets very chapped and itchy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pibu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-408-1780143451237",
+        "term": "가득",
+        "definition": "full, fully, to the brim",
+        "meaningKr": "full, fully, to the brim",
+        "exampleEn": "냉장고에 맛있는 음식이 가득해서 행복했어요.",
+        "exampleKr": "I was happy because the refrigerator was full of delicious food.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gadeuk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-409-1780143451237",
+        "term": "벽",
+        "definition": "wall",
+        "meaningKr": "wall",
+        "exampleEn": "방 벽에 좋아하는 그림을 걸어 놓으니 분위기가 더 좋아졌어요.",
+        "exampleKr": "Hanging my favorite painting on the room's wall made the atmosphere even better.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "byeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-410-1780143451237",
+        "term": "장군",
+        "definition": "general (military rank)",
+        "meaningKr": "general (military rank)",
+        "exampleEn": "역사 드라마에서 용감한 장군이 나라를 지키는 이야기가 나왔어요.",
+        "exampleKr": "The historical drama featured a story about a brave general protecting the country.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "janggun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-411-1780143451237",
+        "term": "무역",
+        "definition": "trade, commerce",
+        "meaningKr": "trade, commerce",
+        "exampleEn": "한국은 여러 나라와 활발하게 무역을 하며 경제를 발전시키고 있습니다.",
+        "exampleKr": "Korea is actively trading with various countries and developing its economy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "muyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-412-1780143451237",
+        "term": "줄",
+        "definition": "line, queue; string, rope",
+        "meaningKr": "line, queue; string, rope",
+        "exampleEn": "인기 있는 식당이라서 점심시간에는 항상 줄을 서야 해요.",
+        "exampleKr": "It's a popular restaurant, so you always have to wait in line during lunchtime.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-413-1780143451237",
+        "term": "쳐다보다",
+        "definition": "to stare, to look at, to gaze",
+        "meaningKr": "to stare, to look at, to gaze",
+        "exampleEn": "모르는 사람이 계속 쳐다봐서 좀 불편했어요.",
+        "exampleKr": "I felt a bit uncomfortable because a stranger kept staring at me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chyeodaboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-414-1780143451237",
+        "term": "충분히",
+        "definition": "sufficiently, enough, amply",
+        "meaningKr": "sufficiently, enough, amply",
+        "exampleEn": "시험을 잘 보려면 충분히 잠을 자고 공부해야 합니다.",
+        "exampleKr": "To do well on the exam, you need to get enough sleep and study.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "chungbunhi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-415-1780143451237",
+        "term": "신체",
+        "definition": "body, physical body",
+        "meaningKr": "body, physical body",
+        "exampleEn": "건강한 신체를 유지하기 위해서는 꾸준한 운동이 중요합니다.",
+        "exampleKr": "Consistent exercise is important for maintaining a healthy body.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sinche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-416-1780143451237",
+        "term": "에너지",
+        "definition": "energy",
+        "meaningKr": "energy",
+        "exampleEn": "아침에 커피를 마시면 하루 종일 에너지가 생기는 것 같아요.",
+        "exampleKr": "When I drink coffee in the morning, I feel like I have energy all day long.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eneoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-417-1780143451237",
+        "term": "정리하다",
+        "definition": "to organize, to arrange, to tidy up",
+        "meaningKr": "to organize, to arrange, to tidy up",
+        "exampleEn": "방이 너무 지저분해서 주말에 시간을 내서 정리해야겠어요.",
+        "exampleKr": "My room is too messy, so I should make time to tidy it up this weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeongnihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-418-1780143451237",
+        "term": "집안",
+        "definition": "household, family; inside the house",
+        "meaningKr": "household, family; inside the house",
+        "exampleEn": "명절에는 온 집안 식구들이 모여 함께 맛있는 음식을 먹습니다.",
+        "exampleKr": "During holidays, all family members gather and eat delicious food together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jiban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-419-1780143451237",
+        "term": "배경",
+        "definition": "background, setting; context",
+        "meaningKr": "background, setting; context",
+        "exampleEn": "이 그림의 배경은 아름다운 바닷가 마을을 묘사하고 있습니다.",
+        "exampleKr": "The background of this painting depicts a beautiful seaside village.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "baegyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-420-1780143451237",
+        "term": "죽이다",
+        "definition": "to kill, to murder",
+        "meaningKr": "to kill, to murder",
+        "exampleEn": "모기 때문에 잠을 설쳐서, 결국 모기 한 마리를 죽였어요.",
+        "exampleKr": "I couldn't sleep because of a mosquito, so I ended up killing one.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jugida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-421-1780143451237",
+        "term": "단순하다",
+        "definition": "to be simple, to be straightforward",
+        "meaningKr": "to be simple, to be straightforward",
+        "exampleEn": "그 문제는 생각보다 단순해서 쉽게 해결할 수 있었어요.",
+        "exampleKr": "The problem was simpler than I thought, so I could solve it easily.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dansunhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-422-1780143451237",
+        "term": "반대",
+        "definition": "opposite, opposition, contrary",
+        "meaningKr": "opposite, opposition, contrary",
+        "exampleEn": "제 의견에 반대하는 사람이 많았지만, 저는 제 주장을 굽히지 않았어요.",
+        "exampleKr": "Many people opposed my opinion, but I didn't back down from my argument.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bandae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-423-1780143451237",
+        "term": "푸르다",
+        "definition": "to be blue, to be green (of nature)",
+        "meaningKr": "to be blue, to be green (of nature)",
+        "exampleEn": "봄이 되니 산과 들이 온통 푸른색으로 변해서 정말 아름다워요.",
+        "exampleKr": "As spring arrived, the mountains and fields turned completely green, which is truly beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pureuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-424-1780143451237",
+        "term": "발표",
+        "definition": "announcement, presentation, publication",
+        "meaningKr": "announcement, presentation, publication",
+        "exampleEn": "다음 주에 중요한 발표가 있어서 주말 내내 준비해야 해요.",
+        "exampleKr": "I have an important presentation next week, so I need to prepare for it all weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "balpyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-425-1780143451237",
+        "term": "흔들다",
+        "definition": "to shake, to wave, to sway",
+        "meaningKr": "to shake, to wave, to sway",
+        "exampleEn": "바람이 너무 강해서 나무들이 심하게 흔들리고 있어요.",
+        "exampleKr": "The wind is so strong that the trees are shaking violently.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "heundeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-426-1780143451237",
+        "term": "기초",
+        "definition": "basic, foundation, basics",
+        "meaningKr": "basic, foundation, basics",
+        "exampleEn": "한국어 기초가 튼튼해야 고급 문법을 쉽게 배울 수 있어요.",
+        "exampleKr": "You need a strong foundation in Korean to easily learn advanced grammar.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gicho",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-427-1780143451237",
+        "term": "드라마",
+        "definition": "drama (TV show, play)",
+        "meaningKr": "drama (TV show, play)",
+        "exampleEn": "저는 한국 드라마 보는 것을 좋아해서 주말마다 꼭 봐요.",
+        "exampleKr": "I like watching Korean dramas, so I make sure to watch them every weekend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "deurama",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-428-1780143451237",
+        "term": "뽑다",
+        "definition": "to pull out, to pick, to select",
+        "meaningKr": "to pull out, to pick, to select",
+        "exampleEn": "이번 대회에 나갈 대표 선수들을 다음 주에 뽑을 예정입니다.",
+        "exampleKr": "We plan to select the representative athletes for this competition next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ppopda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-429-1780143451237",
+        "term": "미리",
+        "definition": "in advance, beforehand",
+        "meaningKr": "in advance, beforehand",
+        "exampleEn": "여행 계획은 미리 세워야 즐겁게 다녀올 수 있어요.",
+        "exampleKr": "You should plan your trip in advance to have an enjoyable time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "miri",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-430-1780143451237",
+        "term": "부족하다",
+        "definition": "to be lacking, to be insufficient",
+        "meaningKr": "to be lacking, to be insufficient",
+        "exampleEn": "시간이 부족해서 발표 준비를 완벽하게 못 했어요.",
+        "exampleKr": "I couldn't prepare my presentation perfectly because I was short on time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bujokhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-431-1780143451237",
+        "term": "저희",
+        "definition": "we, us (humble)",
+        "meaningKr": "we, us (humble)",
+        "exampleEn": "저희는 다음 주에 새로운 프로젝트를 시작할 예정입니다.",
+        "exampleKr": "We are planning to start a new project next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeohui",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-intermediate-432-1780143451237",
+        "term": "진행되다",
+        "definition": "to proceed, to progress, to be carried out",
+        "meaningKr": "to proceed, to progress, to be carried out",
+        "exampleEn": "회의는 예정대로 순조롭게 진행되고 있습니다.",
+        "exampleKr": "The meeting is proceeding smoothly as scheduled.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jinhaengdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-433-1780143451237",
+        "term": "젊은이",
+        "definition": "young person, youth",
+        "meaningKr": "young person, youth",
+        "exampleEn": "요즘 젊은이들은 환경 문제에 관심이 많아요.",
+        "exampleKr": "Young people these days are very interested in environmental issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeolmeuni",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-434-1780143451237",
+        "term": "과제",
+        "definition": "assignment, task, challenge",
+        "meaningKr": "assignment, task, challenge",
+        "exampleEn": "교수님께서 내주신 과제가 너무 어려워서 밤새 고민했어요.",
+        "exampleKr": "The assignment the professor gave us was so difficult that I worried about it all night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwaje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-435-1780143451237",
+        "term": "기록하다",
+        "definition": "to record, to document, to write down",
+        "meaningKr": "to record, to document, to write down",
+        "exampleEn": "중요한 내용은 잊어버리지 않도록 항상 기록하는 습관이 있어요.",
+        "exampleKr": "I have a habit of always writing down important information so I don't forget it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "girokhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-436-1780143451237",
+        "term": "다가오다",
+        "definition": "to approach, to come closer",
+        "meaningKr": "to approach, to come closer",
+        "exampleEn": "시험 기간이 다가오고 있어서 요즘 공부를 열심히 하고 있어요.",
+        "exampleKr": "The exam period is approaching, so I'm studying hard these days.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dagaoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-437-1780143451237",
+        "term": "종합",
+        "definition": "comprehensive, synthesis, overall",
+        "meaningKr": "comprehensive, synthesis, overall",
+        "exampleEn": "이번 프로젝트의 종합적인 결과는 다음 주에 발표될 예정입니다.",
+        "exampleKr": "The comprehensive results of this project will be announced next week.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jonghap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-438-1780143451237",
+        "term": "개발하다",
+        "definition": "to develop, to create",
+        "meaningKr": "to develop, to create",
+        "exampleEn": "이 회사는 새로운 기술을 개발하기 위해 많은 투자를 하고 있습니다.",
+        "exampleKr": "This company is investing a lot to develop new technology.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gaebalhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-439-1780143451237",
+        "term": "떨다",
+        "definition": "to shiver, to tremble, to shake off",
+        "meaningKr": "to shiver, to tremble, to shake off",
+        "exampleEn": "추운 겨울 아침이라 몸이 너무 떨려서 따뜻한 차를 마셨어요.",
+        "exampleKr": "It was a cold winter morning, so I was shivering a lot and drank warm tea.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tteolda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-440-1780143451237",
+        "term": "자",
+        "definition": "Well then, Come on, Now",
+        "meaningKr": "Well then, Come on, Now",
+        "exampleEn": "자, 이제부터 회의를 시작해 볼까요?",
+        "exampleKr": "Well then, shall we start the meeting now?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ja",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-ko-intermediate-441-1780143451237",
+        "term": "자유롭다",
+        "definition": "to be free, to be liberal",
+        "meaningKr": "to be free, to be liberal",
+        "exampleEn": "이곳에서는 자기 의견을 자유롭게 말할 수 있어서 좋아요.",
+        "exampleKr": "It's good here because you can freely express your opinions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jayuropta",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-442-1780143451237",
+        "term": "적극적",
+        "definition": "active, proactive (nature/attitude)",
+        "meaningKr": "active, proactive (nature/attitude)",
+        "exampleEn": "이번 프로젝트에서는 팀원들의 적극적인 참여가 중요합니다.",
+        "exampleKr": "Active participation from team members is important for this project.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeokgeukjeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-443-1780143451237",
+        "term": "판매",
+        "definition": "sale, selling",
+        "meaningKr": "sale, selling",
+        "exampleEn": "신제품 판매를 늘리기 위해 다양한 마케팅 전략을 세우고 있어요.",
+        "exampleKr": "We are developing various marketing strategies to increase sales of the new product.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "panmae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-444-1780143451237",
+        "term": "길이",
+        "definition": "length",
+        "meaningKr": "length",
+        "exampleEn": "이 도로의 총 길이는 약 100킬로미터 정도 됩니다.",
+        "exampleKr": "The total length of this road is about 100 kilometers.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gili",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-445-1780143451237",
+        "term": "점차",
+        "definition": "gradually, little by little",
+        "meaningKr": "gradually, little by little",
+        "exampleEn": "시간이 지나면서 날씨가 점차 따뜻해지고 있습니다.",
+        "exampleKr": "As time passes, the weather is gradually getting warmer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeomcha",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-446-1780143451237",
+        "term": "관련되다",
+        "definition": "to be related to, to be involved in",
+        "meaningKr": "to be related to, to be involved in",
+        "exampleEn": "이 사건과 관련된 모든 자료를 신속하게 확인해야 합니다.",
+        "exampleKr": "We need to quickly check all the materials related to this incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gwallyeondoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-447-1780143451237",
+        "term": "나머지",
+        "definition": "the rest, the remainder",
+        "meaningKr": "the rest, the remainder",
+        "exampleEn": "숙제를 다 하고 나머지는 내일 할 예정이에요.",
+        "exampleKr": "I'll finish some of my homework and do the rest tomorrow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "nameoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-448-1780143451237",
+        "term": "미래",
+        "definition": "future",
+        "meaningKr": "future",
+        "exampleEn": "밝은 미래를 위해 지금부터 열심히 준비해야 합니다.",
+        "exampleKr": "We need to prepare diligently from now on for a bright future.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mirae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-449-1780143451237",
+        "term": "인구",
+        "definition": "population",
+        "meaningKr": "population",
+        "exampleEn": "이 도시의 인구는 지난 10년 동안 많이 증가했습니다.",
+        "exampleKr": "The population of this city has increased a lot over the last 10 years.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ingu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-450-1780143451237",
+        "term": "기대하다",
+        "definition": "to expect, to look forward to",
+        "meaningKr": "to expect, to look forward to",
+        "exampleEn": "이번 프로젝트가 성공할 거라고 모두 기대하고 있어요.",
+        "exampleKr": "Everyone is expecting this project to succeed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gidaehanda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-451-1780143451237",
+        "term": "흘리다",
+        "definition": "to spill, to shed (tears, blood), to sweat",
+        "meaningKr": "to spill, to shed (tears, blood), to sweat",
+        "exampleEn": "실수로 커피를 옷에 흘려서 얼룩이 생겼어요.",
+        "exampleKr": "I accidentally spilled coffee on my clothes, so there's a stain.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "heullida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-452-1780143451237",
+        "term": "주인공",
+        "definition": "protagonist, main character",
+        "meaningKr": "protagonist, main character",
+        "exampleEn": "이 소설의 주인공은 용감하고 똑똑한 학생이에요.",
+        "exampleKr": "The protagonist of this novel is a brave and smart student.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "juingong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-453-1780143451237",
+        "term": "당연하다",
+        "definition": "to be natural, to be obvious, to be a matter of course",
+        "meaningKr": "to be natural, to be obvious, to be a matter of course",
+        "exampleEn": "열심히 공부했으니 시험에 합격하는 것은 당연한 결과예요.",
+        "exampleKr": "Since you studied hard, passing the exam is a natural result.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dangyeonhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-454-1780143451237",
+        "term": "따로",
+        "definition": "separately, apart",
+        "meaningKr": "separately, apart",
+        "exampleEn": "식사 후에 커피는 따로 마시고 싶으니 주문해주세요.",
+        "exampleKr": "After the meal, I want to drink coffee separately, so please order it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ttaro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-455-1780143451237",
+        "term": "빌리다",
+        "definition": "to borrow",
+        "meaningKr": "to borrow",
+        "exampleEn": "도서관에서 재미있는 소설책을 한 권 빌렸어요.",
+        "exampleKr": "I borrowed an interesting novel from the library.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "billida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-456-1780143451237",
+        "term": "형님",
+        "definition": "elder brother (used by a male), respectful term for an older male",
+        "meaningKr": "elder brother (used by a male), respectful term for an older male",
+        "exampleEn": "우리 형님은 저에게 항상 좋은 조언을 해주세요.",
+        "exampleKr": "My older brother always gives me good advice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "hyeongnim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-457-1780143451237",
+        "term": "놓이다",
+        "definition": "to be placed, to be put, to be laid",
+        "meaningKr": "to be placed, to be put, to be laid",
+        "exampleEn": "책상 위에 책들이 가지런히 놓여 있어서 찾기 쉬워요.",
+        "exampleKr": "Books are neatly placed on the desk, so they are easy to find.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "noida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-458-1780143451237",
+        "term": "당장",
+        "definition": "immediately, right away, at once",
+        "meaningKr": "immediately, right away, at once",
+        "exampleEn": "이 문제는 당장 해결해야 하니 서둘러 주세요.",
+        "exampleKr": "This problem needs to be solved immediately, so please hurry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dangjang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-459-1780143451237",
+        "term": "사물",
+        "definition": "object, thing",
+        "meaningKr": "object, thing",
+        "exampleEn": "박물관에는 오래된 역사적 사물들이 많이 전시되어 있어요.",
+        "exampleKr": "Many old historical objects are displayed in the museum.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "samul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-460-1780143451237",
+        "term": "일반적",
+        "definition": "general, common, typical",
+        "meaningKr": "general, common, typical",
+        "exampleEn": "한국에서는 밥을 먹을 때 국을 같이 먹는 것이 일반적이에요.",
+        "exampleKr": "In Korea, it's common to eat soup together when eating rice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ilbanjeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-461-1780143451237",
+        "term": "곱다",
+        "definition": "to be beautiful, to be pretty, to be fine (texture)",
+        "meaningKr": "to be beautiful, to be pretty, to be fine (texture)",
+        "exampleEn": "할머니의 손은 비록 주름졌지만 마음은 참 고우세요.",
+        "exampleKr": "Although my grandmother's hands are wrinkled, her heart is truly beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-462-1780143451237",
+        "term": "바닥",
+        "definition": "floor, ground, bottom",
+        "meaningKr": "floor, ground, bottom",
+        "exampleEn": "아이가 장난감을 바닥에 떨어뜨렸는데 다행히 깨지지 않았어요.",
+        "exampleKr": "The child dropped the toy on the floor, but fortunately, it didn't break.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "badak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-463-1780143451237",
+        "term": "새끼",
+        "definition": "cub, pup, young animal",
+        "meaningKr": "cub, pup, young animal",
+        "exampleEn": "어미 고양이가 귀여운 새끼 고양이들을 돌보고 있어요.",
+        "exampleKr": "The mother cat is taking care of her cute kittens.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "saekki",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-464-1780143451237",
+        "term": "생각되다",
+        "definition": "to be thought, to be considered",
+        "meaningKr": "to be thought, to be considered",
+        "exampleEn": "그 영화는 올해 최고의 작품 중 하나로 생각됩니다.",
+        "exampleKr": "That movie is considered one of the best works of this year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "saenggakdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-465-1780143451237",
+        "term": "서비스",
+        "definition": "service",
+        "meaningKr": "service",
+        "exampleEn": "이 식당은 음식 맛도 좋고 서비스도 아주 친절해요.",
+        "exampleKr": "This restaurant has good food and very kind service.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "seobiseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-466-1780143451237",
+        "term": "선택하다",
+        "definition": "to choose, to select",
+        "meaningKr": "to choose, to select",
+        "exampleEn": "여러 가지 옵션 중에서 가장 좋은 것을 선택해야 해요.",
+        "exampleKr": "I have to choose the best one among several options.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "seontaekada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-467-1780143451237",
+        "term": "심다",
+        "definition": "to plant, to sow",
+        "meaningKr": "to plant, to sow",
+        "exampleEn": "봄이 되면 마당에 예쁜 꽃들을 심을 거예요.",
+        "exampleKr": "When spring comes, I will plant beautiful flowers in the yard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "simda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-468-1780143451237",
+        "term": "간단하다",
+        "definition": "to be simple, to be brief, to be easy",
+        "meaningKr": "to be simple, to be brief, to be easy",
+        "exampleEn": "이 요리법은 재료도 간단하고 만들기도 쉬워요.",
+        "exampleKr": "This recipe uses simple ingredients and is easy to make.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gandanhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-469-1780143451237",
+        "term": "견디다",
+        "definition": "to endure, to bear, to tolerate",
+        "meaningKr": "to endure, to bear, to tolerate",
+        "exampleEn": "힘든 시간을 견디고 나면 더 강해질 수 있어요.",
+        "exampleKr": "If you endure through difficult times, you can become stronger.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gyeondida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-470-1780143451237",
+        "term": "기사",
+        "definition": "article (newspaper/magazine), driver, knight",
+        "meaningKr": "article (newspaper/magazine), driver, knight",
+        "exampleEn": "신문에서 흥미로운 과학 기사를 읽었는데 내용이 정말 좋았어요.",
+        "exampleKr": "I read an interesting science article in the newspaper, and the content was really good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gisa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-471-1780143451237",
+        "term": "막히다",
+        "definition": "to be blocked, to be stopped, to be clogged",
+        "meaningKr": "to be blocked, to be stopped, to be clogged",
+        "exampleEn": "퇴근 시간에는 길이 자주 막혀서 시간이 오래 걸려요.",
+        "exampleKr": "The road is often blocked during rush hour, so it takes a long time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "makhida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-472-1780143451237",
+        "term": "뿌리다",
+        "definition": "to sprinkle, to scatter, to spray",
+        "meaningKr": "to sprinkle, to scatter, to spray",
+        "exampleEn": "음식에 소금을 조금 뿌려서 간을 맞췄어요.",
+        "exampleKr": "I sprinkled a little salt on the food to season it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ppurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-473-1780143451237",
+        "term": "어쩌면",
+        "definition": "perhaps, maybe, possibly",
+        "meaningKr": "perhaps, maybe, possibly",
+        "exampleEn": "비가 올지도 모르니 어쩌면 우산을 가져가는 게 좋겠어요.",
+        "exampleKr": "It might rain, so perhaps it would be good to take an umbrella.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "eojjeomyeon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-474-1780143451237",
+        "term": "비밀",
+        "definition": "secret",
+        "meaningKr": "secret",
+        "exampleEn": "이 이야기는 우리 둘만의 비밀이니 아무에게도 말하지 마세요.",
+        "exampleKr": "This story is a secret just between us, so don't tell anyone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bimil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-475-1780143451237",
+        "term": "아까",
+        "definition": "a while ago, earlier",
+        "meaningKr": "a while ago, earlier",
+        "exampleEn": "아까 전화했는데 안 받으셔서 다시 전화했어요.",
+        "exampleKr": "I called a while ago, but you didn't answer, so I called again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "akka",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-476-1780143451237",
+        "term": "알맞다",
+        "definition": "to be suitable, to be appropriate, to fit",
+        "meaningKr": "to be suitable, to be appropriate, to fit",
+        "exampleEn": "이 옷은 제 몸에 딱 알맞아서 아주 편해요.",
+        "exampleKr": "These clothes fit my body perfectly, so they're very comfortable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "almatda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-477-1780143451237",
+        "term": "희다",
+        "definition": "to be white",
+        "meaningKr": "to be white",
+        "exampleEn": "눈이 많이 와서 산이 온통 하얗게 변했어요.",
+        "exampleKr": "It snowed a lot, so the mountain turned completely white.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "huida",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-478-1780143451237",
+        "term": "가리키다",
+        "definition": "to point, to indicate",
+        "meaningKr": "to point, to indicate",
+        "exampleEn": "선생님이 지도를 보며 중요한 장소를 손가락으로 가리키셨어요.",
+        "exampleKr": "The teacher looked at the map and pointed to the important place with her finger.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "garikida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-479-1780143451237",
+        "term": "모시다",
+        "definition": "to take care of, to attend (a superior), to escort",
+        "meaningKr": "to take care of, to attend (a superior), to escort",
+        "exampleEn": "부모님을 잘 모시는 것은 자식의 도리라고 생각해요.",
+        "exampleKr": "I think taking good care of one's parents is a child's duty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "mosida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-480-1780143451237",
+        "term": "발달",
+        "definition": "development, growth",
+        "meaningKr": "development, growth",
+        "exampleEn": "한국은 경제 발달이 아주 빠르게 이루어졌습니다.",
+        "exampleKr": "Korea's economic development has occurred very rapidly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "paldal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-481-1780143451237",
+        "term": "수많다",
+        "definition": "to be numerous, to be countless",
+        "meaningKr": "to be numerous, to be countless",
+        "exampleEn": "세상에는 수많은 종류의 문화가 존재하고 있습니다.",
+        "exampleKr": "There are countless types of cultures existing in the world.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "sumanta",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-intermediate-482-1780143451237",
+        "term": "잘못",
+        "definition": "mistake, fault, error",
+        "meaningKr": "mistake, fault, error",
+        "exampleEn": "제 잘못 때문에 친구에게 피해를 줘서 미안해요.",
+        "exampleKr": "I'm sorry I caused trouble for my friend because of my mistake.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jalmot",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-483-1780143451237",
+        "term": "평화",
+        "definition": "peace",
+        "meaningKr": "peace",
+        "exampleEn": "우리는 모두 세계 평화를 위해 노력해야 한다고 생각해요.",
+        "exampleKr": "I think we all should strive for world peace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "pyeonghwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-484-1780143451237",
+        "term": "공사",
+        "definition": "construction, public works",
+        "meaningKr": "construction, public works",
+        "exampleEn": "이 도로는 현재 공사 중이니 다른 길로 가세요.",
+        "exampleKr": "This road is currently under construction, so please take another way.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "gongsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-485-1780143451237",
+        "term": "돌",
+        "definition": "stone, rock",
+        "meaningKr": "stone, rock",
+        "exampleEn": "강가에는 둥글고 매끄러운 돌들이 많이 있었어요.",
+        "exampleKr": "There were many round and smooth stones by the river.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "dol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-486-1780143451237",
+        "term": "박사",
+        "definition": "doctor (Ph.D.), expert",
+        "meaningKr": "doctor (Ph.D.), expert",
+        "exampleEn": "그는 컴퓨터 분야에서 박사 학위를 받은 전문가입니다.",
+        "exampleKr": "He is an expert who received a doctoral degree in the computer field.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "paksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-487-1780143451237",
+        "term": "전문가",
+        "definition": "expert, specialist",
+        "meaningKr": "expert, specialist",
+        "exampleEn": "어려운 문제라서 전문가의 도움이 필요할 것 같아요.",
+        "exampleKr": "It's a difficult problem, so I think we'll need an expert's help.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jeonmunga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-488-1780143451237",
+        "term": "단지",
+        "definition": "merely, simply, just",
+        "meaningKr": "merely, simply, just",
+        "exampleEn": "저는 단지 제 생각을 말했을 뿐인데 오해를 하셨어요.",
+        "exampleKr": "I merely stated my thoughts, but you misunderstood.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "danji",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-489-1780143451237",
+        "term": "무용",
+        "definition": "dance",
+        "meaningKr": "dance",
+        "exampleEn": "그녀는 어렸을 때부터 발레 무용을 배워서 몸이 유연해요.",
+        "exampleKr": "She learned ballet dance since she was young, so her body is flexible.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "muyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-490-1780143451237",
+        "term": "불리다",
+        "definition": "to be called, to be named",
+        "meaningKr": "to be called, to be named",
+        "exampleEn": "이 산은 가을 단풍이 아름다워서 '단풍산'이라고 불려요.",
+        "exampleKr": "This mountain is called 'Maple Mountain' because its autumn foliage is beautiful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "bullida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-491-1780143451237",
+        "term": "싸움",
+        "definition": "fight, quarrel, struggle",
+        "meaningKr": "fight, quarrel, struggle",
+        "exampleEn": "친구들과 작은 싸움이 있었지만 금방 화해했어요.",
+        "exampleKr": "I had a small fight with my friends, but we made up quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "ssaum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-492-1780143451237",
+        "term": "자꾸",
+        "definition": "repeatedly, again and again, constantly",
+        "meaningKr": "repeatedly, again and again, constantly",
+        "exampleEn": "이 노래가 너무 좋아서 자꾸 듣게 돼요.",
+        "exampleKr": "This song is so good that I keep listening to it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "jakku",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-493-1780143451237",
+        "term": "차리다",
+        "definition": "to prepare (a meal), to set (a table), to regain (consciousness)",
+        "meaningKr": "to prepare (a meal), to set (a table), to regain (consciousness)",
+        "exampleEn": "손님들이 오기 전에 빨리 저녁 식사를 차려야 해요.",
+        "exampleKr": "I need to quickly prepare dinner before the guests arrive.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "charida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-494-1780143451237",
+        "term": "해외",
+        "definition": "overseas, abroad",
+        "meaningKr": "overseas, abroad",
+        "exampleEn": "저는 해외여행을 좋아해서 매년 다른 나라로 떠나요.",
+        "exampleKr": "I like traveling overseas, so I leave for a different country every year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "haeoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-495-1780143451237",
+        "term": "그리",
+        "definition": "so, that much (usually with negation)",
+        "meaningKr": "so, that much (usually with negation)",
+        "exampleEn": "이 영화가 그리 재미있지는 않지만 볼 만해요.",
+        "exampleKr": "This movie isn't that interesting, but it's watchable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "geuri",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-intermediate-496-1780143451237",
+        "term": "뜨다",
+        "definition": "to float, to rise, to open (eyes)",
+        "meaningKr": "to float, to rise, to open (eyes)",
+        "exampleEn": "아침에 일찍 눈을 뜨고 산책을 나갔어요.",
+        "exampleKr": "I opened my eyes early in the morning and went for a walk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "tteuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-497-1780143451237",
+        "term": "미소",
+        "definition": "smile",
+        "meaningKr": "smile",
+        "exampleEn": "그녀는 항상 밝은 미소를 지으며 사람들을 대합니다.",
+        "exampleKr": "She always greets people with a bright smile.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "miso",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-intermediate-498-1780143451237",
+        "term": "의미하다",
+        "definition": "to mean, to signify, to imply",
+        "meaningKr": "to mean, to signify, to imply",
+        "exampleEn": "이 표시는 '멈추시오'라는 것을 의미합니다.",
+        "exampleKr": "This sign means 'stop'.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "uimihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-intermediate-499-1780143451237",
+        "term": "체육",
+        "definition": "physical education, sports",
+        "meaningKr": "physical education, sports",
+        "exampleEn": "학생들은 건강을 위해 체육 시간에 운동을 합니다.",
+        "exampleKr": "Students exercise during physical education class for their health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Intermediate"
+        ],
+        "phonetic": "cheyuk",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-vi-basic-1",
     "title": "기초 베트남어 500",
     "icon": "🇻🇳",

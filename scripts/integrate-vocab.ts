@@ -106,6 +106,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  'ko-intermediate': {
+    id: 'curated-ko-intermediate-1',
+    title: 'Intermediate Korean 500 (for English speakers)',
+    icon: '🇰🇷',
+    category: '중급',
+    level: 'intermediate',
+    description: 'Intermediate Korean 500 for English speakers (TOPIK II 3-4). NIKL grade B from Wiktionary "Basic Korean Vocabulary List" (CC BY-SA 4.0); English meanings & TOPIK 3-4 examples AI-generated.',
+    tags: ['Korean', 'TOPIK', 'Intermediate'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
   vi: {
     id: 'curated-vi-basic-1',
     title: '기초 베트남어 500',
@@ -140,8 +151,8 @@ function main() {
   console.log(`📚 번역된 ${items.length}개 단어 로드`);
 
   // 언어별 스키마를 앱 공통 슬롯(meaningKr/phonetic/exampleEn/exampleKr)으로 정규화.
-  // KO는 방향이 반대(target=en)라 슬롯 의미를 매핑: 뜻 슬롯=영어, 원어 예문 슬롯=한국어.
-  const normalized = LIST_NAME === 'ko'
+  // KO 계열(sourceLanguage=ko)은 방향이 반대(target=en)라 슬롯 의미를 매핑: 뜻 슬롯=영어, 원어 예문 슬롯=한국어.
+  const normalized = meta.sourceLanguage === 'ko'
     ? items.map(w => ({
         ...w,
         definition: w.meaningEn ?? '',     // 영어 정의

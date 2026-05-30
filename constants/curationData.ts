@@ -2,6 +2,8521 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-ko-advanced-1",
+    "title": "Advanced Korean 500 (for English speakers)",
+    "icon": "🇰🇷",
+    "isCurated": true,
+    "category": "고급",
+    "level": "advanced",
+    "description": "Advanced Korean 500 for English speakers (TOPIK II 5-6). NIKL grade C from Wiktionary \"Basic Korean Vocabulary List\" (CC BY-SA 4.0); English meanings & TOPIK 5-6 examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1780146279962,
+    "words": [
+      {
+        "id": "word-ko-advanced-0-1780146279962",
+        "term": "그녀",
+        "definition": "she, her",
+        "meaningKr": "she, her",
+        "exampleEn": "그녀는 복잡한 사회 문제에 대한 깊은 통찰력을 보여주며 발표를 이어갔다.",
+        "exampleKr": "She continued her presentation, demonstrating deep insight into complex social issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geunyeo",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-advanced-1-1780146279962",
+        "term": "그러다",
+        "definition": "to do so, to act like that, to happen that way",
+        "meaningKr": "to do so, to act like that, to happen that way",
+        "exampleEn": "그가 그렇게 갑자기 태도를 바꿀 줄은 아무도 예상하지 못했다.",
+        "exampleKr": "No one expected him to change his attitude so suddenly like that.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geureoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-2-1780146279962",
+        "term": "정부",
+        "definition": "government, administration",
+        "meaningKr": "government, administration",
+        "exampleEn": "정부는 기후 변화에 대응하기 위한 새로운 정책을 발표할 예정이다.",
+        "exampleKr": "The government is scheduled to announce new policies to combat climate change.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeongbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-3-1780146279962",
+        "term": "새롭다",
+        "definition": "new, novel, fresh",
+        "meaningKr": "new, novel, fresh",
+        "exampleEn": "신기술 도입은 기업의 경쟁력을 강화하는 데 필수적인 요소가 될 것이다.",
+        "exampleKr": "The introduction of new technology will be an essential element in strengthening corporate competitiveness.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "saeropda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-4-1780146279962",
+        "term": "과정",
+        "definition": "process, course, procedure",
+        "meaningKr": "process, course, procedure",
+        "exampleEn": "복잡한 문제 해결 과정에서 우리는 예상치 못한 난관에 직면하기도 했다.",
+        "exampleKr": "In the process of solving complex problems, we sometimes faced unexpected difficulties.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gwajeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-5-1780146279962",
+        "term": "삶",
+        "definition": "life, living",
+        "meaningKr": "life, living",
+        "exampleEn": "그는 어려운 환경 속에서도 희망을 잃지 않고 자신의 삶을 개척해 나갔다.",
+        "exampleKr": "Despite his difficult circumstances, he did not lose hope and forged his own life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "salm",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-6-1780146279962",
+        "term": "생명",
+        "definition": "life, living being",
+        "meaningKr": "life, living being",
+        "exampleEn": "생명의 존엄성은 그 어떤 가치와도 비교할 수 없는 소중한 것이다.",
+        "exampleKr": "The dignity of life is a precious thing incomparable to any other value.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "saengmyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-7-1780146279962",
+        "term": "사건",
+        "definition": "incident, event, case",
+        "meaningKr": "incident, event, case",
+        "exampleEn": "그 역사적인 사건은 이후 사회 전반에 걸쳐 큰 영향을 미쳤다.",
+        "exampleKr": "That historical event had a significant impact on society as a whole thereafter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sageon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-8-1780146279962",
+        "term": "작품",
+        "definition": "work (of art, literature), creation",
+        "meaningKr": "work (of art, literature), creation",
+        "exampleEn": "그 작가의 최신 작품은 인간 심리의 복잡성을 섬세하게 묘사하고 있다.",
+        "exampleKr": "The artist's latest work delicately portrays the complexity of human psychology.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jakpum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-9-1780146279962",
+        "term": "상황",
+        "definition": "situation, state of affairs, circumstances",
+        "meaningKr": "situation, state of affairs, circumstances",
+        "exampleEn": "긴급 상황 발생 시, 침착하게 대처하는 것이 무엇보다 중요하다.",
+        "exampleKr": "In the event of an emergency, it is more important than anything else to respond calmly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sanghwang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-10-1780146279962",
+        "term": "따라서",
+        "definition": "therefore, consequently, thus",
+        "meaningKr": "therefore, consequently, thus",
+        "exampleEn": "데이터 분석 결과는 기존 가설과 상반되었으므로, 따라서 새로운 연구 방향을 모색해야 했다.",
+        "exampleKr": "The data analysis results contradicted the existing hypothesis; therefore, a new research direction had to be sought.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ttaraseo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-11-1780146279962",
+        "term": "상태",
+        "definition": "state, condition, status",
+        "meaningKr": "state, condition, status",
+        "exampleEn": "그 환자는 현재 안정적인 상태를 유지하고 있으며 회복 중입니다.",
+        "exampleKr": "The patient is currently maintaining a stable condition and is in recovery.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sangtae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-12-1780146279962",
+        "term": "당시",
+        "definition": "at that time, in those days",
+        "meaningKr": "at that time, in those days",
+        "exampleEn": "당시에는 상상조차 할 수 없었던 기술이 이제는 우리 삶의 일부가 되었다.",
+        "exampleKr": "Technology that was unimaginable at that time has now become a part of our lives.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dangsi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-13-1780146279962",
+        "term": "더욱",
+        "definition": "more, further, increasingly",
+        "meaningKr": "more, further, increasingly",
+        "exampleEn": "기후 변화의 심각성이 부각되면서, 지속 가능한 발전에 대한 관심이 더욱 커지고 있다.",
+        "exampleKr": "As the severity of climate change is highlighted, interest in sustainable development is further increasing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deouk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-14-1780146279962",
+        "term": "현실",
+        "definition": "reality, actuality, the real world",
+        "meaningKr": "reality, actuality, the real world",
+        "exampleEn": "이상과 현실의 괴리를 극복하는 것은 많은 사람들에게 어려운 과제이다.",
+        "exampleKr": "Overcoming the gap between ideals and reality is a difficult task for many people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeonsil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-15-1780146279962",
+        "term": "기업",
+        "definition": "enterprise, business, corporation",
+        "meaningKr": "enterprise, business, corporation",
+        "exampleEn": "글로벌 기업들은 사회적 책임을 다하기 위해 다양한 노력을 기울이고 있다.",
+        "exampleKr": "Global corporations are making various efforts to fulfill their social responsibilities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gieop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-16-1780146279962",
+        "term": "선거",
+        "definition": "election",
+        "meaningKr": "election",
+        "exampleEn": "이번 선거 결과는 향후 국가 정책 방향에 중대한 영향을 미칠 것으로 예상된다.",
+        "exampleKr": "The outcome of this election is expected to have a significant impact on the future direction of national policy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seongeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-17-1780146279962",
+        "term": "현상",
+        "definition": "phenomenon, appearance",
+        "meaningKr": "phenomenon, appearance",
+        "exampleEn": "급격한 사회 변화는 흔히 예측하기 어려운 복합적인 현상을 동반한다.",
+        "exampleKr": "Rapid social change often accompanies complex phenomena that are difficult to predict.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeonsang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-18-1780146279962",
+        "term": "구조",
+        "definition": "structure, organization, framework",
+        "meaningKr": "structure, organization, framework",
+        "exampleEn": "경제 구조의 불균형은 사회 통합을 저해하는 주요 요인 중 하나이다.",
+        "exampleKr": "The imbalance in the economic structure is one of the main factors hindering social integration.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gujo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-19-1780146279962",
+        "term": "오히려",
+        "definition": "rather, on the contrary, instead",
+        "meaningKr": "rather, on the contrary, instead",
+        "exampleEn": "그는 비판을 피하기는커녕, 오히려 자신의 입장을 더욱 명확히 밝혔다.",
+        "exampleKr": "Rather than avoiding criticism, he instead clarified his position even further.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ohiryeo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-20-1780146279962",
+        "term": "남",
+        "definition": "others, other people, the rest",
+        "meaningKr": "others, other people, the rest",
+        "exampleEn": "자신의 이익만을 추구하는 것은 남들에게 피해를 줄 수 있다.",
+        "exampleKr": "Pursuing only one's own interests can cause harm to others.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "nam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-21-1780146279962",
+        "term": "의식",
+        "definition": "consciousness, awareness, mind",
+        "meaningKr": "consciousness, awareness, mind",
+        "exampleEn": "환경 문제에 대한 사회적 의식이 높아지면서 관련 정책의 중요성도 강조되고 있다.",
+        "exampleKr": "As social awareness of environmental issues increases, the importance of related policies is also being emphasized.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uisik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-22-1780146279962",
+        "term": "알아보다",
+        "definition": "to recognize, to find out, to look into",
+        "meaningKr": "to recognize, to find out, to look into",
+        "exampleEn": "새로운 직업을 구하기 위해 그는 여러 기관에 문의하여 정보를 알아보고 있다.",
+        "exampleKr": "In order to find a new job, he is inquiring with various organizations to look into information.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "araboada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-23-1780146279962",
+        "term": "산업",
+        "definition": "industry, industrial",
+        "meaningKr": "industry, industrial",
+        "exampleEn": "친환경 산업의 성장은 미래 경제 발전에 중요한 동력이 될 것이다.",
+        "exampleKr": "The growth of eco-friendly industries will be an important driving force for future economic development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "saneop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-24-1780146279962",
+        "term": "형태",
+        "definition": "form, shape, type",
+        "meaningKr": "form, shape, type",
+        "exampleEn": "도시화가 진행됨에 따라 주거 형태 또한 다양하게 변화하고 있다.",
+        "exampleKr": "As urbanization progresses, residential forms are also changing in diverse ways.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeongtae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-25-1780146279962",
+        "term": "작업",
+        "definition": "work, task, operation",
+        "meaningKr": "work, task, operation",
+        "exampleEn": "그 프로젝트는 예상보다 훨씬 복잡한 작업을 수반하여 상당한 시간과 노력을 요구했습니다.",
+        "exampleKr": "The project involved a much more complex operation than anticipated, demanding considerable time and effort.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jageop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-26-1780146279962",
+        "term": "시",
+        "definition": "poetry, poem",
+        "meaningKr": "poetry, poem",
+        "exampleEn": "그 시인은 삶의 고독과 희망을 독특한 은유를 사용하여 시에 담아냈습니다.",
+        "exampleKr": "The poet conveyed life's solitude and hope in his poems using unique metaphors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "si",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-27-1780146279962",
+        "term": "비하다",
+        "definition": "to compare, to contrast",
+        "meaningKr": "to compare, to contrast",
+        "exampleEn": "최신 연구 결과는 이전의 통계와 비교했을 때 상당한 차이를 보여주고 있습니다.",
+        "exampleKr": "The latest research findings show a significant difference when compared to previous statistics.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-28-1780146279962",
+        "term": "기관",
+        "definition": "institution, organization, agency",
+        "meaningKr": "institution, organization, agency",
+        "exampleEn": "이 국제 기관은 기후 변화 문제 해결을 위한 협력을 증진하는 데 중점을 두고 있습니다.",
+        "exampleKr": "This international institution focuses on promoting cooperation to solve climate change issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gigwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-29-1780146279962",
+        "term": "입장",
+        "definition": "stance, position, point of view",
+        "meaningKr": "stance, position, point of view",
+        "exampleEn": "그는 논란이 되는 사안에 대해 자신의 명확한 입장을 밝히며 반대 의사를 분명히 했습니다.",
+        "exampleKr": "He clearly stated his firm position on the controversial issue, making his opposition evident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ipjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-30-1780146279962",
+        "term": "방식",
+        "definition": "method, way, style",
+        "meaningKr": "method, way, style",
+        "exampleEn": "새로운 교육 방식은 학생들의 창의적 사고를 증진시키는 데 효과적일 것으로 기대됩니다.",
+        "exampleKr": "The new educational method is expected to be effective in fostering students' creative thinking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bangsik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-31-1780146279962",
+        "term": "영향",
+        "definition": "influence, effect, impact",
+        "meaningKr": "influence, effect, impact",
+        "exampleEn": "디지털 미디어의 확산은 사회 전반의 소통 방식에 지대한 영향을 미치고 있습니다.",
+        "exampleKr": "The proliferation of digital media is having a profound influence on communication methods across society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeonghyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-32-1780146279962",
+        "term": "단계",
+        "definition": "stage, step, phase",
+        "meaningKr": "stage, step, phase",
+        "exampleEn": "성공적인 사업 확장을 위해서는 각 단계별로 철저한 계획과 실행이 필수적입니다.",
+        "exampleKr": "Thorough planning and execution at each stage are essential for successful business expansion.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dangye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-33-1780146279962",
+        "term": "올리다",
+        "definition": "to raise, to lift, to upload, to submit",
+        "meaningKr": "to raise, to lift, to upload, to submit",
+        "exampleEn": "그는 자신의 연구 논문을 저명한 학술지에 성공적으로 게재하여 학계의 주목을 받았습니다.",
+        "exampleKr": "He successfully published his research paper in a prestigious academic journal, drawing attention from the scholarly community.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ollida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-34-1780146279962",
+        "term": "교사",
+        "definition": "teacher, instructor",
+        "meaningKr": "teacher, instructor",
+        "exampleEn": "그는 학생들에게 지식을 전달하는 것을 넘어, 올바른 가치관을 심어주는 훌륭한 교사였습니다.",
+        "exampleKr": "He was an excellent teacher who went beyond imparting knowledge to instilling proper values in his students.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyosa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-35-1780146279962",
+        "term": "지니다",
+        "definition": "to possess, to carry, to hold",
+        "meaningKr": "to possess, to carry, to hold",
+        "exampleEn": "이 고대 유물은 당시의 찬란했던 문명을 엿볼 수 있는 귀중한 가치를 지니고 있습니다.",
+        "exampleKr": "This ancient artifact possesses invaluable worth, offering a glimpse into the civilization of that era.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jinida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-36-1780146279962",
+        "term": "의원",
+        "definition": "member of the National Assembly, legislator, doctor",
+        "meaningKr": "member of the National Assembly, legislator, doctor",
+        "exampleEn": "해당 지역구 의원은 주민들의 복지 증진을 위한 정책 개발에 힘쓰겠다고 약속했습니다.",
+        "exampleKr": "The legislator for that constituency promised to strive for policy development to enhance the welfare of the residents.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uiwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-37-1780146279962",
+        "term": "주민",
+        "definition": "resident, inhabitant",
+        "meaningKr": "resident, inhabitant",
+        "exampleEn": "지속적인 도시 개발로 인해 원주민들의 삶의 터전이 위협받고 있다는 우려의 목소리가 나오고 있습니다.",
+        "exampleKr": "Concerns are being raised that the continuous urban development is threatening the living environment of the original residents.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jumin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-38-1780146279962",
+        "term": "존재",
+        "definition": "existence, being, presence",
+        "meaningKr": "existence, being, presence",
+        "exampleEn": "인간의 자유 의지는 과연 객관적으로 증명될 수 있는 실체적 존재인가에 대한 철학적 논쟁이 계속되고 있습니다.",
+        "exampleKr": "Philosophical debates continue regarding whether human free will is an objectively provable, substantial existence.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jonjae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-39-1780146279962",
+        "term": "분야",
+        "definition": "field, area, domain",
+        "meaningKr": "field, area, domain",
+        "exampleEn": "그는 인공지능과 빅데이터 분석이라는 첨단 기술 분야에서 독보적인 연구 성과를 이루어냈습니다.",
+        "exampleKr": "He achieved unparalleled research accomplishments in the cutting-edge technology fields of artificial intelligence and big data analysis.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bunya",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-40-1780146279962",
+        "term": "행위",
+        "definition": "act, action, behavior",
+        "meaningKr": "act, action, behavior",
+        "exampleEn": "타인의 권리를 침해하는 부당한 행위에 대해서는 법적 책임을 물어야 할 것입니다.",
+        "exampleKr": "Unjust actions that infringe upon the rights of others must be held legally accountable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "haengwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-41-1780146279962",
+        "term": "수준",
+        "definition": "level, standard, proficiency",
+        "meaningKr": "level, standard, proficiency",
+        "exampleEn": "국제 사회는 빈곤 퇴치를 위한 공동의 노력을 통해 전반적인 삶의 수준을 향상시키고자 합니다.",
+        "exampleKr": "The international community aims to improve the overall standard of living through joint efforts to eradicate poverty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sujun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-42-1780146279962",
+        "term": "기능",
+        "definition": "function, faculty, performance",
+        "meaningKr": "function, faculty, performance",
+        "exampleEn": "이 최신 스마트폰은 향상된 카메라 기능과 더불어 사용자 편의성을 극대화한 인터페이스를 제공합니다.",
+        "exampleKr": "This latest smartphone offers an enhanced camera function along with an interface that maximizes user convenience.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gineung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-43-1780146279962",
+        "term": "연극",
+        "definition": "play, drama, theater",
+        "meaningKr": "play, drama, theater",
+        "exampleEn": "이번 연극은 인간 심리의 복잡한 단면을 섬세하게 묘사하여 관객들에게 깊은 인상을 남겼습니다.",
+        "exampleKr": "This play left a deep impression on the audience by delicately portraying complex facets of human psychology.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeon-geuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-44-1780146279962",
+        "term": "노동",
+        "definition": "labor, work, toil",
+        "meaningKr": "labor, work, toil",
+        "exampleEn": "산업 혁명 이후, 육체 노동의 가치와 중요성에 대한 사회적 인식이 크게 변화했습니다.",
+        "exampleKr": "Since the Industrial Revolution, societal perception of the value and importance of manual labor has significantly changed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "nodong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-45-1780146279962",
+        "term": "가치",
+        "definition": "value, worth, merit",
+        "meaningKr": "value, worth, merit",
+        "exampleEn": "물질적 풍요뿐만 아니라 정신적 가치를 추구하는 삶이 진정한 행복으로 이어진다고 믿습니다.",
+        "exampleKr": "I believe that a life pursuing spiritual values, not just material abundance, leads to true happiness.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gachi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-46-1780146279962",
+        "term": "집단",
+        "definition": "group, collective, organization",
+        "meaningKr": "group, collective, organization",
+        "exampleEn": "사회적 소수자 집단에 대한 편견과 차별을 해소하기 위한 적극적인 노력이 요구됩니다.",
+        "exampleKr": "Active efforts are required to resolve prejudice and discrimination against marginalized social groups.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jipdan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-47-1780146279962",
+        "term": "장관",
+        "definition": "minister (of a government department)",
+        "meaningKr": "minister (of a government department)",
+        "exampleEn": "신임 문화체육관광부 장관은 한류 콘텐츠의 세계적 확산을 위한 새로운 정책을 발표할 예정입니다.",
+        "exampleKr": "The new Minister of Culture, Sports and Tourism is scheduled to announce new policies for the global expansion of Korean Wave content.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "janggwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-48-1780146279962",
+        "term": "우주",
+        "definition": "universe, space, cosmos",
+        "meaningKr": "universe, space, cosmos",
+        "exampleEn": "인류는 미지의 우주를 탐험하며 끊임없이 새로운 지식과 가능성을 탐구해왔습니다.",
+        "exampleKr": "Humanity has continuously explored new knowledge and possibilities by venturing into the unknown universe.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-49-1780146279962",
+        "term": "시기",
+        "definition": "time, period, moment",
+        "meaningKr": "time, period, moment",
+        "exampleEn": "역사적으로 볼 때, 급격한 사회 변화는 종종 혼란과 갈등의 시기를 동반하곤 합니다.",
+        "exampleKr": "Historically speaking, rapid social change often accompanies periods of turmoil and conflict.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sigi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-50-1780146279962",
+        "term": "생산",
+        "definition": "production, output, manufacturing",
+        "meaningKr": "production, output, manufacturing",
+        "exampleEn": "그 기업은 친환경적인 생산 방식을 도입하여 지속 가능한 발전을 추구하고 있다.",
+        "exampleKr": "The company is pursuing sustainable development by adopting eco-friendly production methods.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "saengsan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-51-1780146279962",
+        "term": "농민",
+        "definition": "farmer, peasant",
+        "meaningKr": "farmer, peasant",
+        "exampleEn": "정부는 농민들의 소득 증대를 위한 실질적인 지원책 마련에 고심하고 있다.",
+        "exampleKr": "The government is earnestly considering the establishment of practical support measures to increase farmers' income.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "nongmin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-52-1780146279962",
+        "term": "드러나다",
+        "definition": "to be revealed, to become apparent, to emerge",
+        "meaningKr": "to be revealed, to become apparent, to emerge",
+        "exampleEn": "수년간의 비밀 조사를 통해 마침내 그 사건의 전말이 대중에게 드러나기 시작했다.",
+        "exampleKr": "Through years of secret investigation, the full story of the incident finally began to be revealed to the public.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deureonada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-53-1780146279962",
+        "term": "자세",
+        "definition": "posture, attitude, position",
+        "meaningKr": "posture, attitude, position",
+        "exampleEn": "면접관은 지원자의 자신감 있는 자세와 명확한 답변을 높이 평가했다.",
+        "exampleKr": "The interviewer highly valued the applicant's confident posture and clear answers.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jase",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-54-1780146279962",
+        "term": "면",
+        "definition": "face, surface, aspect",
+        "meaningKr": "face, surface, aspect",
+        "exampleEn": "새로운 정책은 경제적 측면뿐만 아니라 사회적 통합이라는 또 다른 면을 고려해야 한다.",
+        "exampleKr": "The new policy must consider not only the economic aspect but also another facet of social integration.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "myeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-55-1780146279962",
+        "term": "원인",
+        "definition": "cause, origin, reason",
+        "meaningKr": "cause, origin, reason",
+        "exampleEn": "기후 변화의 근본적인 원인을 규명하는 것은 미래 세대를 위한 필수적인 과제이다.",
+        "exampleKr": "Identifying the fundamental cause of climate change is an essential task for future generations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "wonin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-56-1780146279962",
+        "term": "언어",
+        "definition": "language, speech",
+        "meaningKr": "language, speech",
+        "exampleEn": "인공지능은 인간의 복잡한 언어를 이해하고 생성하는 능력을 점차 향상시키고 있다.",
+        "exampleKr": "Artificial intelligence is gradually improving its ability to understand and generate complex human language.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "eoneo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-57-1780146279962",
+        "term": "감독",
+        "definition": "direction, supervision, management",
+        "meaningKr": "direction, supervision, management",
+        "exampleEn": "그 영화 감독은 독창적인 연출과 섬세한 심리 묘사로 세계적인 명성을 얻었다.",
+        "exampleKr": "That film director gained worldwide fame for his original direction and delicate psychological portrayal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gamdok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-58-1780146279962",
+        "term": "당하다",
+        "definition": "to suffer, to undergo, to be subjected to",
+        "meaningKr": "to suffer, to undergo, to be subjected to",
+        "exampleEn": "그는 부당한 비난을 당하면서도 자신의 신념을 굽히지 않았다.",
+        "exampleKr": "He did not yield his beliefs despite suffering unfair criticism.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "danghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-59-1780146279962",
+        "term": "삼다",
+        "definition": "to regard as, to take as, to make into",
+        "meaningKr": "to regard as, to take as, to make into",
+        "exampleEn": "그는 이번 실패를 단순한 좌절이 아니라 성장의 발판으로 삼기로 결심했다.",
+        "exampleKr": "He decided to take this failure not as a mere setback but as a stepping stone for growth.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "samda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-60-1780146279962",
+        "term": "일단",
+        "definition": "first, for the time being, once",
+        "meaningKr": "first, for the time being, once",
+        "exampleEn": "문제가 발생하면 일단 상황을 파악하고 침착하게 대응하는 것이 중요하다.",
+        "exampleKr": "When a problem arises, it is important to first grasp the situation and respond calmly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ildan",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-61-1780146279962",
+        "term": "조직",
+        "definition": "organization, structure, system",
+        "meaningKr": "organization, structure, system",
+        "exampleEn": "효율적인 업무 처리를 위해서는 체계적인 조직 구조와 명확한 역할 분담이 필수적이다.",
+        "exampleKr": "A systematic organizational structure and clear division of roles are essential for efficient work processing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jojik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-62-1780146279962",
+        "term": "달리",
+        "definition": "differently, otherwise, unlike",
+        "meaningKr": "differently, otherwise, unlike",
+        "exampleEn": "기존의 방식과는 달리, 우리는 혁신적인 접근법을 통해 문제를 해결하고자 한다.",
+        "exampleKr": "Unlike the existing methods, we aim to solve the problem through an innovative approach.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dalli",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-63-1780146279962",
+        "term": "인물",
+        "definition": "figure, person, character",
+        "meaningKr": "figure, person, character",
+        "exampleEn": "그 역사적 인물은 시대의 흐름을 바꾼 중요한 업적을 남겼다.",
+        "exampleKr": "That historical figure left behind significant achievements that changed the course of the era.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "inmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-64-1780146279962",
+        "term": "다만",
+        "definition": "but, only, however",
+        "meaningKr": "but, only, however",
+        "exampleEn": "이 제안은 많은 장점을 가지고 있으나, 다만 실행 가능성에 대한 면밀한 검토가 필요하다.",
+        "exampleKr": "This proposal has many advantages, but it only requires a close examination of its feasibility.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dam-an",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-65-1780146279962",
+        "term": "대다",
+        "definition": "to touch, to reach, to be close to",
+        "meaningKr": "to touch, to reach, to be close to",
+        "exampleEn": "그는 무거운 짐을 옮기기 위해 팔을 뻗어 천장에 가까스로 손을 대었다.",
+        "exampleKr": "He stretched his arm to move the heavy load and barely touched the ceiling.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-66-1780146279962",
+        "term": "무대",
+        "definition": "stage, scene, arena",
+        "meaningKr": "stage, scene, arena",
+        "exampleEn": "신인 배우는 떨리는 마음으로 처음으로 관객들 앞의 무대에 섰다.",
+        "exampleKr": "The rookie actor stepped onto the stage in front of the audience for the first time with a trembling heart.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "mudae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-67-1780146279962",
+        "term": "주장",
+        "definition": "claim, assertion, argument",
+        "meaningKr": "claim, assertion, argument",
+        "exampleEn": "그는 자신의 주장을 뒷받침할 명확한 증거를 제시하지 못했다.",
+        "exampleKr": "He failed to present clear evidence to support his claim.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jujang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-68-1780146279962",
+        "term": "인하다",
+        "definition": "to be caused by, to result from, to stem from",
+        "meaningKr": "to be caused by, to result from, to stem from",
+        "exampleEn": "이번 사태는 예상치 못한 자연재해로 인하여 발생한 것으로 밝혀졌다.",
+        "exampleKr": "It was revealed that this incident occurred due to an unexpected natural disaster.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "inhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-69-1780146279962",
+        "term": "잇다",
+        "definition": "to connect, to link, to continue",
+        "meaningKr": "to connect, to link, to continue",
+        "exampleEn": "그는 선배의 뒤를 이어 연구실의 오랜 전통을 굳건히 이어 나가고 있다.",
+        "exampleKr": "He is firmly continuing the laboratory's long-standing tradition, following in his senior's footsteps.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "itda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-70-1780146279962",
+        "term": "대책",
+        "definition": "countermeasure, solution, plan",
+        "meaningKr": "countermeasure, solution, plan",
+        "exampleEn": "정부는 심각해지는 미세먼지 문제에 대한 효과적인 대책을 시급히 마련해야 한다.",
+        "exampleKr": "The government must urgently prepare effective countermeasures for the worsening fine dust problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daech-aek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-71-1780146279962",
+        "term": "결코",
+        "definition": "never, by no means",
+        "meaningKr": "never, by no means",
+        "exampleEn": "그는 아무리 어려운 상황에 처하더라도 결코 포기하지 않는 강한 의지를 보여주었다.",
+        "exampleKr": "No matter how difficult the situation, he showed a strong will to never give up.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyeolko",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-72-1780146279962",
+        "term": "경쟁",
+        "definition": "competition, rivalry",
+        "meaningKr": "competition, rivalry",
+        "exampleEn": "치열한 시장 경쟁 속에서 살아남기 위해서는 끊임없는 혁신이 요구된다.",
+        "exampleKr": "Constant innovation is required to survive in fierce market competition.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyeongjaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-73-1780146279962",
+        "term": "실시하다",
+        "definition": "to implement, to carry out, to put into practice",
+        "meaningKr": "to implement, to carry out, to put into practice",
+        "exampleEn": "정부는 새로운 교육 정책을 다음 학기부터 전면적으로 실시할 계획이라고 발표했다.",
+        "exampleKr": "The government announced plans to fully implement the new education policy starting next semester.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sil-sihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-74-1780146279962",
+        "term": "규모",
+        "definition": "scale, scope, size",
+        "meaningKr": "scale, scope, size",
+        "exampleEn": "그 프로젝트는 예상보다 훨씬 큰 규모로 진행되어 많은 자원이 투입되었다.",
+        "exampleKr": "The project proceeded on a much larger scale than expected, requiring significant resource investment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyumo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-75-1780146279962",
+        "term": "갖추다",
+        "definition": "to be equipped with, to furnish, to possess",
+        "meaningKr": "to be equipped with, to furnish, to possess",
+        "exampleEn": "최신 기술을 갖춘 이 신형 자동차는 연비와 성능 면에서 모두 혁신적인 발전을 이루었다.",
+        "exampleKr": "This new model car, equipped with the latest technology, has achieved innovative advancements in both fuel efficiency and performance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gatchuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-76-1780146279962",
+        "term": "현장",
+        "definition": "scene, site, field",
+        "meaningKr": "scene, site, field",
+        "exampleEn": "사고 현장에서는 긴급 구조 작업이 밤새도록 이어졌으나 안타깝게도 생존자는 발견되지 않았다.",
+        "exampleKr": "Emergency rescue operations continued through the night at the accident scene, but unfortunately, no survivors were found.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeonjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-77-1780146279962",
+        "term": "건설",
+        "definition": "construction, building",
+        "meaningKr": "construction, building",
+        "exampleEn": "도시 인프라 건설에 막대한 예산이 투입되면서 지역 경제 활성화에 대한 기대감이 높아지고 있다.",
+        "exampleKr": "As a massive budget is being invested in urban infrastructure construction, expectations for regional economic revitalization are rising.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geonseol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-78-1780146279962",
+        "term": "존재하다",
+        "definition": "to exist, to be",
+        "meaningKr": "to exist, to be",
+        "exampleEn": "인간의 의식이 뇌의 물리적 활동만으로는 완전히 설명될 수 없는 신비로운 영역으로 존재한다는 주장이 제기되었다.",
+        "exampleKr": "The argument has been raised that human consciousness exists as a mysterious realm not fully explainable by the brain's physical activities alone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jonjaehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-79-1780146279962",
+        "term": "한마디",
+        "definition": "one word, a word or two",
+        "meaningKr": "one word, a word or two",
+        "exampleEn": "그는 복잡한 문제에 대해 명쾌한 해결책을 제시하며 청중들에게 깊은 인상을 남기는 한마디를 했다.",
+        "exampleKr": "He made a remark that left a deep impression on the audience by presenting a clear solution to the complex problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hanmadi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-80-1780146279962",
+        "term": "유지하다",
+        "definition": "to maintain, to keep, to preserve",
+        "meaningKr": "to maintain, to keep, to preserve",
+        "exampleEn": "지속 가능한 발전을 위해서는 환경 보호 노력을 꾸준히 유지하는 것이 무엇보다 중요하다.",
+        "exampleKr": "For sustainable development, it is more important than anything else to consistently maintain environmental protection efforts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yujihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-81-1780146279962",
+        "term": "이데올로기",
+        "definition": "ideology",
+        "meaningKr": "ideology",
+        "exampleEn": "서로 다른 정치적 이데올로기를 가진 집단 간의 갈등은 사회 통합을 저해하는 요인이 되곤 한다.",
+        "exampleKr": "Conflicts between groups with different political ideologies often become factors that hinder social integration.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ideollogi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-82-1780146279962",
+        "term": "피하다",
+        "definition": "to avoid, to escape, to evade",
+        "meaningKr": "to avoid, to escape, to evade",
+        "exampleEn": "위험한 상황을 피하기 위해 그는 즉시 안전한 장소로 대피하는 결정을 내렸다.",
+        "exampleKr": "To avoid the dangerous situation, he made the immediate decision to evacuate to a safe place.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-83-1780146279962",
+        "term": "거치다",
+        "definition": "to pass through, to undergo, to go via",
+        "meaningKr": "to pass through, to undergo, to go via",
+        "exampleEn": "그 프로젝트는 여러 단계의 복잡한 검토 과정을 거쳐 최종 승인을 받게 되었다.",
+        "exampleKr": "That project underwent several stages of a complex review process to receive final approval.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geochida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-84-1780146279962",
+        "term": "나아가다",
+        "definition": "to advance, to move forward, to progress",
+        "meaningKr": "to advance, to move forward, to progress",
+        "exampleEn": "새로운 시대의 요구에 부응하기 위해 우리는 끊임없이 배우고 더 나은 미래를 향해 나아가야 한다.",
+        "exampleKr": "To meet the demands of the new era, we must continuously learn and move forward towards a better future.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "naagada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-85-1780146279962",
+        "term": "지식",
+        "definition": "knowledge, information",
+        "meaningKr": "knowledge, information",
+        "exampleEn": "단순한 정보 습득을 넘어 비판적 사고 능력을 함양하는 것이 진정한 지식의 축적으로 이어진다.",
+        "exampleKr": "Beyond mere information acquisition, cultivating critical thinking skills leads to the true accumulation of knowledge.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jisik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-86-1780146279962",
+        "term": "여전히",
+        "definition": "still, yet, as ever",
+        "meaningKr": "still, yet, as ever",
+        "exampleEn": "기술이 발전했음에도 불구하고, 많은 사람들은 여전히 전통적인 가치를 중요하게 생각하고 있다.",
+        "exampleKr": "Despite technological advancements, many people still consider traditional values important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeojeonhi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-87-1780146279962",
+        "term": "선",
+        "definition": "line, choice, stand",
+        "meaningKr": "line, choice, stand",
+        "exampleEn": "그는 자신의 신념에 대한 확고한 선을 지키며 타협하지 않는 태도를 보여주었다.",
+        "exampleKr": "He showed an uncompromising attitude, maintaining a firm stance on his beliefs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-88-1780146279962",
+        "term": "인류",
+        "definition": "mankind, humanity",
+        "meaningKr": "mankind, humanity",
+        "exampleEn": "기후 변화와 같은 전 지구적 위협은 인류 전체의 생존을 위협하는 심각한 문제이다.",
+        "exampleKr": "Global threats like climate change are serious issues that endanger the survival of all humanity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "illyu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-89-1780146279962",
+        "term": "형식",
+        "definition": "form, format, style",
+        "meaningKr": "form, format, style",
+        "exampleEn": "내용의 충실함보다는 형식적인 절차에만 집착하는 태도는 본질적인 문제 해결을 방해할 수 있다.",
+        "exampleKr": "An attitude fixated solely on formal procedures rather than the substance of the content can hinder the resolution of essential problems.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeongsik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-90-1780146279962",
+        "term": "걸치다",
+        "definition": "to span, to cover, to drape over",
+        "meaningKr": "to span, to cover, to drape over",
+        "exampleEn": "그 문화 축제는 전국 각지에서 온 수많은 참가자들이 참여하며 사흘에 걸쳐 성대하게 개최되었다.",
+        "exampleKr": "The cultural festival was grandly held over three days with the participation of numerous attendees from all over the country.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geolchida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-91-1780146279962",
+        "term": "겪다",
+        "definition": "to experience, to undergo, to suffer",
+        "meaningKr": "to experience, to undergo, to suffer",
+        "exampleEn": "그 기업은 예상치 못한 경제 위기를 겪으면서도 혁신적인 전략을 통해 위기를 극복해 나갔다.",
+        "exampleKr": "Despite experiencing an unexpected economic crisis, the company overcame it through innovative strategies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyeokda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-92-1780146279962",
+        "term": "관점",
+        "definition": "viewpoint, perspective, standpoint",
+        "meaningKr": "viewpoint, perspective, standpoint",
+        "exampleEn": "다양한 관점에서 문제를 분석해야만 보다 객관적이고 균형 잡힌 결론에 도달할 수 있다.",
+        "exampleKr": "Only by analyzing the problem from various perspectives can we reach a more objective and balanced conclusion.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gwanjeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-93-1780146279962",
+        "term": "구성",
+        "definition": "composition, structure, formation",
+        "meaningKr": "composition, structure, formation",
+        "exampleEn": "팀원 간의 긴밀한 협력과 각자의 전문성을 바탕으로 한 유기적인 구성은 프로젝트 성공의 핵심이었다.",
+        "exampleKr": "An organic composition based on close cooperation among team members and their individual expertise was key to the project's success.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "guseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-94-1780146279962",
+        "term": "실제로",
+        "definition": "actually, in reality, in fact",
+        "meaningKr": "actually, in reality, in fact",
+        "exampleEn": "이론적으로는 완벽해 보였던 계획이 실제로 실행에 옮기자 예상치 못한 문제점들이 드러났다.",
+        "exampleKr": "A plan that seemed perfect in theory revealed unexpected problems when actually put into practice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "siljero",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-95-1780146279962",
+        "term": "비롯하다",
+        "definition": "to begin (with), to start (from)",
+        "meaningKr": "to begin (with), to start (from)",
+        "exampleEn": "그의 혁신적인 아이디어는 작은 실험에서 비롯되었지만, 결국 산업 전체에 큰 변화를 가져왔다.",
+        "exampleKr": "His innovative idea originated from a small experiment but eventually brought about significant changes in the entire industry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "birohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-96-1780146279962",
+        "term": "과연",
+        "definition": "indeed, as expected, truly",
+        "meaningKr": "indeed, as expected, truly",
+        "exampleEn": "그는 수많은 역경을 딛고 일어섰으며, 과연 그의 노력은 값진 성공으로 이어졌다.",
+        "exampleKr": "He rose above numerous adversities, and indeed, his efforts led to valuable success.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gwayeon",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-97-1780146279962",
+        "term": "인정하다",
+        "definition": "to admit, to acknowledge, to recognize",
+        "meaningKr": "to admit, to acknowledge, to recognize",
+        "exampleEn": "자신의 실수를 솔직하게 인정하는 용기는 더 나은 관계를 구축하는 데 필수적인 요소이다.",
+        "exampleKr": "The courage to honestly admit one's mistakes is an essential element in building better relationships.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "injeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-98-1780146279962",
+        "term": "중앙",
+        "definition": "center, middle, central",
+        "meaningKr": "center, middle, central",
+        "exampleEn": "도시의 중앙 광장은 시민들의 휴식처이자 다양한 문화 행사가 열리는 중심적인 공간으로 기능한다.",
+        "exampleKr": "The central plaza of the city functions as a resting place for citizens and a central space where various cultural events are held.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jungang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-99-1780146279962",
+        "term": "불구하다",
+        "definition": "to not mind, to disregard, to despite",
+        "meaningKr": "to not mind, to disregard, to despite",
+        "exampleEn": "경제적 어려움에도 불구하고, 그 예술가는 창작 활동을 멈추지 않고 꾸준히 작품을 발표하였다.",
+        "exampleKr": "Despite economic difficulties, the artist did not cease creative activities and consistently released works.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bulguhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-100-1780146279962",
+        "term": "평가",
+        "definition": "evaluation, assessment, appraisal",
+        "meaningKr": "evaluation, assessment, appraisal",
+        "exampleEn": "이번 프로젝트의 성공 여부는 전문가들의 객관적인 평가를 통해 최종적으로 결정될 것이다.",
+        "exampleKr": "The success or failure of this project will be finally determined through the objective evaluation of experts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pyeongga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-101-1780146279962",
+        "term": "비다",
+        "definition": "to be empty, to be vacant, to be free",
+        "meaningKr": "to be empty, to be vacant, to be free",
+        "exampleEn": "갑자기 예정되었던 회의가 취소되면서 그의 오후 일정이 완전히 비게 되었다.",
+        "exampleKr": "As the suddenly scheduled meeting was canceled, his afternoon schedule became completely empty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-102-1780146279962",
+        "term": "삼국",
+        "definition": "Three Kingdoms",
+        "meaningKr": "Three Kingdoms",
+        "exampleEn": "삼국 시대의 복잡한 정치적 역학 관계는 오늘날까지도 많은 연구자들의 관심을 끌고 있다.",
+        "exampleKr": "The complex political dynamics of the Three Kingdoms period continue to attract the interest of many researchers even today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "samguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-103-1780146279962",
+        "term": "수",
+        "definition": "number, quantity, skill",
+        "meaningKr": "number, quantity, skill",
+        "exampleEn": "이번 통계 자료는 우리가 예상했던 것보다 훨씬 많은 수의 참가자가 모였음을 보여준다.",
+        "exampleKr": "This statistical data shows that a much larger number of participants gathered than we had anticipated.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "su",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-104-1780146279962",
+        "term": "물질",
+        "definition": "matter, substance, material",
+        "meaningKr": "matter, substance, material",
+        "exampleEn": "현대 사회는 물질적 풍요를 추구하는 경향이 강하지만, 정신적 만족감 또한 중요하게 여겨진다.",
+        "exampleKr": "Modern society has a strong tendency to pursue material affluence, but spiritual satisfaction is also considered important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "muljil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-105-1780146279962",
+        "term": "살아가다",
+        "definition": "to live, to get along, to make a living",
+        "meaningKr": "to live, to get along, to make a living",
+        "exampleEn": "어려운 환경 속에서도 희망을 잃지 않고 긍정적인 자세로 살아가는 것이 중요하다.",
+        "exampleKr": "It is important to live with a positive attitude, without losing hope even in difficult circumstances.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "salagada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-106-1780146279962",
+        "term": "제시하다",
+        "definition": "to present, to suggest, to offer",
+        "meaningKr": "to present, to suggest, to offer",
+        "exampleEn": "회의에서 그는 문제 해결을 위한 혁신적인 방안을 구체적으로 제시하였다.",
+        "exampleKr": "In the meeting, he concretely presented an innovative plan for problem-solving.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jesihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-107-1780146279962",
+        "term": "불과하다",
+        "definition": "to be only, to be merely, to be no more than",
+        "meaningKr": "to be only, to be merely, to be no more than",
+        "exampleEn": "그는 단지 몇 년간의 경험만을 가지고 있을 뿐인데, 벌써부터 과도한 책임을 맡기에는 이르다.",
+        "exampleKr": "He only has a few years of experience, so it is too early to entrust him with excessive responsibility.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bulgwahada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-108-1780146279962",
+        "term": "엄청나다",
+        "definition": "to be tremendous, to be enormous, to be amazing",
+        "meaningKr": "to be tremendous, to be enormous, to be amazing",
+        "exampleEn": "과학 기술의 발전 속도는 엄청나서, 몇 년 전만 해도 상상할 수 없었던 일들이 현실이 되고 있다.",
+        "exampleKr": "The pace of technological advancement is tremendous, and things that were unimaginable just a few years ago are becoming reality.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "eomcheongnada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-109-1780146279962",
+        "term": "파악하다",
+        "definition": "to grasp, to understand, to figure out",
+        "meaningKr": "to grasp, to understand, to figure out",
+        "exampleEn": "이 복잡한 현상의 근본 원인을 정확히 파악하기 위해서는 심층적인 분석이 요구된다.",
+        "exampleKr": "In order to accurately grasp the fundamental cause of this complex phenomenon, in-depth analysis is required.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "paakhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-110-1780146279962",
+        "term": "실천",
+        "definition": "practice, action, implementation",
+        "meaningKr": "practice, action, implementation",
+        "exampleEn": "아무리 좋은 계획이라도 실천하지 않으면 아무런 의미가 없으므로, 행동으로 옮기는 것이 중요하다.",
+        "exampleKr": "No matter how good a plan is, it is meaningless if not put into practice, so taking action is important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "silcheon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-111-1780146279962",
+        "term": "방안",
+        "definition": "plan, measure, proposal",
+        "meaningKr": "plan, measure, proposal",
+        "exampleEn": "환경 오염 문제를 해결하기 위한 실질적인 방안을 마련하는 데 모든 관계자들이 협력해야 한다.",
+        "exampleKr": "All stakeholders must cooperate to prepare practical measures to solve the environmental pollution problem.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bangan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-112-1780146279962",
+        "term": "분명하다",
+        "definition": "to be clear, to be evident, to be distinct",
+        "meaningKr": "to be clear, to be evident, to be distinct",
+        "exampleEn": "그의 진술에는 여러 가지 모순점이 분명하게 드러나 있어서 신뢰하기 어렵다.",
+        "exampleKr": "There are several clear contradictions in his statement, making it difficult to trust.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bunmyeonghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-113-1780146279962",
+        "term": "분석",
+        "definition": "analysis, breakdown",
+        "meaningKr": "analysis, breakdown",
+        "exampleEn": "데이터에 대한 철저한 분석 없이는 성공적인 마케팅 전략을 수립하기 어려울 것이다.",
+        "exampleKr": "Without a thorough analysis of the data, it will be difficult to establish a successful marketing strategy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bunseok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-114-1780146279962",
+        "term": "관계자",
+        "definition": "related person, official, stakeholder",
+        "meaningKr": "related person, official, stakeholder",
+        "exampleEn": "이번 사건의 진상을 파악하기 위해 경찰은 관련된 모든 관계자들을 소환하여 조사할 예정이다.",
+        "exampleKr": "To ascertain the truth of this incident, the police plan to summon and investigate all related parties.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gwangyeja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-115-1780146279962",
+        "term": "이어지다",
+        "definition": "to continue, to be connected, to follow",
+        "meaningKr": "to continue, to be connected, to follow",
+        "exampleEn": "그들의 오랜 노력은 마침내 결실을 맺으며 성공적인 결과로 이어졌다.",
+        "exampleKr": "Their long-term efforts finally bore fruit and led to a successful outcome.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ieojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-116-1780146279962",
+        "term": "지적하다",
+        "definition": "to point out, to indicate, to criticize",
+        "meaningKr": "to point out, to indicate, to criticize",
+        "exampleEn": "전문가는 보고서에서 몇 가지 중요한 문제점을 날카롭게 지적하며 개선을 촉구했다.",
+        "exampleKr": "The expert sharply pointed out several critical issues in the report and urged improvement.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jijeokada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-117-1780146279962",
+        "term": "요구",
+        "definition": "demand, request, requirement",
+        "meaningKr": "demand, request, requirement",
+        "exampleEn": "소비자들은 더 나은 품질의 제품을 합리적인 가격에 제공해 줄 것을 강력히 요구하고 있다.",
+        "exampleKr": "Consumers are strongly demanding that products of better quality be provided at reasonable prices.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yogu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-118-1780146279962",
+        "term": "등장하다",
+        "definition": "to appear, to emerge, to debut",
+        "meaningKr": "to appear, to emerge, to debut",
+        "exampleEn": "최근 온라인 플랫폼에서 새로운 형태의 미디어가 등장하면서 기존의 방송 방식에 큰 변화를 가져왔다.",
+        "exampleKr": "The emergence of new forms of media on online platforms recently has brought about significant changes to traditional broadcasting methods.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deungjanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-119-1780146279962",
+        "term": "차다",
+        "definition": "to be full, to kick, to be cold",
+        "meaningKr": "to be full, to kick, to be cold",
+        "exampleEn": "그의 연설은 진심 어린 감동과 뜨거운 열정으로 가득 차 청중들의 마음을 사로잡았다.",
+        "exampleKr": "His speech was full of sincere emotion and passionate enthusiasm, captivating the audience's hearts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-120-1780146279962",
+        "term": "한계",
+        "definition": "limit, boundary, limitation",
+        "meaningKr": "limit, boundary, limitation",
+        "exampleEn": "현재 기술로는 해결할 수 없는 문제의 한계를 인식하고 새로운 접근 방식을 모색해야 한다.",
+        "exampleKr": "We must recognize the limits of problems that cannot be solved with current technology and seek new approaches.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hangye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-121-1780146279962",
+        "term": "바탕",
+        "definition": "base, background, foundation",
+        "meaningKr": "base, background, foundation",
+        "exampleEn": "꾸준한 노력과 깊이 있는 연구를 바탕으로 그는 학문적 성취를 이룰 수 있었다.",
+        "exampleKr": "Based on consistent effort and in-depth research, he was able to achieve academic success.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "batang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-122-1780146279962",
+        "term": "갈등",
+        "definition": "conflict, discord, struggle",
+        "meaningKr": "conflict, discord, struggle",
+        "exampleEn": "서로 다른 가치관으로 인한 갈등은 사회 발전을 저해할 수 있으므로, 이를 해결하기 위한 노력이 필요하다.",
+        "exampleKr": "Conflicts arising from different values can hinder social development, so efforts to resolve them are necessary.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "galdeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-123-1780146279962",
+        "term": "의지",
+        "definition": "will, volition, determination",
+        "meaningKr": "will, volition, determination",
+        "exampleEn": "어떤 어려움에도 굴하지 않는 강한 의지를 가지고 목표를 향해 나아가는 것이 중요하다.",
+        "exampleKr": "It is important to move towards one's goals with strong determination, unyielding to any difficulties.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uiji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-124-1780146279962",
+        "term": "초기",
+        "definition": "early stage, beginning, outset",
+        "meaningKr": "early stage, beginning, outset",
+        "exampleEn": "새로운 사업의 초기 단계에서는 예측하지 못한 변수들이 많이 발생할 수 있음을 염두에 두어야 한다.",
+        "exampleKr": "One must keep in mind that many unforeseen variables can arise in the early stages of a new business.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chogi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-125-1780146279962",
+        "term": "신경",
+        "definition": "nerve, nervous system; attention, care",
+        "meaningKr": "nerve, nervous system; attention, care",
+        "exampleEn": "그는 사소한 일에도 지나치게 신경을 써서 자주 피로를 느낀다고 토로했다.",
+        "exampleKr": "He confessed that he often feels fatigued because he pays excessive attention even to trivial matters.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sin-gyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-126-1780146279962",
+        "term": "미",
+        "definition": "beauty, beautifulness",
+        "meaningKr": "beauty, beautifulness",
+        "exampleEn": "인공지능 기술의 발전은 예술 창작의 영역에서 새로운 미적 기준을 제시하고 있다.",
+        "exampleKr": "The advancement of artificial intelligence technology is presenting new aesthetic standards in the realm of artistic creation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "mi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-127-1780146279962",
+        "term": "시선",
+        "definition": "gaze, look, line of sight",
+        "meaningKr": "gaze, look, line of sight",
+        "exampleEn": "그녀는 발표 도중 청중의 시선을 사로잡으며 자신감 있는 태도를 보였다.",
+        "exampleKr": "During her presentation, she captured the audience's gaze, displaying a confident attitude.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "si-seon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-128-1780146279962",
+        "term": "언론",
+        "definition": "the press, the media, journalism",
+        "meaningKr": "the press, the media, journalism",
+        "exampleEn": "이번 사건에 대한 언론의 집중적인 보도는 대중의 인식을 크게 변화시켰다.",
+        "exampleKr": "The media's intensive coverage of this incident significantly altered public perception.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "eon-ron",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-129-1780146279962",
+        "term": "투자",
+        "definition": "investment",
+        "meaningKr": "investment",
+        "exampleEn": "장기적인 경제 성장을 위해서는 혁신 기술 분야에 대한 적극적인 투자가 필수적이다.",
+        "exampleKr": "Active investment in innovative technology sectors is essential for long-term economic growth.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "tu-ja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-130-1780146279962",
+        "term": "지원",
+        "definition": "support, backing, assistance",
+        "meaningKr": "support, backing, assistance",
+        "exampleEn": "정부는 청년 창업가들에게 자금 및 멘토링 지원을 확대하여 일자리 창출에 기여하고자 한다.",
+        "exampleKr": "The government intends to contribute to job creation by expanding financial and mentoring support for young entrepreneurs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ji-won",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-131-1780146279962",
+        "term": "성장",
+        "definition": "growth, development",
+        "meaningKr": "growth, development",
+        "exampleEn": "급격한 사회 변화 속에서 개인의 정서적 성숙을 이루는 것은 쉽지 않은 과제이다.",
+        "exampleKr": "Achieving personal emotional growth amidst rapid social change is not an easy task.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seong-jang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-132-1780146279962",
+        "term": "피해",
+        "definition": "damage, harm, loss",
+        "meaningKr": "damage, harm, loss",
+        "exampleEn": "자연재해로 인한 막대한 피해 복구를 위해 국제 사회의 협력이 시급히 요구된다.",
+        "exampleKr": "International cooperation is urgently needed for the recovery from the immense damage caused by the natural disaster.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pi-hae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-133-1780146279962",
+        "term": "한",
+        "definition": "limit, boundary, end",
+        "meaningKr": "limit, boundary, end",
+        "exampleEn": "인간의 지식과 능력에는 분명한 한계가 존재함을 인정해야 한다.",
+        "exampleKr": "We must acknowledge that there are clear limits to human knowledge and capabilities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "han",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-134-1780146279962",
+        "term": "여기다",
+        "definition": "to consider, to regard as, to think of as",
+        "meaningKr": "to consider, to regard as, to think of as",
+        "exampleEn": "많은 사람들은 성공의 비결을 단순히 운이라고 여기지만, 사실은 끊임없는 노력이 뒷받침된다.",
+        "exampleKr": "Many people consider the secret to success to be mere luck, but in reality, it is backed by ceaseless effort.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeo-gi-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-135-1780146279962",
+        "term": "작용",
+        "definition": "action, effect, function",
+        "meaningKr": "action, effect, function",
+        "exampleEn": "이 약물은 특정 효소의 작용을 억제함으로써 질병의 진행을 늦추는 효과가 있다.",
+        "exampleKr": "This drug has the effect of slowing disease progression by inhibiting the action of specific enzymes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ja-gyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-136-1780146279962",
+        "term": "골",
+        "definition": "bone; goal, point; gist, core",
+        "meaningKr": "bone; goal, point; gist, core",
+        "exampleEn": "그의 연설은 핵심을 꿰뚫는 통찰력으로 청중에게 깊은 인상을 남겼다.",
+        "exampleKr": "His speech left a deep impression on the audience with its insight that pierced to the core.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-137-1780146279962",
+        "term": "공업",
+        "definition": "industry, manufacturing",
+        "meaningKr": "industry, manufacturing",
+        "exampleEn": "친환경 공업 단지 조성은 지역 경제 활성화와 환경 보호라는 두 마리 토끼를 잡는 방안이다.",
+        "exampleKr": "The establishment of an eco-friendly industrial complex is a measure that achieves two goals: revitalizing the local economy and protecting the environment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gong-eop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-138-1780146279962",
+        "term": "출신",
+        "definition": "origin, place of birth; alma mater",
+        "meaningKr": "origin, place of birth; alma mater",
+        "exampleEn": "그는 명문 대학 출신임에도 불구하고 겸손한 태도를 잃지 않아 많은 이들의 귀감이 되고 있다.",
+        "exampleKr": "Despite being an alumnus of a prestigious university, he has not lost his humble attitude, serving as a role model for many.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chu-sin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-139-1780146279962",
+        "term": "경향",
+        "definition": "tendency, trend, inclination",
+        "meaningKr": "tendency, trend, inclination",
+        "exampleEn": "최근 소비자들은 가격 대비 성능을 중시하는 경향을 보이며 합리적인 소비를 추구한다.",
+        "exampleKr": "Recently, consumers tend to emphasize performance relative to price and pursue rational consumption.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyeong-hyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-140-1780146279962",
+        "term": "기록",
+        "definition": "record, documentation; to record",
+        "meaningKr": "record, documentation; to record",
+        "exampleEn": "과학자들은 관측 데이터를 면밀히 기록하고 분석하여 새로운 사실을 밝혀내고자 노력한다.",
+        "exampleKr": "Scientists strive to uncover new facts by meticulously recording and analyzing observational data.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gi-rok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-141-1780146279962",
+        "term": "반면",
+        "definition": "other side, reverse side; on the other hand",
+        "meaningKr": "other side, reverse side; on the other hand",
+        "exampleEn": "이 기술은 생산성을 크게 향상시키는 장점이 있는 반면, 초기 투자 비용이 매우 높다는 단점도 지닌다.",
+        "exampleKr": "While this technology has the advantage of greatly improving productivity, it also has the disadvantage of requiring very high initial investment costs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ban-myeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-142-1780146279962",
+        "term": "움직임",
+        "definition": "movement, motion; change, development",
+        "meaningKr": "movement, motion; change, development",
+        "exampleEn": "정치권의 잦은 정책 변화와 불확실한 움직임은 경제 주체들에게 불안감을 야기한다.",
+        "exampleKr": "Frequent policy changes and uncertain movements in the political sphere cause anxiety among economic agents.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "um-ji-gim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-143-1780146279962",
+        "term": "터지다",
+        "definition": "to burst, to explode, to break out",
+        "meaningKr": "to burst, to explode, to break out",
+        "exampleEn": "오랜 기간 억눌렸던 불만이 폭발하듯 터지면서 사회 전반에 걸쳐 큰 파장이 일었다.",
+        "exampleKr": "As the long-suppressed discontent burst out like an explosion, it caused a major ripple effect throughout society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "teo-ji-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-144-1780146279962",
+        "term": "특성",
+        "definition": "characteristic, feature, trait",
+        "meaningKr": "characteristic, feature, trait",
+        "exampleEn": "각 문화권의 고유한 특성을 이해하는 것은 상호 존중과 문화 교류의 출발점이다.",
+        "exampleKr": "Understanding the unique characteristics of each cultural sphere is the starting point for mutual respect and cultural exchange.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "teuk-seong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-145-1780146279962",
+        "term": "교장",
+        "definition": "school principal",
+        "meaningKr": "school principal",
+        "exampleEn": "교장은 학생들의 전인적인 성장을 위해 다양한 교육 프로그램을 도입할 것을 제안했다.",
+        "exampleKr": "The principal proposed the introduction of various educational programs for the holistic growth of the students.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyo-jang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-146-1780146279962",
+        "term": "입시",
+        "definition": "college entrance examination, university admission",
+        "meaningKr": "college entrance examination, university admission",
+        "exampleEn": "과도한 입시 경쟁은 학생들의 창의성과 잠재력 개발을 저해한다는 비판을 받아왔다.",
+        "exampleKr": "Excessive competition for university admissions has been criticized for hindering students' creativity and potential development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ip-si",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-147-1780146279962",
+        "term": "다루다",
+        "definition": "to handle, to deal with, to treat",
+        "meaningKr": "to handle, to deal with, to treat",
+        "exampleEn": "이 보고서는 기후 변화 문제를 다루면서 그 심각성과 해결 방안을 구체적으로 제시하고 있다.",
+        "exampleKr": "This report addresses the issue of climate change, presenting its severity and potential solutions in detail.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "da-ru-da",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-148-1780146279962",
+        "term": "업체",
+        "definition": "company, business, firm",
+        "meaningKr": "company, business, firm",
+        "exampleEn": "정부는 중소기업의 경쟁력 강화를 위해 기술 개발 지원과 판로 개척을 돕는 정책을 추진하고 있다.",
+        "exampleKr": "The government is pursuing policies to strengthen the competitiveness of small and medium-sized enterprises by supporting technological development and facilitating market expansion.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "eop-che",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-149-1780146279962",
+        "term": "국회",
+        "definition": "National Assembly, parliament",
+        "meaningKr": "National Assembly, parliament",
+        "exampleEn": "국회는 국민의 대표로서 국가의 중요한 법안을 심의하고 의결하는 중대한 책무를 지닌다.",
+        "exampleKr": "The National Assembly, as the people's representatives, holds the significant responsibility of deliberating and resolving important national legislation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "guk-hoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-150-1780146279962",
+        "term": "세월",
+        "definition": "time, years",
+        "meaningKr": "time, years",
+        "exampleEn": "세월이 흐르면서 변해가는 사회 모습에 우리는 깊은 성찰을 하게 되었다.",
+        "exampleKr": "As time flows, we have come to deeply reflect on the changing face of society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sewol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-151-1780146279962",
+        "term": "깨닫다",
+        "definition": "to realize, to become aware of, to understand",
+        "meaningKr": "to realize, to become aware of, to understand",
+        "exampleEn": "수많은 실패를 경험하고 나서야 비로소 자신의 진정한 강점을 깨닫게 되었다.",
+        "exampleKr": "Only after experiencing numerous failures did I finally come to realize my true strengths.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "kkaedatda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-152-1780146279962",
+        "term": "신",
+        "definition": "god, deity, spirit",
+        "meaningKr": "god, deity, spirit",
+        "exampleEn": "고대 문명에서는 자연 현상을 신의 섭리로 해석하려는 경향이 짙었다.",
+        "exampleKr": "Ancient civilizations had a strong tendency to interpret natural phenomena as the providence of gods.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-153-1780146279962",
+        "term": "거리",
+        "definition": "street, distance, space",
+        "meaningKr": "street, distance, space",
+        "exampleEn": "도시의 번화한 거리에는 다양한 문화와 사람들이 공존하며 활기를 띠고 있다.",
+        "exampleKr": "The bustling streets of the city are vibrant with the coexistence of diverse cultures and people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-154-1780146279962",
+        "term": "부정",
+        "definition": "negation, denial, refusal",
+        "meaningKr": "negation, denial, refusal",
+        "exampleEn": "그는 자신의 잘못을 끝까지 부정하며 책임을 회피하려 했다.",
+        "exampleKr": "He denied his mistakes until the end, trying to evade responsibility.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bujeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-155-1780146279962",
+        "term": "사정",
+        "definition": "circumstances, situation, reason",
+        "meaningKr": "circumstances, situation, reason",
+        "exampleEn": "그녀는 개인적인 사정으로 인해 프로젝트에서 하차할 수밖에 없었다.",
+        "exampleKr": "She had no choice but to withdraw from the project due to personal circumstances.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sajeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-156-1780146279962",
+        "term": "도대체",
+        "definition": "on earth, really, at all (used in questions or negative statements)",
+        "meaningKr": "on earth, really, at all (used in questions or negative statements)",
+        "exampleEn": "도대체 무슨 생각으로 그런 위험한 결정을 내린 것인지 이해할 수가 없다.",
+        "exampleKr": "I cannot understand what on earth you were thinking to make such a risky decision.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dodaeche",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-157-1780146279962",
+        "term": "처리",
+        "definition": "processing, handling, disposal",
+        "meaningKr": "processing, handling, disposal",
+        "exampleEn": "신속하고 정확한 민원 처리는 행정 서비스의 질을 결정하는 중요한 요소이다.",
+        "exampleKr": "Prompt and accurate handling of civil complaints is a crucial factor in determining the quality of administrative services.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "cheori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-158-1780146279962",
+        "term": "꼴",
+        "definition": "state, condition, sight (often in a negative sense)",
+        "meaningKr": "state, condition, sight (often in a negative sense)",
+        "exampleEn": "그는 실패 후 처량한 꼴로 사람들의 동정을 구하려 했다.",
+        "exampleKr": "After his failure, he tried to gain people's sympathy in a pitiful state.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "kkol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-159-1780146279962",
+        "term": "그리하여",
+        "definition": "thus, and so, therefore",
+        "meaningKr": "thus, and so, therefore",
+        "exampleEn": "그는 꾸준히 노력했고, 그리하여 마침내 목표를 달성할 수 있었다.",
+        "exampleKr": "He worked hard consistently, and thus was finally able to achieve his goal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geurihayeo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-160-1780146279962",
+        "term": "내부",
+        "definition": "interior, inside, internal",
+        "meaningKr": "interior, inside, internal",
+        "exampleEn": "내부 감사 결과, 비리가 드러나 관련자들이 징계를 받게 되었다.",
+        "exampleKr": "As a result of the internal audit, corruption was revealed, and those involved received disciplinary action.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "naebu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-161-1780146279962",
+        "term": "다소",
+        "definition": "somewhat, a little, to some extent",
+        "meaningKr": "somewhat, a little, to some extent",
+        "exampleEn": "이번 정책은 다소 논란의 여지가 있지만, 장기적으로는 긍정적인 효과를 기대할 수 있다.",
+        "exampleKr": "Although this policy is somewhat controversial, positive effects can be expected in the long term.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daso",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-162-1780146279962",
+        "term": "그저",
+        "definition": "just, simply, only",
+        "meaningKr": "just, simply, only",
+        "exampleEn": "그는 복잡한 생각 없이 그저 눈앞의 현실에 집중하기로 했다.",
+        "exampleKr": "He decided to simply focus on the reality before him without complicated thoughts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geujeo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-163-1780146279962",
+        "term": "부담",
+        "definition": "burden, charge, pressure",
+        "meaningKr": "burden, charge, pressure",
+        "exampleEn": "과도한 학자금 대출은 졸업 후 사회생활에 큰 부담으로 작용할 수 있다.",
+        "exampleKr": "Excessive student loan debt can act as a significant burden on post-graduation social life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "budam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-164-1780146279962",
+        "term": "위원",
+        "definition": "committee member, commissioner, representative",
+        "meaningKr": "committee member, commissioner, representative",
+        "exampleEn": "새로운 위원들은 회의에서 다양한 안건에 대한 심도 깊은 논의를 진행했다.",
+        "exampleKr": "The new committee members engaged in in-depth discussions on various agenda items during the meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "wiwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-165-1780146279962",
+        "term": "법칙",
+        "definition": "law, rule, principle",
+        "meaningKr": "law, rule, principle",
+        "exampleEn": "자연의 법칙은 인간의 의지와 상관없이 항상 일정하게 적용된다.",
+        "exampleKr": "The laws of nature are always applied consistently, regardless of human will.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "beopchik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-166-1780146279962",
+        "term": "오염",
+        "definition": "pollution, contamination",
+        "meaningKr": "pollution, contamination",
+        "exampleEn": "산업 폐수 방류로 인한 강물의 오염은 심각한 생태계 파괴를 초래하였다.",
+        "exampleKr": "The pollution of the river due to industrial wastewater discharge caused severe ecosystem destruction.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "oyeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-167-1780146279962",
+        "term": "참여하다",
+        "definition": "to participate, to take part in, to join",
+        "meaningKr": "to participate, to take part in, to join",
+        "exampleEn": "시민들은 지역 사회 발전을 위한 다양한 활동에 적극적으로 참여하고 있다.",
+        "exampleKr": "Citizens are actively participating in various activities for the development of the local community.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chamyeohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-168-1780146279962",
+        "term": "탓",
+        "definition": "fault, blame, cause (often negative)",
+        "meaningKr": "fault, blame, cause (often negative)",
+        "exampleEn": "그는 자신의 실패를 환경 탓으로 돌리며 현실을 제대로 직시하지 못했다.",
+        "exampleKr": "He blamed his failure on the circumstances, failing to face reality properly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "tat",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-169-1780146279962",
+        "term": "범죄",
+        "definition": "crime, offense, felony",
+        "meaningKr": "crime, offense, felony",
+        "exampleEn": "사회 불평등 심화는 강력 범죄 발생률 증가와 밀접한 관련이 있다는 연구 결과가 나왔다.",
+        "exampleKr": "Research results showed that the deepening social inequality is closely related to the increase in violent crime rates.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "beomjoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-170-1780146279962",
+        "term": "논리",
+        "definition": "logic, reasoning",
+        "meaningKr": "logic, reasoning",
+        "exampleEn": "그의 주장은 명확한 논리적 근거가 부족하여 설득력이 떨어졌다.",
+        "exampleKr": "His argument lacked clear logical grounds, thus reducing its persuasiveness.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "nolli",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-171-1780146279962",
+        "term": "감각",
+        "definition": "sense, sensation, feeling",
+        "meaningKr": "sense, sensation, feeling",
+        "exampleEn": "급변하는 시장 상황 속에서 기업은 새로운 트렌드를 감지하는 예민한 감각을 길러야 한다.",
+        "exampleKr": "In the rapidly changing market conditions, companies must cultivate a keen sense to detect new trends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gamgak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-172-1780146279962",
+        "term": "기구",
+        "definition": "organization, body, instrument",
+        "meaningKr": "organization, body, instrument",
+        "exampleEn": "국제 사회는 기후 변화 문제 해결을 위한 공동 대응 기구를 설립하기로 합의했다.",
+        "exampleKr": "The international community agreed to establish a joint response organization to address climate change issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gigu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-173-1780146279962",
+        "term": "후보",
+        "definition": "candidate, nominee,候補",
+        "meaningKr": "candidate, nominee,候補",
+        "exampleEn": "이번 선거에는 다양한 정책을 제시하는 여러 후보들이 출마하여 경쟁이 치열할 것으로 예상된다.",
+        "exampleKr": "It is expected that the competition will be fierce as several candidates presenting diverse policies are running in this election.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hubo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-174-1780146279962",
+        "term": "근거",
+        "definition": "basis, grounds, evidence",
+        "meaningKr": "basis, grounds, evidence",
+        "exampleEn": "그의 주장은 객관적인 증거와 명확한 근거 위에 세워져야 신뢰를 얻을 수 있다.",
+        "exampleKr": "His claims can only gain trust if they are built upon objective evidence and clear grounds.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geungeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-175-1780146279962",
+        "term": "시각",
+        "definition": "viewpoint, perspective, visual",
+        "meaningKr": "viewpoint, perspective, visual",
+        "exampleEn": "그는 복잡한 사회 문제에 대해 독창적인 시각을 제시하며 많은 이들의 주목을 받았다.",
+        "exampleKr": "He garnered significant attention by presenting an original perspective on complex social issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sigak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-176-1780146279962",
+        "term": "이끌다",
+        "definition": "to lead, to guide, to attract",
+        "meaningKr": "to lead, to guide, to attract",
+        "exampleEn": "뛰어난 리더십으로 팀원들을 성공적인 목표 달성으로 이끌었다.",
+        "exampleKr": "With outstanding leadership, he led the team members to successful goal achievement.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ikkeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-177-1780146279962",
+        "term": "수단",
+        "definition": "means, way, method",
+        "meaningKr": "means, way, method",
+        "exampleEn": "효과적인 의사소통은 복잡한 갈등을 해결하는 데 필수적인 수단이 된다.",
+        "exampleKr": "Effective communication becomes an essential means to resolve complex conflicts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sudan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-178-1780146279962",
+        "term": "형성",
+        "definition": "formation, shaping, development",
+        "meaningKr": "formation, shaping, development",
+        "exampleEn": "오랜 기간의 문화 교류는 두 민족 간의 독특한 정체성 형성에 기여했다.",
+        "exampleKr": "Long-term cultural exchange contributed to the formation of a unique identity between the two peoples.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeongseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-179-1780146279962",
+        "term": "기울이다",
+        "definition": "to lean, to tilt, to devote (effort/attention)",
+        "meaningKr": "to lean, to tilt, to devote (effort/attention)",
+        "exampleEn": "그는 새로운 기술 습득에 모든 노력을 기울여 전문가로 성장했다.",
+        "exampleKr": "He devoted all his efforts to acquiring new skills, growing into an expert.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "giurida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-180-1780146279962",
+        "term": "장면",
+        "definition": "scene, situation, spectacle",
+        "meaningKr": "scene, situation, spectacle",
+        "exampleEn": "영화의 마지막 장면은 관객들에게 깊은 감동과 여운을 남겼다.",
+        "exampleKr": "The final scene of the movie left the audience with deep emotion and a lasting impression.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jangmyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-181-1780146279962",
+        "term": "더불다",
+        "definition": "to be together with, to accompany, to go along with",
+        "meaningKr": "to be together with, to accompany, to go along with",
+        "exampleEn": "지속 가능한 발전은 환경 보호와 더불어 사회적 형평성을 추구해야 한다.",
+        "exampleKr": "Sustainable development must pursue social equity along with environmental protection.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deobeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-182-1780146279962",
+        "term": "개방",
+        "definition": "opening, openness, liberalization",
+        "meaningKr": "opening, openness, liberalization",
+        "exampleEn": "정부는 시장 경제의 전면적인 개방을 통해 경쟁력을 강화하고자 한다.",
+        "exampleKr": "The government intends to strengthen competitiveness through the full opening of the market economy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gaebang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-183-1780146279962",
+        "term": "앞서",
+        "definition": "ahead, before, previously",
+        "meaningKr": "ahead, before, previously",
+        "exampleEn": "앞서 언급한 이론은 현대 과학의 발전에 지대한 영향을 미쳤다.",
+        "exampleKr": "The theory mentioned previously had a profound impact on the development of modern science.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "apsseo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-184-1780146279962",
+        "term": "소프트웨어",
+        "definition": "software",
+        "meaningKr": "software",
+        "exampleEn": "최신 소프트웨어 업데이트는 보안 취약점을 개선하여 시스템 안정성을 높였다.",
+        "exampleKr": "The latest software update improved security vulnerabilities, enhancing system stability.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sopeuteuweeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-185-1780146279962",
+        "term": "반응",
+        "definition": "reaction, response",
+        "meaningKr": "reaction, response",
+        "exampleEn": "그의 충격적인 발언에 대해 대중은 즉각적이고도 격렬한 반응을 보였다.",
+        "exampleKr": "The public showed an immediate and intense reaction to his shocking statement.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "baneung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-186-1780146279962",
+        "term": "비판",
+        "definition": "criticism, critique",
+        "meaningKr": "criticism, critique",
+        "exampleEn": "사회 현상에 대한 건전한 비판은 변화와 발전을 위한 중요한 동력이 된다.",
+        "exampleKr": "Sound criticism of social phenomena becomes an important driving force for change and development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bipan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-187-1780146279962",
+        "term": "세대",
+        "definition": "generation, age",
+        "meaningKr": "generation, age",
+        "exampleEn": "각 세대는 고유한 가치관과 경험을 바탕으로 사회 발전에 기여한다.",
+        "exampleKr": "Each generation contributes to social development based on its unique values and experiences.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sedae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-188-1780146279962",
+        "term": "공개",
+        "definition": "disclosure, opening to the public, announcement",
+        "meaningKr": "disclosure, opening to the public, announcement",
+        "exampleEn": "정부는 연구 결과를 투명하게 공개하여 학계의 신뢰를 얻었다.",
+        "exampleKr": "The government earned the trust of the academic community by transparently disclosing the research results.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gonggae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-189-1780146279962",
+        "term": "매체",
+        "definition": "medium, media",
+        "meaningKr": "medium, media",
+        "exampleEn": "다양한 현대 대중 매체는 정보 전달 방식에 혁신을 가져왔다.",
+        "exampleKr": "Various modern mass media have brought innovation to the way information is delivered.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "maechye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-190-1780146279962",
+        "term": "영역",
+        "definition": "area, domain, field, territory",
+        "meaningKr": "area, domain, field, territory",
+        "exampleEn": "인공지능 기술은 이미 여러 과학 및 산업 영역에 깊숙이 침투했다.",
+        "exampleKr": "Artificial intelligence technology has already deeply penetrated various scientific and industrial domains.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeongyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-191-1780146279962",
+        "term": "체험",
+        "definition": "experience, firsthand experience",
+        "meaningKr": "experience, firsthand experience",
+        "exampleEn": "그는 직접적인 현장 체험을 통해 이론적 지식을 실무에 적용하는 법을 배웠다.",
+        "exampleKr": "He learned how to apply theoretical knowledge to practical work through direct field experience.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "cheheom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-192-1780146279962",
+        "term": "구속",
+        "definition": "arrest, detention, restriction",
+        "meaningKr": "arrest, detention, restriction",
+        "exampleEn": "새로운 법률은 개인의 자유를 과도하게 구속한다는 비판에 직면했다.",
+        "exampleKr": "The new law faced criticism for excessively restricting individual freedom.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gusok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-193-1780146279962",
+        "term": "때로",
+        "definition": "sometimes, at times, occasionally",
+        "meaningKr": "sometimes, at times, occasionally",
+        "exampleEn": "때로 예상치 못한 난관에 부딪히지만, 포기하지 않고 계속 나아갔다.",
+        "exampleKr": "Sometimes we encounter unexpected difficulties, but we kept moving forward without giving up.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ttaero",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-194-1780146279962",
+        "term": "극복하다",
+        "definition": "to overcome, to conquer",
+        "meaningKr": "to overcome, to conquer",
+        "exampleEn": "어려운 환경 속에서도 그는 끊임없는 노력으로 한계를 극복해냈다.",
+        "exampleKr": "Despite the difficult circumstances, he overcame his limitations through continuous effort.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geukbokada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-195-1780146279962",
+        "term": "불법",
+        "definition": "illegality, unlawful act",
+        "meaningKr": "illegality, unlawful act",
+        "exampleEn": "증거 불충분으로 인해 피고인은 불법 행위에 대한 혐의에서 벗어났다.",
+        "exampleKr": "Due to insufficient evidence, the defendant was acquitted of charges for the illegal act.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bulbeop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-196-1780146279962",
+        "term": "쓰이다",
+        "definition": "to be used, to be written",
+        "meaningKr": "to be used, to be written",
+        "exampleEn": "이 고전 소설은 당대 사회상을 생생하게 묘사하는 데 널리 쓰였다.",
+        "exampleKr": "This classic novel was widely used to vividly portray the social conditions of its time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sseuida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-197-1780146279962",
+        "term": "일정하다",
+        "definition": "constant, regular, fixed, uniform",
+        "meaningKr": "constant, regular, fixed, uniform",
+        "exampleEn": "규칙적인 운동과 일정함 식습관은 건강 유지에 매우 중요하다.",
+        "exampleKr": "Regular exercise and a consistent diet are very important for maintaining health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "iljeonghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-198-1780146279962",
+        "term": "다지다",
+        "definition": "to tread down, to solidify, to strengthen",
+        "meaningKr": "to tread down, to solidify, to strengthen",
+        "exampleEn": "그는 기초를 탄탄히 다진 후에야 비로소 복잡한 이론을 탐구하기 시작했다.",
+        "exampleKr": "Only after solidifying the foundation did he begin to explore complex theories.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dajida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-199-1780146279962",
+        "term": "밝혀지다",
+        "definition": "to be revealed, to be discovered, to become clear",
+        "meaningKr": "to be revealed, to be discovered, to become clear",
+        "exampleEn": "수십 년간 미스터리로 남아 있던 사건의 진실이 마침내 밝혀졌다.",
+        "exampleKr": "The truth of the case, which had remained a mystery for decades, was finally revealed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "balkyeojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-200-1780146279962",
+        "term": "이념",
+        "definition": "ideology, ideal, philosophy",
+        "meaningKr": "ideology, ideal, philosophy",
+        "exampleEn": "그는 자유 시장 경제라는 확고한 이념을 바탕으로 기업을 운영해왔다.",
+        "exampleKr": "He has operated the company based on the firm ideology of a free market economy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "inyeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-201-1780146279962",
+        "term": "치르다",
+        "definition": "to pay (a price/bill), to undergo (a ceremony/ordeal), to bear (a burden)",
+        "meaningKr": "to pay (a price/bill), to undergo (a ceremony/ordeal), to bear (a burden)",
+        "exampleEn": "그는 잘못된 선택으로 인해 혹독한 대가를 치러야만 했다.",
+        "exampleKr": "He had to pay a harsh price for his wrong choices.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chireuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-202-1780146279962",
+        "term": "성",
+        "definition": "nature, character, disposition; castle",
+        "meaningKr": "nature, character, disposition; castle",
+        "exampleEn": "인간의 본성은 선한가 악한가에 대한 오랜 철학적 논쟁이 계속되고 있다.",
+        "exampleKr": "The long-standing philosophical debate on whether human nature is good or evil continues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-203-1780146279962",
+        "term": "문화재",
+        "definition": "cultural property, heritage",
+        "meaningKr": "cultural property, heritage",
+        "exampleEn": "정부는 국보 1호인 숭례문 복원을 위해 다각적인 노력을 기울였다.",
+        "exampleKr": "The government made multifaceted efforts to restore Sungnyemun, National Treasure No. 1.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "munhwajae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-204-1780146279962",
+        "term": "구성되다",
+        "definition": "to be composed of, to be made up of, to consist of",
+        "meaningKr": "to be composed of, to be made up of, to consist of",
+        "exampleEn": "이 보고서는 여러 전문가들의 심층적인 연구를 통해 구성되었다.",
+        "exampleKr": "This report was composed through in-depth research by several experts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "guseongdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-205-1780146279962",
+        "term": "독특하다",
+        "definition": "unique, peculiar, distinctive",
+        "meaningKr": "unique, peculiar, distinctive",
+        "exampleEn": "그 가수의 목소리는 매우 독특해서 단번에 알아들을 수 있다.",
+        "exampleKr": "The singer's voice is so unique that it can be recognized at once.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dontukada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-206-1780146279962",
+        "term": "사례",
+        "definition": "case, example, instance",
+        "meaningKr": "case, example, instance",
+        "exampleEn": "최근 급증하는 기후 변화와 관련된 다양한 사례들을 분석할 필요가 있다.",
+        "exampleKr": "It is necessary to analyze various recent cases related to the surge in climate change.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sarye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-207-1780146279962",
+        "term": "추진하다",
+        "definition": "to push forward, to promote, to launch",
+        "meaningKr": "to push forward, to promote, to launch",
+        "exampleEn": "정부는 지속 가능한 발전을 위해 친환경 에너지 사업을 적극적으로 추진하고 있다.",
+        "exampleKr": "The government is actively promoting eco-friendly energy projects for sustainable development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chujinhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-208-1780146279962",
+        "term": "틀",
+        "definition": "frame, mold, framework; pattern",
+        "meaningKr": "frame, mold, framework; pattern",
+        "exampleEn": "기존의 사고방식이라는 틀에서 벗어나 새로운 아이디어를 모색해야 한다.",
+        "exampleKr": "We must break out of the framework of conventional thinking and seek new ideas.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "teul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-209-1780146279962",
+        "term": "평균",
+        "definition": "average, mean",
+        "meaningKr": "average, mean",
+        "exampleEn": "그는 꾸준한 노력으로 학업 성취도 평균을 크게 향상시켰다.",
+        "exampleKr": "He significantly improved his average academic achievement through consistent effort.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pyeonggyun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-210-1780146279962",
+        "term": "훈련",
+        "definition": "training, drill, exercise",
+        "meaningKr": "training, drill, exercise",
+        "exampleEn": "혹독한 동계 훈련은 선수들의 체력과 정신력을 강화하는 데 필수적이다.",
+        "exampleKr": "Rigorous winter training is essential for strengthening athletes' physical and mental endurance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hunryeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-211-1780146279962",
+        "term": "흐름",
+        "definition": "flow, current, stream; trend",
+        "meaningKr": "flow, current, stream; trend",
+        "exampleEn": "역사의 거대한 흐름 속에서 개인은 미미한 존재일지라도 중요한 역할을 할 수 있다.",
+        "exampleKr": "Even if individuals are insignificant within the grand flow of history, they can play an important role.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "heureum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-212-1780146279962",
+        "term": "위기",
+        "definition": "crisis, critical moment, danger",
+        "meaningKr": "crisis, critical moment, danger",
+        "exampleEn": "경제 위기 상황에서는 정부의 신속하고 효과적인 대응이 무엇보다 중요하다.",
+        "exampleKr": "In a state of economic crisis, the government's swift and effective response is paramount.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "wigi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-213-1780146279962",
+        "term": "정당",
+        "definition": "political party; justice, legitimacy",
+        "meaningKr": "political party; justice, legitimacy",
+        "exampleEn": "그는 정치적 신념이 확고한 여러 정당들의 연합을 통해 정권을 잡았다.",
+        "exampleKr": "He seized power through an alliance of several political parties with firm political beliefs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeongdang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-214-1780146279962",
+        "term": "폭력",
+        "definition": "violence",
+        "meaningKr": "violence",
+        "exampleEn": "어떠한 이유로도 정당화될 수 없는 폭력 행위에 대해 강력히 규탄해야 한다.",
+        "exampleKr": "We must strongly condemn acts of violence that cannot be justified for any reason.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pokryeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-215-1780146279962",
+        "term": "혹시",
+        "definition": "perhaps, maybe, by any chance",
+        "meaningKr": "perhaps, maybe, by any chance",
+        "exampleEn": "혹시 제가 모르는 중요한 정보가 있다면 알려주시기 바랍니다.",
+        "exampleKr": "Please let me know if there is any important information that I might not be aware of.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hoksi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-216-1780146279962",
+        "term": "절차",
+        "definition": "procedure, process, formality",
+        "meaningKr": "procedure, process, formality",
+        "exampleEn": "새로운 사업을 시작하기 위해서는 복잡한 행정 절차를 모두 거쳐야 한다.",
+        "exampleKr": "To start a new business, one must go through all the complex administrative procedures.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeolcha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-217-1780146279962",
+        "term": "증가하다",
+        "definition": "to increase, to grow, to rise",
+        "meaningKr": "to increase, to grow, to rise",
+        "exampleEn": "최근 1인 가구가 증가하는 추세에 따라 관련 소비 시장도 확대되고 있다.",
+        "exampleKr": "As the number of single-person households has recently been increasing, the related consumption market is also expanding.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeunggahada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-218-1780146279962",
+        "term": "외치다",
+        "definition": "to shout, to cry out, to exclaim",
+        "meaningKr": "to shout, to cry out, to exclaim",
+        "exampleEn": "시위대는 불평등한 사회 구조에 대한 불만을 거리로 뛰쳐나와 외쳤다.",
+        "exampleKr": "The protesters ran out into the streets and shouted their discontent with the unequal social structure.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "oechida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-219-1780146279962",
+        "term": "권리",
+        "definition": "right, privilege",
+        "meaningKr": "right, privilege",
+        "exampleEn": "모든 시민은 자신의 기본적인 권리를 보장받을 당연한 권리가 있다.",
+        "exampleKr": "Every citizen has the inherent right to have their basic rights guaranteed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gwolli",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-220-1780146279962",
+        "term": "자원",
+        "definition": "resource, natural resource",
+        "meaningKr": "resource, natural resource",
+        "exampleEn": "지구의 한정된 자원을 효율적으로 활용하기 위한 국제적인 협력이 시급하다.",
+        "exampleKr": "International cooperation is urgently needed to efficiently utilize the Earth's limited resources.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jawon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-221-1780146279962",
+        "term": "넘기다",
+        "definition": "to pass (over), to hand over, to exceed",
+        "meaningKr": "to pass (over), to hand over, to exceed",
+        "exampleEn": "그는 마감 시간을 넘기지 않기 위해 밤새도록 보고서를 작성했다.",
+        "exampleKr": "He worked on the report all night to avoid exceeding the deadline.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "neomgida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-222-1780146279962",
+        "term": "물체",
+        "definition": "object, body, physical substance",
+        "meaningKr": "object, body, physical substance",
+        "exampleEn": "천문학자들은 발견된 미확인 비행 물체가 무엇인지 분석하고 있다.",
+        "exampleKr": "Astronomers are analyzing what the unidentified flying object that was discovered is.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "mulche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-223-1780146279962",
+        "term": "시위",
+        "definition": "protest, demonstration",
+        "meaningKr": "protest, demonstration",
+        "exampleEn": "환경 보호를 요구하는 대규모 시위가 도심 한복판에서 벌어졌다.",
+        "exampleKr": "A large-scale protest demanding environmental protection took place in the middle of the city.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "siwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-224-1780146279962",
+        "term": "제외하다",
+        "definition": "to exclude, to except, to leave out",
+        "meaningKr": "to exclude, to except, to leave out",
+        "exampleEn": "이번 평가에서는 신입 사원들을 제외한 모든 직원이 참여하게 될 것이다.",
+        "exampleKr": "In this evaluation, all employees except for the new hires will participate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeoehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-225-1780146279962",
+        "term": "견해",
+        "definition": "viewpoint, opinion, perspective",
+        "meaningKr": "viewpoint, opinion, perspective",
+        "exampleEn": "그 사안에 대한 각계각층의 다양한 견해를 수렴하는 과정이 매우 중요하다고 할 수 있습니다.",
+        "exampleKr": "The process of gathering diverse viewpoints from all walks of life on that issue can be said to be very important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyeonhae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-226-1780146279962",
+        "term": "안정",
+        "definition": "stability, peace, calmness",
+        "meaningKr": "stability, peace, calmness",
+        "exampleEn": "경제적 안정 없이는 개인의 행복이나 사회 전체의 발전을 기대하기 어렵습니다.",
+        "exampleKr": "Without economic stability, it is difficult to expect individual happiness or the development of society as a whole.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "anjeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-227-1780146279962",
+        "term": "어쨌든",
+        "definition": "anyway, in any case, at any rate",
+        "meaningKr": "anyway, in any case, at any rate",
+        "exampleEn": "비록 결과가 만족스럽지 못했더라도, 어쨌든 최선을 다했기에 후회는 없습니다.",
+        "exampleKr": "Even though the result was not satisfactory, in any case, I have no regrets because I did my best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "eojjaetdeun",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-228-1780146279962",
+        "term": "눈길",
+        "definition": "gaze, glance, attention",
+        "meaningKr": "gaze, glance, attention",
+        "exampleEn": "그녀의 독특한 패션 감각은 지나가는 사람들의 많은 눈길을 사로잡았다.",
+        "exampleKr": "Her unique fashion sense captured the attention of many passersby.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "nungi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-229-1780146279962",
+        "term": "주어지다",
+        "definition": "to be given, to be provided, to be granted",
+        "meaningKr": "to be given, to be provided, to be granted",
+        "exampleEn": "그에게는 남들이 부러워할 만한 재능이 이미 충분히 주어져 있었다.",
+        "exampleKr": "He had already been sufficiently endowed with talents that others would envy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jueojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-230-1780146279962",
+        "term": "널리",
+        "definition": "widely, extensively, broadly",
+        "meaningKr": "widely, extensively, broadly",
+        "exampleEn": "현대 사회에서는 정보가 널리 퍼져나가면서 지식의 민주화가 이루어지고 있습니다.",
+        "exampleKr": "In modern society, the democratization of knowledge is being achieved as information spreads widely.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "neolli",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-231-1780146279962",
+        "term": "소재",
+        "definition": "material, subject matter, topic",
+        "meaningKr": "material, subject matter, topic",
+        "exampleEn": "이 소설은 한국의 전통적인 설화를 소재로 하여 현대적인 감각으로 재해석했다.",
+        "exampleKr": "This novel reinterprets Korean traditional folktales with a modern sensibility as its subject matter.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sojae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-232-1780146279962",
+        "term": "전망",
+        "definition": "prospect, outlook, view",
+        "meaningKr": "prospect, outlook, view",
+        "exampleEn": "현재의 경제 지표들을 고려할 때, 향후 몇 년간의 성장 전망은 매우 긍정적이다.",
+        "exampleKr": "Considering the current economic indicators, the growth outlook for the next few years is very positive.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeonmang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-233-1780146279962",
+        "term": "형성되다",
+        "definition": "to be formed, to be shaped, to be created",
+        "meaningKr": "to be formed, to be shaped, to be created",
+        "exampleEn": "오랜 기간에 걸친 상호작용을 통해 두 문화는 독특한 융합의 형태를 형성하게 되었다.",
+        "exampleKr": "Through long-term interaction, the two cultures formed a unique hybrid form.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeongseongdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-234-1780146279962",
+        "term": "결론",
+        "definition": "conclusion, result, outcome",
+        "meaningKr": "conclusion, result, outcome",
+        "exampleEn": "수많은 데이터를 분석한 결과, 우리는 예상과는 다른 결론에 도달할 수밖에 없었다.",
+        "exampleKr": "As a result of analyzing a vast amount of data, we had no choice but to reach a conclusion different from what we expected.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyeol론",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-235-1780146279962",
+        "term": "들이다",
+        "definition": "to let in, to bring in, to incur",
+        "meaningKr": "to let in, to bring in, to incur",
+        "exampleEn": "전문가들은 이 새로운 기술을 도입함으로써 생산성을 획기적으로 높일 수 있다고 말합니다.",
+        "exampleKr": "Experts say that introducing this new technology can dramatically increase productivity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deulida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-236-1780146279962",
+        "term": "자녀",
+        "definition": "children, offspring",
+        "meaningKr": "children, offspring",
+        "exampleEn": "현대 사회에서는 자녀에게 다양한 경험을 제공하려는 부모들의 노력이 두드러지고 있습니다.",
+        "exampleKr": "In modern society, there is a noticeable effort by parents to provide their children with diverse experiences.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "janyeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-237-1780146279962",
+        "term": "판결",
+        "definition": "judgment, verdict, decision",
+        "meaningKr": "judgment, verdict, decision",
+        "exampleEn": "법원은 증거를 토대로 피고에게 유죄 판결을 내렸지만, 항소 가능성은 남아 있습니다.",
+        "exampleKr": "Based on the evidence, the court delivered a guilty verdict against the defendant, but the possibility of appeal remains.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pangyeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-238-1780146279962",
+        "term": "비로소",
+        "definition": "at last, only then, finally",
+        "meaningKr": "at last, only then, finally",
+        "exampleEn": "그는 수많은 시행착오를 겪은 후에야 비로소 자신의 재능을 제대로 발휘할 수 있었다.",
+        "exampleKr": "Only after experiencing numerous trials and errors was he finally able to properly utilize his talent.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "biroso",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-239-1780146279962",
+        "term": "서구",
+        "definition": "the West, Western countries",
+        "meaningKr": "the West, Western countries",
+        "exampleEn": "서구의 민주주의와 동양의 전통적 가치관이 조화를 이루는 방안에 대한 논의가 활발하다.",
+        "exampleKr": "Discussions are active on how to harmonize Western democracy with traditional Eastern values.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seogu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-240-1780146279962",
+        "term": "소유",
+        "definition": "ownership, possession",
+        "meaningKr": "ownership, possession",
+        "exampleEn": "물질적인 소유보다는 정신적인 풍요로움을 추구하는 삶의 방식이 주목받고 있다.",
+        "exampleKr": "A lifestyle that pursues spiritual richness rather than material possession is gaining attention.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "soyu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-241-1780146279962",
+        "term": "부문",
+        "definition": "sector, part, field",
+        "meaningKr": "sector, part, field",
+        "exampleEn": "정부는 특히 IT와 바이오 기술 부문에 대한 투자를 대폭 확대할 계획이라고 발표했다.",
+        "exampleKr": "The government announced plans to significantly expand investment, particularly in the IT and biotechnology sectors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bumun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-242-1780146279962",
+        "term": "규정",
+        "definition": "regulation, rule, provision",
+        "meaningKr": "regulation, rule, provision",
+        "exampleEn": "새로운 국제 규정을 준수하기 위해 기존의 업무 처리 방식을 전면적으로 재검토해야 한다.",
+        "exampleKr": "To comply with the new international regulations, the existing work procedures must be thoroughly re-examined.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyujeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-243-1780146279962",
+        "term": "아예",
+        "definition": "completely, altogether, from the start",
+        "meaningKr": "completely, altogether, from the start",
+        "exampleEn": "그는 처음부터 잘못된 접근 방식을 택했기 때문에 아예 성공 가능성이 희박했다.",
+        "exampleKr": "Because he chose an incorrect approach from the very beginning, the possibility of success was altogether slim.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "aye",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-244-1780146279962",
+        "term": "어찌",
+        "definition": "how, in what way",
+        "meaningKr": "how, in what way",
+        "exampleEn": "어찌 이런 엄청난 재앙이 우리에게 닥칠 수 있었는지, 아무도 그 이유를 설명하지 못했다.",
+        "exampleKr": "No one could explain how such a tremendous disaster could have befallen us.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "eojji",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-245-1780146279962",
+        "term": "작용하다",
+        "definition": "to act, to function, to operate",
+        "meaningKr": "to act, to function, to operate",
+        "exampleEn": "과도한 스트레스는 인체의 여러 기관에 부정적인 영향을 미치며 복합적으로 작용할 수 있습니다.",
+        "exampleKr": "Excessive stress can negatively affect various organs of the human body and act in a complex manner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jagyonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-246-1780146279962",
+        "term": "개선",
+        "definition": "improvement, betterment, reform",
+        "meaningKr": "improvement, betterment, reform",
+        "exampleEn": "사용자 경험 개선을 위한 지속적인 노력 덕분에 웹사이트의 만족도가 크게 향상되었다.",
+        "exampleKr": "Thanks to continuous efforts to improve the user experience, satisfaction with the website has greatly increased.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gaeseon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-247-1780146279962",
+        "term": "바람직하다",
+        "definition": "desirable, advisable, proper",
+        "meaningKr": "desirable, advisable, proper",
+        "exampleEn": "개인과 사회의 건강한 발전을 위해서는 상호 존중의 태도가 무엇보다 바람직하다고 할 수 있습니다.",
+        "exampleKr": "A stance of mutual respect can be said to be most desirable for the healthy development of individuals and society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "baramjikada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-248-1780146279962",
+        "term": "신화",
+        "definition": "myth, legend",
+        "meaningKr": "myth, legend",
+        "exampleEn": "고대 그리스 신화에는 인간의 운명과 신들의 역할에 대한 흥미로운 이야기들이 담겨 있다.",
+        "exampleKr": "Ancient Greek mythology contains fascinating stories about human destiny and the roles of the gods.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sinhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-249-1780146279962",
+        "term": "거두다",
+        "definition": "to harvest, to reap, to achieve",
+        "meaningKr": "to harvest, to reap, to achieve",
+        "exampleEn": "그 프로젝트는 예상치 못한 난관에도 불구하고 결국 성공을 거두며 많은 이들에게 영감을 주었다.",
+        "exampleKr": "Despite unexpected difficulties, the project ultimately achieved success and inspired many people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geoduda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-250-1780146279962",
+        "term": "범위",
+        "definition": "scope, range, extent",
+        "meaningKr": "scope, range, extent",
+        "exampleEn": "이번 연구는 특정 지역의 생태계 변화라는 제한된 범위 내에서 진행되었으므로 일반화하기에는 무리가 있다.",
+        "exampleKr": "Since this research was conducted within the limited scope of changes in the ecosystem of a specific region, it is difficult to generalize.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "beomwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-251-1780146279962",
+        "term": "철학",
+        "definition": "philosophy, way of thinking",
+        "meaningKr": "philosophy, way of thinking",
+        "exampleEn": "그의 삶에 대한 철학은 고난 속에서도 긍정적인 태도를 잃지 않는 데 있었다.",
+        "exampleKr": "His philosophy on life was about not losing a positive attitude even amidst hardships.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "cheolhak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-252-1780146279962",
+        "term": "근본적",
+        "definition": "fundamental, basic",
+        "meaningKr": "fundamental, basic",
+        "exampleEn": "기후 변화 문제를 해결하기 위해서는 경제 시스템의 근본적인 개혁이 요구된다.",
+        "exampleKr": "To solve the climate change problem, a fundamental reform of the economic system is required.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geunbonjeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-253-1780146279962",
+        "term": "대형",
+        "definition": "large size, large-scale",
+        "meaningKr": "large size, large-scale",
+        "exampleEn": "그 회사는 대형 건설 프로젝트를 성공적으로 완수하며 업계에서 입지를 다졌다.",
+        "exampleKr": "The company solidified its position in the industry by successfully completing a large-scale construction project.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daehyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-254-1780146279962",
+        "term": "본격적",
+        "definition": "full-scale, serious",
+        "meaningKr": "full-scale, serious",
+        "exampleEn": "새로운 프로젝트가 본격적으로 시작되면서 팀원들은 모두 맡은 바 임무에 최선을 다하고 있다.",
+        "exampleKr": "As the new project has begun in full swing, all team members are doing their best in their assigned duties.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bonkyeokjeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-255-1780146279962",
+        "term": "퍼지다",
+        "definition": "to spread, to diffuse",
+        "meaningKr": "to spread, to diffuse",
+        "exampleEn": "소셜 미디어를 통해 잘못된 정보가 삽시간에 퍼지는 것을 막기 위한 대책이 시급하다.",
+        "exampleKr": "Countermeasures are urgently needed to prevent misinformation from spreading rapidly through social media.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "peojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-256-1780146279962",
+        "term": "백성",
+        "definition": "the people, subjects (of a king)",
+        "meaningKr": "the people, subjects (of a king)",
+        "exampleEn": "현명한 지도자는 백성의 삶을 윤택하게 만들 의무가 있으며, 이를 위해 노력해야 한다.",
+        "exampleKr": "A wise leader has the duty to enrich the lives of the people and must strive for it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "baekseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-257-1780146279962",
+        "term": "상당히",
+        "definition": "considerably, significantly, quite",
+        "meaningKr": "considerably, significantly, quite",
+        "exampleEn": "그의 발표 내용은 예상보다 상당히 심도 깊었고, 청중의 많은 질문을 이끌어냈다.",
+        "exampleKr": "His presentation content was considerably more profound than expected, eliciting many questions from the audience.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sangdanghi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-258-1780146279962",
+        "term": "자네",
+        "definition": "you (informal, usually to a younger person or peer)",
+        "meaningKr": "you (informal, usually to a younger person or peer)",
+        "exampleEn": "이 어려운 과제를 자네 혼자서 해결하기는 쉽지 않을 텐데, 도움이 필요하면 언제든 말하게.",
+        "exampleKr": "It won't be easy for you to solve this difficult task alone, so tell me anytime if you need help.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jane",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-advanced-259-1780146279962",
+        "term": "기",
+        "definition": "spirit, morale, mood; energy, vigor",
+        "meaningKr": "spirit, morale, mood; energy, vigor",
+        "exampleEn": "팀원들의 사기를 북돋아 주기 위해 리더는 솔선수범하는 자세로 경기에 임해야 한다.",
+        "exampleKr": "To boost the team members' morale, the leader must approach the game with a leading-by-example attitude.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-260-1780146279962",
+        "term": "군사",
+        "definition": "military, troops, soldiers",
+        "meaningKr": "military, troops, soldiers",
+        "exampleEn": "국제 정세의 불안정으로 인해 일부 국가에서는 군사적 긴장이 고조되고 있다.",
+        "exampleKr": "Due to instability in the international situation, military tension is escalating in some countries.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gunsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-261-1780146279962",
+        "term": "마당",
+        "definition": "yard, courtyard; space, arena",
+        "meaningKr": "yard, courtyard; space, arena",
+        "exampleEn": "이번 행사는 넓은 야외 마당에서 진행될 예정이므로 날씨 변화에 대비해야 합니다.",
+        "exampleKr": "This event is scheduled to take place in a large outdoor courtyard, so we must prepare for weather changes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "madang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-262-1780146279962",
+        "term": "지적",
+        "definition": "point, criticism, remark",
+        "meaningKr": "point, criticism, remark",
+        "exampleEn": "그의 지적은 비록 날카로웠지만, 문제 해결을 위한 건설적인 대안을 제시하지는 못했다.",
+        "exampleKr": "Although his criticism was sharp, it failed to propose constructive alternatives for problem-solving.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jijeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-263-1780146279962",
+        "term": "짝",
+        "definition": "pair, mate; match",
+        "meaningKr": "pair, mate; match",
+        "exampleEn": "오랫동안 찾아 헤매던 이상적인 짝을 드디어 만나게 되어 그는 더할 나위 없이 행복해했다.",
+        "exampleKr": "He was overwhelmingly happy to finally meet his ideal match after searching for a long time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jjak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-264-1780146279962",
+        "term": "참으로",
+        "definition": "truly, indeed, really",
+        "meaningKr": "truly, indeed, really",
+        "exampleEn": "그의 헌신적인 노력 덕분에 어려운 프로젝트가 성공적으로 마무리될 수 있었으니 참으로 다행이다.",
+        "exampleKr": "Thanks to his dedicated efforts, the difficult project could be successfully completed, which is indeed fortunate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chamuro",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-265-1780146279962",
+        "term": "앞두다",
+        "definition": "to face, to have ahead (of one)",
+        "meaningKr": "to face, to have ahead (of one)",
+        "exampleEn": "결승전을 앞둔 선수들은 긴장감 속에서도 최상의 컨디션을 유지하기 위해 노력하고 있다.",
+        "exampleKr": "The athletes, facing the final match, are striving to maintain their peak condition amidst tension.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "apduda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-266-1780146279962",
+        "term": "예산",
+        "definition": "budget",
+        "meaningKr": "budget",
+        "exampleEn": "제한된 예산 안에서 최대의 효과를 거두기 위한 창의적인 방안을 모색해야 할 것이다.",
+        "exampleKr": "We will need to seek creative solutions to achieve the maximum effect within the limited budget.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yesan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-267-1780146279962",
+        "term": "우려",
+        "definition": "concern, worry, anxiety",
+        "meaningKr": "concern, worry, anxiety",
+        "exampleEn": "전문가들은 급격한 금리 인상이 경제 전반에 미칠 부정적인 영향에 대해 깊은 우려를 표명했다.",
+        "exampleKr": "Experts expressed deep concern about the negative impact of a rapid interest rate hike on the overall economy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uryeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-268-1780146279962",
+        "term": "보호하다",
+        "definition": "to protect, to defend",
+        "meaningKr": "to protect, to defend",
+        "exampleEn": "정부는 멸종 위기 동식물을 효과적으로 보호하기 위한 새로운 법안을 마련할 계획이다.",
+        "exampleKr": "The government plans to establish new legislation to effectively protect endangered flora and fauna.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bohohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-269-1780146279962",
+        "term": "시스템",
+        "definition": "system",
+        "meaningKr": "system",
+        "exampleEn": "이 새로운 운영 시스템은 업무 효율성을 크게 향상시킬 것으로 기대되고 있다.",
+        "exampleKr": "This new operating system is expected to significantly improve work efficiency.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "siseutem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-270-1780146279962",
+        "term": "참여",
+        "definition": "participation, involvement",
+        "meaningKr": "participation, involvement",
+        "exampleEn": "시민들의 적극적인 참여 없이는 지역 사회 발전을 이루는 것이 거의 불가능하다.",
+        "exampleKr": "Achieving community development is nearly impossible without the active participation of the citizens.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chamyeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-271-1780146279962",
+        "term": "애쓰다",
+        "definition": "to strive, to endeavor, to try hard",
+        "meaningKr": "to strive, to endeavor, to try hard",
+        "exampleEn": "그는 동료들과 협력하여 어려운 문제를 해결하기 위해 밤낮으로 애썼다.",
+        "exampleKr": "He strived day and night to solve the difficult problem by cooperating with his colleagues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "aesseuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-272-1780146279962",
+        "term": "올바르다",
+        "definition": "right, correct, proper",
+        "meaningKr": "right, correct, proper",
+        "exampleEn": "올바른 판단력은 복잡한 사회 문제에 직면했을 때 합리적인 결정을 내리는 데 필수적이다.",
+        "exampleKr": "Sound judgment is essential for making rational decisions when faced with complex social issues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "olbareuda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-273-1780146279962",
+        "term": "흔하다",
+        "definition": "common, frequent, widespread",
+        "meaningKr": "common, frequent, widespread",
+        "exampleEn": "현대 사회에서는 개인 정보 유출 사고가 흔하게 발생하여 보안의 중요성이 더욱 강조되고 있다.",
+        "exampleKr": "In modern society, personal information leakage incidents occur commonly, further emphasizing the importance of security.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "heunhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-274-1780146279962",
+        "term": "단위",
+        "definition": "unit, division",
+        "meaningKr": "unit, division",
+        "exampleEn": "이 통계 자료는 분석의 편의를 위해 특정 단위로 묶어서 제시되었다.",
+        "exampleKr": "These statistical data were presented grouped into specific units for ease of analysis.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "danwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-275-1780146279962",
+        "term": "뛰어나다",
+        "definition": "to be outstanding, to be excellent, to excel",
+        "meaningKr": "to be outstanding, to be excellent, to excel",
+        "exampleEn": "그는 타고난 재능과 끊임없는 노력 덕분에 동료들 사이에서 단연 돋보이는 실력을 발휘하고 있다.",
+        "exampleKr": "Thanks to his innate talent and relentless effort, he is demonstrating outstanding skills among his colleagues.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ttwieonada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-276-1780146279962",
+        "term": "소득",
+        "definition": "income, earnings, revenue",
+        "meaningKr": "income, earnings, revenue",
+        "exampleEn": "정부의 새로운 경제 정책은 가계 소득 증대에 기여하여 국민들의 전반적인 삶의 질을 향상시킬 것으로 기대된다.",
+        "exampleKr": "The government's new economic policy is expected to contribute to increasing household income and improve the overall quality of life for citizens.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sodeuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-277-1780146279962",
+        "term": "수도",
+        "definition": "capital city, metropolis",
+        "meaningKr": "capital city, metropolis",
+        "exampleEn": "수도권의 과도한 인구 집중은 교통 체증, 주택 가격 상승 등 다양한 사회 문제를 야기하고 있다.",
+        "exampleKr": "The excessive concentration of population in the capital region is causing various social problems such as traffic congestion and rising housing prices.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sudo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-278-1780146279962",
+        "term": "역",
+        "definition": "station, stop",
+        "meaningKr": "station, stop",
+        "exampleEn": "그는 기차를 타고 고향으로 돌아가기 위해 복잡한 서울역 플랫폼에서 승객들로 가득 찬 열차를 기다렸다.",
+        "exampleKr": "He waited for a crowded train on the busy Seoul Station platform to return to his hometown by train.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-279-1780146279962",
+        "term": "인식하다",
+        "definition": "to recognize, to perceive, to be aware of",
+        "meaningKr": "to recognize, to perceive, to be aware of",
+        "exampleEn": "많은 사람들이 기후 변화의 심각성을 점차 인식하기 시작하면서 친환경적인 생활 습관을 채택하려는 움직임이 활발해지고 있다.",
+        "exampleKr": "As many people gradually begin to recognize the severity of climate change, efforts to adopt eco-friendly lifestyles are becoming more active.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "insikhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-280-1780146279962",
+        "term": "맺다",
+        "definition": "to form, to conclude, to tie",
+        "meaningKr": "to form, to conclude, to tie",
+        "exampleEn": "그는 다양한 국적의 사람들과 교류하며 깊은 우정을 맺고, 서로의 문화를 이해하는 소중한 경험을 쌓았다.",
+        "exampleKr": "He formed deep friendships by interacting with people of various nationalities, accumulating valuable experiences in understanding each other's cultures.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "maetda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-281-1780146279962",
+        "term": "수요",
+        "definition": "demand, requirement",
+        "meaningKr": "demand, requirement",
+        "exampleEn": "최근 기술 발전으로 인해 인공지능 전문가에 대한 수요가 폭발적으로 증가하고 있어 관련 교육 과정이 큰 인기를 얻고 있다.",
+        "exampleKr": "Due to recent technological advancements, the demand for AI specialists is increasing explosively, making related educational programs very popular.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "suyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-282-1780146279962",
+        "term": "지도자",
+        "definition": "leader, guide",
+        "meaningKr": "leader, guide",
+        "exampleEn": "그 지도자는 복잡한 정치적 상황 속에서도 흔들리지 않는 신념으로 국민들을 이끌어 국가적 위기를 극복하는 데 결정적인 역할을 했다.",
+        "exampleKr": "The leader played a crucial role in overcoming the national crisis by guiding the people with unwavering conviction amidst a complex political situation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jidoja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-283-1780146279962",
+        "term": "구성하다",
+        "definition": "to compose, to constitute, to form",
+        "meaningKr": "to compose, to constitute, to form",
+        "exampleEn": "이 프로젝트는 서로 다른 전문성을 가진 다섯 명의 팀원으로 구성되어 있으며, 각자의 역할을 충실히 수행하여 시너지를 창출하고 있다.",
+        "exampleKr": "This project is composed of five team members with different expertise, and they are creating synergy by faithfully performing their respective roles.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "guseonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-284-1780146279962",
+        "term": "대체로",
+        "definition": "generally, mostly, on the whole",
+        "meaningKr": "generally, mostly, on the whole",
+        "exampleEn": "오늘날의 사회는 과거에 비해 개인의 자유와 권리가 상당히 신장되었으나, 대체로 여전히 해결해야 할 과제들이 산적해 있다.",
+        "exampleKr": "Compared to the past, individual freedom and rights have significantly expanded in today's society, but generally, there are still many challenges to be resolved.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daechero",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-285-1780146279962",
+        "term": "때리다",
+        "definition": "to hit, to strike, to beat",
+        "meaningKr": "to hit, to strike, to beat",
+        "exampleEn": "그는 분노를 참지 못하고 책상을 주먹으로 세게 때렸으나, 곧 후회하며 자신의 감정을 조절하지 못한 것을 반성했다.",
+        "exampleKr": "Unable to contain his anger, he hit the desk hard with his fist, but soon regretted it and reflected on his inability to control his emotions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ttaerida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-286-1780146279962",
+        "term": "문득",
+        "definition": "suddenly, unexpectedly, all of a sudden",
+        "meaningKr": "suddenly, unexpectedly, all of a sudden",
+        "exampleEn": "오랜만에 고향의 풍경을 마주하자, 그는 어린 시절의 추억들이 문득 떠올라 잠시 멍하니 서 있었다.",
+        "exampleKr": "Upon encountering the scenery of his hometown after a long time, memories of his childhood suddenly came to mind, and he stood there blankly for a moment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "mundeuk",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-287-1780146279962",
+        "term": "위원장",
+        "definition": "chairperson, chairman/chairwoman",
+        "meaningKr": "chairperson, chairman/chairwoman",
+        "exampleEn": "회의의 위원장은 복잡한 안건들을 명확하게 설명하고 모든 참석자의 의견을 경청하며 토론을 이끌었다.",
+        "exampleKr": "The chairperson of the meeting clearly explained the complex agenda items and led the discussion by listening to the opinions of all attendees.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "wiwonjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-288-1780146279962",
+        "term": "효과적",
+        "definition": "effective, efficacious",
+        "meaningKr": "effective, efficacious",
+        "exampleEn": "그녀는 시간 관리 능력이 뛰어나서 주어진 업무를 마감 기한 내에 매우 효과적으로 완수하는 것으로 유명하다.",
+        "exampleKr": "She is famous for her excellent time management skills, completing assigned tasks very effectively within deadlines.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyogwajeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-289-1780146279962",
+        "term": "생산하다",
+        "definition": "to produce, to manufacture, to generate",
+        "meaningKr": "to produce, to manufacture, to generate",
+        "exampleEn": "이 공장은 친환경적인 방식으로 에너지를 생산하여 지역 사회의 지속 가능한 발전에 기여하고 있다.",
+        "exampleKr": "This factory contributes to the sustainable development of the local community by producing energy in an eco-friendly manner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "saengsanhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-290-1780146279962",
+        "term": "의도",
+        "definition": "intention, purpose, aim",
+        "meaningKr": "intention, purpose, aim",
+        "exampleEn": "그의 행동은 겉으로 보기에는 비판적이었지만, 실제로는 긍정적인 변화를 이끌어내려는 의도에서 비롯된 것이었다.",
+        "exampleKr": "His actions, though seemingly critical on the surface, actually stemmed from an intention to bring about positive change.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uido",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-291-1780146279962",
+        "term": "저지르다",
+        "definition": "to commit (a crime/mistake), to perpetrate, to make",
+        "meaningKr": "to commit (a crime/mistake), to perpetrate, to make",
+        "exampleEn": "경솔한 판단으로 인해 돌이킬 수 없는 실수를 저질렀다는 사실에 그는 깊은 후회와 자책감에 시달렸다.",
+        "exampleKr": "He suffered from deep regret and self-blame upon realizing that he had made an irreversible mistake due to a rash judgment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeojireuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-292-1780146279962",
+        "term": "줄어들다",
+        "definition": "to decrease, to shrink, to diminish",
+        "meaningKr": "to decrease, to shrink, to diminish",
+        "exampleEn": "지속적인 환경 오염으로 인해 야생 동물의 서식지가 점차 줄어들면서 생물 다양성 감소가 심각한 문제로 대두되고 있다.",
+        "exampleKr": "Due to continuous environmental pollution, habitats for wild animals are gradually shrinking, making the decrease in biodiversity a serious issue.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jureodeulda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-293-1780146279962",
+        "term": "대개",
+        "definition": "mostly, generally, usually",
+        "meaningKr": "mostly, generally, usually",
+        "exampleEn": "새로운 기술이 도입될 때, 대개는 초기에는 저항이 따르지만 결국에는 효율성 증대로 이어지는 경우가 많다.",
+        "exampleKr": "When new technologies are introduced, there is usually resistance at first, but it often leads to increased efficiency in the end.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daegae",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-294-1780146279962",
+        "term": "외부",
+        "definition": "outside, exterior, external",
+        "meaningKr": "outside, exterior, external",
+        "exampleEn": "그는 조직 내부의 문제점을 해결하기 위해 외부 전문가의 객관적인 진단과 조언을 구하는 것이 필요하다고 주장했다.",
+        "exampleKr": "He argued that it was necessary to seek an objective diagnosis and advice from an external expert to resolve the internal problems of the organization.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "oebu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-295-1780146279962",
+        "term": "한때",
+        "definition": "once, formerly, at one time",
+        "meaningKr": "once, formerly, at one time",
+        "exampleEn": "한때 이 지역은 번성했던 무역항이었으나, 시대의 변화에 따라 그 명성을 잃고 지금은 조용한 소도시가 되었다.",
+        "exampleKr": "This area was once a prosperous trading port, but with the changes of the times, it lost its fame and has now become a quiet small town.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hanttae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-296-1780146279962",
+        "term": "살아오다",
+        "definition": "to live (through a period), to have lived",
+        "meaningKr": "to live (through a period), to have lived",
+        "exampleEn": "그녀는 역경 속에서도 희망을 잃지 않고 꿋꿋하게 살아오면서 많은 사람들에게 귀감이 되어 왔다.",
+        "exampleKr": "She has been a role model for many people by living steadfastly without losing hope even amidst adversity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "saraoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-297-1780146279962",
+        "term": "상대적",
+        "definition": "relative, comparative",
+        "meaningKr": "relative, comparative",
+        "exampleEn": "절대적인 기준보다는 상대적인 비교를 통해 자신의 현재 위치와 개선해야 할 점을 파악하는 것이 중요하다.",
+        "exampleKr": "It is important to understand one's current position and areas for improvement through relative comparison rather than absolute standards.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sangdaejeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-298-1780146279962",
+        "term": "조미료",
+        "definition": "seasoning, condiment, spice",
+        "meaningKr": "seasoning, condiment, spice",
+        "exampleEn": "건강을 생각하는 사람들은 인공 조미료 대신 천연 재료를 사용하여 음식의 맛을 내는 것을 선호한다.",
+        "exampleKr": "Health-conscious people prefer to season food using natural ingredients instead of artificial seasonings.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jomiry",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-299-1780146279962",
+        "term": "강력하다",
+        "definition": "strong, powerful, potent",
+        "meaningKr": "strong, powerful, potent",
+        "exampleEn": "정부는 급증하는 범죄율을 억제하기 위해 강력한 법 집행과 예방 조치를 동시에 시행하겠다고 발표했다.",
+        "exampleKr": "The government announced that it would implement strong law enforcement and preventive measures simultaneously to curb the rising crime rate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gangnyeokhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-300-1780146279962",
+        "term": "법률",
+        "definition": "law, statute, act",
+        "meaningKr": "law, statute, act",
+        "exampleEn": "새로운 환경 규제 법률이 시행되면서 기업들은 생산 과정의 전면적인 재검토를 해야만 했다.",
+        "exampleKr": "As the new environmental regulation law was implemented, companies had to thoroughly re-examine their production processes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "beomnyul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-301-1780146279962",
+        "term": "화면",
+        "definition": "screen, display, scene",
+        "meaningKr": "screen, display, scene",
+        "exampleEn": "영화감독은 인물의 복잡한 내면 심리를 섬세하게 묘사하기 위해 화면 구성을 심혈을 기울여 디자인했다.",
+        "exampleKr": "The film director meticulously designed the screen composition to delicately portray the character's complex inner psychology.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hwamyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-302-1780146279962",
+        "term": "이어",
+        "definition": "continuously, successively, next",
+        "meaningKr": "continuously, successively, next",
+        "exampleEn": "그는 여러 차례의 실패에도 불구하고 끊임없이 도전하였고, 마침내 꿈을 이루는 데 성공하였다.",
+        "exampleKr": "Despite numerous failures, he continuously challenged himself and ultimately succeeded in achieving his dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ieo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-303-1780146279962",
+        "term": "진리",
+        "definition": "truth, verity, reality",
+        "meaningKr": "truth, verity, reality",
+        "exampleEn": "과학적 탐구는 객관적인 증거를 바탕으로 보편적인 진리를 발견하려는 노력이라고 할 수 있다.",
+        "exampleKr": "Scientific inquiry can be described as an effort to discover universal truths based on objective evidence.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jilli",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-304-1780146279962",
+        "term": "공급",
+        "definition": "supply, provision, offering",
+        "meaningKr": "supply, provision, offering",
+        "exampleEn": "최근 급증하는 수요를 맞추기 위해 에너지 공급망을 안정화하는 것이 국가 경제의 최우선 과제가 되었다.",
+        "exampleKr": "Stabilizing the energy supply chain has become the nation's top priority to meet the recently surging demand.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gonggeup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-305-1780146279962",
+        "term": "동료",
+        "definition": "colleague, peer, associate",
+        "meaningKr": "colleague, peer, associate",
+        "exampleEn": "그는 뛰어난 업무 능력뿐만 아니라 동료들과의 원만한 관계 덕분에 팀의 중심적인 역할을 수행하고 있다.",
+        "exampleKr": "Thanks to his outstanding work performance and harmonious relationships with colleagues, he plays a central role in the team.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dongnyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-306-1780146279962",
+        "term": "균형",
+        "definition": "balance, equilibrium, proportion",
+        "meaningKr": "balance, equilibrium, proportion",
+        "exampleEn": "건강한 삶을 위해서는 일과 휴식, 그리고 개인적인 관계 간의 적절한 균형을 유지하는 것이 필수적이다.",
+        "exampleKr": "Maintaining an appropriate balance between work and rest, and personal relationships, is essential for a healthy life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyunhyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-307-1780146279962",
+        "term": "기본적",
+        "definition": "basic, fundamental, essential",
+        "meaningKr": "basic, fundamental, essential",
+        "exampleEn": "모든 시민은 기본적인 인권을 보장받을 권리가 있으며, 국가는 이를 침해해서는 안 된다.",
+        "exampleKr": "All citizens have the right to be guaranteed basic human rights, and the state must not infringe upon them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gibonjeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-308-1780146279962",
+        "term": "접근",
+        "definition": "approach, access, contact",
+        "meaningKr": "approach, access, contact",
+        "exampleEn": "정부는 소외 계층에 대한 교육 복지 혜택을 확대하는 새로운 접근 방식을 모색하고 있다.",
+        "exampleKr": "The government is seeking a new approach to expand educational welfare benefits for underprivileged groups.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeopgeun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-309-1780146279962",
+        "term": "지켜보다",
+        "definition": "watch, observe, keep an eye on",
+        "meaningKr": "watch, observe, keep an eye on",
+        "exampleEn": "그는 국제 사회의 반응을 예의주시하며 신중하게 다음 단계를 결정하기 위해 상황을 지켜보고 있다.",
+        "exampleKr": "He is observing the situation carefully, paying close attention to the international community's reactions to decide on the next step.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jikyeoboda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-310-1780146279962",
+        "term": "개성",
+        "definition": "individuality, personality, character",
+        "meaningKr": "individuality, personality, character",
+        "exampleEn": "현대 사회는 획일적인 사고방식에서 벗어나 각자의 개성을 존중하고 표현할 수 있는 환경을 추구한다.",
+        "exampleKr": "Modern society seeks an environment that deviates from uniform ways of thinking and allows individuals to respect and express their own personalities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gaeseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-311-1780146279962",
+        "term": "띄다",
+        "definition": "to be noticeable, to stand out, to show",
+        "meaningKr": "to be noticeable, to stand out, to show",
+        "exampleEn": "그의 연설에는 설득력이 부족하여 청중들의 관심이 별로 띄지 않는 듯했다.",
+        "exampleKr": "His speech lacked persuasiveness, and the audience's interest did not seem to be particularly piqued.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ttwida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-312-1780146279962",
+        "term": "무너지다",
+        "definition": "to collapse, to fall down, to crumble",
+        "meaningKr": "to collapse, to fall down, to crumble",
+        "exampleEn": "경제 위기가 장기화되면서 많은 중소기업들이 결국 재정적인 압박을 이기지 못하고 무너졌다.",
+        "exampleKr": "As the economic crisis prolonged, many small and medium-sized enterprises eventually collapsed under insurmountable financial pressure.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "muneojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-313-1780146279962",
+        "term": "이러다",
+        "definition": "to do this, to act like this, to come to this",
+        "meaningKr": "to do this, to act like this, to come to this",
+        "exampleEn": "젊은 세대가 기성세대의 가치관과 충돌하며 사회 전반에 걸쳐 다양한 갈등이 이러나는 양상이다.",
+        "exampleKr": "It is a pattern where various conflicts arise throughout society as the younger generation clashes with the values of the older generation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ireoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-314-1780146279962",
+        "term": "일어서다",
+        "definition": "to stand up, to rise, to get up",
+        "meaningKr": "to stand up, to rise, to get up",
+        "exampleEn": "수많은 역경에도 불구하고 그는 좌절하지 않고 다시 일어서서 자신의 목표를 향해 나아갔다.",
+        "exampleKr": "Despite numerous adversities, he did not despair, but stood up again and moved towards his goal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ireoseoda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-315-1780146279962",
+        "term": "죄",
+        "definition": "sin, crime, offense",
+        "meaningKr": "sin, crime, offense",
+        "exampleEn": "그는 과거의 잘못된 선택으로 인한 죄책감에 시달리면서도 용서받기 위한 노력을 멈추지 않았다.",
+        "exampleKr": "He suffered from guilt due to his past wrong choices, yet he did not cease his efforts to be forgiven.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "joe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-316-1780146279962",
+        "term": "핵심",
+        "definition": "core, key, nucleus",
+        "meaningKr": "core, key, nucleus",
+        "exampleEn": "이번 프로젝트의 성공 여부는 기술 개발의 핵심적인 부분을 얼마나 효율적으로 관리하느냐에 달려 있다.",
+        "exampleKr": "The success or failure of this project depends on how efficiently the core aspects of technological development are managed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "haeksim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-317-1780146279962",
+        "term": "후반",
+        "definition": "latter half, second half",
+        "meaningKr": "latter half, second half",
+        "exampleEn": "경기 후반에 집중력을 잃으면서 상대팀에게 역전골을 허용하여 결국 패배하고 말았다.",
+        "exampleKr": "Losing concentration in the latter half of the game, they conceded a comeback goal to the opposing team and ended up losing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "huban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-318-1780146279962",
+        "term": "동작",
+        "definition": "movement, motion, action",
+        "meaningKr": "movement, motion, action",
+        "exampleEn": "그 발레리나는 음악의 흐름에 맞춰 우아하면서도 절도 있는 동작을 선보여 관객들의 찬사를 받았다.",
+        "exampleKr": "The ballerina showcased elegant yet disciplined movements in sync with the music's flow, receiving applause from the audience.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dongjak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-319-1780146279962",
+        "term": "뜻하다",
+        "definition": "to mean, to intend, to signify",
+        "meaningKr": "to mean, to intend, to signify",
+        "exampleEn": "그의 침묵은 동의를 뜻하는 것인지, 아니면 반대를 뜻하는 것인지 명확하게 파악하기 어려웠다.",
+        "exampleKr": "It was difficult to clearly grasp whether his silence signified agreement or disagreement.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "tteutada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-320-1780146279962",
+        "term": "중세",
+        "definition": "Middle Ages, medieval period",
+        "meaningKr": "Middle Ages, medieval period",
+        "exampleEn": "중세 유럽의 봉건제도는 오늘날의 사회 구조와는 상당히 다른 독특한 정치 및 경제 체제였다.",
+        "exampleKr": "The feudal system of medieval Europe was a unique political and economic system quite different from today's social structure.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jungse",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-321-1780146279962",
+        "term": "통합",
+        "definition": "integration, unification, consolidation",
+        "meaningKr": "integration, unification, consolidation",
+        "exampleEn": "여러 부서의 업무를 효율적으로 관리하기 위해 전사적인 시스템 통합을 추진하기로 결정하였다.",
+        "exampleKr": "It was decided to pursue enterprise-wide system integration to efficiently manage the tasks of various departments.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "tonghap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-322-1780146279962",
+        "term": "꼬리",
+        "definition": "tail, end, train",
+        "meaningKr": "tail, end, train",
+        "exampleEn": "그 사건의 꼬리를 물고 파고들자 예상치 못했던 거대한 비리의 실체가 드러나기 시작했다.",
+        "exampleKr": "As we dug deeper into the matter, the scale of an unexpected corruption began to be revealed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "kkori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-323-1780146279962",
+        "term": "양식",
+        "definition": "style, form, pattern",
+        "meaningKr": "style, form, pattern",
+        "exampleEn": "그 건축가는 전통적인 양식에 현대적인 감각을 접목하여 독창적인 디자인을 선보였다.",
+        "exampleKr": "The architect presented an original design by blending traditional styles with a modern sensibility.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yangsik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-324-1780146279962",
+        "term": "주식",
+        "definition": "stock, shares, main dish",
+        "meaningKr": "stock, shares, main dish",
+        "exampleEn": "최근 기술주의 주식 시장은 급격한 변동성을 보이며 투자자들에게 큰 혼란을 야기하고 있다.",
+        "exampleKr": "The technology stock market has recently shown significant volatility, causing great confusion among investors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jusik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-325-1780146279962",
+        "term": "끊임없이",
+        "definition": "incessantly, continuously, ceaselessly",
+        "meaningKr": "incessantly, continuously, ceaselessly",
+        "exampleEn": "현대 사회는 복잡한 문제들이 끊임없이 발생하여 해결책 모색에 진땀을 흘리고 있다.",
+        "exampleKr": "Modern society is struggling to find solutions as complex problems arise incessantly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "kkeunimeopsi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-326-1780146279962",
+        "term": "상식",
+        "definition": "common sense, general knowledge",
+        "meaningKr": "common sense, general knowledge",
+        "exampleEn": "국제적인 이슈에 대한 기본적인 상식을 갖추는 것은 글로벌 시민으로서 필수적이다.",
+        "exampleKr": "Having basic common sense about international issues is essential as a global citizen.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sangsik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-327-1780146279962",
+        "term": "상표",
+        "definition": "trademark, brand name",
+        "meaningKr": "trademark, brand name",
+        "exampleEn": "경쟁이 치열한 시장에서 독창적인 상표 디자인은 브랜드 인지도 향상에 결정적인 역할을 한다.",
+        "exampleKr": "In a fiercely competitive market, an original trademark design plays a crucial role in enhancing brand recognition.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sangpyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-328-1780146279962",
+        "term": "의식하다",
+        "definition": "to be conscious of, to be aware of, to realize",
+        "meaningKr": "to be conscious of, to be aware of, to realize",
+        "exampleEn": "그는 타인의 시선을 의식하는 나머지, 평소보다 훨씬 긴장한 태도를 보였다.",
+        "exampleKr": "Conscious of others' gazes, he showed a much more nervous attitude than usual.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uisikhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-329-1780146279962",
+        "term": "둘러싸다",
+        "definition": "to surround, to encircle, to besiege",
+        "meaningKr": "to surround, to encircle, to besiege",
+        "exampleEn": "새로운 기술 개발은 기존 산업 구조를 급격히 둘러싸고 변화시킬 잠재력을 지닌다.",
+        "exampleKr": "The development of new technologies has the potential to rapidly surround and transform existing industrial structures.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dulleossada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-330-1780146279962",
+        "term": "민주화",
+        "definition": "democratization",
+        "meaningKr": "democratization",
+        "exampleEn": "민주화 과정에서 시민들의 적극적인 참여와 감시가 민주주의의 근간을 다지는 데 기여했다.",
+        "exampleKr": "In the process of democratization, citizens' active participation and oversight contributed to solidifying the foundation of democracy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "minjuhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-331-1780146279962",
+        "term": "보도",
+        "definition": "report, coverage, news",
+        "meaningKr": "report, coverage, news",
+        "exampleEn": "언론의 공정한 보도는 사회적 신뢰를 구축하는 데 있어 매우 중요한 역할을 수행한다.",
+        "exampleKr": "Fair reporting by the media plays a very important role in building social trust.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bodo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-332-1780146279962",
+        "term": "살피다",
+        "definition": "to examine, to inspect, to observe carefully",
+        "meaningKr": "to examine, to inspect, to observe carefully",
+        "exampleEn": "정책 입안자들은 사회 현안을 면밀히 살피고 실효성 있는 대책을 마련해야 한다.",
+        "exampleKr": "Policy makers must carefully examine social issues and prepare effective countermeasures.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "salpida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-333-1780146279962",
+        "term": "거부하다",
+        "definition": "to refuse, to reject, to deny",
+        "meaningKr": "to refuse, to reject, to deny",
+        "exampleEn": "그는 부당한 요구에 단호히 거부 의사를 밝히며 원칙을 고수했다.",
+        "exampleKr": "He firmly expressed his refusal of the unfair demand and adhered to his principles.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geobuhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-334-1780146279962",
+        "term": "실시",
+        "definition": "implementation, execution, carrying out",
+        "meaningKr": "implementation, execution, carrying out",
+        "exampleEn": "새로운 규정의 성공적인 실시는 충분한 준비와 체계적인 계획 수립에 달려 있다.",
+        "exampleKr": "The successful implementation of new regulations depends on thorough preparation and systematic planning.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "silssi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-335-1780146279962",
+        "term": "운명",
+        "definition": "fate, destiny, lot",
+        "meaningKr": "fate, destiny, lot",
+        "exampleEn": "인간은 자신의 운명을 개척하기 위해 끊임없이 노력하지만, 때로는 불가항력적인 힘에 직면하기도 한다.",
+        "exampleKr": "Humans strive incessantly to carve out their destiny, but sometimes they face irresistible forces.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "unmyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-336-1780146279962",
+        "term": "재정",
+        "definition": "finance, financial affairs",
+        "meaningKr": "finance, financial affairs",
+        "exampleEn": "정부는 국가 재정 건전성을 확보하기 위한 다각적인 정책을 추진하고 있다.",
+        "exampleKr": "The government is pursuing multifaceted policies to secure the soundness of national finances.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jaejeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-337-1780146279962",
+        "term": "차라리",
+        "definition": "rather, preferably",
+        "meaningKr": "rather, preferably",
+        "exampleEn": "이런 불확실한 상황에 계속 머무르느니 차라리 위험을 감수하고 새로운 도전을 하는 것이 낫다.",
+        "exampleKr": "Rather than staying in this uncertain situation, it is better to take risks and make a new challenge.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "charari",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-338-1780146279962",
+        "term": "학자",
+        "definition": "scholar, academic",
+        "meaningKr": "scholar, academic",
+        "exampleEn": "그 학자는 해당 분야의 권위자로서 수십 년간의 연구 결과를 집대성하여 발표했다.",
+        "exampleKr": "As an authority in the field, the scholar compiled and presented decades of research findings.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hakja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-339-1780146279962",
+        "term": "대규모",
+        "definition": "large-scale, extensive",
+        "meaningKr": "large-scale, extensive",
+        "exampleEn": "도시 재생 사업은 지역 경제 활성화와 일자리 창출을 위한 대규모 프로젝트로 추진되었다.",
+        "exampleKr": "The urban regeneration project was pursued as a large-scale project for revitalizing the local economy and creating jobs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daegyumo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-340-1780146279962",
+        "term": "민간",
+        "definition": "private sector, civilian",
+        "meaningKr": "private sector, civilian",
+        "exampleEn": "정부는 민간 부문의 창의성과 혁신 역량을 활용하여 경제 성장을 도모하고자 한다.",
+        "exampleKr": "The government aims to promote economic growth by utilizing the creativity and innovative capabilities of the private sector.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "min-gan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-341-1780146279962",
+        "term": "법원",
+        "definition": "court, court of law",
+        "meaningKr": "court, court of law",
+        "exampleEn": "법원은 증거에 기반하여 공정하고 객관적인 판결을 내리기 위해 노력해야 한다.",
+        "exampleKr": "The court must strive to make fair and objective judgments based on evidence.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "beobwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-342-1780146279962",
+        "term": "사실상",
+        "definition": "virtually, actually, in fact",
+        "meaningKr": "virtually, actually, in fact",
+        "exampleEn": "그 제안은 비록 공식적인 합의는 아니었지만, 사실상 프로젝트의 방향을 결정지었다.",
+        "exampleKr": "Although that proposal was not an official agreement, it virtually determined the project's direction.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sasil-sang",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-343-1780146279962",
+        "term": "아끼다",
+        "definition": "to save, to cherish, to spare",
+        "meaningKr": "to save, to cherish, to spare",
+        "exampleEn": "우리는 미래 세대를 위해 지구의 소중한 자원을 아끼고 보존하는 노력을 기울여야 한다.",
+        "exampleKr": "We must make efforts to save and preserve the Earth's precious resources for future generations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "akkida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-344-1780146279962",
+        "term": "지대",
+        "definition": "zone, area, region",
+        "meaningKr": "zone, area, region",
+        "exampleEn": "해당 지역은 개발 제한 지대로 지정되어 있어 건축 행위에 상당한 제약이 따른다.",
+        "exampleKr": "The area has been designated as a development restriction zone, leading to significant limitations on construction activities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jidae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-345-1780146279962",
+        "term": "판단하다",
+        "definition": "to judge, to decide, to assess",
+        "meaningKr": "to judge, to decide, to assess",
+        "exampleEn": "감정적으로 휩쓸리지 않고 객관적인 사실에 근거하여 상황을 정확히 판단하는 것이 중요하다.",
+        "exampleKr": "It is important to accurately judge the situation based on objective facts without being swayed by emotions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pandanhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-346-1780146279962",
+        "term": "실천하다",
+        "definition": "to practice, to carry out, to put into practice",
+        "meaningKr": "to practice, to carry out, to put into practice",
+        "exampleEn": "환경 보호의 중요성을 인식하는 것만큼이나, 일상생활에서 이를 실천하려는 의지가 중요하다.",
+        "exampleKr": "Just as recognizing the importance of environmental protection is crucial, the will to practice it in daily life is also important.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "silcheonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-347-1780146279962",
+        "term": "용어",
+        "definition": "term, terminology, word",
+        "meaningKr": "term, terminology, word",
+        "exampleEn": "전문 분야의 복잡한 용어들을 정확히 이해하고 사용하는 능력은 필수적이다.",
+        "exampleKr": "The ability to accurately understand and use complex terminology in a specialized field is essential.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yong-eo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-348-1780146279962",
+        "term": "익히다",
+        "definition": "to learn, to master, to become familiar with",
+        "meaningKr": "to learn, to master, to become familiar with",
+        "exampleEn": "새로운 기술이나 지식을 꾸준히 익히는 것은 급변하는 현대 사회에서 경쟁력을 유지하는 비결이다.",
+        "exampleKr": "Continuously learning new skills or knowledge is the secret to maintaining competitiveness in the rapidly changing modern society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ikhida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-349-1780146279962",
+        "term": "지위",
+        "definition": "status, position, standing",
+        "meaningKr": "status, position, standing",
+        "exampleEn": "그는 오랜 노력 끝에 학계에서 확고한 지위를 확보하며 많은 후배들의 귀감이 되었다.",
+        "exampleKr": "After long efforts, he secured a firm position in academia, becoming a role model for many juniors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jiwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-350-1780146279962",
+        "term": "풍부하다",
+        "definition": "to be abundant, to be plentiful, to be rich",
+        "meaningKr": "to be abundant, to be plentiful, to be rich",
+        "exampleEn": "이 지역은 천연자원이 풍부하여 경제 발전의 잠재력이 매우 크다고 평가받는다.",
+        "exampleKr": "This region is evaluated as having great economic development potential due to its abundant natural resources.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pungbuhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-351-1780146279962",
+        "term": "식량",
+        "definition": "food, provisions, foodstuffs",
+        "meaningKr": "food, provisions, foodstuffs",
+        "exampleEn": "기후 변화로 인한 농작물 피해가 증가하면서 식량 안보에 대한 우려가 커지고 있다.",
+        "exampleKr": "Concerns about food security are growing as crop damage due to climate change increases.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sikryang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-352-1780146279962",
+        "term": "실험",
+        "definition": "experiment, test, trial",
+        "meaningKr": "experiment, test, trial",
+        "exampleEn": "과학자들은 새로운 치료법의 효능을 입증하기 위해 엄격한 임상 실험을 진행하였다.",
+        "exampleKr": "Scientists conducted rigorous clinical trials to prove the efficacy of the new treatment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "silheom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-353-1780146279962",
+        "term": "용기",
+        "definition": "courage, bravery, valor",
+        "meaningKr": "courage, bravery, valor",
+        "exampleEn": "그는 어려운 상황에서도 굴하지 않는 용기로 많은 사람들에게 귀감이 되었다.",
+        "exampleKr": "He became a role model for many people with his unwavering courage in difficult situations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yonggi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-354-1780146279962",
+        "term": "핵",
+        "definition": "nucleus, core, center",
+        "meaningKr": "nucleus, core, center",
+        "exampleEn": "이 문제는 단순히 표면적인 현상에 국한되지 않고, 사회 구조의 핵을 건드리고 있다.",
+        "exampleKr": "This issue is not merely limited to superficial phenomena but touches the core of the social structure.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "haek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-355-1780146279962",
+        "term": "상당하다",
+        "definition": "considerable, substantial, significant",
+        "meaningKr": "considerable, substantial, significant",
+        "exampleEn": "그는 오랫동안의 노력 끝에 상당한 수준의 전문성을 갖추게 되었다.",
+        "exampleKr": "After a long period of effort, he acquired a considerable level of expertise.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sangdanghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-356-1780146279962",
+        "term": "수석",
+        "definition": "chief, head, top (position)",
+        "meaningKr": "chief, head, top (position)",
+        "exampleEn": "이번 프로젝트의 성공은 수석 연구원의 탁월한 리더십 덕분이었다.",
+        "exampleKr": "The success of this project was thanks to the excellent leadership of the chief researcher.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "suseok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-357-1780146279962",
+        "term": "적절하다",
+        "definition": "appropriate, suitable, proper",
+        "meaningKr": "appropriate, suitable, proper",
+        "exampleEn": "발표 내용과 청중의 수준을 고려하여 언어를 적절하게 사용하는 것이 중요하다.",
+        "exampleKr": "It is important to use language appropriately, considering the content of the presentation and the audience's level.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeokjeolhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-358-1780146279962",
+        "term": "제사",
+        "definition": "ancestral rite, memorial service",
+        "meaningKr": "ancestral rite, memorial service",
+        "exampleEn": "명절을 맞아 온 가족이 모여 조상님께 제사를 지내며 전통을 기렸다.",
+        "exampleKr": "On the holiday, the whole family gathered to perform ancestral rites for the ancestors and honor tradition.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jesa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-359-1780146279962",
+        "term": "지혜",
+        "definition": "wisdom, sagacity, intelligence",
+        "meaningKr": "wisdom, sagacity, intelligence",
+        "exampleEn": "고전 문학 작품 속에는 시대를 초월하는 깊은 지혜가 담겨 있다.",
+        "exampleKr": "Classical literary works contain profound wisdom that transcends time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jihye",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-360-1780146279962",
+        "term": "참새",
+        "definition": "sparrow",
+        "meaningKr": "sparrow",
+        "exampleEn": "공원 나무 위에서 참새들이 재잘거리며 평화로운 오후를 선사했다.",
+        "exampleKr": "Sparrows chirped on the park trees, bestowing a peaceful afternoon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chamsae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-361-1780146279962",
+        "term": "농산물",
+        "definition": "agricultural products, farm produce",
+        "meaningKr": "agricultural products, farm produce",
+        "exampleEn": "정부는 농산물 가격 안정을 위해 다양한 지원 정책을 추진하고 있다.",
+        "exampleKr": "The government is pursuing various support policies to stabilize agricultural product prices.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "nongsangmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-362-1780146279962",
+        "term": "위대하다",
+        "definition": "great, grand, magnificent",
+        "meaningKr": "great, grand, magnificent",
+        "exampleEn": "그는 인류 역사에 길이 남을 위대한 업적을 남긴 인물로 평가받는다.",
+        "exampleKr": "He is regarded as a figure who left behind great achievements that will be remembered throughout human history.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "widaehaada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-363-1780146279962",
+        "term": "지배하다",
+        "definition": "to rule, to dominate, to control",
+        "meaningKr": "to rule, to dominate, to control",
+        "exampleEn": "강대국은 주변 국가들의 정치 및 경제에 상당한 영향력을 행사하며 지배하려 했다.",
+        "exampleKr": "The superpower attempted to rule by exerting considerable influence on the politics and economy of surrounding nations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jibaehada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-364-1780146279962",
+        "term": "틈",
+        "definition": "gap, crack, opening, interval",
+        "meaningKr": "gap, crack, opening, interval",
+        "exampleEn": "바쁜 일상 속에서도 잠시나마 여유를 찾아 마음의 틈을 메우는 것이 필요하다.",
+        "exampleKr": "It is necessary to find a moment of leisure even amidst a busy daily life to fill the gaps in one's mind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "teum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-365-1780146279962",
+        "term": "가령",
+        "definition": "for example, supposing, if",
+        "meaningKr": "for example, supposing, if",
+        "exampleEn": "가령 예상치 못한 문제가 발생했을 경우, 즉시 대처할 수 있는 비상 계획이 마련되어 있다.",
+        "exampleKr": "For example, in case an unexpected problem arises, an emergency plan is in place to respond immediately.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gallyeong",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-366-1780146279962",
+        "term": "거대하다",
+        "definition": "huge, enormous, gigantic",
+        "meaningKr": "huge, enormous, gigantic",
+        "exampleEn": "거대한 자본력을 바탕으로 한 기업의 시장 독점은 공정한 경쟁을 저해할 수 있다.",
+        "exampleKr": "Market monopolization by a company based on enormous capital can hinder fair competition.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geodaehada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-367-1780146279962",
+        "term": "드물다",
+        "definition": "rare, uncommon, infrequent",
+        "meaningKr": "rare, uncommon, infrequent",
+        "exampleEn": "최근 몇 년간 이상 기후 현상이 자주 발생하면서, 과거에는 드물었던 일들이 빈번해지고 있다.",
+        "exampleKr": "As extreme climate phenomena have occurred frequently in recent years, events that were once rare are becoming common.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deumulda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-368-1780146279962",
+        "term": "매달리다",
+        "definition": "to hang, to be suspended, to cling",
+        "meaningKr": "to hang, to be suspended, to cling",
+        "exampleEn": "아이들은 놀이터의 철봉에 매달려 즐거운 시간을 보냈다.",
+        "exampleKr": "The children spent a joyful time hanging from the monkey bars at the playground.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "maedallida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-369-1780146279962",
+        "term": "토대",
+        "definition": "foundation, basis, groundwork",
+        "meaningKr": "foundation, basis, groundwork",
+        "exampleEn": "탄탄한 기초 지식은 앞으로 배우게 될 심화된 학문 연구의 튼튼한 토대가 된다.",
+        "exampleKr": "Solid foundational knowledge serves as a strong basis for advanced academic research to be learned in the future.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "todae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-370-1780146279962",
+        "term": "목숨",
+        "definition": "life, one's life",
+        "meaningKr": "life, one's life",
+        "exampleEn": "그는 위험한 임무를 수행하면서도 동료의 목숨을 구하기 위해 최선을 다했다.",
+        "exampleKr": "Even while carrying out a dangerous mission, he did his best to save his colleague's life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "moksum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-371-1780146279962",
+        "term": "빠져나가다",
+        "definition": "to escape, to get out, to slip out",
+        "meaningKr": "to escape, to get out, to slip out",
+        "exampleEn": "밀폐된 공간에서 유독 가스가 새어 빠져나가는 것을 막기 위한 조치가 시급하다.",
+        "exampleKr": "Measures are urgently needed to prevent toxic gas from leaking and escaping from the sealed space.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ppajyeonagada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-372-1780146279962",
+        "term": "여론",
+        "definition": "public opinion, sentiment",
+        "meaningKr": "public opinion, sentiment",
+        "exampleEn": "정부 정책 결정 시, 다양한 계층의 여론을 수렴하는 과정이 필수적이다.",
+        "exampleKr": "When the government makes policy decisions, it is essential to gather public opinion from various strata.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeoron",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-373-1780146279962",
+        "term": "의복",
+        "definition": "clothing, garments, apparel",
+        "meaningKr": "clothing, garments, apparel",
+        "exampleEn": "시대의 변화에 따라 의복의 형태와 기능도 함께 발전해 왔다.",
+        "exampleKr": "Along with the changes of the times, the form and function of clothing have also evolved.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uibok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-374-1780146279962",
+        "term": "체조",
+        "definition": "gymnastics, calisthenics",
+        "meaningKr": "gymnastics, calisthenics",
+        "exampleEn": "꾸준한 체조는 신체 건강을 증진시키고 정신적인 스트레스를 완화하는 데 도움을 준다.",
+        "exampleKr": "Consistent gymnastics helps improve physical health and alleviate mental stress.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chejo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-375-1780146279962",
+        "term": "현실적",
+        "definition": "realistic, practical",
+        "meaningKr": "realistic, practical",
+        "exampleEn": "그는 이상주의적인 면모와 더불어 매우 현실적인 사고방식을 가지고 있어 많은 이들의 신뢰를 얻고 있다.",
+        "exampleKr": "He possesses a very realistic way of thinking along with his idealistic aspects, earning the trust of many.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeonsiljeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-376-1780146279962",
+        "term": "화제",
+        "definition": "topic, subject, theme",
+        "meaningKr": "topic, subject, theme",
+        "exampleEn": "최근 사회관계망서비스에서는 환경 오염 문제에 대한 심도 깊은 논의가 화제로 떠올랐다.",
+        "exampleKr": "The issue of environmental pollution recently emerged as a topic for in-depth discussion on social media.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hwaje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-377-1780146279962",
+        "term": "공격",
+        "definition": "attack, assault, aggression",
+        "meaningKr": "attack, assault, aggression",
+        "exampleEn": "새로운 기술 개발에 대한 공격적인 투자는 기업의 장기적인 성장 동력을 확보하는 데 필수적이다.",
+        "exampleKr": "Aggressive investment in new technology development is essential for securing a company's long-term growth engine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gonggyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-378-1780146279962",
+        "term": "물가",
+        "definition": "prices, cost of living",
+        "meaningKr": "prices, cost of living",
+        "exampleEn": "지속적인 금리 인상에도 불구하고 물가 상승세가 꺾이지 않아 서민들의 경제적 부담이 가중되고 있다.",
+        "exampleKr": "Despite continuous interest rate hikes, the rising trend in prices has not abated, intensifying the economic burden on ordinary people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "mulga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-379-1780146279962",
+        "term": "민주주의",
+        "definition": "democracy",
+        "meaningKr": "democracy",
+        "exampleEn": "시민들의 적극적인 참여와 비판적인 목소리가 민주주의를 더욱 공고히 하는 근간이 된다.",
+        "exampleKr": "Active participation and critical voices from citizens form the foundation that further solidifies democracy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "minjujuui",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-380-1780146279962",
+        "term": "소중하다",
+        "definition": "precious, valuable, cherished",
+        "meaningKr": "precious, valuable, cherished",
+        "exampleEn": "우리가 당연하게 여기는 평화로운 일상은 수많은 사람들의 헌신 덕분에 소중하게 유지되고 있다.",
+        "exampleKr": "The peaceful daily life we take for granted is preciously maintained thanks to the dedication of countless people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sojunghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-381-1780146279962",
+        "term": "의문",
+        "definition": "doubt, question, suspicion",
+        "meaningKr": "doubt, question, suspicion",
+        "exampleEn": "그의 갑작스러운 태도 변화에 대해 많은 사람들이 의문을 제기하며 진실을 밝히기를 요구하고 있다.",
+        "exampleKr": "Many people are raising doubts about his sudden change in attitude and demanding the truth be revealed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uimun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-382-1780146279962",
+        "term": "빛나다",
+        "definition": "to shine, to gleam, to sparkle",
+        "meaningKr": "to shine, to gleam, to sparkle",
+        "exampleEn": "수년간의 끊임없는 노력 끝에 그는 마침내 자신의 잠재력을 마음껏 발휘하며 무대 위에서 빛났다.",
+        "exampleKr": "After years of relentless effort, he finally shone on stage, fully displaying his potential.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "binnada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-383-1780146279962",
+        "term": "실리다",
+        "definition": "to be published, to be carried (in print)",
+        "meaningKr": "to be published, to be carried (in print)",
+        "exampleEn": "그의 깊이 있는 분석 기사가 권위 있는 학술지에 실리면서 큰 주목을 받았다.",
+        "exampleKr": "His in-depth analytical article received significant attention upon being published in a prestigious academic journal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sillida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-384-1780146279962",
+        "term": "압력",
+        "definition": "pressure, stress",
+        "meaningKr": "pressure, stress",
+        "exampleEn": "정치적·경제적 압력 속에서도 언론의 자유를 지키려는 노력이 계속되고 있다.",
+        "exampleKr": "Efforts to protect freedom of the press continue amidst political and economic pressure.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "apryeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-385-1780146279962",
+        "term": "예상되다",
+        "definition": "to be expected, to be anticipated, to be predicted",
+        "meaningKr": "to be expected, to be anticipated, to be predicted",
+        "exampleEn": "전문가들은 올해 하반기부터는 경제 성장률이 점진적으로 회복될 것으로 예상하고 있다.",
+        "exampleKr": "Experts anticipate that the economic growth rate will gradually recover starting from the latter half of this year.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yesangdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-386-1780146279962",
+        "term": "증권",
+        "definition": "securities, stocks, bonds",
+        "meaningKr": "securities, stocks, bonds",
+        "exampleEn": "최근 몇 년간 급변하는 금융 시장 상황으로 인해 증권 투자에 대한 관심이 매우 높아졌다.",
+        "exampleKr": "Interest in securities investment has greatly increased due to the rapidly changing financial market conditions in recent years.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeunggwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-387-1780146279962",
+        "term": "직후",
+        "definition": "immediately after",
+        "meaningKr": "immediately after",
+        "exampleEn": "회의 직후, 참석자들은 각자 맡은 업무를 신속하게 처리하기 위해 분주하게 움직였다.",
+        "exampleKr": "Immediately after the meeting, the attendees moved busily to promptly handle their respective tasks.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jikhu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-388-1780146279962",
+        "term": "차량",
+        "definition": "vehicle, car",
+        "meaningKr": "vehicle, car",
+        "exampleEn": "해당 도로는 심한 교통 체증으로 인해 평소보다 훨씬 많은 차량이 엉켜 심각한 정체를 빚고 있다.",
+        "exampleKr": "This road is experiencing severe congestion due to a much larger number of vehicles than usual, caused by heavy traffic jams.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "charyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-389-1780146279962",
+        "term": "출산",
+        "definition": "childbirth, delivery, birth",
+        "meaningKr": "childbirth, delivery, birth",
+        "exampleEn": "출산 휴가와 육아 지원 정책이 강화되면서 여성의 경제 활동 참여율이 점차 증가하는 추세다.",
+        "exampleKr": "As maternity leave and childcare support policies are strengthened, the rate of female economic activity is showing a gradual upward trend.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chulsan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-390-1780146279962",
+        "term": "선진국",
+        "definition": "developed country, advanced country",
+        "meaningKr": "developed country, advanced country",
+        "exampleEn": "선진국들은 기후 변화 대응을 위한 국제 사회의 노력에 더욱 적극적으로 동참해야 할 책임이 있다.",
+        "exampleKr": "Developed countries have a responsibility to participate more actively in the international community's efforts to combat climate change.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seonjinguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-391-1780146279962",
+        "term": "재판",
+        "definition": "trial, lawsuit, judgment",
+        "meaningKr": "trial, lawsuit, judgment",
+        "exampleEn": "증거 불충분으로 인해 무죄 판결이 내려졌지만, 여전히 많은 사람들은 재판 결과에 대해 의문을 품고 있다.",
+        "exampleKr": "Although an acquittal was granted due to insufficient evidence, many people still harbor doubts about the trial's outcome.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jaepan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-392-1780146279962",
+        "term": "제자",
+        "definition": "disciple, student, pupil",
+        "meaningKr": "disciple, student, pupil",
+        "exampleEn": "그의 뛰어난 가르침 아래 성장한 제자들은 각자의 분야에서 훌륭한 업적을 이루며 스승의 명예를 드높였다.",
+        "exampleKr": "The disciples who grew under his excellent guidance brought honor to their teacher by achieving great accomplishments in their respective fields.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-393-1780146279962",
+        "term": "회복",
+        "definition": "recovery, restoration, recuperation",
+        "meaningKr": "recovery, restoration, recuperation",
+        "exampleEn": "장기간의 치료 끝에 환자는 점차 건강을 회복하고 있으며, 곧 퇴원이 가능할 것으로 보인다.",
+        "exampleKr": "After a long period of treatment, the patient is gradually recovering their health and is expected to be discharged soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hoebok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-394-1780146279962",
+        "term": "구역",
+        "definition": "district, zone, area",
+        "meaningKr": "district, zone, area",
+        "exampleEn": "도시 재생 사업의 일환으로 낙후된 구역에 새로운 문화 시설과 녹지 공간이 조성될 예정이다.",
+        "exampleKr": "As part of urban regeneration projects, new cultural facilities and green spaces are planned to be created in the underdeveloped district.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "guyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-395-1780146279962",
+        "term": "대응",
+        "definition": "response, reaction, countermeasure",
+        "meaningKr": "response, reaction, countermeasure",
+        "exampleEn": "예기치 못한 위기 상황에 대한 신속하고 효과적인 대응 전략을 수립하는 것이 매우 중요하다.",
+        "exampleKr": "It is crucial to establish swift and effective response strategies for unexpected crisis situations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daeeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-396-1780146279962",
+        "term": "발휘하다",
+        "definition": "to display, to exhibit, to demonstrate",
+        "meaningKr": "to display, to exhibit, to demonstrate",
+        "exampleEn": "그는 어려운 과제 앞에서 결코 좌절하지 않고 자신의 능력을 최대한 발휘하여 성공을 이끌었다.",
+        "exampleKr": "He never despaired in the face of difficult tasks and led to success by fully displaying his abilities.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "balhwihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-397-1780146279962",
+        "term": "소비",
+        "definition": "consumption, spending",
+        "meaningKr": "consumption, spending",
+        "exampleEn": "경기 침체로 인해 가계 소비 심리가 위축되면서 전반적인 경제 활동이 둔화될 우려가 있다.",
+        "exampleKr": "There is concern that overall economic activity will slow down as household consumption sentiment has shrunk due to the economic downturn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sobi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-398-1780146279962",
+        "term": "심장",
+        "definition": "heart",
+        "meaningKr": "heart",
+        "exampleEn": "꾸준한 운동과 건강한 식습관은 심장 질환을 예방하고 전반적인 신체 건강을 증진하는 데 도움을 준다.",
+        "exampleKr": "Regular exercise and healthy eating habits help prevent heart disease and improve overall physical health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "simjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-399-1780146279962",
+        "term": "중소기업",
+        "definition": "small and medium-sized enterprise (SME)",
+        "meaningKr": "small and medium-sized enterprise (SME)",
+        "exampleEn": "정부는 혁신적인 아이디어를 가진 중소기업을 육성하기 위한 다양한 지원 정책을 발표했다.",
+        "exampleKr": "The government has announced various support policies to foster small and medium-sized enterprises with innovative ideas.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jungso gieop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-400-1780146279962",
+        "term": "직접적",
+        "definition": "direct, immediate",
+        "meaningKr": "direct, immediate",
+        "exampleEn": "그녀의 연설은 청중에게 직접적인 영향을 미쳐, 많은 이들이 감동받고 행동에 옮기도록 유도했습니다.",
+        "exampleKr": "Her speech had a direct impact on the audience, inspiring many to be moved and take action.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jikjeopjeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-401-1780146279962",
+        "term": "진실",
+        "definition": "truth, reality",
+        "meaningKr": "truth, reality",
+        "exampleEn": "어떠한 어려움 속에서도 진실을 밝히려는 노력은 공동체의 신뢰를 구축하는 데 필수적입니다.",
+        "exampleKr": "The effort to reveal the truth, no matter the hardship, is essential for building community trust.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jinsil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-402-1780146279962",
+        "term": "필자",
+        "definition": "writer, author",
+        "meaningKr": "writer, author",
+        "exampleEn": "필자는 이 논문을 통해 사회적 불평등 문제를 심층적으로 분석하고 해결 방안을 모색하고자 합니다.",
+        "exampleKr": "Through this paper, the author aims to deeply analyze the issue of social inequality and explore solutions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pilja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-403-1780146279962",
+        "term": "협력",
+        "definition": "cooperation, collaboration",
+        "meaningKr": "cooperation, collaboration",
+        "exampleEn": "국제 사회는 기후 변화라는 전 지구적 위협에 맞서기 위해 국가 간의 긴밀한 협력을 강화해야 합니다.",
+        "exampleKr": "The international community must strengthen close cooperation between nations to counter the global threat of climate change.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeomnyeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-404-1780146279962",
+        "term": "계층",
+        "definition": "stratum, class, layer",
+        "meaningKr": "stratum, class, layer",
+        "exampleEn": "사회경제적 지위에 따라 교육 기회의 불평등이 발생하며, 이는 계층 이동을 더욱 어렵게 만듭니다.",
+        "exampleKr": "Educational opportunities are unequally distributed according to socioeconomic status, making social mobility even more difficult.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyechung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-405-1780146279962",
+        "term": "담당",
+        "definition": "charge, responsibility",
+        "meaningKr": "charge, responsibility",
+        "exampleEn": "그녀는 신규 프로젝트의 전반적인 진행 상황을 관리하는 중요한 역할을 담당하게 되었습니다.",
+        "exampleKr": "She has been assigned the crucial role of managing the overall progress of the new project.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "damdang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-406-1780146279962",
+        "term": "보도하다",
+        "definition": "to report, to inform",
+        "meaningKr": "to report, to inform",
+        "exampleEn": "언론은 사건의 진상을 객관적으로 보도하여 대중의 알 권리를 충족시켜야 할 책임이 있습니다.",
+        "exampleKr": "The media has a responsibility to satisfy the public's right to know by objectively reporting the truth of the incident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bodohada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-407-1780146279962",
+        "term": "인상",
+        "definition": "impression, mark",
+        "meaningKr": "impression, mark",
+        "exampleEn": "그의 진솔한 태도는 처음 만난 사람들에게도 깊은 긍정적인 인상을 남기기에 충분했습니다.",
+        "exampleKr": "His sincere attitude was enough to leave a deep, positive impression even on people he met for the first time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "insang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-408-1780146279962",
+        "term": "철저하다",
+        "definition": "thorough, complete, rigorous",
+        "meaningKr": "thorough, complete, rigorous",
+        "exampleEn": "안전 규정을 철저히 준수하는 것은 모든 작업 현장에서 사고를 예방하는 가장 기본적인 조치입니다.",
+        "exampleKr": "Thoroughly adhering to safety regulations is the most basic measure to prevent accidents at any worksite.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "cheolcheolhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-409-1780146279962",
+        "term": "태아",
+        "definition": "fetus, unborn child",
+        "meaningKr": "fetus, unborn child",
+        "exampleEn": "임산부는 태아의 건강한 발달을 위해 균형 잡힌 식단과 충분한 휴식을 취하는 것이 권장됩니다.",
+        "exampleKr": "Pregnant women are advised to maintain a balanced diet and get enough rest for the healthy development of the fetus.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "taea",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-410-1780146279962",
+        "term": "두르다",
+        "definition": "to surround, to encircle",
+        "meaningKr": "to surround, to encircle",
+        "exampleEn": "성벽은 도시를 외부의 위협으로부터 보호하기 위해 굳건하게 마을을 둘러싸고 있었습니다.",
+        "exampleKr": "The fortress walls firmly surrounded the town to protect it from external threats.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dureuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-411-1780146279962",
+        "term": "드디어",
+        "definition": "finally, at last",
+        "meaningKr": "finally, at last",
+        "exampleEn": "수년간의 노력 끝에, 그들은 마침내 오랜 꿈이었던 자신들만의 회사를 드디어 설립할 수 있었습니다.",
+        "exampleKr": "After years of effort, they were finally able to establish their own company, which had been their long-held dream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deudieo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-412-1780146279962",
+        "term": "민주",
+        "definition": "democracy",
+        "meaningKr": "democracy",
+        "exampleEn": "시민들의 적극적인 참여와 비판적인 사고는 건강한 민주주의 사회를 발전시키는 근간이 됩니다.",
+        "exampleKr": "Active citizen participation and critical thinking are the foundation for developing a healthy democratic society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "minju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-413-1780146279962",
+        "term": "여인",
+        "definition": "woman, lady",
+        "meaningKr": "woman, lady",
+        "exampleEn": "그녀는 강인한 의지와 따뜻한 마음씨를 가진 현대적인 여인으로 많은 이들에게 귀감이 되고 있습니다.",
+        "exampleKr": "She is becoming a role model for many as a modern woman with a strong will and a warm heart.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeoin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-414-1780146279962",
+        "term": "운영하다",
+        "definition": "to operate, to run, to manage",
+        "meaningKr": "to operate, to run, to manage",
+        "exampleEn": "새로운 경영진은 회사의 재정 상태를 개선하고 효율적인 시스템을 구축하여 회사를 성공적으로 운영하고자 합니다.",
+        "exampleKr": "The new management intends to successfully run the company by improving its financial status and establishing an efficient system.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "unyeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-415-1780146279962",
+        "term": "평가하다",
+        "definition": "to evaluate, to assess, to appraise",
+        "meaningKr": "to evaluate, to assess, to appraise",
+        "exampleEn": "전문가들은 해당 정책의 사회경제적 파급 효과를 다각적으로 평가하여 그 실효성을 검증할 것입니다.",
+        "exampleKr": "Experts will evaluate the socioeconomic ripple effects of the policy from various angles to verify its effectiveness.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "pyeonggahada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-416-1780146279962",
+        "term": "필요성",
+        "definition": "necessity, need",
+        "meaningKr": "necessity, need",
+        "exampleEn": "지속 가능한 발전을 위해서는 환경 보호의 필요성을 인식하고 실천하는 것이 무엇보다 중요합니다.",
+        "exampleKr": "For sustainable development, recognizing and practicing the necessity of environmental protection is paramount.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "piryoseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-417-1780146279962",
+        "term": "감추다",
+        "definition": "to hide, to conceal",
+        "meaningKr": "to hide, to conceal",
+        "exampleEn": "그는 자신의 잘못을 인정하기보다는 진실을 감추고 변명으로 일관하려는 태도를 보였습니다.",
+        "exampleKr": "Rather than admitting his mistake, he showed an attitude of concealing the truth and consistently offering excuses.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gamchuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-418-1780146279962",
+        "term": "모",
+        "definition": "all, every, each",
+        "meaningKr": "all, every, each",
+        "exampleEn": "모든 참가자는 행사 전에 반드시 안전 수칙을 숙지해야 하며, 이를 어길 시에는 책임을 져야 합니다.",
+        "exampleKr": "All participants must familiarize themselves with the safety rules before the event, and will be held responsible for any violation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "mo",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-advanced-419-1780146279962",
+        "term": "부위",
+        "definition": "part, region, area",
+        "meaningKr": "part, region, area",
+        "exampleEn": "외과 의사는 환자의 손상된 부위를 정밀하게 진단한 후 최적의 수술 계획을 수립했습니다.",
+        "exampleKr": "The surgeon precisely diagnosed the patient's injured area before establishing the optimal surgical plan.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "buwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-420-1780146279962",
+        "term": "비우다",
+        "definition": "to empty, to clear out",
+        "meaningKr": "to empty, to clear out",
+        "exampleEn": "마음을 비우고 명상에 집중함으로써 복잡한 생각들을 정리하고 내면의 평화를 찾을 수 있습니다.",
+        "exampleKr": "By emptying one's mind and focusing on meditation, one can organize complex thoughts and find inner peace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "biuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-421-1780146279962",
+        "term": "설치하다",
+        "definition": "to install, to set up",
+        "meaningKr": "to install, to set up",
+        "exampleEn": "안전 강화를 위해 건물 내부에 최신 소방 시스템을 설치하도록 정부는 관련 규정을 개정했습니다.",
+        "exampleKr": "To enhance safety, the government revised relevant regulations to install the latest fire suppression system inside buildings.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seolchihada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-422-1780146279962",
+        "term": "아울러",
+        "definition": "in addition, also, furthermore",
+        "meaningKr": "in addition, also, furthermore",
+        "exampleEn": "이 프로젝트는 지역 경제 활성화에 기여할 뿐만 아니라, 아울러 환경 보호에도 긍정적인 영향을 미칠 것으로 기대됩니다.",
+        "exampleKr": "This project is expected not only to contribute to revitalizing the local economy but also to have a positive impact on environmental protection.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "aulyeo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-423-1780146279962",
+        "term": "지시",
+        "definition": "instruction, direction, order",
+        "meaningKr": "instruction, direction, order",
+        "exampleEn": "상급자의 명확한 지시 없이 업무를 진행하다가 문제가 발생하면, 책임 소재가 불분명해질 수 있습니다.",
+        "exampleKr": "If a problem arises while proceeding with work without clear instructions from a superior, the responsibility may become unclear.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jisi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-424-1780146279962",
+        "term": "형성하다",
+        "definition": "to form, to shape, to create",
+        "meaningKr": "to form, to shape, to create",
+        "exampleEn": "끊임없는 학습과 경험을 통해 개인의 가치관과 세계관이 점진적으로 형성되어 갑니다.",
+        "exampleKr": "Through continuous learning and experience, an individual's values and worldview are gradually formed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeongseonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-425-1780146279962",
+        "term": "덧붙이다",
+        "definition": "to add, to append, to attach",
+        "meaningKr": "to add, to append, to attach",
+        "exampleEn": "발표자는 기존의 연구 결과에 새로운 분석을 덧붙여 논의를 더욱 심화시켰다.",
+        "exampleKr": "The presenter further deepened the discussion by adding new analysis to the existing research findings.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deotbutida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-426-1780146279962",
+        "term": "무기",
+        "definition": "weapon, armament",
+        "meaningKr": "weapon, armament",
+        "exampleEn": "국제 사회는 핵무기 확산을 막기 위한 강력한 규제 조치를 검토하고 있다.",
+        "exampleKr": "The international community is considering strong regulatory measures to prevent the proliferation of nuclear weapons.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "mugi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-427-1780146279962",
+        "term": "일종",
+        "definition": "a kind of, a type of, a sort of",
+        "meaningKr": "a kind of, a type of, a sort of",
+        "exampleEn": "그는 독창적인 아이디어를 내놓았는데, 이는 일종의 혁신적인 접근 방식이었다.",
+        "exampleKr": "He came up with an original idea, which was a kind of innovative approach.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "iljong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-428-1780146279962",
+        "term": "처지",
+        "definition": "situation, circumstances, position",
+        "meaningKr": "situation, circumstances, position",
+        "exampleEn": "어려운 처지에도 불구하고 그는 희망을 잃지 않고 최선을 다해 노력했다.",
+        "exampleKr": "Despite his difficult circumstances, he did not lose hope and tried his best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "cheoji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-429-1780146279962",
+        "term": "형편",
+        "definition": "circumstances, situation, condition",
+        "meaningKr": "circumstances, situation, condition",
+        "exampleEn": "경제적 형편이 좋지 않아 많은 사람들이 생계 유지를 위해 고군분투하고 있다.",
+        "exampleKr": "Due to unfavorable economic circumstances, many people are struggling to make a living.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hyeongpyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-430-1780146279962",
+        "term": "본질",
+        "definition": "essence, true nature, substance",
+        "meaningKr": "essence, true nature, substance",
+        "exampleEn": "이 문제의 본질을 파악하기 위해서는 다양한 관점에서 심층적인 분석이 요구된다.",
+        "exampleKr": "To grasp the essence of this problem, in-depth analysis from various perspectives is required.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bonjil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-431-1780146279962",
+        "term": "비치다",
+        "definition": "to shine, to be reflected, to be seen",
+        "meaningKr": "to shine, to be reflected, to be seen",
+        "exampleEn": "달빛이 호수에 비치자 잔잔한 수면 위로 은은한 광채가 감돌았다.",
+        "exampleKr": "As the moonlight shone on the lake, a soft radiance lingered on the calm surface.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bichida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-432-1780146279962",
+        "term": "서서히",
+        "definition": "slowly, gradually, little by little",
+        "meaningKr": "slowly, gradually, little by little",
+        "exampleEn": "기온이 서서히 오르면서 봄기운이 완연해지기 시작했다.",
+        "exampleKr": "As the temperature gradually rose, the signs of spring began to become evident.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seoseohi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-433-1780146279962",
+        "term": "스승",
+        "definition": "teacher, master, mentor",
+        "meaningKr": "teacher, master, mentor",
+        "exampleEn": "그는 평생 자신을 이끌어 준 스승의 가르침을 잊지 않고 늘 존경하는 마음을 간직했다.",
+        "exampleKr": "He never forgot the teachings of his mentor, who guided him throughout his life, and always cherished a feeling of respect.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seuseung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-434-1780146279962",
+        "term": "신분",
+        "definition": "status, social standing, rank",
+        "meaningKr": "status, social standing, rank",
+        "exampleEn": "현대 사회에서는 과거와 달리 신분에 따른 차별이 점차 줄어들고 있다.",
+        "exampleKr": "Unlike in the past, discrimination based on social status is gradually decreasing in modern society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sinbun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-435-1780146279962",
+        "term": "실시되다",
+        "definition": "to be implemented, to be put into effect, to be carried out",
+        "meaningKr": "to be implemented, to be put into effect, to be carried out",
+        "exampleEn": "새로운 정책은 오는 9월부터 전국적으로 실시될 예정이다.",
+        "exampleKr": "The new policy is scheduled to be implemented nationwide starting this coming September.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "silshidoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-436-1780146279962",
+        "term": "증거",
+        "definition": "evidence, proof, testimony",
+        "meaningKr": "evidence, proof, testimony",
+        "exampleEn": "법정에서는 제시된 증거들을 종합하여 최종 판결을 내리게 된다.",
+        "exampleKr": "In court, the final judgment is made by synthesizing the presented evidence.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeunggeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-437-1780146279962",
+        "term": "초점",
+        "definition": "focus, focal point, spotlight",
+        "meaningKr": "focus, focal point, spotlight",
+        "exampleEn": "이번 토론회는 기후 변화 문제에 대한 국제 사회의 초점을 맞추는 데 기여했다.",
+        "exampleKr": "This forum contributed to focusing the international community's attention on the issue of climate change.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chotjeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-438-1780146279962",
+        "term": "강화하다",
+        "definition": "to strengthen, to reinforce, to enhance",
+        "meaningKr": "to strengthen, to reinforce, to enhance",
+        "exampleEn": "정부는 지속 가능한 발전을 위해 환경 규제를 더욱 강화하기로 결정했다.",
+        "exampleKr": "The government decided to further strengthen environmental regulations for sustainable development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ganghwahada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-439-1780146279962",
+        "term": "공포",
+        "definition": "fear, terror, horror",
+        "meaningKr": "fear, terror, horror",
+        "exampleEn": "예기치 못한 사고 소식은 사람들에게 큰 공포감과 불안감을 안겨주었다.",
+        "exampleKr": "The news of the unexpected accident brought great fear and anxiety to the people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gongpo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-440-1780146279962",
+        "term": "권위",
+        "definition": "authority, prestige, influence",
+        "meaningKr": "authority, prestige, influence",
+        "exampleEn": "그 학자는 오랜 연구를 통해 해당 분야에서 독보적인 권위를 구축했다.",
+        "exampleKr": "The scholar established unparalleled authority in the field through years of research.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gwonwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-441-1780146279962",
+        "term": "미루다",
+        "definition": "to postpone, to put off, to delay",
+        "meaningKr": "to postpone, to put off, to delay",
+        "exampleEn": "중요한 결정을 너무 오래 미루다 보면 오히려 상황을 악화시킬 수 있다.",
+        "exampleKr": "Postponing an important decision for too long can actually worsen the situation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "miruda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-442-1780146279962",
+        "term": "실정",
+        "definition": "actual situation, current state, reality",
+        "meaningKr": "actual situation, current state, reality",
+        "exampleEn": "현지 조사 결과, 해당 지역의 경제적 실정은 예상보다 훨씬 심각한 것으로 드러났다.",
+        "exampleKr": "The on-site investigation revealed that the economic situation in the region was much more serious than expected.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "siljeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-443-1780146279962",
+        "term": "영양",
+        "definition": "nutrition, nourishment",
+        "meaningKr": "nutrition, nourishment",
+        "exampleEn": "균형 잡힌 식단은 우리 몸에 필수적인 영양소를 공급하는 데 매우 중요하다.",
+        "exampleKr": "A balanced diet is crucial for supplying essential nutrients to our bodies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeongyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-444-1780146279962",
+        "term": "육체",
+        "definition": "body, physique, flesh",
+        "meaningKr": "body, physique, flesh",
+        "exampleEn": "과도한 업무와 스트레스는 정신 건강뿐만 아니라 육체 건강에도 악영향을 미칠 수 있다.",
+        "exampleKr": "Excessive work and stress can negatively affect not only mental health but also physical health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yukche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-445-1780146279962",
+        "term": "그이",
+        "definition": "he, that person (formal/literary)",
+        "meaningKr": "he, that person (formal/literary)",
+        "exampleEn": "그이는 자신이 맡은 일에 대해 깊은 책임감을 가지고 성실하게 임했다.",
+        "exampleKr": "He approached his work with a deep sense of responsibility and sincerity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geui",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-ko-advanced-446-1780146279962",
+        "term": "대기",
+        "definition": "atmosphere, air",
+        "meaningKr": "atmosphere, air",
+        "exampleEn": "산업화로 인한 대기 오염은 지구 온난화와 같은 심각한 환경 문제를 야기하고 있다.",
+        "exampleKr": "Air pollution due to industrialization is causing serious environmental problems such as global warming.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "daegi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-447-1780146279962",
+        "term": "독립",
+        "definition": "independence, autonomy",
+        "meaningKr": "independence, autonomy",
+        "exampleEn": "그는 경제적 독립을 이루기 위해 끊임없이 노력하며 자신의 삶을 개척해 나갔다.",
+        "exampleKr": "He continuously strived to achieve financial independence and forge his own path in life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dongnip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-448-1780146279962",
+        "term": "해당하다",
+        "definition": "to correspond to, to be applicable to, to match",
+        "meaningKr": "to correspond to, to be applicable to, to match",
+        "exampleEn": "본 규정은 모든 임직원에게 해당되며, 예외는 인정되지 않을 것입니다.",
+        "exampleKr": "These regulations apply to all employees, and no exceptions will be permitted.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "haedanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-449-1780146279962",
+        "term": "간부",
+        "definition": "executive, staff member, leader",
+        "meaningKr": "executive, staff member, leader",
+        "exampleEn": "회사는 경영 성과를 높이기 위해 핵심 간부들의 리더십 역량 강화 프로그램을 도입했다.",
+        "exampleKr": "The company introduced a leadership competency enhancement program for its key executives to improve business performance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ganbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-450-1780146279962",
+        "term": "관념",
+        "definition": "idea, concept, notion",
+        "meaningKr": "idea, concept, notion",
+        "exampleEn": "그는 현실보다는 이상적인 관념에 사로잡혀 현실 감각을 잃어버린 듯 보였다.",
+        "exampleKr": "He seemed to have lost his sense of reality, captivated by idealistic notions rather than the actual situation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gwannyeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-451-1780146279962",
+        "term": "도입",
+        "definition": "introduction, adoption, implementation",
+        "meaningKr": "introduction, adoption, implementation",
+        "exampleEn": "새로운 기술의 도입은 생산성 향상뿐만 아니라 일자리 창출에도 긍정적인 영향을 미칠 수 있다.",
+        "exampleKr": "The introduction of new technology can have a positive impact not only on productivity improvement but also on job creation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "doip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-452-1780146279962",
+        "term": "비추다",
+        "definition": "to shine (light), to reflect, to illuminate",
+        "meaningKr": "to shine (light), to reflect, to illuminate",
+        "exampleEn": "가로등 불빛이 어두운 골목길을 환하게 비추어 주었다.",
+        "exampleKr": "The streetlight illuminated the dark alleyway brightly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bichuda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-453-1780146279962",
+        "term": "여건",
+        "definition": "circumstances, conditions, environment",
+        "meaningKr": "circumstances, conditions, environment",
+        "exampleEn": "사업을 성공적으로 추진하기 위해서는 유리한 시장 여건과 충분한 자본이 필수적이다.",
+        "exampleKr": "Favorable market conditions and sufficient capital are essential for successfully pushing forward a business.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeogeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-454-1780146279962",
+        "term": "통제",
+        "definition": "control, regulation, restraint",
+        "meaningKr": "control, regulation, restraint",
+        "exampleEn": "급격한 인구 증가는 도시의 인프라에 대한 통제력을 상실하게 만드는 요인이 되었다.",
+        "exampleKr": "Rapid population growth became a factor leading to the loss of control over the city's infrastructure.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "tongje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-455-1780146279962",
+        "term": "못지않다",
+        "definition": "as much as, no less than, comparable to",
+        "meaningKr": "as much as, no less than, comparable to",
+        "exampleEn": "그의 연설은 내용의 깊이나 전달력 면에서 전문가의 강연 못지않았다.",
+        "exampleKr": "His speech was comparable to an expert's lecture in terms of depth of content and delivery.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "motjianhda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-456-1780146279962",
+        "term": "반영하다",
+        "definition": "to reflect, to mirror, to incorporate",
+        "meaningKr": "to reflect, to mirror, to incorporate",
+        "exampleEn": "정부는 국민의 다양한 요구를 정책에 충실히 반영하기 위해 노력해야 한다.",
+        "exampleKr": "The government must strive to faithfully reflect the diverse needs of its citizens in its policies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "banyeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-457-1780146279962",
+        "term": "성장하다",
+        "definition": "to grow, to develop, to increase",
+        "meaningKr": "to grow, to develop, to increase",
+        "exampleEn": "꾸준한 자기 계발을 통해 개인의 역량이 비약적으로 성장할 수 있다.",
+        "exampleKr": "An individual's capabilities can grow exponentially through continuous self-development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seongjanghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-458-1780146279962",
+        "term": "소속",
+        "definition": "affiliation, belonging, membership",
+        "meaningKr": "affiliation, belonging, membership",
+        "exampleEn": "그는 명문 대학의 연구실 소속으로 복잡한 과학 문제를 해결하는 데 기여했다.",
+        "exampleKr": "Belonging to a prestigious university's research lab, he contributed to solving complex scientific problems.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sosok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-459-1780146279962",
+        "term": "제작",
+        "definition": "production, manufacturing, creation",
+        "meaningKr": "production, manufacturing, creation",
+        "exampleEn": "영화 제작 과정에서는 수많은 인력과 막대한 자본이 투입된다.",
+        "exampleKr": "Numerous personnel and vast capital are invested in the film production process.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jejak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-460-1780146279962",
+        "term": "추진",
+        "definition": "promotion, drive, push",
+        "meaningKr": "promotion, drive, push",
+        "exampleEn": "새로운 프로젝트의 성공적인 추진을 위해서는 팀원 간의 긴밀한 협력이 요구된다.",
+        "exampleKr": "Close cooperation among team members is required for the successful promotion of the new project.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "chujin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-461-1780146279962",
+        "term": "구입하다",
+        "definition": "to purchase, to buy, to acquire",
+        "meaningKr": "to purchase, to buy, to acquire",
+        "exampleEn": "최신형 스마트폰을 구입하기 위해 몇 달 동안 저축을 해왔다.",
+        "exampleKr": "I have been saving for several months to purchase the latest model smartphone.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "guiphada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-462-1780146279962",
+        "term": "마련",
+        "definition": "preparation, arrangement, provision",
+        "meaningKr": "preparation, arrangement, provision",
+        "exampleEn": "어려운 시기를 대비하여 비상 자금을 마련해 두는 것이 현명하다.",
+        "exampleKr": "It is wise to prepare an emergency fund in anticipation of difficult times.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "maryeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-463-1780146279962",
+        "term": "선장",
+        "definition": "captain (of a ship)",
+        "meaningKr": "captain (of a ship)",
+        "exampleEn": "그 선장은 거친 파도를 헤치고 목적지까지 무사히 항해를 이끌었다.",
+        "exampleKr": "The captain navigated safely to the destination, breaking through the rough waves.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "seonjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-464-1780146279962",
+        "term": "시점",
+        "definition": "point in time, moment, timing",
+        "meaningKr": "point in time, moment, timing",
+        "exampleEn": "변화의 시점을 정확히 파악하는 것은 미래를 예측하는 데 매우 중요하다.",
+        "exampleKr": "Accurately identifying the point in time of change is very important for predicting the future.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sijeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-465-1780146279962",
+        "term": "코드",
+        "definition": "code, cord, chord",
+        "meaningKr": "code, cord, chord",
+        "exampleEn": "프로그래머는 복잡한 알고리즘을 효율적인 코드로 구현하는 능력이 뛰어나다.",
+        "exampleKr": "The programmer excels at implementing complex algorithms into efficient code.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "kodeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-466-1780146279962",
+        "term": "세계관",
+        "definition": "worldview, view of the world",
+        "meaningKr": "worldview, view of the world",
+        "exampleEn": "각 문화권마다 고유한 역사와 경험에 기반한 독특한 세계관을 가지고 있다.",
+        "exampleKr": "Each cultural sphere possesses a unique worldview based on its distinct history and experiences.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "segyegwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-467-1780146279962",
+        "term": "의존하다",
+        "definition": "to depend on, to rely on, to be dependent",
+        "meaningKr": "to depend on, to rely on, to be dependent",
+        "exampleEn": "경제적으로 선진국에 의존하는 개발도상국은 독자적인 발전에 어려움을 겪곤 한다.",
+        "exampleKr": "Developing countries that are economically dependent on developed nations often face difficulties in their independent development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "uijonhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-468-1780146279962",
+        "term": "건설하다",
+        "definition": "to construct, to build, to establish",
+        "meaningKr": "to construct, to build, to establish",
+        "exampleEn": "정부는 재해 복구를 위해 새로운 사회 기반 시설을 건설하는 데 주력하고 있다.",
+        "exampleKr": "The government is focusing on constructing new infrastructure for disaster recovery.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geonseolhada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-469-1780146279962",
+        "term": "경쟁력",
+        "definition": "competitiveness, competitive edge",
+        "meaningKr": "competitiveness, competitive edge",
+        "exampleEn": "끊임없이 변화하는 시장 환경 속에서 기업의 경쟁력은 혁신을 통해 확보된다.",
+        "exampleKr": "In the constantly changing market environment, a company's competitiveness is secured through innovation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "gyeongjaengryeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-470-1780146279962",
+        "term": "연락",
+        "definition": "contact, communication, connection",
+        "meaningKr": "contact, communication, connection",
+        "exampleEn": "해외 출장 중에는 업무 관련자들과 꾸준히 연락을 유지하는 것이 중요하다.",
+        "exampleKr": "It is important to maintain regular contact with work-related individuals while on an overseas business trip.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeollak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-471-1780146279962",
+        "term": "문자",
+        "definition": "character, letter, text message",
+        "meaningKr": "character, letter, text message",
+        "exampleEn": "최근에는 장문의 이메일보다는 짧은 문자로 간단한 의사를 전달하는 경우가 많다.",
+        "exampleKr": "Recently, it is common to convey simple messages via short text messages rather than long emails.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "munja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-472-1780146279962",
+        "term": "비롯되다",
+        "definition": "to begin, to originate, to stem from",
+        "meaningKr": "to begin, to originate, to stem from",
+        "exampleEn": "산업 혁명은 농업 사회에서 공업 사회로의 전환을 비롯된 역사적 사건이다.",
+        "exampleKr": "The Industrial Revolution is a historical event that originated from the transition from an agrarian society to an industrial society.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "birotdoeda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-473-1780146279962",
+        "term": "여겨지다",
+        "definition": "to be considered, to be regarded as, to be deemed",
+        "meaningKr": "to be considered, to be regarded as, to be deemed",
+        "exampleEn": "그의 작품은 독창성과 예술성이 뛰어나 현대 미술계에 큰 영향을 준 것으로 여겨진다.",
+        "exampleKr": "His work is considered to have greatly influenced the contemporary art world due to its outstanding originality and artistry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeogyeojida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-474-1780146279962",
+        "term": "위주",
+        "definition": "focus on, centering on, emphasis on",
+        "meaningKr": "focus on, centering on, emphasis on",
+        "exampleEn": "교육 정책은 학생들의 전인적인 성장을 위주로 하여 수립되어야 할 것이다.",
+        "exampleKr": "Educational policies should be established with a focus on the holistic growth of students.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "wiju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-475-1780146279962",
+        "term": "전환",
+        "definition": "transition, conversion, switch",
+        "meaningKr": "transition, conversion, switch",
+        "exampleEn": "급변하는 시장 상황에 맞춰 사업 전략을 전면적으로 전환할 필요성이 대두되었다.",
+        "exampleKr": "The necessity to comprehensively transition our business strategy in accordance with the rapidly changing market conditions has emerged.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jeonhwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-476-1780146279962",
+        "term": "진행",
+        "definition": "progress, progression, advancement",
+        "meaningKr": "progress, progression, advancement",
+        "exampleEn": "그 프로젝트는 예상보다 훨씬 순조롭게 진행되어 관계자들을 안심시켰다.",
+        "exampleKr": "The project progressed much more smoothly than expected, reassuring the stakeholders.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jinhaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-477-1780146279962",
+        "term": "통증",
+        "definition": "pain, ache, soreness",
+        "meaningKr": "pain, ache, soreness",
+        "exampleEn": "만성적인 허리 통증으로 인해 일상생활에 상당한 불편을 겪고 있습니다.",
+        "exampleKr": "I am experiencing considerable inconvenience in my daily life due to chronic back pain.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "tongjeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-478-1780146279962",
+        "term": "하천",
+        "definition": "river, stream, watercourse",
+        "meaningKr": "river, stream, watercourse",
+        "exampleEn": "지속적인 오염으로 인해 해당 하천의 생태계가 심각하게 위협받고 있다.",
+        "exampleKr": "The ecosystem of that watercourse is severely threatened due to continuous pollution.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hacheon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-479-1780146279962",
+        "term": "화학",
+        "definition": "chemistry, chemical",
+        "meaningKr": "chemistry, chemical",
+        "exampleEn": "최신 화학 기술의 발전은 신소재 개발에 혁신적인 가능성을 열어주고 있다.",
+        "exampleKr": "The development of the latest chemical technologies is opening up innovative possibilities for new material development.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hwahak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-480-1780146279962",
+        "term": "거칠다",
+        "definition": "rough, coarse, wild",
+        "meaningKr": "rough, coarse, wild",
+        "exampleEn": "그의 말투는 다소 거칠었지만, 진심으로 걱정하는 마음이 느껴졌다.",
+        "exampleKr": "His way of speaking was somewhat rough, but I could feel his genuine concern.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geochilda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-481-1780146279962",
+        "term": "그나마",
+        "definition": "still, if only, at least",
+        "meaningKr": "still, if only, at least",
+        "exampleEn": "상황이 좋지 않았지만, 그나마 그의 도움으로 위기를 모면할 수 있었다.",
+        "exampleKr": "Although the situation was not good, at least with his help, we were able to avert the crisis.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geunama",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-482-1780146279962",
+        "term": "그야말로",
+        "definition": "truly, indeed, really",
+        "meaningKr": "truly, indeed, really",
+        "exampleEn": "이번 행사는 그야말로 성공적이었으며, 많은 사람들에게 깊은 인상을 남겼다.",
+        "exampleKr": "This event was truly successful and left a deep impression on many people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geuyamallo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-483-1780146279962",
+        "term": "남부",
+        "definition": "south, southern part",
+        "meaningKr": "south, southern part",
+        "exampleEn": "최근 남부 지역을 중심으로 이상 고온 현상이 지속되고 있다는 보고가 있다.",
+        "exampleKr": "There are reports that abnormal high-temperature phenomena have been continuing, centered around the southern region recently.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "nambu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-484-1780146279962",
+        "term": "연기자",
+        "definition": "actor, actress, performer",
+        "meaningKr": "actor, actress, performer",
+        "exampleEn": "그 베테랑 연기자는 수십 년간 쌓아온 연기 내공으로 관객을 압도했다.",
+        "exampleKr": "The veteran actor overwhelmed the audience with his decades of accumulated acting prowess.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "yeongija",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-485-1780146279962",
+        "term": "워낙",
+        "definition": "so, because it's so, due to the nature of",
+        "meaningKr": "so, because it's so, due to the nature of",
+        "exampleEn": "워낙 유명한 식당이라 예약 없이는 식사하기가 거의 불가능했다.",
+        "exampleKr": "Because it was such a famous restaurant, it was almost impossible to dine there without a reservation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "wonak",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-486-1780146279962",
+        "term": "더욱이",
+        "definition": "moreover, furthermore, what's more",
+        "meaningKr": "moreover, furthermore, what's more",
+        "exampleEn": "그는 이미 늦은 상황이었고, 더욱이 준비해 온 자료마저 분실했다.",
+        "exampleKr": "He was already late, and moreover, he had lost the materials he had prepared.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "deougi",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-487-1780146279962",
+        "term": "별도",
+        "definition": "separate, separate item, individual",
+        "meaningKr": "separate, separate item, individual",
+        "exampleEn": "이번 프로젝트는 기존 업무와는 별도로 새로운 팀을 구성하여 진행될 예정이다.",
+        "exampleKr": "This project is planned to proceed with a new team formed separately from the existing tasks.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "byeoldo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-488-1780146279962",
+        "term": "비극",
+        "definition": "tragedy, tragic event",
+        "meaningKr": "tragedy, tragic event",
+        "exampleEn": "인종 차별로 인한 비극적인 사건들은 역사 속에서 반복되지 않아야 한다.",
+        "exampleKr": "Tragic events caused by racial discrimination must not be repeated in history.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "bigeuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-489-1780146279962",
+        "term": "솜씨",
+        "definition": "skill, craftsmanship, dexterity",
+        "meaningKr": "skill, craftsmanship, dexterity",
+        "exampleEn": "어머니의 정성 어린 손길과 뛰어난 솜씨 덕분에 음식 맛이 일품이었다.",
+        "exampleKr": "Thanks to my mother's devoted touch and excellent skill, the food tasted superb.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "somssi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-490-1780146279962",
+        "term": "극",
+        "definition": "drama, play, extreme",
+        "meaningKr": "drama, play, extreme",
+        "exampleEn": "그의 연극은 사회의 부조리를 날카롭게 풍자하며 깊은 울림을 주었다.",
+        "exampleKr": "His play sharply satirized the absurdities of society, delivering a profound resonance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "geuk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-491-1780146279962",
+        "term": "나란히",
+        "definition": "side by side, abreast, shoulder to shoulder",
+        "meaningKr": "side by side, abreast, shoulder to shoulder",
+        "exampleEn": "두 정상은 나란히 서서 공동 성명을 발표하며 협력 의지를 다졌다.",
+        "exampleKr": "The two leaders stood side by side, releasing a joint statement and reinforcing their will to cooperate.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "narani",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-492-1780146279962",
+        "term": "다방",
+        "definition": "tea house, coffee shop (traditional)",
+        "meaningKr": "tea house, coffee shop (traditional)",
+        "exampleEn": "옛날 다방의 분위기는 느긋하고 여유로운 대화를 나누기에 안성맞춤이었다.",
+        "exampleKr": "The atmosphere of old tea houses was perfect for having relaxed and leisurely conversations.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "dabang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-493-1780146279962",
+        "term": "수행하다",
+        "definition": "to perform, to carry out, to conduct",
+        "meaningKr": "to perform, to carry out, to conduct",
+        "exampleEn": "정부는 국민의 안전을 보장하기 위해 최선을 다해 임무를 수행할 것이다.",
+        "exampleKr": "The government will do its utmost to perform its duties to guarantee the safety of the people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "suhaenghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-ko-advanced-494-1780146279962",
+        "term": "실로",
+        "definition": "truly, indeed, verily",
+        "meaningKr": "truly, indeed, verily",
+        "exampleEn": "이번 발견은 실로 인류 역사에 길이 남을 위대한 업적이라고 할 수 있다.",
+        "exampleKr": "This discovery can truly be called a great achievement that will remain long in human history.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "sillo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-ko-advanced-495-1780146279962",
+        "term": "인연",
+        "definition": "connection, relationship, fate",
+        "meaningKr": "connection, relationship, fate",
+        "exampleEn": "수많은 사람들과의 만남 속에서 특별한 인연을 맺게 되는 것은 참으로 신기한 일이다.",
+        "exampleKr": "It is truly a wondrous thing to form special connections amidst encounters with numerous people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "inyeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-496-1780146279962",
+        "term": "일행",
+        "definition": "party, group, company",
+        "meaningKr": "party, group, company",
+        "exampleEn": "그는 일행과 함께 도착하여 예정된 회의에 참석하기로 했다.",
+        "exampleKr": "He decided to arrive with his party and attend the scheduled meeting.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "ilhaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-497-1780146279962",
+        "term": "지식인",
+        "definition": "intellectual, learned person",
+        "meaningKr": "intellectual, learned person",
+        "exampleEn": "사회 문제는 단순히 정부만의 책임이 아니라 지식인의 적극적인 참여도 요구된다.",
+        "exampleKr": "Social problems are not solely the government's responsibility; they also demand the active participation of intellectuals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jisigin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-ko-advanced-498-1780146279962",
+        "term": "진지하다",
+        "definition": "serious, earnest, sincere",
+        "meaningKr": "serious, earnest, sincere",
+        "exampleEn": "그는 어떠한 일이든 진지하게 임하는 태도로 주변 사람들에게 귀감이 되고 있다.",
+        "exampleKr": "He serves as a role model for those around him with his earnest attitude towards any task he undertakes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "jinjihada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-ko-advanced-499-1780146279962",
+        "term": "호흡",
+        "definition": "breathing, respiration, rhythm",
+        "meaningKr": "breathing, respiration, rhythm",
+        "exampleEn": "격렬한 운동 후에는 깊고 규칙적인 호흡을 통해 몸을 안정시켜야 한다.",
+        "exampleKr": "After strenuous exercise, one must stabilize the body through deep and regular breathing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "TOPIK",
+          "Advanced"
+        ],
+        "phonetic": "hoheup",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-ko-intermediate-1",
     "title": "Intermediate Korean 500 (for English speakers)",
     "icon": "🇰🇷",

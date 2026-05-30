@@ -1,0 +1,4502 @@
+[
+  {
+    "rank": 1,
+    "origRank": 69,
+    "term": "그녀",
+    "pos": "pronoun",
+    "grade": "C",
+    "definition": "",
+    "category": "pronoun"
+  },
+  {
+    "rank": 2,
+    "origRank": 79,
+    "term": "그러다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 3,
+    "origRank": 136,
+    "term": "정부",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 4,
+    "origRank": 180,
+    "term": "새롭다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 5,
+    "origRank": 188,
+    "term": "과정",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 6,
+    "origRank": 189,
+    "term": "삶",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 7,
+    "origRank": 236,
+    "term": "생명",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 8,
+    "origRank": 244,
+    "term": "사건",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 9,
+    "origRank": 262,
+    "term": "작품",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 10,
+    "origRank": 263,
+    "term": "상황",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 11,
+    "origRank": 268,
+    "term": "따라서",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 12,
+    "origRank": 269,
+    "term": "상태",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 13,
+    "origRank": 271,
+    "term": "당시",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 14,
+    "origRank": 273,
+    "term": "더욱",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 15,
+    "origRank": 280,
+    "term": "현실",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 16,
+    "origRank": 292,
+    "term": "기업",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 17,
+    "origRank": 300,
+    "term": "선거",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 18,
+    "origRank": 325,
+    "term": "현상",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 19,
+    "origRank": 350,
+    "term": "구조",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 20,
+    "origRank": 355,
+    "term": "오히려",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 21,
+    "origRank": 360,
+    "term": "남",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 22,
+    "origRank": 374,
+    "term": "의식",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 23,
+    "origRank": 388,
+    "term": "알아보다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 24,
+    "origRank": 392,
+    "term": "산업",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 25,
+    "origRank": 421,
+    "term": "형태",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 26,
+    "origRank": 424,
+    "term": "작업",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 27,
+    "origRank": 442,
+    "term": "시",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 28,
+    "origRank": 448,
+    "term": "비하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 29,
+    "origRank": 449,
+    "term": "기관",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 30,
+    "origRank": 450,
+    "term": "입장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 31,
+    "origRank": 454,
+    "term": "방식",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 32,
+    "origRank": 455,
+    "term": "영향",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 33,
+    "origRank": 471,
+    "term": "단계",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 34,
+    "origRank": 472,
+    "term": "올리다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 35,
+    "origRank": 474,
+    "term": "교사",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 36,
+    "origRank": 477,
+    "term": "지니다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 37,
+    "origRank": 492,
+    "term": "의원",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 38,
+    "origRank": 507,
+    "term": "주민",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 39,
+    "origRank": 510,
+    "term": "존재",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 40,
+    "origRank": 517,
+    "term": "분야",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 41,
+    "origRank": 521,
+    "term": "행위",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 42,
+    "origRank": 522,
+    "term": "수준",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 43,
+    "origRank": 531,
+    "term": "기능",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 44,
+    "origRank": 543,
+    "term": "연극",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 45,
+    "origRank": 547,
+    "term": "노동",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 46,
+    "origRank": 550,
+    "term": "가치",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 47,
+    "origRank": 552,
+    "term": "집단",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 48,
+    "origRank": 556,
+    "term": "장관",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 49,
+    "origRank": 578,
+    "term": "우주",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 50,
+    "origRank": 579,
+    "term": "시기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 51,
+    "origRank": 582,
+    "term": "생산",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 52,
+    "origRank": 597,
+    "term": "농민",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 53,
+    "origRank": 598,
+    "term": "드러나다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 54,
+    "origRank": 630,
+    "term": "자세",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 55,
+    "origRank": 643,
+    "term": "면",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 56,
+    "origRank": 656,
+    "term": "원인",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 57,
+    "origRank": 667,
+    "term": "언어",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 58,
+    "origRank": 671,
+    "term": "감독",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 59,
+    "origRank": 675,
+    "term": "당하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 60,
+    "origRank": 676,
+    "term": "삼다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 61,
+    "origRank": 681,
+    "term": "일단",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 62,
+    "origRank": 683,
+    "term": "조직",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 63,
+    "origRank": 703,
+    "term": "달리",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 64,
+    "origRank": 706,
+    "term": "인물",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 65,
+    "origRank": 713,
+    "term": "다만",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 66,
+    "origRank": 724,
+    "term": "대다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 67,
+    "origRank": 727,
+    "term": "무대",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 68,
+    "origRank": 729,
+    "term": "주장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 69,
+    "origRank": 731,
+    "term": "인하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 70,
+    "origRank": 737,
+    "term": "잇다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 71,
+    "origRank": 744,
+    "term": "대책",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 72,
+    "origRank": 752,
+    "term": "결코",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 73,
+    "origRank": 762,
+    "term": "경쟁",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 74,
+    "origRank": 771,
+    "term": "실시하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 75,
+    "origRank": 778,
+    "term": "규모",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 76,
+    "origRank": 784,
+    "term": "갖추다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 77,
+    "origRank": 789,
+    "term": "현장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 78,
+    "origRank": 790,
+    "term": "건설",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 79,
+    "origRank": 798,
+    "term": "존재하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 80,
+    "origRank": 804,
+    "term": "한마디",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 81,
+    "origRank": 805,
+    "term": "유지하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 82,
+    "origRank": 806,
+    "term": "이데올로기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 83,
+    "origRank": 818,
+    "term": "피하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 84,
+    "origRank": 819,
+    "term": "거치다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 85,
+    "origRank": 820,
+    "term": "나아가다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 86,
+    "origRank": 822,
+    "term": "지식",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 87,
+    "origRank": 824,
+    "term": "여전히",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 88,
+    "origRank": 827,
+    "term": "선",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 89,
+    "origRank": 828,
+    "term": "인류",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 90,
+    "origRank": 832,
+    "term": "형식",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 91,
+    "origRank": 837,
+    "term": "걸치다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 92,
+    "origRank": 838,
+    "term": "겪다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 93,
+    "origRank": 839,
+    "term": "관점",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 94,
+    "origRank": 853,
+    "term": "구성",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 95,
+    "origRank": 855,
+    "term": "실제로",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 96,
+    "origRank": 863,
+    "term": "비롯하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 97,
+    "origRank": 865,
+    "term": "과연",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 98,
+    "origRank": 870,
+    "term": "인정하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 99,
+    "origRank": 872,
+    "term": "중앙",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 100,
+    "origRank": 874,
+    "term": "불구하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 101,
+    "origRank": 893,
+    "term": "평가",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 102,
+    "origRank": 900,
+    "term": "비다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 103,
+    "origRank": 901,
+    "term": "삼국",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 104,
+    "origRank": 907,
+    "term": "수",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 105,
+    "origRank": 912,
+    "term": "물질",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 106,
+    "origRank": 915,
+    "term": "살아가다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 107,
+    "origRank": 932,
+    "term": "제시하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 108,
+    "origRank": 934,
+    "term": "불과하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 109,
+    "origRank": 937,
+    "term": "엄청나다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 110,
+    "origRank": 941,
+    "term": "파악하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 111,
+    "origRank": 943,
+    "term": "실천",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 112,
+    "origRank": 955,
+    "term": "방안",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 113,
+    "origRank": 958,
+    "term": "분명하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 114,
+    "origRank": 959,
+    "term": "분석",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 115,
+    "origRank": 967,
+    "term": "관계자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 116,
+    "origRank": 970,
+    "term": "이어지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 117,
+    "origRank": 976,
+    "term": "지적하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 118,
+    "origRank": 979,
+    "term": "요구",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 119,
+    "origRank": 987,
+    "term": "등장하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 120,
+    "origRank": 994,
+    "term": "차다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 121,
+    "origRank": 1003,
+    "term": "한계",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 122,
+    "origRank": 1005,
+    "term": "바탕",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 123,
+    "origRank": 1010,
+    "term": "갈등",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 124,
+    "origRank": 1014,
+    "term": "의지",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 125,
+    "origRank": 1017,
+    "term": "초기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 126,
+    "origRank": 1022,
+    "term": "신경",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 127,
+    "origRank": 1025,
+    "term": "미",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 128,
+    "origRank": 1027,
+    "term": "시선",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 129,
+    "origRank": 1029,
+    "term": "언론",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 130,
+    "origRank": 1030,
+    "term": "투자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 131,
+    "origRank": 1032,
+    "term": "지원",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 132,
+    "origRank": 1037,
+    "term": "성장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 133,
+    "origRank": 1049,
+    "term": "피해",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 134,
+    "origRank": 1050,
+    "term": "한",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 135,
+    "origRank": 1063,
+    "term": "여기다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 136,
+    "origRank": 1081,
+    "term": "작용",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 137,
+    "origRank": 1083,
+    "term": "골",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 138,
+    "origRank": 1084,
+    "term": "공업",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 139,
+    "origRank": 1091,
+    "term": "출신",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 140,
+    "origRank": 1093,
+    "term": "경향",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 141,
+    "origRank": 1094,
+    "term": "기록",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 142,
+    "origRank": 1097,
+    "term": "반면",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 143,
+    "origRank": 1099,
+    "term": "움직임",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 144,
+    "origRank": 1101,
+    "term": "터지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 145,
+    "origRank": 1102,
+    "term": "특성",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 146,
+    "origRank": 1103,
+    "term": "교장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 147,
+    "origRank": 1106,
+    "term": "입시",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 148,
+    "origRank": 1114,
+    "term": "다루다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 149,
+    "origRank": 1123,
+    "term": "업체",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 150,
+    "origRank": 1126,
+    "term": "국회",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 151,
+    "origRank": 1136,
+    "term": "세월",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 152,
+    "origRank": 1139,
+    "term": "깨닫다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 153,
+    "origRank": 1141,
+    "term": "신",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 154,
+    "origRank": 1148,
+    "term": "거리",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 155,
+    "origRank": 1154,
+    "term": "부정",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 156,
+    "origRank": 1155,
+    "term": "사정",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 157,
+    "origRank": 1158,
+    "term": "도대체",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 158,
+    "origRank": 1174,
+    "term": "처리",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 159,
+    "origRank": 1176,
+    "term": "꼴",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 160,
+    "origRank": 1183,
+    "term": "그리하여",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 161,
+    "origRank": 1190,
+    "term": "내부",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 162,
+    "origRank": 1191,
+    "term": "다소",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 163,
+    "origRank": 1197,
+    "term": "그저",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 164,
+    "origRank": 1202,
+    "term": "부담",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 165,
+    "origRank": 1211,
+    "term": "위원",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 166,
+    "origRank": 1219,
+    "term": "법칙",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 167,
+    "origRank": 1222,
+    "term": "오염",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 168,
+    "origRank": 1225,
+    "term": "참여하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 169,
+    "origRank": 1226,
+    "term": "탓",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 170,
+    "origRank": 1232,
+    "term": "범죄",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 171,
+    "origRank": 1236,
+    "term": "논리",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 172,
+    "origRank": 1240,
+    "term": "감각",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 173,
+    "origRank": 1250,
+    "term": "기구",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 174,
+    "origRank": 1256,
+    "term": "후보",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 175,
+    "origRank": 1260,
+    "term": "근거",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 176,
+    "origRank": 1264,
+    "term": "시각",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 177,
+    "origRank": 1265,
+    "term": "이끌다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 178,
+    "origRank": 1274,
+    "term": "수단",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 179,
+    "origRank": 1281,
+    "term": "형성",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 180,
+    "origRank": 1282,
+    "term": "기울이다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 181,
+    "origRank": 1284,
+    "term": "장면",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 182,
+    "origRank": 1293,
+    "term": "더불다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 183,
+    "origRank": 1296,
+    "term": "개방",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 184,
+    "origRank": 1299,
+    "term": "앞서",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 185,
+    "origRank": 1307,
+    "term": "소프트웨어",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 186,
+    "origRank": 1309,
+    "term": "반응",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 187,
+    "origRank": 1314,
+    "term": "비판",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 188,
+    "origRank": 1316,
+    "term": "세대",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 189,
+    "origRank": 1338,
+    "term": "공개",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 190,
+    "origRank": 1345,
+    "term": "매체",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 191,
+    "origRank": 1349,
+    "term": "영역",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 192,
+    "origRank": 1350,
+    "term": "체험",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 193,
+    "origRank": 1351,
+    "term": "구속",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 194,
+    "origRank": 1353,
+    "term": "때로",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 195,
+    "origRank": 1355,
+    "term": "극복하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 196,
+    "origRank": 1356,
+    "term": "불법",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 197,
+    "origRank": 1359,
+    "term": "쓰이다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 198,
+    "origRank": 1360,
+    "term": "일정하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 199,
+    "origRank": 1361,
+    "term": "다지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 200,
+    "origRank": 1362,
+    "term": "밝혀지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 201,
+    "origRank": 1365,
+    "term": "이념",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 202,
+    "origRank": 1372,
+    "term": "치르다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 203,
+    "origRank": 1378,
+    "term": "성",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 204,
+    "origRank": 1390,
+    "term": "문화재",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 205,
+    "origRank": 1397,
+    "term": "구성되다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 206,
+    "origRank": 1398,
+    "term": "독특하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 207,
+    "origRank": 1400,
+    "term": "사례",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 208,
+    "origRank": 1403,
+    "term": "추진하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 209,
+    "origRank": 1405,
+    "term": "틀",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 210,
+    "origRank": 1406,
+    "term": "평균",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 211,
+    "origRank": 1408,
+    "term": "훈련",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 212,
+    "origRank": 1409,
+    "term": "흐름",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 213,
+    "origRank": 1421,
+    "term": "위기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 214,
+    "origRank": 1422,
+    "term": "정당",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 215,
+    "origRank": 1425,
+    "term": "폭력",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 216,
+    "origRank": 1426,
+    "term": "혹시",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 217,
+    "origRank": 1430,
+    "term": "절차",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 218,
+    "origRank": 1441,
+    "term": "증가하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 219,
+    "origRank": 1446,
+    "term": "외치다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 220,
+    "origRank": 1451,
+    "term": "권리",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 221,
+    "origRank": 1457,
+    "term": "자원",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 222,
+    "origRank": 1459,
+    "term": "넘기다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 223,
+    "origRank": 1461,
+    "term": "물체",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 224,
+    "origRank": 1463,
+    "term": "시위",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 225,
+    "origRank": 1467,
+    "term": "제외하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 226,
+    "origRank": 1470,
+    "term": "견해",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 227,
+    "origRank": 1474,
+    "term": "안정",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 228,
+    "origRank": 1477,
+    "term": "어쨌든",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 229,
+    "origRank": 1482,
+    "term": "눈길",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 230,
+    "origRank": 1489,
+    "term": "주어지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 231,
+    "origRank": 1492,
+    "term": "널리",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 232,
+    "origRank": 1499,
+    "term": "소재",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 233,
+    "origRank": 1500,
+    "term": "전망",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 234,
+    "origRank": 1502,
+    "term": "형성되다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 235,
+    "origRank": 1513,
+    "term": "결론",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 236,
+    "origRank": 1515,
+    "term": "들이다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 237,
+    "origRank": 1523,
+    "term": "자녀",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 238,
+    "origRank": 1526,
+    "term": "판결",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 239,
+    "origRank": 1534,
+    "term": "비로소",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 240,
+    "origRank": 1537,
+    "term": "서구",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 241,
+    "origRank": 1538,
+    "term": "소유",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 242,
+    "origRank": 1547,
+    "term": "부문",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 243,
+    "origRank": 1552,
+    "term": "규정",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 244,
+    "origRank": 1557,
+    "term": "아예",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 245,
+    "origRank": 1558,
+    "term": "어찌",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 246,
+    "origRank": 1560,
+    "term": "작용하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 247,
+    "origRank": 1562,
+    "term": "개선",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 248,
+    "origRank": 1565,
+    "term": "바람직하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 249,
+    "origRank": 1575,
+    "term": "신화",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 250,
+    "origRank": 1579,
+    "term": "거두다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 251,
+    "origRank": 1582,
+    "term": "범위",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 252,
+    "origRank": 1584,
+    "term": "철학",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 253,
+    "origRank": 1587,
+    "term": "근본적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 254,
+    "origRank": 1589,
+    "term": "대형",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 255,
+    "origRank": 1592,
+    "term": "본격적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 256,
+    "origRank": 1596,
+    "term": "퍼지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 257,
+    "origRank": 1601,
+    "term": "백성",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 258,
+    "origRank": 1602,
+    "term": "상당히",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 259,
+    "origRank": 1606,
+    "term": "자네",
+    "pos": "pronoun",
+    "grade": "C",
+    "definition": "",
+    "category": "pronoun"
+  },
+  {
+    "rank": 260,
+    "origRank": 1607,
+    "term": "기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 261,
+    "origRank": 1613,
+    "term": "군사",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 262,
+    "origRank": 1617,
+    "term": "마당",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 263,
+    "origRank": 1621,
+    "term": "지적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 264,
+    "origRank": 1622,
+    "term": "짝",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 265,
+    "origRank": 1623,
+    "term": "참으로",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 266,
+    "origRank": 1628,
+    "term": "앞두다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 267,
+    "origRank": 1629,
+    "term": "예산",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 268,
+    "origRank": 1631,
+    "term": "우려",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 269,
+    "origRank": 1639,
+    "term": "보호하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 270,
+    "origRank": 1641,
+    "term": "시스템",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 271,
+    "origRank": 1645,
+    "term": "참여",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 272,
+    "origRank": 1651,
+    "term": "애쓰다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 273,
+    "origRank": 1652,
+    "term": "올바르다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 274,
+    "origRank": 1655,
+    "term": "흔하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 275,
+    "origRank": 1659,
+    "term": "단위",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 276,
+    "origRank": 1661,
+    "term": "뛰어나다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 277,
+    "origRank": 1665,
+    "term": "소득",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 278,
+    "origRank": 1666,
+    "term": "수도",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 279,
+    "origRank": 1667,
+    "term": "역",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 280,
+    "origRank": 1668,
+    "term": "인식하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 281,
+    "origRank": 1674,
+    "term": "맺다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 282,
+    "origRank": 1675,
+    "term": "수요",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 283,
+    "origRank": 1682,
+    "term": "지도자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 284,
+    "origRank": 1684,
+    "term": "구성하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 285,
+    "origRank": 1685,
+    "term": "대체로",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 286,
+    "origRank": 1686,
+    "term": "때리다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 287,
+    "origRank": 1688,
+    "term": "문득",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 288,
+    "origRank": 1690,
+    "term": "위원장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 289,
+    "origRank": 1694,
+    "term": "효과적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 290,
+    "origRank": 1699,
+    "term": "생산하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 291,
+    "origRank": 1702,
+    "term": "의도",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 292,
+    "origRank": 1703,
+    "term": "저지르다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 293,
+    "origRank": 1704,
+    "term": "줄어들다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 294,
+    "origRank": 1709,
+    "term": "대개",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 295,
+    "origRank": 1711,
+    "term": "외부",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 296,
+    "origRank": 1713,
+    "term": "한때",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 297,
+    "origRank": 1720,
+    "term": "살아오다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 298,
+    "origRank": 1721,
+    "term": "상대적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 299,
+    "origRank": 1736,
+    "term": "조미료",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 300,
+    "origRank": 1738,
+    "term": "강력하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 301,
+    "origRank": 1751,
+    "term": "법률",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 302,
+    "origRank": 1758,
+    "term": "화면",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 303,
+    "origRank": 1764,
+    "term": "이어",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 304,
+    "origRank": 1766,
+    "term": "진리",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 305,
+    "origRank": 1772,
+    "term": "공급",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 306,
+    "origRank": 1774,
+    "term": "동료",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 307,
+    "origRank": 1778,
+    "term": "균형",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 308,
+    "origRank": 1779,
+    "term": "기본적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 309,
+    "origRank": 1785,
+    "term": "접근",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 310,
+    "origRank": 1786,
+    "term": "지켜보다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 311,
+    "origRank": 1788,
+    "term": "개성",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 312,
+    "origRank": 1792,
+    "term": "띄다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 313,
+    "origRank": 1793,
+    "term": "무너지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 314,
+    "origRank": 1797,
+    "term": "이러다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 315,
+    "origRank": 1798,
+    "term": "일어서다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 316,
+    "origRank": 1799,
+    "term": "죄",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 317,
+    "origRank": 1802,
+    "term": "핵심",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 318,
+    "origRank": 1803,
+    "term": "후반",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 319,
+    "origRank": 1815,
+    "term": "동작",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 320,
+    "origRank": 1816,
+    "term": "뜻하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 321,
+    "origRank": 1823,
+    "term": "중세",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 322,
+    "origRank": 1825,
+    "term": "통합",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 323,
+    "origRank": 1828,
+    "term": "꼬리",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 324,
+    "origRank": 1831,
+    "term": "양식",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 325,
+    "origRank": 1835,
+    "term": "주식",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 326,
+    "origRank": 1839,
+    "term": "끊임없이",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 327,
+    "origRank": 1842,
+    "term": "상식",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 328,
+    "origRank": 1843,
+    "term": "상표",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 329,
+    "origRank": 1847,
+    "term": "의식하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 330,
+    "origRank": 1850,
+    "term": "둘러싸다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 331,
+    "origRank": 1854,
+    "term": "민주화",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 332,
+    "origRank": 1855,
+    "term": "보도",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 333,
+    "origRank": 1856,
+    "term": "살피다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 334,
+    "origRank": 1864,
+    "term": "거부하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 335,
+    "origRank": 1870,
+    "term": "실시",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 336,
+    "origRank": 1871,
+    "term": "운명",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 337,
+    "origRank": 1873,
+    "term": "재정",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 338,
+    "origRank": 1874,
+    "term": "차라리",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 339,
+    "origRank": 1875,
+    "term": "학자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 340,
+    "origRank": 1878,
+    "term": "대규모",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 341,
+    "origRank": 1880,
+    "term": "민간",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 342,
+    "origRank": 1881,
+    "term": "법원",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 343,
+    "origRank": 1883,
+    "term": "사실상",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 344,
+    "origRank": 1884,
+    "term": "아끼다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 345,
+    "origRank": 1888,
+    "term": "지대",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 346,
+    "origRank": 1890,
+    "term": "판단하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 347,
+    "origRank": 1894,
+    "term": "실천하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 348,
+    "origRank": 1898,
+    "term": "용어",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 349,
+    "origRank": 1899,
+    "term": "익히다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 350,
+    "origRank": 1902,
+    "term": "지위",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 351,
+    "origRank": 1903,
+    "term": "풍부하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 352,
+    "origRank": 1907,
+    "term": "식량",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 353,
+    "origRank": 1908,
+    "term": "실험",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 354,
+    "origRank": 1909,
+    "term": "용기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 355,
+    "origRank": 1914,
+    "term": "핵",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 356,
+    "origRank": 1920,
+    "term": "상당하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 357,
+    "origRank": 1922,
+    "term": "수석",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 358,
+    "origRank": 1930,
+    "term": "적절하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 359,
+    "origRank": 1932,
+    "term": "제사",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 360,
+    "origRank": 1934,
+    "term": "지혜",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 361,
+    "origRank": 1935,
+    "term": "참새",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 362,
+    "origRank": 1942,
+    "term": "농산물",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 363,
+    "origRank": 1952,
+    "term": "위대하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 364,
+    "origRank": 1954,
+    "term": "지배하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 365,
+    "origRank": 1955,
+    "term": "틈",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 366,
+    "origRank": 1956,
+    "term": "가령",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 367,
+    "origRank": 1958,
+    "term": "거대하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 368,
+    "origRank": 1960,
+    "term": "드물다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 369,
+    "origRank": 1962,
+    "term": "매달리다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 370,
+    "origRank": 1967,
+    "term": "토대",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 371,
+    "origRank": 1973,
+    "term": "목숨",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 372,
+    "origRank": 1977,
+    "term": "빠져나가다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 373,
+    "origRank": 1979,
+    "term": "여론",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 374,
+    "origRank": 1980,
+    "term": "의복",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 375,
+    "origRank": 1981,
+    "term": "체조",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 376,
+    "origRank": 1984,
+    "term": "현실적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 377,
+    "origRank": 1985,
+    "term": "화제",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 378,
+    "origRank": 1988,
+    "term": "공격",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 379,
+    "origRank": 1990,
+    "term": "물가",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 380,
+    "origRank": 1991,
+    "term": "민주주의",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 381,
+    "origRank": 1993,
+    "term": "소중하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 382,
+    "origRank": 1995,
+    "term": "의문",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 383,
+    "origRank": 2005,
+    "term": "빛나다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 384,
+    "origRank": 2007,
+    "term": "실리다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 385,
+    "origRank": 2008,
+    "term": "압력",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 386,
+    "origRank": 2010,
+    "term": "예상되다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 387,
+    "origRank": 2014,
+    "term": "증권",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 388,
+    "origRank": 2015,
+    "term": "직후",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 389,
+    "origRank": 2016,
+    "term": "차량",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 390,
+    "origRank": 2017,
+    "term": "출산",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 391,
+    "origRank": 2025,
+    "term": "선진국",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 392,
+    "origRank": 2030,
+    "term": "재판",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 393,
+    "origRank": 2032,
+    "term": "제자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 394,
+    "origRank": 2036,
+    "term": "회복",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 395,
+    "origRank": 2037,
+    "term": "구역",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 396,
+    "origRank": 2038,
+    "term": "대응",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 397,
+    "origRank": 2040,
+    "term": "발휘하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 398,
+    "origRank": 2041,
+    "term": "소비",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 399,
+    "origRank": 2042,
+    "term": "심장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 400,
+    "origRank": 2048,
+    "term": "중소기업",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 401,
+    "origRank": 2049,
+    "term": "직접적",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 402,
+    "origRank": 2050,
+    "term": "진실",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 403,
+    "origRank": 2051,
+    "term": "필자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 404,
+    "origRank": 2052,
+    "term": "협력",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 405,
+    "origRank": 2054,
+    "term": "계층",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 406,
+    "origRank": 2057,
+    "term": "담당",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 407,
+    "origRank": 2062,
+    "term": "보도하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 408,
+    "origRank": 2066,
+    "term": "인상",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 409,
+    "origRank": 2068,
+    "term": "철저하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 410,
+    "origRank": 2069,
+    "term": "태아",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 411,
+    "origRank": 2077,
+    "term": "두르다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 412,
+    "origRank": 2078,
+    "term": "드디어",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 413,
+    "origRank": 2080,
+    "term": "민주",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 414,
+    "origRank": 2085,
+    "term": "여인",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 415,
+    "origRank": 2086,
+    "term": "운영하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 416,
+    "origRank": 2089,
+    "term": "평가하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 417,
+    "origRank": 2091,
+    "term": "필요성",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 418,
+    "origRank": 2092,
+    "term": "감추다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 419,
+    "origRank": 2095,
+    "term": "모",
+    "pos": "pronoun",
+    "grade": "C",
+    "definition": "",
+    "category": "pronoun"
+  },
+  {
+    "rank": 420,
+    "origRank": 2096,
+    "term": "부위",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 421,
+    "origRank": 2097,
+    "term": "비우다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 422,
+    "origRank": 2098,
+    "term": "설치하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 423,
+    "origRank": 2101,
+    "term": "아울러",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 424,
+    "origRank": 2103,
+    "term": "지시",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 425,
+    "origRank": 2106,
+    "term": "형성하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 426,
+    "origRank": 2110,
+    "term": "덧붙이다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 427,
+    "origRank": 2113,
+    "term": "무기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 428,
+    "origRank": 2118,
+    "term": "일종",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 429,
+    "origRank": 2119,
+    "term": "처지",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 430,
+    "origRank": 2123,
+    "term": "형편",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 431,
+    "origRank": 2128,
+    "term": "본질",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 432,
+    "origRank": 2129,
+    "term": "비치다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 433,
+    "origRank": 2131,
+    "term": "서서히",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 434,
+    "origRank": 2132,
+    "term": "스승",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 435,
+    "origRank": 2133,
+    "term": "신분",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 436,
+    "origRank": 2134,
+    "term": "실시되다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 437,
+    "origRank": 2146,
+    "term": "증거",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 438,
+    "origRank": 2147,
+    "term": "초점",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 439,
+    "origRank": 2151,
+    "term": "강화하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 440,
+    "origRank": 2152,
+    "term": "공포",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 441,
+    "origRank": 2153,
+    "term": "권위",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 442,
+    "origRank": 2157,
+    "term": "미루다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 443,
+    "origRank": 2162,
+    "term": "실정",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 444,
+    "origRank": 2163,
+    "term": "영양",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 445,
+    "origRank": 2164,
+    "term": "육체",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 446,
+    "origRank": 2171,
+    "term": "그이",
+    "pos": "pronoun",
+    "grade": "C",
+    "definition": "",
+    "category": "pronoun"
+  },
+  {
+    "rank": 447,
+    "origRank": 2174,
+    "term": "대기",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 448,
+    "origRank": 2175,
+    "term": "독립",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 449,
+    "origRank": 2186,
+    "term": "해당하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 450,
+    "origRank": 2187,
+    "term": "간부",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 451,
+    "origRank": 2189,
+    "term": "관념",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 452,
+    "origRank": 2195,
+    "term": "도입",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 453,
+    "origRank": 2198,
+    "term": "비추다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 454,
+    "origRank": 2202,
+    "term": "여건",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 455,
+    "origRank": 2205,
+    "term": "통제",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 456,
+    "origRank": 2213,
+    "term": "못지않다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 457,
+    "origRank": 2214,
+    "term": "반영하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 458,
+    "origRank": 2217,
+    "term": "성장하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 459,
+    "origRank": 2218,
+    "term": "소속",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 460,
+    "origRank": 2221,
+    "term": "제작",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 461,
+    "origRank": 2224,
+    "term": "추진",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 462,
+    "origRank": 2229,
+    "term": "구입하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 463,
+    "origRank": 2233,
+    "term": "마련",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 464,
+    "origRank": 2235,
+    "term": "선장",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 465,
+    "origRank": 2239,
+    "term": "시점",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 466,
+    "origRank": 2244,
+    "term": "코드",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 467,
+    "origRank": 2251,
+    "term": "세계관",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 468,
+    "origRank": 2254,
+    "term": "의존하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 469,
+    "origRank": 2263,
+    "term": "건설하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 470,
+    "origRank": 2264,
+    "term": "경쟁력",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 471,
+    "origRank": 2267,
+    "term": "연락",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 472,
+    "origRank": 2281,
+    "term": "문자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 473,
+    "origRank": 2283,
+    "term": "비롯되다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 474,
+    "origRank": 2286,
+    "term": "여겨지다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 475,
+    "origRank": 2290,
+    "term": "위주",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 476,
+    "origRank": 2295,
+    "term": "전환",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 477,
+    "origRank": 2297,
+    "term": "진행",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 478,
+    "origRank": 2299,
+    "term": "통증",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 479,
+    "origRank": 2301,
+    "term": "하천",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 480,
+    "origRank": 2303,
+    "term": "화학",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 481,
+    "origRank": 2306,
+    "term": "거칠다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 482,
+    "origRank": 2307,
+    "term": "그나마",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 483,
+    "origRank": 2308,
+    "term": "그야말로",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 484,
+    "origRank": 2310,
+    "term": "남부",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 485,
+    "origRank": 2321,
+    "term": "연기자",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 486,
+    "origRank": 2322,
+    "term": "워낙",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 487,
+    "origRank": 2334,
+    "term": "더욱이",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 488,
+    "origRank": 2335,
+    "term": "별도",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 489,
+    "origRank": 2336,
+    "term": "비극",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 490,
+    "origRank": 2339,
+    "term": "솜씨",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 491,
+    "origRank": 2352,
+    "term": "극",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 492,
+    "origRank": 2353,
+    "term": "나란히",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 493,
+    "origRank": 2354,
+    "term": "다방",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 494,
+    "origRank": 2358,
+    "term": "수행하다",
+    "pos": "verb",
+    "grade": "C",
+    "definition": "",
+    "category": "verb"
+  },
+  {
+    "rank": 495,
+    "origRank": 2360,
+    "term": "실로",
+    "pos": "adverb",
+    "grade": "C",
+    "definition": "",
+    "category": "adverb"
+  },
+  {
+    "rank": 496,
+    "origRank": 2367,
+    "term": "인연",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 497,
+    "origRank": 2368,
+    "term": "일행",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 498,
+    "origRank": 2373,
+    "term": "지식인",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  },
+  {
+    "rank": 499,
+    "origRank": 2374,
+    "term": "진지하다",
+    "pos": "adjective",
+    "grade": "C",
+    "definition": "",
+    "category": "adjective"
+  },
+  {
+    "rank": 500,
+    "origRank": 2376,
+    "term": "호흡",
+    "pos": "noun",
+    "grade": "C",
+    "definition": "",
+    "category": "noun"
+  }
+]

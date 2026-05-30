@@ -117,6 +117,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  'ko-advanced': {
+    id: 'curated-ko-advanced-1',
+    title: 'Advanced Korean 500 (for English speakers)',
+    icon: '🇰🇷',
+    category: '고급',
+    level: 'advanced',
+    description: 'Advanced Korean 500 for English speakers (TOPIK II 5-6). NIKL grade C from Wiktionary "Basic Korean Vocabulary List" (CC BY-SA 4.0); English meanings & TOPIK 5-6 examples AI-generated.',
+    tags: ['Korean', 'TOPIK', 'Advanced'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
   vi: {
     id: 'curated-vi-basic-1',
     title: '기초 베트남어 500',

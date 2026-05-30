@@ -178,7 +178,7 @@ export default function VocabListsScreen() {
               </View>
             )}
           </View>
-          <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={1}>
+          <Text style={[styles.headerSubtitle, { color: colors.textSecondary }]} numberOfLines={2}>
             {dailyTip}
           </Text>
         </View>

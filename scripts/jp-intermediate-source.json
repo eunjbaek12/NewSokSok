@@ -1,0 +1,5002 @@
+[
+  {
+    "rank": 1,
+    "origFreq": 17,
+    "term": "事",
+    "reading": "こと",
+    "pos": "noun",
+    "definition": "you should ...; I advise that you ...; it's important to ... thing; matter incident; occurrence; event; something serious; trouble; crisis",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 2,
+    "origFreq": 23,
+    "term": "まあ",
+    "reading": "まあ",
+    "pos": "adverb",
+    "definition": "just (e.g. \"just wait here\"); come now; now, now tolerably; passably; moderately; reasonably; fairly; rather; somewhat well...; I think...; it would seem...; you might say...; Hmmm, I guess so...",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 3,
+    "origFreq": 54,
+    "term": "時",
+    "reading": "とき",
+    "pos": "noun",
+    "definition": "time; hour; moment occasion; case chance; opportunity; season",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 4,
+    "origFreq": 91,
+    "term": "方",
+    "reading": "ほう",
+    "pos": "noun",
+    "definition": "direction; way; side; area (in a particular direction) side (of an argument, etc.); one's part type; category",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 5,
+    "origFreq": 120,
+    "term": "日本",
+    "reading": "にほん",
+    "pos": "noun",
+    "definition": "Japan",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 6,
+    "origFreq": 129,
+    "term": "非常",
+    "reading": "ひじょう",
+    "pos": "noun",
+    "definition": "emergency extreme; great; extraordinary; remarkable; unusual; terrible; severe",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 7,
+    "origFreq": 138,
+    "term": "感じ",
+    "reading": "かんじ",
+    "pos": "noun",
+    "definition": "feeling; sense; impression",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 8,
+    "origFreq": 141,
+    "term": "九",
+    "reading": "きゅう",
+    "pos": "number",
+    "definition": "nine; 9",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 9,
+    "origFreq": 150,
+    "term": "先ず",
+    "reading": "まず",
+    "pos": "adverb",
+    "definition": "first (of all); firstly; to begin with; before anything else probably; most likely; almost certainly; virtually more or less (satisfactory); on the whole; reasonably",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 10,
+    "origFreq": 170,
+    "term": "頃",
+    "reading": "ころ",
+    "pos": "noun, adverb",
+    "definition": "(approximate) time; around; about; toward suitable time (or condition) time of year; season",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 11,
+    "origFreq": 180,
+    "term": "人間",
+    "reading": "にんげん",
+    "pos": "noun",
+    "definition": "human being; human; person; man; mankind; humankind character (of a person)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 12,
+    "origFreq": 206,
+    "term": "可也",
+    "reading": "かなり",
+    "pos": "adverb, adjective",
+    "definition": "considerably; fairly; quite; rather; pretty",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 13,
+    "origFreq": 210,
+    "term": "感じる",
+    "reading": "かんじる",
+    "pos": "verb",
+    "definition": "to feel; to sense; to experience to be moved (by); to be touched (by); to be impressed (by); to respond (to) to become infected with (an illness); to catch",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 14,
+    "origFreq": 227,
+    "term": "現在",
+    "reading": "げんざい",
+    "pos": "noun, adverb, adjective",
+    "definition": "the present; present time; now as of present tense",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 15,
+    "origFreq": 237,
+    "term": "或いは",
+    "reading": "あるいは",
+    "pos": "conjunction",
+    "definition": "or; either ... or maybe; perhaps; possibly some ... and others ...; sometimes ... and at other times ...",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 16,
+    "origFreq": 242,
+    "term": "実際",
+    "reading": "じっさい",
+    "pos": "noun, adjective",
+    "definition": "reality; actuality; truth; fact; actual conditions practice (as opposed to theory) truly; really; indeed; actually",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 17,
+    "origFreq": 250,
+    "term": "金",
+    "reading": "かね",
+    "pos": "noun",
+    "definition": "money metal",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 18,
+    "origFreq": 253,
+    "term": "ずっと",
+    "reading": "ずっと",
+    "pos": "adverb",
+    "definition": "continuously; the whole time; all the way; throughout much (more); (by) far; far and away; a lot; a great deal far (away); long (ago, before, after)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 19,
+    "origFreq": 254,
+    "term": "更に",
+    "reading": "さらに",
+    "pos": "adverb, conjunction",
+    "definition": "furthermore; again; after all; more and more; moreover; even more",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 20,
+    "origFreq": 260,
+    "term": "勿論",
+    "reading": "もちろん",
+    "pos": "adverb",
+    "definition": "of course; certainly; naturally",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 21,
+    "origFreq": 266,
+    "term": "全て",
+    "reading": "すべて",
+    "pos": "noun, adjective",
+    "definition": "everything; all; the whole entirely; completely; wholly; all",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 22,
+    "origFreq": 274,
+    "term": "当時",
+    "reading": "とうじ",
+    "pos": "noun, adverb",
+    "definition": "at that time; in those days Touji",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 23,
+    "origFreq": 289,
+    "term": "全く",
+    "reading": "まったく",
+    "pos": "adverb, adjective",
+    "definition": "really; truly; entirely; completely; wholly; perfectly indeed good grief",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 24,
+    "origFreq": 291,
+    "term": "結局",
+    "reading": "けっきょく",
+    "pos": "adverb",
+    "definition": "after all; in the end; ultimately; eventually conclusion; end end of a game of go, shogi, etc.",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 25,
+    "origFreq": 297,
+    "term": "中々",
+    "reading": "なかなか",
+    "pos": "adverb, adjective",
+    "definition": "very; considerably; easily; readily; fairly; quite; highly; rather by no means; not readily middle; half-way point",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 26,
+    "origFreq": 303,
+    "term": "状態",
+    "reading": "じょうたい",
+    "pos": "noun",
+    "definition": "state; condition; situation; appearance; circumstances",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 27,
+    "origFreq": 306,
+    "term": "全然",
+    "reading": "ぜんぜん",
+    "pos": "adverb",
+    "definition": "(not) at all; (not) in the slightest wholly; entirely; completely; totally extremely; very",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 28,
+    "origFreq": 315,
+    "term": "相手",
+    "reading": "あいて",
+    "pos": "noun",
+    "definition": "companion; partner; company other party; addressee; counterparty opponent (sports, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 29,
+    "origFreq": 322,
+    "term": "どんな",
+    "reading": "どんな",
+    "pos": "adjective",
+    "definition": "what kind of; what sort of; what no matter what (kind of); whatever; any; all",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 30,
+    "origFreq": 330,
+    "term": "所謂",
+    "reading": "いわゆる",
+    "pos": "adjective",
+    "definition": "what is called; what you call; what they call; so-called",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 31,
+    "origFreq": 334,
+    "term": "者",
+    "reading": "もの",
+    "pos": "noun",
+    "definition": "person",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 32,
+    "origFreq": 349,
+    "term": "部分",
+    "reading": "ぶぶん",
+    "pos": "noun",
+    "definition": "portion; section; part",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 33,
+    "origFreq": 351,
+    "term": "結果",
+    "reading": "けっか",
+    "pos": "noun",
+    "definition": "result; consequence; outcome; effect as a result of ...; as a consequence of ...; after ...; following ... bearing fruit; fruiting",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 34,
+    "origFreq": 353,
+    "term": "状況",
+    "reading": "じょうきょう",
+    "pos": "noun",
+    "definition": "state of affairs; situation; conditions; circumstances",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 35,
+    "origFreq": 357,
+    "term": "上手い",
+    "reading": "うまい",
+    "pos": "adjective",
+    "definition": "skillful; skilful; skilled; good; expert; clever (expression, trick, etc.); apt; appropriate delicious; tasty; good; nice good (deal, idea, etc.); profitable; promising; lucky; fortunate; successful; satisfactory; splendid",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 36,
+    "origFreq": 367,
+    "term": "其れ其れ",
+    "reading": "それぞれ",
+    "pos": "adverb, noun, adjective",
+    "definition": "each; respectively",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 37,
+    "origFreq": 368,
+    "term": "方法",
+    "reading": "ほうほう",
+    "pos": "noun",
+    "definition": "method; way; manner; process; procedure; means; measure",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 38,
+    "origFreq": 376,
+    "term": "ですから",
+    "reading": "ですから",
+    "pos": "conjunction",
+    "definition": "so; therefore; accordingly; consequently; on those grounds; that is why; for that reason",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 39,
+    "origFreq": 380,
+    "term": "得る",
+    "reading": "うる",
+    "pos": "suffix",
+    "definition": "to be able to ...; can ... to get; to acquire; to obtain; to procure; to earn; to win; to gain; to secure; to attain",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 40,
+    "origFreq": 380,
+    "term": "得る",
+    "reading": "える",
+    "pos": "verb",
+    "definition": "to get; to earn; to acquire; to procure; to gain; to secure; to attain; to obtain; to win to understand; to comprehend to receive something undesirable (e.g. a punishment); to get (ill)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 41,
+    "origFreq": 381,
+    "term": "兎に角",
+    "reading": "とにかく",
+    "pos": "adverb",
+    "definition": "anyway; anyhow; at any rate; in any case; at least; just setting aside ...; regardless of ... really; truly; certainly; definitely; undeniably",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 42,
+    "origFreq": 392,
+    "term": "残す",
+    "reading": "のこす",
+    "pos": "verb",
+    "definition": "to leave (behind) to leave (undone); to not finish to save; to set aside; to reserve",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 43,
+    "origFreq": 394,
+    "term": "嬉しい",
+    "reading": "うれしい",
+    "pos": "adjective",
+    "definition": "happy; glad; pleased; delighted; overjoyed joyful; delightful; gratifying; pleasant",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 44,
+    "origFreq": 403,
+    "term": "今回",
+    "reading": "こんかい",
+    "pos": "noun, adverb",
+    "definition": "this time; now",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 45,
+    "origFreq": 405,
+    "term": "人生",
+    "reading": "じんせい",
+    "pos": "noun",
+    "definition": "(one's) life",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 46,
+    "origFreq": 406,
+    "term": "通り",
+    "reading": "とおり",
+    "pos": "noun",
+    "definition": "Toori street; road; avenue; thoroughfare traffic; coming and going",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 47,
+    "origFreq": 407,
+    "term": "内容",
+    "reading": "ないよう",
+    "pos": "noun",
+    "definition": "contents; content; substance; matter; detail; import",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 48,
+    "origFreq": 409,
+    "term": "経験",
+    "reading": "けいけん",
+    "pos": "noun, verb",
+    "definition": "experience",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 49,
+    "origFreq": 412,
+    "term": "自然",
+    "reading": "しぜん",
+    "pos": "noun",
+    "definition": "nature natural; spontaneous; automatic naturally; spontaneously; automatically",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 50,
+    "origFreq": 416,
+    "term": "与える",
+    "reading": "あたえる",
+    "pos": "verb",
+    "definition": "to give (esp. to someone of lower status); to bestow; to grant; to confer; to present; to award to provide; to afford; to offer; to supply to assign",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 51,
+    "origFreq": 421,
+    "term": "詰まり",
+    "reading": "つまり",
+    "pos": "adverb",
+    "definition": "that is to say; that is; in other words; I mean; that (this, it) means in short; in brief; to sum up; ultimately; in the end; in the long run; when all is said and done; what it all comes down to; when you get right down to it; basically clogging; obstruction; stuffing; (degree of) blockage",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 52,
+    "origFreq": 423,
+    "term": "存在",
+    "reading": "そんざい",
+    "pos": "noun, verb",
+    "definition": "existence; being; presence",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 53,
+    "origFreq": 424,
+    "term": "絶対",
+    "reading": "ぜったい",
+    "pos": "adverb",
+    "definition": "absolutely; definitely; unconditionally absolute; unconditional; unmistakable absoluteness",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 54,
+    "origFreq": 444,
+    "term": "姿",
+    "reading": "すがた",
+    "pos": "noun",
+    "definition": "figure; form; shape appearance; dress; guise state; condition; picture; image",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 55,
+    "origFreq": 446,
+    "term": "時期",
+    "reading": "じき",
+    "pos": "noun, adverb",
+    "definition": "time; season; period; phase; stage",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 56,
+    "origFreq": 447,
+    "term": "逆",
+    "reading": "ぎゃく",
+    "pos": "adjective, noun",
+    "definition": "reverse; opposite converse (of a hypothesis, etc.) inverse (function)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 57,
+    "origFreq": 449,
+    "term": "示す",
+    "reading": "しめす",
+    "pos": "verb",
+    "definition": "to (take out and) show; to demonstrate; to tell; to exemplify; to make apparent to point out (finger, clock hand, needle, etc.) to indicate; to show; to represent; to signify; to display",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 58,
+    "origFreq": 456,
+    "term": "然も",
+    "reading": "しかも",
+    "pos": "conjunction",
+    "definition": "moreover; furthermore nevertheless; and yet",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 59,
+    "origFreq": 458,
+    "term": "彼ら",
+    "reading": "かれら",
+    "pos": "pronoun",
+    "definition": "they; them",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 60,
+    "origFreq": 460,
+    "term": "程度",
+    "reading": "ていど",
+    "pos": "noun, adverb",
+    "definition": "degree; amount; grade; standard; of the order of (following a number); about; approximately",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 61,
+    "origFreq": 462,
+    "term": "願う",
+    "reading": "ねがう",
+    "pos": "verb",
+    "definition": "to desire; to wish; to hope to beg; to request; to implore; to pray to have something done for oneself",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 62,
+    "origFreq": 463,
+    "term": "既に",
+    "reading": "すでに",
+    "pos": "adverb",
+    "definition": "already previously; before undeniably; unmistakably; in the first place",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 63,
+    "origFreq": 468,
+    "term": "影響",
+    "reading": "えいきょう",
+    "pos": "noun, verb",
+    "definition": "influence; effect; impact",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 64,
+    "origFreq": 472,
+    "term": "求める",
+    "reading": "もとめる",
+    "pos": "verb",
+    "definition": "to want; to wish for to request; to demand; to require; to ask for to seek; to search for; to look for; to pursue (pleasure); to hunt (a job); to find (a solution)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 65,
+    "origFreq": 473,
+    "term": "情報",
+    "reading": "じょうほう",
+    "pos": "noun",
+    "definition": "information; news; report; intelligence information (data contained in characters, signals, code, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 66,
+    "origFreq": 474,
+    "term": "貰う",
+    "reading": "もらう",
+    "pos": "verb",
+    "definition": "to receive; to take; to accept to get someone to do something to have in one's pocket (a fight, match)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 67,
+    "origFreq": 475,
+    "term": "友人",
+    "reading": "ゆうじん",
+    "pos": "noun",
+    "definition": "friend",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 68,
+    "origFreq": 476,
+    "term": "駄目",
+    "reading": "だめ",
+    "pos": "adjective, noun",
+    "definition": "no good; not serving its purpose; useless; broken hopeless; wasted; in vain; purposeless cannot; must not; not allowed",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 69,
+    "origFreq": 477,
+    "term": "経つ",
+    "reading": "たつ",
+    "pos": "verb",
+    "definition": "to pass (of time); to elapse",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 70,
+    "origFreq": 485,
+    "term": "重要",
+    "reading": "じゅうよう",
+    "pos": "adjective",
+    "definition": "important; essential; significant; major; key; principal",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 71,
+    "origFreq": 487,
+    "term": "当たる",
+    "reading": "あたる",
+    "pos": "verb",
+    "definition": "to be stricken (by food poisoning, heat, etc.); to be afflicted to be called on (e.g. by a teacher) to treat (esp. harshly); to lash out at",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 72,
+    "origFreq": 490,
+    "term": "認める",
+    "reading": "みとめる",
+    "pos": "verb",
+    "definition": "to recognize; to recognise; to observe; to notice to deem; to judge; to assess to approve; to deem acceptable; to allow",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 73,
+    "origFreq": 491,
+    "term": "これ等",
+    "reading": "これら",
+    "pos": "pronoun",
+    "definition": "these",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 74,
+    "origFreq": 502,
+    "term": "灰",
+    "reading": "はい",
+    "pos": "noun",
+    "definition": "ash; ashes",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 75,
+    "origFreq": 504,
+    "term": "身",
+    "reading": "み",
+    "pos": "noun",
+    "definition": "one's body; one's person oneself; one's appearance one's place (in society, etc.); one's position",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 76,
+    "origFreq": 507,
+    "term": "含む",
+    "reading": "ふくむ",
+    "pos": "verb",
+    "definition": "to contain; to comprise; to have; to hold; to include; to embrace to hold in the mouth to bear in mind; to understand; to harbor (grudge, etc.); to harbour",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 77,
+    "origFreq": 508,
+    "term": "地域",
+    "reading": "ちいき",
+    "pos": "noun",
+    "definition": "area; region; district; locality",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 78,
+    "origFreq": 510,
+    "term": "如何しても",
+    "reading": "どうしても",
+    "pos": "phrase, adverb",
+    "definition": "by all means; at any cost; no matter what; at any rate; surely whether (one is) willing or not; willingly or unwillingly; willy-nilly on no account; by no means",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 79,
+    "origFreq": 517,
+    "term": "図",
+    "reading": "ず",
+    "pos": "noun",
+    "definition": "drawing; picture; diagram; figure; illustration; chart; graph; map sight; scene",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 80,
+    "origFreq": 519,
+    "term": "合わせる",
+    "reading": "あわせる",
+    "pos": "verb",
+    "definition": "to match (rhythm, speed, etc.) to join together; to unite; to combine; to add up to face; to be opposite (someone)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 81,
+    "origFreq": 522,
+    "term": "辛い",
+    "reading": "つらい",
+    "pos": "adjective",
+    "definition": "painful; bitter; heart-breaking; difficult (emotionally) tough; difficult; hard (usu. of situations) cruel; harsh; cold",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 82,
+    "origFreq": 525,
+    "term": "中心",
+    "reading": "ちゅうしん",
+    "pos": "noun, adjective",
+    "definition": "center; centre; middle; heart; core; focus; pivot; emphasis; balance -centered; -centred; -focused; -oriented; centered on; focused on",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 83,
+    "origFreq": 526,
+    "term": "起こる",
+    "reading": "おこる",
+    "pos": "verb",
+    "definition": "to occur; to happen",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 84,
+    "origFreq": 527,
+    "term": "我々",
+    "reading": "われわれ",
+    "pos": "pronoun",
+    "definition": "we",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 85,
+    "origFreq": 533,
+    "term": "ちゃんと",
+    "reading": "ちゃんと",
+    "pos": "adverb, verb",
+    "definition": "diligently; seriously; earnestly; reliably; steadily; legitimately perfectly; properly; exactly; orderly; punctually; regularly; safely; in good condition sufficiently; satisfactorily",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 86,
+    "origFreq": 537,
+    "term": "頂く",
+    "reading": "いただく",
+    "pos": "verb",
+    "definition": "to receive; to get; to accept; to take; to buy to eat; to drink to be crowned with; to wear (on one's head); to have (on top)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 87,
+    "origFreq": 539,
+    "term": "変化",
+    "reading": "へんか",
+    "pos": "noun, verb",
+    "definition": "change; variation; alteration; mutation; transition; transformation; transfiguration; metamorphosis variety; diversity inflection; declension; conjugation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 88,
+    "origFreq": 540,
+    "term": "印象",
+    "reading": "いんしょう",
+    "pos": "noun",
+    "definition": "impression",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 89,
+    "origFreq": 541,
+    "term": "作品",
+    "reading": "さくひん",
+    "pos": "noun",
+    "definition": "work (e.g. book, film, painting, composition); piece; production; opus",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 90,
+    "origFreq": 543,
+    "term": "参加",
+    "reading": "さんか",
+    "pos": "noun, verb",
+    "definition": "participation; joining; entry",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 91,
+    "origFreq": 546,
+    "term": "理解",
+    "reading": "りかい",
+    "pos": "noun, verb",
+    "definition": "understanding; comprehension; appreciation sympathy",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 92,
+    "origFreq": 547,
+    "term": "事件",
+    "reading": "じけん",
+    "pos": "noun",
+    "definition": "event; affair; incident; case; plot; trouble; scandal",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 93,
+    "origFreq": 550,
+    "term": "母親",
+    "reading": "ははおや",
+    "pos": "noun",
+    "definition": "mother",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 94,
+    "origFreq": 552,
+    "term": "所が",
+    "reading": "ところが",
+    "pos": "conjunction",
+    "definition": "even so; however; still; whereupon; even though; nevertheless; on the contrary; as a matter of fact; despite",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 95,
+    "origFreq": 553,
+    "term": "目的",
+    "reading": "もくてき",
+    "pos": "noun",
+    "definition": "purpose; goal; aim; objective; intention",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 96,
+    "origFreq": 554,
+    "term": "様々",
+    "reading": "さまざま",
+    "pos": "adjective, noun",
+    "definition": "various; varied; diverse; all sorts of",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 97,
+    "origFreq": 556,
+    "term": "過ごす",
+    "reading": "すごす",
+    "pos": "verb",
+    "definition": "to spend (time); to pass; to lead (a life); to live to overdo (esp. alcohol consumption); to drink (alcohol); to carry too far; to carry to excess to take care of; to support",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 98,
+    "origFreq": 558,
+    "term": "一方",
+    "reading": "いっぽう",
+    "pos": "noun",
+    "definition": "one (esp. of two); the other; one way; the other way; one direction; the other direction; one side; the other side; one party; the other party on the one hand; on the other hand whereas; although; but at the same time; meanwhile; in turn",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 99,
+    "origFreq": 560,
+    "term": "心配",
+    "reading": "しんぱい",
+    "pos": "noun, verb, adjective",
+    "definition": "worry; concern; anxiety; uneasiness; fear care; help; aid; assistance",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 100,
+    "origFreq": 561,
+    "term": "其れでも",
+    "reading": "それでも",
+    "pos": "conjunction",
+    "definition": "but (still); and yet; nevertheless; even so; notwithstanding",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 101,
+    "origFreq": 563,
+    "term": "笑い",
+    "reading": "わらい",
+    "pos": "noun",
+    "definition": "laugh; laughter smile sneer",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 102,
+    "origFreq": 565,
+    "term": "後",
+    "reading": "ご",
+    "pos": "noun, adverb",
+    "definition": "after",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 103,
+    "origFreq": 570,
+    "term": "取れる",
+    "reading": "とれる",
+    "pos": "verb",
+    "definition": "to come off (of a button, handle, lid, etc.) to go away (of a fever, pain, swelling, etc.); to disappear; to come out (of a stain); to come off (e.g. of dust); to be removed (e.g. of wrinkles) to be harvested; to be picked; to be produced; to be caught (of fish); to be obtained; to be extracted",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 104,
+    "origFreq": 571,
+    "term": "環境",
+    "reading": "かんきょう",
+    "pos": "noun",
+    "definition": "environment; surroundings; circumstances",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 105,
+    "origFreq": 575,
+    "term": "食事",
+    "reading": "しょくじ",
+    "pos": "noun, verb",
+    "definition": "meal; dinner diet",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 106,
+    "origFreq": 578,
+    "term": "要するに",
+    "reading": "ようするに",
+    "pos": "phrase, adverb",
+    "definition": "in short; in a word; to sum up; to put it simply; to make a long story short; after all",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 107,
+    "origFreq": 579,
+    "term": "離れる",
+    "reading": "はなれる",
+    "pos": "verb",
+    "definition": "to be separated; to be apart; to be distant to leave; to go away to leave (a job, etc.); to quit; to give up",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 108,
+    "origFreq": 581,
+    "term": "実施",
+    "reading": "じっし",
+    "pos": "noun, verb",
+    "definition": "enforcement; implementation; putting into practice; carrying out; operation; working (e.g. working parameters); enactment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 109,
+    "origFreq": 582,
+    "term": "今後",
+    "reading": "こんご",
+    "pos": "noun, adverb",
+    "definition": "from now on; hereafter",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 110,
+    "origFreq": 585,
+    "term": "使用",
+    "reading": "しよう",
+    "pos": "noun, verb",
+    "definition": "use; application; employment; utilization; utilisation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 111,
+    "origFreq": 586,
+    "term": "越える",
+    "reading": "こえる",
+    "pos": "verb",
+    "definition": "to cross over; to cross; to pass through; to pass over (out of); to go beyond; to go past to exceed; to surpass; to be more (than)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 112,
+    "origFreq": 588,
+    "term": "企業",
+    "reading": "きぎょう",
+    "pos": "noun",
+    "definition": "enterprise; business; company; corporation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 113,
+    "origFreq": 592,
+    "term": "例",
+    "reading": "れい",
+    "pos": "noun",
+    "definition": "example; instance; illustration; case precedent custom; habit; practice; usage",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 114,
+    "origFreq": 596,
+    "term": "酒",
+    "reading": "さけ",
+    "pos": "noun",
+    "definition": "alcohol; sake",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 115,
+    "origFreq": 598,
+    "term": "お前",
+    "reading": "おまえ",
+    "pos": "pronoun",
+    "definition": "you before (a god, nobleman, etc.); in front of",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 116,
+    "origFreq": 599,
+    "term": "守る",
+    "reading": "まもる",
+    "pos": "verb",
+    "definition": "to protect; to guard; to defend to keep (i.e. a promise); to abide (by the rules); to observe; to obey; to follow",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 117,
+    "origFreq": 605,
+    "term": "同時",
+    "reading": "どうじ",
+    "pos": "noun",
+    "definition": "same time simultaneous; concurrent; synchronous",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 118,
+    "origFreq": 610,
+    "term": "向ける",
+    "reading": "むける",
+    "pos": "verb",
+    "definition": "to turn (towards); to face; to point; to aim; to direct to to head to; to go towards to allot; to allocate",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 119,
+    "origFreq": 612,
+    "term": "だが",
+    "reading": "だが",
+    "pos": "conjunction",
+    "definition": "but; however; (and) yet; nevertheless; still; for all that",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 120,
+    "origFreq": 615,
+    "term": "場",
+    "reading": "ば",
+    "pos": "noun",
+    "definition": "place; spot; space field; discipline; sphere; realm occasion; situation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 121,
+    "origFreq": 616,
+    "term": "何れ",
+    "reading": "いずれ",
+    "pos": "pronoun",
+    "definition": "which; where; who all; both anyway; anyhow; at any rate; in any case",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 122,
+    "origFreq": 618,
+    "term": "対象",
+    "reading": "たいしょう",
+    "pos": "noun, adjective",
+    "definition": "target; object (of worship, study, etc.); subject (of taxation, etc.); coverage",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 123,
+    "origFreq": 620,
+    "term": "以前",
+    "reading": "いぜん",
+    "pos": "noun",
+    "definition": "before; prior to; ago the past; before; previously; former times",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 124,
+    "origFreq": 622,
+    "term": "確認",
+    "reading": "かくにん",
+    "pos": "noun, verb",
+    "definition": "confirmation; verification; validation; review; check; affirmation; identification",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 125,
+    "origFreq": 623,
+    "term": "数",
+    "reading": "かず",
+    "pos": "noun",
+    "definition": "number; amount",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 126,
+    "origFreq": 630,
+    "term": "述べる",
+    "reading": "のべる",
+    "pos": "verb",
+    "definition": "to state; to express; to say; to tell; to mention",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 127,
+    "origFreq": 631,
+    "term": "是非",
+    "reading": "ぜひ",
+    "pos": "adverb",
+    "definition": "certainly; without fail right and wrong; pros and cons",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 128,
+    "origFreq": 639,
+    "term": "直",
+    "reading": "なお",
+    "pos": "adjective, adverb, noun",
+    "definition": "straight ordinary; common doing nothing",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 129,
+    "origFreq": 644,
+    "term": "気づく",
+    "reading": "きづく",
+    "pos": "verb",
+    "definition": "to notice; to realize; to realise; to become aware (of); to perceive; to sense; to suspect to regain consciousness; to come to (one's senses); to come round",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 130,
+    "origFreq": 647,
+    "term": "互い",
+    "reading": "たがい",
+    "pos": "noun, adjective",
+    "definition": "each other; one another",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 131,
+    "origFreq": 649,
+    "term": "違い",
+    "reading": "ちがい",
+    "pos": "noun",
+    "definition": "difference; distinction; discrepancy mistake; error",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 132,
+    "origFreq": 652,
+    "term": "記憶",
+    "reading": "きおく",
+    "pos": "noun, verb",
+    "definition": "memory; recollection; remembrance memory; storage",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 133,
+    "origFreq": 653,
+    "term": "思い出",
+    "reading": "おもいで",
+    "pos": "noun",
+    "definition": "memories; recollections; reminiscence",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 134,
+    "origFreq": 662,
+    "term": "父親",
+    "reading": "ちちおや",
+    "pos": "noun",
+    "definition": "father",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 135,
+    "origFreq": 667,
+    "term": "健康",
+    "reading": "けんこう",
+    "pos": "noun",
+    "definition": "health healthy; sound; fit; wholesome",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 136,
+    "origFreq": 674,
+    "term": "流れる",
+    "reading": "ながれる",
+    "pos": "verb",
+    "definition": "to stream; to flow (liquid, time, etc.); to run (ink) to be washed away; to be carried to drift; to float (e.g. clouds); to wander; to stray",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 137,
+    "origFreq": 677,
+    "term": "進める",
+    "reading": "すすめる",
+    "pos": "verb",
+    "definition": "to advance; to move forward; to put (a clock, watch) forward to carry forward (plans, work, etc.); to proceed with; to make progress in; to further; to advance; to hasten; to speed up to raise; to elevate; to promote; to develop; to stimulate (e.g. one's appetite)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 138,
+    "origFreq": 684,
+    "term": "居る",
+    "reading": "おる",
+    "pos": "verb",
+    "definition": "to be (animate); to be; to exist to be ...-ing to (have the audacity to) do",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 139,
+    "origFreq": 685,
+    "term": "活動",
+    "reading": "かつどう",
+    "pos": "noun, verb",
+    "definition": "activity (of a person, organization, animal, volcano, etc.); action; operation moving picture",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 140,
+    "origFreq": 686,
+    "term": "不安",
+    "reading": "ふあん",
+    "pos": "noun, adjective",
+    "definition": "anxiety; uneasiness; worry; apprehension; fear; insecurity; suspense",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 141,
+    "origFreq": 690,
+    "term": "可能",
+    "reading": "かのう",
+    "pos": "adjective, noun",
+    "definition": "possible; potential; practicable; feasible",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 142,
+    "origFreq": 692,
+    "term": "際",
+    "reading": "さい",
+    "pos": "noun",
+    "definition": "occasion; time; circumstances; (in) case (of); when",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 143,
+    "origFreq": 695,
+    "term": "様子",
+    "reading": "ようす",
+    "pos": "noun",
+    "definition": "state (of affairs); situation; circumstances appearance; look(s); air; manner; behaviour; demeanor sign; indication",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 144,
+    "origFreq": 701,
+    "term": "期待",
+    "reading": "きたい",
+    "pos": "noun, verb",
+    "definition": "expectation; anticipation; hope promising; rising; up-and-coming",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 145,
+    "origFreq": 702,
+    "term": "事実",
+    "reading": "じじつ",
+    "pos": "adverb, noun",
+    "definition": "fact; truth; reality",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 146,
+    "origFreq": 705,
+    "term": "一体",
+    "reading": "いったい",
+    "pos": "adverb",
+    "definition": "(what) the heck; (why) in the world; (who) on earth one object; one body; unity one form; one style",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 147,
+    "origFreq": 707,
+    "term": "描く",
+    "reading": "えがく",
+    "pos": "verb",
+    "definition": "to draw; to paint; to sketch to depict; to describe to picture in one's mind; to imagine",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 148,
+    "origFreq": 712,
+    "term": "素晴らしい",
+    "reading": "すばらしい",
+    "pos": "adjective",
+    "definition": "wonderful; splendid; magnificent",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 149,
+    "origFreq": 717,
+    "term": "考え",
+    "reading": "かんがえ",
+    "pos": "noun",
+    "definition": "thinking; thought; view; opinion; concept idea; notion; imagination intention; plan; design",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 150,
+    "origFreq": 718,
+    "term": "信じる",
+    "reading": "しんじる",
+    "pos": "verb",
+    "definition": "to believe; to believe in; to place trust in; to confide in; to have faith in",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 151,
+    "origFreq": 719,
+    "term": "偶々",
+    "reading": "たまたま",
+    "pos": "adverb",
+    "definition": "by chance; by accident; accidentally; happen to (be, do); unexpectedly; casually occasionally; once in a while; now and then",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 152,
+    "origFreq": 722,
+    "term": "面",
+    "reading": "めん",
+    "pos": "noun",
+    "definition": "face mask; face guard striking the head (in kendo)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 153,
+    "origFreq": 730,
+    "term": "意識",
+    "reading": "いしき",
+    "pos": "noun, verb",
+    "definition": "consciousness becoming aware (of); awareness; sense mano-vijnana (mental consciousness, cognizer of sensory information)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 154,
+    "origFreq": 732,
+    "term": "行動",
+    "reading": "こうどう",
+    "pos": "noun, verb, adjective",
+    "definition": "action; conduct; behaviour; behavior; mobilization; mobilisation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 155,
+    "origFreq": 734,
+    "term": "吃驚",
+    "reading": "びっくり",
+    "pos": "verb, adverb",
+    "definition": "to be surprised; to be amazed; to be frightened; to be astonished; to get startled; to jump surprise (e.g. surprise party)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 156,
+    "origFreq": 737,
+    "term": "現れる",
+    "reading": "あらわれる",
+    "pos": "verb",
+    "definition": "to appear; to come in sight; to become visible; to come out; to embody; to materialize; to materialise to be expressed (e.g. emotions); to become apparent (e.g. trends, effects)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 157,
+    "origFreq": 740,
+    "term": "過去",
+    "reading": "かこ",
+    "pos": "noun, adverb, adjective",
+    "definition": "the past; bygone days one's past (that one would prefer remained secret) past (tense); preterit; preterite",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 158,
+    "origFreq": 743,
+    "term": "明らか",
+    "reading": "あきらか",
+    "pos": "adjective",
+    "definition": "clear; obvious; evident; plain; definite bright; light",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 159,
+    "origFreq": 745,
+    "term": "土地",
+    "reading": "とち",
+    "pos": "noun",
+    "definition": "plot of land; lot; soil locality; region; place",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 160,
+    "origFreq": 748,
+    "term": "評価",
+    "reading": "ひょうか",
+    "pos": "noun, verb",
+    "definition": "valuation; appraisal; evaluation; assessment; estimation; rating; judging appreciation; recognition; acknowledgement; rating highly; praising",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 161,
+    "origFreq": 750,
+    "term": "限る",
+    "reading": "かぎる",
+    "pos": "verb",
+    "definition": "to restrict; to limit; to confine to be restricted to; to be limited to; to be confined to to be best (for); to be the best plan; to be the only way (to)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 162,
+    "origFreq": 755,
+    "term": "詳しい",
+    "reading": "くわしい",
+    "pos": "adjective",
+    "definition": "detailed; full; minute knowing very well; knowledgeable (about); well-acquainted (with); well-informed (about); familiar (with)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 163,
+    "origFreq": 766,
+    "term": "表現",
+    "reading": "ひょうげん",
+    "pos": "noun, verb",
+    "definition": "expression; representation; description representation (of a group)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 164,
+    "origFreq": 771,
+    "term": "雰囲気",
+    "reading": "ふんいき",
+    "pos": "noun",
+    "definition": "atmosphere; mood; ambience; ambiance; aura; feel a certain air; presence; special aura; something (about someone) (Earth's) atmosphere",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 165,
+    "origFreq": 772,
+    "term": "立場",
+    "reading": "たちば",
+    "pos": "noun",
+    "definition": "position; situation viewpoint; standpoint; point of view",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 166,
+    "origFreq": 773,
+    "term": "基づく",
+    "reading": "もとづく",
+    "pos": "verb",
+    "definition": "to be based (on); to be founded (on); to be grounded (on); to be in accordance (with) to be due to; to come (from); to arise (from); to originate (in)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 167,
+    "origFreq": 774,
+    "term": "間",
+    "reading": "ま",
+    "pos": "noun",
+    "definition": "time; pause space room",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 168,
+    "origFreq": 778,
+    "term": "辺り",
+    "reading": "あたり",
+    "pos": "noun, adverb",
+    "definition": "(in the) neighbourhood; neighborhood; vicinity; nearby; surroundings around; about; or thereabouts for instance; say; such as",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 169,
+    "origFreq": 781,
+    "term": "乗せる",
+    "reading": "のせる",
+    "pos": "verb",
+    "definition": "to place on (something) to give (someone) a ride; to give a lift; to pick up; to help on board to load (luggage); to carry; to take on board",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 170,
+    "origFreq": 785,
+    "term": "用いる",
+    "reading": "もちいる",
+    "pos": "verb",
+    "definition": "to use; to make use of; to utilize; to utilise",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 171,
+    "origFreq": 787,
+    "term": "普段",
+    "reading": "ふだん",
+    "pos": "adjective, noun",
+    "definition": "usual; normal; everyday; habitual; ordinary usually; normally; generally; habitually; always",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 172,
+    "origFreq": 794,
+    "term": "繰り返す",
+    "reading": "くりかえす",
+    "pos": "verb",
+    "definition": "to repeat; to do over again",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 173,
+    "origFreq": 799,
+    "term": "努力",
+    "reading": "どりょく",
+    "pos": "noun, verb",
+    "definition": "effort; exertion; endeavour; endeavor; hard work; striving",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 174,
+    "origFreq": 800,
+    "term": "増加",
+    "reading": "ぞうか",
+    "pos": "noun, verb",
+    "definition": "increase; rise; growth; addition; increment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 175,
+    "origFreq": 801,
+    "term": "判断",
+    "reading": "はんだん",
+    "pos": "noun, verb",
+    "definition": "judgment; judgement; decision; conclusion; adjudication divination judgement",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 176,
+    "origFreq": 804,
+    "term": "恐らく",
+    "reading": "おそらく",
+    "pos": "adverb",
+    "definition": "probably; (most) likely; in all likelihood; I suspect; I dare say; I'm afraid",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 177,
+    "origFreq": 815,
+    "term": "不思議",
+    "reading": "ふしぎ",
+    "pos": "adjective, noun",
+    "definition": "wonderful; marvelous; strange; incredible; amazing; curious; miraculous; mysterious strangely enough; oddly enough; for some reason; curiously",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 178,
+    "origFreq": 816,
+    "term": "茶",
+    "reading": "ちゃ",
+    "pos": "noun",
+    "definition": "tea tea plant (Camellia sinensis) tea preparation; making tea",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 179,
+    "origFreq": 817,
+    "term": "直接",
+    "reading": "ちょくせつ",
+    "pos": "adjective, noun, adverb",
+    "definition": "direct; immediate; personal; firsthand",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 180,
+    "origFreq": 819,
+    "term": "効果",
+    "reading": "こうか",
+    "pos": "noun, adjective",
+    "definition": "effect; effectiveness; efficacy; result effects (e.g. sound effects, visual effects, special effects)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 181,
+    "origFreq": 820,
+    "term": "現実",
+    "reading": "げんじつ",
+    "pos": "noun",
+    "definition": "reality; actuality; hard fact",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 182,
+    "origFreq": 821,
+    "term": "触れる",
+    "reading": "ふれる",
+    "pos": "verb",
+    "definition": "to touch; to feel to touch (with) to experience; to come in contact with; to perceive",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 183,
+    "origFreq": 822,
+    "term": "飼う",
+    "reading": "かう",
+    "pos": "verb",
+    "definition": "to keep (a pet or other animal); to have; to own; to raise; to rear; to feed",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 184,
+    "origFreq": 823,
+    "term": "喋る",
+    "reading": "しゃべる",
+    "pos": "verb",
+    "definition": "to talk; to chat; to chatter",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 185,
+    "origFreq": 824,
+    "term": "国民",
+    "reading": "こくみん",
+    "pos": "noun",
+    "definition": "people (of a country); nation; citizen; national Democratic Party for the People",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 186,
+    "origFreq": 827,
+    "term": "随分",
+    "reading": "ずいぶん",
+    "pos": "adverb",
+    "definition": "very; extremely; surprisingly; fairly; quite; considerably; awfully; terribly terrible; horrid; contemptible; reprehensible remarkable; extraordinary",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 187,
+    "origFreq": 832,
+    "term": "殺す",
+    "reading": "ころす",
+    "pos": "verb",
+    "definition": "to kill; to slay; to murder; to slaughter to suppress; to block; to hamper; to destroy (e.g. talent); to eliminate (e.g. an odour); to spoil (e.g. a flavour); to kill (e.g. one's speed) to suppress (a voice, feelings, etc.); to hold back; to stifle (a yawn, laugh, etc.); to hold (one's breath)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 188,
+    "origFreq": 833,
+    "term": "特徴",
+    "reading": "とくちょう",
+    "pos": "noun",
+    "definition": "feature; trait; characteristic; peculiarity; distinction",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 189,
+    "origFreq": 834,
+    "term": "神",
+    "reading": "かみ",
+    "pos": "noun",
+    "definition": "god; deity; divinity; spirit; kami incredible; fantastic; amazing Emperor (of Japan)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 190,
+    "origFreq": 835,
+    "term": "暮らす",
+    "reading": "くらす",
+    "pos": "verb",
+    "definition": "to live; to get along to spend (time)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 191,
+    "origFreq": 843,
+    "term": "発見",
+    "reading": "はっけん",
+    "pos": "noun, verb",
+    "definition": "discovery; detection; finding",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 192,
+    "origFreq": 844,
+    "term": "相談",
+    "reading": "そうだん",
+    "pos": "noun, verb",
+    "definition": "consultation; discussion; discussing; asking (someone) for advice",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 193,
+    "origFreq": 851,
+    "term": "学ぶ",
+    "reading": "まなぶ",
+    "pos": "verb",
+    "definition": "to learn; to study; to take lessons in",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 194,
+    "origFreq": 852,
+    "term": "突然",
+    "reading": "とつぜん",
+    "pos": "adjective, adverb",
+    "definition": "abrupt; sudden; unexpected",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 195,
+    "origFreq": 857,
+    "term": "従って",
+    "reading": "したがって",
+    "pos": "conjunction",
+    "definition": "therefore; consequently; accordingly",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 196,
+    "origFreq": 861,
+    "term": "失う",
+    "reading": "うしなう",
+    "pos": "verb",
+    "definition": "to lose to miss (a chance, opportunity) to lose (a loved one); to be bereaved of",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 197,
+    "origFreq": 873,
+    "term": "異なる",
+    "reading": "ことなる",
+    "pos": "verb",
+    "definition": "to differ; to be different; to disagree; to vary; to diverge",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 198,
+    "origFreq": 875,
+    "term": "新た",
+    "reading": "あらた",
+    "pos": "adjective",
+    "definition": "new; fresh; novel",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 199,
+    "origFreq": 878,
+    "term": "至る",
+    "reading": "いたる",
+    "pos": "verb",
+    "definition": "to arrive at (e.g. a decision); to reach (a stage); to attain to lead to (a place); to get to in the extreme case of",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 200,
+    "origFreq": 881,
+    "term": "種類",
+    "reading": "しゅるい",
+    "pos": "noun",
+    "definition": "variety; kind; type; category counter for kinds, species, etc.",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 201,
+    "origFreq": 882,
+    "term": "商品",
+    "reading": "しょうひん",
+    "pos": "noun",
+    "definition": "commodity; article of commerce; goods; stock; merchandise",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 202,
+    "origFreq": 883,
+    "term": "生じる",
+    "reading": "しょうじる",
+    "pos": "verb",
+    "definition": "to produce; to yield; to cause to result from; to arise; to be generated",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 203,
+    "origFreq": 886,
+    "term": "語る",
+    "reading": "かたる",
+    "pos": "verb",
+    "definition": "to talk about; to speak of; to tell; to narrate to recite; to chant to indicate; to show",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 204,
+    "origFreq": 887,
+    "term": "胸",
+    "reading": "むね",
+    "pos": "noun",
+    "definition": "chest; breast breasts; bosom; bust heart",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 205,
+    "origFreq": 890,
+    "term": "材料",
+    "reading": "ざいりょう",
+    "pos": "noun",
+    "definition": "materials; ingredients material (for a novel, experiment, etc.); subject matter grounds (for a decision, judgement, etc.); basis; evidence; data",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 206,
+    "origFreq": 891,
+    "term": "広がる",
+    "reading": "ひろがる",
+    "pos": "verb",
+    "definition": "to spread (out); to extend; to stretch; to reach to; to get around; to fill (e.g. a space)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 207,
+    "origFreq": 892,
+    "term": "きちんと",
+    "reading": "きちんと",
+    "pos": "adverb, verb",
+    "definition": "properly; accurately; exactly; precisely; regularly neatly; tidily; orderly",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 208,
+    "origFreq": 895,
+    "term": "運動",
+    "reading": "うんどう",
+    "pos": "noun, verb",
+    "definition": "exercise; physical training; workout; sports; athletics appeal; campaign; drive; crusade; movement; lobbying motion; movement",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 209,
+    "origFreq": 897,
+    "term": "幸せ",
+    "reading": "しあわせ",
+    "pos": "noun, adjective",
+    "definition": "happiness; good fortune; luck; blessing",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 210,
+    "origFreq": 898,
+    "term": "通す",
+    "reading": "とおす",
+    "pos": "verb",
+    "definition": "to force to accept; to force agreement to continue (in a state); to persist in to do to the entirety of; to cover all of; to span the whole ...",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 211,
+    "origFreq": 901,
+    "term": "命",
+    "reading": "いのち",
+    "pos": "noun",
+    "definition": "life; life force lifetime; lifespan most important thing; foundation; core",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 212,
+    "origFreq": 902,
+    "term": "流れ",
+    "reading": "ながれ",
+    "pos": "noun",
+    "definition": "flow (of a fluid or gas); stream; current flow (of people, things); passage (of time); tide; passing; (changing) trends; tendency course (of events); (step-by-step) procedure; process",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 213,
+    "origFreq": 903,
+    "term": "育つ",
+    "reading": "そだつ",
+    "pos": "verb",
+    "definition": "to be raised (e.g. child); to be brought up; to grow (up)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 214,
+    "origFreq": 907,
+    "term": "馬",
+    "reading": "うま",
+    "pos": "noun",
+    "definition": "horse horse racing promoted bishop",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 215,
+    "origFreq": 908,
+    "term": "完全",
+    "reading": "かんぜん",
+    "pos": "adjective, noun",
+    "definition": "perfect; complete",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 216,
+    "origFreq": 911,
+    "term": "性格",
+    "reading": "せいかく",
+    "pos": "noun",
+    "definition": "character (of a person); personality; disposition; nature characteristics; nature (of a thing, event, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 217,
+    "origFreq": 913,
+    "term": "位置",
+    "reading": "いち",
+    "pos": "noun, verb",
+    "definition": "place; position; location position; standing; status; situation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 218,
+    "origFreq": 914,
+    "term": "発展",
+    "reading": "はってん",
+    "pos": "noun, verb",
+    "definition": "development; growth; expansion; extension; flourishing development (of a situation, story, etc.); advancement; progression; unfolding playing around (sexually; esp. of a male homosexual); having an active sex life",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 219,
+    "origFreq": 922,
+    "term": "即ち",
+    "reading": "すなわち",
+    "pos": "conjunction",
+    "definition": "that is (to say); namely; i.e. precisely; exactly; just; nothing but; neither more nor less (and) then",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 220,
+    "origFreq": 923,
+    "term": "海外",
+    "reading": "かいがい",
+    "pos": "noun, adjective",
+    "definition": "foreign; abroad; overseas",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 221,
+    "origFreq": 925,
+    "term": "想像",
+    "reading": "そうぞう",
+    "pos": "noun, verb",
+    "definition": "imagination; supposition; guess",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 222,
+    "origFreq": 926,
+    "term": "実は",
+    "reading": "じつは",
+    "pos": "phrase, adverb",
+    "definition": "as a matter of fact; by the way; to tell you the truth; to be honest; frankly",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 223,
+    "origFreq": 927,
+    "term": "許す",
+    "reading": "ゆるす",
+    "pos": "verb",
+    "definition": "to permit; to allow; to approve; to consent to to forgive; to pardon; to excuse; to tolerate to exempt (someone) from; to remit; to release; to let off",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 224,
+    "origFreq": 928,
+    "term": "表",
+    "reading": "ひょう",
+    "pos": "noun",
+    "definition": "table; chart; list memorial to an emperor",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 225,
+    "origFreq": 934,
+    "term": "準備",
+    "reading": "じゅんび",
+    "pos": "noun, verb",
+    "definition": "preparation; arrangements; getting ready; provision; setup; reserving",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 226,
+    "origFreq": 937,
+    "term": "月",
+    "reading": "つき",
+    "pos": "noun",
+    "definition": "Moon month moonlight",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 227,
+    "origFreq": 938,
+    "term": "世の中",
+    "reading": "よのなか",
+    "pos": "phrase, noun",
+    "definition": "society; the world; the times",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 228,
+    "origFreq": 941,
+    "term": "旅",
+    "reading": "たび",
+    "pos": "noun",
+    "definition": "travel; trip; journey",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 229,
+    "origFreq": 945,
+    "term": "同様",
+    "reading": "どうよう",
+    "pos": "adjective, noun",
+    "definition": "same; similar; (just) like; equal",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 230,
+    "origFreq": 946,
+    "term": "一般",
+    "reading": "いっぱん",
+    "pos": "adjective, noun",
+    "definition": "general; universal ordinary; average; common; non-celebrity the same; no different; (just) as if",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 231,
+    "origFreq": 951,
+    "term": "責任",
+    "reading": "せきにん",
+    "pos": "noun",
+    "definition": "duty; responsibility (incl. supervision of staff) liability; onus",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 232,
+    "origFreq": 952,
+    "term": "選択",
+    "reading": "せんたく",
+    "pos": "noun, verb",
+    "definition": "choice; selection; option",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 233,
+    "origFreq": 957,
+    "term": "減る",
+    "reading": "へる",
+    "pos": "verb",
+    "definition": "to decrease (in size or number); to diminish; to abate",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 234,
+    "origFreq": 958,
+    "term": "記事",
+    "reading": "きじ",
+    "pos": "noun",
+    "definition": "article; news story; report; account",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 235,
+    "origFreq": 959,
+    "term": "本人",
+    "reading": "ほんにん",
+    "pos": "noun",
+    "definition": "the person in question; the person themselves; said person",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 236,
+    "origFreq": 964,
+    "term": "出会う",
+    "reading": "であう",
+    "pos": "verb",
+    "definition": "to meet (by chance); to come across; to run across; to encounter; to happen upon to meet (e.g. of rivers, highways, etc.) to emerge and engage (an enemy)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 237,
+    "origFreq": 967,
+    "term": "作業",
+    "reading": "さぎょう",
+    "pos": "noun, verb",
+    "definition": "work; operation; task",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 238,
+    "origFreq": 969,
+    "term": "度",
+    "reading": "たび",
+    "pos": "noun, counter",
+    "definition": "time (three times, each time, etc.); times",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 239,
+    "origFreq": 972,
+    "term": "条件",
+    "reading": "じょうけん",
+    "pos": "noun",
+    "definition": "condition; term; requirement; qualification; prerequisite",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 240,
+    "origFreq": 974,
+    "term": "振る",
+    "reading": "ふる",
+    "pos": "verb",
+    "definition": "to bring up a topic; to lead to a topic to replace; to substitute to set up a joke for someone else",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 241,
+    "origFreq": 975,
+    "term": "関心",
+    "reading": "かんしん",
+    "pos": "noun",
+    "definition": "concern; interest",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 242,
+    "origFreq": 981,
+    "term": "相当",
+    "reading": "そうとう",
+    "pos": "noun, verb, adjective",
+    "definition": "corresponding to (in meaning, function, etc.); being equivalent to appropriate; suitable; befitting; proportionate to be proportionate to; to be in keeping with; to be deserving of; to be worthy of",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 243,
+    "origFreq": 982,
+    "term": "従う",
+    "reading": "したがう",
+    "pos": "verb",
+    "definition": "to obey (an order, law, etc.); to abide by (a rule, custom, etc.); to follow; to observe; to conform to; to yield to to follow (a person); to accompany; to go with to go alongside (e.g. a river); to follow (e.g. a sign)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 244,
+    "origFreq": 983,
+    "term": "検討",
+    "reading": "けんとう",
+    "pos": "noun, verb",
+    "definition": "consideration; examination; investigation; study; scrutiny; discussion; analysis; review",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 245,
+    "origFreq": 984,
+    "term": "占める",
+    "reading": "しめる",
+    "pos": "verb",
+    "definition": "to occupy; to hold to account for; to make up; to take up",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 246,
+    "origFreq": 985,
+    "term": "正に",
+    "reading": "まさに",
+    "pos": "adverb",
+    "definition": "exactly; just; precisely; really; truly; surely; certainly; without doubt right (when); just (as) just (about to); on the point of; on the verge of; on the brink of",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 247,
+    "origFreq": 986,
+    "term": "選手",
+    "reading": "せんしゅ",
+    "pos": "noun",
+    "definition": "player (of a sport); athlete; team member",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 248,
+    "origFreq": 989,
+    "term": "調査",
+    "reading": "ちょうさ",
+    "pos": "noun, verb",
+    "definition": "investigation; examination; inquiry; enquiry; survey",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 249,
+    "origFreq": 990,
+    "term": "分",
+    "reading": "ぶん",
+    "pos": "noun",
+    "definition": "part; portion; share amount; worth (as in \"two days' worth\"); enough (for) one's means; one's place; one's lot; one's social position",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 250,
+    "origFreq": 992,
+    "term": "発表",
+    "reading": "はっぴょう",
+    "pos": "noun, verb",
+    "definition": "announcement; publication; presenting; statement; communique; making known; breaking (news story); expressing (one's opinion); releasing; unveiling",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 251,
+    "origFreq": 993,
+    "term": "寧ろ",
+    "reading": "むしろ",
+    "pos": "adverb",
+    "definition": "rather; better; instead; if anything",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 252,
+    "origFreq": 995,
+    "term": "名",
+    "reading": "な",
+    "pos": "noun",
+    "definition": "name; given name title fame; renown; reputation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 253,
+    "origFreq": 997,
+    "term": "丸で",
+    "reading": "まるで",
+    "pos": "adverb",
+    "definition": "quite; entirely; completely; at all as if; as though; just like",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 254,
+    "origFreq": 1002,
+    "term": "略",
+    "reading": "ほぼ",
+    "pos": "adverb",
+    "definition": "almost; roughly; approximately; about; around",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 255,
+    "origFreq": 1003,
+    "term": "表わす",
+    "reading": "あらわす",
+    "pos": "verb",
+    "definition": "to represent; to signify; to stand for to reveal; to show; to display to express",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 256,
+    "origFreq": 1005,
+    "term": "文字",
+    "reading": "もじ",
+    "pos": "noun",
+    "definition": "letter (of an alphabet); character writing",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 257,
+    "origFreq": 1009,
+    "term": "役割",
+    "reading": "やくわり",
+    "pos": "noun",
+    "definition": "part; assigning (allotment of) parts; role; duties",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 258,
+    "origFreq": 1010,
+    "term": "地球",
+    "reading": "ちきゅう",
+    "pos": "noun",
+    "definition": "Earth; the globe",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 259,
+    "origFreq": 1012,
+    "term": "個人",
+    "reading": "こじん",
+    "pos": "noun",
+    "definition": "individual; private person; personal; private natural person",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 260,
+    "origFreq": 1015,
+    "term": "激しい",
+    "reading": "はげしい",
+    "pos": "adjective",
+    "definition": "violent; furious; tempestuous extreme; intense; fierce; strong fervent; vehement",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 261,
+    "origFreq": 1019,
+    "term": "成長",
+    "reading": "せいちょう",
+    "pos": "noun, verb",
+    "definition": "growth; development; growing up; becoming an adult growth (of a company, the economy, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 262,
+    "origFreq": 1021,
+    "term": "機能",
+    "reading": "きのう",
+    "pos": "noun, verb",
+    "definition": "function; facility; faculty; feature",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 263,
+    "origFreq": 1022,
+    "term": "ボール",
+    "reading": "ボール",
+    "pos": "noun",
+    "definition": "ball ball (pitch delivered outside the strike zone)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 264,
+    "origFreq": 1023,
+    "term": "少年",
+    "reading": "しょうねん",
+    "pos": "noun",
+    "definition": "boy juvenile; child",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 265,
+    "origFreq": 1024,
+    "term": "方向",
+    "reading": "ほうこう",
+    "pos": "noun",
+    "definition": "direction; orientation; bearing; way course (e.g. of action)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 266,
+    "origFreq": 1028,
+    "term": "扱う",
+    "reading": "あつかう",
+    "pos": "verb",
+    "definition": "to deal with (a person); to treat; to handle; to take care of; to entertain to deal with (a problem); to handle; to manage to operate (e.g. a machine); to handle; to work",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 267,
+    "origFreq": 1030,
+    "term": "欧羅巴",
+    "reading": "ヨーロッパ",
+    "pos": "noun",
+    "definition": "Europe Europe",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 268,
+    "origFreq": 1034,
+    "term": "意外",
+    "reading": "いがい",
+    "pos": "adjective, adverb, noun",
+    "definition": "unexpected; surprising",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 269,
+    "origFreq": 1037,
+    "term": "政府",
+    "reading": "せいふ",
+    "pos": "noun",
+    "definition": "government; administration; ministry",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 270,
+    "origFreq": 1038,
+    "term": "分ける",
+    "reading": "わける",
+    "pos": "verb",
+    "definition": "to divide (into); to split (into); to part; to separate; to divide up; to classify; to sort out; to divide out to share; to distribute; to deal out; to dish out to distinguish; to discriminate; to differentiate (between)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 271,
+    "origFreq": 1039,
+    "term": "計画",
+    "reading": "けいかく",
+    "pos": "noun, verb",
+    "definition": "plan; project; schedule; scheme; program; programme",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 272,
+    "origFreq": 1041,
+    "term": "量",
+    "reading": "りょう",
+    "pos": "noun",
+    "definition": "quantity; amount; volume; capacity; portion (of food) generosity; magnanimity; tolerance pramana (means by which one gains accurate and valid knowledge; in Indian philosophy)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 273,
+    "origFreq": 1043,
+    "term": "感動",
+    "reading": "かんどう",
+    "pos": "noun, verb",
+    "definition": "being deeply moved emotionally; excitement; passion; inspiration; deep emotion; strong impression",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 274,
+    "origFreq": 1045,
+    "term": "感覚",
+    "reading": "かんかく",
+    "pos": "noun, verb",
+    "definition": "sense; sensation; feeling; intuition",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 275,
+    "origFreq": 1050,
+    "term": "再び",
+    "reading": "ふたたび",
+    "pos": "adverb",
+    "definition": "again; once more; a second time",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 276,
+    "origFreq": 1051,
+    "term": "利く",
+    "reading": "きく",
+    "pos": "verb",
+    "definition": "to be effective; to take effect; to be good (for) to work; to function well to be possible (to do, use, etc.); to be able to",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 277,
+    "origFreq": 1054,
+    "term": "流す",
+    "reading": "ながす",
+    "pos": "verb",
+    "definition": "to exile; to banish to hit (the ball) to the opposite field to do inattentively; to do without concentrating; to put little effort into doing",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 278,
+    "origFreq": 1055,
+    "term": "希望",
+    "reading": "きぼう",
+    "pos": "noun, verb",
+    "definition": "hope; wish; aspiration (bright) prospects; expectation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 279,
+    "origFreq": 1057,
+    "term": "勧める",
+    "reading": "すすめる",
+    "pos": "verb",
+    "definition": "to recommend (someone to do); to advise; to encourage; to urge to recommend (a book, someone for a position, etc.); to suggest to offer (a drink, cigarette, seat, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 280,
+    "origFreq": 1058,
+    "term": "年齢",
+    "reading": "ねんれい",
+    "pos": "noun",
+    "definition": "age; years",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 281,
+    "origFreq": 1061,
+    "term": "無し",
+    "reading": "なし",
+    "pos": "noun",
+    "definition": "without unacceptable; not alright; unsatisfactory nonexistent",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 282,
+    "origFreq": 1062,
+    "term": "偖",
+    "reading": "さて",
+    "pos": "conjunction, interjection",
+    "definition": "well; now; then",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 283,
+    "origFreq": 1065,
+    "term": "人気",
+    "reading": "にんき",
+    "pos": "noun, adjective",
+    "definition": "popularity; public favor condition (e.g. market); tone; character; nature",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 284,
+    "origFreq": 1068,
+    "term": "格好",
+    "reading": "かっこう",
+    "pos": "noun",
+    "definition": "shape; form; figure; posture; pose appearance state; situation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 285,
+    "origFreq": 1070,
+    "term": "患者",
+    "reading": "かんじゃ",
+    "pos": "noun",
+    "definition": "patient",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 286,
+    "origFreq": 1072,
+    "term": "道路",
+    "reading": "どうろ",
+    "pos": "noun",
+    "definition": "road; highway",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 287,
+    "origFreq": 1075,
+    "term": "他人",
+    "reading": "たにん",
+    "pos": "noun",
+    "definition": "another person; other people; others unrelated person (i.e. not related by blood) outsider; stranger",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 288,
+    "origFreq": 1079,
+    "term": "肩",
+    "reading": "かた",
+    "pos": "noun",
+    "definition": "shoulder",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 289,
+    "origFreq": 1081,
+    "term": "匂い",
+    "reading": "におい",
+    "pos": "noun",
+    "definition": "smell; scent; odour; odor; stench aura; whiff; smack; flavour; flavor; mood faint, mist-like pattern along the temper line of a Japanese sword",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 290,
+    "origFreq": 1083,
+    "term": "実現",
+    "reading": "じつげん",
+    "pos": "noun, verb",
+    "definition": "implementation (e.g. of a system); materialization; materialisation; realization; realisation; actualization; actualisation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 291,
+    "origFreq": 1084,
+    "term": "有難う",
+    "reading": "ありがとう",
+    "pos": "interjection",
+    "definition": "thank you; thanks",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 292,
+    "origFreq": 1088,
+    "term": "全体",
+    "reading": "ぜんたい",
+    "pos": "noun, adjective, adverb",
+    "definition": "whole; entirety to begin with; in the first place ... the heck (e.g. \"what the heck?\"); ... in the world (e.g. \"why in the world?\"); ... on earth (e.g. \"who on earth?\")",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 293,
+    "origFreq": 1089,
+    "term": "話題",
+    "reading": "わだい",
+    "pos": "noun",
+    "definition": "topic; subject much talked about; topical; in the news; hot",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 294,
+    "origFreq": 1095,
+    "term": "仲間",
+    "reading": "なかま",
+    "pos": "noun",
+    "definition": "companion; fellow; friend; mate; comrade; partner; colleague; coworker; associate group; company; circle; set; gang member of the same category (family, class)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 295,
+    "origFreq": 1097,
+    "term": "知識",
+    "reading": "ちしき",
+    "pos": "noun",
+    "definition": "knowledge; information",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 296,
+    "origFreq": 1098,
+    "term": "多少",
+    "reading": "たしょう",
+    "pos": "adverb, adjective",
+    "definition": "a little; some; somewhat; slightly; to some degree; to some extent amount; quantity; number",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 297,
+    "origFreq": 1100,
+    "term": "解決",
+    "reading": "かいけつ",
+    "pos": "noun, verb",
+    "definition": "settlement; solution; resolution",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 298,
+    "origFreq": 1105,
+    "term": "成功",
+    "reading": "せいこう",
+    "pos": "noun, verb",
+    "definition": "success; achievement succeeding (in life); (worldly) success; prosperity",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 299,
+    "origFreq": 1107,
+    "term": "協力",
+    "reading": "きょうりょく",
+    "pos": "noun, verb",
+    "definition": "cooperation; collaboration; help; support",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 300,
+    "origFreq": 1115,
+    "term": "報告",
+    "reading": "ほうこく",
+    "pos": "noun, verb",
+    "definition": "report; information",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 301,
+    "origFreq": 1117,
+    "term": "決定",
+    "reading": "けってい",
+    "pos": "noun, verb",
+    "definition": "decision; determination",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 302,
+    "origFreq": 1119,
+    "term": "移動",
+    "reading": "いどう",
+    "pos": "noun, verb",
+    "definition": "movement; transfer; migration; removal; travel mobile; moving; traveling; travelling; roving",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 303,
+    "origFreq": 1122,
+    "term": "応じる",
+    "reading": "おうじる",
+    "pos": "verb",
+    "definition": "to respond; to satisfy; to accept; to comply with; to apply for",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 304,
+    "origFreq": 1123,
+    "term": "涙",
+    "reading": "なみだ",
+    "pos": "noun",
+    "definition": "tear; tears; lachrymal secretion sympathy",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 305,
+    "origFreq": 1124,
+    "term": "表情",
+    "reading": "ひょうじょう",
+    "pos": "noun",
+    "definition": "facial expression; countenance look; appearance; expression (vocal, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 306,
+    "origFreq": 1127,
+    "term": "次第",
+    "reading": "しだい",
+    "pos": "suffix",
+    "definition": "depending on as soon as; immediately after; upon as (e.g. \"as one is told\", \"as one wishes\"); whatever (e.g. \"whatever is at hand\")",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 307,
+    "origFreq": 1128,
+    "term": "楽",
+    "reading": "らく",
+    "pos": "noun, adjective",
+    "definition": "comfort; ease; relief; (at) peace; relaxation easy; simple; without trouble; without hardships (economically) comfortable",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 308,
+    "origFreq": 1129,
+    "term": "軈て",
+    "reading": "やがて",
+    "pos": "adverb",
+    "definition": "before long; soon; shortly almost; nearly finally; in the end; eventually",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 309,
+    "origFreq": 1132,
+    "term": "ゴミ",
+    "reading": "ゴミ",
+    "pos": "noun",
+    "definition": "rubbish; trash; garbage; refuse; litter",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 310,
+    "origFreq": 1140,
+    "term": "腰",
+    "reading": "こし",
+    "pos": "noun",
+    "definition": "lower back; waist; hips; lumbar region body (of hair, noodle, paper, etc.); resilience; spring",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 311,
+    "origFreq": 1142,
+    "term": "瞬間",
+    "reading": "しゅんかん",
+    "pos": "noun",
+    "definition": "moment; second; instant",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 312,
+    "origFreq": 1144,
+    "term": "僅か",
+    "reading": "わずか",
+    "pos": "adjective",
+    "definition": "a little; a few; small; slight; trifling; meagre; meager; narrow (margin) only; just; merely; no more than",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 313,
+    "origFreq": 1146,
+    "term": "届く",
+    "reading": "とどく",
+    "pos": "verb",
+    "definition": "to reach; to touch; to get to; to carry (of sound) to be delivered; to arrive to be attentive; to be scrupulous; to be thorough",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 314,
+    "origFreq": 1149,
+    "term": "伸ばす",
+    "reading": "のばす",
+    "pos": "verb",
+    "definition": "to grow long (e.g. hair, nails) to lengthen; to extend; to stretch to reach out; to hold out",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 315,
+    "origFreq": 1152,
+    "term": "目標",
+    "reading": "もくひょう",
+    "pos": "noun",
+    "definition": "goal; target; aim; objective mark; sign; landmark",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 316,
+    "origFreq": 1155,
+    "term": "変更",
+    "reading": "へんこう",
+    "pos": "noun, verb",
+    "definition": "change; modification; alteration; revision; amendment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 317,
+    "origFreq": 1156,
+    "term": "感謝",
+    "reading": "かんしゃ",
+    "pos": "noun, verb",
+    "definition": "thanks; gratitude; appreciation; thankfulness",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 318,
+    "origFreq": 1158,
+    "term": "手術",
+    "reading": "しゅじゅつ",
+    "pos": "noun, verb",
+    "definition": "surgery; operation; procedure skill with one's hands; sleight of hand",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 319,
+    "origFreq": 1162,
+    "term": "馬鹿",
+    "reading": "ばか",
+    "pos": "noun",
+    "definition": "idiot; moron; fool stupid; foolish; dull; absurd; ridiculous trivial; insignificant; disappointing",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 320,
+    "origFreq": 1165,
+    "term": "愛する",
+    "reading": "あいする",
+    "pos": "verb",
+    "definition": "to love",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 321,
+    "origFreq": 1168,
+    "term": "苦労",
+    "reading": "くろう",
+    "pos": "noun, verb",
+    "definition": "trouble; hardship; difficulty; labour; labor; toil; pains anxiety; worry; concern; cares",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 322,
+    "origFreq": 1173,
+    "term": "嘘",
+    "reading": "うそ",
+    "pos": "noun, adjective",
+    "definition": "lie; fib; falsehood; untruth mistake; error unwise move; bad decision",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 323,
+    "origFreq": 1175,
+    "term": "主張",
+    "reading": "しゅちょう",
+    "pos": "noun, verb",
+    "definition": "claim; insistence; assertion; advocacy; emphasis; contention; opinion; tenet",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 324,
+    "origFreq": 1183,
+    "term": "役",
+    "reading": "やく",
+    "pos": "noun",
+    "definition": "role; assignment; responsibility; duty; function; job; service position (of responsibility); post; office part (in a play, film, etc.); role; character",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 325,
+    "origFreq": 1184,
+    "term": "伸びる",
+    "reading": "のびる",
+    "pos": "verb",
+    "definition": "to stretch; to extend; to lengthen; to grow (of hair, height, grass, etc.) to straighten out; to be flattened; to become smooth to spread (of paint, cream, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 326,
+    "origFreq": 1188,
+    "term": "悩む",
+    "reading": "なやむ",
+    "pos": "verb",
+    "definition": "to be worried; to be troubled",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 327,
+    "origFreq": 1190,
+    "term": "議論",
+    "reading": "ぎろん",
+    "pos": "noun, verb",
+    "definition": "argument; discussion; dispute; controversy",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 328,
+    "origFreq": 1191,
+    "term": "記録",
+    "reading": "きろく",
+    "pos": "noun, verb",
+    "definition": "record; document; minutes; recording; putting on record; keeping a record (of); writing down record (e.g. in sports); setting (a record); recording (a record high, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 329,
+    "origFreq": 1192,
+    "term": "当てる",
+    "reading": "あてる",
+    "pos": "verb",
+    "definition": "to hit to expose to apply (e.g. patch); to put on; to put against; to hold on; to hold against",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 330,
+    "origFreq": 1193,
+    "term": "出来事",
+    "reading": "できごと",
+    "pos": "noun",
+    "definition": "occurrence; happening; incident; event",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 331,
+    "origFreq": 1197,
+    "term": "眺める",
+    "reading": "ながめる",
+    "pos": "verb",
+    "definition": "to look at; to gaze at; to watch; to stare at to look out over; to get a view of; to admire (e.g. the scenery) to look on (from the sidelines); to stand by and watch; to observe",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 332,
+    "origFreq": 1202,
+    "term": "積極的",
+    "reading": "せっきょくてき",
+    "pos": "adjective",
+    "definition": "positive; assertive; active; proactive; aggressive",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 333,
+    "origFreq": 1204,
+    "term": "叩く",
+    "reading": "たたく",
+    "pos": "verb",
+    "definition": "to strike; to hit; to beat; to knock; to pound; to bang; to slap; to spank; to tap; to pat; to clap (one's hands); to play (the drums) to attack; to bash; to criticize; to censure; to flame (on the Internet) to sound out (someone's views)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 334,
+    "origFreq": 1207,
+    "term": "方々",
+    "reading": "かたがた",
+    "pos": "noun",
+    "definition": "people; (all) persons; everyone; ladies and gentlemen you (usu. plural)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 335,
+    "origFreq": 1210,
+    "term": "何とか",
+    "reading": "なんとか",
+    "pos": "phrase",
+    "definition": "something; something or other; so-and-so somehow; anyhow; one way or another",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 336,
+    "origFreq": 1217,
+    "term": "通じる",
+    "reading": "つうじる",
+    "pos": "verb",
+    "definition": "to be open (to traffic); to lead to; to communicate (with) to flow (liquid, current); to pass; to get through to to be understood; to be comprehended",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 337,
+    "origFreq": 1218,
+    "term": "動かす",
+    "reading": "うごかす",
+    "pos": "verb",
+    "definition": "to move; to shift; to stir; to budge; to change position to inspire; to rouse; to move (e.g. feeling); to influence to change; to alter; to deny",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 338,
+    "origFreq": 1221,
+    "term": "避ける",
+    "reading": "さける",
+    "pos": "verb",
+    "definition": "to avoid (physical contact with) to avoid (situation); to evade (question, subject); to shirk (one's responsibilities) to ward off; to avert",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 339,
+    "origFreq": 1224,
+    "term": "穴",
+    "reading": "あな",
+    "pos": "noun",
+    "definition": "hiding place; hideout hole; opening; orifice; perforation pit; hollow; cavity; hole (e.g. in the ground)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 340,
+    "origFreq": 1233,
+    "term": "一言",
+    "reading": "ひとこと",
+    "pos": "noun, verb",
+    "definition": "single word; a few words; brief comment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 341,
+    "origFreq": 1235,
+    "term": "制度",
+    "reading": "せいど",
+    "pos": "noun",
+    "definition": "system; institution; organization; organisation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 342,
+    "origFreq": 1237,
+    "term": "チーム",
+    "reading": "チーム",
+    "pos": "noun",
+    "definition": "team",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 343,
+    "origFreq": 1239,
+    "term": "期間",
+    "reading": "きかん",
+    "pos": "noun",
+    "definition": "period; term; interval",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 344,
+    "origFreq": 1240,
+    "term": "金額",
+    "reading": "きんがく",
+    "pos": "noun",
+    "definition": "amount of money; sum",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 345,
+    "origFreq": 1242,
+    "term": "奥",
+    "reading": "おく",
+    "pos": "noun",
+    "definition": "inner part; interior; back (of a drawer, one's throat, etc.); depths (e.g. of a forest); recesses (e.g. of a cave); heart; end (of a road, garden, etc.) living quarters (at the back of a house); inner room recesses (of one's mind); bottom (of one's heart); behind (someone's words); mysteries (of an art)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 346,
+    "origFreq": 1247,
+    "term": "一時",
+    "reading": "いちじ",
+    "pos": "noun",
+    "definition": "one o'clock once; at one time; formerly; before for a time; for a while; for the time being; for the moment; temporarily",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 347,
+    "origFreq": 1248,
+    "term": "ケース",
+    "reading": "ケース",
+    "pos": "noun",
+    "definition": "case (container) case (instance, situation) case",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 348,
+    "origFreq": 1249,
+    "term": "傾向",
+    "reading": "けいこう",
+    "pos": "noun",
+    "definition": "tendency; trend; inclination",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 349,
+    "origFreq": 1251,
+    "term": "拡大",
+    "reading": "かくだい",
+    "pos": "noun, verb",
+    "definition": "expansion; extension magnification; enlargement escalation; spread",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 350,
+    "origFreq": 1253,
+    "term": "宜しく",
+    "reading": "よろしく",
+    "pos": "phrase, adverb",
+    "definition": "well; properly; suitably best regards; please remember me; please treat me favorably (favourably); please take care of; please do just like ...; as though one were ...",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 351,
+    "origFreq": 1254,
+    "term": "疑問",
+    "reading": "ぎもん",
+    "pos": "noun, adjective",
+    "definition": "doubt; question; suspicion; dubiousness",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 352,
+    "origFreq": 1256,
+    "term": "現状",
+    "reading": "げんじょう",
+    "pos": "noun, adjective",
+    "definition": "present condition; existing state; status quo; current state",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 353,
+    "origFreq": 1258,
+    "term": "取り上げる",
+    "reading": "とりあげる",
+    "pos": "verb",
+    "definition": "to pick up to adopt (a proposal); to take up (a topic); to accept; to listen to to take issue with; to make a problem of; to bring up (as a point of criticism)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 354,
+    "origFreq": 1259,
+    "term": "主に",
+    "reading": "おもに",
+    "pos": "adverb",
+    "definition": "mainly; primarily; mostly; largely; chiefly",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 355,
+    "origFreq": 1266,
+    "term": "態度",
+    "reading": "たいど",
+    "pos": "noun",
+    "definition": "attitude; manner; behaviour; demeanour; bearing attitude (towards an issue, etc.); position; stance; stand",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 356,
+    "origFreq": 1267,
+    "term": "地",
+    "reading": "ち",
+    "pos": "noun",
+    "definition": "earth; ground; land; soil place territory",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 357,
+    "origFreq": 1268,
+    "term": "全国",
+    "reading": "ぜんこく",
+    "pos": "noun",
+    "definition": "the whole country",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 358,
+    "origFreq": 1270,
+    "term": "世話",
+    "reading": "せわ",
+    "pos": "noun, verb",
+    "definition": "care; looking after; help; assistance; aid trouble; bother good offices; recommendation; introduction",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 359,
+    "origFreq": 1271,
+    "term": "差",
+    "reading": "さ",
+    "pos": "noun",
+    "definition": "difference; variation difference",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 360,
+    "origFreq": 1273,
+    "term": "食う",
+    "reading": "くう",
+    "pos": "verb",
+    "definition": "to eat to live; to make a living; to survive to bite; to sting (as insects do)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 361,
+    "origFreq": 1277,
+    "term": "事情",
+    "reading": "じじょう",
+    "pos": "noun",
+    "definition": "circumstances; conditions; situation; reasons; state of affairs",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 362,
+    "origFreq": 1278,
+    "term": "メンバー",
+    "reading": "メンバー",
+    "pos": "noun",
+    "definition": "member; participant; attendee; lineup (sport) Memba",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 363,
+    "origFreq": 1280,
+    "term": "地方",
+    "reading": "ちほう",
+    "pos": "noun",
+    "definition": "district; region; area; locality the country; countryside; the provinces; rural area civilian society",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 364,
+    "origFreq": 1281,
+    "term": "豊か",
+    "reading": "ゆたか",
+    "pos": "adjective, suffix",
+    "definition": "abundant; plentiful; rich; ample rich; wealthy; affluent; well-off open (mind); relaxed; easy",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 365,
+    "origFreq": 1282,
+    "term": "助ける",
+    "reading": "たすける",
+    "pos": "verb",
+    "definition": "to save; to rescue; to spare to help; to assist to support (financially); to contribute (to); to provide aid",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 366,
+    "origFreq": 1287,
+    "term": "支える",
+    "reading": "ささえる",
+    "pos": "verb",
+    "definition": "to support; to prop; to sustain; to underlay; to hold up; to defend to hold at bay; to stem; to check",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 367,
+    "origFreq": 1288,
+    "term": "抱える",
+    "reading": "かかえる",
+    "pos": "verb",
+    "definition": "to hold in one's arms; to carry in one's arms; to carry under one's arm; to hold (one's head) in one's hands to have (problems, debts, etc.); to take on (a responsibility); to be burdened with (e.g. care of a family member); to have (children, etc.) to provide for to employ; to have (on one's staff); to hire",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 368,
+    "origFreq": 1290,
+    "term": "追う",
+    "reading": "おう",
+    "pos": "verb",
+    "definition": "to chase; to run after; to pursue; to follow after to follow (a set order, a trend, etc.) to drive out; to get rid of; to oust; to expel",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 369,
+    "origFreq": 1291,
+    "term": "権利",
+    "reading": "けんり",
+    "pos": "noun",
+    "definition": "right; privilege",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 370,
+    "origFreq": 1293,
+    "term": "計算",
+    "reading": "けいさん",
+    "pos": "noun, verb",
+    "definition": "calculation; computation; reckoning; counting; adding up; working out; figures consideration; calculation; estimation; expectation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 371,
+    "origFreq": 1294,
+    "term": "痛み",
+    "reading": "いたみ",
+    "pos": "noun",
+    "definition": "pain; ache; soreness; grief; distress damage; injury; wear; bruise; break",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 372,
+    "origFreq": 1297,
+    "term": "納得",
+    "reading": "なっとく",
+    "pos": "noun, verb",
+    "definition": "consent; agreement; acceptance understanding; satisfaction (e.g. with an explanation); being convinced",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 373,
+    "origFreq": 1298,
+    "term": "組織",
+    "reading": "そしき",
+    "pos": "noun, verb",
+    "definition": "organization; organisation; formation structure; construction; setup; constitution system (e.g. railroad, transport, party, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 374,
+    "origFreq": 1299,
+    "term": "能力",
+    "reading": "のうりょく",
+    "pos": "noun",
+    "definition": "ability; faculty",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 375,
+    "origFreq": 1302,
+    "term": "注",
+    "reading": "ちゅう",
+    "pos": "noun, verb",
+    "definition": "annotation; explanatory note; comment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 376,
+    "origFreq": 1310,
+    "term": "サービス",
+    "reading": "サービス",
+    "pos": "noun, verb",
+    "definition": "service; help; assistance; care; concern discount; discounted item free service; freebie; gift",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 377,
+    "origFreq": 1313,
+    "term": "魅力",
+    "reading": "みりょく",
+    "pos": "noun",
+    "definition": "charm; fascination; glamour; glamor; attraction; appeal",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 378,
+    "origFreq": 1314,
+    "term": "現場",
+    "reading": "げんば",
+    "pos": "noun",
+    "definition": "actual spot; scene (of a crime, accident, etc.) (on) site; (on) the ground; (in) the field; job site filming location; (movie) set",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 379,
+    "origFreq": 1317,
+    "term": "中学",
+    "reading": "ちゅうがく",
+    "pos": "noun",
+    "definition": "junior high school; middle school; lower secondary school",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 380,
+    "origFreq": 1322,
+    "term": "息",
+    "reading": "いき",
+    "pos": "noun",
+    "definition": "breath; breathing concord; harmony; rapport steam (coming off hot food, tea, etc.); (water) vapor; vapour",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 381,
+    "origFreq": 1325,
+    "term": "指導",
+    "reading": "しどう",
+    "pos": "noun, verb",
+    "definition": "guidance; leadership; instruction; direction; coaching shido (minor penalty in judo)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 382,
+    "origFreq": 1330,
+    "term": "経営",
+    "reading": "けいえい",
+    "pos": "noun, verb",
+    "definition": "management; administration; operation; running (a business); conducting",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 383,
+    "origFreq": 1331,
+    "term": "凡ゆる",
+    "reading": "あらゆる",
+    "pos": "adjective",
+    "definition": "all; every",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 384,
+    "origFreq": 1332,
+    "term": "価値",
+    "reading": "かち",
+    "pos": "noun",
+    "definition": "value; worth; merit",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 385,
+    "origFreq": 1341,
+    "term": "全員",
+    "reading": "ぜんいん",
+    "pos": "noun, adverb",
+    "definition": "all members; all hands; everyone; everybody; whole crew",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 386,
+    "origFreq": 1344,
+    "term": "人物",
+    "reading": "じんぶつ",
+    "pos": "noun",
+    "definition": "person; character; figure; personage; man; woman one's character; one's personality able person; talented person",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 387,
+    "origFreq": 1351,
+    "term": "グループ",
+    "reading": "グループ",
+    "pos": "noun",
+    "definition": "group (usu. of people)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 388,
+    "origFreq": 1355,
+    "term": "エネルギー",
+    "reading": "エネルギー",
+    "pos": "noun",
+    "definition": "energy energy; strength; power; stamina; get-up-and-go energy source; energy resource",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 389,
+    "origFreq": 1357,
+    "term": "愛",
+    "reading": "あい",
+    "pos": "noun",
+    "definition": "love; affection; care attachment; craving; desire agape",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 390,
+    "origFreq": 1358,
+    "term": "比較",
+    "reading": "ひかく",
+    "pos": "noun, verb",
+    "definition": "comparison",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 391,
+    "origFreq": 1359,
+    "term": "結ぶ",
+    "reading": "むすぶ",
+    "pos": "verb",
+    "definition": "to tie; to bind; to link to bear (fruit) to close (e.g. deal); to confirm; to conclude",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 392,
+    "origFreq": 1363,
+    "term": "注目",
+    "reading": "ちゅうもく",
+    "pos": "noun, verb",
+    "definition": "notice; attention; observation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 393,
+    "origFreq": 1367,
+    "term": "最高",
+    "reading": "さいこう",
+    "pos": "adjective, noun",
+    "definition": "best; supreme; wonderful; finest highest; maximum; most; uppermost; supreme",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 394,
+    "origFreq": 1373,
+    "term": "要求",
+    "reading": "ようきゅう",
+    "pos": "noun, verb",
+    "definition": "demand; firm request; requisition; requirement; desire",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 395,
+    "origFreq": 1376,
+    "term": "額",
+    "reading": "がく",
+    "pos": "noun",
+    "definition": "(picture) frame; framed picture amount (esp. of money); sum",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 396,
+    "origFreq": 1378,
+    "term": "抱く",
+    "reading": "いだく",
+    "pos": "verb",
+    "definition": "to hold in one's arms (e.g. a baby); to embrace; to hug to have (a thought or feeling); to hold; to harbour (suspicion, doubt, etc.); to harbor; to bear (a grudge, ill will, etc.); to entertain (hope, illusions, etc.); to cherish (e.g. an ambition)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 397,
+    "origFreq": 1382,
+    "term": "汗",
+    "reading": "あせ",
+    "pos": "noun",
+    "definition": "sweat; perspiration moisture; condensation gulp; oops",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 398,
+    "origFreq": 1384,
+    "term": "改善",
+    "reading": "かいぜん",
+    "pos": "noun, verb",
+    "definition": "betterment; improvement kaizen (Japanese business philosophy of continuous improvement)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 399,
+    "origFreq": 1387,
+    "term": "基本",
+    "reading": "きほん",
+    "pos": "noun, adjective",
+    "definition": "basics; fundamentals; basis; foundation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 400,
+    "origFreq": 1390,
+    "term": "益々",
+    "reading": "ますます",
+    "pos": "adverb",
+    "definition": "increasingly; more and more; decreasingly (when declining); less and less",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 401,
+    "origFreq": 1392,
+    "term": "感情",
+    "reading": "かんじょう",
+    "pos": "noun, adjective",
+    "definition": "emotion; feeling; feelings; sentiment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 402,
+    "origFreq": 1393,
+    "term": "我慢",
+    "reading": "がまん",
+    "pos": "noun, verb",
+    "definition": "endurance; patience; perseverance; bearing (with something) self-control; self-restraint",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 403,
+    "origFreq": 1395,
+    "term": "利益",
+    "reading": "りえき",
+    "pos": "noun",
+    "definition": "profit; gains benefit; advantage; good; interests (e.g. of society) grace (of God, Buddha, etc., esp. as attained through rightful actions, prayer, adherence to one's faith, etc.); blessing; miracle",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 404,
+    "origFreq": 1396,
+    "term": "先日",
+    "reading": "せんじつ",
+    "pos": "noun, adverb",
+    "definition": "the other day; a few days ago",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 405,
+    "origFreq": 1403,
+    "term": "構成",
+    "reading": "こうせい",
+    "pos": "noun, verb",
+    "definition": "composition; construction; formation; makeup; structure; organization; organisation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 406,
+    "origFreq": 1408,
+    "term": "活用",
+    "reading": "かつよう",
+    "pos": "noun, verb",
+    "definition": "practical use; application; making good use of; putting to good use; capitalizing on conjugation; inflection",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 407,
+    "origFreq": 1409,
+    "term": "正直",
+    "reading": "しょうじき",
+    "pos": "adjective, noun",
+    "definition": "honest; frank; candid; straightforward honestly; frankly Shoujiki",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 408,
+    "origFreq": 1412,
+    "term": "プロ",
+    "reading": "プロ",
+    "pos": "noun, adjective",
+    "definition": "professional; pro program production",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 409,
+    "origFreq": 1416,
+    "term": "就職",
+    "reading": "しゅうしょく",
+    "pos": "noun, verb",
+    "definition": "finding employment; getting a job",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 410,
+    "origFreq": 1418,
+    "term": "舞台",
+    "reading": "ぶたい",
+    "pos": "noun",
+    "definition": "stage (of a theatre, concert hall, etc.); (stage) performance setting (of a story); scene sphere (of activity); stage (e.g. political stage); scene; arena; world",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 411,
+    "origFreq": 1420,
+    "term": "数字",
+    "reading": "すうじ",
+    "pos": "noun",
+    "definition": "numeral; digit; numeric character figure; number a few characters",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 412,
+    "origFreq": 1421,
+    "term": "提出",
+    "reading": "ていしゅつ",
+    "pos": "noun, verb",
+    "definition": "presentation (of documents); submission (of an application, report, etc.); production (e.g. of evidence); introduction (e.g. of a bill); filing; turning in",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 413,
+    "origFreq": 1427,
+    "term": "腹",
+    "reading": "はら",
+    "pos": "noun",
+    "definition": "counter for hard roe counter for containers with bulging middles (pots, vases, etc.) abdomen; belly; stomach",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 414,
+    "origFreq": 1428,
+    "term": "喜び",
+    "reading": "よろこび",
+    "pos": "noun",
+    "definition": "joy; delight; rapture; pleasure; gratification; rejoicing; congratulations; felicitations",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 415,
+    "origFreq": 1431,
+    "term": "香り",
+    "reading": "かおり",
+    "pos": "noun",
+    "definition": "aroma; fragrance; scent; smell",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 416,
+    "origFreq": 1432,
+    "term": "スキー",
+    "reading": "スキー",
+    "pos": "noun",
+    "definition": "skiing ski; skis",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 417,
+    "origFreq": 1433,
+    "term": "構う",
+    "reading": "かまう",
+    "pos": "verb",
+    "definition": "to mind; to care about; to be concerned about; to have a regard for to be an issue; to matter; to create inconvenience to keep company; to care for; to look after; to entertain; to pay attention to; to spend time with",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 418,
+    "origFreq": 1436,
+    "term": "無料",
+    "reading": "むりょう",
+    "pos": "adjective, noun",
+    "definition": "free (of charge); gratuitous",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 419,
+    "origFreq": 1437,
+    "term": "付き合い",
+    "reading": "つきあい",
+    "pos": "noun",
+    "definition": "association; socializing; socialising; fellowship",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 420,
+    "origFreq": 1439,
+    "term": "被害",
+    "reading": "ひがい",
+    "pos": "noun",
+    "definition": "(suffering) damage; injury; harm",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 421,
+    "origFreq": 1442,
+    "term": "桜",
+    "reading": "さくら",
+    "pos": "noun",
+    "definition": "cherry tree; cherry blossom fake buyer; paid audience; shill; seat filler hired applauder",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 422,
+    "origFreq": 1444,
+    "term": "ゲーム",
+    "reading": "ゲーム",
+    "pos": "noun",
+    "definition": "game",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 423,
+    "origFreq": 1450,
+    "term": "苦しい",
+    "reading": "くるしい",
+    "pos": "adjective",
+    "definition": "painful; difficult; tough; hard distressing; (psychologically) difficult; stressful; awkward (e.g. position) straitened (circumstances); tight (financial situation); needy; struggling",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 424,
+    "origFreq": 1452,
+    "term": "金",
+    "reading": "きん",
+    "pos": "noun",
+    "definition": "Jin dynasty (of China; 1115-1234); Chin dynasty; Jurchen dynasty gold general testicles",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 425,
+    "origFreq": 1453,
+    "term": "只",
+    "reading": "ただ",
+    "pos": "adjective, noun",
+    "definition": "ordinary; common; usual free of charge unaffected; as is; safe",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 426,
+    "origFreq": 1454,
+    "term": "検査",
+    "reading": "けんさ",
+    "pos": "noun, verb",
+    "definition": "inspection (e.g. customs, factory); examination; test; check; scan (e.g. MRI, PET); audit",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 427,
+    "origFreq": 1455,
+    "term": "皮",
+    "reading": "かわ",
+    "pos": "noun",
+    "definition": "skin; hide; pelt; fur rind; peel; husk; bark shell; sheath; wrapping",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 428,
+    "origFreq": 1455,
+    "term": "革",
+    "reading": "かわ",
+    "pos": "noun",
+    "definition": "leather",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 429,
+    "origFreq": 1458,
+    "term": "代表",
+    "reading": "だいひょう",
+    "pos": "noun, verb",
+    "definition": "representation; representative; delegate; delegation exemplification; typification; being representative of; being typical of; representative example; exemplar; model leader",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 430,
+    "origFreq": 1463,
+    "term": "抜く",
+    "reading": "ぬく",
+    "pos": "verb",
+    "definition": "to cut out (a shape); to create (a pattern) by dying the surrounding area to seize; to capture; to reduce to scoop (a story)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 431,
+    "origFreq": 1464,
+    "term": "回す",
+    "reading": "まわす",
+    "pos": "verb",
+    "definition": "to invest (money); to lend to dial (a telephone number) to gang-rape",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 432,
+    "origFreq": 1465,
+    "term": "敵",
+    "reading": "てき",
+    "pos": "noun",
+    "definition": "opponent; rival; adversary menace; danger; threat; enemy",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 433,
+    "origFreq": 1469,
+    "term": "祭り",
+    "reading": "まつり",
+    "pos": "noun",
+    "definition": "festival; feast; matsuri harassment by an Internet pitchfork mob; online shaming; flaming galore (as in \"goals galore\"); frenzy; mania",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 434,
+    "origFreq": 1470,
+    "term": "抜ける",
+    "reading": "ぬける",
+    "pos": "verb",
+    "definition": "to come out; to fall out; to be omitted; to be missing; to escape; to come loose to fade; to discolour to wear a hole (e.g. clothes)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 435,
+    "origFreq": 1480,
+    "term": "処理",
+    "reading": "しょり",
+    "pos": "noun, verb",
+    "definition": "processing; dealing with; treatment; disposition; disposal",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 436,
+    "origFreq": 1481,
+    "term": "困難",
+    "reading": "こんなん",
+    "pos": "noun, adjective",
+    "definition": "difficulty; hardship; trouble; distress infeasibility; inability (to carry out)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 437,
+    "origFreq": 1483,
+    "term": "分野",
+    "reading": "ぶんや",
+    "pos": "noun",
+    "definition": "field; sphere; realm; division; branch",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 438,
+    "origFreq": 1488,
+    "term": "対",
+    "reading": "つい",
+    "pos": "noun",
+    "definition": "pair; couple; set antithesis counter for items that come in pairs",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 439,
+    "origFreq": 1489,
+    "term": "土",
+    "reading": "つち",
+    "pos": "noun",
+    "definition": "earth; soil; dirt; clay; mud the earth (historically, esp. as opposed to the heavens); the ground; the land low-quality torinoko-gami (containing mud)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 440,
+    "origFreq": 1490,
+    "term": "隠す",
+    "reading": "かくす",
+    "pos": "verb",
+    "definition": "to hide; to conceal",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 441,
+    "origFreq": 1491,
+    "term": "緊張",
+    "reading": "きんちょう",
+    "pos": "noun, verb",
+    "definition": "tension; strain; nervousness; stress tensions (between countries, groups, etc.) tonus; muscle tone",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 442,
+    "origFreq": 1492,
+    "term": "其れとも",
+    "reading": "それとも",
+    "pos": "conjunction",
+    "definition": "or; or else",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 443,
+    "origFreq": 1495,
+    "term": "戦う",
+    "reading": "たたかう",
+    "pos": "verb",
+    "definition": "to make war (on); to wage war (against); to go to war (with); to fight (with); to do battle (against) to compete (against) to struggle (against adversities, etc.); to fight; to contend; to resist",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 444,
+    "origFreq": 1496,
+    "term": "単に",
+    "reading": "たんに",
+    "pos": "adverb",
+    "definition": "simply; merely; only; solely",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 445,
+    "origFreq": 1499,
+    "term": "達する",
+    "reading": "たっする",
+    "pos": "verb",
+    "definition": "to reach; to get to; to arrive at",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 446,
+    "origFreq": 1501,
+    "term": "遂に",
+    "reading": "ついに",
+    "pos": "adverb",
+    "definition": "finally; in the end; at last in the end; after all; never (happened)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 447,
+    "origFreq": 1505,
+    "term": "無事",
+    "reading": "ぶじ",
+    "pos": "noun, adjective",
+    "definition": "safety; security; peace; quiet safely; without incident; successfully good health",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 448,
+    "origFreq": 1511,
+    "term": "切れる",
+    "reading": "きれる",
+    "pos": "verb",
+    "definition": "to be sharp-minded; to be keen; to be shrewd; to be quick-witted; to be able to be short of; to drop under (a certain figure); to beat (e.g. a record time) to dry off",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 449,
+    "origFreq": 1512,
+    "term": "維持",
+    "reading": "いじ",
+    "pos": "noun, verb",
+    "definition": "maintenance; preservation; improvement",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 450,
+    "origFreq": 1514,
+    "term": "太陽",
+    "reading": "たいよう",
+    "pos": "noun",
+    "definition": "Sun",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 451,
+    "origFreq": 1516,
+    "term": "素敵",
+    "reading": "すてき",
+    "pos": "adjective",
+    "definition": "lovely; wonderful; nice; great; splendid; marvellous; fantastic; superb",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 452,
+    "origFreq": 1520,
+    "term": "ワイン",
+    "reading": "ワイン",
+    "pos": "noun",
+    "definition": "wine",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 453,
+    "origFreq": 1524,
+    "term": "売れる",
+    "reading": "うれる",
+    "pos": "verb",
+    "definition": "to sell (well) to be well known; to be popular; to be famous",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 454,
+    "origFreq": 1527,
+    "term": "周囲",
+    "reading": "しゅうい",
+    "pos": "noun, adjective",
+    "definition": "surroundings; environs circumference",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 455,
+    "origFreq": 1538,
+    "term": "安定",
+    "reading": "あんてい",
+    "pos": "noun, verb",
+    "definition": "stability; steadiness; consistency; equilibrium; balance; composure stable",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 456,
+    "origFreq": 1539,
+    "term": "完成",
+    "reading": "かんせい",
+    "pos": "noun, verb",
+    "definition": "completion; perfection; accomplishment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 457,
+    "origFreq": 1543,
+    "term": "参考",
+    "reading": "さんこう",
+    "pos": "noun",
+    "definition": "reference; consultation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 458,
+    "origFreq": 1544,
+    "term": "例え",
+    "reading": "たとえ",
+    "pos": "noun",
+    "definition": "example simile; metaphor; allegory; fable; parable",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 459,
+    "origFreq": 1545,
+    "term": "受け取る",
+    "reading": "うけとる",
+    "pos": "verb",
+    "definition": "to receive; to get; to accept to take (someone's words or behaviour); to interpret; to understand",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 460,
+    "origFreq": 1547,
+    "term": "望む",
+    "reading": "のぞむ",
+    "pos": "verb",
+    "definition": "to desire; to want; to wish for; to hope for to expect (of someone); to hope for; to look forward to to see; to command (a view of); to overlook",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 461,
+    "origFreq": 1548,
+    "term": "適用",
+    "reading": "てきよう",
+    "pos": "noun, verb",
+    "definition": "application (of a rule, law, method, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 462,
+    "origFreq": 1549,
+    "term": "宗教",
+    "reading": "しゅうきょう",
+    "pos": "noun",
+    "definition": "religion; religious affiliation; belief; faith; creed religious activity",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 463,
+    "origFreq": 1551,
+    "term": "範囲",
+    "reading": "はんい",
+    "pos": "noun",
+    "definition": "extent; scope; sphere; range; span",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 464,
+    "origFreq": 1553,
+    "term": "戻す",
+    "reading": "もどす",
+    "pos": "verb",
+    "definition": "to put back; to return; to give back; to restore (to a previous state, e.g. defrosting, reconstituting, reconciling); to turn back (e.g. clock hand) to vomit; to throw up to recover (of a market price)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 465,
+    "origFreq": 1559,
+    "term": "余裕",
+    "reading": "よゆう",
+    "pos": "noun",
+    "definition": "surplus; margin; leeway; room; space; time; allowance; flexibility; scope composure; placidity; complacency; calm",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 466,
+    "origFreq": 1564,
+    "term": "担当",
+    "reading": "たんとう",
+    "pos": "noun, verb",
+    "definition": "being in charge (of an area of responsibility); being responsible (for a work role, etc.)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 467,
+    "origFreq": 1566,
+    "term": "機械",
+    "reading": "きかい",
+    "pos": "noun",
+    "definition": "machine; mechanism instrument; appliance; apparatus",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 468,
+    "origFreq": 1569,
+    "term": "都市",
+    "reading": "とし",
+    "pos": "noun, adjective",
+    "definition": "town; city; municipal; urban",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 469,
+    "origFreq": 1570,
+    "term": "費用",
+    "reading": "ひよう",
+    "pos": "noun",
+    "definition": "cost; expense",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 470,
+    "origFreq": 1571,
+    "term": "運転",
+    "reading": "うんてん",
+    "pos": "noun, verb",
+    "definition": "operation (of a machine); running; working driving (a vehicle) use (of capital, funds, etc.); management; investment",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 471,
+    "origFreq": 1572,
+    "term": "生地",
+    "reading": "きじ",
+    "pos": "noun",
+    "definition": "cloth; fabric; material; texture dough; batter inherent quality; one's true character; one's true colours",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 472,
+    "origFreq": 1576,
+    "term": "一層",
+    "reading": "いっそう",
+    "pos": "adverb",
+    "definition": "even more; still more; all the more; more than ever one layer lowest floor (of a building)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 473,
+    "origFreq": 1581,
+    "term": "誘う",
+    "reading": "さそう",
+    "pos": "verb",
+    "definition": "to invite; to ask (someone to do); to call (for); to take (someone) along to tempt; to lure; to entice; to seduce to induce (tears, laughter, sleepiness, etc.); to arouse (e.g. sympathy); to provoke",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 474,
+    "origFreq": 1584,
+    "term": "価格",
+    "reading": "かかく",
+    "pos": "noun",
+    "definition": "price; value; cost",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 475,
+    "origFreq": 1588,
+    "term": "週",
+    "reading": "しゅう",
+    "pos": "noun",
+    "definition": "week",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 476,
+    "origFreq": 1591,
+    "term": "単純",
+    "reading": "たんじゅん",
+    "pos": "adjective, noun",
+    "definition": "simple; plain; uncomplicated; straightforward; simple-minded; naive",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 477,
+    "origFreq": 1595,
+    "term": "一生",
+    "reading": "いっしょう",
+    "pos": "noun, adjective, adverb",
+    "definition": "whole life; a lifetime; all through life; one existence; a generation; an age; the whole world; the era (the only, the greatest, etc.) of one's life",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 478,
+    "origFreq": 1598,
+    "term": "後",
+    "reading": "のち",
+    "pos": "noun, adverb, adjective",
+    "definition": "later; afterwards future after one's death",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 479,
+    "origFreq": 1599,
+    "term": "調子",
+    "reading": "ちょうし",
+    "pos": "noun",
+    "definition": "tune; tone; key; pitch; time; rhythm vein; mood; way; manner; style; knack condition; state of health; shape",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 480,
+    "origFreq": 1601,
+    "term": "植物",
+    "reading": "しょくぶつ",
+    "pos": "noun",
+    "definition": "plant; vegetation",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 481,
+    "origFreq": 1602,
+    "term": "契約",
+    "reading": "けいやく",
+    "pos": "noun, verb",
+    "definition": "contract; compact; agreement",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 482,
+    "origFreq": 1603,
+    "term": "組む",
+    "reading": "くむ",
+    "pos": "verb",
+    "definition": "to cross (legs or arms); to link (arms) to put together; to construct; to assemble; to produce (e.g. TV program) to braid; to plait",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 483,
+    "origFreq": 1604,
+    "term": "叫ぶ",
+    "reading": "さけぶ",
+    "pos": "verb",
+    "definition": "to shout; to cry; to scream; to shriek; to yell; to exclaim to clamor (for or against); to clamour (for or against)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 484,
+    "origFreq": 1606,
+    "term": "手段",
+    "reading": "しゅだん",
+    "pos": "noun",
+    "definition": "means; way; measure",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 485,
+    "origFreq": 1607,
+    "term": "下ろす",
+    "reading": "おろす",
+    "pos": "verb",
+    "definition": "to take down; to bring down; to lower (a hand, flag, shutter, etc.); to drop (an anchor, curtain, etc.); to let down (hair); to launch (a boat) to drop off (a passenger); to let off; to unload (goods, a truck, etc.); to offload; to discharge to withdraw (money)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 486,
+    "origFreq": 1611,
+    "term": "ドラマ",
+    "reading": "ドラマ",
+    "pos": "noun",
+    "definition": "(non-documentary) television series; TV drama; teledrama; play drama; dramatic incident; spectacle; tragedy Dhrama (Greece)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 487,
+    "origFreq": 1614,
+    "term": "無駄",
+    "reading": "むだ",
+    "pos": "noun, adjective",
+    "definition": "futility; waste; uselessness; pointlessness; idleness",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 488,
+    "origFreq": 1616,
+    "term": "管理",
+    "reading": "かんり",
+    "pos": "noun, verb",
+    "definition": "control; management (e.g. of a business)",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 489,
+    "origFreq": 1619,
+    "term": "正確",
+    "reading": "せいかく",
+    "pos": "adjective, noun",
+    "definition": "accurate; correct; precise; exact",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 490,
+    "origFreq": 1620,
+    "term": "夫婦",
+    "reading": "ふうふ",
+    "pos": "noun",
+    "definition": "married couple; husband and wife; man and wife",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 491,
+    "origFreq": 1621,
+    "term": "監督",
+    "reading": "かんとく",
+    "pos": "noun, verb",
+    "definition": "supervision; control; superintendence; direction director; superintendent; supervisor; coach; foreman; manager; overseer; controller; boss",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 492,
+    "origFreq": 1622,
+    "term": "鍋",
+    "reading": "なべ",
+    "pos": "noun",
+    "definition": "pan; pot; saucepan stew; hot pot",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 493,
+    "origFreq": 1625,
+    "term": "外す",
+    "reading": "はずす",
+    "pos": "verb",
+    "definition": "to remove; to take off; to detach; to unfasten; to undo to drop (e.g. from a team); to remove (from a position); to exclude; to expel to leave (e.g. one's seat); to go away from; to step out; to slip away",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 494,
+    "origFreq": 1626,
+    "term": "何でも",
+    "reading": "なんでも",
+    "pos": "phrase",
+    "definition": "any; anything; whatever; whatever one likes; everything; all I am told; I hear; I understand; they say",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 495,
+    "origFreq": 1629,
+    "term": "其処で",
+    "reading": "そこで",
+    "pos": "conjunction",
+    "definition": "so; accordingly; now; then; thereupon; therefore",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 496,
+    "origFreq": 1631,
+    "term": "発達",
+    "reading": "はったつ",
+    "pos": "noun, verb",
+    "definition": "development; growth",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 497,
+    "origFreq": 1633,
+    "term": "戦い",
+    "reading": "たたかい",
+    "pos": "noun",
+    "definition": "battle; war; fight; conflict fight (against time, poverty, etc.); struggle (for freedom, survival, etc.); war (e.g. on drugs); battle (e.g. against nature) contest; competition; match; game",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 498,
+    "origFreq": 1636,
+    "term": "会",
+    "reading": "かい",
+    "pos": "noun",
+    "definition": "meeting; assembly; party; gathering; conference; athletic meet society; association; club",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 499,
+    "origFreq": 1638,
+    "term": "現代",
+    "reading": "げんだい",
+    "pos": "noun, adjective",
+    "definition": "present age; present day; today modern era; modern times",
+    "category": "JLPT N3",
+    "romaji": ""
+  },
+  {
+    "rank": 500,
+    "origFreq": 1639,
+    "term": "回復",
+    "reading": "かいふく",
+    "pos": "noun, verb",
+    "definition": "restoration; recovery; rehabilitation; return; improvement recovery (from an illness); recuperation; convalescence",
+    "category": "JLPT N3",
+    "romaji": ""
+  }
+]

@@ -31,7 +31,7 @@ const COST_BY_MODE: Record<string, number> = {
 // AIWordResult 필드 구조가 바뀌면 bump → 옛 캐시는 미스 처리되어 재생성·덮어쓰기됨.
 const PROMPT_VERSION = 1;
 
-const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi']);
+const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 
 function json(status: number, body: unknown) {
   return new Response(JSON.stringify(body), {

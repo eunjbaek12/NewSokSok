@@ -1216,6 +1216,7 @@
     "ja": "Japanese",
     "zh": "Chinese",
     "vi": "Vietnamese",
+    "es": "Spanish",
     "meaningLabel": "{{lang}} Meaning",
     "definitionLabel": "{{lang}} Definition",
     "translationLabel": "{{lang}} Translation",
@@ -1224,7 +1225,8 @@
       "ko": "단어를 입력하세요",
       "ja": "単語を入力",
       "zh": "输入单词",
-      "vi": "Nhập từ"
+      "vi": "Nhập từ",
+      "es": "Escribe una palabra"
     }
   },
   "time": {

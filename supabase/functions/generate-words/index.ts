@@ -23,7 +23,7 @@ import { checkRateLimit } from '../_shared/rate-limit.ts';
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 
-const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi']);
+const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 const ALLOWED_DIFFICULTY = new Set(['beginner', 'intermediate', 'advanced']);
 const MAX_WORD_COUNT = 50;
 const MAX_EXCLUDE = 200;

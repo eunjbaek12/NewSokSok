@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react';
-import { View, Text, Pressable, Platform, StyleSheet, Modal, Switch, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Pressable, Platform, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,7 +24,8 @@ import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import { useTranslation } from 'react-i18next';
-import { autoFillWord } from '@/lib/translation-api';
+import { enrichWord } from '@/lib/translation-api';
+import type { AutoFillResult } from '@/lib/types';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -115,13 +116,15 @@ export default function ExamplesScreen() {
   }, [studySettings.studyBatchSize, studySettings.shuffle, updateStudySettings]);
 
   const [studyWords, setStudyWords] = useState<Word[]>([]);
-  const pendingStudyWords = useRef<Word[]>([]);
-  const [showGenerateModal, setShowGenerateModal] = useState(false);
-  const [missingCount, setMissingCount] = useState(0);
-  const [hasExistingExamples, setHasExistingExamples] = useState(false);
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [generateProgress, setGenerateProgress] = useState(0);
-  const cancelledRef = useRef(false);
+  // 백그라운드 enrich 상태. 모달로 차단하지 않고 진행 배너로 노출.
+  // hadAnyReady: 시작 시점에 예문 있는 단어가 하나라도 있었는지(전체 미생성 케이스 UI 분기용).
+  const [bgEnrich, setBgEnrich] = useState<{
+    running: boolean;
+    total: number;
+    completed: number;
+    hadAnyReady: boolean;
+  }>({ running: false, total: 0, completed: 0, hadAnyReady: true });
+  const enrichAbortRef = useRef<AbortController | null>(null);
 
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -141,6 +144,80 @@ export default function ExamplesScreen() {
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids });
+
+  // 누락된 예문을 백그라운드에서 sliding-window 동시성으로 채운다.
+  // - 완성될 때마다 studyWords에 append → 진행 중 다음 batch부터 자동 등장
+  // - 빈 결과/에러는 지수 backoff로 최대 3회 시도 (429/quota 회복용)
+  // - AbortController로 화면 이탈/재초기화 시 즉시 중단
+  const startBackgroundEnrich = useCallback(async (missing: Word[]) => {
+    if (missing.length === 0) return;
+    enrichAbortRef.current?.abort();
+    const ctrl = new AbortController();
+    enrichAbortRef.current = ctrl;
+
+    const CONCURRENCY = 3;
+    const MAX_ATTEMPTS = 3;
+    let index = 0;
+
+    const worker = async () => {
+      while (!ctrl.signal.aborted) {
+        const i = index++;
+        if (i >= missing.length) return;
+        const word = missing[i];
+
+        let enriched: AutoFillResult | null = null;
+        for (let attempt = 0; attempt < MAX_ATTEMPTS && !ctrl.signal.aborted; attempt++) {
+          try {
+            enriched = await enrichWord(
+              word.term,
+              word.sourceLang || 'en',
+              word.targetLang || 'ko',
+              apiKey || undefined,
+              ctrl.signal,
+            );
+          } catch (e: any) {
+            if (e?.name === 'AbortError') return;
+            enriched = null;
+          }
+          if (enriched?.exampleEn) break;
+          if (attempt < MAX_ATTEMPTS - 1) {
+            const backoff = Math.min(1500 * Math.pow(2, attempt), 8000);
+            await new Promise(r => setTimeout(r, backoff));
+          }
+        }
+
+        if (ctrl.signal.aborted) return;
+
+        if (enriched?.exampleEn) {
+          const updates: Partial<Omit<Word, 'id'>> = { exampleEn: enriched.exampleEn };
+          if (enriched.exampleKr) updates.exampleKr = enriched.exampleKr;
+          try {
+            await updateWord(id!, word.id, updates);
+          } catch { /* DB write 실패는 무시 — 다음 진입 시 재시도 */ }
+          if (!ctrl.signal.aborted) {
+            const enrichedWord = { ...word, ...updates };
+            setStudyWords(prev => prev.some(w => w.id === word.id) ? prev : [...prev, enrichedWord]);
+          }
+        }
+
+        if (!ctrl.signal.aborted) {
+          setBgEnrich(s => ({ ...s, completed: s.completed + 1 }));
+        }
+      }
+    };
+
+    await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+    if (!ctrl.signal.aborted) {
+      setBgEnrich(s => ({ ...s, running: false }));
+    }
+  }, [id, apiKey]);
+
+  // 화면 이탈 시 in-flight enrich 중단
+  useEffect(() => {
+    return () => {
+      enrichAbortRef.current?.abort();
+    };
+  }, []);
 
   // Sync initial search params with settings
   useEffect(() => {
@@ -197,17 +274,17 @@ export default function ExamplesScreen() {
       setIsNewAnswer(false);
       results.current = [];
       lastSettingsRef.current = { id, filter: settings.filter, isStarred: settings.isStarred, shuffle: settings.shuffle, batchSize: studySettings.studyBatchSize, ids };
-      pendingStudyWords.current = all;
-      setStudyWords(all);
       isInitialLoad.current = false;
 
       const missing = all.filter(w => !w.exampleEn);
+      const ready = all.filter(w => !!w.exampleEn);
+      setStudyWords(ready);
+
       if (missing.length > 0) {
-        setMissingCount(missing.length);
-        setHasExistingExamples(all.some(w => !!w.exampleEn));
-        setShowGenerateModal(true);
+        setBgEnrich({ running: true, total: missing.length, completed: 0, hadAnyReady: ready.length > 0 });
+        startBackgroundEnrich(missing);
       } else {
-        setShowGenerateModal(false);
+        setBgEnrich({ running: false, total: 0, completed: 0, hadAnyReady: true });
       }
     } else {
       setStudyWords(prev => {
@@ -337,98 +414,27 @@ export default function ExamplesScreen() {
     router.back();
   }, []);
 
-  const handleGenerateExamples = async () => {
-    cancelledRef.current = false;
-    setIsGenerating(true);
-    setGenerateProgress(0);
-    const missing = pendingStudyWords.current.filter(w => !w.exampleEn);
-    const updatedMap = new Map(pendingStudyWords.current.map(w => [w.id, { ...w }]));
-
-    for (let i = 0; i < missing.length; i++) {
-      if (cancelledRef.current) break;
-      setGenerateProgress(i + 1);
-      const word = missing[i];
-      try {
-        const result = await autoFillWord(word.term, word.sourceLang || 'en', word.targetLang || 'ko', apiKey || undefined);
-        if (result.exampleEn) {
-          const updates: Partial<Omit<Word, 'id'>> = { exampleEn: result.exampleEn };
-          if (result.exampleKr) updates.exampleKr = result.exampleKr;
-          await updateWord(id!, word.id, updates);
-          updatedMap.set(word.id, { ...word, ...updates });
-        }
-      } catch {
-        // 생성 실패 시 해당 단어 건너뜀
-      }
-    }
-
-    // 생성 실패하거나 취소된 단어(예문 여전히 없음)는 학습에서 제외
-    setStudyWords(Array.from(updatedMap.values()).filter(w => !!w.exampleEn));
-    setIsGenerating(false);
-    setShowGenerateModal(false);
-  };
-
-  const handleCancelGenerate = () => {
-    cancelledRef.current = true;
-  };
-
-  const handleExcludeNoExample = () => {
-    const withExample = pendingStudyWords.current.filter(w => !!w.exampleEn);
-    setStudyWords(withExample);
-    setShowGenerateModal(false);
-  };
-
   const handleSpeak = useCallback(() => {
     if (currentWord?.exampleEn) {
       speak(currentWord.exampleEn, getTtsLang(list?.sourceLanguage));
     }
   }, [currentWord, list?.sourceLanguage]);
 
-  if (showGenerateModal) {
+  // 모두 예문 없음 + 백그라운드 enrich 진행 중 → 풀스크린 진행 상태.
+  // 첫 단어가 완성되면 studyWords.length > 0이 되어 자동으로 학습 화면으로 전환됨.
+  if (studyWords.length === 0 && bgEnrich.running) {
     return (
       <View style={[styles.container, { backgroundColor: colors.background, justifyContent: 'center', alignItems: 'center', padding: 24 }]}>
-        {isGenerating ? (
-          <>
-            <ActivityIndicator size="large" color={colors.primary} />
-            <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', marginTop: 24, textAlign: 'center' }}>
-              {t('examples.generating')}
-            </Text>
-            <Text style={{ color: colors.textSecondary, marginTop: 8, fontFamily: 'Pretendard_500Medium' }}>
-              {generateProgress} / {missingCount}
-            </Text>
-            <Pressable onPress={handleCancelGenerate} style={{ marginTop: 24 }}>
-              <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('common.cancel')}</Text>
-            </Pressable>
-          </>
-        ) : (
-          <>
-            <Ionicons name="sparkles-outline" size={64} color={colors.primary} style={{ marginBottom: 16 }} />
-            <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_700Bold', textAlign: 'center', marginBottom: 8 }}>
-              {t('examples.missingExamplesTitle', { count: missingCount, total: pendingStudyWords.current.length })}
-            </Text>
-            <Text style={{ color: colors.textSecondary, textAlign: 'center', marginBottom: 32, paddingHorizontal: 8, fontFamily: 'Pretendard_400Regular', lineHeight: 22 }}>
-              {t('examples.missingExamplesDesc')}
-            </Text>
-            <View style={{ flexDirection: 'row', gap: 12, width: '100%' }}>
-              {hasExistingExamples && (
-                <Pressable
-                  onPress={handleExcludeNoExample}
-                  style={{ flex: 1, backgroundColor: colors.surfaceSecondary, paddingVertical: 14, borderRadius: 12, alignItems: 'center' }}
-                >
-                  <Text style={{ color: colors.text, fontFamily: 'Pretendard_600SemiBold' }}>{t('examples.excludeAndStart')}</Text>
-                </Pressable>
-              )}
-              <Pressable
-                onPress={handleGenerateExamples}
-                style={{ flex: 1, backgroundColor: colors.primaryButton, paddingVertical: 14, borderRadius: 12, alignItems: 'center' }}
-              >
-                <Text style={{ color: colors.onPrimary, fontFamily: 'Pretendard_600SemiBold' }}>{t('examples.generateWithAI')}</Text>
-              </Pressable>
-            </View>
-            <Pressable onPress={handleClose} style={{ marginTop: 20 }}>
-              <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('common.back')}</Text>
-            </Pressable>
-          </>
-        )}
+        <ActivityIndicator size="large" color={colors.primary} />
+        <Text style={{ color: colors.text, fontSize: 18, fontFamily: 'Pretendard_600SemiBold', marginTop: 24, textAlign: 'center' }}>
+          {t('examples.bgGenerateAllMissing')}
+        </Text>
+        <Text style={{ color: colors.textSecondary, marginTop: 8, fontFamily: 'Pretendard_500Medium' }}>
+          {bgEnrich.completed} / {bgEnrich.total}
+        </Text>
+        <Pressable onPress={handleClose} style={{ marginTop: 24 }}>
+          <Text style={{ color: colors.textSecondary, fontFamily: 'Pretendard_500Medium' }}>{t('common.back')}</Text>
+        </Pressable>
       </View>
     );
   }
@@ -500,6 +506,15 @@ export default function ExamplesScreen() {
             {currentIndex + 1} / {currentBatchWords.length}
           </Text>
         </View>
+
+        {bgEnrich.running && (
+          <View style={[styles.bgEnrichBanner, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border }]}>
+            <ActivityIndicator size="small" color={colors.primary} />
+            <Text style={[styles.bgEnrichBannerText, { color: colors.textSecondary }]} numberOfLines={1}>
+              {t('examples.bgGenerating', { completed: bgEnrich.completed, total: bgEnrich.total })}
+            </Text>
+          </View>
+        )}
       </View>
 
       <ScrollView
@@ -728,6 +743,22 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_500Medium',
     minWidth: 70,
     textAlign: 'right',
+  },
+  bgEnrichBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+    borderWidth: StyleSheet.hairlineWidth,
+    marginTop: 4,
+    marginBottom: 8,
+  },
+  bgEnrichBannerText: {
+    flex: 1,
+    fontSize: 12,
+    fontFamily: 'Pretendard_500Medium',
   },
   cardArea: {
     flex: 1,

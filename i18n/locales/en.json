@@ -994,7 +994,9 @@
     "missingExamplesDesc": "Generate examples with AI, or start without those words. Generated examples will be saved to each word.",
     "generateWithAI": "Generate with AI",
     "excludeAndStart": "Exclude & Start",
-    "generating": "Generating examples..."
+    "generating": "Generating examples...",
+    "bgGenerating": "Generating examples {{completed}}/{{total}}",
+    "bgGenerateAllMissing": "All words are missing examples — generating with AI"
   },
   "autoplay": {
     "title": "Autoplay",

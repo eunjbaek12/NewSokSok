@@ -106,7 +106,7 @@
     "circularProgress": "{{memorized}}/{{total}}",
     "expired": "Expired",
     "inactive": "Inactive",
-    "endStudy": "End Study",
+    "endStudy": "End",
     "restartStudy": "Restart",
     "emptyTitle": "No study plans in progress yet",
     "emptySubtitle": "Open a vocab list and tap 'Start Study Plan'",

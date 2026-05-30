@@ -505,7 +505,10 @@ export default function DashboardScreen() {
                         <View style={styles.planCardBottomLeft}>
                           <ProgressBar percent={dayStatus.dayTotal > 0 ? Math.round((dayStatus.dayMemorized / dayStatus.dayTotal) * 100) : 0} colors={colors} />
                           <View style={styles.planStatsRow}>
-                            <Text style={[styles.planWordCount, { color: colors.textTertiary }]}>
+                            <Text
+                              style={[styles.planWordCount, { color: colors.textTertiary, flexShrink: 1 }]}
+                              numberOfLines={1}
+                            >
                               {t('home.dayProgress', { day: dayStatus.displayDay, memorized: dayStatus.dayMemorized, total: dayStatus.dayTotal })}
                             </Text>
                             <Text style={[styles.planStatsPercent, {
@@ -1033,10 +1036,13 @@ const styles = StyleSheet.create({
   actionButtonText: {
     fontSize: 12,
     fontFamily: 'Pretendard_600SemiBold',
+    textAlign: 'center',
   },
   staleActionRow: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 6,
+    flexShrink: 0,
+    alignItems: 'center',
   },
   filterEmptyText: {
     fontSize: 14,

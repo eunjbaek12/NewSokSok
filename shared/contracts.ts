@@ -59,6 +59,7 @@ export const InputSettingsSchema = z.object({
   sourceLang: LanguageCodeSchema.default('en'),
   targetLang: LanguageCodeSchema.default('ko'),
   enableAutocomplete: z.boolean().default(true),
+  lastUsedListId: z.string().default(''),
 });
 export type InputSettings = z.infer<typeof InputSettingsSchema>;
 

@@ -350,7 +350,12 @@ export default function AddWordScreen() {
 
     const [photoSource, setPhotoSource] = useState<'camera' | 'gallery' | null>(null);
     const [showExcel, setShowExcel] = useState(false);
-    const [selectedListId, setSelectedListId] = useState(listId || (lists.length > 0 ? lists[0].id : ''));
+    const [selectedListId, setSelectedListId] = useState(() => {
+        if (listId) return listId;
+        const last = inputSettings.lastUsedListId;
+        if (last && lists.some(l => l.id === last)) return last;
+        return lists.length > 0 ? lists[0].id : '';
+    });
     const [listPickerOpen, setListPickerOpen] = useState(false);
     const [newListName, setNewListName] = useState('');
     const [showNewListInput, setShowNewListInput] = useState(false);
@@ -380,10 +385,13 @@ export default function AddWordScreen() {
         if (lists.length === 0) return;
         const valid = selectedListId && lists.some(l => l.id === selectedListId);
         if (!valid) {
-            const fallback = listId && lists.some(l => l.id === listId) ? listId : lists[0].id;
+            const fromParam = listId && lists.some(l => l.id === listId) ? listId : undefined;
+            const last = inputSettings.lastUsedListId;
+            const fromLast = last && lists.some(l => l.id === last) ? last : undefined;
+            const fallback = fromParam ?? fromLast ?? lists[0].id;
             setSelectedListId(fallback);
         }
-    }, [lists, listId, selectedListId]);
+    }, [lists, listId, selectedListId, inputSettings.lastUsedListId]);
 
     useSpeechRecognitionEvent('start', () => setIsListening(true));
     useSpeechRecognitionEvent('end', () => setIsListening(false));
@@ -590,6 +598,9 @@ export default function AddWordScreen() {
             addedCount++;
         }
         if (addedCount > 0 || skippedCount > 0) {
+            if (selectedListId && inputSettings.lastUsedListId !== selectedListId) {
+                void updateInputSettings({ lastUsedListId: selectedListId });
+            }
             const msg = skippedCount > 0
                 ? t('photoImport.savedWithSkip', { added: addedCount, skipped: skippedCount })
                 : t('addWord.batchSaveComplete', { count: addedCount });
@@ -661,6 +672,9 @@ export default function AddWordScreen() {
                 if (isEditing) {
                     router.back();
                 } else {
+                    if (selectedListId && inputSettings.lastUsedListId !== selectedListId) {
+                        void updateInputSettings({ lastUsedListId: selectedListId });
+                    }
                     setToastMessage(t('addWord.addedComplete', { term: savedTerm }));
                     setToastVisible(true);
                     setTimeout(() => setToastVisible(false), 1200);
@@ -1399,9 +1413,11 @@ export default function AddWordScreen() {
                 visible={sourceLangPickerOpen}
                 onClose={() => setSourceLangPickerOpen(false)}
                 title={t('addWord.inputLanguageSelect')}
-                options={SUPPORTED_LANGUAGES
-                    .filter(l => l.code !== tempSettings.targetLang)
-                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                options={SUPPORTED_LANGUAGES.map(l => ({
+                    id: l.code,
+                    title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
+                    disabled: l.code === tempSettings.targetLang,
+                }))}
                 selectedValue={tempSettings.sourceLang}
                 onSelect={(code: string) => {
                     setTempSettings(s => ({ ...s, sourceLang: code as LanguageCode }));
@@ -1414,9 +1430,11 @@ export default function AddWordScreen() {
                 visible={targetLangPickerOpen}
                 onClose={() => setTargetLangPickerOpen(false)}
                 title={t('addWord.meaningLanguageSelect')}
-                options={SUPPORTED_LANGUAGES
-                    .filter(l => l.code !== tempSettings.sourceLang)
-                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                options={SUPPORTED_LANGUAGES.map(l => ({
+                    id: l.code,
+                    title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
+                    disabled: l.code === tempSettings.sourceLang,
+                }))}
                 selectedValue={tempSettings.targetLang}
                 onSelect={(code: string) => {
                     setTempSettings(s => ({ ...s, targetLang: code as LanguageCode }));

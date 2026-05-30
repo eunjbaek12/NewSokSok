@@ -12,6 +12,7 @@ export interface PickerOption {
     subtitle?: string;
     icon?: keyof typeof Ionicons.glyphMap;
     rightElement?: React.ReactNode;
+    disabled?: boolean;
 }
 
 interface ModalPickerProps {
@@ -54,32 +55,38 @@ export function ModalPicker({
         >
             {footer && <View style={styles.footerWrap}>{footer}</View>}
             <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
-                {options.map((opt) => (
-                    <Pressable
-                        key={opt.id}
-                        onPress={() => onSelect(opt.id)}
-                        style={[
-                            styles.option,
-                            {
-                                borderBottomColor: colors.border,
-                                backgroundColor: selectedValue === opt.id ? colors.primaryLight : 'transparent',
-                            },
-                        ]}
-                    >
-                        <Ionicons
-                            name={selectedValue === opt.id ? 'radio-button-on' : (opt.icon || 'radio-button-off')}
-                            size={20}
-                            color={selectedValue === opt.id ? colors.primary : colors.textTertiary}
-                        />
-                        <View style={styles.optionContent}>
-                            <Text style={[styles.optionTitle, { color: colors.text }]}>{opt.title}</Text>
-                            {opt.subtitle && (
-                                <Text style={[styles.optionSub, { color: colors.textSecondary }]}>{opt.subtitle}</Text>
-                            )}
-                        </View>
-                        {opt.rightElement}
-                    </Pressable>
-                ))}
+                {options.map((opt) => {
+                    const isSelected = selectedValue === opt.id;
+                    const isDisabled = !!opt.disabled;
+                    return (
+                        <Pressable
+                            key={opt.id}
+                            onPress={() => onSelect(opt.id)}
+                            disabled={isDisabled}
+                            style={[
+                                styles.option,
+                                {
+                                    borderBottomColor: colors.border,
+                                    backgroundColor: isSelected ? colors.primaryLight : 'transparent',
+                                    opacity: isDisabled ? 0.4 : 1,
+                                },
+                            ]}
+                        >
+                            <Ionicons
+                                name={isSelected ? 'radio-button-on' : (opt.icon || 'radio-button-off')}
+                                size={20}
+                                color={isSelected ? colors.primary : colors.textTertiary}
+                            />
+                            <View style={styles.optionContent}>
+                                <Text style={[styles.optionTitle, { color: isDisabled ? colors.textTertiary : colors.text }]}>{opt.title}</Text>
+                                {opt.subtitle && (
+                                    <Text style={[styles.optionSub, { color: colors.textSecondary }]}>{opt.subtitle}</Text>
+                                )}
+                            </View>
+                            {opt.rightElement}
+                        </Pressable>
+                    );
+                })}
             </ScrollView>
         </DialogModal>
     );

@@ -13,7 +13,7 @@ Avocado — Vocabulary Builder
 ## Short description (max 80 chars)
 
 ```
-Vocabulary in 5 languages: English, Korean, Japanese, Chinese, Vietnamese.
+Vocabulary in 6 languages: English, Korean, Japanese, Chinese, Vietnamese, Spanish.
 ```
 
 ## Full description (max 4000 chars)
@@ -21,7 +21,7 @@ Vocabulary in 5 languages: English, Korean, Japanese, Chinese, Vietnamese.
 ```
 The word list you want. The word list you've been looking for. And the cleanest way to memorize either.
 
-Avocado is a personal vocabulary learning tool for five languages — English, Korean, Japanese, Chinese, and Vietnamese — built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
+Avocado is a personal vocabulary learning tool for six languages — English, Korean, Japanese, Chinese, Vietnamese, and Spanish — built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
 
 ▸ Four study modes
 - Flashcards: one card at a time, the way you remember best
@@ -57,9 +57,9 @@ Avocado is a personal vocabulary learning tool for five languages — English, K
   · Vietnamese — Basic 500
 - Share your own lists to help the community
 
-▸ Five languages, every direction
-- English, Korean, Japanese, Chinese, Vietnamese
-- Mix any input and meaning language (EN↔KR, KR↔JP, EN↔ZH, VI↔EN, KR↔VI — any pair)
+▸ Six languages, every direction
+- English, Korean, Japanese, Chinese, Vietnamese, Spanish
+- Mix any input and meaning language (EN↔KR, KR↔JP, EN↔ZH, VI↔EN, KR↔VI, ES↔EN — any pair)
 - Built equally for learners coming from any language to any language — including Korean for K-pop and Hallyu fans worldwide
 
 ▸ Make it yours with skins
@@ -91,7 +91,7 @@ First release. Meet Avocado — your vocabulary study companion.
 - Add words fast with photo, CSV, and bulk paste
 - AI word generation — type a topic, get a full list
 - Browse and import word lists from other learners
-- Five languages: English, Korean, Japanese, Chinese, Vietnamese — any pairing
+- Six languages: English, Korean, Japanese, Chinese, Vietnamese, Spanish — any pairing
 - Four theme skins: Classic, Dark Calm, Y2K, Lab
 ```
 

@@ -2,6 +2,8521 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-jp-intermediate-1",
+    "title": "중급 일본어 500 (JLPT N3)",
+    "icon": "🍣",
+    "isCurated": true,
+    "category": "중급",
+    "level": "intermediate",
+    "description": "JLPT N3 중급 일본어 500. Wiktionary \"Appendix:JLPT/N3\" (CC BY-SA 4.0) 빈도순 기반, JMdict로 POS 검증, 한국어 뜻·N3 예문 AI 생성",
+    "sourceLanguage": "ja",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780232223822,
+    "words": [
+      {
+        "id": "word-jp-intermediate-0-1780232223822",
+        "term": "事",
+        "definition": "you should ...; I advise that you ...; it's important to ... thing; matter incident; occurrence; event; something serious; trouble; crisis",
+        "meaningKr": "일, 사건, 사실",
+        "exampleEn": "大切な事ですから、皆さんによく説明しておきます。",
+        "exampleKr": "중요한 일이니 여러분께 잘 설명해 두겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-1-1780232223822",
+        "term": "まあ",
+        "definition": "just (e.g. \"just wait here\"); come now; now, now tolerably; passably; moderately; reasonably; fairly; rather; somewhat well...; I think...; it would seem...; you might say...; Hmmm, I guess so...",
+        "meaningKr": "어쨌든, 아무튼, 꽤",
+        "exampleEn": "まあ、これぐらいなら一人でできると思います。",
+        "exampleKr": "어쨌든 이 정도는 혼자서 할 수 있다고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まあ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-2-1780232223822",
+        "term": "時",
+        "definition": "time; hour; moment occasion; case chance; opportunity; season",
+        "meaningKr": "때, 시기, 경우",
+        "exampleEn": "忙しい時ほど、きちんと休憩を取ることが大切です。",
+        "exampleKr": "바쁠 때일수록 제대로 휴식을 취하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-3-1780232223822",
+        "term": "方",
+        "definition": "direction; way; side; area (in a particular direction) side (of an argument, etc.); one's part type; category",
+        "meaningKr": "방향, 방법, 사람",
+        "exampleEn": "この問題の解決のためには、色々な方法を考えるべきです。",
+        "exampleKr": "이 문제의 해결을 위해서는 여러 가지 방법을 생각해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ほう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-4-1780232223822",
+        "term": "日本",
+        "definition": "Japan",
+        "meaningKr": "일본",
+        "exampleEn": "日本で一番高い山は富士山だと多くの人が知っています。",
+        "exampleKr": "일본에서 가장 높은 산은 후지산이라는 것을 많은 사람들이 알고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "にほん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-5-1780232223822",
+        "term": "非常",
+        "definition": "emergency extreme; great; extraordinary; remarkable; unusual; terrible; severe",
+        "meaningKr": "비상, 매우, 극히",
+        "exampleEn": "火事や地震などの非常時には、落ち着いて行動することが必要です。",
+        "exampleKr": "화재나 지진과 같은 비상시에는 침착하게 행동하는 것이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひじょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-6-1780232223822",
+        "term": "感じ",
+        "definition": "feeling; sense; impression",
+        "meaningKr": "느낌, 감정, 인상",
+        "exampleEn": "この絵は、見ているだけで心が落ち着くような感じがします。",
+        "exampleKr": "이 그림은 보고만 있어도 마음이 차분해지는 듯한 느낌이 듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-7-1780232223822",
+        "term": "九",
+        "definition": "nine; 9",
+        "meaningKr": "구, 아홉",
+        "exampleEn": "この本は全部で九百ページもあります。",
+        "exampleKr": "이 책은 전부 구백 페이지나 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きゅう",
+        "pos": "number"
+      },
+      {
+        "id": "word-jp-intermediate-8-1780232223822",
+        "term": "先ず",
+        "definition": "first (of all); firstly; to begin with; before anything else probably; most likely; almost certainly; virtually more or less (satisfactory); on the whole; reasonably",
+        "meaningKr": "우선, 먼저, 처음으로",
+        "exampleEn": "まず、皆さんに今日の会議の目的を説明します。",
+        "exampleKr": "우선 여러분께 오늘 회의의 목적을 설명드리겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まず",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-9-1780232223822",
+        "term": "頃",
+        "definition": "(approximate) time; around; about; toward suitable time (or condition) time of year; season",
+        "meaningKr": "무렵, 쯤, 경",
+        "exampleEn": "この辺りは昔は静かでしたが、最近は新しい店が増えてきました。",
+        "exampleKr": "이 근방은 예전에는 조용했지만, 최근에는 새로운 가게들이 늘어났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ころ",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-10-1780232223822",
+        "term": "人間",
+        "definition": "human being; human; person; man; mankind; humankind character (of a person)",
+        "meaningKr": "인간, 사람",
+        "exampleEn": "人間は誰でも、時には間違いを犯すものです。",
+        "exampleKr": "인간은 누구나 때로는 실수를 하는 법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "にんげん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-11-1780232223822",
+        "term": "可也",
+        "definition": "considerably; fairly; quite; rather; pretty",
+        "meaningKr": "꽤, 상당히",
+        "exampleEn": "この仕事は可也難しいですが、やりがいがあります。",
+        "exampleKr": "이 일은 꽤 어렵지만, 보람이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かなり",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-12-1780232223822",
+        "term": "感じる",
+        "definition": "to feel; to sense; to experience to be moved (by); to be touched (by); to be impressed (by); to respond (to) to become infected with (an illness); to catch",
+        "meaningKr": "느끼다, 감지하다",
+        "exampleEn": "新しい環境に慣れるまで、少し不安を感じていました。",
+        "exampleKr": "새로운 환경에 익숙해질 때까지 조금 불안감을 느끼고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんじる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-13-1780232223822",
+        "term": "現在",
+        "definition": "the present; present time; now as of present tense",
+        "meaningKr": "현재, 지금",
+        "exampleEn": "現在、この地域では新しい図書館の建設が進められています。",
+        "exampleKr": "현재 이 지역에서는 새로운 도서관 건설이 진행되고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "げんざい",
+        "pos": "noun, adverb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-14-1780232223822",
+        "term": "或いは",
+        "definition": "or; either ... or maybe; perhaps; possibly some ... and others ...; sometimes ... and at other times ...",
+        "meaningKr": "혹은, 또는, 아니면",
+        "exampleEn": "明日は晴れるでしょう。或いは、午後から雨が降るかもしれません。",
+        "exampleKr": "내일은 맑을 것입니다. 혹은 오후부터 비가 올지도 모릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あるいは",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-15-1780232223822",
+        "term": "実際",
+        "definition": "reality; actuality; truth; fact; actual conditions practice (as opposed to theory) truly; really; indeed; actually",
+        "meaningKr": "실제, 사실",
+        "exampleEn": "計画は簡単に見えましたが、実際には多くの困難がありました。",
+        "exampleKr": "계획은 간단해 보였지만, 실제로는 많은 어려움이 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じっさい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-16-1780232223822",
+        "term": "金",
+        "definition": "money metal",
+        "meaningKr": "돈, 금",
+        "exampleEn": "旅行に行くためには、もっとたくさんのお金が必要になるでしょう。",
+        "exampleKr": "여행을 가기 위해서는 더 많은 돈이 필요하게 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-17-1780232223822",
+        "term": "ずっと",
+        "definition": "continuously; the whole time; all the way; throughout much (more); (by) far; far and away; a lot; a great deal far (away); long (ago, before, after)",
+        "meaningKr": "훨씬, 계속해서, 쭉",
+        "exampleEn": "この服は、私が去年買ったものよりずっとデザインがいいですね。",
+        "exampleKr": "이 옷은 제가 작년에 산 것보다 훨씬 디자인이 좋네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ずっと",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-18-1780232223822",
+        "term": "更に",
+        "definition": "furthermore; again; after all; more and more; moreover; even more",
+        "meaningKr": "더욱, 게다가, 한층",
+        "exampleEn": "この製品は性能が向上しただけでなく、更に価格も安くなりました。",
+        "exampleKr": "이 제품은 성능이 향상되었을 뿐만 아니라, 더욱 가격도 저렴해졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さらに",
+        "pos": "adverb, conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-19-1780232223822",
+        "term": "勿論",
+        "definition": "of course; certainly; naturally",
+        "meaningKr": "물론, 당연히",
+        "exampleEn": "約束は、勿論守らなければなりません。",
+        "exampleKr": "약속은 당연히 지켜야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もちろん",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-20-1780232223822",
+        "term": "全て",
+        "definition": "everything; all; the whole entirely; completely; wholly; all",
+        "meaningKr": "모두, 전부, 모든",
+        "exampleEn": "この問題について、全てを理解するのは難しいかもしれません。",
+        "exampleKr": "이 문제에 대해 전부를 이해하는 것은 어려울지도 모릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すべて",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-21-1780232223822",
+        "term": "当時",
+        "definition": "at that time; in those days Touji",
+        "meaningKr": "당시, 그때",
+        "exampleEn": "彼が若い頃、この町は今とは全く違う様子でした。",
+        "exampleKr": "그가 젊었을 때, 이 마을은 지금과는 완전히 다른 모습이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とうじ",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-22-1780232223822",
+        "term": "全く",
+        "definition": "really; truly; entirely; completely; wholly; perfectly indeed good grief",
+        "meaningKr": "정말, 완전히, 전혀",
+        "exampleEn": "彼は全く予想外の行動をとったので、皆驚きました。",
+        "exampleKr": "그는 전혀 예상 밖의 행동을 했기 때문에 모두 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まったく",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-23-1780232223822",
+        "term": "結局",
+        "definition": "after all; in the end; ultimately; eventually conclusion; end end of a game of go, shogi, etc.",
+        "meaningKr": "결국, 마침내",
+        "exampleEn": "色々な方法を試しましたが、結局元のやり方に戻すことにしました。",
+        "exampleKr": "여러 방법을 시도했지만, 결국 원래의 방식으로 돌아가기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けっきょく",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-24-1780232223822",
+        "term": "中々",
+        "definition": "very; considerably; easily; readily; fairly; quite; highly; rather by no means; not readily middle; half-way point",
+        "meaningKr": "꽤, 상당히, 좀처럼 ~않다",
+        "exampleEn": "この本は内容が難しいですが、中々興味深いです。",
+        "exampleKr": "이 책은 내용이 어렵지만, 꽤 흥미롭습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なかなか",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-25-1780232223822",
+        "term": "状態",
+        "definition": "state; condition; situation; appearance; circumstances",
+        "meaningKr": "상태, 상황, 모습",
+        "exampleEn": "事故の後、彼の体の状態は非常に心配だったが、回復に向かっている。",
+        "exampleKr": "사고 후 그의 몸 상태는 매우 걱정스러웠지만, 회복을 향해 가고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じょうたい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-26-1780232223822",
+        "term": "全然",
+        "definition": "(not) at all; (not) in the slightest wholly; entirely; completely; totally extremely; very",
+        "meaningKr": "전혀, 아주",
+        "exampleEn": "彼は試験勉強を全然していなかったので、結果は良くなかった。",
+        "exampleKr": "그는 시험공부를 전혀 하지 않았기 때문에 결과가 좋지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぜんぜん",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-27-1780232223822",
+        "term": "相手",
+        "definition": "companion; partner; company other party; addressee; counterparty opponent (sports, etc.)",
+        "meaningKr": "상대, 동반자, 상대방",
+        "exampleEn": "彼女はいつも優しく話を聞いてくれるので、一番の話し相手だ。",
+        "exampleKr": "그녀는 언제나 상냥하게 이야기를 들어주기 때문에 가장 좋은 대화 상대이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あいて",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-28-1780232223822",
+        "term": "どんな",
+        "definition": "what kind of; what sort of; what no matter what (kind of); whatever; any; all",
+        "meaningKr": "어떤, 무슨",
+        "exampleEn": "どんな困難があっても、諦めずに目標を達成しようと努力します。",
+        "exampleKr": "어떤 어려움이 있더라도 포기하지 않고 목표를 달성하려고 노력합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "どんな",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-29-1780232223822",
+        "term": "所謂",
+        "definition": "what is called; what you call; what they call; so-called",
+        "meaningKr": "소위, 이른바",
+        "exampleEn": "彼は所謂天才と呼ばれるほど、才能に恵まれた人物だった。",
+        "exampleKr": "그는 소위 천재라고 불릴 만큼 재능에恵まれた 인물이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いわゆる",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-30-1780232223822",
+        "term": "者",
+        "definition": "person",
+        "meaningKr": "자, 사람",
+        "exampleEn": "この問題について、賛成する者と反対する者に意見が分かれた。",
+        "exampleKr": "이 문제에 대해 찬성하는 자와 반대하는 자로 의견이 나뉘었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もの",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-31-1780232223822",
+        "term": "部分",
+        "definition": "portion; section; part",
+        "meaningKr": "부분",
+        "exampleEn": "この報告書の特定の部分について、もう少し詳しく説明していただけますか。",
+        "exampleKr": "이 보고서의 특정 부분에 대해 좀 더 자세히 설명해 주시겠습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぶぶん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-32-1780232223822",
+        "term": "結果",
+        "definition": "result; consequence; outcome; effect as a result of ...; as a consequence of ...; after ...; following ... bearing fruit; fruiting",
+        "meaningKr": "결과, 성과",
+        "exampleEn": "努力した結果、試験に合格することができて、とても嬉しかった。",
+        "exampleKr": "노력한 결과 시험에 합격할 수 있어서 매우 기뻤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けっか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-33-1780232223822",
+        "term": "状況",
+        "definition": "state of affairs; situation; conditions; circumstances",
+        "meaningKr": "상황, 정세",
+        "exampleEn": "現在の経済状況を考えると、新しい事業を始めるのは難しいかもしれない。",
+        "exampleKr": "현재의 경제 상황을 고려하면 새로운 사업을 시작하는 것은 어려울지도 모른다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じょうきょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-34-1780232223822",
+        "term": "上手い",
+        "definition": "skillful; skilful; skilled; good; expert; clever (expression, trick, etc.); apt; appropriate delicious; tasty; good; nice good (deal, idea, etc.); profitable; promising; lucky; fortunate; successful; satisfactory; splendid",
+        "meaningKr": "능숙하다, 잘하다, 맛있다",
+        "exampleEn": "彼は絵を描くのがとても上手くて、まるでプロのようです。",
+        "exampleKr": "그는 그림 그리는 것을 매우 잘해서 마치 프로 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うまい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-35-1780232223822",
+        "term": "其れ其れ",
+        "definition": "each; respectively",
+        "meaningKr": "각자, 저마다",
+        "exampleEn": "会議に参加したメンバーは、それぞれ自分の意見を発表した。",
+        "exampleKr": "회의에 참가한 멤버들은 각자 자신의 의견을 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "それぞれ",
+        "pos": "adverb, noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-36-1780232223822",
+        "term": "方法",
+        "definition": "method; way; manner; process; procedure; means; measure",
+        "meaningKr": "방법, 방식",
+        "exampleEn": "この問題を解決するためには、新しい方法を考え出す必要がある。",
+        "exampleKr": "이 문제를 해결하기 위해서는 새로운 방법을 생각해낼 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ほうほう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-37-1780232223822",
+        "term": "ですから",
+        "definition": "so; therefore; accordingly; consequently; on those grounds; that is why; for that reason",
+        "meaningKr": "그러니까, 따라서",
+        "exampleEn": "雨が降っていますから、傘を持っていったほうがいいですよ。",
+        "exampleKr": "비가 오고 있으니까 우산을 가져가는 편이 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ですから",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-38-1780232223822",
+        "term": "得る",
+        "definition": "to be able to ...; can ... to get; to acquire; to obtain; to procure; to earn; to win; to gain; to secure; to attain",
+        "meaningKr": "얻다, 획득하다 (접미사)",
+        "exampleEn": "この経験を通して、多くのことを学び得ることができた。",
+        "exampleKr": "이 경험을 통해 많은 것을 배우고 얻을 수 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うる",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-jp-intermediate-39-1780232223822",
+        "term": "得る",
+        "definition": "to get; to earn; to acquire; to procure; to gain; to secure; to attain; to obtain; to win to understand; to comprehend to receive something undesirable (e.g. a punishment); to get (ill)",
+        "meaningKr": "얻다, 받다, 이해하다",
+        "exampleEn": "一生懸命勉強すれば、きっと良い結果を得ることができるでしょう。",
+        "exampleKr": "열심히 공부하면 분명 좋은 결과를 얻을 수 있을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "える",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-40-1780232223822",
+        "term": "兎に角",
+        "definition": "anyway; anyhow; at any rate; in any case; at least; just setting aside ...; regardless of ... really; truly; certainly; definitely; undeniably",
+        "meaningKr": "어쨌든, 아무튼",
+        "exampleEn": "兎に角、このプロジェクトを成功させるために全力を尽くしましょう。",
+        "exampleKr": "어쨌든 이 프로젝트를 성공시키기 위해 전력을 다합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とにかく",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-41-1780232223822",
+        "term": "残す",
+        "definition": "to leave (behind) to leave (undone); to not finish to save; to set aside; to reserve",
+        "meaningKr": "남기다, 남겨두다",
+        "exampleEn": "この美味しいケーキは、明日の朝食のために少し残しておこう。",
+        "exampleKr": "이 맛있는 케이크는 내일 아침 식사를 위해 조금 남겨두자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のこす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-42-1780232223822",
+        "term": "嬉しい",
+        "definition": "happy; glad; pleased; delighted; overjoyed joyful; delightful; gratifying; pleasant",
+        "meaningKr": "기쁜, 반가운",
+        "exampleEn": "友達から誕生日プレゼントをもらって、とても嬉しい気持ちになった。",
+        "exampleKr": "친구에게서 생일 선물을 받고 매우 기쁜 기분이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うれしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-43-1780232223822",
+        "term": "今回",
+        "definition": "this time; now",
+        "meaningKr": "이번, 금번",
+        "exampleEn": "今回、新しい企画を提案させていただくことになりました。",
+        "exampleKr": "이번에 새로운 기획을 제안하게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こんかい",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-44-1780232223822",
+        "term": "人生",
+        "definition": "(one's) life",
+        "meaningKr": "인생",
+        "exampleEn": "人生において、最も大切なことは何かをいつも考えている。",
+        "exampleKr": "인생에 있어서 가장 소중한 것은 무엇인지 항상 생각하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じんせい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-45-1780232223822",
+        "term": "通り",
+        "definition": "Toori street; road; avenue; thoroughfare traffic; coming and going",
+        "meaningKr": "길, 거리, 대로",
+        "exampleEn": "駅前の通りはいつも多くの人で賑わっている。",
+        "exampleKr": "역 앞 거리는 항상 많은 사람들로 붐빈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とおり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-46-1780232223822",
+        "term": "内容",
+        "definition": "contents; content; substance; matter; detail; import",
+        "meaningKr": "내용, 목차",
+        "exampleEn": "この本は、専門的な内容を含んでいるので、初心者には少し難しいかもしれません。",
+        "exampleKr": "이 책은 전문적인 내용을 포함하고 있어서 초심자에게는 조금 어려울지도 모릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ないよう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-47-1780232223822",
+        "term": "経験",
+        "definition": "experience",
+        "meaningKr": "경험",
+        "exampleEn": "海外旅行の経験を通して、多くのことを学びました。",
+        "exampleKr": "해외여행 경험을 통해 많은 것을 배웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けいけん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-48-1780232223822",
+        "term": "自然",
+        "definition": "nature natural; spontaneous; automatic naturally; spontaneously; automatically",
+        "meaningKr": "자연, 자연스러운",
+        "exampleEn": "都会の生活に疲れたので、自然に囲まれた場所でリラックスしたい。",
+        "exampleKr": "도시 생활에 지쳤기 때문에 자연에 둘러싸인 곳에서 휴식을 취하고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しぜん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-49-1780232223822",
+        "term": "与える",
+        "definition": "to give (esp. to someone of lower status); to bestow; to grant; to confer; to present; to award to provide; to afford; to offer; to supply to assign",
+        "meaningKr": "주다, 부여하다, 끼치다",
+        "exampleEn": "新しい情報や知識は、私たちに多くの刺激を与えてくれる。",
+        "exampleKr": "새로운 정보나 지식은 우리에게 많은 자극을 준다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あたえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-50-1780232223822",
+        "term": "詰まり",
+        "definition": "that is to say; that is; in other words; I mean; that (this, it) means in short; in brief; to sum up; ultimately; in the end; in the long run; when all is said and done; what it all comes down to; when you get right down to it; basically clogging; obstruction; stuffing; (degree of) blockage",
+        "meaningKr": "막힘, 답답함",
+        "exampleEn": "この配管の詰まりは、専門業者に頼まないと直せないだろう。",
+        "exampleKr": "이 배관의 막힘은 전문 업자에게 맡기지 않으면 고칠 수 없을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "つまり",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-51-1780232223822",
+        "term": "存在",
+        "definition": "existence; being; presence",
+        "meaningKr": "존재, 실재",
+        "exampleEn": "この地域には、まだ多くの自然がその姿を残して存在している。",
+        "exampleKr": "이 지역에는 아직 많은 자연이 그 모습을 남기고 존재하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "そんざい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-52-1780232223822",
+        "term": "絶対",
+        "definition": "absolutely; definitely; unconditionally absolute; unconditional; unmistakable absoluteness",
+        "meaningKr": "절대, 반드시",
+        "exampleEn": "どんな困難があっても、目標を達成するという決意は絶対だ。",
+        "exampleKr": "어떤 어려움이 있어도 목표를 달성하겠다는 결의는 절대적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぜったい",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-53-1780232223822",
+        "term": "姿",
+        "definition": "figure; form; shape appearance; dress; guise state; condition; picture; image",
+        "meaningKr": "모습, 형태, 태도",
+        "exampleEn": "遠くに山が霞んで見える姿は、まるで絵画のようだった。",
+        "exampleKr": "멀리 산이 흐릿하게 보이는 모습은 마치 그림 같았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すがた",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-54-1780232223822",
+        "term": "時期",
+        "definition": "time; season; period; phase; stage",
+        "meaningKr": "시기, 계절, 때",
+        "exampleEn": "新しいプロジェクトを開始するには、最適な時期を見計らっている。",
+        "exampleKr": "새로운 프로젝트를 시작하기에 가장 좋은 시기를 보고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じき",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-55-1780232223822",
+        "term": "逆",
+        "definition": "reverse; opposite converse (of a hypothesis, etc.) inverse (function)",
+        "meaningKr": "반대, 역, 거꾸로",
+        "exampleEn": "世間一般の意見とは逆の考えを持つことも時には必要だ。",
+        "exampleKr": "세간의 일반적인 의견과는 반대되는 생각을 하는 것도 때로는 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぎゃく",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-56-1780232223822",
+        "term": "示す",
+        "definition": "to (take out and) show; to demonstrate; to tell; to exemplify; to make apparent to point out (finger, clock hand, needle, etc.) to indicate; to show; to represent; to signify; to display",
+        "meaningKr": "보이다, 나타내다, 가리키다",
+        "exampleEn": "彼は試験結果が示すように、努力を怠らなかった。",
+        "exampleKr": "그는 시험 결과가 보여주듯이 노력을 게을리하지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しめす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-57-1780232223822",
+        "term": "然も",
+        "definition": "moreover; furthermore nevertheless; and yet",
+        "meaningKr": "게다가, 더욱이, 그런데도",
+        "exampleEn": "彼は優秀なだけでなく、しかも人柄も良く、皆に慕われている。",
+        "exampleKr": "그는 우수할 뿐만 아니라, 게다가 성품도 좋아 모두에게 존경받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しかも",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-58-1780232223822",
+        "term": "彼ら",
+        "definition": "they; them",
+        "meaningKr": "그들",
+        "exampleEn": "会議で彼らが提案したアイデアは、非常に斬新だった。",
+        "exampleKr": "회의에서 그들이 제안한 아이디어는 매우 참신했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かれら",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-intermediate-59-1780232223822",
+        "term": "程度",
+        "definition": "degree; amount; grade; standard; of the order of (following a number); about; approximately",
+        "meaningKr": "정도, 수준",
+        "exampleEn": "この問題は、私の理解できる程度を超えている。",
+        "exampleKr": "이 문제는 내가 이해할 수 있는 정도를 넘어선다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ていど",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-60-1780232223822",
+        "term": "願う",
+        "definition": "to desire; to wish; to hope to beg; to request; to implore; to pray to have something done for oneself",
+        "meaningKr": "바라다, 원하다, 기원하다",
+        "exampleEn": "皆さんの健康と幸せを心から願っています。",
+        "exampleKr": "여러분들의 건강과 행복을 진심으로 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ねがう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-61-1780232223822",
+        "term": "既に",
+        "definition": "already previously; before undeniably; unmistakably; in the first place",
+        "meaningKr": "이미, 벌써",
+        "exampleEn": "この情報は既に多くの人が知っているはずだ。",
+        "exampleKr": "이 정보는 이미 많은 사람들이 알고 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すでに",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-62-1780232223822",
+        "term": "影響",
+        "definition": "influence; effect; impact",
+        "meaningKr": "영향",
+        "exampleEn": "新しい法律は、社会の様々な側面に影響を与えるだろう。",
+        "exampleKr": "새로운 법은 사회의 여러 측면에 영향을 줄 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "えいきょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-63-1780232223822",
+        "term": "求める",
+        "definition": "to want; to wish for to request; to demand; to require; to ask for to seek; to search for; to look for; to pursue (pleasure); to hunt (a job); to find (a solution)",
+        "meaningKr": "구하다, 바라다, 요구하다",
+        "exampleEn": "彼は常に新しい知識を求めて、学び続けている。",
+        "exampleKr": "그는 항상 새로운 지식을 구하며 계속 배우고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もとめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-64-1780232223822",
+        "term": "情報",
+        "definition": "information; news; report; intelligence information (data contained in characters, signals, code, etc.)",
+        "meaningKr": "정보",
+        "exampleEn": "このウェブサイトでは、最新のニュースや役立つ情報を提供しています。",
+        "exampleKr": "이 웹사이트에서는 최신 뉴스나 유용한 정보를 제공하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じょうほう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-65-1780232223822",
+        "term": "貰う",
+        "definition": "to receive; to take; to accept to get someone to do something to have in one's pocket (a fight, match)",
+        "meaningKr": "받다",
+        "exampleEn": "先生から直接アドバイスを貰えたのは、とても幸運だった。",
+        "exampleKr": "선생님께 직접 조언을 받을 수 있었던 것은 매우 운이 좋았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もらう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-66-1780232223822",
+        "term": "友人",
+        "definition": "friend",
+        "meaningKr": "친구, 벗",
+        "exampleEn": "彼は子供の頃からの友人であり、信頼できる人物だ。",
+        "exampleKr": "그는 어릴 적부터의 친구이며 믿을 수 있는 사람이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ゆうじん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-67-1780232223822",
+        "term": "駄目",
+        "definition": "no good; not serving its purpose; useless; broken hopeless; wasted; in vain; purposeless cannot; must not; not allowed",
+        "meaningKr": "안됨, 소용없음, 쓸모없음",
+        "exampleEn": "この計画は、予算が足りないため、残念ながら駄目になった。",
+        "exampleKr": "이 계획은 예산이 부족하여 안타깝게도 안 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "だめ",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-68-1780232223822",
+        "term": "経つ",
+        "definition": "to pass (of time); to elapse",
+        "meaningKr": "지나다, 경과하다 (시간)",
+        "exampleEn": "日本に来てから、もう三年という月日が経った。",
+        "exampleKr": "일본에 온 지 벌써 3년이라는 시간이 지났다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-69-1780232223822",
+        "term": "重要",
+        "definition": "important; essential; significant; major; key; principal",
+        "meaningKr": "중요",
+        "exampleEn": "健康を維持するためには、バランスの取れた食事が重要だ。",
+        "exampleKr": "건강을 유지하기 위해서는 균형 잡힌 식사가 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じゅうよう",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-70-1780232223822",
+        "term": "当たる",
+        "definition": "to be stricken (by food poisoning, heat, etc.); to be afflicted to be called on (e.g. by a teacher) to treat (esp. harshly); to lash out at",
+        "meaningKr": "맞다, 적중하다, 부딪치다",
+        "exampleEn": "くじ引きで一番良い賞が当たったのは、本当にラッキーだった。",
+        "exampleKr": "추첨에서 가장 좋은 상품에 당첨된 것은 정말 행운이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あたる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-71-1780232223822",
+        "term": "認める",
+        "definition": "to recognize; to recognise; to observe; to notice to deem; to judge; to assess to approve; to deem acceptable; to allow",
+        "meaningKr": "인정하다, 알아보다, 허가하다",
+        "exampleEn": "彼の努力が実を結び、ついに成功を認められた。",
+        "exampleKr": "그의 노력이 결실을 맺어 마침내 성공을 인정받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "みとめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-72-1780232223822",
+        "term": "これ等",
+        "definition": "these",
+        "meaningKr": "이것들",
+        "exampleEn": "これら全ての資料を今日中に整理しなければならない。",
+        "exampleKr": "이 모든 자료를 오늘 안에 정리해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "これら",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-intermediate-73-1780232223822",
+        "term": "灰",
+        "definition": "ash; ashes",
+        "meaningKr": "재",
+        "exampleEn": "火を消した後、暖炉にはまだ灰が残っていた。",
+        "exampleKr": "불을 끈 후, 난로에는 아직 재가 남아 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-74-1780232223822",
+        "term": "身",
+        "definition": "one's body; one's person oneself; one's appearance one's place (in society, etc.); one's position",
+        "meaningKr": "몸, 신체, 자신",
+        "exampleEn": "彼は自分の身を危険にさらして、友人を助けた。",
+        "exampleKr": "그는 자신의 몸을 위험에 빠뜨리면서 친구를 도왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "み",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-75-1780232223822",
+        "term": "含む",
+        "definition": "to contain; to comprise; to have; to hold; to include; to embrace to hold in the mouth to bear in mind; to understand; to harbor (grudge, etc.); to harbour",
+        "meaningKr": "포함하다, 함유하다, (감정 등을) 품다",
+        "exampleEn": "この製品は多くの栄養素を十分に含んでおり、健康維持に役立ちます。",
+        "exampleKr": "이 제품은 많은 영양소를 충분히 함유하고 있어 건강 유지에 도움이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふくむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-76-1780232223822",
+        "term": "地域",
+        "definition": "area; region; district; locality",
+        "meaningKr": "지역, 지방, 구역",
+        "exampleEn": "この地域は自然が豊かで、多くの観光客が訪れることで知られています。",
+        "exampleKr": "이 지역은 자연이 풍부하여 많은 관광객이 방문하는 것으로 알려져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちいき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-77-1780232223822",
+        "term": "如何しても",
+        "definition": "by all means; at any cost; no matter what; at any rate; surely whether (one is) willing or not; willingly or unwillingly; willy-nilly on no account; by no means",
+        "meaningKr": "어떻게든, 반드시, 아무리 해도",
+        "exampleEn": "どんな困難があっても、私はこのプロジェクトを成功させるために、どうしてもやり遂げたいです。",
+        "exampleKr": "어떤 어려움이 있더라도, 저는 이 프로젝트를 성공시키기 위해 어떻게든 완수하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "どうしても",
+        "pos": "phrase, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-78-1780232223822",
+        "term": "図",
+        "definition": "drawing; picture; diagram; figure; illustration; chart; graph; map sight; scene",
+        "meaningKr": "그림, 도표, 지도, 계획",
+        "exampleEn": "会議では、新しい計画の全体像を理解するために、この図を見ながら説明しました。",
+        "exampleKr": "회의에서는 새로운 계획의 전체상을 이해하기 위해 이 도표를 보면서 설명했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ず",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-79-1780232223822",
+        "term": "合わせる",
+        "definition": "to match (rhythm, speed, etc.) to join together; to unite; to combine; to add up to face; to be opposite (someone)",
+        "meaningKr": "맞추다, 결합하다, 합치다",
+        "exampleEn": "相手のペースに合わせるように努力しましたが、少し疲れてしまいました。",
+        "exampleKr": "상대의 페이스에 맞추려고 노력했지만, 조금 피곤해졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あわせる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-80-1780232223822",
+        "term": "辛い",
+        "definition": "painful; bitter; heart-breaking; difficult (emotionally) tough; difficult; hard (usu. of situations) cruel; harsh; cold",
+        "meaningKr": "괴로운, 힘든, 쓰라린",
+        "exampleEn": "長年の努力が報われず、彼は非常に辛い思いをしていたようです。",
+        "exampleKr": "수년간의 노력이 보답받지 못해, 그는 매우 괴로운 심정이었던 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "つらい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-81-1780232223822",
+        "term": "中心",
+        "definition": "center; centre; middle; heart; core; focus; pivot; emphasis; balance -centered; -centred; -focused; -oriented; centered on; focused on",
+        "meaningKr": "중심, 중앙, 핵심",
+        "exampleEn": "この街の中心部には、新しいショッピングモールが建設される予定です。",
+        "exampleKr": "이 거리의 중심부에는 새로운 쇼핑몰이 건설될 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちゅうしん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-82-1780232223822",
+        "term": "起こる",
+        "definition": "to occur; to happen",
+        "meaningKr": "일어나다, 발생하다",
+        "exampleEn": "予期せぬ問題が起こった場合でも、冷静に対応できるように準備しておきます。",
+        "exampleKr": "예기치 못한 문제가 발생했을 때라도 냉정하게 대응할 수 있도록 준비해 두겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おこる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-83-1780232223822",
+        "term": "我々",
+        "definition": "we",
+        "meaningKr": "우리들",
+        "exampleEn": "我々は、この新しいプロジェクトを成功させるために、一致団結して取り組む必要があります。",
+        "exampleKr": "우리들은 이 새로운 프로젝트를 성공시키기 위해 일치단결하여 노력할 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "われわれ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-intermediate-84-1780232223822",
+        "term": "ちゃんと",
+        "definition": "diligently; seriously; earnestly; reliably; steadily; legitimately perfectly; properly; exactly; orderly; punctually; regularly; safely; in good condition sufficiently; satisfactorily",
+        "meaningKr": "제대로, 확실히, 정성껏",
+        "exampleEn": "子供には、毎日ちゃんと勉強するように、いつも言っています。",
+        "exampleKr": "아이에게는 매일 제대로 공부하도록 항상 말하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちゃんと",
+        "pos": "adverb, verb"
+      },
+      {
+        "id": "word-jp-intermediate-85-1780232223822",
+        "term": "頂く",
+        "definition": "to receive; to get; to accept; to take; to buy to eat; to drink to be crowned with; to wear (on one's head); to have (on top)",
+        "meaningKr": "받다, 얻다, 먹다, 마시다",
+        "exampleEn": "皆様からの温かいご支援を頂戴し、心より感謝申し上げます。",
+        "exampleKr": "여러분으로부터 따뜻한 지원을 받아 진심으로 감사드립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いただく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-86-1780232223822",
+        "term": "変化",
+        "definition": "change; variation; alteration; mutation; transition; transformation; transfiguration; metamorphosis variety; diversity inflection; declension; conjugation",
+        "meaningKr": "변화, 변동",
+        "exampleEn": "時代の変化に対応するため、私たちは常に新しい知識を学び続けるべきです。",
+        "exampleKr": "시대의 변화에 대응하기 위해 우리는 항상 새로운 지식을 계속 배워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "へんか",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-87-1780232223822",
+        "term": "印象",
+        "definition": "impression",
+        "meaningKr": "인상",
+        "exampleEn": "彼の第一印象は少し怖かったですが、話してみるととても優しい人でした。",
+        "exampleKr": "그의 첫인상은 조금 무서웠지만, 이야기해보니 매우 상냥한 사람이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いんしょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-88-1780232223822",
+        "term": "作品",
+        "definition": "work (e.g. book, film, painting, composition); piece; production; opus",
+        "meaningKr": "작품",
+        "exampleEn": "この美術館には、有名な画家による数々の素晴らしい作品が展示されています。",
+        "exampleKr": "이 미술관에는 유명한 화가의 수많은 훌륭한 작품이 전시되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さくひん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-89-1780232223822",
+        "term": "参加",
+        "definition": "participation; joining; entry",
+        "meaningKr": "참가, 참여",
+        "exampleEn": "このセミナーは誰でも自由に参加できますので、興味のある方はぜひお越しください。",
+        "exampleKr": "이 세미나는 누구나 자유롭게 참가할 수 있으니, 관심 있는 분은 꼭 와주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さんか",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-90-1780232223822",
+        "term": "理解",
+        "definition": "understanding; comprehension; appreciation sympathy",
+        "meaningKr": "이해, 납득",
+        "exampleEn": "相手の立場を理解しようと努めることが、円滑な人間関係を築く上で大切です。",
+        "exampleKr": "상대의 입장을 이해하려고 노력하는 것이 원활한 인간관계를 구축하는 데 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "りかい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-91-1780232223822",
+        "term": "事件",
+        "definition": "event; affair; incident; case; plot; trouble; scandal",
+        "meaningKr": "사건, 일",
+        "exampleEn": "最近、この地域で奇妙な事件が頻繁に起こっているという噂があります。",
+        "exampleKr": "최근 이 지역에서 이상한 사건이 빈번하게 일어나고 있다는 소문이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じけん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-92-1780232223822",
+        "term": "母親",
+        "definition": "mother",
+        "meaningKr": "어머니",
+        "exampleEn": "母親は、子供の成長を一番近くで見守ることができる特別な存在です。",
+        "exampleKr": "어머니는 아이의 성장을 가장 가까이에서 지켜볼 수 있는 특별한 존재입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ははおや",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-93-1780232223822",
+        "term": "所が",
+        "definition": "even so; however; still; whereupon; even though; nevertheless; on the contrary; as a matter of fact; despite",
+        "meaningKr": "하지만, 그러나, 그런데",
+        "exampleEn": "一生懸命勉強したところが、試験の結果はあまり良くありませんでした。",
+        "exampleKr": "열심히 공부했지만, 시험 결과는 그다지 좋지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ところが",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-94-1780232223822",
+        "term": "目的",
+        "definition": "purpose; goal; aim; objective; intention",
+        "meaningKr": "목적, 목표",
+        "exampleEn": "この会議の目的は、今後の事業戦略について皆で意見を交換することです。",
+        "exampleKr": "이 회의의 목적은 향후 사업 전략에 대해 모두 함께 의견을 교환하는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もくてき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-95-1780232223822",
+        "term": "様々",
+        "definition": "various; varied; diverse; all sorts of",
+        "meaningKr": "가지각색의, 다양한",
+        "exampleEn": "この市場には、世界中から集められた様々なお土産物が売られています。",
+        "exampleKr": "이 시장에는 전 세계에서 모인 다양한 기념품들이 팔리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さまざま",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-96-1780232223822",
+        "term": "過ごす",
+        "definition": "to spend (time); to pass; to lead (a life); to live to overdo (esp. alcohol consumption); to drink (alcohol); to carry too far; to carry to excess to take care of; to support",
+        "meaningKr": "보내다, 지내다",
+        "exampleEn": "週末は家族とゆっくり過ごすのが、私にとって一番のリラックス方法です。",
+        "exampleKr": "주말은 가족과 여유롭게 보내는 것이 저에게 가장 큰 휴식 방법입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すごす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-97-1780232223822",
+        "term": "一方",
+        "definition": "one (esp. of two); the other; one way; the other way; one direction; the other direction; one side; the other side; one party; the other party on the one hand; on the other hand whereas; although; but at the same time; meanwhile; in turn",
+        "meaningKr": "한편, 다른 한편",
+        "exampleEn": "彼は仕事に情熱を燃やしている一方で、プライベートも大切にしています。",
+        "exampleKr": "그는 일에 열정을 불태우는 한편, 사생활도 소중히 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いっぽう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-98-1780232223822",
+        "term": "心配",
+        "definition": "worry; concern; anxiety; uneasiness; fear care; help; aid; assistance",
+        "meaningKr": "걱정, 염려",
+        "exampleEn": "遠く離れて暮らす両親の健康が、時々心配になります。",
+        "exampleKr": "멀리 떨어져 사는 부모님의 건강이 가끔 걱정됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しんぱい",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-99-1780232223822",
+        "term": "其れでも",
+        "definition": "but (still); and yet; nevertheless; even so; notwithstanding",
+        "meaningKr": "그래도, 그럼에도 불구하고",
+        "exampleEn": "雨が降っていましたが、それでも彼は約束の時間に遅れることなく現れました。",
+        "exampleKr": "비가 내리고 있었지만, 그래도 그는 약속 시간에 늦지 않고 나타났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "それでも",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-100-1780232223822",
+        "term": "笑い",
+        "definition": "laugh; laughter smile sneer",
+        "meaningKr": "웃음, 미소",
+        "exampleEn": "彼の面白い話を聞いて、みんなが思わず大きな笑いがこぼれた。",
+        "exampleKr": "그의 재미있는 이야기를 듣고 모두 저절로 큰 웃음이 터져 나왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "わらい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-101-1780232223822",
+        "term": "後",
+        "definition": "after",
+        "meaningKr": "후, 뒤",
+        "exampleEn": "授業の後で、先生に質問したいことがあるので、少し残ってもいいですか。",
+        "exampleKr": "수업 후에 선생님께 질문하고 싶은 것이 있어서, 조금 남아도 괜찮겠습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ご",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-102-1780232223822",
+        "term": "取れる",
+        "definition": "to come off (of a button, handle, lid, etc.) to go away (of a fever, pain, swelling, etc.); to disappear; to come out (of a stain); to come off (e.g. of dust); to be removed (e.g. of wrinkles) to be harvested; to be picked; to be produced; to be caught (of fish); to be obtained; to be extracted",
+        "meaningKr": "떨어지다, 없어지다, 얻다, 잡히다",
+        "exampleEn": "この汚れは、普通の洗剤ではなかなか取れないので、専門のクリーニングに出すしかない。",
+        "exampleKr": "이 얼룩은 보통 세제로는 좀처럼 지워지지 않기 때문에 전문 세탁소에 맡길 수밖에 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-103-1780232223822",
+        "term": "環境",
+        "definition": "environment; surroundings; circumstances",
+        "meaningKr": "환경, 주위",
+        "exampleEn": "子供たちが健やかに成長するためには、良い教育環境が不可欠であると考えられています。",
+        "exampleKr": "아이들이 건강하게 성장하기 위해서는 좋은 교육 환경이 필수적이라고 생각되고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんきょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-104-1780232223822",
+        "term": "食事",
+        "definition": "meal; dinner diet",
+        "meaningKr": "식사, 끼니",
+        "exampleEn": "健康のために、バランスの取れた食事を心がけることが大切だと医者は言いました。",
+        "exampleKr": "건강을 위해 균형 잡힌 식사를 하도록 노력하는 것이 중요하다고 의사는 말했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しょくじ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-105-1780232223822",
+        "term": "要するに",
+        "definition": "in short; in a word; to sum up; to put it simply; to make a long story short; after all",
+        "meaningKr": "요컨대, 결국",
+        "exampleEn": "要するに、このプロジェクトを成功させるためには、チーム全員の協力が必要だということです。",
+        "exampleKr": "요컨대, 이 프로젝트를 성공시키기 위해서는 팀 전체의 협력이 필요하다는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ようするに",
+        "pos": "phrase, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-106-1780232223822",
+        "term": "離れる",
+        "definition": "to be separated; to be apart; to be distant to leave; to go away to leave (a job, etc.); to quit; to give up",
+        "meaningKr": "떨어지다, 떠나다",
+        "exampleEn": "故郷を離れてからもう１０年になるが、まだ一度も帰ることができていない。",
+        "exampleKr": "고향을 떠난 지 벌써 10년이 되었지만, 아직 한 번도 돌아가지 못했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はなれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-107-1780232223822",
+        "term": "実施",
+        "definition": "enforcement; implementation; putting into practice; carrying out; operation; working (e.g. working parameters); enactment",
+        "meaningKr": "실시, 시행",
+        "exampleEn": "新しい政策は、来年度から全国で本格的に実施される予定です。",
+        "exampleKr": "새로운 정책은 내년부터 전국에서 본격적으로 실시될 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じっし",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-108-1780232223822",
+        "term": "今後",
+        "definition": "from now on; hereafter",
+        "meaningKr": "금후, 앞으로",
+        "exampleEn": "今後、この地域で問題が発生しないように、十分な対策を講じるべきだ。",
+        "exampleKr": "앞으로 이 지역에서 문제가 발생하지 않도록 충분한 대책을 강구해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こんご",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-109-1780232223822",
+        "term": "使用",
+        "definition": "use; application; employment; utilization; utilisation",
+        "meaningKr": "사용, 이용",
+        "exampleEn": "この道具は、特別な技術がないと正しく使用することが難しい。",
+        "exampleKr": "이 도구는 특별한 기술이 없으면 올바르게 사용하기 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しよう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-110-1780232223822",
+        "term": "越える",
+        "definition": "to cross over; to cross; to pass through; to pass over (out of); to go beyond; to go past to exceed; to surpass; to be more (than)",
+        "meaningKr": "넘다, 초과하다",
+        "exampleEn": "目標としていた売上高を大きく越えることができたので、皆で祝杯をあげた。",
+        "exampleKr": "목표로 했던 매출액을 크게 초과할 수 있었기 때문에 모두 함께 축배를 들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-111-1780232223822",
+        "term": "企業",
+        "definition": "enterprise; business; company; corporation",
+        "meaningKr": "기업, 사업",
+        "exampleEn": "近年、多くの企業が環境問題への取り組みを重視するようになっている。",
+        "exampleKr": "최근 많은 기업들이 환경 문제에 대한 대처를 중요시하게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きぎょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-112-1780232223822",
+        "term": "例",
+        "definition": "example; instance; illustration; case precedent custom; habit; practice; usage",
+        "meaningKr": "예, 예시",
+        "exampleEn": "具体的な例をいくつか挙げることで、この問題の深刻さがより理解しやすくなるでしょう。",
+        "exampleKr": "구체적인 예를 몇 가지 드는 것으로 이 문제의 심각성이 더 이해하기 쉬워질 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "れい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-113-1780232223822",
+        "term": "酒",
+        "definition": "alcohol; sake",
+        "meaningKr": "술",
+        "exampleEn": "健康のためには、適量の酒を楽しむ程度に留めることが賢明だ。",
+        "exampleKr": "건강을 위해서는 적당량의 술을 즐기는 정도로 멈추는 것이 현명하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さけ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-114-1780232223822",
+        "term": "お前",
+        "definition": "you before (a god, nobleman, etc.); in front of",
+        "meaningKr": "너 (낮춤말)",
+        "exampleEn": "おい、お前、早く宿題を終わらせないと、遊びに行けないぞ。",
+        "exampleKr": "야, 너, 빨리 숙제를 끝내지 않으면 놀러 갈 수 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おまえ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-intermediate-115-1780232223822",
+        "term": "守る",
+        "definition": "to protect; to guard; to defend to keep (i.e. a promise); to abide (by the rules); to observe; to obey; to follow",
+        "meaningKr": "지키다, 보호하다",
+        "exampleEn": "約束を守ることは、人との信頼関係を築く上で非常に重要です。",
+        "exampleKr": "약속을 지키는 것은 사람과의 신뢰 관계를 구축하는 데 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まもる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-116-1780232223822",
+        "term": "同時",
+        "definition": "same time simultaneous; concurrent; synchronous",
+        "meaningKr": "동시, 동시에",
+        "exampleEn": "二つの異なる作業を同時にこなすのは、集中力が必要で大変だ。",
+        "exampleKr": "두 가지 다른 작업을 동시에 해내는 것은 집중력이 필요해서 힘들다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "どうじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-117-1780232223822",
+        "term": "向ける",
+        "definition": "to turn (towards); to face; to point; to aim; to direct to to head to; to go towards to allot; to allocate",
+        "meaningKr": "향하다, 돌리다",
+        "exampleEn": "彼は常に前向きな姿勢を顔に向け、どんな困難にも立ち向かっていった。",
+        "exampleKr": "그는 항상 긍정적인 자세를 얼굴에 향하고 어떤 어려움에도 맞서 나갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "むける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-118-1780232223822",
+        "term": "だが",
+        "definition": "but; however; (and) yet; nevertheless; still; for all that",
+        "meaningKr": "하지만, 그러나",
+        "exampleEn": "計画は完璧だった。だが、予期せぬ出来事が起こり、全てが台無しになった。",
+        "exampleKr": "계획은 완벽했다. 하지만 예상치 못한 사건이 일어나 모든 것이 엉망이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "だが",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-119-1780232223822",
+        "term": "場",
+        "definition": "place; spot; space field; discipline; sphere; realm occasion; situation",
+        "meaningKr": "장소, 장, 상황",
+        "exampleEn": "会議の場では、自分の意見をはっきりと述べるように心がけています。",
+        "exampleKr": "회의 자리에서는 자신의 의견을 명확히 말하도록 노력하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ば",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-120-1780232223822",
+        "term": "何れ",
+        "definition": "which; where; who all; both anyway; anyhow; at any rate; in any case",
+        "meaningKr": "어느, 결국",
+        "exampleEn": "いずれ、この努力が実を結び、成功する日が来るはずだと信じている。",
+        "exampleKr": "결국 이 노력이 결실을 맺어 성공하는 날이 올 것이라고 믿고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いずれ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-intermediate-121-1780232223822",
+        "term": "対象",
+        "definition": "target; object (of worship, study, etc.); subject (of taxation, etc.); coverage",
+        "meaningKr": "대상",
+        "exampleEn": "このキャンペーンの対象は、１８歳以上の方に限らせていただきます。",
+        "exampleKr": "이 캠페인의 대상은 18세 이상인 분으로 제한하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たいしょう",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-122-1780232223822",
+        "term": "以前",
+        "definition": "before; prior to; ago the past; before; previously; former times",
+        "meaningKr": "이전, 전에",
+        "exampleEn": "以前住んでいた街は、今よりもずっと静かで落ち着いた雰囲気だった。",
+        "exampleKr": "이전에 살던 도시는 지금보다 훨씬 조용하고 차분한 분위기였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いぜん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-123-1780232223822",
+        "term": "確認",
+        "definition": "confirmation; verification; validation; review; check; affirmation; identification",
+        "meaningKr": "확인, 검증",
+        "exampleEn": "予約内容に間違いがないか、もう一度よく確認してください。",
+        "exampleKr": "예약 내용에 틀린 점이 없는지 다시 한번 잘 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かくにん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-124-1780232223822",
+        "term": "数",
+        "definition": "number; amount",
+        "meaningKr": "수, 숫자",
+        "exampleEn": "この問題の解決には、かなりの時間と数多くの人の協力が必要となるだろう。",
+        "exampleKr": "이 문제의 해결에는 상당한 시간과 수많은 사람들의 협력이 필요할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かず",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-125-1780232223822",
+        "term": "述べる",
+        "definition": "to state; to express; to say; to tell; to mention",
+        "meaningKr": "말하다, 서술하다, 진술하다",
+        "exampleEn": "彼は事件の状況について、詳しく述べるように求められた。",
+        "exampleKr": "그는 사건의 상황에 대해 자세히 진술하도록 요구받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のべる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-126-1780232223822",
+        "term": "是非",
+        "definition": "certainly; without fail right and wrong; pros and cons",
+        "meaningKr": "부디, 꼭, 찬반",
+        "exampleEn": "この機会に是非一度、弊社のサービスをご利用ください。",
+        "exampleKr": "이 기회에 부디 한번 저희 회사의 서비스를 이용해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぜひ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-127-1780232223822",
+        "term": "直",
+        "definition": "straight ordinary; common doing nothing",
+        "meaningKr": "곧, 바로, 똑바로, 보통",
+        "exampleEn": "明日の会議の件ですが、直ちに担当者に確認いたします。",
+        "exampleKr": "내일 회의 건입니다만, 즉시 담당자에게 확인하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なお",
+        "pos": "adjective, adverb, noun"
+      },
+      {
+        "id": "word-jp-intermediate-128-1780232223822",
+        "term": "気づく",
+        "definition": "to notice; to realize; to realise; to become aware (of); to perceive; to sense; to suspect to regain consciousness; to come to (one's senses); to come round",
+        "meaningKr": "깨닫다, 알아차리다, 감지하다",
+        "exampleEn": "自分の間違いに気づいたとき、顔が赤くなった。",
+        "exampleKr": "자신의 잘못을 깨달았을 때, 얼굴이 빨개졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きづく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-129-1780232223822",
+        "term": "互い",
+        "definition": "each other; one another",
+        "meaningKr": "서로",
+        "exampleEn": "私たちは互いに尊敬し合い、助け合って生きてきた。",
+        "exampleKr": "우리는 서로 존경하고 도우며 살아왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たがい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-130-1780232223822",
+        "term": "違い",
+        "definition": "difference; distinction; discrepancy mistake; error",
+        "meaningKr": "차이, 다름, 실수",
+        "exampleEn": "二つの製品の性能には、いくつかの大きな違いがある。",
+        "exampleKr": "두 가지 제품의 성능에는 몇 가지 큰 차이가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちがい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-131-1780232223822",
+        "term": "記憶",
+        "definition": "memory; recollection; remembrance memory; storage",
+        "meaningKr": "기억, 추억",
+        "exampleEn": "この写真を見ると、昔の楽しかった記憶がよみがえってくる。",
+        "exampleKr": "이 사진을 보면 옛날 즐거웠던 기억이 되살아난다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きおく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-132-1780232223822",
+        "term": "思い出",
+        "definition": "memories; recollections; reminiscence",
+        "meaningKr": "추억, 회상",
+        "exampleEn": "子供の頃の思い出を語り合うのは、いつも楽しい時間だ。",
+        "exampleKr": "어릴 적 추억을 이야기하는 것은 언제나 즐거운 시간이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おもいで",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-133-1780232223822",
+        "term": "父親",
+        "definition": "father",
+        "meaningKr": "아버지",
+        "exampleEn": "私の父親は、とても厳しかったが、愛情深い人だった。",
+        "exampleKr": "나의 아버지는 매우 엄했지만, 애정 깊은 분이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちちおや",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-134-1780232223822",
+        "term": "健康",
+        "definition": "health healthy; sound; fit; wholesome",
+        "meaningKr": "건강",
+        "exampleEn": "健康のために、毎日適度な運動を心がけている。",
+        "exampleKr": "건강을 위해 매일 적절한 운동을 하도록 노력하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けんこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-135-1780232223822",
+        "term": "流れる",
+        "definition": "to stream; to flow (liquid, time, etc.); to run (ink) to be washed away; to be carried to drift; to float (e.g. clouds); to wander; to stray",
+        "meaningKr": "흐르다, 흘러가다",
+        "exampleEn": "川の水が速く流れているので、橋を渡るのが少し怖かった。",
+        "exampleKr": "강물이 빠르게 흐르고 있어서 다리를 건너는 것이 조금 무서웠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ながれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-136-1780232223822",
+        "term": "進める",
+        "definition": "to advance; to move forward; to put (a clock, watch) forward to carry forward (plans, work, etc.); to proceed with; to make progress in; to further; to advance; to hasten; to speed up to raise; to elevate; to promote; to develop; to stimulate (e.g. one's appetite)",
+        "meaningKr": "나아가게 하다, 진행시키다, 추진하다",
+        "exampleEn": "計画を予定通りに進めるために、皆で協力して作業を進めよう。",
+        "exampleKr": "계획을 예정대로 진행시키기 위해 모두 협력하여 작업을 진행하자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すすめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-137-1780232223822",
+        "term": "居る",
+        "definition": "to be (animate); to be; to exist to be ...-ing to (have the audacity to) do",
+        "meaningKr": "있다 (사람, 동물), 계시다",
+        "exampleEn": "この部屋には、まだ誰か居るのではないかと心配になった。",
+        "exampleKr": "이 방에는 아직 누군가 있는 것이 아닐까 걱정이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-138-1780232223822",
+        "term": "活動",
+        "definition": "activity (of a person, organization, animal, volcano, etc.); action; operation moving picture",
+        "meaningKr": "활동",
+        "exampleEn": "地域のお祭りに参加して、ボランティア活動を行った。",
+        "exampleKr": "지역 축제에 참가하여 자원봉사 활동을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かつどう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-139-1780232223822",
+        "term": "不安",
+        "definition": "anxiety; uneasiness; worry; apprehension; fear; insecurity; suspense",
+        "meaningKr": "불안, 걱정",
+        "exampleEn": "明日の試験の結果について、少し不安を感じている。",
+        "exampleKr": "내일 시험 결과에 대해 조금 불안감을 느끼고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふあん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-140-1780232223822",
+        "term": "可能",
+        "definition": "possible; potential; practicable; feasible",
+        "meaningKr": "가능한, 가능성",
+        "exampleEn": "この問題は、短時間で解決することが可能だと考えられている。",
+        "exampleKr": "이 문제는 단시간에 해결하는 것이 가능하다고 여겨지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かのう",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-141-1780232223822",
+        "term": "際",
+        "definition": "occasion; time; circumstances; (in) case (of); when",
+        "meaningKr": "경우, 때, ~할 때",
+        "exampleEn": "緊急の際、このボタンを押してください。",
+        "exampleKr": "긴급한 경우, 이 버튼을 눌러주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-142-1780232223822",
+        "term": "様子",
+        "definition": "state (of affairs); situation; circumstances appearance; look(s); air; manner; behaviour; demeanor sign; indication",
+        "meaningKr": "모습, 상태, 상황",
+        "exampleEn": "彼の顔色が悪かったので、何かあったのか様子を見た。",
+        "exampleKr": "그의 안색이 좋지 않았기에 무슨 일이 있었는지 상태를 살폈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ようす",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-143-1780232223822",
+        "term": "期待",
+        "definition": "expectation; anticipation; hope promising; rising; up-and-coming",
+        "meaningKr": "기대, 희망",
+        "exampleEn": "来年の新製品には、大きな期待が寄せられている。",
+        "exampleKr": "내년 신제품에는 큰 기대가 모아지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きたい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-144-1780232223822",
+        "term": "事実",
+        "definition": "fact; truth; reality",
+        "meaningKr": "사실, 진실",
+        "exampleEn": "彼は事実を隠そうとしたが、すべて明らかになった。",
+        "exampleKr": "그는 사실을 숨기려 했지만, 모든 것이 밝혀졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じじつ",
+        "pos": "adverb, noun"
+      },
+      {
+        "id": "word-jp-intermediate-145-1780232223822",
+        "term": "一体",
+        "definition": "(what) the heck; (why) in the world; (who) on earth one object; one body; unity one form; one style",
+        "meaningKr": "도대체, 하나로",
+        "exampleEn": "一体全体、どうしてこんなことになってしまったのだろうか。",
+        "exampleKr": "도대체 어떻게 이런 일이 되어버린 것일까.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いったい",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-146-1780232223822",
+        "term": "描く",
+        "definition": "to draw; to paint; to sketch to depict; to describe to picture in one's mind; to imagine",
+        "meaningKr": "그리다, 묘사하다, 그려내다",
+        "exampleEn": "子供たちは、未来の自分たちの姿を自由に描いた。",
+        "exampleKr": "아이들은 미래의 자신들의 모습을 자유롭게 그려냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "えがく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-147-1780232223822",
+        "term": "素晴らしい",
+        "definition": "wonderful; splendid; magnificent",
+        "meaningKr": "훌륭한, 멋진, 놀라운",
+        "exampleEn": "彼女の絵は、色彩感覚が豊かで素晴らしいものだった。",
+        "exampleKr": "그녀의 그림은 색채 감각이 풍부하여 훌륭한 것이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すばらしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-148-1780232223822",
+        "term": "考え",
+        "definition": "thinking; thought; view; opinion; concept idea; notion; imagination intention; plan; design",
+        "meaningKr": "생각, 의견, 발상",
+        "exampleEn": "この問題に対する彼の考えは、非常に参考になった。",
+        "exampleKr": "이 문제에 대한 그의 생각은 매우 참고가 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんがえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-149-1780232223822",
+        "term": "信じる",
+        "definition": "to believe; to believe in; to place trust in; to confide in; to have faith in",
+        "meaningKr": "믿다, 신뢰하다",
+        "exampleEn": "どんな困難な状況でも、希望を信じることが大切だ。",
+        "exampleKr": "어떤 어려운 상황에서도 희망을 믿는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しんじる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-150-1780232223822",
+        "term": "偶々",
+        "definition": "by chance; by accident; accidentally; happen to (be, do); unexpectedly; casually occasionally; once in a while; now and then",
+        "meaningKr": "우연히, 뜻밖에",
+        "exampleEn": "偶々、駅で昔の友達に会って、とても驚きました。",
+        "exampleKr": "우연히 역에서 옛 친구를 만나서, 정말 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たまたま",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-151-1780232223822",
+        "term": "面",
+        "definition": "face mask; face guard striking the head (in kendo)",
+        "meaningKr": "가면, 얼굴, 측면",
+        "exampleEn": "剣道では、相手の面に打ち込むのが基本です。",
+        "exampleKr": "검도에서는 상대의 면을 치는 것이 기본입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "めん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-152-1780232223822",
+        "term": "意識",
+        "definition": "consciousness becoming aware (of); awareness; sense mano-vijnana (mental consciousness, cognizer of sensory information)",
+        "meaningKr": "의식, 자각, 깨달음",
+        "exampleEn": "彼は事故の後、しばらく意識を失っていたそうです。",
+        "exampleKr": "그는 사고 후에 잠시 의식을 잃었다고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いしき",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-153-1780232223822",
+        "term": "行動",
+        "definition": "action; conduct; behaviour; behavior; mobilization; mobilisation",
+        "meaningKr": "행동, 움직임",
+        "exampleEn": "彼の行動はいつも計画的で、周りの人から信頼されています。",
+        "exampleKr": "그의 행동은 항상 계획적이어서 주변 사람들에게 신뢰받고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こうどう",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-154-1780232223822",
+        "term": "吃驚",
+        "definition": "to be surprised; to be amazed; to be frightened; to be astonished; to get startled; to jump surprise (e.g. surprise party)",
+        "meaningKr": "깜짝 놀람, 깜짝",
+        "exampleEn": "突然、大きな音がして、皆が吃驚して振り返りました。",
+        "exampleKr": "갑자기 큰 소리가 나서 모두가 깜짝 놀라 뒤돌아보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "びっくり",
+        "pos": "verb, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-155-1780232223822",
+        "term": "現れる",
+        "definition": "to appear; to come in sight; to become visible; to come out; to embody; to materialize; to materialise to be expressed (e.g. emotions); to become apparent (e.g. trends, effects)",
+        "meaningKr": "나타나다, 드러나다, 출현하다",
+        "exampleEn": "彼女の顔に、喜びの感情がはっきりと現れていました。",
+        "exampleKr": "그녀의 얼굴에 기쁨의 감정이 분명하게 드러나 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あらわれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-156-1780232223822",
+        "term": "過去",
+        "definition": "the past; bygone days one's past (that one would prefer remained secret) past (tense); preterit; preterite",
+        "meaningKr": "과거, 옛날",
+        "exampleEn": "過去の失敗から学び、未来のために努力することが大切です。",
+        "exampleKr": "과거의 실패로부터 배우고 미래를 위해 노력하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かこ",
+        "pos": "noun, adverb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-157-1780232223822",
+        "term": "明らか",
+        "definition": "clear; obvious; evident; plain; definite bright; light",
+        "meaningKr": "분명한, 명확한, 확실한",
+        "exampleEn": "彼の話を聞けば、それが嘘だとすぐに明らかになるでしょう。",
+        "exampleKr": "그의 이야기를 들으면, 그것이 거짓말이라는 것이 금방 분명해질 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あきらか",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-158-1780232223822",
+        "term": "土地",
+        "definition": "plot of land; lot; soil locality; region; place",
+        "meaningKr": "토지, 땅, 지역",
+        "exampleEn": "この辺りは、昔から農業が盛んな土地として知られています。",
+        "exampleKr": "이 근처는 예전부터 농업이 활발한 토지로 알려져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-159-1780232223822",
+        "term": "評価",
+        "definition": "valuation; appraisal; evaluation; assessment; estimation; rating; judging appreciation; recognition; acknowledgement; rating highly; praising",
+        "meaningKr": "평가, 판단, 인정",
+        "exampleEn": "彼の新しい企画は、会社で高い評価を受けています。",
+        "exampleKr": "그의 새로운 기획은 회사에서 높은 평가를 받고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひょうか",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-160-1780232223822",
+        "term": "限る",
+        "definition": "to restrict; to limit; to confine to be restricted to; to be limited to; to be confined to to be best (for); to be the best plan; to be the only way (to)",
+        "meaningKr": "한정하다, 제한하다, ~뿐이다",
+        "exampleEn": "週末は家でゆっくり休むに限る、と彼は言いました。",
+        "exampleKr": "주말에는 집에서 푹 쉬는 것이 최고라고 그가 말했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かぎる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-161-1780232223822",
+        "term": "詳しい",
+        "definition": "detailed; full; minute knowing very well; knowledgeable (about); well-acquainted (with); well-informed (about); familiar (with)",
+        "meaningKr": "자세한, 상세한, 잘 아는",
+        "exampleEn": "この地域の歴史について、もっと詳しい情報が欲しいです。",
+        "exampleKr": "이 지역의 역사에 대해 더 자세한 정보가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "くわしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-162-1780232223822",
+        "term": "表現",
+        "definition": "expression; representation; description representation (of a group)",
+        "meaningKr": "표현, 묘사",
+        "exampleEn": "自分の気持ちを言葉で表現するのは難しいことがあります。",
+        "exampleKr": "자신의 감정을 말로 표현하는 것은 어려울 때가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひょうげん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-163-1780232223822",
+        "term": "雰囲気",
+        "definition": "atmosphere; mood; ambience; ambiance; aura; feel a certain air; presence; special aura; something (about someone) (Earth's) atmosphere",
+        "meaningKr": "분위기, 느낌",
+        "exampleEn": "このカフェは落ち着いた雰囲気で、勉強するのにぴったりです。",
+        "exampleKr": "이 카페는 차분한 분위기여서 공부하기에 딱 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふんいき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-164-1780232223822",
+        "term": "立場",
+        "definition": "position; situation viewpoint; standpoint; point of view",
+        "meaningKr": "입장, 처지, 견해",
+        "exampleEn": "彼の立場から考えると、その決定も理解できます。",
+        "exampleKr": "그의 입장에서 생각하면 그 결정도 이해할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たちば",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-165-1780232223822",
+        "term": "基づく",
+        "definition": "to be based (on); to be founded (on); to be grounded (on); to be in accordance (with) to be due to; to come (from); to arise (from); to originate (in)",
+        "meaningKr": "~에 근거하다, ~에 바탕을 두다",
+        "exampleEn": "その計画は、最新のデータに基づいて作成されました。",
+        "exampleKr": "그 계획은 최신 데이터에 근거하여 작성되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もとづく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-166-1780232223822",
+        "term": "間",
+        "definition": "time; pause space room",
+        "meaningKr": "시간, 틈, 공간",
+        "exampleEn": "仕事の合間を見て、少し休憩することにしました。",
+        "exampleKr": "일하는 틈을 봐서 잠시 쉬기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-167-1780232223822",
+        "term": "辺り",
+        "definition": "(in the) neighbourhood; neighborhood; vicinity; nearby; surroundings around; about; or thereabouts for instance; say; such as",
+        "meaningKr": "부근, 근처, 약",
+        "exampleEn": "この辺りには、美味しいレストランがたくさんあります。",
+        "exampleKr": "이 근처에는 맛있는 레스토랑이 많이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あたり",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-168-1780232223822",
+        "term": "乗せる",
+        "definition": "to place on (something) to give (someone) a ride; to give a lift; to pick up; to help on board to load (luggage); to carry; to take on board",
+        "meaningKr": "태우다, 싣다, 얹다",
+        "exampleEn": "友達を車に乗せて、一緒に買い物に行きました。",
+        "exampleKr": "친구를 차에 태우고 함께 쇼핑하러 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のせる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-169-1780232223822",
+        "term": "用いる",
+        "definition": "to use; to make use of; to utilize; to utilise",
+        "meaningKr": "사용하다, 이용하다, 쓰다",
+        "exampleEn": "この研究では、新しい分析方法が用いられています。",
+        "exampleKr": "이 연구에서는 새로운 분석 방법이 사용되고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もちいる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-170-1780232223822",
+        "term": "普段",
+        "definition": "usual; normal; everyday; habitual; ordinary usually; normally; generally; habitually; always",
+        "meaningKr": "평소, 보통, 늘",
+        "exampleEn": "普段はあまり話さない彼が、今日はよく喋っていました。",
+        "exampleKr": "평소에는 별로 말하지 않던 그가 오늘은 말을 많이 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふだん",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-171-1780232223822",
+        "term": "繰り返す",
+        "definition": "to repeat; to do over again",
+        "meaningKr": "반복하다, 되풀이하다",
+        "exampleEn": "彼は同じ間違いを何度も繰り返して、反省しています。",
+        "exampleKr": "그는 같은 실수를 몇 번이나 반복해서 반성하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "くりかえす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-172-1780232223822",
+        "term": "努力",
+        "definition": "effort; exertion; endeavour; endeavor; hard work; striving",
+        "meaningKr": "노력, 힘씀",
+        "exampleEn": "目標達成のためには、地道な努力を続けることが大切です。",
+        "exampleKr": "목표 달성을 위해서는 꾸준한 노력을 계속하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "どりょく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-173-1780232223822",
+        "term": "増加",
+        "definition": "increase; rise; growth; addition; increment",
+        "meaningKr": "증가, 늘어남",
+        "exampleEn": "最近、この都市の人口が急激に増加しています。",
+        "exampleKr": "최근 이 도시의 인구가 급격히 증가하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぞうか",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-174-1780232223822",
+        "term": "判断",
+        "definition": "judgment; judgement; decision; conclusion; adjudication divination judgement",
+        "meaningKr": "판단, 결정",
+        "exampleEn": "状況をよく見て、自分で正しい判断を下すことが重要です。",
+        "exampleKr": "상황을 잘 보고 스스로 올바른 판단을 내리는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はんだん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-175-1780232223822",
+        "term": "恐らく",
+        "definition": "probably; (most) likely; in all likelihood; I suspect; I dare say; I'm afraid",
+        "meaningKr": "아마, 필시, 어쩌면",
+        "exampleEn": "恐らく、彼はもうすぐここに着くはずだから、もう少し待ってみましょう。",
+        "exampleKr": "아마 그는 곧 여기에 도착할 테니, 조금만 더 기다려 봅시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おそらく",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-176-1780232223822",
+        "term": "不思議",
+        "definition": "wonderful; marvelous; strange; incredible; amazing; curious; miraculous; mysterious strangely enough; oddly enough; for some reason; curiously",
+        "meaningKr": "신기함, 불가사의함, 이상함",
+        "exampleEn": "夜空に輝く星を見ていると、宇宙の不思議を感じずにはいられない。",
+        "exampleKr": "밤하늘에 빛나는 별을 보고 있으면, 우주의 신비함을 느끼지 않을 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふしぎ",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-177-1780232223822",
+        "term": "茶",
+        "definition": "tea tea plant (Camellia sinensis) tea preparation; making tea",
+        "meaningKr": "차",
+        "exampleEn": "日本では、食事の後に温かいお茶を飲む習慣があります。",
+        "exampleKr": "일본에서는 식사 후에 따뜻한 차를 마시는 습관이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-178-1780232223822",
+        "term": "直接",
+        "definition": "direct; immediate; personal; firsthand",
+        "meaningKr": "직접, 바로",
+        "exampleEn": "大切な話なので、彼に直接会って伝えたいと思っています。",
+        "exampleKr": "중요한 이야기라서, 그에게 직접 만나서 전하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちょくせつ",
+        "pos": "adjective, noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-179-1780232223822",
+        "term": "効果",
+        "definition": "effect; effectiveness; efficacy; result effects (e.g. sound effects, visual effects, special effects)",
+        "meaningKr": "효과",
+        "exampleEn": "この薬は風邪にとても効果があるそうなので、ぜひ試してみてください。",
+        "exampleKr": "이 약은 감기에 매우 효과가 있다고 하니, 꼭 한번 시험해 보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こうか",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-180-1780232223822",
+        "term": "現実",
+        "definition": "reality; actuality; hard fact",
+        "meaningKr": "현실",
+        "exampleEn": "夢を見るのも大切ですが、現実をしっかりと見て行動することも必要です。",
+        "exampleKr": "꿈을 꾸는 것도 중요하지만, 현실을 제대로 보고 행동하는 것도 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "げんじつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-181-1780232223822",
+        "term": "触れる",
+        "definition": "to touch; to feel to touch (with) to experience; to come in contact with; to perceive",
+        "meaningKr": "만지다, 닿다, 접하다",
+        "exampleEn": "美術館では、展示品に直接触れないように注意してください。",
+        "exampleKr": "미술관에서는 전시품에 직접 손대지 않도록 주의해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-182-1780232223822",
+        "term": "飼う",
+        "definition": "to keep (a pet or other animal); to have; to own; to raise; to rear; to feed",
+        "meaningKr": "기르다, 키우다",
+        "exampleEn": "私は小さい頃から犬を飼っていて、彼らは家族のような存在です。",
+        "exampleKr": "저는 어릴 때부터 개를 키웠고, 그들은 가족 같은 존재입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-183-1780232223822",
+        "term": "喋る",
+        "definition": "to talk; to chat; to chatter",
+        "meaningKr": "말하다, 이야기하다, 재잘거리다",
+        "exampleEn": "授業中におしゃべりばかりしていると、先生に怒られますよ。",
+        "exampleKr": "수업 중에 수다만 떨고 있으면, 선생님께 혼날 거예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゃべる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-184-1780232223822",
+        "term": "国民",
+        "definition": "people (of a country); nation; citizen; national Democratic Party for the People",
+        "meaningKr": "국민",
+        "exampleEn": "国民の意見を聞くことは、政府にとって非常に重要なことです。",
+        "exampleKr": "국민의 의견을 듣는 것은 정부에게 매우 중요한 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こくみん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-185-1780232223822",
+        "term": "随分",
+        "definition": "very; extremely; surprisingly; fairly; quite; considerably; awfully; terribly terrible; horrid; contemptible; reprehensible remarkable; extraordinary",
+        "meaningKr": "몹시, 매우, 상당히",
+        "exampleEn": "久しぶりに会った友人は、随分背が伸びていて驚きました。",
+        "exampleKr": "오랜만에 만난 친구는 키가 몹시 자라서 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ずいぶん",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-186-1780232223822",
+        "term": "殺す",
+        "definition": "to kill; to slay; to murder; to slaughter to suppress; to block; to hamper; to destroy (e.g. talent); to eliminate (e.g. an odour); to spoil (e.g. a flavour); to kill (e.g. one's speed) to suppress (a voice, feelings, etc.); to hold back; to stifle (a yawn, laugh, etc.); to hold (one's breath)",
+        "meaningKr": "죽이다",
+        "exampleEn": "蚊を殺すためのスプレーは、夏には欠かせないアイテムです。",
+        "exampleKr": "모기를 죽이는 스프레이는 여름에는 필수적인 아이템입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ころす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-187-1780232223822",
+        "term": "特徴",
+        "definition": "feature; trait; characteristic; peculiarity; distinction",
+        "meaningKr": "특징",
+        "exampleEn": "このスマートフォンの最大の特徴は、バッテリーが長持ちすることです。",
+        "exampleKr": "이 스마트폰의 가장 큰 특징은 배터리가 오래간다는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とくちょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-188-1780232223822",
+        "term": "神",
+        "definition": "god; deity; divinity; spirit; kami incredible; fantastic; amazing Emperor (of Japan)",
+        "meaningKr": "신, 하느님",
+        "exampleEn": "昔から人々は、自然の中に神の存在を感じてきました。",
+        "exampleKr": "옛날부터 사람들은 자연 속에서 신의 존재를 느껴왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-189-1780232223822",
+        "term": "暮らす",
+        "definition": "to live; to get along to spend (time)",
+        "meaningKr": "살다, 생활하다",
+        "exampleEn": "都会で暮らすのもいいけれど、いつか田舎でのんびり暮らしたいです。",
+        "exampleKr": "도시에서 사는 것도 좋지만, 언젠가는 시골에서 한가롭게 살고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "くらす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-190-1780232223822",
+        "term": "発見",
+        "definition": "discovery; detection; finding",
+        "meaningKr": "발견",
+        "exampleEn": "新しい星の発見は、天文学の世界に大きな貢献をもたらしました。",
+        "exampleKr": "새로운 별의 발견은 천문학 세계에 큰 공헌을 가져왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はっけん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-191-1780232223822",
+        "term": "相談",
+        "definition": "consultation; discussion; discussing; asking (someone) for advice",
+        "meaningKr": "상담, 상의",
+        "exampleEn": "困ったことがあったら、一人で悩まずに先生に相談しましょう。",
+        "exampleKr": "곤란한 일이 있다면 혼자 고민하지 말고 선생님과 상의합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "そうだん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-192-1780232223822",
+        "term": "学ぶ",
+        "definition": "to learn; to study; to take lessons in",
+        "meaningKr": "배우다, 익히다",
+        "exampleEn": "語学を学ぶことは、新しい文化に触れる良い機会になります。",
+        "exampleKr": "외국어를 배우는 것은 새로운 문화를 접할 좋은 기회가 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まなぶ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-193-1780232223822",
+        "term": "突然",
+        "definition": "abrupt; sudden; unexpected",
+        "meaningKr": "갑자기, 돌연히",
+        "exampleEn": "突然の雨で、傘を持っていなかった私たちはびしょ濡れになりました。",
+        "exampleKr": "갑작스러운 비에 우산이 없었던 우리는 흠뻑 젖었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とつぜん",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-194-1780232223822",
+        "term": "従って",
+        "definition": "therefore; consequently; accordingly",
+        "meaningKr": "따라서, 그러므로",
+        "exampleEn": "彼は病気で学校を休んだ。従って、今日の試験を受けることができない。",
+        "exampleKr": "그는 병으로 학교를 쉬었다. 따라서 오늘 시험을 볼 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "したがって",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-195-1780232223822",
+        "term": "失う",
+        "definition": "to lose to miss (a chance, opportunity) to lose (a loved one); to be bereaved of",
+        "meaningKr": "잃다, 상실하다",
+        "exampleEn": "大切なものを失って悲しい気持ちになったが、前向きに進むしかない。",
+        "exampleKr": "소중한 것을 잃어서 슬펐지만, 긍정적으로 나아갈 수밖에 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うしなう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-196-1780232223822",
+        "term": "異なる",
+        "definition": "to differ; to be different; to disagree; to vary; to diverge",
+        "meaningKr": "다르다, 상이하다",
+        "exampleEn": "国によって文化や習慣が異なるので、旅行する前に調べておくべきだ。",
+        "exampleKr": "나라마다 문화나 습관이 다르므로, 여행하기 전에 미리 알아두는 것이 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ことなる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-197-1780232223822",
+        "term": "新た",
+        "definition": "new; fresh; novel",
+        "meaningKr": "새로운, 신규의",
+        "exampleEn": "新たなプロジェクトが始まるので、みんなで協力して頑張りましょう。",
+        "exampleKr": "새로운 프로젝트가 시작되니, 다 함께 협력하여 노력합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あらた",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-198-1780232223822",
+        "term": "至る",
+        "definition": "to arrive at (e.g. a decision); to reach (a stage); to attain to lead to (a place); to get to in the extreme case of",
+        "meaningKr": "이르다, 도달하다",
+        "exampleEn": "議論の結果、最終的に全員が賛成するという結論に至りました。",
+        "exampleKr": "논의 결과, 최종적으로 전원 찬성이라는 결론에 이르렀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いたる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-199-1780232223822",
+        "term": "種類",
+        "definition": "variety; kind; type; category counter for kinds, species, etc.",
+        "meaningKr": "종류, 품종",
+        "exampleEn": "このスーパーには、様々な種類の野菜や果物が売られています。",
+        "exampleKr": "이 슈퍼에는 다양한 종류의 채소와 과일이 판매되고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅるい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-200-1780232223822",
+        "term": "商品",
+        "definition": "commodity; article of commerce; goods; stock; merchandise",
+        "meaningKr": "상품, 물품",
+        "exampleEn": "この店では、珍しい海外の商品をたくさん扱っています。",
+        "exampleKr": "이 가게에서는 희귀한 해외 상품을 많이 취급하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しょうひん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-201-1780232223822",
+        "term": "生じる",
+        "definition": "to produce; to yield; to cause to result from; to arise; to be generated",
+        "meaningKr": "생기다, 발생하다",
+        "exampleEn": "予期せぬ問題が生じる可能性があるので、注意が必要です。",
+        "exampleKr": "예상치 못한 문제가 발생할 가능성이 있으므로 주의가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しょうじる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-202-1780232223822",
+        "term": "語る",
+        "definition": "to talk about; to speak of; to tell; to narrate to recite; to chant to indicate; to show",
+        "meaningKr": "이야기하다, 말하다",
+        "exampleEn": "彼は自分の過去の経験について、熱心に語りました。",
+        "exampleKr": "그는 자신의 과거 경험에 대해 열심히 이야기했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かたる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-203-1780232223822",
+        "term": "胸",
+        "definition": "chest; breast breasts; bosom; bust heart",
+        "meaningKr": "가슴, 흉부",
+        "exampleEn": "発表が終わった後、彼の胸には達成感が広がっていました。",
+        "exampleKr": "발표가 끝난 후, 그의 가슴에는 성취감이 퍼져 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "むね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-204-1780232223822",
+        "term": "材料",
+        "definition": "materials; ingredients material (for a novel, experiment, etc.); subject matter grounds (for a decision, judgement, etc.); basis; evidence; data",
+        "meaningKr": "재료, 자료",
+        "exampleEn": "このケーキを作るのに必要な材料は、すべて揃っています。",
+        "exampleKr": "이 케이크를 만드는 데 필요한 재료는 모두 갖춰져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ざいりょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-205-1780232223822",
+        "term": "広がる",
+        "definition": "to spread (out); to extend; to stretch; to reach to; to get around; to fill (e.g. a space)",
+        "meaningKr": "퍼지다, 넓어지다",
+        "exampleEn": "美しい景色が窓の外に広がり、心が癒やされました。",
+        "exampleKr": "아름다운 경치가 창밖으로 펼쳐져 마음이 치유되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひろがる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-206-1780232223822",
+        "term": "きちんと",
+        "definition": "properly; accurately; exactly; precisely; regularly neatly; tidily; orderly",
+        "meaningKr": "정확히, 깔끔하게",
+        "exampleEn": "会議の前に、資料をきちんと準備しておく必要があります。",
+        "exampleKr": "회의 전에 자료를 제대로 준비해 둘 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きちんと",
+        "pos": "adverb, verb"
+      },
+      {
+        "id": "word-jp-intermediate-207-1780232223822",
+        "term": "運動",
+        "definition": "exercise; physical training; workout; sports; athletics appeal; campaign; drive; crusade; movement; lobbying motion; movement",
+        "meaningKr": "운동, 활동",
+        "exampleEn": "健康のためには、毎日少しでも運動することが大切です。",
+        "exampleKr": "건강을 위해서는 매일 조금이라도 운동하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うんどう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-208-1780232223822",
+        "term": "幸せ",
+        "definition": "happiness; good fortune; luck; blessing",
+        "meaningKr": "행복, 다행",
+        "exampleEn": "家族みんなが健康でいることが、私にとって一番の幸せです。",
+        "exampleKr": "가족 모두가 건강한 것이 저에게 가장 큰 행복입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しあわせ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-209-1780232223822",
+        "term": "通す",
+        "definition": "to force to accept; to force agreement to continue (in a state); to persist in to do to the entirety of; to cover all of; to span the whole ...",
+        "meaningKr": "통과시키다, 관철하다",
+        "exampleEn": "この布は光を通すので、カーテンには向いていません。",
+        "exampleKr": "이 천은 빛을 통과시키므로 커튼에는 적합하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とおす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-210-1780232223822",
+        "term": "命",
+        "definition": "life; life force lifetime; lifespan most important thing; foundation; core",
+        "meaningKr": "생명, 목숨",
+        "exampleEn": "自然災害から人々の命を守るために、対策が必要です。",
+        "exampleKr": "자연재해로부터 사람들의 생명을 지키기 위해 대책이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いのち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-211-1780232223822",
+        "term": "流れ",
+        "definition": "flow (of a fluid or gas); stream; current flow (of people, things); passage (of time); tide; passing; (changing) trends; tendency course (of events); (step-by-step) procedure; process",
+        "meaningKr": "흐름, 경향",
+        "exampleEn": "川の流れが速いので、泳ぐのは危険です。",
+        "exampleKr": "강의 흐름이 빨라서 수영하는 것은 위험합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ながれ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-212-1780232223822",
+        "term": "育つ",
+        "definition": "to be raised (e.g. child); to be brought up; to grow (up)",
+        "meaningKr": "자라다, 성장하다",
+        "exampleEn": "この町で育ったので、愛着があります。",
+        "exampleKr": "이 마을에서 자랐기 때문에 애착이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "そだつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-213-1780232223822",
+        "term": "馬",
+        "definition": "horse horse racing promoted bishop",
+        "meaningKr": "말",
+        "exampleEn": "子供の頃、馬に乗るのが夢でした。",
+        "exampleKr": "어릴 적, 말을 타는 것이 꿈이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-214-1780232223822",
+        "term": "完全",
+        "definition": "perfect; complete",
+        "meaningKr": "완전, 완벽",
+        "exampleEn": "この計画はまだ完全ではないので、もう少し検討が必要です。",
+        "exampleKr": "이 계획은 아직 완전하지 않으므로, 좀 더 검토가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんぜん",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-215-1780232223822",
+        "term": "性格",
+        "definition": "character (of a person); personality; disposition; nature characteristics; nature (of a thing, event, etc.)",
+        "meaningKr": "성격, 성품",
+        "exampleEn": "彼女は明るい性格なので、誰とでもすぐに仲良くなれます。",
+        "exampleKr": "그녀는 밝은 성격이라서 누구와도 금방 친해질 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せいかく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-216-1780232223822",
+        "term": "位置",
+        "definition": "place; position; location position; standing; status; situation",
+        "meaningKr": "위치, 장소",
+        "exampleEn": "地図で現在地を確認し、目的地までの位置を把握しました。",
+        "exampleKr": "지도에서 현재 위치를 확인하고 목적지까지의 위치를 파악했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いち",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-217-1780232223822",
+        "term": "発展",
+        "definition": "development; growth; expansion; extension; flourishing development (of a situation, story, etc.); advancement; progression; unfolding playing around (sexually; esp. of a male homosexual); having an active sex life",
+        "meaningKr": "발전, 진보",
+        "exampleEn": "この地域の経済は、近年急速に発展しています。",
+        "exampleKr": "이 지역의 경제는 최근 급속도로 발전하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はってん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-218-1780232223822",
+        "term": "即ち",
+        "definition": "that is (to say); namely; i.e. precisely; exactly; just; nothing but; neither more nor less (and) then",
+        "meaningKr": "즉, 다시 말해",
+        "exampleEn": "彼はこの分野の専門家です。即ち、彼に聞けばすべてわかるでしょう。",
+        "exampleKr": "그는 이 분야의 전문가입니다. 즉, 그에게 물어보면 모든 것을 알 수 있을 겁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すなわち",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-219-1780232223822",
+        "term": "海外",
+        "definition": "foreign; abroad; overseas",
+        "meaningKr": "해외, 외국",
+        "exampleEn": "いつか海外旅行に行って、色々な文化を体験したいです。",
+        "exampleKr": "언젠가 해외여행을 가서 여러 문화를 체험하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かいがい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-220-1780232223822",
+        "term": "想像",
+        "definition": "imagination; supposition; guess",
+        "meaningKr": "상상, 추측",
+        "exampleEn": "彼の話を聞いて、その時の状況を想像することができました。",
+        "exampleKr": "그의 이야기를 듣고 그 당시의 상황을 상상할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "そうぞう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-221-1780232223822",
+        "term": "実は",
+        "definition": "as a matter of fact; by the way; to tell you the truth; to be honest; frankly",
+        "meaningKr": "사실은, 실은",
+        "exampleEn": "実は、来月から新しい会社で働くことになりました。",
+        "exampleKr": "실은 다음 달부터 새로운 회사에서 일하게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じつは",
+        "pos": "phrase, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-222-1780232223822",
+        "term": "許す",
+        "definition": "to permit; to allow; to approve; to consent to to forgive; to pardon; to excuse; to tolerate to exempt (someone) from; to remit; to release; to let off",
+        "meaningKr": "허락하다, 용서하다",
+        "exampleEn": "私の間違いを許してくれて、本当に感謝しています。",
+        "exampleKr": "제 실수를 용서해 주셔서 정말 감사합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ゆるす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-223-1780232223822",
+        "term": "表",
+        "definition": "table; chart; list memorial to an emperor",
+        "meaningKr": "표, 목록",
+        "exampleEn": "この表は、各国の人口データを示しています。",
+        "exampleKr": "이 표는 각국의 인구 데이터를 보여줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-224-1780232223822",
+        "term": "準備",
+        "definition": "preparation; arrangements; getting ready; provision; setup; reserving",
+        "meaningKr": "준비",
+        "exampleEn": "明日のプレゼンテーションのために、夜遅くまで準備しました。",
+        "exampleKr": "내일 프레젠테이션을 위해 밤늦게까지 준비했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じゅんび",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-225-1780232223822",
+        "term": "月",
+        "definition": "Moon month moonlight",
+        "meaningKr": "달, 월",
+        "exampleEn": "今夜は月がとてもきれいに見えますね。",
+        "exampleKr": "오늘 밤은 달이 정말 예쁘게 보이네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "つき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-226-1780232223822",
+        "term": "世の中",
+        "definition": "society; the world; the times",
+        "meaningKr": "세상",
+        "exampleEn": "世の中には色々な人がいるので、色々な考え方があります。",
+        "exampleKr": "세상에는 여러 사람이 있으므로, 여러 가지 사고방식이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "よのなか",
+        "pos": "phrase, noun"
+      },
+      {
+        "id": "word-jp-intermediate-227-1780232223822",
+        "term": "旅",
+        "definition": "travel; trip; journey",
+        "meaningKr": "여행",
+        "exampleEn": "私は新しい場所への旅に出るのが大好きです。",
+        "exampleKr": "저는 새로운 장소로 여행을 떠나는 것을 매우 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-228-1780232223822",
+        "term": "同様",
+        "definition": "same; similar; (just) like; equal",
+        "meaningKr": "마찬가지, 같음",
+        "exampleEn": "兄と同様、私も音楽を聴くのが好きです。",
+        "exampleKr": "형과 마찬가지로, 저도 음악 듣는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "どうよう",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-229-1780232223822",
+        "term": "一般",
+        "definition": "general; universal ordinary; average; common; non-celebrity the same; no different; (just) as if",
+        "meaningKr": "일반, 보통",
+        "exampleEn": "この商品は一般のスーパーではあまり見かけません。",
+        "exampleKr": "이 상품은 일반 슈퍼마켓에서는 잘 보이지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いっぱん",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-230-1780232223822",
+        "term": "責任",
+        "definition": "duty; responsibility (incl. supervision of staff) liability; onus",
+        "meaningKr": "책임",
+        "exampleEn": "自分の行動には自分で責任を持つべきです。",
+        "exampleKr": "자신의 행동에는 스스로 책임을 져야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せきにん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-231-1780232223822",
+        "term": "選択",
+        "definition": "choice; selection; option",
+        "meaningKr": "선택",
+        "exampleEn": "どちらの道を選ぶかは、あなたの自由な選択です。",
+        "exampleKr": "어느 길을 선택할지는 당신의 자유로운 선택입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せんたく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-232-1780232223822",
+        "term": "減る",
+        "definition": "to decrease (in size or number); to diminish; to abate",
+        "meaningKr": "줄어들다, 감소하다",
+        "exampleEn": "最近、残業する時間がかなり減ってきました。",
+        "exampleKr": "최근, 야근하는 시간이 상당히 줄어들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "へる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-233-1780232223822",
+        "term": "記事",
+        "definition": "article; news story; report; account",
+        "meaningKr": "기사",
+        "exampleEn": "彼は新聞のスポーツ記事を毎日読んでいます。",
+        "exampleKr": "그는 신문의 스포츠 기사를 매일 읽고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-234-1780232223822",
+        "term": "本人",
+        "definition": "the person in question; the person themselves; said person",
+        "meaningKr": "본인",
+        "exampleEn": "詳しいことは本人に直接聞いてみてください。",
+        "exampleKr": "자세한 것은 본인에게 직접 물어보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ほんにん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-235-1780232223822",
+        "term": "出会う",
+        "definition": "to meet (by chance); to come across; to run across; to encounter; to happen upon to meet (e.g. of rivers, highways, etc.) to emerge and engage (an enemy)",
+        "meaningKr": "만나다, 마주치다",
+        "exampleEn": "旅先で偶然、昔の友人と出会いました。",
+        "exampleKr": "여행지에서 우연히 옛 친구와 만났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "であう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-236-1780232223822",
+        "term": "作業",
+        "definition": "work; operation; task",
+        "meaningKr": "작업",
+        "exampleEn": "この作業は一人では難しいので、手伝ってもらえませんか。",
+        "exampleKr": "이 작업은 혼자서는 어려우니, 도와주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さぎょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-237-1780232223822",
+        "term": "度",
+        "definition": "time (three times, each time, etc.); times",
+        "meaningKr": "번, 회",
+        "exampleEn": "彼は会議の度によく質問をします。",
+        "exampleKr": "그는 회의 때마다 자주 질문을 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たび",
+        "pos": "noun, counter"
+      },
+      {
+        "id": "word-jp-intermediate-238-1780232223822",
+        "term": "条件",
+        "definition": "condition; term; requirement; qualification; prerequisite",
+        "meaningKr": "조건",
+        "exampleEn": "この仕事は高い専門知識が応募の条件です。",
+        "exampleKr": "이 일은 높은 전문 지식이 지원 조건입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じょうけん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-239-1780232223822",
+        "term": "振る",
+        "definition": "to bring up a topic; to lead to a topic to replace; to substitute to set up a joke for someone else",
+        "meaningKr": "흔들다, (화제를) 꺼내다",
+        "exampleEn": "突然、彼が結婚の話を振ってきたので驚きました。",
+        "exampleKr": "갑자기 그가 결혼 이야기를 꺼내서 놀랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-240-1780232223822",
+        "term": "関心",
+        "definition": "concern; interest",
+        "meaningKr": "관심",
+        "exampleEn": "多くの人々が環境問題に関心を持っています。",
+        "exampleKr": "많은 사람들이 환경 문제에 관심을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんしん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-241-1780232223822",
+        "term": "相当",
+        "definition": "corresponding to (in meaning, function, etc.); being equivalent to appropriate; suitable; befitting; proportionate to be proportionate to; to be in keeping with; to be deserving of; to be worthy of",
+        "meaningKr": "상당히, 꽤, ~에 해당함",
+        "exampleEn": "この問題は、解決に相当な時間がかかるでしょう。",
+        "exampleKr": "이 문제는 해결하는 데 상당한 시간이 걸릴 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "そうとう",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-242-1780232223822",
+        "term": "従う",
+        "definition": "to obey (an order, law, etc.); to abide by (a rule, custom, etc.); to follow; to observe; to conform to; to yield to to follow (a person); to accompany; to go with to go alongside (e.g. a river); to follow (e.g. a sign)",
+        "meaningKr": "따르다, 복종하다",
+        "exampleEn": "会社の規則には必ず従わなければなりません。",
+        "exampleKr": "회사 규칙에는 반드시 따라야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "したがう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-243-1780232223822",
+        "term": "検討",
+        "definition": "consideration; examination; investigation; study; scrutiny; discussion; analysis; review",
+        "meaningKr": "검토, 검토하다",
+        "exampleEn": "その提案については、現在、慎重に検討しています。",
+        "exampleKr": "그 제안에 대해서는 현재 신중하게 검토하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けんとう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-244-1780232223822",
+        "term": "占める",
+        "definition": "to occupy; to hold to account for; to make up; to take up",
+        "meaningKr": "차지하다, 점유하다",
+        "exampleEn": "この会社の製品は市場の大きな割合を占めています。",
+        "exampleKr": "이 회사 제품은 시장의 큰 비중을 차지하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-245-1780232223822",
+        "term": "正に",
+        "definition": "exactly; just; precisely; really; truly; surely; certainly; without doubt right (when); just (as) just (about to); on the point of; on the verge of; on the brink of",
+        "meaningKr": "정확히, 바로, 틀림없이",
+        "exampleEn": "彼の言葉は、正に私が言いたかったことです。",
+        "exampleKr": "그의 말은 바로 제가 하고 싶었던 말이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まさに",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-246-1780232223822",
+        "term": "選手",
+        "definition": "player (of a sport); athlete; team member",
+        "meaningKr": "선수",
+        "exampleEn": "その若い選手は将来が期待されています。",
+        "exampleKr": "그 젊은 선수는 장래가 기대됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せんしゅ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-247-1780232223822",
+        "term": "調査",
+        "definition": "investigation; examination; inquiry; enquiry; survey",
+        "meaningKr": "조사, 조사하다",
+        "exampleEn": "アンケート調査の結果は来週発表される予定です。",
+        "exampleKr": "설문 조사 결과는 다음 주에 발표될 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちょうさ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-248-1780232223822",
+        "term": "分",
+        "definition": "part; portion; share amount; worth (as in \"two days' worth\"); enough (for) one's means; one's place; one's lot; one's social position",
+        "meaningKr": "몫, 부분, 정도",
+        "exampleEn": "自分の分の仕事は責任を持ってやりましょう。",
+        "exampleKr": "자기 몫의 일은 책임감을 가지고 합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぶん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-249-1780232223822",
+        "term": "発表",
+        "definition": "announcement; publication; presenting; statement; communique; making known; breaking (news story); expressing (one's opinion); releasing; unveiling",
+        "meaningKr": "발표, 발표하다",
+        "exampleEn": "彼は自分の研究成果を学会で発表しました。",
+        "exampleKr": "그는 자신의 연구 성과를 학회에서 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はっぴょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-250-1780232223822",
+        "term": "寧ろ",
+        "definition": "rather; better; instead; if anything",
+        "meaningKr": "오히려, 차라리",
+        "exampleEn": "彼女は静かな場所が好きで、賑やかなパーティーに行くよりも寧ろ家で本を読みたいと言った。",
+        "exampleKr": "그녀는 조용한 곳을 좋아해서, 시끄러운 파티에 가는 것보다 오히려 집에서 책을 읽고 싶다고 말했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "むしろ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-251-1780232223822",
+        "term": "名",
+        "definition": "name; given name title fame; renown; reputation",
+        "meaningKr": "이름, 명성, 평판",
+        "exampleEn": "彼はまだ若いですが、その分野ではすでに有名な学者として名を馳せています。",
+        "exampleKr": "그는 아직 젊지만, 그 분야에서는 이미 유명한 학자로서 이름을 날리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "な",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-252-1780232223822",
+        "term": "丸で",
+        "definition": "quite; entirely; completely; at all as if; as though; just like",
+        "meaningKr": "마치, 전혀, 완전히",
+        "exampleEn": "彼の話は丸で作り話のようで、誰も信じようとしませんでした。",
+        "exampleKr": "그의 이야기는 마치 지어낸 이야기 같아서, 아무도 믿으려 하지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まるで",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-253-1780232223822",
+        "term": "略",
+        "definition": "almost; roughly; approximately; about; around",
+        "meaningKr": "거의, 대략",
+        "exampleEn": "新しいプロジェクトの準備は略終わったので、来週から本格的にスタートできます。",
+        "exampleKr": "새로운 프로젝트 준비는 거의 끝났으니, 다음 주부터 본격적으로 시작할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ほぼ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-254-1780232223822",
+        "term": "表わす",
+        "definition": "to represent; to signify; to stand for to reveal; to show; to display to express",
+        "meaningKr": "나타내다, 표현하다, 보여주다",
+        "exampleEn": "彼は自分の考えを言葉で表わすのが苦手で、いつも絵を描いて気持ちを伝えます。",
+        "exampleKr": "그는 자신의 생각을 말로 표현하는 것을 어려워해서, 항상 그림을 그려 마음을 전합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あらわす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-255-1780232223822",
+        "term": "文字",
+        "definition": "letter (of an alphabet); character writing",
+        "meaningKr": "글자, 문자",
+        "exampleEn": "この古い文書は、読みにくい文字で書かれているため、解読に時間がかかります。",
+        "exampleKr": "이 오래된 문서는 읽기 어려운 글자로 쓰여 있어서, 해독에 시간이 걸립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-256-1780232223822",
+        "term": "役割",
+        "definition": "part; assigning (allotment of) parts; role; duties",
+        "meaningKr": "역할, 임무",
+        "exampleEn": "チームの成功のためには、メンバー一人ひとりが自分の役割を理解し、協力することが大切です。",
+        "exampleKr": "팀의 성공을 위해서는, 팀원 각자가 자신의 역할을 이해하고 협력하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "やくわり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-257-1780232223822",
+        "term": "地球",
+        "definition": "Earth; the globe",
+        "meaningKr": "지구",
+        "exampleEn": "地球温暖化は深刻な問題であり、私たち一人ひとりが環境保護のためにできることを考えるべきです。",
+        "exampleKr": "지구 온난화는 심각한 문제이며, 우리 각자가 환경 보호를 위해 할 수 있는 일을 생각해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちきゅう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-258-1780232223822",
+        "term": "個人",
+        "definition": "individual; private person; personal; private natural person",
+        "meaningKr": "개인",
+        "exampleEn": "会社ではチームワークが重要ですが、個人の能力もまたプロジェクトの成功に大きく貢献します。",
+        "exampleKr": "회사에서는 팀워크가 중요하지만, 개인의 능력 또한 프로젝트 성공에 크게 기여합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こじん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-259-1780232223822",
+        "term": "激しい",
+        "definition": "violent; furious; tempestuous extreme; intense; fierce; strong fervent; vehement",
+        "meaningKr": "격렬한, 심한, 맹렬한",
+        "exampleEn": "昨日から激しい雨が降り続いており、一部の地域では洪水のおそれがあります。",
+        "exampleKr": "어제부터 격렬한 비가 계속 내리고 있어서, 일부 지역에서는 홍수 우려가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はげしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-260-1780232223822",
+        "term": "成長",
+        "definition": "growth; development; growing up; becoming an adult growth (of a company, the economy, etc.)",
+        "meaningKr": "성장, 발전",
+        "exampleEn": "この会社は新しい技術を取り入れることで、毎年著しい成長を遂げています。",
+        "exampleKr": "이 회사는 새로운 기술을 도입함으로써, 매년 현저한 성장을 이루고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せいちょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-261-1780232223822",
+        "term": "機能",
+        "definition": "function; facility; faculty; feature",
+        "meaningKr": "기능",
+        "exampleEn": "このスマートフォンは、カメラ機能がとても優れているので、写真が趣味の人におすすめです。",
+        "exampleKr": "이 스마트폰은 카메라 기능이 매우 뛰어나서, 사진이 취미인 사람에게 추천합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きのう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-262-1780232223822",
+        "term": "ボール",
+        "definition": "ball ball (pitch delivered outside the strike zone)",
+        "meaningKr": "공",
+        "exampleEn": "小さな子供たちが公園でボールを追いかけて、楽しそうに遊んでいます。",
+        "exampleKr": "어린아이들이 공원에서 공을 쫓으며 즐겁게 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ボール",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-263-1780232223822",
+        "term": "少年",
+        "definition": "boy juvenile; child",
+        "meaningKr": "소년",
+        "exampleEn": "その少年は、将来宇宙飛行士になるという大きな夢を抱いています。",
+        "exampleKr": "그 소년은 장래에 우주 비행사가 되겠다는 큰 꿈을 품고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しょうねん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-264-1780232223822",
+        "term": "方向",
+        "definition": "direction; orientation; bearing; way course (e.g. of action)",
+        "meaningKr": "방향, 방침",
+        "exampleEn": "迷った時は、どちらの方向へ進むべきか、地図を見て確認するようにしています。",
+        "exampleKr": "길을 잃었을 때는, 어느 방향으로 나아가야 할지 지도를 보고 확인하도록 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ほうこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-265-1780232223822",
+        "term": "扱う",
+        "definition": "to deal with (a person); to treat; to handle; to take care of; to entertain to deal with (a problem); to handle; to manage to operate (e.g. a machine); to handle; to work",
+        "meaningKr": "다루다, 취급하다, 대우하다",
+        "exampleEn": "お客様の個人情報は、慎重に扱うべきであり、決して外部に漏らしてはなりません。",
+        "exampleKr": "고객의 개인 정보는 신중하게 다루어야 하며, 결코 외부에 유출해서는 안 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あつかう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-266-1780232223822",
+        "term": "欧羅巴",
+        "definition": "Europe Europe",
+        "meaningKr": "유럽",
+        "exampleEn": "彼は大学でヨーロッパの歴史を専攻し、卒業後はヨーロッパ旅行を計画しています。",
+        "exampleKr": "그는 대학에서 유럽 역사를 전공하고, 졸업 후에는 유럽 여행을 계획하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ヨーロッパ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-267-1780232223822",
+        "term": "意外",
+        "definition": "unexpected; surprising",
+        "meaningKr": "의외, 뜻밖의",
+        "exampleEn": "彼女はいつも静かな人だと思っていましたが、歌がとても上手で意外でした。",
+        "exampleKr": "그녀는 항상 조용한 사람이라고 생각했지만, 노래를 매우 잘해서 의외였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いがい",
+        "pos": "adjective, adverb, noun"
+      },
+      {
+        "id": "word-jp-intermediate-268-1780232223822",
+        "term": "政府",
+        "definition": "government; administration; ministry",
+        "meaningKr": "정부",
+        "exampleEn": "政府は、経済を活性化させるために、新しい政策を導入することを検討しています。",
+        "exampleKr": "정부는 경제를 활성화시키기 위해 새로운 정책을 도입하는 것을 검토하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せいふ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-269-1780232223822",
+        "term": "分ける",
+        "definition": "to divide (into); to split (into); to part; to separate; to divide up; to classify; to sort out; to divide out to share; to distribute; to deal out; to dish out to distinguish; to discriminate; to differentiate (between)",
+        "meaningKr": "나누다, 분류하다, 구별하다",
+        "exampleEn": "ケーキをみんなで平等に分けるために、まず人数を確認する必要があります。",
+        "exampleKr": "케이크를 모두가 공평하게 나누기 위해서는, 먼저 인원수를 확인할 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "わける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-270-1780232223822",
+        "term": "計画",
+        "definition": "plan; project; schedule; scheme; program; programme",
+        "meaningKr": "계획, 기획",
+        "exampleEn": "旅行の計画を立てるのが好きなので、いつも出発の数ヶ月前から準備を始めます。",
+        "exampleKr": "여행 계획을 세우는 것을 좋아해서, 항상 출발 몇 달 전부터 준비를 시작합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けいかく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-271-1780232223822",
+        "term": "量",
+        "definition": "quantity; amount; volume; capacity; portion (of food) generosity; magnanimity; tolerance pramana (means by which one gains accurate and valid knowledge; in Indian philosophy)",
+        "meaningKr": "양, 분량",
+        "exampleEn": "健康のためには、食事の量だけでなく、栄養バランスも考えることが重要です。",
+        "exampleKr": "건강을 위해서는, 식사량뿐만 아니라 영양 균형도 생각하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "りょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-272-1780232223822",
+        "term": "感動",
+        "definition": "being deeply moved emotionally; excitement; passion; inspiration; deep emotion; strong impression",
+        "meaningKr": "감동",
+        "exampleEn": "彼女のピアノ演奏は、聴く人すべての心を揺さぶり、大きな感動を与えました。",
+        "exampleKr": "그녀의 피아노 연주는 듣는 모든 사람의 마음을 울리고, 큰 감동을 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんどう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-273-1780232223822",
+        "term": "感覚",
+        "definition": "sense; sensation; feeling; intuition",
+        "meaningKr": "감각, 느낌",
+        "exampleEn": "初めての海外旅行で、見るものすべてが新鮮で不思議な感覚でした。",
+        "exampleKr": "첫 해외여행에서, 보는 것 모두가 신선하고 신기한 감각이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんかく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-274-1780232223822",
+        "term": "再び",
+        "definition": "again; once more; a second time",
+        "meaningKr": "다시, 재차",
+        "exampleEn": "失敗しても諦めずに、再び挑戦する勇気を持つことが成功への鍵です。",
+        "exampleKr": "실패하더라도 포기하지 않고, 다시 도전할 용기를 가지는 것이 성공의 열쇠입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふたたび",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-275-1780232223822",
+        "term": "利く",
+        "definition": "to be effective; to take effect; to be good (for) to work; to function well to be possible (to do, use, etc.); to be able to",
+        "meaningKr": "효과가 있다, 작동하다, 듣다",
+        "exampleEn": "この薬は頭痛にとてもよく利くので、いつも持ち歩いています。",
+        "exampleKr": "이 약은 두통에 아주 잘 들어서 항상 가지고 다녀요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-276-1780232223822",
+        "term": "流す",
+        "definition": "to exile; to banish to hit (the ball) to the opposite field to do inattentively; to do without concentrating; to put little effort into doing",
+        "meaningKr": "흘려보내다, 틀다",
+        "exampleEn": "悲しい気持ちを忘れようと、お気に入りの音楽を流しました。",
+        "exampleKr": "슬픈 기분을 잊으려고 좋아하는 음악을 틀었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ながす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-277-1780232223822",
+        "term": "希望",
+        "definition": "hope; wish; aspiration (bright) prospects; expectation",
+        "meaningKr": "희망, 바람",
+        "exampleEn": "彼は将来、医者になることを希望して、毎日一生懸命勉強しています。",
+        "exampleKr": "그는 장래에 의사가 되기를 희망하며 매일 열심히 공부하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きぼう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-278-1780232223822",
+        "term": "勧める",
+        "definition": "to recommend (someone to do); to advise; to encourage; to urge to recommend (a book, someone for a position, etc.); to suggest to offer (a drink, cigarette, seat, etc.)",
+        "meaningKr": "권하다, 추천하다",
+        "exampleEn": "先生は私に、もっと難しい本を読むことを勧めました。",
+        "exampleKr": "선생님은 저에게 더 어려운 책을 읽어보라고 권했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すすめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-279-1780232223822",
+        "term": "年齢",
+        "definition": "age; years",
+        "meaningKr": "연령, 나이",
+        "exampleEn": "参加するのに年齢制限はありませんが、未成年は保護者の同意が必要です。",
+        "exampleKr": "참가하는 데 연령 제한은 없지만, 미성년자는 보호자의 동의가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ねんれい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-280-1780232223822",
+        "term": "無し",
+        "definition": "without unacceptable; not alright; unsatisfactory nonexistent",
+        "meaningKr": "없음, 불가능함",
+        "exampleEn": "このイベントは予約無しで参加できますが、席に限りがあります。",
+        "exampleKr": "이 행사는 예약 없이 참가할 수 있지만, 좌석이 한정되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-281-1780232223822",
+        "term": "偖",
+        "definition": "well; now; then",
+        "meaningKr": "그런데, 그럼",
+        "exampleEn": "さて、今日の会議のテーマですが、来月の新製品について話し合いましょう。",
+        "exampleKr": "그런데, 오늘 회의 주제는 다음 달 신제품에 대해 논의해 봅시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さて",
+        "pos": "conjunction, interjection"
+      },
+      {
+        "id": "word-jp-intermediate-282-1780232223822",
+        "term": "人気",
+        "definition": "popularity; public favor condition (e.g. market); tone; character; nature",
+        "meaningKr": "인기",
+        "exampleEn": "この新しいカフェは、おいしいコーヒーと雰囲気の良さでとても人気があります。",
+        "exampleKr": "이 새로운 카페는 맛있는 커피와 좋은 분위기로 매우 인기가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "にんき",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-283-1780232223822",
+        "term": "格好",
+        "definition": "shape; form; figure; posture; pose appearance state; situation",
+        "meaningKr": "모양, 모습, 차림새",
+        "exampleEn": "彼の今日の格好は、いつもと違ってとてもおしゃれで驚きました。",
+        "exampleKr": "그의 오늘 모습은 평소와 달라서 아주 멋있어서 놀랐어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かっこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-284-1780232223822",
+        "term": "患者",
+        "definition": "patient",
+        "meaningKr": "환자",
+        "exampleEn": "医者は患者一人ひとりの話をよく聞き、丁寧に診察することを心がけています。",
+        "exampleKr": "의사는 환자 한 명 한 명의 이야기를 잘 듣고, 정성껏 진찰하는 것을 유념하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんじゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-285-1780232223822",
+        "term": "道路",
+        "definition": "road; highway",
+        "meaningKr": "도로",
+        "exampleEn": "大雨のせいで道路が渋滞しており、会社に着くまでに時間がかかりました。",
+        "exampleKr": "폭우 때문에 도로가 정체되어 회사에 도착하기까지 시간이 오래 걸렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "どうろ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-286-1780232223822",
+        "term": "他人",
+        "definition": "another person; other people; others unrelated person (i.e. not related by blood) outsider; stranger",
+        "meaningKr": "타인, 남",
+        "exampleEn": "自分の意見だけでなく、他人の意見にも耳を傾けることが大切です。",
+        "exampleKr": "자신의 의견뿐만 아니라 타인의 의견에도 귀 기울이는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たにん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-287-1780232223822",
+        "term": "肩",
+        "definition": "shoulder",
+        "meaningKr": "어깨",
+        "exampleEn": "長時間パソコンを使っていたら、肩が凝って痛くなってしまいました。",
+        "exampleKr": "장시간 컴퓨터를 사용했더니 어깨가 뭉쳐서 아파졌어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かた",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-288-1780232223822",
+        "term": "匂い",
+        "definition": "smell; scent; odour; odor; stench aura; whiff; smack; flavour; flavor; mood faint, mist-like pattern along the temper line of a Japanese sword",
+        "meaningKr": "냄새, 향기",
+        "exampleEn": "焼きたてのパンの甘い匂いが、お店の外まで漂ってきました。",
+        "exampleKr": "갓 구운 빵의 달콤한 냄새가 가게 밖까지 풍겨왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "におい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-289-1780232223822",
+        "term": "実現",
+        "definition": "implementation (e.g. of a system); materialization; materialisation; realization; realisation; actualization; actualisation",
+        "meaningKr": "실현",
+        "exampleEn": "夢の実現のためには、具体的な目標を立てて努力することが必要です。",
+        "exampleKr": "꿈의 실현을 위해서는 구체적인 목표를 세우고 노력하는 것이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じつげん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-290-1780232223822",
+        "term": "有難う",
+        "definition": "thank you; thanks",
+        "meaningKr": "고마워요, 감사합니다",
+        "exampleEn": "困っていた時に助けてくれて、本当に有難うございました。",
+        "exampleKr": "곤란했을 때 도와주셔서 정말 감사했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ありがとう",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-jp-intermediate-291-1780232223822",
+        "term": "全体",
+        "definition": "whole; entirety to begin with; in the first place ... the heck (e.g. \"what the heck?\"); ... in the world (e.g. \"why in the world?\"); ... on earth (e.g. \"who on earth?\")",
+        "meaningKr": "전체",
+        "exampleEn": "このプロジェクトの全体的な進捗は順調ですが、いくつかの課題も残っています。",
+        "exampleKr": "이 프로젝트의 전체적인 진행 상황은 순조롭지만, 몇 가지 과제도 남아있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぜんたい",
+        "pos": "noun, adjective, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-292-1780232223822",
+        "term": "話題",
+        "definition": "topic; subject much talked about; topical; in the news; hot",
+        "meaningKr": "화제, 이야기거리",
+        "exampleEn": "最近、健康についての話題が友人との会話でよく出てきます。",
+        "exampleKr": "요즘 건강에 대한 화제가 친구들과의 대화에서 자주 나옵니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "わだい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-293-1780232223822",
+        "term": "仲間",
+        "definition": "companion; fellow; friend; mate; comrade; partner; colleague; coworker; associate group; company; circle; set; gang member of the same category (family, class)",
+        "meaningKr": "동료, 친구",
+        "exampleEn": "困った時は、一人で抱え込まずに信頼できる仲間に相談しましょう。",
+        "exampleKr": "곤란할 때는 혼자 짊어지지 말고 믿을 수 있는 동료와 상의합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なかま",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-294-1780232223822",
+        "term": "知識",
+        "definition": "knowledge; information",
+        "meaningKr": "지식",
+        "exampleEn": "読書は新しい知識を得るための最も良い方法の一つだと思います。",
+        "exampleKr": "독서는 새로운 지식을 얻기 위한 가장 좋은 방법 중 하나라고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちしき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-295-1780232223822",
+        "term": "多少",
+        "definition": "a little; some; somewhat; slightly; to some degree; to some extent amount; quantity; number",
+        "meaningKr": "다소, 어느 정도",
+        "exampleEn": "この計画には多少のリスクがありますが、成功すれば大きな利益が得られます。",
+        "exampleKr": "이 계획에는 다소 위험이 있지만, 성공하면 큰 이익을 얻을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たしょう",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-296-1780232223822",
+        "term": "解決",
+        "definition": "settlement; solution; resolution",
+        "meaningKr": "해결",
+        "exampleEn": "問題を早く解決するために、みんなで協力して意見を出し合いましょう。",
+        "exampleKr": "문제를 빨리 해결하기 위해 모두 함께 협력하여 의견을 나눕시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かいけつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-297-1780232223822",
+        "term": "成功",
+        "definition": "success; achievement succeeding (in life); (worldly) success; prosperity",
+        "meaningKr": "성공",
+        "exampleEn": "どんな小さな成功でも、それを積み重ねることが自信につながります。",
+        "exampleKr": "아무리 작은 성공이라도 그것을 쌓아가는 것이 자신감으로 이어집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せいこう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-298-1780232223822",
+        "term": "協力",
+        "definition": "cooperation; collaboration; help; support",
+        "meaningKr": "협력, 협조",
+        "exampleEn": "みんなの協力があったからこそ、この難しいプロジェクトを完成させることができました。",
+        "exampleKr": "모두의 협력이 있었기에 이 어려운 프로젝트를 완성할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きょうりょく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-299-1780232223822",
+        "term": "報告",
+        "definition": "report; information",
+        "meaningKr": "보고",
+        "exampleEn": "来週の会議で、先月の売上について詳しく報告する予定です。",
+        "exampleKr": "다음 주 회의에서 지난달 매출에 대해 자세히 보고할 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ほうこく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-300-1780232223822",
+        "term": "決定",
+        "definition": "decision; determination",
+        "meaningKr": "결정, 확정",
+        "exampleEn": "会議で、来月のイベントの開催が正式に決定されました。",
+        "exampleKr": "회의에서 다음 달 행사의 개최가 정식으로 결정되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けってい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-301-1780232223822",
+        "term": "移動",
+        "definition": "movement; transfer; migration; removal; travel mobile; moving; traveling; travelling; roving",
+        "meaningKr": "이동, 옮김",
+        "exampleEn": "荷物が重いので、別の部屋への移動は手伝ってもらえませんか。",
+        "exampleKr": "짐이 무거워서, 다른 방으로의 이동을 도와주실 수 있을까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いどう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-302-1780232223822",
+        "term": "応じる",
+        "definition": "to respond; to satisfy; to accept; to comply with; to apply for",
+        "meaningKr": "응하다, 따르다, 부응하다",
+        "exampleEn": "お客様の要望に応じるため、サービス内容を改善することにしました。",
+        "exampleKr": "고객의 요청에 응하기 위해 서비스 내용을 개선하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おうじる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-303-1780232223822",
+        "term": "涙",
+        "definition": "tear; tears; lachrymal secretion sympathy",
+        "meaningKr": "눈물",
+        "exampleEn": "彼の感動的なスピーチを聞いて、思わず涙がこぼれました。",
+        "exampleKr": "그의 감동적인 연설을 듣고, 저도 모르게 눈물이 흘렀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なみだ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-304-1780232223822",
+        "term": "表情",
+        "definition": "facial expression; countenance look; appearance; expression (vocal, etc.)",
+        "meaningKr": "표정",
+        "exampleEn": "彼女の表情から、彼がとても疲れていることが分かりました。",
+        "exampleKr": "그녀의 표정에서, 그가 매우 피곤하다는 것을 알 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひょうじょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-305-1780232223822",
+        "term": "次第",
+        "definition": "depending on as soon as; immediately after; upon as (e.g. \"as one is told\", \"as one wishes\"); whatever (e.g. \"whatever is at hand\")",
+        "meaningKr": "~대로, ~에 따라, ~하는 대로",
+        "exampleEn": "詳しいことが分かり次第、すぐにご連絡いたします。",
+        "exampleKr": "자세한 것을 알게 되는 대로, 바로 연락드리겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しだい",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-jp-intermediate-306-1780232223822",
+        "term": "楽",
+        "definition": "comfort; ease; relief; (at) peace; relaxation easy; simple; without trouble; without hardships (economically) comfortable",
+        "meaningKr": "편함, 안락함, 쉬움",
+        "exampleEn": "新しいシステムのおかげで、仕事がずっと楽になりました。",
+        "exampleKr": "새로운 시스템 덕분에 일이 훨씬 편해졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "らく",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-307-1780232223822",
+        "term": "軈て",
+        "definition": "before long; soon; shortly almost; nearly finally; in the end; eventually",
+        "meaningKr": "이윽고, 머지않아, 곧",
+        "exampleEn": "長い冬が終わり、軈て暖かい春がやってくるでしょう。",
+        "exampleKr": "긴 겨울이 끝나고, 머지않아 따뜻한 봄이 올 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "やがて",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-308-1780232223822",
+        "term": "ゴミ",
+        "definition": "rubbish; trash; garbage; refuse; litter",
+        "meaningKr": "쓰레기",
+        "exampleEn": "燃えるゴミは毎週火曜日と金曜日に出してください。",
+        "exampleKr": "타는 쓰레기는 매주 화요일과 금요일에 배출해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ゴミ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-309-1780232223822",
+        "term": "腰",
+        "definition": "lower back; waist; hips; lumbar region body (of hair, noodle, paper, etc.); resilience; spring",
+        "meaningKr": "허리",
+        "exampleEn": "長時間座っていたら、腰が痛くなってしまいました。",
+        "exampleKr": "오랫동안 앉아 있었더니, 허리가 아파졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-310-1780232223822",
+        "term": "瞬間",
+        "definition": "moment; second; instant",
+        "meaningKr": "순간",
+        "exampleEn": "ドアが開いた瞬間、彼女は驚きの声をあげました。",
+        "exampleKr": "문이 열리는 순간, 그녀는 놀라 비명을 질렀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅんかん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-311-1780232223822",
+        "term": "僅か",
+        "definition": "a little; a few; small; slight; trifling; meagre; meager; narrow (margin) only; just; merely; no more than",
+        "meaningKr": "겨우, 불과, 약간",
+        "exampleEn": "決勝戦は僅か１点差で、惜しくも負けてしまいました。",
+        "exampleKr": "결승전은 불과 1점 차이로 아쉽게 져버렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "わずか",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-312-1780232223822",
+        "term": "届く",
+        "definition": "to reach; to touch; to get to; to carry (of sound) to be delivered; to arrive to be attentive; to be scrupulous; to be thorough",
+        "meaningKr": "닿다, 도착하다, 전달되다",
+        "exampleEn": "遠くに住む祖母から、手作りの贈り物が届きました。",
+        "exampleKr": "멀리 사는 할머니께로부터 직접 만든 선물이 도착했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とどく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-313-1780232223822",
+        "term": "伸ばす",
+        "definition": "to grow long (e.g. hair, nails) to lengthen; to extend; to stretch to reach out; to hold out",
+        "meaningKr": "늘리다, 펴다, 기르다",
+        "exampleEn": "彼は目標達成のために、努力して自分の能力を伸ばそうとしている。",
+        "exampleKr": "그는 목표 달성을 위해 노력하여 자신의 능력을 기르려고 하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のばす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-314-1780232223822",
+        "term": "目標",
+        "definition": "goal; target; aim; objective mark; sign; landmark",
+        "meaningKr": "목표, 목적",
+        "exampleEn": "来年の夏までに、JLPT N2に合格することを目標にしています。",
+        "exampleKr": "내년 여름까지 JLPT N2에 합격하는 것을 목표로 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もくひょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-315-1780232223822",
+        "term": "変更",
+        "definition": "change; modification; alteration; revision; amendment",
+        "meaningKr": "변경, 변화",
+        "exampleEn": "悪天候のため、試合開始時間が急遽変更されました。",
+        "exampleKr": "악천후로 인해, 경기 시작 시간이 급히 변경되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "へんこう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-316-1780232223822",
+        "term": "感謝",
+        "definition": "thanks; gratitude; appreciation; thankfulness",
+        "meaningKr": "감사",
+        "exampleEn": "いつも助けてくれて本当に感謝しています。ありがとうございます。",
+        "exampleKr": "항상 도와주셔서 정말 감사합니다. 고맙습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんしゃ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-317-1780232223822",
+        "term": "手術",
+        "definition": "surgery; operation; procedure skill with one's hands; sleight of hand",
+        "meaningKr": "수술",
+        "exampleEn": "彼は怪我の治療のために、先日大きな手術を受けました。",
+        "exampleKr": "그는 부상 치료를 위해 얼마 전 큰 수술을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅじゅつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-318-1780232223822",
+        "term": "馬鹿",
+        "definition": "idiot; moron; fool stupid; foolish; dull; absurd; ridiculous trivial; insignificant; disappointing",
+        "meaningKr": "바보, 어리석음",
+        "exampleEn": "そんな馬鹿なことをするなんて、信じられないよ。",
+        "exampleKr": "그런 바보 같은 짓을 하다니, 믿을 수 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ばか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-319-1780232223822",
+        "term": "愛する",
+        "definition": "to love",
+        "meaningKr": "사랑하다",
+        "exampleEn": "彼は家族を深く愛しており、いつも大切にしています。",
+        "exampleKr": "그는 가족을 깊이 사랑하며, 항상 소중히 여깁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あいする",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-320-1780232223822",
+        "term": "苦労",
+        "definition": "trouble; hardship; difficulty; labour; labor; toil; pains anxiety; worry; concern; cares",
+        "meaningKr": "고생, 노고, 어려움",
+        "exampleEn": "彼は長年の苦労の末、ついに自分の夢を叶えました。",
+        "exampleKr": "그는 오랜 고생 끝에 마침내 자신의 꿈을 이루었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "くろう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-321-1780232223822",
+        "term": "嘘",
+        "definition": "lie; fib; falsehood; untruth mistake; error unwise move; bad decision",
+        "meaningKr": "거짓말",
+        "exampleEn": "どんなに小さな嘘でも、相手を傷つけることがあります。",
+        "exampleKr": "아무리 작은 거짓말이라도, 상대를 상처 입힐 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うそ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-322-1780232223822",
+        "term": "主張",
+        "definition": "claim; insistence; assertion; advocacy; emphasis; contention; opinion; tenet",
+        "meaningKr": "주장",
+        "exampleEn": "彼は自分の意見をはっきりと主張することが大切だと考えている。",
+        "exampleKr": "그는 자신의 의견을 명확하게 주장하는 것이 중요하다고 생각한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅちょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-323-1780232223822",
+        "term": "役",
+        "definition": "role; assignment; responsibility; duty; function; job; service position (of responsibility); post; office part (in a play, film, etc.); role; character",
+        "meaningKr": "역할, 임무, 소용",
+        "exampleEn": "彼はチームの中で重要な役目を果たしています。",
+        "exampleKr": "그는 팀 안에서 중요한 역할을 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "やく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-324-1780232223822",
+        "term": "伸びる",
+        "definition": "to stretch; to extend; to lengthen; to grow (of hair, height, grass, etc.) to straighten out; to be flattened; to become smooth to spread (of paint, cream, etc.)",
+        "meaningKr": "늘어나다, 자라다, 성장하다",
+        "exampleEn": "最近、子供の身長がぐんと伸びて、服が小さくなりました。",
+        "exampleKr": "최근 아이의 키가 쑥 자라서 옷이 작아졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のびる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-325-1780232223822",
+        "term": "悩む",
+        "definition": "to be worried; to be troubled",
+        "meaningKr": "고민하다, 걱정하다",
+        "exampleEn": "将来の進路について、最近ずっと悩んでいます。",
+        "exampleKr": "장래의 진로에 대해 최근 계속 고민하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なやむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-326-1780232223822",
+        "term": "議論",
+        "definition": "argument; discussion; dispute; controversy",
+        "meaningKr": "의논, 논의, 토론",
+        "exampleEn": "会議では、新しいプロジェクトについて活発な議論が交わされました。",
+        "exampleKr": "회의에서는 새로운 프로젝트에 대해 활발한 논의가 오갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぎろん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-327-1780232223822",
+        "term": "記録",
+        "definition": "record; document; minutes; recording; putting on record; keeping a record (of); writing down record (e.g. in sports); setting (a record); recording (a record high, etc.)",
+        "meaningKr": "기록, 문서",
+        "exampleEn": "彼はマラソンで自己ベスト記録を更新することができて、本当に嬉しそうでした。",
+        "exampleKr": "그는 마라톤에서 개인 최고 기록을 경신할 수 있어서 정말 기뻐 보였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きろく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-328-1780232223822",
+        "term": "当てる",
+        "definition": "to hit to expose to apply (e.g. patch); to put on; to put against; to hold on; to hold against",
+        "meaningKr": "맞히다, 대다, 닿게 하다",
+        "exampleEn": "宝くじに当てるのは難しいことですが、夢があります。",
+        "exampleKr": "복권에 당첨되는 것은 어려운 일이지만, 꿈이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あてる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-329-1780232223822",
+        "term": "出来事",
+        "definition": "occurrence; happening; incident; event",
+        "meaningKr": "사건, 일, 해프닝",
+        "exampleEn": "昨日の出来事について、みんなに話すことにしました。",
+        "exampleKr": "어제 있었던 일에 대해 모두에게 이야기하기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "できごと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-330-1780232223822",
+        "term": "眺める",
+        "definition": "to look at; to gaze at; to watch; to stare at to look out over; to get a view of; to admire (e.g. the scenery) to look on (from the sidelines); to stand by and watch; to observe",
+        "meaningKr": "바라보다, 응시하다, 전망하다",
+        "exampleEn": "窓から美しい景色を眺めるのは、私の毎日の楽しみです。",
+        "exampleKr": "창밖으로 아름다운 경치를 바라보는 것은 저의 매일의 즐거움입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ながめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-331-1780232223822",
+        "term": "積極的",
+        "definition": "positive; assertive; active; proactive; aggressive",
+        "meaningKr": "적극적",
+        "exampleEn": "彼はいつも新しいことに積極的なので、周りから信頼されています。",
+        "exampleKr": "그는 항상 새로운 일에 적극적이어서 주변 사람들에게 신뢰받고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せっきょくてき",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-332-1780232223822",
+        "term": "叩く",
+        "definition": "to strike; to hit; to beat; to knock; to pound; to bang; to slap; to spank; to tap; to pat; to clap (one's hands); to play (the drums) to attack; to bash; to criticize; to censure; to flame (on the Internet) to sound out (someone's views)",
+        "meaningKr": "두드리다, 치다",
+        "exampleEn": "ドアを叩いても誰も出てこなかったので、帰ることにした。",
+        "exampleKr": "문을 두드려도 아무도 나오지 않아서 돌아가기로 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たたく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-333-1780232223822",
+        "term": "方々",
+        "definition": "people; (all) persons; everyone; ladies and gentlemen you (usu. plural)",
+        "meaningKr": "여러분, 여러 곳",
+        "exampleEn": "本日はお忙しい中、遠方よりお集まりいただいた方々に感謝いたします。",
+        "exampleKr": "바쁘신 와중에 먼 곳에서 와주신 여러분께 감사드립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かたがた",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-334-1780232223822",
+        "term": "何とか",
+        "definition": "something; something or other; so-and-so somehow; anyhow; one way or another",
+        "meaningKr": "어떻게든, 그럭저럭",
+        "exampleEn": "難しい問題でしたが、何とか解決することができてよかったです。",
+        "exampleKr": "어려운 문제였지만, 어떻게든 해결할 수 있어서 다행이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なんとか",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-jp-intermediate-335-1780232223822",
+        "term": "通じる",
+        "definition": "to be open (to traffic); to lead to; to communicate (with) to flow (liquid, current); to pass; to get through to to be understood; to be comprehended",
+        "meaningKr": "통하다, 전달되다",
+        "exampleEn": "彼の話は面白くて、誰にでもよく通じるので人気があります。",
+        "exampleKr": "그의 이야기는 재미있고 누구에게나 잘 통하기 때문에 인기가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "つうじる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-336-1780232223822",
+        "term": "動かす",
+        "definition": "to move; to shift; to stir; to budge; to change position to inspire; to rouse; to move (e.g. feeling); to influence to change; to alter; to deny",
+        "meaningKr": "움직이다, 작동시키다, 감동시키다",
+        "exampleEn": "この機械を動かすには、特別な技術が必要です。",
+        "exampleKr": "이 기계를 움직이려면 특별한 기술이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うごかす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-337-1780232223822",
+        "term": "避ける",
+        "definition": "to avoid (physical contact with) to avoid (situation); to evade (question, subject); to shirk (one's responsibilities) to ward off; to avert",
+        "meaningKr": "피하다, 회피하다",
+        "exampleEn": "渋滞を避けるために、いつもより早く家を出ました。",
+        "exampleKr": "교통 체증을 피하기 위해 평소보다 일찍 집을 나섰습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-338-1780232223822",
+        "term": "穴",
+        "definition": "hiding place; hideout hole; opening; orifice; perforation pit; hollow; cavity; hole (e.g. in the ground)",
+        "meaningKr": "구멍, 굴, 흠",
+        "exampleEn": "靴下に小さな穴が開いてしまったので、新しいのを買いました。",
+        "exampleKr": "양말에 작은 구멍이 나서 새것을 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あな",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-339-1780232223822",
+        "term": "一言",
+        "definition": "single word; a few words; brief comment",
+        "meaningKr": "한마디, 짧은 말",
+        "exampleEn": "最後に、社長から皆さんに一言メッセージがありました。",
+        "exampleKr": "마지막으로 사장님께서 여러분께 한마디 메시지가 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひとこと",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-340-1780232223822",
+        "term": "制度",
+        "definition": "system; institution; organization; organisation",
+        "meaningKr": "제도",
+        "exampleEn": "この新しい教育制度は、生徒たちにとって良い影響を与えるでしょう。",
+        "exampleKr": "이 새로운 교육 제도는 학생들에게 좋은 영향을 줄 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せいど",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-341-1780232223822",
+        "term": "チーム",
+        "definition": "team",
+        "meaningKr": "팀",
+        "exampleEn": "私たちのチームは、協力することで最高のパフォーマンスを発揮できます。",
+        "exampleKr": "우리 팀은 협력함으로써 최고의 성과를 낼 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "チーム",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-342-1780232223822",
+        "term": "期間",
+        "definition": "period; term; interval",
+        "meaningKr": "기간",
+        "exampleEn": "このキャンペーンは、来月末までの期間限定です。",
+        "exampleKr": "이 캠페인은 다음 달 말까지의 기간 한정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きかん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-343-1780232223822",
+        "term": "金額",
+        "definition": "amount of money; sum",
+        "meaningKr": "금액",
+        "exampleEn": "注文した商品の合計金額は、レシートでご確認ください。",
+        "exampleKr": "주문하신 상품의 총 금액은 영수증으로 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きんがく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-344-1780232223822",
+        "term": "奥",
+        "definition": "inner part; interior; back (of a drawer, one's throat, etc.); depths (e.g. of a forest); recesses (e.g. of a cave); heart; end (of a road, garden, etc.) living quarters (at the back of a house); inner room recesses (of one's mind); bottom (of one's heart); behind (someone's words); mysteries (of an art)",
+        "meaningKr": "안쪽, 깊숙한 곳",
+        "exampleEn": "部屋の奥には、誰も知らない秘密の通路がありました。",
+        "exampleKr": "방 안쪽에는 아무도 모르는 비밀 통로가 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-345-1780232223822",
+        "term": "一時",
+        "definition": "one o'clock once; at one time; formerly; before for a time; for a while; for the time being; for the moment; temporarily",
+        "meaningKr": "한때, 잠시, 일시적",
+        "exampleEn": "雨は一時的に止んだが、またすぐに降り始めるだろう。",
+        "exampleKr": "비는 잠시 그쳤지만, 곧 다시 내리기 시작할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いちじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-346-1780232223822",
+        "term": "ケース",
+        "definition": "case (container) case (instance, situation) case",
+        "meaningKr": "케이스, 경우",
+        "exampleEn": "このようなケースでは、専門家の意見を聞くべきです。",
+        "exampleKr": "이런 경우에는 전문가의 의견을 들어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ケース",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-347-1780232223822",
+        "term": "傾向",
+        "definition": "tendency; trend; inclination",
+        "meaningKr": "경향, 추세",
+        "exampleEn": "最近の若者は、健康志向が強い傾向にあります。",
+        "exampleKr": "최근 젊은이들은 건강 지향적인 경향이 강합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けいこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-348-1780232223822",
+        "term": "拡大",
+        "definition": "expansion; extension magnification; enlargement escalation; spread",
+        "meaningKr": "확대",
+        "exampleEn": "会社は事業を拡大するために、新しい支店を開設しました。",
+        "exampleKr": "회사는 사업을 확대하기 위해 새로운 지점을 개설했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かくだい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-349-1780232223822",
+        "term": "宜しく",
+        "definition": "well; properly; suitably best regards; please remember me; please treat me favorably (favourably); please take care of; please do just like ...; as though one were ...",
+        "meaningKr": "잘, 부디, 잘 부탁드립니다 (인사)",
+        "exampleEn": "初めてお会いします。これからどうぞよろしくお願いします、と彼は言いました。",
+        "exampleKr": "처음 뵙겠습니다. 앞으로 부디 잘 부탁드립니다, 라고 그는 말했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "よろしく",
+        "pos": "phrase, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-350-1780232223822",
+        "term": "疑問",
+        "definition": "doubt; question; suspicion; dubiousness",
+        "meaningKr": "의문, 의심",
+        "exampleEn": "彼の説明にはまだいくつかの疑問が残っており、納得できません。",
+        "exampleKr": "그의 설명에는 아직 몇 가지 의문이 남아있어 납득할 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぎもん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-351-1780232223822",
+        "term": "現状",
+        "definition": "present condition; existing state; status quo; current state",
+        "meaningKr": "현상, 현재 상태",
+        "exampleEn": "この現状を改善するためには、新しい計画が必要だと思います。",
+        "exampleKr": "이 현상을 개선하기 위해서는 새로운 계획이 필요하다고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "げんじょう",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-352-1780232223822",
+        "term": "取り上げる",
+        "definition": "to pick up to adopt (a proposal); to take up (a topic); to accept; to listen to to take issue with; to make a problem of; to bring up (as a point of criticism)",
+        "meaningKr": "(의견을) 받아들이다, (화제를) 다루다",
+        "exampleEn": "会議で彼の提案が取り上げられ、具体的な検討が始まりました。",
+        "exampleKr": "회의에서 그의 제안이 받아들여져 구체적인 검토가 시작되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とりあげる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-353-1780232223822",
+        "term": "主に",
+        "definition": "mainly; primarily; mostly; largely; chiefly",
+        "meaningKr": "주로, 주로적으로",
+        "exampleEn": "この店では、主に地元の新鮮な野菜や果物を販売しています。",
+        "exampleKr": "이 가게에서는 주로 지역의 신선한 채소와 과일을 판매하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おもに",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-354-1780232223822",
+        "term": "態度",
+        "definition": "attitude; manner; behaviour; demeanour; bearing attitude (towards an issue, etc.); position; stance; stand",
+        "meaningKr": "태도, 자세",
+        "exampleEn": "彼の仕事に対する真面目な態度を見て、私も見習いたいと思いました。",
+        "exampleKr": "그의 일에 대한 성실한 태도를 보고, 저도 본받고 싶다고 생각했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たいど",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-355-1780232223822",
+        "term": "地",
+        "definition": "earth; ground; land; soil place territory",
+        "meaningKr": "땅, 흙, 지역",
+        "exampleEn": "この地は昔から農業が盛んで、豊かな自然が残っています。",
+        "exampleKr": "이 땅은 예로부터 농업이 활발해서 풍요로운 자연이 남아있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-356-1780232223822",
+        "term": "全国",
+        "definition": "the whole country",
+        "meaningKr": "전국",
+        "exampleEn": "新しいサービスは、来月から全国で提供されるようになる予定です。",
+        "exampleKr": "새로운 서비스는 다음 달부터 전국에서 제공될 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぜんこく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-357-1780232223822",
+        "term": "世話",
+        "definition": "care; looking after; help; assistance; aid trouble; bother good offices; recommendation; introduction",
+        "meaningKr": "돌봄, 보살핌, 도움",
+        "exampleEn": "引っ越しの際、隣の人が色々と世話をしてくれて本当に助かりました。",
+        "exampleKr": "이사할 때 옆집 분이 여러 가지로 도와주셔서 정말 도움이 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せわ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-358-1780232223822",
+        "term": "差",
+        "definition": "difference; variation difference",
+        "meaningKr": "차이, 격차",
+        "exampleEn": "地域によって教育のレベルに大きな差があることが問題になっています。",
+        "exampleKr": "지역에 따라 교육 수준에 큰 차이가 있는 것이 문제가 되고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-359-1780232223822",
+        "term": "食う",
+        "definition": "to eat to live; to make a living; to survive to bite; to sting (as insects do)",
+        "meaningKr": "먹다, 살아가다",
+        "exampleEn": "毎日一生懸命働かないと、家族を養って食っていくのは難しいです。",
+        "exampleKr": "매일 열심히 일하지 않으면, 가족을 부양하며 살아가기는 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "くう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-360-1780232223822",
+        "term": "事情",
+        "definition": "circumstances; conditions; situation; reasons; state of affairs",
+        "meaningKr": "사정, 상황",
+        "exampleEn": "個人の事情によって、参加できない人もいるかもしれません。",
+        "exampleKr": "개인적인 사정에 따라 참여할 수 없는 사람도 있을지도 모릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じじょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-361-1780232223822",
+        "term": "メンバー",
+        "definition": "member; participant; attendee; lineup (sport) Memba",
+        "meaningKr": "멤버, 회원",
+        "exampleEn": "新しいプロジェクトのメンバーとして、彼が選ばれました。",
+        "exampleKr": "새로운 프로젝트의 멤버로 그가 선정되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "メンバー",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-362-1780232223822",
+        "term": "地方",
+        "definition": "district; region; area; locality the country; countryside; the provinces; rural area civilian society",
+        "meaningKr": "지방, 지역",
+        "exampleEn": "彼は都会の生活に疲れて、地方で新しい仕事を始めました。",
+        "exampleKr": "그는 도시 생활에 지쳐 지방에서 새로운 일을 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちほう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-363-1780232223822",
+        "term": "豊か",
+        "definition": "abundant; plentiful; rich; ample rich; wealthy; affluent; well-off open (mind); relaxed; easy",
+        "meaningKr": "풍부하다, 풍요롭다",
+        "exampleEn": "この国は自然資源が豊かで、美しい景色がたくさんあります。",
+        "exampleKr": "이 나라는 자연 자원이 풍부하고 아름다운 경치가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ゆたか",
+        "pos": "adjective, suffix"
+      },
+      {
+        "id": "word-jp-intermediate-364-1780232223822",
+        "term": "助ける",
+        "definition": "to save; to rescue; to spare to help; to assist to support (financially); to contribute (to); to provide aid",
+        "meaningKr": "돕다, 구하다",
+        "exampleEn": "困っている人がいれば、すぐに助けることができる人になりたいです。",
+        "exampleKr": "어려움에 처한 사람이 있다면, 바로 도울 수 있는 사람이 되고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たすける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-365-1780232223822",
+        "term": "支える",
+        "definition": "to support; to prop; to sustain; to underlay; to hold up; to defend to hold at bay; to stem; to check",
+        "meaningKr": "지탱하다, 지지하다, 떠받치다",
+        "exampleEn": "家族の支えがあったからこそ、彼は困難な状況を乗り越えられました。",
+        "exampleKr": "가족의 지지가 있었기에 그는 어려운 상황을 극복할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ささえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-366-1780232223822",
+        "term": "抱える",
+        "definition": "to hold in one's arms; to carry in one's arms; to carry under one's arm; to hold (one's head) in one's hands to have (problems, debts, etc.); to take on (a responsibility); to be burdened with (e.g. care of a family member); to have (children, etc.) to provide for to employ; to have (on one's staff); to hire",
+        "meaningKr": "(문제를) 안고 있다, (팔로) 안다",
+        "exampleEn": "多くの企業が人手不足の問題を抱えており、解決策を探しています。",
+        "exampleKr": "많은 기업들이 인력 부족 문제를 안고 있으며, 해결책을 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かかえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-367-1780232223822",
+        "term": "追う",
+        "definition": "to chase; to run after; to pursue; to follow after to follow (a set order, a trend, etc.) to drive out; to get rid of; to oust; to expel",
+        "meaningKr": "쫓다, 뒤쫓다",
+        "exampleEn": "警察は逃走した犯人を全国で追っていますが、まだ見つかっていません。",
+        "exampleKr": "경찰은 도주한 범인을 전국에서 쫓고 있지만, 아직 발견하지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-368-1780232223822",
+        "term": "権利",
+        "definition": "right; privilege",
+        "meaningKr": "권리",
+        "exampleEn": "全ての人が平等に教育を受ける権利を持っているべきだと思います。",
+        "exampleKr": "모든 사람이 평등하게 교육받을 권리를 가지고 있어야 한다고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けんり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-369-1780232223822",
+        "term": "計算",
+        "definition": "calculation; computation; reckoning; counting; adding up; working out; figures consideration; calculation; estimation; expectation",
+        "meaningKr": "계산",
+        "exampleEn": "彼は暗算の能力が高く、複雑な計算もすぐにできます。",
+        "exampleKr": "그는 암산 능력이 뛰어나서 복잡한 계산도 바로 할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けいさん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-370-1780232223822",
+        "term": "痛み",
+        "definition": "pain; ache; soreness; grief; distress damage; injury; wear; bruise; break",
+        "meaningKr": "통증, 아픔",
+        "exampleEn": "長時間座っていたせいで、腰にひどい痛みを感じています。",
+        "exampleKr": "오랫동안 앉아 있었던 탓에 허리에 심한 통증을 느끼고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いたみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-371-1780232223822",
+        "term": "納得",
+        "definition": "consent; agreement; acceptance understanding; satisfaction (e.g. with an explanation); being convinced",
+        "meaningKr": "납득, 수긍",
+        "exampleEn": "彼の説明を聞いて、ようやくその理由に納得することができました。",
+        "exampleKr": "그의 설명을 듣고서야 비로소 그 이유를 납득할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なっとく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-372-1780232223822",
+        "term": "組織",
+        "definition": "organization; organisation; formation structure; construction; setup; constitution system (e.g. railroad, transport, party, etc.)",
+        "meaningKr": "조직, 구성",
+        "exampleEn": "このプロジェクトを成功させるためには、強力な組織力が必要です。",
+        "exampleKr": "이 프로젝트를 성공시키기 위해서는 강력한 조직력이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "そしき",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-373-1780232223822",
+        "term": "能力",
+        "definition": "ability; faculty",
+        "meaningKr": "능력",
+        "exampleEn": "彼は語学能力が高く、複数の言語を流暢に話すことができます。",
+        "exampleKr": "그는 어학 능력이 뛰어나 여러 언어를 유창하게 말할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のうりょく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-374-1780232223822",
+        "term": "注",
+        "definition": "annotation; explanatory note; comment",
+        "meaningKr": "주석, 설명",
+        "exampleEn": "本の最後に、専門用語についての詳しい注がつけられています。",
+        "exampleKr": "책 마지막에 전문 용어에 대한 자세한 주석이 달려 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちゅう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-375-1780232223822",
+        "term": "サービス",
+        "definition": "service; help; assistance; care; concern discount; discounted item free service; freebie; gift",
+        "meaningKr": "서비스, 봉사, 할인",
+        "exampleEn": "このレストランは料理も美味しいし、サービスも素晴らしいので人気があります。",
+        "exampleKr": "이 레스토랑은 요리도 맛있고 서비스도 훌륭해서 인기가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "サービス",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-376-1780232223822",
+        "term": "魅力",
+        "definition": "charm; fascination; glamour; glamor; attraction; appeal",
+        "meaningKr": "매력",
+        "exampleEn": "彼女の笑顔には、周りの人を惹きつける不思議な魅力があります。",
+        "exampleKr": "그녀의 미소에는 주변 사람들을 끌어당기는 신비한 매력이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "みりょく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-377-1780232223822",
+        "term": "現場",
+        "definition": "actual spot; scene (of a crime, accident, etc.) (on) site; (on) the ground; (in) the field; job site filming location; (movie) set",
+        "meaningKr": "현장",
+        "exampleEn": "事故現場には多くの警察官が集まり、状況を調べていました。",
+        "exampleKr": "사고 현장에는 많은 경찰관이 모여 상황을 조사하고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "げんば",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-378-1780232223822",
+        "term": "中学",
+        "definition": "junior high school; middle school; lower secondary school",
+        "meaningKr": "중학교",
+        "exampleEn": "私は中学の時、バスケットボール部に所属していて、毎日練習していました。",
+        "exampleKr": "저는 중학교 때 농구부에 소속되어 매일 연습했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちゅうがく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-379-1780232223822",
+        "term": "息",
+        "definition": "breath; breathing concord; harmony; rapport steam (coming off hot food, tea, etc.); (water) vapor; vapour",
+        "meaningKr": "숨, 호흡",
+        "exampleEn": "走った後、息が切れてしまいましたが、なんとかゴールできました。",
+        "exampleKr": "달린 후 숨이 가빴지만, 겨우 골인할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-380-1780232223822",
+        "term": "指導",
+        "definition": "guidance; leadership; instruction; direction; coaching shido (minor penalty in judo)",
+        "meaningKr": "지도, 가르침",
+        "exampleEn": "先生の丁寧な指導のおかげで、難しい問題も理解できるようになりました。",
+        "exampleKr": "선생님의 친절한 지도 덕분에 어려운 문제도 이해할 수 있게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しどう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-381-1780232223822",
+        "term": "経営",
+        "definition": "management; administration; operation; running (a business); conducting",
+        "meaningKr": "경영",
+        "exampleEn": "彼は小さなカフェを経営しており、毎日忙しく働いています。",
+        "exampleKr": "그는 작은 카페를 경영하고 있으며, 매일 바쁘게 일하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けいえい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-382-1780232223822",
+        "term": "凡ゆる",
+        "definition": "all; every",
+        "meaningKr": "모든, 온갖",
+        "exampleEn": "凡ゆる可能性を考えて、計画を立てることが大切だと思います。",
+        "exampleKr": "모든 가능성을 고려하여 계획을 세우는 것이 중요하다고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あらゆる",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-383-1780232223822",
+        "term": "価値",
+        "definition": "value; worth; merit",
+        "meaningKr": "가치",
+        "exampleEn": "この古い絵には、歴史的にも芸術的にも高い価値があります。",
+        "exampleKr": "이 오래된 그림은 역사적으로도 예술적으로도 높은 가치가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-384-1780232223822",
+        "term": "全員",
+        "definition": "all members; all hands; everyone; everybody; whole crew",
+        "meaningKr": "전원, 모두",
+        "exampleEn": "クラスの全員が遠足に参加することになり、とても楽しみです。",
+        "exampleKr": "반 학생 전원이 소풍에 참가하게 되어 정말 기대됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぜんいん",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-385-1780232223822",
+        "term": "人物",
+        "definition": "person; character; figure; personage; man; woman one's character; one's personality able person; talented person",
+        "meaningKr": "인물, 사람",
+        "exampleEn": "彼は歴史上の有名な人物について詳しく、いつも面白い話をしてくれます。",
+        "exampleKr": "그는 역사적으로 유명한 인물에 대해 잘 알아서, 항상 재미있는 이야기를 해줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "じんぶつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-386-1780232223822",
+        "term": "グループ",
+        "definition": "group (usu. of people)",
+        "meaningKr": "그룹, 단체",
+        "exampleEn": "私たちのグループは、来週のプレゼンテーションのために協力して準備を進めています。",
+        "exampleKr": "우리 그룹은 다음 주 발표를 위해 협력하여 준비를 진행하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "グループ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-387-1780232223822",
+        "term": "エネルギー",
+        "definition": "energy energy; strength; power; stamina; get-up-and-go energy source; energy resource",
+        "meaningKr": "에너지",
+        "exampleEn": "太陽光はクリーンなエネルギー源として、世界中で注目されています。",
+        "exampleKr": "태양광은 깨끗한 에너지원으로서 전 세계에서 주목받고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "エネルギー",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-388-1780232223822",
+        "term": "愛",
+        "definition": "love; affection; care attachment; craving; desire agape",
+        "meaningKr": "사랑",
+        "exampleEn": "家族の愛は、どんな困難な状況でも人を強くする力があります。",
+        "exampleKr": "가족의 사랑은 어떤 어려운 상황에서도 사람을 강하게 만드는 힘이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-389-1780232223822",
+        "term": "比較",
+        "definition": "comparison",
+        "meaningKr": "비교",
+        "exampleEn": "買う前に色々な店の値段を比較して、一番安いものを選びました。",
+        "exampleKr": "사기 전에 여러 가게의 가격을 비교해서 가장 싼 것을 골랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひかく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-390-1780232223822",
+        "term": "結ぶ",
+        "definition": "to tie; to bind; to link to bear (fruit) to close (e.g. deal); to confirm; to conclude",
+        "meaningKr": "묶다, 맺다, 연결하다",
+        "exampleEn": "彼は友達との友情を大切に結び、困った時はいつも助け合っています。",
+        "exampleKr": "그는 친구들과의 우정을 소중히 맺고, 어려울 때는 항상 서로 돕고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "むすぶ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-391-1780232223822",
+        "term": "注目",
+        "definition": "notice; attention; observation",
+        "meaningKr": "주목, 관심",
+        "exampleEn": "その新しい技術は、環境問題の解決策として世界中から注目されています。",
+        "exampleKr": "그 새로운 기술은 환경 문제의 해결책으로서 전 세계로부터 주목받고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちゅうもく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-392-1780232223822",
+        "term": "最高",
+        "definition": "best; supreme; wonderful; finest highest; maximum; most; uppermost; supreme",
+        "meaningKr": "최고, 최상",
+        "exampleEn": "富士山の頂上から見た景色は、人生で最高の思い出の一つになりました。",
+        "exampleKr": "후지산 정상에서 본 경치는 인생 최고의 추억 중 하나가 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さいこう",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-393-1780232223822",
+        "term": "要求",
+        "definition": "demand; firm request; requisition; requirement; desire",
+        "meaningKr": "요구, 요청",
+        "exampleEn": "彼は会社に対し、給料の引き上げを強く要求しました。",
+        "exampleKr": "그는 회사에 대해 급여 인상을 강력히 요구했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ようきゅう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-394-1780232223822",
+        "term": "額",
+        "definition": "(picture) frame; framed picture amount (esp. of money); sum",
+        "meaningKr": "금액, 액수",
+        "exampleEn": "彼は寄付の額を秘密にしたいと言っていたので、誰にも教えませんでした。",
+        "exampleKr": "그는 기부 금액을 비밀로 하고 싶다고 말했기 때문에, 아무에게도 알려주지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "がく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-395-1780232223822",
+        "term": "抱く",
+        "definition": "to hold in one's arms (e.g. a baby); to embrace; to hug to have (a thought or feeling); to hold; to harbour (suspicion, doubt, etc.); to harbor; to bear (a grudge, ill will, etc.); to entertain (hope, illusions, etc.); to cherish (e.g. an ambition)",
+        "meaningKr": "안다; 품다",
+        "exampleEn": "彼女は将来、世界中で活躍する医師になりたいという夢を抱いています。",
+        "exampleKr": "그녀는 장래에 전 세계에서 활약하는 의사가 되고 싶다는 꿈을 품고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いだく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-396-1780232223822",
+        "term": "汗",
+        "definition": "sweat; perspiration moisture; condensation gulp; oops",
+        "meaningKr": "땀",
+        "exampleEn": "一生懸命運動した後、全身にたくさんの汗をかいて、とても疲れました。",
+        "exampleKr": "열심히 운동한 후에 온몸에 땀을 많이 흘려서 정말 피곤했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あせ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-397-1780232223822",
+        "term": "改善",
+        "definition": "betterment; improvement kaizen (Japanese business philosophy of continuous improvement)",
+        "meaningKr": "개선",
+        "exampleEn": "お客様の意見を元に、サービスの改善に努めていきたいと思っています。",
+        "exampleKr": "고객님의 의견을 바탕으로 서비스 개선에 힘쓰고 싶다고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かいぜん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-398-1780232223822",
+        "term": "基本",
+        "definition": "basics; fundamentals; basis; foundation",
+        "meaningKr": "기본, 기초",
+        "exampleEn": "どんなスポーツでも、まずは基本をしっかり学ぶことが上達の近道です。",
+        "exampleKr": "어떤 스포츠든, 우선 기본을 제대로 배우는 것이 실력 향상의 지름길입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きほん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-399-1780232223822",
+        "term": "益々",
+        "definition": "increasingly; more and more; decreasingly (when declining); less and less",
+        "meaningKr": "점점 더, 더욱더",
+        "exampleEn": "最近は健康に気を使う人が増え、健康食品の需要が益々高まっています。",
+        "exampleKr": "최근에는 건강에 신경 쓰는 사람이 늘어 건강식품 수요가 점점 더 높아지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ますます",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-400-1780232223822",
+        "term": "感情",
+        "definition": "emotion; feeling; feelings; sentiment",
+        "meaningKr": "감정, 기분",
+        "exampleEn": "彼は感情をあまり表に出さないので、何を考えているのか分かりにくいです。",
+        "exampleKr": "그는 감정을 잘 드러내지 않아서, 무슨 생각을 하는지 알기 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんじょう",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-401-1780232223822",
+        "term": "我慢",
+        "definition": "endurance; patience; perseverance; bearing (with something) self-control; self-restraint",
+        "meaningKr": "참음, 인내",
+        "exampleEn": "痛くても、みんなの前では我慢して笑顔を見せました。",
+        "exampleKr": "아파도 사람들 앞에서는 참고 미소를 보였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "がまん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-402-1780232223822",
+        "term": "利益",
+        "definition": "profit; gains benefit; advantage; good; interests (e.g. of society) grace (of God, Buddha, etc., esp. as attained through rightful actions, prayer, adherence to one's faith, etc.); blessing; miracle",
+        "meaningKr": "이익, 이득",
+        "exampleEn": "環境に優しい製品を作ることは、会社にとっても大きな利益になります。",
+        "exampleKr": "환경 친화적인 제품을 만드는 것은 회사에게도 큰 이익이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "りえき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-403-1780232223822",
+        "term": "先日",
+        "definition": "the other day; a few days ago",
+        "meaningKr": "요전 날, 며칠 전",
+        "exampleEn": "先日、友達と久しぶりに会って、楽しい時間を過ごしました。",
+        "exampleKr": "며칠 전, 친구와 오랜만에 만나 즐거운 시간을 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せんじつ",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-404-1780232223822",
+        "term": "構成",
+        "definition": "composition; construction; formation; makeup; structure; organization; organisation",
+        "meaningKr": "구성, 조직",
+        "exampleEn": "このチームは様々な専門家で構成されているので、問題解決能力が高いです。",
+        "exampleKr": "이 팀은 다양한 전문가들로 구성되어 있어서, 문제 해결 능력이 높습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こうせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-405-1780232223822",
+        "term": "活用",
+        "definition": "practical use; application; making good use of; putting to good use; capitalizing on conjugation; inflection",
+        "meaningKr": "활용, 응용",
+        "exampleEn": "学んだ知識を実生活で活用できるよう、これからも努力したいです。",
+        "exampleKr": "배운 지식을 실생활에서 활용할 수 있도록 앞으로도 노력하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かつよう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-406-1780232223822",
+        "term": "正直",
+        "definition": "honest; frank; candid; straightforward honestly; frankly Shoujiki",
+        "meaningKr": "솔직함, 정직함",
+        "exampleEn": "正直に言うと、この仕事は私には少し難しいと感じています。",
+        "exampleKr": "솔직히 말하면, 이 일은 저에게 조금 어렵다고 느끼고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しょうじき",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-407-1780232223822",
+        "term": "プロ",
+        "definition": "professional; pro program production",
+        "meaningKr": "프로, 전문가",
+        "exampleEn": "彼はプロのサッカー選手になるために、毎日厳しい練習をしています。",
+        "exampleKr": "그는 프로 축구 선수가 되기 위해 매일 혹독한 연습을 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "プロ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-408-1780232223822",
+        "term": "就職",
+        "definition": "finding employment; getting a job",
+        "meaningKr": "취직, 취업",
+        "exampleEn": "大学を卒業したら、海外で就職したいと考えています。",
+        "exampleKr": "대학을 졸업하면 해외에서 취직하고 싶다고 생각하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅうしょく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-409-1780232223822",
+        "term": "舞台",
+        "definition": "stage (of a theatre, concert hall, etc.); (stage) performance setting (of a story); scene sphere (of activity); stage (e.g. political stage); scene; arena; world",
+        "meaningKr": "무대, 연극",
+        "exampleEn": "彼女は子供の頃から女優になることを夢見て、舞台で演技を続けています。",
+        "exampleKr": "그녀는 어릴 때부터 여배우가 되는 것을 꿈꾸며 무대에서 연기를 계속하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぶたい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-410-1780232223822",
+        "term": "数字",
+        "definition": "numeral; digit; numeric character figure; number a few characters",
+        "meaningKr": "숫자, 수치",
+        "exampleEn": "グラフを見ると、売上の数字が去年よりかなり増えていることが分かります。",
+        "exampleKr": "그래프를 보면, 매출 숫자가 작년보다 상당히 늘어난 것을 알 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すうじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-411-1780232223822",
+        "term": "提出",
+        "definition": "presentation (of documents); submission (of an application, report, etc.); production (e.g. of evidence); introduction (e.g. of a bill); filing; turning in",
+        "meaningKr": "제출",
+        "exampleEn": "締め切りまでにレポートを提出しなければならないので、急いでいます。",
+        "exampleKr": "마감일까지 레포트를 제출해야 해서 서두르고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ていしゅつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-412-1780232223822",
+        "term": "腹",
+        "definition": "counter for hard roe counter for containers with bulging middles (pots, vases, etc.) abdomen; belly; stomach",
+        "meaningKr": "배, 복부",
+        "exampleEn": "お腹が空いたので、何か美味しいものを食べに行きましょう。",
+        "exampleKr": "배가 고프니, 맛있는 것을 먹으러 갑시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-413-1780232223822",
+        "term": "喜び",
+        "definition": "joy; delight; rapture; pleasure; gratification; rejoicing; congratulations; felicitations",
+        "meaningKr": "기쁨, 즐거움",
+        "exampleEn": "合格の知らせを聞いた時、家族みんなで喜びを分かち合いました。",
+        "exampleKr": "합격 소식을 들었을 때, 가족 모두가 기쁨을 나누었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "よろこび",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-414-1780232223822",
+        "term": "香り",
+        "definition": "aroma; fragrance; scent; smell",
+        "meaningKr": "향기, 냄새",
+        "exampleEn": "入れたてのコーヒーの香りが部屋いっぱいに広がり、とても幸せな気分になります。",
+        "exampleKr": "갓 내린 커피 향기가 방 가득 퍼져서, 아주 행복한 기분이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かおり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-415-1780232223822",
+        "term": "スキー",
+        "definition": "skiing ski; skis",
+        "meaningKr": "스키",
+        "exampleEn": "冬になったら、友達とスキー旅行に行くのが毎年恒例になっています。",
+        "exampleKr": "겨울이 되면, 친구들과 스키 여행을 가는 것이 매년 연례행사가 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "スキー",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-416-1780232223822",
+        "term": "構う",
+        "definition": "to mind; to care about; to be concerned about; to have a regard for to be an issue; to matter; to create inconvenience to keep company; to care for; to look after; to entertain; to pay attention to; to spend time with",
+        "meaningKr": "상관하다, 개의하다, 신경 쓰다",
+        "exampleEn": "人の意見に構わず、自分の信じる道をまっすぐ進むことが大切です。",
+        "exampleKr": "다른 사람의 의견에 신경 쓰지 말고, 자신이 믿는 길을 곧게 나아가는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かまう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-417-1780232223822",
+        "term": "無料",
+        "definition": "free (of charge); gratuitous",
+        "meaningKr": "무료",
+        "exampleEn": "このアプリは無料でダウンロードできるので、気軽に試すことができます。",
+        "exampleKr": "이 앱은 무료로 다운로드할 수 있어서, 부담 없이 시험해 볼 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "むりょう",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-418-1780232223822",
+        "term": "付き合い",
+        "definition": "association; socializing; socialising; fellowship",
+        "meaningKr": "교제, 사귐, 어울림",
+        "exampleEn": "彼は誰とでもすぐに仲良くなれるので、付き合いがとても広いです。",
+        "exampleKr": "그는 누구와도 금방 친해지기 때문에, 교제가 매우 넓습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "つきあい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-419-1780232223822",
+        "term": "被害",
+        "definition": "(suffering) damage; injury; harm",
+        "meaningKr": "피해",
+        "exampleEn": "地震による被害は想像以上に大きく、復旧には時間がかかりそうです。",
+        "exampleKr": "지진으로 인한 피해는 상상 이상으로 커서, 복구에는 시간이 걸릴 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひがい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-420-1780232223822",
+        "term": "桜",
+        "definition": "cherry tree; cherry blossom fake buyer; paid audience; shill; seat filler hired applauder",
+        "meaningKr": "벚꽃, 벚나무",
+        "exampleEn": "春になると、公園の桜が満開になり、多くの人々がお花見に訪れます。",
+        "exampleKr": "봄이 되면 공원의 벚꽃이 만개하여 많은 사람들이 벚꽃 구경을 옵니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さくら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-421-1780232223822",
+        "term": "ゲーム",
+        "definition": "game",
+        "meaningKr": "게임",
+        "exampleEn": "子供の頃は、友達と毎日公園でサッカーゲームをして遊んでいました。",
+        "exampleKr": "어릴 적에는 친구들과 매일 공원에서 축구 게임을 하며 놀았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ゲーム",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-422-1780232223822",
+        "term": "苦しい",
+        "definition": "painful; difficult; tough; hard distressing; (psychologically) difficult; stressful; awkward (e.g. position) straitened (circumstances); tight (financial situation); needy; struggling",
+        "meaningKr": "괴롭다, 힘들다, 고통스럽다",
+        "exampleEn": "苦しい時こそ、諦めずに努力を続けることが成功への道です。",
+        "exampleKr": "괴로울 때일수록 포기하지 않고 노력을 계속하는 것이 성공으로 가는 길입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "くるしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-423-1780232223822",
+        "term": "金",
+        "definition": "Jin dynasty (of China; 1115-1234); Chin dynasty; Jurchen dynasty gold general testicles",
+        "meaningKr": "금, 황금",
+        "exampleEn": "オリンピックで金メダルを取るために、選手たちは毎日厳しいトレーニングをしています。",
+        "exampleKr": "올림픽에서 금메달을 따기 위해 선수들은 매일 혹독한 훈련을 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-424-1780232223822",
+        "term": "只",
+        "definition": "ordinary; common; usual free of charge unaffected; as is; safe",
+        "meaningKr": "단지, 그저; 무료",
+        "exampleEn": "このイベントはただ見るだけでなく、実際に体験できるコーナーもあります。",
+        "exampleKr": "이 이벤트는 단지 보기만 하는 것이 아니라, 실제로 체험할 수 있는 코너도 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ただ",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-425-1780232223822",
+        "term": "検査",
+        "definition": "inspection (e.g. customs, factory); examination; test; check; scan (e.g. MRI, PET); audit",
+        "meaningKr": "검사, 조사",
+        "exampleEn": "健康診断の結果、特に異常は見つかりませんでしたが、念のため再検査が必要です。",
+        "exampleKr": "건강검진 결과, 특별한 이상은 발견되지 않았지만, 만일을 위해 재검사가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けんさ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-426-1780232223822",
+        "term": "皮",
+        "definition": "skin; hide; pelt; fur rind; peel; husk; bark shell; sheath; wrapping",
+        "meaningKr": "껍질, 가죽",
+        "exampleEn": "このりんごは皮ごと食べられますが、気になるならむいてください。",
+        "exampleKr": "이 사과는 껍질째 먹을 수 있지만, 신경 쓰이면 깎아서 드세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かわ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-427-1780232223822",
+        "term": "革",
+        "definition": "leather",
+        "meaningKr": "가죽",
+        "exampleEn": "このかばんは本革でできているので、長く使うほど味が出ます。",
+        "exampleKr": "이 가방은 천연 가죽으로 되어 있어서, 오래 쓸수록 멋이 더해집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かわ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-428-1780232223822",
+        "term": "代表",
+        "definition": "representation; representative; delegate; delegation exemplification; typification; being representative of; being typical of; representative example; exemplar; model leader",
+        "meaningKr": "대표, 대표자",
+        "exampleEn": "彼はクラスの代表として、卒業式でスピーチをすることになりました。",
+        "exampleKr": "그는 학급 대표로서 졸업식에서 연설을 하게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "だいひょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-429-1780232223822",
+        "term": "抜く",
+        "definition": "to cut out (a shape); to create (a pattern) by dying the surrounding area to seize; to capture; to reduce to scoop (a story)",
+        "meaningKr": "뽑다, 빼다",
+        "exampleEn": "歯が痛くて我慢できなかったので、ついに歯医者で虫歯を抜いてもらいました。",
+        "exampleKr": "이가 아파서 참을 수 없어서, 결국 치과에서 충치를 뽑았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぬく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-430-1780232223822",
+        "term": "回す",
+        "definition": "to invest (money); to lend to dial (a telephone number) to gang-rape",
+        "meaningKr": "돌리다, 회전시키다",
+        "exampleEn": "扇風機のスイッチを回して、部屋の空気を入れ替えましょう。",
+        "exampleKr": "선풍기 스위치를 돌려서, 방의 공기를 환기시킵시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まわす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-431-1780232223822",
+        "term": "敵",
+        "definition": "opponent; rival; adversary menace; danger; threat; enemy",
+        "meaningKr": "적, 상대",
+        "exampleEn": "彼はどんな困難な状況でも、決して敵に背を向けない勇敢な人です。",
+        "exampleKr": "그는 어떤 어려운 상황에서도 결코 적에게 등을 돌리지 않는 용감한 사람입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "てき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-432-1780232223822",
+        "term": "祭り",
+        "definition": "festival; feast; matsuri harassment by an Internet pitchfork mob; online shaming; flaming galore (as in \"goals galore\"); frenzy; mania",
+        "meaningKr": "축제, 제사",
+        "exampleEn": "毎年夏には、この町で伝統的なお祭りが開かれ、多くの人が集まります。",
+        "exampleKr": "매년 여름에는 이 마을에서 전통적인 축제가 열려 많은 사람이 모입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "まつり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-433-1780232223822",
+        "term": "抜ける",
+        "definition": "to come out; to fall out; to be omitted; to be missing; to escape; to come loose to fade; to discolour to wear a hole (e.g. clothes)",
+        "meaningKr": "빠지다, 벗겨지다",
+        "exampleEn": "長時間座っていたので、足がしびれて感覚が抜けてしまいました。",
+        "exampleKr": "오랫동안 앉아 있었더니, 다리가 저려서 감각이 없어졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぬける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-434-1780232223822",
+        "term": "処理",
+        "definition": "processing; dealing with; treatment; disposition; disposal",
+        "meaningKr": "처리, 처분",
+        "exampleEn": "期限までにこの書類の処理を終える必要がありますが、間に合うでしょうか。",
+        "exampleKr": "기한까지 이 서류 처리를 마쳐야 하는데, 제시간에 될까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しょり",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-435-1780232223822",
+        "term": "困難",
+        "definition": "difficulty; hardship; trouble; distress infeasibility; inability (to carry out)",
+        "meaningKr": "곤란, 어려움",
+        "exampleEn": "新しい言語を学ぶことは困難なことも多いですが、とてもやりがいがあります。",
+        "exampleKr": "새로운 언어를 배우는 것은 어려운 일도 많지만, 매우 보람 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "こんなん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-436-1780232223822",
+        "term": "分野",
+        "definition": "field; sphere; realm; division; branch",
+        "meaningKr": "분야, 영역",
+        "exampleEn": "彼は経済学の分野で有名な学者で、多くの研究論文を発表しています。",
+        "exampleKr": "그는 경제학 분야에서 유명한 학자로, 많은 연구 논문을 발표하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぶんや",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-437-1780232223822",
+        "term": "対",
+        "definition": "pair; couple; set antithesis counter for items that come in pairs",
+        "meaningKr": "한 쌍, 짝",
+        "exampleEn": "この靴下は左右でデザインが違うので、一対として売られています。",
+        "exampleKr": "이 양말은 좌우 디자인이 달라서, 한 쌍으로 판매됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "つい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-438-1780232223822",
+        "term": "土",
+        "definition": "earth; soil; dirt; clay; mud the earth (historically, esp. as opposed to the heavens); the ground; the land low-quality torinoko-gami (containing mud)",
+        "meaningKr": "흙, 땅",
+        "exampleEn": "子供たちは公園の土の上で元気に走り回り、楽しそうに遊んでいます。",
+        "exampleKr": "아이들은 공원 흙 위에서 힘차게 뛰어다니며 즐겁게 놀고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "つち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-439-1780232223822",
+        "term": "隠す",
+        "definition": "to hide; to conceal",
+        "meaningKr": "숨기다, 감추다",
+        "exampleEn": "彼は自分の失敗を隠そうとしましたが、結局みんなに知られてしまいました。",
+        "exampleKr": "그는 자신의 실패를 숨기려 했지만, 결국 모두에게 알려지고 말았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かくす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-440-1780232223822",
+        "term": "緊張",
+        "definition": "tension; strain; nervousness; stress tensions (between countries, groups, etc.) tonus; muscle tone",
+        "meaningKr": "긴장",
+        "exampleEn": "大勢の人の前で話すのは、いつも緊張してしまいますが、頑張ります。",
+        "exampleKr": "많은 사람 앞에서 이야기하는 것은 언제나 긴장되지만, 열심히 하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きんちょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-441-1780232223822",
+        "term": "其れとも",
+        "definition": "or; or else",
+        "meaningKr": "아니면, 혹은",
+        "exampleEn": "コーヒーにしますか、それとも紅茶にしますか？ お好きな方を選んでください。",
+        "exampleKr": "커피로 하시겠어요, 아니면 홍차로 하시겠어요? 좋아하시는 쪽을 선택해주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "それとも",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-442-1780232223822",
+        "term": "戦う",
+        "definition": "to make war (on); to wage war (against); to go to war (with); to fight (with); to do battle (against) to compete (against) to struggle (against adversities, etc.); to fight; to contend; to resist",
+        "meaningKr": "싸우다, 맞서다",
+        "exampleEn": "彼は病気と戦いながらも、決して希望を捨てずに前向きに生きています。",
+        "exampleKr": "그는 병과 싸우면서도, 결코 희망을 버리지 않고 긍정적으로 살아가고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たたかう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-443-1780232223822",
+        "term": "単に",
+        "definition": "simply; merely; only; solely",
+        "meaningKr": "단순히, 단지",
+        "exampleEn": "彼は単に勉強ができるだけでなく、スポーツも得意な万能な人です。",
+        "exampleKr": "그는 단순히 공부를 잘할 뿐만 아니라, 스포츠도 잘하는 만능인입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たんに",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-444-1780232223822",
+        "term": "達する",
+        "definition": "to reach; to get to; to arrive at",
+        "meaningKr": "달하다, 도달하다",
+        "exampleEn": "彼の努力が実を結び、ついに目標のレベルに達することができました。",
+        "exampleKr": "그의 노력이 결실을 맺어, 마침내 목표 수준에 도달할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たっする",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-445-1780232223822",
+        "term": "遂に",
+        "definition": "finally; in the end; at last in the end; after all; never (happened)",
+        "meaningKr": "마침내, 드디어",
+        "exampleEn": "長い間待ち望んでいた新製品が、遂に明日発売されることになりました。",
+        "exampleKr": "오랫동안 기다려왔던 신제품이, 마침내 내일 발매될 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ついに",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-446-1780232223822",
+        "term": "無事",
+        "definition": "safety; security; peace; quiet safely; without incident; successfully good health",
+        "meaningKr": "무사히, 별일 없이",
+        "exampleEn": "旅行から無事に帰ってきて安心しました。何か大変なことはありませんでしたか。",
+        "exampleKr": "여행에서 무사히 돌아와서 안심했어요. 무슨 힘든 일은 없으셨어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ぶじ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-447-1780232223822",
+        "term": "切れる",
+        "definition": "to be sharp-minded; to be keen; to be shrewd; to be quick-witted; to be able to be short of; to drop under (a certain figure); to beat (e.g. a record time) to dry off",
+        "meaningKr": "끊어지다, 떨어지다, (기한이) 끝나다",
+        "exampleEn": "このハサミはよく切れるので、厚い紙でも簡単に切ることができます。",
+        "exampleKr": "이 가위는 잘 잘려서, 두꺼운 종이도 쉽게 자를 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-448-1780232223822",
+        "term": "維持",
+        "definition": "maintenance; preservation; improvement",
+        "meaningKr": "유지",
+        "exampleEn": "健康を維持するためには、バランスの取れた食事と適度な運動が不可欠です。",
+        "exampleKr": "건강을 유지하기 위해서는, 균형 잡힌 식사와 적절한 운동이 필수적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いじ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-449-1780232223822",
+        "term": "太陽",
+        "definition": "Sun",
+        "meaningKr": "태양, 해",
+        "exampleEn": "朝早く起きて、昇る太陽の光を浴びながら散歩するのが好きです。",
+        "exampleKr": "아침 일찍 일어나, 떠오르는 태양 빛을 받으며 산책하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たいよう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-450-1780232223822",
+        "term": "素敵",
+        "definition": "lovely; wonderful; nice; great; splendid; marvellous; fantastic; superb",
+        "meaningKr": "멋지다, 훌륭하다, 근사하다",
+        "exampleEn": "彼女がデザインした服はとても素敵で、多くの人から注目されています。",
+        "exampleKr": "그녀가 디자인한 옷은 정말 멋져서 많은 사람들의 주목을 받고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "すてき",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-intermediate-451-1780232223822",
+        "term": "ワイン",
+        "definition": "wine",
+        "meaningKr": "와인",
+        "exampleEn": "食事の時に飲むワインは、料理の味を一層引き立ててくれます。",
+        "exampleKr": "식사 때 마시는 와인은 음식의 맛을 한층 더 돋보이게 해줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ワイン",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-452-1780232223822",
+        "term": "売れる",
+        "definition": "to sell (well) to be well known; to be popular; to be famous",
+        "meaningKr": "팔리다, 잘 팔리다, 인기가 많다",
+        "exampleEn": "この新しいスマートフォンは、発売されてすぐに世界中でとてもよく売れています。",
+        "exampleKr": "이 새로운 스마트폰은 출시되자마자 전 세계에서 아주 잘 팔리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-453-1780232223822",
+        "term": "周囲",
+        "definition": "surroundings; environs circumference",
+        "meaningKr": "주위, 주변, 둘레",
+        "exampleEn": "周囲の人々の意見を聞くことで、新しいアイデアが生まれることもあります。",
+        "exampleKr": "주위 사람들의 의견을 듣는 것으로 새로운 아이디어가 생기기도 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅうい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-454-1780232223822",
+        "term": "安定",
+        "definition": "stability; steadiness; consistency; equilibrium; balance; composure stable",
+        "meaningKr": "안정, 안정성",
+        "exampleEn": "経済の安定は、国民の生活にとって非常に重要なことだと言えます。",
+        "exampleKr": "경제의 안정은 국민의 생활에 매우 중요한 일이라고 할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "あんてい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-455-1780232223822",
+        "term": "完成",
+        "definition": "completion; perfection; accomplishment",
+        "meaningKr": "완성, 완료",
+        "exampleEn": "新しいビルの完成まであと少しなので、みんなで協力して頑張りましょう。",
+        "exampleKr": "새 빌딩 완공까지 얼마 남지 않았으니, 모두 함께 힘을 합쳐 노력합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-456-1780232223822",
+        "term": "参考",
+        "definition": "reference; consultation",
+        "meaningKr": "참고, 참조",
+        "exampleEn": "プレゼンテーションの資料を作る際は、この本を参考にすると良いでしょう。",
+        "exampleKr": "프레젠테이션 자료를 만들 때는 이 책을 참고하면 좋을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さんこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-457-1780232223822",
+        "term": "例え",
+        "definition": "example simile; metaphor; allegory; fable; parable",
+        "meaningKr": "비유, 예시, 예를 들어",
+        "exampleEn": "複雑な内容も、例えを使って説明すれば、もっと分かりやすくなります。",
+        "exampleKr": "복잡한 내용도 비유를 들어 설명하면 훨씬 더 이해하기 쉬워집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たとえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-458-1780232223822",
+        "term": "受け取る",
+        "definition": "to receive; to get; to accept to take (someone's words or behaviour); to interpret; to understand",
+        "meaningKr": "받다, 수령하다, 받아들이다",
+        "exampleEn": "私は彼の言葉を前向きに受け取り、これからの仕事に生かそうと思います。",
+        "exampleKr": "저는 그의 말을 긍정적으로 받아들이고 앞으로의 일에 활용하려고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うけとる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-459-1780232223822",
+        "term": "望む",
+        "definition": "to desire; to want; to wish for; to hope for to expect (of someone); to hope for; to look forward to to see; to command (a view of); to overlook",
+        "meaningKr": "바라다, 희망하다, 원하다",
+        "exampleEn": "私は将来、世界中の人々が平和に暮らせるようになることを心から望んでいます。",
+        "exampleKr": "저는 장래에 전 세계 사람들이 평화롭게 살 수 있게 되기를 진심으로 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のぞむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-460-1780232223822",
+        "term": "適用",
+        "definition": "application (of a rule, law, method, etc.)",
+        "meaningKr": "적용",
+        "exampleEn": "この新しいルールは来月からすべての従業員に適用されることになります。",
+        "exampleKr": "이 새로운 규칙은 다음 달부터 모든 직원에게 적용될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "てきよう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-461-1780232223822",
+        "term": "宗教",
+        "definition": "religion; religious affiliation; belief; faith; creed religious activity",
+        "meaningKr": "종교",
+        "exampleEn": "彼の国では、様々な宗教を信じる人々が共存して生活しています。",
+        "exampleKr": "그의 나라에서는 다양한 종교를 믿는 사람들이 공존하며 살고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅうきょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-462-1780232223822",
+        "term": "範囲",
+        "definition": "extent; scope; sphere; range; span",
+        "meaningKr": "범위",
+        "exampleEn": "この試験の範囲は広く、しっかりと準備しなければなりません。",
+        "exampleKr": "이 시험 범위는 넓어서 확실하게 준비해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はんい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-463-1780232223822",
+        "term": "戻す",
+        "definition": "to put back; to return; to give back; to restore (to a previous state, e.g. defrosting, reconstituting, reconciling); to turn back (e.g. clock hand) to vomit; to throw up to recover (of a market price)",
+        "meaningKr": "되돌리다, 되돌려놓다, 반납하다",
+        "exampleEn": "借りた本は、必ず期限までに図書館にきちんと戻してください。",
+        "exampleKr": "빌린 책은 반드시 기한까지 도서관에 잘 반납해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "もどす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-464-1780232223822",
+        "term": "余裕",
+        "definition": "surplus; margin; leeway; room; space; time; allowance; flexibility; scope composure; placidity; complacency; calm",
+        "meaningKr": "여유, 넉넉함",
+        "exampleEn": "時間に余裕を持って行動すれば、焦ることなく物事を進められます。",
+        "exampleKr": "시간에 여유를 가지고 행동하면, 조급해하지 않고 일을 진행할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "よゆう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-465-1780232223822",
+        "term": "担当",
+        "definition": "being in charge (of an area of responsibility); being responsible (for a work role, etc.)",
+        "meaningKr": "담당, 담당하다",
+        "exampleEn": "彼は来月から新しいプロジェクトのリーダーを担当することになりました。",
+        "exampleKr": "그는 다음 달부터 새로운 프로젝트의 리더를 담당하게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たんとう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-466-1780232223822",
+        "term": "機械",
+        "definition": "machine; mechanism instrument; appliance; apparatus",
+        "meaningKr": "기계",
+        "exampleEn": "この最新の機械を使えば、今までよりもっと効率的に作業できます。",
+        "exampleKr": "이 최신 기계를 사용하면 지금까지보다 훨씬 효율적으로 작업할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きかい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-467-1780232223822",
+        "term": "都市",
+        "definition": "town; city; municipal; urban",
+        "meaningKr": "도시",
+        "exampleEn": "多くの人々が地方から都市に出てきて、新しい生活を始めています。",
+        "exampleKr": "많은 사람들이 지방에서 도시로 나와 새로운 생활을 시작하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "とし",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-468-1780232223822",
+        "term": "費用",
+        "definition": "cost; expense",
+        "meaningKr": "비용, 경비",
+        "exampleEn": "新しいサービスを導入するには、かなりの費用がかかることになります。",
+        "exampleKr": "새로운 서비스를 도입하려면 상당한 비용이 들게 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ひよう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-469-1780232223822",
+        "term": "運転",
+        "definition": "operation (of a machine); running; working driving (a vehicle) use (of capital, funds, etc.); management; investment",
+        "meaningKr": "운전, 운행",
+        "exampleEn": "長時間の運転は疲れるので、途中で休憩を取るようにしましょう。",
+        "exampleKr": "장시간 운전은 피곤하니, 중간에 휴식을 취하도록 합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "うんてん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-470-1780232223822",
+        "term": "生地",
+        "definition": "cloth; fabric; material; texture dough; batter inherent quality; one's true character; one's true colours",
+        "meaningKr": "천, 원단, 반죽",
+        "exampleEn": "このシャツは肌触りの良い綿の生地でできていて、とても着心地がいいです。",
+        "exampleKr": "이 셔츠는 감촉이 좋은 면 원단으로 되어 있어서, 착용감이 매우 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "きじ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-471-1780232223822",
+        "term": "一層",
+        "definition": "even more; still more; all the more; more than ever one layer lowest floor (of a building)",
+        "meaningKr": "한층 더, 더욱더",
+        "exampleEn": "経験を積めば積むほど、仕事の面白さが一層感じられるようになるでしょう。",
+        "exampleKr": "경험을 쌓으면 쌓을수록, 일의 재미가 한층 더 느껴지게 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いっそう",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-intermediate-472-1780232223822",
+        "term": "誘う",
+        "definition": "to invite; to ask (someone to do); to call (for); to take (someone) along to tempt; to lure; to entice; to seduce to induce (tears, laughter, sleepiness, etc.); to arouse (e.g. sympathy); to provoke",
+        "meaningKr": "권유하다, 초대하다, 유혹하다",
+        "exampleEn": "週末に友人を誘って、新しいカフェに行ってみようと思っています。",
+        "exampleKr": "주말에 친구를 초대해서 새로운 카페에 가보려고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さそう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-473-1780232223822",
+        "term": "価格",
+        "definition": "price; value; cost",
+        "meaningKr": "가격",
+        "exampleEn": "この店の野菜は新鮮な上に価格も安いので、いつも賑わっています。",
+        "exampleKr": "이 가게의 채소는 신선한 데다 가격도 저렴해서 항상 붐빕니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かかく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-474-1780232223822",
+        "term": "週",
+        "definition": "week",
+        "meaningKr": "주, 주간",
+        "exampleEn": "来週の会議の準備のため、今週中に資料を完成させる必要があります。",
+        "exampleKr": "다음 주 회의 준비를 위해, 이번 주 안에 자료를 완성할 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-475-1780232223822",
+        "term": "単純",
+        "definition": "simple; plain; uncomplicated; straightforward; simple-minded; naive",
+        "meaningKr": "단순함, 간단함, 순진함",
+        "exampleEn": "彼の考え方はいつも単純で、すぐに理解することができます。",
+        "exampleKr": "그의 생각 방식은 항상 단순해서, 바로 이해할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たんじゅん",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-476-1780232223822",
+        "term": "一生",
+        "definition": "whole life; a lifetime; all through life; one existence; a generation; an age; the whole world; the era (the only, the greatest, etc.) of one's life",
+        "meaningKr": "평생, 일생",
+        "exampleEn": "私はこの経験を一生忘れることはないでしょう。",
+        "exampleKr": "저는 이 경험을 평생 잊지 못할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "いっしょう",
+        "pos": "noun, adjective, adverb"
+      },
+      {
+        "id": "word-jp-intermediate-477-1780232223822",
+        "term": "後",
+        "definition": "later; afterwards future after one's death",
+        "meaningKr": "나중에, 후일",
+        "exampleEn": "詳細は後ほどメールで送りますので、確認してください。",
+        "exampleKr": "자세한 내용은 나중에 메일로 보낼 테니, 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "のち",
+        "pos": "noun, adverb, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-478-1780232223822",
+        "term": "調子",
+        "definition": "tune; tone; key; pitch; time; rhythm vein; mood; way; manner; style; knack condition; state of health; shape",
+        "meaningKr": "상태, 컨디션, 가락",
+        "exampleEn": "最近、体の調子があまり良くないので、ゆっくり休みたいです。",
+        "exampleKr": "최근 몸 상태가 별로 좋지 않아서, 푹 쉬고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ちょうし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-479-1780232223822",
+        "term": "植物",
+        "definition": "plant; vegetation",
+        "meaningKr": "식물",
+        "exampleEn": "この公園には珍しい植物がたくさん植えられています。",
+        "exampleKr": "이 공원에는 희귀한 식물들이 많이 심어져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しょくぶつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-480-1780232223822",
+        "term": "契約",
+        "definition": "contract; compact; agreement",
+        "meaningKr": "계약",
+        "exampleEn": "新しいアパートの契約書にサインする前に、よく内容を確認しました。",
+        "exampleKr": "새 아파트 계약서에 서명하기 전에, 내용을 잘 확인했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "けいやく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-481-1780232223822",
+        "term": "組む",
+        "definition": "to cross (legs or arms); to link (arms) to put together; to construct; to assemble; to produce (e.g. TV program) to braid; to plait",
+        "meaningKr": "짜다, 조합하다, 팔짱을 끼다",
+        "exampleEn": "チームを組んで、新しいプロジェクトに取り組むことになりました。",
+        "exampleKr": "팀을 짜서, 새로운 프로젝트에 착수하게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "くむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-482-1780232223822",
+        "term": "叫ぶ",
+        "definition": "to shout; to cry; to scream; to shriek; to yell; to exclaim to clamor (for or against); to clamour (for or against)",
+        "meaningKr": "외치다, 소리 지르다",
+        "exampleEn": "彼は応援しているチームがゴールを決めた時、大声で叫びました。",
+        "exampleKr": "그는 응원하는 팀이 골을 넣었을 때, 큰 소리로 외쳤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "さけぶ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-483-1780232223822",
+        "term": "手段",
+        "definition": "means; way; measure",
+        "meaningKr": "수단, 방법",
+        "exampleEn": "目標を達成するためには、どのような手段を使うべきか考えましょう。",
+        "exampleKr": "목표를 달성하기 위해서는, 어떤 수단을 사용해야 할지 생각해 봅시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "しゅだん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-484-1780232223822",
+        "term": "下ろす",
+        "definition": "to take down; to bring down; to lower (a hand, flag, shutter, etc.); to drop (an anchor, curtain, etc.); to let down (hair); to launch (a boat) to drop off (a passenger); to let off; to unload (goods, a truck, etc.); to offload; to discharge to withdraw (money)",
+        "meaningKr": "내리다, 인출하다, 비우다",
+        "exampleEn": "銀行のATMでお金を下ろしてから、買い物に行きました。",
+        "exampleKr": "은행 ATM에서 돈을 인출하고 나서, 쇼핑하러 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "おろす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-485-1780232223822",
+        "term": "ドラマ",
+        "definition": "(non-documentary) television series; TV drama; teledrama; play drama; dramatic incident; spectacle; tragedy Dhrama (Greece)",
+        "meaningKr": "드라마",
+        "exampleEn": "昨日の夜、テレビで感動的なドラマを見て、涙が出ました。",
+        "exampleKr": "어젯밤, TV로 감동적인 드라마를 보고 눈물이 났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ドラマ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-486-1780232223822",
+        "term": "無駄",
+        "definition": "futility; waste; uselessness; pointlessness; idleness",
+        "meaningKr": "낭비, 소용없음, 허사",
+        "exampleEn": "時間を無駄にしないように、計画を立てて行動することが大切です。",
+        "exampleKr": "시간을 낭비하지 않도록, 계획을 세워 행동하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "むだ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-487-1780232223822",
+        "term": "管理",
+        "definition": "control; management (e.g. of a business)",
+        "meaningKr": "관리",
+        "exampleEn": "この会社のデータは、厳重に管理されているので安心です。",
+        "exampleKr": "이 회사의 데이터는 엄중하게 관리되고 있어서 안심입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんり",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-488-1780232223822",
+        "term": "正確",
+        "definition": "accurate; correct; precise; exact",
+        "meaningKr": "정확함, 정확성",
+        "exampleEn": "この情報はとても正確なので、信頼することができます。",
+        "exampleKr": "이 정보는 매우 정확해서, 신뢰할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "せいかく",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-intermediate-489-1780232223822",
+        "term": "夫婦",
+        "definition": "married couple; husband and wife; man and wife",
+        "meaningKr": "부부",
+        "exampleEn": "あの夫婦はいつも仲が良くて、理想的な関係だと思います。",
+        "exampleKr": "저 부부는 항상 사이가 좋아서, 이상적인 관계라고 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "ふうふ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-490-1780232223822",
+        "term": "監督",
+        "definition": "supervision; control; superintendence; direction director; superintendent; supervisor; coach; foreman; manager; overseer; controller; boss",
+        "meaningKr": "감독, 지도",
+        "exampleEn": "映画監督は、素晴らしい作品を作るために努力していました。",
+        "exampleKr": "영화 감독은 훌륭한 작품을 만들기 위해 노력하고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かんとく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-491-1780232223822",
+        "term": "鍋",
+        "definition": "pan; pot; saucepan stew; hot pot",
+        "meaningKr": "냄비, 전골",
+        "exampleEn": "寒い冬の夜には、温かい鍋料理が食べたくなりますね。",
+        "exampleKr": "추운 겨울밤에는 따뜻한 전골 요리가 먹고 싶어지죠.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なべ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-492-1780232223822",
+        "term": "外す",
+        "definition": "to remove; to take off; to detach; to unfasten; to undo to drop (e.g. from a team); to remove (from a position); to exclude; to expel to leave (e.g. one's seat); to go away from; to step out; to slip away",
+        "meaningKr": "빼다, 벗기다, 제외하다",
+        "exampleEn": "仕事中だったので、しばらくの間、マスクを外していました。",
+        "exampleKr": "일하는 중이어서, 잠시 동안 마스크를 벗고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はずす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-intermediate-493-1780232223822",
+        "term": "何でも",
+        "definition": "any; anything; whatever; whatever one likes; everything; all I am told; I hear; I understand; they say",
+        "meaningKr": "무엇이든, 뭐든지, 어떤 것이든",
+        "exampleEn": "困ったことがあれば、何でも私に相談してください。",
+        "exampleKr": "곤란한 일이 있으면, 무엇이든 저에게 상담해주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "なんでも",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-jp-intermediate-494-1780232223822",
+        "term": "其処で",
+        "definition": "so; accordingly; now; then; thereupon; therefore",
+        "meaningKr": "그래서, 거기서, 거기서부터",
+        "exampleEn": "電車が遅れてしまい、そこでタクシーに乗ることにしました。",
+        "exampleKr": "기차가 늦어져서, 그래서 택시를 타기로 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "そこで",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-intermediate-495-1780232223822",
+        "term": "発達",
+        "definition": "development; growth",
+        "meaningKr": "발달, 발전",
+        "exampleEn": "この地域の経済は急速に発達しており、新しいビルが増えています。",
+        "exampleKr": "이 지역 경제는 급속히 발달하고 있으며, 새로운 건물들이 늘어나고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "はったつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-intermediate-496-1780232223822",
+        "term": "戦い",
+        "definition": "battle; war; fight; conflict fight (against time, poverty, etc.); struggle (for freedom, survival, etc.); war (e.g. on drugs); battle (e.g. against nature) contest; competition; match; game",
+        "meaningKr": "싸움, 전투, 경쟁",
+        "exampleEn": "彼は病気との長い戦いに打ち勝ち、回復することができました。",
+        "exampleKr": "그는 병과의 긴 싸움에서 이겨내고, 회복할 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "たたかい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-497-1780232223822",
+        "term": "会",
+        "definition": "meeting; assembly; party; gathering; conference; athletic meet society; association; club",
+        "meaningKr": "모임, 회의, 협회",
+        "exampleEn": "来月、会社の同僚たちと忘年会を開く予定です。",
+        "exampleKr": "다음 달, 회사 동료들과 송년회를 열 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-intermediate-498-1780232223822",
+        "term": "現代",
+        "definition": "present age; present day; today modern era; modern times",
+        "meaningKr": "현대, 오늘날",
+        "exampleEn": "現代社会では、情報技術の進歩が私たちの生活を大きく変えています。",
+        "exampleKr": "현대 사회에서는, 정보 기술의 진보가 우리 삶을 크게 바꾸고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "げんだい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-intermediate-499-1780232223822",
+        "term": "回復",
+        "definition": "restoration; recovery; rehabilitation; return; improvement recovery (from an illness); recuperation; convalescence",
+        "meaningKr": "회복, 복구",
+        "exampleEn": "手術後、彼は順調に回復し、すぐに退院できるでしょう。",
+        "exampleKr": "수술 후, 그는 순조롭게 회복하여, 곧 퇴원할 수 있을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Intermediate"
+        ],
+        "phonetic": "かいふく",
+        "pos": "noun, verb"
+      }
+    ]
+  },
+{
     "id": "curated-ko-advanced-1",
     "title": "Advanced Korean 500 (for English speakers)",
     "icon": "🇰🇷",

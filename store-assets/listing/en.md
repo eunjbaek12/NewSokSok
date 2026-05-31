@@ -13,7 +13,7 @@ Avocado — Vocabulary Builder
 ## Short description (max 80 chars)
 
 ```
-Build, find, and memorize vocabulary lists. Korean, English, Japanese, Chinese.
+Vocabulary in 5 languages: English, Korean, Japanese, Chinese, Vietnamese.
 ```
 
 ## Full description (max 4000 chars)
@@ -21,7 +21,7 @@ Build, find, and memorize vocabulary lists. Korean, English, Japanese, Chinese.
 ```
 The word list you want. The word list you've been looking for. And the cleanest way to memorize either.
 
-Avocado is a personal vocabulary learning tool for Korean, English, Japanese, and Chinese — built to make every spare minute count.
+Avocado is a personal vocabulary learning tool for five languages — English, Korean, Japanese, Chinese, and Vietnamese — built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
 
 ▸ Four study modes
 - Flashcards: one card at a time, the way you remember best
@@ -49,13 +49,18 @@ Avocado is a personal vocabulary learning tool for Korean, English, Japanese, an
 
 ▸ Find what others have built
 - Browse word lists shared by other learners and import the ones you love
-- Official curated lists included (TOEIC, exam vocabulary, daily conversation)
+- A rich set of official curated lists, ready to study
+  · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
+  · Japanese — Basic 500 · JLPT N3
+  · Chinese — HSK 1
+  · Korean — TOPIK Basic · Intermediate · Advanced (for English speakers)
+  · Vietnamese — Basic 500
 - Share your own lists to help the community
 
-▸ Multilingual word lists
-- Korean, English, Japanese, Chinese
-- Mix any input and meaning language (KR↔EN, KR↔JP, EN↔ZH, and more)
-- Designed equally for learners in every direction
+▸ Five languages, every direction
+- English, Korean, Japanese, Chinese, Vietnamese
+- Mix any input and meaning language (EN↔KR, KR↔JP, EN↔ZH, VI↔EN, KR↔VI — any pair)
+- Built equally for learners coming from any language to any language — including Korean for K-pop and Hallyu fans worldwide
 
 ▸ Make it yours with skins
 - Classic, Dark Calm, Y2K, Lab, and more themes to choose from
@@ -86,7 +91,7 @@ First release. Meet Avocado — your vocabulary study companion.
 - Add words fast with photo, CSV, and bulk paste
 - AI word generation — type a topic, get a full list
 - Browse and import word lists from other learners
-- Multilingual: Korean, English, Japanese, Chinese
+- Five languages: English, Korean, Japanese, Chinese, Vietnamese — any pairing
 - Four theme skins: Classic, Dark Calm, Y2K, Lab
 ```
 

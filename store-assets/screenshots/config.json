@@ -13,8 +13,8 @@
       "id": "02-flashcard",
       "screen": "플래시카드 학습 화면",
       "captureHint": "단어 카드 한 장이 펼쳐진 상태. 단어 + 뜻이 함께 보이도록.",
-      "ko": { "caption": "직관적인 카드 학습", "sub": "터치 한 번으로 뜻 확인, 스와이프로 다음 카드" },
-      "en": { "caption": "Intuitive card-based learning", "sub": "Tap to flip, swipe to advance" }
+      "ko": { "caption": "직관적인 카드 학습", "sub": "5개 언어 어느 페어든, 터치로 뜻 확인 · 스와이프로 다음" },
+      "en": { "caption": "Intuitive card-based learning", "sub": "Any of 5 languages — tap to flip, swipe to advance" }
     },
     {
       "id": "03-quiz",
@@ -27,8 +27,8 @@
       "id": "04-ai-generate",
       "screen": "features/curation/screen.tsx — AI 단어 생성 모달",
       "captureHint": "주제 입력 칸 + 언어쌍·난이도 선택 + 생성된 단어 리스트가 일부 보이게.",
-      "ko": { "caption": "주제만 입력하면 단어장 완성", "sub": "AI가 만든 단어를 골라서 담아요" },
-      "en": { "caption": "Type a topic, get a full list", "sub": "Pick the words you love" }
+      "ko": { "caption": "주제만 입력하면 단어장 완성", "sub": "한·영·일·중·베 5개 언어 어느 페어든, AI가 즉시" },
+      "en": { "caption": "Type a topic, get a full list", "sub": "Any pair of 5 languages — AI builds it instantly" }
     },
     {
       "id": "05-add-word",
@@ -41,8 +41,8 @@
       "id": "06-curation",
       "screen": "features/curation/screen.tsx — 단어 모음 (커뮤니티)",
       "captureHint": "공유된 단어장 카드들이 나열된 상태.",
-      "ko": { "caption": "내가 찾던 단어장, 모음에서", "sub": "다른 학습자의 단어장 즐겨가기" },
-      "en": { "caption": "The list you've been looking for", "sub": "Browse and import community lists" }
+      "ko": { "caption": "내가 찾던 단어장, 모음에서", "sub": "NGSL·JLPT·HSK·TOPIK·베트남 — 5개 언어 큐레이션 + 커뮤니티" },
+      "en": { "caption": "The list you've been looking for", "sub": "NGSL · JLPT · HSK · TOPIK · Vietnamese — curated in 5 languages" }
     },
     {
       "id": "07-plan-progress",

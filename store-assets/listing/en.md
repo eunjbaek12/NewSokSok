@@ -53,7 +53,7 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
   · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
   · Japanese — Basic 500 · JLPT N3
   · Chinese — HSK 1
-  · Korean — TOPIK Basic · Intermediate · Advanced (for English speakers)
+  · Korean — TOPIK Basic · Intermediate · Advanced full series (built on NIKL A/B/C frequency, for English speakers — perfect for K-pop, Hallyu, and study-abroad learners)
   · Vietnamese — Basic 500
 - Share your own lists to help the community
 

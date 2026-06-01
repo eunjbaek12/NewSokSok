@@ -334,7 +334,7 @@
   },
   "licenses": {
     "title": "오픈소스 및 데이터 출처",
-    "lastUpdated": "최종 업데이트: 2026년 5월",
+    "lastUpdated": "최종 업데이트: 2026년 6월",
     "sections": [
       {
         "title": "공식 큐레이션 단어장 (영어)",
@@ -351,6 +351,10 @@
       {
         "title": "공식 큐레이션 단어장 (한국어 — 영어 학습자용)",
         "body": "다음 단어장은 자유 라이선스 데이터를 기반으로 합니다. 모두 CC BY-SA 4.0.\n\n• Basic Korean 500 (for English speakers) — Wiktionary \"Appendix:Basic Korean Vocabulary List\" 등급 A 기반\n• Intermediate Korean 500 (for English speakers) — 동 Wiktionary 목록 등급 B (NIKL 중급, TOPIK II 3-4) 기반\n• Advanced Korean 500 (for English speakers) — 동 Wiktionary 목록 등급 C (NIKL 고급, TOPIK II 5-6) 기반\n\n출처:\n• Wiktionary (en.wiktionary.org) — 국립국어원(NIKL) 한국어 학습용 어휘목록 빈도순 표제어 리스트, CC BY-SA 4.0\n\n라이선스 전문: https://creativecommons.org/licenses/by-sa/4.0/\n\n변경 사항: Wiktionary 표제어 리스트에서 기능어를 제외하고 영어 뜻·로마자와 한·영 예문(Google Gemini로 자동 생성)을 추가하여 영어권 학습자용으로 재구성했습니다.\n\nShareAlike: 본 단어장을 복제·재배포하거나 파생물을 만들 경우 동일한 CC BY-SA 4.0 라이선스를 적용해야 합니다."
+      },
+      {
+        "title": "공식 큐레이션 단어장 (한국어 — 모국어 화자용)",
+        "body": "다음 단어장은 한국인이 일상에서 자주 헷갈리는 맞춤법을 정리한 학습용 모음입니다.\n\n• 자주 틀리는 한국어 맞춤법 100 — 어미·활용, 동사·형용사, 외래어 표기, 사이시옷, 관용·접두접미사 등 5개 범주 100쌍\n\n출처:\n• 국립국어원 어문규범 (한글 맞춤법, 외래어 표기법, 표준어 규정 등) — 공공누리 제1유형(출처표시, 상업적 이용 가능, 변경 허용)에 따라 자유 이용\n• Wiktionary 한글 맞춤법 항목 (en.wiktionary.org) — CC BY-SA 4.0\n\n참고: 표제어(올바른 표기와 자주 틀리는 표기 쌍)는 한글 맞춤법 규정에 따른 사실 정보이며 저작권 대상이 아닙니다.\n\n변경 사항: 어문규범과 사전을 참조하여 100쌍을 자체 선정하고, 정의·구분법·예문(Google Gemini로 자동 생성)을 추가하여 학습용으로 재구성했습니다.\n\n공공누리 안내: https://www.kogl.or.kr/info/license.do"
       },
       {
         "title": "고전 문학 단어장 (퍼블릭 도메인)",

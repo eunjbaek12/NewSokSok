@@ -25,6 +25,9 @@ android/
 # Curation build raw data (re-downloadable; see scripts/build-jp-source.ts)
 scripts/data/
 
+# Curation enrich progress files (resumable state; not source of truth)
+scripts/.*-progress.json
+
 # debug
 npm-debug.*
 yarn-debug.*

@@ -183,6 +183,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'vi',
     targetLanguage: 'ko',
   },
+  spelling: {
+    id: 'curated-spelling-ko-1',
+    title: '자주 틀리는 한국어 맞춤법 100',
+    icon: '✍️',
+    category: '한국어',
+    level: 'intermediate',
+    description: '한국인이 일상에서 가장 자주 틀리는 맞춤법 100쌍. 어미·활용·외래어 표기·사이시옷·관용 표현까지. 국립국어원 어문규범 (KOGL 1유형) 참조, 정의·구분법·예문 AI 생성',
+    tags: ['Korean', 'Spelling', '맞춤법'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];
@@ -206,8 +217,9 @@ function main() {
   console.log(`📚 번역된 ${items.length}개 단어 로드`);
 
   // 언어별 스키마를 앱 공통 슬롯(meaningKr/phonetic/exampleEn/exampleKr)으로 정규화.
-  // KO 계열(sourceLanguage=ko)은 방향이 반대(target=en)라 슬롯 의미를 매핑: 뜻 슬롯=영어, 원어 예문 슬롯=한국어.
-  const normalized = meta.sourceLanguage === 'ko'
+  // KO→EN 계열(외국인용 한국어 학습)은 방향이 반대라 슬롯 의미를 매핑: 뜻 슬롯=영어, 원어 예문 슬롯=한국어.
+  // KO→KO(맞춤법 등 한국인용)는 translate 단계에서 이미 공통 슬롯에 채워 보내므로 일반 분기 사용.
+  const normalized = (meta.sourceLanguage === 'ko' && meta.targetLanguage === 'en')
     ? items.map(w => ({
         ...w,
         definition: w.meaningEn ?? '',     // 영어 정의

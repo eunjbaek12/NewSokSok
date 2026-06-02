@@ -23,6 +23,8 @@ export interface AnalyzedWord {
   mnemonic: string;
   pos: string;
   phonetic: string;
+  // 단어가 사전에 존재한다고 모델이 판단했는지. 옛 캐시·옛 응답은 undefined로 통과(=실재로 간주).
+  isReal?: boolean;
 }
 
 export async function analyzeWord(
@@ -91,12 +93,19 @@ export async function analyzeWord(
     mnemonic: parsed.mnemonic ?? '',
     pos: parsed.pos ?? '',
     phonetic: parsed.phonetic ?? '',
+    isReal: parsed.isReal,
   };
 }
 
 function buildPrompt(word: string, srcName: string, tgtName: string): string {
   const avoid = srcName === 'Korean' || tgtName === 'Korean' ? 'any other language' : 'Korean';
-  return `Analyze the ${srcName} word/phrase "${word}". Provide:
+  return `Analyze the ${srcName} word/phrase "${word}".
+
+FIRST, decide whether "${word}" is a real, recognized ${srcName} word, phrase, idiom, common abbreviation, or proper noun.
+- If YES (or you are reasonably confident it exists), set "isReal" to true and fill in the other fields.
+- If it appears to be a typo, gibberish, random characters, or you cannot find any recognized meaning, set "isReal" to false and return EMPTY STRINGS for all other text fields. Do NOT invent a plausible-sounding definition. Be lenient toward real but uncommon entries (slang, neologisms, technical terms, dialect, proper nouns) — only mark false when there is genuinely no recognizable meaning.
+
+When isReal is true, provide:
 1. A simple definition in ${srcName}.
 2. One example sentence in ${srcName}.
 3. The meaning translated into ${tgtName}.
@@ -117,16 +126,17 @@ function responseSchema(srcName: string, tgtName: string) {
   return {
     type: 'OBJECT',
     properties: {
+      isReal:     { type: 'BOOLEAN', description: `True if the input is a recognized ${srcName} entry; false if gibberish/typo.` },
       term:       { type: 'STRING' },
-      definition: { type: 'STRING', description: `Definition in ${srcName}` },
-      exampleEn:  { type: 'STRING', description: `Example sentence in ${srcName}` },
-      exampleKr:  { type: 'STRING', description: `Example translation in ${tgtName}` },
-      meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}` },
-      mnemonic:   { type: 'STRING', description: `Memory aid in ${tgtName}` },
+      definition: { type: 'STRING', description: `Definition in ${srcName}. Empty if isReal=false.` },
+      exampleEn:  { type: 'STRING', description: `Example sentence in ${srcName}. Empty if isReal=false.` },
+      exampleKr:  { type: 'STRING', description: `Example translation in ${tgtName}. Empty if isReal=false.` },
+      meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}. Empty if isReal=false.` },
+      mnemonic:   { type: 'STRING', description: `Memory aid in ${tgtName}. Empty if isReal=false.` },
       pos:        { type: 'STRING' },
       phonetic:   { type: 'STRING' },
     },
-    required: ['term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
+    required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
   };
 }
 

@@ -87,7 +87,13 @@ export async function analyzeWord(
 
   const response = await withRetry(() => ai.models.generateContent({
     model: MODEL_NAME,
-    contents: `Analyze the ${srcName} word/phrase "${word}". Provide:
+    contents: `Analyze the ${srcName} word/phrase "${word}".
+
+      FIRST, decide whether "${word}" is a real, recognized ${srcName} word, phrase, idiom, common abbreviation, or proper noun.
+      - If YES (or you are reasonably confident it exists), set "isReal" to true and fill in the other fields.
+      - If it appears to be a typo, gibberish, random characters, or you cannot find any recognized meaning, set "isReal" to false and return EMPTY STRINGS for all other text fields. Do NOT invent a plausible-sounding definition. Be lenient toward real but uncommon entries (slang, neologisms, technical terms, dialect, proper nouns) — only mark false when there is genuinely no recognizable meaning.
+
+      When isReal is true, provide:
       1. A simple definition in ${srcName}.
       2. One example sentence in ${srcName}.
       3. The meaning translated into ${tgtName}.
@@ -107,16 +113,17 @@ export async function analyzeWord(
       responseSchema: {
         type: Type.OBJECT,
         properties: {
+          isReal: { type: Type.BOOLEAN, description: `True if "${word}" is a recognized ${srcName} word/phrase/idiom/proper noun. False if it appears to be a typo, gibberish, or unrecognizable.` },
           term: { type: Type.STRING, description: `The original word in ${srcName}` },
-          definition: { type: Type.STRING, description: `A simple definition written in ${srcName}` },
-          exampleEn: { type: Type.STRING, description: `An example sentence written in ${srcName} (field name is legacy; not necessarily English)` },
-          exampleKr: { type: Type.STRING, description: `The example sentence translated into ${tgtName} (field name is legacy; not necessarily Korean)` },
-          meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean)` },
-          mnemonic: { type: Type.STRING, description: `A memory aid written in ${tgtName}` },
-          pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb)' },
-          phonetic: { type: Type.STRING, description: 'Phonetic transcription (IPA)' },
+          definition: { type: Type.STRING, description: `A simple definition written in ${srcName}. Empty string if isReal is false.` },
+          exampleEn: { type: Type.STRING, description: `An example sentence written in ${srcName} (field name is legacy; not necessarily English). Empty string if isReal is false.` },
+          exampleKr: { type: Type.STRING, description: `The example sentence translated into ${tgtName} (field name is legacy; not necessarily Korean). Empty string if isReal is false.` },
+          meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). Empty string if isReal is false.` },
+          mnemonic: { type: Type.STRING, description: `A memory aid written in ${tgtName}. Empty string if isReal is false.` },
+          pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb). Empty string if isReal is false.' },
+          phonetic: { type: Type.STRING, description: 'Phonetic transcription (IPA). Empty string if isReal is false.' },
         },
-        required: ['term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
+        required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
       },
     },
   }));

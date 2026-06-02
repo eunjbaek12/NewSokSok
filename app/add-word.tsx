@@ -304,6 +304,7 @@ export default function AddWordScreen() {
         isPendingSave,
         aiQuotaHitAt,
         autoFillFailedAt,
+        autoFillNotFoundAt,
     } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang, apiKey || undefined);
 
     useEffect(() => {
@@ -361,6 +362,9 @@ export default function AddWordScreen() {
     const [showNewListInput, setShowNewListInput] = useState(false);
     const [toastVisible, setToastVisible] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
+    // 사전에서 찾지 못한 단어. 인라인 배너로 표시되며, 사용자가 term을 한 글자라도
+    // 수정하면 자동으로 사라진다. 토스트보다 명시적이고 흐름을 끊지 않는 안내.
+    const [notFoundTerm, setNotFoundTerm] = useState('');
 
     useEffect(() => {
         if (autoFillFailedAt) {
@@ -370,6 +374,17 @@ export default function AddWordScreen() {
             return () => clearTimeout(id);
         }
     }, [autoFillFailedAt, t]);
+    useEffect(() => {
+        if (autoFillNotFoundAt) {
+            // 현재 term을 캡처해 인라인 배너 표시 — term이 바뀌면 별도 effect가 clear.
+            setNotFoundTerm(term.trim());
+        }
+    }, [autoFillNotFoundAt]);
+    useEffect(() => {
+        if (notFoundTerm && term.trim() !== notFoundTerm) {
+            setNotFoundTerm('');
+        }
+    }, [term, notFoundTerm]);
     const [tagInput, setTagInput] = useState('');
     const [isApplying, setIsApplying] = useState(false);
     const [sourceLangPickerOpen, setSourceLangPickerOpen] = useState(false);
@@ -1014,6 +1029,14 @@ export default function AddWordScreen() {
                                                 )}
                                                 </View>
                                                 {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('addWord.enterWordError')}</Text>}
+                                                {!!notFoundTerm && (
+                                                    <View style={[styles.notFoundBanner, { backgroundColor: colors.warningLight, borderColor: colors.warning + '40' }]}>
+                                                        <Ionicons name="alert-circle-outline" size={18} color={colors.warning} style={{ marginTop: 1 }} />
+                                                        <Text style={[styles.notFoundBannerText, { color: colors.warning }]}>
+                                                            {t('addWord.autoFillNotFound', { term: notFoundTerm })}
+                                                        </Text>
+                                                    </View>
+                                                )}
                                             </View>
                                         );
                                     }
@@ -1513,6 +1536,8 @@ const styles = StyleSheet.create({
     naverIconText: { fontSize: 15, fontFamily: 'Pretendard_700Bold', lineHeight: 22 },
     fieldsContainer: { gap: 10, marginTop: 4 },
     errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
+    notFoundBanner: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginTop: 8, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, borderWidth: 1 },
+    notFoundBannerText: { flex: 1, fontSize: 13, fontFamily: 'Pretendard_500Medium', lineHeight: 18 },
     loadingContainer: { alignItems: 'center', paddingVertical: 20, gap: 8 },
     loadingText: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     tagsContainer: { marginTop: 0, gap: 6 },

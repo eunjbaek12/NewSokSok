@@ -22,6 +22,9 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     const [isPendingSave, setIsPendingSave] = useState(false);
     const [aiQuotaHitAt, setAiQuotaHitAt] = useState(0);
     const [autoFillFailedAt, setAutoFillFailedAt] = useState(0);
+    // 모델이 "사전에 존재하지 않는 단어"로 판정한 경우만 set. 일반 실패(네트워크/timeout)와
+    // 구분해 사용자에게 정확한 안내("찾지 못함" vs "잠시 후 재시도")를 보여주기 위함.
+    const [autoFillNotFoundAt, setAutoFillNotFoundAt] = useState(0);
 
     const runAutoFill = useCallback(async (searchTerm: string) => {
         if (!searchTerm.trim() || isPendingFillRef.current) return;
@@ -39,7 +42,10 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             const hasAny = !!result && !!(
                 result.definition || result.meaningKr || result.exampleEn || result.phonetic || result.pos
             );
-            if (hasAny && result) {
+            if (result?.isReal === false) {
+                // 모델이 명시적으로 "실재하지 않음" 판정 → 폼은 비워두고 안내만.
+                setAutoFillNotFoundAt(Date.now());
+            } else if (hasAny && result) {
                 if (result.definition) setDefinition(result.definition);
                 if (result.meaningKr) setMeaningKr(result.meaningKr);
                 if (result.phonetic) setPhonetic(result.phonetic);
@@ -158,5 +164,6 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         isPendingSave,
         aiQuotaHitAt,
         autoFillFailedAt,
+        autoFillNotFoundAt,
     };
 }

@@ -69,6 +69,9 @@ export interface AutoFillResult {
   mnemonic?: string;
   pos?: string;
   phonetic?: string;
+  // 모델이 "이 단어는 사전에 존재하지 않는다"고 판단한 경우 false.
+  // true/undefined는 실재로 간주. UI 분기(찾지 못함 vs 자동완성 실패)용.
+  isReal?: boolean;
 }
 
 export interface AIWordResult {

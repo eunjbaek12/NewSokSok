@@ -217,6 +217,9 @@ export const AIWordResultSchema = z.object({
   pos: z.string().max(60).optional(),
   phonetic: z.string().max(240).optional(),
   tags: z.array(z.string().max(60)).optional(),
+  // 단어가 실제 사전에 존재하는지에 대한 모델의 판단. 자동입력에서만 사용.
+  // 옛 캐시·옛 응답은 undefined로 통과(=실재로 간주).
+  isReal: z.boolean().optional(),
 });
 export type AIWordResult = z.infer<typeof AIWordResultSchema>;
 

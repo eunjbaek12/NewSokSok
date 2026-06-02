@@ -53,9 +53,15 @@ export async function enrichWord(
 
   try {
     const result = await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota), 12000);
-    if (result && (result.meaningKr || result.exampleEn || result.definition)) {
-      void setCachedEnrich(trimmed, sourceLang, targetLang, result);
-      return result;
+    if (result) {
+      // 모델이 "이 단어는 실재하지 않는다"고 명시한 경우 — 빈 결과지만 null이 아닌
+      // 명시적 not-found 신호를 호출자에게 전달(캐시는 하지 않음). UI에서 "찾지
+      // 못함" 안내로 분기시키기 위함.
+      if (result.isReal === false) return result;
+      if (result.meaningKr || result.exampleEn || result.definition) {
+        void setCachedEnrich(trimmed, sourceLang, targetLang, result);
+        return result;
+      }
     }
   } catch (e: any) {
     if (e?.name === 'AbortError') throw e;
@@ -84,6 +90,10 @@ export async function autoFillWord(
     if (shared && shared.meaningKr) return shared;
     try {
       const data = await analyzeWord(trimmed, sourceLang, targetLang, apiKey);
+      // 모델이 실재하지 않는 단어로 판정 → 빈 결과 + isReal=false 신호.
+      if (data.isReal === false) {
+        return { definition: '', meaningKr: '', exampleEn: '', isReal: false };
+      }
       return {
         definition: data.definition || '',
         meaningKr: data.meaningKr || '',
@@ -113,6 +123,10 @@ export async function autoFillWord(
         }
         if (edge.kind === 'ok') {
           const d = edge.result;
+          // 모델이 실재하지 않는 단어로 판정 → 빈 결과 + isReal=false 신호.
+          if (d.isReal === false) {
+            return { definition: '', meaningKr: '', exampleEn: '', isReal: false };
+          }
           return {
             definition: d.definition || '',
             meaningKr: d.meaningKr || '',

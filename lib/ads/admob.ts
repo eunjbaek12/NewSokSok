@@ -10,10 +10,10 @@
 
 import mobileAds, { MaxAdContentRating, TestIds } from 'react-native-google-mobile-ads';
 import { Platform } from 'react-native';
-import {
-  getTrackingPermissionsAsync,
-  requestTrackingPermissionsAsync,
-} from 'expo-tracking-transparency';
+// expo-tracking-transparency는 Android native module이 없는데도 requireNativeModule
+// (옵셔널 X)로 즉시 import한다 → top-level import 시 Android에서 "Cannot find native
+// module 'ExpoTrackingTransparency'"로 throw → admob.ts 로드 자체 실패. iOS 전용으로
+// lazy require해 Android에선 모듈 평가 자체를 피한다.
 
 // ────────────────────────────────────────────────────────────
 // 광고 단위 ID (env override → TestIds fallback)
@@ -89,12 +89,20 @@ export async function initAdMob(): Promise<void> {
 // 후엔 시스템 설정 → 개인정보 보호 → 추적에서만 변경 가능.
 async function requestATTConsent(): Promise<void> {
   try {
-    const current = await getTrackingPermissionsAsync();
+    // iOS-only lazy require. 모듈 헤더 주석 참고 — Android에서 top-level import는
+    // requireNativeModule throw로 admob 전체를 못 쓰게 만든다.
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const tracking = require('expo-tracking-transparency') as {
+      getTrackingPermissionsAsync: () => Promise<{ status: string; canAskAgain: boolean }>;
+      requestTrackingPermissionsAsync: () => Promise<{ status: string }>;
+    };
+    const current = await tracking.getTrackingPermissionsAsync();
     if (current.status === 'undetermined' && current.canAskAgain) {
-      await requestTrackingPermissionsAsync();
+      await tracking.requestTrackingPermissionsAsync();
     }
   } catch {
-    // ATT 요청 실패 → 비개인화 광고로 동작. 사용자 경험 영향 없음.
+    // 모듈 로드 실패(dev client 미빌드)·ATT 요청 실패 모두 비개인화 광고로 동작.
+    // 사용자 경험 영향 없음.
   }
 }
 

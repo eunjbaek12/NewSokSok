@@ -13,7 +13,7 @@ Avocado — Vocabulary Builder
 ## Short description (max 80 chars)
 
 ```
-Vocabulary in 6 languages: English, Korean, Japanese, Chinese, Vietnamese, Spanish.
+AI-built flashcards in 6 languages. Photo, CSV, K-pop — vocab your way.
 ```
 
 ## Full description (max 4000 chars)
@@ -41,9 +41,10 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Bulk paste: drop a line-separated list and it just works
 - Voice input and manual entry also supported
 
-▸ Generate word lists with AI
+▸ AI word generation & auto-analysis
 - Type a topic and AI builds an entire list for you
   e.g. "Renting an apartment in the US", "Ordering at a cafe", "TOEIC verbs"
+- Add a single word and AI auto-fills pronunciation, meaning, examples, and synonyms
 - Choose language pair, difficulty, and word count
 - Keep only the words you like, regenerate fresh ones on the same topic for more
 
@@ -71,10 +72,16 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Sign in with Google to sync securely to the cloud
 - Or use guest mode and start instantly
 
-▸ Transparent privacy and cost
-- AI features run on your own Gemini API key (free key from Google AI Studio)
-- No ads, no in-app purchases
+▸ Fair pricing — free is generous
+- Free: 100 AI word lookups per day + watch an ad for +50 (up to 300/day)
+- Pro: ad-free, 1,000 words per day — $2.99/mo or $26.99/yr (23% off vs monthly)
+- BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
+- 7-day Pro free trial on signup, no auto-charge
+
+▸ Transparent privacy
+- Ads are shown only to non-logged-in and free users (Pro has none)
 - The only permission requested is the microphone, for voice input
+- Your personal study data is visible only to you
 
 Build the word list you want. Memorize it the most polished way.
 
@@ -84,15 +91,14 @@ Privacy policy: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ## Release notes / What's new (max 500 chars)
 
 ```
-First release. Meet Avocado — your vocabulary study companion.
+v1.1 update — a smarter, smoother vocabulary experience.
 
-- Four study modes: flashcards, quiz, example sentences, autoplay
-- Daily memorization plan with progress tracking
-- Add words fast with photo, CSV, and bulk paste
-- AI word generation — type a topic, get a full list
-- Browse and import word lists from other learners
-- Six languages: English, Korean, Japanese, Chinese, Vietnamese, Spanish — any pairing
-- Four theme skins: Classic, Dark Calm, Y2K, Lab
+- AI word auto-analysis: type one word, get pronunciation, meaning, examples, and synonyms
+- AI generation quota expanded: 100/day free + 50 more per rewarded ad
+- New Pro plan: ad-free, 1,000 words/day ($2.99/mo or $26.99/yr, 7-day free trial)
+- Expanded curations for Japanese, Chinese, and Vietnamese learners
+- Improved AI accuracy (auto-blocks hallucinated fake words)
+- Numerous stability improvements
 ```
 
 ---
@@ -102,9 +108,13 @@ First release. Meet Avocado — your vocabulary study companion.
 | Field | Value |
 |---|---|
 | Category | Education |
-| Content rating | Everyone (auto-determined via questionnaire) |
-| Contains ads | No |
-| In-app purchases | No |
-| Privacy policy URL | https://eunjbaek12.github.io/NewSokSok/privacy-policy |
-| Contact email | (your personal email) |
+| Content rating | Everyone (auto-determined via questionnaire — re-answer "digital purchases=yes", "ads=yes") |
+| **Contains ads** | **Yes** (banner + rewarded) |
+| **In-app purchases** | **Yes** (Pro monthly/yearly subscription, $2.99 / $26.99) |
+| **Advertising ID declaration** | **Yes — used** (changed v1.0 → v1.1) |
+| **Data safety** | Add advertising ID + transaction info to collected data |
+| Privacy policy URL | https://eunjbaek12.github.io/NewSokSok/privacy-policy (ko/en toggle) |
+| Contact email | mtgirltreeguy@gmail.com |
 | Website | (optional, leave blank if none) |
+
+> Note on price display: USD figures shown here are approximate for App Store reference. Korean Play Store displays KRW (₩3,900 / ₩35,900). Apple App Store auto-converts via local tier pricing — set price tier in App Store Connect to match KRW figure for each market.

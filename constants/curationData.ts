@@ -2,6 +2,25551 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-zh-advanced-1",
+    "title": "고급 중국어 500 (HSK 5급)",
+    "icon": "🐼",
+    "isCurated": true,
+    "category": "고급",
+    "level": "advanced",
+    "description": "HSK 5급 고급 중국어 500. Wiktionary \"HSK list of Mandarin words v3.0/level 5\" (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·HSK 5 예문 AI 생성",
+    "sourceLanguage": "zh",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780414451287,
+    "words": [
+      {
+        "id": "word-zh-advanced-0-1780414451287",
+        "term": "岸",
+        "definition": "variant of 岸[an4]",
+        "meaningKr": "강둑, 기슭, 해안",
+        "exampleEn": "船在港口靠岸后，乘客们纷纷走了下来。",
+        "exampleKr": "배가 항구에 접안하자 승객들이 속속 내려왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "àn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-1-1780414451287",
+        "term": "拔",
+        "definition": "to pull up; to pull out; to draw out by suction",
+        "meaningKr": "뽑다, 빼내다",
+        "exampleEn": "他用力拔出卡住的抽屉，终于成功了。",
+        "exampleKr": "그는 꽉 끼인 서랍을 힘껏 빼내어 마침내 성공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-2-1780414451287",
+        "term": "版",
+        "definition": "a register; block of printing; edition",
+        "meaningKr": "판, 판본, 출판",
+        "exampleEn": "这本小说的新版本很快就要出版了。",
+        "exampleKr": "이 소설의 새 판본이 곧 출판될 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-3-1780414451287",
+        "term": "棒",
+        "definition": "stick; club; cudgel",
+        "meaningKr": "막대기, 훌륭한",
+        "exampleEn": "他的表现非常棒，赢得了全场观众的掌声。",
+        "exampleKr": "그의 활약은 매우 훌륭했고, 전 관객의 박수를 얻었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bàng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-4-1780414451287",
+        "term": "辈",
+        "definition": "lifetime; generation; group of people",
+        "meaningKr": "세대, 항렬",
+        "exampleEn": "我们这一辈的人，对未来充满希望。",
+        "exampleKr": "우리 세대 사람들은 미래에 대한 희망으로 가득 차 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bèi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-5-1780414451287",
+        "term": "必",
+        "definition": "certainly; must; will",
+        "meaningKr": "반드시, 꼭",
+        "exampleEn": "要想成功，就必须付出艰辛的努力。",
+        "exampleKr": "성공하려면 반드시 고된 노력을 기울여야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bì",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-6-1780414451287",
+        "term": "饼",
+        "definition": "round flat cake; cookie; cake",
+        "meaningKr": "떡, 과자, 빵",
+        "exampleEn": "奶奶 forno 了一个香喷喷的月饼。",
+        "exampleKr": "할머니께서 맛있는 월병을 구우셨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǐng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-7-1780414451287",
+        "term": "猜",
+        "definition": "to guess",
+        "meaningKr": "추측하다, 짐작하다",
+        "exampleEn": "我猜他今天不会来了。",
+        "exampleKr": "나는 그가 오늘 오지 않을 것이라고 추측한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cāi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-8-1780414451287",
+        "term": "册",
+        "definition": "book; booklet; classifier for books",
+        "meaningKr": "책, 권",
+        "exampleEn": "他买了几册关于历史的书籍。",
+        "exampleKr": "그는 역사에 관한 서적 몇 권을 샀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cè",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-9-1780414451287",
+        "term": "叉",
+        "definition": "fork; pitchfork; prong",
+        "meaningKr": "갈퀴, 쇠스랑",
+        "exampleEn": "农民用叉子把干草堆起来。",
+        "exampleKr": "농부는 쇠스랑으로 건초를 쌓아 올렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-10-1780414451287",
+        "term": "插",
+        "definition": "to insert; stick in; pierce",
+        "meaningKr": "꽂다, 찌르다",
+        "exampleEn": "她把鲜花插在花瓶里。",
+        "exampleKr": "그녀는 생화를 꽃병에 꽂았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-11-1780414451287",
+        "term": "拆",
+        "definition": "to tear open; to tear down; to tear apart",
+        "meaningKr": "뜯다, 헐다, 해체하다",
+        "exampleEn": "他们正在拆除旧建筑物，准备盖新楼。",
+        "exampleKr": "그들은 낡은 건물을 철거하고 새 건물을 지을 준비를 하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chāi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-12-1780414451287",
+        "term": "尝",
+        "definition": "to taste; to try (food); to experience",
+        "meaningKr": "맛보다, 경험하다",
+        "exampleEn": "你尝尝这道菜，味道怎么样？",
+        "exampleKr": "이 요리를 맛보고 맛이 어떤지 말해봐.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cháng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-13-1780414451287",
+        "term": "肠",
+        "definition": "intestines",
+        "meaningKr": "창자, 내장",
+        "exampleEn": "吃太多油腻的食物对肠胃不好。",
+        "exampleKr": "너무 기름진 음식을 많이 먹는 것은 장과 위에 좋지 않다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cháng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-14-1780414451287",
+        "term": "称²",
+        "definition": "",
+        "meaningKr": "칭하다, 부르다",
+        "exampleEn": "大家一致称他为团队的领导者。",
+        "exampleKr": "모두가 만장일치로 그를 팀의 리더라고 칭했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-15-1780414451287",
+        "term": "乘",
+        "definition": "surname Cheng",
+        "meaningKr": "타다, 이용하다",
+        "exampleEn": "我们应该乘飞机去旅行，这样更快捷。",
+        "exampleKr": "우리는 여행 갈 때 비행기를 타야 한다. 이렇게 하면 더 빠르다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-16-1780414451287",
+        "term": "迟",
+        "definition": "surname Chi",
+        "meaningKr": "늦다, 더디다",
+        "exampleEn": "他总是迟到，严重影响了会议的进程。",
+        "exampleKr": "그는 항상 지각해서 회의 진행에 심각한 영향을 미쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chí",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-17-1780414451287",
+        "term": "愁",
+        "definition": "to worry about",
+        "meaningKr": "근심하다, 걱정하다",
+        "exampleEn": "他为家人的健康问题而发愁。",
+        "exampleKr": "그는 가족의 건강 문제로 근심하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chóu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-18-1780414451287",
+        "term": "丑",
+        "definition": "surname Chou",
+        "meaningKr": "못생기다, 추하다, 희극 배우",
+        "exampleEn": "他长得并不帅，但他的表演很有趣。",
+        "exampleKr": "그는 잘생기지는 않았지만, 그의 연기는 매우 재미있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chǒu",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-19-1780414451287",
+        "term": "臭",
+        "definition": "stench; smelly; to smell (bad)",
+        "meaningKr": "악취가 나다, 고약하다",
+        "exampleEn": "垃圾堆放久了会发出臭味。",
+        "exampleKr": "쓰레기를 오래 쌓아두면 악취가 난다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chòu",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-20-1780414451287",
+        "term": "闯",
+        "definition": "to rush; to charge; to dash",
+        "meaningKr": "돌진하다, 무릅쓰고 나아가다",
+        "exampleEn": "年轻人应该勇于闯荡，去实现自己的梦想。",
+        "exampleKr": "젊은이들은 용감하게 도전하여 자신의 꿈을 실현해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chuǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-21-1780414451287",
+        "term": "脆",
+        "definition": "old variant of 脆[cui4]",
+        "meaningKr": "바삭하다, 연하다",
+        "exampleEn": "这块饼干很脆，一咬就碎了。",
+        "exampleKr": "이 비스킷은 매우 바삭해서 한 입 베어 물면 부서진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cuì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-22-1780414451287",
+        "term": "寸",
+        "definition": "a unit of length; inch; thumb",
+        "meaningKr": "촌 (길이 단위)",
+        "exampleEn": "距离测量需要精确到寸。",
+        "exampleKr": "거리는 촌 단위까지 정확하게 측정해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cùn",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-23-1780414451287",
+        "term": "答",
+        "definition": "bound form having the same meaning as the free word 答[da2], used in 答應|答应[da1 ying5], 答理[da1 li5] etc",
+        "meaningKr": "대답하다, 답하다",
+        "exampleEn": "请认真思考后，再回答这个问题。",
+        "exampleKr": "신중하게 생각한 후에 이 질문에 대답해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-24-1780414451287",
+        "term": "打",
+        "definition": "Taiwan pr. [da3]",
+        "meaningKr": "치다, 때리다, 하다",
+        "exampleEn": "他正在打扫房间。",
+        "exampleKr": "그는 방을 청소하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎ",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-advanced-25-1780414451287",
+        "term": "呆",
+        "definition": "foolish; stupid; expressionless; blank",
+        "meaningKr": "멍하니 있는, 멍청한",
+        "exampleEn": "他听完这个消息后，整个人都呆住了。",
+        "exampleKr": "그는 이 소식을 다 듣고 나서 온 사람이 멍해졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dāi",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-26-1780414451287",
+        "term": "待",
+        "definition": "to stay; to remain",
+        "meaningKr": "머무르다, 기다리다",
+        "exampleEn": "他决定暂时留在这个城市等待机会。",
+        "exampleKr": "그는 기회를 기다리기 위해 잠시 이 도시에 머물기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dāi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-27-1780414451287",
+        "term": "胆",
+        "definition": "gall bladder; courage; guts",
+        "meaningKr": "쓸개, 용기",
+        "exampleEn": "他很有胆量，敢于挑战权威。",
+        "exampleKr": "그는 용기가 있어 감히 권위에 도전한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-28-1780414451287",
+        "term": "挡",
+        "definition": "to resist; to obstruct; to hinder",
+        "meaningKr": "막다, 가로막다",
+        "exampleEn": "他用身体挡住了飞来的石子。",
+        "exampleKr": "그는 몸으로 날아오는 돌멩이를 막았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-29-1780414451287",
+        "term": "递",
+        "definition": "to hand over; to pass on; to deliver",
+        "meaningKr": "건네주다, 전달하다",
+        "exampleEn": "请把这份文件递给下一位负责人。",
+        "exampleKr": "다음 담당자에게 이 서류를 건네주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-30-1780414451287",
+        "term": "丢",
+        "definition": "to lose; to put aside; to throw",
+        "meaningKr": "잃다, 버리다",
+        "exampleEn": "千万不要把重要的东西弄丢了。",
+        "exampleKr": "절대로 중요한 물건을 잃어버리지 않도록 하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "diū",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-31-1780414451287",
+        "term": "冻",
+        "definition": "to freeze; to feel very cold; aspic or jelly",
+        "meaningKr": "얼다, 춥다",
+        "exampleEn": "外面天气很冷，我的手都冻僵了。",
+        "exampleKr": "밖 날씨가 매우 추워서 내 손이 다 얼어붙었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-32-1780414451287",
+        "term": "洞",
+        "definition": "cave; hole; zero (unambiguous spoken form when spelling out numbers)",
+        "meaningKr": "구멍, 동굴",
+        "exampleEn": "他在墙上发现了一个小洞。",
+        "exampleKr": "그는 벽에서 작은 구멍을 발견했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dòng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-33-1780414451287",
+        "term": "毒",
+        "definition": "poison; to poison; poisonous",
+        "meaningKr": "독, 독을 퍼뜨리다",
+        "exampleEn": "这种植物的叶子含有剧毒。",
+        "exampleKr": "이 식물의 잎에는 맹독이 함유되어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dú",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-zh-advanced-34-1780414451287",
+        "term": "堆",
+        "definition": "to pile up; to heap up; a mass",
+        "meaningKr": "쌓다, 더미",
+        "exampleEn": "他把书本整齐地堆在桌子上。",
+        "exampleKr": "그는 책을 책상 위에 가지런히 쌓아두었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "duī",
+        "pos": "verb, noun, classifier"
+      },
+      {
+        "id": "word-zh-advanced-35-1780414451287",
+        "term": "吨",
+        "definition": "ton (loanword); Taiwan pr. [dun4]",
+        "meaningKr": "톤",
+        "exampleEn": "这批货物重达几十吨。",
+        "exampleKr": "이 화물은 수십 톤에 달한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dūn",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-36-1780414451287",
+        "term": "朵",
+        "definition": "flower; earlobe; fig. item on both sides",
+        "meaningKr": "송이 (꽃 등)",
+        "exampleEn": "她收到了一束美丽的鲜花。",
+        "exampleKr": "그녀는 아름다운 꽃 한 다발을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "duǒ",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-37-1780414451287",
+        "term": "躲",
+        "definition": "to hide; to dodge; to avoid",
+        "meaningKr": "숨다, 피하다",
+        "exampleEn": "孩子们在捉迷藏，我来躲起来。",
+        "exampleKr": "아이들이 숨바꼭질을 하니, 내가 숨겠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "duǒ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-38-1780414451287",
+        "term": "罚",
+        "definition": "to punish; to penalize; to fine",
+        "meaningKr": "벌하다, 벌금",
+        "exampleEn": "迟到者将受到相应的处罚。",
+        "exampleKr": "지각자는 그에 상응하는 처벌을 받을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-39-1780414451287",
+        "term": "封",
+        "definition": "surname Feng",
+        "meaningKr": "봉하다, 봉투",
+        "exampleEn": "请把信封好，然后寄出去。",
+        "exampleKr": "편지를 잘 봉해서 부쳐주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-40-1780414451287",
+        "term": "疯",
+        "definition": "insane; mad; wild",
+        "meaningKr": "미치다, 정신이 나가다",
+        "exampleEn": "他最近压力太大，好像快要疯了。",
+        "exampleKr": "그는 최근 스트레스가 너무 커서 거의 미칠 것 같다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-41-1780414451287",
+        "term": "幅",
+        "definition": "width; roll; classifier for textiles or pictures",
+        "meaningKr": "폭 (천, 그림 등)",
+        "exampleEn": "这幅画的尺寸非常大。",
+        "exampleKr": "이 그림의 크기는 매우 크다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fú",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-42-1780414451287",
+        "term": "扶",
+        "definition": "to support with the hand; to help sb up; to support oneself by holding onto something",
+        "meaningKr": "부축하다, 돕다",
+        "exampleEn": "老人走路不方便，需要有人扶着。",
+        "exampleKr": "노인은 걷기 불편해서 누군가 부축해줘야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-43-1780414451287",
+        "term": "搞",
+        "definition": "to do; to make; to go in for",
+        "meaningKr": "하다, 만들다",
+        "exampleEn": "我们正在搞一个关于环境保护的活动。",
+        "exampleKr": "우리는 환경 보호에 관한 활동을 하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-44-1780414451287",
+        "term": "个儿",
+        "definition": "size; height; stature",
+        "meaningKr": "키, 키가 큰 모양",
+        "exampleEn": "他个儿很高，在人群中很显眼。",
+        "exampleKr": "그는 키가 커서 사람들 속에서 눈에 잘 띈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gèr",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-45-1780414451287",
+        "term": "沟",
+        "definition": "ditch; gutter; groove",
+        "meaningKr": "도랑, 홈",
+        "exampleEn": "路边有一条深沟，请小心。",
+        "exampleKr": "길가에 깊은 도랑이 있으니 조심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gōu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-46-1780414451287",
+        "term": "鼓",
+        "definition": "old variant of 鼓[gu3]",
+        "meaningKr": "북, 북을 치다",
+        "exampleEn": "他用力地敲着鼓，为队伍加油。",
+        "exampleKr": "그는 힘껏 북을 치며 팀을 응원했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǔ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-47-1780414451287",
+        "term": "怪",
+        "definition": "odd; strange; uncanny; to find strange; to regard as odd; to blame",
+        "meaningKr": "이상하다, 비난하다",
+        "exampleEn": "这件事情很奇怪，我无法理解。",
+        "exampleKr": "이 일은 매우 이상해서 나는 이해할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-48-1780414451287",
+        "term": "广",
+        "definition": "surname Guang",
+        "meaningKr": "넓다",
+        "exampleEn": "这个广场很宽广，适合举办大型活动。",
+        "exampleKr": "이 광장은 매우 넓어서 대규모 행사를 개최하기에 적합하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guǎng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-49-1780414451287",
+        "term": "鬼",
+        "definition": "disembodied spirit; ghost; devil; sly; crafty; resourceful (variant of 詭|诡[gui3]); one of the 28 constellations of ancient Chinese astronomy",
+        "meaningKr": "귀신, 악마",
+        "exampleEn": "夜晚独自走在森林里，让人感觉有点害怕，仿佛有鬼。",
+        "exampleKr": "밤에 혼자 숲길을 걸으니 마치 귀신이 있는 것처럼 조금 무섭게 느껴진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-50-1780414451287",
+        "term": "滚",
+        "definition": "to boil; to roll; to take a hike",
+        "meaningKr": "데굴데굴 구르다, 끓다",
+        "exampleEn": "雨水顺着山坡滚滚而下，汇成了小溪。",
+        "exampleKr": "빗물이 비탈을 따라 굴러내려 작은 시냇물을 이루었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǔn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-51-1780414451287",
+        "term": "锅",
+        "definition": "pot; pan; wok; cauldron; pot-shaped thing",
+        "meaningKr": "냄비, 솥",
+        "exampleEn": "他正在炉子上炒菜，锅里滋滋作响。",
+        "exampleKr": "그는 난로 위에서 요리하고 있었고, 냄비 안에서 지글거리는 소리가 났다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guō",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-52-1780414451287",
+        "term": "害",
+        "definition": "to do harm to; to cause trouble to; harm",
+        "meaningKr": "해치다, 피해를 주다",
+        "exampleEn": "吸烟不仅危害自己的健康，也影响他人。",
+        "exampleKr": "흡연은 자신의 건강을 해칠 뿐만 아니라 타인에게도 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hài",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-53-1780414451287",
+        "term": "汗",
+        "definition": "see 可汗[ke4 han2], 汗國|汗国[han2 guo2]",
+        "meaningKr": "땀",
+        "exampleEn": "经过一番激烈的比赛，他累得满头大汗。",
+        "exampleKr": "치열한 경기 끝에 그는 지쳐서 이마에 땀을 많이 흘렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-54-1780414451287",
+        "term": "盒",
+        "definition": "small box; case",
+        "meaningKr": "갑, 상자 (작은)",
+        "exampleEn": "我把首饰放回了那个精美的首饰盒里。",
+        "exampleKr": "나는 장신구를 그 정교한 보석함에 다시 넣었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hé",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-advanced-55-1780414451287",
+        "term": "恨",
+        "definition": "to hate; to regret",
+        "meaningKr": "미워하다, 후회하다",
+        "exampleEn": "他非常后悔当初没有听取父母的建议。",
+        "exampleKr": "그는 처음에 부모님의 조언을 듣지 않은 것을 매우 후회했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hèn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-56-1780414451287",
+        "term": "猴",
+        "definition": "monkey",
+        "meaningKr": "원숭이",
+        "exampleEn": "动物园里的猴子非常活泼，喜欢和游客互动。",
+        "exampleKr": "동물원의 원숭이는 매우 활발해서 방문객들과 상호작용하는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hóu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-57-1780414451287",
+        "term": "虎",
+        "definition": "tiger",
+        "meaningKr": "호랑이",
+        "exampleEn": "猛虎下山的气势令人敬畏，展现了强大的力量。",
+        "exampleKr": "맹호가 산을 내려오는 기세는 경외감을 불러일으키며 강력한 힘을 보여준다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-58-1780414451287",
+        "term": "滑",
+        "definition": "surname Hua",
+        "meaningKr": "미끄러운, 활기찬",
+        "exampleEn": "雨后的地面很滑，走路时要小心。",
+        "exampleKr": "비 온 뒤의 땅은 매우 미끄러우니 걸을 때 조심해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huá",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-advanced-59-1780414451287",
+        "term": "慌",
+        "definition": "to get panicky; to lose one's head",
+        "meaningKr": "당황하다, 허둥대다",
+        "exampleEn": "面对突如其来的质问，他一时有些慌乱。",
+        "exampleKr": "갑작스러운 질문에 그는 잠시 당황했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huāng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-60-1780414451287",
+        "term": "挤",
+        "definition": "to crowd in; to cram in; to force others aside",
+        "meaningKr": "밀다, 붐비다",
+        "exampleEn": "早高峰时地铁里人非常挤，几乎无法转身。",
+        "exampleKr": "출근 시간대 지하철은 매우 붐벼서 거의 몸을 돌릴 수 없었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jǐ",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-advanced-61-1780414451287",
+        "term": "夹",
+        "definition": "to press from either side; to place in between; to sandwich",
+        "meaningKr": "끼우다, 사이에 넣다",
+        "exampleEn": "请把这份文件夹在报告的中间。",
+        "exampleKr": "이 서류를 보고서 중간에 끼워 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-62-1780414451287",
+        "term": "甲",
+        "definition": "first of the ten Heavenly Stems 十天干[shi2 tian1 gan1]; first (in a list, as a party to a contract etc); letter \"A\" or roman \"I\" in list \"A, B, C\", or \"I, II, III\" etc",
+        "meaningKr": "첫째의, 갑 (계약 등)",
+        "exampleEn": "合同的甲乙方都已签字，表示同意条款。",
+        "exampleKr": "계약의 갑과 을 모두 서명함으로써 조항에 동의함을 표시했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-63-1780414451287",
+        "term": "价",
+        "definition": "price; value",
+        "meaningKr": "가격, 가치",
+        "exampleEn": "这款产品的价格虽然高，但其质量和功能非常值。",
+        "exampleKr": "이 제품의 가격은 비싸지만, 그 품질과 기능은 매우 가치가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jià",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-64-1780414451287",
+        "term": "肩",
+        "definition": "shoulder; to shoulder (responsibilities etc)",
+        "meaningKr": "어깨",
+        "exampleEn": "他主动承担起家庭的重担，用他强壮的肩膀支撑着。",
+        "exampleKr": "그는 기꺼이 가정의 무거운 짐을 짊어졌고, 그의 튼튼한 어깨로 그것을 지탱했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-65-1780414451287",
+        "term": "剪",
+        "definition": "surname Jian",
+        "meaningKr": "자르다 (가위로)",
+        "exampleEn": "她熟练地用剪刀剪下布料，制作衣服。",
+        "exampleKr": "그녀는 능숙하게 가위로 천을 잘라 옷을 만들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-66-1780414451287",
+        "term": "键",
+        "definition": "key (on a piano or computer keyboard); button (on a mouse or other device); chemical bond",
+        "meaningKr": "건반, 키",
+        "exampleEn": "电脑键盘的每一个键都承载着不同的信息。",
+        "exampleKr": "컴퓨터 키보드의 모든 키는 각기 다른 정보를 담고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-67-1780414451287",
+        "term": "将",
+        "definition": "will; shall; to use",
+        "meaningKr": "장차 ~할 것이다, ~을/를 사용하다",
+        "exampleEn": "我们将通过不懈的努力，实现宏伟的目标。",
+        "exampleKr": "우리는 끊임없는 노력을 통해 웅대한 목표를 달성할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāng",
+        "pos": "adverb, preposition"
+      },
+      {
+        "id": "word-zh-advanced-68-1780414451287",
+        "term": "届",
+        "definition": "to arrive at (place or time); period; to become due",
+        "meaningKr": "회(의), 대회 (기간)",
+        "exampleEn": "本次奥运会是第32届，吸引了来自世界各地的运动员。",
+        "exampleKr": "이번 올림픽은 제32회 대회로, 전 세계에서 온 선수들을 끌어들였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiè",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-69-1780414451287",
+        "term": "戒",
+        "definition": "to guard against; to exhort; to admonish or warn",
+        "meaningKr": "경계하다, 삼가다",
+        "exampleEn": "我们应该警惕网络诈骗，提高自身防范意识。",
+        "exampleKr": "우리는 온라인 사기를 경계하고 스스로 예방 의식을 높여야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-70-1780414451287",
+        "term": "颗",
+        "definition": "classifier for small spheres, pearls, corn grains, teeth, hearts, satellites etc",
+        "meaningKr": "알갱이, 작은 것 (수량사)",
+        "exampleEn": "天空中挂着几颗闪亮的星星，点缀着夜幕。",
+        "exampleKr": "하늘에는 몇 개의 반짝이는 별이 걸려 밤하늘을 수놓고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "kē",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-71-1780414451287",
+        "term": "咳",
+        "definition": "cough",
+        "meaningKr": "기침하다",
+        "exampleEn": "他因为感冒而连续咳嗽了好几天。",
+        "exampleKr": "그는 감기 때문에 며칠 동안 계속 기침을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "ké",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-72-1780414451287",
+        "term": "可",
+        "definition": "to approve; to permit; to suit; but; however",
+        "meaningKr": "그러나, 하지만",
+        "exampleEn": "这个问题很复杂，但是我们必须找到一个解决办法。",
+        "exampleKr": "이 문제는 매우 복잡하지만, 우리는 해결책을 반드시 찾아야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "kě",
+        "pos": "adverb, conjunction"
+      },
+      {
+        "id": "word-zh-advanced-73-1780414451287",
+        "term": "刻",
+        "definition": "quarter (hour); moment; to carve",
+        "meaningKr": "새기다, 시간 (분)",
+        "exampleEn": "历史的痕迹被深深地刻在了古老的城墙上。",
+        "exampleKr": "역사의 흔적이 오래된 성벽 위에 깊이 새겨져 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "kè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-74-1780414451287",
+        "term": "库",
+        "definition": "warehouse; storehouse",
+        "meaningKr": "창고",
+        "exampleEn": "这家公司拥有一个大型的物流仓库，用于储存货物。",
+        "exampleKr": "이 회사는 상품 보관용 대형 물류 창고를 보유하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "kù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-75-1780414451287",
+        "term": "狂",
+        "definition": "mad; wild; violent",
+        "meaningKr": "미친, 광적인",
+        "exampleEn": "他是个工作狂，每天都加班到深夜。",
+        "exampleKr": "그는 일에 미친 사람이라 매일 밤늦게까지 야근한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "kuáng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-76-1780414451287",
+        "term": "亏",
+        "definition": "to lose (money); to have a deficit; to be deficient; to treat unfairly",
+        "meaningKr": "손해를 보다, 적자를 내다",
+        "exampleEn": "这家公司经营不善，今年已经亏损了上百万。",
+        "exampleKr": "이 회사는 경영을 잘못해서 올해 이미 수백만 위안의 손실을 보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "kuī",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-77-1780414451287",
+        "term": "落",
+        "definition": "to leave out; to be missing; to leave behind or forget to bring",
+        "meaningKr": "빠뜨리다, 잊다, 남겨두다",
+        "exampleEn": "检查报告的时候，她不小心落了一个重要的细节。",
+        "exampleKr": "보고서를 검토할 때 그녀는 실수로 중요한 세부 사항 하나를 빠뜨렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "là",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-78-1780414451287",
+        "term": "烂",
+        "definition": "soft; mushy; well-cooked and soft; to rot; to decompose",
+        "meaningKr": "푹 익은, 물렁한, 부패하다",
+        "exampleEn": "这水果放了几天就烂了，真是可惜。",
+        "exampleKr": "이 과일은 며칠 두었더니 썩어버려서 정말 아깝다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "làn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-79-1780414451287",
+        "term": "梨",
+        "definition": "pear",
+        "meaningKr": "배",
+        "exampleEn": "秋天是吃梨的好季节，口感清脆又多汁。",
+        "exampleKr": "가을은 배를 먹기 좋은 계절로, 식감이 아삭하고 과즙이 풍부하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "lí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-80-1780414451287",
+        "term": "礼",
+        "definition": "surname Li; abbr. for 禮記|礼记[Li3 ji4], Classic of Rites",
+        "meaningKr": "예의, 의례",
+        "exampleEn": "在正式场合，我们应该注意自己的言行举止，遵守礼仪。",
+        "exampleKr": "공식적인 자리에서는 우리는 자신의 언행과 태도에 주의하고 예의를 지켜야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "lǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-81-1780414451287",
+        "term": "立",
+        "definition": "surname Li",
+        "meaningKr": "서다, 설립하다",
+        "exampleEn": "他决心要在这个行业里立足，并做出一番成就。",
+        "exampleKr": "그는 이 업계에서 입지를 다지고 업적을 이루겠다고 결심했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "lì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-82-1780414451287",
+        "term": "铃",
+        "definition": "(small) bell; CL:隻|只[zhi1]",
+        "meaningKr": "종",
+        "exampleEn": "上课铃响了，同学们赶紧回到了教室。",
+        "exampleKr": "수업 종이 울리자 학생들은 서둘러 교실로 돌아갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "líng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-83-1780414451287",
+        "term": "令",
+        "definition": "used in 脊令[ji2 ling2]; used in 令狐[Ling2 hu2] (Taiwan pr. [ling4])",
+        "meaningKr": "명령하다, ~하게 하다",
+        "exampleEn": "这项政策的颁布，令广大市民感到十分满意。",
+        "exampleKr": "이 정책의 발표는 광범위한 시민들이 매우 만족하도록 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "lìng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-84-1780414451287",
+        "term": "漏",
+        "definition": "to leak; to divulge; to leave out by mistake",
+        "meaningKr": "새다, 빠뜨리다",
+        "exampleEn": "这个水管好像有点漏水，需要赶紧修理。",
+        "exampleKr": "이 수도관이 물이 좀 새는 것 같으니 서둘러 수리해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "lòu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-85-1780414451287",
+        "term": "骂",
+        "definition": "to scold; to abuse; to curse",
+        "meaningKr": "욕하다, 꾸짖다",
+        "exampleEn": "他因为迟到被经理狠狠地骂了一顿。",
+        "exampleKr": "그는 지각 때문에 매니저에게 심하게 꾸중을 들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "mà",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-86-1780414451287",
+        "term": "冒",
+        "definition": "old variant of 冒[mao4]",
+        "meaningKr": "무릅쓰다, 피어나다",
+        "exampleEn": "他冒着严寒，坚持在户外进行科学考察。",
+        "exampleKr": "그는 혹독한 추위를 무릅쓰고 야외에서 과학 조사를 계속했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "mào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-87-1780414451287",
+        "term": "煤",
+        "definition": "coal",
+        "meaningKr": "석탄",
+        "exampleEn": "火力发电厂主要依靠燃烧煤炭来产生电力。",
+        "exampleKr": "화력 발전소는 주로 석탄을 태워서 전기를 생산한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "méi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-88-1780414451287",
+        "term": "秒",
+        "definition": "second (unit of time); arc second (angular measurement unit)",
+        "meaningKr": "초",
+        "exampleEn": "这场比赛非常激烈，胜负仅在一秒之间。",
+        "exampleKr": "이 경기는 매우 치열했으며 승패는 단 1초 사이에 갈렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "miǎo",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-89-1780414451287",
+        "term": "牛",
+        "definition": "surname Niu",
+        "meaningKr": "소",
+        "exampleEn": "这头牛的体格非常健壮，看起来很有力气。",
+        "exampleKr": "이 소는 체격이 매우 건장해서 힘이 세 보인다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "niú",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-90-1780414451287",
+        "term": "暖",
+        "definition": "old variant of 暖[nuan3]",
+        "meaningKr": "따뜻하다",
+        "exampleEn": "冬天的阳光暖暖地照在身上，感觉很舒服。",
+        "exampleKr": "겨울 햇살이 따뜻하게 몸에 비추니 기분이 아주 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "nuǎn",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-advanced-91-1780414451287",
+        "term": "旁",
+        "definition": "one side; other; different",
+        "meaningKr": "옆, 다른",
+        "exampleEn": "他做事总喜欢从旁观者的角度去思考问题。",
+        "exampleKr": "그는 일을 할 때 늘 방관자의 입장에서 문제를 생각하는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "páng",
+        "pos": "noun, pronoun"
+      },
+      {
+        "id": "word-zh-advanced-92-1780414451287",
+        "term": "赔",
+        "definition": "to compensate for loss; to indemnify; to suffer a financial loss",
+        "meaningKr": "배상하다, 손해를 보다",
+        "exampleEn": "如果不小心损坏了别人的物品，应该主动提出赔偿。",
+        "exampleKr": "실수로 타인의 물건을 망가뜨렸다면, 마땅히 배상을 제의해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "péi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-93-1780414451287",
+        "term": "陪",
+        "definition": "to accompany; to keep sb company; to assist",
+        "meaningKr": "동행하다, 함께 있다",
+        "exampleEn": "他工作很忙，但还是抽出时间来陪家人。",
+        "exampleKr": "그는 일이 매우 바쁘지만, 그래도 시간을 내어 가족과 함께 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "péi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-94-1780414451287",
+        "term": "喷",
+        "definition": "to spout; to spurt; to spray; to puff",
+        "meaningKr": "뿜다, 분사하다",
+        "exampleEn": "香水瓶不小心掉在地上，香水喷得到处都是。",
+        "exampleKr": "향수병이 실수로 땅에 떨어져 향수가 사방으로 분사되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "pēn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-95-1780414451287",
+        "term": "盆",
+        "definition": "basin; flower pot; unit of volume equal to 12 斗[dou3] and 8 升[sheng1], approx 128 liters",
+        "meaningKr": "대야, 화분",
+        "exampleEn": "她在阳台上摆放了几个装满鲜花的盆。",
+        "exampleKr": "그녀는 베란다에 꽃으로 가득 찬 몇 개의 화분을 놓았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "pén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-96-1780414451287",
+        "term": "披",
+        "definition": "to drape over one's shoulders; to open; to unroll",
+        "meaningKr": "걸치다, 펼치다",
+        "exampleEn": "她披着一件薄外套，走进了寒冷的夜晚。",
+        "exampleKr": "그녀는 얇은 외투를 걸치고 추운 밤거리로 걸어 들어갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "pī",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-97-1780414451287",
+        "term": "匹",
+        "definition": "classifier for horses, mules etc (Taiwan pr. [pi1]); classifier for cloth: bolt; horsepower",
+        "meaningKr": "필 (말, 비단)",
+        "exampleEn": "这匹马在赛场上奔驰，展现出惊人的速度。",
+        "exampleKr": "이 말은 경주장에서 질주하며 놀라운 속도를 보여주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "pǐ",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-advanced-98-1780414451287",
+        "term": "骗",
+        "definition": "to cheat; to swindle; to deceive",
+        "meaningKr": "속이다, 사기치다",
+        "exampleEn": "网络诈骗手段层出不穷，我们要提高警惕，谨防上当。",
+        "exampleKr": "인터넷 사기 수법이 끊임없이 나타나므로, 우리는 경계를 늦추지 말고 속지 않도록 조심해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "piàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-99-1780414451287",
+        "term": "拼",
+        "definition": "to piece together; to put together; to pool (resources etc); to share; to risk all; to go all out",
+        "meaningKr": "합치다, 애쓰다, 목숨을 걸다",
+        "exampleEn": "为了实现梦想，他决定拼尽全力去奋斗。",
+        "exampleKr": "꿈을 이루기 위해 그는 전력을 다해 분투하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "pīn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-100-1780414451287",
+        "term": "品",
+        "definition": "kind; type; variety; character; disposition; nature; temperament; to taste sth; to sample",
+        "meaningKr": "품질, 품질을 나타내는 접미사",
+        "exampleEn": "这家商店以其优质的产品和周到的服务赢得了顾客的赞誉。",
+        "exampleKr": "이 상점은 우수한 품질의 제품과 세심한 서비스로 고객들의 칭찬을 얻었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "pǐn",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-zh-advanced-101-1780414451287",
+        "term": "凭",
+        "definition": "variant of 憑|凭[ping2]",
+        "meaningKr": "기대다, 의지하다, ~에 근거하여",
+        "exampleEn": "我们应该凭事实说话，而不是凭个人感觉。",
+        "exampleKr": "우리는 개인적인 느낌에 의지하기보다는 사실에 근거해서 말해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "píng",
+        "pos": "verb, preposition"
+      },
+      {
+        "id": "word-zh-advanced-102-1780414451287",
+        "term": "泼",
+        "definition": "to splash; to spill; rough and coarse",
+        "meaningKr": "끼얹다, 흩뿌리다, 거칠다",
+        "exampleEn": "他性格粗犷，说话做事总是大大咧咧，不拘小节。",
+        "exampleKr": "그는 성격이 거칠어서 말하고 행동할 때 항상 대범하고 사소한 것에 구애받지 않는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "pō",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-103-1780414451287",
+        "term": "其",
+        "definition": "his; her; its",
+        "meaningKr": "그의, 그녀의, 그것의",
+        "exampleEn": "无论遇到什么困难，他都能保持乐观的态度，并积极寻找解决方案。",
+        "exampleKr": "어떤 어려움을 만나든 그는 낙관적인 태도를 유지하며 적극적으로 해결책을 찾을 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qí",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-advanced-104-1780414451287",
+        "term": "签",
+        "definition": "to sign one's name; to write brief comments on a document; inscribed bamboo stick (variant of 籤|签[qian1])",
+        "meaningKr": "서명하다, 기입하다",
+        "exampleEn": "请您在此处签名确认，以表示您已阅读并同意相关条款。",
+        "exampleKr": "관련 조항을 읽고 동의함을 표시하기 위해 여기에 서명하여 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qiān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-105-1780414451287",
+        "term": "欠",
+        "definition": "to owe; to lack; to raise slightly (a part of one's body)",
+        "meaningKr": "빚지다, 부족하다, (몸의 일부를) 살짝 들다",
+        "exampleEn": "由于缺乏经验，他在这次谈判中犯了一些不该有的错误。",
+        "exampleKr": "경험 부족으로 인해 그는 이번 협상에서 있어서는 안 될 몇 가지 실수를 저질렀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qiàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-106-1780414451287",
+        "term": "枪",
+        "definition": "surname Qiang",
+        "meaningKr": "총, 총을 쏘다",
+        "exampleEn": "在古代战争中，弓箭和长矛是主要的远程攻击武器。",
+        "exampleKr": "고대 전쟁에서 활과 창은 주요 원거리 공격 무기였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qiāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-107-1780414451287",
+        "term": "抢",
+        "definition": "opposite in direction; contrary",
+        "meaningKr": "빼앗다, 강탈하다, 서두르다",
+        "exampleEn": "在旅游旺季，游客们争先恐后地预订机票和酒店。",
+        "exampleKr": "여행 성수기에는 관광객들이 앞다투어 항공권과 호텔을 예약한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qiǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-108-1780414451287",
+        "term": "敲",
+        "definition": "to hit; to strike; to tap",
+        "meaningKr": "두드리다, 치다, (가격을) 깎다",
+        "exampleEn": "他敲开了邻居家的门，询问是否有急事需要帮忙。",
+        "exampleKr": "그는 이웃집 문을 두드리고 급한 도움이 필요한 일이 있는지 물었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qiāo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-109-1780414451287",
+        "term": "瞧",
+        "definition": "to look at; to see; to see (a doctor)",
+        "meaningKr": "보다, 바라보다",
+        "exampleEn": "我们不妨去看看那场精彩的演出，相信你一定会喜欢。",
+        "exampleKr": "우리 그 멋진 공연을 한번 보러 가는 것은 어떨까, 당신이 분명 좋아할 것이라고 믿는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qiáo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-110-1780414451287",
+        "term": "琴",
+        "definition": "guqin 古琴[gu3 qin2] (a type of zither); musical instrument in general",
+        "meaningKr": "거문고, 악기",
+        "exampleEn": "她从小就学习弹奏钢琴，技艺非常娴熟。",
+        "exampleKr": "그녀는 어릴 때부터 피아노를 배우기 시작해서 솜씨가 매우 능숙하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qín",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-111-1780414451287",
+        "term": "青",
+        "definition": "short name for Qinghai 青海[Qing1 hai3]",
+        "meaningKr": "푸른, 젊은, 청년",
+        "exampleEn": "年轻一代有活力、有创造力，是国家未来的希望。",
+        "exampleKr": "젊은 세대는 활력과 창의력이 있으며 국가의 미래 희망이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "qīng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-112-1780414451287",
+        "term": "泉",
+        "definition": "spring (small stream); mouth of a spring; coin (archaic)",
+        "meaningKr": "샘, 온천",
+        "exampleEn": "经过长途跋涉，我们在山脚下发现了一个清澈的泉水。",
+        "exampleKr": "장거리 이동 후, 우리는 산기슭에서 맑은 샘물을 발견했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "quán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-113-1780414451287",
+        "term": "劝",
+        "definition": "to advise; to urge; to try to persuade",
+        "meaningKr": "권하다, 설득하다",
+        "exampleEn": "老师劝导学生要努力学习，为将来打下坚实的基础。",
+        "exampleKr": "선생님은 학생들에게 열심히 공부하여 미래를 위한 튼튼한 기초를 다지라고 권했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "quàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-114-1780414451287",
+        "term": "染",
+        "definition": "to dye; to catch (a disease); to acquire (bad habits etc)",
+        "meaningKr": "염색하다, 물들다, (병·습관에) 감염되다",
+        "exampleEn": "他深受不良社会风气的影响，染上了恶习。",
+        "exampleKr": "그는 좋지 못한 사회 풍조의 영향을 깊이 받아 악습에 물들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "rǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-115-1780414451287",
+        "term": "绕",
+        "definition": "to wind; to coil (thread); to rotate around",
+        "meaningKr": "감다, 둘러싸다, 빙빙 돌다",
+        "exampleEn": "这条蜿蜒的小路绕着山丘缓缓延伸。",
+        "exampleKr": "이 구불구불한 작은 길은 언덕을 따라 천천히 뻗어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "rào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-116-1780414451287",
+        "term": "忍",
+        "definition": "to bear; to endure; to tolerate",
+        "meaningKr": "참다, 인내하다",
+        "exampleEn": "面对巨大的压力，他表现出了惊人的忍耐力。",
+        "exampleKr": "엄청난 압박에 직면하여 그는 놀라운 인내력을 보여주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "rěn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-117-1780414451287",
+        "term": "认",
+        "definition": "to recognize; to know; to admit",
+        "meaningKr": "알다, 알아보다, 인정하다",
+        "exampleEn": "他虽然不认识我，但我一眼就认出了他。",
+        "exampleKr": "그는 나를 알지 못했지만, 나는 한눈에 그를 알아보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "rèn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-118-1780414451287",
+        "term": "扔",
+        "definition": "to throw; to throw away",
+        "meaningKr": "던지다, 버리다",
+        "exampleEn": "请将垃圾分类后扔进指定的垃圾桶。",
+        "exampleKr": "쓰레기는 분리수거한 후 지정된 쓰레기통에 버려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "rēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-119-1780414451287",
+        "term": "软",
+        "definition": "soft; flexible",
+        "meaningKr": "부드럽다, 연하다",
+        "exampleEn": "这种新型材料质地柔软，但非常耐磨。",
+        "exampleKr": "이 신소재는 질감이 부드럽지만 매우 내마모성이 강하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "ruǎn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-120-1780414451287",
+        "term": "洒",
+        "definition": "to sprinkle; to spray; to spill",
+        "meaningKr": "뿌리다, (액체 등을) 쏟다",
+        "exampleEn": "她小心翼翼地将香水洒在手腕上。",
+        "exampleKr": "그녀는 조심스럽게 향수를 손목에 뿌렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "sǎ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-121-1780414451287",
+        "term": "散",
+        "definition": "variant of 散[san4]",
+        "meaningKr": "흩어지다, 퍼뜨리다, 해산하다",
+        "exampleEn": "会议结束后，大家纷纷散去，各忙各的。",
+        "exampleKr": "회의가 끝난 후, 사람들은 하나둘 흩어져 각자 바쁜 일을 처리했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "sǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-122-1780414451287",
+        "term": "杀",
+        "definition": "to kill; to slay; to murder; to attack; to weaken; to reduce",
+        "meaningKr": "죽이다, 살해하다, (가격을) 대폭 내리다",
+        "exampleEn": "这家商场为了促销，将商品价格大幅杀价。",
+        "exampleKr": "이 백화점은 판촉을 위해 상품 가격을 대폭 인하했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-123-1780414451287",
+        "term": "傻",
+        "definition": "foolish",
+        "meaningKr": "어리석다, 바보 같다",
+        "exampleEn": "他总是做出一些出人意料的举动，让人觉得他有点傻。",
+        "exampleKr": "그는 항상 예상치 못한 행동을 해서 사람들이 그를 조금 어리석다고 생각하게 만든다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shǎ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-124-1780414451287",
+        "term": "扇",
+        "definition": "to fan; to slap sb on the face",
+        "meaningKr": "부채질하다, (부채 등으로) 치다",
+        "exampleEn": "夏天天气炎热，人们常常用扇子来驱散热气。",
+        "exampleKr": "여름은 날씨가 더워서 사람들은 종종 부채질을 하여 더위를 식힌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-125-1780414451287",
+        "term": "扇",
+        "definition": "to fan; to slap sb on the face",
+        "meaningKr": "(문, 창문 등을 세는 단위) 짝, 개",
+        "exampleEn": "这扇窗户的隔音效果很好。",
+        "exampleKr": "이 창문은 방음 효과가 매우 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shàn",
+        "pos": "classifier, noun"
+      },
+      {
+        "id": "word-zh-advanced-126-1780414451287",
+        "term": "稍",
+        "definition": "somewhat; a little",
+        "meaningKr": "약간, 좀, 조금",
+        "exampleEn": "请稍等片刻，我马上回来。",
+        "exampleKr": "잠시만 기다려 주세요, 금방 돌아오겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shāo",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-127-1780414451287",
+        "term": "蛇",
+        "definition": "variant of 蛇[she2]",
+        "meaningKr": "뱀",
+        "exampleEn": "这种蛇的毒性很强。",
+        "exampleKr": "이 뱀은 독성이 매우 강하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shé",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-128-1780414451287",
+        "term": "射",
+        "definition": "old variant of 射[she4]",
+        "meaningKr": "쏘다, 발사하다",
+        "exampleEn": "阳光透过窗户射入室内。",
+        "exampleKr": "햇살이 창문을 통해 실내로 쏟아져 들어왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-129-1780414451287",
+        "term": "社",
+        "definition": "(bound form) society; organization; agency; (old) god of the land",
+        "meaningKr": "사회, 단체, 동아리",
+        "exampleEn": "该社团致力于环保事业。",
+        "exampleKr": "이 동아리는 환경 보호 사업에 힘쓰고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-130-1780414451287",
+        "term": "伸",
+        "definition": "to stretch; to extend",
+        "meaningKr": "펴다, 내밀다, 늘리다",
+        "exampleEn": "他伸了个懒腰，然后继续工作。",
+        "exampleKr": "그는 기지개를 켜고 나서 계속 일했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shēn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-131-1780414451287",
+        "term": "神",
+        "definition": "God",
+        "meaningKr": "신, 정신, 영혼",
+        "exampleEn": "他的眼神中充满了自信。",
+        "exampleKr": "그의 눈빛에는 자신감이 가득했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-132-1780414451287",
+        "term": "声",
+        "definition": "sound; voice; tone",
+        "meaningKr": "소리, 목소리, 성조",
+        "exampleEn": "她的歌声打动了所有听众。",
+        "exampleKr": "그녀의 노랫소리는 모든 청중의 마음을 움직였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shēng",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-advanced-133-1780414451287",
+        "term": "剩",
+        "definition": "to remain; to be left; to have as remainder",
+        "meaningKr": "남다, 남기다",
+        "exampleEn": "会议结束后，只剩下几个人。",
+        "exampleKr": "회의가 끝난 후, 몇 사람만 남았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shèng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-134-1780414451287",
+        "term": "拾",
+        "definition": "to pick up; to collate or arrange; ten (banker's anti-fraud numeral)",
+        "meaningKr": "줍다",
+        "exampleEn": "他拾起了地上的文件。",
+        "exampleKr": "그는 바닥에 떨어진 서류를 주웠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-135-1780414451287",
+        "term": "式",
+        "definition": "type; form; pattern",
+        "meaningKr": "식, 형식, 방식",
+        "exampleEn": "这种新型手机功能齐全。",
+        "exampleKr": "이 신형 휴대폰은 기능이 완벽하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-136-1780414451287",
+        "term": "瘦",
+        "definition": "thin; to lose weight",
+        "meaningKr": "마르다, 여위다",
+        "exampleEn": "她为了健康开始减肥变瘦。",
+        "exampleKr": "그녀는 건강을 위해 다이어트를 시작해서 날씬해졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shòu",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-137-1780414451287",
+        "term": "鼠",
+        "definition": "(bound form) rat; mouse",
+        "meaningKr": "쥐",
+        "exampleEn": "实验室里饲养着许多小白鼠。",
+        "exampleKr": "실험실에는 많은 흰쥐가 사육되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-138-1780414451287",
+        "term": "摔",
+        "definition": "to throw down; to fall; to drop and break",
+        "meaningKr": "넘어지다, 던지다, 떨어뜨려 깨다",
+        "exampleEn": "小心路滑，别摔倒了。",
+        "exampleKr": "길이 미끄러우니 조심하고 넘어지지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "shuāi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-139-1780414451287",
+        "term": "搜",
+        "definition": "to search",
+        "meaningKr": "찾다, 수색하다, 검색하다",
+        "exampleEn": "警方正在搜集相关证据。",
+        "exampleKr": "경찰은 관련 증거를 수집 중이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "sōu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-140-1780414451287",
+        "term": "碎",
+        "definition": "broken; fragmentary; scattered; garrulous",
+        "meaningKr": "부서지다, 깨지다, 산산조각 나다",
+        "exampleEn": "玻璃杯掉在地上摔碎了。",
+        "exampleKr": "유리컵이 바닥에 떨어져 깨졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "suì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-141-1780414451287",
+        "term": "锁",
+        "definition": "to lock; to lock up; a lock (CL:把[ba3])",
+        "meaningKr": "잠그다, 자물쇠",
+        "exampleEn": "门锁坏了，需要更换。",
+        "exampleKr": "문 잠금장치가 고장 나서 교체해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "suǒ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-142-1780414451287",
+        "term": "抬",
+        "definition": "to lift; to raise",
+        "meaningKr": "들어 올리다, (고개 등을) 들다",
+        "exampleEn": "他抬起头，望向远方。",
+        "exampleKr": "그는 고개를 들어 먼 곳을 바라봤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "tái",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-143-1780414451287",
+        "term": "弹",
+        "definition": "to pluck (a string); to play (a string instrument); to spring or leap",
+        "meaningKr": "(현악기를) 연주하다, 퉁기다",
+        "exampleEn": "他的指尖轻柔地弹奏着吉他。",
+        "exampleKr": "그의 손끝은 기타를 부드럽게 연주했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "tán",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-144-1780414451287",
+        "term": "桃",
+        "definition": "peach",
+        "meaningKr": "복숭아",
+        "exampleEn": "这种桃子味道鲜美，营养丰富。",
+        "exampleKr": "이 복숭아는 맛이 신선하고 영양분이 풍부하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "táo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-145-1780414451287",
+        "term": "逃",
+        "definition": "to escape; to run away; to flee",
+        "meaningKr": "도망치다, 탈출하다",
+        "exampleEn": "面对困难，我们不应选择逃避。",
+        "exampleKr": "어려움에 직면했을 때, 우리는 회피해서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "táo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-146-1780414451287",
+        "term": "厅",
+        "definition": "living room; office; provincial government department",
+        "meaningKr": "거실, 홀, 청사",
+        "exampleEn": "会议厅里坐满了来自各地的代表。",
+        "exampleKr": "회의실에는 각지에서 온 대표들로 가득 찼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "tīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-147-1780414451287",
+        "term": "偷",
+        "definition": "to steal; to pilfer; to snatch",
+        "meaningKr": "훔치다, 몰래 하다",
+        "exampleEn": "他因涉嫌偷窃公司财物被捕。",
+        "exampleKr": "그는 회사 재물 절도 혐의로 체포되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "tōu",
+        "pos": "verb, adverb"
+      },
+      {
+        "id": "word-zh-advanced-148-1780414451287",
+        "term": "吐",
+        "definition": "to spit; to send out (silk from a silkworm, bolls from cotton flowers etc); to say",
+        "meaningKr": "(침 등을) 뱉다, 토하다",
+        "exampleEn": "医生建议他多喝水，以防呕吐。",
+        "exampleKr": "의사는 그에게 구토를 막기 위해 물을 많이 마시라고 권했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "tǔ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-149-1780414451287",
+        "term": "兔",
+        "definition": "variant of 兔[tu4]",
+        "meaningKr": "토끼",
+        "exampleEn": "农场里养着一群可爱的兔子。",
+        "exampleKr": "농장에는 귀여운 토끼 한 무리가 길러지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "tù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-150-1780414451287",
+        "term": "吐",
+        "definition": "to spit; to send out (silk from a silkworm, bolls from cotton flowers etc); to say",
+        "meaningKr": "토하다, 뱉다",
+        "exampleEn": "他因身体不适，在路边吐了。",
+        "exampleKr": "그는 몸이 좋지 않아 길가에서 토했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "tù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-151-1780414451287",
+        "term": "胃",
+        "definition": "stomach",
+        "meaningKr": "위",
+        "exampleEn": "医生建议他保护好胃，不要吃辛辣食物。",
+        "exampleKr": "의사는 그에게 위를 잘 보호하고 매운 음식을 먹지 말라고 조언했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "wèi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-152-1780414451287",
+        "term": "握",
+        "definition": "to hold; to grasp; to clench (one's fist); classifier: a handful",
+        "meaningKr": "쥐다, 잡다",
+        "exampleEn": "双方代表在会议上友好地握手。",
+        "exampleKr": "양측 대표는 회의에서 우호적으로 악수했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "wò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-153-1780414451287",
+        "term": "屋",
+        "definition": "(bound form) house; (bound form) room",
+        "meaningKr": "집, 방",
+        "exampleEn": "这座古老的屋子充满了历史气息。",
+        "exampleKr": "이 오래된 집은 역사적인 분위기로 가득하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "wū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-154-1780414451287",
+        "term": "舞",
+        "definition": "to dance; to wield; to brandish",
+        "meaningKr": "춤추다, 춤",
+        "exampleEn": "她从小就热爱舞蹈，并梦想成为一名舞者。",
+        "exampleKr": "그녀는 어릴 때부터 춤을 사랑했고, 무용수가 되는 것을 꿈꿨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "wǔ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-155-1780414451287",
+        "term": "戏",
+        "definition": "variant of 戲|戏[xi4]",
+        "meaningKr": "연극, 희곡, 놀이",
+        "exampleEn": "这部戏的情节设计巧妙，引人入胜。",
+        "exampleKr": "이 연극의 줄거리는 교묘하게 설계되어 사람들의 마음을 사로잡는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-156-1780414451287",
+        "term": "吓",
+        "definition": "to frighten; to scare",
+        "meaningKr": "겁주다, 놀라게 하다",
+        "exampleEn": "突如其来的巨响把大家吓了一跳。",
+        "exampleKr": "갑작스러운 큰 소리가 모두를 깜짝 놀라게 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xià",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-157-1780414451287",
+        "term": "闲",
+        "definition": "enclosure; unoccupied; leisure",
+        "meaningKr": "한가하다, 여가",
+        "exampleEn": "即使工作再忙，也要抽出时间享受闲暇。",
+        "exampleKr": "아무리 일이 바빠도, 한가로운 시간을 즐기기 위해 시간을 내야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xián",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-158-1780414451287",
+        "term": "显",
+        "definition": "to make visible; to reveal; prominent",
+        "meaningKr": "나타나다, 드러나다, 분명하다",
+        "exampleEn": "这次事件充分显现了团队的凝聚力。",
+        "exampleKr": "이번 사건은 팀의 응집력을 충분히 보여주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xiǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-159-1780414451287",
+        "term": "献",
+        "definition": "to offer; to present; to dedicate",
+        "meaningKr": "바치다, 헌납하다, 드리다",
+        "exampleEn": "他将自己毕生的精力都献给了科学研究。",
+        "exampleKr": "그는 평생의 에너지를 과학 연구에 바쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xiàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-160-1780414451287",
+        "term": "乡",
+        "definition": "country or countryside; native place; home village or town",
+        "meaningKr": "고향, 시골",
+        "exampleEn": "无论走到哪里，他都思念着故乡的亲人。",
+        "exampleKr": "어디를 가든지 그는 고향의 가족들을 그리워했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xiāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-161-1780414451287",
+        "term": "歇",
+        "definition": "to rest; to take a break; to stop",
+        "meaningKr": "쉬다, 휴식하다",
+        "exampleEn": "走了这么久，我们找个地方歇歇脚吧。",
+        "exampleKr": "이렇게 오래 걸었으니, 우리 쉬어갈 곳을 찾아보자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xiē",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-162-1780414451287",
+        "term": "斜",
+        "definition": "inclined; slanting; oblique",
+        "meaningKr": "비스듬하다, 기울다",
+        "exampleEn": "阳光透过窗户斜射进来，洒满了房间。",
+        "exampleKr": "햇살이 창문을 비스듬히 통과하여 방안을 가득 채웠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xié",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-163-1780414451287",
+        "term": "熊",
+        "definition": "surname Xiong",
+        "meaningKr": "곰",
+        "exampleEn": "大熊猫是中国特有的珍稀动物，深受喜爱。",
+        "exampleKr": "판다는 중국 특유의 희귀 동물로, 많은 사랑을 받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "xióng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-164-1780414451287",
+        "term": "咬",
+        "definition": "to bite; to nip",
+        "meaningKr": "물다, 깨물다",
+        "exampleEn": "狗看到陌生人靠近，就开始吠叫并咬人。",
+        "exampleKr": "개는 낯선 사람이 다가오는 것을 보고 짖기 시작하며 사람을 물었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "yǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-165-1780414451287",
+        "term": "乙",
+        "definition": "second of the ten Heavenly Stems 十天干[shi2 tian1 gan1]; second in order; letter \"B\" or Roman \"II\" in list \"A, B, C\", or \"I, II, III\" etc",
+        "meaningKr": "을(乙), 두 번째",
+        "exampleEn": "这份合同分为甲乙双方，各自承担责任。",
+        "exampleKr": "이 계약은 갑과 을 두 당사자로 나뉘며, 각자 책임을 진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "yǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-166-1780414451287",
+        "term": "应",
+        "definition": "Taiwan pr. [Ying4]",
+        "meaningKr": "응하다, 응답하다, 대답하다",
+        "exampleEn": "他对应聘者提问都作了详细回答。",
+        "exampleKr": "그는 응시자들의 질문에 자세히 답변했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "yìng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-167-1780414451287",
+        "term": "硬",
+        "definition": "hard; stiff; solid; resolutely; uncompromisingly; laboriously; with great difficulty",
+        "meaningKr": "딱딱하다, 굳다, 단단하다",
+        "exampleEn": "这块木头很硬，很难用普通的工具切割。",
+        "exampleKr": "이 나무는 매우 단단해서 일반 도구로는 자르기 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "yìng",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-advanced-168-1780414451287",
+        "term": "怨",
+        "definition": "to blame",
+        "meaningKr": "원망하다, 탓하다, 원한",
+        "exampleEn": "遇到困难时，不应怨天尤人，而应积极解决。",
+        "exampleKr": "어려움을 겪을 때 우리는 남을 탓하지 말고 적극적으로 해결해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "yuàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-169-1780414451287",
+        "term": "愿",
+        "definition": "honest and prudent",
+        "meaningKr": "바라다, 원하다, 소원",
+        "exampleEn": "我衷心祝愿大家身体健康，万事如意。",
+        "exampleKr": "저는 여러분 모두 건강하시고 만사형통하시기를 진심으로 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "yuàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-170-1780414451287",
+        "term": "运",
+        "definition": "to move; to transport; to use",
+        "meaningKr": "운반하다, 나르다, 운수",
+        "exampleEn": "物流公司负责将货物安全地运输到目的地。",
+        "exampleKr": "물류 회사는 화물을 목적지까지 안전하게 운송하는 책임을 진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "yùn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-171-1780414451287",
+        "term": "灾",
+        "definition": "disaster; calamity",
+        "meaningKr": "재해, 재난",
+        "exampleEn": "面对自然灾害，人类显得如此渺小无力。",
+        "exampleKr": "자연재해 앞에서 인류는 너무나도 미미하고 무력해 보인다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zāi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-172-1780414451287",
+        "term": "糟",
+        "definition": "dregs; draff; pickled in wine",
+        "meaningKr": "엉망이다, 형편없다",
+        "exampleEn": "糟糕的天气影响了我们的出行计划。",
+        "exampleKr": "엉망인 날씨가 우리의 여행 계획에 영향을 미쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zāo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-173-1780414451287",
+        "term": "增",
+        "definition": "(bound form) to increase; to augment; to add to",
+        "meaningKr": "늘리다, 증가시키다",
+        "exampleEn": "随着经济发展，人们的收入水平不断增加。",
+        "exampleKr": "경제 발전과 더불어 사람들의 수입 수준은 계속 증가하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-174-1780414451287",
+        "term": "赠",
+        "definition": "to give as a present; to repel; to bestow an honorary title after death (old)",
+        "meaningKr": "증정하다, 선물하다",
+        "exampleEn": "购买此产品即可获赠一份精美礼品。",
+        "exampleKr": "이 제품을 구매하시면 고급 선물을 증정합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zèng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-175-1780414451287",
+        "term": "摘",
+        "definition": "to take; to pick (flowers, fruit etc); to pluck; to remove; to take off (glasses, hat etc); to select; to pick out; to borrow money at a time of urgent need",
+        "meaningKr": "(꽃, 과일 등을) 따다, (안경, 모자 등을) 벗다, (요점 등을) 발췌하다",
+        "exampleEn": "她摘下眼镜，仔细阅读了这份报告。",
+        "exampleKr": "그녀는 안경을 벗고 이 보고서를 자세히 읽었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zhāi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-176-1780414451287",
+        "term": "涨",
+        "definition": "to rise (of prices, rivers)",
+        "meaningKr": "(물가, 수위 등이) 오르다, 상승하다",
+        "exampleEn": "近期物价持续上涨，给生活带来压力。",
+        "exampleKr": "최근 물가가 계속 올라 생활에 부담을 주고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zhǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-177-1780414451287",
+        "term": "挣",
+        "definition": "used in 掙扎|挣扎[zheng1 zha2]",
+        "meaningKr": "(돈을) 벌다, 얻다",
+        "exampleEn": "他努力工作，希望能挣更多的钱。",
+        "exampleKr": "그는 더 많은 돈을 벌기 위해 열심히 일한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zhèng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-178-1780414451287",
+        "term": "至",
+        "definition": "to arrive; most; to",
+        "meaningKr": "~까지, ~에 이르다, 지극히",
+        "exampleEn": "会议将持续至本周末。",
+        "exampleKr": "회의는 이번 주말까지 계속될 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zhì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-179-1780414451287",
+        "term": "撞",
+        "definition": "to knock against; to bump into; to run into",
+        "meaningKr": "부딪히다, 충돌하다",
+        "exampleEn": "他不小心撞到了路边的电线杆。",
+        "exampleKr": "그는 실수로 길가의 전봇대에 부딪혔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zhuàng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-180-1780414451287",
+        "term": "紫",
+        "definition": "purple; violet",
+        "meaningKr": "보라색, 자주색",
+        "exampleEn": "她最喜欢紫色的花朵，显得高贵典雅。",
+        "exampleKr": "그녀는 보라색 꽃을 가장 좋아하는데, 고귀하고 우아해 보인다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zǐ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-181-1780414451287",
+        "term": "醉",
+        "definition": "intoxicated",
+        "meaningKr": "취하다, 술에 취하다",
+        "exampleEn": "他酒量不好，几杯酒下肚就醉了。",
+        "exampleKr": "그는 주량이 약해서 몇 잔 마시자마자 취했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "zuì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-182-1780414451287",
+        "term": "安慰",
+        "definition": "to comfort; to console",
+        "meaningKr": "위로하다, 안위",
+        "exampleEn": "面对困境，我们需要互相安慰和支持。",
+        "exampleKr": "어려움에 직면했을 때, 우리는 서로 위로하고 지지해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "ānwèi",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-advanced-183-1780414451287",
+        "term": "按摩",
+        "definition": "massage; to massage",
+        "meaningKr": "안마하다, 마사지하다",
+        "exampleEn": "经过按摩，她感到全身放松了许多。",
+        "exampleKr": "마사지를 받고 나서 그녀는 온몸이 많이 편안해지는 것을 느꼈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "ànmó",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-184-1780414451287",
+        "term": "岸上",
+        "definition": "ashore; on the riverbank",
+        "meaningKr": "물가에, 강가에, 해안에",
+        "exampleEn": "孩子们在岸上玩耍，享受着阳光。",
+        "exampleKr": "아이들은 강가에서 햇살을 즐기며 놀고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "àn shang",
+        "pos": "Other (N-L)"
+      },
+      {
+        "id": "word-zh-advanced-185-1780414451287",
+        "term": "白酒",
+        "definition": "baijiu, a spirit usually distilled from sorghum",
+        "meaningKr": "백주 (중국 증류주)",
+        "exampleEn": "白酒是中国传统的烈性酒，种类繁多。",
+        "exampleKr": "백주는 중국 전통의 독한 술이며 종류가 매우 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "báijiǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-186-1780414451287",
+        "term": "拜访",
+        "definition": "to pay a visit; to call on",
+        "meaningKr": "방문하다, 찾아뵙다",
+        "exampleEn": "他决定周末去拜访一位老朋友。",
+        "exampleKr": "그는 주말에 오랜 친구를 찾아뵙기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bàifǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-187-1780414451287",
+        "term": "扮演",
+        "definition": "to play the role of; to act",
+        "meaningKr": "(역할을) 연기하다, 맡다",
+        "exampleEn": "在这部电影中，他扮演了一个重要的角色。",
+        "exampleKr": "이 영화에서 그는 중요한 역할을 연기했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bànyǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-188-1780414451287",
+        "term": "包围",
+        "definition": "to surround; to encircle; to hem in",
+        "meaningKr": "포위하다, 에워싸다",
+        "exampleEn": "警察迅速包围了犯罪嫌疑人的住所。",
+        "exampleKr": "경찰은 신속하게 범죄 용의자의 거주지를 포위했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bāowéi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-189-1780414451287",
+        "term": "包装",
+        "definition": "to wrap; to package (goods etc); packaging; packing materials",
+        "meaningKr": "포장하다, 포장",
+        "exampleEn": "产品的包装设计对于销售至关重要。",
+        "exampleKr": "제품의 포장 디자인은 판매에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bāozhuāng",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-190-1780414451287",
+        "term": "保卫",
+        "definition": "to defend; to safeguard",
+        "meaningKr": "보위하다, 수호하다",
+        "exampleEn": "人民军队肩负着保卫祖国和人民的重任。",
+        "exampleKr": "인민군은 조국과 인민을 수호하는 막중한 임무를 띠고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǎowèi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-191-1780414451287",
+        "term": "保养",
+        "definition": "to take good care of (or conserve) one's health; to keep in good repair; to maintain",
+        "meaningKr": "보양하다, 유지보수하다, 관리하다",
+        "exampleEn": "定期保养汽车可以延长其使用寿命。",
+        "exampleKr": "정기적으로 자동차를 관리하면 수명을 연장할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǎoyǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-192-1780414451287",
+        "term": "报答",
+        "definition": "to repay; to requite",
+        "meaningKr": "보답하다, 은혜를 갚다",
+        "exampleEn": "他发誓要报答恩人的救命之恩。",
+        "exampleKr": "그는 은인의 생명의 은혜에 보답하겠다고 맹세했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bàodá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-193-1780414451287",
+        "term": "报警",
+        "definition": "to sound an alarm; to report sth to the police",
+        "meaningKr": "경찰에 신고하다, 경보를 울리다",
+        "exampleEn": "发现火情后，他立即拨打了报警电话。",
+        "exampleKr": "화재를 발견한 후, 그는 즉시 경찰에 신고 전화(경보 전화)를 걸었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bào∥jǐng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-194-1780414451287",
+        "term": "抱怨",
+        "definition": "to complain; to grumble; to harbor a complaint",
+        "meaningKr": "불평하다, 불만을 토로하다",
+        "exampleEn": "面对困难，抱怨是无济于事的。",
+        "exampleKr": "어려움에 직면했을 때, 불평하는 것은 아무 소용이 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bào·yuàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-195-1780414451287",
+        "term": "背包",
+        "definition": "knapsack; rucksack; infantry pack",
+        "meaningKr": "배낭, 백팩",
+        "exampleEn": "徒步旅行时，一个舒适的背包非常重要。",
+        "exampleKr": "도보 여행 시, 편안한 배낭은 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bēibāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-196-1780414451287",
+        "term": "悲剧",
+        "definition": "tragedy",
+        "meaningKr": "비극",
+        "exampleEn": "这部电影以一场家庭悲剧为背景。",
+        "exampleKr": "이 영화는 한 가정의 비극을 배경으로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bēijù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-197-1780414451287",
+        "term": "悲伤",
+        "definition": "sad; sorrowful",
+        "meaningKr": "비통하다, 슬프다",
+        "exampleEn": "失去亲人后，她沉浸在深深的悲伤之中。",
+        "exampleKr": "가족을 잃은 후, 그녀는 깊은 슬픔에 잠겼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bēishāng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-198-1780414451287",
+        "term": "北极",
+        "definition": "the North Pole; the north magnetic pole",
+        "meaningKr": "북극",
+        "exampleEn": "全球变暖对北极的生态环境造成了严重影响。",
+        "exampleKr": "지구 온난화는 북극의 생태 환경에 심각한 영향을 미쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "běijí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-199-1780414451287",
+        "term": "被动",
+        "definition": "passive",
+        "meaningKr": "피동적이다, 수동적이다",
+        "exampleEn": "在谈判中，我们不能处于被动地位。",
+        "exampleKr": "협상에서 우리는 수동적인 입장에 있어서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bèidòng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-200-1780414451287",
+        "term": "本人",
+        "definition": "I; me; myself; oneself; yourself; himself; herself; the person concerned",
+        "meaningKr": "본인, 당사자",
+        "exampleEn": "本人已确认收到邮件。",
+        "exampleKr": "본인은 이미 메일을 수신했음을 확인했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "běnrén",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-advanced-201-1780414451287",
+        "term": "鼻子",
+        "definition": "nose",
+        "meaningKr": "코",
+        "exampleEn": "她的鼻子很挺，显得很有气质。",
+        "exampleKr": "그녀는 콧대가 높아 기품 있어 보인다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bízi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-202-1780414451287",
+        "term": "彼此",
+        "definition": "each other; one another",
+        "meaningKr": "서로, 피차",
+        "exampleEn": "我们彼此理解，互相支持。",
+        "exampleKr": "우리는 서로를 이해하고 지지합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǐcǐ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-advanced-203-1780414451287",
+        "term": "比方",
+        "definition": "analogy; instance; for instance",
+        "meaningKr": "비유, 예를 들다",
+        "exampleEn": "比方说，我们可以这样解决问题。",
+        "exampleKr": "예를 들어, 우리는 이렇게 문제를 해결할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǐfang",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-204-1780414451287",
+        "term": "比重",
+        "definition": "proportion; specific gravity",
+        "meaningKr": "비중",
+        "exampleEn": "此次改革中，教育的比重显著增加。",
+        "exampleKr": "이번 개혁에서 교육의 비중이 현저히 증가했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǐzhòng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-205-1780414451287",
+        "term": "毕竟",
+        "definition": "after all; all in all; when all is said and done",
+        "meaningKr": "결국, 마침내, 어쨌든",
+        "exampleEn": "毕竟是第一次，有点紧张也很正常。",
+        "exampleKr": "결국 처음이니까, 조금 긴장하는 것도 정상입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bìjìng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-206-1780414451287",
+        "term": "闭幕",
+        "definition": "the curtain falls; lower the curtain; to come to an end (of a meeting)",
+        "meaningKr": "폐막하다, 막을 내리다",
+        "exampleEn": "此次国际会议已于昨日闭幕。",
+        "exampleKr": "이번 국제회의는 어제 폐막했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bì∥mù",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-207-1780414451287",
+        "term": "必需",
+        "definition": "to need; to require; essential",
+        "meaningKr": "필수적인, 꼭 필요한",
+        "exampleEn": "水和食物是人类生存的必需品。",
+        "exampleKr": "물과 식량은 인류 생존에 필수적인 물품입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bìxū",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-208-1780414451287",
+        "term": "编辑",
+        "definition": "to edit; to compile; editor",
+        "meaningKr": "편집자",
+        "exampleEn": "他是一名资深文学编辑。",
+        "exampleKr": "그는 베테랑 문학 편집자입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "biānji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-209-1780414451287",
+        "term": "编辑",
+        "definition": "to edit; to compile; editor",
+        "meaningKr": "편집하다, 편찬하다",
+        "exampleEn": "这本书是由多位专家共同编辑的。",
+        "exampleKr": "이 책은 여러 전문가가 공동으로 편집한 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "biānjí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-210-1780414451287",
+        "term": "边境",
+        "definition": "frontier; border",
+        "meaningKr": "국경, 변방",
+        "exampleEn": "边境地区的贸易日益繁荣。",
+        "exampleKr": "국경 지역의 무역이 나날이 번성하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "biānjìng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-211-1780414451287",
+        "term": "变动",
+        "definition": "to change; to fluctuate; change",
+        "meaningKr": "변동, 변화",
+        "exampleEn": "公司人事方面发生了重大变动。",
+        "exampleKr": "회사 인사에 중대한 변동이 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "biàndòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-212-1780414451287",
+        "term": "便利",
+        "definition": "convenient; easy; to facilitate",
+        "meaningKr": "편리하다, 편의",
+        "exampleEn": "交通便利为城市发展提供了条件。",
+        "exampleKr": "편리한 교통은 도시 발전에 조건을 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "biànlì",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-advanced-213-1780414451287",
+        "term": "便条",
+        "definition": "(informal) note; CL:張|张[zhang1],個|个[ge4]",
+        "meaningKr": "쪽지, 메모",
+        "exampleEn": "他留了一张便条就出门了。",
+        "exampleKr": "그는 쪽지 한 장을 남기고 나갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "biàntiáo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-214-1780414451287",
+        "term": "便于",
+        "definition": "easy to; convenient for",
+        "meaningKr": "~하기 편리하다",
+        "exampleEn": "这种设计便于用户操作。",
+        "exampleKr": "이 디자인은 사용자가 조작하기 편리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "biànyú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-215-1780414451287",
+        "term": "宾馆",
+        "definition": "guesthouse; lodge; hotel",
+        "meaningKr": "호텔, 여관",
+        "exampleEn": "我们预订了一家市中心的宾馆。",
+        "exampleKr": "우리는 시내 중심가의 호텔을 예약했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bīnguǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-216-1780414451287",
+        "term": "饼干",
+        "definition": "biscuit; cracker; cookie",
+        "meaningKr": "비스킷, 과자",
+        "exampleEn": "孩子喜欢吃甜味的饼干。",
+        "exampleKr": "아이는 단맛 비스킷을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǐnggān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-217-1780414451287",
+        "term": "病毒",
+        "definition": "virus",
+        "meaningKr": "바이러스",
+        "exampleEn": "这种新型病毒对人体健康有害。",
+        "exampleKr": "이 신종 바이러스는 인체 건강에 해롭습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bìngdú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-218-1780414451287",
+        "term": "玻璃",
+        "definition": "glass",
+        "meaningKr": "유리",
+        "exampleEn": "窗户上的玻璃被打破了。",
+        "exampleKr": "창문 유리가 깨졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bōli",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-219-1780414451287",
+        "term": "博客",
+        "definition": "(loanword) a blog; a blogger",
+        "meaningKr": "블로그, 블로거",
+        "exampleEn": "他经常在自己的博客上分享生活。",
+        "exampleKr": "그는 자신의 블로그에 자주 생활을 공유합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bókè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-220-1780414451287",
+        "term": "薄弱",
+        "definition": "weak; frail",
+        "meaningKr": "박약하다, 허약하다, 취약하다",
+        "exampleEn": "他的理论基础有些薄弱。",
+        "exampleKr": "그의 이론적 기반은 다소 취약합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bóruò",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-221-1780414451287",
+        "term": "博士",
+        "definition": "doctor (as an academic degree)",
+        "meaningKr": "박사",
+        "exampleEn": "他正在攻读经济学博士学位。",
+        "exampleKr": "그는 경제학 박사 학위를 공부하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bóshì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-222-1780414451287",
+        "term": "不顾",
+        "definition": "in spite of; regardless of",
+        "meaningKr": "개의치 않다, 돌보지 않다, 아랑곳하지 않다",
+        "exampleEn": "他不顾个人安危，冲进了火场。",
+        "exampleKr": "그는 개인의 안위를 돌보지 않고 불타는 현장으로 뛰어들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "búgù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-223-1780414451287",
+        "term": "不利",
+        "definition": "unfavorable; disadvantageous; harmful",
+        "meaningKr": "불리하다, 해롭다",
+        "exampleEn": "这种行为对公司发展十分不利。",
+        "exampleKr": "이런 행동은 회사 발전에 매우 불리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "búlì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-224-1780414451287",
+        "term": "不幸",
+        "definition": "misfortune; adversity; unfortunate",
+        "meaningKr": "불행하다, 불행",
+        "exampleEn": "不幸的是，他错过了这次机会。",
+        "exampleKr": "불행하게도 그는 이번 기회를 놓쳤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "búxìng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-225-1780414451287",
+        "term": "不易",
+        "definition": "not easy to do sth; difficult; unchanging",
+        "meaningKr": "쉽지 않다, 어렵다",
+        "exampleEn": "改革之路不易，需要长期的坚持。",
+        "exampleKr": "개혁의 길은 쉽지 않으며, 장기적인 인내가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "búyì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-226-1780414451287",
+        "term": "补偿",
+        "definition": "to compensate; to make up",
+        "meaningKr": "보상하다, 보충하다",
+        "exampleEn": "公司决定对受损员工进行补偿。",
+        "exampleKr": "회사는 손해를 입은 직원들에게 보상하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǔcháng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-227-1780414451287",
+        "term": "补贴",
+        "definition": "to subsidize; subsidy; allowance",
+        "meaningKr": "보조금, 보조하다",
+        "exampleEn": "政府为贫困家庭提供了生活补贴。",
+        "exampleKr": "정부는 빈곤 가정에 생활 보조금을 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bǔtiē",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-228-1780414451287",
+        "term": "不曾",
+        "definition": "hasn't yet; hasn't ever",
+        "meaningKr": "한 번도 ~한 적이 없다, 아직 ~하지 않았다",
+        "exampleEn": "他不曾向任何人提及此事。",
+        "exampleKr": "그는 이 일을 누구에게도 언급한 적이 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùcéng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-229-1780414451287",
+        "term": "不良",
+        "definition": "bad; harmful; unhealthy",
+        "meaningKr": "불량하다, 좋지 않다, 해롭다",
+        "exampleEn": "吸烟对健康会产生不良影响。",
+        "exampleKr": "흡연은 건강에 좋지 않은 영향을 미칠 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùliáng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-230-1780414451287",
+        "term": "不免",
+        "definition": "inevitably",
+        "meaningKr": "피할 수 없다, ~하기 마련이다",
+        "exampleEn": "初次见面不免有些紧张。",
+        "exampleKr": "첫 만남에는 아무래도 긴장하기 마련이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùmiǎn",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-231-1780414451287",
+        "term": "不时",
+        "definition": "from time to time; now and then; occasionally",
+        "meaningKr": "때때로, 이따금",
+        "exampleEn": "他不时提出一些有建设性的建议。",
+        "exampleKr": "그는 때때로 건설적인 제안을 내놓는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùshí",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-232-1780414451287",
+        "term": "不停",
+        "definition": "incessant",
+        "meaningKr": "끊임없이, 계속해서",
+        "exampleEn": "机器不停地运转，保证了生产效率。",
+        "exampleKr": "기계는 끊임없이 가동되어 생산 효율을 보장했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bù tíng",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-advanced-233-1780414451287",
+        "term": "部位",
+        "definition": "part (esp. of the body, but also of a vegetable, e.g. the root, or a garment, e.g. the sleeve, etc)",
+        "meaningKr": "부위, 부분",
+        "exampleEn": "医生检查了他受伤的腿部部位。",
+        "exampleKr": "의사는 그가 다친 다리 부위를 검사했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùwèi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-234-1780414451287",
+        "term": "不许",
+        "definition": "not to allow; must not; can't",
+        "meaningKr": "허락하지 않다, ~해서는 안 된다",
+        "exampleEn": "博物馆内不许拍照，请遵守规定。",
+        "exampleKr": "박물관 내에서는 사진 촬영이 금지되어 있으니, 규정을 준수해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùxǔ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-235-1780414451287",
+        "term": "不止",
+        "definition": "incessantly; without end; more than",
+        "meaningKr": "그치지 않다, ~이상이다",
+        "exampleEn": "参加会议的人数不止一百。",
+        "exampleKr": "회의에 참석한 인원수는 백 명 이상이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùzhǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-236-1780414451287",
+        "term": "不足",
+        "definition": "insufficient; lacking; deficiency",
+        "meaningKr": "부족하다, 충분하지 않다",
+        "exampleEn": "目前资源不足，需要进一步开发。",
+        "exampleKr": "현재 자원이 부족하여 추가 개발이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "bùzú",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-advanced-237-1780414451287",
+        "term": "猜测",
+        "definition": "to guess; to conjecture; to surmise",
+        "meaningKr": "추측하다, 짐작하다",
+        "exampleEn": "我们无法猜测他真正的想法。",
+        "exampleKr": "우리는 그의 진정한 생각을 추측할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cāicè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-238-1780414451287",
+        "term": "裁判",
+        "definition": "(law) to judge; to adjudicate; verdict; judgement; (sports) to referee; (sports) umpire; referee; judge",
+        "meaningKr": "심판, 심판하다",
+        "exampleEn": "比赛由国际裁判进行公平裁判。",
+        "exampleKr": "경기는 국제 심판이 공정하게 심판한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cáipàn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-239-1780414451287",
+        "term": "采购",
+        "definition": "to procure (for an enterprise etc); to purchase",
+        "meaningKr": "구매하다, 조달하다",
+        "exampleEn": "公司负责采购生产所需的原材料。",
+        "exampleKr": "회사는 생산에 필요한 원자재 구매를 담당한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cǎigòu",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-240-1780414451287",
+        "term": "彩票",
+        "definition": "lottery ticket",
+        "meaningKr": "복권",
+        "exampleEn": "他买了一张彩票，希望能中奖。",
+        "exampleKr": "그는 복권 한 장을 샀고, 당첨되기를 희망했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cǎipiào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-241-1780414451287",
+        "term": "餐馆",
+        "definition": "restaurant",
+        "meaningKr": "식당, 음식점",
+        "exampleEn": "这家餐馆的菜品味道非常地道。",
+        "exampleKr": "이 식당의 음식 맛은 매우 본토적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cānguǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-242-1780414451287",
+        "term": "餐厅",
+        "definition": "dining hall; dining room; restaurant",
+        "meaningKr": "식당, 식사실",
+        "exampleEn": "学校的餐厅为学生提供营养餐。",
+        "exampleKr": "학교 식당은 학생들에게 영양식을 제공한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cāntīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-243-1780414451287",
+        "term": "餐饮",
+        "definition": "food and beverage; catering; repast",
+        "meaningKr": "음식, 요식업",
+        "exampleEn": "餐饮行业面临着激烈的市场竞争。",
+        "exampleKr": "요식업은 치열한 시장 경쟁에 직면해 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cānyǐn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-244-1780414451287",
+        "term": "草原",
+        "definition": "grassland; prairie",
+        "meaningKr": "초원, 대초원",
+        "exampleEn": "内蒙古大草原风光秀丽，令人向往。",
+        "exampleKr": "내몽골 대초원의 풍경은 아름다워 사람들을 동경하게 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cǎoyuán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-245-1780414451287",
+        "term": "层次",
+        "definition": "layer; level; gradation",
+        "meaningKr": "층차, 수준, 단계",
+        "exampleEn": "这篇文章的分析很有深度，层次分明。",
+        "exampleKr": "이 글의 분석은 매우 심도 있고, 층차가 분명하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "céngcì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-246-1780414451287",
+        "term": "差别",
+        "definition": "difference; distinction; disparity",
+        "meaningKr": "차별, 차이",
+        "exampleEn": "不同文化之间存在显著的差别。",
+        "exampleKr": "다른 문화들 사이에는 현저한 차이가 존재한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chābié",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-247-1780414451287",
+        "term": "差距",
+        "definition": "disparity; gap",
+        "meaningKr": "격차, 차이",
+        "exampleEn": "城乡发展存在较大的差距。",
+        "exampleKr": "도시와 농촌의 발전에는 상당한 격차가 존재한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chājù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-248-1780414451287",
+        "term": "叉子",
+        "definition": "fork",
+        "meaningKr": "포크",
+        "exampleEn": "吃西餐时通常使用刀叉。",
+        "exampleKr": "서양 음식을 먹을 때는 보통 나이프와 포크를 사용한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chāzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-249-1780414451287",
+        "term": "查询",
+        "definition": "to check; to inquire; to consult (a document etc)",
+        "meaningKr": "조회하다, 문의하다",
+        "exampleEn": "您可以通过网站查询航班信息。",
+        "exampleKr": "웹사이트를 통해 항공편 정보를 조회하실 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cháxún",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-250-1780414451287",
+        "term": "拆除",
+        "definition": "to tear down; to demolish; to dismantle",
+        "meaningKr": "철거하다, 해체하다, 헐다",
+        "exampleEn": "这座老旧的建筑即将被拆除。",
+        "exampleKr": "이 낡은 건물은 곧 철거될 예정이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chāichú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-251-1780414451287",
+        "term": "产业",
+        "definition": "industry; estate; property",
+        "meaningKr": "산업, 재산, 자산",
+        "exampleEn": "发展高科技产业是国家战略。",
+        "exampleKr": "첨단 기술 산업 발전은 국가 전략이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chǎnyè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-252-1780414451287",
+        "term": "长度",
+        "definition": "length",
+        "meaningKr": "길이",
+        "exampleEn": "请测量一下这条线的长度。",
+        "exampleKr": "이 선의 길이를 측정해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chángdù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-253-1780414451287",
+        "term": "尝试",
+        "definition": "to try (to see what it's like or whether one can do it)",
+        "meaningKr": "시도하다, 시도",
+        "exampleEn": "我们应该尝试新的方法来解决问题。",
+        "exampleKr": "우리는 문제를 해결하기 위해 새로운 방법을 시도해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chángshì",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-254-1780414451287",
+        "term": "长寿",
+        "definition": "see 長壽區|长寿区[Chang2 shou4 Qu1]",
+        "meaningKr": "장수하다, 장수",
+        "exampleEn": "保持健康的生活方式有助于长寿。",
+        "exampleKr": "건강한 생활 방식을 유지하는 것은 장수에 도움이 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chángshòu",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-255-1780414451287",
+        "term": "场面",
+        "definition": "scene; spectacle; occasion",
+        "meaningKr": "장면, 광경, 상황",
+        "exampleEn": "毕业典礼的场面非常感人。",
+        "exampleKr": "졸업식 장면은 매우 감동적이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chǎngmiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-256-1780414451287",
+        "term": "厂长",
+        "definition": "factory director",
+        "meaningKr": "공장장",
+        "exampleEn": "厂长正在和技术人员开会。",
+        "exampleKr": "공장장이 기술자들과 회의 중이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chǎngzhǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-257-1780414451287",
+        "term": "倡导",
+        "definition": "to advocate; to initiate; to propose",
+        "meaningKr": "주창하다, 제창하다, 주도하다",
+        "exampleEn": "政府倡导绿色环保的生活理念。",
+        "exampleKr": "정부는 친환경 생활 이념을 주창한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chàngdǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-258-1780414451287",
+        "term": "超越",
+        "definition": "to surpass; to exceed; to transcend",
+        "meaningKr": "초월하다, 능가하다, 넘어서다",
+        "exampleEn": "他通过努力超越了自我，取得了成功。",
+        "exampleKr": "그는 노력을 통해 자신을 초월하여 성공을 거두었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chāoyuè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-259-1780414451287",
+        "term": "车主",
+        "definition": "vehicle owner",
+        "meaningKr": "차주, 차량 소유주",
+        "exampleEn": "请各位车主将车辆停放到指定区域。",
+        "exampleKr": "차주 여러분께서는 차량을 지정된 구역에 주차해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chēzhǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-260-1780414451287",
+        "term": "称号",
+        "definition": "name; term of address; title",
+        "meaningKr": "칭호, 호칭, 명칭",
+        "exampleEn": "他获得了“优秀教师”的称号。",
+        "exampleKr": "그는 '우수 교사'라는 칭호를 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chēnghào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-261-1780414451287",
+        "term": "承办",
+        "definition": "to undertake; to accept a contract",
+        "meaningKr": "(업무 등을) 맡아 처리하다, 주관하다",
+        "exampleEn": "本次会议由我公司承办。",
+        "exampleKr": "이번 회의는 저희 회사에서 주관합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéngbàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-262-1780414451287",
+        "term": "成本",
+        "definition": "(manufacturing, production etc) costs",
+        "meaningKr": "원가, 비용",
+        "exampleEn": "降低生产成本是提高利润的关键。",
+        "exampleKr": "생산 원가를 낮추는 것이 이윤을 높이는 핵심이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéngběn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-263-1780414451287",
+        "term": "乘车",
+        "definition": "to ride (in a car or carriage); to drive; to motor",
+        "meaningKr": "차를 타다",
+        "exampleEn": "乘车时请系好安全带。",
+        "exampleKr": "차에 탈 때는 안전벨트를 매주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéng chē",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-264-1780414451287",
+        "term": "成交",
+        "definition": "to complete a contract; to reach a deal",
+        "meaningKr": "거래가 성사되다, 계약이 체결되다",
+        "exampleEn": "经过协商，双方最终达成了成交。",
+        "exampleKr": "협상을 거쳐 양측은 최종적으로 거래를 성사시켰다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéng∥jiāo",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-265-1780414451287",
+        "term": "乘客",
+        "definition": "passenger",
+        "meaningKr": "승객",
+        "exampleEn": "乘客请注意，列车即将发车。",
+        "exampleKr": "승객 여러분께서는 주목해 주십시오, 열차가 곧 출발합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéngkè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-266-1780414451287",
+        "term": "城里",
+        "definition": "",
+        "meaningKr": "시내, 성안, 도시 안",
+        "exampleEn": "很多人选择从乡下搬到城里生活。",
+        "exampleKr": "많은 사람이 시골에서 도시로 이사하여 살기로 선택한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chénglǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-267-1780414451287",
+        "term": "成效",
+        "definition": "effect; result",
+        "meaningKr": "성과, 효과",
+        "exampleEn": "改革开放取得了显著的成效。",
+        "exampleKr": "개혁개방은 현저한 성과를 거두었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéngxiào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-268-1780414451287",
+        "term": "成语",
+        "definition": "Chinese set expression, typically of 4 characters, often alluding to a story or historical quotation; idiom; proverb; saying; adage",
+        "meaningKr": "성어, 고사성어",
+        "exampleEn": "学习成语有助于理解中国文化。",
+        "exampleKr": "성어를 배우는 것은 중국 문화를 이해하는 데 도움이 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéngyǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-269-1780414451287",
+        "term": "乘坐",
+        "definition": "to take (a ship, plane etc); to ride (in a train or other vehicle)",
+        "meaningKr": "(교통수단을) 타다, 탑승하다",
+        "exampleEn": "乘坐飞机需要提前办理登机手续。",
+        "exampleKr": "비행기를 탑승하려면 미리 탑승 수속을 밟아야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chéngzuò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-270-1780414451287",
+        "term": "吃力",
+        "definition": "to entail strenuous effort; to toil at a task; strenuous",
+        "meaningKr": "힘에 부치다, 벅차다, 힘들다",
+        "exampleEn": "独自完成这项任务会非常吃力。",
+        "exampleKr": "혼자서 이 임무를 완수하는 것은 매우 힘들 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chīlì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-271-1780414451287",
+        "term": "池子",
+        "definition": "pond; bathhouse pool; dance floor of a ballroom",
+        "meaningKr": "연못, 웅덩이, 수영장",
+        "exampleEn": "公园里有一个美丽的莲花池子。",
+        "exampleKr": "공원에는 아름다운 연꽃 연못이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chízi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-272-1780414451287",
+        "term": "冲动",
+        "definition": "to have an urge; to be impetuous; impulse",
+        "meaningKr": "충동, 충동적이다",
+        "exampleEn": "做决定时要理性，不要冲动。",
+        "exampleKr": "결정을 내릴 때는 이성적으로 해야지, 충동적으로 해서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chōngdòng",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-zh-advanced-273-1780414451287",
+        "term": "冲突",
+        "definition": "conflict; to conflict; clash of opposing forces",
+        "meaningKr": "충돌하다, 갈등, 충돌",
+        "exampleEn": "双方因意见不合而产生了冲突。",
+        "exampleKr": "양측은 의견 불일치로 인해 갈등이 발생했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chōngtū",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-274-1780414451287",
+        "term": "充足",
+        "definition": "adequate; sufficient; abundant",
+        "meaningKr": "충분하다, 풍부하다",
+        "exampleEn": "睡眠充足对身体健康非常重要。",
+        "exampleKr": "충분한 수면은 신체 건강에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chōngzú",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-275-1780414451287",
+        "term": "出版",
+        "definition": "to publish",
+        "meaningKr": "출판하다, 발행하다",
+        "exampleEn": "这本书终于出版了，受到了读者广泛好评。",
+        "exampleKr": "이 책은 드디어 출판되어 독자들에게 폭넓은 호평을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chūbǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-276-1780414451287",
+        "term": "出差",
+        "definition": "to go on an official or business trip",
+        "meaningKr": "출장 가다",
+        "exampleEn": "他经常出差，很少在家。",
+        "exampleKr": "그는 자주 출장을 가서 집에 있는 시간이 적다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chū∥chāi",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-277-1780414451287",
+        "term": "出汗",
+        "definition": "to perspire; to sweat",
+        "meaningKr": "땀을 흘리다",
+        "exampleEn": "运动后全身出汗，感觉很舒服。",
+        "exampleKr": "운동 후에 온몸에 땀을 흘리니 기분이 아주 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chū∥hàn",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-278-1780414451287",
+        "term": "初期",
+        "definition": "initial stage; beginning period",
+        "meaningKr": "초기",
+        "exampleEn": "项目初期，我们遇到了不少困难。",
+        "exampleKr": "프로젝트 초기에 우리는 많은 어려움을 겪었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chūqī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-279-1780414451287",
+        "term": "出于",
+        "definition": "due to; to stem from",
+        "meaningKr": "~에서 비롯되다, ~로 인해",
+        "exampleEn": "他出于好意帮助了我。",
+        "exampleKr": "그는 좋은 뜻에서 나를 도와주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chūyú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-280-1780414451287",
+        "term": "厨房",
+        "definition": "kitchen",
+        "meaningKr": "주방, 부엌",
+        "exampleEn": "妈妈正在厨房里准备晚餐。",
+        "exampleKr": "엄마는 부엌에서 저녁 식사를 준비하고 계신다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chúfáng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-281-1780414451287",
+        "term": "除非",
+        "definition": "only if (..., or otherwise, ...); only when; only in the case that",
+        "meaningKr": "~해야만, ~이 아니면",
+        "exampleEn": "除非你亲自去，否则没人能解决这个问题。",
+        "exampleKr": "네가 직접 가지 않으면, 아무도 이 문제를 해결할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chúfēi",
+        "pos": "conjunction, preposition"
+      },
+      {
+        "id": "word-zh-advanced-282-1780414451287",
+        "term": "除夕",
+        "definition": "lunar New Year's Eve",
+        "meaningKr": "섣달그믐, 설날 전날 밤",
+        "exampleEn": "除夕夜，全家人围坐在一起吃年夜饭。",
+        "exampleKr": "섣달그믐날 밤, 온 가족이 둘러앉아 녠예판(설날 전날 밤 음식)을 먹었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chúxī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-283-1780414451287",
+        "term": "处罚",
+        "definition": "to penalize; to punish",
+        "meaningKr": "처벌하다, 벌칙",
+        "exampleEn": "违反规定将受到严厉处罚。",
+        "exampleKr": "규정을 위반하면 엄중한 처벌을 받게 될 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chǔfá",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-284-1780414451287",
+        "term": "处分",
+        "definition": "to discipline sb; to punish; disciplinary action",
+        "meaningKr": "징계하다, 처분하다, 징계",
+        "exampleEn": "他因违反校规受到了处分。",
+        "exampleKr": "그는 교칙 위반으로 징계를 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chǔfèn",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-285-1780414451287",
+        "term": "处在",
+        "definition": "to be situated at; to find oneself at",
+        "meaningKr": "~에 처해 있다, ~에 있다",
+        "exampleEn": "我们正处在一个快速发展的时代。",
+        "exampleKr": "우리는 빠르게 발전하는 시대에 처해 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chǔzài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-286-1780414451287",
+        "term": "传达",
+        "definition": "to pass on; to convey; to relay",
+        "meaningKr": "전달하다, 전하다",
+        "exampleEn": "请您将会议精神传达给各位同事。",
+        "exampleKr": "회의 정신을 동료들에게 전달해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chuándá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-287-1780414451287",
+        "term": "传递",
+        "definition": "to transmit; to pass on to sb else",
+        "meaningKr": "전달하다, 넘겨주다",
+        "exampleEn": "奥运圣火正在全球传递。",
+        "exampleKr": "올림픽 성화가 전 세계로 전달되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chuándì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-288-1780414451287",
+        "term": "传真",
+        "definition": "to fax; a fax",
+        "meaningKr": "팩스, 팩스를 보내다",
+        "exampleEn": "请把这份文件传真给我。",
+        "exampleKr": "이 서류를 저에게 팩스로 보내주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chuánzhēn",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-289-1780414451287",
+        "term": "窗帘",
+        "definition": "window curtains",
+        "meaningKr": "커튼",
+        "exampleEn": "新买的窗帘很漂亮，我很喜欢。",
+        "exampleKr": "새로 산 커튼이 아주 예뻐서 마음에 든다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chuānglián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-290-1780414451287",
+        "term": "创立",
+        "definition": "to establish; to set up; to found",
+        "meaningKr": "창립하다, 설립하다",
+        "exampleEn": "他创立了一家成功的公司。",
+        "exampleKr": "그는 성공적인 회사를 창립했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "chuànglì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-291-1780414451287",
+        "term": "辞典",
+        "definition": "dictionary (variant of 詞典|词典[ci2 dian3])",
+        "meaningKr": "사전",
+        "exampleEn": "这本辞典收录了大量新词。",
+        "exampleKr": "이 사전은 많은 신조어를 수록하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cídiǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-292-1780414451287",
+        "term": "辞职",
+        "definition": "to resign",
+        "meaningKr": "사직하다, 사표를 내다",
+        "exampleEn": "他决定辞职去追求自己的梦想。",
+        "exampleKr": "그는 사직하고 자신의 꿈을 좇기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cí∥zhí",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-293-1780414451287",
+        "term": "此后",
+        "definition": "after this; afterwards; hereafter",
+        "meaningKr": "이후, 그 후",
+        "exampleEn": "此后，他的生活发生了巨大变化。",
+        "exampleKr": "그 후, 그의 삶은 거대한 변화를 겪었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cǐhòu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-294-1780414451287",
+        "term": "此刻",
+        "definition": "this moment; now; at present",
+        "meaningKr": "지금 이 순간, 현재",
+        "exampleEn": "此刻，我只想静静地思考。",
+        "exampleKr": "지금 이 순간, 나는 그저 조용히 생각하고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cǐkè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-295-1780414451287",
+        "term": "此时",
+        "definition": "now; this moment",
+        "meaningKr": "이때, 이 순간",
+        "exampleEn": "此时，他感到前所未有的平静。",
+        "exampleKr": "이때, 그는 전례 없는 평온함을 느꼈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cǐshí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-296-1780414451287",
+        "term": "聪明",
+        "definition": "intelligent; clever; bright; acute (of sight and hearing)",
+        "meaningKr": "똑똑하다, 총명하다",
+        "exampleEn": "这个孩子非常聪明，学习能力很强。",
+        "exampleKr": "이 아이는 매우 똑똑하고 학습 능력이 강하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cōng·míng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-297-1780414451287",
+        "term": "从中",
+        "definition": "from within; therefrom",
+        "meaningKr": "그중에서, 거기에서",
+        "exampleEn": "我们从中吸取了宝贵的经验。",
+        "exampleKr": "우리는 그중에서 귀중한 경험을 얻었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cóngzhōng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-298-1780414451287",
+        "term": "从而",
+        "definition": "thus; thereby",
+        "meaningKr": "그리하여, 따라서",
+        "exampleEn": "加强锻炼，从而提高身体素质。",
+        "exampleKr": "운동을 강화하여, 그리하여 신체 건강을 증진시킨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cóng’ér",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-advanced-299-1780414451287",
+        "term": "存款",
+        "definition": "to deposit money (in a bank etc); bank savings; bank deposit",
+        "meaningKr": "예금, 저금, 예금하다",
+        "exampleEn": "他每月都会把一部分工资存入银行。",
+        "exampleKr": "그는 매달 월급의 일부를 은행에 예금한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "cúnkuǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-300-1780414451287",
+        "term": "达成",
+        "definition": "to reach (an agreement); to accomplish",
+        "meaningKr": "달성하다, 이루다, 도달하다",
+        "exampleEn": "双方终于达成了合作协议。",
+        "exampleKr": "양측은 마침내 협력 협의에 도달했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dáchéng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-301-1780414451287",
+        "term": "答复",
+        "definition": "variant of 答覆|答复[da2 fu4]",
+        "meaningKr": "답장하다, 회답하다, 답변",
+        "exampleEn": "请尽快给我一个明确的答复。",
+        "exampleKr": "가능한 한 빨리 명확한 답변을 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dá·fù",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-302-1780414451287",
+        "term": "打扮",
+        "definition": "to decorate; to dress; to make up",
+        "meaningKr": "단장하다, 꾸미다, 치장하다",
+        "exampleEn": "她总是把自己打扮得很时尚。",
+        "exampleKr": "그녀는 항상 자신을 매우 세련되게 꾸민다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎban",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-303-1780414451287",
+        "term": "打包",
+        "definition": "to wrap; to pack; to put leftovers in a doggy bag for take-out",
+        "meaningKr": "포장하다, 싸다, (남은 음식을) 싸 가다",
+        "exampleEn": "没吃完的菜可以打包吗？",
+        "exampleKr": "다 못 먹은 음식은 포장할 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎ∥bāo",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-304-1780414451287",
+        "term": "打击",
+        "definition": "to hit; to strike; to attack",
+        "meaningKr": "타격하다, 강타하다, 공격하다",
+        "exampleEn": "这次失败对他的信心是个打击。",
+        "exampleKr": "이번 실패는 그의 자신감에 큰 타격이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎjī",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-305-1780414451287",
+        "term": "打架",
+        "definition": "to fight; to scuffle; to come to blows",
+        "meaningKr": "싸우다, 다투다",
+        "exampleEn": "他们俩经常因为小事打架。",
+        "exampleKr": "그들 둘은 종종 사소한 일로 싸운다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎ∥jià",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-306-1780414451287",
+        "term": "打扰",
+        "definition": "to disturb; to bother; to trouble",
+        "meaningKr": "방해하다, 성가시게 하다",
+        "exampleEn": "抱歉，打扰您一下。",
+        "exampleKr": "죄송합니다만, 잠시 방해하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎrǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-307-1780414451287",
+        "term": "大胆",
+        "definition": "brazen; audacious; outrageous",
+        "meaningKr": "대담하다, 용감하다",
+        "exampleEn": "他大胆地提出了自己的看法。",
+        "exampleKr": "그는 대담하게 자신의 견해를 제시했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàdǎn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-308-1780414451287",
+        "term": "大都",
+        "definition": "Dadu, capital of China during the Yuan Dynasty (1280-1368), modern day Beijing",
+        "meaningKr": "대개, 대부분",
+        "exampleEn": "与会者大都是年轻人。",
+        "exampleKr": "참석자들은 대부분 젊은이들이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàdū",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-309-1780414451287",
+        "term": "大纲",
+        "definition": "synopsis; outline; program",
+        "meaningKr": "개요, 요강, 대강",
+        "exampleEn": "这份报告的大纲已经完成。",
+        "exampleKr": "이 보고서의 개요는 이미 완성되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàgāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-310-1780414451287",
+        "term": "大伙儿",
+        "definition": "erhua variant of 大伙[da4 huo3]",
+        "meaningKr": "모두, 여러분, 다 같이",
+        "exampleEn": "大伙儿都同意这个计划。",
+        "exampleKr": "모두 이 계획에 동의한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàhuǒr",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-advanced-311-1780414451287",
+        "term": "大事",
+        "definition": "major event; major political event (war or change of regime); major social event (wedding or funeral)",
+        "meaningKr": "큰일, 중요한 일, 중대사",
+        "exampleEn": "我们要以大局为重，不要纠结小事。",
+        "exampleKr": "우리는 대국을 중요시하고, 사소한 일에 얽매이지 말아야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàshì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-312-1780414451287",
+        "term": "大厅",
+        "definition": "hall; concourse; public lounge; (hotel) lobby",
+        "meaningKr": "로비, 홀, 대청",
+        "exampleEn": "酒店大厅里挤满了客人。",
+        "exampleKr": "호텔 로비는 손님들로 가득했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàtīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-313-1780414451287",
+        "term": "大象",
+        "definition": "elephant",
+        "meaningKr": "코끼리",
+        "exampleEn": "大象是陆地上最大的动物。",
+        "exampleKr": "코끼리는 육상에서 가장 큰 동물이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàxiàng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-314-1780414451287",
+        "term": "大于",
+        "definition": "greater than; bigger than; more than",
+        "meaningKr": "~보다 크다, 초과하다",
+        "exampleEn": "正常体温不应大于37摄氏度。",
+        "exampleKr": "정상 체온은 37도씨를 초과해서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàyú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-315-1780414451287",
+        "term": "大致",
+        "definition": "more or less; roughly; approximately",
+        "meaningKr": "대략, 대충, 대체로",
+        "exampleEn": "我大致了解了事情的经过。",
+        "exampleKr": "나는 사건의 경위를 대략적으로 파악했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàzhì",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-advanced-316-1780414451287",
+        "term": "代价",
+        "definition": "price; cost; consideration (in share dealing)",
+        "meaningKr": "대가, 비용, 희생",
+        "exampleEn": "成功往往需要付出巨大的代价。",
+        "exampleKr": "성공은 종종 막대한 대가를 치러야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàijià",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-317-1780414451287",
+        "term": "贷款",
+        "definition": "a loan; to provide a loan (e.g. bank); to raise a loan (from e.g. a bank)",
+        "meaningKr": "대출하다, 대출금",
+        "exampleEn": "银行批准了他的购房贷款申请。",
+        "exampleKr": "은행은 그의 주택 구매 대출 신청을 승인했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàikuǎn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-318-1780414451287",
+        "term": "代理",
+        "definition": "to act on behalf of sb in a responsible position; to act as an agent or proxy; surrogate",
+        "meaningKr": "대리하다, 대행하다, 대리인",
+        "exampleEn": "他目前代理总经理的职务。",
+        "exampleKr": "그는 현재 총경리 직무를 대리하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàilǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-319-1780414451287",
+        "term": "带有",
+        "definition": "to have as a feature or characteristic; to have an element of (confidence, sweetness, malevolence etc); to carry (a pathogen, connotation etc)",
+        "meaningKr": "띠다, 지니다, 내포하다",
+        "exampleEn": "他的话语中带有讽刺意味。",
+        "exampleKr": "그의 말에는 풍자적인 의미가 내포되어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàiyǒu",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-advanced-320-1780414451287",
+        "term": "单一",
+        "definition": "single; only; sole",
+        "meaningKr": "단일하다, 단일의, 획일적이다",
+        "exampleEn": "经济结构过于单一不利于发展。",
+        "exampleKr": "경제 구조가 너무 단일한 것은 발전에 불리하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dānyī",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-321-1780414451287",
+        "term": "胆小",
+        "definition": "cowardice; timid",
+        "meaningKr": "소심하다, 겁 많다",
+        "exampleEn": "他从小胆小，不敢独自出门。",
+        "exampleKr": "그는 어릴 때부터 소심해서 혼자 외출하는 것을 두려워했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dǎnxiǎo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-322-1780414451287",
+        "term": "大脑",
+        "definition": "brain; cerebrum",
+        "meaningKr": "뇌, 대뇌",
+        "exampleEn": "学习可以促进大脑的发育。",
+        "exampleKr": "학습은 뇌 발달을 촉진할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dànǎo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-323-1780414451287",
+        "term": "蛋糕",
+        "definition": "cake",
+        "meaningKr": "케이크",
+        "exampleEn": "生日派对上少不了美味的蛋糕。",
+        "exampleKr": "생일 파티에는 맛있는 케이크가 빠질 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàngāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-324-1780414451287",
+        "term": "当场",
+        "definition": "at the scene; on the spot",
+        "meaningKr": "즉석에서, 현장에서, 그 자리에서",
+        "exampleEn": "警方当场逮捕了犯罪嫌疑人。",
+        "exampleKr": "경찰은 현장에서 범죄 용의자를 체포했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dāngchǎng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-325-1780414451287",
+        "term": "当代",
+        "definition": "the present age; the contemporary era",
+        "meaningKr": "현대, 당대",
+        "exampleEn": "当代社会发展迅速，挑战与机遇并存。",
+        "exampleKr": "현대 사회는 빠르게 발전하며, 도전과 기회가 공존한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dāngdài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-326-1780414451287",
+        "term": "当年",
+        "definition": "in those days; back then; in those years; to be in the prime of life",
+        "meaningKr": "그 시절, 그 당시에",
+        "exampleEn": "他当年也是一位出色的运动员。",
+        "exampleKr": "그도 그 시절에는 뛰어난 운동선수였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dāngnián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-327-1780414451287",
+        "term": "当前",
+        "definition": "the present time; to be faced with",
+        "meaningKr": "현재, 당면한",
+        "exampleEn": "解决当前问题需要大家共同努力。",
+        "exampleKr": "당면한 문제를 해결하기 위해서는 모두의 공동 노력이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dāngqián",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-328-1780414451287",
+        "term": "当选",
+        "definition": "to be elected; to be selected",
+        "meaningKr": "당선되다, 선출되다",
+        "exampleEn": "他最终以高票当选为新任主席。",
+        "exampleKr": "그는 결국 높은 득표율로 신임 주석으로 당선되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dāngxuǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-329-1780414451287",
+        "term": "道德",
+        "definition": "virtue; morality; ethics",
+        "meaningKr": "도덕, 윤리",
+        "exampleEn": "他的行为符合社会公认的道德标准。",
+        "exampleKr": "그의 행동은 사회가 공인하는 도덕 기준에 부합한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàodé",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-330-1780414451287",
+        "term": "到来",
+        "definition": "to arrive; arrival; advent",
+        "meaningKr": "도래하다, 다가오다, 도착",
+        "exampleEn": "随着数字时代的到来，我们的生活方式发生了巨大变化。",
+        "exampleKr": "디지털 시대의 도래와 함께 우리 삶의 방식은 큰 변화를 겪었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàolái",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-331-1780414451287",
+        "term": "倒是",
+        "definition": "contrary to what one might expect; actually; contrariwise",
+        "meaningKr": "오히려, 뜻밖에도",
+        "exampleEn": "这本书看起来很难，读起来倒是有趣。",
+        "exampleKr": "이 책은 어려워 보이지만, 읽어보니 오히려 흥미로웠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dàoshì",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-332-1780414451287",
+        "term": "得了",
+        "definition": "all right!; that's enough!",
+        "meaningKr": "됐어!, 그만해!",
+        "exampleEn": "好了，得了，别再说了！",
+        "exampleKr": "됐어, 됐어, 더 이상 말하지 마!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "déle",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-333-1780414451287",
+        "term": "得以",
+        "definition": "able to; so that sb can; enabling",
+        "meaningKr": "~할 수 있게 되다, ~하게 되다",
+        "exampleEn": "经过努力，他得以实现自己的梦想。",
+        "exampleKr": "노력 끝에 그는 자신의 꿈을 이룰 수 있게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "déyǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-334-1780414451287",
+        "term": "等候",
+        "definition": "to wait; to wait for",
+        "meaningKr": "기다리다, 대기하다",
+        "exampleEn": "许多记者在会议室外等候采访。",
+        "exampleKr": "많은 기자들이 회의실 밖에서 인터뷰를 기다리고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "děnghòu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-335-1780414451287",
+        "term": "等级",
+        "definition": "grade; rank; status",
+        "meaningKr": "등급, 계급",
+        "exampleEn": "这款游戏有多种等级，玩家可以逐步提升。",
+        "exampleKr": "이 게임은 여러 등급이 있어서, 플레이어가 점차 향상시킬 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "děngjí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-336-1780414451287",
+        "term": "低于",
+        "definition": "to be lower than",
+        "meaningKr": "~보다 낮다, ~에 미치지 못하다",
+        "exampleEn": "今天的气温明显低于昨天。",
+        "exampleKr": "오늘 기온은 어제보다 확연히 낮다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dīyú",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-advanced-337-1780414451287",
+        "term": "地带",
+        "definition": "zone",
+        "meaningKr": "지대, 지역",
+        "exampleEn": "这个地带气候宜人，适合居住。",
+        "exampleKr": "이 지역은 기후가 쾌적하여 거주하기에 적합하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dìdài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-338-1780414451287",
+        "term": "递给",
+        "definition": "to hand it (i.e. the aforementioned item) to (sb)",
+        "meaningKr": "건네주다, 넘겨주다",
+        "exampleEn": "他把文件递给了秘书。",
+        "exampleKr": "그는 서류를 비서에게 건네주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dì gěi",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-advanced-339-1780414451287",
+        "term": "地形",
+        "definition": "topography; terrain; landform",
+        "meaningKr": "지형",
+        "exampleEn": "这里的地形复杂，给施工带来了挑战。",
+        "exampleKr": "이곳의 지형은 복잡해서 공사에 어려움이 많았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dìxíng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-340-1780414451287",
+        "term": "地震",
+        "definition": "earthquake",
+        "meaningKr": "지진",
+        "exampleEn": "昨天夜里发生了一场强烈地震。",
+        "exampleKr": "어젯밤에 강한 지진이 발생했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dìzhèn",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-341-1780414451287",
+        "term": "典礼",
+        "definition": "ceremony; celebration",
+        "meaningKr": "전례, 의식, 식전",
+        "exampleEn": "毕业典礼将在下周五举行。",
+        "exampleKr": "졸업식은 다음 주 금요일에 열릴 예정이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "diǎnlǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-342-1780414451287",
+        "term": "点燃",
+        "definition": "to ignite; to set on fire; aflame",
+        "meaningKr": "불을 붙이다, 점화하다",
+        "exampleEn": "他点燃了一支蜡烛，照亮了房间。",
+        "exampleKr": "그는 촛불 하나를 점화하여 방을 밝혔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "diǎnrán",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-343-1780414451287",
+        "term": "电池",
+        "definition": "battery; electric cell",
+        "meaningKr": "건전지, 배터리",
+        "exampleEn": "手机电池没电了，需要充电。",
+        "exampleKr": "휴대폰 배터리가 방전되어 충전해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "diànchí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-344-1780414451287",
+        "term": "调动",
+        "definition": "to transfer; to maneuver (troops etc); movement of personnel",
+        "meaningKr": "전근시키다, 이동시키다, 동원하다",
+        "exampleEn": "公司决定将他调动到新的部门。",
+        "exampleKr": "회사는 그를 새로운 부서로 전근시키기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "diàodòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-345-1780414451287",
+        "term": "动机",
+        "definition": "motive; motivation",
+        "meaningKr": "동기, 의도",
+        "exampleEn": "警方正在调查他的作案动机。",
+        "exampleKr": "경찰은 그의 범행 동기를 조사 중이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dòngjī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-346-1780414451287",
+        "term": "动手",
+        "definition": "to set about (a task); to raise a hand to hit sb; to touch; to handle (typically used in cautioning sb *not* to touch sth)",
+        "meaningKr": "손대다, 착수하다, 시작하다",
+        "exampleEn": "既然决定了，就赶紧动手吧。",
+        "exampleKr": "결정했으니, 빨리 착수하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dòng∥shǒu",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-347-1780414451287",
+        "term": "动态",
+        "definition": "movement; motion; development",
+        "meaningKr": "동태, 동향, 움직임",
+        "exampleEn": "我们需要密切关注市场动态。",
+        "exampleKr": "우리는 시장 동향을 면밀히 주시해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dòngtài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-348-1780414451287",
+        "term": "动员",
+        "definition": "to mobilize; mobilization",
+        "meaningKr": "동원하다, 계몽하다",
+        "exampleEn": "政府动员民众积极参与环保活动。",
+        "exampleKr": "정부는 국민들이 환경 보호 활동에 적극적으로 참여하도록 동원했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "dòngyuán",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-349-1780414451287",
+        "term": "对立",
+        "definition": "to oppose; to set sth against; to be antagonistic to",
+        "meaningKr": "대립하다, 대립적인",
+        "exampleEn": "两种观点之间存在着明显的对立。",
+        "exampleKr": "두 가지 관점 사이에는 명확한 대립이 존재한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "duìlì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-350-1780414451287",
+        "term": "对应",
+        "definition": "to correspond (to); to be equivalent to; to be a counterpart to",
+        "meaningKr": "상응하다, 부합하다, 대응하다",
+        "exampleEn": "他的回答与问题完全对应。",
+        "exampleKr": "그의 대답은 질문과 완전히 상응한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "duìyìng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-351-1780414451287",
+        "term": "儿女",
+        "definition": "children; sons and daughters; a young man and a young woman (in love)",
+        "meaningKr": "자녀, 아들딸",
+        "exampleEn": "父母为儿女的未来操碎了心。",
+        "exampleKr": "부모는 자녀의 미래를 위해 마음을 졸였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "érnǚ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-352-1780414451287",
+        "term": "耳朵",
+        "definition": "ear; handle (on a cup)",
+        "meaningKr": "귀",
+        "exampleEn": "他对音乐的耳朵非常灵敏。",
+        "exampleKr": "그는 음악에 대한 귀가 매우 예민하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "ěrduo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-353-1780414451287",
+        "term": "发布",
+        "definition": "variant of 發布|发布[fa1 bu4]",
+        "meaningKr": "발표하다, 공표하다",
+        "exampleEn": "官方发布了最新的政策文件。",
+        "exampleKr": "공식적으로 최신 정책 문건을 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fābù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-354-1780414451287",
+        "term": "发觉",
+        "definition": "to become aware; to detect; to realize",
+        "meaningKr": "발견하다, 깨닫다, 알아차리다",
+        "exampleEn": "他很快发觉自己犯了一个错误。",
+        "exampleKr": "그는 자신이 실수를 저질렀다는 것을 곧 깨달았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fājué",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-355-1780414451287",
+        "term": "发射",
+        "definition": "to shoot (a projectile); to fire (a rocket); to launch",
+        "meaningKr": "발사하다",
+        "exampleEn": "成功发射了新型卫星。",
+        "exampleKr": "신형 위성을 성공적으로 발사했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fāshè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-356-1780414451287",
+        "term": "发行",
+        "definition": "to publish; to issue; to release; to distribute",
+        "meaningKr": "발행하다, 배포하다",
+        "exampleEn": "这本书在全球同步发行。",
+        "exampleKr": "이 책은 전 세계에 동시 발행된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fāxíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-357-1780414451287",
+        "term": "罚款",
+        "definition": "to fine; penalty; fine (monetary)",
+        "meaningKr": "벌금, 벌금을 부과하다",
+        "exampleEn": "超速驾驶将被处以罚款。",
+        "exampleKr": "과속 운전은 벌금에 처해질 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fákuǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-358-1780414451287",
+        "term": "法规",
+        "definition": "legislation; statute",
+        "meaningKr": "법규, 법령",
+        "exampleEn": "遵守交通法规是每个公民的责任。",
+        "exampleKr": "교통 법규를 준수하는 것은 모든 시민의 책임이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fǎguī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-359-1780414451287",
+        "term": "法制",
+        "definition": "legal system and institutions",
+        "meaningKr": "법치, 법제도",
+        "exampleEn": "健全的法制是社会稳定的保障。",
+        "exampleKr": "건전한 법제도는 사회 안정의 보장이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fǎzhì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-360-1780414451287",
+        "term": "繁荣",
+        "definition": "prosperous; booming",
+        "meaningKr": "번영하다, 번창하다, 번성하다",
+        "exampleEn": "经济繁荣带来了人民生活水平的提高。",
+        "exampleKr": "경제 번영은 인민 생활 수준의 향상을 가져왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fánróng",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-advanced-361-1780414451287",
+        "term": "返回",
+        "definition": "to return to; to come (or go) back",
+        "meaningKr": "돌아가다, 되돌아가다",
+        "exampleEn": "他决定返回家乡发展事业。",
+        "exampleKr": "그는 고향으로 돌아가 사업을 발전시키기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fǎnhuí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-362-1780414451287",
+        "term": "防治",
+        "definition": "to prevent and cure; prevention and cure",
+        "meaningKr": "예방 및 치료하다, 방지하다",
+        "exampleEn": "加强疾病防治是当前的重点。",
+        "exampleKr": "질병 예방 및 치료를 강화하는 것이 현재의 중점이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fángzhì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-363-1780414451287",
+        "term": "放大",
+        "definition": "to enlarge; to magnify",
+        "meaningKr": "확대하다",
+        "exampleEn": "请把这张图片放大一下。",
+        "exampleKr": "이 사진을 확대해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fàngdà",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-364-1780414451287",
+        "term": "放弃",
+        "definition": "to renounce; to abandon; to give up",
+        "meaningKr": "포기하다",
+        "exampleEn": "无论遇到多大困难，他都不会放弃。",
+        "exampleKr": "아무리 큰 어려움을 만나도 그는 포기하지 않을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fàngqì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-365-1780414451287",
+        "term": "分成",
+        "definition": "to divide (into); to split a bonus; to break into",
+        "meaningKr": "나누다, 분할하다",
+        "exampleEn": "利润将按比例分成。",
+        "exampleKr": "이익은 비율에 따라 나눌 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēnchéng",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-advanced-366-1780414451287",
+        "term": "分解",
+        "definition": "to resolve; to decompose; to break down",
+        "meaningKr": "분해하다",
+        "exampleEn": "这种塑料很难自然分解。",
+        "exampleKr": "이 플라스틱은 자연적으로 분해되기 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēnjiě",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-367-1780414451287",
+        "term": "分类",
+        "definition": "to classify",
+        "meaningKr": "분류하다",
+        "exampleEn": "垃圾分类是环境保护的重要措施。",
+        "exampleKr": "쓰레기 분리수거는 환경 보호의 중요한 조치이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēn∥lèi",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-368-1780414451287",
+        "term": "分离",
+        "definition": "to separate",
+        "meaningKr": "분리하다, 떨어지다",
+        "exampleEn": "油和水分离后更容易处理。",
+        "exampleKr": "기름과 물은 분리된 후 처리하기 더 쉽다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēnlí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-369-1780414451287",
+        "term": "分析",
+        "definition": "to analyze; analysis",
+        "meaningKr": "분석하다, 분석",
+        "exampleEn": "我们需要对数据进行深入分析。",
+        "exampleKr": "우리는 데이터에 대해 심층 분석을 해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēnxī",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-370-1780414451287",
+        "term": "分享",
+        "definition": "to share (let others have some of sth good)",
+        "meaningKr": "공유하다, 나누다",
+        "exampleEn": "他乐于与大家分享自己的经验。",
+        "exampleKr": "그는 자신의 경험을 모두와 기꺼이 공유한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēnxiǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-371-1780414451287",
+        "term": "风度",
+        "definition": "elegance (for men); elegant demeanor; grace",
+        "meaningKr": "풍채, 태도, 품격",
+        "exampleEn": "他的言谈举止充满了绅士风度。",
+        "exampleKr": "그의 언행은 신사의 풍채로 가득했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēngdù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-372-1780414451287",
+        "term": "风光",
+        "definition": "scene; view; sight",
+        "meaningKr": "풍경, 경치; 영광, 명예",
+        "exampleEn": "这里的自然风光美不胜收。",
+        "exampleKr": "이곳의 자연 풍광은 이루 말할 수 없이 아름답다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēngguāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-373-1780414451287",
+        "term": "疯狂",
+        "definition": "crazy; frenzied; wild",
+        "meaningKr": "미치다, 광적인, 열광적인",
+        "exampleEn": "球迷们为球队的胜利而疯狂庆祝。",
+        "exampleKr": "팬들은 팀의 승리를 위해 열광적으로 축하했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēngkuáng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-374-1780414451287",
+        "term": "丰收",
+        "definition": "to reap a bumper harvest",
+        "meaningKr": "풍작, 풍작을 거두다",
+        "exampleEn": "今年农业获得了大丰收。",
+        "exampleKr": "올해 농업은 큰 풍작을 거두었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fēngshōu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-375-1780414451287",
+        "term": "服从",
+        "definition": "to obey (an order); to comply; to defer",
+        "meaningKr": "복종하다, 따르다",
+        "exampleEn": "作为下属，他必须服从上级的命令。",
+        "exampleKr": "부하로서, 그는 상사의 명령에 복종해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fúcóng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-376-1780414451287",
+        "term": "幅度",
+        "definition": "width; extent; range",
+        "meaningKr": "폭, 범위, 진폭",
+        "exampleEn": "股市的波动幅度很大，投资者需谨慎。",
+        "exampleKr": "주식 시장의 변동 폭이 커서 투자자들은 신중해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fúdù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-377-1780414451287",
+        "term": "福利",
+        "definition": "material benefit; benefit in kind",
+        "meaningKr": "복리, 복지 혜택",
+        "exampleEn": "公司为员工提供了良好的福利待遇。",
+        "exampleKr": "회사는 직원들에게 좋은 복지 혜택을 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fúlì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-378-1780414451287",
+        "term": "辅助",
+        "definition": "to assist; to aid; supplementary; auxiliary",
+        "meaningKr": "보조하다, 돕다, 보조의",
+        "exampleEn": "计算机辅助教学能提高学习效率。",
+        "exampleKr": "컴퓨터 보조 학습은 학습 효율을 높일 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fǔzhù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-379-1780414451287",
+        "term": "附件",
+        "definition": "appendix (in a document); enclosure (accompanying a document); accessory (for a car, computer etc)",
+        "meaningKr": "첨부 파일, 부속품",
+        "exampleEn": "请查收邮件附件中的报告。",
+        "exampleKr": "이메일 첨부 파일의 보고서를 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "fùjiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-380-1780414451287",
+        "term": "改革",
+        "definition": "reform; to reform",
+        "meaningKr": "개혁하다, 개혁",
+        "exampleEn": "这项改革旨在促进经济发展。",
+        "exampleKr": "이 개혁은 경제 발전을 촉진하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǎigé",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-381-1780414451287",
+        "term": "干脆",
+        "definition": "candid; direct and to the point; simply",
+        "meaningKr": "시원스럽다, 명쾌하다, 차라리",
+        "exampleEn": "既然你不喜欢，干脆就别去了。",
+        "exampleKr": "네가 싫다면, 차라리 가지 마.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāncuì",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-advanced-382-1780414451287",
+        "term": "干扰",
+        "definition": "to disturb; to interfere; perturbation",
+        "meaningKr": "방해하다, 간섭하다, 방해",
+        "exampleEn": "请勿在考试期间干扰他人。",
+        "exampleKr": "시험 중에는 타인을 방해하지 마십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gānrǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-383-1780414451287",
+        "term": "干预",
+        "definition": "to meddle; to intervene; intervention",
+        "meaningKr": "간섭하다, 개입하다",
+        "exampleEn": "国际社会不应干预他国内政。",
+        "exampleKr": "국제사회는 타국의 내정에 간섭해서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gānyù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-384-1780414451287",
+        "term": "感想",
+        "definition": "impressions; reflections; thoughts",
+        "meaningKr": "감상, 소감",
+        "exampleEn": "听完讲座，大家纷纷发表感想。",
+        "exampleKr": "강연을 들은 후, 모두들 감상을 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǎnxiǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-385-1780414451287",
+        "term": "钢笔",
+        "definition": "fountain pen",
+        "meaningKr": "만년필",
+        "exampleEn": "他喜欢用钢笔记录灵感。",
+        "exampleKr": "그는 만년필로 영감을 기록하는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāngbǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-386-1780414451287",
+        "term": "钢琴",
+        "definition": "piano",
+        "meaningKr": "피아노",
+        "exampleEn": "她从小学习钢琴，梦想成为演奏家。",
+        "exampleKr": "그녀는 어릴 때부터 피아노를 배워 연주가가 되는 것을 꿈꾼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāngqín",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-387-1780414451287",
+        "term": "高大",
+        "definition": "tall; lofty; towering",
+        "meaningKr": "키가 크고 덩치가 크다, 높고 크다",
+        "exampleEn": "这位运动员身材高大，非常引人注目。",
+        "exampleKr": "이 선수는 키가 크고 덩치가 커서 매우 눈에 띈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāodà",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-388-1780414451287",
+        "term": "高度",
+        "definition": "height; altitude; elevation",
+        "meaningKr": "높이, 고도, 고도의",
+        "exampleEn": "他对工作表现出高度的责任感。",
+        "exampleKr": "그는 일에 대해 고도의 책임감을 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāodù",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-zh-advanced-389-1780414451287",
+        "term": "高温",
+        "definition": "high temperature",
+        "meaningKr": "고온, 고열",
+        "exampleEn": "夏季持续高温，请注意防暑降温。",
+        "exampleKr": "여름철 고온이 계속되니, 더위 예방에 유의하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāowēn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-390-1780414451287",
+        "term": "高于",
+        "definition": "greater than; to exceed",
+        "meaningKr": "~보다 높다, ~을 초과하다",
+        "exampleEn": "今年公司的利润明显高于去年。",
+        "exampleKr": "올해 회사 이윤은 작년보다 확연히 높다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāoyú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-391-1780414451287",
+        "term": "高原",
+        "definition": "plateau",
+        "meaningKr": "고원",
+        "exampleEn": "青藏高原是世界上海拔最高的高原。",
+        "exampleKr": "칭짱고원은 세계에서 해발 고도가 가장 높은 고원이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gāoyuán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-392-1780414451287",
+        "term": "搞好",
+        "definition": "to do well at; to do a good job",
+        "meaningKr": "잘 해내다, 잘 처리하다",
+        "exampleEn": "我们必须努力搞好环境保护工作。",
+        "exampleKr": "우리는 환경 보호 업무를 잘 해내기 위해 노력해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǎohǎo",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-advanced-393-1780414451287",
+        "term": "歌曲",
+        "definition": "song",
+        "meaningKr": "노래, 곡",
+        "exampleEn": "这首歌曲表达了对家乡的思念。",
+        "exampleKr": "이 노래는 고향에 대한 그리움을 표현했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gēqǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-394-1780414451287",
+        "term": "隔壁",
+        "definition": "next door; neighbor",
+        "meaningKr": "옆집, 옆방",
+        "exampleEn": "隔壁的邻居非常友好，经常互相帮助。",
+        "exampleKr": "옆집 이웃은 매우 친절해서 자주 서로 돕는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gébì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-395-1780414451287",
+        "term": "跟前",
+        "definition": "the front (of); just before (a date)",
+        "meaningKr": "앞, 곁, 바로 직전",
+        "exampleEn": "考试跟前，他开始紧张起来。",
+        "exampleKr": "시험 직전에 그는 긴장하기 시작했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gēnqián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-396-1780414451287",
+        "term": "跟随",
+        "definition": "to follow",
+        "meaningKr": "뒤따르다, 따르다",
+        "exampleEn": "许多年轻人选择跟随潮流，追求时尚。",
+        "exampleKr": "많은 젊은이들이 유행을 따르고 패션을 추구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gēnsuí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-397-1780414451287",
+        "term": "更换",
+        "definition": "to replace (a worn-out tire etc); to change (one's address etc)",
+        "meaningKr": "교체하다, 바꾸다",
+        "exampleEn": "电脑硬件老化，需要更换新的部件。",
+        "exampleKr": "컴퓨터 하드웨어가 노후되어 새 부품으로 교체해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gēnghuàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-398-1780414451287",
+        "term": "更新",
+        "definition": "to replace the old with new; to renew; to renovate",
+        "meaningKr": "갱신하다, 업데이트하다, 새롭게 하다",
+        "exampleEn": "城市发展需要不断更新观念和技术。",
+        "exampleKr": "도시 발전은 끊임없이 관념과 기술을 갱신해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gēngxīn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-399-1780414451287",
+        "term": "公告",
+        "definition": "post; announcement",
+        "meaningKr": "공고, 공고하다",
+        "exampleEn": "学校网站上发布了最新的招生公告。",
+        "exampleKr": "학교 웹사이트에 최신 신입생 모집 공고가 게시되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gōnggào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-400-1780414451287",
+        "term": "公认",
+        "definition": "publicly known (to be); accepted (as)",
+        "meaningKr": "공인된, 인정된",
+        "exampleEn": "他被公认为是我们这个领域最杰出的科学家之一。",
+        "exampleKr": "그는 우리 분야에서 가장 뛰어난 과학자 중 한 명으로 공인되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gōngrèn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-401-1780414451287",
+        "term": "公式",
+        "definition": "formula",
+        "meaningKr": "공식",
+        "exampleEn": "这个数学公式是解决这类问题的关键。",
+        "exampleKr": "이 수학 공식은 이러한 유형의 문제를 해결하는 데 핵심입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gōngshì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-402-1780414451287",
+        "term": "工艺",
+        "definition": "arts and crafts; industrial arts",
+        "meaningKr": "공예, 기술",
+        "exampleEn": "这家工厂的工艺水平很高，产品深受消费者喜爱。",
+        "exampleKr": "이 공장의 공예 기술 수준이 매우 높아 제품이 소비자들에게 인기가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gōngyì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-403-1780414451287",
+        "term": "公正",
+        "definition": "just; fair; equitable",
+        "meaningKr": "공정함, 공평함",
+        "exampleEn": "法官必须公正地审理案件，不受任何干扰。",
+        "exampleKr": "판사는 어떠한 방해도 받지 않고 공정하게 사건을 심리해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gōngzhèng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-404-1780414451287",
+        "term": "共计",
+        "definition": "to sum up to; to total",
+        "meaningKr": "총계, 합계",
+        "exampleEn": "本次活动共计吸引了超过一万人参加。",
+        "exampleKr": "이번 행사는 총 1만 명 이상이 참여했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gòngjì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-405-1780414451287",
+        "term": "共享",
+        "definition": "to share; to enjoy together",
+        "meaningKr": "공유하다",
+        "exampleEn": "我们应该提倡知识共享，促进共同进步。",
+        "exampleKr": "우리는 지식 공유를 장려하고 공동 발전을 촉진해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gòngxiǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-406-1780414451287",
+        "term": "沟通",
+        "definition": "to join; to connect; to link up; to communicate",
+        "meaningKr": "소통하다, 의사소통하다",
+        "exampleEn": "有效的沟通是解决冲突的第一步。",
+        "exampleKr": "효과적인 소통은 갈등 해결의 첫걸음입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gōutōng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-407-1780414451287",
+        "term": "估计",
+        "definition": "to estimate; to assess; to calculate",
+        "meaningKr": "추정하다, 예상하다",
+        "exampleEn": "根据目前的经济形势，很难准确估计明年的增长率。",
+        "exampleKr": "현재의 경제 상황으로 보아 내년 성장률을 정확하게 추정하기는 어렵습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gūjì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-408-1780414451287",
+        "term": "古老",
+        "definition": "ancient; old; age-old",
+        "meaningKr": "고대의, 아주 오래된",
+        "exampleEn": "这座城市保留了许多古老的建筑和历史遗迹。",
+        "exampleKr": "이 도시는 많은 고풍스러운 건물과 역사 유적을 보존하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǔlǎo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-409-1780414451287",
+        "term": "鼓励",
+        "definition": "to encourage",
+        "meaningKr": "격려하다, 장려하다",
+        "exampleEn": "老师的鼓励是他克服困难的动力。",
+        "exampleKr": "선생님의 격려는 그가 어려움을 극복하는 동력이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǔlì",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-410-1780414451287",
+        "term": "鼓掌",
+        "definition": "to applaud; to clap",
+        "meaningKr": "박수치다",
+        "exampleEn": "观众们为精彩的表演报以热烈的掌声。",
+        "exampleKr": "관객들은 멋진 공연에 뜨거운 박수를 보냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gǔ∥zhǎng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-411-1780414451287",
+        "term": "顾问",
+        "definition": "adviser; consultant",
+        "meaningKr": "고문, 컨설턴트",
+        "exampleEn": "公司聘请了一位著名的经济学家担任高级顾问。",
+        "exampleKr": "회사는 유명한 경제학자를 초빙하여 고문으로 임명했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "gùwèn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-412-1780414451287",
+        "term": "关怀",
+        "definition": "care; solicitude; to show care for",
+        "meaningKr": "관심, 보살핌",
+        "exampleEn": "他对弱势群体的关怀令人感动。",
+        "exampleKr": "그가 사회적 약자에 대해 보이는 관심은 감동적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guānhuái",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-413-1780414451287",
+        "term": "关键",
+        "definition": "crucial point; crux; key",
+        "meaningKr": "핵심, 중요한",
+        "exampleEn": "掌握核心技术是企业发展的关键。",
+        "exampleKr": "핵심 기술을 파악하는 것이 기업 발전의 관건입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guānjiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-414-1780414451287",
+        "term": "冠军",
+        "definition": "champion",
+        "meaningKr": "챔피언, 우승자",
+        "exampleEn": "他通过不懈努力，终于赢得了世界冠军。",
+        "exampleKr": "그는 끊임없는 노력 끝에 마침내 세계 챔피언이 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guànjūn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-415-1780414451287",
+        "term": "光荣",
+        "definition": "honor and glory; glorious",
+        "meaningKr": "영광스러운",
+        "exampleEn": "为国争光是一件光荣的事情。",
+        "exampleKr": "나라를 빛내는 것은 영광스러운 일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guāngróng",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-zh-advanced-416-1780414451287",
+        "term": "光线",
+        "definition": "light ray; light; illumination",
+        "meaningKr": "광선, 빛",
+        "exampleEn": "充足的光线有助于提高学习效率。",
+        "exampleKr": "충분한 광선은 학습 효율을 높이는 데 도움이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guāngxiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-417-1780414451287",
+        "term": "广泛",
+        "definition": "wide; broad; extensive; widespread",
+        "meaningKr": "광범위한, 폭넓은",
+        "exampleEn": "这项研究的结论得到了广泛的认可。",
+        "exampleKr": "이 연구의 결론은 광범위한 인정을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guǎngfàn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-418-1780414451287",
+        "term": "规划",
+        "definition": "to draw up a plan; to map out a program; a plan; a program",
+        "meaningKr": "계획하다, 기획하다",
+        "exampleEn": "政府正在对城市未来发展进行长远规划。",
+        "exampleKr": "정부는 도시의 미래 발전을 위한 장기적인 계획을 수립 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guīhuà",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-advanced-419-1780414451287",
+        "term": "柜子",
+        "definition": "cupboard; cabinet",
+        "meaningKr": "찬장, 캐비닛",
+        "exampleEn": "请把书放回原处的柜子里。",
+        "exampleKr": "책은 원래 있던 찬장에 다시 넣어주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guìzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-420-1780414451287",
+        "term": "国籍",
+        "definition": "nationality",
+        "meaningKr": "국적",
+        "exampleEn": "他在申请表格上填写了自己的国籍。",
+        "exampleKr": "그는 신청서에 자신의 국적을 기입했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guójí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-421-1780414451287",
+        "term": "国民",
+        "definition": "nationals; citizens; people of a nation",
+        "meaningKr": "국민",
+        "exampleEn": "一个国家的强大取决于其国民的素质。",
+        "exampleKr": "한 나라의 강대함은 그 국민의 자질에 달려 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guómín",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-422-1780414451287",
+        "term": "过度",
+        "definition": "excessive; over-; excess",
+        "meaningKr": "과도한, 지나친",
+        "exampleEn": "过度劳累会对身体造成严重损害。",
+        "exampleKr": "과도한 피로는 신체에 심각한 손상을 줄 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guòdù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-423-1780414451287",
+        "term": "过敏",
+        "definition": "(medicine) allergic; hypersensitive; (fig.) oversensitive; prone to overreact",
+        "meaningKr": "알레르기 반응을 보이다, 과민한",
+        "exampleEn": "有些人对某些药物会产生强烈的过敏反应。",
+        "exampleKr": "어떤 사람들은 특정 약물에 대해 강한 알레르기 반응을 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guòmǐn",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-advanced-424-1780414451287",
+        "term": "过于",
+        "definition": "excessively; too",
+        "meaningKr": "지나치게, 너무",
+        "exampleEn": "他过于自信，导致了最终的失败。",
+        "exampleKr": "그는 너무 자신만만해서 결국 실패로 이어졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "guòyú",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-425-1780414451287",
+        "term": "好运",
+        "definition": "good luck",
+        "meaningKr": "행운, 좋은 운",
+        "exampleEn": "祝你这次考试能够顺利通过，带来好运。",
+        "exampleKr": "이번 시험에 순조롭게 합격하여 행운이 따르기를 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hǎoyùn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-426-1780414451287",
+        "term": "号召",
+        "definition": "to call; to appeal",
+        "meaningKr": "호소하다, 촉구하다; 호소, 제창",
+        "exampleEn": "政府向全国人民发出了节约用水的号召。",
+        "exampleKr": "정부는 전국민에게 물 절약을 하자는 호소를 발했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hàozhào",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-427-1780414451287",
+        "term": "合并",
+        "definition": "variant of 合併|合并[he2 bing4]",
+        "meaningKr": "합병하다, 통합하다",
+        "exampleEn": "两家公司经过谈判最终决定合并。",
+        "exampleKr": "두 회사는 협상을 거쳐 마침내 합병을 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hébìng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-428-1780414451287",
+        "term": "合成",
+        "definition": "to compose; to constitute; compound",
+        "meaningKr": "합성하다, 이루다; 합성의",
+        "exampleEn": "这种新材料是通过多种化学物质合成的。",
+        "exampleKr": "이 신소재는 여러 화학 물질을 통해 합성된 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "héchéng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-429-1780414451287",
+        "term": "盒饭",
+        "definition": "meal in a partitioned box",
+        "meaningKr": "도시락",
+        "exampleEn": "他匆忙地买了一份盒饭作为午餐。",
+        "exampleKr": "그는 서둘러 도시락 한 끼를 점심으로 샀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "héfàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-430-1780414451287",
+        "term": "盒子",
+        "definition": "box; case; hezi – a savory turnover-like pie in northern Chinese and Mongolian cuisines",
+        "meaningKr": "상자, 갑",
+        "exampleEn": "请帮我把这个精美的首饰盒打开。",
+        "exampleKr": "이 아름다운 보석 상자를 열어주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hézi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-431-1780414451287",
+        "term": "贺卡",
+        "definition": "greeting card; congratulation card",
+        "meaningKr": "축하 카드",
+        "exampleEn": "圣诞节快到了，我准备写几张贺卡。",
+        "exampleKr": "크리스마스가 다가오고 있으니 축하 카드 몇 장을 쓰려고 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hèkǎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-432-1780414451287",
+        "term": "后悔",
+        "definition": "to regret; to feel remorse",
+        "meaningKr": "후회하다",
+        "exampleEn": "如果当初听了他的建议，现在就不会后悔了。",
+        "exampleKr": "만약 처음에 그의 조언을 들었다면 지금 후회하지 않을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hòuhuǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-433-1780414451287",
+        "term": "胡同儿",
+        "definition": "erhua form of 胡同[hu2 tong4]",
+        "meaningKr": "골목 (북경 지역)",
+        "exampleEn": "古老的胡同儿保留着历史的痕迹。",
+        "exampleKr": "오래된 골목은 역사의 흔적을 간직하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "hútòngr",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-434-1780414451287",
+        "term": "胡子",
+        "definition": "beard; mustache or whiskers; facial hair",
+        "meaningKr": "수염",
+        "exampleEn": "他蓄着浓密的胡子，看起来很有威严。",
+        "exampleKr": "그는 숱이 많은 수염을 길러 위엄 있어 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "húzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-435-1780414451287",
+        "term": "华语",
+        "definition": "Chinese language",
+        "meaningKr": "중국어 (특히 중화권)",
+        "exampleEn": "在这次国际会议上，他用流利的华语发表了演讲。",
+        "exampleKr": "이번 국제 회의에서 그는 유창한 중국어로 연설을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "Huáyǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-436-1780414451287",
+        "term": "划分",
+        "definition": "to divide up; to partition; to differentiate",
+        "meaningKr": "구분하다, 나누다",
+        "exampleEn": "我们需要将任务按优先级进行划分。",
+        "exampleKr": "우리는 임무를 우선순위에 따라 구분할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huàfēn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-437-1780414451287",
+        "term": "画面",
+        "definition": "scene; tableau; picture",
+        "meaningKr": "화면, 장면",
+        "exampleEn": "电影的结尾画面令人印象深刻。",
+        "exampleKr": "영화의 마지막 장면은 깊은 인상을 남겼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huàmiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-438-1780414451287",
+        "term": "化石",
+        "definition": "fossil",
+        "meaningKr": "화석",
+        "exampleEn": "考古学家在这里发现了一块珍贵的恐龙化石。",
+        "exampleKr": "고고학자들은 이곳에서 귀중한 공룡 화석 한 점을 발견했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huàshí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-439-1780414451287",
+        "term": "环节",
+        "definition": "(zoology) segment (of the body of a worm, centipede etc); (fig.) a part of an integrated whole: aspect (of a project), element (of a policy), sector (of the economy), stage (of a process) etc",
+        "meaningKr": "단계, 연결고리, 부분",
+        "exampleEn": "每一个环节都必须严格把控质量。",
+        "exampleKr": "모든 단계는 엄격하게 품질 관리를 해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huánjié",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-440-1780414451287",
+        "term": "慌忙",
+        "definition": "in a great rush; in a flurry",
+        "meaningKr": "허둥지둥하다, 황망하다",
+        "exampleEn": "听到警报，人们慌忙地逃离了建筑物。",
+        "exampleKr": "경보를 듣고 사람들은 황급히 건물에서 대피했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huāngmáng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-441-1780414451287",
+        "term": "恢复",
+        "definition": "to reinstate; to resume; to restore",
+        "meaningKr": "회복하다, 복구하다, 되찾다",
+        "exampleEn": "经过一段时间的治疗，他的身体终于恢复了健康。",
+        "exampleKr": "한동안의 치료를 거쳐 그의 건강은 마침내 회복되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huīfù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-442-1780414451287",
+        "term": "灰色",
+        "definition": "gray; ash gray; grizzly",
+        "meaningKr": "회색",
+        "exampleEn": "他喜欢穿低调的灰色系衣服。",
+        "exampleKr": "그는 차분한 회색 계열의 옷을 입는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huīsè",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-zh-advanced-443-1780414451287",
+        "term": "回报",
+        "definition": "reciprocation; payback; retaliation",
+        "meaningKr": "보답하다, 보답",
+        "exampleEn": "父母的养育之恩，子女当尽力回报。",
+        "exampleKr": "부모님의 양육 은혜는 자식이 최선을 다해 보답해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huíbào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-444-1780414451287",
+        "term": "回避",
+        "definition": "variant of 迴避|回避[hui2 bi4]",
+        "meaningKr": "회피하다, 피하다",
+        "exampleEn": "他总是试图回避那些棘手的问题。",
+        "exampleKr": "그는 늘 까다로운 문제들을 회피하려고 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huíbì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-445-1780414451287",
+        "term": "回顾",
+        "definition": "to look back; to review",
+        "meaningKr": "회고하다, 되돌아보다",
+        "exampleEn": "新年之际，我们应该回顾过去一年的成就。",
+        "exampleKr": "새해를 맞이하여 우리는 지난 한 해의 성과를 되돌아봐야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huígù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-446-1780414451287",
+        "term": "回收",
+        "definition": "to recycle; to reclaim; to retrieve",
+        "meaningKr": "회수하다, 재활용하다",
+        "exampleEn": "公司计划对废弃物进行回收再利用。",
+        "exampleKr": "회사는 폐기물을 회수하여 재활용할 계획이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huíshōu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-447-1780414451287",
+        "term": "回头",
+        "definition": "to turn round; to turn one's head; later; by and by",
+        "meaningKr": "돌아보다, 나중에",
+        "exampleEn": "虽然遇到困难，但我们不能放弃，回头再战。",
+        "exampleKr": "어려움에 직면했지만 포기할 수 없다, 나중에 다시 도전하자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huítóu",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-448-1780414451287",
+        "term": "回信",
+        "definition": "to reply; to write back; letter written in reply",
+        "meaningKr": "답장하다, 답장",
+        "exampleEn": "我收到他的邮件后，会尽快给他回信。",
+        "exampleKr": "그의 이메일을 받은 후 가능한 한 빨리 답장할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huíxìn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-449-1780414451287",
+        "term": "回忆",
+        "definition": "to recall; memories",
+        "meaningKr": "회억하다, 회상하다; 추억",
+        "exampleEn": "童年的时光总是令人怀念和回忆。",
+        "exampleKr": "어린 시절은 언제나 그리워하고 회상하게 만든다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huíyì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-450-1780414451287",
+        "term": "汇款",
+        "definition": "to remit money; remittance",
+        "meaningKr": "송금하다, 송금",
+        "exampleEn": "我需要尽快给家里汇款，以解决他们的燃眉之急。",
+        "exampleKr": "그들의 급한 문제를 해결하기 위해 가능한 한 빨리 집에 송금해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huì∥kuǎn",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-451-1780414451287",
+        "term": "会谈",
+        "definition": "talks; discussions",
+        "meaningKr": "회담, 회의",
+        "exampleEn": "两国领导人就双边关系和地区安全问题举行了会谈。",
+        "exampleKr": "양국 지도자들은 양자 관계와 지역 안보 문제에 대해 회담을 가졌습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huìtán",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-452-1780414451287",
+        "term": "活力",
+        "definition": "energy; vitality; vigor",
+        "meaningKr": "활력, 생기",
+        "exampleEn": "年轻人的活力是国家发展的强大动力。",
+        "exampleKr": "젊은이들의 활력은 국가 발전의 강력한 동력입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huólì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-453-1780414451287",
+        "term": "活泼",
+        "definition": "lively; vivacious; brisk",
+        "meaningKr": "활발하다, 생기 넘치다",
+        "exampleEn": "这个孩子性格活泼开朗，深受大家的喜爱。",
+        "exampleKr": "이 아이는 성격이 활발하고 명랑하여 모두의 사랑을 받습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huó·pō",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-454-1780414451287",
+        "term": "火柴",
+        "definition": "match (for lighting fire)",
+        "meaningKr": "성냥",
+        "exampleEn": "点燃蜡烛需要一根火柴，但熄灭蜡烛只需要一口气。",
+        "exampleKr": "촛불을 켜려면 성냥 한 개비가 필요하지만, 끄는 데는 숨 한 번이면 충분합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huǒchái",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-455-1780414451287",
+        "term": "火腿",
+        "definition": "ham",
+        "meaningKr": "햄",
+        "exampleEn": "早餐通常会搭配煎鸡蛋和几片火腿。",
+        "exampleKr": "아침 식사로는 보통 계란 프라이와 햄 몇 조각을 곁들입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huǒtuǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-456-1780414451287",
+        "term": "火灾",
+        "definition": "serious fire (in a city or a forest etc)",
+        "meaningKr": "화재",
+        "exampleEn": "一旦发生火灾，我们必须立即启动应急预案。",
+        "exampleKr": "화재가 발생하면 즉시 비상 계획을 발동해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huǒzāi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-457-1780414451287",
+        "term": "或是",
+        "definition": "or; either one or the other",
+        "meaningKr": "혹은, 또는",
+        "exampleEn": "你可以选择坐飞机或是火车去旅行，各有优缺点。",
+        "exampleKr": "여행은 비행기나 기차로 갈 수 있으며, 각각 장단점이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "huòshì",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-advanced-458-1780414451287",
+        "term": "基地",
+        "definition": "al-Qaeda",
+        "meaningKr": "기지",
+        "exampleEn": "该公司正在建设一个全新的研发基地，以推动技术创新。",
+        "exampleKr": "그 회사는 기술 혁신을 추진하기 위해 완전히 새로운 연구 개발 기지를 건설하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jīdì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-459-1780414451287",
+        "term": "基金",
+        "definition": "fund",
+        "meaningKr": "기금, 펀드",
+        "exampleEn": "他决定将部分收入捐赠给慈善基金。",
+        "exampleKr": "그는 수입의 일부를 자선 기금에 기부하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jījīn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-460-1780414451287",
+        "term": "肌肉",
+        "definition": "muscle; flesh",
+        "meaningKr": "근육",
+        "exampleEn": "规律的体育锻炼有助于增强肌肉和骨骼。",
+        "exampleKr": "규칙적인 운동은 근육과 뼈를 강화하는 데 도움이 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jīròu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-461-1780414451287",
+        "term": "机制",
+        "definition": "mechanism",
+        "meaningKr": "메커니즘, 제도",
+        "exampleEn": "这个项目需要一个有效的激励机制来调动员工的积极性。",
+        "exampleKr": "이 프로젝트는 직원들의 적극성을 동원하기 위한 효과적인 인센티브 메커니즘이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jīzhì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-462-1780414451287",
+        "term": "即使",
+        "definition": "even if; even though",
+        "meaningKr": "비록 ~일지라도",
+        "exampleEn": "即使遇到再大的困难，我们也要坚持下去。",
+        "exampleKr": "아무리 큰 어려움에 직면하더라도 우리는 계속 나아가야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jíshǐ",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-advanced-463-1780414451287",
+        "term": "集团",
+        "definition": "group; bloc; corporation",
+        "meaningKr": "그룹, 기업 집단",
+        "exampleEn": "这家跨国集团在全球范围内拥有广泛的业务网络。",
+        "exampleKr": "이 다국적 그룹은 전 세계적으로 광범위한 사업 네트워크를 보유하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jítuán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-464-1780414451287",
+        "term": "继承",
+        "definition": "to inherit; to succeed to (the throne etc); to carry on (a tradition etc)",
+        "meaningKr": "계승하다, 상속하다",
+        "exampleEn": "他将继承家族企业，并将其发扬光大。",
+        "exampleKr": "그는 가업을 계승하여 더욱 발전시킬 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jìchéng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-465-1780414451287",
+        "term": "技能",
+        "definition": "technical ability; skill",
+        "meaningKr": "기술, 기량",
+        "exampleEn": "掌握一门外语是现代社会一项重要的职业技能。",
+        "exampleKr": "외국어 하나를 습득하는 것은 현대 사회에서 중요한 직업 기술입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jìnéng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-466-1780414451287",
+        "term": "记忆",
+        "definition": "to remember; to recall; memory",
+        "meaningKr": "기억, 기억력",
+        "exampleEn": "随着年龄的增长，他的记忆力似乎有所下降。",
+        "exampleKr": "나이가 들면서 그의 기억력이 다소 떨어진 것 같습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jìyì",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-467-1780414451287",
+        "term": "加热",
+        "definition": "to heat",
+        "meaningKr": "가열하다",
+        "exampleEn": "请将汤加热至适宜饮用的温度。",
+        "exampleKr": "수프를 마시기 적절한 온도로 데워 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiā∥rè",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-advanced-468-1780414451287",
+        "term": "加上",
+        "definition": "plus; to put in; to add",
+        "meaningKr": "~을 더하여, 게다가",
+        "exampleEn": "我们只需要加上一些调味料，这道菜就会更美味。",
+        "exampleKr": "양념을 조금만 더하면 이 요리가 더욱 맛있어질 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāshàng",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-advanced-469-1780414451287",
+        "term": "加速",
+        "definition": "to accelerate; to speed up; to expedite",
+        "meaningKr": "가속하다, 속도를 높이다",
+        "exampleEn": "为了按时完成任务，我们需要加速工作进程。",
+        "exampleKr": "마감 시간을 맞추기 위해 업무 진행 속도를 높여야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāsù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-470-1780414451287",
+        "term": "加以",
+        "definition": "(formal) to apply; to carry out; to take action to (do sth) (used before a disyllabic verb, indicating that the action is directed at sth previously mentioned, e.g. 加以說明|加以说明[jia1 yi3 shuo1 ming2]); to apply (restrictions etc); to give (support, consideration etc); (literary) moreover; in addition",
+        "meaningKr": "~을 더하여, ~을 하다",
+        "exampleEn": "他对自己的错误加以反思，并从中吸取教训。",
+        "exampleKr": "그는 자신의 잘못을 반성하고 거기서 교훈을 얻었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāyǐ",
+        "pos": "verb, conjunction"
+      },
+      {
+        "id": "word-zh-advanced-471-1780414451287",
+        "term": "驾驶",
+        "definition": "to drive (vehicle); to pilot (ship, airplane etc); driver; pilot; captain",
+        "meaningKr": "운전하다, 조종하다",
+        "exampleEn": "他拥有多年的安全驾驶经验。",
+        "exampleKr": "그는 다년간의 안전 운전 경험을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiàshǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-472-1780414451287",
+        "term": "驾照",
+        "definition": "driver's license (abbr. for 駕駛執照|驾驶执照[jia4 shi3 zhi2 zhao4])",
+        "meaningKr": "운전면허증",
+        "exampleEn": "没有驾照是不能合法驾驶汽车的。",
+        "exampleKr": "운전면허증이 없으면 합법적으로 자동차를 운전할 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiàzhào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-473-1780414451287",
+        "term": "坚定",
+        "definition": "firm; steady; staunch",
+        "meaningKr": "확고하다, 흔들리지 않다",
+        "exampleEn": "他以坚定的信念克服了重重困难。",
+        "exampleKr": "그는 확고한 신념으로 수많은 어려움을 극복했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāndìng",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-advanced-474-1780414451287",
+        "term": "艰苦",
+        "definition": "difficult; hard; arduous",
+        "meaningKr": "힘들다, 어렵다",
+        "exampleEn": "创业初期，他们经历了许多艰苦的岁月。",
+        "exampleKr": "창업 초기, 그들은 많은 힘든 시절을 겪었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiānkǔ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-475-1780414451287",
+        "term": "艰难",
+        "definition": "difficult; hard; challenging",
+        "meaningKr": "어렵다, 힘들다",
+        "exampleEn": "克服重重困难，他终于完成了这项艰巨的任务。",
+        "exampleKr": "수많은 어려움을 극복하고 그는 마침내 이 험난한 임무를 완수했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiānnán",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-476-1780414451287",
+        "term": "剪刀",
+        "definition": "scissors",
+        "meaningKr": "가위",
+        "exampleEn": "请把这块布用剪刀小心地剪开。",
+        "exampleKr": "이 천을 가위로 조심스럽게 잘라 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎndāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-477-1780414451287",
+        "term": "减轻",
+        "definition": "to lighten; to ease; to alleviate",
+        "meaningKr": "경감하다, 줄이다",
+        "exampleEn": "政府采取措施减轻企业负担。",
+        "exampleKr": "정부는 기업의 부담을 경감하기 위한 조치를 취했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎnqīng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-478-1780414451287",
+        "term": "检验",
+        "definition": "to inspect; to examine; to test",
+        "meaningKr": "검사하다, 시험하다",
+        "exampleEn": "我们需要对产品质量进行严格检验。",
+        "exampleKr": "우리는 제품 품질에 대해 엄격한 검사를 진행해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎnyàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-479-1780414451287",
+        "term": "剪子",
+        "definition": "clippers; scissors; shears",
+        "meaningKr": "가위",
+        "exampleEn": "他用一把锋利的剪子修剪了枝叶。",
+        "exampleKr": "그는 날카로운 가위로 가지와 잎을 다듬었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎnzi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-480-1780414451287",
+        "term": "间接",
+        "definition": "indirect",
+        "meaningKr": "간접적인",
+        "exampleEn": "这次事件间接导致了公司股价下跌。",
+        "exampleKr": "이번 사건은 간접적으로 회사 주가 하락을 초래했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiànjiē",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-advanced-481-1780414451287",
+        "term": "键盘",
+        "definition": "keyboard",
+        "meaningKr": "키보드",
+        "exampleEn": "她用键盘快速地打字，效率很高。",
+        "exampleKr": "그녀는 키보드로 빠르게 타이핑하며 효율성이 높았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiànpán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-482-1780414451287",
+        "term": "健全",
+        "definition": "robust; sound",
+        "meaningKr": "건전하다, 완전하다",
+        "exampleEn": "一个健全的社会需要完善的法律体系。",
+        "exampleKr": "건전한 사회는 완벽한 법률 체계를 필요로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiànquán",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-advanced-483-1780414451287",
+        "term": "建造",
+        "definition": "to construct; to build",
+        "meaningKr": "건조하다, 세우다",
+        "exampleEn": "他们计划建造一座新的图书馆。",
+        "exampleKr": "그들은 새로운 도서관을 건설할 계획이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiànzào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-484-1780414451287",
+        "term": "建筑",
+        "definition": "to construct; building",
+        "meaningKr": "건축하다, 건물",
+        "exampleEn": "这座历史建筑吸引了众多游客。",
+        "exampleKr": "이 역사적인 건물은 수많은 관광객을 끌어들였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiànzhù",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-485-1780414451287",
+        "term": "将要",
+        "definition": "will; shall; to be going to",
+        "meaningKr": "장차 ~할 것이다",
+        "exampleEn": "根据预测，明天将要迎来降温。",
+        "exampleKr": "예측에 따르면, 내일은 기온 하강을 맞이할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāngyào",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-486-1780414451287",
+        "term": "奖励",
+        "definition": "to reward; reward (as encouragement)",
+        "meaningKr": "상을 주다, 보상",
+        "exampleEn": "公司对表现优异的员工给予丰厚奖励。",
+        "exampleKr": "회사는 성적이 우수한 직원들에게 후한 보상을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎnglì",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-advanced-487-1780414451287",
+        "term": "交代",
+        "definition": "to transfer (duties to sb else); to give instructions; to tell (sb to do sth); to explain; to give an account; to brief",
+        "meaningKr": "인계하다, 설명하다",
+        "exampleEn": "他把工作任务详细交代给了接任者。",
+        "exampleKr": "그는 업무 내용을 후임자에게 상세히 인계했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāodài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-488-1780414451287",
+        "term": "胶带",
+        "definition": "adhesive tape; magnetic tape",
+        "meaningKr": "테이프",
+        "exampleEn": "请用胶带把箱子封好。",
+        "exampleKr": "테이프로 상자를 잘 봉해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāodài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-489-1780414451287",
+        "term": "郊区",
+        "definition": "Jiao District or Jiaoqu, a district of Tongling City 銅陵市|铜陵市[Tong2 ling2 Shi4], Anhui; Jiao District or Jiaoqu, a district of Jiamusi City 佳木斯市[Jia1 mu4 si1 Shi4], Heilongjiang; Jiao District or Jiaoqu, a district of Yangquan City 陽泉市|阳泉市[Yang2 quan2 Shi4], Shanxi",
+        "meaningKr": "교외",
+        "exampleEn": "许多市民选择在郊区购买住房。",
+        "exampleKr": "많은 시민들이 교외에 주택을 구매하는 것을 선택한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāoqū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-490-1780414451287",
+        "term": "胶水",
+        "definition": "glue",
+        "meaningKr": "접착제, 풀",
+        "exampleEn": "这件工艺品需要用胶水粘合。",
+        "exampleKr": "이 공예품은 접착제로 붙여야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiāoshuǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-491-1780414451287",
+        "term": "脚步",
+        "definition": "footstep; step",
+        "meaningKr": "발걸음",
+        "exampleEn": "他加快脚步，追上了前面的队伍。",
+        "exampleKr": "그는 발걸음을 재촉하여 앞선 대열을 따라잡았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiǎobù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-492-1780414451287",
+        "term": "接触",
+        "definition": "to touch; to contact; access",
+        "meaningKr": "접촉하다, 연락하다",
+        "exampleEn": "我们应该避免与病人有过多的身体接触。",
+        "exampleKr": "우리는 환자와 과도한 신체 접촉을 피해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiēchù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-493-1780414451287",
+        "term": "接连",
+        "definition": "on end; in a row; in succession",
+        "meaningKr": "연달아, 계속해서",
+        "exampleEn": "最近接连发生了一些令人不安的事件。",
+        "exampleKr": "최근에 연달아 몇 가지 불안한 사건들이 발생했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiēlián",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-advanced-494-1780414451287",
+        "term": "解除",
+        "definition": "to remove; to sack; to get rid of",
+        "meaningKr": "해제하다, 제거하다",
+        "exampleEn": "双方最终解除了长期的合作关系。",
+        "exampleKr": "양측은 마침내 장기적인 협력 관계를 해제했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiěchú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-495-1780414451287",
+        "term": "解放",
+        "definition": "to liberate; to emancipate; liberation",
+        "meaningKr": "해방하다, 석방하다",
+        "exampleEn": "这次改革旨在解放生产力。",
+        "exampleKr": "이번 개혁은 생산력을 해방시키는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jiěfàng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-advanced-496-1780414451287",
+        "term": "今日",
+        "definition": "today",
+        "meaningKr": "오늘",
+        "exampleEn": "今日天气晴朗，非常适合户外活动。",
+        "exampleKr": "오늘 날씨는 맑아서 야외 활동에 매우 적합하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jīnrì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-advanced-497-1780414451287",
+        "term": "尽管",
+        "definition": "despite; although; even though",
+        "meaningKr": "비록 ~이지만",
+        "exampleEn": "尽管困难重重，他们仍坚持不懈地努力。",
+        "exampleKr": "어려움이 많았지만, 그들은 여전히 끈기 있게 노력했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jǐnguǎn",
+        "pos": "adverb, conjunction"
+      },
+      {
+        "id": "word-zh-advanced-498-1780414451287",
+        "term": "紧紧",
+        "definition": "closely; tightly",
+        "meaningKr": "단단히, 꽉",
+        "exampleEn": "他紧紧地握住我的手，似乎有所顾虑。",
+        "exampleKr": "그는 내 손을 꽉 잡았는데, 뭔가 걱정하는 듯했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jǐnjǐn",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-advanced-499-1780414451287",
+        "term": "进化",
+        "definition": "to evolve (biologically, technologically etc); evolution",
+        "meaningKr": "진화하다",
+        "exampleEn": "生物的进化是一个漫长而复杂的过程。",
+        "exampleKr": "생물의 진화는 길고 복잡한 과정이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Advanced"
+        ],
+        "phonetic": "jìnhuà",
+        "pos": "verb"
+      }
+    ]
+  },
+{
+    "id": "curated-zh-intermediate-1",
+    "title": "중급 중국어 500 (HSK 3급)",
+    "icon": "🐼",
+    "isCurated": true,
+    "category": "중급",
+    "level": "intermediate",
+    "description": "HSK 3급 중급 중국어 500. Wiktionary \"HSK list of Mandarin words v3.0/level 3\" (CC BY-SA 4.0) 기반, CC-CEDICT로 병음·정의 검증, 한국어 뜻·HSK 3 예문 AI 생성",
+    "sourceLanguage": "zh",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780414446827,
+    "words": [
+      {
+        "id": "word-zh-intermediate-0-1780414446827",
+        "term": "按",
+        "definition": "to press; to push; to leave aside or shelve",
+        "meaningKr": "누르다, 누르다, 따르다",
+        "exampleEn": "请按这里，然后告诉我。",
+        "exampleKr": "여기를 누르시고 저에게 말씀해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "àn",
+        "pos": "verb, preposition"
+      },
+      {
+        "id": "word-zh-intermediate-1-1780414446827",
+        "term": "把",
+        "definition": "to hold; to grasp; to hold a baby in position to help it urinate or defecate; handlebar",
+        "meaningKr": "잡다, 쥐다, (손잡이)",
+        "exampleEn": "请把门关上，谢谢。",
+        "exampleKr": "문을 닫아 주세요, 감사합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎ",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-2-1780414446827",
+        "term": "白",
+        "definition": "Bai ethnic group",
+        "meaningKr": "하얗다, 명백하다, 헛되이",
+        "exampleEn": "我今天白跑了一趟。",
+        "exampleKr": "제가 오늘 헛걸음했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bái",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-3-1780414446827",
+        "term": "搬",
+        "definition": "to move (i.e. relocate oneself); to move (sth relatively heavy or bulky); to shift",
+        "meaningKr": "옮기다, 이사하다",
+        "exampleEn": "他正在搬家，需要帮忙。",
+        "exampleKr": "그는 이사 중이라 도움이 필요해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-4-1780414446827",
+        "term": "板",
+        "definition": "board; plank; plate",
+        "meaningKr": "널빤지, 판자, (동사) 고정하다",
+        "exampleEn": "这块木板很结实。",
+        "exampleKr": "이 나무 판자는 매우 튼튼합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-5-1780414446827",
+        "term": "保",
+        "definition": "Bulgaria (abbr. for 保加利亞|保加利亚[Bao3 jia1 li4 ya4])",
+        "meaningKr": "보호하다, 보증하다",
+        "exampleEn": "我需要保证我的健康。",
+        "exampleKr": "나는 나의 건강을 보장해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-6-1780414446827",
+        "term": "报",
+        "definition": "to report; to inform; to announce; to respond; to reply; to sign up for; to register for (abbr. for 報名|报名[bao4 ming2])",
+        "meaningKr": "보고하다, 알리다, 신문",
+        "exampleEn": "请把你的名字报一下。",
+        "exampleKr": "당신의 이름을 알려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-7-1780414446827",
+        "term": "背",
+        "definition": "variant of 背[bei1]",
+        "meaningKr": "등, 지다, 외우다",
+        "exampleEn": "他背着一个大书包。",
+        "exampleKr": "그는 큰 책가방을 메고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bēi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-8-1780414446827",
+        "term": "背",
+        "definition": "variant of 背[bei1]",
+        "meaningKr": "등, 뒤",
+        "exampleEn": "请把书放回原处。",
+        "exampleKr": "책을 원래 있던 곳에 다시 두세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bèi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-9-1780414446827",
+        "term": "被",
+        "definition": "quilt; to cover (with); used to indicate passive voice (placed before the doer of the action like \"by\" in English passive-voice sentences, or, if the doer is not mentioned, before the verb)",
+        "meaningKr": "~에 의해 (피동), 이불",
+        "exampleEn": "我的手机被弟弟弄坏了。",
+        "exampleKr": "내 휴대폰은 남동생에 의해 망가졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bèi",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-intermediate-10-1780414446827",
+        "term": "并",
+        "definition": "and; furthermore; also",
+        "meaningKr": "아울러, 그리고",
+        "exampleEn": "他能说汉语，并且会写。",
+        "exampleKr": "그는 중국어를 할 수 있고, 그리고 쓸 수도 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bìng",
+        "pos": "adverb, conjunction"
+      },
+      {
+        "id": "word-zh-intermediate-11-1780414446827",
+        "term": "补",
+        "definition": "to repair; to patch; to mend",
+        "meaningKr": "보충하다, 수선하다",
+        "exampleEn": "我需要补充一些维生素。",
+        "exampleKr": "나는 비타민을 좀 보충해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǔ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-12-1780414446827",
+        "term": "布",
+        "definition": "to announce; to spread",
+        "meaningKr": "천, 옷감, 퍼뜨리다",
+        "exampleEn": "他把这个消息告诉了大家。",
+        "exampleKr": "그는 이 소식을 모두에게 알렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-13-1780414446827",
+        "term": "步",
+        "definition": "surname Bu",
+        "meaningKr": "걸음, 발걸음, 단계",
+        "exampleEn": "我们一步一步地学习。",
+        "exampleKr": "우리는 한 걸음 한 걸음씩 배웁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bù",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-intermediate-14-1780414446827",
+        "term": "部",
+        "definition": "ministry; department; section",
+        "meaningKr": "부서, 부분, 편",
+        "exampleEn": "这是我们部门的新计划。",
+        "exampleKr": "이것은 우리 부서의 새 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bù",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-intermediate-15-1780414446827",
+        "term": "厂",
+        "definition": "factory; yard; depot",
+        "meaningKr": "공장, 작업장",
+        "exampleEn": "这家工厂生产汽车。",
+        "exampleKr": "이 공장은 자동차를 생산합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-16-1780414446827",
+        "term": "朝",
+        "definition": "abbr. for 朝鮮|朝鲜[Chao2 xian3] Korea",
+        "meaningKr": "아침, 향하다",
+        "exampleEn": "请朝这边看。",
+        "exampleKr": "이쪽을 봐 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cháo",
+        "pos": "preposition, verb"
+      },
+      {
+        "id": "word-zh-intermediate-17-1780414446827",
+        "term": "吵",
+        "definition": "to quarrel; to make a noise; noisy",
+        "meaningKr": "시끄럽다, 다투다",
+        "exampleEn": "请小声点儿，不要吵。",
+        "exampleKr": "좀 조용히 하세요, 시끄럽게 하지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chǎo",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-18-1780414446827",
+        "term": "城",
+        "definition": "city walls; city; town",
+        "meaningKr": "성, 도시",
+        "exampleEn": "北京是一座很大的城市。",
+        "exampleKr": "베이징은 매우 큰 도시입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-19-1780414446827",
+        "term": "重",
+        "definition": "to repeat; repetition; again",
+        "meaningKr": "무겁다, 중요하다, 다시",
+        "exampleEn": "我们应该重新开始。",
+        "exampleKr": "우리는 다시 시작해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chóng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-20-1780414446827",
+        "term": "初",
+        "definition": "(bound form) at first; initially; (bound form) first; early; (bound form) (in lunar calendar dates, before numerals 1–10) days 1 to 10 of a month, as in 初三[chu1 san1] \"the third\"",
+        "meaningKr": "처음, 초기, 초",
+        "exampleEn": "我刚开始学中文。",
+        "exampleKr": "저는 중국어를 배우기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chū",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-21-1780414446827",
+        "term": "传",
+        "definition": "to pass on; to spread; to transmit",
+        "meaningKr": "전하다, 전달하다, 퍼지다",
+        "exampleEn": "这个消息很快就传开了。",
+        "exampleKr": "이 소식은 금방 퍼져나갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuán",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-22-1780414446827",
+        "term": "村",
+        "definition": "village; rustic; boorish",
+        "meaningKr": "마을, 시골",
+        "exampleEn": "他家住在山村里。",
+        "exampleKr": "그의 집은 산골 마을에 산다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cūn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-23-1780414446827",
+        "term": "存",
+        "definition": "to exist; to deposit; to store",
+        "meaningKr": "저축하다, 보관하다, 존재하다",
+        "exampleEn": "我把钱存到银行里。",
+        "exampleKr": "나는 돈을 은행에 저축했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cún",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-24-1780414446827",
+        "term": "代",
+        "definition": "to be a substitute for; to act on behalf of; to replace; to substitute; generation; dynasty; age; period; (historical) era; (geological) eon",
+        "meaningKr": "대신하다, 시대, 세대",
+        "exampleEn": "这是我们这一代人的想法。",
+        "exampleKr": "이것은 우리 세대의 생각입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dài",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-25-1780414446827",
+        "term": "刀",
+        "definition": "surname Dao",
+        "meaningKr": "칼",
+        "exampleEn": "他用刀切苹果。",
+        "exampleKr": "그는 칼로 사과를 썰었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-26-1780414446827",
+        "term": "调",
+        "definition": "to transfer; to move (troops or cadres); to investigate",
+        "meaningKr": "옮기다, 조정하다, 조사하다",
+        "exampleEn": "经理把小王调到新的部门。",
+        "exampleKr": "매니저는 샤오왕을 새로운 부서로 옮겼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "diào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-27-1780414446827",
+        "term": "订",
+        "definition": "to agree; to conclude; to draw up",
+        "meaningKr": "예약하다, 주문하다, 정하다",
+        "exampleEn": "我需要提前订一张火车票。",
+        "exampleKr": "나는 미리 기차표 한 장을 예약해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dìng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-28-1780414446827",
+        "term": "断",
+        "definition": "to break; to snap; to cut off",
+        "meaningKr": "끊다, 부러뜨리다",
+        "exampleEn": "小心点，别把杯子弄断了。",
+        "exampleKr": "조심해, 컵을 부러뜨리지 않도록.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-29-1780414446827",
+        "term": "顿",
+        "definition": "to stop; to pause; to arrange",
+        "meaningKr": "멈추다, 잠시 쉬다",
+        "exampleEn": "他说话时，总是会顿一下。",
+        "exampleKr": "그는 말할 때 항상 잠시 멈춘다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dùn",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-30-1780414446827",
+        "term": "防",
+        "definition": "to protect; to defend; to guard against",
+        "meaningKr": "막다, 방지하다, 지키다",
+        "exampleEn": "我们应该注意防火。",
+        "exampleKr": "우리는 방화에 주의해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fáng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-31-1780414446827",
+        "term": "费",
+        "definition": "surname Fei",
+        "meaningKr": "들다, 소비하다; 비용",
+        "exampleEn": "这个问题花了我很多时间。",
+        "exampleKr": "이 문제는 나에게 많은 시간을 들게 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fèi",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-32-1780414446827",
+        "term": "福",
+        "definition": "surname Fu; abbr. for Fujian province 福建省[Fu2 jian4 Sheng3]",
+        "meaningKr": "복, 행운",
+        "exampleEn": "祝你新年快乐，身体健康，万事如意！",
+        "exampleKr": "새해 복 많이 받고, 건강하며, 만사형통하길 바랍니다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-33-1780414446827",
+        "term": "付",
+        "definition": "surname Fu",
+        "meaningKr": "지불하다, 내다",
+        "exampleEn": "请您把钱付给我。",
+        "exampleKr": "돈을 저에게 지불해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-34-1780414446827",
+        "term": "富",
+        "definition": "surname Fu",
+        "meaningKr": "부유하다, 풍부하다",
+        "exampleEn": "他的生活很富裕。",
+        "exampleKr": "그의 생활은 매우 부유하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-35-1780414446827",
+        "term": "敢",
+        "definition": "to dare; daring",
+        "meaningKr": "감히 ~하다, 용감하다",
+        "exampleEn": "我敢说他一定会成功。",
+        "exampleKr": "나는 그가 반드시 성공할 거라고 감히 말할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-36-1780414446827",
+        "term": "赶",
+        "definition": "to overtake; to catch up with; to hurry; to rush; to try to catch (the bus etc)",
+        "meaningKr": "서두르다, 따라잡다",
+        "exampleEn": "我们必须赶在天黑前回家。",
+        "exampleKr": "우리는 해가 지기 전에 집에 가야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-37-1780414446827",
+        "term": "各",
+        "definition": "each; every",
+        "meaningKr": "각각, 저마다",
+        "exampleEn": "请大家各写一个句子。",
+        "exampleKr": "모두 저마다 문장 하나씩 써 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gè",
+        "pos": "pronoun, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-38-1780414446827",
+        "term": "古",
+        "definition": "surname Gu",
+        "meaningKr": "옛날의, 고대의",
+        "exampleEn": "这是中国古代的书。",
+        "exampleKr": "이것은 중국 고대의 책이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǔ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-39-1780414446827",
+        "term": "挂",
+        "definition": "to hang; to suspend (from a hook etc); to hang up (the phone); to be worried; to be concerned",
+        "meaningKr": "걸다, 매달다",
+        "exampleEn": "请把衣服挂在衣架上。",
+        "exampleKr": "옷을 옷걸이에 걸어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guà",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-40-1780414446827",
+        "term": "管",
+        "definition": "variant of 管[guan3]",
+        "meaningKr": "관리하다, 책임지다",
+        "exampleEn": "谁负责管理这个房间？",
+        "exampleKr": "누가 이 방을 관리할 책임이 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-41-1780414446827",
+        "term": "光",
+        "definition": "light; ray (CL:道[dao4]); bright; shiny; only; merely",
+        "meaningKr": "빛; 오직, 단지",
+        "exampleEn": "灯光很亮，我睡不着。",
+        "exampleKr": "등불 빛이 너무 밝아서 잠을 잘 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guāng",
+        "pos": "adverb, noun, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-42-1780414446827",
+        "term": "行",
+        "definition": "classifier for rows or lines",
+        "meaningKr": "줄, 열",
+        "exampleEn": "请坐在第一行。",
+        "exampleKr": "첫 번째 줄에 앉아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "háng",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-43-1780414446827",
+        "term": "合",
+        "definition": "to close; to join; to fit",
+        "meaningKr": "맞다, 적합하다; 합치다",
+        "exampleEn": "这个尺寸不合身。",
+        "exampleKr": "이 사이즈는 몸에 맞지 않는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hé",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-44-1780414446827",
+        "term": "化",
+        "definition": "variant of 花[hua1]",
+        "meaningKr": "~화하다, 변화시키다",
+        "exampleEn": "科技改变了我们的生活。",
+        "exampleKr": "과학 기술은 우리의 생활을 변화시켰다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huà",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-zh-intermediate-45-1780414446827",
+        "term": "环",
+        "definition": "surname Huan",
+        "meaningKr": "고리, 환경",
+        "exampleEn": "保护环境是我们共同的责任。",
+        "exampleKr": "환경을 보호하는 것은 우리의 공동 책임이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-46-1780414446827",
+        "term": "活",
+        "definition": "to live; alive; living",
+        "meaningKr": "살다; 살아있는",
+        "exampleEn": "他是一个很活跃的人。",
+        "exampleKr": "그는 매우 활발한 사람이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huó",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-47-1780414446827",
+        "term": "火",
+        "definition": "surname Huo",
+        "meaningKr": "불",
+        "exampleEn": "小心，水开了，火太大了。",
+        "exampleKr": "조심해, 물이 끓고 있어, 불이 너무 세.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huǒ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-48-1780414446827",
+        "term": "架",
+        "definition": "to support; frame; rack",
+        "meaningKr": "선반, 틀; 세우다",
+        "exampleEn": "书架上有很多书。",
+        "exampleKr": "책장 위에 책이 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jià",
+        "pos": "classifier, noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-49-1780414446827",
+        "term": "建",
+        "definition": "to establish; to found; to set up",
+        "meaningKr": "건설하다, 세우다",
+        "exampleEn": "他们正在建一座新桥。",
+        "exampleKr": "그들은 새 다리를 건설하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-50-1780414446827",
+        "term": "叫",
+        "definition": "to shout; to call; to order",
+        "meaningKr": "부르다, ~라고 하다",
+        "exampleEn": "请问，您怎么称呼？我叫李。",
+        "exampleKr": "실례지만, 어떻게 부르시나요? 저는 리라고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiào",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-intermediate-51-1780414446827",
+        "term": "较",
+        "definition": "compared to; also pr. [jiao3]",
+        "meaningKr": "비교적, ~에 비해",
+        "exampleEn": "这个比那个价格较便宜。",
+        "exampleKr": "이것이 저것보다 가격이 비교적 싸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiào",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-52-1780414446827",
+        "term": "金",
+        "definition": "Jurchen Jin dynasty (1115–1234)",
+        "meaningKr": "금, 김(성씨)",
+        "exampleEn": "这条项链是黄金做的。",
+        "exampleKr": "이 목걸이는 금으로 만들어졌어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-53-1780414446827",
+        "term": "仅",
+        "definition": "barely; only; merely",
+        "meaningKr": "단지, 겨우",
+        "exampleEn": "这里仅有几本书。",
+        "exampleKr": "이곳에는 단지 몇 권의 책만 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐn",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-54-1780414446827",
+        "term": "紧",
+        "definition": "tight; strict; close at hand",
+        "meaningKr": "꽉 끼다, 긴박하다, 조급하다",
+        "exampleEn": "这条裤子太紧了，不能穿。",
+        "exampleKr": "이 바지는 너무 꽉 껴서 입을 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-55-1780414446827",
+        "term": "静",
+        "definition": "still; calm; quiet",
+        "meaningKr": "조용하다, 고요하다",
+        "exampleEn": "请大家保持安静，不要说话。",
+        "exampleKr": "모두 조용히 하고 말하지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìng",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-56-1780414446827",
+        "term": "久",
+        "definition": "(of a period of time) long",
+        "meaningKr": "오래되다, 오래",
+        "exampleEn": "我们认识很久了。",
+        "exampleKr": "우리는 알고 지낸 지 오래되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiǔ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-57-1780414446827",
+        "term": "救",
+        "definition": "variant of 救[jiu4]",
+        "meaningKr": "구하다, 돕다",
+        "exampleEn": "他救了一个快要掉进水里的小孩。",
+        "exampleKr": "그는 물에 빠지려던 아이를 구했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-58-1780414446827",
+        "term": "旧",
+        "definition": "old; opposite: new 新; former",
+        "meaningKr": "낡다, 오래되다",
+        "exampleEn": "这是我旧的手机，现在换了新的。",
+        "exampleKr": "이것은 내 낡은 휴대폰이고, 지금 새것으로 바꿨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-59-1780414446827",
+        "term": "空",
+        "definition": "empty; air; sky",
+        "meaningKr": "비어 있다, 하늘, 공간",
+        "exampleEn": "房间里没有人，是空的。",
+        "exampleKr": "방 안에 사람이 없어서 비어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "kōng",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-60-1780414446827",
+        "term": "空儿",
+        "definition": "spare time; free time",
+        "meaningKr": "빈 시간, 여가",
+        "exampleEn": "你什么时候有空儿？我们一起吃饭。",
+        "exampleKr": "언제 시간 있어요? 우리 같이 밥 먹어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "kòngr",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-61-1780414446827",
+        "term": "困",
+        "definition": "to trap; to surround; hard-pressed",
+        "meaningKr": "졸리다, 곤란하다, 에워싸다",
+        "exampleEn": "我今天很困，想睡觉。",
+        "exampleKr": "나는 오늘 매우 졸려서 자고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "kùn",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-62-1780414446827",
+        "term": "乐",
+        "definition": "surname Le",
+        "meaningKr": "즐겁다, 기쁘다",
+        "exampleEn": "认识你我很高兴。",
+        "exampleKr": "당신을 알게 되어 매우 기쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "lè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-63-1780414446827",
+        "term": "类",
+        "definition": "kind; type; class; category",
+        "meaningKr": "류, 종류, 부류",
+        "exampleEn": "这本书属于哪一类？",
+        "exampleKr": "이 책은 어느 종류에 속하나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "lèi",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-intermediate-64-1780414446827",
+        "term": "力",
+        "definition": "surname Li",
+        "meaningKr": "힘, 능력",
+        "exampleEn": "他很有力量，能举起很重的东西。",
+        "exampleKr": "그는 힘이 세서 무거운 물건을 들 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "lì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-65-1780414446827",
+        "term": "连",
+        "definition": "surname Lian",
+        "meaningKr": "잇다, 연결하다, 심지어",
+        "exampleEn": "他连晚饭都没吃就睡着了。",
+        "exampleKr": "그는 저녁도 못 먹고 잠들어 버렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "lián",
+        "pos": "verb, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-66-1780414446827",
+        "term": "了",
+        "definition": "to finish; to understand clearly (variant of 瞭|了[liao3])",
+        "meaningKr": "완료하다, 이해하다",
+        "exampleEn": "我明白了，谢谢您的帮助。",
+        "exampleKr": "알겠습니다, 도와주셔서 감사합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "liǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-67-1780414446827",
+        "term": "领",
+        "definition": "neck; collar; to lead",
+        "meaningKr": "목, 칼라, 이끌다, 받다",
+        "exampleEn": "请您领取您的行李。",
+        "exampleKr": "당신의 짐을 찾아가십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "lǐng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-68-1780414446827",
+        "term": "龙",
+        "definition": "surname Long",
+        "meaningKr": "용 (용띠, 중국 신화)",
+        "exampleEn": "今年是龙年，很多人结婚。",
+        "exampleKr": "올해는 용의 해라서 많은 사람들이 결혼한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "lóng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-69-1780414446827",
+        "term": "录",
+        "definition": "to carve wood",
+        "meaningKr": "기록하다, 녹화/녹음하다",
+        "exampleEn": "老师在黑板上写字，学生们在笔记本上录。",
+        "exampleKr": "선생님이 칠판에 글씨를 쓰자 학생들이 공책에 기록했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "lù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-70-1780414446827",
+        "term": "乱",
+        "definition": "in confusion or disorder; in a confused state of mind; disorder",
+        "meaningKr": "어지럽다, 혼란스럽다, 마구",
+        "exampleEn": "房间里很乱，需要打扫。",
+        "exampleKr": "방이 어질러져 있어서 청소가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "luàn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-71-1780414446827",
+        "term": "马",
+        "definition": "surname Ma; abbr. for Malaysia 馬來西亞|马来西亚[Ma3 lai2 xi1 ya4]",
+        "meaningKr": "말 (동물, 성씨)",
+        "exampleEn": "他骑着马，跑得很快。",
+        "exampleKr": "그는 말을 타고 빨리 달렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "mǎ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-72-1780414446827",
+        "term": "毛",
+        "definition": "surname Mao",
+        "meaningKr": "털, 머리카락, (100분의 1)",
+        "exampleEn": "这件衣服的毛很软。",
+        "exampleKr": "이 옷의 털은 매우 부드럽다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "máo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-73-1780414446827",
+        "term": "每",
+        "definition": "each; every",
+        "meaningKr": "매, 각각, 모든",
+        "exampleEn": "每个人都有自己的想法。",
+        "exampleKr": "모든 사람은 자신만의 생각을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "měi",
+        "pos": "pronoun, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-74-1780414446827",
+        "term": "美",
+        "definition": "(bound form) the Americas (abbr. for 美洲[Mei3 zhou1]); (bound form) USA (abbr. for 美國|美国[Mei3 guo2])",
+        "meaningKr": "아름답다, 미국",
+        "exampleEn": "这里的风景很美。",
+        "exampleKr": "이곳의 풍경은 매우 아름답다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "měi",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-75-1780414446827",
+        "term": "迷",
+        "definition": "to bewilder; crazy about; fan",
+        "meaningKr": "헤매다; 열광하다",
+        "exampleEn": "我是一个足球迷，每场比赛都看。",
+        "exampleKr": "저는 축구 팬이라서 모든 경기를 봅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "mí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-76-1780414446827",
+        "term": "米",
+        "definition": "surname Mi",
+        "meaningKr": "쌀; 미터",
+        "exampleEn": "妈妈正在厨房里做饭，锅里有米。",
+        "exampleKr": "엄마가 부엌에서 요리하고 계시고, 냄비에 밥이 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "mǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-77-1780414446827",
+        "term": "某",
+        "definition": "some; a certain; sb or sth indefinite",
+        "meaningKr": "어떤; 모",
+        "exampleEn": "某个人告诉我这个消息是真的。",
+        "exampleKr": "어떤 사람이 이 소식이 사실이라고 제게 말해줬어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "mǒu",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-intermediate-78-1780414446827",
+        "term": "内",
+        "definition": "inside; inner; internal",
+        "meaningKr": "안; 내부",
+        "exampleEn": "请把书放在桌子里面。",
+        "exampleKr": "책을 책상 안에 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "nèi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-79-1780414446827",
+        "term": "念",
+        "definition": "variant of 念[nian4], to read aloud",
+        "meaningKr": "읽다; 생각하다",
+        "exampleEn": "他大声念着书上的字。",
+        "exampleKr": "그는 책의 글자를 큰 소리로 읽고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "niàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-80-1780414446827",
+        "term": "牛",
+        "definition": "surname Niu",
+        "meaningKr": "소; 훌륭하다",
+        "exampleEn": "他学习很努力，真是一个牛人。",
+        "exampleKr": "그는 공부를 아주 열심히 해서 정말 대단한 사람이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "niú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-81-1780414446827",
+        "term": "怕",
+        "definition": "surname Pa",
+        "meaningKr": "두려워하다; ~할까 봐 걱정하다",
+        "exampleEn": "我怕迟到，所以提前出门了。",
+        "exampleKr": "저는 늦을까 봐 두려워서 미리 집에서 나왔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pà",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-82-1780414446827",
+        "term": "拍",
+        "definition": "to pat; to clap; to slap",
+        "meaningKr": "치다; 박수를 치다",
+        "exampleEn": "听到好消息，大家一起拍手。",
+        "exampleKr": "좋은 소식을 듣고 모두 함께 박수를 쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pāi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-83-1780414446827",
+        "term": "排",
+        "definition": "to arrange in order; to line up; to exclude; to eliminate; to repel; to expel; to discharge; to rehearse",
+        "meaningKr": "줄을 서다; 배열하다",
+        "exampleEn": "请大家排好队，一个一个进去。",
+        "exampleKr": "여러분, 줄을 잘 서서 한 명씩 들어가세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pái",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-84-1780414446827",
+        "term": "派",
+        "definition": "clique; school; group; faction; to send (a person or resource); to dispatch; to allocate (a resource or task); to appoint (sb); classifier for factions, groups etc",
+        "meaningKr": "파견하다; 파벌",
+        "exampleEn": "公司派他去北京出差。",
+        "exampleKr": "회사는 그를 베이징으로 출장 보냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pài",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-85-1780414446827",
+        "term": "胖",
+        "definition": "fat; plump",
+        "meaningKr": "뚱뚱하다; 살찌다",
+        "exampleEn": "他最近吃得太多，身体有点儿胖。",
+        "exampleKr": "그는 최근에 너무 많이 먹어서 몸이 좀 뚱뚱해졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pàng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-86-1780414446827",
+        "term": "配",
+        "definition": "to join; to fit; to mate",
+        "meaningKr": "어울리다; 맞추다",
+        "exampleEn": "这件衣服的颜色和你很配。",
+        "exampleKr": "이 옷의 색깔이 당신과 아주 잘 어울려요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pèi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-87-1780414446827",
+        "term": "皮",
+        "definition": "surname Pi",
+        "meaningKr": "가죽; 껍질",
+        "exampleEn": "这个包是用真皮做的。",
+        "exampleKr": "이 가방은 진짜 가죽으로 만들었어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-88-1780414446827",
+        "term": "破",
+        "definition": "broken; damaged; worn out",
+        "meaningKr": "깨지다; 낡다",
+        "exampleEn": "我的自行车坏了，需要修理。",
+        "exampleKr": "내 자전거가 고장 나서 수리가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "pò",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-89-1780414446827",
+        "term": "期",
+        "definition": "period; cycle",
+        "meaningKr": "기간; 기",
+        "exampleEn": "我们下个星期开会。",
+        "exampleKr": "우리는 다음 주에 회의를 열 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qī",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-90-1780414446827",
+        "term": "齐",
+        "definition": "(name of states and dynasties at several different periods); surname Qi",
+        "meaningKr": "가지런하다; 모두",
+        "exampleEn": "请把书桌上的东西摆得整整齐齐。",
+        "exampleKr": "책상 위의 물건들을 가지런하게 정리해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qí",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-91-1780414446827",
+        "term": "强",
+        "definition": "surname Qiang",
+        "meaningKr": "강하다; 굳세다",
+        "exampleEn": "他身体很强壮，每天都锻炼。",
+        "exampleKr": "그는 몸이 매우 튼튼해서 매일 운동한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qiáng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-92-1780414446827",
+        "term": "桥",
+        "definition": "bridge",
+        "meaningKr": "다리",
+        "exampleEn": "我们走过这座桥，就到公园了。",
+        "exampleKr": "우리가 이 다리를 건너면 공원에 도착할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qiáo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-93-1780414446827",
+        "term": "巧",
+        "definition": "opportunely; coincidentally; as it happens",
+        "meaningKr": "재치 있다; 교묘하다",
+        "exampleEn": "他的办法很巧，解决了这个问题。",
+        "exampleKr": "그의 방법은 매우 재치 있어서 이 문제를 해결했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qiǎo",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-94-1780414446827",
+        "term": "亲",
+        "definition": "parent; one's own (flesh and blood); relative",
+        "meaningKr": "친척; 부모",
+        "exampleEn": "今天是母亲节，我想给妈妈打个电话。",
+        "exampleKr": "오늘은 어머니의 날이라 어머니께 전화를 드리고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qīn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-95-1780414446827",
+        "term": "区",
+        "definition": "area; region; district",
+        "meaningKr": "구역; 지역",
+        "exampleEn": "这个区有很多好吃的餐馆。",
+        "exampleKr": "이 구역에는 맛있는 식당이 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-96-1780414446827",
+        "term": "缺",
+        "definition": "deficiency; lack; scarce",
+        "meaningKr": "부족하다; 빠지다",
+        "exampleEn": "他因为缺钱，所以不能去旅行。",
+        "exampleKr": "그는 돈이 부족해서 여행을 갈 수 없었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "quē",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-97-1780414446827",
+        "term": "群",
+        "definition": "variant of 群[qun2]",
+        "meaningKr": "무리; 떼",
+        "exampleEn": "草地上有一群羊在吃草。",
+        "exampleKr": "초원 위에 양 무리가 풀을 뜯고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "qún",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-98-1780414446827",
+        "term": "任",
+        "definition": "surname Ren",
+        "meaningKr": "맡기다; 책임지다",
+        "exampleEn": "他被任命为这个项目的经理。",
+        "exampleKr": "그는 이 프로젝트의 관리자로 임명되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "rèn",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-intermediate-99-1780414446827",
+        "term": "仍",
+        "definition": "still; yet; to remain",
+        "meaningKr": "여전히; 그래도",
+        "exampleEn": "虽然下雨了，他仍旧去公园跑步。",
+        "exampleKr": "비가 왔지만, 그는 여전히 공원에 달리러 갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "réng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-100-1780414446827",
+        "term": "伤",
+        "definition": "to injure; injury; wound",
+        "meaningKr": "다치다, 상처",
+        "exampleEn": "他的腿受了伤，不能走路了。",
+        "exampleKr": "그의 다리가 다쳐서 걸을 수 없게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shāng",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-101-1780414446827",
+        "term": "深",
+        "definition": "old variant of 深[shen1]",
+        "meaningKr": "깊다",
+        "exampleEn": "这个湖很深，我们要注意安全。",
+        "exampleKr": "이 호수는 매우 깊으니 우리가 안전에 주의해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shēn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-102-1780414446827",
+        "term": "升",
+        "definition": "to ascend; to rise; to promote; to elevate; liter",
+        "meaningKr": "오르다, 승진하다",
+        "exampleEn": "他的工作表现很好，得到了升职。",
+        "exampleKr": "그의 업무 성과가 매우 좋아서 승진을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-103-1780414446827",
+        "term": "生",
+        "definition": "to grow; to give birth; to produce; to be born; to arise; to occur; to light (a fire)",
+        "meaningKr": "태어나다, 살다, 생기다",
+        "exampleEn": "她生了一个健康的男孩。",
+        "exampleKr": "그녀는 건강한 남자아이를 낳았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shēng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-104-1780414446827",
+        "term": "胜",
+        "definition": "victory; success; to beat",
+        "meaningKr": "이기다, 승리하다",
+        "exampleEn": "中国队在比赛中获得了胜利。",
+        "exampleKr": "중국 팀은 경기에서 승리를 거두었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shèng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-105-1780414446827",
+        "term": "时",
+        "definition": "old variant of 時|时[shi2]",
+        "meaningKr": "때, 시간",
+        "exampleEn": "你什么时候有时间？我们一起吃饭。",
+        "exampleKr": "너 언제 시간 있어? 우리 같이 밥 먹자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-106-1780414446827",
+        "term": "使",
+        "definition": "to make; to cause; to enable",
+        "meaningKr": "하게 하다, 사용하다",
+        "exampleEn": "他的话使我很感动。",
+        "exampleKr": "그의 말은 나를 매우 감동하게 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-107-1780414446827",
+        "term": "室",
+        "definition": "surname Shi",
+        "meaningKr": "방",
+        "exampleEn": "请到我的办公室来谈。",
+        "exampleKr": "제 사무실로 와서 이야기해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-108-1780414446827",
+        "term": "受",
+        "definition": "to receive; to accept; to suffer",
+        "meaningKr": "받다, 당하다",
+        "exampleEn": "他受到了大家的欢迎。",
+        "exampleKr": "그는 모두의 환영을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shòu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-109-1780414446827",
+        "term": "输",
+        "definition": "to lose; to be beaten",
+        "meaningKr": "지다, 패배하다",
+        "exampleEn": "这次比赛我们队输了。",
+        "exampleKr": "이번 경기에서 우리 팀이 졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shū",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-110-1780414446827",
+        "term": "属",
+        "definition": "category; genus (taxonomy); family members",
+        "meaningKr": "속하다, ~의 것",
+        "exampleEn": "他是我们公司属下的员工。",
+        "exampleKr": "그는 우리 회사 소속의 직원이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shǔ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-111-1780414446827",
+        "term": "束",
+        "definition": "surname Shu",
+        "meaningKr": "묶다, 다발",
+        "exampleEn": "她手里拿着一束鲜花。",
+        "exampleKr": "그녀는 손에 꽃다발을 들고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shù",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-112-1780414446827",
+        "term": "双",
+        "definition": "variant of 雙|双[shuang1]",
+        "meaningKr": "쌍, 두 개의",
+        "exampleEn": "我买了一双新鞋。",
+        "exampleKr": "나는 새 신발 한 켤레를 샀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "shuāng",
+        "pos": "classifier, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-113-1780414446827",
+        "term": "死",
+        "definition": "to die; impassable; uncrossable",
+        "meaningKr": "죽다, 사망하다",
+        "exampleEn": "动物死了，我们会埋葬它。",
+        "exampleKr": "동물이 죽었으니, 우리가 그것을 묻어줄 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "sǐ",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-114-1780414446827",
+        "term": "随",
+        "definition": "surname Sui",
+        "meaningKr": "따르다, 마음대로",
+        "exampleEn": "你可以随自己的想法做。",
+        "exampleKr": "너는 네 생각대로 해도 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "suí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-115-1780414446827",
+        "term": "所",
+        "definition": "actually; place; classifier for houses, small buildings, institutions etc",
+        "meaningKr": "~하는 바, 장소",
+        "exampleEn": "这是我所见过最美的风景。",
+        "exampleKr": "이것은 내가 본 가장 아름다운 풍경이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "suǒ",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-intermediate-116-1780414446827",
+        "term": "台",
+        "definition": "Taiwan (abbr.)",
+        "meaningKr": "대만, 높은 곳",
+        "exampleEn": "这台电视机多少钱？",
+        "exampleKr": "이 텔레비전은 얼마인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tái",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-intermediate-117-1780414446827",
+        "term": "谈",
+        "definition": "surname Tan",
+        "meaningKr": "이야기하다, 담소를 나누다",
+        "exampleEn": "我们找个时间好好谈谈。",
+        "exampleKr": "우리 좋은 시간을 내서 진지하게 이야기하자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tán",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-118-1780414446827",
+        "term": "汤",
+        "definition": "surname Tang",
+        "meaningKr": "국, 수프",
+        "exampleEn": "妈妈做的汤很好喝。",
+        "exampleKr": "엄마가 끓인 국은 맛있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-119-1780414446827",
+        "term": "糖",
+        "definition": "sugar; sweets; candy",
+        "meaningKr": "설탕, 사탕",
+        "exampleEn": "我喜欢吃甜的糖。",
+        "exampleKr": "나는 단 사탕을 먹는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "táng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-120-1780414446827",
+        "term": "甜",
+        "definition": "sweet",
+        "meaningKr": "달다",
+        "exampleEn": "这个苹果很甜，我喜欢。",
+        "exampleKr": "이 사과는 매우 달아서 나는 그것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tián",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-121-1780414446827",
+        "term": "调",
+        "definition": "to harmonize; to reconcile; to blend",
+        "meaningKr": "조절하다, 섞다",
+        "exampleEn": "请把音乐的声音调小一点。",
+        "exampleKr": "음악 소리를 좀 더 작게 조절해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tiáo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-122-1780414446827",
+        "term": "跳",
+        "definition": "to jump; to hop; to skip over",
+        "meaningKr": "뛰다, 점프하다",
+        "exampleEn": "孩子们在公园里跳来跳去。",
+        "exampleKr": "아이들이 공원에서 뛰어다니고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tiào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-123-1780414446827",
+        "term": "铁",
+        "definition": "surname Tie",
+        "meaningKr": "철, 쇠",
+        "exampleEn": "这把椅子是铁做的。",
+        "exampleKr": "이 의자는 쇠로 만들어졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tiě",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-124-1780414446827",
+        "term": "痛",
+        "definition": "ache; pain; sorrow",
+        "meaningKr": "아프다, 고통스럽다",
+        "exampleEn": "我头很痛，想回家休息。",
+        "exampleKr": "머리가 매우 아파서 집에 가서 쉬고 싶다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tòng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-125-1780414446827",
+        "term": "头",
+        "definition": "head; hair style; the top",
+        "meaningKr": "머리, 시작, 첫 번째",
+        "exampleEn": "他洗了洗头，然后去睡觉。",
+        "exampleKr": "그는 머리를 감고 나서 잠자리에 들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tóu",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-126-1780414446827",
+        "term": "图",
+        "definition": "diagram; picture; drawing",
+        "meaningKr": "그림, 도표, 지도",
+        "exampleEn": "这张图说明了去公园的路。",
+        "exampleKr": "이 지도는 공원으로 가는 길을 설명하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-127-1780414446827",
+        "term": "土",
+        "definition": "Tu ethnic group",
+        "meaningKr": "흙, 토지, 시골의",
+        "exampleEn": "我喜欢农村的土，很新鲜。",
+        "exampleKr": "나는 시골의 흙을 좋아한다, 매우 신선하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-128-1780414446827",
+        "term": "团",
+        "definition": "round; lump; ball",
+        "meaningKr": "단체, 그룹, 덩어리",
+        "exampleEn": "我们是一个旅游团，一起去北京。",
+        "exampleKr": "우리는 하나의 여행단으로, 함께 베이징에 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tuán",
+        "pos": "noun, classifier"
+      },
+      {
+        "id": "word-zh-intermediate-129-1780414446827",
+        "term": "退",
+        "definition": "to retreat; to withdraw; to reject; to return (sth); to decline",
+        "meaningKr": "물러나다, 돌아가다, 환불하다",
+        "exampleEn": "这件衣服不合适，我要退货。",
+        "exampleKr": "이 옷은 맞지 않아서, 나는 반품할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "tuì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-130-1780414446827",
+        "term": "围",
+        "definition": "surname Wei",
+        "meaningKr": "둘러싸다, 에워싸다",
+        "exampleEn": "我们围着桌子坐下吃饭。",
+        "exampleKr": "우리는 식탁을 둘러싸고 앉아 식사했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "wéi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-131-1780414446827",
+        "term": "为",
+        "definition": "as (in the capacity of); to take sth as; to act as",
+        "meaningKr": "~을 위하여, ~ 때문에, ~로서",
+        "exampleEn": "他努力学习是为了找到好工作。",
+        "exampleKr": "그는 좋은 직업을 찾기 위해 열심히 공부한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "wéi",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-intermediate-132-1780414446827",
+        "term": "系",
+        "definition": "to connect; to relate to; to tie up",
+        "meaningKr": "연결하다, 관계하다, 학과",
+        "exampleEn": "这个词和那个词有什么关系？",
+        "exampleKr": "이 단어와 저 단어는 어떤 관계가 있습니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-133-1780414446827",
+        "term": "线",
+        "definition": "variant of 線|线[xian4]",
+        "meaningKr": "선, 줄, 실",
+        "exampleEn": "请把这条线拉直。",
+        "exampleKr": "이 선을 똑바로 펴 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-134-1780414446827",
+        "term": "香",
+        "definition": "fragrant; sweet smelling; aromatic",
+        "meaningKr": "향기로운, 맛있는",
+        "exampleEn": "厨房里飘来一阵很香的味道。",
+        "exampleKr": "부엌에서 아주 향기로운 냄새가 풍겨왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xiāng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-135-1780414446827",
+        "term": "血",
+        "definition": "see 血[xue4]",
+        "meaningKr": "피",
+        "exampleEn": "我不小心把手割破了，流了血。",
+        "exampleKr": "내가 실수로 손을 베어서 피가 났다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xiě",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-136-1780414446827",
+        "term": "心",
+        "definition": "heart; mind; intention",
+        "meaningKr": "마음, 심장",
+        "exampleEn": "他心里很高兴，脸上看不出来。",
+        "exampleKr": "그는 마음속으로는 매우 기뻤지만, 얼굴에는 드러나지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xīn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-137-1780414446827",
+        "term": "信",
+        "definition": "letter; mail; to trust",
+        "meaningKr": "믿다, 편지",
+        "exampleEn": "请相信我，我一定会帮你。",
+        "exampleKr": "나를 믿어주세요, 저는 반드시 당신을 도울 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xìn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-138-1780414446827",
+        "term": "性",
+        "definition": "nature; character; property",
+        "meaningKr": "성격, 성질, 성별",
+        "exampleEn": "他的性格很开朗，大家都喜欢他。",
+        "exampleKr": "그의 성격은 매우 활달해서, 모두 그를 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xìng",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-zh-intermediate-139-1780414446827",
+        "term": "修",
+        "definition": "surname Xiu",
+        "meaningKr": "수리하다, 고치다, 꾸미다",
+        "exampleEn": "我的自行车坏了，我得去修。",
+        "exampleKr": "내 자전거가 고장 났기 때문에, 나는 수리하러 가야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "xiū",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-140-1780414446827",
+        "term": "压",
+        "definition": "to press; to push down; to keep under (control)",
+        "meaningKr": "누르다, 억누르다",
+        "exampleEn": "他把文件压在书下面。",
+        "exampleKr": "그는 서류를 책 아래에 눌러 놓았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-141-1780414446827",
+        "term": "烟",
+        "definition": "cigarette or pipe tobacco; smoke; mist",
+        "meaningKr": "연기, 담배",
+        "exampleEn": "请不要在房间里抽烟。",
+        "exampleKr": "방 안에서 담배 피우지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-142-1780414446827",
+        "term": "演",
+        "definition": "to perform (a play etc); to stage (a show)",
+        "meaningKr": "연기하다, 공연하다, 상영하다",
+        "exampleEn": "明天晚上有电影要演。",
+        "exampleKr": "내일 저녁에 상영할 영화가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-143-1780414446827",
+        "term": "羊",
+        "definition": "surname Yang",
+        "meaningKr": "양",
+        "exampleEn": "牧场上有很多羊在吃草。",
+        "exampleKr": "목장에는 풀을 뜯는 양들이 많이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yáng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-144-1780414446827",
+        "term": "已",
+        "definition": "already; to stop; then",
+        "meaningKr": "이미, 벌써",
+        "exampleEn": "我还没吃晚饭，他已经吃过了。",
+        "exampleKr": "나는 아직 저녁을 안 먹었는데, 그는 이미 먹었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yǐ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-145-1780414446827",
+        "term": "银",
+        "definition": "silver; silver-colored; relating to money or currency",
+        "meaningKr": "은, 은색",
+        "exampleEn": "她买了一个银色的包。",
+        "exampleKr": "그녀는 은색 가방을 하나 샀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yín",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-146-1780414446827",
+        "term": "赢",
+        "definition": "to beat; to win; to profit",
+        "meaningKr": "이기다, 승리하다",
+        "exampleEn": "这次比赛我们队一定会赢。",
+        "exampleKr": "이번 경기에서 우리 팀이 반드시 이길 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-147-1780414446827",
+        "term": "游",
+        "definition": "surname You",
+        "meaningKr": "수영하다, 돌아다니다, 여행하다",
+        "exampleEn": "我喜欢去海边游，很舒服。",
+        "exampleKr": "나는 바닷가에 가서 수영하는 것을 좋아한다, 매우 시원하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yóu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-148-1780414446827",
+        "term": "由",
+        "definition": "to follow; from; because of; due to",
+        "meaningKr": "~로부터, ~에 의하여, ~에서 비롯되다",
+        "exampleEn": "这个决定是由经理做出的。",
+        "exampleKr": "이 결정은 부장으로부터 내려졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yóu",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-intermediate-149-1780414446827",
+        "term": "员",
+        "definition": "classifier for military generals",
+        "meaningKr": "성원, 직원, 요원",
+        "exampleEn": "他是我们公司的一名新职员。",
+        "exampleKr": "그는 우리 회사의 신입 직원 한 명이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yuán",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-zh-intermediate-150-1780414446827",
+        "term": "约",
+        "definition": "to make an appointment; to invite; approximately",
+        "meaningKr": "약속하다, 초대하다, 대략",
+        "exampleEn": "我们约好明天下午三点见面。",
+        "exampleKr": "우리는 내일 오후 3시에 만나기로 약속했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "yuē",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-151-1780414446827",
+        "term": "造",
+        "definition": "to make; to build; to manufacture",
+        "meaningKr": "만들다, 건설하다",
+        "exampleEn": "这家工厂生产很多漂亮的衣服。",
+        "exampleKr": "이 공장은 많은 예쁜 옷을 생산한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-152-1780414446827",
+        "term": "张",
+        "definition": "surname Zhang",
+        "meaningKr": "펴다, (성씨)",
+        "exampleEn": "请把门打开，让我进去。",
+        "exampleKr": "문을 열어서 내가 들어가게 해주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhāng",
+        "pos": "classifier, verb"
+      },
+      {
+        "id": "word-zh-intermediate-153-1780414446827",
+        "term": "照",
+        "definition": "to shine; to illuminate",
+        "meaningKr": "비추다, 따라하다",
+        "exampleEn": "太阳照在身上，非常暖和。",
+        "exampleKr": "태양이 몸에 비치니 매우 따뜻했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhào",
+        "pos": "verb, preposition"
+      },
+      {
+        "id": "word-zh-intermediate-154-1780414446827",
+        "term": "者",
+        "definition": "-er; -ist",
+        "meaningKr": "~자, ~하는 사람",
+        "exampleEn": "学习者需要有耐心和毅力。",
+        "exampleKr": "학습자는 인내심과 끈기가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhě",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-zh-intermediate-155-1780414446827",
+        "term": "争",
+        "definition": "to strive for; to vie for; to argue or debate",
+        "meaningKr": "다투다, 경쟁하다",
+        "exampleEn": "孩子们为了玩具争来争去。",
+        "exampleKr": "아이들은 장난감을 차지하기 위해 다투었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-156-1780414446827",
+        "term": "整",
+        "definition": "(bound form) whole; complete; entire; (before a measure word) whole; (before or after number + measure word) exactly; (bound form) in good order; tidy; neat; (bound form) to put in order; to straighten",
+        "meaningKr": "전체의, 온전한, 정리하다",
+        "exampleEn": "我花了一个整天来学习汉语。",
+        "exampleKr": "나는 중국어를 공부하는 데 온종일을 보냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhěng",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-157-1780414446827",
+        "term": "正",
+        "definition": "first month of the lunar year",
+        "meaningKr": "바른, 정면의",
+        "exampleEn": "请看着我，这是最重要的。",
+        "exampleKr": "저를 보세요, 이것이 가장 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhèng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-158-1780414446827",
+        "term": "证",
+        "definition": "to admonish",
+        "meaningKr": "증명하다, 증거",
+        "exampleEn": "你需要带上你的身份证。",
+        "exampleKr": "당신은 신분증을 가지고 와야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhèng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-159-1780414446827",
+        "term": "支",
+        "definition": "surname Zhi",
+        "meaningKr": "지탱하다, 지원하다, (금액) 단위",
+        "exampleEn": "我每月都会给家里寄钱。",
+        "exampleKr": "나는 매달 집으로 돈을 보낸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhī",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-160-1780414446827",
+        "term": "只",
+        "definition": "variant of 隻|只[zhi1]",
+        "meaningKr": "단지, 겨우; (작은 동물, 일부 물건) 세는 단위",
+        "exampleEn": "我只吃了一点儿米饭。",
+        "exampleKr": "나는 밥을 아주 조금만 먹었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhī",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-161-1780414446827",
+        "term": "值",
+        "definition": "value; to happen to; to be on duty",
+        "meaningKr": "가치가 있다, ~할 만하다",
+        "exampleEn": "这次旅行非常值得。",
+        "exampleKr": "이번 여행은 매우 가치가 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-162-1780414446827",
+        "term": "直",
+        "definition": "Zhi (c. 2000 BC), fifth of the legendary Flame Emperors 炎帝[Yan2 di4] descended from Shennong 神農|神农[Shen2 nong2] Farmer God",
+        "meaningKr": "똑바로, 곧장",
+        "exampleEn": "请直走，不要拐弯。",
+        "exampleKr": "똑바로 가세요, 방향을 바꾸지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhí",
+        "pos": "adjective, verb, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-163-1780414446827",
+        "term": "指",
+        "definition": "finger; to point at or to; to indicate or refer to",
+        "meaningKr": "가리키다, 지적하다",
+        "exampleEn": "他用手指着地图上的北京。",
+        "exampleKr": "그는 손가락으로 지도 위의 베이징을 가리켰다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-164-1780414446827",
+        "term": "钟",
+        "definition": "surname Zhong",
+        "meaningKr": "시계, 종",
+        "exampleEn": "现在快十二点了，我们要走了。",
+        "exampleKr": "지금 거의 12시입니다. 우리는 가야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhōng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-165-1780414446827",
+        "term": "种",
+        "definition": "seed; species; kind",
+        "meaningKr": "종류, 씨앗",
+        "exampleEn": "你喜欢哪种颜色的花？",
+        "exampleKr": "어떤 종류의 색깔 꽃을 좋아하세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhǒng",
+        "pos": "classifier"
+      },
+      {
+        "id": "word-zh-intermediate-166-1780414446827",
+        "term": "猪",
+        "definition": "hog; pig; swine",
+        "meaningKr": "돼지",
+        "exampleEn": "猪喜欢在泥里打滚。",
+        "exampleKr": "돼지는 진흙 속에서 뒹구는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-167-1780414446827",
+        "term": "祝",
+        "definition": "surname Zhu",
+        "meaningKr": "축하하다, 빌다",
+        "exampleEn": "祝你生日快乐，身体健康！",
+        "exampleKr": "생일 축하하고, 건강하세요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-168-1780414446827",
+        "term": "抓",
+        "definition": "to grab; to catch; to arrest",
+        "meaningKr": "잡다, 쥐다",
+        "exampleEn": "警察很快就抓住了小偷。",
+        "exampleKr": "경찰은 도둑을 금방 잡았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhuā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-169-1780414446827",
+        "term": "转",
+        "definition": "to turn; to change direction; to transfer",
+        "meaningKr": "돌다, 바꾸다",
+        "exampleEn": "他转过身，看着我。",
+        "exampleKr": "그는 몸을 돌려 나를 보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhuǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-170-1780414446827",
+        "term": "追",
+        "definition": "to chase; to pursue; to look into",
+        "meaningKr": "쫓다, 추구하다",
+        "exampleEn": "小狗追着球跑来跑去。",
+        "exampleKr": "강아지가 공을 쫓아 뛰어다녔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhuī",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-171-1780414446827",
+        "term": "准",
+        "definition": "to allow; to grant; in accordance with",
+        "meaningKr": "허락하다, ~할 수 있다",
+        "exampleEn": "你明天可以早点来吗？",
+        "exampleKr": "내일 일찍 올 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zhǔn",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-172-1780414446827",
+        "term": "总",
+        "definition": "to sum up; in every case; always; invariably; anyway; after all; eventually; sooner or later",
+        "meaningKr": "언제나, 항상, 총",
+        "exampleEn": "我总是在早上锻炼。",
+        "exampleKr": "나는 아침마다 운동을 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "zǒng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-173-1780414446827",
+        "term": "爱心",
+        "definition": "compassion; kindness; care for others",
+        "meaningKr": "사랑, 애정, 동정심",
+        "exampleEn": "我们要有爱心，帮助需要帮助的人。",
+        "exampleKr": "우리는 사랑을 가지고 도움이 필요한 사람들을 도와야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "àixīn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-174-1780414446827",
+        "term": "安排",
+        "definition": "to arrange; to plan; to set up",
+        "meaningKr": "준비하다, 배치하다, 계획",
+        "exampleEn": "我已经安排好了明天的会议。",
+        "exampleKr": "나는 이미 내일 회의를 준비해 놓았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "ānpái",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-175-1780414446827",
+        "term": "安装",
+        "definition": "to install; to erect; to fix",
+        "meaningKr": "설치하다, 장착하다",
+        "exampleEn": "技术员正在帮我安装新的电脑。",
+        "exampleKr": "기술자가 제 새 컴퓨터를 설치해 주고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "ānzhuāng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-176-1780414446827",
+        "term": "按照",
+        "definition": "according to; in accordance with; on the basis of",
+        "meaningKr": "~에 따라, ~에 의하면",
+        "exampleEn": "请按照说明书的要求来做。",
+        "exampleKr": "설명서의 요구에 따라 해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "ànzhào",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-intermediate-177-1780414446827",
+        "term": "把握",
+        "definition": "to grasp (also fig.); to seize; to hold",
+        "meaningKr": "잡다, 파악하다, 확신하다",
+        "exampleEn": "他很有把握能完成这次任务。",
+        "exampleKr": "그는 이번 임무를 완수할 자신이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎwò",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-178-1780414446827",
+        "term": "白菜",
+        "definition": "Chinese cabbage, esp. napa cabbage (Brassica rapa subsp. pekinensis); sometimes used to refer to bok choy (Brassica rapa subsp. chinensis)",
+        "meaningKr": "배추",
+        "exampleEn": "妈妈在超市买了很多白菜。",
+        "exampleKr": "엄마가 슈퍼마켓에서 배추를 많이 샀어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "báicài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-179-1780414446827",
+        "term": "班级",
+        "definition": "class (group of students); grade (in school)",
+        "meaningKr": "학급, 반",
+        "exampleEn": "这个班级有三十个学生。",
+        "exampleKr": "이 학급에는 30명의 학생이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bānjí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-180-1780414446827",
+        "term": "搬家",
+        "definition": "to move house; to relocate; to remove (sth)",
+        "meaningKr": "이사하다",
+        "exampleEn": "我们下个星期就要搬家了。",
+        "exampleKr": "우리는 다음 주에 이사할 거예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bān∥jiā",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-181-1780414446827",
+        "term": "办理",
+        "definition": "to handle; to transact; to conduct",
+        "meaningKr": "처리하다, 취급하다",
+        "exampleEn": "请问在哪里可以办理入住手续？",
+        "exampleKr": "실례지만 어디에서 투숙 수속을 밟을 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bànlǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-182-1780414446827",
+        "term": "保持",
+        "definition": "to keep; to maintain; to hold",
+        "meaningKr": "유지하다, 지키다",
+        "exampleEn": "我们要保持室内空气流通。",
+        "exampleKr": "우리는 실내 공기 순환을 유지해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎochí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-183-1780414446827",
+        "term": "保存",
+        "definition": "to conserve; to preserve; to keep; to store; (computing) to save (a file etc)",
+        "meaningKr": "보존하다, 보관하다",
+        "exampleEn": "请把这份文件好好保存起来。",
+        "exampleKr": "이 문서를 잘 보존해 두세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎocún",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-184-1780414446827",
+        "term": "保护",
+        "definition": "to protect; to defend; to safeguard",
+        "meaningKr": "보호하다",
+        "exampleEn": "我们要保护好自己的健康。",
+        "exampleKr": "우리는 자신의 건강을 잘 보호해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎohù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-185-1780414446827",
+        "term": "保留",
+        "definition": "to keep; to retain; to have reservations (about sth)",
+        "meaningKr": "남겨두다, 보류하다",
+        "exampleEn": "这个座位被预订了，不能保留。",
+        "exampleKr": "이 좌석은 예약되었으므로 남겨둘 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎoliú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-186-1780414446827",
+        "term": "保险",
+        "definition": "insurance; to insure; safe",
+        "meaningKr": "보험, 안전한",
+        "exampleEn": "买车的时候，一定要买保险。",
+        "exampleKr": "차를 살 때 반드시 보험에 가입해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎoxiǎn",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-zh-intermediate-187-1780414446827",
+        "term": "保证",
+        "definition": "guarantee; to guarantee; to ensure",
+        "meaningKr": "보증하다, 보장하다",
+        "exampleEn": "我保证明天准时到。",
+        "exampleKr": "제가 내일 정시에 도착한다고 보증합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎozhèng",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-188-1780414446827",
+        "term": "保安",
+        "definition": "Bonan ethnic group",
+        "meaningKr": "보안, 경비원",
+        "exampleEn": "请向保安叔叔问路。",
+        "exampleKr": "경비 아저씨께 길을 여쭤보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǎo’ān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-189-1780414446827",
+        "term": "报到",
+        "definition": "to report for duty; to check in; to register",
+        "meaningKr": "보고하다, 등록하다",
+        "exampleEn": "新员工需要明天上午来报到。",
+        "exampleKr": "신입 사원은 내일 오전까지 와서 등록해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bào∥dào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-190-1780414446827",
+        "term": "报道",
+        "definition": "to report (news); report",
+        "meaningKr": "보도하다, 보도",
+        "exampleEn": "记者正在报道现场情况。",
+        "exampleKr": "기자가 현장 상황을 보도하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bàodào",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-191-1780414446827",
+        "term": "报告",
+        "definition": "to inform; to report; to make known",
+        "meaningKr": "보고하다, 보고서",
+        "exampleEn": "他向经理做了工作报告。",
+        "exampleKr": "그는 매니저에게 업무 보고를 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bàogào",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-192-1780414446827",
+        "term": "北部",
+        "definition": "northern part",
+        "meaningKr": "북부",
+        "exampleEn": "这个城市位于国家的北部。",
+        "exampleKr": "이 도시는 나라의 북부에 위치해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "běibù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-193-1780414446827",
+        "term": "背后",
+        "definition": "behind; at the back; in the rear",
+        "meaningKr": "뒤, 배후",
+        "exampleEn": "他总是说别人坏话，真没品德。",
+        "exampleKr": "그는 항상 다른 사람 험담을 하니 정말 인격이 없어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bèihòu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-194-1780414446827",
+        "term": "被子",
+        "definition": "blanket; quilt",
+        "meaningKr": "이불",
+        "exampleEn": "冬天来了，我要盖厚被子。",
+        "exampleKr": "겨울이 왔으니 두꺼운 이불을 덮어야겠어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bèizi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-195-1780414446827",
+        "term": "本来",
+        "definition": "original; originally; at first",
+        "meaningKr": "원래, 본래",
+        "exampleEn": "他本来不想来，但后来还是来了。",
+        "exampleKr": "그는 원래 오고 싶지 않았지만, 나중에 결국 왔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "běnlái",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-196-1780414446827",
+        "term": "本领",
+        "definition": "skill; ability; capability",
+        "meaningKr": "재능, 능력",
+        "exampleEn": "他有很强的学习本领。",
+        "exampleKr": "그는 매우 강한 학습 능력을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "běnlǐng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-197-1780414446827",
+        "term": "本事",
+        "definition": "source material; original story",
+        "meaningKr": "솜씨, 재주, 능력",
+        "exampleEn": "他年纪轻轻就很有本事。",
+        "exampleKr": "그는 어린 나이에도 불구하고 재주가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "běnshi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-198-1780414446827",
+        "term": "比较",
+        "definition": "to compare; to contrast; comparatively",
+        "meaningKr": "비교하다, 비교적",
+        "exampleEn": "这件衣服比较贵，但质量很好。",
+        "exampleKr": "이 옷은 비교적 비싸지만 품질이 아주 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǐjiào",
+        "pos": "adverb, verb"
+      },
+      {
+        "id": "word-zh-intermediate-199-1780414446827",
+        "term": "比例",
+        "definition": "proportion; scale",
+        "meaningKr": "비율, 비례",
+        "exampleEn": "男学生和女学生的比例差不多。",
+        "exampleKr": "남학생과 여학생의 비율은 거의 비슷합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǐlì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-200-1780414446827",
+        "term": "比赛",
+        "definition": "competition (sports etc); match; to compete",
+        "meaningKr": "시합, 경기, 경쟁하다",
+        "exampleEn": "明天的足球比赛很重要。",
+        "exampleKr": "내일의 축구 시합은 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǐsài",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-201-1780414446827",
+        "term": "必然",
+        "definition": "inevitable; certain; necessity",
+        "meaningKr": "필연적인, 반드시 ~인",
+        "exampleEn": "努力学习是成功的必然。",
+        "exampleKr": "열심히 공부하는 것은 성공의 필연입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bìrán",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-202-1780414446827",
+        "term": "必要",
+        "definition": "necessary; essential; indispensable",
+        "meaningKr": "필요한, 필수적인",
+        "exampleEn": "学习汉语是很有必要的。",
+        "exampleKr": "중국어를 배우는 것은 매우 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bìyào",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-zh-intermediate-203-1780414446827",
+        "term": "变化",
+        "definition": "change; variation",
+        "meaningKr": "변화, 변하다",
+        "exampleEn": "天气变化很快，注意保暖。",
+        "exampleKr": "날씨 변화가 빨라요, 따뜻하게 입으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biànhuà",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-204-1780414446827",
+        "term": "变为",
+        "definition": "to change into",
+        "meaningKr": "~으로 변하다, ~이 되다",
+        "exampleEn": "小树苗长成了大树。",
+        "exampleKr": "어린 묘목이 큰 나무로 자랐습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biànwéi",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-205-1780414446827",
+        "term": "标题",
+        "definition": "title; heading; headline",
+        "meaningKr": "제목, 표제",
+        "exampleEn": "这篇文章的标题很有意思。",
+        "exampleKr": "이 글의 제목은 매우 재미있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biāotí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-206-1780414446827",
+        "term": "标准",
+        "definition": "standard; norm; criterion; good; correct; conforming to a standard",
+        "meaningKr": "표준, 기준",
+        "exampleEn": "他的汉语说得很标准。",
+        "exampleKr": "그의 중국어 말하기는 매우 표준적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biāozhǔn",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-207-1780414446827",
+        "term": "表达",
+        "definition": "to express; to convey",
+        "meaningKr": "표현하다, 나타내다",
+        "exampleEn": "你想用什么方式表达感谢？",
+        "exampleKr": "어떤 방식으로 감사를 표현하고 싶으신가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biǎodá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-208-1780414446827",
+        "term": "表格",
+        "definition": "form; table",
+        "meaningKr": "표, 양식",
+        "exampleEn": "请填一下这个表格。",
+        "exampleKr": "이 양식을 좀 작성해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biǎogé",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-209-1780414446827",
+        "term": "表面",
+        "definition": "surface; face; outside",
+        "meaningKr": "표면, 겉",
+        "exampleEn": "水面上的叶子在漂。",
+        "exampleKr": "수면 위의 나뭇잎이 떠다니고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biǎomiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-210-1780414446827",
+        "term": "表明",
+        "definition": "to make clear; to make known; to state clearly",
+        "meaningKr": "분명히 나타내다, 밝히다",
+        "exampleEn": "他的表情表明他很高兴。",
+        "exampleKr": "그의 표정은 그가 매우 기쁘다는 것을 분명히 보여줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biǎomíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-211-1780414446827",
+        "term": "表现",
+        "definition": "to show; to show off; to display",
+        "meaningKr": "보여주다, 나타내다, 행동, 태도",
+        "exampleEn": "他学习时表现得很认真。",
+        "exampleKr": "그는 공부할 때 매우 진지한 태도를 보였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biǎoxiàn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-212-1780414446827",
+        "term": "表演",
+        "definition": "play; show; performance",
+        "meaningKr": "공연하다, 연기하다, 공연, 연기",
+        "exampleEn": "孩子们在舞台上表演节目。",
+        "exampleKr": "아이들이 무대 위에서 공연을 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "biǎoyǎn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-213-1780414446827",
+        "term": "并且",
+        "definition": "and; besides; moreover; furthermore; in addition",
+        "meaningKr": "그리고, 또한",
+        "exampleEn": "他学习努力，并且很诚实。",
+        "exampleKr": "그는 공부를 열심히 하고, 또한 매우 정직합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bìngqiě",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-intermediate-214-1780414446827",
+        "term": "播出",
+        "definition": "to broadcast; to air (a TV program etc)",
+        "meaningKr": "방송하다, 방영하다",
+        "exampleEn": "这个节目将在晚上播出。",
+        "exampleKr": "이 프로그램은 저녁에 방송될 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bōchū",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-215-1780414446827",
+        "term": "播放",
+        "definition": "to broadcast; to transmit (by radio or TV)",
+        "meaningKr": "방송하다, 재생하다",
+        "exampleEn": "请播放这首音乐。",
+        "exampleKr": "이 음악을 재생해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bōfàng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-216-1780414446827",
+        "term": "不必",
+        "definition": "need not; does not have to; not necessarily",
+        "meaningKr": "~할 필요가 없다",
+        "exampleEn": "你不必担心，我会处理好的。",
+        "exampleKr": "당신은 걱정할 필요가 없습니다, 제가 잘 처리하겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "búbì",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-217-1780414446827",
+        "term": "不断",
+        "definition": "unceasing; uninterrupted; continuous",
+        "meaningKr": "끊임없이, 계속해서",
+        "exampleEn": "他正在不断进步。",
+        "exampleKr": "그는 끊임없이 발전하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "búduàn",
+        "pos": "verb, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-218-1780414446827",
+        "term": "不论",
+        "definition": "whatever; no matter what (who, how etc); regardless of",
+        "meaningKr": "아무리 ~해도, ~에 관계없이",
+        "exampleEn": "不论刮风下雨，他都来。",
+        "exampleKr": "아무리 바람이 불거나 비가 와도 그는 옵니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "búlùn",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-intermediate-219-1780414446827",
+        "term": "补充",
+        "definition": "to replenish; to supplement; to complement",
+        "meaningKr": "보충하다, 보충",
+        "exampleEn": "我需要补充一些维生素。",
+        "exampleKr": "저는 비타민을 좀 보충해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bǔchōng",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-220-1780414446827",
+        "term": "不光",
+        "definition": "not the only one; not only",
+        "meaningKr": "단지 ~뿐만 아니라",
+        "exampleEn": "他不光会说汉语，还会说英语。",
+        "exampleKr": "그는 중국어뿐만 아니라 영어도 할 줄 압니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bùguāng",
+        "pos": "adverb, conjunction"
+      },
+      {
+        "id": "word-zh-intermediate-221-1780414446827",
+        "term": "不仅",
+        "definition": "not just; not limited to",
+        "meaningKr": "~뿐만 아니라",
+        "exampleEn": "他不仅聪明，而且很努力。",
+        "exampleKr": "그는 똑똑할 뿐만 아니라, 또한 매우 노력합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bùjǐn",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-intermediate-222-1780414446827",
+        "term": "部门",
+        "definition": "department; branch; section",
+        "meaningKr": "부서, 부문",
+        "exampleEn": "他是公司市场部门的经理。",
+        "exampleKr": "그는 회사 시장 부서의 부장입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bùmén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-223-1780414446827",
+        "term": "部长",
+        "definition": "head of a (government etc) department; section chief; section head",
+        "meaningKr": "부장, 장관",
+        "exampleEn": "这位是新来的教育部长。",
+        "exampleKr": "이분은 새로 오신 교육부 장관입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bùzhǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-224-1780414446827",
+        "term": "不安",
+        "definition": "unpeaceful; unstable; uneasy",
+        "meaningKr": "불안한, 불안정",
+        "exampleEn": "听到这个消息，我感到不安。",
+        "exampleKr": "이 소식을 듣고, 저는 불안감을 느꼈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "bù’ān",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-225-1780414446827",
+        "term": "才能",
+        "definition": "talent; ability; capacity",
+        "meaningKr": "재능, 능력",
+        "exampleEn": "他很有音乐才能，会弹钢琴。",
+        "exampleKr": "그는 음악 재능이 뛰어나서 피아노를 칠 줄 압니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cáinéng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-226-1780414446827",
+        "term": "采取",
+        "definition": "to adopt or carry out (measures, policies, course of action); to take",
+        "meaningKr": "채택하다, 취하다",
+        "exampleEn": "我们需要采取一些措施来解决问题。",
+        "exampleKr": "우리는 문제를 해결하기 위해 몇 가지 조치를 취해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cǎiqǔ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-227-1780414446827",
+        "term": "彩色",
+        "definition": "color; multicolored",
+        "meaningKr": "색깔 있는, 컬러",
+        "exampleEn": "这件衣服是彩色的，很漂亮。",
+        "exampleKr": "이 옷은 색깔이 다채롭고 매우 예쁩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cǎisè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-228-1780414446827",
+        "term": "采用",
+        "definition": "to adopt; to employ; to use",
+        "meaningKr": "채용하다, 채택하다, 사용하다",
+        "exampleEn": "我们决定采用这个新的方法。",
+        "exampleKr": "우리는 이 새로운 방법을 채택하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cǎiyòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-229-1780414446827",
+        "term": "曾经",
+        "definition": "once; already; former",
+        "meaningKr": "일찍이, 과거에",
+        "exampleEn": "我曾经去过北京，长城很壮观。",
+        "exampleKr": "저는 일찍이 베이징에 간 적이 있는데, 만리장성은 매우 장관이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "céngjīng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-230-1780414446827",
+        "term": "产生",
+        "definition": "to arise; to come into being; to come about; to give rise to; to bring into being; to bring about; to produce; to engender; to generate",
+        "meaningKr": "발생하다, 생기다, 일으키다",
+        "exampleEn": "他的话产生了很多不好的影响。",
+        "exampleKr": "그의 말은 많은 좋지 않은 영향을 발생시켰습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chǎnshēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-231-1780414446827",
+        "term": "长城",
+        "definition": "the Great Wall",
+        "meaningKr": "만리장성",
+        "exampleEn": "长城是中国古代的伟大建筑。",
+        "exampleKr": "만리장성은 중국 고대의 위대한 건축물입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "Chángchéng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-232-1780414446827",
+        "term": "长处",
+        "definition": "good aspects; strong points",
+        "meaningKr": "장점",
+        "exampleEn": "你的长处是什么？请多告诉我一些。",
+        "exampleKr": "당신의 장점은 무엇인가요? 좀 더 알려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chángchù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-233-1780414446827",
+        "term": "长期",
+        "definition": "long-term; for a protracted period",
+        "meaningKr": "장기, 오랜 기간",
+        "exampleEn": "学习汉语需要长期的努力。",
+        "exampleKr": "중국어를 배우는 것은 장기적인 노력이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chángqī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-234-1780414446827",
+        "term": "场合",
+        "definition": "situation; occasion; context",
+        "meaningKr": "경우, 상황, 자리",
+        "exampleEn": "这是一个正式的场合，请注意你的言行。",
+        "exampleKr": "이것은 공식적인 자리이므로 언행에 주의하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chǎnghé",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-235-1780414446827",
+        "term": "场所",
+        "definition": "location; place",
+        "meaningKr": "장소",
+        "exampleEn": "这个场所很安静，适合学习。",
+        "exampleKr": "이 장소는 매우 조용해서 공부하기에 적합합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chǎngsuǒ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-236-1780414446827",
+        "term": "超级",
+        "definition": "super-; ultra-; hyper-",
+        "meaningKr": "슈퍼, 초",
+        "exampleEn": "这家商店的东西质量超级好。",
+        "exampleKr": "이 가게 물건의 품질은 아주 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chāojí",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-237-1780414446827",
+        "term": "吵架",
+        "definition": "to quarrel; to have a row; quarrel",
+        "meaningKr": "싸우다",
+        "exampleEn": "他们因为小事吵架了，现在不说话了。",
+        "exampleKr": "그들은 사소한 일로 싸웠고, 지금은 말을 하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chǎo∥jià",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-238-1780414446827",
+        "term": "衬衫",
+        "definition": "shirt; blouse",
+        "meaningKr": "셔츠, 블라우스",
+        "exampleEn": "请帮我把这件白衬衫洗干净。",
+        "exampleKr": "이 하얀 셔츠를 깨끗하게 빨아주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chènshān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-239-1780414446827",
+        "term": "衬衣",
+        "definition": "shirt",
+        "meaningKr": "셔츠, 속옷",
+        "exampleEn": "冬天穿的衬衣要厚一点。",
+        "exampleKr": "겨울에 입는 셔츠는 좀 더 두꺼워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chènyī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-240-1780414446827",
+        "term": "称为",
+        "definition": "to be called; to be known as; to call it \"...\"",
+        "meaningKr": "불리다, ~라고 칭하다",
+        "exampleEn": "这种水果被称为“热带水果之王”。",
+        "exampleKr": "이 과일은 '열대 과일의 왕'이라고 불립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chēngwéi",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-241-1780414446827",
+        "term": "程度",
+        "definition": "degree; level; extent",
+        "meaningKr": "정도, 수준",
+        "exampleEn": "他的汉语水平达到了很高的程度。",
+        "exampleKr": "그의 중국어 실력은 매우 높은 수준에 도달했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéngdù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-242-1780414446827",
+        "term": "成功",
+        "definition": "Chenggong or Chengkung town in Taitung County 臺東縣|台东县[Tai2 dong1 Xian4], southeast Taiwan",
+        "meaningKr": "성공하다, 성공",
+        "exampleEn": "只要努力，你一定会成功。",
+        "exampleKr": "노력하기만 한다면, 당신은 반드시 성공할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chénggōng",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-243-1780414446827",
+        "term": "成果",
+        "definition": "result; achievement; gain",
+        "meaningKr": "성과, 결과",
+        "exampleEn": "这是我们努力的成果。",
+        "exampleKr": "이것은 우리의 노력의 성과입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéngguǒ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-244-1780414446827",
+        "term": "成就",
+        "definition": "accomplishment; success; achievement",
+        "meaningKr": "성과, 업적",
+        "exampleEn": "他为国家做出了巨大成就。",
+        "exampleKr": "그는 국가를 위해 위대한 업적을 세웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéngjiù",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-245-1780414446827",
+        "term": "成立",
+        "definition": "to establish; to set up; to be tenable",
+        "meaningKr": "성립하다, 설립하다",
+        "exampleEn": "这家公司是去年成立的。",
+        "exampleKr": "이 회사는 작년에 설립되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chénglì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-246-1780414446827",
+        "term": "城市",
+        "definition": "city; town",
+        "meaningKr": "도시",
+        "exampleEn": "我想去一个大城市学习。",
+        "exampleKr": "저는 큰 도시에서 공부하고 싶습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéngshì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-247-1780414446827",
+        "term": "成熟",
+        "definition": "mature; ripe; to mature; to ripen; Taiwan pr. [cheng2shou2]",
+        "meaningKr": "성숙하다, 익다",
+        "exampleEn": "这个苹果已经成熟了，可以吃了。",
+        "exampleKr": "이 사과는 이미 익었으니 먹을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéngshú",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-248-1780414446827",
+        "term": "成员",
+        "definition": "member",
+        "meaningKr": "구성원, 멤버",
+        "exampleEn": "他是我们学习小组的成员之一。",
+        "exampleKr": "그는 우리 스터디 그룹의 구성원 중 한 명입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéngyuán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-249-1780414446827",
+        "term": "成长",
+        "definition": "to mature; to grow; growth",
+        "meaningKr": "성장하다",
+        "exampleEn": "孩子们的成长需要父母的关爱。",
+        "exampleKr": "아이들의 성장은 부모의 사랑이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chéngzhǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-250-1780414446827",
+        "term": "持续",
+        "definition": "to continue; to persist; to last",
+        "meaningKr": "지속되다, 계속되다",
+        "exampleEn": "雨持续地下了好几天。",
+        "exampleKr": "비가 며칠 동안 계속해서 내렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chíxù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-251-1780414446827",
+        "term": "充满",
+        "definition": "full of; brimming with; very full",
+        "meaningKr": "가득 차다, 충만하다",
+        "exampleEn": "他的心里充满希望。",
+        "exampleKr": "그의 마음은 희망으로 가득 차 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chōngmǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-252-1780414446827",
+        "term": "初步",
+        "definition": "initial; preliminary; tentative",
+        "meaningKr": "초보적인, 예비의",
+        "exampleEn": "我们先做个初步的计划。",
+        "exampleKr": "우리 먼저 예비 계획을 세우자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chūbù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-253-1780414446827",
+        "term": "初级",
+        "definition": "junior; primary",
+        "meaningKr": "초급의, 초등의",
+        "exampleEn": "这是初级汉语课本。",
+        "exampleKr": "이것은 초급 중국어 교재이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chūjí",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-254-1780414446827",
+        "term": "初中",
+        "definition": "junior high school (abbr. for 初級中學|初级中学[chu1 ji2 zhong1 xue2])",
+        "meaningKr": "중학교",
+        "exampleEn": "我弟弟在上初中。",
+        "exampleKr": "내 남동생은 중학교에 다니고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chūzhōng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-255-1780414446827",
+        "term": "除了",
+        "definition": "apart from; besides; in addition to (used to exclude, as in 除了他，誰也沒來|除了他，谁也没来[chu2 le5 ta1 , shei2 ye3 mei2 lai2] \"apart from him, nobody came\", or to include, as in 除了英語，他也會法語|除了英语，他也会法语[chu2 le5 Ying1 yu3 , ta1 ye3 hui4 Fa3 yu3] \"in addition to English, he also knows French\")",
+        "meaningKr": "…을 제외하고, …외에",
+        "exampleEn": "除了汉语，我还会说英语。",
+        "exampleKr": "중국어 외에 나도 영어를 할 줄 안다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chúle",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-zh-intermediate-256-1780414446827",
+        "term": "处理",
+        "definition": "to handle; to deal with; to punish; to treat sth by a special process; to process",
+        "meaningKr": "처리하다, 다루다",
+        "exampleEn": "这件事请你尽快处理。",
+        "exampleKr": "이 일은 당신이 가능한 한 빨리 처리해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chǔlǐ",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-257-1780414446827",
+        "term": "传播",
+        "definition": "to disseminate; to propagate; to spread",
+        "meaningKr": "전파하다, 퍼뜨리다",
+        "exampleEn": "这个消息很快就传播开了。",
+        "exampleKr": "이 소식은 금방 퍼져나갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuánbō",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-258-1780414446827",
+        "term": "传来",
+        "definition": "to be heard",
+        "meaningKr": "전해져 오다, 들려오다",
+        "exampleEn": "我听见远处传来歌声。",
+        "exampleKr": "나는 멀리서 노래 소리가 들려오는 것을 들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuánlái",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-259-1780414446827",
+        "term": "传说",
+        "definition": "legend; folk tale; to repeat from mouth to mouth; they say that...",
+        "meaningKr": "전설, 소문",
+        "exampleEn": "这是关于这条河的传说。",
+        "exampleKr": "이것은 이 강에 대한 전설이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuánshuō",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-260-1780414446827",
+        "term": "创新",
+        "definition": "to bring forth new ideas; to blaze new trails; innovation",
+        "meaningKr": "혁신하다, 창조하다",
+        "exampleEn": "我们需要不断创新。",
+        "exampleKr": "우리는 끊임없이 혁신할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuàngxīn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-261-1780414446827",
+        "term": "创业",
+        "definition": "to begin an undertaking; to start an enterprise; entrepreneurship",
+        "meaningKr": "창업하다, 사업을 시작하다",
+        "exampleEn": "他决定自己创业。",
+        "exampleKr": "그는 스스로 창업하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuàngyè",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-262-1780414446827",
+        "term": "创造",
+        "definition": "to create; to bring about; to produce",
+        "meaningKr": "창조하다, 만들다",
+        "exampleEn": "他为公司创造了很多利润。",
+        "exampleKr": "그는 회사에 많은 이익을 창출했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuàngzào",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-263-1780414446827",
+        "term": "创作",
+        "definition": "to create; to produce; to write; a creative work; a creation",
+        "meaningKr": "창작하다, 창작물",
+        "exampleEn": "她正在创作一部小说。",
+        "exampleKr": "그녀는 소설 한 편을 창작 중이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "chuàngzuò",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-264-1780414446827",
+        "term": "从来",
+        "definition": "always; at all times; never (if used in negative sentence)",
+        "meaningKr": "언제나, 늘 (부정문에서 '결코') ",
+        "exampleEn": "我从来没吃过这种水果。",
+        "exampleKr": "나는 이런 과일을 먹어본 적이 한 번도 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cónglái",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-265-1780414446827",
+        "term": "从前",
+        "definition": "previously; formerly; once upon a time",
+        "meaningKr": "옛날에, 예전에",
+        "exampleEn": "从前这里是一片森林。",
+        "exampleKr": "옛날에 이곳은 숲이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cóngqián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-266-1780414446827",
+        "term": "从事",
+        "definition": "to go for; to engage in; to undertake",
+        "meaningKr": "종사하다, 일하다",
+        "exampleEn": "他从事的是教育工作。",
+        "exampleKr": "그는 교육 분야에 종사하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cóngshì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-267-1780414446827",
+        "term": "存在",
+        "definition": "to exist; to be; existence",
+        "meaningKr": "존재하다, 있다",
+        "exampleEn": "这个问题一直存在。",
+        "exampleKr": "이 문제는 계속 존재해 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cúnzài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-268-1780414446827",
+        "term": "错误",
+        "definition": "mistaken; false; wrong; error; mistake",
+        "meaningKr": "오류, 잘못",
+        "exampleEn": "我的电脑出现了一个错误。",
+        "exampleKr": "내 컴퓨터에 오류가 하나 발생했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "cuòwù",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-zh-intermediate-269-1780414446827",
+        "term": "达到",
+        "definition": "to reach; to achieve; to attain",
+        "meaningKr": "도달하다, 달성하다",
+        "exampleEn": "我们终于达到了目的地。",
+        "exampleKr": "우리는 마침내 목적지에 도달했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dá∥dào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-270-1780414446827",
+        "term": "打破",
+        "definition": "to break; to smash",
+        "meaningKr": "깨뜨리다, 타파하다",
+        "exampleEn": "他打破了世界纪录。",
+        "exampleKr": "그는 세계 기록을 깼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dǎ∥pò",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-271-1780414446827",
+        "term": "打听",
+        "definition": "to ask about; to make some inquiries; to ask around",
+        "meaningKr": "묻다, 알아보다",
+        "exampleEn": "我打听了一下去机场的路。",
+        "exampleKr": "나는 공항 가는 길을 좀 물어봤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dǎting",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-272-1780414446827",
+        "term": "大概",
+        "definition": "roughly; probably; rough",
+        "meaningKr": "대략, 아마",
+        "exampleEn": "这大概需要两个小时。",
+        "exampleKr": "이것은 아마 두 시간 정도 걸릴 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàgài",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-273-1780414446827",
+        "term": "大约",
+        "definition": "approximately; probably",
+        "meaningKr": "약, 대략",
+        "exampleEn": "大约有二十个人参加了会议。",
+        "exampleKr": "약 스무 명의 사람이 회의에 참석했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàyuē",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-274-1780414446827",
+        "term": "代表",
+        "definition": "representative; delegate; to represent",
+        "meaningKr": "대표하다, 대표",
+        "exampleEn": "他代表我们公司发言。",
+        "exampleKr": "그는 우리 회사를 대표해서 발언했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàibiǎo",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-275-1780414446827",
+        "term": "带动",
+        "definition": "to spur; to provide impetus; to drive",
+        "meaningKr": "이끌다, 활기를 띠게 하다",
+        "exampleEn": "新政策带动了经济发展。",
+        "exampleKr": "새로운 정책이 경제 발전을 이끌었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàidòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-276-1780414446827",
+        "term": "大夫",
+        "definition": "doctor; physician",
+        "meaningKr": "의사",
+        "exampleEn": "我生病了，需要找大夫。",
+        "exampleKr": "저는 아파서 의사를 찾아야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàifu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-277-1780414446827",
+        "term": "带领",
+        "definition": "to guide; to lead",
+        "meaningKr": "이끌다, 안내하다",
+        "exampleEn": "老师带领我们参观了博物馆。",
+        "exampleKr": "선생님께서 우리를 이끌고 박물관을 관람했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàilǐng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-278-1780414446827",
+        "term": "单元",
+        "definition": "unit (forming an entity); element",
+        "meaningKr": "단원, 유닛",
+        "exampleEn": "这是课本的第一个单元。",
+        "exampleKr": "이것은 교재의 첫 번째 단원입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dānyuán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-279-1780414446827",
+        "term": "当初",
+        "definition": "at that time; originally",
+        "meaningKr": "당초, 처음에는",
+        "exampleEn": "当初我没同意这个计划。",
+        "exampleKr": "처음에는 나는 이 계획에 동의하지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dāngchū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-280-1780414446827",
+        "term": "当地",
+        "definition": "local",
+        "meaningKr": "현지의, 그 지방의",
+        "exampleEn": "这是当地有名的饭店。",
+        "exampleKr": "이것은 현지의 유명한 식당입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dāngdì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-281-1780414446827",
+        "term": "当然",
+        "definition": "only natural; as it should be; certainly",
+        "meaningKr": "물론, 당연히",
+        "exampleEn": "他当然会来参加会议。",
+        "exampleKr": "그는 당연히 회의에 참석할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dāngrán",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-282-1780414446827",
+        "term": "当中",
+        "definition": "among; in the middle; in the center",
+        "meaningKr": "가운데, 중에서",
+        "exampleEn": "请把书放在桌子当中。",
+        "exampleKr": "책을 탁자 가운데에 놓아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dāngzhōng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-283-1780414446827",
+        "term": "导演",
+        "definition": "to direct; director (film etc)",
+        "meaningKr": "감독하다, 감독",
+        "exampleEn": "他是一位有名的电影导演。",
+        "exampleKr": "그는 유명한 영화 감독입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dǎoyǎn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-284-1780414446827",
+        "term": "到达",
+        "definition": "to reach; to arrive",
+        "meaningKr": "도착하다",
+        "exampleEn": "我们下午三点到达目的地。",
+        "exampleKr": "우리는 오후 세 시에 목적지에 도착할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàodá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-285-1780414446827",
+        "term": "到底",
+        "definition": "finally; in the end; when all is said and done",
+        "meaningKr": "결국, 끝까지",
+        "exampleEn": "你到底想说什么？",
+        "exampleKr": "너는 결국 무슨 말을 하고 싶니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dàodǐ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-286-1780414446827",
+        "term": "得分",
+        "definition": "to score a point (in a competition, test etc); score; rating; grade",
+        "meaningKr": "득점하다, 점수를 얻다",
+        "exampleEn": "他在比赛中得了第一名。",
+        "exampleKr": "그는 경기에서 1등으로 득점했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "défēn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-287-1780414446827",
+        "term": "等待",
+        "definition": "to wait; to wait for",
+        "meaningKr": "기다리다",
+        "exampleEn": "请在这里等待，不要走开。",
+        "exampleKr": "여기서 기다려 주세요, 가지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "děngdài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-288-1780414446827",
+        "term": "底下",
+        "definition": "the location below sth; afterwards",
+        "meaningKr": "아래, 밑",
+        "exampleEn": "我的手机掉到桌子底下了。",
+        "exampleKr": "내 휴대폰이 탁자 밑으로 떨어졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dǐxia",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-289-1780414446827",
+        "term": "地区",
+        "definition": "region; area (informal or geographical term); prefecture (in China's administrative system)",
+        "meaningKr": "지구, 지역",
+        "exampleEn": "这是中国东南部的一个地区。",
+        "exampleKr": "이곳은 중국 동남부의 한 지역입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dìqū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-290-1780414446827",
+        "term": "电台",
+        "definition": "transmitter-receiver; broadcasting station; radio station",
+        "meaningKr": "방송국",
+        "exampleEn": "我每天听这个电台的新闻。",
+        "exampleKr": "나는 매일 이 방송국의 뉴스를 듣는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "diàntái",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-291-1780414446827",
+        "term": "调查",
+        "definition": "investigation; inquiry; to investigate",
+        "meaningKr": "조사하다, 조사",
+        "exampleEn": "记者正在调查这个事件。",
+        "exampleKr": "기자가 이 사건을 조사하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "diàochá",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-292-1780414446827",
+        "term": "定期",
+        "definition": "at set dates; at regular intervals; periodic",
+        "meaningKr": "정기적으로",
+        "exampleEn": "我们定期开会讨论工作。",
+        "exampleKr": "우리는 정기적으로 회의를 열어 업무를 논의한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dìngqī",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-293-1780414446827",
+        "term": "东部",
+        "definition": "the east; eastern part",
+        "meaningKr": "동부, 동쪽",
+        "exampleEn": "北京在中国的东部。",
+        "exampleKr": "베이징은 중국의 동부에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dōngbù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-294-1780414446827",
+        "term": "动力",
+        "definition": "motive power",
+        "meaningKr": "동력, 원동력",
+        "exampleEn": "学习的动力是什么？",
+        "exampleKr": "학습의 동력은 무엇입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dònglì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-295-1780414446827",
+        "term": "动人",
+        "definition": "touching; moving",
+        "meaningKr": "감동적인",
+        "exampleEn": "这是一个非常动人的故事。",
+        "exampleKr": "이것은 매우 감동적인 이야기입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dòngrén",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-296-1780414446827",
+        "term": "读者",
+        "definition": "reader",
+        "meaningKr": "독자",
+        "exampleEn": "这本书的读者很多。",
+        "exampleKr": "이 책의 독자는 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "dúzhě",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-297-1780414446827",
+        "term": "短处",
+        "definition": "shortcoming; defect; fault",
+        "meaningKr": "단점, 약점",
+        "exampleEn": "每个人都有自己的短处。",
+        "exampleKr": "모든 사람은 자신의 단점을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duǎnchù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-298-1780414446827",
+        "term": "短裤",
+        "definition": "short pants; shorts",
+        "meaningKr": "반바지",
+        "exampleEn": "夏天我喜欢穿短裤。",
+        "exampleKr": "여름에는 나는 반바지 입는 것을 좋아한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duǎnkù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-299-1780414446827",
+        "term": "短期",
+        "definition": "short-term",
+        "meaningKr": "단기",
+        "exampleEn": "我们需要一个短期计划。",
+        "exampleKr": "우리는 단기 계획이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duǎnqī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-300-1780414446827",
+        "term": "对待",
+        "definition": "to treat; treatment",
+        "meaningKr": "대하다, 다루다",
+        "exampleEn": "你应该好好对待你的朋友。",
+        "exampleKr": "너는 친구를 잘 대해야 해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duìdài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-301-1780414446827",
+        "term": "对方",
+        "definition": "the other person; the other side; the other party",
+        "meaningKr": "상대방",
+        "exampleEn": "请问对方是谁？",
+        "exampleKr": "실례지만 상대방이 누구인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duìfāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-302-1780414446827",
+        "term": "对手",
+        "definition": "opponent; rival; competitor",
+        "meaningKr": "상대, 경쟁자",
+        "exampleEn": "他是我的好对手。",
+        "exampleKr": "그는 나의 좋은 경쟁자이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duìshǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-303-1780414446827",
+        "term": "对象",
+        "definition": "target; object; partner; boyfriend; girlfriend",
+        "meaningKr": "대상, 목표, 애인",
+        "exampleEn": "他是我学习的榜样对象。",
+        "exampleKr": "그는 내가 배우고 싶은 본보기 대상이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duìxiàng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-304-1780414446827",
+        "term": "队员",
+        "definition": "team member",
+        "meaningKr": "팀원, 대원",
+        "exampleEn": "她是篮球队的队员。",
+        "exampleKr": "그녀는 농구팀의 선수이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "duìyuán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-305-1780414446827",
+        "term": "发表",
+        "definition": "to issue; to publish",
+        "meaningKr": "발표하다, 출판하다",
+        "exampleEn": "他将在会议上发表讲话。",
+        "exampleKr": "그는 회의에서 연설을 발표할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fābiǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-306-1780414446827",
+        "term": "发出",
+        "definition": "to issue (an order, decree etc); to send out; to dispatch; to produce (a sound); to let out (a laugh)",
+        "meaningKr": "발하다, 보내다",
+        "exampleEn": "他发出了一个奇怪的声音。",
+        "exampleKr": "그는 이상한 소리를 냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fāchū",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-307-1780414446827",
+        "term": "发达",
+        "definition": "well-developed; flourishing; to develop; to promote; to expand",
+        "meaningKr": "발달하다, 번영하다",
+        "exampleEn": "这个城市经济很发达。",
+        "exampleKr": "이 도시는 경제가 매우 발달했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fādá",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-308-1780414446827",
+        "term": "发动",
+        "definition": "to start; to launch; to unleash",
+        "meaningKr": "발동하다, 시작하다",
+        "exampleEn": "我们需要发动大家一起努力。",
+        "exampleKr": "우리는 모두를 동원하여 함께 노력해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fādòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-309-1780414446827",
+        "term": "发明",
+        "definition": "to invent; an invention",
+        "meaningKr": "발명하다, 발명품",
+        "exampleEn": "他发明了一种新的学习方法。",
+        "exampleKr": "그는 새로운 학습 방법을 발명했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fāmíng",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-310-1780414446827",
+        "term": "发生",
+        "definition": "to happen; to occur; to take place; to break out",
+        "meaningKr": "발생하다, 일어나다",
+        "exampleEn": "昨天发生了什么事？",
+        "exampleKr": "어제 무슨 일이 있었니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fāshēng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-311-1780414446827",
+        "term": "发送",
+        "definition": "to transmit; to dispatch; to issue (an official document or credential)",
+        "meaningKr": "발송하다, 보내다",
+        "exampleEn": "请把文件发送给我。",
+        "exampleKr": "파일을 제게 보내 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fāsòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-312-1780414446827",
+        "term": "发言",
+        "definition": "to make a speech; statement; utterance",
+        "meaningKr": "발언하다, 연설하다",
+        "exampleEn": "他在会上做了重要发言。",
+        "exampleKr": "그는 회의에서 중요한 발언을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fāyán",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-313-1780414446827",
+        "term": "发展",
+        "definition": "development; growth; to develop",
+        "meaningKr": "발전하다, 개발하다",
+        "exampleEn": "中国在快速发展。",
+        "exampleKr": "중국은 빠르게 발전하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fāzhǎn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-314-1780414446827",
+        "term": "反对",
+        "definition": "to oppose; to be against; to object to",
+        "meaningKr": "반대하다",
+        "exampleEn": "我反对这个计划。",
+        "exampleKr": "나는 이 계획에 반대한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fǎnduì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-315-1780414446827",
+        "term": "反复",
+        "definition": "variant of 反覆|反复[fan3 fu4]",
+        "meaningKr": "반복하여, 거듭",
+        "exampleEn": "他反复检查了作业。",
+        "exampleKr": "그는 숙제를 반복해서 검사했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fǎnfù",
+        "pos": "adverb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-316-1780414446827",
+        "term": "反应",
+        "definition": "to react; to respond; reaction",
+        "meaningKr": "반응하다, 반응",
+        "exampleEn": "他对这个消息没有反应。",
+        "exampleKr": "그는 이 소식에 아무 반응이 없었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fǎnyìng",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-317-1780414446827",
+        "term": "反正",
+        "definition": "anyway; in any case; to come over from the enemy's side",
+        "meaningKr": "어쨌든, 하여튼",
+        "exampleEn": "反正你也不去，我一个人去吧。",
+        "exampleKr": "어차피 너도 안 갈 거니까, 나 혼자 갈게.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fǎn·zhèng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-318-1780414446827",
+        "term": "范围",
+        "definition": "range; scope; limit",
+        "meaningKr": "범위",
+        "exampleEn": "这个话题的范围很广。",
+        "exampleKr": "이 화제의 범위는 매우 넓다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fànwéi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-319-1780414446827",
+        "term": "方式",
+        "definition": "way; method; manner; mode; pattern (of behavior etc)",
+        "meaningKr": "방식, 방법",
+        "exampleEn": "你有什么好的学习方式吗？",
+        "exampleKr": "너에게 좋은 공부 방식이 있니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fāngshì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-320-1780414446827",
+        "term": "房东",
+        "definition": "landlord",
+        "meaningKr": "집주인, 임대인",
+        "exampleEn": "房东要求我们提前交房租。",
+        "exampleKr": "집주인은 우리가 월세를 미리 내라고 요구했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fángdōng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-321-1780414446827",
+        "term": "房屋",
+        "definition": "house; building",
+        "meaningKr": "주택, 건물",
+        "exampleEn": "这家公司有很多房屋。",
+        "exampleKr": "이 회사는 많은 건물을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fángwū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-322-1780414446827",
+        "term": "防止",
+        "definition": "to prevent; to guard against; to take precautions",
+        "meaningKr": "방지하다, 막다",
+        "exampleEn": "我们要防止这种事情发生。",
+        "exampleKr": "우리는 이런 일이 발생하는 것을 막아야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fángzhǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-323-1780414446827",
+        "term": "房租",
+        "definition": "rent for a room or house",
+        "meaningKr": "집세, 방세",
+        "exampleEn": "下个月的房租已经交了。",
+        "exampleKr": "다음 달 집세는 이미 냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fángzū",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-324-1780414446827",
+        "term": "访问",
+        "definition": "to visit; to call on (a person or place)",
+        "meaningKr": "방문하다",
+        "exampleEn": "我下个星期要去访问北京。",
+        "exampleKr": "나는 다음 주에 베이징을 방문할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fǎngwèn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-325-1780414446827",
+        "term": "放到",
+        "definition": "",
+        "meaningKr": "놓다, 두다",
+        "exampleEn": "请把书放到桌子上。",
+        "exampleKr": "책을 책상 위에 놓아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fàngdào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-326-1780414446827",
+        "term": "飞行",
+        "definition": "flying; flight; aviation",
+        "meaningKr": "비행, 날다",
+        "exampleEn": "飞机正在空中飞行。",
+        "exampleKr": "비행기가 하늘에서 비행하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fēixíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-327-1780414446827",
+        "term": "费用",
+        "definition": "cost; expenditure; expense",
+        "meaningKr": "비용, 경비",
+        "exampleEn": "这次旅行的费用不高。",
+        "exampleKr": "이번 여행의 비용은 높지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fèiyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-328-1780414446827",
+        "term": "分别",
+        "definition": "to part; to leave each other; to distinguish; to tell apart; difference; distinction",
+        "meaningKr": "나누다, 구별하다, 헤어지다",
+        "exampleEn": "我们应该分别对待这个问题。",
+        "exampleKr": "우리는 이 문제를 구별하여 다루어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fēnbié",
+        "pos": "verb, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-329-1780414446827",
+        "term": "分配",
+        "definition": "to distribute; to assign; to allocate",
+        "meaningKr": "분배하다, 할당하다",
+        "exampleEn": "老师把任务分配给学生。",
+        "exampleKr": "선생님은 학생들에게 임무를 분배했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fēnpèi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-330-1780414446827",
+        "term": "分组",
+        "definition": "to divide into groups; group (formed from a larger group); subgroup",
+        "meaningKr": "그룹을 나누다",
+        "exampleEn": "老师把我们分成了三个组。",
+        "exampleKr": "선생님은 우리를 세 그룹으로 나누었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fēn zǔ",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-331-1780414446827",
+        "term": "丰富",
+        "definition": "to enrich; rich; plentiful",
+        "meaningKr": "풍부하다, 풍성하게 하다",
+        "exampleEn": "他的生活经验很丰富。",
+        "exampleKr": "그의 생활 경험은 매우 풍부합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fēngfù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-332-1780414446827",
+        "term": "风险",
+        "definition": "risk; hazard",
+        "meaningKr": "위험, 리스크",
+        "exampleEn": "创业有很大的风险。",
+        "exampleKr": "창업에는 큰 위험이 따릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fēngxiǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-333-1780414446827",
+        "term": "否定",
+        "definition": "to negate; to deny; to reject",
+        "meaningKr": "부정하다, 부정",
+        "exampleEn": "他否定了所有的指控。",
+        "exampleKr": "그는 모든 혐의를 부정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fǒudìng",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-334-1780414446827",
+        "term": "否认",
+        "definition": "to declare to be untrue; to deny",
+        "meaningKr": "부인하다",
+        "exampleEn": "他否认自己做错了。",
+        "exampleKr": "그는 자신이 잘못했다는 것을 부인했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fǒurèn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-335-1780414446827",
+        "term": "服装",
+        "definition": "dress; clothing; costume",
+        "meaningKr": "의복, 의상",
+        "exampleEn": "这件服装很漂亮。",
+        "exampleKr": "이 의복은 매우 아름답습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fúzhuāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-336-1780414446827",
+        "term": "父母",
+        "definition": "father and mother; parents",
+        "meaningKr": "부모님",
+        "exampleEn": "我非常爱我的父母。",
+        "exampleKr": "저는 저희 부모님을 매우 사랑합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fùmǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-337-1780414446827",
+        "term": "父亲",
+        "definition": "father; also pr. [fu4 qin5]",
+        "meaningKr": "아버지",
+        "exampleEn": "我父亲是一位老师。",
+        "exampleKr": "저희 아버지는 선생님이십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fù·qīn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-338-1780414446827",
+        "term": "复印",
+        "definition": "to photocopy; to duplicate a document",
+        "meaningKr": "복사하다",
+        "exampleEn": "请帮我复印这份文件。",
+        "exampleKr": "이 서류를 복사해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fùyìn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-339-1780414446827",
+        "term": "复杂",
+        "definition": "complicated; complex",
+        "meaningKr": "복잡하다",
+        "exampleEn": "这个问题很复杂，需要时间。",
+        "exampleKr": "이 문제는 매우 복잡해서 시간이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fùzá",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-340-1780414446827",
+        "term": "负责",
+        "definition": "to be responsible for; to be in charge of; to bear responsibility for; conscientious",
+        "meaningKr": "책임지다, 책임이 있는",
+        "exampleEn": "他是这个项目的负责人。",
+        "exampleKr": "그는 이 프로젝트의 책임자입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "fùzé",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-341-1780414446827",
+        "term": "改进",
+        "definition": "to improve; to make better; improvement",
+        "meaningKr": "개선하다",
+        "exampleEn": "我们需要改进工作方法。",
+        "exampleKr": "우리는 업무 방식을 개선해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎijìn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-342-1780414446827",
+        "term": "改造",
+        "definition": "to transform; to reform; to remodel",
+        "meaningKr": "개조하다, 개혁하다",
+        "exampleEn": "他们正在改造旧房子。",
+        "exampleKr": "그들은 낡은 집을 개조하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎizào",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-343-1780414446827",
+        "term": "概念",
+        "definition": "concept; idea",
+        "meaningKr": "개념",
+        "exampleEn": "这个概念我不太明白。",
+        "exampleKr": "이 개념을 저는 잘 모르겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gàiniàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-344-1780414446827",
+        "term": "赶到",
+        "definition": "to hurry (to some place)",
+        "meaningKr": "가까스로 도착하다",
+        "exampleEn": "我终于赶到火车站了。",
+        "exampleKr": "저는 마침내 기차역에 도착했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎndào",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-345-1780414446827",
+        "term": "赶紧",
+        "definition": "hurriedly; without delay",
+        "meaningKr": "서둘러, 곧",
+        "exampleEn": "快要迟到了，赶紧走！",
+        "exampleKr": "거의 늦었으니, 서둘러 가자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎnjǐn",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-346-1780414446827",
+        "term": "赶快",
+        "definition": "quickly; at once",
+        "meaningKr": "빨리, 곧",
+        "exampleEn": "外面下雨了，赶快回家。",
+        "exampleKr": "밖에 비가 오니, 빨리 집으로 가.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎnkuài",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-347-1780414446827",
+        "term": "感冒",
+        "definition": "to catch cold; can't stand",
+        "meaningKr": "감기에 걸리다",
+        "exampleEn": "我昨天感冒了，有点不舒服。",
+        "exampleKr": "저는 어제 감기에 걸려서 좀 아팠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎnmào",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-348-1780414446827",
+        "term": "感情",
+        "definition": "emotion; sentiment; affection; feelings between two persons",
+        "meaningKr": "감정, 정",
+        "exampleEn": "他们之间的感情很好。",
+        "exampleKr": "그들 사이의 감정은 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎnqíng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-349-1780414446827",
+        "term": "感受",
+        "definition": "to sense; perception; to feel (through the senses)",
+        "meaningKr": "느끼다, 감수하다",
+        "exampleEn": "我感受到了他的关心。",
+        "exampleKr": "저는 그의 관심을 느꼈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǎnshòu",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-350-1780414446827",
+        "term": "干吗",
+        "definition": "variant of 幹嘛|干嘛[gan4 ma2]",
+        "meaningKr": "왜, 무엇 때문에",
+        "exampleEn": "你干吗一直看着我？",
+        "exampleKr": "너 왜 계속 나를 보고 있어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gànmá",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-intermediate-351-1780414446827",
+        "term": "高速",
+        "definition": "high speed; expressway (abbr. for 高速公路[gao1 su4 gong1 lu4])",
+        "meaningKr": "고속의, 빠른",
+        "exampleEn": "我们坐高速火车去上海。",
+        "exampleKr": "우리는 고속 열차를 타고 상하이로 간다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gāosù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-352-1780414446827",
+        "term": "告别",
+        "definition": "to leave; to part from; to bid farewell to; to say goodbye to",
+        "meaningKr": "작별하다, 헤어지다",
+        "exampleEn": "他向朋友们告别，然后回家了。",
+        "exampleKr": "그는 친구들에게 작별 인사를 하고 집으로 돌아갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gào∥bié",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-353-1780414446827",
+        "term": "歌迷",
+        "definition": "fan of a singer",
+        "meaningKr": "팬, 애창가",
+        "exampleEn": "我是他忠实的歌迷。",
+        "exampleKr": "저는 그의 충실한 팬입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gēmí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-354-1780414446827",
+        "term": "歌声",
+        "definition": "singing voice; fig. original voice of a poet",
+        "meaningKr": "노랫소리, 노래하는 소리",
+        "exampleEn": "从窗户里传来了美妙的歌声。",
+        "exampleKr": "창문으로 아름다운 노랫소리가 들려왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gēshēng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-355-1780414446827",
+        "term": "歌手",
+        "definition": "singer",
+        "meaningKr": "가수",
+        "exampleEn": "她是一位很有名的歌手。",
+        "exampleKr": "그녀는 매우 유명한 가수이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gēshǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-356-1780414446827",
+        "term": "各地",
+        "definition": "in all parts of (a country); various regions",
+        "meaningKr": "각지, 여러 곳",
+        "exampleEn": "这个问题在各地都得到了关注。",
+        "exampleKr": "이 문제는 각지에서 주목을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gèdì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-357-1780414446827",
+        "term": "个人",
+        "definition": "individual; personal; oneself",
+        "meaningKr": "개인, 개인적인",
+        "exampleEn": "这是我个人的看法，不代表别人。",
+        "exampleKr": "이것은 저 개인의 의견이며, 다른 사람을 대표하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gèrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-358-1780414446827",
+        "term": "各位",
+        "definition": "everybody; all (guests, colleagues etc); all of you",
+        "meaningKr": "여러분",
+        "exampleEn": "各位来宾，晚上好！",
+        "exampleKr": "내빈 여러분, 안녕하십니까!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gèwèi",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-intermediate-359-1780414446827",
+        "term": "个性",
+        "definition": "individuality; personality",
+        "meaningKr": "개성, 특성",
+        "exampleEn": "他的个性很强，很有主见。",
+        "exampleKr": "그의 개성은 매우 강하고, 자기 주장이 뚜렷하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gèxìng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-360-1780414446827",
+        "term": "各种",
+        "definition": "every kind of; all kinds of; various",
+        "meaningKr": "각종, 여러 종류의",
+        "exampleEn": "这里有各种各样的水果。",
+        "exampleKr": "이곳에는 여러 종류의 과일이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gèzhǒng",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-intermediate-361-1780414446827",
+        "term": "各自",
+        "definition": "each; respective; apiece",
+        "meaningKr": "각자, 저마다",
+        "exampleEn": "请大家各自找座位坐下。",
+        "exampleKr": "여러분은 각자 자리를 찾아서 앉으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gèzì",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-zh-intermediate-362-1780414446827",
+        "term": "根本",
+        "definition": "fundamental; basic; root",
+        "meaningKr": "근본적으로, 전혀 (부정문에서)",
+        "exampleEn": "这根本不是我的错。",
+        "exampleKr": "이것은 전혀 내 잘못이 아니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gēnběn",
+        "pos": "adverb, adjective, noun"
+      },
+      {
+        "id": "word-zh-intermediate-363-1780414446827",
+        "term": "更加",
+        "definition": "more (than sth else); even more",
+        "meaningKr": "더욱, 더욱더",
+        "exampleEn": "今天的天气比昨天更加暖和。",
+        "exampleKr": "오늘 날씨는 어제보다 더욱 따뜻하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gèngjiā",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-364-1780414446827",
+        "term": "公布",
+        "definition": "variant of 公布[gong1 bu4]",
+        "meaningKr": "공포하다, 발표하다",
+        "exampleEn": "学校很快就会公布考试成绩。",
+        "exampleKr": "학교는 곧 시험 성적을 발표할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngbù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-365-1780414446827",
+        "term": "工厂",
+        "definition": "factory",
+        "meaningKr": "공장",
+        "exampleEn": "我爸爸在这家工厂工作。",
+        "exampleKr": "우리 아빠는 이 공장에서 일한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngchǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-366-1780414446827",
+        "term": "功夫",
+        "definition": "skill; art; kung fu",
+        "meaningKr": "쿵푸, 무술; 노력, 공",
+        "exampleEn": "他学习中国功夫已经五年了。",
+        "exampleKr": "그는 중국 쿵푸를 배운 지 이미 5년 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngfu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-367-1780414446827",
+        "term": "工夫",
+        "definition": "(old) laborer",
+        "meaningKr": "시간, 공",
+        "exampleEn": "这件事需要花不少工夫。",
+        "exampleKr": "이 일은 적지 않은 시간과 노력이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngfu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-368-1780414446827",
+        "term": "公共",
+        "definition": "public; common; communal",
+        "meaningKr": "공공의, 공용의",
+        "exampleEn": "请爱护公共财产。",
+        "exampleKr": "공공 재산을 소중히 다뤄 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōnggòng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-369-1780414446827",
+        "term": "工具",
+        "definition": "tool; instrument; utensil",
+        "meaningKr": "도구, 연장",
+        "exampleEn": "这是我常用的工具。",
+        "exampleKr": "이것은 내가 자주 사용하는 도구이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngjù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-370-1780414446827",
+        "term": "公开",
+        "definition": "open; overt; public; to make public; to release",
+        "meaningKr": "공개하다, 공개적인",
+        "exampleEn": "这个消息已经公开了。",
+        "exampleKr": "이 소식은 이미 공개되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngkāi",
+        "pos": "adjective, verb"
+      },
+      {
+        "id": "word-zh-intermediate-371-1780414446827",
+        "term": "功课",
+        "definition": "homework; assignment; task",
+        "meaningKr": "숙제, 공부",
+        "exampleEn": "今天的功课有点难。",
+        "exampleKr": "오늘의 숙제는 좀 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngkè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-372-1780414446827",
+        "term": "公民",
+        "definition": "citizen",
+        "meaningKr": "시민",
+        "exampleEn": "每个公民都有自己的权利和义务。",
+        "exampleKr": "모든 시민은 자신의 권리와 의무를 가진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngmín",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-373-1780414446827",
+        "term": "功能",
+        "definition": "function; capability",
+        "meaningKr": "기능",
+        "exampleEn": "这个手机有很多新功能。",
+        "exampleKr": "이 휴대폰은 많은 새 기능이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngnéng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-374-1780414446827",
+        "term": "工业",
+        "definition": "industry",
+        "meaningKr": "공업, 산업",
+        "exampleEn": "那个城市发展工业很有名。",
+        "exampleKr": "그 도시는 공업 발달로 유명하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngyè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-375-1780414446827",
+        "term": "工资",
+        "definition": "wages; pay",
+        "meaningKr": "월급, 급여",
+        "exampleEn": "这个月我的工资发得比上个月多。",
+        "exampleKr": "이번 달 제 월급은 지난달보다 많이 나왔어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gōngzī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-376-1780414446827",
+        "term": "共同",
+        "definition": "common; joint; jointly",
+        "meaningKr": "공동의, 함께",
+        "exampleEn": "我们有一个共同的爱好，就是看电影。",
+        "exampleKr": "우리는 영화 보는 것을 좋아하는 공동의 취미가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gòngtóng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-377-1780414446827",
+        "term": "共有",
+        "definition": "in total there are ...; to own jointly",
+        "meaningKr": "공유하다, 모두 가지고 있다",
+        "exampleEn": "这个房间里有三本书，是大家共有的。",
+        "exampleKr": "이 방에 있는 세 권의 책은 모두가 공유하는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gòngyǒu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-378-1780414446827",
+        "term": "古代",
+        "definition": "ancient times",
+        "meaningKr": "고대, 옛날",
+        "exampleEn": "古代的人们是怎么生活的？",
+        "exampleKr": "고대 사람들은 어떻게 살았나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gǔdài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-379-1780414446827",
+        "term": "故乡",
+        "definition": "home; homeland; native place",
+        "meaningKr": "고향",
+        "exampleEn": "我离开故乡已经十年了。",
+        "exampleKr": "저는 고향을 떠난 지 벌써 10년이 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gùxiāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-380-1780414446827",
+        "term": "观察",
+        "definition": "to observe; to watch; to survey",
+        "meaningKr": "관찰하다",
+        "exampleEn": "请仔细观察一下这个图画。",
+        "exampleKr": "이 그림을 자세히 관찰해 보세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guānchá",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-381-1780414446827",
+        "term": "观看",
+        "definition": "to watch; to view",
+        "meaningKr": "보다, 시청하다",
+        "exampleEn": "很多人喜欢在晚上观看电视。",
+        "exampleKr": "많은 사람들이 저녁에 TV 시청하는 것을 좋아합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guānkàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-382-1780414446827",
+        "term": "观念",
+        "definition": "notion; thought; concept",
+        "meaningKr": "관념, 생각",
+        "exampleEn": "他的消费观念和我很不一样。",
+        "exampleKr": "그의 소비 관념은 나와 매우 다릅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guānniàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-383-1780414446827",
+        "term": "关系",
+        "definition": "relation; relationship; to concern",
+        "meaningKr": "관계, 관련되다",
+        "exampleEn": "这件事和我没有关系。",
+        "exampleKr": "이 일은 저와 관계가 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guān·xì",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-384-1780414446827",
+        "term": "观众",
+        "definition": "spectators; audience; visitors (to an exhibition etc)",
+        "meaningKr": "관객, 시청자",
+        "exampleEn": "比赛开始后，观众席上坐满了人。",
+        "exampleKr": "경기가 시작되자 관중석은 사람들로 가득 찼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guānzhòng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-385-1780414446827",
+        "term": "关注",
+        "definition": "to pay attention to; to follow sth closely; to follow (on social media); concern; interest; attention",
+        "meaningKr": "주시하다, 주목하다",
+        "exampleEn": "请大家多关注一下我们的新产品。",
+        "exampleKr": "여러분, 저희 신제품에 많은 관심 부탁드립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guānzhù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-386-1780414446827",
+        "term": "管理",
+        "definition": "to supervise; to manage; to administer",
+        "meaningKr": "관리하다",
+        "exampleEn": "他管理着一家很大的公司。",
+        "exampleKr": "그는 아주 큰 회사를 관리하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guǎnlǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-387-1780414446827",
+        "term": "光明",
+        "definition": "light; radiance; openhearted",
+        "meaningKr": "광명, 밝음",
+        "exampleEn": "前面有一片光明，我们努力吧。",
+        "exampleKr": "앞날에 광명이 있으니 열심히 합시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guāngmíng",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-zh-intermediate-388-1780414446827",
+        "term": "广播",
+        "definition": "broadcast; broadcasting; to broadcast",
+        "meaningKr": "방송하다, 방송",
+        "exampleEn": "学校每天早上都会播放广播。",
+        "exampleKr": "학교는 매일 아침 방송을 내보냅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guǎngbō",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-389-1780414446827",
+        "term": "广大",
+        "definition": "large-scale; widespread",
+        "meaningKr": "광대한, 넓은",
+        "exampleEn": "这片广大地区的人民生活很幸福。",
+        "exampleKr": "이 광대한 지역의 인민들은 행복하게 살고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guǎngdà",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-390-1780414446827",
+        "term": "规定",
+        "definition": "to stipulate; to specify; to prescribe; to fix (a price); to set (a quota); regulations; rules; provisions; stipulations",
+        "meaningKr": "규정하다, 규정",
+        "exampleEn": "公司规定，上班不能迟到。",
+        "exampleKr": "회사는 출근 시간에 늦으면 안 된다고 규정하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guīdìng",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-391-1780414446827",
+        "term": "规范",
+        "definition": "norm; standard; specification",
+        "meaningKr": "규범, 표준, 규범화하다",
+        "exampleEn": "他的行为很规范，大家都学习他。",
+        "exampleKr": "그의 행동은 매우 규범적이어서 모두가 그를 본받습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guīfàn",
+        "pos": "adjective, noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-392-1780414446827",
+        "term": "姑娘",
+        "definition": "girl; young woman; young lady",
+        "meaningKr": "아가씨, 처녀",
+        "exampleEn": "那位姑娘长得很漂亮。",
+        "exampleKr": "저 아가씨는 매우 예쁘게 생겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "gūniang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-393-1780414446827",
+        "term": "国内",
+        "definition": "domestic; internal (to a country); civil",
+        "meaningKr": "국내의",
+        "exampleEn": "我今年打算在国内旅游。",
+        "exampleKr": "저는 올해 국내 여행을 할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guó nèi",
+        "pos": "Other (N-L)"
+      },
+      {
+        "id": "word-zh-intermediate-394-1780414446827",
+        "term": "国庆",
+        "definition": "National Day",
+        "meaningKr": "국경일",
+        "exampleEn": "国庆节快到了，你会做什么？",
+        "exampleKr": "국경일이 다가오는데, 무엇을 할 건가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guóqìng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-395-1780414446827",
+        "term": "果然",
+        "definition": "really; sure enough; as expected",
+        "meaningKr": "과연, 역시",
+        "exampleEn": "他说他能做到，果然他做到了。",
+        "exampleKr": "그는 할 수 있다고 말했고, 과연 해냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guǒrán",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-396-1780414446827",
+        "term": "果汁",
+        "definition": "fruit juice",
+        "meaningKr": "과일 주스",
+        "exampleEn": "我每天早上都喝一杯果汁。",
+        "exampleKr": "저는 매일 아침 주스 한 잔을 마십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guǒzhī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-397-1780414446827",
+        "term": "过程",
+        "definition": "course of events; process",
+        "meaningKr": "과정",
+        "exampleEn": "学习汉语需要一个很长的过程。",
+        "exampleKr": "중국어를 배우는 것은 아주 긴 과정이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guòchéng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-398-1780414446827",
+        "term": "过去",
+        "definition": "to go over; to pass by",
+        "meaningKr": "과거, 지나가다",
+        "exampleEn": "我过去常常去那里玩。",
+        "exampleKr": "저는 과거에 자주 거기에 놀러 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "guòqù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-399-1780414446827",
+        "term": "哈哈",
+        "definition": "(onom.) laughing out loud",
+        "meaningKr": "하하 (웃음소리)",
+        "exampleEn": "听到这个笑话，他哈哈大笑起来。",
+        "exampleKr": "이 농담을 듣고 그는 하하 하고 크게 웃기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hāhā",
+        "pos": "Ideoph"
+      },
+      {
+        "id": "word-zh-intermediate-400-1780414446827",
+        "term": "海关",
+        "definition": "customs (i.e. border crossing inspection)",
+        "meaningKr": "세관",
+        "exampleEn": "过海关的时候，请把护照给我。",
+        "exampleKr": "세관을 통과할 때, 여권을 제게 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hǎiguān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-401-1780414446827",
+        "term": "害怕",
+        "definition": "to be afraid; to be scared",
+        "meaningKr": "무서워하다, 두려워하다",
+        "exampleEn": "她有一点儿害怕，不敢一个人去。",
+        "exampleKr": "그녀는 조금 무서워해서 혼자 가는 것을 감히 못 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hài∥pà",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-402-1780414446827",
+        "term": "好好",
+        "definition": "well; carefully; nicely; properly",
+        "meaningKr": "잘, 제대로, 푹",
+        "exampleEn": "你一定要好好学习，天天向上。",
+        "exampleKr": "너는 꼭 공부를 잘해서 날마다 발전해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hǎohǎo",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-zh-intermediate-403-1780414446827",
+        "term": "好奇",
+        "definition": "inquisitive; curious; inquisitiveness",
+        "meaningKr": "호기심이 많은",
+        "exampleEn": "孩子们对新来的老师感到好奇。",
+        "exampleKr": "아이들은 새로 온 선생님에게 호기심을 느꼈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hàoqí",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-404-1780414446827",
+        "term": "合法",
+        "definition": "lawful; legitimate; legal",
+        "meaningKr": "합법적인",
+        "exampleEn": "这是合法的产品，请放心买。",
+        "exampleKr": "이것은 합법적인 상품이니 안심하고 사세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "héfǎ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-405-1780414446827",
+        "term": "合格",
+        "definition": "to meet the standard required; qualified; eligible (voter etc)",
+        "meaningKr": "자격 있는, 합격한",
+        "exampleEn": "他的成绩不合格，不能参加比赛。",
+        "exampleKr": "그의 성적은 불합격이어서 시합에 참가할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hégé",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-406-1780414446827",
+        "term": "合理",
+        "definition": "rational; reasonable; sensible; fair",
+        "meaningKr": "합리적인, 적절한",
+        "exampleEn": "这个计划听起来很合理。",
+        "exampleKr": "이 계획은 매우 합리적으로 들린다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hélǐ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-407-1780414446827",
+        "term": "和平",
+        "definition": "peace; peaceful",
+        "meaningKr": "평화, 평화로운",
+        "exampleEn": "我们都希望世界和平。",
+        "exampleKr": "우리 모두 세계 평화를 희망한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hépíng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-408-1780414446827",
+        "term": "合作",
+        "definition": "to cooperate; to collaborate; to work together",
+        "meaningKr": "협력하다, 협동하다",
+        "exampleEn": "我们应该互相合作，共同完成任务。",
+        "exampleKr": "우리는 서로 협력하여 임무를 완수해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hézuò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-409-1780414446827",
+        "term": "红茶",
+        "definition": "black tea",
+        "meaningKr": "홍차",
+        "exampleEn": "早上我习惯喝一杯红茶。",
+        "exampleKr": "아침에 나는 홍차 한 잔을 마시는 것이 습관이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hóngchá",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-410-1780414446827",
+        "term": "红酒",
+        "definition": "red wine",
+        "meaningKr": "적포도주",
+        "exampleEn": "晚餐时，我们喝了一瓶红酒。",
+        "exampleKr": "저녁 식사 때, 우리는 적포도주 한 병을 마셨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hóngjiǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-411-1780414446827",
+        "term": "后果",
+        "definition": "consequences; aftermath",
+        "meaningKr": "결과, 후과",
+        "exampleEn": "你不听劝告，会后悔的。",
+        "exampleKr": "네가 충고를 듣지 않으면 후회할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hòuguǒ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-412-1780414446827",
+        "term": "后面",
+        "definition": "the back; the rear; the last bit; behind; near the end; at the back; later; afterwards",
+        "meaningKr": "뒤, 뒤쪽, 나중에",
+        "exampleEn": "请把书放在桌子后面。",
+        "exampleKr": "책을 탁자 뒤에 놓아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hòumiàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-413-1780414446827",
+        "term": "后年",
+        "definition": "the year after next",
+        "meaningKr": "후년 (2년 뒤)",
+        "exampleEn": "后年我就大学毕业了。",
+        "exampleKr": "후년이면 나는 대학을 졸업한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hòunián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-414-1780414446827",
+        "term": "互相",
+        "definition": "each other; mutually; mutual",
+        "meaningKr": "서로",
+        "exampleEn": "朋友之间应该互相帮助。",
+        "exampleKr": "친구 사이에는 서로 도와야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "hùxiāng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-415-1780414446827",
+        "term": "划船",
+        "definition": "to row a boat; rowing; boating; small boat",
+        "meaningKr": "노를 젓다, 보트 타기",
+        "exampleEn": "天气好的时候，我们去湖上划船。",
+        "exampleKr": "날씨가 좋을 때, 우리는 호수에서 보트 타기를 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huáchuán",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-416-1780414446827",
+        "term": "华人",
+        "definition": "ethnic Chinese person or people",
+        "meaningKr": "화교, 중국인",
+        "exampleEn": "这里有很多华人开的商店。",
+        "exampleKr": "이곳에는 화교가 운영하는 가게가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huárén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-417-1780414446827",
+        "term": "话剧",
+        "definition": "stage play; modern drama",
+        "meaningKr": "연극, 희곡",
+        "exampleEn": "我们打算去看一场话剧。",
+        "exampleKr": "우리는 연극 한 편을 보러 갈 계획이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huàjù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-418-1780414446827",
+        "term": "话题",
+        "definition": "subject (of a talk or conversation); topic",
+        "meaningKr": "화제",
+        "exampleEn": "他们正在讨论一个有趣的话题。",
+        "exampleKr": "그들은 재미있는 화제를 토론하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huàtí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-419-1780414446827",
+        "term": "欢乐",
+        "definition": "gaiety; gladness; glee",
+        "meaningKr": "즐거움, 환락",
+        "exampleEn": "祝你们度过一个欢乐的假期！",
+        "exampleKr": "당신들이 즐거운 휴가를 보내기를 바랍니다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huānlè",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-420-1780414446827",
+        "term": "环保",
+        "definition": "environmental protection; environmentally friendly",
+        "meaningKr": "환경 보호",
+        "exampleEn": "我们应该注意环保，保护地球。",
+        "exampleKr": "우리는 환경 보호에 주의하여 지구를 보호해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huánbǎo",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-421-1780414446827",
+        "term": "环境",
+        "definition": "environment; circumstances; surroundings",
+        "meaningKr": "환경",
+        "exampleEn": "这里的学习环境很好。",
+        "exampleKr": "이곳의 학습 환경은 아주 좋다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huánjìng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-422-1780414446827",
+        "term": "会议",
+        "definition": "meeting; conference",
+        "meaningKr": "회의",
+        "exampleEn": "明天上午有一个重要的会议。",
+        "exampleKr": "내일 오전에는 중요한 회의가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huìyì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-423-1780414446827",
+        "term": "会员",
+        "definition": "member",
+        "meaningKr": "회원",
+        "exampleEn": "成为这里的会员有什么好处？",
+        "exampleKr": "이곳의 회원이 되면 어떤 장점이 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "huìyuán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-424-1780414446827",
+        "term": "基本",
+        "definition": "basic; fundamental; main",
+        "meaningKr": "기본적인, 기본적으로",
+        "exampleEn": "这个词的基本意思你明白吗？",
+        "exampleKr": "이 단어의 기본적인 뜻을 이해했니?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīběn",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-425-1780414446827",
+        "term": "基础",
+        "definition": "base; foundation; basis; basic; fundamental",
+        "meaningKr": "기초, 기본",
+        "exampleEn": "学习汉语需要打好基础。",
+        "exampleKr": "중국어를 배우려면 기초를 잘 다져야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīchǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-426-1780414446827",
+        "term": "积极",
+        "definition": "active; energetic; vigorous",
+        "meaningKr": "적극적인",
+        "exampleEn": "他学习很积极，总是主动回答问题。",
+        "exampleKr": "그는 공부를 아주 적극적이어서 항상 먼저 대답합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jījí",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-427-1780414446827",
+        "term": "机器",
+        "definition": "machine",
+        "meaningKr": "기계",
+        "exampleEn": "这台机器 работает очень быстро。",
+        "exampleKr": "이 기계는 아주 빨리 작동합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jī·qì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-428-1780414446827",
+        "term": "…极了",
+        "definition": "",
+        "meaningKr": "매우, 아주",
+        "exampleEn": "今天天气真好，让人舒服极了。",
+        "exampleKr": "오늘 날씨가 정말 좋아서 아주 편안합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "…jí le",
+        "pos": "Other"
+      },
+      {
+        "id": "word-zh-intermediate-429-1780414446827",
+        "term": "及时",
+        "definition": "timely; at the right time; promptly; without delay",
+        "meaningKr": "시기적절한, 제때의",
+        "exampleEn": "请及时通知我会议的时间。",
+        "exampleKr": "회의 시간을 제때 알려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jíshí",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-430-1780414446827",
+        "term": "集体",
+        "definition": "collective (decision); joint (effort); a group",
+        "meaningKr": "집단",
+        "exampleEn": "集体活动能增进大家的感情。",
+        "exampleKr": "집단 활동은 모두의 감정을 증진시킬 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jítǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-431-1780414446827",
+        "term": "集中",
+        "definition": "to concentrate; to centralize; to focus",
+        "meaningKr": "집중하다",
+        "exampleEn": "请集中注意力听老师讲课。",
+        "exampleKr": "선생님의 강의를 들을 때 집중해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jízhōng",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-432-1780414446827",
+        "term": "纪录",
+        "definition": "variant of 記錄|记录[ji4 lu4] (but in Taiwan, not for the verb sense \"to record\")",
+        "meaningKr": "기록 (명사)",
+        "exampleEn": "他打破了跳高纪录。",
+        "exampleKr": "그는 높이뛰기 기록을 깼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìlù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-433-1780414446827",
+        "term": "记录",
+        "definition": "to record; record (written account); note-taker",
+        "meaningKr": "기록하다, 기록 (명사)",
+        "exampleEn": "请帮我记录一下会议内容。",
+        "exampleKr": "회의 내용을 좀 기록해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìlù",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-zh-intermediate-434-1780414446827",
+        "term": "技术",
+        "definition": "technology; technique; skill",
+        "meaningKr": "기술",
+        "exampleEn": "他的技术很好，做得又快又好。",
+        "exampleKr": "그의 기술은 매우 좋아서 빠르고 잘합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìshù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-435-1780414446827",
+        "term": "计算",
+        "definition": "to calculate; to compute; to consider; to think over; to plot; to scheme",
+        "meaningKr": "계산하다",
+        "exampleEn": "我需要一些时间来计算费用。",
+        "exampleKr": "비용을 계산할 시간이 좀 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìsuàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-436-1780414446827",
+        "term": "继续",
+        "definition": "to continue; to proceed with; to go on with",
+        "meaningKr": "계속하다",
+        "exampleEn": "雨停了，我们可以继续旅行。",
+        "exampleKr": "비가 그쳤으니 여행을 계속할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìxù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-437-1780414446827",
+        "term": "记者",
+        "definition": "reporter; journalist",
+        "meaningKr": "기자",
+        "exampleEn": "那位记者正在采访市长。",
+        "exampleKr": "그 기자는 시장을 인터뷰하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìzhě",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-438-1780414446827",
+        "term": "加工",
+        "definition": "to process; processing; working (of machinery)",
+        "meaningKr": "가공하다, 처리하다",
+        "exampleEn": "这家工厂为食品进行加工。",
+        "exampleKr": "이 공장은 식품을 가공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiā∥gōng",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-439-1780414446827",
+        "term": "家具",
+        "definition": "furniture",
+        "meaningKr": "가구",
+        "exampleEn": "我们搬家后需要买一些新家具。",
+        "exampleKr": "이사 후에 새 가구를 좀 사야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiājù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-440-1780414446827",
+        "term": "加快",
+        "definition": "to accelerate; to speed up; to hasten",
+        "meaningKr": "가속하다, 속도를 높이다",
+        "exampleEn": "为了赶火车，他加快了脚步。",
+        "exampleKr": "기차를 타기 위해 그는 발걸음을 서둘렀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiākuài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-441-1780414446827",
+        "term": "加强",
+        "definition": "to reinforce; to strengthen; to enhance",
+        "meaningKr": "강화하다, 보강하다",
+        "exampleEn": "我们需要加强体育锻炼。",
+        "exampleKr": "우리는 체육 단련을 강화해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāqiáng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-442-1780414446827",
+        "term": "家属",
+        "definition": "family member",
+        "meaningKr": "가족, 가족 구성원",
+        "exampleEn": "他需要为家属办理一些手续。",
+        "exampleKr": "그는 가족을 위해 몇 가지 수속을 처리해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāshǔ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-443-1780414446827",
+        "term": "家乡",
+        "definition": "hometown; native place",
+        "meaningKr": "고향",
+        "exampleEn": "我常常想念我的家乡。",
+        "exampleKr": "나는 자주 나의 고향을 그리워합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāxiāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-444-1780414446827",
+        "term": "价格",
+        "definition": "price",
+        "meaningKr": "가격",
+        "exampleEn": "这个商品的价格很合理。",
+        "exampleKr": "이 상품의 가격은 아주 합리적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiàgé",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-445-1780414446827",
+        "term": "价钱",
+        "definition": "price",
+        "meaningKr": "가격",
+        "exampleEn": "你知道这件衣服的价钱吗？",
+        "exampleKr": "이 옷의 가격을 아세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jià·qián",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-446-1780414446827",
+        "term": "价值",
+        "definition": "value; worth",
+        "meaningKr": "가치, 값어치",
+        "exampleEn": "学习新知识很有价值。",
+        "exampleKr": "새로운 지식을 배우는 것은 매우 가치 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiàzhí",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-447-1780414446827",
+        "term": "坚持",
+        "definition": "to persevere with; to persist in; to insist on",
+        "meaningKr": "견지하다, 고수하다, 주장하다",
+        "exampleEn": "他坚持每天跑步锻炼身体。",
+        "exampleKr": "그는 매일 달리기를 하며 몸을 단련합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiānchí",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-448-1780414446827",
+        "term": "坚决",
+        "definition": "firm; resolute; determined",
+        "meaningKr": "단호한, 확고한",
+        "exampleEn": "我们坚决反对这个计划。",
+        "exampleKr": "우리는 이 계획에 단호히 반대합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiānjué",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-449-1780414446827",
+        "term": "坚强",
+        "definition": "staunch; strong",
+        "meaningKr": "강인한, 굳센",
+        "exampleEn": "她虽然遇到了困难，但依然很坚强。",
+        "exampleKr": "그녀는 어려움을 겪었지만 여전히 강인합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiānqiáng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-450-1780414446827",
+        "term": "简单",
+        "definition": "simple; not complicated",
+        "meaningKr": "간단하다, 단순하다",
+        "exampleEn": "这个问题很简单，你很快就能明白。",
+        "exampleKr": "이 문제는 아주 간단해서, 당신은 금방 이해할 수 있을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiǎndān",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-451-1780414446827",
+        "term": "简直",
+        "definition": "simply; really",
+        "meaningKr": "정말, 너무 ~하다",
+        "exampleEn": "今天的天气简直太好了，我们去公园吧。",
+        "exampleKr": "오늘 날씨는 정말 너무 좋으니, 우리 공원에 가자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiǎnzhí",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-452-1780414446827",
+        "term": "建成",
+        "definition": "to establish; to build",
+        "meaningKr": "건설되다, 완성되다",
+        "exampleEn": "这座新桥已经建成，很快就能通车了。",
+        "exampleKr": "이 새 다리는 이미 건설되어, 곧 통행이 가능해질 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiànchéng",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-453-1780414446827",
+        "term": "建立",
+        "definition": "to establish; to set up; to found",
+        "meaningKr": "설립하다, 구축하다, 세우다",
+        "exampleEn": "我们需要建立一个更好的学习计划。",
+        "exampleKr": "우리는 더 나은 학습 계획을 수립할 필요가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiànlì",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-454-1780414446827",
+        "term": "建设",
+        "definition": "to build; to construct; to establish; to develop; to institute",
+        "meaningKr": "건설하다, 건설",
+        "exampleEn": "国家正在大力建设新的城市。",
+        "exampleKr": "국가는 현재 새로운 도시 건설에 힘쓰고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiànshè",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-455-1780414446827",
+        "term": "建议",
+        "definition": "to propose; to suggest; to recommend; proposal; suggestion; recommendation (CL:點|点[dian3])",
+        "meaningKr": "제안하다, 건의하다, 제안",
+        "exampleEn": "我有一个建议，我们可以周末去看电影。",
+        "exampleKr": "제가 제안할 것이 있는데, 우리 주말에 영화를 보러 갈 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiànyì",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-456-1780414446827",
+        "term": "将近",
+        "definition": "almost; nearly; close to",
+        "meaningKr": "~에 가깝다, 거의",
+        "exampleEn": "这家商店的顾客将近一百人了。",
+        "exampleKr": "이 가게의 손님은 거의 백 명에 달합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāngjìn",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-457-1780414446827",
+        "term": "将来",
+        "definition": "in the future; future; the future",
+        "meaningKr": "장래, 미래",
+        "exampleEn": "我希望将来能成为一名医生。",
+        "exampleKr": "저는 장래에 의사가 되기를 희망합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiānglái",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-458-1780414446827",
+        "term": "交费",
+        "definition": "to pay a fee",
+        "meaningKr": "요금을 내다, 납부하다",
+        "exampleEn": "请在月底前把水电费交了吧。",
+        "exampleKr": "이달 말 전에 수도요금과 전기요금을 납부하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāofèi",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-459-1780414446827",
+        "term": "交警",
+        "definition": "traffic police (abbr. for 交通警察[jiao1 tong1 jing3 cha2])",
+        "meaningKr": "교통 경찰",
+        "exampleEn": "马路上的交警正在指挥交通。",
+        "exampleKr": "도로 위의 교통 경찰이 교통을 지휘하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāojǐng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-460-1780414446827",
+        "term": "交流",
+        "definition": "to exchange; exchange; communication",
+        "meaningKr": "교류하다, 소통하다, 교류",
+        "exampleEn": "我们应该多跟外国朋友交流。",
+        "exampleKr": "우리는 외국 친구들과 더 많이 교류해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāoliú",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-461-1780414446827",
+        "term": "交往",
+        "definition": "to associate (with); to have contact (with); to hang out (with)",
+        "meaningKr": "사귀다, 교제하다",
+        "exampleEn": "他们从小就认识，并且一直保持交往。",
+        "exampleKr": "그들은 어릴 때부터 알았고, 계속해서 교제해왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāowǎng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-462-1780414446827",
+        "term": "交易",
+        "definition": "to deal; to trade; to transact; transaction; deal",
+        "meaningKr": "거래하다, 거래",
+        "exampleEn": "这是一个公平的交易，我们都满意。",
+        "exampleKr": "이것은 공정한 거래이며, 우리는 모두 만족합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiāoyì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-463-1780414446827",
+        "term": "教材",
+        "definition": "teaching material",
+        "meaningKr": "교재",
+        "exampleEn": "老师发给了我们新的中文教材。",
+        "exampleKr": "선생님께서 우리에게 새로운 중국어 교재를 나눠주셨습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiàocái",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-464-1780414446827",
+        "term": "教练",
+        "definition": "to coach; to train; instructor; sports coach; trainer (CL:位[wei4],名[ming2])",
+        "meaningKr": "코치, 감독",
+        "exampleEn": "那位足球教练很有经验。",
+        "exampleKr": "그 축구 코치는 경험이 아주 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiàoliàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-465-1780414446827",
+        "term": "接待",
+        "definition": "to receive; to entertain; to host (guests, visitors or clients)",
+        "meaningKr": "맞이하다, 접대하다",
+        "exampleEn": "经理正在接待一位重要的客人。",
+        "exampleKr": "부장님이 중요한 손님을 접대하고 계십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiēdài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-466-1780414446827",
+        "term": "接近",
+        "definition": "to approach; to get close to",
+        "meaningKr": "가까워지다, 접근하다",
+        "exampleEn": "冬天快要接近了，天气会越来越冷。",
+        "exampleKr": "겨울이 곧 다가오고 있어서, 날씨가 점점 추워질 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiējìn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-467-1780414446827",
+        "term": "结实",
+        "definition": "to bear fruit",
+        "meaningKr": "튼튼하다, 건강하다",
+        "exampleEn": "他虽然年纪大了，但是身体很结实。",
+        "exampleKr": "그는 나이가 비록 많지만, 몸이 아주 튼튼합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiēshi",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-468-1780414446827",
+        "term": "结合",
+        "definition": "to combine; to link; to integrate",
+        "meaningKr": "결합하다, 통합하다",
+        "exampleEn": "学习和实践必须紧密结合。",
+        "exampleKr": "학습과 실천은 반드시 긴밀하게 결합되어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiéhé",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-469-1780414446827",
+        "term": "结婚",
+        "definition": "to marry; to get married",
+        "meaningKr": "결혼하다",
+        "exampleEn": "我的好朋友下个月就要结婚了。",
+        "exampleKr": "제 좋은 친구가 다음 달에 결혼할 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jié∥hūn",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-470-1780414446827",
+        "term": "结束",
+        "definition": "termination; to finish; to end",
+        "meaningKr": "끝내다, 마치다",
+        "exampleEn": "会议在下午三点正式结束。",
+        "exampleKr": "회의는 오후 3시에 정식으로 종료되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiéshù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-471-1780414446827",
+        "term": "节约",
+        "definition": "to economize; to conserve (resources); economy",
+        "meaningKr": "절약하다",
+        "exampleEn": "我们要学会节约用水用电。",
+        "exampleKr": "우리는 물과 전기를 절약하는 법을 배워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiéyuē",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-472-1780414446827",
+        "term": "解决",
+        "definition": "to solve; to resolve; to settle (a problem); to eliminate; to wipe out (an enemy, bandits etc)",
+        "meaningKr": "해결하다",
+        "exampleEn": "这个问题我们应该尽快解决。",
+        "exampleKr": "이 문제는 우리가 가능한 한 빨리 해결해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiějué",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-473-1780414446827",
+        "term": "解开",
+        "definition": "to untie; to undo; to solve (a mystery)",
+        "meaningKr": "풀다, 해결하다",
+        "exampleEn": "他帮我解开了鞋带。",
+        "exampleKr": "그는 제 신발 끈을 풀어주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiěkāi",
+        "pos": "Other (V-C)"
+      },
+      {
+        "id": "word-zh-intermediate-474-1780414446827",
+        "term": "金牌",
+        "definition": "gold medal",
+        "meaningKr": "금메달",
+        "exampleEn": "他为国家赢得了第一枚金牌。",
+        "exampleKr": "그는 국가를 위해 첫 금메달을 획득했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīnpái",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-475-1780414446827",
+        "term": "紧急",
+        "definition": "urgent; emergency",
+        "meaningKr": "긴급한, 비상한",
+        "exampleEn": "情况紧急，我们必须马上报警。",
+        "exampleKr": "상황이 긴급하니, 우리는 즉시 경찰에 신고해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐnjí",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-476-1780414446827",
+        "term": "仅仅",
+        "definition": "barely; only; merely",
+        "meaningKr": "단지, 겨우",
+        "exampleEn": "这个价格仅仅是一个开始。",
+        "exampleKr": "이 가격은 단지 시작일 뿐입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐnjǐn",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-477-1780414446827",
+        "term": "尽量",
+        "definition": "as much as possible; to the greatest extent",
+        "meaningKr": "최대한, 될수록",
+        "exampleEn": "请尽量说慢一点。",
+        "exampleKr": "부디 가능한 한 천천히 말씀해주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐnliàng",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-zh-intermediate-478-1780414446827",
+        "term": "紧张",
+        "definition": "nervous; keyed up; intense",
+        "meaningKr": "긴장한, 불안한, 빠듯한",
+        "exampleEn": "第一次上台表演，他有点紧张。",
+        "exampleKr": "처음 무대에 올라 공연을 해서, 그는 약간 긴장했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐnzhāng",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-479-1780414446827",
+        "term": "进步",
+        "definition": "progress; improvement; to improve; to progress",
+        "meaningKr": "진보하다, 발전하다, 향상",
+        "exampleEn": "他的汉语水平进步很快。",
+        "exampleKr": "그의 중국어 실력이 매우 빠르게 향상되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìnbù",
+        "pos": "verb, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-480-1780414446827",
+        "term": "纪念",
+        "definition": "to commemorate; to honor the memory of; memento; keepsake; souvenir",
+        "meaningKr": "기념하다, 추모하다",
+        "exampleEn": "我们应该纪念这位伟大的科学家。",
+        "exampleKr": "우리는 이 위대한 과학자를 기념해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìniàn",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-481-1780414446827",
+        "term": "近期",
+        "definition": "near in time; in the near future; very soon",
+        "meaningKr": "최근, 가까운 시일 내",
+        "exampleEn": "近期有什么好电影上映吗？",
+        "exampleKr": "최근에 볼 만한 좋은 영화가 개봉하나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìnqī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-482-1780414446827",
+        "term": "进展",
+        "definition": "to make headway; to make progress",
+        "meaningKr": "진전되다, 나아가다",
+        "exampleEn": "项目进展顺利，请放心。",
+        "exampleKr": "프로젝트가 순조롭게 진행되고 있으니 안심하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jìnzhǎn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-483-1780414446827",
+        "term": "精彩",
+        "definition": "wonderful; marvelous; brilliant",
+        "meaningKr": "훌륭한, 멋진, 흥미로운",
+        "exampleEn": "这场比赛非常精彩。",
+        "exampleKr": "이 경기는 매우 훌륭했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīngcǎi",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-484-1780414446827",
+        "term": "经济",
+        "definition": "economy; economic",
+        "meaningKr": "경제, 경제의",
+        "exampleEn": "现在经济发展很快。",
+        "exampleKr": "지금 경제가 매우 빠르게 발전하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīngjì",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-zh-intermediate-485-1780414446827",
+        "term": "京剧",
+        "definition": "Beijing opera",
+        "meaningKr": "경극",
+        "exampleEn": "我第一次看京剧。",
+        "exampleKr": "저는 처음으로 경극을 봤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīngjù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-486-1780414446827",
+        "term": "经历",
+        "definition": "to experience; to go through; experience (CL:段[duan4],次[ci4])",
+        "meaningKr": "경험하다, 겪다, 경험",
+        "exampleEn": "他经历了很多困难。",
+        "exampleKr": "그는 많은 어려움을 겪었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīnglì",
+        "pos": "verb, noun"
+      },
+      {
+        "id": "word-zh-intermediate-487-1780414446827",
+        "term": "精神",
+        "definition": "spirit; mind; consciousness",
+        "meaningKr": "정신, 기백",
+        "exampleEn": "他看起来精神很好。",
+        "exampleKr": "그는 정신이 아주 좋아 보인다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīngshen",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-zh-intermediate-488-1780414446827",
+        "term": "精神",
+        "definition": "spirit; mind; consciousness",
+        "meaningKr": "정신, 마음, 의식",
+        "exampleEn": "请集中精神听讲。",
+        "exampleKr": "집중해서 강의를 들어주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīngshén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-489-1780414446827",
+        "term": "经验",
+        "definition": "experience; to go through; to experience",
+        "meaningKr": "경험, 노하우",
+        "exampleEn": "这位医生有丰富的经验。",
+        "exampleKr": "이 의사는 풍부한 경험을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīngyàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-490-1780414446827",
+        "term": "经营",
+        "definition": "to engage in (business etc); to run; to operate",
+        "meaningKr": "경영하다, 운영하다",
+        "exampleEn": "他正在经营一家小餐馆。",
+        "exampleKr": "그는 작은 식당을 운영하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jīngyíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-491-1780414446827",
+        "term": "警察",
+        "definition": "police; police officer",
+        "meaningKr": "경찰",
+        "exampleEn": "我需要找警察帮忙。",
+        "exampleKr": "저는 경찰의 도움이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐngchá",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-492-1780414446827",
+        "term": "景色",
+        "definition": "scenery; landscape; view",
+        "meaningKr": "경치, 풍경",
+        "exampleEn": "这里的景色真美！",
+        "exampleKr": "이곳의 경치가 정말 아름답다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǐngsè",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-493-1780414446827",
+        "term": "就是",
+        "definition": "exactly; precisely; only; simply; just",
+        "meaningKr": "바로, 오직, ~이다",
+        "exampleEn": "他就是我的朋友。",
+        "exampleKr": "그가 바로 내 친구입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiùshì",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-zh-intermediate-494-1780414446827",
+        "term": "就业",
+        "definition": "to get a job; employment",
+        "meaningKr": "취업, 취직",
+        "exampleEn": "大学生毕业后都想就业。",
+        "exampleKr": "대학생들은 졸업 후 모두 취업하기를 원한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jiù∥yè",
+        "pos": "Other (V-N)"
+      },
+      {
+        "id": "word-zh-intermediate-495-1780414446827",
+        "term": "举办",
+        "definition": "to conduct; to hold (an event)",
+        "meaningKr": "개최하다, 개최되다, 열다",
+        "exampleEn": "他们将在下个月举办一个会议。",
+        "exampleKr": "그들은 다음 달에 회의를 개최할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jǔbàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-496-1780414446827",
+        "term": "剧场",
+        "definition": "theater",
+        "meaningKr": "극장",
+        "exampleEn": "我们去剧场看演出。",
+        "exampleKr": "우리는 극장에 가서 공연을 볼 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jùchǎng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zh-intermediate-497-1780414446827",
+        "term": "据说",
+        "definition": "it is said that; reportedly",
+        "meaningKr": "듣자 하니, ~라고 한다",
+        "exampleEn": "据说他昨天生病了。",
+        "exampleKr": "듣자 하니 그는 어제 아팠다고 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jùshuō",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zh-intermediate-498-1780414446827",
+        "term": "具体",
+        "definition": "concrete; specific; detailed",
+        "meaningKr": "구체적인, 상세한",
+        "exampleEn": "请说得具体一点。",
+        "exampleKr": "좀 더 구체적으로 말씀해주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jùtǐ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zh-intermediate-499-1780414446827",
+        "term": "具有",
+        "definition": "to have; to possess",
+        "meaningKr": "가지다, 소유하다, 갖추다",
+        "exampleEn": "这本书具有很高的收藏价值。",
+        "exampleKr": "이 책은 매우 높은 소장 가치를 지니고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "HSK",
+          "Intermediate"
+        ],
+        "phonetic": "jùyǒu",
+        "pos": "verb"
+      }
+    ]
+  },
+{
+    "id": "curated-jp-advanced-1",
+    "title": "고급 일본어 500 (JLPT N1)",
+    "icon": "🍣",
+    "isCurated": true,
+    "category": "고급",
+    "level": "advanced",
+    "description": "JLPT N1 고급 일본어 500. Wiktionary \"Appendix:JLPT/N1\" (CC BY-SA 4.0) 빈도순 기반, JMdict로 POS 검증, 한국어 뜻·N1 예문 AI 생성",
+    "sourceLanguage": "ja",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780414442599,
+    "words": [
+      {
+        "id": "word-jp-advanced-0-1780414442599",
+        "term": "私",
+        "definition": "I; me",
+        "meaningKr": "나, 저",
+        "exampleEn": "私があのプロジェクトのリーダーに任命されたのは、まさに青天の霹靂だったと言えるでしょう。",
+        "exampleKr": "제가 그 프로젝트의 리더로 임명된 것은 정말 청천벽력이었다고 말할 수 있을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あたし",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-advanced-1-1780414442599",
+        "term": "校",
+        "definition": "school proofreading; proof",
+        "meaningKr": "교정, 교열",
+        "exampleEn": "提出された論文の校正作業は、細部にまで注意を払い、誤字脱字を徹底的に排除しなければならない。",
+        "exampleKr": "제출된 논문의 교정 작업은 세세한 부분까지 주의를 기울여 오자탈자를 철저히 배제해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こう",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-2-1780414442599",
+        "term": "嗚呼",
+        "definition": "ah!; oh!; alas! yes; indeed; that is correct aah; gah; argh",
+        "meaningKr": "아아, 오호, 그렇다",
+        "exampleEn": "嗚呼、人生とはかくも儚く、また時に残酷なものであるのかと、彼は深い溜息をついた。",
+        "exampleKr": "아아, 인생이란 이토록 덧없고 또 때로는 잔혹한 것인가 하고 그는 깊은 한숨을 쉬었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ああ",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-jp-advanced-3-1780414442599",
+        "term": "遣る",
+        "definition": "to harm; to injure; to kill to have sex; to fuck; to bang to live; to get by; to get along",
+        "meaningKr": "보내다, (시간을) 보내다, (일을) 하다",
+        "exampleEn": "彼は日夜を問わず、研究室に籠もり、ひたすら難解な数式と格闘しておった。",
+        "exampleKr": "그는 밤낮을 가리지 않고 연구실에 틀어박혀 오로지 난해한 수식과 씨름하고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "やる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-4-1780414442599",
+        "term": "胴",
+        "definition": "trunk; torso; body; abdomen; waist plastron (in kendo); touching the plastron (kimari-te in kendo) frame (of a drum, etc.); sound box (of a shamisen, etc.); hull (of a ship)",
+        "meaningKr": "몸통, 동체, 복부",
+        "exampleEn": "その武士は、刀を抜き放ち、敵の胴めがけて力強く斬りかかった。",
+        "exampleKr": "그 무사는 칼을 뽑아들고 적의 몸통을 향해 힘차게 베어들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-5-1780414442599",
+        "term": "御座います",
+        "definition": "to be; to exist to be (doing) did; (have) done",
+        "meaningKr": "계시다, 있다, (존경)",
+        "exampleEn": "皆様、本日はお忙しい中、このような会にご臨席賜り、誠に光栄に御座います。",
+        "exampleKr": "여러분, 오늘은 바쁘신 와중에도 이러한 자리에 참석해 주셔서 진심으로 영광으로 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ございます",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-jp-advanced-6-1780414442599",
+        "term": "間々",
+        "definition": "occasionally; now and then; sometimes Mama",
+        "meaningKr": "때때로, 가끔",
+        "exampleEn": "都会の喧騒を離れ、田舎で静かに暮らすことを、彼は間々夢見ることがあった。",
+        "exampleKr": "도시의 소란스러움을 떠나 시골에서 조용히 사는 것을 그는 때때로 꿈꾸곤 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "まま",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-advanced-7-1780414442599",
+        "term": "直ぐ",
+        "definition": "immediately; at once; right away; directly soon; before long; shortly easily; readily; without difficulty",
+        "meaningKr": "곧, 즉시, 바로",
+        "exampleEn": "この問題は複雑に絡み合っているため、直ぐに解決策を見出すことは困難であろう。",
+        "exampleKr": "이 문제는 복잡하게 얽혀 있기 때문에 즉시 해결책을 찾아내는 것은 어려울 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "すぐ",
+        "pos": "adverb, noun"
+      },
+      {
+        "id": "word-jp-advanced-8-1780414442599",
+        "term": "彼の",
+        "definition": "that; those; the",
+        "meaningKr": "저, 저것의",
+        "exampleEn": "あの山の頂上から見える景色は、息をのむほど美しく、言葉では言い表せないほどだった。",
+        "exampleKr": "저 산봉우리에서 보이는 경치는 숨이 막힐 정도로 아름다워 말로는 표현할 수 없을 정도였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あの",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-9-1780414442599",
+        "term": "及び",
+        "definition": "and; as well as",
+        "meaningKr": "및, 그리고",
+        "exampleEn": "本契約の締結、及び、その履行に関しましては、両社間で十分な協議が必要となります。",
+        "exampleKr": "본 계약의 체결 및 그 이행에 관해서는 양사 간에 충분한 협의가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "および",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-advanced-10-1780414442599",
+        "term": "タイトル",
+        "definition": "title",
+        "meaningKr": "제목",
+        "exampleEn": "この映画のタイトルは、物語の核心を巧みに示唆しており、観客の興味を強く惹きつける。",
+        "exampleKr": "이 영화의 제목은 이야기의 핵심을 교묘하게 시사하며 관객의 흥미를 강하게 끈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "タイトル",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-11-1780414442599",
+        "term": "俺",
+        "definition": "I; me",
+        "meaningKr": "나 (남성, 격식 없음)",
+        "exampleEn": "俺がこの決断を下したのは、他に選択肢がなく、背に腹は代えられなかったからだ。",
+        "exampleKr": "내가 이 결단을 내린 것은 다른 선택지가 없었고, 등에는 배를 대신할 수 없었기 때문이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おれ",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-jp-advanced-12-1780414442599",
+        "term": "実",
+        "definition": "truth; reality sincerity; honesty; fidelity content; substance",
+        "meaningKr": "실제, 진실, 성실",
+        "exampleEn": "彼の言葉の真実性を疑う余地はなく、その誠実な態度は皆の信頼を得るに十分だった。",
+        "exampleKr": "그의 말의 진실성을 의심할 여지는 없었고, 그 성실한 태도는 모두의 신뢰를 얻기에 충분했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じつ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-13-1780414442599",
+        "term": "共",
+        "definition": "together with same both; all; neither; none",
+        "meaningKr": "함께, 같이, 둘 다",
+        "exampleEn": "この難局を乗り越えるためには、国民一人ひとりが力を合わせ、共に行動することが不可欠である。",
+        "exampleKr": "이 난국을 극복하기 위해서는 국민 한 사람 한 사람이 힘을 합쳐 함께 행동하는 것이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とも",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-14-1780414442599",
+        "term": "規定",
+        "definition": "stipulation; prescription; provision; regulation; rule normal (unit of normality) compulsory exercise (in gymnastics); compulsory routine; compulsory dance (figure skating); (a) compulsory",
+        "meaningKr": "규정, 규칙",
+        "exampleEn": "会社の就業規則には、遅刻や欠勤に関する詳細な規定が定められている。",
+        "exampleKr": "회사의 취업 규칙에는 지각이나 결근에 관한 상세한 규정이 정해져 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きてい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-15-1780414442599",
+        "term": "取りあえず",
+        "definition": "first of all; at once; right away for now; for the time being; tentatively anyway",
+        "meaningKr": "우선, 일단",
+        "exampleEn": "詳細は後ほど詰めるとして、取りあえず、この緊急事態への対応策を最優先で検討しよう。",
+        "exampleKr": "자세한 것은 나중에 논의하기로 하고, 우선 이 긴급 사태에 대한 대응책을 최우선으로 검토하자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とりあえず",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-16-1780414442599",
+        "term": "対応",
+        "definition": "correspondence (to); equivalence suitability; coordination; matching; being appropriate (for) dealing with; coping with; handling; response; reception; reaction",
+        "meaningKr": "대응, 대처, 조율",
+        "exampleEn": "市場の変化に柔軟に対応するため、企業は常に新しい技術や戦略を模索し続けなければならない。",
+        "exampleKr": "시장의 변화에 유연하게 대응하기 위해 기업은 항상 새로운 기술과 전략을 모색해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たいおう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-17-1780414442599",
+        "term": "図る",
+        "definition": "to plan; to attempt; to devise to plot; to conspire; to scheme to aim for; to strive for; to work towards; to seek",
+        "meaningKr": "꾀하다, 도모하다, 계획하다",
+        "exampleEn": "彼は、組織の活性化を図るために、大胆な改革案を提案し、実行に移した。",
+        "exampleKr": "그는 조직의 활성화를 도모하기 위해 대담한 개혁안을 제안하고 실행에 옮겼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はかる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-18-1780414442599",
+        "term": "奴",
+        "definition": "servant (esp. a samurai's attendant) chivalrous man (Edo period) cubed tofu (often served cold)",
+        "meaningKr": "녀석, 녀석들 (하인)",
+        "exampleEn": "あの生意気な奴め、人の忠告も聞かずに勝手な行動ばかりしおって。",
+        "exampleKr": "저 건방진 녀석, 남의 충고도 듣지 않고 제멋대로인 행동만 하다니.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "やっこ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-19-1780414442599",
+        "term": "一部",
+        "definition": "one part; one portion; one section one copy (of a book); (one) complete set (of books)",
+        "meaningKr": "일부, 한 부분",
+        "exampleEn": "この報告書は、あくまで暫定的なものであり、後日、詳細な分析結果の一部が公表される予定だ。",
+        "exampleKr": "이 보고서는 어디까지나 잠정적인 것이며, 후일 상세한 분석 결과의 일부가 공표될 예정이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いちぶ",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-advanced-20-1780414442599",
+        "term": "制",
+        "definition": "system; organization; organisation; imperial command; laws; regulation; control; government; suppression; restraint; holding back; establishment",
+        "meaningKr": "제도, 시스템, 통제",
+        "exampleEn": "厳格な法制度のもとで、社会秩序は維持されているが、同時に個人の自由が制約される側面もある。",
+        "exampleKr": "엄격한 법 제도 하에서 사회 질서는 유지되고 있지만, 동시에 개인의 자유가 제약되는 측면도 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-21-1780414442599",
+        "term": "定める",
+        "definition": "to decide; to determine to establish; to lay down; to prescribe; to provide; to stipulate to bring peace (to); to make peaceful",
+        "meaningKr": "정하다, 규정하다, 확정하다",
+        "exampleEn": "国際社会は、地球温暖化防止のため、各国が遵守すべき具体的な目標を定める必要がある。",
+        "exampleKr": "국제 사회는 지구 온난화 방지를 위해 각국이 준수해야 할 구체적인 목표를 정할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さだめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-22-1780414442599",
+        "term": "曲",
+        "definition": "composition; piece of music; song; track (on a record) tune; melody; air enjoyment; fun; interest; pleasure",
+        "meaningKr": "곡, 악곡, 작품",
+        "exampleEn": "彼の作曲したこの曲は、聴く者の心を深く揺さぶる感動的なメロディーで知られている。",
+        "exampleKr": "그가 작곡한 이 곡은 듣는 이의 마음을 깊이 흔드는 감동적인 멜로디로 알려져 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きょく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-23-1780414442599",
+        "term": "動き",
+        "definition": "movement; move; motion trend; development; change; fluctuation",
+        "meaningKr": "움직임, 동향, 변화",
+        "exampleEn": "最近の経済指標の動きは、景気回復の兆しを示しているものの、依然として予断を許さない。",
+        "exampleKr": "최근의 경제 지표의 움직임은 경기 회복의 조짐을 보이고는 있으나, 여전히 단정할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うごき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-24-1780414442599",
+        "term": "発生",
+        "definition": "occurrence; incidence; outbreak; birth (e.g. of civilization) generation (of power, heat, etc.); production ontogeny; development; growth; breeding",
+        "meaningKr": "발생, 발생률",
+        "exampleEn": "この地域では、過去に大規模な自然災害の発生が記録されており、防災対策が急務となっている。",
+        "exampleKr": "이 지역에서는 과거 대규모 자연재해의 발생이 기록되었으며, 방재 대책이 시급한 과제가 되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はっせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-25-1780414442599",
+        "term": "開発",
+        "definition": "development; exploitation (of resources)",
+        "meaningKr": "개발, 발전",
+        "exampleEn": "この地域では、環境破壊を最小限に抑えつつ、持続可能な都市開発を進めることが急務となっている。",
+        "exampleKr": "이 지역에서는 환경 파괴를 최소한으로 억제하면서 지속 가능한 도시 개발을 진행하는 것이 시급하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かいはつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-26-1780414442599",
+        "term": "設定",
+        "definition": "establishment; creation; posing (a problem); setting (movie, novel, etc.); scene options setting; preference settings; configuration; setup",
+        "meaningKr": "설정, 확립",
+        "exampleEn": "新しいソフトウェアを導入するにあたって、ユーザーフレンドリーなインターフェース設定を徹底することが肝要である。",
+        "exampleKr": "새로운 소프트웨어를 도입함에 있어서 사용자 친화적인 인터페이스 설정을 철저히 하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せってい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-27-1780414442599",
+        "term": "体験",
+        "definition": "(practical) experience; personal experience; hands-on experience; first-hand experience",
+        "meaningKr": "체험, 경험",
+        "exampleEn": "異文化に触れることは、自己の視野を広げ、豊かな人間性を育むための貴重な体験となろう。",
+        "exampleKr": "이문화에 접하는 것은 자신의 시야를 넓히고 풍부한 인간성을 기르기 위한 귀중한 체험이 될 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たいけん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-28-1780414442599",
+        "term": "伴う",
+        "definition": "to accompany; to go hand in hand with; to be consequent upon to be accompanied by; to bring with; to take with; to be involved in",
+        "meaningKr": "수반하다, 동반하다",
+        "exampleEn": "大規模なプロジェクトの実施には、予期せぬリスクが伴うことを覚悟しておく必要がある。",
+        "exampleKr": "대규모 프로젝트의 실행에는 예상치 못한 위험이 수반된다는 것을 각오해 둘 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ともなう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-29-1780414442599",
+        "term": "死",
+        "definition": "death (an) out death penalty (by strangulation or decapitation; most severe of the five ritsuryō punishments)",
+        "meaningKr": "죽음, 사망",
+        "exampleEn": "現代社会において、死はタブー視されがちだが、生と表裏一体であることを忘れてはならない。",
+        "exampleKr": "현대 사회에서 죽음은 금기시되기 쉽지만, 삶과 동전의 양면임을 잊어서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "し",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-30-1780414442599",
+        "term": "第一",
+        "definition": "first; foremost; number one most important best; greatest; most",
+        "meaningKr": "제일, 첫 번째",
+        "exampleEn": "この問題に対処する上で、第一に考慮すべきは、関係者全員の意見を公平に聞くことである。",
+        "exampleKr": "이 문제에 대처하는 데 있어서 제일 먼저 고려해야 할 것은 관계자 전원의 의견을 공평하게 듣는 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "だいいち",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-31-1780414442599",
+        "term": "若しくは",
+        "definition": "or; otherwise",
+        "meaningKr": "또는, 혹은",
+        "exampleEn": "本件に関するご意見は、書面若しくは口頭にて、来週金曜日までに提出してください。",
+        "exampleKr": "본건에 관한 의견은 서면 또는 구두로 다음 주 금요일까지 제출해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もしくは",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-advanced-32-1780414442599",
+        "term": "推進",
+        "definition": "propulsion; drive promotion (of a policy, project, movement, etc.); furtherance; advancement; pushing forward",
+        "meaningKr": "추진, 촉진",
+        "exampleEn": "政府は、再生可能エネルギーの普及を強力に推進するため、新たな政策を打ち出した。",
+        "exampleKr": "정부는 재생 가능 에너지의 보급을 강력하게 추진하기 위해 새로운 정책을 내놓았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "すいしん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-33-1780414442599",
+        "term": "確保",
+        "definition": "securing; obtaining; ensuring; guarantee; maintaining belay; belaying",
+        "meaningKr": "확보, 보증",
+        "exampleEn": "長期的な経済成長のためには、安定した雇用の確保が不可欠であるという認識が広まっている。",
+        "exampleKr": "장기적인 경제 성장을 위해서는 안정적인 고용 확보가 불가결하다는 인식이 확산되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かくほ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-34-1780414442599",
+        "term": "指摘",
+        "definition": "pointing out; identification",
+        "meaningKr": "지적, 지시",
+        "exampleEn": "専門家は、現状の政策に潜む問題点を具体的に指摘し、改善策を提言した。",
+        "exampleKr": "전문가는 현 정책에 내재된 문제점을 구체적으로 지적하고 개선책을 제안했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "してき",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-35-1780414442599",
+        "term": "地元",
+        "definition": "home area; home town local",
+        "meaningKr": "지역, 현지",
+        "exampleEn": "地元経済の活性化を図るため、地域住民が主体となったイベントの企画・運営が求められている。",
+        "exampleKr": "지역 경제 활성화를 도모하기 위해 지역 주민이 주체가 된 이벤트의 기획·운영이 요구되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じもと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-36-1780414442599",
+        "term": "提供",
+        "definition": "offer; tender; providing; supplying; making available; donating (blood, organs, etc.) sponsoring (a TV program)",
+        "meaningKr": "제공, 공급",
+        "exampleEn": "本サービスは、高度な専門知識を持つ研究者によって、最新の学術情報が提供されている。",
+        "exampleKr": "본 서비스는 높은 수준의 전문 지식을 가진 연구자에 의해 최신 학술 정보가 제공되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ていきょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-37-1780414442599",
+        "term": "購入",
+        "definition": "purchase; buying",
+        "meaningKr": "구입, 구매",
+        "exampleEn": "品質と価格のバランスを考慮した上で、最も費用対効果の高い製品の購入を決定した。",
+        "exampleKr": "품질과 가격의 균형을 고려한 후, 가장 비용 효율성이 높은 제품의 구매를 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こうにゅう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-38-1780414442599",
+        "term": "認識",
+        "definition": "recognition; awareness; perception; understanding; knowledge; cognition; cognizance; cognisance",
+        "meaningKr": "인식, 인지",
+        "exampleEn": "社会全体でジェンダー平等の重要性に対する認識を一層深める必要がある。",
+        "exampleKr": "사회 전체적으로 젠더 평등의 중요성에 대한 인식을 더욱 깊게 할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "にんしき",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-39-1780414442599",
+        "term": "ポイント",
+        "definition": "place where many fish gather ace (projectile) point",
+        "meaningKr": "요점, 핵심, 포인트",
+        "exampleEn": "議論のポイントは、単なる表面的な解決策ではなく、根本的な原因の究明にあると言えるだろう。",
+        "exampleKr": "논의의 핵심은 단순한 표면적인 해결책이 아니라 근본적인 원인 규명에 있다고 말할 수 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ポイント",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-40-1780414442599",
+        "term": "生む",
+        "definition": "to give birth; to bear (child); to lay (eggs) to produce; to yield; to give rise to; to deliver",
+        "meaningKr": "낳다, 만들어내다, 초래하다",
+        "exampleEn": "新たな技術革新は、社会に多大な恩恵を生む一方で、新たな課題も同時に生じさせる。",
+        "exampleKr": "새로운 기술 혁신은 사회에 막대한 혜택을 낳는 한편, 새로운 과제도 동시에 발생시킨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-41-1780414442599",
+        "term": "嘗て",
+        "definition": "once; before; formerly; ever; former; ex- never yet; never before; first time; still not happened",
+        "meaningKr": "일찍이, 전에",
+        "exampleEn": "嘗ては活気に満ちていたこの街も、時代の変遷とともに多くのものを失ってしまった。",
+        "exampleKr": "일찍이 활기에 넘쳤던 이 거리도 시대의 변천과 함께 많은 것을 잃어버렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かつて",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-42-1780414442599",
+        "term": "開催",
+        "definition": "holding (a conference, exhibition, etc.); opening; hosting (e.g. the Olympics)",
+        "meaningKr": "개최, 개최하다",
+        "exampleEn": "国際会議の開催にあたり、参加国の代表者たちが集まり、地球規模の課題について議論を交わす。",
+        "exampleKr": "국제회의 개최에 즈음하여 참가국 대표자들이 모여 지구 규모의 과제에 대해 토론을 나눈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かいさい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-43-1780414442599",
+        "term": "近づく",
+        "definition": "to approach; to draw near; to get close to get acquainted with; to get closer to; to get to know",
+        "meaningKr": "가까워지다, 다가가다",
+        "exampleEn": "目標達成が近づくにつれて、チーム内の緊張感は高まり、一層の結束が求められる。",
+        "exampleKr": "목표 달성이 가까워짐에 따라 팀 내 긴장감은 높아지고 더욱 단결이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ちかづく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-44-1780414442599",
+        "term": "ストレス",
+        "definition": "stress",
+        "meaningKr": "스트레스",
+        "exampleEn": "過度なストレスは心身の健康を損なうため、適切な休息とリフレッシュ方法を見つけることが重要だ。",
+        "exampleKr": "과도한 스트레스는 심신의 건강을 해치므로 적절한 휴식과 재충전 방법을 찾는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ストレス",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-45-1780414442599",
+        "term": "課題",
+        "definition": "subject; theme; issue; matter homework; assignment task; challenge; problem; question",
+        "meaningKr": "과제, 문제",
+        "exampleEn": "現代社会が抱える複雑な課題に対して、多角的な視点から考察を深めることが求められている。",
+        "exampleKr": "현대 사회가 안고 있는 복잡한 과제에 대해 다각적인 시점에서 고찰을 깊게 하는 것이 요구되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かだい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-46-1780414442599",
+        "term": "施設",
+        "definition": "facility; facilities; institution; establishment home (for the elderly, orphans, etc.)",
+        "meaningKr": "시설, 설비",
+        "exampleEn": "地域住民の福祉向上のため、最新の設備を備えた公共施設の拡充が計画されている。",
+        "exampleKr": "지역 주민의 복지 향상을 위해 최신 설비를 갖춘 공공 시설의 확충이 계획되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しせつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-47-1780414442599",
+        "term": "事業",
+        "definition": "business; enterprise; venture; (commercial) activity; (business) operation; industry (social) project; undertaking; enterprise; work; activity; program; service",
+        "meaningKr": "사업, 사업체",
+        "exampleEn": "持続可能な社会の実現に向け、環境保全を重視した新たな事業展開が期待されている。",
+        "exampleKr": "지속 가능한 사회 실현을 향해 환경 보전을 중시한 새로운 사업 전개가 기대되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じぎょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-48-1780414442599",
+        "term": "データ",
+        "definition": "data; datum",
+        "meaningKr": "데이터, 자료",
+        "exampleEn": "膨大な量のデータを分析することで、これまで見過ごされていた傾向やパターンを発見することが可能になる。",
+        "exampleKr": "방대한 양의 데이터를 분석함으로써 지금까지 간과되었던 경향이나 패턴을 발견하는 것이 가능해진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "データ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-49-1780414442599",
+        "term": "通常",
+        "definition": "usual; ordinary; normal; regular; general; common",
+        "meaningKr": "통상, 보통",
+        "exampleEn": "通常、このような緊急事態が発生した際には、関係部署間で迅速な情報共有が不可欠となる。",
+        "exampleKr": "통상 이러한 긴급 사태가 발생했을 시에는 관계 부서 간의 신속한 정보 공유가 불가결하게 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "つうじょう",
+        "pos": "adjective, noun, adverb"
+      },
+      {
+        "id": "word-jp-advanced-50-1780414442599",
+        "term": "行為",
+        "definition": "act; deed; conduct",
+        "meaningKr": "행위, 소행, 행동",
+        "exampleEn": "彼の利己的な行為は、周囲の人々に多大な迷惑をもたらしたため、非難を免れなかった。",
+        "exampleKr": "그의 이기적인 행위는 주변 사람들에게 막대한 폐를 끼쳤기 때문에 비난을 면치 못했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こうい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-51-1780414442599",
+        "term": "如何に",
+        "definition": "how; in what way how (much); to what extent however (much); no matter how",
+        "meaningKr": "어떻게, 아무리",
+        "exampleEn": "この複雑な問題を如何に解決すべきか、専門家たちが集まって熱心に議論を交わした。",
+        "exampleKr": "이 복잡한 문제를 어떻게 해결해야 할지 전문가들이 모여 열띤 토론을 벌였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いかに",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-52-1780414442599",
+        "term": "設置",
+        "definition": "establishment; institution installation (of a machine or equipment)",
+        "meaningKr": "설치, 비치",
+        "exampleEn": "公共の場に防犯カメラを設置することは、治安維持のために不可欠であると考えられている。",
+        "exampleKr": "공공장소에 방범 카메라를 설치하는 것은 치안 유지를 위해 필수적이라고 여겨지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せっち",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-53-1780414442599",
+        "term": "極めて",
+        "definition": "exceedingly; extremely; decisively",
+        "meaningKr": "극히, 매우",
+        "exampleEn": "このプロジェクトの成功は、関係者全員の極めて慎重な判断と努力にかかっている。",
+        "exampleKr": "이 프로젝트의 성공은 관계자 전원의 극히 신중한 판단과 노력에 달려 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きわめて",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-54-1780414442599",
+        "term": "自信",
+        "definition": "self-confidence; confidence (in oneself)",
+        "meaningKr": "자신감",
+        "exampleEn": "長年の訓練の成果を信じ、彼はコンテストで自身の能力に絶対的な自信を見せた。",
+        "exampleKr": "수년간의 훈련 성과를 믿고 그는 콘테스트에서 자신의 능력에 절대적인 자신감을 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じしん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-55-1780414442599",
+        "term": "減少",
+        "definition": "decrease; reduction; decline",
+        "meaningKr": "감소, 줄어듦",
+        "exampleEn": "環境破壊が進むにつれて、多くの野生生物の生息数が著しく減少している。",
+        "exampleKr": "환경 파괴가 진행됨에 따라 많은 야생 생물의 서식 수가 현저히 감소하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "げんしょう",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-56-1780414442599",
+        "term": "日々",
+        "definition": "daily; everyday days (e.g. of one's youth) every day; day after day; day by day; from day to day",
+        "meaningKr": "날마다, 매일",
+        "exampleEn": "彼は日々自己研鑽に励み、専門分野における知識と技術の向上に努めている。",
+        "exampleKr": "그는 날마다 자기 연찬에 힘쓰며 전문 분야에서의 지식과 기술 향상에 노력하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひび",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-57-1780414442599",
+        "term": "一切",
+        "definition": "all; everything; entirety; the whole absolutely (not); (not) at all; (none) whatsoever; without exception Issai",
+        "meaningKr": "일절, 전부, 전혀",
+        "exampleEn": "今回の件に関して、彼は一切の責任を負うことを表明し、関係者を安心させた。",
+        "exampleKr": "이번 건에 관해 그는 일체의 책임을 지겠다고 표명하여 관계자들을 안심시켰다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いっさい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-58-1780414442599",
+        "term": "背景",
+        "definition": "background; scenery; backdrop; setting background (of an incident, situation, etc.); circumstances; context backing; support (from behind the scenes)",
+        "meaningKr": "배경, 정황",
+        "exampleEn": "その芸術作品の背景には、作者の深い人生経験と社会への洞察が込められている。",
+        "exampleKr": "그 예술 작품의 배경에는 작가의 깊은 인생 경험과 사회에 대한 통찰이 담겨 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はいけい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-59-1780414442599",
+        "term": "負担",
+        "definition": "burden; load; responsibility bearing (a cost, responsibility, etc.); shouldering",
+        "meaningKr": "부담, 짐",
+        "exampleEn": "経済的な負担を軽減するため、政府は中小企業に対する支援策を拡充する方針だ。",
+        "exampleKr": "경제적인 부담을 경감하기 위해 정부는 중소기업에 대한 지원책을 확대할 방침이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふたん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-60-1780414442599",
+        "term": "果たす",
+        "definition": "to accomplish; to achieve; to carry out; to fulfill; to fulfil; to realize; to execute; to perform; to do to do ... completely; to do ... entirely",
+        "meaningKr": "달성하다, 완수하다, 수행하다",
+        "exampleEn": "リーダーはチームの目標達成に向けて、重要な役割を果たすことが求められる。",
+        "exampleKr": "리더는 팀의 목표 달성을 위해 중요한 역할을 수행하는 것이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はたす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-61-1780414442599",
+        "term": "治療",
+        "definition": "(medical) treatment; care; therapy; cure; remedy",
+        "meaningKr": "치료, 요법",
+        "exampleEn": "最新の医療技術を駆使した治療により、多くの患者が回復の兆しを見せている。",
+        "exampleKr": "최신 의료 기술을 구사한 치료로 많은 환자들이 회복의 조짐을 보이고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ちりょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-62-1780414442599",
+        "term": "システム",
+        "definition": "system",
+        "meaningKr": "시스템",
+        "exampleEn": "新しい情報管理システムを導入することで、業務効率の飛躍的な向上が期待できる。",
+        "exampleKr": "새로운 정보 관리 시스템을 도입함으로써 업무 효율의 비약적인 향상이 기대된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "システム",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-63-1780414442599",
+        "term": "生かす",
+        "definition": "to make (the best) use of; to put to good use; to leverage (skills, attributes, experience, etc.); to capitalise on (experience, etc.) to let live; to keep alive to revive; to resuscitate; to bring back to life",
+        "meaningKr": "살리다, 활용하다",
+        "exampleEn": "これまでの経験で培ったスキルを、新しい仕事で存分に生かしたいと考えている。",
+        "exampleKr": "지금까지의 경험으로 쌓아온 스킬을 새로운 일에서 마음껏 활용하고 싶다고 생각하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いかす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-64-1780414442599",
+        "term": "導入",
+        "definition": "introduction; bringing in; installation; setting up; importation introduction (to a story, lecture, etc.); introductory part",
+        "meaningKr": "도입, 설치",
+        "exampleEn": "その企業は、業務の効率化を図るため、最新のAI技術の導入を決定した。",
+        "exampleKr": "그 기업은 업무 효율화를 도모하기 위해 최신 AI 기술의 도입을 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どうにゅう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-65-1780414442599",
+        "term": "距離",
+        "definition": "distance; range; interval difference (e.g. in opinion); gap; distance metric",
+        "meaningKr": "거리, 간격",
+        "exampleEn": "人間関係においては、適度な距離感を保つことが、互いの尊重につながる。",
+        "exampleKr": "인간관계에 있어서는 적절한 거리감을 유지하는 것이 서로의 존중으로 이어진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きょり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-66-1780414442599",
+        "term": "充実",
+        "definition": "fullness; completeness; perfection; substantiality enhancement; improvement; enrichment; upgrading replenishment; repletion",
+        "meaningKr": "충실, 충만, 향상",
+        "exampleEn": "休日は趣味に没頭し、心身ともに充実した時間を過ごすことを心がけている。",
+        "exampleKr": "휴일은 취미에 몰두하며 심신 모두 충실한 시간을 보내도록 노력하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じゅうじつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-67-1780414442599",
+        "term": "コミュニケーション",
+        "definition": "communication",
+        "meaningKr": "커뮤니케이션, 소통",
+        "exampleEn": "円滑なコミュニケーションこそが、チームワークを向上させるための最も重要な鍵である。",
+        "exampleKr": "원활한 커뮤니케이션이야말로 팀워크를 향상시키기 위한 가장 중요한 열쇠이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "コミュニケーション",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-68-1780414442599",
+        "term": "従来",
+        "definition": "up to now; so far traditional; conventional; usual; existing",
+        "meaningKr": "종래, 지금까지, 전통적으로",
+        "exampleEn": "従来の手法では解決が困難であった問題に対し、革新的なアプローチが採用された。",
+        "exampleKr": "종래의 수법으로는 해결이 어려웠던 문제에 대해 혁신적인 접근법이 채택되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じゅうらい",
+        "pos": "noun, adverb"
+      },
+      {
+        "id": "word-jp-advanced-69-1780414442599",
+        "term": "携帯",
+        "definition": "carrying (on one's person or in the hand) mobile phone; cell phone",
+        "meaningKr": "휴대, 가지고 다님, 휴대폰",
+        "exampleEn": "現代社会において、スマートフォンは生活に不可欠な携帯機器となっている。",
+        "exampleKr": "현대 사회에서 스마트폰은 생활에 필수적인 휴대 기기가 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けいたい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-70-1780414442599",
+        "term": "訪れる",
+        "definition": "to visit; to call on to arrive (of a season, situation, etc.); to come; to appear",
+        "meaningKr": "방문하다, 찾아오다",
+        "exampleEn": "都会の喧騒を離れ、静かな田舎町を訪れることで、心が癒やされることもある。",
+        "exampleKr": "도시의 번잡함을 떠나 조용한 시골 마을을 방문함으로써 마음이 치유되기도 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おとずれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-71-1780414442599",
+        "term": "齎す",
+        "definition": "to bring (news, knowledge, etc.); to introduce to bring about; to cause; to produce (e.g. results)",
+        "meaningKr": "가져오다, 초래하다, 야기하다",
+        "exampleEn": "科学技術の進歩は、我々の生活に多大な恩恵をもたらす一方で、新たな課題も生じさせている。",
+        "exampleKr": "과학 기술의 진보는 우리 생활에 막대한 혜택을 가져오는 한편, 새로운 과제도 발생시키고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もたらす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-72-1780414442599",
+        "term": "問う",
+        "definition": "to ask; to inquire to blame (someone) for; to accuse of; to pursue (question of responsibility); to charge with to care about; to regard as important",
+        "meaningKr": "묻다, 질문하다, 따지다",
+        "exampleEn": "私たちは、この社会が抱える根本的な問題について、真摯に問い続ける必要がある。",
+        "exampleKr": "우리는 이 사회가 안고 있는 근본적인 문제에 대해 진지하게 계속 물을 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-73-1780414442599",
+        "term": "継ぐ",
+        "definition": "to succeed (a person, to a position, etc.); to inherit; to take over; to follow to patch (clothes); to mend; to repair to add (e.g. charcoal to the fire); to replenish with; to feed with; to follow up with (e.g. remarks); to gather (one's breath)",
+        "meaningKr": "잇다, 계승하다, 계승받다",
+        "exampleEn": "彼は家業を継ぐために、伝統的な技術と経営手法を熱心に学んでいる。",
+        "exampleKr": "그는 가업을 잇기 위해 전통적인 기술과 경영 방식을 열심히 배우고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "つぐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-74-1780414442599",
+        "term": "反応",
+        "definition": "reaction; response",
+        "meaningKr": "반응, 반향",
+        "exampleEn": "その政策に対する国民の反応は、賛否両論が入り混じり、様々であった。",
+        "exampleKr": "그 정책에 대한 국민들의 반응은 찬반 양론이 뒤섞여 다양했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はんのう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-75-1780414442599",
+        "term": "お祖父さん",
+        "definition": "grandfather male senior-citizen; old man",
+        "meaningKr": "할아버지",
+        "exampleEn": "お祖父さんから譲り受けた古い時計は、今でも正確に時を刻んでいる。",
+        "exampleKr": "할아버지로부터 물려받은 낡은 시계는 지금도 정확하게 시간을 새기고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おじいさん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-76-1780414442599",
+        "term": "掲げる",
+        "definition": "to put up (a notice, sign, etc.); to hang out (e.g. a banner); to fly (e.g. a flag); to hoist; to raise; to display to hold up high; to raise overhead to tout (a principle, plan, etc.); to herald; to hold up (an ideal); to parade (e.g. a slogan)",
+        "meaningKr": "게시하다, 들다, 내걸다",
+        "exampleEn": "彼は「自由と平等」という理念を掲げ、社会改革運動を精力的に推進した。",
+        "exampleKr": "그는 '자유와 평등'이라는 이념을 내걸고 사회 개혁 운동을 정력적으로 추진했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かかげる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-77-1780414442599",
+        "term": "現地",
+        "definition": "actual place; actual location; the spot; the scene; the field; (on) site place where one is currently living",
+        "meaningKr": "현지, 그곳",
+        "exampleEn": "災害発生の報を受け、調査団は直ちに現地へと派遣されることになった。",
+        "exampleKr": "재해 발생 보도를 받고 조사단은 즉시 현지로 파견되게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "げんち",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-78-1780414442599",
+        "term": "受け入れる",
+        "definition": "to accept; to receive; to agree",
+        "meaningKr": "받아들이다, 수용하다",
+        "exampleEn": "新しい技術革新を組織全体で受け入れる体制を構築することが急務である。",
+        "exampleKr": "새로운 기술 혁신을 조직 전체에서 받아들이는 체제를 구축하는 것이 급선무이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うけいれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-79-1780414442599",
+        "term": "身近",
+        "definition": "near oneself; close to one; familiar",
+        "meaningKr": "가까운, 친근한",
+        "exampleEn": "現代社会において、環境問題は我々にとってますます身近な問題となっている。",
+        "exampleKr": "현대 사회에서 환경 문제는 우리에게 더욱더 가까운 문제가 되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "みぢか",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-80-1780414442599",
+        "term": "有する",
+        "definition": "to have; to possess; to own; to be endowed with",
+        "meaningKr": "가지다, 소유하다",
+        "exampleEn": "その企業は、長年にわたる研究開発によって培われた高度な技術を有している。",
+        "exampleKr": "그 기업은 오랜 연구 개발을 통해 길러진 높은 기술을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ゆうする",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-81-1780414442599",
+        "term": "側",
+        "definition": "side (of something, or taking someone's side); part (watch) case",
+        "meaningKr": "편, 측, 옆",
+        "exampleEn": "この問題については、双方の立場からの意見を公平に聞く必要がある。",
+        "exampleKr": "이 문제에 대해서는 양측의 입장에서의 의견을 공평하게 들을 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "がわ",
+        "pos": "noun, suffix"
+      },
+      {
+        "id": "word-jp-advanced-82-1780414442599",
+        "term": "仕様",
+        "definition": "way; method; means; resource; remedy (technical) specification",
+        "meaningKr": "사양, 방법",
+        "exampleEn": "新製品の開発にあたっては、市場のニーズに合わせた仕様を厳密に検討した。",
+        "exampleKr": "신제품 개발에 있어서는 시장의 니즈에 맞춘 사양을 엄밀하게 검토했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しよう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-83-1780414442599",
+        "term": "設ける",
+        "definition": "to prepare; to provide to set up; to establish; to organize; to lay down (rules); to make (an excuse)",
+        "meaningKr": "설치하다, 마련하다, 만들다",
+        "exampleEn": "会議では、今後の事業展開に関する具体的な計画が細部にわたって設けられた。",
+        "exampleKr": "회의에서는 향후 사업 전개에 관한 구체적인 계획이 세세한 부분까지 마련되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もうける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-84-1780414442599",
+        "term": "間違う",
+        "definition": "to be mistaken; to be incorrect; to be wrong to make a mistake (in); to do incorrectly; to get wrong to mistake (one thing with another); to confuse",
+        "meaningKr": "틀리다, 잘못하다",
+        "exampleEn": "重要な局面で判断を間違うことは、取り返しのつかない結果を招く可能性がある。",
+        "exampleKr": "중요한 국면에서 판단을 잘못하는 것은 돌이킬 수 없는 결과를 초래할 가능성이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "まちがう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-85-1780414442599",
+        "term": "ショック",
+        "definition": "shock (emotional) shock (physical); impact; jolt crisis (esp. financial); event that rattles the markets",
+        "meaningKr": "충격",
+        "exampleEn": "突然の予期せぬ出来事に、彼は深い精神的なショックを受けた。",
+        "exampleKr": "갑작스러운 예상치 못한 사건에 그는 깊은 정신적 충격을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ショック",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-86-1780414442599",
+        "term": "見かける",
+        "definition": "to (happen to) see; to notice; to catch sight of",
+        "meaningKr": "보이다, 눈에 띄다",
+        "exampleEn": "街を歩いていると、滅多に見かけることのない珍しい鳥が木の上にとまっているのを見かけた。",
+        "exampleKr": "거리를 걷고 있으면 좀처럼 보기 힘든 희귀한 새가 나무 위에 앉아 있는 것을 보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "みかける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-87-1780414442599",
+        "term": "取り組む",
+        "definition": "to grapple with; to wrestle with; to engage in a bout; to be matched against to tackle (e.g. a problem); to come to grips with; to work hard on",
+        "meaningKr": "맞서다, 노력하다, 착수하다",
+        "exampleEn": "この困難な課題に対して、チーム一丸となって粘り強く取り組んでいく所存です。",
+        "exampleKr": "이 어려운 과제에 대해 팀 일체가 되어 끈기 있게 노력해 나갈 생각입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とりくむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-88-1780414442599",
+        "term": "向上",
+        "definition": "elevation; rise; improvement; advancement; progress",
+        "meaningKr": "향상, 진보",
+        "exampleEn": "継続的な学習と実践を通じて、自身の専門知識の向上に努めることが肝要だ。",
+        "exampleKr": "지속적인 학습과 실천을 통해 자신의 전문 지식 향상에 힘쓰는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こうじょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-89-1780414442599",
+        "term": "予想",
+        "definition": "expectation; anticipation; prediction; forecast; conjecture",
+        "meaningKr": "예상, 예측",
+        "exampleEn": "市場の動向に関する専門家の予想は、必ずしも現実のものとなるとは限らない。",
+        "exampleKr": "시장의 동향에 관한 전문가의 예상은 반드시 현실이 된다고는 할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "よそう",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-90-1780414442599",
+        "term": "旦那",
+        "definition": "master (of a house, shop, etc.) husband sir; boss; master; governor",
+        "meaningKr": "남편, 주인님",
+        "exampleEn": "その老舗料亭では、長年店を切り盛りしてきた旦那の厳格な指導のもとで、伝統の味が守られている。",
+        "exampleKr": "그 오래된 요정에서는 오랫동안 가게를 운영해 온 주인님의 엄격한 지도 하에 전통의 맛이 지켜지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "だんな",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-91-1780414442599",
+        "term": "経る",
+        "definition": "to pass; to elapse; to go by to pass through; to go through to experience; to go through; to undergo",
+        "meaningKr": "거치다, 지나다",
+        "exampleEn": "幾多の困難を経た末、彼はついに長年の夢であった目標を達成することができた。",
+        "exampleKr": "수많은 어려움을 거친 끝에 그는 마침내 오랜 꿈이었던 목표를 달성할 수 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "へる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-92-1780414442599",
+        "term": "採用",
+        "definition": "use; adoption; acceptance appointment; employment; engagement; recruitment",
+        "meaningKr": "채용, 채택",
+        "exampleEn": "新しい企画案は、その斬新さと実現可能性から、会議で正式に採用される運びとなった。",
+        "exampleKr": "새로운 기획안은 그 참신함과 실현 가능성 때문에 회의에서 정식으로 채택될 운명이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さいよう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-93-1780414442599",
+        "term": "癌",
+        "definition": "cancer",
+        "meaningKr": "암",
+        "exampleEn": "早期発見と適切な治療によって、癌の克服も不可能ではないという希望が持たれている。",
+        "exampleKr": "조기 발견과 적절한 치료를 통해 암 극복도 불가능하지는 않다는 희망이 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "がん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-94-1780414442599",
+        "term": "ファン",
+        "definition": "fan; enthusiast; lover (of) (electric) fan",
+        "meaningKr": "팬, 애호가",
+        "exampleEn": "そのアーティストの熱狂的なファンは、世界各地からライブ会場に駆けつけていた。",
+        "exampleKr": "그 아티스트의 열광적인 팬들은 세계 각지에서 라이브 회장으로 달려왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ファン",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-95-1780414442599",
+        "term": "及ぶ",
+        "definition": "to reach; to amount to; to befall; to happen to; to extend; to go on (for, until) to be up to the task; to come up to to compare with; to be a match (for)",
+        "meaningKr": "미치다, 이르다, ~에 달하다",
+        "exampleEn": "今回の事件の影響は、予想以上に広範囲に及び、社会全体に波紋を広げている。",
+        "exampleKr": "이번 사건의 영향은 예상 이상으로 광범위하게 미쳐 사회 전체에 파문을 일으키고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "およぶ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-96-1780414442599",
+        "term": "形成",
+        "definition": "formation; molding; making (up); taking form; giving form to repair (e.g. with plastic surgery); replacement; -plasty",
+        "meaningKr": "형성, 구성",
+        "exampleEn": "長年の努力と経験の積み重ねが、彼の確固たる人間性を形成するに至った。",
+        "exampleKr": "수년간의 노력과 경험의 축적이 그의 확고한 인간성을 형성하기에 이르렀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けいせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-97-1780414442599",
+        "term": "１０分",
+        "definition": "ten minutes",
+        "meaningKr": "10분",
+        "exampleEn": "会議の開始まであと10分しかないため、急いで資料の最終確認を行う必要がある。",
+        "exampleKr": "회의 시작까지 앞으로 10분밖에 남지 않았기 때문에 서둘러 자료의 최종 확인을 할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じっぷん",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-advanced-98-1780414442599",
+        "term": "ＯＫ",
+        "definition": "OK; okay fine (without); not needed; unnecessary; all right",
+        "meaningKr": "OK, 괜찮음",
+        "exampleEn": "提案された内容について、関係者全員の合意が得られれば、プロジェクトは正式にスタートできるだろう。",
+        "exampleKr": "제안된 내용에 대해 관계자 전원의 합의가 얻어진다면 프로젝트는 정식으로 시작될 수 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "オッケー",
+        "pos": "interjection, noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-99-1780414442599",
+        "term": "原則",
+        "definition": "principle; general rule as a rule; in principle; in general",
+        "meaningKr": "원칙",
+        "exampleEn": "いかなる状況下においても、公平性と透明性を保つという原則を遵守することが求められる。",
+        "exampleKr": "어떠한 상황 하에서도 공정성과 투명성을 유지한다는 원칙을 준수하는 것이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "げんそく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-100-1780414442599",
+        "term": "デザイン",
+        "definition": "design",
+        "meaningKr": "디자인",
+        "exampleEn": "この新しい製品は、革新的なデザインのみならず、機能性においても高い評価を得ている。",
+        "exampleKr": "이 신제품은 혁신적인 디자인뿐만 아니라 기능성에서도 높은 평가를 받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "デザイン",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-101-1780414442599",
+        "term": "態々",
+        "definition": "expressly; especially; specially; taking the trouble (to do); going to the trouble of (doing); going out of one's way (to do) intentionally; deliberately; on purpose",
+        "meaningKr": "わざわざ, 일부러, 수고스럽게",
+        "exampleEn": "遠方からわざわざお越しいただき、誠にありがとうございます。心より感謝申し上げます。",
+        "exampleKr": "먼 곳에서 일부러 와 주셔서 진심으로 감사합니다. 마음으로부터 감사드립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "わざわざ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-102-1780414442599",
+        "term": "種",
+        "definition": "kind; variety (biological) species (logical) species",
+        "meaningKr": "종, 종류",
+        "exampleEn": "その生物学的な種は、絶滅の危機に瀕しており、保護活動が急務となっている。",
+        "exampleKr": "그 생물학적 종은 멸종 위기에 처해 있어, 보호 활동이 시급하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-103-1780414442599",
+        "term": "入る",
+        "definition": "to enter; to go in; to get in; to come in to set (of the sun or moon); to sink; to go down to attain (nirvana, enlightenment, etc.); to achieve; to reach (e.g. a climax)",
+        "meaningKr": "들어가다, 포함되다, (해 등이) 지다",
+        "exampleEn": "厳しい競争社会を生き抜くためには、常に新しい知識を取り入る努力が不可欠である。",
+        "exampleKr": "치열한 경쟁 사회를 살아남기 위해서는 항상 새로운 지식을 받아들이는 노력이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-104-1780414442599",
+        "term": "保護",
+        "definition": "protection; safeguard; guardianship; custody; patronage preservation; conservation",
+        "meaningKr": "보호, 보존",
+        "exampleEn": "環境保護の観点から、この地域での開発行為を全面的に禁止すべきであるとの意見が出された。",
+        "exampleKr": "환경 보호의 관점에서, 이 지역에서의 개발 행위를 전면적으로 금지해야 한다는 의견이 나왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほご",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-105-1780414442599",
+        "term": "等",
+        "definition": "class; order; rank et cetera; etc.; and the like equal; iso-",
+        "meaningKr": "등, ~와 같은",
+        "exampleEn": "会議では、経済成長の鈍化、インフレ、失業率の上昇等、多くの課題が議論された。",
+        "exampleKr": "회의에서는 경제 성장 둔화, 인플레이션, 실업률 상승 등 많은 과제가 논의되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とう",
+        "pos": "particle"
+      },
+      {
+        "id": "word-jp-advanced-106-1780414442599",
+        "term": "登録",
+        "definition": "registration; accession; register; entry; record",
+        "meaningKr": "등록",
+        "exampleEn": "このサービスを利用するには、まず個人情報の登録を完了させる必要がある。",
+        "exampleKr": "이 서비스를 이용하기 위해서는 우선 개인 정보 등록을 완료할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とうろく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-107-1780414442599",
+        "term": "資格",
+        "definition": "qualifications; requirements; capabilities",
+        "meaningKr": "자격, 권한",
+        "exampleEn": "その高度な専門職に就くためには、特定の資格を取得することが絶対条件となる。",
+        "exampleKr": "그 고도의 전문직에 종사하기 위해서는 특정 자격을 취득하는 것이 절대 조건이 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しかく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-108-1780414442599",
+        "term": "記載",
+        "definition": "mention (in a document); record; entry; statement; listing",
+        "meaningKr": "기재, 기록",
+        "exampleEn": "申請書類には、全ての項目を正確に記載するように指示されている。",
+        "exampleKr": "신청 서류에는 모든 항목을 정확하게 기재하도록 지시되어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きさい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-109-1780414442599",
+        "term": "上司",
+        "definition": "(one's) superior; (one's) boss; the higher-ups Joushi",
+        "meaningKr": "상사, 상관",
+        "exampleEn": "上司の指示に疑問を感じたとしても、まずはその意図を正確に把握することが肝要だ。",
+        "exampleKr": "상사의 지시에 의문을 느낀다고 해도, 우선 그 의도를 정확히 파악하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じょうし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-110-1780414442599",
+        "term": "脳",
+        "definition": "brain brains; mind",
+        "meaningKr": "뇌, 머리",
+        "exampleEn": "長時間の学習は脳の疲労を招くため、適度な休息を挟むことが集中力維持に繋がる。",
+        "exampleKr": "장시간의 학습은 뇌의 피로를 유발하므로, 적절한 휴식을 끼는 것이 집중력 유지로 이어진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "のう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-111-1780414442599",
+        "term": "保つ",
+        "definition": "to keep; to preserve; to hold; to retain; to maintain; to sustain to last; to endure; to keep well (food); to wear well; to be durable",
+        "meaningKr": "유지하다, 지키다, 보존하다",
+        "exampleEn": "健康を保つためには、バランスの取れた食事と規則正しい生活習慣が不可欠である。",
+        "exampleKr": "건강을 유지하기 위해서는 균형 잡힌 식사와 규칙적인 생활 습관이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たもつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-112-1780414442599",
+        "term": "本の",
+        "definition": "mere; only; just; slight",
+        "meaningKr": "단지 ~의, 불과 ~의",
+        "exampleEn": "彼の成功は、ほんのわずかな運と、多大な努力の積み重ねによって達成されたものだ。",
+        "exampleKr": "그의 성공은 단지 약간의 운과 엄청난 노력의 축적에 의해 달성된 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほんの",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-113-1780414442599",
+        "term": "把握",
+        "definition": "grasp (of the situation, meaning, etc.); understanding; control; hold; grip",
+        "meaningKr": "파악, 이해",
+        "exampleEn": "現状を正確に把握することなくして、効果的な対策を講じることは不可能である。",
+        "exampleKr": "현상을 정확히 파악하는 것 없이는 효과적인 대책을 강구하는 것이 불가능하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はあく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-114-1780414442599",
+        "term": "上昇",
+        "definition": "rising; ascending; climbing",
+        "meaningKr": "상승, 향상",
+        "exampleEn": "物価の上昇は、庶民の生活を圧迫し、社会不安を増大させる要因となる。",
+        "exampleKr": "물가 상승은 서민의 생활을 압박하고 사회 불안을 증대시키는 요인이 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じょうしょう",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-115-1780414442599",
+        "term": "観点",
+        "definition": "point of view; viewpoint; standpoint; perspective; angle",
+        "meaningKr": "관점, 시점",
+        "exampleEn": "歴史的な観点から見れば、現代社会が抱える問題の多くは、過去の出来事に根差している。",
+        "exampleKr": "역사적인 관점에서 본다면, 현대 사회가 안고 있는 문제의 상당수는 과거의 사건에 뿌리내리고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かんてん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-116-1780414442599",
+        "term": "連中",
+        "definition": "company; lot; people; bunch; gang; pack; guys; group; folks troupe; company (of musicians)",
+        "meaningKr": "일당, 친구들, 동료들",
+        "exampleEn": "あの連中は、いつも集まっては、くだらない話ばかりで時間を浪費している。",
+        "exampleKr": "저 일당은 항상 모여서 쓸데없는 이야기만 하며 시간을 낭비하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "れんちゅう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-117-1780414442599",
+        "term": "前提",
+        "definition": "condition; assumption; prerequisite; hypothesis intention; intent; aim; goal premise",
+        "meaningKr": "전제, 조건",
+        "exampleEn": "この計画を実行に移すにあたっては、いくつかの重要な前提条件をクリアしなければならない。",
+        "exampleKr": "이 계획을 실행에 옮기기 위해서는 몇 가지 중요한 전제 조건을 클리어해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぜんてい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-118-1780414442599",
+        "term": "同",
+        "definition": "the same; the said likewise",
+        "meaningKr": "동일한, 같은",
+        "exampleEn": "本件につきましては、同封の資料にて詳細をご確認ください。",
+        "exampleKr": "본건에 대해서는 동봉된 자료로 상세한 내용을 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どう",
+        "pos": "prefix"
+      },
+      {
+        "id": "word-jp-advanced-119-1780414442599",
+        "term": "一気",
+        "definition": "one breath chug!; drink!",
+        "meaningKr": "단숨에, 일기",
+        "exampleEn": "彼はプレッシャーをはねのけ、見事に一気呵成に目標を達成した。",
+        "exampleKr": "그는 압박감을 떨쳐내고 보기 좋게 단숨에 목표를 달성했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いっき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-120-1780414442599",
+        "term": "業務",
+        "definition": "business; work; operations; service; duties",
+        "meaningKr": "업무, 사업",
+        "exampleEn": "多忙な業務をこなす傍ら、彼は自己啓発のための学習も怠らない。",
+        "exampleKr": "바쁜 업무를 해내는 한편, 그는 자기 계발을 위한 학습도 게을리하지 않는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぎょうむ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-121-1780414442599",
+        "term": "指示",
+        "definition": "indication; denotation; designation instructions; directions",
+        "meaningKr": "지시, 지도",
+        "exampleEn": "上級からの指示に従い、チームはプロジェクトの推進に全力を尽くした。",
+        "exampleKr": "상급으로부터의 지시에 따라, 팀은 프로젝트 추진에 전력을 다했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しじ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-122-1780414442599",
+        "term": "確立",
+        "definition": "establishment; settlement",
+        "meaningKr": "확립, 수립",
+        "exampleEn": "長年の研究の結果、その理論の正しさが科学的に確立された。",
+        "exampleKr": "수년간의 연구 결과, 그 이론의 올바름이 과학적으로 확립되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かくりつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-123-1780414442599",
+        "term": "佳句",
+        "definition": "beautiful passage of literature",
+        "meaningKr": "가구, 아름다운 구절",
+        "exampleEn": "彼の詩には、心に響く佳句が多く含まれており、読者に深い感動を与える。",
+        "exampleKr": "그의 시에는 마음에 울림을 주는 아름다운 구절이 많이 포함되어 있어 독자에게 깊은 감동을 준다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かく",
+        "pos": "noun, counter"
+      },
+      {
+        "id": "word-jp-advanced-124-1780414442599",
+        "term": "遥か",
+        "definition": "far away; far off; far; distant; in the distance long ago; long before",
+        "meaningKr": "아득한, 먼",
+        "exampleEn": "遥か昔から、人々は空を飛ぶことを夢見て、様々な発明を試みてきた。",
+        "exampleKr": "아득한 옛날부터 사람들은 하늘을 나는 것을 꿈꾸며 다양한 발명을 시도해 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はるか",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-jp-advanced-125-1780414442599",
+        "term": "体力",
+        "definition": "physical strength; power; stamina; endurance; vigor; resistance to disease strength (of a business, economy, etc.)",
+        "meaningKr": "체력, 기력, 지구력",
+        "exampleEn": "激務をこなすためには、相当な体力と精神力が不可欠であると言わざるを得ない。",
+        "exampleKr": "격무를 소화하기 위해서는 상당한 체력과 정신력이 불가결하다고 말하지 않을 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たいりょく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-126-1780414442599",
+        "term": "語句",
+        "definition": "words and phrases; words",
+        "meaningKr": "어구, 말",
+        "exampleEn": "この小説は、難解な語句が多く、辞書を片手に読まなければ理解するのが難しい。",
+        "exampleKr": "이 소설은 난해한 어구가 많아 사전을 곁에 두고 읽지 않으면 이해하기 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ごく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-127-1780414442599",
+        "term": "メーカー",
+        "definition": "manufacturer (esp. a major company); producer; maker maker (person or device that makes something)",
+        "meaningKr": "제조사, 메이커",
+        "exampleEn": "その製品は、世界的に有名な大手メーカーによって製造されており、品質には定評がある。",
+        "exampleKr": "그 제품은 세계적으로 유명한 대형 제조사가 제조하고 있어 품질에 정평이 나 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "メーカー",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-128-1780414442599",
+        "term": "記す",
+        "definition": "to write down; to note down; to jot down; to take a note of to mention; to describe; to give an account of to inscribe; to mark; to brand",
+        "meaningKr": "적다, 기록하다, 쓰다",
+        "exampleEn": "歴史上の偉大な出来事は、後世に伝わるよう、詳細に記録され、記されるべきである。",
+        "exampleKr": "역사상의 위대한 사건은 후세에 전해지도록 상세하게 기록되고 기재되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しるす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-129-1780414442599",
+        "term": "保険",
+        "definition": "insurance guarantee; warranty",
+        "meaningKr": "보험, 보증",
+        "exampleEn": "将来の不測の事態に備え、生命保険や医療保険に加入しておくことは賢明な判断と言える。",
+        "exampleKr": "미래의 불측의 사태에 대비하여 생명보험이나 의료보험에 가입해 두는 것은 현명한 판단이라고 할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほけん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-130-1780414442599",
+        "term": "規制",
+        "definition": "regulation; (traffic) policing; control; restriction",
+        "meaningKr": "규제, 통제",
+        "exampleEn": "環境保護のため、工場からの排出物に対する厳しい規制が導入されることになった。",
+        "exampleKr": "환경 보호를 위해 공장에서 배출되는 물질에 대한 엄격한 규제가 도입되게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-131-1780414442599",
+        "term": "促進",
+        "definition": "promotion; acceleration; encouragement; facilitation; spurring on",
+        "meaningKr": "촉진, 조장",
+        "exampleEn": "政府は、地域経済の活性化を促進するために、新たな投資政策を発表した。",
+        "exampleKr": "정부는 지역 경제 활성화를 촉진하기 위해 새로운 투자 정책을 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "そくしん",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-132-1780414442599",
+        "term": "報道",
+        "definition": "report (of news); reporting; news; information; (media) coverage",
+        "meaningKr": "보도, 뉴스",
+        "exampleEn": "その事件は、国内外のメディアによって大きく報道され、多くの人々の関心を集めた。",
+        "exampleKr": "그 사건은 국내외 언론에 의해 크게 보도되어 많은 사람들의 관심을 끌었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほうどう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-133-1780414442599",
+        "term": "嵌まる",
+        "definition": "to fit; to get into; to go into; to be fitted with (e.g. door with a window) to be fit for (a job, etc.); to be suited for; to satisfy (conditions) to fall into; to plunge into; to get stuck; to get caught",
+        "meaningKr": "맞다, 들어맞다, 빠지다",
+        "exampleEn": "長年の研究の末、ついにその難問の解決策を見つけ出すことができ、彼の理論にぴったり嵌まった。",
+        "exampleKr": "수년간의 연구 끝에 마침내 그 난제의 해결책을 찾아낼 수 있었고, 그의 이론에 딱 들어맞았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はまる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-134-1780414442599",
+        "term": "何だか",
+        "definition": "(a) little; somewhat; somehow",
+        "meaningKr": "왠지, 어쩐지",
+        "exampleEn": "何だか気分が優れないので、今日は早めに仕事を切り上げて休むことにした。",
+        "exampleKr": "왠지 기분이 좋지 않아서 오늘은 일찍 일을 마치고 쉬기로 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "なんだか",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-135-1780414442599",
+        "term": "仕組み",
+        "definition": "structure; construction; arrangement; contrivance; mechanism; workings plan; plot; contrivance",
+        "meaningKr": "구조, 체제, 메커니즘",
+        "exampleEn": "この最新のシステムは、複雑な仕組みを持っているが、操作は意外と簡単である。",
+        "exampleKr": "이 최신 시스템은 복잡한 구조를 가지고 있지만, 조작은 의외로 간단하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しくみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-136-1780414442599",
+        "term": "措置",
+        "definition": "measure; step; action",
+        "meaningKr": "조치, 대책",
+        "exampleEn": "感染拡大を防ぐために、政府は早急に適切な措置を講じる必要がある。",
+        "exampleKr": "감염 확산을 막기 위해 정부는 조속히 적절한 조치를 취할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "そち",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-137-1780414442599",
+        "term": "恐れ",
+        "definition": "fear; horror; anxiety; concern; uneasiness; reverence",
+        "meaningKr": "두려움, 우려, 공포",
+        "exampleEn": "未曽有の自然災害が発生する恐れがあるため、国民に避難勧告が出された。",
+        "exampleKr": "전례 없는 자연재해가 발생할 우려가 있기 때문에 국민에게 피난 권고가 내려졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おそれ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-138-1780414442599",
+        "term": "敢えて",
+        "definition": "purposely (of something needless, unexpected or seemingly counterproductive, etc.); daringly (doing something); deliberately; intentionally not necessarily; not particularly; not especially definitely not",
+        "meaningKr": "감히, 일부러",
+        "exampleEn": "皆が反対する中、彼は敢えてその困難な計画を実行に移すことを決意した。",
+        "exampleKr": "모두가 반대하는 가운데 그는 감히 그 어려운 계획을 실행에 옮기기로 결심했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あえて",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-139-1780414442599",
+        "term": "発言",
+        "definition": "statement; remark; observation; utterance; speech; proposal",
+        "meaningKr": "발언, 말",
+        "exampleEn": "会議での彼の的確な発言は、議論を深める上で非常に有益であった。",
+        "exampleKr": "회의에서의 그의 적확한 발언은 논의를 심화시키는 데 매우 유익했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はつげん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-140-1780414442599",
+        "term": "炒める",
+        "definition": "to fry; to saute; to stir-fry",
+        "meaningKr": "볶다",
+        "exampleEn": "新鮮な野菜を強火で手早く炒めることで、素材の旨味を最大限に引き出すことができる。",
+        "exampleKr": "신선한 야채를 센 불에 빠르게 볶음으로써 재료의 감칠맛을 최대한 끌어낼 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いためる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-141-1780414442599",
+        "term": "世代",
+        "definition": "generation",
+        "meaningKr": "세대",
+        "exampleEn": "価値観の多様化は、世代を超えて社会全体に影響を及ぼしている現象である。",
+        "exampleKr": "가치관의 다양화는 세대를 넘어 사회 전체에 영향을 미치고 있는 현상이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せだい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-142-1780414442599",
+        "term": "申し込み",
+        "definition": "application; entry; request; subscription; offer; proposal; overture; challenge",
+        "meaningKr": "신청, 접수, 제안",
+        "exampleEn": "このセミナーに参加するには、所定の用紙に必要事項を記入し、期日までに申し込みを完了する必要がある。",
+        "exampleKr": "이 세미나에 참가하려면 정해진 용지에 필요 사항을 기입하여 기한까지 신청을 완료해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もうしこみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-143-1780414442599",
+        "term": "高まる",
+        "definition": "to rise; to swell; to be promoted",
+        "meaningKr": "높아지다, 고조되다",
+        "exampleEn": "国際社会の平和への期待は、紛争の終結とともに、ますます高まっていくであろう。",
+        "exampleKr": "국제 사회의 평화에 대한 기대는 분쟁의 종결과 함께 점점 더 고조될 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たかまる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-144-1780414442599",
+        "term": "成果",
+        "definition": "(good) result; outcome; fruits (of one's labors); product; accomplishment",
+        "meaningKr": "성과, 결과",
+        "exampleEn": "長年の努力が実を結び、ついにチームは目覚ましい成果を上げることができた。",
+        "exampleKr": "수년간의 노력이 결실을 맺어 마침내 팀은 눈부신 성과를 거둘 수 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せいか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-145-1780414442599",
+        "term": "スピード",
+        "definition": "speed",
+        "meaningKr": "스피드, 속도",
+        "exampleEn": "現代社会は情報化が進み、あらゆる面でスピードが求められる傾向にある。",
+        "exampleKr": "현대 사회는 정보화가 진행되어 모든 면에서 스피드가 요구되는 경향이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "スピード",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-146-1780414442599",
+        "term": "踏まえる",
+        "definition": "to be based on; to take into account; to build upon; to have origin in to have one's feet firmly planted on; to plant oneself on",
+        "meaningKr": "근거하다, 바탕으로 하다",
+        "exampleEn": "過去の成功事例を踏まえ、今回のプロジェクトはより戦略的に計画を進めるべきだ。",
+        "exampleKr": "과거의 성공 사례를 바탕으로 이번 프로젝트는 더욱 전략적으로 계획을 진행해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふまえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-147-1780414442599",
+        "term": "若干",
+        "definition": "some; few; a number of; a little (bit) somewhat; to a certain extent many; a lot",
+        "meaningKr": "약간, 얼마간",
+        "exampleEn": "この問題については、若干の修正を加えることで、より多くの人々の合意を得られるだろう。",
+        "exampleKr": "이 문제에 대해서는 약간의 수정을 가함으로써 더 많은 사람들의 합의를 얻을 수 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じゃっかん",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-148-1780414442599",
+        "term": "込める",
+        "definition": "to load (a gun, etc.); to charge to put into (e.g. emotion, effort) to include (e.g. tax in a sales price)",
+        "meaningKr": "담다, 넣다, 싣다",
+        "exampleEn": "彼は、感謝の気持ちを込めて、彼女に手作りのプレゼントを渡した。",
+        "exampleKr": "그는 감사하는 마음을 담아 그녀에게 직접 만든 선물을 건넸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-149-1780414442599",
+        "term": "要する",
+        "definition": "to need; to demand; to take; to require",
+        "meaningKr": "요하다, 필요하다",
+        "exampleEn": "この事業を成功させるためには、多額の資金と長期的な計画が必要不可欠であると要する。",
+        "exampleKr": "이 사업을 성공시키기 위해서는 막대한 자금과 장기적인 계획이 필수적이라고 요한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ようする",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-150-1780414442599",
+        "term": "挑戦",
+        "definition": "challenge; defiance; dare; attempt; try",
+        "meaningKr": "도전, 시도",
+        "exampleEn": "新たな市場への参入は困難を伴うだろうが、企業として避けては通れない挑戦だと言えよう。",
+        "exampleKr": "새로운 시장으로의 진입은 어려움을 수반하겠지만, 기업으로서 피할 수 없는 도전이라고 할 수 있겠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ちょうせん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-151-1780414442599",
+        "term": "仮",
+        "definition": "temporary; provisional; interim; tentative fictitious; assumed (name); alias hypothetical; theoretical",
+        "meaningKr": "임시, 가설, 가짜",
+        "exampleEn": "このプロジェクトはまだ仮の段階であり、最終決定に至るまでには多くの議論が必要となるだろう。",
+        "exampleKr": "이 프로젝트는 아직 가설 단계이며, 최종 결정에 이르기까지는 많은 논의가 필요할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かり",
+        "pos": "adjective, prefix"
+      },
+      {
+        "id": "word-jp-advanced-152-1780414442599",
+        "term": "満たす",
+        "definition": "to satisfy (conditions, one's appetite, etc.); to meet (e.g. demands); to fulfill; to gratify to fill (e.g. a cup); to pack; to supply",
+        "meaningKr": "채우다, 만족시키다, 충족시키다",
+        "exampleEn": "消費者の多様なニーズを満たすためには、既存のサービスだけでは不十分であり、常に改善が求められる。",
+        "exampleKr": "소비자의 다양한 요구를 충족시키기 위해서는 기존의 서비스만으로는 불충분하며, 항상 개선이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "みたす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-153-1780414442599",
+        "term": "経過",
+        "definition": "passage (of time); elapsing; lapse progress; development; course (of events) transit",
+        "meaningKr": "경과, 진행",
+        "exampleEn": "事故発生から現在に至るまでの詳細な経過については、関係者からの報告を待つほかない。",
+        "exampleKr": "사고 발생부터 현재에 이르기까지의 상세한 경과에 대해서는, 관계자들의 보고를 기다릴 수밖에 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けいか",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-154-1780414442599",
+        "term": "整える",
+        "definition": "to put in order; to arrange; to tidy up; to fix; to straighten to get ready; to prepare; to arrange; to supply; to assemble; to buy to adjust; to regulate (e.g. rhythm, tune, one's breathing)",
+        "meaningKr": "정돈하다, 준비하다, 갖추다",
+        "exampleEn": "彼は海外赴任にあたり、家族の生活環境を整えるかたわら、現地の文化や習慣についても学んでいた。",
+        "exampleKr": "그는 해외 부임을 앞두고 가족의 생활 환경을 정돈하는 한편, 현지 문화나 습관에 대해서도 배우고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ととのえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-155-1780414442599",
+        "term": "事項",
+        "definition": "matter; item; facts",
+        "meaningKr": "사항, 항목",
+        "exampleEn": "会議の冒頭で、本日の議題に関する重要な確認事項がいくつか提示され、参加者全員が目を通した。",
+        "exampleKr": "회의 서두에서 오늘의 의제에 관한 중요한 확인 사항 몇 가지가 제시되었고, 참가자 전원이 살펴보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-156-1780414442599",
+        "term": "塾",
+        "definition": "cram school; private tutoring school; juku",
+        "meaningKr": "학원, 사설 학원",
+        "exampleEn": "地方都市においても、難関大学への合格を目指す生徒のために、専門的な指導を行う塾が増えつつある。",
+        "exampleKr": "지방 도시에서도 난관 대학 합격을 목표로 하는 학생들을 위해 전문적인 지도를 하는 학원이 늘어나고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じゅく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-157-1780414442599",
+        "term": "職員",
+        "definition": "staff member; employee; worker; personnel",
+        "meaningKr": "직원, 직무원",
+        "exampleEn": "病院の職員は、患者のプライバシー保護に細心の注意を払うべきであり、その倫理観が問われる。",
+        "exampleKr": "병원 직원은 환자의 프라이버시 보호에 세심한 주의를 기울여야 하며, 그 윤리관이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょくいん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-158-1780414442599",
+        "term": "コメント",
+        "definition": "comment",
+        "meaningKr": "코멘트, 의견",
+        "exampleEn": "彼は、その政策の是非に関して、個人的な見解を述べることを差し控えるとのコメントを発表した。",
+        "exampleKr": "그는 그 정책의 옳고 그름에 관해 개인적인 견해를 밝히는 것을 삼가겠다는 코멘트를 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "コメント",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-159-1780414442599",
+        "term": "配慮",
+        "definition": "consideration; concern; attention; thoughtfulness; making arrangements; care; trouble",
+        "meaningKr": "배려, 고려",
+        "exampleEn": "企業は、従業員のワークライフバランスに十分な配慮を示すことで、より良い労働環境を構築すべきだ。",
+        "exampleKr": "기업은 직원의 워크 라이프 밸런스에 충분한 배려를 보임으로써, 더 나은 노동 환경을 구축해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はいりょ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-160-1780414442599",
+        "term": "妊娠",
+        "definition": "pregnancy; conception; gestation",
+        "meaningKr": "임신",
+        "exampleEn": "妊娠中の女性が安心して働けるよう、企業は柔軟な勤務体系やサポート体制を整える必要がある。",
+        "exampleKr": "임신 중인 여성이 안심하고 일할 수 있도록, 기업은 유연한 근무 체계와 지원 체제를 갖출 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "にんしん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-161-1780414442599",
+        "term": "映像",
+        "definition": "image (on a screen); picture (e.g. on a TV) video; film; footage reflection",
+        "meaningKr": "영상",
+        "exampleEn": "このドキュメンタリーは、過去の貴重な映像資料を多数用いることで、当時の社会状況を鮮やかに描き出している。",
+        "exampleKr": "이 다큐멘터리는 과거의 귀중한 영상 자료를 다수 사용함으로써, 당시의 사회 상황을 생생하게 그려내고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "えいぞう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-162-1780414442599",
+        "term": "破壊",
+        "definition": "destruction; disruption (application) crash",
+        "meaningKr": "파괴, 훼손",
+        "exampleEn": "経済発展を追求するあまり、自然環境の破壊が進む現状は、看過できない深刻な問題である。",
+        "exampleKr": "경제 발전을 추구한 나머지 자연 환경 파괴가 진행되는 현실은, 간과할 수 없는 심각한 문제이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はかい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-163-1780414442599",
+        "term": "派遣",
+        "definition": "dispatch; despatch; deployment temporary employee (esp. from an agency); temporary worker; agency temp",
+        "meaningKr": "파견",
+        "exampleEn": "災害復旧のため、政府は専門知識を持つ技術者を被災地に派遣することを決定し、支援活動を強化する方針だ。",
+        "exampleKr": "재해 복구를 위해 정부는 전문 지식을 가진 기술자를 재해 지역에 파견하기로 결정하고, 지원 활동을 강화할 방침이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はけん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-164-1780414442599",
+        "term": "沿う",
+        "definition": "to run along; to run beside; to stick to (a line) to follow (a policy, plan, etc.); to act in accordance with; to align with to meet (wishes, expectations, etc.); to satisfy; to comply with; to live up to",
+        "meaningKr": "따르다, ~을 따라 가다",
+        "exampleEn": "新たな規制は、国際的な基準に沿う形で導入されるべきであり、国内産業への影響も考慮に入れねばならない。",
+        "exampleKr": "새로운 규제는 국제적인 기준을 따르는 형태로 도입되어야 하며, 국내 산업에 미치는 영향도 고려해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "そう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-165-1780414442599",
+        "term": "世",
+        "definition": "world; society; public life; lifetime age; era; period; epoch; generation",
+        "meaningKr": "세상, 시대",
+        "exampleEn": "この世には、科学では解明できない不可思議な現象が数多く存在し、人々を魅了してやまない。",
+        "exampleKr": "이 세상에는 과학으로는 해명할 수 없는 불가사의한 현상이 많이 존재하며, 사람들을 매료시켜 마지않는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "よ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-166-1780414442599",
+        "term": "襲う",
+        "definition": "to attack; to assail; to make an assault; to strike; to hunt down to succeed (someone in a post, role, etc.) to make a sudden visit",
+        "meaningKr": "덮치다, 습격하다",
+        "exampleEn": "突然の地震が都市を襲い、多くの建物が倒壊する甚大な被害をもたらしたが、迅速な救助活動が展開された。",
+        "exampleKr": "갑작스러운 지진이 도시를 덮쳐 많은 건물이 붕괴하는 막대한 피해를 입혔지만, 신속한 구조 활동이 전개되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おそう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-167-1780414442599",
+        "term": "問",
+        "definition": "counter for questions",
+        "meaningKr": "문항, 질문",
+        "exampleEn": "この試験では、論述形式の問が複数出題されるため、単なる知識だけでなく思考力も試される。",
+        "exampleKr": "이 시험에서는 논술 형식의 문항이 여러 개 출제되므로, 단순한 지식뿐만 아니라 사고력도 시험된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もん",
+        "pos": "suffix, counter"
+      },
+      {
+        "id": "word-jp-advanced-168-1780414442599",
+        "term": "サイズ",
+        "definition": "size",
+        "meaningKr": "사이즈, 크기",
+        "exampleEn": "オンラインショッピングでは、商品のサイズ感が実物と異なる場合があるゆえ、購入前に詳細な寸法を確認すべきだ。",
+        "exampleKr": "온라인 쇼핑에서는 상품의 사이즈감이 실물과 다를 수 있으므로, 구매 전에 상세한 치수를 확인해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "サイズ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-169-1780414442599",
+        "term": "資金",
+        "definition": "funds; capital",
+        "meaningKr": "자금",
+        "exampleEn": "新規事業を立ち上げるにあたって、十分な資金を確保することは不可欠であり、綿密な計画が求められる。",
+        "exampleKr": "신규 사업을 시작함에 있어서 충분한 자금을 확보하는 것은 필수적이며, 면밀한 계획이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しきん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-170-1780414442599",
+        "term": "いざ",
+        "definition": "now; come (now); well",
+        "meaningKr": "자, 이제, 막상",
+        "exampleEn": "いざという時に備えて、私たちは日頃から防災訓練を欠かさず行い、緊急事態への対応能力を高めている。",
+        "exampleKr": "막상 유사시에 대비하여, 우리는 평소부터 방재 훈련을 게을리하지 않고 긴급 사태에 대한 대응 능력을 높이고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いざ",
+        "pos": ""
+      },
+      {
+        "id": "word-jp-advanced-171-1780414442599",
+        "term": "素材",
+        "definition": "ingredient; (raw) material; resource unprocessed timber; raw timber subject matter; topic",
+        "meaningKr": "소재, 재료",
+        "exampleEn": "この料理は、地元で採れた新鮮な素材をふんだんに使用することで、その土地ならではの風味を最大限に引き出している。",
+        "exampleKr": "이 요리는 현지에서 채취한 신선한 소재를 듬뿍 사용함으로써, 그 지역만의 풍미를 최대한으로 이끌어내고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "そざい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-172-1780414442599",
+        "term": "設立",
+        "definition": "establishment; founding incorporation (of a business)",
+        "meaningKr": "설립",
+        "exampleEn": "地域の文化振興を目的として、有志が集まり、NPO法人を設立する運びとなった。",
+        "exampleKr": "지역 문화 진흥을 목적으로 뜻있는 사람들이 모여 NPO 법인을 설립하게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せつりつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-173-1780414442599",
+        "term": "詳細",
+        "definition": "details; particulars; specifics detailed; specific; minute close-up view (of a digitally displayed map); zoomed-in view",
+        "meaningKr": "상세, 자세한 내용",
+        "exampleEn": "プロジェクトの詳細については、後日改めて説明会を開催する予定であり、参加を希望する者は事前に登録が必要だ。",
+        "exampleKr": "프로젝트의 상세한 내용에 대해서는 후일 다시 설명회를 개최할 예정이며, 참가를 희망하는 자는 사전에 등록이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょうさい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-174-1780414442599",
+        "term": "運営",
+        "definition": "management; administration; operation",
+        "meaningKr": "운영",
+        "exampleEn": "この施設は、地域住民のボランティアによって運営されているにもかかわらず、高いサービス品質を維持している。",
+        "exampleKr": "이 시설은 지역 주민들의 자원봉사에 의해 운영되고 있음에도 불구하고, 높은 서비스 품질을 유지하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うんえい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-175-1780414442599",
+        "term": "ファイル",
+        "definition": "file (for holding papers) file (collection of documents); filing; keeping on file file",
+        "meaningKr": "파일, 서류철",
+        "exampleEn": "重要な契約書を保管するため、専用のファイルにまとめて整理しておくことが不可欠だ。",
+        "exampleKr": "중요한 계약서를 보관하기 위해, 전용 파일에 정리해 두는 것이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ファイル",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-176-1780414442599",
+        "term": "要因",
+        "definition": "main cause; primary factor",
+        "meaningKr": "요인, 주된 원인",
+        "exampleEn": "環境汚染は、地球温暖化の加速を招く主要な要因の一つであると言わざるを得ない。",
+        "exampleKr": "환경 오염은 지구 온난화 가속화를 초래하는 주요 요인 중 하나라고 말할 수밖에 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "よういん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-177-1780414442599",
+        "term": "倶楽部",
+        "definition": "club; fraternity; sorority; clubhouse",
+        "meaningKr": "클럽, 동호회",
+        "exampleEn": "彼は大学時代、歴史研究倶楽部に所属し、古文書の解読に没頭する毎日を送っていた。",
+        "exampleKr": "그는 대학 시절, 역사 연구 클럽에 소속되어 고문서 해독에 몰두하는 나날을 보냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "クラブ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-178-1780414442599",
+        "term": "視点",
+        "definition": "point of view; viewpoint; angle; perspective visual point (position of the eye in calculations of optical instruments)",
+        "meaningKr": "시점, 관점",
+        "exampleEn": "異なる文化背景を持つ人々の視点を取り入れることで、問題解決の新たな糸口が見つかるだろう。",
+        "exampleKr": "다른 문화적 배경을 가진 사람들의 시점을 받아들임으로써, 문제 해결의 새로운 실마리를 찾을 수 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "してん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-179-1780414442599",
+        "term": "主人公",
+        "definition": "protagonist; main character; hero; heroine head (of a household); proprietor (of a store)",
+        "meaningKr": "주인공, 주역",
+        "exampleEn": "この小説の主人公は、過酷な運命にもかかわらず、自身の信念を貫き通す強い精神力を持つ。",
+        "exampleKr": "이 소설의 주인공은 가혹한 운명에도 불구하고, 자신의 신념을 관철하는 강한 정신력을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅじんこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-180-1780414442599",
+        "term": "予め",
+        "definition": "beforehand; in advance; ahead of time; previously",
+        "meaningKr": "미리, 사전에",
+        "exampleEn": "会議の議題は予め参加者全員に通知されており、各自が準備を進めることとなっている。",
+        "exampleKr": "회의 안건은 미리 참가자 전원에게 통지되었으며, 각자가 준비를 진행하게 되어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あらかじめ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-181-1780414442599",
+        "term": "証拠",
+        "definition": "evidence; proof",
+        "meaningKr": "증거, 증명",
+        "exampleEn": "科学捜査によって集められた証拠は、彼の無実を証明する決定的な手がかりとなった。",
+        "exampleKr": "과학 수사를 통해 수집된 증거는 그의 무죄를 증명하는 결정적인 단서가 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょうこ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-182-1780414442599",
+        "term": "自己",
+        "definition": "self; oneself",
+        "meaningKr": "자기, 자신",
+        "exampleEn": "自己分析を深めることは、キャリアパスを明確にし、目標達成に向けた具体的な行動を促す。",
+        "exampleKr": "자기 분석을 심화하는 것은 경력 경로를 명확히 하고, 목표 달성을 향한 구체적인 행동을 촉진한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じこ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-183-1780414442599",
+        "term": "規模",
+        "definition": "scale; scope; plan; structure",
+        "meaningKr": "규모, 범위",
+        "exampleEn": "世界経済の変動は、中小企業のみならず、大規模な多国籍企業にも甚大な影響を及ぼす。",
+        "exampleKr": "세계 경제의 변동은 중소기업뿐만 아니라, 대규모 다국적 기업에도 막대한 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きぼ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-184-1780414442599",
+        "term": "悩み",
+        "definition": "trouble; troubles; worry; distress; sorrows; anguish; agony; problem",
+        "meaningKr": "고민, 걱정, 고뇌",
+        "exampleEn": "現代社会における若者の悩みは多岐にわたり、その解決には社会全体での支援が不可欠である。",
+        "exampleKr": "현대 사회에서 젊은이들의 고민은 다양하며, 그 해결에는 사회 전체의 지원이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "なやみ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-185-1780414442599",
+        "term": "ルール",
+        "definition": "rule",
+        "meaningKr": "규칙, 규정",
+        "exampleEn": "複雑な国際貿易のルールを理解することは、グローバルビジネスを展開する上で欠かせない。",
+        "exampleKr": "복잡한 국제 무역 규칙을 이해하는 것은 글로벌 비즈니스를 전개하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ルール",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-186-1780414442599",
+        "term": "告げる",
+        "definition": "to tell; to inform; to announce to indicate; to signal; to mark",
+        "meaningKr": "알리다, 고하다",
+        "exampleEn": "彼は突然、長年勤めた会社を辞めることを上司に告げ、周囲を驚かせた。",
+        "exampleKr": "그는 갑자기 오랫동안 근무한 회사를 그만둘 것을 상사에게 고하고, 주위를 놀라게 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "つげる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-187-1780414442599",
+        "term": "ベース",
+        "definition": "base; basis; theme; basic ingredient base (e.g. military); depot base; base bag",
+        "meaningKr": "베이스, 기초, 기반",
+        "exampleEn": "このプロジェクトは、過去の成功事例をベースに、さらに革新的なアイデアを取り入れて進められる。",
+        "exampleKr": "이 프로젝트는 과거의 성공 사례를 기반으로, 더욱 혁신적인 아이디어를 도입하여 추진된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ベース",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-188-1780414442599",
+        "term": "大幅",
+        "definition": "big; large; drastic; substantial full-width cloth (approx. 72 cm wide for traditional Japanese clothing; approx. 140 cm wide for Western clothing)",
+        "meaningKr": "대폭, 크게",
+        "exampleEn": "新しい政策の導入により、公共交通機関の利便性が大幅に向上すると期待されている。",
+        "exampleKr": "새로운 정책 도입으로 인해, 대중교통의 편의성이 대폭 향상될 것으로 기대된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おおはば",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-189-1780414442599",
+        "term": "企画",
+        "definition": "planning; plan; project; arrangements",
+        "meaningKr": "기획, 계획",
+        "exampleEn": "若手社員が中心となって企画された新商品の発表会は、大盛況のうちに幕を閉じた。",
+        "exampleKr": "젊은 직원들이 주축이 되어 기획된 신상품 발표회는 대성황리에 막을 내렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きかく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-190-1780414442599",
+        "term": "対処",
+        "definition": "dealing with; coping with",
+        "meaningKr": "대처, 처리",
+        "exampleEn": "予期せぬトラブルが発生した際、冷静かつ迅速に対処することが経営者に求められる資質だ。",
+        "exampleKr": "예상치 못한 문제가 발생했을 때, 냉정하고 신속하게 대처하는 것이 경영자에게 요구되는 자질이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たいしょ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-191-1780414442599",
+        "term": "呟く",
+        "definition": "to mutter; to murmur; to grumble to tweet; to post on Twitter",
+        "meaningKr": "중얼거리다, 투덜거리다, 트윗하다",
+        "exampleEn": "彼は会議中、不満げに何かを呟いていたが、その内容は周囲には聞き取れなかった。",
+        "exampleKr": "그는 회의 중, 불만스러운 듯 무언가를 중얼거렸지만, 그 내용은 주위에서는 들을 수 없었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "つぶやく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-192-1780414442599",
+        "term": "怒り",
+        "definition": "anger; rage; fury; wrath; indignation",
+        "meaningKr": "분노, 화",
+        "exampleEn": "不公平な社会制度に対する人々の怒りは、やがて大規模なデモへと発展した。",
+        "exampleKr": "불공평한 사회 제도에 대한 사람들의 분노는 결국 대규모 시위로 발전했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いかり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-193-1780414442599",
+        "term": "見方",
+        "definition": "viewpoint; point of view; way of looking (at something); view; angle way of appreciating (e.g. opera); way of understanding; how to read (a map, train timetable, etc.)",
+        "meaningKr": "견해, 관점, 보는 방식",
+        "exampleEn": "物事の見方を変えるだけで、困難な状況も新たなチャンスとして捉えられるようになるものだ。",
+        "exampleKr": "사물을 보는 방식을 바꾸는 것만으로도, 어려운 상황도 새로운 기회로 받아들여지게 되는 법이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "みかた",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-194-1780414442599",
+        "term": "介護",
+        "definition": "nursing; care; caregiving; caring",
+        "meaningKr": "간병, 돌봄, 요양",
+        "exampleEn": "高齢化社会において、質の高い介護サービスの充実は喫緊の課題であると言えよう。",
+        "exampleKr": "고령화 사회에서, 질 높은 간병 서비스의 확충은 시급한 과제라고 할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かいご",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-195-1780414442599",
+        "term": "実態",
+        "definition": "true state; actual condition; reality",
+        "meaningKr": "실태, 실제 상황",
+        "exampleEn": "報道されている情報と現場の実態には乖離があり、市民は混乱を隠せないでいる。",
+        "exampleKr": "보도되는 정보와 현장의 실태에는 괴리가 있어, 시민들은 혼란을 감추지 못하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じったい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-196-1780414442599",
+        "term": "最早",
+        "definition": "already; now no longer; not any more",
+        "meaningKr": "이미, 이제는 더 이상 ~않다",
+        "exampleEn": "時代の変化は早く、最早、旧態依然としたビジネスモデルでは生き残れない時代となった。",
+        "exampleKr": "시대의 변화는 빨라서, 이제는 더 이상 구태의연한 비즈니스 모델로는 살아남을 수 없는 시대가 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もはや",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-197-1780414442599",
+        "term": "出産",
+        "definition": "childbirth; (giving) birth; delivery; parturition production (of goods)",
+        "meaningKr": "출산, 아기 낳기",
+        "exampleEn": "少子化対策の一環として、出産後の女性の社会復帰を支援する制度が導入された。",
+        "exampleKr": "저출산 대책의 일환으로, 출산 후 여성의 사회 복귀를 지원하는 제도가 도입되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅっさん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-198-1780414442599",
+        "term": "達成",
+        "definition": "achievement; attainment; accomplishment; realization",
+        "meaningKr": "달성, 성취",
+        "exampleEn": "チーム一丸となって努力した結果、当初の目標を達成することができ、大きな喜びとなった。",
+        "exampleKr": "팀이 하나가 되어 노력한 결과, 당초 목표를 달성할 수 있었고, 큰 기쁨이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たっせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-199-1780414442599",
+        "term": "役立つ",
+        "definition": "to be useful; to be helpful; to serve the purpose",
+        "meaningKr": "도움이 되다, 유용하다",
+        "exampleEn": "この研修で得た知識とスキルは、今後の実務において大いに役立つであろうと確信している。",
+        "exampleKr": "이 연수에서 얻은 지식과 기술은 앞으로의 실무에 크게 도움이 될 것이라고 확신한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "やくだつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-200-1780414442599",
+        "term": "成り立つ",
+        "definition": "to consist of; to be made up of; to be composed of to be concluded (e.g. of an agreement); to hold true (e.g. of a theory); to be valid to be viable (of a business, lifestyle, etc.); to carry on; to keep going",
+        "meaningKr": "구성되다, 성립하다, 가능해지다",
+        "exampleEn": "このプロジェクトは、多様な専門知識を持つメンバーの協力があって初めて成り立つ、極めて複雑なものだ。",
+        "exampleKr": "이 프로젝트는 다양한 전문 지식을 가진 멤버들의 협력이 있어야 비로소 성립하는, 지극히 복잡한 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "なりたつ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-201-1780414442599",
+        "term": "只管",
+        "definition": "intently; single-mindedly; devotedly; solely; earnestly; with all one's heart",
+        "meaningKr": "오로지, 한결같이, 그저",
+        "exampleEn": "彼は目標達成のため、周囲の意見に耳を傾けず、只管に研究に没頭する日々を送っていた。",
+        "exampleKr": "그는 목표 달성을 위해 주변의 의견에 귀 기울이지 않고, 오로지 연구에 몰두하는 나날을 보내고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひたすら",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-202-1780414442599",
+        "term": "該当",
+        "definition": "corresponding to; being applicable to; being relevant to; coming under; falling under; fulfilling (requirements); meeting (conditions); qualifying for",
+        "meaningKr": "해당함, 해당되다",
+        "exampleEn": "申請書類に不備がある場合、審査の対象外となるため、該当箇所を再度ご確認ください。",
+        "exampleKr": "신청 서류에 미비한 점이 있을 경우, 심사 대상에서 제외되므로 해당 부분을 다시 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "がいとう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-203-1780414442599",
+        "term": "トラブル",
+        "definition": "trouble; difficulty; problem; quarrel; conflict; dispute; fight failure (of an engine, machine, computer, etc.); breakdown; malfunction (medical) condition; disorder; problem",
+        "meaningKr": "문제, 분쟁, 고장",
+        "exampleEn": "国際会議の準備段階で予期せぬトラブルが発生し、開催が危ぶまれる事態となった。",
+        "exampleKr": "국제 회의 준비 단계에서 예상치 못한 문제가 발생하여, 개최가 위태로워지는 상황이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "トラブル",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-204-1780414442599",
+        "term": "定義",
+        "definition": "definition",
+        "meaningKr": "정의",
+        "exampleEn": "現代社会における「幸福」の定義は多様であり、一概に語ることは困難であると言えよう。",
+        "exampleKr": "현대 사회에서 '행복'의 정의는 다양하며, 일률적으로 말하기는 어렵다고 할 수 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ていぎ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-205-1780414442599",
+        "term": "盛り上がる",
+        "definition": "to swell; to rise; to bulge; to be piled up to rouse; to get excited",
+        "meaningKr": "고조되다, 들뜨다, 부풀어 오르다",
+        "exampleEn": "討論会は白熱し、参加者たちの熱気に包まれ会場全体が大きく盛り上がった。",
+        "exampleKr": "토론회는 열기를 띠었고, 참가자들의 열기에 휩싸여 회장 전체가 크게 고조되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もりあがる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-206-1780414442599",
+        "term": "扉",
+        "definition": "door; gate; opening title page",
+        "meaningKr": "문, 책의 표제면",
+        "exampleEn": "新しい時代への扉を開くべく、若者たちは既存の枠組みにとらわれず挑戦を続けている。",
+        "exampleKr": "새로운 시대로의 문을 열고자, 젊은이들은 기존의 틀에 얽매이지 않고 도전을 계속하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とびら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-207-1780414442599",
+        "term": "要請",
+        "definition": "appeal; call for something; request; claim; demand axiom",
+        "meaningKr": "요청, 요구",
+        "exampleEn": "住民からの強い要請を受け、行政は地域の治安強化に向けた対策を講じることとなった。",
+        "exampleKr": "주민들의 강력한 요청을 받아들여, 행정부는 지역 치안 강화를 위한 대책을 강구하게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ようせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-208-1780414442599",
+        "term": "負う",
+        "definition": "to carry on one's back; to bear; to shoulder to take (responsibility); to assume; to accept; to bear (the blame, costs, etc.); to have (a duty, obligation, etc.); to become responsible for; to be burdened with (work, debt, etc.) to suffer (an injury); to sustain (a wound); to receive; to incur (a loss, damage, etc.)",
+        "meaningKr": "짊어지다, 책임지다, 입다",
+        "exampleEn": "彼はその事業の失敗に対し、全責任を負う覚悟で辞任する意向を表明した。",
+        "exampleKr": "그는 그 사업의 실패에 대해 모든 책임을 질 각오로 사임할 뜻을 표명했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-209-1780414442599",
+        "term": "何と",
+        "definition": "what; how what (a) ...!; how ...! surprisingly; to my amazement; believe it or not; why, ...!",
+        "meaningKr": "얼마나, 어쩜",
+        "exampleEn": "彼は長年の夢だった海外留学を実現させ、何と素晴らしいことかと皆が称賛した。",
+        "exampleKr": "그는 오랜 꿈이었던 해외 유학을 실현시켰고, 얼마나 멋진 일인지 모두가 칭찬했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "なんと",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-210-1780414442599",
+        "term": "政策",
+        "definition": "political measures; policy",
+        "meaningKr": "정책",
+        "exampleEn": "新しい経済政策の導入により、国民生活にどのような影響が及ぶか注視する必要がある。",
+        "exampleKr": "새로운 경제 정책 도입으로 국민 생활에 어떤 영향이 미칠지 주시할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せいさく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-211-1780414442599",
+        "term": "運命",
+        "definition": "fate; destiny; lot",
+        "meaningKr": "운명",
+        "exampleEn": "彼の人生は幾多の困難に直面しながらも、運命に翻弄されず自らの道を切り開いてきた。",
+        "exampleKr": "그의 인생은 수많은 어려움에 직면하면서도, 운명에 휘둘리지 않고 스스로의 길을 개척해 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うんめい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-212-1780414442599",
+        "term": "メッセージ",
+        "definition": "message",
+        "meaningKr": "메시지, 전갈",
+        "exampleEn": "災害発生時、迅速かつ的確なメッセージ伝達は、住民の安全確保にとって極めて重要である。",
+        "exampleKr": "재해 발생 시, 신속하고 정확한 메시지 전달은 주민의 안전 확보에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "メッセージ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-213-1780414442599",
+        "term": "掲載",
+        "definition": "publication (e.g. of an article in a newspaper); carrying (e.g. a story); running (e.g. a serial); insertion (e.g. of an advertisement); printing; posting (e.g. on the web)",
+        "meaningKr": "게재",
+        "exampleEn": "論文が国際的な学術誌に掲載されることは、研究者にとって最高の栄誉の一つである。",
+        "exampleKr": "논문이 국제 학술지에 게재되는 것은 연구자에게 최고의 영예 중 하나이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けいさい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-214-1780414442599",
+        "term": "しょっちゅう",
+        "definition": "always; all the time; constantly; frequently; often",
+        "meaningKr": "늘, 항상, 자주",
+        "exampleEn": "彼は仕事が忙しいにもかかわらず、しょっちゅうボランティア活動に参加している。",
+        "exampleKr": "그는 일이 바쁜데도 불구하고, 늘 자원봉사 활동에 참여하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょっちゅう",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-215-1780414442599",
+        "term": "受かる",
+        "definition": "to pass (examination)",
+        "meaningKr": "합격하다",
+        "exampleEn": "難関大学に受かるためには、ただ努力するだけでなく、効率的な学習計画が不可欠だ。",
+        "exampleKr": "난관 대학에 합격하기 위해서는 단순히 노력하는 것뿐만 아니라, 효율적인 학습 계획이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うかる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-216-1780414442599",
+        "term": "著しい",
+        "definition": "striking; remarkable; considerable",
+        "meaningKr": "현저하다, 두드러지다",
+        "exampleEn": "近年、地球温暖化の影響により、世界各地で気候変動が著しく進行している。",
+        "exampleKr": "최근 지구 온난화의 영향으로 세계 각지에서 기후 변화가 현저하게 진행되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いちじるしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-217-1780414442599",
+        "term": "事前",
+        "definition": "prior; beforehand; in advance; before the fact; ex ante",
+        "meaningKr": "사전",
+        "exampleEn": "大規模なイベント開催にあたっては、参加者への事前説明と準備が不可欠となる。",
+        "exampleKr": "대규모 이벤트 개최에 있어서는, 참가자에 대한 사전 설명과 준비가 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じぜん",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-218-1780414442599",
+        "term": "進行",
+        "definition": "moving forward (e.g. of a vehicle); onward movement progress (of work, activities, etc.); advance; making headway progression (of a disease, global warming, etc.)",
+        "meaningKr": "진행",
+        "exampleEn": "会議は予定通り順調に進行し、全ての議題について具体的な結論が出された。",
+        "exampleKr": "회의는 예정대로 순조롭게 진행되어, 모든 의제에 대해 구체적인 결론이 도출되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しんこう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-219-1780414442599",
+        "term": "概念",
+        "definition": "general idea; concept; notion",
+        "meaningKr": "개념",
+        "exampleEn": "現代アートを理解するには、従来の美意識という概念にとらわれない柔軟な思考が必要だ。",
+        "exampleKr": "현대 예술을 이해하려면, 종래의 미의식이라는 개념에 얽매이지 않는 유연한 사고가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "がいねん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-220-1780414442599",
+        "term": "興奮",
+        "definition": "excitement; stimulation; agitation; arousal",
+        "meaningKr": "흥분",
+        "exampleEn": "試合終盤、逆転ゴールが決まった瞬間、観客席は興奮のるつぼと化した。",
+        "exampleKr": "경기 막판, 역전 골이 터지는 순간, 관중석은 흥분의 도가니로 변했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こうふん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-221-1780414442599",
+        "term": "乃至",
+        "definition": "from ... to; between ... and or",
+        "meaningKr": "내지, 또는",
+        "exampleEn": "参加者は午前9時乃至10時の間に会場にお越しいただき、受付を済ませてください。",
+        "exampleKr": "참가자는 오전 9시 내지 10시 사이에 회장으로 오셔서, 접수를 완료해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ないし",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-advanced-222-1780414442599",
+        "term": "参照",
+        "definition": "reference (e.g. to a dictionary, passage, footnotes); consultation; comparison browsing (to a file or folder)",
+        "meaningKr": "참조",
+        "exampleEn": "詳細な情報が必要な場合は、添付資料を参照の上、担当部署までお問い合わせください。",
+        "exampleKr": "자세한 정보가 필요한 경우에는, 첨부 자료를 참조하신 후 담당 부서로 문의해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さんしょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-223-1780414442599",
+        "term": "行政",
+        "definition": "executive; government administration; governance; the authorities; authority",
+        "meaningKr": "행정",
+        "exampleEn": "地方行政の透明性を高めるため、市民の意見を積極的に取り入れる政策が求められている。",
+        "exampleKr": "지방 행정의 투명성을 높이기 위해, 시민의 의견을 적극적으로 수렴하는 정책이 요구되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぎょうせい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-224-1780414442599",
+        "term": "犯す",
+        "definition": "to commit (e.g. crime); to perpetrate; to make (e.g. mistake) to break (e.g. rule); to violate; to transgress; to contravene to rape; to violate; to ravish; to deflower",
+        "meaningKr": "범하다, 저지르다, 어기다",
+        "exampleEn": "どんなに些細な過ちであろうとも、一度犯した罪は償うべき責任が伴う。",
+        "exampleKr": "아무리 사소한 실수라 할지라도, 한 번 저지른 죄는 속죄해야 할 책임이 따른다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おかす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-225-1780414442599",
+        "term": "女子",
+        "definition": "woman; girl",
+        "meaningKr": "여자, 여학생",
+        "exampleEn": "最近の女子学生は、卒業後のキャリアプランについて明確なビジョンを持つ者が増えつつある。",
+        "exampleKr": "최근 여대생들은 졸업 후의 경력 계획에 대해 명확한 비전을 가진 자들이 늘어나고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じょし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-226-1780414442599",
+        "term": "余程",
+        "definition": "very; greatly; much; to a large extent; quite just about to; almost; very nearly",
+        "meaningKr": "상당히, 꽤, 어지간히",
+        "exampleEn": "彼の表情から察するに、余程疲れていると見え、会議中にもかかわらずうつろな目をしていた。",
+        "exampleKr": "그의 표정으로 보아 상당히 피곤한 듯 보여, 회의 중임에도 불구하고 멍한 눈을 하고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "よほど",
+        "pos": "adverb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-227-1780414442599",
+        "term": "アップ",
+        "definition": "rise; increase; raising; lifting; going up upload; posting online close-up",
+        "meaningKr": "상승, 증가, 올림",
+        "exampleEn": "景気回復に伴い、企業の業績アップが期待されるものの、人手不足は依然として課題だ。",
+        "exampleKr": "경기 회복에 따라 기업의 실적 향상이 기대되지만, 인력 부족은 여전히 과제이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "アップ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-228-1780414442599",
+        "term": "絶える",
+        "definition": "to die out; to peter out; to become extinct to cease; to be stopped; to be discontinued; to be cut off",
+        "meaningKr": "끊어지다, 끊기다, 사라지다",
+        "exampleEn": "彼の訃報に接し、長年続いた交流が絶えてしまうことに、深い寂しさを覚えずにはいられない。",
+        "exampleKr": "그의 부고를 접하고, 오랫동안 이어졌던 교류가 끊기게 되는 것에 깊은 쓸쓸함을 느끼지 않을 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-229-1780414442599",
+        "term": "取材",
+        "definition": "gathering material (for an article, novel, etc.); collecting information; covering (an event, incident, etc.); reporting; interview (for a news story)",
+        "meaningKr": "취재",
+        "exampleEn": "紛争地域の取材にあたっては、ジャーナリストは常に自身の安全確保を最優先にすべきだ。",
+        "exampleKr": "분쟁 지역 취재에 있어서는, 언론인은 항상 자신의 안전 확보를 최우선으로 해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅざい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-230-1780414442599",
+        "term": "曲がる",
+        "definition": "to bend; to curve; to warp; to wind; to twist to turn to be awry; to be askew; to be crooked",
+        "meaningKr": "구부러지다, 휘다, 돌다",
+        "exampleEn": "この道は緩やかに曲がっているものの、視界が悪く、運転には細心の注意を要する。",
+        "exampleKr": "이 길은 완만하게 휘어져 있지만 시야가 좋지 않아 운전에는 세심한 주의가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "まがる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-231-1780414442599",
+        "term": "収まる",
+        "definition": "to fit into (a box, frame, category, etc.); to be contained within; to fall within (e.g. a budget) to settle down (into); to be installed (in one's rightful place); to be returned (to one's original position) to settle into (one's position); to take up (a post); to occupy (a role)",
+        "meaningKr": "가라앉다, 진정되다, 들어맞다",
+        "exampleEn": "長引く混乱は、政府の迅速な対応が奏功し、ようやく収まる兆しを見せ始めた。",
+        "exampleKr": "길어지는 혼란은 정부의 신속한 대응이 주효하여, 비로소 가라앉을 조짐을 보이기 시작했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おさまる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-232-1780414442599",
+        "term": "交渉",
+        "definition": "negotiations; bargaining; discussions; talks connection; relationship; relations; dealings",
+        "meaningKr": "교섭, 협상",
+        "exampleEn": "難航する貿易交渉は、互いの譲歩なくしては合意に至ることは到底不可能だろう。",
+        "exampleKr": "난항을 겪는 무역 협상은, 서로의 양보 없이는 합의에 이르는 것은 도저히 불가능할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こうしょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-233-1780414442599",
+        "term": "何より",
+        "definition": "above anything else; above all; more than anything best; greatest; excellent; wonderful; most important",
+        "meaningKr": "무엇보다도, 가장",
+        "exampleEn": "災害からの復興に際し、被災者の心のケアが何より重要であることは言うまでもない。",
+        "exampleKr": "재해로부터의 복구에 있어서, 이재민의 마음을 돌보는 것이 무엇보다 중요하다는 것은 말할 것도 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "なにより",
+        "pos": "phrase, adverb"
+      },
+      {
+        "id": "word-jp-advanced-234-1780414442599",
+        "term": "取引",
+        "definition": "transactions; dealings; business",
+        "meaningKr": "거래",
+        "exampleEn": "企業間の公正な取引を確保するため、独占禁止法の厳格な運用が不可欠である。",
+        "exampleKr": "기업 간의 공정한 거래를 확보하기 위해, 독점금지법의 엄격한 운용이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とりひき",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-235-1780414442599",
+        "term": "独自",
+        "definition": "original; unique; distinctive; characteristic; peculiar independent; one's own; personal",
+        "meaningKr": "독자적, 독자적인",
+        "exampleEn": "彼は、既存の理論に捉われることなく、独自のアプローチで難題を解決した。",
+        "exampleKr": "그는 기존의 이론에 얽매이지 않고, 독자적인 접근 방식으로 난제를 해결했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どくじ",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-236-1780414442599",
+        "term": "所属",
+        "definition": "belonging to (a group, organization, etc.); affiliation (with); being attached to; being under the control of; serving (in the military, congress, etc.)",
+        "meaningKr": "소속",
+        "exampleEn": "新しいプロジェクトチームに所属するにあたって、彼は並々ならぬ意欲を示した。",
+        "exampleKr": "새로운 프로젝트 팀에 소속되는 것에 있어서, 그는 남다른 의욕을 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょぞく",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-237-1780414442599",
+        "term": "個性",
+        "definition": "individuality; personality; quirk; idiosyncrasy; character; individual characteristic",
+        "meaningKr": "개성",
+        "exampleEn": "現代社会においては、組織に順応しつつも、自身の個性を発揮することが求められる。",
+        "exampleKr": "현대 사회에서는 조직에 순응하면서도, 자신의 개성을 발휘하는 것이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こせい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-238-1780414442599",
+        "term": "マスコミ",
+        "definition": "mass communication; mass media",
+        "meaningKr": "매스컴, 대중매체",
+        "exampleEn": "マスコミは、報道の自由を享受する一方で、その影響力の大きさを自覚すべきだ。",
+        "exampleKr": "대중매체는 보도의 자유를 누리는 한편, 그 영향력의 크기를 자각해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "マスコミ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-239-1780414442599",
+        "term": "おい",
+        "definition": "hey!; say!; I say!; come on!; look!; oi! I; me",
+        "meaningKr": "어이, 이봐",
+        "exampleEn": "おい、君！こんなところで立ち止まっていては、他の通行人の迷惑になるばかりだぞ。",
+        "exampleKr": "어이, 자네! 이런 곳에 멈춰 서 있으면 다른 통행인들에게 폐만 될 뿐이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おい",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-jp-advanced-240-1780414442599",
+        "term": "落ち込む",
+        "definition": "to feel down; to feel sad; to be depressed; to be in low spirits to be in a slump (business, economy, etc.); to be in an unfavourable condition to fall into (e.g. a hole)",
+        "meaningKr": "침체되다, 침울해지다, 빠지다",
+        "exampleEn": "経済が落ち込む中、企業は生き残りをかけて事業構造の転換を余儀なくされている。",
+        "exampleKr": "경제가 침체되는 가운데, 기업은 생존을 걸고 사업 구조의 전환을 강요받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おちこむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-241-1780414442599",
+        "term": "進化",
+        "definition": "evolution evolution; becoming more advanced; progress; development; improvement",
+        "meaningKr": "진화",
+        "exampleEn": "AI技術の急速な進化は、私たちの生活様式のみならず、社会構造をも大きく変えつつある。",
+        "exampleKr": "AI 기술의 급속한 진화는 우리의 생활 양식뿐만 아니라, 사회 구조마저도 크게 변화시키고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しんか",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-242-1780414442599",
+        "term": "公開",
+        "definition": "opening to the public; making available to the public; exhibiting; unveiling; release (of a film, information, etc.); disclosure; publication",
+        "meaningKr": "공개",
+        "exampleEn": "機密性の高い情報であるゆえに、その公開は極めて慎重に行われるべきだろう。",
+        "exampleKr": "기밀성이 높은 정보이므로, 그 공개는 극히 신중하게 이루어져야 할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こうかい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-243-1780414442599",
+        "term": "控える",
+        "definition": "to be temperate in; to refrain; to abstain; to hold back; to restrain oneself from excessive ... to make notes; to jot down (e.g. phone number) to be in preparation for; to be in waiting for",
+        "meaningKr": "삼가다, 자제하다, 앞두다",
+        "exampleEn": "大事な会議を明日に控えているため、今夜はアルコールを控えて早めに休むことにした。",
+        "exampleKr": "중요한 회의를 내일로 앞두고 있기 때문에, 오늘 밤은 술을 삼가고 일찍 쉬기로 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひかえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-244-1780414442599",
+        "term": "促す",
+        "definition": "to urge; to encourage; to press; to prompt; to draw (attention to) to stimulate (e.g. growth); to hasten (e.g. development); to quicken; to accelerate; to promote",
+        "meaningKr": "촉구하다, 재촉하다, 장려하다",
+        "exampleEn": "政府は、少子化対策として、若年層の結婚と出産を促すための施策を打ち出した。",
+        "exampleKr": "정부는 저출산 대책으로서, 젊은 층의 결혼과 출산을 장려하기 위한 시책을 내놓았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うながす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-245-1780414442599",
+        "term": "改革",
+        "definition": "reform; reformation; reorganization",
+        "meaningKr": "개혁",
+        "exampleEn": "抜本的な社会保障制度の改革なくしては、将来の財政破綻は避けられないだろう。",
+        "exampleKr": "근본적인 사회 보장 제도의 개혁 없이는, 장래의 재정 파탄은 피할 수 없을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かいかく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-246-1780414442599",
+        "term": "処分",
+        "definition": "disposal; throwing away; selling off dealing with (a problem); measure punishment; penalty",
+        "meaningKr": "처분, 처리",
+        "exampleEn": "不法投棄された産業廃棄物の処分を巡っては、自治体間で責任の押し付け合いが続いている。",
+        "exampleKr": "불법 투기된 산업 폐기물의 처분을 둘러싸고는, 지자체 간에 책임 전가가 계속되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょぶん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-247-1780414442599",
+        "term": "憧れ",
+        "definition": "yearning; longing; aspiration; adoration; admiration",
+        "meaningKr": "동경, 선망",
+        "exampleEn": "幼い頃から抱いていた宇宙飛行士への憧れは、今も彼の原動力となっている。",
+        "exampleKr": "어릴 적부터 품었던 우주 비행사에 대한 동경은, 지금도 그의 원동력이 되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あこがれ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-248-1780414442599",
+        "term": "出演",
+        "definition": "appearance (in a film, play, TV show, etc.); performance",
+        "meaningKr": "출연",
+        "exampleEn": "彼女は、その映画への出演をきっかけに、国際的な女優としての地位を確立した。",
+        "exampleKr": "그녀는 그 영화 출연을 계기로, 국제적인 여배우로서의 지위를 확립했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅつえん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-249-1780414442599",
+        "term": "柱",
+        "definition": "pillar; post support; prop; mainstay counter for buddhas, gods, nobles, etc.",
+        "meaningKr": "기둥, 버팀목, 중심",
+        "exampleEn": "彼は、会社の経営を長年支えてきた大黒柱であるだけに、その退任は衝撃的だった。",
+        "exampleKr": "그는 회사의 경영을 오랫동안 지탱해 온 대들보인 만큼, 그의 퇴임은 충격적이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はしら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-250-1780414442599",
+        "term": "引き上げる",
+        "definition": "to pull up; to drag up; to lift up to increase; to raise (e.g. taxes) to withdraw; to leave; to pull out; to retire",
+        "meaningKr": "끌어올리다, 인상하다, 철수하다",
+        "exampleEn": "政府は、景気回復を確実にするため、消費税率を段階的に引き上げる方針を打ち出した。",
+        "exampleKr": "정부는 경기 회복을 확실히 하기 위해 소비세율을 단계적으로 인상하는 방침을 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひきあげる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-251-1780414442599",
+        "term": "上回る",
+        "definition": "to exceed (esp. figures: profits, unemployment rate, etc.); to surpass; to be more than; to be better than",
+        "meaningKr": "상회하다, 초과하다",
+        "exampleEn": "今期の売上高は、事前の予測を大幅に上回り、過去最高益を記録する見込みだ。",
+        "exampleKr": "이번 분기 매출액은 사전 예측을 크게 웃돌아 사상 최고 이익을 기록할 전망이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うわまわる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-252-1780414442599",
+        "term": "内部",
+        "definition": "interior; inside; internal",
+        "meaningKr": "내부, 안쪽",
+        "exampleEn": "企業統治の透明性を高めるべく、組織内部の不正を監視する独立した部署が設置された。",
+        "exampleKr": "기업 지배구조의 투명성을 높이고자 조직 내부의 부정을 감시하는 독립 부서가 설치되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ないぶ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-253-1780414442599",
+        "term": "スペース",
+        "definition": "space; room space (between letters, words, etc.) space (piece of type)",
+        "meaningKr": "공간, 여유",
+        "exampleEn": "限られた展示スペースを最大限に活用し、来場者が快適に鑑賞できるような工夫が凝らされた。",
+        "exampleKr": "한정된 전시 공간을 최대한 활용하여 방문객이 쾌적하게 감상할 수 있도록 고안되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "スペース",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-254-1780414442599",
+        "term": "担う",
+        "definition": "to carry on one's shoulder; to shoulder; to bear to bear (a burden, responsibility, etc.); to take upon oneself",
+        "meaningKr": "짊어지다, 담당하다",
+        "exampleEn": "若者たちは、未来社会の持続的な発展を担う重要な役割を果たすべきだと認識されている。",
+        "exampleKr": "젊은이들은 미래 사회의 지속적인 발전을 짊어질 중요한 역할을 해야 한다고 인식되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "になう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-255-1780414442599",
+        "term": "件",
+        "definition": "the aforementioned; the said; (man, incident, etc.) in question; the above-mentioned; the aforesaid the usual",
+        "meaningKr": "앞서 말한 바와 같은, 그 문제의",
+        "exampleEn": "くだんの事件については、現在も警察による詳細な捜査が続けられており、真相解明が待たれる。",
+        "exampleKr": "그 문제의 사건에 대해서는 현재도 경찰의 상세한 수사가 계속되고 있으며, 진상 규명이 기다려진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "くだん",
+        "pos": "noun, counter"
+      },
+      {
+        "id": "word-jp-advanced-256-1780414442599",
+        "term": "投資",
+        "definition": "investment",
+        "meaningKr": "투자",
+        "exampleEn": "新興市場への積極的な投資は、高いリターンが期待される反面、リスクも伴うことを覚悟すべきだ。",
+        "exampleKr": "신흥 시장에 대한 적극적인 투자는 높은 수익이 기대되는 반면, 위험도 수반됨을 각오해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とうし",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-257-1780414442599",
+        "term": "ほっと",
+        "definition": "with a feeling of relief; with a sigh of relief deeply (sigh)",
+        "meaningKr": "안심하는 모양, 한숨 쉬는 모양",
+        "exampleEn": "難航していた交渉がようやく合意に至り、関係者一同、ほっと胸をなで下ろした。",
+        "exampleKr": "난항을 겪던 협상이 마침내 합의에 이르러, 관계자 모두 안도의 한숨을 내쉬었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほっと",
+        "pos": "adverb, verb"
+      },
+      {
+        "id": "word-jp-advanced-258-1780414442599",
+        "term": "記述",
+        "definition": "description; account",
+        "meaningKr": "기술, 서술",
+        "exampleEn": "報告書には、研究の目的、方法、結果が簡潔かつ明確に記述されており、理解しやすい。",
+        "exampleKr": "보고서에는 연구의 목적, 방법, 결과가 간결하고 명확하게 기술되어 있어 이해하기 쉽다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きじゅつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-259-1780414442599",
+        "term": "獲得",
+        "definition": "acquisition; possession",
+        "meaningKr": "획득, 취득",
+        "exampleEn": "熾烈な競争を勝ち抜き、ようやく国際的なプロジェクトの主導権を獲得することができた。",
+        "exampleKr": "치열한 경쟁을 이겨내고 마침내 국제 프로젝트의 주도권을 획득할 수 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かくとく",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-260-1780414442599",
+        "term": "心がける",
+        "definition": "to keep in mind; to bear in mind; to try; to aim to do; to endeavor; to endeavour",
+        "meaningKr": "유념하다, 명심하다, 노력하다",
+        "exampleEn": "常に顧客の視点に立って物事を考えるよう心がけることで、サービスの質は向上するだろう。",
+        "exampleKr": "항상 고객의 관점에서 사물을 생각하도록 유념함으로써 서비스의 질은 향상될 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こころがける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-261-1780414442599",
+        "term": "選挙",
+        "definition": "election",
+        "meaningKr": "선거",
+        "exampleEn": "次期選挙に向けて、各政党は若年層の投票率向上を狙い、SNSを活用した広報活動を強化している。",
+        "exampleKr": "다음 선거를 앞두고 각 정당은 젊은 층의 투표율 향상을 목표로 SNS를 활용한 홍보 활동을 강화하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せんきょ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-262-1780414442599",
+        "term": "受け止める",
+        "definition": "to catch; to stop the blow to react to; to take (advice, etc.); to accept; to come to grips with",
+        "meaningKr": "받아들이다, 수용하다",
+        "exampleEn": "批判的な意見であっても、真摯に受け止め、今後の改善に活かす姿勢が重要である。",
+        "exampleKr": "비판적인 의견이라 할지라도 진지하게 받아들여 향후 개선에 활용하는 자세가 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うけとめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-263-1780414442599",
+        "term": "根拠",
+        "definition": "basis; grounds; foundation; reason; authority base (of operations)",
+        "meaningKr": "근거, 기반",
+        "exampleEn": "その主張には明確な科学的根拠がなく、単なる憶測の域を出ないと言わざるを得ない。",
+        "exampleKr": "그 주장은 명확한 과학적 근거가 없어, 단순한 억측의 범위를 벗어나지 못한다고 말할 수밖에 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こんきょ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-264-1780414442599",
+        "term": "相応しい",
+        "definition": "appropriate; adequate; suitable; fitting; worthy",
+        "meaningKr": "적합하다, 어울리다",
+        "exampleEn": "この重要なプロジェクトのリーダーには、卓越したリーダーシップと経験を兼ね備えた人物が相応しい。",
+        "exampleKr": "이 중요한 프로젝트의 리더에게는 탁월한 리더십과 경험을 겸비한 인물이 적합하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふさわしい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-265-1780414442599",
+        "term": "魂",
+        "definition": "Yang energy; spirit",
+        "meaningKr": "혼, 정신",
+        "exampleEn": "伝統工芸品には、職人の熟練した技と、ものづくりに対する魂が宿っている。",
+        "exampleKr": "전통 공예품에는 장인의 숙련된 기술과, 물건 만들기에 대한 혼이 깃들어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-266-1780414442599",
+        "term": "演ずる",
+        "definition": "to act (a part); to play (a role) to perform (a play, etc.); to put on (a production) to commit (a blunder); to pretend (e.g. to be a good father); to disgrace oneself",
+        "meaningKr": "연기하다, 연출하다",
+        "exampleEn": "彼は、どんな役柄であっても見事に演じきることで定評があり、多くのファンを魅了している。",
+        "exampleKr": "그는 어떤 역할이든 훌륭하게 연기해내는 것으로 정평이 나 있어, 많은 팬을 매료시키고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "えんずる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-267-1780414442599",
+        "term": "廃止",
+        "definition": "abolition; discontinuance; discontinuation; repeal; annulment",
+        "meaningKr": "폐지",
+        "exampleEn": "時代にそぐわない古い制度は、速やかに廃止し、より現代的なシステムへの移行が求められる。",
+        "exampleKr": "시대에 맞지 않는 낡은 제도는 신속히 폐지하고, 더욱 현대적인 시스템으로의 이행이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はいし",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-268-1780414442599",
+        "term": "復活",
+        "definition": "revival (of an old system, custom, fashion, etc.); restoration; return; comeback resurrection; rebirth",
+        "meaningKr": "부활, 회복",
+        "exampleEn": "長らく休止していた地域の伝統祭りが、住民の熱意によって見事な復活を遂げた。",
+        "exampleKr": "오랫동안 중단되었던 지역 전통 축제가 주민들의 열의로 멋지게 부활했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふっかつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-269-1780414442599",
+        "term": "闇",
+        "definition": "darkness; the dark bewilderment; despair; hopelessness hidden place; secrecy; oblivion",
+        "meaningKr": "어둠, 암흑, 불확실성",
+        "exampleEn": "社会の闇に葬られがちな問題に光を当て、真実を追求することがジャーナリズムの使命である。",
+        "exampleKr": "사회의 어둠 속에 묻히기 쉬운 문제에 빛을 비추고 진실을 추구하는 것이 저널리즘의 사명이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "やみ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-270-1780414442599",
+        "term": "拘る",
+        "definition": "to be obsessive (about); to be overly concerned (with); to fuss (over); to worry too much (about); to be picky (about); to be hung up (on); to stick to to be particular (about); to pay special attention (to); to be fastidious (about); to insist (on); to be uncompromising to get stuck; to be obstructed",
+        "meaningKr": "고집하다, 구애받다, 까다롭게 굴다",
+        "exampleEn": "彼は細部にまで拘る職人気質ゆえ、妥協を許さず、常に最高の品質を追求している。",
+        "exampleKr": "그는 세부 사항까지 고집하는 장인 기질 때문에 타협을 허용하지 않고 항상 최고의 품질을 추구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こだわる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-271-1780414442599",
+        "term": "カット",
+        "definition": "cut; cutting haircut (continuous) shot (in a film or TV show)",
+        "meaningKr": "자르다, 삭감하다",
+        "exampleEn": "予算が限られているため、不急不要な経費は徹底的にカットし、効率的な運用を心がける必要がある。",
+        "exampleKr": "예산이 한정되어 있으므로, 불필요한 경비는 철저히 삭감하고 효율적인 운영을 유념할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "カット",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-272-1780414442599",
+        "term": "お負け",
+        "definition": "something thrown in (with a purchase); something extra; free gift; freebie; giveaway; premium; prize (giving a) discount; price reduction addition; embellishment (e.g. to a story)",
+        "meaningKr": "덤, 할인",
+        "exampleEn": "このセット商品には、期間限定でおまけの特典が付いており、大変お得感がある。",
+        "exampleKr": "이 세트 상품에는 기간 한정으로 덤 사은품이 붙어 있어, 매우 득템한 기분이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おまけ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-273-1780414442599",
+        "term": "名称",
+        "definition": "name; title",
+        "meaningKr": "명칭, 이름",
+        "exampleEn": "新たな施設は、公募で選ばれた名称が正式に決定され、地域住民に親しまれることだろう。",
+        "exampleKr": "새로운 시설은 공모로 선정된 명칭이 정식으로 결정되어 지역 주민들에게 사랑받을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "めいしょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-274-1780414442599",
+        "term": "鍛える",
+        "definition": "to forge; to temper to drill; to train; to discipline",
+        "meaningKr": "단련하다, 훈련하다",
+        "exampleEn": "厳しい訓練を通じて心身を鍛えることは、困難な状況に直面した際に役立つはずだ。",
+        "exampleKr": "혹독한 훈련을 통해 심신을 단련하는 것은 어려운 상황에 직면했을 때 도움이 될 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きたえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-275-1780414442599",
+        "term": "添える",
+        "definition": "to garnish; to accompany (as a card does a gift) to add to as support; to prop up to accompany (as an aid, guide, translator, etc.)",
+        "meaningKr": "곁들이다, 더하다, 덧붙이다",
+        "exampleEn": "感謝の気持ちを伝えるべく、手紙を添えて贈り物を渡したものの、直接会って伝える機会を逸した。",
+        "exampleKr": "감사의 마음을 전하고자 편지를 곁들여 선물을 건넸으나, 직접 만나 전할 기회를 놓쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "そえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-276-1780414442599",
+        "term": "配置",
+        "definition": "arrangement (of resources); deployment; stationing; posting; disposition; configuration; layout",
+        "meaningKr": "배치, 안배",
+        "exampleEn": "効率的な資源配置は、プロジェクトの成否を左右する重要な要素であると言わざるを得ない。",
+        "exampleKr": "효율적인 자원 배치는 프로젝트의 성패를 좌우하는 중요한 요소라고 말할 수밖에 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はいち",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-277-1780414442599",
+        "term": "個々",
+        "definition": "individual; one by one; separate; each",
+        "meaningKr": "개개, 각각, 개별",
+        "exampleEn": "チーム全体の目標達成はもちろんのこと、個々のメンバーの成長にも焦点を当てるべきだ。",
+        "exampleKr": "팀 전체의 목표 달성은 물론, 개개인 멤버의 성장에도 초점을 맞춰야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ここ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-278-1780414442599",
+        "term": "築く",
+        "definition": "to build; to construct; to erect to build up (a reputation, position, fortune, etc.); to establish (a relationship, household, tradition, etc.); to lay (a foundation)",
+        "meaningKr": "쌓다, 구축하다, 건설하다",
+        "exampleEn": "信頼関係を築くには、一朝一夕にはいかないものの、日々の誠実な対応が不可欠である。",
+        "exampleKr": "신뢰 관계를 구축하기 위해서는 하루아침에 되는 것은 아니지만, 매일 성실한 대응이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きずく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-279-1780414442599",
+        "term": "結びつく",
+        "definition": "to be related; to be connected; to be joined together to result in; to lead to; to bring about",
+        "meaningKr": "연결되다, 결부되다, 이어지다",
+        "exampleEn": "彼の革新的なアイデアは、将来的に社会貢献へと結びつく可能性を秘めていると言えよう。",
+        "exampleKr": "그의 혁신적인 아이디어는 장래에 사회 공헌으로 이어질 가능성을 품고 있다고 할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "むすびつく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-280-1780414442599",
+        "term": "驚き",
+        "definition": "surprise; astonishment; wonder; amazement",
+        "meaningKr": "놀라움, 경악",
+        "exampleEn": "最新の科学技術の進歩は、我々に常に驚きと感動を与え、未来への期待を抱かせる。",
+        "exampleKr": "최신 과학 기술의 진보는 우리에게 항상 놀라움과 감동을 주며, 미래에 대한 기대를 품게 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おどろき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-281-1780414442599",
+        "term": "演出",
+        "definition": "direction (of a play, film, etc.); production organization (of an event); arrangement; staging (for effect); orchestration",
+        "meaningKr": "연출, 기획, 구성",
+        "exampleEn": "彼の講演は、聴衆を引き込む巧みな演出が施されており、その内容は深く心に響いた。",
+        "exampleKr": "그의 강연은 청중을 사로잡는 교묘한 연출이 더해져 있었고, 그 내용은 깊이 마음에 울렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "えんしゅつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-282-1780414442599",
+        "term": "本気",
+        "definition": "seriousness; earnestness; truth; sanctity",
+        "meaningKr": "진심, 진정, 진지함",
+        "exampleEn": "彼の本気の挑戦には、周りの人々も感化され、目標達成に向けて一丸となって取り組んだ。",
+        "exampleKr": "그의 진심 어린 도전에 주변 사람들도 감화되어, 목표 달성을 향해 한마음으로 노력했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほんき",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-283-1780414442599",
+        "term": "趣旨",
+        "definition": "meaning; point (e.g. of a statement); gist; effect goal; intent; object; aim; point",
+        "meaningKr": "취지, 요지",
+        "exampleEn": "会議の趣旨を理解し、議論が本筋から逸脱しないよう、常に意識しておく必要がある。",
+        "exampleKr": "회의의 취지를 이해하고, 논의가 본궤도에서 벗어나지 않도록 항상 의식하고 있을 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-284-1780414442599",
+        "term": "後悔",
+        "definition": "regret; repentance; remorse",
+        "meaningKr": "후회",
+        "exampleEn": "あの時、もっと努力しておけばと後悔の念に駆られ、今さらながら反省するばかりだ。",
+        "exampleKr": "그때 좀 더 노력했더라면 하고 후회하는 마음에 사로잡혀, 이제 와서 반성할 따름이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こうかい",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-285-1780414442599",
+        "term": "勝利",
+        "definition": "victory; triumph; win; conquest; success",
+        "meaningKr": "승리",
+        "exampleEn": "幾多の困難を乗り越え、チームは最終的に勝利を収めたものの、その道のりは決して平坦ではなかった。",
+        "exampleKr": "수많은 어려움을 극복하고 팀은 최종적으로 승리를 거두었지만, 그 과정은 결코 순탄하지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょうり",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-286-1780414442599",
+        "term": "自覚",
+        "definition": "self-consciousness; self-awareness",
+        "meaningKr": "자각, 자각하다",
+        "exampleEn": "組織の一員としての自覚を持ち、各自が責任ある行動を心がけることが求められる。",
+        "exampleKr": "조직의 일원으로서 자각을 가지고, 각자가 책임감 있는 행동을 명심하는 것이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じかく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-287-1780414442599",
+        "term": "極端",
+        "definition": "extreme; extremity",
+        "meaningKr": "극단",
+        "exampleEn": "彼の発言は極端に聞こえるかもしれないが、問題の本質を突いている面もあるゆえに軽視できない。",
+        "exampleKr": "그의 발언은 극단적으로 들릴지도 모르지만, 문제의 본질을 꿰뚫는 면도 있으므로 경시할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きょくたん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-288-1780414442599",
+        "term": "念",
+        "definition": "sense; idea; thought; feeling desire; concern attention; care",
+        "meaningKr": "마음, 생각, 염려",
+        "exampleEn": "失敗を恐れる念が強すぎると、新たな挑戦に踏み出すことができず、成長の機会を逃してしまう。",
+        "exampleKr": "실패를 두려워하는 마음이 너무 강하면, 새로운 도전에 나서지 못하고 성장의 기회를 놓치게 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ねん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-289-1780414442599",
+        "term": "漂う",
+        "definition": "to drift; to float to waft (e.g. a scent); to hang in the air to be in the air (e.g. a feeling or mood)",
+        "meaningKr": "떠다니다, 감돌다, 맴돌다",
+        "exampleEn": "会議室には、緊迫した雰囲気が漂っており、誰もが次の発言を躊躇しているようだった。",
+        "exampleKr": "회의실에는 긴박한 분위기가 감돌고 있었고, 모두가 다음 발언을 주저하는 듯했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ただよう",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-290-1780414442599",
+        "term": "取り戻す",
+        "definition": "to take back; to get back; to regain; to recover; to restore; to recoup",
+        "meaningKr": "되찾다, 회복하다",
+        "exampleEn": "失われた信頼を取り戻すには、時間と誠実な努力を要するものの、決して不可能ではない。",
+        "exampleKr": "잃어버린 신뢰를 되찾기 위해서는 시간과 성실한 노력이 필요하지만, 결코 불가능한 것은 아니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とりもどす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-291-1780414442599",
+        "term": "一変",
+        "definition": "complete change; about-face",
+        "meaningKr": "일변, 완전히 변함",
+        "exampleEn": "そのニュースが報じられるや否や、市場の状況は一変し、投資家たちは動揺を隠せなかった。",
+        "exampleKr": "그 뉴스가 보도되자마자 시장 상황은 일변했고, 투자자들은 동요를 감추지 못했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いっぺん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-292-1780414442599",
+        "term": "辿る",
+        "definition": "to follow (a road, path, etc.); to trace to follow (a clue, scent, tracks, plot, etc.); to trace (a route, history, family tree, etc.); to retrace (e.g. one's memory); to search; to go over to head towards (of a situation); to go in the direction of; to take (a course); to pursue (a path); to meet (a fate)",
+        "meaningKr": "더듬어 가다, 거슬러 올라가다, 겪다",
+        "exampleEn": "歴史を辿れば、文明の興亡は繰り返されてきたものであり、そこから多くの教訓を学ぶべきだ。",
+        "exampleKr": "역사를 더듬어 보면, 문명의 흥망은 반복되어 온 것이며, 거기서 많은 교훈을 배워야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たどる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-293-1780414442599",
+        "term": "進展",
+        "definition": "progress; development",
+        "meaningKr": "진전, 발전",
+        "exampleEn": "交渉は難航したものの、最終的には双方が譲歩し、事態は大きな進展を見せた。",
+        "exampleKr": "협상은 난항을 겪었지만, 최종적으로 양측이 양보하여 사태는 큰 진전을 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しんてん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-294-1780414442599",
+        "term": "細胞",
+        "definition": "cell cell (in an organization, esp. a communist party)",
+        "meaningKr": "세포",
+        "exampleEn": "人間の体のすべての細胞は、絶えず入れ替わりながら、生命活動を維持していると言われている。",
+        "exampleKr": "인간 몸의 모든 세포는 끊임없이 교체되면서 생명 활동을 유지하고 있다고 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さいぼう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-295-1780414442599",
+        "term": "犠牲",
+        "definition": "sacrifice victim (esp. someone killed); casualty sacrifice (to a deity)",
+        "meaningKr": "희생",
+        "exampleEn": "多くの人々の犠牲の上に現在の平和と繁栄が築かれていることを、我々は忘れてはならない。",
+        "exampleKr": "많은 사람들의 희생 위에 현재의 평화와 번영이 구축되어 있다는 것을 우리는 잊어서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぎせい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-296-1780414442599",
+        "term": "比率",
+        "definition": "ratio; proportion; percentage",
+        "meaningKr": "비율",
+        "exampleEn": "男女の賃金比率の格差は、社会における根深い問題の一つであり、早急な是正が求められる。",
+        "exampleKr": "남녀 임금 비율의 격차는 사회의 뿌리 깊은 문제 중 하나이며, 조속한 시정이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひりつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-297-1780414442599",
+        "term": "真実",
+        "definition": "truth; reality truly; really absolute truth",
+        "meaningKr": "진실, 사실",
+        "exampleEn": "どのような状況にあっても、真実を追求する姿勢は、ジャーナリストにとって不可欠なものである。",
+        "exampleKr": "어떤 상황에 있더라도, 진실을 추구하는 자세는 언론인에게 불가결한 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しんじつ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-298-1780414442599",
+        "term": "読者",
+        "definition": "reader",
+        "meaningKr": "독자",
+        "exampleEn": "読者の期待に応えるべく、筆者は緻密な取材を重ね、力作を世に送り出す覚悟である。",
+        "exampleKr": "독자의 기대에 부응하고자, 필자는 치밀한 취재를 거듭하여 역작을 세상에 내놓을 각오이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どくしゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-299-1780414442599",
+        "term": "限定",
+        "definition": "limit; restriction",
+        "meaningKr": "한정, 제한",
+        "exampleEn": "このサービスは会員限定ゆえに、一般の利用者はアクセスできない旨、注意書きが添えられている。",
+        "exampleKr": "이 서비스는 회원 한정이므로, 일반 이용자는 접속할 수 없다는 취지의 주의사항이 덧붙여져 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "げんてい",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-300-1780414442599",
+        "term": "劇団",
+        "definition": "troupe; theatrical company",
+        "meaningKr": "극단, 극단원",
+        "exampleEn": "長年、この劇団は社会の矛盾を鋭く風刺する作品を世に送り出し、多くの観客を魅了してきた。",
+        "exampleKr": "오랫동안 이 극단은 사회의 모순을 날카롭게 풍자하는 작품을 세상에 내놓아 많은 관객을 매료시켜 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "げきだん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-301-1780414442599",
+        "term": "一面",
+        "definition": "one face; one surface the whole surface one aspect; one side",
+        "meaningKr": "일면, 한 면, 전면",
+        "exampleEn": "彼は厳しい経営者としての顔を持つ一方で、家族には優しい父親としての一面も持ち合わせている。",
+        "exampleKr": "그는 엄격한 경영자로서의 얼굴을 가지고 있는 한편, 가족에게는 다정한 아버지로서의 일면도 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いちめん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-302-1780414442599",
+        "term": "レース",
+        "definition": "race Rees; Race",
+        "meaningKr": "경주, 레이스, 시합",
+        "exampleEn": "優勝候補と目されていた選手がまさかの途中棄権となり、今年のレースは波乱の幕開けとなった。",
+        "exampleKr": "우승 후보로 지목되었던 선수가 설마 했던 도중 기권하게 되어, 올해 레이스는 파란의 시작이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "レース",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-303-1780414442599",
+        "term": "民族",
+        "definition": "people; race; nation; ethnic group; ethnos",
+        "meaningKr": "민족, 종족",
+        "exampleEn": "多様な民族が共存する社会において、相互理解と文化の尊重は平和な共生に不可欠である。",
+        "exampleKr": "다양한 민족이 공존하는 사회에서 상호 이해와 문화 존중은 평화로운 공생에 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "みんぞく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-304-1780414442599",
+        "term": "動向",
+        "definition": "trend; tendency; movement; attitude",
+        "meaningKr": "동향, 추세, 움직임",
+        "exampleEn": "最新の市場動向を正確に把握することは、企業の将来の戦略を立案する上で極めて重要だ。",
+        "exampleKr": "최신 시장 동향을 정확하게 파악하는 것은 기업의 미래 전략을 수립하는 데 있어 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どうこう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-305-1780414442599",
+        "term": "日頃",
+        "definition": "usually; habitually; always for a long time",
+        "meaningKr": "평소, 늘, 평상시",
+        "exampleEn": "日頃から健康に留意し、適度な運動を心がけることは、病気を予防する上で非常に効果的だ。",
+        "exampleKr": "평소부터 건강에 유의하고 적당한 운동을 습관화하는 것은 질병을 예방하는 데 매우 효과적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひごろ",
+        "pos": "adverb, noun"
+      },
+      {
+        "id": "word-jp-advanced-306-1780414442599",
+        "term": "況して",
+        "definition": "still more; to say nothing of; not to mention still less",
+        "meaningKr": "하물며, 더구나, 더욱이",
+        "exampleEn": "このような簡単な作業でさえ失敗するのだから、況してや複雑なプロジェクトなど成功するはずがない。",
+        "exampleKr": "이런 간단한 작업조차 실패하니, 하물며 복잡한 프로젝트 같은 것은 성공할 리가 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "まして",
+        "pos": "phrase, adverb"
+      },
+      {
+        "id": "word-jp-advanced-307-1780414442599",
+        "term": "実践",
+        "definition": "practice; putting into practice; implementation praxis",
+        "meaningKr": "실천, 실행, 실제 행동",
+        "exampleEn": "理論を学ぶだけでなく、それを具体的な形で実践に移すことこそが真の学びと言えるだろう。",
+        "exampleKr": "이론을 배우는 것뿐만 아니라, 그것을 구체적인 형태로 실천에 옮기는 것 자체가 진정한 배움이라고 할 수 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じっせん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-308-1780414442599",
+        "term": "作用",
+        "definition": "action; operation; process; agency; effect; function",
+        "meaningKr": "작용, 효과, 영향",
+        "exampleEn": "この薬は複数の成分が相互に作用し合うことで、期待される治療効果を発揮する仕組みになっている。",
+        "exampleKr": "이 약은 여러 성분이 상호 작용함으로써 기대되는 치료 효과를 발휘하는 구조로 되어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さよう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-309-1780414442599",
+        "term": "頻繁",
+        "definition": "frequent; incessant",
+        "meaningKr": "빈번함, 잦음, 빈번하게",
+        "exampleEn": "最近、この地域では不審者の目撃情報が頻繁に寄せられており、住民は警戒を強めている。",
+        "exampleKr": "최근 이 지역에서는 수상한 사람의 목격 정보가 빈번하게 접수되고 있어, 주민들은 경계를 강화하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひんぱん",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-310-1780414442599",
+        "term": "業者",
+        "definition": "trader; dealer; businessperson; company; vendor; supplier; manufacturer; maker; contractor fellow trader; people in the same trade",
+        "meaningKr": "업자, 사업자, 업체",
+        "exampleEn": "複数の業者から見積もりを取り寄せ、価格だけでなくサービス内容も比較検討する必要がある。",
+        "exampleKr": "여러 업자로부터 견적을 받아, 가격뿐만 아니라 서비스 내용도 비교 검토할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぎょうしゃ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-311-1780414442599",
+        "term": "称する",
+        "definition": "to call; to name to call oneself ...; to go by the name of ... to purport (to be); to profess; to claim; to pretend; to feign",
+        "meaningKr": "칭하다, 일컫다, 자칭하다",
+        "exampleEn": "彼は慈善活動家を称しているものの、その裏で不正な取引に関わっていた疑いが持たれている。",
+        "exampleKr": "그는 자선 활동가라고 칭하고 있지만, 그 이면에서 부정한 거래에 연루되었다는 의혹을 받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょうする",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-312-1780414442599",
+        "term": "支持",
+        "definition": "support; backing; endorsement; approval propping up; holding up; support",
+        "meaningKr": "지지, 지원, 후원",
+        "exampleEn": "政策の実現には国民の幅広い支持が不可欠であり、政府は丁寧な説明を尽くす必要がある。",
+        "exampleKr": "정책 실현에는 국민의 폭넓은 지지가 필수적이며, 정부는 성실한 설명을 다할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しじ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-313-1780414442599",
+        "term": "雌",
+        "definition": "female (animal, plant)",
+        "meaningKr": "암컷",
+        "exampleEn": "この動物園で生まれた希少なライオンの赤ちゃんは、残念ながら雌であることが判明した。",
+        "exampleKr": "이 동물원에서 태어난 희귀 라이온 아기는 안타깝게도 암컷으로 판명되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "めす",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-314-1780414442599",
+        "term": "誠",
+        "definition": "truth; reality; fact sincerity; honesty; faithfulness; good faith indeed; really; absolutely; truly; actually; very; quite",
+        "meaningKr": "진실, 진심, 성실",
+        "exampleEn": "彼の言葉には誠が感じられ、多くの人々がその熱意に心を動かされたに違いない。",
+        "exampleKr": "그의 말에는 진심이 느껴졌고, 많은 사람들이 그 열정에 감동받았음에 틀림없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "まこと",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-315-1780414442599",
+        "term": "一見",
+        "definition": "first visit to inn, restaurant, etc. without an introduction",
+        "meaningKr": "첫 방문, 초면",
+        "exampleEn": "その老舗の料亭は一見さんお断りの店として知られていたが、常連客の紹介があれば入店可能だった。",
+        "exampleKr": "그 오랜 전통의 요정은 초면 손님은 받지 않는 가게로 알려져 있었지만, 단골손님의 소개가 있으면 입점 가능했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いちげん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-316-1780414442599",
+        "term": "経費",
+        "definition": "expenses; expenditure; outgoings; outlays; costs",
+        "meaningKr": "경비, 비용, 지출",
+        "exampleEn": "新規事業の立ち上げにあたり、初期経費の削減は避けられない課題であり、慎重な計画が求められる。",
+        "exampleKr": "신규 사업을 시작함에 있어 초기 경비 절감은 피할 수 없는 과제이며, 신중한 계획이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けいひ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-317-1780414442599",
+        "term": "決意",
+        "definition": "decision; determination; resolution",
+        "meaningKr": "결의, 결심, 결정",
+        "exampleEn": "困難な状況にもかかわらず、彼は目標達成への固い決意を胸に、一歩も引かない姿勢を見せた。",
+        "exampleKr": "어려운 상황에도 불구하고 그는 목표 달성에 대한 굳은 결의를 가슴에 품고 한 발짝도 물러서지 않는 태도를 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けつい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-318-1780414442599",
+        "term": "資産",
+        "definition": "property; fortune; means; assets",
+        "meaningKr": "자산, 재산",
+        "exampleEn": "投資家の間では、仮想通貨が将来的に有望な資産となり得るか否かについて、様々な議論が交わされている。",
+        "exampleKr": "투자자들 사이에서는 가상화폐가 장래에 유망한 자산이 될 수 있을지 없을지에 대해 다양한 논의가 오가고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しさん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-319-1780414442599",
+        "term": "尽くす",
+        "definition": "to use up; to exhaust; to run out of to devote oneself (to); to do one's utmost (for); to serve; to work (for a cause) to do to exhaustion; to do completely; to do fully",
+        "meaningKr": "다하다, 온 힘을 쏟다, 봉사하다",
+        "exampleEn": "彼は病気の妻のために、あらゆる手を尽くして治療法を探し続けたものの、残念ながら回復には至らなかった。",
+        "exampleKr": "그는 병든 아내를 위해 온갖 방법을 동원하여 치료법을 계속 찾았지만, 안타깝게도 회복에는 이르지 못했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "つくす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-320-1780414442599",
+        "term": "天井",
+        "definition": "ceiling ceiling price; (price) ceiling",
+        "meaningKr": "천장, 상한선",
+        "exampleEn": "物価高騰が続く中、政府は生活必需品の価格に天井を設けることで、国民生活の安定を図ろうとしている。",
+        "exampleKr": "물가 폭등이 계속되는 가운데, 정부는 생활 필수품 가격에 상한선을 설정함으로써 국민 생활의 안정을 꾀하려 하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "てんじょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-321-1780414442599",
+        "term": "従業員",
+        "definition": "employee; worker",
+        "meaningKr": "종업원, 직원",
+        "exampleEn": "従業員のモチベーション向上は企業の生産性向上に直結するため、福利厚生の充実は喫緊の課題だ。",
+        "exampleKr": "종업원의 동기 부여 향상은 기업의 생산성 향상과 직결되므로, 복리후생의 충실은 시급한 과제이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じゅうぎょういん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-322-1780414442599",
+        "term": "災害",
+        "definition": "calamity; disaster; misfortune",
+        "meaningKr": "재해, 재난, 불행",
+        "exampleEn": "近年、地球温暖化の影響により、世界各地で大規模な自然災害が頻発する傾向にある。",
+        "exampleKr": "최근 지구 온난화의 영향으로 세계 각지에서 대규모 자연재해가 빈번하게 발생하는 경향이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さいがい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-323-1780414442599",
+        "term": "加入",
+        "definition": "joining (a club, organization, etc.); becoming a member; entry; admission; subscription; affiliation; signing (e.g. a treaty); taking out (insurance)",
+        "meaningKr": "가입, 참가, 편입",
+        "exampleEn": "団体の活動理念に共感する者は、所定の手続きを経ていつでも当会への加入を申し込むことができる。",
+        "exampleKr": "단체의 활동 이념에 공감하는 자는 소정의 절차를 거쳐 언제든지 본회 가입을 신청할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かにゅう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-324-1780414442599",
+        "term": "振り",
+        "definition": "swing; shake; sweep; wave; wag appearance; behaviour; behavior pretence; pretense; (false) show; pretending",
+        "meaningKr": "~하는 척, ~하는 모양, ~하는 태도",
+        "exampleEn": "彼は体調が悪いにもかかわらず、周囲に心配をかけまいと元気な振りをして仕事を続けていた。",
+        "exampleKr": "그는 몸 상태가 좋지 않음에도 불구하고, 주변에 걱정을 끼치지 않으려 건강한 척하며 일을 계속했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふり",
+        "pos": "noun, counter"
+      },
+      {
+        "id": "word-jp-advanced-325-1780414442599",
+        "term": "多様",
+        "definition": "diverse; varied",
+        "meaningKr": "다양함, 여러 가지",
+        "exampleEn": "現代社会では、人々の価値観が多様化するにつれ、社会問題も複雑化する傾向にある。",
+        "exampleKr": "현대 사회에서는 사람들의 가치관이 다양해짐에 따라 사회 문제 또한 복잡해지는 경향이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たよう",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-326-1780414442599",
+        "term": "悪化",
+        "definition": "deterioration; getting worse; worsening; aggravation; degeneration; corruption",
+        "meaningKr": "악화, 나빠짐",
+        "exampleEn": "経済状況の悪化にもかかわらず、政府は抜本的な対策を打ち出すことなく、事態は深刻化する一方だ。",
+        "exampleKr": "경제 상황의 악화에도 불구하고, 정부는 근본적인 대책을 내놓지 않아 사태는 심각해질 뿐이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あっか",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-327-1780414442599",
+        "term": "遺跡",
+        "definition": "(archeological) remains; ruins; relics",
+        "meaningKr": "유적, 유적지",
+        "exampleEn": "この地域で発見された古代の遺跡は、当時の生活様式を解明する上で極めて重要な手がかりとなる。",
+        "exampleKr": "이 지역에서 발견된 고대 유적은 당시의 생활 양식을 해명하는 데 있어 매우 중요한 단서가 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いせき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-328-1780414442599",
+        "term": "深める",
+        "definition": "to deepen; to heighten; to intensify",
+        "meaningKr": "깊게 하다, 심화시키다",
+        "exampleEn": "異文化理解を深めるにあたっては、相手の歴史や背景を知ることが不可欠である。",
+        "exampleKr": "이문화 이해를 심화시키기 위해서는 상대방의 역사와 배경을 아는 것이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふかめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-329-1780414442599",
+        "term": "聖書",
+        "definition": "Bible; the Scriptures; Holy Writ",
+        "meaningKr": "성서, 성경",
+        "exampleEn": "聖書は世界中で最も広く読まれている書物の一つであり、多くの人々の精神的な支えとなっている。",
+        "exampleKr": "성서는 전 세계에서 가장 널리 읽히는 서적 중 하나이며, 많은 사람들의 정신적인 버팀목이 되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せいしょ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-330-1780414442599",
+        "term": "形態",
+        "definition": "form; shape; figure morph",
+        "meaningKr": "형태, 모습",
+        "exampleEn": "現代の家族は多様な形態をとり、従来の固定観念にとらわれない新しい生活様式が注目されている。",
+        "exampleKr": "현대의 가족은 다양한 형태를 띠며, 기존의 고정관념에 얽매이지 않는 새로운 생활 양식이 주목받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けいたい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-331-1780414442599",
+        "term": "部下",
+        "definition": "subordinate person",
+        "meaningKr": "부하 직원, 부하",
+        "exampleEn": "上司は部下の能力を最大限に引き出すべく、個々の成長を促すような指導を心がけるべきだ。",
+        "exampleKr": "상사는 부하 직원의 능력을 최대한 이끌어내기 위해, 개개인의 성장을 촉진하는 지도를 해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぶか",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-332-1780414442599",
+        "term": "勤務",
+        "definition": "service; duty; work",
+        "meaningKr": "근무, 업무",
+        "exampleEn": "彼は長年の海外勤務経験を通じて、国際的なビジネス感覚を培うことができた。",
+        "exampleKr": "그는 오랜 해외 근무 경험을 통해 국제적인 비즈니스 감각을 기를 수 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きんむ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-333-1780414442599",
+        "term": "恋愛",
+        "definition": "love; love-making; passion; emotion; affections",
+        "meaningKr": "연애, 사랑",
+        "exampleEn": "恋愛は人生において人間関係を深める上で重要な要素であり、多くの文学作品の主題ともなっている。",
+        "exampleKr": "연애는 인생에서 인간관계를 심화시키는 데 중요한 요소이며, 많은 문학 작품의 주제가 되기도 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "れんあい",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-334-1780414442599",
+        "term": "区",
+        "definition": "ward; borough; city (in Tokyo) district (e.g. electoral); section; zone (e.g. postal)",
+        "meaningKr": "구, 구역, 지역",
+        "exampleEn": "この区では、高齢化が進むにつれて地域住民の交流を活性化させるための様々な取り組みが行われている。",
+        "exampleKr": "이 구에서는 고령화가 진행됨에 따라 지역 주민들의 교류를 활성화하기 위한 다양한 노력이 이루어지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "く",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-335-1780414442599",
+        "term": "骨",
+        "definition": "knack; skill; trick; secret; know-how; the ropes; hang bone; skeleton cremated remains (esp. the bones); ashes",
+        "meaningKr": "요령, 비결, 뼈",
+        "exampleEn": "どんな分野でも上達するには、ただ努力するだけでなく、その道の骨を掴むことが肝要だ。",
+        "exampleKr": "어떤 분야든 향상하기 위해서는 그저 노력하는 것뿐만 아니라, 그 분야의 요령을 터득하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-336-1780414442599",
+        "term": "ソース",
+        "definition": "sauce Worcestershire sauce",
+        "meaningKr": "소스, 근원",
+        "exampleEn": "この論文で引用されているデータは信頼できるソースから得られたものであり、その信憑性は高い。",
+        "exampleKr": "이 논문에서 인용된 데이터는 신뢰할 수 있는 소스에서 얻은 것이며, 그 신빙성은 높다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ソース",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-337-1780414442599",
+        "term": "背後",
+        "definition": "back; rear background; behind the scenes",
+        "meaningKr": "배후, 뒤편",
+        "exampleEn": "事件の背後には、複雑な人間関係や利害関係が絡んでいる可能性が指摘されている。",
+        "exampleKr": "사건의 배후에는 복잡한 인간관계나 이해관계가 얽혀 있을 가능성이 지적되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はいご",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-338-1780414442599",
+        "term": "確信",
+        "definition": "conviction; belief; confidence",
+        "meaningKr": "확신, 신념",
+        "exampleEn": "彼は自分の研究成果に揺るぎない確信を抱いており、どんな批判にも動じなかった。",
+        "exampleKr": "그는 자신의 연구 성과에 흔들림 없는 확신을 가지고 있었고, 어떤 비판에도 흔들리지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かくしん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-339-1780414442599",
+        "term": "今更",
+        "definition": "now (when it is already much too late); at this stage afresh; anew; again",
+        "meaningKr": "이제 와서, 새삼스럽게",
+        "exampleEn": "今更になって過去の過ちを悔やんだところで、状況が好転するわけでもなく、前向きな行動が求められる。",
+        "exampleKr": "이제 와서 과거의 잘못을 후회한들 상황이 호전될 리도 없고, 긍정적인 행동이 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いまさら",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-340-1780414442599",
+        "term": "側面",
+        "definition": "side; flank; profile; sidelight; lateral aspect; dimension",
+        "meaningKr": "측면, 옆면",
+        "exampleEn": "問題を多角的に捉えるためには、経済的側面だけでなく、社会的、文化的側面からも分析する必要がある。",
+        "exampleKr": "문제를 다각적으로 파악하기 위해서는 경제적 측면뿐만 아니라, 사회적, 문화적 측면에서도 분석할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "そくめん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-341-1780414442599",
+        "term": "作り",
+        "definition": "making; producing; manufacturing; building; construction; make; structure appearance (attire, make-up, etc.) build; physique",
+        "meaningKr": "만듦새, 구조, 외모",
+        "exampleEn": "この伝統工芸品は、職人の繊細な手作りと、素材の持ち味が一体となった見事な作りだ。",
+        "exampleKr": "이 전통 공예품은 장인의 섬세한 수작업과 소재의 특성이 하나가 된 훌륭한 만듦새다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "つくり",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-342-1780414442599",
+        "term": "崩壊",
+        "definition": "collapse; crumbling; breaking down; caving in (radioactive) decay; disintegration",
+        "meaningKr": "붕괴, 무너짐",
+        "exampleEn": "経済のグローバル化は、地域社会の伝統的な産業構造の崩壊を招く可能性もはらんでいる。",
+        "exampleKr": "경제의 세계화는 지역 사회의 전통적인 산업 구조의 붕괴를 초래할 가능성도 내포하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほうかい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-343-1780414442599",
+        "term": "器",
+        "definition": "bowl; vessel; container ability; capacity; calibre; caliber",
+        "meaningKr": "그릇, 도량, 재목",
+        "exampleEn": "彼は次期リーダーとしての器を持ち合わせていると評価されており、周囲からの期待も大きい。",
+        "exampleKr": "그는 차기 리더로서의 역량을 갖추고 있다고 평가받고 있으며, 주위의 기대 또한 크다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うつわ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-344-1780414442599",
+        "term": "衝撃",
+        "definition": "impact; shock; impulse (psychological) shock",
+        "meaningKr": "충격, 쇼크",
+        "exampleEn": "そのニュースは世界中に大きな衝撃を与え、人々の価値観や社会のあり方について再考を促した。",
+        "exampleKr": "그 뉴스는 전 세계에 큰 충격을 주었고, 사람들의 가치관과 사회의 모습에 대해 재고를 촉구했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょうげき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-345-1780414442599",
+        "term": "取り分け",
+        "definition": "especially; particularly; above all portioning out (servings of food)",
+        "meaningKr": "특히, 그중에서도",
+        "exampleEn": "彼の作品はどれも素晴らしいが、取り分けこの絵画は色彩のコントラストが際立っており、見る者を魅了する。",
+        "exampleKr": "그의 작품은 모두 훌륭하지만, 그중에서도 이 그림은 색채의 대비가 두드러져 보는 이를 매료시킨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とりわけ",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-346-1780414442599",
+        "term": "気配",
+        "definition": "indication; sign; hint; sensation; feeling tone (of the market)",
+        "meaningKr": "기색, 낌새, 징후",
+        "exampleEn": "市場全体に回復の気配が見られるものの、一部の業種では依然として厳しい状況が続いている。",
+        "exampleKr": "시장 전체에 회복의 기미가 보이지만, 일부 업종에서는 여전히 어려운 상황이 계속되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けはい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-347-1780414442599",
+        "term": "理論",
+        "definition": "theory",
+        "meaningKr": "이론",
+        "exampleEn": "彼の提唱する新しい理論は、既存の学説に一石を投じるものであり、今後の研究の発展が期待される。",
+        "exampleKr": "그가 제창하는 새로운 이론은 기존 학설에 일침을 가하는 것이며, 향후 연구 발전이 기대된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "りろん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-348-1780414442599",
+        "term": "如何にも",
+        "definition": "indeed; really; truly; just (like) very; extremely; totally; terribly absolutely; certainly; for sure",
+        "meaningKr": "정말로, 과연, 참으로",
+        "exampleEn": "彼の説明は如何にも専門家らしく、的確で分かりやすかったため、皆が納得した。",
+        "exampleKr": "그의 설명은 정말 전문가답게 정확하고 알기 쉬웠으므로, 모두가 납득했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いかにも",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-349-1780414442599",
+        "term": "絡む",
+        "definition": "to twine; to get tangled; to get entangled; to get caught (in) to be involved (e.g. of money in a matter); to get involved (in); to be a factor (in); to have an influence to pick a quarrel (with); to find fault (with); to pester; to hassle",
+        "meaningKr": "얽히다, 엮이다, 관련되다",
+        "exampleEn": "この問題には多くの利害関係者が絡んでおり、解決には複雑な交渉が避けられないだろう。",
+        "exampleKr": "이 문제에는 많은 이해관계자들이 얽혀 있어, 해결을 위해서는 복잡한 협상이 불가피할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "からむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-350-1780414442599",
+        "term": "構える",
+        "definition": "to set up (a house, store, etc.); to build; to establish; to run; to maintain to have at the ready (e.g. a gun); to hold in preparation (e.g. a camera); to prepare in advance (e.g. a meal) to adopt a posture; to assume a stance; to stand ready; to be poised for",
+        "meaningKr": "차리다, 세우다, (자세 등을) 취하다, 준비하다",
+        "exampleEn": "新規事業を始めるにあたって、彼は慎重な姿勢を構え、市場調査に多くの時間を費やした。",
+        "exampleKr": "신규 사업을 시작함에 있어, 그는 신중한 자세를 취하며 시장 조사에 많은 시간을 할애했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かまえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-351-1780414442599",
+        "term": "出品",
+        "definition": "exhibiting; showing; putting on display; putting up for sale; entering (a work into a competition); submitting",
+        "meaningKr": "출품, 전시, 출품하다",
+        "exampleEn": "経済状況の悪化により、多くのコレクターが貴重な美術品を出品せざるを得ない状況に陥っている。",
+        "exampleKr": "경제 상황 악화로 인해, 많은 수집가들이 귀중한 미술품을 출품할 수밖에 없는 상황에 처해 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅっぴん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-352-1780414442599",
+        "term": "たどり着く",
+        "definition": "to (finally) arrive at; to reach (at last); to (manage to) get to; to find one's way to",
+        "meaningKr": "겨우 도착하다, 간신히 다다르다",
+        "exampleEn": "嵐の中、遭難した登山者たちは、あらゆる困難をものともせず、ようやく山小屋にたどり着くことができた。",
+        "exampleKr": "폭풍우 속에서 조난당한 등산객들은 온갖 어려움에도 불구하고, 마침내 산장까지 간신히 도착할 수 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たどりつく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-353-1780414442599",
+        "term": "合併",
+        "definition": "merger (of companies, towns, etc.); combination; union; amalgamation; consolidation; coalition; fusion; annexation; affiliation; incorporation",
+        "meaningKr": "합병, 통합",
+        "exampleEn": "複数の企業が合併するに際して、従業員の雇用維持や企業文化の統合が重要な課題となる。",
+        "exampleKr": "여러 기업이 합병할 때, 직원의 고용 유지와 기업 문화 통합이 중요한 과제가 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "がっぺい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-354-1780414442599",
+        "term": "焦る",
+        "definition": "to be in a hurry; to be impatient; to be anxious (to do); to fret to get a fright; to panic; to get flustered; to be startled",
+        "meaningKr": "초조해하다, 안달하다, 당황하다",
+        "exampleEn": "一度プロジェクトを引き受けたからには、多少の困難があっても結果を出すまで焦るべきではない。",
+        "exampleKr": "일단 프로젝트를 맡았으니, 다소 어려움이 있더라도 결과를 낼 때까지 초조해해서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あせる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-355-1780414442599",
+        "term": "タイミング",
+        "definition": "timing",
+        "meaningKr": "타이밍, 시기",
+        "exampleEn": "投資においては、市場の動向を見極め、最適なタイミングで売買を行うことが成功の鍵となる。",
+        "exampleKr": "투자에 있어서는 시장의 동향을 파악하고, 최적의 타이밍에 매매를 하는 것이 성공의 열쇠가 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "タイミング",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-356-1780414442599",
+        "term": "退職",
+        "definition": "retirement; resignation",
+        "meaningKr": "퇴직, 퇴사",
+        "exampleEn": "会社の経営悪化に伴い、多くのベテラン社員が早期退職を余儀なくされ、再就職に苦慮している。",
+        "exampleKr": "회사의 경영 악화에 따라, 많은 베테랑 사원들이 조기 퇴직을 강요받고 재취업에 어려움을 겪고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たいしょく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-357-1780414442599",
+        "term": "携わる",
+        "definition": "to engage in; to participate in; to take part in; to be involved in",
+        "meaningKr": "종사하다, 관여하다, 참여하다",
+        "exampleEn": "彼はIT企業の経営に携わるかたわら、地域社会の活性化を目的としたボランティア活動にも積極的に参加している。",
+        "exampleKr": "그는 IT 기업 경영에 종사하는 한편, 지역 사회 활성화를 목적으로 하는 자원봉사 활동에도 적극적으로 참여하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たずさわる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-358-1780414442599",
+        "term": "意図",
+        "definition": "intention; aim; design",
+        "meaningKr": "의도, 목적",
+        "exampleEn": "彼の発言は、その意図するところにかかわらず、多くの誤解を招き、議論を巻き起こした。",
+        "exampleKr": "그의 발언은 그 의도와는 상관없이, 많은 오해를 불러일으키고 논쟁을 야기했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いと",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-359-1780414442599",
+        "term": "オープン",
+        "definition": "opening (a new store, golf course, runway, etc.) open; frank; approachable; open-hearted open (car, collar, tournament, etc.)",
+        "meaningKr": "개방, 공개, 개점, 솔직함",
+        "exampleEn": "新しい美術館は、市民の文化活動の拠点となることを前提として、来月オープンする運びとなった。",
+        "exampleKr": "새로운 미술관은 시민들의 문화 활동 거점이 될 것을 전제로 하여, 다음 달 개관하게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "オープン",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-360-1780414442599",
+        "term": "移行",
+        "definition": "transition; changeover; switchover; shift transfer (of powers, weight, etc.); shift (e.g. of centre of gravity)",
+        "meaningKr": "이행, 이행하다, 이관",
+        "exampleEn": "旧システムから新システムへの移行に際しては、データ損失のリスクを最小限に抑えるよう細心の注意が払われた。",
+        "exampleKr": "구 시스템에서 신 시스템으로 이행할 때에는, 데이터 손실 위험을 최소한으로 줄이도록 세심한 주의가 기울여졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いこう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-361-1780414442599",
+        "term": "転勤",
+        "definition": "job transfer; job relocation; intra-company transfer",
+        "meaningKr": "전근, 전보",
+        "exampleEn": "会社の経営戦略の一環として、多くの社員が地方への転勤を命じられ、家族と離れて暮らさざるを得ない状況だ。",
+        "exampleKr": "회사의 경영 전략 일환으로, 많은 사원들이 지방으로 전근 명령을 받아 가족과 떨어져 살 수밖에 없는 상황이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "てんきん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-362-1780414442599",
+        "term": "経緯",
+        "definition": "details; particulars; sequence of events; circumstances; situation; how things got this way longitude and latitude warp and weft; warp and woof",
+        "meaningKr": "경위, 전말, 사정",
+        "exampleEn": "その決定に至るまでの複雑な経緯は、関係者間でさえ完全には把握されておらず、多くの憶測を呼んでいる。",
+        "exampleKr": "그 결정에 이르기까지의 복잡한 경위는 관계자들조차 완전히 파악하지 못하고 있어, 많은 추측을 불러일으키고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けいい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-363-1780414442599",
+        "term": "覚え",
+        "definition": "memory; sense; experience",
+        "meaningKr": "기억, 견해, 평판, 경험",
+        "exampleEn": "彼は以前にも同様の失敗を犯した覚えがあるにもかかわらず、今回も同じ過ちを繰り返してしまった。",
+        "exampleKr": "그는 예전에도 비슷한 실수를 저지른 기억이 있음에도 불구하고, 이번에도 같은 잘못을 반복하고 말았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おぼえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-364-1780414442599",
+        "term": "権限",
+        "definition": "power; authority; jurisdiction",
+        "meaningKr": "권한",
+        "exampleEn": "新しいプロジェクトリーダーは、与えられた権限に則って、迅速かつ的確に意思決定を行うことが期待されている。",
+        "exampleKr": "새로운 프로젝트 리더는 부여받은 권한에 따라, 신속하고 정확하게 의사결정을 내릴 것이 기대된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けんげん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-365-1780414442599",
+        "term": "展示",
+        "definition": "exhibition; display",
+        "meaningKr": "전시, 전시하다",
+        "exampleEn": "最新の技術を広く一般に紹介することを目的として、画期的な製品の特別展示が開催されることになった。",
+        "exampleKr": "최신 기술을 널리 일반에 소개할 목적으로, 획기적인 제품의 특별 전시회가 개최되게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "てんじ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-366-1780414442599",
+        "term": "領域",
+        "definition": "territory; domain field; area; domain; sphere; realm domain; region",
+        "meaningKr": "영역, 분야",
+        "exampleEn": "AI技術の進化は、医療や教育といった多岐にわたる領域に深く踏み込み、社会に変革をもたらしている。",
+        "exampleKr": "AI 기술의 진화는 의료나 교육과 같은 다방면에 걸친 영역에 깊이 발을 들여놓으며, 사회에 변혁을 가져오고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "りょういき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-367-1780414442599",
+        "term": "引き起こす",
+        "definition": "to cause; to induce; to bring about; to provoke to pull upright; to help up (e.g. a fallen person)",
+        "meaningKr": "야기하다, 일으키다, 초래하다",
+        "exampleEn": "彼の軽率な行動ゆえに、会社は重大な信用失墜という事態を引き起こし、株価にも影響が出た。",
+        "exampleKr": "그의 경솔한 행동으로 인해, 회사는 심각한 신용 실추라는 사태를 야기했고, 주가에도 영향을 미쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひきおこす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-368-1780414442599",
+        "term": "同意",
+        "definition": "agreement; consent; approval; assent same opinion; same view same meaning",
+        "meaningKr": "동의, 동의하다",
+        "exampleEn": "個人情報の取り扱いに関しては、事前に本人の明確な同意を得た上でなければ、いかなる利用も許されない。",
+        "exampleKr": "개인 정보 취급에 관해서는, 사전에 본인의 명확한 동의를 얻은 후에야 비로소 어떠한 이용도 허용된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どうい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-369-1780414442599",
+        "term": "メディア",
+        "definition": "media",
+        "meaningKr": "미디어, 매체",
+        "exampleEn": "政治家たちは、世論やメディアの批判をよそに、自分たちの都合の良い政策を推し進めようとしている。",
+        "exampleKr": "정치인들은 여론과 미디어의 비판을 아랑곳하지 않고, 자신들에게 유리한 정책을 추진하려 하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "メディア",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-370-1780414442599",
+        "term": "葦",
+        "definition": "common reed (Phragmites australis)",
+        "meaningKr": "갈대",
+        "exampleEn": "夕暮れ時、湖畔に広がる葦原を背景に、渡り鳥たちが優雅に舞う光景は、見る者を魅了する。",
+        "exampleKr": "해 질 녘, 호숫가에 펼쳐진 갈대밭을 배경으로 철새들이 우아하게 춤추는 광경은 보는 이들을 매료시킨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-371-1780414442599",
+        "term": "制定",
+        "definition": "enactment; establishment; creation",
+        "meaningKr": "제정, 제정하다",
+        "exampleEn": "新しい法律の制定に際しては、国民の意見を幅広く聴取し、社会全体の利益を考慮することが不可欠だ。",
+        "exampleKr": "새로운 법률을 제정할 때에는, 국민의 의견을 폭넓게 청취하고 사회 전체의 이익을 고려하는 것이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せいてい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-372-1780414442599",
+        "term": "文書",
+        "definition": "document; writing; letter; papers; notes; records; archives document addressed to someone",
+        "meaningKr": "문서, 서류",
+        "exampleEn": "機密性の高い文書の管理は、厳格なセキュリティポリシーに則って行われるべきであり、漏洩は許されない。",
+        "exampleKr": "기밀성이 높은 문서 관리는 엄격한 보안 정책에 따라 이루어져야 하며, 유출은 용납되지 않는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぶんしょ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-373-1780414442599",
+        "term": "面する",
+        "definition": "to face on; to look out on to",
+        "meaningKr": "면하다, 마주하다",
+        "exampleEn": "その建物は主要道路に面しているにもかかわらず、交通の便が悪く、テナントの誘致に苦戦している。",
+        "exampleKr": "그 건물은 주요 도로에 접해 있음에도 불구하고, 교통편이 좋지 않아 세입자 유치에 어려움을 겪고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "めんする",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-374-1780414442599",
+        "term": "気軽",
+        "definition": "carefree; buoyant; lighthearted; sprightly ease",
+        "meaningKr": "가벼운 마음으로, 부담 없이, 손쉽게",
+        "exampleEn": "現代社会では、SNSといったツールを通じて、見知らぬ人とも気軽にコミュニケーションが取れるようになった。",
+        "exampleKr": "현대 사회에서는 SNS와 같은 도구를 통해, 모르는 사람과도 부담 없이 소통할 수 있게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きがる",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-375-1780414442599",
+        "term": "コーナー",
+        "definition": "corner; bend; turn segment (within a radio or TV program); session; column (newspaper, etc.) area; department; section",
+        "meaningKr": "코너, 모퉁이, (방송·신문 등의) 코너",
+        "exampleEn": "この番組の「世界経済の動向」というコーナーは、専門家による深い分析がなされるゆえに、視聴者からの評価が高い。",
+        "exampleKr": "이 프로그램의 '세계 경제 동향'이라는 코너는 전문가에 의한 심층 분석이 이루어지기에 시청자들의 평가가 높다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "コーナー",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-376-1780414442599",
+        "term": "徒歩",
+        "definition": "walking; going on foot",
+        "meaningKr": "도보, 걸음",
+        "exampleEn": "駅から会社まで徒歩で通勤する者は、健康増進のみならず、交通費の節約にもつながるものと期待されている。",
+        "exampleKr": "역에서 회사까지 도보로 통근하는 사람들은 건강 증진뿐만 아니라 교통비 절약에도 기여할 것으로 기대된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とほ",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-377-1780414442599",
+        "term": "完璧",
+        "definition": "perfect; complete; flawless",
+        "meaningKr": "완벽함, 완벽",
+        "exampleEn": "彼のプレゼンテーションは、準備段階から発表に至るまで完璧としか言いようがなく、聴衆を魅了した。",
+        "exampleKr": "그의 프레젠테이션은 준비 단계부터 발표에 이르기까지 완벽하다고밖에 말할 수 없었으며, 청중을 매료시켰다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かんぺき",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-378-1780414442599",
+        "term": "顎",
+        "definition": "jaw; chin barb (of a fishhook)",
+        "meaningKr": "턱",
+        "exampleEn": "彼の頑固な性格は、一度決めたら譲らないという、固く結ばれた顎のラインにも表れているかのようだ。",
+        "exampleKr": "그의 완고한 성격은 한번 결정하면 양보하지 않는다는, 굳게 다문 턱선에도 드러나는 듯하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あご",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-379-1780414442599",
+        "term": "雄",
+        "definition": "male (animal, plant)",
+        "meaningKr": "수컷, 웅성",
+        "exampleEn": "この森の生態系では、群れを率いる雄のリーダーが、種の存続において極めて重要な役割を担っている。",
+        "exampleKr": "이 숲의 생태계에서는 무리를 이끄는 수컷 리더가 종의 존속에 있어 지극히 중요한 역할을 담당하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おす",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-380-1780414442599",
+        "term": "運用",
+        "definition": "making use of; application; practical use; effective management (e.g. of funds) operation (esp. of a boat); steering",
+        "meaningKr": "운용, 활용, 관리",
+        "exampleEn": "投資信託の運用にあたっては、リスクとリターンを慎重に比較検討し、賢明な判断を下すことが肝要である。",
+        "exampleKr": "투자 신탁 운용에 있어서는 위험과 수익을 신중하게 비교 검토하고 현명한 판단을 내리는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うんよう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-381-1780414442599",
+        "term": "権力",
+        "definition": "(political) power; authority; influence",
+        "meaningKr": "권력, 권세",
+        "exampleEn": "歴史上、権力はしばしば腐敗を招き、多くの悲劇を生み出してきたことを我々は忘れてはならない。",
+        "exampleKr": "역사상 권력은 종종 부패를 초래하여 많은 비극을 낳았다는 것을 우리는 잊어서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けんりょく",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-382-1780414442599",
+        "term": "拒否",
+        "definition": "refusal; rejection; denial; veto",
+        "meaningKr": "거부",
+        "exampleEn": "企業買収の提案に対し、経営陣は株主の利益を鑑み、その条件を断固として拒否するに至った。",
+        "exampleKr": "기업 인수 제안에 대해 경영진은 주주의 이익을 고려하여 그 조건을 단호히 거부하기에 이르렀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きょひ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-383-1780414442599",
+        "term": "ビジネス",
+        "definition": "business",
+        "meaningKr": "비즈니스, 사업, 업무",
+        "exampleEn": "グローバル化が進む現代において、異文化理解は国際ビジネスを成功させる上で不可欠な要素である。",
+        "exampleKr": "세계화가 진행되는 현대에 있어, 이문화 이해는 국제 비즈니스를 성공시키는 데 필수적인 요소이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ビジネス",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-384-1780414442599",
+        "term": "組み合わせる",
+        "definition": "to put together; to combine; to join together; to join up to match against (e.g. in a sport)",
+        "meaningKr": "조합하다, 결합시키다, 짜 맞추다",
+        "exampleEn": "最新のテクノロジーと伝統的な職人技を組み合わせることで、これまでにない革新的な製品が誕生した。",
+        "exampleKr": "최신 기술과 전통적인 장인 정신을 결합함으로써, 지금까지 없었던 혁신적인 제품이 탄생했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "くみあわせる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-385-1780414442599",
+        "term": "無論",
+        "definition": "of course; certainly; naturally",
+        "meaningKr": "물론, 말할 나위 없이",
+        "exampleEn": "彼の提案は、実現可能性の面で問題があるものの、その独創性に関しては無論、高く評価されるべきだ。",
+        "exampleKr": "그의 제안은 실현 가능성 면에서 문제가 있기는 하지만, 그 독창성에 관해서는 물론 높이 평가되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "むろん",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-386-1780414442599",
+        "term": "雇用",
+        "definition": "employment; hire",
+        "meaningKr": "고용",
+        "exampleEn": "経済の低迷が続く中、新規の雇用創出は政府にとって最も喫緊の課題の一つであると言えよう。",
+        "exampleKr": "경제 침체가 지속되는 가운데, 새로운 고용 창출은 정부에게 가장 시급한 과제 중 하나라고 할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こよう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-387-1780414442599",
+        "term": "パチンコ",
+        "definition": "pachinko; mechanical gambling game superficially resembling pinball slingshot; catapult pistol",
+        "meaningKr": "파칭코 (일본의 도박성 게임)",
+        "exampleEn": "パチンコ産業は、経済効果が大きい一方で、ギャンブル依存症といった社会問題も引き起こしかねない。",
+        "exampleKr": "파칭코 산업은 경제 효과가 큰 반면, 도박 중독과 같은 사회 문제 또한 야기할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "パチンコ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-388-1780414442599",
+        "term": "導く",
+        "definition": "to guide; to lead; to show the way; to conduct to derive; to deduce",
+        "meaningKr": "이끌다, 인도하다, 안내하다",
+        "exampleEn": "優れたリーダーシップとは、困難な状況においてもチームを正しい方向へと導く能力を指すものだ。",
+        "exampleKr": "훌륭한 리더십이란 어려운 상황에서도 팀을 올바른 방향으로 이끄는 능력을 일컫는 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "みちびく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-389-1780414442599",
+        "term": "説得",
+        "definition": "persuasion",
+        "meaningKr": "설득",
+        "exampleEn": "彼の説得力のある話し方には、どんなに頑なな相手でさえも最終的には耳を傾けざるを得ない魅力がある。",
+        "exampleKr": "그의 설득력 있는 말솜씨에는 아무리 완고한 상대라도 결국 귀를 기울일 수밖에 없는 매력이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せっとく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-390-1780414442599",
+        "term": "籠もる",
+        "definition": "to shut oneself in (e.g. one's room); to be confined in; to seclude oneself; to hide away; to stay inside (one's shell) to fill with (emotion, enthusiasm, power, etc.); to imbue with; to infuse with to fill a space (of a gas, smell, etc.); to be heavy with (e.g. smoke); to be stuffy; to be dense",
+        "meaningKr": "틀어박히다, 갇히다, (냄새·열기 등이) 차다",
+        "exampleEn": "彼は研究に没頭すべく、数ヶ月間、外界との接触を断って書斎に籠もる生活を送っていた。",
+        "exampleKr": "그는 연구에 몰두하기 위해 몇 달간 외부와의 접촉을 끊고 서재에 틀어박혀 생활했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こもる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-391-1780414442599",
+        "term": "レッスン",
+        "definition": "lesson",
+        "meaningKr": "레슨, 수업",
+        "exampleEn": "ピアノのレッスンを始めたばかりの生徒は、基礎の重要性を理解し、地道な練習を続けることが肝心だ。",
+        "exampleKr": "피아노 레슨을 막 시작한 학생은 기초의 중요성을 이해하고 꾸준한 연습을 계속하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "レッスン",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-392-1780414442599",
+        "term": "放置",
+        "definition": "leaving as is; leaving alone; leaving to chance; neglecting; abandoning",
+        "meaningKr": "방치",
+        "exampleEn": "深刻な社会問題が放置されたままでは、やがて取り返しのつかない事態を招くことになりかねない。",
+        "exampleKr": "심각한 사회 문제가 방치된 채로 있으면, 결국 돌이킬 수 없는 사태를 초래할 수도 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほうち",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-393-1780414442599",
+        "term": "危機",
+        "definition": "crisis; critical situation; emergency; pinch",
+        "meaningKr": "위기",
+        "exampleEn": "地球温暖化による環境危機は、国際社会が協力して早急に対処すべき喫緊の課題である。",
+        "exampleKr": "지구 온난화에 따른 환경 위기는 국제사회가 협력하여 조속히 대처해야 할 시급한 과제이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-394-1780414442599",
+        "term": "象徴",
+        "definition": "symbol (of something abstract); emblem; (symbolic) representation",
+        "meaningKr": "상징",
+        "exampleEn": "その古い教会は、町の歴史と文化を象徴する建造物として、多くの人々に愛され続けている。",
+        "exampleKr": "그 오래된 교회는 마을의 역사와 문화를 상징하는 건축물로서, 많은 사람들에게 계속 사랑받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょうちょう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-395-1780414442599",
+        "term": "説く",
+        "definition": "to explain; to advocate; to preach; to persuade",
+        "meaningKr": "설파하다, 설명하다, 가르치다",
+        "exampleEn": "彼は長年の経験に基づき、成功への道は決して平坦ではないと、若者たちに力強く説いた。",
+        "exampleKr": "그는 오랜 경험을 바탕으로 성공으로 가는 길은 결코 평탄하지 않다고 젊은이들에게 힘주어 설파했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-396-1780414442599",
+        "term": "応募",
+        "definition": "application; subscription; entry (competition, raffle, etc.); enlistment",
+        "meaningKr": "응모, 지원",
+        "exampleEn": "このプロジェクトへの応募にあたっては、これまでの実績だけでなく、将来のビジョンも重視される。",
+        "exampleKr": "이 프로젝트에 응모하는 데 있어서는, 지금까지의 실적뿐만 아니라 미래의 비전 또한 중요하게 여겨진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おうぼ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-397-1780414442599",
+        "term": "固定",
+        "definition": "fixing (in place); being fixed (in place); securing; anchoring; fastening down fixing (e.g. salary, capital); keeping the same fixation (histology)",
+        "meaningKr": "고정",
+        "exampleEn": "現代社会では、一つの場所に固定された働き方にとらわれず、柔軟なキャリアを模索する人が増えている。",
+        "exampleKr": "현대 사회에서는 한곳에 고정된 근무 방식에 얽매이지 않고, 유연한 경력을 모색하는 사람이 늘고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こてい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-398-1780414442599",
+        "term": "告白",
+        "definition": "confession (to a crime, wrongdoing, etc.); admission professing one's feelings (to someone one wants to go out with); declaration of love profession (of faith)",
+        "meaningKr": "고백",
+        "exampleEn": "彼は長年の片思いの末、ついに意中の相手に自分の正直な気持ちを告白する決意を固めた。",
+        "exampleKr": "그는 오랜 짝사랑 끝에 마침내 마음에 둔 상대에게 자신의 솔직한 마음을 고백하기로 결심했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こくはく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-399-1780414442599",
+        "term": "引き取る",
+        "definition": "to take into one's possession; to receive; to accept; to collect; to claim to take into one's care (e.g. person, pet); to take custody of; to adopt to leave; to go away; to withdraw; to get out",
+        "meaningKr": "인수하다, 맡다, 데려가다, 물러가다",
+        "exampleEn": "飼い主の高齢化に伴い、保健所に保護された犬を新しい家族が責任を持って引き取ることになった。",
+        "exampleKr": "주인의 고령화에 따라, 보호소에 맡겨진 개를 새로운 가족이 책임지고 인수하게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひきとる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-400-1780414442599",
+        "term": "利点",
+        "definition": "advantage; point in favor; point in favour",
+        "meaningKr": "장점, 이점, 유리한 점",
+        "exampleEn": "この新しいシステムは、コスト削減と作業効率向上という二つの大きな利点がある。",
+        "exampleKr": "이 새로운 시스템은 비용 절감과 작업 효율 향상이라는 두 가지 큰 장점이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "りてん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-401-1780414442599",
+        "term": "ジャンル",
+        "definition": "genre; category; kind",
+        "meaningKr": "장르, 분야, 종류",
+        "exampleEn": "彼の作品はどのジャンルにも属さない独自のスタイルを確立しており、批評家の間で高く評価されている。",
+        "exampleKr": "그의 작품은 어떤 장르에도 속하지 않는 독자적인 스타일을 확립하여 비평가들 사이에서 높이 평가받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ジャンル",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-402-1780414442599",
+        "term": "ウイルス",
+        "definition": "virus",
+        "meaningKr": "바이러스",
+        "exampleEn": "新種のコンピューターウイルスが世界中で猛威を振るっており、多くの企業がその対策に追われている。",
+        "exampleKr": "신종 컴퓨터 바이러스가 전 세계적으로 맹위를 떨치고 있으며, 많은 기업이 그 대책 마련에 분주하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ウイルス",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-403-1780414442599",
+        "term": "漏れる",
+        "definition": "to leak out; to escape; to come through; to shine through; to filter out to find expression; to give vent to leak out; to be divulged; to be disclosed",
+        "meaningKr": "새다, 누설되다, 빠지다",
+        "exampleEn": "機密情報が外部に漏れる事態は、企業にとって甚大な損害をもたらすゆえ、厳重な管理が求められる。",
+        "exampleKr": "기밀 정보가 외부에 누설되는 사태는 기업에 막대한 손해를 초래하므로 엄격한 관리가 요구된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "もれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-404-1780414442599",
+        "term": "あら",
+        "definition": "oh!; ah!; oh no",
+        "meaningKr": "어머, 아이고, 아 (놀람이나 감탄사)",
+        "exampleEn": "あら、こんなところで偶然会うなんて、本当に世間は狭いものですね。",
+        "exampleKr": "어머, 이런 곳에서 우연히 만나다니, 정말 세상은 좁네요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "あら",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-jp-advanced-405-1780414442599",
+        "term": "入手",
+        "definition": "acquisition; obtaining; procurement; getting (hold of)",
+        "meaningKr": "입수, 손에 넣음, 획득",
+        "exampleEn": "その貴重な資料は、一般公開されていないため、入手するには特別な手続きが必要となる。",
+        "exampleKr": "그 귀중한 자료는 일반 공개되어 있지 않으므로, 입수하기 위해서는 특별한 절차가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "にゅうしゅ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-406-1780414442599",
+        "term": "孤独",
+        "definition": "solitude; loneliness; isolation",
+        "meaningKr": "고독, 외로움",
+        "exampleEn": "彼は成功の裏で、誰にも理解されない深い孤独を抱えていたにもかかわらず、表向きは平静を装っていた。",
+        "exampleKr": "그는 성공 이면에 누구에게도 이해받지 못하는 깊은 고독을 안고 있었음에도 불구하고, 겉으로는 평온한 척했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こどく",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-407-1780414442599",
+        "term": "交わす",
+        "definition": "to exchange (messages, greetings, arguments, etc.) to intersect; to cross; to interlace ... with one another; ... to each other",
+        "meaningKr": "주고받다, 교환하다, 마주치다",
+        "exampleEn": "首脳会談では、両国の将来的な協力関係について忌憚のない意見を交わした。",
+        "exampleKr": "정상회담에서는 양국의 미래 협력 관계에 대해 허심탄회한 의견을 주고받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かわす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-408-1780414442599",
+        "term": "要望",
+        "definition": "demand for; request",
+        "meaningKr": "요망, 요청, 요구",
+        "exampleEn": "住民からの要望に応えるべく、市は公共施設のバリアフリー化を推進する方針を打ち出した。",
+        "exampleKr": "주민들의 요청에 부응하고자 시는 공공시설의 배리어프리화를 추진하는 방침을 내놓았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ようぼう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-409-1780414442599",
+        "term": "営む",
+        "definition": "to run (a business); to operate; to conduct; to practice (law, medicine, etc.) to carry out; to perform; to lead (a life) to hold (a Buddhist or Shinto ceremony)",
+        "meaningKr": "경영하다, 운영하다, 영위하다",
+        "exampleEn": "彼は長年、地域に根差した小さな喫茶店を営んでおり、地元の人々に愛されている。",
+        "exampleKr": "그는 오랫동안 지역에 뿌리내린 작은 찻집을 운영하고 있으며, 현지 사람들에게 사랑받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いとなむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-410-1780414442599",
+        "term": "手のひら",
+        "definition": "palm (of the hand)",
+        "meaningKr": "손바닥",
+        "exampleEn": "小さな手のひらには夢と希望が詰まっており、その未来は無限の可能性を秘めている。",
+        "exampleKr": "작은 손바닥에는 꿈과 희망이 가득하며, 그 미래는 무한한 가능성을 품고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "てのひら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-411-1780414442599",
+        "term": "依然",
+        "definition": "still; as yet; as it has been",
+        "meaningKr": "여전히, 이전과 다름없이",
+        "exampleEn": "経済状況は依然として厳しいものの、政府は景気回復に向けた対策を講じている。",
+        "exampleKr": "경제 상황은 여전히 어렵지만, 정부는 경기 회복을 위한 대책을 강구하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いぜん",
+        "pos": "adjective, adverb"
+      },
+      {
+        "id": "word-jp-advanced-412-1780414442599",
+        "term": "素早い",
+        "definition": "quick; swift; nimble; agile quick (understanding, judgement, etc.); alert; prompt",
+        "meaningKr": "재빠르다, 민첩하다, 신속하다",
+        "exampleEn": "彼はどんな困難な状況においても、常に素早い判断と行動で危機を乗り越えてきた。",
+        "exampleKr": "그는 어떤 어려운 상황에서도 항상 재빠른 판단과 행동으로 위기를 극복해 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "すばやい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-413-1780414442599",
+        "term": "じっくり",
+        "definition": "(slowly and) carefully; without haste; thoroughly; deliberately; closely; meticulously",
+        "meaningKr": "차분히, 곰곰이, 충분히",
+        "exampleEn": "この問題は複雑であるゆえ、じっくり時間をかけて多角的に検討する必要がある。",
+        "exampleKr": "이 문제는 복잡하므로, 충분히 시간을 들여 다각적으로 검토할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じっくり",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-414-1780414442599",
+        "term": "提示",
+        "definition": "presentation (of a passport, ID, etc.); showing; production (e.g. of documents) presentation (of a plan, response, etc.); bringing up; citing (an example)",
+        "meaningKr": "제시, 제출, 내보임",
+        "exampleEn": "会議では、新しいプロジェクトの具体的な計画案が提示され、活発な議論が交わされた。",
+        "exampleKr": "회의에서는 새로운 프로젝트의 구체적인 계획안이 제시되었고, 활발한 논의가 오갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ていじ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-415-1780414442599",
+        "term": "優先",
+        "definition": "preference; priority; precedence",
+        "meaningKr": "우선, 우선함",
+        "exampleEn": "環境保護を優先する政策は、短期的な経済成長を犠牲にするとしても、長期的には不可欠である。",
+        "exampleKr": "환경 보호를 우선하는 정책은 단기적인 경제 성장을 희생하더라도 장기적으로는 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ゆうせん",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-416-1780414442599",
+        "term": "いい加減",
+        "definition": "irresponsible; perfunctory; careless lukewarm; half-baked; halfhearted; vague (already) enough",
+        "meaningKr": "무책임하다, 적당히, 되는대로; 꽤, 어느 정도; 지긋지긋하다",
+        "exampleEn": "いい加減な仕事ぶりは、顧客からの信頼を失うばかりか、会社の評判をも損ねるものだ。",
+        "exampleKr": "무책임한 일 처리는 고객의 신뢰를 잃을 뿐만 아니라, 회사의 평판까지 손상시키는 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いいかげん",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-417-1780414442599",
+        "term": "主体",
+        "definition": "main constituent; core; nucleus subject",
+        "meaningKr": "주체, 주된 부분",
+        "exampleEn": "このプロジェクトは、学生が主体となって企画・運営されており、その自主性が高く評価されている。",
+        "exampleKr": "이 프로젝트는 학생들이 주체가 되어 기획·운영되고 있으며, 그 자주성이 높이 평가받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅたい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-418-1780414442599",
+        "term": "他方",
+        "definition": "one (esp. of two); the other; one way; the other way; one direction; the other direction; one side; the other side; one party; the other party on the other hand",
+        "meaningKr": "한편, 다른 한편, 다른 쪽",
+        "exampleEn": "彼は研究に没頭するかたわら、他方では地域社会のボランティア活動にも積極的に参加している。",
+        "exampleKr": "그는 연구에 몰두하는 한편, 다른 한편으로는 지역사회의 자원봉사 활동에도 적극적으로 참여하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たほう",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-419-1780414442599",
+        "term": "手順",
+        "definition": "process; procedure; sequence; protocol; instruction",
+        "meaningKr": "절차, 순서, 과정",
+        "exampleEn": "新しいソフトウェアの導入にあたっては、複雑な手順を踏む必要があり、専門家の支援が不可欠である。",
+        "exampleKr": "새로운 소프트웨어 도입에 있어서는 복잡한 절차를 밟아야 하며, 전문가의 지원이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "てじゅん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-420-1780414442599",
+        "term": "並びに",
+        "definition": "and (also); both ... and; as well as",
+        "meaningKr": "및, 그리고, 또한",
+        "exampleEn": "本イベントでは、著名な学者による講演並びに参加者間の活発な意見交換が予定されている。",
+        "exampleKr": "본 행사에서는 저명한 학자의 강연 및 참가자들 간의 활발한 의견 교환이 예정되어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ならびに",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-jp-advanced-421-1780414442599",
+        "term": "合意",
+        "definition": "(coming to an) agreement; consent; mutual understanding; accord; consensus",
+        "meaningKr": "합의, 동의, 의견 일치",
+        "exampleEn": "長時間の議論を経て、最終的に両社は共同事業の開始について全面的な合意に至った。",
+        "exampleKr": "장시간의 논의를 거쳐, 최종적으로 양사는 공동 사업 시작에 대해 전면적인 합의에 이르렀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ごうい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-422-1780414442599",
+        "term": "技",
+        "definition": "technique; art; skill; move",
+        "meaningKr": "기술, 솜씨, 재주, 기예",
+        "exampleEn": "彼の演じる伝統芸能は、長年の鍛錬によって磨き上げられた卓越した技の結晶である。",
+        "exampleKr": "그가 연기하는 전통 예능은 오랜 단련으로 연마된 탁월한 기술의 결정체이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "わざ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-423-1780414442599",
+        "term": "仕上げる",
+        "definition": "to finish up; to complete; to finish off; to get through; to polish off",
+        "meaningKr": "마무리하다, 완성하다, 끝내다",
+        "exampleEn": "納期が迫る中、彼は徹夜して、誰もが納得する完璧なレポートを仕上げた。",
+        "exampleKr": "납기가 임박한 가운데, 그는 밤샘 작업을 하여 모두가 납득할 만한 완벽한 보고서를 완성했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しあげる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-424-1780414442599",
+        "term": "回収",
+        "definition": "collection; recovery; withdrawal; retrieval",
+        "meaningKr": "회수, 수거, 되찾음",
+        "exampleEn": "環境負荷軽減のため、使用済みペットボトルの回収を強化し、リサイクルを推進する計画だ。",
+        "exampleKr": "환경 부하 경감을 위해, 사용한 페트병 회수를 강화하고 재활용을 추진할 계획이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かいしゅう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-425-1780414442599",
+        "term": "再生",
+        "definition": "restoration to life; coming to life again; resuscitation; regeneration reformation; rehabilitation recycling; reclamation; recovery",
+        "meaningKr": "재생, 소생, 재활용",
+        "exampleEn": "環境問題が深刻化する中、使い捨てプラスチックの再生利用は喫緊の課題と言わざるを得ない。",
+        "exampleKr": "환경 문제가 심각해지는 가운데, 일회용 플라스틱의 재활용은 시급한 과제라고 말할 수밖에 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さいせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-426-1780414442599",
+        "term": "コントロール",
+        "definition": "control",
+        "meaningKr": "통제, 제어, 조절",
+        "exampleEn": "感情のコントロールができず、つい衝動的な行動に出てしまうことは誰にでもあることだろう。",
+        "exampleKr": "감정 제어가 안 되어 그만 충동적인 행동을 하게 되는 것은 누구에게나 있는 일일 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "コントロール",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-427-1780414442599",
+        "term": "活発",
+        "definition": "lively; active; vigorous; animated; brisk",
+        "meaningKr": "활발함, 활기참",
+        "exampleEn": "近年、若者を中心に社会貢献活動が活発化しており、その動向が注目されている。",
+        "exampleKr": "최근 젊은이들을 중심으로 사회 공헌 활동이 활발해지고 있으며, 그 동향이 주목받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かっぱつ",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-428-1780414442599",
+        "term": "施行",
+        "definition": "putting in force (a law); putting into operation; putting into effect; enforcement carrying out (a plan, policy, etc.); execution",
+        "meaningKr": "시행, 실시",
+        "exampleEn": "新法の施行にあたっては、国民への十分な周知と理解が不可欠であると政府は強調した。",
+        "exampleKr": "신법 시행에 있어서는 국민에게 충분히 알리고 이해를 구하는 것이 필수적이라고 정부는 강조했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しこう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-429-1780414442599",
+        "term": "教え",
+        "definition": "teaching; instruction; teachings; precept; lesson; doctrine",
+        "meaningKr": "가르침, 교훈, 교리",
+        "exampleEn": "彼の教えは、現代社会における倫理観の希薄化に一石を投じるものであった。",
+        "exampleKr": "그의 가르침은 현대사회에서의 윤리관 희박화에 일침을 가하는 것이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おしえ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-430-1780414442599",
+        "term": "追及",
+        "definition": "investigation (e.g. into someone's guilt); questioning; pressing; hounding; pinning down catching up; overtaking",
+        "meaningKr": "추궁, 추적, 규명",
+        "exampleEn": "汚職事件の真相を追及するため、特別調査委員会が設置され、徹底的な調査が進められている。",
+        "exampleKr": "부패 사건의 진상을 추궁하기 위해 특별조사위원회가 설치되어 철저한 조사가 진행되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ついきゅう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-431-1780414442599",
+        "term": "特許",
+        "definition": "patent special permission; license; licence; concession; charter",
+        "meaningKr": "특허, 특별 허가",
+        "exampleEn": "この革新的な技術は、世界各国で特許を取得しており、競合他社に対する優位性を確立している。",
+        "exampleKr": "이 혁신적인 기술은 세계 각국에서 특허를 취득하여, 경쟁사에 대한 우위를 확립하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とっきょ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-432-1780414442599",
+        "term": "株式",
+        "definition": "share (in a company); stock",
+        "meaningKr": "주식",
+        "exampleEn": "企業の将来性を評価する上で、単に現在の株式市場の動向のみに惑わされてはならない。",
+        "exampleKr": "기업의 장래성을 평가함에 있어서, 단순히 현재 주식시장의 동향에만 현혹되어서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かぶしき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-433-1780414442599",
+        "term": "転換",
+        "definition": "conversion; diversion; changeover; commutation; switchover",
+        "meaningKr": "전환, 변경",
+        "exampleEn": "経済のグローバル化に伴い、企業は従来のビジネスモデルからの転換を迫られているのが現状だ。",
+        "exampleKr": "경제의 세계화에 따라 기업은 기존 비즈니스 모델로부터의 전환을 강요받고 있는 것이 현실이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "てんかん",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-434-1780414442599",
+        "term": "タンパク質",
+        "definition": "protein",
+        "meaningKr": "단백질",
+        "exampleEn": "健康的な体を作るためには、バランスの取れた食事と適切な量のタンパク質摂取が不可欠である。",
+        "exampleKr": "건강한 몸을 만들기 위해서는 균형 잡힌 식사와 적절한 양의 단백질 섭취가 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たんぱくしつ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-435-1780414442599",
+        "term": "固める",
+        "definition": "to harden; to freeze; to strengthen; to solidify; to make (a fist); to tramp down (snow, dirt) to put together; to collect; to gather; to consolidate to make secure; to stabilize; to settle down; to strengthen (belief, resolution, etc.); to establish (evidence)",
+        "meaningKr": "굳히다, 단단히 하다, 확고히 하다",
+        "exampleEn": "彼は今回の経験を通して、将来の目標をさらに固め、新たな決意を胸に歩み始めた。",
+        "exampleKr": "그는 이번 경험을 통해 장래의 목표를 더욱 굳히고, 새로운 결의를 가슴에 품고 나아가기 시작했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かためる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-436-1780414442599",
+        "term": "反する",
+        "definition": "to be contrary (to); to go against; to run counter (to); to contradict; to be opposite (to) to infringe; to violate; to transgress to disobey (an order, teachings, etc.); to defy; to rebel; to revolt",
+        "meaningKr": "반하다, 위배되다",
+        "exampleEn": "彼の行動は、会社の倫理規定に反するものであり、厳重な処分が下されることとなった。",
+        "exampleKr": "그의 행동은 회사 윤리 규정에 위배되는 것이어서, 엄중한 처벌이 내려지게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はんする",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-437-1780414442599",
+        "term": "宣言",
+        "definition": "declaration; proclamation; announcement",
+        "meaningKr": "선언, 공표",
+        "exampleEn": "政府は、地球温暖化対策として、2050年までにカーボンニュートラルを達成することを宣言した。",
+        "exampleKr": "정부는 지구 온난화 대책으로, 2050년까지 탄소 중립을 달성할 것을 선언했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せんげん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-438-1780414442599",
+        "term": "暴力",
+        "definition": "violence; mayhem",
+        "meaningKr": "폭력",
+        "exampleEn": "いかなる理由があろうとも、暴力によって問題を解決しようとする行為は決して許されない。",
+        "exampleKr": "어떠한 이유가 있더라도 폭력으로 문제를 해결하려는 행위는 결코 용납될 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ぼうりょく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-439-1780414442599",
+        "term": "革命",
+        "definition": "revolution 58th year of the sexagenary cycle (in Onmyōdō)",
+        "meaningKr": "혁명",
+        "exampleEn": "この技術革新は、産業構造に革命をもたらし、我々の生活様式を根本から変えるだろう。",
+        "exampleKr": "이 기술 혁신은 산업 구조에 혁명을 가져와 우리의 생활 양식을 근본적으로 바꿀 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かくめい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-440-1780414442599",
+        "term": "一連",
+        "definition": "series; chain; sequence two reams (i.e. 1000 sheets of paper) verse; stanza",
+        "meaningKr": "일련의, 한 무리의",
+        "exampleEn": "その企業が起こした一連の不祥事は、社会全体に大きな波紋を広げていると言えよう。",
+        "exampleKr": "그 기업이 일으킨 일련의 불상사는 사회 전체에 큰 파문을 일으키고 있다고 말할 수 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いちれん",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-441-1780414442599",
+        "term": "セックス",
+        "definition": "sex; sexual intercourse (one's) sex; gender",
+        "meaningKr": "성별, 성관계",
+        "exampleEn": "多様な価値観が尊重される現代社会において、セックスとジェンダーの区別は重要である。",
+        "exampleKr": "다양한 가치관이 존중되는 현대사회에서, 성별(sex)과 젠더(gender)의 구분은 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "セックス",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-442-1780414442599",
+        "term": "進出",
+        "definition": "advance (into a new market, industry, etc.); expansion (into); launch (into); entering; making inroads (into) advance (to the next round of a competition)",
+        "meaningKr": "진출, 진입",
+        "exampleEn": "多くの日本企業が海外市場への進出を加速させており、グローバル競争は一層激化している。",
+        "exampleKr": "많은 일본 기업이 해외 시장으로의 진출을 가속화하고 있으며, 글로벌 경쟁은 더욱 격화되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しんしゅつ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-443-1780414442599",
+        "term": "大げさ",
+        "definition": "exaggerated; overdone; overblown; hyperbolic; bombastic; grandiose",
+        "meaningKr": "과장됨, 호들갑스러움",
+        "exampleEn": "彼の話はいつも大げさで、事実を正確に伝えるよりも聞き手の反応を求める傾向がある。",
+        "exampleKr": "그의 이야기는 항상 과장되어 있어서, 사실을 정확히 전달하기보다는 듣는 이의 반응을 요구하는 경향이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "おおげさ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-444-1780414442599",
+        "term": "加工",
+        "definition": "manufacturing; processing; treatment; machining",
+        "meaningKr": "가공, 처리",
+        "exampleEn": "食品加工技術の進歩は目覚ましく、保存性や利便性の高い製品が次々と開発されている。",
+        "exampleKr": "식품 가공 기술의 발전은 눈부셔서, 보존성과 편의성이 높은 제품들이 연이어 개발되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かこう",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-445-1780414442599",
+        "term": "施す",
+        "definition": "to give (time, money, goods); to donate to do; to perform; to conduct to apply (processing, makeup, etc.); to add (e.g. ornamentation, annotation)",
+        "meaningKr": "베풀다, 실시하다, 행하다",
+        "exampleEn": "被災地への支援として、政府は迅速かつ大規模な復旧対策を施すことを決定した。",
+        "exampleKr": "피해 지역 지원으로서, 정부는 신속하고 대규모적인 복구 대책을 실시하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほどこす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-446-1780414442599",
+        "term": "人材",
+        "definition": "capable person; talented person human resources; personnel",
+        "meaningKr": "인재, 유능한 사람",
+        "exampleEn": "グローバル化の進展に伴い、多様な文化背景を持つ人材の育成が企業の喫緊の課題となっている。",
+        "exampleKr": "세계화의 진전에 따라, 다양한 문화적 배경을 가진 인재 육성이 기업의 시급한 과제가 되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じんざい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-447-1780414442599",
+        "term": "微か",
+        "definition": "faint; dim; weak; slight; vague; indistinct; hazy poor; wretched; meagre; meager; scanty",
+        "meaningKr": "희미하게, 미약하게",
+        "exampleEn": "遠くから微かに聞こえる波の音だけが、静かな夜の浜辺に響き渡っていた。",
+        "exampleKr": "멀리서 희미하게 들려오는 파도 소리만이 고요한 밤 해변에 울려 퍼지고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かすか",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-448-1780414442599",
+        "term": "排除",
+        "definition": "exclusion; removal; elimination; clearing away; getting rid of",
+        "meaningKr": "배제, 제거, 배척",
+        "exampleEn": "情報セキュリティの観点から、不正アクセスやウイルスを徹底的に排除する必要がある。",
+        "exampleKr": "정보 보안의 관점에서, 부정 접속이나 바이러스를 철저히 배제할 필요가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はいじょ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-449-1780414442599",
+        "term": "育成",
+        "definition": "rearing; training; nurture; cultivation; promotion",
+        "meaningKr": "육성, 양성, 길러냄",
+        "exampleEn": "次世代を担う若手リーダーの育成は、組織の持続的な成長にとって不可欠な要素である。",
+        "exampleKr": "차세대를 이끌어갈 젊은 리더의 육성은 조직의 지속적인 성장을 위해 필수적인 요소이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いくせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-450-1780414442599",
+        "term": "動機",
+        "definition": "motive; incentive motif",
+        "meaningKr": "동기, 계기",
+        "exampleEn": "彼の突然の辞職の動機については様々な憶測が飛び交っているが、真相は依然として不明だ。",
+        "exampleKr": "그의 갑작스러운 사직 동기에 대해서는 여러 추측이 난무하고 있지만, 진상은 여전히 불분명하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "どうき",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-451-1780414442599",
+        "term": "自立",
+        "definition": "independence; self-reliance",
+        "meaningKr": "자립, 독립",
+        "exampleEn": "経済的な自立を果たすことは、現代社会において個人の尊厳を保つ上で不可欠であると言えよう。",
+        "exampleKr": "경제적 자립을 이루는 것은 현대 사회에서 개인의 존엄을 유지하는 데 필수적이라고 할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "じりつ",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-452-1780414442599",
+        "term": "でかい",
+        "definition": "huge; big; gargantuan",
+        "meaningKr": "엄청나게 큰, 거대한",
+        "exampleEn": "その会社は、業界再編の波に乗じて、でかい市場シェアを獲得し、急速に成長を遂げた。",
+        "exampleKr": "그 회사는 업계 재편의 물결을 타고 엄청나게 큰 시장 점유율을 확보하여 급속한 성장을 이루었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "でかい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-453-1780414442599",
+        "term": "矢鱈",
+        "definition": "indiscriminately; blindly; at random; recklessly; thoughtlessly; excessively; profusely indiscriminate; random; excessive",
+        "meaningKr": "몹시, 지독히, 마구잡이로",
+        "exampleEn": "彼は会議中、矢鱈と自分の意見ばかり主張し、他者の発言に耳を傾けようとしなかった。",
+        "exampleKr": "그는 회의 중에 몹시 자기 의견만 주장하고, 다른 사람의 발언에 귀 기울이려 하지 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "やたら",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-454-1780414442599",
+        "term": "望ましい",
+        "definition": "desirable; hoped for; preferable; advisable",
+        "meaningKr": "바람직하다, 소망스럽다",
+        "exampleEn": "環境問題の解決には、国際社会が連携し、具体的な行動計画を策定することが望ましい。",
+        "exampleKr": "환경 문제 해결을 위해서는 국제사회가 연대하여 구체적인 행동 계획을 수립하는 것이 바람직하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "のぞましい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-455-1780414442599",
+        "term": "取り除く",
+        "definition": "to remove; to deinstall; to take away; to set apart",
+        "meaningKr": "제거하다, 없애다",
+        "exampleEn": "新しいシステムを導入するにあたり、既存の非効率なプロセスを徹底的に取り除く必要があった。",
+        "exampleKr": "새로운 시스템을 도입함에 있어서, 기존의 비효율적인 프로세스를 철저히 제거할 필요가 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "とりのぞく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-456-1780414442599",
+        "term": "不可欠",
+        "definition": "indispensable; essential",
+        "meaningKr": "불가결하다, 필수적이다",
+        "exampleEn": "グローバル化が進む現代において、異文化理解はビジネス成功のために不可欠な要素である。",
+        "exampleKr": "세계화가 진행되는 현대에, 이문화 이해는 비즈니스 성공을 위해 불가결한 요소이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふかけつ",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-457-1780414442599",
+        "term": "乗り込む",
+        "definition": "to board (a train, plane, etc.); to get into (a car); to get on (a bus); to go on board; to get aboard to march into; to enter; to arrive (at, in)",
+        "meaningKr": "(탈것에) 타다, 진출하다, 쳐들어가다",
+        "exampleEn": "調査団は、未開の地へと探検船に乗り込み、新たな動植物の発見に挑んだ。",
+        "exampleKr": "조사단은 미지의 땅으로 탐험선에 올라타, 새로운 동식물 발견에 도전했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "のりこむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-458-1780414442599",
+        "term": "欠く",
+        "definition": "to chip; to nick; to break; to crack to lack",
+        "meaningKr": "결여하다, 부족하다, 빠뜨리다",
+        "exampleEn": "どんなに優れた人材であっても、チームワークを欠いてはプロジェクトを成功させることは難しい。",
+        "exampleKr": "아무리 뛰어난 인재라도 팀워크가 결여되면 프로젝트를 성공시키기는 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かく",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-459-1780414442599",
+        "term": "血管",
+        "definition": "blood vessel; vein",
+        "meaningKr": "혈관",
+        "exampleEn": "高齢化社会において、脳血管疾患の予防と早期発見は、健康寿命を延ばす上で極めて重要だ。",
+        "exampleKr": "고령화 사회에서 뇌혈관 질환의 예방과 조기 발견은 건강 수명을 늘리는 데 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けっかん",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-460-1780414442599",
+        "term": "抽選",
+        "definition": "lottery; raffle; drawing (of lots)",
+        "meaningKr": "추첨",
+        "exampleEn": "限定販売のチケットは人気が高く、応募者多数のため厳正なる抽選が行われることになった。",
+        "exampleKr": "한정 판매 티켓은 인기가 많아 응모자가 많아 엄정한 추첨이 진행되게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ちゅうせん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-461-1780414442599",
+        "term": "手法",
+        "definition": "technique; method",
+        "meaningKr": "수법, 기법, 방법",
+        "exampleEn": "彼は、伝統的な絵画の手法に現代的な要素を取り入れ、独自の芸術スタイルを確立した。",
+        "exampleKr": "그는 전통적인 회화 기법에 현대적인 요소를 도입하여 독자적인 예술 스타일을 확립했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しゅほう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-462-1780414442599",
+        "term": "肉体",
+        "definition": "the body; the flesh; the outer man; one's physique",
+        "meaningKr": "육체, 몸",
+        "exampleEn": "精神的な健康は、肉体的な健康と密接に結びついており、両者のバランスが重要だ。",
+        "exampleKr": "정신 건강은 육체 건강과 밀접하게 연결되어 있으며, 양자의 균형이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "にくたい",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-463-1780414442599",
+        "term": "協議",
+        "definition": "conference; consultation; discussion; negotiation",
+        "meaningKr": "협의, 협상, 논의",
+        "exampleEn": "政府と企業は、環境規制の強化について数ヶ月にわたり協議を重ね、最終的な合意に至った。",
+        "exampleKr": "정부와 기업은 환경 규제 강화에 대해 수개월간 협의를 거듭하여 최종 합의에 이르렀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "きょうぎ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-464-1780414442599",
+        "term": "ベスト",
+        "definition": "best",
+        "meaningKr": "최선, 최고",
+        "exampleEn": "困難な状況においても、常にベストを尽くす姿勢が、最終的な成功へと繋がるものだ。",
+        "exampleKr": "어려운 상황에서도 항상 최선을 다하는 자세가 최종적인 성공으로 이어지는 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ベスト",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-465-1780414442599",
+        "term": "感染",
+        "definition": "infection; contagion; becoming infected being infected (e.g. with harmful ideas); being influenced (by)",
+        "meaningKr": "감염",
+        "exampleEn": "新型ウイルスの感染拡大を防ぐため、政府は国民に対し厳格な行動制限を要請した。",
+        "exampleKr": "신종 바이러스의 감염 확산을 막기 위해 정부는 국민에게 엄격한 행동 제한을 요청했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かんせん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-466-1780414442599",
+        "term": "手元",
+        "definition": "at hand; on hand; nearby; close at hand way of moving one's arms; skill money at hand; pocket money",
+        "meaningKr": "수중, 가까이, 손놀림",
+        "exampleEn": "彼は常に最新の情報を手元に置き、市場の動向を正確に把握しようと努めていた。",
+        "exampleKr": "그는 항상 최신 정보를 수중에 두고 시장 동향을 정확히 파악하려고 노력했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "てもと",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-jp-advanced-467-1780414442599",
+        "term": "受け継ぐ",
+        "definition": "to inherit; to succeed; to take over",
+        "meaningKr": "계승하다, 물려받다",
+        "exampleEn": "彼は父親の事業を受け継ぐにあたり、伝統を守りつつも新たな改革を断行した。",
+        "exampleKr": "그는 아버지의 사업을 계승함에 있어서, 전통을 지키면서도 새로운 개혁을 단행했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うけつぐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-468-1780414442599",
+        "term": "削減",
+        "definition": "cut; reduction; curtailment",
+        "meaningKr": "삭감, 절감",
+        "exampleEn": "企業の持続可能な成長のためには、無駄な経費の削減が喫緊の課題であると言えよう。",
+        "exampleKr": "기업의 지속 가능한 성장을 위해서는 불필요한 경비 삭감이 시급한 과제라고 할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さくげん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-469-1780414442599",
+        "term": "試みる",
+        "definition": "to try; to attempt; to have a go (at)",
+        "meaningKr": "시도하다, 시험해 보다",
+        "exampleEn": "彼は誰もが不可能だと諦めた難題に対し、果敢にも新たな解決策を試みようとした。",
+        "exampleKr": "그는 모두가 불가능하다고 포기한 난제에 대해, 과감하게 새로운 해결책을 시도하려 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こころみる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-470-1780414442599",
+        "term": "所得",
+        "definition": "income; earnings",
+        "meaningKr": "소득",
+        "exampleEn": "所得格差の拡大は社会の不安定化を招きかねず、政府は是正策を講じるべきだ。",
+        "exampleKr": "소득 격차 확대는 사회 불안정화를 초래할 수 있으므로, 정부는 시정 조치를 강구해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しょとく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-471-1780414442599",
+        "term": "難い",
+        "definition": "difficult; hard",
+        "meaningKr": "~하기 어렵다, ~하기 힘들다",
+        "exampleEn": "現代社会において、情報過多ゆえに真実を見極めることは極めて難い課題となっている。",
+        "exampleKr": "현대 사회에서 정보 과다로 인해 진실을 분별하는 것은 지극히 어려운 과제가 되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かたい",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-472-1780414442599",
+        "term": "調理",
+        "definition": "cooking; food preparation",
+        "meaningKr": "조리, 요리",
+        "exampleEn": "彼は、限られた食材と調理器具にもかかわらず、驚くほど美味しい料理を作り出した。",
+        "exampleKr": "그는 제한된 식재료와 조리 도구에도 불구하고, 놀라울 정도로 맛있는 요리를 만들어냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ちょうり",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-473-1780414442599",
+        "term": "不況",
+        "definition": "(economic) depression; recession; slump",
+        "meaningKr": "불황, 불경기",
+        "exampleEn": "長引く不況にもかかわらず、その企業は革新的な技術開発によって業績を伸ばし続けた。",
+        "exampleKr": "장기화되는 불황에도 불구하고, 그 기업은 혁신적인 기술 개발을 통해 실적을 계속 늘려갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふきょう",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-474-1780414442599",
+        "term": "古代",
+        "definition": "ancient times; distant past; antiquity",
+        "meaningKr": "고대",
+        "exampleEn": "古代文明の遺跡からは、当時の人々の高度な技術と精神文化をうかがい知ることができる。",
+        "exampleKr": "고대 문명의 유적에서는 당시 사람들의 고도한 기술과 정신 문화를 엿볼 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "こだい",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-475-1780414442599",
+        "term": "逃れる",
+        "definition": "to escape",
+        "meaningKr": "벗어나다, 피하다, 면하다",
+        "exampleEn": "彼は長年の苦しい状況からようやく逃れることができたものの、心には深い傷跡が残った。",
+        "exampleKr": "그는 오랜 세월의 고통스러운 상황에서 마침내 벗어날 수 있었지만, 마음속에는 깊은 상처가 남았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "のがれる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-476-1780414442599",
+        "term": "励ます",
+        "definition": "to encourage; to cheer on; to cheer (someone) up to raise (one's voice)",
+        "meaningKr": "격려하다, 용기를 북돋우다",
+        "exampleEn": "困難な状況に直面する仲間を励ますべく、リーダーは前向きな言葉をかけ続けた。",
+        "exampleKr": "어려운 상황에 직면한 동료들을 격려하고자, 리더는 긍정적인 말을 계속 건넸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "はげます",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-477-1780414442599",
+        "term": "非難",
+        "definition": "criticism; blame; censure; attack; reproach",
+        "meaningKr": "비난, 비판",
+        "exampleEn": "彼の軽率な発言は、国内外から厳しい非難を浴び、辞任を余儀なくされた。",
+        "exampleKr": "그의 경솔한 발언은 국내외로부터 혹독한 비난을 받았고, 결국 사임할 수밖에 없었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひなん",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-478-1780414442599",
+        "term": "唱える",
+        "definition": "to recite; to chant to cry; to yell; to shout to advocate; to advance; to preach; to insist",
+        "meaningKr": "주장하다, 제창하다, 외치다",
+        "exampleEn": "その学者は、地球温暖化対策として再生可能エネルギーへの大規模な投資を唱えている。",
+        "exampleKr": "그 학자는 지구 온난화 대책으로 재생 가능 에너지에 대한 대규모 투자를 주장하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "となえる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-479-1780414442599",
+        "term": "助け",
+        "definition": "assistance; help; aid; support; reinforcement",
+        "meaningKr": "도움, 원조, 구원",
+        "exampleEn": "災害に見舞われた地域へ、世界中から多くの助けが差し伸べられたことは、希望の光となった。",
+        "exampleKr": "재해를 입은 지역에 전 세계로부터 많은 도움이 손길이 뻗쳐진 것은 희망의 빛이 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "たすけ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-480-1780414442599",
+        "term": "舐める",
+        "definition": "to lick; to lap; to suck to taste to experience (esp. a hardship)",
+        "meaningKr": "핥다, 맛보다, 얕보다",
+        "exampleEn": "彼は困難な挑戦を前に、「失敗を恐れていては成功は舐められない」と語った。",
+        "exampleKr": "그는 어려운 도전을 앞두고 “실패를 두려워해서는 성공을 맛볼 수 없다”고 말했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "なめる",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-481-1780414442599",
+        "term": "不明",
+        "definition": "unclear; obscure; indistinct; uncertain; ambiguous unknown; unidentified ignorance; lack of wisdom; lack of insight",
+        "meaningKr": "불명확함, 알 수 없음, 미상",
+        "exampleEn": "事故の原因については、いまだ不明な点が多く、徹底的な調査が求められている。",
+        "exampleKr": "사고 원인에 대해서는 아직 불명확한 점이 많아, 철저한 조사가 요구되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふめい",
+        "pos": "adjective, noun"
+      },
+      {
+        "id": "word-jp-advanced-482-1780414442599",
+        "term": "差し出す",
+        "definition": "to hold out; to extend (e.g. a hand) to present; to submit; to tender to sacrifice; to give (up)",
+        "meaningKr": "내밀다, 제출하다, 바치다",
+        "exampleEn": "困っている人々に手を差し出すことこそが、真の社会貢献であると彼は信じている。",
+        "exampleKr": "어려움에 처한 사람들에게 손을 내미는 것만이 진정한 사회 공헌이라고 그는 믿고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さしだす",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-483-1780414442599",
+        "term": "福祉",
+        "definition": "welfare; well-being; social welfare; social security; social service",
+        "meaningKr": "복지",
+        "exampleEn": "高齢化社会における福祉の充実は、政府にとって喫緊の課題であると言えよう。",
+        "exampleKr": "고령화 사회에서 복지 확충은 정부에게 있어 시급한 과제라고 할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ふくし",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-484-1780414442599",
+        "term": "汚れ",
+        "definition": "uncleanness; impurity; defilement disgrace; shame; stain; blot; corruption; depravity uncleanliness from contact with death, pregnancy, menstruation, etc.",
+        "meaningKr": "더러움, 오염, 불결",
+        "exampleEn": "この水は見た目には透明だが、微細な汚れが含まれている可能性も否定できない。",
+        "exampleKr": "이 물은 겉보기에는 투명하지만, 미세한 오염 물질이 포함되어 있을 가능성도 부정할 수 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けがれ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-485-1780414442599",
+        "term": "栽培",
+        "definition": "cultivation",
+        "meaningKr": "재배",
+        "exampleEn": "この地域では、有機栽培によって育てられた野菜が、高い評価を得ている。",
+        "exampleKr": "이 지역에서는 유기농 재배로 키워진 채소가 높은 평가를 받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "さいばい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-486-1780414442599",
+        "term": "視野",
+        "definition": "field of vision; view one's outlook (e.g. on life); one's horizons",
+        "meaningKr": "시야, 시야 범위, 안목",
+        "exampleEn": "国際的な問題に目を向け、自身の視野を広げることは、現代社会において不可欠である。",
+        "exampleKr": "국제적인 문제에 관심을 갖고 자신의 시야를 넓히는 것은 현대 사회에서 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しや",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-487-1780414442599",
+        "term": "審査",
+        "definition": "judging; inspection; examination; investigation; review",
+        "meaningKr": "심사, 검토",
+        "exampleEn": "新製品の安全性に関する審査は厳しく、多くの基準をクリアしなければならない。",
+        "exampleKr": "신제품의 안전성에 관한 심사는 엄격하여, 많은 기준을 통과해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "しんさ",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-488-1780414442599",
+        "term": "ゆとり",
+        "definition": "elbowroom; leeway; room; reserve; margin; allowance; latitude; time (to spare)",
+        "meaningKr": "여유, 융통성",
+        "exampleEn": "忙しい現代社会においても、心にゆとりを持って生活することが重要だと彼は説く。",
+        "exampleKr": "바쁜 현대 사회에서도 마음에 여유를 가지고 생활하는 것이 중요하다고 그는 말한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ゆとり",
+        "pos": "noun, adjective"
+      },
+      {
+        "id": "word-jp-advanced-489-1780414442599",
+        "term": "打ち込む",
+        "definition": "to drive in (a nail, stake, etc.); to hammer in to hit (a ball, etc.); to drive; to smash to fire into; to shoot into",
+        "meaningKr": "박아 넣다, 몰두하다, 열중하다",
+        "exampleEn": "彼は研究に没頭し、寝食を忘れて実験に打ち込むあまり、体調を崩してしまった。",
+        "exampleKr": "그는 연구에 몰두하고, 잠자는 것과 먹는 것을 잊고 실험에 열중한 나머지 건강을 해치고 말았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "うちこむ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-490-1780414442599",
+        "term": "推測",
+        "definition": "guess; conjecture",
+        "meaningKr": "추측",
+        "exampleEn": "彼の行動の真意については様々な推測が飛び交っているものの、確かな情報はない。",
+        "exampleKr": "그의 행동의 진의에 대해서는 다양한 추측이 난무하고 있지만, 확실한 정보는 없다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "すいそく",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-491-1780414442599",
+        "term": "接触",
+        "definition": "touch; contact; touching",
+        "meaningKr": "접촉, 만남",
+        "exampleEn": "異文化との接触は、私たちの世界観を広げ、新たな価値観をもたらす契機となる。",
+        "exampleKr": "이문화와의 접촉은 우리의 세계관을 넓히고 새로운 가치관을 가져오는 계기가 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "せっしょく",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-492-1780414442599",
+        "term": "意欲",
+        "definition": "will; desire; eagerness; interest; drive; motivation; urge; ambition",
+        "meaningKr": "의욕, 열의",
+        "exampleEn": "新しいプロジェクトに対する彼の意欲は高く、チーム全体を鼓舞するほどであった。",
+        "exampleKr": "새로운 프로젝트에 대한 그의 의욕은 높아서, 팀 전체를 고무할 정도였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "いよく",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-493-1780414442599",
+        "term": "本音",
+        "definition": "real intention; motive; true opinion; what one really thinks",
+        "meaningKr": "본심, 속마음",
+        "exampleEn": "会議では建前ばかりで、なかなか本音で意見を交わせないのがこの会社の課題だ。",
+        "exampleKr": "회의에서는 겉치레만 있고, 좀처럼 본심으로 의견을 나눌 수 없는 것이 이 회사의 과제이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ほんね",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-494-1780414442599",
+        "term": "結成",
+        "definition": "formation; combination",
+        "meaningKr": "결성, 형성",
+        "exampleEn": "環境保護を目的とした市民団体が結成され、活発な活動を展開している。",
+        "exampleKr": "환경 보호를 목적으로 한 시민 단체가 결성되어, 활발한 활동을 전개하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "けっせい",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-jp-advanced-495-1780414442599",
+        "term": "名付ける",
+        "definition": "to name; to call; to christen; to term",
+        "meaningKr": "이름 짓다, 명명하다",
+        "exampleEn": "新しく発見された星には、古代の神話からインスピレーションを得て名付けることになった。",
+        "exampleKr": "새롭게 발견된 별에는 고대 신화에서 영감을 얻어 이름을 짓기로 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "なづける",
+        "pos": "verb"
+      },
+      {
+        "id": "word-jp-advanced-496-1780414442599",
+        "term": "捜査",
+        "definition": "search (esp. in criminal investigations); investigation; inquiry; enquiry",
+        "meaningKr": "수사",
+        "exampleEn": "警察は、事件の真相を究明すべく、あらゆる可能性を視野に入れて徹底的な捜査を進めている。",
+        "exampleKr": "경찰은 사건의 진상을 규명하고자 모든 가능성을 염두에 두고 철저한 수사를 진행하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "そうさ",
+        "pos": "noun, verb, adjective"
+      },
+      {
+        "id": "word-jp-advanced-497-1780414442599",
+        "term": "事柄",
+        "definition": "matter; thing; affair; circumstance",
+        "meaningKr": "일, 사항, 사물",
+        "exampleEn": "彼の話には、個人的な感情を交えず、客観的な事柄だけが淡々と述べられていた。",
+        "exampleKr": "그의 이야기에는 개인적인 감정을 섞지 않고, 객관적인 사실들만이 담담하게 서술되어 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ことがら",
+        "pos": "noun"
+      },
+      {
+        "id": "word-jp-advanced-498-1780414442599",
+        "term": "密か",
+        "definition": "secret; private; surreptitious",
+        "meaningKr": "은밀함, 비밀스러움",
+        "exampleEn": "彼は密かに慈善活動を行っており、その功績は後に多くの人々に知られることになった。",
+        "exampleKr": "그는 은밀하게 자선 활동을 하고 있었고, 그 공적은 후에 많은 사람들에게 알려지게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "ひそか",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-jp-advanced-499-1780414442599",
+        "term": "傾ける",
+        "definition": "to incline; to lean; to tip; to tilt; to slant; to bend; to list to devote oneself to; to concentrate on; to pour one's energy into to ruin; to squander; to empty",
+        "meaningKr": "기울이다, 경청하다, 쏟다",
+        "exampleEn": "彼は困難な状況にもかかわらず、自身の全エネルギーをそのプロジェクトに傾ける覚悟を固めた。",
+        "exampleKr": "그는 어려운 상황에도 불구하고, 자신의 모든 에너지를 그 프로젝트에 쏟을 각오를 다졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Japanese",
+          "JLPT",
+          "Advanced"
+        ],
+        "phonetic": "かたむける",
+        "pos": "verb"
+      }
+    ]
+  },
+{
     "id": "curated-spelling-ko-1",
     "title": "자주 틀리는 한국어 맞춤법 100",
     "icon": "✍️",

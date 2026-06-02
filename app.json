@@ -16,6 +16,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.soksokvoca",
+      "usesAppleSignIn": true,
       "infoPlist": {
         "NSSpeechRecognitionUsageDescription": "Allow 아보카도 to use speech recognition for voice input.",
         "NSMicrophoneUsageDescription": "Allow 아보카도 to use the microphone for voice input.",
@@ -50,6 +51,8 @@
         }
       ],
       "@react-native-google-signin/google-signin",
+      "expo-apple-authentication",
+      "expo-tracking-transparency",
       "expo-web-browser",
       "expo-sqlite",
       [

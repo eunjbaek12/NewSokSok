@@ -2,6 +2,7 @@
 // Local dev: falls back to ./google-services.json (file on disk, not in git).
 // EAS Build: set GOOGLE_SERVICES_JSON as a file secret env var.
 const { expo } = require('./app.json');
+const withLocalizedATT = require('./plugins/withLocalizedATT');
 
 // AdMob App ID. EAS Secret `EXPO_PUBLIC_ADMOB_ANDROID_APP_ID` (실 ID) 또는
 // 미설정 시 Google 공식 테스트 App ID로 fallback.
@@ -39,6 +40,9 @@ if (process.env.EAS_BUILD_PROFILE === 'production') {
       'EXPO_PUBLIC_ADMOB_IOS_APP_ID',
       'EXPO_PUBLIC_ADMOB_IOS_BANNER_ID',
       'EXPO_PUBLIC_ADMOB_IOS_REWARDED_ID',
+      // iOS Google Sign-In은 iOS 타입 OAuth 클라이언트가 따로 필요. webClientId만으론
+      // DEVELOPER_ERROR(code 10). features/auth/store.ts:configureGoogleSignIn 참조.
+      'EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS',
     );
   }
   const missing = required.filter((k) => !process.env[k] || process.env[k].length === 0);
@@ -68,5 +72,9 @@ module.exports = {
         iosAppId,
       },
     ],
+    // NSUserTrackingUsageDescription을 ko/en .lproj로 다국어화. expo-tracking-transparency
+    // plugin은 base 값만 다루므로 글로벌 출시용으로 별도 plugin이 필요. 자세한 동작은
+    // plugins/withLocalizedATT.js 헤더 참고.
+    withLocalizedATT,
   ],
 };

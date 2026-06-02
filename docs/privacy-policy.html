@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>개인정보 처리방침 - 아보카도</title>
+  <title>Privacy Policy · 개인정보 처리방침 - Avocado</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -16,6 +16,30 @@
       max-width: 760px;
       margin: 0 auto;
       padding: 48px 24px 80px;
+    }
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .lang-switch button {
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border: 1px solid #c7d9ff;
+      background: #fff;
+      color: #1B6EF3;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .lang-switch button:hover { background: #f0f5ff; }
+    .lang-switch button.active {
+      background: #1B6EF3;
+      color: #fff;
+      border-color: #1B6EF3;
     }
     header {
       margin-bottom: 40px;
@@ -89,10 +113,18 @@
       color: #999;
       text-align: center;
     }
+    [data-lang]:not(.show) { display: none; }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="lang-switch" role="group" aria-label="Language switcher">
+      <button type="button" data-set-lang="ko" class="active">한국어</button>
+      <button type="button" data-set-lang="en">English</button>
+    </div>
+
+    <!-- ===================== KOREAN ===================== -->
+    <div data-lang="ko" class="show">
     <header>
       <h1>개인정보 처리방침</h1>
       <p>아보카도 (Avocado) &nbsp;·&nbsp; 시행일: 2026년 5월 18일</p>
@@ -255,7 +287,18 @@
     </section>
 
     <section>
-      <h2>8. 개인정보 보호책임자</h2>
+      <h2>8. 국외 이전 안내</h2>
+      <p>
+        본 서비스는 Supabase(AWS) 클라우드를 통해 사용자의 학습 데이터·계정 정보를
+        저장하며, 일부 데이터는 한국 외 지역(예: 싱가포르, 미국)에 위치한 서버에서
+        처리될 수 있습니다. 또한 Google Gemini / Vertex AI·Google AdMob·Google Play
+        Billing은 글로벌 인프라를 통해 운영됩니다. 모든 국외 이전은 서비스 제공
+        목적에 한정되며, 관련 법령과 각 사업자의 데이터 보호 기준을 준수합니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. 개인정보 보호책임자</h2>
       <div class="contact-box">
         <p><strong>서비스명:</strong> 아보카도 (Avocado)</p>
         <p><strong>문의:</strong> 앱 내 피드백 기능 또는 Google Play 개발자 페이지를 통해 연락해 주세요.</p>
@@ -263,15 +306,255 @@
     </section>
 
     <section>
-      <h2>9. 방침 변경 안내</h2>
+      <h2>10. 방침 변경 안내</h2>
       <p>
         본 방침이 변경될 경우, 변경 7일 전부터 앱 내 공지 또는 이 페이지를 통해 안내합니다.
       </p>
     </section>
 
     <footer>
-      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 5월 18일</p>
+      <p>아보카도 개인정보 처리방침 &nbsp;·&nbsp; 최종 수정일: 2026년 6월 2일</p>
     </footer>
+    </div>
+
+    <!-- ===================== ENGLISH ===================== -->
+    <div data-lang="en">
+    <header>
+      <h1>Privacy Policy</h1>
+      <p>Avocado &nbsp;·&nbsp; Effective: May 18, 2026 &nbsp;·&nbsp; Last updated: June 2, 2026</p>
+    </header>
+
+    <section>
+      <p>
+        Avocado ("the App") respects your privacy. This Policy explains what
+        information we collect, how we use it, who we share it with, and the
+        rights you have. We process personal data in accordance with the Korean
+        Personal Information Protection Act (PIPA), and we follow the principles
+        of the EU GDPR and California CCPA where they apply to you.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. Information We Collect</h2>
+      <table>
+        <thead>
+          <tr><th>Category</th><th>Items</th><th>When collected</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Sign-In</td>
+            <td>Email address, name, profile picture URL, Google account identifier</td>
+            <td>When you sign in with Google</td>
+          </tr>
+          <tr>
+            <td>App usage data</td>
+            <td>Words, example sentences, vocabulary lists you create, and study results</td>
+            <td>While you use the App</td>
+          </tr>
+          <tr>
+            <td>AI usage stats</td>
+            <td>Daily word count, rewarded-ad views, request counts (linked to user ID, reset at midnight Korea Standard Time)</td>
+            <td>When using AI features (signed-in users, operator-key path only)</td>
+          </tr>
+          <tr>
+            <td>Pro subscription</td>
+            <td>Google Play purchase token, product ID, expiry date</td>
+            <td>When you purchase a Pro subscription</td>
+          </tr>
+          <tr>
+            <td>Advertising ID (Android Advertising ID)</td>
+            <td>Used only for Google AdMob ad delivery. Not combined with other identifiers.</td>
+            <td>While ads are shown to Free users</td>
+          </tr>
+          <tr>
+            <td>Guest mode</td>
+            <td>No personal information collected (data stored locally on your device only)</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2. Purposes of Collection and Use</h2>
+      <ul>
+        <li>Account identification and sign-in</li>
+        <li>Cloud sync of learning data across devices</li>
+        <li>Providing AI-based word and example generation (Google Gemini / Vertex AI)</li>
+        <li>Managing daily AI quotas and accruing rewarded-ad bonuses</li>
+        <li>Verifying Pro subscription status and payment receipts (Google Play Developer API)</li>
+        <li>Showing advertising (Free users only, Google AdMob)</li>
+        <li>Diagnosing service errors and improving quality</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Retention and Deletion</h2>
+      <ul>
+        <li><strong>Retention period:</strong> Until you delete your account or stop using the service.</li>
+        <li><strong>Deletion method:</strong> Complete removal from the database immediately upon account deletion.</li>
+        <li><strong>Legal retention:</strong> Where applicable laws require longer retention, we retain only for the period required and then delete.</li>
+        <li><strong>Exception (trial-abuse prevention):</strong> To prevent repeated re-claiming of the 7-day Pro free trial, we retain only an irreversible one-way hash (SHA-256) of the sign-up email after account deletion. The original email is not retained; the hash cannot identify you and is used solely to block duplicate trial grants.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third Parties and Processors</h2>
+      <table>
+        <thead>
+          <tr><th>Provider</th><th>Purpose</th><th>Data shared</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google LLC</td>
+            <td>Google Sign-In authentication</td>
+            <td>Google account tokens</td>
+          </tr>
+          <tr>
+            <td>Google Gemini / Vertex AI</td>
+            <td>AI word generation, example sentences, image text recognition</td>
+            <td>Words or photo text you submit (no personal identifiers)</td>
+          </tr>
+          <tr>
+            <td>Google AdMob</td>
+            <td>Showing banner and rewarded ads to Free users</td>
+            <td>Advertising ID, device information</td>
+          </tr>
+          <tr>
+            <td>Google Play Billing / Developer API</td>
+            <td>Pro subscription payment and receipt verification</td>
+            <td>Purchase token, subscription product ID</td>
+          </tr>
+          <tr>
+            <td>Supabase (AWS)</td>
+            <td>Cloud database storage, Edge Function execution</td>
+            <td>Learning data, account info, AI usage stats, subscription state</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px; font-size:0.85rem; color:#666;">
+        These providers process only the minimum data necessary to deliver the service and are prohibited from using it for other purposes.
+        Payment instrument details (such as card numbers) are handled solely by Google Play and are never stored by the App or our servers.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. App Permissions</h2>
+      <ul>
+        <li><strong>Microphone / Speech recognition:</strong> Used only for voice word entry. Audio is processed on-device and is not sent to our servers.</li>
+        <li><strong>Camera:</strong> Used only when scanning photos to add words. Captured images are discarded immediately after text recognition and are not stored.</li>
+        <li><strong>Photo library (optional):</strong> Used only when you import a photo for word extraction. Only the photo you select is processed.</li>
+        <li><strong>Advertising ID (com.google.android.gms.permission.AD_ID):</strong> Used only to show ads to Free users. Pro users see no ads.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5-1. Pro Subscription Billing and Refunds</h2>
+      <ul>
+        <li><strong>Payment processing:</strong> Pro subscriptions are billed exclusively through Google Play. Payment instruments (cards, etc.) are handled by Google Play.</li>
+        <li><strong>What we store:</strong> Only the purchase token, product ID, and expiry date needed to activate your subscription.</li>
+        <li><strong>Cancellation:</strong> Cancel anytime via Google Play app → Menu → Payments &amp; subscriptions → Subscriptions.</li>
+        <li><strong>Refunds:</strong> Refunds follow Google Play's policy and are requested through Google Play.</li>
+        <li><strong>After cancellation:</strong> Your vocabulary lists and study data remain intact (automatically reverting to Free tier limits).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Your Rights</h2>
+      <p>You may exercise the following rights at any time:</p>
+      <ul>
+        <li>Access the personal information we hold about you</li>
+        <li>Request correction or deletion of your information</li>
+        <li>Restrict processing or withdraw your consent</li>
+        <li>Delete your account (App Settings → Account → Delete account)</li>
+        <li>If you are in the EEA/UK: rights under GDPR, including data portability and the right to lodge a complaint with your local supervisory authority</li>
+        <li>If you are in California: rights under CCPA, including the right to know, delete, and not be discriminated against for exercising these rights. We do not "sell" personal information as defined by CCPA.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Age of Users and Children's Privacy</h2>
+      <p>
+        This service is intended for users aged 14 and older. The App does not
+        knowingly collect personal information (including date of birth or age)
+        from children under 14.
+      </p>
+      <p style="margin-top:8px;">
+        If we learn that a child under 14 has created an account, we will delete
+        that account and related information promptly. You can report suspected
+        cases through the in-app feedback feature.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. International Data Transfers</h2>
+      <p>
+        We store learning data and account information using Supabase (AWS),
+        and some data may be processed on servers located outside your country
+        of residence (for example, Singapore or the United States). Google
+        Gemini / Vertex AI, Google AdMob, and Google Play Billing also operate
+        on global infrastructure. All international transfers are limited to
+        what is necessary to provide the service and are subject to applicable
+        laws and the data protection standards of each provider.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Privacy Contact</h2>
+      <div class="contact-box">
+        <p><strong>Service:</strong> Avocado</p>
+        <p><strong>Contact:</strong> Please reach us through the in-app feedback feature or the Google Play developer page.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>10. Changes to This Policy</h2>
+      <p>
+        If we change this Policy, we will give at least 7 days' notice in the
+        App or on this page before the changes take effect.
+      </p>
+    </section>
+
+    <footer>
+      <p>Avocado Privacy Policy &nbsp;·&nbsp; Last updated: June 2, 2026</p>
+    </footer>
+    </div>
   </div>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('[data-set-lang]');
+      var sections = document.querySelectorAll('[data-lang]');
+      var html = document.documentElement;
+
+      function setLang(lang) {
+        sections.forEach(function (el) {
+          el.classList.toggle('show', el.getAttribute('data-lang') === lang);
+        });
+        buttons.forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+        });
+        html.setAttribute('lang', lang);
+        try { localStorage.setItem('avocado-pp-lang', lang); } catch (e) {}
+      }
+
+      // 1. URL ?lang=en (?lang=ko)  2. localStorage  3. browser preference  4. ko default
+      var params = new URLSearchParams(window.location.search);
+      var fromUrl = params.get('lang');
+      var fromStore = null;
+      try { fromStore = localStorage.getItem('avocado-pp-lang'); } catch (e) {}
+      var browser = (navigator.language || 'ko').toLowerCase().startsWith('en') ? 'en' : 'ko';
+      var initial = (fromUrl === 'ko' || fromUrl === 'en') ? fromUrl
+                  : (fromStore === 'ko' || fromStore === 'en') ? fromStore
+                  : browser;
+      setLang(initial);
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

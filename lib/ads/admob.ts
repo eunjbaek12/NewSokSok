@@ -10,6 +10,10 @@
 
 import mobileAds, { MaxAdContentRating, TestIds } from 'react-native-google-mobile-ads';
 import { Platform } from 'react-native';
+import {
+  getTrackingPermissionsAsync,
+  requestTrackingPermissionsAsync,
+} from 'expo-tracking-transparency';
 
 // ────────────────────────────────────────────────────────────
 // 광고 단위 ID (env override → TestIds fallback)
@@ -55,6 +59,16 @@ export async function initAdMob(): Promise<void> {
   }
 
   try {
+    // iOS 14.5+: App Tracking Transparency (ATT) 동의를 광고 SDK 초기화 이전에
+    // 요청해야 IDFA 사용 가능. AdMob 권장 순서.
+    //   - 동의: 개인화 광고 (eCPM ↑)
+    //   - 거부/미정: 비개인화 광고 (수익 ↓이지만 광고는 계속 노출됨)
+    // ATT 거부해도 앱 기능엔 영향 없고, AdMob도 IDFA 없이 광고 노출은 가능하다.
+    // Android에선 ATT 자체가 없어 즉시 granted로 응답 → skip.
+    if (Platform.OS === 'ios') {
+      await requestATTConsent();
+    }
+
     await mobileAds().initialize();
     // tagForChildDirectedTreatment / tagForUnderAgeOfConsent는 생략 → SDK 상 "운영자가 신원 모름" 표명.
     // 앱은 만 14세 이상 대상이고 연령을 수집하지 않으므로 child-directed treatment를 단언하지 않는다.
@@ -63,6 +77,24 @@ export async function initAdMob(): Promise<void> {
     });
   } catch {
     // 초기화 실패해도 앱 동작은 유지. 광고만 로드 실패.
+  }
+}
+
+// ────────────────────────────────────────────────────────────
+// ATT (App Tracking Transparency) — iOS 14.5+
+// ────────────────────────────────────────────────────────────
+//
+// 시스템 모달은 사용자당 한 번만 노출 가능. 두 번째부터는 OS가 즉시 기존 응답을
+// 반환하므로 매 실행마다 호출해도 안전 (사용자 방해 X). 사용자가 한 번 결정한
+// 후엔 시스템 설정 → 개인정보 보호 → 추적에서만 변경 가능.
+async function requestATTConsent(): Promise<void> {
+  try {
+    const current = await getTrackingPermissionsAsync();
+    if (current.status === 'undetermined' && current.canAskAgain) {
+      await requestTrackingPermissionsAsync();
+    }
+  } catch {
+    // ATT 요청 실패 → 비개인화 광고로 동작. 사용자 경험 영향 없음.
   }
 }
 

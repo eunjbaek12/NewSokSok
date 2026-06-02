@@ -5,15 +5,18 @@
 // 흐름:
 //   1. JWT 검증 → 사용자 식별
 //   2. rate-limit (분당 5건)
-//   3. Android: Play Developer API로 subscription 상태 조회
-//      iOS:     (v1.2 follow-up — Apple StoreKit 2 JWS 검증)
-//   4. SUBSCRIPTION_STATE_ACTIVE | IN_GRACE_PERIOD 만 인정
-//      productId 일치 + expiryTime > now 검증
+//   3. Android: purchaseToken으로 Play Developer subscriptionsv2 조회
+//      iOS:     purchaseToken(JWS)에서 transactionId 디코딩 → App Store Server
+//               API에 transaction 조회 (production → 404면 sandbox fallback)
+//   4. Android: SUBSCRIPTION_STATE_ACTIVE | IN_GRACE_PERIOD + productId 일치 + expiry > now
+//      iOS:     bundleId 일치 + productId 일치 + revocationDate 없음 + expiresDate > now
 //   5. user_subscriptions 갱신 (service_role): tier='pro', pro_until=expiryTime,
-//      play_purchase_token, play_product_id
+//      play_purchase_token=(Android purchaseToken | iOS originalTransactionId),
+//      play_product_id
 //
 // 제어 흐름은 handler.ts(createVerifyHandler) 로 추출 — Deno 없이 Jest 로 테스트.
-// 이 파일은 Deno/esm.sh 의존성(getUser/Play API/upsert)을 주입하고 HTTP 로 감싸는 wiring 만 담당.
+// 이 파일은 Deno/esm.sh 의존성(getUser/Play API/Apple API/upsert)을 주입하고
+// HTTP 로 감싸는 wiring 만 담당.
 //
 // 응답:
 //   200 { ok: true, tier: 'pro', pro_until: ISOString, product_id }
@@ -27,9 +30,14 @@
 //   PLAY_SA_CLIENT_EMAIL   Play Developer API 서비스 계정 이메일
 //   PLAY_SA_PRIVATE_KEY    Play Developer API 서비스 계정 private key (PEM, \n 이스케이프 OK)
 //   ANDROID_PACKAGE_NAME   com.soksokvoca (앱 패키지명)
+//   APPLE_KEY_ID           App Store Connect API Key ID
+//   APPLE_ISSUER_ID        App Store Connect Issuer ID (UUID)
+//   APPLE_BUNDLE_ID        com.soksokvoca (iOS bundle 식별자)
+//   APPLE_PRIVATE_KEY      App Store Connect API .p8 EC private key (PEM, \n 이스케이프 OK)
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
 import { getGoogleAccessToken } from '../_shared/google-auth.ts';
+import { fetchAppleTransaction, decodeJWSPayload } from '../_shared/apple-storekit.ts';
 import { createVerifyHandler, type SubscriptionRow } from './handler.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
@@ -82,6 +90,36 @@ const handle = createVerifyHandler({
   // subscriptionsv2: 새 unified API. 기존 v3 subscriptions API 대비 권장.
   fetchPlay: (url, accessToken) =>
     fetch(url, { headers: { Authorization: `Bearer ${accessToken}` } }),
+
+  getAppleConfig() {
+    const keyId = Deno.env.get('APPLE_KEY_ID');
+    const issuerId = Deno.env.get('APPLE_ISSUER_ID');
+    const bundleId = Deno.env.get('APPLE_BUNDLE_ID');
+    const privateKey = Deno.env.get('APPLE_PRIVATE_KEY');
+    if (!keyId || !issuerId || !bundleId || !privateKey) {
+      console.error('verify-purchase: missing APPLE_KEY_ID/ISSUER_ID/BUNDLE_ID/PRIVATE_KEY');
+      return null;
+    }
+    return { keyId, issuerId, bundleId, privateKey };
+  },
+
+  async fetchAppleTransaction(transactionId, creds) {
+    const result = await fetchAppleTransaction(transactionId, creds);
+    if (!result) return null;
+    // _shared의 AppleTransactionInfo 와 handler의 AppleTransactionPayload는
+    // 형태가 동일 — 그대로 통과.
+    return { environment: result.environment, payload: result.info };
+  },
+
+  decodeAppleJWS(jws) {
+    try {
+      const payload = decodeJWSPayload(jws);
+      const transactionId = typeof payload.transactionId === 'string' ? payload.transactionId : undefined;
+      return { transactionId };
+    } catch {
+      return null;
+    }
+  },
 
   async upsertSubscription(row: SubscriptionRow) {
     const svc = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);

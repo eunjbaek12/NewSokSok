@@ -53,3 +53,49 @@ export function evaluateSubscription(
 
   return { ok: true, expiryTime };
 }
+
+// ─── Apple (App Store Server API) ──────────────────────────────────────────
+
+/** App Store Server API `signedTransactionInfo` payload (디코딩된 형태). */
+export interface AppleTransactionPayload {
+  bundleId?: string;
+  productId?: string;
+  transactionId?: string;
+  originalTransactionId?: string;
+  expiresDate?: number;       // epoch ms
+  revocationDate?: number;    // epoch ms — 환불 시
+  type?: string;              // "Auto-Renewable Subscription"
+  inAppOwnershipType?: string;
+}
+
+/**
+ * Apple 구독 transaction을 검증한다.
+ *   - bundleId 일치 (앱 위변조 방지)
+ *   - 요청 productId 와 일치
+ *   - 환불 안 됨 (revocationDate 없음)
+ *   - expiresDate > now
+ *
+ * Android와 동일한 형태로 반환 — 호출부 분기 없이 동일 응답 셰이프.
+ */
+export function evaluateAppleSubscription(
+  payload: AppleTransactionPayload,
+  productId: string,
+  expectedBundleId: string,
+  now: number = Date.now(),
+): SubscriptionEvaluation {
+  if (!payload.bundleId || payload.bundleId !== expectedBundleId) {
+    return { ok: false, status: 402, error: 'subscription_invalid', detail: 'bundle_mismatch' };
+  }
+  if (!payload.productId || payload.productId !== productId) {
+    return { ok: false, status: 402, error: 'subscription_invalid', detail: 'product_mismatch' };
+  }
+  if (payload.revocationDate && payload.revocationDate > 0) {
+    return { ok: false, status: 402, error: 'subscription_invalid', detail: 'revoked' };
+  }
+  if (!payload.expiresDate || payload.expiresDate <= now) {
+    return { ok: false, status: 402, error: 'subscription_invalid', detail: 'expired' };
+  }
+  // Android의 expiryTime은 ISOString이므로 일관성 위해 변환.
+  const expiryIso = new Date(payload.expiresDate).toISOString();
+  return { ok: true, expiryTime: expiryIso };
+}

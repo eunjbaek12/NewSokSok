@@ -804,6 +804,8 @@
     "featureFlashcard": "Flip cards & master words with ease",
     "featureShadowing": "Listen & shadow for fluent speaking",
     "featureSync": "Your vocab list travels with you",
+    "appleLogin": "Sign in with Apple",
+    "appleSubtext": "Sync your vocab lists across devices",
     "googleLogin": "Sign in with Google",
     "googleSubtext": "Sync your vocab lists across devices",
     "guestStart": "Get Started",

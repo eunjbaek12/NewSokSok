@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import * as Haptics from 'expo-haptics';
+import * as AppleAuthentication from 'expo-apple-authentication';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/features/auth';
@@ -21,8 +22,17 @@ export default function LoginScreen() {
   const insets = useSafeAreaInsets();
   const { t } = useTranslation();
   const { colors, fontFamily } = useTheme();
-  const { loginAsGuest, signInWithGoogle } = useAuth();
-  const [loading, setLoading] = useState<'google' | 'guest' | null>(null);
+  const { loginAsGuest, signInWithGoogle, signInWithApple } = useAuth();
+  const [loading, setLoading] = useState<'google' | 'apple' | 'guest' | null>(null);
+  // iOS만 Apple Sign-In 지원. App Store 4.8 정책은 iOS에 한정되며,
+  // Android 사용자에겐 추가 가치 없음. 디바이스가 실제 지원하는지도 함께 확인.
+  const [appleAvailable, setAppleAvailable] = useState(false);
+  useEffect(() => {
+    if (Platform.OS !== 'ios') return;
+    AppleAuthentication.isAvailableAsync()
+      .then(setAppleAvailable)
+      .catch(() => setAppleAvailable(false));
+  }, []);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
 
   const handleGoogleLogin = async () => {
@@ -38,6 +48,22 @@ export default function LoginScreen() {
       if (error.message === 'GOOGLE_CLIENT_ID_MISSING') {
         Alert.alert(t('login.googleNotReady'), t('login.googleNotReadyMessage'));
       } else {
+        Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
+      }
+      setLoading(null);
+    }
+  };
+
+  const handleAppleLogin = async () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setLoading('apple');
+    try {
+      await signInWithApple();
+      router.replace('/');
+    } catch (error: any) {
+      // 사용자 취소는 흔한 경로 — alert 띄우지 않고 조용히 복귀.
+      if (error?.message !== 'APPLE_SIGNIN_CANCELED') {
+        console.error(error);
         Alert.alert(t('login.loginFailed'), t('login.loginFailedMessage'));
       }
       setLoading(null);
@@ -64,6 +90,22 @@ export default function LoginScreen() {
         </View>
 
         <View style={styles.buttonsSection}>
+          {appleAvailable && (
+            <>
+              <Button
+                onPress={handleAppleLogin}
+                loading={loading === 'apple'}
+                disabled={loading !== null}
+                variant="outline"
+                icon="logo-apple"
+                iconColor="#fff"
+                title={t('login.appleLogin')}
+                style={[styles.appleBtn, { shadowColor: colors.shadow }]}
+                textStyle={styles.appleBtnText}
+              />
+              <Text style={[styles.googleSubtext, { color: colors.textTertiary }]}>{t('login.appleSubtext')}</Text>
+            </>
+          )}
           <Button
             onPress={handleGoogleLogin}
             loading={loading === 'google'}
@@ -160,6 +202,29 @@ const styles = StyleSheet.create({
   googleBtnText: {
     fontSize: 16,
     fontFamily: 'Pretendard_600SemiBold',
+  },
+  // Apple HIG 준수: 검정 배경 + 흰 텍스트. Apple 로고 + "Sign in with Apple".
+  // 다크모드에선 흰 배경 + 검정 텍스트로 바뀌는 게 정석이나, iOS Avocado 로그인
+  // 화면은 라이트만 사용하고 있어 단일 변형으로 유지.
+  appleBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    borderWidth: 1,
+    borderColor: '#000',
+    backgroundColor: '#000',
+    borderRadius: 18,
+    paddingVertical: 16,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  appleBtnText: {
+    fontSize: 16,
+    fontFamily: 'Pretendard_600SemiBold',
+    color: '#fff',
   },
   googleSubtext: {
     fontSize: 12,

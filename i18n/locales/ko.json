@@ -804,6 +804,8 @@
     "featureFlashcard": "카드 넘기며 단어를 술술 외워요",
     "featureShadowing": "듣고 따라 말하는 쉐도잉 학습",
     "featureSync": "어디서든 내 단어장이 함께해요",
+    "appleLogin": "Apple로 로그인",
+    "appleSubtext": "다른 기기에서도 단어장을 동기화할 수 있어요",
     "googleLogin": "Google로 로그인",
     "googleSubtext": "다른 기기에서도 단어장을 동기화할 수 있어요",
     "guestStart": "바로 시작하기",

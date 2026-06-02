@@ -1,5 +1,8 @@
 import { create } from 'zustand';
+import { Platform } from 'react-native';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import * as AppleAuthentication from 'expo-apple-authentication';
+import * as Crypto from 'expo-crypto';
 import type { User as SupabaseUser } from '@supabase/supabase-js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -12,6 +15,17 @@ import { persisted } from '@/lib/storage/persisted';
 import { supabase } from '@/lib/supabase';
 
 const GOOGLE_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID || '';
+// iOS Google Sign-In은 별도 OAuth 클라이언트(iOS type) 필요. 미설정 시 빈 문자열 →
+// configureGoogleSignIn에서 iosClientId 옵션이 빠지면서 webClientId만 사용되는데,
+// iOS는 webClientId만으론 DEVELOPER_ERROR(code 10). 빌드 가드(app.config.js)에서도
+// production iOS 빌드에 필수 env로 등록 — 미설정 빌드 자체 차단.
+const GOOGLE_CLIENT_ID_IOS = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS || '';
+
+// Google·Apple 양쪽을 합쳐 "클라우드 인증 사용자"로 취급. hydrate/logout 분기가
+// 사회 로그인 모드 전체에 동일 동작을 해야 해서 별도 헬퍼로 추출.
+function isCloudAuthMode(mode: AuthMode): mode is 'google' | 'apple' {
+  return mode === 'google' || mode === 'apple';
+}
 
 const DEFAULT_AUTH: AuthState = { mode: 'none', user: null };
 
@@ -27,6 +41,7 @@ interface AuthStoreState {
   hydrate: () => Promise<void>;
   loginAsGuest: () => Promise<void>;
   signInWithGoogle: () => Promise<void>;
+  signInWithApple: () => Promise<void>;
   logout: () => Promise<void>;
   deleteAccount: () => Promise<void>;
 }
@@ -37,6 +52,8 @@ function configureGoogleSignIn() {
   googleConfigured = true;
   GoogleSignin.configure({
     webClientId: GOOGLE_CLIENT_ID,
+    // iOS는 iosClientId 없이는 DEVELOPER_ERROR. Android에선 무시되므로 항상 전달해도 무해.
+    iosClientId: GOOGLE_CLIENT_ID_IOS || undefined,
     scopes: ['openid', 'profile', 'email'],
   });
 }
@@ -87,10 +104,10 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     const loaded = await authStore.load();
     const { data: { session } } = await supabase.auth.getSession();
 
-    if (loaded.mode === 'google' && session?.user) {
+    if (isCloudAuthMode(loaded.mode) && session?.user) {
       const user = await buildUser(session.user);
-      await persist({ mode: 'google', user }, set);
-    } else if (loaded.mode === 'google') {
+      await persist({ mode: loaded.mode, user }, set);
+    } else if (isCloudAuthMode(loaded.mode)) {
       // We believed we were signed in but supabase has no session — external
       // session loss. Drop to logged-out.
       await authStore.remove();
@@ -107,20 +124,26 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
 
     supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === 'SIGNED_OUT') {
-        // React to SIGNED_OUT ONLY if we still consider ourselves in a Google
-        // session. supabase fires this event asynchronously (the callback isn't
-        // awaited by signOut()), so a SIGNED_OUT emitted during logout() can
-        // land *after* the user has already tapped "게스트로 시작" and
-        // loginAsGuest() set mode='guest'. Without this guard it would clobber
-        // the fresh guest session back to 'none', and AppStack would bounce the
-        // user to /login — exactly the "have to log in as guest twice" bug.
-        // Genuine external session loss still works: mode is 'google' then.
-        if (useAuthStore.getState().mode === 'google') {
+        // React to SIGNED_OUT ONLY if we still consider ourselves in a cloud
+        // (Google/Apple) session. supabase fires this event asynchronously (the
+        // callback isn't awaited by signOut()), so a SIGNED_OUT emitted during
+        // logout() can land *after* the user has already tapped "게스트로 시작"
+        // and loginAsGuest() set mode='guest'. Without this guard it would
+        // clobber the fresh guest session back to 'none', and AppStack would
+        // bounce the user to /login — exactly the "have to log in as guest
+        // twice" bug. Genuine external session loss still works: mode is
+        // 'google'/'apple' then.
+        if (isCloudAuthMode(useAuthStore.getState().mode)) {
           await persist({ mode: 'none', user: null }, set);
         }
       } else if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user) {
+        // Preserve current mode (could be 'apple' from a fresh signInWithApple
+        // call). Default to 'google' for backward compatibility with any token
+        // refresh that fires before our explicit signIn* set the mode.
+        const currentMode = useAuthStore.getState().mode;
+        const mode: AuthMode = isCloudAuthMode(currentMode) ? currentMode : 'google';
         const user = await buildUser(session.user);
-        await persist({ mode: 'google', user }, set);
+        await persist({ mode, user }, set);
       }
     });
   },
@@ -148,14 +171,76 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     await persist({ mode: 'google', user }, set);
   },
 
+  signInWithApple: async () => {
+    // iOS only. Android·web에선 isAvailableAsync가 false라 호출부에서 막혀
+    // 이 분기 도달 X. 여기서 한번 더 가드.
+    if (Platform.OS !== 'ios') throw new Error('APPLE_SIGNIN_UNSUPPORTED');
+
+    // Apple Sign In은 nonce 필수 — Supabase가 raw nonce를 그대로 받아
+    // identity token의 sha256 nonce와 매칭. raw를 클라이언트에서 만들고
+    // Apple 호출엔 sha256 hex를 nonce로 넘긴다.
+    const rawNonce = Crypto.randomUUID();
+    const hashedNonce = await Crypto.digestStringAsync(
+      Crypto.CryptoDigestAlgorithm.SHA256,
+      rawNonce,
+    );
+
+    let credential: AppleAuthentication.AppleAuthenticationCredential;
+    try {
+      credential = await AppleAuthentication.signInAsync({
+        requestedScopes: [
+          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+          AppleAuthentication.AppleAuthenticationScope.EMAIL,
+        ],
+        nonce: hashedNonce,
+      });
+    } catch (e: any) {
+      // 사용자 취소 → 호출부에서 alert 띄우지 않도록 별도 코드
+      if (e?.code === 'ERR_REQUEST_CANCELED') {
+        throw new Error('APPLE_SIGNIN_CANCELED');
+      }
+      throw e;
+    }
+
+    if (!credential.identityToken) throw new Error('NO_ID_TOKEN');
+
+    const { data, error } = await supabase.auth.signInWithIdToken({
+      provider: 'apple',
+      token: credential.identityToken,
+      nonce: rawNonce,
+    });
+    if (error) throw error;
+
+    // Apple은 첫 가입 시에만 fullName·email을 반환한다. 두 번째 로그인부터는
+    // credential.fullName / credential.email이 null. 첫 가입 때 Supabase user
+    // metadata에 보강해 buildUser가 일관된 이름을 가져갈 수 있게 한다.
+    if (credential.fullName && (credential.fullName.givenName || credential.fullName.familyName)) {
+      const fullName = [credential.fullName.givenName, credential.fullName.familyName]
+        .filter(Boolean)
+        .join(' ')
+        .trim();
+      if (fullName) {
+        try {
+          await supabase.auth.updateUser({ data: { full_name: fullName } });
+        } catch (e: any) {
+          console.warn('[auth] apple full_name save failed:', e?.message ?? e);
+        }
+      }
+    }
+
+    const user = await buildUser(data.user!);
+    await persist({ mode: 'apple', user }, set);
+  },
+
   logout: async () => {
-    // Whether we're leaving a Google session. The destructive local cleanup
-    // below is correct ONLY for Google: the cloud holds the authoritative copy,
-    // so wiping local is safe (re-pulled on next login) and needed for account
-    // isolation. For a GUEST, local storage is the *only* copy of their words
-    // and nickname — and the guest logout prompt explicitly promises "저장된
-    // 단어는 이 기기에 유지됩니다". So guests must keep their local data.
-    const wasGoogle = useAuthStore.getState().mode === 'google';
+    // Whether we're leaving a cloud-auth (Google/Apple) session. The destructive
+    // local cleanup below is correct ONLY for cloud-auth: the cloud holds the
+    // authoritative copy, so wiping local is safe (re-pulled on next login) and
+    // needed for account isolation. For a GUEST, local storage is the *only*
+    // copy of their words and nickname — and the guest logout prompt explicitly
+    // promises "저장된 단어는 이 기기에 유지됩니다". So guests must keep their
+    // local data.
+    const wasCloudAuth = isCloudAuthMode(useAuthStore.getState().mode);
 
     // 1) Best-effort flush while still authenticated (RLS passes), so edits
     //    made within the push debounce window aren't lost. (No-op for guest:
@@ -169,7 +254,7 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       console.warn('[auth] pre-logout flush failed:', e?.message ?? e);
     }
 
-    // 2) Clear local account state BEFORE signing out — Google only.
+    // 2) Clear local account state BEFORE signing out — cloud-auth only.
     //    supabase.auth.signOut() fires onAuthStateChange('SIGNED_OUT'), which
     //    re-renders the tree (and in dev can remount the root → splash). If
     //    the cleanup ran *after* signOut, that remount could interrupt logout
@@ -177,7 +262,7 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     //    the next login can't re-pull the account's data (it stays "behind the
     //    watermark"). This cleanup is local-only and auth-independent, so
     //    running it first is safe and guarantees it completes.
-    if (wasGoogle) {
+    if (wasCloudAuth) {
       try {
         const { clearAllData } = await import('@/features/vocab/db');
         await clearAllData();
@@ -198,16 +283,18 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     // 3) Flip to logged-out and PERSIST it *before* signing out. signOut fires
     //    onAuthStateChange('SIGNED_OUT') and (in dev) can remount the root →
     //    hydrate() re-runs mid-logout. Persisting 'none' first guarantees that
-    //    a concurrent hydrate reads logged-out intent, not the stale 'google'
-    //    we're leaving. Pairs with hydrate() treating @soksok_auth as the
-    //    source of truth. (The SIGNED_OUT handler's mode==='google' guard then
+    //    a concurrent hydrate reads logged-out intent, not the stale cloud-auth
+    //    mode we're leaving. Pairs with hydrate() treating @soksok_auth as the
+    //    source of truth. (The SIGNED_OUT handler's isCloudAuthMode guard then
     //    no-ops, since mode is already 'none'.)
     await persist({ mode: 'none', user: null }, set);
 
-    // 4) Sign out of Google + Supabase (best-effort). scope:'local' wipes the
+    // 4) Sign out of provider + Supabase (best-effort). scope:'local' wipes the
     //    local session without depending on a server round-trip that could fail
     //    and leave it behind; even if this throws, hydrate() now honors the
     //    'none' intent and clears any orphan session. (No-ops for a guest.)
+    //    Apple has no client-side signOut equivalent — only Google needs the
+    //    provider-side call.
     try { await GoogleSignin.signOut(); } catch {}
     try { await supabase.auth.signOut({ scope: 'local' }); } catch (e: any) {
       console.warn('[auth] supabase signOut failed:', e?.message ?? e);
@@ -275,6 +362,7 @@ export function useAuth() {
   const loading = useAuthStore(s => s.loading);
   const loginAsGuest = useAuthStore(s => s.loginAsGuest);
   const signInWithGoogle = useAuthStore(s => s.signInWithGoogle);
+  const signInWithApple = useAuthStore(s => s.signInWithApple);
   const logout = useAuthStore(s => s.logout);
   const deleteAccount = useAuthStore(s => s.deleteAccount);
 
@@ -284,6 +372,7 @@ export function useAuth() {
     loading,
     loginAsGuest,
     signInWithGoogle,
+    signInWithApple,
     logout,
     deleteAccount,
   };

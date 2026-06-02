@@ -11,7 +11,7 @@ export const NullableEpochMsSchema = EpochMsSchema.nullable();
 // Auth
 // ============================================================================
 
-export const AuthModeSchema = z.enum(['none', 'guest', 'google']);
+export const AuthModeSchema = z.enum(['none', 'guest', 'google', 'apple']);
 export type AuthMode = z.infer<typeof AuthModeSchema>;
 
 export const GoogleUserSchema = z.object({

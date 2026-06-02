@@ -10,12 +10,24 @@ import {
 } from '../supabase/functions/verify-purchase/handler';
 
 const FUTURE = new Date('2026-12-31T00:00:00Z').toISOString();
+const FUTURE_MS = new Date(FUTURE).getTime();
 const PRODUCT = 'pro_monthly';
 const PKG = 'com.soksokvoca';
+const BUNDLE = 'com.soksokvoca';
+const APPLE_ORIGINAL_TX = 'orig-tx-1';
+const APPLE_TX = 'tx-renewal-1';
 
 const activePlayData = {
   subscriptionState: 'SUBSCRIPTION_STATE_ACTIVE',
   lineItems: [{ productId: PRODUCT, expiryTime: FUTURE }],
+};
+
+const activeApplePayload = {
+  bundleId: BUNDLE,
+  productId: PRODUCT,
+  transactionId: APPLE_TX,
+  originalTransactionId: APPLE_ORIGINAL_TX,
+  expiresDate: FUTURE_MS,
 };
 
 function playResponse(over: Partial<{ ok: boolean; status: number; data: unknown }> = {}) {
@@ -30,6 +42,9 @@ function makeDeps(over: Partial<VerifyDeps> = {}): jest.Mocked<VerifyDeps> {
     getPlayConfig: jest.fn(() => ({ clientEmail: 'e@x', privateKey: 'k', packageName: PKG })),
     getAccessToken: jest.fn(async () => 'access-token'),
     fetchPlay: jest.fn(async () => playResponse()),
+    getAppleConfig: jest.fn(() => ({ keyId: 'KID', issuerId: 'ISS', bundleId: BUNDLE, privateKey: 'pk' })),
+    fetchAppleTransaction: jest.fn(async () => ({ environment: 'production' as const, payload: { ...activeApplePayload } })),
+    decodeAppleJWS: jest.fn(() => ({ transactionId: APPLE_TX })),
     upsertSubscription: jest.fn(async () => ({ error: null })),
     ...over,
   } as jest.Mocked<VerifyDeps>;
@@ -125,13 +140,106 @@ describe('verify-purchase 핸들러 — 본문 검증', () => {
     expect(res.status).toBe(400);
   });
 
-  it('platform=ios → 400 platform_not_supported (v1.1 미지원)', async () => {
+  it('platform 누락/미지원 값 → 400 platform_not_supported', async () => {
     const deps = makeDeps();
-    const req = makeReq({ json: async () => ({ purchaseToken: 'tok', productId: PRODUCT, platform: 'ios' }) });
+    const req = makeReq({ json: async () => ({ purchaseToken: 'tok', productId: PRODUCT, platform: 'web' }) });
     const res = await createVerifyHandler(deps)(req);
     expect(res.status).toBe(400);
     expect(res.body).toMatchObject({ detail: 'platform_not_supported' });
     expect(deps.checkRate).not.toHaveBeenCalled();
+  });
+});
+
+describe('verify-purchase 핸들러 — iOS 경로', () => {
+  function iosReq(over: Partial<{ purchaseToken: string; productId: string }> = {}) {
+    return makeReq({
+      json: async () => ({
+        purchaseToken: over.purchaseToken ?? 'jws-token',
+        productId: over.productId ?? PRODUCT,
+        platform: 'ios',
+      }),
+    });
+  }
+
+  it('정상 iOS 요청 → 200, originalTransactionId가 play_purchase_token에 저장', async () => {
+    const deps = makeDeps();
+    const res = await createVerifyHandler(deps)(iosReq());
+
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchObject({ ok: true, tier: 'pro', pro_until: FUTURE, product_id: PRODUCT });
+    expect(deps.decodeAppleJWS).toHaveBeenCalledWith('jws-token');
+    expect(deps.fetchAppleTransaction).toHaveBeenCalledWith(APPLE_TX, expect.objectContaining({ bundleId: BUNDLE }));
+    const row = deps.upsertSubscription.mock.calls[0][0];
+    expect(row).toMatchObject({
+      user_id: 'user-1',
+      tier: 'pro',
+      pro_until: FUTURE,
+      play_purchase_token: APPLE_ORIGINAL_TX,
+      play_product_id: PRODUCT,
+    });
+    expect(deps.fetchPlay).not.toHaveBeenCalled();
+  });
+
+  it('Apple 설정 누락 → 500 internal_error', async () => {
+    const deps = makeDeps({ getAppleConfig: jest.fn(() => null) });
+    const res = await createVerifyHandler(deps)(iosReq());
+    expect(res.status).toBe(500);
+    expect(res.body).toMatchObject({ error: 'internal_error' });
+    expect(deps.fetchAppleTransaction).not.toHaveBeenCalled();
+  });
+
+  it('JWS 디코딩 실패(transactionId 없음) → 400 no_transaction_id', async () => {
+    const deps = makeDeps({ decodeAppleJWS: jest.fn(() => ({})) });
+    const res = await createVerifyHandler(deps)(iosReq());
+    expect(res.status).toBe(400);
+    expect(res.body).toMatchObject({ detail: 'no_transaction_id' });
+    expect(deps.fetchAppleTransaction).not.toHaveBeenCalled();
+  });
+
+  it('JWS 디코딩 throw → 400 malformed_jws', async () => {
+    const deps = makeDeps({ decodeAppleJWS: jest.fn(() => { throw new Error('bad'); }) });
+    const res = await createVerifyHandler(deps)(iosReq());
+    expect(res.status).toBe(400);
+    expect(res.body).toMatchObject({ detail: 'malformed_jws' });
+  });
+
+  it('App Store transaction 조회 결과 null → 402 not_found', async () => {
+    const deps = makeDeps({ fetchAppleTransaction: jest.fn(async () => null) });
+    const res = await createVerifyHandler(deps)(iosReq());
+    expect(res.status).toBe(402);
+    expect(res.body).toMatchObject({ error: 'subscription_invalid', detail: 'not_found' });
+    expect(deps.upsertSubscription).not.toHaveBeenCalled();
+  });
+
+  it('App Store API 예외 → 500 upstream_failure', async () => {
+    const deps = makeDeps({ fetchAppleTransaction: jest.fn(async () => { throw new Error('net'); }) });
+    const res = await createVerifyHandler(deps)(iosReq());
+    expect(res.status).toBe(500);
+    expect(res.body).toMatchObject({ error: 'upstream_failure' });
+  });
+
+  it('bundleId 불일치 → 402 bundle_mismatch', async () => {
+    const deps = makeDeps({
+      fetchAppleTransaction: jest.fn(async () => ({
+        environment: 'production' as const,
+        payload: { ...activeApplePayload, bundleId: 'com.attacker' },
+      })),
+    });
+    const res = await createVerifyHandler(deps)(iosReq());
+    expect(res.status).toBe(402);
+    expect(res.body).toMatchObject({ detail: 'bundle_mismatch' });
+  });
+
+  it('환불됨(revocationDate 존재) → 402 revoked', async () => {
+    const deps = makeDeps({
+      fetchAppleTransaction: jest.fn(async () => ({
+        environment: 'production' as const,
+        payload: { ...activeApplePayload, revocationDate: FUTURE_MS - 1000 },
+      })),
+    });
+    const res = await createVerifyHandler(deps)(iosReq());
+    expect(res.status).toBe(402);
+    expect(res.body).toMatchObject({ detail: 'revoked' });
   });
 });
 

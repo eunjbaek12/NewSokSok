@@ -6,6 +6,8 @@
 
 import {
   evaluateSubscription,
+  evaluateAppleSubscription,
+  type AppleTransactionPayload,
   type PlaySubscriptionV2Response,
 } from '../supabase/functions/verify-purchase/verify-logic';
 
@@ -114,5 +116,65 @@ describe('evaluateSubscription — 만료 검증', () => {
       NOW,
     );
     expect(r.ok).toBe(true);
+  });
+});
+
+// ─── Apple ────────────────────────────────────────────────────────────────────
+
+const BUNDLE = 'com.soksokvoca';
+const FUTURE_MS = new Date('2026-06-26T00:00:00Z').getTime();
+
+function applePayload(over: Partial<AppleTransactionPayload> = {}): AppleTransactionPayload {
+  return {
+    bundleId: BUNDLE,
+    productId: PRODUCT,
+    transactionId: 'tx-1',
+    originalTransactionId: 'orig-1',
+    expiresDate: FUTURE_MS,
+    ...over,
+  };
+}
+
+describe('evaluateAppleSubscription — 인정 케이스', () => {
+  it('정상 구독 → ok, expiryTime은 ISOString', () => {
+    const r = evaluateAppleSubscription(applePayload(), PRODUCT, BUNDLE, NOW);
+    expect(r).toEqual({ ok: true, expiryTime: new Date(FUTURE_MS).toISOString() });
+  });
+});
+
+describe('evaluateAppleSubscription — 거부 케이스', () => {
+  it('bundleId 불일치 → bundle_mismatch (앱 위변조 방지)', () => {
+    const r = evaluateAppleSubscription(applePayload({ bundleId: 'com.evil' }), PRODUCT, BUNDLE, NOW);
+    expect(r).toMatchObject({ ok: false, status: 402, detail: 'bundle_mismatch' });
+  });
+
+  it('bundleId 누락 → bundle_mismatch', () => {
+    const r = evaluateAppleSubscription(applePayload({ bundleId: undefined }), PRODUCT, BUNDLE, NOW);
+    expect((r as any).detail).toBe('bundle_mismatch');
+  });
+
+  it('productId 불일치 → product_mismatch', () => {
+    const r = evaluateAppleSubscription(applePayload({ productId: 'pro_yearly' }), PRODUCT, BUNDLE, NOW);
+    expect((r as any).detail).toBe('product_mismatch');
+  });
+
+  it('revocationDate 있음 → revoked (환불됨)', () => {
+    const r = evaluateAppleSubscription(applePayload({ revocationDate: NOW - 1000 }), PRODUCT, BUNDLE, NOW);
+    expect((r as any).detail).toBe('revoked');
+  });
+
+  it('expiresDate 과거 → expired', () => {
+    const r = evaluateAppleSubscription(applePayload({ expiresDate: NOW - 1 }), PRODUCT, BUNDLE, NOW);
+    expect((r as any).detail).toBe('expired');
+  });
+
+  it('expiresDate 정확히 now → expired (경계는 <=)', () => {
+    const r = evaluateAppleSubscription(applePayload({ expiresDate: NOW }), PRODUCT, BUNDLE, NOW);
+    expect((r as any).detail).toBe('expired');
+  });
+
+  it('expiresDate 누락 → expired', () => {
+    const r = evaluateAppleSubscription(applePayload({ expiresDate: undefined }), PRODUCT, BUNDLE, NOW);
+    expect((r as any).detail).toBe('expired');
   });
 });

@@ -108,13 +108,17 @@ Deno.serve(async (req) => {
   const tQuota = performance.now();
 
   // Vertex AI 생성
+  // 오버제너레이트: 모델이 같은 단어를 중복 생성해도 요청 개수를 채우도록 버퍼만큼 더 생성.
+  // quota 차감은 위에서 요청 개수(wordCount)만 했고, 버퍼는 운영자가 흡수(비과금).
+  // 중복 제거·정확히 N개 자르기는 클라이언트가 검증(AIWordResultSchema) 후 수행한다.
+  const overCount = wordCount + Math.min(6, Math.max(3, Math.ceil(wordCount * 0.2)));
   try {
-    const result = await generateWords(topic, wordCount, difficulty, sourceLang, targetLang, excludeTerms);
+    const result = await generateWords(topic, overCount, difficulty, sourceLang, targetLang, excludeTerms);
     const tGen = performance.now();
     console.log(
       `[generate-words:timing] auth=${(tAuth - reqStart).toFixed(0)}ms ` +
       `quota=${(tQuota - tAuth).toFixed(0)}ms generate=${(tGen - tQuota).toFixed(0)}ms ` +
-      `total=${(tGen - reqStart).toFixed(0)}ms wordCount=${wordCount}`,
+      `total=${(tGen - reqStart).toFixed(0)}ms wordCount=${wordCount} overCount=${overCount}`,
     );
     return json(200, { result, quota });
   } catch (e) {

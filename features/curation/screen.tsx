@@ -91,6 +91,12 @@ function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty,
 
 type GenerateAIWordsResult = { words: Word[]; droppedCount: number };
 
+// AI가 같은 단어를 중복 생성해도 요청 개수를 채우도록 버퍼만큼 더 생성한다.
+// 검증·중복제거 후 정확히 요청 개수로 자른다(아래 generateAIWords). quota 차감은
+// 요청 개수만 — 버퍼는 운영자 흡수. Edge 경로도 동일 공식으로 서버에서 오버제너레이트.
+const aiOverCount = (wordCount: number): number =>
+    wordCount + Math.min(6, Math.max(3, Math.ceil(wordCount * 0.2)));
+
 const generateViaByok = async (
     query: string,
     apiKey: string,
@@ -213,9 +219,12 @@ const generateAIWords = async (
     signal?: AbortSignal,
 ): Promise<GenerateAIWordsResult> => {
     // BYOK 키가 있으면 본인 키로 직접 호출, 없으면 운영자 키(Edge, quota 적용).
+    // 오버제너레이트: BYOK는 여기서 버퍼 포함 개수로 요청. Edge는 wordCount만 보내고
+    // 서버 내부에서 버퍼만큼 더 생성한다(차감은 wordCount). 둘 다 아래에서 정확히 N개로 자름.
+    const overCount = aiOverCount(wordCount);
     let raw: unknown;
     if (apiKey) {
-        raw = await generateViaByok(query, apiKey, wordCount, difficulty, sourceLang, targetLang, excludeTerms, signal);
+        raw = await generateViaByok(query, apiKey, overCount, difficulty, sourceLang, targetLang, excludeTerms, signal);
     } else {
         const res = await generateWordsViaEdge(query, wordCount, difficulty, sourceLang, targetLang, excludeTerms, signal);
         if (res.kind !== 'ok') throw new Error(edgeGenerateErrorMessage(res.kind));
@@ -244,9 +253,20 @@ const generateAIWords = async (
         throw new Error('AI 응답 형식이 올바르지 않습니다. 다시 시도해주세요.');
     }
 
+    // 오버제너레이트 보정: 세트 내부 중복(같은 lemma·대소문자만 다른 단어) 제거 후
+    // 정확히 요청 개수로 자른다. → 사용자는 항상 요청한 N개를 받는다.
+    const seenTerms = new Set<string>();
+    const unique = validated.filter(({ item }) => {
+        const key = (item.term ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
+        if (!key || seenTerms.has(key)) return false;
+        seenTerms.add(key);
+        return true;
+    });
+    const finalItems = unique.slice(0, wordCount);
+
     const now = Date.now();
     const difficultyTag = DIFFICULTY_TAG[difficulty];
-    const words: Word[] = validated.map(({ item: w, originalIndex }) => {
+    const words: Word[] = finalItems.map(({ item: w, originalIndex }) => {
         const baseTags = w.tags && w.tags.length > 0 ? w.tags : [query];
         return {
             id: `ai-word-${originalIndex}-${now}`,

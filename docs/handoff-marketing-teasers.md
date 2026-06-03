@@ -10,9 +10,10 @@
 
 출시 전 **유튜브/숏폼 티저 4편**(기능별) 제작. **2026-06-04: 모든 화면 녹화 + 인트로 마스코트 컷 raw 소스 수집 완료** → 다음은 **CapCut 조립(Phase D)**. 마스코트 컷은 Veo 생성, 앱 기능 컷은 화면 녹화, 조립은 CapCut. Android 출시 자체는 별도 게이트 대기 중.
 
-> ⚠️ **다음 세션 시작 시 먼저 처리할 미완 2건** — 상세는 맨 아래 "다음 액션" 참조:
-> 1. **광고 끄기 임시 플래그 원복**: `components/ads/AppBannerAd.tsx`의 `HIDE_ADS_FOR_DEMO = true` → **`false`로 되돌리기**(데모 녹화용 임시 코드, 절대 커밋 금지였음).
-> 2. **오버제너레이트 fix 커밋**: AI 단어생성 중복→개수부족 수정 (작업 끝남, 미커밋). `features/curation/screen.tsx` + `supabase/functions/generate-words/index.ts`. Edge는 `supabase functions deploy generate-words` 재배포 필요.
+> ✅ **2026-06-04 처리 완료** (이전 미완 2건):
+> 1. ~~광고 끄기 임시 플래그 원복~~ — `AppBannerAd.tsx`를 HEAD로 완전 복원(데모 플래그 코드 전부 제거, false 잔여 없음).
+> 2. ~~오버제너레이트 fix 커밋~~ — 커밋 `6dcd0e5` + Edge `generate-words` 프로덕션 재배포 완료.
+> - ⬜ **남은 검증 1건(수동)**: BYOK 앱에서 "20요청→정확히 20개" 직접 확인 (UI 실행 필요).
 
 ---
 
@@ -208,9 +209,10 @@
 
 ### ⬜ 다음 세션 할 일 (순서대로)
 
-**0. 미완 정리 (코드 — 녹화 끝났으니 즉시)**
-- [ ] `AppBannerAd.tsx`: `HIDE_ADS_FOR_DEMO` → **`false` 원복** (임시 데모 코드)
-- [ ] 오버제너레이트 fix 커밋 (`features/curation/screen.tsx` + `generate-words/index.ts`) + `supabase functions deploy generate-words` 재배포 + BYOK 앱에서 "20요청→20개" 검증
+**0. 미완 정리 (코드)** — ✅ 2026-06-04 완료
+- [x] `AppBannerAd.tsx`: 데모 플래그 HEAD로 완전 복원 (false 잔여 없이 코드 제거)
+- [x] 오버제너레이트 fix 커밋 (`6dcd0e5`: `features/curation/screen.tsx` + `generate-words/index.ts`) + `supabase functions deploy generate-words` 재배포 완료
+- [ ] (남음·수동) BYOK 앱에서 "20요청→정확히 20개" 검증 — UI 실행 필요
 
 **1. CapCut 조립 (Phase D — 본 작업)**
 - [ ] 편당: Veo 인트로 + 화면녹화 클립을 음악 비트에 맞춰 컷 (스크립트 0~22초 표는 위 "4편 풀스크립트")

@@ -194,6 +194,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'ko',
   },
+  'tsl-advanced': {
+    id: 'curated-toeic-tsl-2',
+    title: '토익 심화 600 (TSL 601-1200)',
+    icon: '💼',
+    category: '시험',
+    level: 'advanced',
+    description: '토익 심화 어휘 600 (TSL 빈도 601~1200위). TSL by Browne & Culligan (CC BY-SA 4.0) 기반, 한국어 뜻·예문 AI 생성',
+    tags: ['English', 'TOEIC', 'Advanced'],
+    sourceLanguage: 'en',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];

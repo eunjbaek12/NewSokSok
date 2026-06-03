@@ -2,6 +2,10221 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-toeic-tsl-2",
+    "title": "토익 심화 600 (TSL 601-1200)",
+    "icon": "💼",
+    "isCurated": true,
+    "category": "시험",
+    "level": "advanced",
+    "description": "토익 심화 어휘 600 (TSL 빈도 601~1200위). TSL by Browne & Culligan (CC BY-SA 4.0) 기반, 한국어 뜻·예문 AI 생성",
+    "sourceLanguage": "en",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780478882872,
+    "words": [
+      {
+        "id": "word-tsl-advanced-0-1780478882872",
+        "term": "fasten",
+        "definition": "fix together firmly",
+        "meaningKr": "매다, 고정하다, 잠그다",
+        "exampleEn": "Please fasten your seatbelt before the aircraft takes off.",
+        "exampleKr": "비행기가 이륙하기 전에 안전벨트를 매주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɑːsən/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-1-1780478882872",
+        "term": "harmful",
+        "definition": "damaging, hurtful",
+        "meaningKr": "해로운, 유해한",
+        "exampleEn": "Exposure to excessive noise can be harmful to your hearing.",
+        "exampleKr": "과도한 소음에 노출되는 것은 청력에 해로울 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhɑːmfəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-2-1780478882872",
+        "term": "informative",
+        "definition": "tells you a lot of useful facts about somethiing",
+        "meaningKr": "유익한, 정보가 많은",
+        "exampleEn": "The seminar provided informative insights into market trends.",
+        "exampleKr": "그 세미나는 시장 동향에 대한 유익한 통찰력을 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈfɔːrmətɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-3-1780478882872",
+        "term": "institute",
+        "definition": "like a school or college",
+        "meaningKr": "기관, 협회, 연구소",
+        "exampleEn": "The research institute will present its findings next month.",
+        "exampleKr": "그 연구 기관은 다음 달에 연구 결과를 발표할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɪnstɪtjuːt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-4-1780478882872",
+        "term": "kit",
+        "definition": "a box of tools or equipment",
+        "meaningKr": "키트, 세트, 장비",
+        "exampleEn": "Each employee received a welcome kit with company merchandise.",
+        "exampleKr": "각 직원은 회사 상품이 담긴 환영 키트를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-5-1780478882872",
+        "term": "locally",
+        "definition": "in a specific area",
+        "meaningKr": "지역적으로, 국소적으로",
+        "exampleEn": "We prefer to source our ingredients locally whenever possible.",
+        "exampleKr": "우리는 가능한 한 재료를 지역에서 조달하는 것을 선호합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈloʊkəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-6-1780478882872",
+        "term": "mentor",
+        "definition": "personal advisor or teacher",
+        "meaningKr": "멘토, 조언자, 스승",
+        "exampleEn": "She found an experienced mentor to guide her career development.",
+        "exampleKr": "그녀는 경력 개발을 안내해 줄 경험 많은 멘토를 찾았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmɛntɔːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-7-1780478882872",
+        "term": "nominate",
+        "definition": "to suggest someone for to do or be something",
+        "meaningKr": "지명하다, 추천하다",
+        "exampleEn": "The committee will nominate candidates for the executive position.",
+        "exampleKr": "위원회는 임원 직책 후보자들을 지명할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈnɑːmɪneɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-8-1780478882872",
+        "term": "opt",
+        "definition": "to make a choice",
+        "meaningKr": "선택하다, 고르다",
+        "exampleEn": "Employees may opt for the flexible working hours policy.",
+        "exampleKr": "직원들은 유연 근무 시간 정책을 선택할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɑːpt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-9-1780478882872",
+        "term": "parade",
+        "definition": "walk or march",
+        "meaningKr": "퍼레이드, 행진",
+        "exampleEn": "The company participated in the annual downtown business parade.",
+        "exampleKr": "그 회사는 연례 도심 비즈니스 퍼레이드에 참가했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/pəˈreɪd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-10-1780478882872",
+        "term": "physician",
+        "definition": "A doctor of medicine",
+        "meaningKr": "의사 (일반)",
+        "exampleEn": "You should consult a physician for any serious health concerns.",
+        "exampleKr": "심각한 건강 문제에 대해서는 의사와 상담해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fɪˈzɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-11-1780478882872",
+        "term": "polish",
+        "definition": "to make something shine with a cloth",
+        "meaningKr": "닦아서 광내다, 윤내다",
+        "exampleEn": "He took time to polish his shoes before the interview.",
+        "exampleKr": "그는 면접 전에 구두를 닦아 광을 냈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɑːlɪʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-12-1780478882872",
+        "term": "postage",
+        "definition": "the charge for mailing something",
+        "meaningKr": "우편 요금",
+        "exampleEn": "The postage cost for international shipping has increased.",
+        "exampleKr": "국제 배송 우편 요금이 인상되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpoʊstɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-13-1780478882872",
+        "term": "recreational",
+        "definition": "what you do for relaxation in your free time",
+        "meaningKr": "휴가의, 오락의, 여가의",
+        "exampleEn": "The resort offers various recreational activities for guests.",
+        "exampleKr": "그 리조트는 투숙객을 위한 다양한 레크리에이션 활동을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌrɛkriˈeɪʃənəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-14-1780478882872",
+        "term": "rehearse",
+        "definition": "practise so that you get better at doing it",
+        "meaningKr": "연습하다, 리허설하다",
+        "exampleEn": "The team will rehearse the presentation before the client meeting.",
+        "exampleKr": "팀은 고객 회의 전에 발표 연습을 할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈhɜːrs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-15-1780478882872",
+        "term": "removal",
+        "definition": "to take away and put in another place",
+        "meaningKr": "제거, 이동, 철거",
+        "exampleEn": "The removal of old equipment is scheduled for Friday.",
+        "exampleKr": "오래된 장비의 제거는 금요일로 예정되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈmuːvəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-16-1780478882872",
+        "term": "satisfactory",
+        "definition": "acceptable",
+        "meaningKr": "만족스러운, 만족할 만한",
+        "exampleEn": "The project's progress has been satisfactory so far.",
+        "exampleKr": "프로젝트의 진행 상황은 지금까지 만족스러웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌsætɪsˈfæktəri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-17-1780478882872",
+        "term": "seasonal",
+        "definition": "happening at a certain time of the year only",
+        "meaningKr": "계절적인",
+        "exampleEn": "We offer seasonal discounts during the holiday period.",
+        "exampleKr": "저희는 연휴 기간 동안 계절 할인 행사를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsiːzənəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-18-1780478882872",
+        "term": "separately",
+        "definition": "to do things one at a time, not together",
+        "meaningKr": "따로따로, 별도로",
+        "exampleEn": "Please submit your expense reports separately by department.",
+        "exampleKr": "각 부서별로 경비 보고서를 따로 제출해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɛprətli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-19-1780478882872",
+        "term": "turnover",
+        "definition": "the amount of money that a business makes in an amount of time",
+        "meaningKr": "매출액, 총매상고, 이직률",
+        "exampleEn": "The company reported a significant increase in annual turnover.",
+        "exampleKr": "그 회사는 연간 매출액의 상당한 증가를 보고했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtɜːrnˌoʊvər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-20-1780478882872",
+        "term": "unnecessary",
+        "definition": "not needed",
+        "meaningKr": "불필요한, 헛된",
+        "exampleEn": "We need to eliminate any unnecessary steps in the process.",
+        "exampleKr": "우리는 프로세스에서 불필요한 단계를 제거해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ʌnˈnɛsəˌsɛri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-21-1780478882872",
+        "term": "accordingly",
+        "definition": "therefore, so",
+        "meaningKr": "따라서, 그러므로, 적절하게",
+        "exampleEn": "The weather forecast predicted rain, so we packed accordingly.",
+        "exampleKr": "일기 예보에서 비가 올 것으로 예측했으므로, 우리는 그에 따라 준비했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈkɔːrdɪŋli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-22-1780478882872",
+        "term": "apple",
+        "definition": "a type of fruit from trees that is green, red, or yellow",
+        "meaningKr": "사과",
+        "exampleEn": "The cafeteria offers fresh apples as a healthy snack option.",
+        "exampleKr": "구내식당은 건강한 간식으로 신선한 사과를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæpəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-23-1780478882872",
+        "term": "applicable",
+        "definition": "relating to",
+        "meaningKr": "적용 가능한, 관련 있는",
+        "exampleEn": "Please ensure all applicable regulations are followed.",
+        "exampleKr": "모든 적용 가능한 규정을 준수하도록 하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈplɪkəbəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-24-1780478882872",
+        "term": "auction",
+        "definition": "where things are sold to highest payer",
+        "meaningKr": "경매",
+        "exampleEn": "The company's assets will be sold at a public auction.",
+        "exampleKr": "그 회사의 자산은 공개 경매에서 판매될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɔːkʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-25-1780478882872",
+        "term": "balcony",
+        "definition": "a small floor area with a wall or fence round it that is joined to the outside of a building",
+        "meaningKr": "발코니, 베란다, 전망대",
+        "exampleEn": "The hotel room featured a private balcony with a stunning view of the ocean.",
+        "exampleKr": "그 호텔 객실에는 바다가 멋지게 보이는 개인 발코니가 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbælkəni/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-26-1780478882872",
+        "term": "basement",
+        "definition": "the level under the ground floor",
+        "meaningKr": "지하, 지하실",
+        "exampleEn": "All important company documents are stored securely in the climate-controlled basement.",
+        "exampleKr": "모든 중요한 회사 서류는 온도 조절이 되는 지하실에 안전하게 보관됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbeɪsmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-27-1780478882872",
+        "term": "beforehand",
+        "definition": "earlier in time",
+        "meaningKr": "미리, 사전에",
+        "exampleEn": "Please confirm your attendance beforehand so we can finalize the catering arrangements.",
+        "exampleKr": "케이터링 준비를 마무리할 수 있도록 참석 여부를 미리 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/bɪˈfɔːr hænd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-28-1780478882872",
+        "term": "culinary",
+        "definition": "relating to cooking",
+        "meaningKr": "요리의, 요리법의",
+        "exampleEn": "The chef's culinary skills were highly praised at the international food festival.",
+        "exampleKr": "그 셰프의 요리 실력은 국제 음식 축제에서 큰 호평을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkʌlɪnɛri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-29-1780478882872",
+        "term": "documentary",
+        "definition": "a film about a real life or event",
+        "meaningKr": "다큐멘터리, 기록물",
+        "exampleEn": "We watched a fascinating documentary about the history of sustainable energy.",
+        "exampleKr": "우리는 지속 가능한 에너지의 역사에 관한 흥미로운 다큐멘터리를 보았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdɒkjuˈmɛntəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-30-1780478882872",
+        "term": "downturn",
+        "definition": "a drop in the success of a business or the economy",
+        "meaningKr": "하락세, 경기 침체",
+        "exampleEn": "The company is struggling to adapt to the current economic downturn.",
+        "exampleKr": "그 회사는 현재의 경기 침체에 적응하기 위해 고군분투하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdaʊntɜːrn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-31-1780478882872",
+        "term": "earthquake",
+        "definition": "when the ground shakes due to the natural movement of rocks underground",
+        "meaningKr": "지진",
+        "exampleEn": "Building codes in this region are designed to withstand a major earthquake.",
+        "exampleKr": "이 지역의 건축 규정은 대규모 지진을 견딜 수 있도록 설계되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɜːrθkweɪk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-32-1780478882872",
+        "term": "elegant",
+        "definition": "fine or beautiful",
+        "meaningKr": "우아한, 세련된, 고상한",
+        "exampleEn": "The new office design is both functional and remarkably elegant.",
+        "exampleKr": "새로운 사무실 디자인은 기능적이면서도 매우 우아하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɛlɪɡənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-33-1780478882872",
+        "term": "excessive",
+        "definition": "way too much of something",
+        "meaningKr": "과도한, 지나친",
+        "exampleEn": "The manager warned against charging excessive fees for late payments.",
+        "exampleKr": "관리자는 연체료에 대해 과도한 수수료를 부과하지 않도록 경고했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪkˈsɛsɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-34-1780478882872",
+        "term": "generic",
+        "definition": "general",
+        "meaningKr": "일반적인, 보편적인, 상표 없는",
+        "exampleEn": "The company decided to use a generic brand name for the new product line.",
+        "exampleKr": "그 회사는 신제품 라인에 일반적인 브랜드 이름을 사용하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dʒəˈnɛrɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-35-1780478882872",
+        "term": "jazz",
+        "definition": "a kind of music",
+        "meaningKr": "재즈",
+        "exampleEn": "The restaurant features live jazz music every Friday evening.",
+        "exampleKr": "그 식당은 매주 금요일 저녁에 라이브 재즈 음악을 선보인다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dʒæz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-36-1780478882872",
+        "term": "lifetime",
+        "definition": "The time between when a person is born and when they die",
+        "meaningKr": "평생, 일생",
+        "exampleEn": "This warranty guarantees the product's performance for a lifetime.",
+        "exampleKr": "이 보증서는 제품의 성능을 평생 보장합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlaɪftaɪm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-37-1780478882872",
+        "term": "massage",
+        "definition": "rub the body in a special way that makes it feel better",
+        "meaningKr": "마사지",
+        "exampleEn": "Many employees use their wellness benefits for a relaxing massage.",
+        "exampleKr": "많은 직원들이 휴식을 위한 마사지에 복지 혜택을 사용한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/məˈsɑːʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-38-1780478882872",
+        "term": "maximize",
+        "definition": "to make use of as much as possible",
+        "meaningKr": "극대화하다, 최대한 활용하다",
+        "exampleEn": "Our goal is to maximize customer satisfaction through excellent service.",
+        "exampleKr": "우리의 목표는 훌륭한 서비스를 통해 고객 만족을 극대화하는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmæksɪmaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-39-1780478882872",
+        "term": "mild",
+        "definition": "soft, gentle, not strong in nature",
+        "meaningKr": "온화한, 부드러운, 순한",
+        "exampleEn": "The climate in this coastal city is generally mild throughout the year.",
+        "exampleKr": "이 해안 도시의 기후는 일반적으로 일 년 내내 온화합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/maɪld/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-40-1780478882872",
+        "term": "ongoing",
+        "definition": "still happening",
+        "meaningKr": "진행 중인, 계속되는",
+        "exampleEn": "The investigation into the accounting irregularities is still ongoing.",
+        "exampleKr": "회계 부정에 대한 조사는 아직 진행 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɒnˌɡəʊɪŋ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-41-1780478882872",
+        "term": "periodically",
+        "definition": "every so often, at regular times",
+        "meaningKr": "정기적으로, 주기적으로",
+        "exampleEn": "We need to review the safety procedures periodically to ensure compliance.",
+        "exampleKr": "규정 준수를 보장하기 위해 안전 절차를 정기적으로 검토해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌpɪəriˈɒdɪkli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-42-1780478882872",
+        "term": "pie",
+        "definition": "round, covered pastrywith a filling like cherry or apple",
+        "meaningKr": "파이",
+        "exampleEn": "The office celebrated the project's success with a delicious apple pie.",
+        "exampleKr": "사무실에서는 맛있는 사과 파이로 프로젝트의 성공을 축하했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/paɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-43-1780478882872",
+        "term": "plug",
+        "definition": "to fill in a hole",
+        "meaningKr": "메우다, 채우다, (문제를) 해결하다",
+        "exampleEn": "We need to plug the loopholes in our current security system.",
+        "exampleKr": "현재 보안 시스템의 허점들을 메워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/plʌɡ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-44-1780478882872",
+        "term": "recruitment",
+        "definition": "the act of hiring people for businesses",
+        "meaningKr": "채용, 모집",
+        "exampleEn": "The company has launched an aggressive recruitment drive for skilled engineers.",
+        "exampleKr": "그 회사는 숙련된 엔지니어들을 위한 공격적인 채용 활동을 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈkruːtmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-45-1780478882872",
+        "term": "referee",
+        "definition": "the person who oversees something to make sure that the rules are followed",
+        "meaningKr": "심판, 중재자, (추천) 보증인",
+        "exampleEn": "The project manager acted as a referee between the two disagreeing departments.",
+        "exampleKr": "프로젝트 관리자는 서로 의견이 다른 두 부서 사이의 중재자 역할을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌrɛfəˈriː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-46-1780478882872",
+        "term": "referral",
+        "definition": "the recommendation of someone or something",
+        "meaningKr": "추천, 소개, (의료) 의뢰",
+        "exampleEn": "We offer a bonus for every successful customer referral.",
+        "exampleKr": "성공적인 고객 추천 건마다 보너스를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈfɜːrəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-47-1780478882872",
+        "term": "renown",
+        "definition": "the state of being well known",
+        "meaningKr": "명성, 명망",
+        "exampleEn": "The scientist achieved international renown for her groundbreaking research.",
+        "exampleKr": "그 과학자는 획기적인 연구로 국제적인 명성을 얻었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈnaʊn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-48-1780478882872",
+        "term": "runner",
+        "definition": "someone who travels on foot by running",
+        "meaningKr": "주자, (기계의) 부품, (식물의) 줄기",
+        "exampleEn": "The company hired a fast runner to deliver urgent documents across town.",
+        "exampleKr": "그 회사는 도시 전역에 긴급 서류를 배달할 빠른 전달자를 고용했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈrʌnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-49-1780478882872",
+        "term": "sock",
+        "definition": "something you wear on your foot to keep you warm",
+        "meaningKr": "양말",
+        "exampleEn": "Please ensure you pack an extra pair of socks for the business trip.",
+        "exampleKr": "출장 시 여분의 양말 한 켤레를 챙기시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/sɒk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-50-1780478882872",
+        "term": "spam",
+        "definition": "unwanted e-mail, usually of a commercial nature sent out in bulk",
+        "meaningKr": "스팸 메일, 원치 않는 광고 메일",
+        "exampleEn": "Please filter out any unsolicited marketing emails that arrive in your inbox.",
+        "exampleKr": "받은 편지함으로 들어오는 모든 원치 않는 마케팅 이메일을 필터링해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈspæm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-51-1780478882872",
+        "term": "surf",
+        "definition": "move from one website to another on the internet",
+        "meaningKr": "인터넷을 검색하다, 웹 서핑을 하다",
+        "exampleEn": "She spent the afternoon surfing the internet for new travel destinations.",
+        "exampleKr": "그녀는 새로운 여행지를 찾기 위해 인터넷을 검색하며 오후를 보냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/sɜːrf/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-52-1780478882872",
+        "term": "timetable",
+        "definition": "a list of events and when they are going to happen",
+        "meaningKr": "시간표, 일정표",
+        "exampleEn": "Please consult the updated timetable for the next train departure.",
+        "exampleKr": "다음 열차 출발 시간을 확인하려면 업데이트된 시간표를 참조해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtaɪmˌteɪbəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-53-1780478882872",
+        "term": "vase",
+        "definition": "a jug or urn to put cut flowers in, to make a room look pretty",
+        "meaningKr": "꽃병, 화병",
+        "exampleEn": "The office reception area was beautifully decorated with a large floral vase.",
+        "exampleKr": "사무실 접수처는 커다란 꽃병에 담긴 꽃으로 아름답게 장식되어 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/veɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-54-1780478882872",
+        "term": "aboard",
+        "definition": "on or in a moving vehicle, e.g. aboard the boat",
+        "meaningKr": "탑승한, 배/기차/비행기 등에 타고 있는",
+        "exampleEn": "All passengers must be aboard the aircraft at least thirty minutes prior to departure.",
+        "exampleKr": "모든 승객은 출발 최소 30분 전까지는 항공기에 탑승해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈbɔːrd/",
+        "pos": "adverb | preposition"
+      },
+      {
+        "id": "word-tsl-advanced-55-1780478882872",
+        "term": "advancement",
+        "definition": "gradual move forward",
+        "meaningKr": "진보, 발전, 승진",
+        "exampleEn": "The company offers excellent opportunities for professional advancement.",
+        "exampleKr": "그 회사는 직업 발전을 위한 훌륭한 기회를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ədˈvænsmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-56-1780478882872",
+        "term": "advertiser",
+        "definition": "someone who is selling something through media",
+        "meaningKr": "광고주, 광고 회사",
+        "exampleEn": "The magazine relies heavily on revenue generated by advertisers.",
+        "exampleKr": "그 잡지는 광고주로부터 발생하는 수익에 크게 의존합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈædvərˌtaɪzər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-57-1780478882872",
+        "term": "alternatively",
+        "definition": "another option",
+        "meaningKr": "대안으로, 혹은 다른 방법으로는",
+        "exampleEn": "We can meet tomorrow morning or, alternatively, this afternoon.",
+        "exampleKr": "내일 아침에 만나거나, 혹은 오늘 오후에 만나도 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɔːlˈtɜːrnətɪvli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-58-1780478882872",
+        "term": "amuse",
+        "definition": "to entertain",
+        "meaningKr": "즐겁게 하다, 재미있게 하다",
+        "exampleEn": "The comedian's jokes were designed to amuse the audience during the break.",
+        "exampleKr": "그 코미디언의 농담은 휴식 시간 동안 관객을 즐겁게 하기 위해 고안되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈmjuːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-59-1780478882872",
+        "term": "attorney",
+        "definition": "lawyer",
+        "meaningKr": "변호사, 법률 대리인",
+        "exampleEn": "She consulted with her attorney regarding the contract terms.",
+        "exampleKr": "그녀는 계약 조건에 대해 자신의 변호사와 상담했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈtɜːrni/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-60-1780478882872",
+        "term": "authorization",
+        "definition": "the permission given to do something",
+        "meaningKr": "권한 부여, 허가, 승인",
+        "exampleEn": "You will need managerial authorization to approve this expense report.",
+        "exampleKr": "이 경비 보고서를 승인하려면 관리자의 승인이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɔːθəraɪˈzeɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-61-1780478882872",
+        "term": "campus",
+        "definition": "place where university buildings are",
+        "meaningKr": "캠퍼스, 대학 부지",
+        "exampleEn": "The new research facility is located on the university's main campus.",
+        "exampleKr": "새로운 연구 시설은 대학 본부 캠퍼스에 위치해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkæmpəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-62-1780478882872",
+        "term": "candy",
+        "definition": "a very sweet food, made from sugar and other things, that is good to eat",
+        "meaningKr": "사탕, 과자 (단 것)",
+        "exampleEn": "The company provided small bags of candy as a thank-you gift.",
+        "exampleKr": "그 회사는 감사 선물로 작은 사탕 봉지를 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkændi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-63-1780478882872",
+        "term": "certify",
+        "definition": "to state something is real or correct",
+        "meaningKr": "증명하다, 인증하다",
+        "exampleEn": "We need to certify that all equipment meets safety standards.",
+        "exampleKr": "우리는 모든 장비가 안전 기준을 충족하는지 인증해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɜːrtɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-64-1780478882872",
+        "term": "checkout",
+        "definition": "the latest time that you must vacate a hotel room",
+        "meaningKr": "계산대, 체크아웃 시간",
+        "exampleEn": "The hotel's standard checkout time is 11:00 AM.",
+        "exampleKr": "호텔의 표준 체크아웃 시간은 오전 11시입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtʃekˌaʊt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-65-1780478882872",
+        "term": "chemistry",
+        "definition": "the study of chemicals",
+        "meaningKr": "화학, 화학 작용",
+        "exampleEn": "The successful collaboration shows great chemistry between the two departments.",
+        "exampleKr": "성공적인 협력은 두 부서 간의 훌륭한 화학 작용을 보여줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkemɪstri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-66-1780478882872",
+        "term": "circulation",
+        "definition": "to distribute in a wide area, e.g. newspaper",
+        "meaningKr": "유통, 발행 부수, 순환",
+        "exampleEn": "The newspaper's daily circulation has increased significantly this quarter.",
+        "exampleKr": "그 신문의 일일 발행 부수는 이번 분기에 상당히 증가했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌsɜːrkjəˈleɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-67-1780478882872",
+        "term": "concierge",
+        "definition": "the person in a hotel whose job it is to arrange things for the guests",
+        "meaningKr": "컨시어지 (호텔 안내 담당 직원)",
+        "exampleEn": "The concierge can assist you with booking tours and making restaurant reservations.",
+        "exampleKr": "컨시어지는 투어 예약 및 레스토랑 예약에 도움을 드릴 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌkɑːnsiˈerʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-68-1780478882872",
+        "term": "consent",
+        "definition": "to give permission",
+        "meaningKr": "동의, 승낙, 허락하다",
+        "exampleEn": "Please obtain written consent from all participants before proceeding.",
+        "exampleKr": "진행하기 전에 모든 참가자로부터 서면 동의를 받으십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈsent/",
+        "pos": "noun | verb"
+      },
+      {
+        "id": "word-tsl-advanced-69-1780478882872",
+        "term": "consistently",
+        "definition": "doing something the same way every time",
+        "meaningKr": "일관되게, 꾸준히",
+        "exampleEn": "The team has consistently met its sales targets for the past year.",
+        "exampleKr": "그 팀은 지난 한 해 동안 꾸준히 판매 목표를 달성했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈsɪstəntli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-70-1780478882872",
+        "term": "cookie",
+        "definition": "a small, flat, round, dry, sweet cake-like snack",
+        "meaningKr": "쿠키 (컴퓨터), 과자",
+        "exampleEn": "Please clear your browser's cache and cookies to improve performance.",
+        "exampleKr": "성능 향상을 위해 브라우저의 캐시와 쿠키를 삭제해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkʊki/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-71-1780478882872",
+        "term": "deck",
+        "definition": "like a patio or terrace",
+        "meaningKr": "갑판 (배), 데크 (테라스)",
+        "exampleEn": "We enjoyed a pleasant evening on the cruise ship's observation deck.",
+        "exampleKr": "우리는 유람선의 관측 갑판에서 즐거운 저녁 시간을 보냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dek/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-72-1780478882872",
+        "term": "descriptive",
+        "definition": "something that tells you more about it",
+        "meaningKr": "묘사적인, 설명적인",
+        "exampleEn": "The report included a descriptive analysis of the market trends.",
+        "exampleKr": "그 보고서에는 시장 동향에 대한 설명적인 분석이 포함되어 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈskrɪptɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-73-1780478882872",
+        "term": "detach",
+        "definition": "to remove from something",
+        "meaningKr": "분리하다, 떼어내다",
+        "exampleEn": "Please detach the invoice from the main document.",
+        "exampleKr": "주요 문서에서 송장을 분리해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈtætʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-74-1780478882872",
+        "term": "documentation",
+        "definition": "the act of showing proof in writing",
+        "meaningKr": "서류 작업, 문서화, 증거 서류",
+        "exampleEn": "All necessary documentation must be submitted by Friday.",
+        "exampleKr": "모든 필요한 서류는 금요일까지 제출되어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdɑːkjʊmenˈteɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-75-1780478882872",
+        "term": "entrepreneur",
+        "definition": "a business person who starts companies",
+        "meaningKr": "기업가, 사업가",
+        "exampleEn": "The entrepreneur secured significant funding to launch their innovative tech startup.",
+        "exampleKr": "그 기업가는 혁신적인 기술 스타트업을 시작하기 위해 상당한 자금을 확보했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɑːntrəprəˈnɜːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-76-1780478882872",
+        "term": "exceptional",
+        "definition": "beyond excellent",
+        "meaningKr": "예외적인, 뛰어난",
+        "exampleEn": "Her exceptional performance in the last quarter earned her a promotion.",
+        "exampleKr": "지난 분기 그녀의 뛰어난 성과는 승진을 안겨주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪkˈsepʃənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-77-1780478882872",
+        "term": "familiarize",
+        "definition": "to get to know better",
+        "meaningKr": "익숙하게 하다, 배우다",
+        "exampleEn": "New employees must familiarize themselves with the company's safety regulations.",
+        "exampleKr": "신입사원들은 회사의 안전 규정에 익숙해져야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fəˈmɪliəraɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-78-1780478882872",
+        "term": "hotline",
+        "definition": "telephone line that gives direct, fast access",
+        "meaningKr": "핫라인, 직통 전화",
+        "exampleEn": "Please use the customer service hotline for immediate assistance with your order.",
+        "exampleKr": "주문에 대한 즉각적인 도움은 고객 서비스 핫라인을 이용해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhɑːtlaɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-79-1780478882872",
+        "term": "intonation",
+        "definition": "the rise and fall of the voice when speaking",
+        "meaningKr": "억양, 말투",
+        "exampleEn": "The presenter's clear intonation made the complex topic easy to understand.",
+        "exampleKr": "발표자의 명확한 억양 덕분에 복잡한 주제를 이해하기 쉬웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪntəˈneɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-80-1780478882872",
+        "term": "invention",
+        "definition": "the idea or creation of something new",
+        "meaningKr": "발명, 발명품",
+        "exampleEn": "The company is seeking a patent for its latest groundbreaking invention.",
+        "exampleKr": "그 회사는 최신 획기적인 발명품에 대한 특허를 신청하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈvenʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-81-1780478882872",
+        "term": "irritate",
+        "definition": "to bother",
+        "meaningKr": "짜증나게 하다, 자극하다",
+        "exampleEn": "Loud construction noise can irritate residents working from home.",
+        "exampleKr": "시끄러운 공사 소음은 집에서 일하는 주민들을 짜증나게 할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɪrɪteɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-82-1780478882872",
+        "term": "locker",
+        "definition": "a small cupboard  you can store personal items in securely for a period of time",
+        "meaningKr": "사물함",
+        "exampleEn": "Please store your personal belongings securely in the provided locker.",
+        "exampleKr": "개인 소지품은 제공된 사물함에 안전하게 보관해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlɑːkər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-83-1780478882872",
+        "term": "overlook",
+        "definition": "to ignore, to not notice",
+        "meaningKr": "간과하다, 못 보고 넘어가다",
+        "exampleEn": "We must not overlook the potential risks in the new business proposal.",
+        "exampleKr": "우리는 새로운 사업 제안의 잠재적 위험을 간과해서는 안 됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌəʊvərˈlʊk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-84-1780478882872",
+        "term": "patent",
+        "definition": "the right to be the only one who is allowed to make a thing",
+        "meaningKr": "특허 (권)",
+        "exampleEn": "The company holds a patent for its unique software algorithm.",
+        "exampleKr": "그 회사는 독특한 소프트웨어 알고리즘에 대한 특허를 보유하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpætnt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-85-1780478882872",
+        "term": "payable",
+        "definition": "an amount of money due",
+        "meaningKr": "지불할 수 있는, 지급해야 할",
+        "exampleEn": "Invoices are payable within thirty days of receipt.",
+        "exampleKr": "송장은 수령 후 30일 이내에 지불해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpeɪəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-86-1780478882872",
+        "term": "preliminary",
+        "definition": "The first action that comes before a more important one",
+        "meaningKr": "예비의, 서두의",
+        "exampleEn": "A preliminary meeting will be held to discuss the project scope.",
+        "exampleKr": "프로젝트 범위를 논의하기 위해 예비 회의가 개최될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/prɪˈlɪmɪneri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-87-1780478882872",
+        "term": "salesman",
+        "definition": "a man whose job it is to get people to buy things from his company",
+        "meaningKr": "판매원, 영업사원",
+        "exampleEn": "The experienced salesman was able to close the deal quickly.",
+        "exampleKr": "경험 많은 영업사원은 거래를 신속하게 성사시킬 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈseɪlzmən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-88-1780478882872",
+        "term": "sauna",
+        "definition": "a Finnish steam bath; steam is produced by pouring water over heated rocks",
+        "meaningKr": "사우나",
+        "exampleEn": "Many hotels offer a sauna as a complimentary amenity for guests.",
+        "exampleKr": "많은 호텔들이 투숙객을 위한 무료 편의시설로 사우나를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɔːnə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-89-1780478882872",
+        "term": "smoothly",
+        "definition": "to do something easily with no trouble",
+        "meaningKr": "순조롭게, 부드럽게",
+        "exampleEn": "The transition to the new software system went very smoothly.",
+        "exampleKr": "새로운 소프트웨어 시스템으로의 전환은 매우 순조롭게 진행되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsmuːðli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-90-1780478882872",
+        "term": "sunshine",
+        "definition": "the warmth and light of the sun",
+        "meaningKr": "햇빛, 태양 광선",
+        "exampleEn": "The office has large windows that let in plenty of natural sunshine.",
+        "exampleKr": "사무실에는 자연 햇빛이 충분히 들어오는 큰 창문이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsʌnʃaɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-91-1780478882872",
+        "term": "tow",
+        "definition": "pull something along",
+        "meaningKr": "끌다, 견인하다",
+        "exampleEn": "The company arranged to tow the broken-down company car to the repair shop.",
+        "exampleKr": "회사는 고장 난 회사 차량을 수리점으로 견인하도록 조치했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/toʊ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-92-1780478882872",
+        "term": "translator",
+        "definition": "the person who changes something into another language",
+        "meaningKr": "번역가, 통역사",
+        "exampleEn": "A professional translator was hired to ensure accuracy in the document.",
+        "exampleKr": "문서의 정확성을 보장하기 위해 전문 번역가가 고용되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/trænzˈleɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-93-1780478882872",
+        "term": "tuition",
+        "definition": "the sum of money charged for teaching by a college or university",
+        "meaningKr": "수업료, 등록금",
+        "exampleEn": "The company offers a tuition reimbursement program for employees.",
+        "exampleKr": "회사는 직원들을 위한 수업료 상환 프로그램을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/tuˈɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-94-1780478882872",
+        "term": "unavailable",
+        "definition": "not ready for use",
+        "meaningKr": "이용할 수 없는, 구할 수 없는",
+        "exampleEn": "The requested spare part is currently unavailable and on backorder.",
+        "exampleKr": "요청하신 예비 부품은 현재 구할 수 없으며 주문 후 입고 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌʌnəˈveɪləbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-95-1780478882872",
+        "term": "violation",
+        "definition": "the act of breaking a rule or law",
+        "meaningKr": "위반, 침해",
+        "exampleEn": "Failure to comply with the policy is a serious violation.",
+        "exampleKr": "정책을 준수하지 않는 것은 심각한 위반입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌvaɪəˈleɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-96-1780478882872",
+        "term": "webpage",
+        "definition": "information shown on the screen of an internet website about a particular subject",
+        "meaningKr": "웹페이지",
+        "exampleEn": "Please visit our company webpage for the latest product information.",
+        "exampleKr": "최신 제품 정보는 저희 회사 웹페이지를 방문해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈwebpeɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-97-1780478882872",
+        "term": "acceptance",
+        "definition": "state of being okay with something or someone",
+        "meaningKr": "수락, 승인",
+        "exampleEn": "The acceptance of the revised contract is pending final approval.",
+        "exampleKr": "수정된 계약의 수락은 최종 승인을 기다리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əkˈseptəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-98-1780478882872",
+        "term": "allocate",
+        "definition": "to assign (usually people or money) to something",
+        "meaningKr": "할당하다, 배분하다",
+        "exampleEn": "The manager will allocate funds for the upcoming marketing campaign.",
+        "exampleKr": "관리자는 다가오는 마케팅 캠페인을 위한 자금을 할당할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæləkeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-99-1780478882872",
+        "term": "ambitious",
+        "definition": "hard-working, wanting to achieve much",
+        "meaningKr": "야심 찬, 야망 있는",
+        "exampleEn": "She is an ambitious professional aiming for a leadership role.",
+        "exampleKr": "그녀는 리더 역할을 목표로 하는 야심 찬 전문가입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/æmˈbɪʃəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-100-1780478882872",
+        "term": "appendix",
+        "definition": "an extra bit of information at the end of a book or document",
+        "meaningKr": "부록, 첨부물",
+        "exampleEn": "Please refer to the appendix for detailed financial statements and supporting documents.",
+        "exampleKr": "자세한 재무제표와 증빙 서류는 부록을 참조하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈpɛndɪks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-101-1780478882872",
+        "term": "booth",
+        "definition": "an enclosed space like a cubicle, stall or stand",
+        "meaningKr": "부스, 칸막이, 판매대",
+        "exampleEn": "We will set up a company booth at the upcoming international trade fair.",
+        "exampleKr": "우리는 다가오는 국제 무역 박람회에 회사 부스를 설치할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/buːð/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-102-1780478882872",
+        "term": "clarify",
+        "definition": "to explain or make clear",
+        "meaningKr": "분명하게 하다, 명확히 설명하다",
+        "exampleEn": "Could you please clarify the terms of the contract before we sign it?",
+        "exampleKr": "계약서에 서명하기 전에 계약 조건을 명확히 설명해 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈklærɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-103-1780478882872",
+        "term": "classmate",
+        "definition": "Someone studying in your class with you",
+        "meaningKr": "반 친구, 동급생",
+        "exampleEn": "She often studies with her classmates to prepare for exams.",
+        "exampleKr": "그녀는 시험 준비를 위해 동급생들과 자주 공부합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈklæsmeɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-104-1780478882872",
+        "term": "compile",
+        "definition": "to collect or gather data",
+        "meaningKr": "수집하다, 편집하다, 컴파일하다",
+        "exampleEn": "The marketing team will compile a report on recent consumer trends.",
+        "exampleKr": "마케팅 팀은 최근 소비자 동향에 대한 보고서를 수집할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kəmˈpaɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-105-1780478882872",
+        "term": "correction",
+        "definition": "the act of making something right",
+        "meaningKr": "수정, 정정",
+        "exampleEn": "Please note any necessary corrections on the proofread document.",
+        "exampleKr": "교정된 문서에서 필요한 수정 사항을 모두 표시해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kəˈrɛkʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-106-1780478882872",
+        "term": "customize",
+        "definition": "make or change something to suit the customer's  particular needs",
+        "meaningKr": "맞춤 제작하다, 주문 제작하다",
+        "exampleEn": "We offer customized software solutions to meet specific business needs.",
+        "exampleKr": "우리는 특정 비즈니스 요구에 맞춰 맞춤형 소프트웨어 솔루션을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkʌstəˌmaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-107-1780478882872",
+        "term": "dedication",
+        "definition": "the act of being faithful to someone or something",
+        "meaningKr": "헌신, 전념, 헌사",
+        "exampleEn": "His dedication to improving customer service is truly commendable.",
+        "exampleKr": "고객 서비스 개선에 대한 그의 헌신은 정말 칭찬할 만합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdɛdɪˈkeɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-108-1780478882872",
+        "term": "diagnose",
+        "definition": "to figure out what is wrong",
+        "meaningKr": "진단하다",
+        "exampleEn": "The technician will diagnose the problem with the server immediately.",
+        "exampleKr": "기술자가 서버 문제를 즉시 진단할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdaɪəɡnoʊs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-109-1780478882872",
+        "term": "discontinue",
+        "definition": "stop doing it",
+        "meaningKr": "중단하다, 폐지하다",
+        "exampleEn": "The company decided to discontinue the old product line next quarter.",
+        "exampleKr": "회사는 다음 분기에 기존 제품 라인을 중단하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdɪskənˈtɪnjuː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-110-1780478882872",
+        "term": "dishwasher",
+        "definition": "a machine that cleans dirty dishes",
+        "meaningKr": "식기세척기",
+        "exampleEn": "The office kitchen is equipped with a new, energy-efficient dishwasher.",
+        "exampleKr": "사무실 주방에는 새롭고 에너지 효율적인 식기세척기가 갖추어져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdɪʃˌwɑːʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-111-1780478882872",
+        "term": "drought",
+        "definition": "a period of time when there is very little rainfall",
+        "meaningKr": "가뭄",
+        "exampleEn": "The prolonged drought has severely impacted agricultural production this year.",
+        "exampleKr": "장기화된 가뭄이 올해 농업 생산에 심각한 영향을 미쳤습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/draʊt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-112-1780478882872",
+        "term": "economize",
+        "definition": "to save money, avoid waste",
+        "meaningKr": "절약하다, 아껴 쓰다",
+        "exampleEn": "We need to economize on office supplies to reduce overall expenses.",
+        "exampleKr": "전반적인 비용을 줄이기 위해 사무용품을 절약해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪˈkɑːnəˌmaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-113-1780478882872",
+        "term": "entrée",
+        "definition": "",
+        "meaningKr": "주요리",
+        "exampleEn": "For your entrée, would you prefer the grilled salmon or the beef tenderloin?",
+        "exampleKr": "주요리로, 구운 연어와 비프 텐더로인 중 어느 것을 선호하십니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɑːntreɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-114-1780478882872",
+        "term": "firework",
+        "definition": "a small stick-like object that, when lit with a flame, goes off with a bang and flashes of colored light",
+        "meaningKr": "불꽃놀이",
+        "exampleEn": "The company sponsored the annual festival's spectacular firework display.",
+        "exampleKr": "회사는 연례 축제의 멋진 불꽃놀이를 후원했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfaɪərˌwɜːrk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-115-1780478882872",
+        "term": "freight",
+        "definition": "goods that are transported from one place to another",
+        "meaningKr": "화물, 운송",
+        "exampleEn": "The shipping company specializes in international freight forwarding services.",
+        "exampleKr": "그 운송 회사는 국제 화물 운송 서비스를 전문으로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/freɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-116-1780478882872",
+        "term": "fry",
+        "definition": "to cook in a pan",
+        "meaningKr": "튀기다",
+        "exampleEn": "The chef will fry the fish to a perfect golden brown.",
+        "exampleKr": "요리사는 생선을 완벽한 황금빛 갈색이 되도록 튀길 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fraɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-117-1780478882872",
+        "term": "gallon",
+        "definition": "a type of measurement equal to 3.78 liters",
+        "meaningKr": "갤런 (액량 단위)",
+        "exampleEn": "The fuel tank has a capacity of twenty gallons.",
+        "exampleKr": "연료 탱크는 20갤런 용량입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɡælən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-118-1780478882872",
+        "term": "gardener",
+        "definition": "a person who works with plants and flowers for a living",
+        "meaningKr": "정원사",
+        "exampleEn": "The office building hires a professional gardener to maintain the landscape.",
+        "exampleKr": "사무실 건물은 조경을 유지하기 위해 전문 정원사를 고용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɡɑːrdnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-119-1780478882872",
+        "term": "ideally",
+        "definition": "in a perfect world",
+        "meaningKr": "이상적으로, 완벽하게",
+        "exampleEn": "Ideally, the project should be completed by the end of the fiscal year.",
+        "exampleKr": "이상적으로는 프로젝트가 회계 연도 말까지 완료되어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/aɪˈdiːəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-120-1780478882872",
+        "term": "inclusive",
+        "definition": "includes everything",
+        "meaningKr": "포괄적인, 포함하는",
+        "exampleEn": "The seminar fee is inclusive of all materials and lunch.",
+        "exampleKr": "세미나 비용에는 모든 자료와 점심 식사가 포함됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈkluːsɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-121-1780478882872",
+        "term": "insufficient",
+        "definition": "not enough",
+        "meaningKr": "불충분한, 부족한",
+        "exampleEn": "We have insufficient funds to proceed with the expansion plan.",
+        "exampleKr": "확장 계획을 진행하기에 자금이 불충분합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪnsəˈfɪʃənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-122-1780478882872",
+        "term": "introductory",
+        "definition": "something that comes before the main event, e.g. introductory speech",
+        "meaningKr": "소개의, 입문의",
+        "exampleEn": "This is an introductory course for new employees to understand our policies.",
+        "exampleKr": "이것은 신입 사원들이 우리의 정책을 이해하기 위한 입문 과정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪntrəˈdʌktəri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-123-1780478882872",
+        "term": "junk",
+        "definition": "useless item; trash",
+        "meaningKr": "쓰레기, 고물",
+        "exampleEn": "Please clear out the old junk from the storage room.",
+        "exampleKr": "창고에서 오래된 잡동사니를 치워주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dʒʌŋk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-124-1780478882872",
+        "term": "ma'am",
+        "definition": "short for 'madam', a polite way to address a woman",
+        "meaningKr": "부인 (여성에게 존칭)",
+        "exampleEn": "Excuse me, ma'am, may I help you with your luggage?",
+        "exampleKr": "실례합니다, 부인, 짐을 도와드릴까요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/mæm/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-tsl-advanced-125-1780478882872",
+        "term": "mileage",
+        "definition": "distance travelled in miles",
+        "meaningKr": "주행 거리, 마일리지",
+        "exampleEn": "Please submit your monthly report detailing your business travel mileage for reimbursement.",
+        "exampleKr": "월별 출장 주행 거리 보고서를 제출해 주시면 경비 환급이 가능합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmaɪlɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-126-1780478882872",
+        "term": "noisy",
+        "definition": "too loud",
+        "meaningKr": "시끄러운, 소음이 심한",
+        "exampleEn": "The construction next door has been extremely noisy, affecting our concentration.",
+        "exampleKr": "옆 건물 공사로 인해 매우 시끄러워서 저희의 집중력에 영향을 미치고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈnɔɪzi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-127-1780478882872",
+        "term": "pan",
+        "definition": "a flat, round cooking container used for frying",
+        "meaningKr": "프라이팬, 냄비",
+        "exampleEn": "The chef used a large non-stick pan to prepare the breakfast buffet.",
+        "exampleKr": "그 요리사는 아침 뷔페를 준비하기 위해 큰 코팅 프라이팬을 사용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/pæn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-128-1780478882872",
+        "term": "parcel",
+        "definition": "something wrapped in paper so that it can be sent, or delivered somewhere",
+        "meaningKr": "소포, 꾸러미",
+        "exampleEn": "We received a large parcel containing new office supplies this morning.",
+        "exampleKr": "오늘 아침 사무용품이 담긴 큰 소포를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɑːrsəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-129-1780478882872",
+        "term": "pasta",
+        "definition": "shaped and dried dough, made from flour and water, often used in Italian cooking",
+        "meaningKr": "파스타, 마카로니",
+        "exampleEn": "The catering service offers a variety of pasta dishes for the company luncheon.",
+        "exampleKr": "케이터링 서비스는 회사 점심 식사를 위해 다양한 파스타 요리를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpæstə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-130-1780478882872",
+        "term": "periodical",
+        "definition": "a magazine made and available on a regular basis",
+        "meaningKr": "정기 간행물, 잡지",
+        "exampleEn": "Please ensure all relevant periodicals are updated in the company's digital library.",
+        "exampleKr": "모든 관련 정기 간행물이 회사 디지털 도서관에 최신 상태로 업데이트되었는지 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌpɪəriˈɒdɪkl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-131-1780478882872",
+        "term": "pill",
+        "definition": "medicine in the form of a capsule that you swallow",
+        "meaningKr": "알약, 경구 피임약",
+        "exampleEn": "The doctor advised him to take one pill after each meal for his condition.",
+        "exampleKr": "의사는 그의 상태를 위해 식사 후 알약 하나씩 복용하라고 조언했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/pɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-132-1780478882872",
+        "term": "portable",
+        "definition": "something that is small and easy to carry",
+        "meaningKr": "휴대용의, 이동식의",
+        "exampleEn": "We are looking for a portable projector for our client presentations.",
+        "exampleKr": "저희는 고객 프레젠테이션을 위한 휴대용 프로젝터를 찾고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɔːrtəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-133-1780478882872",
+        "term": "punctual",
+        "definition": "arriving on time",
+        "meaningKr": "시간을 엄수하는, 기한을 지키는",
+        "exampleEn": "Ms. Lee is known for being punctual and always arrives at meetings on time.",
+        "exampleKr": "이 선생님은 시간을 엄수하는 것으로 알려져 있으며 항상 회의에 제시간에 도착합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpʌŋktʃuəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-134-1780478882872",
+        "term": "recreation",
+        "definition": "leisure",
+        "meaningKr": "휴양, 오락, 여가 활동",
+        "exampleEn": "The company offers various recreation facilities for employee well-being.",
+        "exampleKr": "회사는 직원의 복지를 위해 다양한 휴양 시설을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌrekrɪˈeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-135-1780478882872",
+        "term": "relieve",
+        "definition": "to take something away from someone",
+        "meaningKr": "덜어주다, 안심시키다, (고통 등을) 경감시키다",
+        "exampleEn": "This new software is expected to relieve the IT department of some of its workload.",
+        "exampleKr": "이 새로운 소프트웨어는 IT 부서의 업무량을 일부 덜어줄 것으로 예상됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈliːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-136-1780478882872",
+        "term": "reminder",
+        "definition": "something that makes you remember something",
+        "meaningKr": "알림, 상기시키는 것",
+        "exampleEn": "Please set a reminder for the upcoming budget review meeting.",
+        "exampleKr": "곧 있을 예산 검토 회의에 대한 알림을 설정해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈmaɪndər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-137-1780478882872",
+        "term": "rumor",
+        "definition": "something said by people but not necessarily true",
+        "meaningKr": "소문, 유언비어",
+        "exampleEn": "We cannot act on unconfirmed rumors regarding the merger.",
+        "exampleKr": "합병에 관한 확인되지 않은 소문에 근거해서는 행동할 수 없습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈruːmər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-138-1780478882872",
+        "term": "scarf",
+        "definition": "a long, narrow piece of material you wear round your neck to keep you warm",
+        "meaningKr": "스카프, 목도리",
+        "exampleEn": "She wore a silk scarf that complemented her business attire.",
+        "exampleKr": "그녀는 비즈니스 복장을 돋보이게 하는 실크 스카프를 착용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/skɑːrf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-139-1780478882872",
+        "term": "seaside",
+        "definition": "a place right by the ocean where people can go to relax and have fun",
+        "meaningKr": "해변, 바닷가",
+        "exampleEn": "The company retreat will be held at a resort located by the seaside.",
+        "exampleKr": "회사 워크숍은 해변가에 위치한 리조트에서 열릴 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsiːsaɪd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-140-1780478882872",
+        "term": "shorten",
+        "definition": "to make smaller in length",
+        "meaningKr": "줄이다, 단축하다",
+        "exampleEn": "We need to shorten the project timeline to meet the deadline.",
+        "exampleKr": "마감일을 맞추기 위해 프로젝트 일정을 단축해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈʃɔːrtn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-141-1780478882872",
+        "term": "specially",
+        "definition": "in particular",
+        "meaningKr": "특별히, 고의로",
+        "exampleEn": "This report was compiled specially for the executive board meeting.",
+        "exampleKr": "이 보고서는 임원 회의를 위해 특별히 작성되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈspeʃəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-142-1780478882872",
+        "term": "spill",
+        "definition": "to accidentally empty a container, e.g. spill a glass of milk",
+        "meaningKr": "쏟다, 흘리다",
+        "exampleEn": "Be careful not to spill coffee on the important documents.",
+        "exampleKr": "중요한 서류에 커피를 쏟지 않도록 주의하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/spɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-143-1780478882872",
+        "term": "spouse",
+        "definition": "the person you are married to",
+        "meaningKr": "배우자",
+        "exampleEn": "Please provide the full name of your spouse for the insurance application.",
+        "exampleKr": "보험 신청을 위해 배우자의 전체 이름을 기재해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/spaʊs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-144-1780478882872",
+        "term": "subtract",
+        "definition": "take away from",
+        "meaningKr": "빼다, 공제하다",
+        "exampleEn": "You must subtract the expenses from the total revenue to find the profit.",
+        "exampleKr": "이익을 찾기 위해 총수익에서 비용을 빼야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/səbˈtrækt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-145-1780478882872",
+        "term": "tablet",
+        "definition": "a small flat solid cake of some substance",
+        "meaningKr": "알약, 태블릿 PC",
+        "exampleEn": "He took a pain relief tablet for his headache before the presentation.",
+        "exampleKr": "그는 발표 전에 두통을 위해 진통제 알약을 복용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtæblɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-146-1780478882872",
+        "term": "ton",
+        "definition": "a measurement equalling 2000 pounds",
+        "meaningKr": "톤 (무게 단위)",
+        "exampleEn": "The shipment weighed over ten tons and required special handling.",
+        "exampleKr": "그 화물은 10톤이 넘는 무게였으며 특별한 취급이 필요했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/tʌn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-147-1780478882872",
+        "term": "vend",
+        "definition": "To offer something for sale or to sell something",
+        "meaningKr": "팔다, 판매하다",
+        "exampleEn": "The company plans to vend its new product line internationally next year.",
+        "exampleKr": "그 회사는 내년에 새로운 제품 라인을 국제적으로 판매할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/vend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-148-1780478882872",
+        "term": "yoga",
+        "definition": "a system of exercise to give control over your mind and body",
+        "meaningKr": "요가",
+        "exampleEn": "The office offers yoga classes during lunch breaks to promote employee wellness.",
+        "exampleKr": "회사는 직원 복지를 증진하기 위해 점심시간에 요가 수업을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈjoʊɡə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-149-1780478882872",
+        "term": "accent",
+        "definition": "special manner of oral expression",
+        "meaningKr": "억양, 발음",
+        "exampleEn": "Despite his strong accent, his English was clear and understandable.",
+        "exampleKr": "그의 강한 억양에도 불구하고 그의 영어는 명확하고 이해하기 쉬웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæksənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-150-1780478882872",
+        "term": "advisory",
+        "definition": "related to giving advice or an opinion on what to do",
+        "meaningKr": "조언의, 권고의",
+        "exampleEn": "The company issued an advisory notice regarding potential travel disruptions.",
+        "exampleKr": "회사는 잠재적인 여행 차질에 관한 권고 공지를 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ədˈvaɪzəri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-151-1780478882872",
+        "term": "asleep",
+        "definition": "not awake, in sleep",
+        "meaningKr": "잠든, 자고 있는",
+        "exampleEn": "Please do not disturb the client who is currently asleep in the waiting room.",
+        "exampleKr": "대기실에서 현재 잠들어 있는 고객을 방해하지 마십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈsliːp/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-152-1780478882872",
+        "term": "authentic",
+        "definition": "real, not fake",
+        "meaningKr": "진짜의, 진정한, 정통의",
+        "exampleEn": "We need to ensure all submitted documents are authentic and verifiable.",
+        "exampleKr": "제출된 모든 서류가 진짜이고 검증 가능하다는 것을 확인해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɔːˈθɛntɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-153-1780478882872",
+        "term": "bakery",
+        "definition": "a place where baked goods (breads and cakes and pastries) are made and sold",
+        "meaningKr": "빵집, 베이커리",
+        "exampleEn": "The new bakery on Elm Street offers a wide selection of fresh pastries.",
+        "exampleKr": "엘름 스트리트의 새 빵집은 신선한 페이스트리를 다양하게 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbeɪkəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-154-1780478882872",
+        "term": "carton",
+        "definition": "a box made of cardboard or plastic in which things like milk and juice are sold",
+        "meaningKr": "판지 상자, 종이 상자",
+        "exampleEn": "Please pack the promotional brochures in these sturdy cartons for shipping.",
+        "exampleKr": "홍보 브로셔를 배송을 위해 이 튼튼한 상자들에 포장해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɑːrtən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-155-1780478882872",
+        "term": "compartment",
+        "definition": "a part of a closed area that has been separated from a bigger one",
+        "meaningKr": "칸, 구획, 격실",
+        "exampleEn": "Each employee has a personal compartment in the shared office space.",
+        "exampleKr": "각 직원은 공유 사무 공간에 개인 칸을 가지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kəmˈpɑːrtmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-156-1780478882872",
+        "term": "compatible",
+        "definition": "to go well with",
+        "meaningKr": "호환되는, 양립할 수 있는",
+        "exampleEn": "Ensure the new software is compatible with our existing operating system.",
+        "exampleKr": "새 소프트웨어가 기존 운영 체제와 호환되는지 확인하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kəmˈpætəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-157-1780478882872",
+        "term": "consumption",
+        "definition": "the act of eating",
+        "meaningKr": "소비, 섭취",
+        "exampleEn": "Reducing energy consumption is a key goal for the company this year.",
+        "exampleKr": "에너지 소비를 줄이는 것이 올해 회사의 주요 목표입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈsʌmpʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-158-1780478882872",
+        "term": "conveniently",
+        "definition": "in a manner that is easy",
+        "meaningKr": "편리하게, 손쉽게",
+        "exampleEn": "The hotel is conveniently located near the convention center and major attractions.",
+        "exampleKr": "호텔은 컨벤션 센터와 주요 명소 근처에 편리하게 위치해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈviːnjəntli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-159-1780478882872",
+        "term": "cosmetic",
+        "definition": "makes something look better without changing it too much",
+        "meaningKr": "미용의, 화장의",
+        "exampleEn": "The company is launching a new line of cosmetic products next quarter.",
+        "exampleKr": "회사는 다음 분기에 새로운 화장품 라인을 출시할 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kɒzˈmetɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-160-1780478882872",
+        "term": "courtesy",
+        "definition": "a kindness to someone",
+        "meaningKr": "친절, 예의",
+        "exampleEn": "All staff are expected to show courtesy and professionalism to clients.",
+        "exampleKr": "모든 직원은 고객에게 친절과 전문성을 보여줄 것으로 기대됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɜːrtəsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-161-1780478882872",
+        "term": "creativity",
+        "definition": "the state of having talent and imagination",
+        "meaningKr": "창의력, 창조성",
+        "exampleEn": "We encourage creativity and innovation in our marketing department's strategies.",
+        "exampleKr": "마케팅 부서의 전략에서 창의력과 혁신을 장려합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌkriːeɪˈtɪvəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-162-1780478882872",
+        "term": "disagreement",
+        "definition": "the act of having a difference of opinion",
+        "meaningKr": "의견 불일치, 불화",
+        "exampleEn": "Despite minor disagreements, the team reached a consensus on the project's direction.",
+        "exampleKr": "사소한 의견 불일치에도 불구하고 팀은 프로젝트 방향에 대해 합의에 도달했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdɪsəˈɡriːmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-163-1780478882872",
+        "term": "disappointment",
+        "definition": "what is felt when someone does not fulfill your expectations",
+        "meaningKr": "실망, 낙담",
+        "exampleEn": "The delay in the product launch caused considerable disappointment among customers.",
+        "exampleKr": "제품 출시 지연은 고객들 사이에 상당한 실망을 안겨주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdɪsəˈpɔɪntmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-164-1780478882872",
+        "term": "dissatisfy",
+        "definition": "to make someone not pleased with what you have done",
+        "meaningKr": "불만족시키다",
+        "exampleEn": "We aim to avoid any actions that might dissatisfy our valued clients.",
+        "exampleKr": "우리는 소중한 고객들에게 불만을 줄 수 있는 어떠한 행동도 피하는 것을 목표로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪsˈsætɪsfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-165-1780478882872",
+        "term": "enjoyable",
+        "definition": "not boring, fun",
+        "meaningKr": "즐거운, 재미있는",
+        "exampleEn": "The company picnic provided an enjoyable opportunity for team building.",
+        "exampleKr": "회사 야유회는 팀 빌딩을 위한 즐거운 기회를 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈdʒɔɪəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-166-1780478882872",
+        "term": "faculty",
+        "definition": "an instructor or professor at university",
+        "meaningKr": "교수진, 학부",
+        "exampleEn": "The university's business faculty is renowned for its research contributions.",
+        "exampleKr": "대학의 경영학부는 연구 기여로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfækəlti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-167-1780478882872",
+        "term": "favorable",
+        "definition": "to be seen as good or positive",
+        "meaningKr": "호의적인, 유리한",
+        "exampleEn": "Market conditions appear favorable for the company's expansion plans.",
+        "exampleKr": "시장 상황이 회사의 확장 계획에 유리해 보입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfeɪvərəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-168-1780478882872",
+        "term": "foreman",
+        "definition": "Senior worker who controls other workers",
+        "meaningKr": "현장 감독, 조장",
+        "exampleEn": "The foreman instructed the construction crew on the day's safety procedures.",
+        "exampleKr": "현장 감독은 건설 작업반에게 오늘의 안전 절차에 대해 지시했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɔːrmən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-169-1780478882872",
+        "term": "forum",
+        "definition": "a place for open discussion",
+        "meaningKr": "토론회, 포럼, 광장",
+        "exampleEn": "We will host a public forum to discuss the proposed city development project.",
+        "exampleKr": "제안된 도시 개발 프로젝트를 논의하기 위해 공개 토론회를 개최할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɔːrəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-170-1780478882872",
+        "term": "founder",
+        "definition": "someone who starts a business or organization",
+        "meaningKr": "창립자, 설립자",
+        "exampleEn": "The company's founder shared his vision for future growth at the meeting.",
+        "exampleKr": "회사의 창립자는 회의에서 미래 성장에 대한 그의 비전을 공유했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfaʊndər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-171-1780478882872",
+        "term": "fundraise",
+        "definition": "to get money from people for a partular project",
+        "meaningKr": "모금하다",
+        "exampleEn": "The non-profit organization will fundraise for its new community outreach program.",
+        "exampleKr": "그 비영리 단체는 새로운 지역 사회 봉사 프로그램을 위해 모금할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfʌndreɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-172-1780478882872",
+        "term": "graphics",
+        "definition": "images or pictures",
+        "meaningKr": "그래픽, 도안",
+        "exampleEn": "The presentation included clear graphics to illustrate the sales data.",
+        "exampleKr": "프레젠테이션에는 판매 데이터를 설명하기 위한 명확한 그래픽이 포함되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɡræfɪks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-173-1780478882872",
+        "term": "handy",
+        "definition": "useful",
+        "meaningKr": "유용한, 편리한",
+        "exampleEn": "A small toolkit would be handy for minor office repairs.",
+        "exampleKr": "작은 도구 상자가 사무실의 간단한 수리에 유용할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhændi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-174-1780478882872",
+        "term": "hazardous",
+        "definition": "to be dangerous",
+        "meaningKr": "위험한",
+        "exampleEn": "Employees must follow safety protocols when handling hazardous materials.",
+        "exampleKr": "직원들은 위험 물질을 취급할 때 안전 규약을 따라야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhæzərdəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-175-1780478882872",
+        "term": "healthcare",
+        "definition": "the business of providing medical services to a community or individuals",
+        "meaningKr": "의료 서비스, 건강 관리",
+        "exampleEn": "The company offers comprehensive healthcare benefits to all its full-time employees.",
+        "exampleKr": "그 회사는 모든 정규직 직원들에게 포괄적인 의료 혜택을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhɛlθˌkɛər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-176-1780478882872",
+        "term": "humidity",
+        "definition": "how much dampness their is in the air",
+        "meaningKr": "습도, 습기",
+        "exampleEn": "High humidity levels in the server room can cause equipment malfunctions.",
+        "exampleKr": "서버실의 높은 습도는 장비 오작동을 유발할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/hjuːˈmɪdəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-177-1780478882872",
+        "term": "influential",
+        "definition": "powerful",
+        "meaningKr": "영향력 있는, 영향이 큰",
+        "exampleEn": "Ms. Evans is an influential figure in the marketing industry.",
+        "exampleKr": "에반스 씨는 마케팅 업계에서 영향력 있는 인물입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪnfluˈɛnʃəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-178-1780478882872",
+        "term": "nationwide",
+        "definition": "all across the country",
+        "meaningKr": "전국의, 전국적으로",
+        "exampleEn": "The new product launch will be supported by a nationwide advertising campaign.",
+        "exampleKr": "신제품 출시는 전국적인 광고 캠페인으로 지원될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌneɪʃənˈwaɪd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-179-1780478882872",
+        "term": "pad",
+        "definition": "many sheets of paper glued together for writing",
+        "meaningKr": "메모지, 패드",
+        "exampleEn": "Please jot down the key points from the meeting on this notepad.",
+        "exampleKr": "회의의 주요 내용을 이 메모지에 적어 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/pæd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-180-1780478882872",
+        "term": "paraphrase",
+        "definition": "saying it again but putting the same meaning into different words",
+        "meaningKr": "바꿔 말하다, 다른 말로 표현하다",
+        "exampleEn": "Could you paraphrase the main conclusions of the report for me?",
+        "exampleKr": "보고서의 주요 결론을 제게 다른 말로 설명해 주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpærəfreɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-181-1780478882872",
+        "term": "placement",
+        "definition": "the act of placing someone in a job or the location of something",
+        "meaningKr": "배치, 자리, 취업 알선",
+        "exampleEn": "The career services office assists students with internship placement.",
+        "exampleKr": "취업 지원 센터는 학생들의 인턴십 배치를 돕습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpleɪsmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-182-1780478882872",
+        "term": "postal",
+        "definition": "of or relating to the system for delivering mail",
+        "meaningKr": "우편의, 우편물의",
+        "exampleEn": "Please send the signed contract via postal mail.",
+        "exampleKr": "서명된 계약서를 우편으로 보내주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpoʊstəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-183-1780478882872",
+        "term": "publicity",
+        "definition": "the  advertising message to let people know about a product or event",
+        "meaningKr": "홍보, 광고",
+        "exampleEn": "The event received significant publicity from local media outlets.",
+        "exampleKr": "그 행사는 지역 언론 매체로부터 상당한 홍보를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/pʌbˈlɪsəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-184-1780478882872",
+        "term": "renter",
+        "definition": "someone who pays money to have the use of something for a period of time",
+        "meaningKr": "임차인, 세입자",
+        "exampleEn": "The landlord is responsible for major repairs, not the renter.",
+        "exampleKr": "주요 수리는 집주인의 책임이지 임차인이 아닙니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈrɛntər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-185-1780478882872",
+        "term": "repairperson",
+        "definition": "Person whose job it is to fixe things when they are broken",
+        "meaningKr": "수리공",
+        "exampleEn": "We need to call a repairperson to fix the broken air conditioner.",
+        "exampleKr": "고장난 에어컨을 고치기 위해 수리공을 불러야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈpɛərˌpɜːrsən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-186-1780478882872",
+        "term": "repeatedly",
+        "definition": "many times",
+        "meaningKr": "반복적으로, 거듭",
+        "exampleEn": "The system has repeatedly failed to process the payment.",
+        "exampleKr": "시스템이 반복적으로 결제를 처리하지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈpiːtɪdli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-187-1780478882872",
+        "term": "restroom",
+        "definition": "room in a building which contains one or more toilets for public use",
+        "meaningKr": "화장실",
+        "exampleEn": "Excuse me, where is the nearest restroom?",
+        "exampleKr": "실례합니다만, 가장 가까운 화장실이 어디인가요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈrɛstˌruːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-188-1780478882872",
+        "term": "silently",
+        "definition": "in a quiet manner",
+        "meaningKr": "조용히, 말없이",
+        "exampleEn": "He observed the proceedings silently from the back of the room.",
+        "exampleKr": "그는 방 뒤편에서 조용히 회의 진행 상황을 지켜보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsaɪləntli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-189-1780478882872",
+        "term": "spa",
+        "definition": "a place you can go to relax and  improve your health, or how you look",
+        "meaningKr": "스파, 온천",
+        "exampleEn": "The hotel features a luxurious spa with various wellness treatments.",
+        "exampleKr": "그 호텔은 다양한 웰빙 트리트먼트를 갖춘 고급 스파를 자랑합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/spɑː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-190-1780478882872",
+        "term": "spreadsheet",
+        "definition": "a computer program worksheet or table that you enter information onto",
+        "meaningKr": "스프레드시트, 계산표",
+        "exampleEn": "Please update the sales figures in the monthly spreadsheet.",
+        "exampleKr": "월간 스프레드시트의 판매 수치를 업데이트해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsprɛdˌʃiːt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-191-1780478882872",
+        "term": "stapler",
+        "definition": "a small device used to fix papers together with a small thin piece of wire called a staple",
+        "meaningKr": "스테이플러, 찍개",
+        "exampleEn": "Could you pass me the stapler? I need to fasten these documents.",
+        "exampleKr": "스테이플러 좀 건네주시겠어요? 이 서류들을 철해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsteɪplər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-192-1780478882872",
+        "term": "streamline",
+        "definition": "make smoother and more efficient",
+        "meaningKr": "간소화하다, 능률화하다",
+        "exampleEn": "We are implementing new software to streamline our workflow.",
+        "exampleKr": "우리는 업무 흐름을 간소화하기 위해 새로운 소프트웨어를 도입하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈstriːmˌlaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-193-1780478882872",
+        "term": "substantially",
+        "definition": "a great deal, amount",
+        "meaningKr": "상당히, 크게",
+        "exampleEn": "The cost of raw materials has increased substantially this quarter.",
+        "exampleKr": "이번 분기에 원자재 비용이 상당히 증가했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/səbˈstænʃəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-194-1780478882872",
+        "term": "teller",
+        "definition": "person who works in a bank, who pays out and takes in money",
+        "meaningKr": "은행원 (출납 창구 직원)",
+        "exampleEn": "Please approach the next available teller to make your deposit.",
+        "exampleKr": "입금을 하시려면 다음 이용 가능한 은행원에게 오십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtɛlər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-195-1780478882872",
+        "term": "tidy",
+        "definition": "put things in their correct place",
+        "meaningKr": "정돈하다, 깔끔하게 하다",
+        "exampleEn": "It's important to tidy your workspace at the end of the day.",
+        "exampleKr": "하루 일과를 마칠 때 작업 공간을 정돈하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtaɪdi/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-196-1780478882872",
+        "term": "toll",
+        "definition": "a small cost or fee you pay to use a service",
+        "meaningKr": "통행료, 요금",
+        "exampleEn": "The bridge has a toll that must be paid electronically.",
+        "exampleKr": "그 다리에는 전자적으로 지불해야 하는 통행료가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/toʊl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-197-1780478882872",
+        "term": "toner",
+        "definition": "the ink in the computer or printer",
+        "meaningKr": "토너 (프린터 잉크)",
+        "exampleEn": "The printer is out of toner and needs replacement.",
+        "exampleKr": "프린터에 토너가 떨어져 교체가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtoʊnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-198-1780478882872",
+        "term": "urgently",
+        "definition": "to do something right away",
+        "meaningKr": "긴급하게, 다급하게",
+        "exampleEn": "We received an urgent request for the financial report.",
+        "exampleKr": "우리는 재무 보고서에 대한 긴급 요청을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɜːrdʒəntli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-199-1780478882872",
+        "term": "walkway",
+        "definition": "a connecting passage or path for pedestrians to move along",
+        "meaningKr": "보행로, 통로",
+        "exampleEn": "Please use the designated walkway to reach the conference hall.",
+        "exampleKr": "컨퍼런스 홀에 도착하려면 지정된 보행로를 이용해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈwɔːkˌweɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-200-1780478882872",
+        "term": "absorb",
+        "definition": "to take in or soak up",
+        "meaningKr": "흡수하다, 받아들이다",
+        "exampleEn": "The new material is designed to absorb moisture effectively from the air.",
+        "exampleKr": "새로운 소재는 공기 중의 습기를 효과적으로 흡수하도록 설계되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əbˈzɔːrb/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-201-1780478882872",
+        "term": "administer",
+        "definition": "to manage an office",
+        "meaningKr": "관리하다, 운영하다, 집행하다",
+        "exampleEn": "The office manager will administer the company's daily operations and staff.",
+        "exampleKr": "사무 관리자는 회사의 일상 운영과 직원을 관리할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ədˈmɪnɪsteɪtər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-202-1780478882872",
+        "term": "ample",
+        "definition": "more than enough of",
+        "meaningKr": "풍부한, 넉넉한, 넓은",
+        "exampleEn": "We have ample space in the conference room for all attendees.",
+        "exampleKr": "회의실에는 참석자 모두를 수용할 수 있는 충분한 공간이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæmpəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-203-1780478882872",
+        "term": "antique",
+        "definition": "very old item, usually furniture or jewellery",
+        "meaningKr": "골동품, 고미술품",
+        "exampleEn": "The auction featured several valuable antique pieces of furniture.",
+        "exampleKr": "경매에는 여러 귀중한 골동품 가구들이 출품되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ænˈtiːk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-204-1780478882872",
+        "term": "bean",
+        "definition": "a long thin green vegetable",
+        "meaningKr": "콩, 강낭콩",
+        "exampleEn": "The new menu includes a vegetarian option with roasted beans.",
+        "exampleKr": "새 메뉴에는 구운 콩을 곁들인 채식 옵션이 포함되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/biːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-205-1780478882872",
+        "term": "browse",
+        "definition": "look or leaf through casually, like looking through a book without really reading it",
+        "meaningKr": "둘러보다, 훑어보다",
+        "exampleEn": "Customers are welcome to browse the selection of books at their leisure.",
+        "exampleKr": "고객님께서는 여유롭게 도서 목록을 둘러보셔도 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/braʊz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-206-1780478882872",
+        "term": "bye",
+        "definition": "opposite of 'hello'",
+        "meaningKr": "안녕 (헤어질 때)",
+        "exampleEn": "Thank you for your help today, I'll say bye for now.",
+        "exampleKr": "오늘 도와주셔서 감사합니다. 일단 여기서 인사드리겠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/baɪ/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-tsl-advanced-207-1780478882872",
+        "term": "careless",
+        "definition": "to do something with little care or attention",
+        "meaningKr": "부주의한, 조심성 없는",
+        "exampleEn": "A careless mistake in the report could lead to serious consequences.",
+        "exampleKr": "보고서의 부주의한 실수는 심각한 결과를 초래할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkeərləs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-208-1780478882872",
+        "term": "collector",
+        "definition": "someone who buys and keeps old things",
+        "meaningKr": "수집가",
+        "exampleEn": "The art collector expressed interest in purchasing the artist's latest work.",
+        "exampleKr": "그 미술품 수집가는 그 예술가의 최신 작품 구매에 관심을 보였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kəˈlektər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-209-1780478882872",
+        "term": "conform",
+        "definition": "to be like others",
+        "meaningKr": "따르다, 순응하다, 일치하다",
+        "exampleEn": "All employees must conform to the company's new dress code policy.",
+        "exampleKr": "모든 직원은 회사의 새로운 복장 규정 정책을 준수해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈfɔːrm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-210-1780478882872",
+        "term": "congestion",
+        "definition": "a blockage; something that blocks it up",
+        "meaningKr": "혼잡, 정체, 막힘",
+        "exampleEn": "Traffic congestion on the highway caused significant delays for commuters.",
+        "exampleKr": "고속도로의 교통 체증으로 통근자들이 상당한 지연을 겪었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈdʒestʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-211-1780478882872",
+        "term": "contradiction",
+        "definition": "the opposite of something",
+        "meaningKr": "모순",
+        "exampleEn": "There is a clear contradiction between his words and his actions.",
+        "exampleKr": "그의 말과 행동 사이에는 명백한 모순이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌkɑːntrəˈdɪkʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-212-1780478882872",
+        "term": "contrary",
+        "definition": "opposite to",
+        "meaningKr": "반대의, 상반되는",
+        "exampleEn": "Despite evidence to the contrary, he maintained his original position.",
+        "exampleKr": "반대 증거에도 불구하고 그는 원래의 입장을 고수했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɑːntreri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-213-1780478882872",
+        "term": "diploma",
+        "definition": "a document certifying the successful completion of a course of study",
+        "meaningKr": "졸업장, 수료증",
+        "exampleEn": "She received her diploma after successfully completing the executive program.",
+        "exampleKr": "그녀는 경영자 과정을 성공적으로 마친 후 졸업장을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈploʊmə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-214-1780478882872",
+        "term": "distributor",
+        "definition": "someone who sells or sends things to different areas",
+        "meaningKr": "유통업자, 배급업자",
+        "exampleEn": "The company appointed a new distributor for the Southeast Asian market.",
+        "exampleKr": "이 회사는 동남아시아 시장을 위한 새로운 유통업자를 임명했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈstrɪbjətər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-215-1780478882872",
+        "term": "dive",
+        "definition": "jump in or swim under water",
+        "meaningKr": "뛰어들다, 잠수하다",
+        "exampleEn": "The team decided to dive into market research before launching the product.",
+        "exampleKr": "팀은 제품 출시 전에 시장 조사에 착수하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/daɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-216-1780478882872",
+        "term": "energetic",
+        "definition": "to be lively, full of energy",
+        "meaningKr": "활기찬, 정력적인",
+        "exampleEn": "The energetic young intern quickly learned all the office procedures.",
+        "exampleKr": "활기찬 젊은 인턴은 사무 절차를 빠르게 배웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌenərˈdʒetɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-217-1780478882872",
+        "term": "environmentally",
+        "definition": "related to natural surroundings",
+        "meaningKr": "환경적으로",
+        "exampleEn": "The company is committed to environmentally friendly manufacturing processes.",
+        "exampleKr": "회사는 환경 친화적인 제조 공정에 전념하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˌvaɪrənˈmentəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-218-1780478882872",
+        "term": "escalator",
+        "definition": "a moving stairway",
+        "meaningKr": "에스컬레이터",
+        "exampleEn": "Please use the escalator on the right to reach the second floor.",
+        "exampleKr": "2층으로 가려면 오른쪽에 있는 에스컬레이터를 이용해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈeskəleɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-219-1780478882872",
+        "term": "exotic",
+        "definition": "from another country",
+        "meaningKr": "이국적인, 외래의",
+        "exampleEn": "The hotel lobby featured exotic plants and tropical artwork.",
+        "exampleKr": "호텔 로비에는 이국적인 식물과 열대 예술 작품이 전시되어 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪɡˈzɑːtɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-220-1780478882872",
+        "term": "fabric",
+        "definition": "material, cloth",
+        "meaningKr": "직물, 천",
+        "exampleEn": "We need to select a durable fabric for the office upholstery.",
+        "exampleKr": "사무실 가구의 덮개로 사용할 내구성 있는 직물을 선택해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfæbrɪk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-221-1780478882872",
+        "term": "generalization",
+        "definition": "an idea that is true most of the time but not all of the time",
+        "meaningKr": "일반화",
+        "exampleEn": "Avoid making broad generalizations about customer preferences based on limited data.",
+        "exampleKr": "제한된 데이터를 바탕으로 고객 선호도에 대한 광범위한 일반화를 피하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdʒenərəlaɪˈzeɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-222-1780478882872",
+        "term": "guidance",
+        "definition": "the act of showing the way",
+        "meaningKr": "지도, 안내, 지침",
+        "exampleEn": "The consultant provided valuable guidance on improving our marketing strategy.",
+        "exampleKr": "컨설턴트는 마케팅 전략 개선에 대한 귀중한 지침을 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɡaɪdəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-223-1780478882872",
+        "term": "gum",
+        "definition": "stubstance that can be used to stick things together",
+        "meaningKr": "고무, 접착제, 껌",
+        "exampleEn": "Use this special gum to attach the poster securely to the wall.",
+        "exampleKr": "이 특수 접착제를 사용하여 포스터를 벽에 단단히 부착하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɡʌm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-224-1780478882872",
+        "term": "hesitant",
+        "definition": "hold back from acting because you are uncertain or undecided",
+        "meaningKr": "망설이는, 주저하는",
+        "exampleEn": "He was hesitant to sign the contract without further clarification.",
+        "exampleKr": "그는 더 명확한 설명 없이 계약서에 서명하기를 망설였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhezɪtənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-225-1780478882872",
+        "term": "indicator",
+        "definition": "a signal or a warning",
+        "meaningKr": "지표, 표시기, 신호",
+        "exampleEn": "The rising unemployment rate is a clear indicator of economic slowdown.",
+        "exampleKr": "실업률 상승은 경기 둔화의 명확한 지표입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɪndɪkeɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-226-1780478882872",
+        "term": "individually",
+        "definition": "apart from others",
+        "meaningKr": "개별적으로, 각각",
+        "exampleEn": "Each employee will receive performance feedback individually from their direct supervisor.",
+        "exampleKr": "각 직원은 직속 상사로부터 개별적으로 성과 피드백을 받을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪndɪˈvɪdʒuəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-227-1780478882872",
+        "term": "junior",
+        "definition": "younger, lower in rank",
+        "meaningKr": "아랫사람의, 낮은 직급의, 손아래의",
+        "exampleEn": "The junior associate was assigned the task of organizing the client files.",
+        "exampleKr": "하급 직원은 고객 파일 정리 업무를 맡았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdʒuːnjər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-228-1780478882872",
+        "term": "lifestyle",
+        "definition": "the way that you live; the things that you usually do",
+        "meaningKr": "생활 방식, 라이프스타일",
+        "exampleEn": "Many professionals are adopting a healthier lifestyle to improve their well-being.",
+        "exampleKr": "많은 전문가들이 건강 증진을 위해 더 건강한 생활 방식을 채택하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlaɪfstaɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-229-1780478882872",
+        "term": "likewise",
+        "definition": "in the same way",
+        "meaningKr": "마찬가지로, 또한",
+        "exampleEn": "The company increased its marketing budget; likewise, sales are expected to rise.",
+        "exampleKr": "회사는 마케팅 예산을 늘렸습니다. 마찬가지로 매출도 증가할 것으로 예상됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlaɪkwaɪz/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-230-1780478882872",
+        "term": "morale",
+        "definition": "the confidence in how a group of people all feel, usually at a difficult time",
+        "meaningKr": "사기, 의욕",
+        "exampleEn": "Team morale significantly improved after the successful completion of the project.",
+        "exampleKr": "프로젝트의 성공적인 완료 후 팀 사기가 크게 향상되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/məˈræl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-231-1780478882872",
+        "term": "orchestra",
+        "definition": "many musicians with different instruments playing one musical piece",
+        "meaningKr": "오케스트라, 관현악단",
+        "exampleEn": "The company sponsored a concert featuring a renowned international orchestra.",
+        "exampleKr": "그 회사는 유명한 국제 오케스트라가 출연하는 콘서트를 후원했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɔːrkəstrə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-232-1780478882872",
+        "term": "organizational",
+        "definition": "to do with planning and managing",
+        "meaningKr": "조직의, 체계적인",
+        "exampleEn": "Effective organizational skills are crucial for managing multiple projects simultaneously.",
+        "exampleKr": "효과적인 조직 능력은 여러 프로젝트를 동시에 관리하는 데 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɔːrɡənaɪˈzeɪʃənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-233-1780478882872",
+        "term": "outlook",
+        "definition": "a view point",
+        "meaningKr": "전망, 예측, 견해",
+        "exampleEn": "The financial outlook for the next quarter remains cautiously optimistic.",
+        "exampleKr": "다음 분기의 재정 전망은 조심스럽게 낙관적입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈaʊtlʊk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-234-1780478882872",
+        "term": "physics",
+        "definition": "the science of how things  like heat and light work",
+        "meaningKr": "물리학",
+        "exampleEn": "The new energy-efficient technology is based on principles of advanced physics.",
+        "exampleKr": "새로운 에너지 효율 기술은 첨단 물리학 원리에 기반을 두고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɪzɪks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-235-1780478882872",
+        "term": "pole",
+        "definition": "a long, thin stick or post",
+        "meaningKr": "장대, 기둥, 극",
+        "exampleEn": "A flag was hoisted on a tall pole outside the main office building.",
+        "exampleKr": "본사 건물 밖의 높은 기둥 위로 깃발이 게양되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/poʊl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-236-1780478882872",
+        "term": "puzzle",
+        "definition": "something you do not understand",
+        "meaningKr": "퍼즐, 수수께끼, 난제",
+        "exampleEn": "Understanding the complex market trends has been a real puzzle for analysts.",
+        "exampleKr": "복잡한 시장 동향을 이해하는 것은 분석가들에게 큰 난제였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpʌzl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-237-1780478882872",
+        "term": "reflexive",
+        "definition": "referring back to itself",
+        "meaningKr": "반사의, 자기 참조적인",
+        "exampleEn": "The company's policy requires a reflexive approach to customer feedback.",
+        "exampleKr": "회사의 정책은 고객 피드백에 대한 자기 성찰적인 접근을 요구합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈfleksɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-238-1780478882872",
+        "term": "snowy",
+        "definition": "cold weather with snow falling",
+        "meaningKr": "눈이 많이 오는, 눈 덮인",
+        "exampleEn": "Due to the snowy weather, all flights scheduled for this morning have been cancelled.",
+        "exampleKr": "눈이 많이 오는 날씨 때문에 오늘 아침 예정된 모든 항공편이 취소되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsnoʊi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-239-1780478882872",
+        "term": "steak",
+        "definition": "a big piece of meat or fish",
+        "meaningKr": "스테이크",
+        "exampleEn": "For the business dinner, the client ordered the prime rib steak.",
+        "exampleKr": "비즈니스 저녁 식사에서 고객은 최고급 등심 스테이크를 주문했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/steɪk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-240-1780478882872",
+        "term": "sticker",
+        "definition": "a label with glue on the back",
+        "meaningKr": "스티커, 상표",
+        "exampleEn": "Please affix the shipping sticker securely to the top of the package.",
+        "exampleKr": "배송 스티커를 포장 상단에 단단히 부착해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈstɪkər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-241-1780478882872",
+        "term": "telecommunication",
+        "definition": "exchanging audio, visual or digital information at a distance, electronically",
+        "meaningKr": "전기 통신, 원격 통신",
+        "exampleEn": "The firm specializes in advanced telecommunication systems and network solutions.",
+        "exampleKr": "그 회사는 첨단 전기 통신 시스템 및 네트워크 솔루션을 전문으로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌtelɪkəˌmjuːnɪˈkeɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-242-1780478882872",
+        "term": "timely",
+        "definition": "to happen at the right time or good time",
+        "meaningKr": "시의적절한, 때맞춘",
+        "exampleEn": "We appreciate your timely response to our urgent request for information.",
+        "exampleKr": "긴급 정보 요청에 대한 귀하의 시의적절한 응답에 감사드립니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtaɪmli/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-243-1780478882872",
+        "term": "uncomfortable",
+        "definition": "not pleased or happy with a situation or thing",
+        "meaningKr": "불편한, 곤란한, 불쾌한",
+        "exampleEn": "The constant interruptions made the meeting rather uncomfortable for the presenter.",
+        "exampleKr": "끊임없는 방해는 발표자에게 회의를 상당히 불편하게 만들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ʌnˈkʌmftərbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-244-1780478882872",
+        "term": "amenity",
+        "definition": "Something, like a swimming pool in a town, that makes life more comfortable and enjoyable.",
+        "meaningKr": "편의 시설, 쾌적함",
+        "exampleEn": "The new hotel offers numerous amenities, including a spa and a fitness center.",
+        "exampleKr": "새 호텔은 스파와 피트니스 센터를 포함한 수많은 편의 시설을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈmenəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-245-1780478882872",
+        "term": "approximate",
+        "definition": "to give a general number as a guess",
+        "meaningKr": "대략적인, 거의 정확한",
+        "exampleEn": "The approximate cost of the renovation project is estimated at $50,000.",
+        "exampleKr": "리모델링 프로젝트의 대략적인 비용은 5만 달러로 추산됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈprɑːksɪmət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-246-1780478882872",
+        "term": "await",
+        "definition": "to wait for, or expect, something to happen",
+        "meaningKr": "기다리다, 대기하다",
+        "exampleEn": "We are awaiting confirmation of your flight reservation details.",
+        "exampleKr": "귀하의 항공편 예약 세부 사항 확인을 기다리고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈweɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-247-1780478882872",
+        "term": "barbecue",
+        "definition": "meal that has been cooked on a grill, outdoors",
+        "meaningKr": "바비큐 (요리, 파티)",
+        "exampleEn": "The company picnic will feature a delicious barbecue lunch for all employees.",
+        "exampleKr": "회사 야유회에서는 모든 직원을 위한 맛있는 바비큐 점심이 제공될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbɑːrbɪkjuː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-248-1780478882872",
+        "term": "beginner",
+        "definition": "to be new at something",
+        "meaningKr": "초보자, 입문자",
+        "exampleEn": "This introductory course is designed for beginners with no prior experience.",
+        "exampleKr": "이 입문 과정은 사전 경험이 없는 초보자를 위해 설계되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/bɪˈɡɪnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-249-1780478882872",
+        "term": "biology",
+        "definition": "the study of nature",
+        "meaningKr": "생물학",
+        "exampleEn": "The research team presented their findings in the field of molecular biology.",
+        "exampleKr": "연구팀은 분자 생물학 분야의 연구 결과를 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/baɪˈɑːlədʒi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-250-1780478882872",
+        "term": "blanket",
+        "definition": "a large piece of cloth used to cover someone or something",
+        "meaningKr": "담요, 이불; (어떤 것을) 뒤덮다",
+        "exampleEn": "The hotel provides guests with a warm blanket for the chilly evenings.",
+        "exampleKr": "호텔은 쌀쌀한 저녁을 위해 투숙객에게 따뜻한 담요를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈblæŋkɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-251-1780478882872",
+        "term": "chairperson",
+        "definition": "the person in charge of a meeting",
+        "meaningKr": "의장, 회의 주재자",
+        "exampleEn": "The chairperson will call the meeting to order at precisely 9:00 AM.",
+        "exampleKr": "의장은 정확히 오전 9시에 회의를 개회할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtʃɛərˌpɜːrsən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-252-1780478882872",
+        "term": "charitable",
+        "definition": "giving free money or help of some kind to someone who needs it",
+        "meaningKr": "자선적인, 관대한",
+        "exampleEn": "The company made a charitable donation to the local children's hospital.",
+        "exampleKr": "그 회사는 지역 아동 병원에 자선 기부를 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtʃærɪtəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-253-1780478882872",
+        "term": "checkup",
+        "definition": "a test to see that all is as it should be",
+        "meaningKr": "건강 검진, 점검",
+        "exampleEn": "All employees are required to undergo an annual medical checkup.",
+        "exampleKr": "모든 직원은 매년 건강 검진을 받아야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtʃekʌp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-254-1780478882872",
+        "term": "cooler",
+        "definition": "a box (filled with ice) that keeps drinks cold",
+        "meaningKr": "냉각기, 아이스박스",
+        "exampleEn": "Please store the beverages in the cooler to keep them fresh.",
+        "exampleKr": "음료를 신선하게 유지하기 위해 아이스박스에 보관해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkuːlər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-255-1780478882872",
+        "term": "crane",
+        "definition": "a machine used to move and lift heavy things",
+        "meaningKr": "기중기, 크레인",
+        "exampleEn": "A large crane was used to lift the heavy construction materials.",
+        "exampleKr": "무거운 건축 자재를 들어 올리기 위해 대형 크레인이 사용되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kreɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-256-1780478882872",
+        "term": "dealership",
+        "definition": "a business that can buy and sell certain things",
+        "meaningKr": "판매점, 대리점",
+        "exampleEn": "We visited the car dealership to inquire about the new sedan model.",
+        "exampleKr": "우리는 신형 세단 모델에 대해 문의하기 위해 자동차 판매점을 방문했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdiːlərʃɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-257-1780478882872",
+        "term": "dependable",
+        "definition": "reliable, trustworthy",
+        "meaningKr": "신뢰할 수 있는, 믿을 수 있는",
+        "exampleEn": "Our company relies on a dependable supply chain for timely deliveries.",
+        "exampleKr": "우리 회사는 시기적절한 배송을 위해 신뢰할 수 있는 공급망에 의존합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈpendəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-258-1780478882872",
+        "term": "disconnect",
+        "definition": "cut off or detach",
+        "meaningKr": "연결을 끊다, 분리하다",
+        "exampleEn": "Please disconnect the power before cleaning the equipment.",
+        "exampleKr": "청소하기 전에 장비의 전원을 분리해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdɪskəˈnekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-259-1780478882872",
+        "term": "dispose",
+        "definition": "to get rid of something",
+        "meaningKr": "버리다, 처리하다",
+        "exampleEn": "It is important to dispose of electronic waste properly.",
+        "exampleKr": "전자 폐기물을 올바르게 처리하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈspoʊz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-260-1780478882872",
+        "term": "disrupt",
+        "definition": "to interrupt and cause chaos",
+        "meaningKr": "방해하다, 중단시키다",
+        "exampleEn": "The unexpected system failure will likely disrupt our production schedule.",
+        "exampleKr": "예상치 못한 시스템 오류는 생산 일정을 방해할 가능성이 높습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪsˈrʌpt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-261-1780478882872",
+        "term": "dynamic",
+        "definition": "energetic",
+        "meaningKr": "역동적인, 활기찬",
+        "exampleEn": "The marketing team is known for its dynamic approach to campaigns.",
+        "exampleKr": "마케팅팀은 캠페인에 대한 역동적인 접근 방식으로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/daɪˈnæmɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-262-1780478882872",
+        "term": "enthusiastically",
+        "definition": "to do something with excitement and energy",
+        "meaningKr": "열정적으로, 열광적으로",
+        "exampleEn": "The employees responded enthusiastically to the new project proposal.",
+        "exampleKr": "직원들은 새로운 프로젝트 제안에 열정적으로 반응했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˌθuːziˈæstɪkli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-263-1780478882872",
+        "term": "freelance",
+        "definition": "working for yourself, not for an employer",
+        "meaningKr": "프리랜서의, 자유 계약의",
+        "exampleEn": "She works as a freelance graphic designer for several clients.",
+        "exampleKr": "그녀는 여러 고객을 위해 프리랜서 그래픽 디자이너로 일합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfriːlɑːns/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-264-1780478882872",
+        "term": "grill",
+        "definition": "like a barbeque, something you cook on",
+        "meaningKr": "그릴, 석쇠",
+        "exampleEn": "We will use the outdoor grill for the company's summer barbecue.",
+        "exampleKr": "회사 여름 바비큐를 위해 야외 그릴을 사용할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɡrɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-265-1780478882872",
+        "term": "habitual",
+        "definition": "regular, what you always do",
+        "meaningKr": "습관적인, 버릇의",
+        "exampleEn": "The manager addressed the employee's habitual tardiness.",
+        "exampleKr": "관리자는 직원의 습관적인 지각 문제에 대해 논의했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhæbtʃuəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-266-1780478882872",
+        "term": "internationally",
+        "definition": "around the world",
+        "meaningKr": "국제적으로, 세계적으로",
+        "exampleEn": "The company plans to expand its operations internationally next year.",
+        "exampleKr": "그 회사는 내년에 사업을 국제적으로 확장할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪntərˈnæʃənəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-267-1780478882872",
+        "term": "invaluable",
+        "definition": "to be of great worth",
+        "meaningKr": "매우 귀중한, 값을 매길 수 없는",
+        "exampleEn": "The advice from the senior consultant was invaluable to the new team.",
+        "exampleKr": "수석 컨설턴트의 조언은 신입 팀에게 매우 귀중했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈvæljuəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-268-1780478882872",
+        "term": "messenger",
+        "definition": "person who carries a piece of information to someone else",
+        "meaningKr": "전령, 메신저, 전달자",
+        "exampleEn": "A messenger will deliver the urgent documents to your office.",
+        "exampleKr": "메신저가 긴급 서류를 당신의 사무실로 배달할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmesɪndʒər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-269-1780478882872",
+        "term": "paperback",
+        "definition": "a book that has a cover made of paper",
+        "meaningKr": "페이퍼백 (소프트 커버) 책",
+        "exampleEn": "The business manual is available in both hardcover and paperback editions.",
+        "exampleKr": "비즈니스 매뉴얼은 하드커버와 페이퍼백 에디션 모두 이용 가능합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpeɪpərbæk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-270-1780478882872",
+        "term": "rebate",
+        "definition": "an amount of money given back to you as part of the deal when you buy goods or services",
+        "meaningKr": "환불, 리베이트, 할인액",
+        "exampleEn": "Customers can receive a $50 rebate with the purchase of this printer.",
+        "exampleKr": "이 프린터를 구매하면 고객은 50달러의 리베이트를 받을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈriːbeɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-271-1780478882872",
+        "term": "recur",
+        "definition": "happens again",
+        "meaningKr": "재발하다, 다시 발생하다",
+        "exampleEn": "We must ensure that this type of error does not recur.",
+        "exampleKr": "우리는 이러한 유형의 오류가 다시 발생하지 않도록 해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈkɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-272-1780478882872",
+        "term": "reproduce",
+        "definition": "to make one or more copies of something",
+        "meaningKr": "복제하다, 재생산하다",
+        "exampleEn": "The printer can reproduce documents quickly and efficiently.",
+        "exampleKr": "그 프린터는 문서를 빠르고 효율적으로 복제할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌriːprəˈdjuːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-273-1780478882872",
+        "term": "spray",
+        "definition": "to send tiny drops of liquid into the air",
+        "meaningKr": "뿌리다, 분사하다",
+        "exampleEn": "Please spray the cleaner on the surface before wiping it.",
+        "exampleKr": "닦기 전에 표면에 세정제를 뿌려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/spreɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-274-1780478882872",
+        "term": "staple",
+        "definition": "short thin piece of wire  that is punched through sheets of paper to fasten them together",
+        "meaningKr": "스테이플러 심, 주요한 것",
+        "exampleEn": "He used a stapler to fasten the report pages together.",
+        "exampleKr": "그는 스테이플러를 사용하여 보고서 페이지들을 함께 고정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsteɪpl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-275-1780478882872",
+        "term": "strategic",
+        "definition": "in a way carefully thought about",
+        "meaningKr": "전략적인, 계획적인",
+        "exampleEn": "The company adopted a strategic approach to market expansion in Asia.",
+        "exampleKr": "그 회사는 아시아 시장 확장을 위한 전략적인 접근 방식을 채택했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/strəˈtiːdʒɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-276-1780478882872",
+        "term": "stripe",
+        "definition": "a line or band of a different color",
+        "meaningKr": "줄무늬, 띠",
+        "exampleEn": "The new uniform features a subtle stripe pattern on the collar.",
+        "exampleKr": "새로운 제복은 칼라에 은은한 줄무늬 패턴이 특징입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/straɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-277-1780478882872",
+        "term": "teen",
+        "definition": "someone aged between the ages of thirteen and nineteen",
+        "meaningKr": "10대, 10대 청소년",
+        "exampleEn": "The marketing team is targeting the growing teen consumer demographic.",
+        "exampleKr": "마케팅 팀은 증가하는 10대 소비자 인구 통계를 목표로 하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/tiːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-278-1780478882872",
+        "term": "tempt",
+        "definition": "to try to get someone to do something they should not",
+        "meaningKr": "유혹하다, 부추기다",
+        "exampleEn": "The unusually low price might tempt customers to make impulse purchases.",
+        "exampleKr": "이례적으로 낮은 가격은 고객들이 충동구매를 하도록 유혹할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/tɛmpt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-279-1780478882872",
+        "term": "timer",
+        "definition": "something that counts seconds and minutes",
+        "meaningKr": "타이머, 시간 측정기",
+        "exampleEn": "Please set the timer for 30 minutes for the presentation.",
+        "exampleKr": "발표를 위해 30분 타이머를 설정해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtaɪmər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-280-1780478882872",
+        "term": "unload",
+        "definition": "to remove something (usually from a truck)",
+        "meaningKr": "짐을 내리다, 하역하다",
+        "exampleEn": "We need to unload the shipment from the truck before noon.",
+        "exampleKr": "정오 전에 트럭에서 화물을 내려야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ʌnˈloʊd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-281-1780478882872",
+        "term": "unusually",
+        "definition": "not normal or usual",
+        "meaningKr": "이례적으로, 보통과 다르게",
+        "exampleEn": "The meeting ended unusually early due to unforeseen circumstances.",
+        "exampleKr": "예상치 못한 상황 때문에 회의가 이례적으로 일찍 끝났습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ʌnˈjuːʒuəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-282-1780478882872",
+        "term": "vacate",
+        "definition": "leave empty; move out of",
+        "meaningKr": "비우다, 떠나다",
+        "exampleEn": "Tenants must vacate the premises by the end of the month.",
+        "exampleKr": "세입자는 월말까지 해당 장소를 비워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/veɪˈkeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-283-1780478882872",
+        "term": "whale",
+        "definition": "a large mamal that lives in the sea",
+        "meaningKr": "고래",
+        "exampleEn": "The documentary featured stunning footage of a whale migration.",
+        "exampleKr": "그 다큐멘터리는 고래의 이동에 대한 놀라운 영상을 담고 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/weɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-284-1780478882872",
+        "term": "wisely",
+        "definition": "to do something that is the right thing to do",
+        "meaningKr": "현명하게, 분별 있게",
+        "exampleEn": "She wisely invested her savings in a stable mutual fund.",
+        "exampleKr": "그녀는 저축한 돈을 안정적인 뮤추얼 펀드에 현명하게 투자했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈwaɪzli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-285-1780478882872",
+        "term": "amateur",
+        "definition": "a beginner, not a professional, done for pleasure not for pay",
+        "meaningKr": "아마추어, 비전문가",
+        "exampleEn": "Although an amateur, his craftsmanship was surprisingly professional.",
+        "exampleKr": "비록 아마추어였지만, 그의 솜씨는 놀라울 정도로 전문적이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæmətər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-286-1780478882872",
+        "term": "ambassador",
+        "definition": "somebody who represents somehting, usually a country",
+        "meaningKr": "대사, 사절",
+        "exampleEn": "The ambassador delivered a speech on international trade relations.",
+        "exampleKr": "대사는 국제 무역 관계에 대한 연설을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/æmˈbæsədər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-287-1780478882872",
+        "term": "anew",
+        "definition": "starting over again, a fresh start",
+        "meaningKr": "새롭게, 다시",
+        "exampleEn": "After the restructuring, the department started anew with a new leader.",
+        "exampleKr": "구조 조정 후, 부서는 새로운 리더와 함께 새롭게 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈnuː/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-288-1780478882872",
+        "term": "architectural",
+        "definition": "to do with the design of buildings",
+        "meaningKr": "건축의, 건축상의",
+        "exampleEn": "The building showcases impressive architectural design and innovation.",
+        "exampleKr": "그 건물은 인상적인 건축 디자인과 혁신을 보여줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɑːrkɪˈtɛktʃərəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-289-1780478882872",
+        "term": "attain",
+        "definition": "to get or achieve",
+        "meaningKr": "달성하다, 얻다",
+        "exampleEn": "The team worked diligently to attain their quarterly sales targets.",
+        "exampleKr": "그 팀은 분기별 판매 목표를 달성하기 위해 부지런히 노력했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈteɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-290-1780478882872",
+        "term": "balloon",
+        "definition": "a colorful round object made of rubber that is filled with air",
+        "meaningKr": "풍선",
+        "exampleEn": "The event organizers used colorful balloons to decorate the venue.",
+        "exampleKr": "행사 주최측은 장소를 장식하기 위해 다채로운 풍선을 사용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/bəˈluːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-291-1780478882872",
+        "term": "blueprint",
+        "definition": "a drawing or plan to show what the finished thing will look like",
+        "meaningKr": "청사진, 설계도",
+        "exampleEn": "The architect presented the blueprint for the new office complex.",
+        "exampleKr": "건축가는 새 사무실 단지의 청사진을 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbluːprɪnt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-292-1780478882872",
+        "term": "bug",
+        "definition": "an insect",
+        "meaningKr": "벌레, (컴퓨터) 버그",
+        "exampleEn": "The software update fixed a critical bug reported by users.",
+        "exampleKr": "소프트웨어 업데이트는 사용자들이 보고한 치명적인 버그를 수정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/bʌɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-293-1780478882872",
+        "term": "cautious",
+        "definition": "to be careful",
+        "meaningKr": "신중한, 조심스러운",
+        "exampleEn": "Investors are advised to be cautious during market volatility.",
+        "exampleKr": "투자자들은 시장 변동성이 큰 시기에는 신중해야 한다는 조언을 받습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɔːʃəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-294-1780478882872",
+        "term": "circuit",
+        "definition": "a set path you move along",
+        "meaningKr": "회로, 순회",
+        "exampleEn": "The electrical circuit in the server room needs immediate repair.",
+        "exampleKr": "서버실의 전기 회로가 즉각적인 수리가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɜːrkɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-295-1780478882872",
+        "term": "clap",
+        "definition": "hitting your hands together to make a noise to show you enjoyed something",
+        "meaningKr": "박수치다",
+        "exampleEn": "The audience began to clap enthusiastically after the performance.",
+        "exampleKr": "공연이 끝난 후 관객들이 열정적으로 박수를 치기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/klæp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-296-1780478882872",
+        "term": "commerce",
+        "definition": "trade, business, industry",
+        "meaningKr": "상업, 무역",
+        "exampleEn": "E-commerce has significantly changed the landscape of global commerce.",
+        "exampleKr": "전자 상거래는 세계 상업의 지형을 크게 변화시켰습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɒmərs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-297-1780478882872",
+        "term": "convey",
+        "definition": "to give a message to someone",
+        "meaningKr": "전달하다, 수송하다",
+        "exampleEn": "The memo will convey important information about the policy change.",
+        "exampleKr": "이 메모는 정책 변경에 대한 중요한 정보를 전달할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈveɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-298-1780478882872",
+        "term": "cord",
+        "definition": "electric cable",
+        "meaningKr": "전선, 줄",
+        "exampleEn": "Please ensure the power cord is securely plugged into the outlet.",
+        "exampleKr": "전원 코드가 콘센트에 단단히 꽂혀 있는지 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kɔːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-299-1780478882872",
+        "term": "counselor",
+        "definition": "someone who helps people with problems for a living",
+        "meaningKr": "상담사, 고문",
+        "exampleEn": "The HR counselor provided guidance on career development options.",
+        "exampleKr": "인사부 상담사는 경력 개발 옵션에 대한 지침을 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkaʊnsələr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-300-1780478882872",
+        "term": "debit",
+        "definition": "a record of an amount of money taken out of an account",
+        "meaningKr": "차변, 기록",
+        "exampleEn": "Please check your bank statement for any debit transactions from the past month.",
+        "exampleKr": "지난달의 모든 차변 거래를 은행 거래 내역서에서 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdɛbɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-301-1780478882872",
+        "term": "delicate",
+        "definition": "need to handle with care",
+        "meaningKr": "섬세한, 민감한, 깨지기 쉬운",
+        "exampleEn": "This antique vase is very delicate and requires careful handling during shipping.",
+        "exampleKr": "이 골동품 꽃병은 매우 섬세해서 운송 중에 조심스럽게 다루어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdɛlɪkət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-302-1780478882872",
+        "term": "dependence",
+        "definition": "the state of needing someone",
+        "meaningKr": "의존, 의지",
+        "exampleEn": "The company's financial dependence on a single client is a significant risk.",
+        "exampleKr": "단일 고객에 대한 회사의 재정적 의존은 상당한 위험입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈpɛndənsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-303-1780478882872",
+        "term": "distraction",
+        "definition": "the act of taking your focus away from something",
+        "meaningKr": "주의 산만, 방해",
+        "exampleEn": "Loud construction noise outside can be a major distraction for office workers.",
+        "exampleKr": "바깥의 시끄러운 공사 소음은 직장인들에게 큰 주의 산만 요인이 될 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈstrækʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-304-1780478882872",
+        "term": "downsize",
+        "definition": "reduce in size or number",
+        "meaningKr": "축소하다, 규모를 줄이다",
+        "exampleEn": "The firm decided to downsize its operations in response to market changes.",
+        "exampleKr": "회사는 시장 변화에 대응하여 운영 규모를 축소하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/daʊnˈsaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-305-1780478882872",
+        "term": "elephant",
+        "definition": "a large animal with a long trunk and big ears found in Africa and Asia",
+        "meaningKr": "코끼리",
+        "exampleEn": "The zoo's new exhibit features a family of Asian elephants.",
+        "exampleKr": "그 동물원의 새 전시관에는 아시아 코끼리 가족이 전시되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɛlɪfənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-306-1780478882872",
+        "term": "enthusiasm",
+        "definition": "the act of being excited about something",
+        "meaningKr": "열정, 열의",
+        "exampleEn": "Her enthusiasm for the new project inspired the entire team to work harder.",
+        "exampleKr": "새로운 프로젝트에 대한 그녀의 열정은 팀 전체가 더 열심히 일하도록 영감을 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈθuːziæzəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-307-1780478882872",
+        "term": "enthusiast",
+        "definition": "a person who is crazy about something, e.g. a sports enthusiast",
+        "meaningKr": "열광자, 애호가",
+        "exampleEn": "He is a keen technology enthusiast who always tries the latest gadgets.",
+        "exampleKr": "그는 최신 기기를 항상 사용해보는 열렬한 기술 애호가입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈθuːziæst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-308-1780478882872",
+        "term": "evident",
+        "definition": "to be clear or obvious",
+        "meaningKr": "분명한, 명백한",
+        "exampleEn": "It was evident from the sales figures that the marketing campaign was successful.",
+        "exampleKr": "판매 수치로 볼 때 마케팅 캠페인이 성공적이었다는 것이 분명했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɛvɪdənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-309-1780478882872",
+        "term": "flexibility",
+        "definition": "the ability to adapt or change easily",
+        "meaningKr": "유연성, 융통성",
+        "exampleEn": "The company offers employees flexibility in choosing their work hours.",
+        "exampleKr": "그 회사는 직원들에게 근무 시간을 선택하는 데 유연성을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌflɛksəˈbɪləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-310-1780478882872",
+        "term": "flextime",
+        "definition": "there is a choice about when to start and finish working a set number of hours",
+        "meaningKr": "선택 근무제",
+        "exampleEn": "Flextime allows employees to adjust their start and end times.",
+        "exampleKr": "선택 근무제는 직원들이 출퇴근 시간을 조정할 수 있게 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈflɛkstaɪm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-311-1780478882872",
+        "term": "fortunately",
+        "definition": "happily, luckily",
+        "meaningKr": "운 좋게도, 다행히",
+        "exampleEn": "Fortunately, the flight delay did not affect our connecting flight to Tokyo.",
+        "exampleKr": "다행히 비행기 지연은 도쿄행 환승 항공편에 영향을 미치지 않았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɔːrtʃənətli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-312-1780478882872",
+        "term": "freighter",
+        "definition": "a large ship that is used to transport goods",
+        "meaningKr": "화물선",
+        "exampleEn": "A large freighter carrying automobiles docked at the port this morning.",
+        "exampleKr": "자동차를 싣고 있는 큰 화물선이 오늘 아침 항구에 접안했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfreɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-313-1780478882872",
+        "term": "generator",
+        "definition": "a machine that makes electricity",
+        "meaningKr": "발전기",
+        "exampleEn": "The backup generator kicked in immediately after the power outage.",
+        "exampleKr": "정전 직후 비상 발전기가 즉시 작동했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdʒɛnəreɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-314-1780478882872",
+        "term": "hallway",
+        "definition": "a passage or corridor that other rooms open out of",
+        "meaningKr": "복도, 현관 통로",
+        "exampleEn": "Please leave your coats on the racks in the main hallway.",
+        "exampleKr": "외투는 중앙 복도에 있는 옷걸이에 걸어두시기 바랍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhɔːlweɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-315-1780478882872",
+        "term": "hamburger",
+        "definition": "a flat round cake of minced beef that is fried and then eaten in a bread roll",
+        "meaningKr": "햄버거",
+        "exampleEn": "The catering service for the event includes a variety of gourmet hamburgers.",
+        "exampleKr": "행사를 위한 케이터링 서비스에는 다양한 고급 햄버거가 포함됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhæmbɜːrɡər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-316-1780478882872",
+        "term": "hazard",
+        "definition": "something that is dangerous",
+        "meaningKr": "위험, 위험 요소",
+        "exampleEn": "The company must address potential safety hazards in the workplace.",
+        "exampleKr": "회사는 작업장에서 발생할 수 있는 잠재적인 안전 위험을 해결해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhæzərd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-317-1780478882872",
+        "term": "homeowner",
+        "definition": "someone who owns the house that they live in",
+        "meaningKr": "주택 소유주",
+        "exampleEn": "The new regulations will affect property taxes for every homeowner.",
+        "exampleKr": "새로운 규제는 모든 주택 소유주의 재산세에 영향을 미칠 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhoʊmˌoʊnər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-318-1780478882872",
+        "term": "imperative",
+        "definition": "very important and urgent",
+        "meaningKr": "매우 중요한, 긴급한",
+        "exampleEn": "It is imperative that all employees complete the mandatory training by Friday.",
+        "exampleKr": "모든 직원이 금요일까지 의무 교육을 완료하는 것이 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪmˈpɛrətɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-319-1780478882872",
+        "term": "inflate",
+        "definition": "to make bigger",
+        "meaningKr": "부풀리다, 팽창시키다",
+        "exampleEn": "We need to inflate the balloons for the company party tomorrow.",
+        "exampleKr": "내일 회사 파티를 위해 풍선을 불어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈfleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-320-1780478882872",
+        "term": "insert",
+        "definition": "to put into or add into",
+        "meaningKr": "끼우다, 삽입하다",
+        "exampleEn": "Please insert your employee ID card into the reader to enter.",
+        "exampleKr": "입장하려면 직원 ID 카드를 리더기에 삽입하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈsɜːrt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-321-1780478882872",
+        "term": "lecturer",
+        "definition": "an instructor or professor",
+        "meaningKr": "강사, 초빙 교수",
+        "exampleEn": "A renowned industry lecturer will give a keynote speech at the conference.",
+        "exampleKr": "저명한 산업계 강사가 컨퍼런스에서 기조 연설을 할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlɛktʃərər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-322-1780478882872",
+        "term": "meaningful",
+        "definition": "to have a meaning or purpose",
+        "meaningKr": "의미 있는, 중요한",
+        "exampleEn": "The company is committed to making a meaningful contribution to the community.",
+        "exampleKr": "그 회사는 지역 사회에 의미 있는 기여를 하기 위해 노력하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmiːnɪŋfl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-323-1780478882872",
+        "term": "memorize",
+        "definition": "to learn and remember things",
+        "meaningKr": "암기하다, 외우다",
+        "exampleEn": "It is important to memorize the company's security protocols.",
+        "exampleKr": "회사의 보안 규정을 암기하는 것이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmɛməraɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-324-1780478882872",
+        "term": "merchant",
+        "definition": "a person who sells things for a living",
+        "meaningKr": "상인, 판매상",
+        "exampleEn": "The online platform connects small businesses with international merchants.",
+        "exampleKr": "온라인 플랫폼은 소규모 사업체와 국제 상인을 연결해 줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmɜːrtʃənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-325-1780478882872",
+        "term": "modification",
+        "definition": "a change made on something",
+        "meaningKr": "수정, 변경",
+        "exampleEn": "The client requested several modifications to the initial design proposal.",
+        "exampleKr": "고객은 초기 디자인 제안에 대한 몇 가지 수정을 요청했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌmɑːdəfɪˈkeɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-326-1780478882872",
+        "term": "occupant",
+        "definition": "a person who lives in a place, e.g. renter, tenant",
+        "meaningKr": "거주자, 점유자",
+        "exampleEn": "All occupants must vacate the building immediately in case of fire.",
+        "exampleKr": "화재 시 모든 거주자는 즉시 건물을 비워야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɑːkjəpənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-327-1780478882872",
+        "term": "overcharge",
+        "definition": "to ask for too much money for goods or service",
+        "meaningKr": "초과 청구하다, 너무 많은 돈을 요구하다",
+        "exampleEn": "We discovered that the vendor had decided to overcharge us for the services.",
+        "exampleKr": "우리는 공급업체가 우리에게 서비스 비용을 초과 청구하기로 결정했다는 것을 알게 되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌoʊvərˈtʃɑːrdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-328-1780478882872",
+        "term": "oversee",
+        "definition": "to supervise",
+        "meaningKr": "감독하다, 관리하다",
+        "exampleEn": "The project manager will oversee the entire construction process.",
+        "exampleKr": "프로젝트 관리자가 전체 건설 과정을 감독할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌoʊvərˈsiː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-329-1780478882872",
+        "term": "petition",
+        "definition": "a demand for a particular action, usually signed by a lot of people",
+        "meaningKr": "청원, 탄원",
+        "exampleEn": "The employees signed a petition requesting better working conditions.",
+        "exampleKr": "직원들은 더 나은 근무 조건을 요청하는 청원서에 서명했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/pəˈtɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-330-1780478882872",
+        "term": "pillow",
+        "definition": "soft cushion to rest your head on when you go to bed",
+        "meaningKr": "베개",
+        "exampleEn": "Please place an extra pillow on the bed for the guest.",
+        "exampleKr": "손님을 위해 침대 위에 베개 하나를 더 놓아 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɪloʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-331-1780478882872",
+        "term": "popcorn",
+        "definition": "grains of maize that have been heated up until they explode; good to eat as a snack",
+        "meaningKr": "팝콘",
+        "exampleEn": "We enjoyed some popcorn during the company's annual movie night.",
+        "exampleKr": "우리는 회사 연례 영화의 밤 동안 팝콘을 즐겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɑːpkɔːrn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-332-1780478882872",
+        "term": "pottery",
+        "definition": "earthenware, stoneware, ceramics",
+        "meaningKr": "도기류, 도예",
+        "exampleEn": "The museum features a collection of ancient Greek pottery.",
+        "exampleKr": "그 박물관은 고대 그리스 도기류 컬렉션을 전시하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɑːtəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-333-1780478882872",
+        "term": "professionally",
+        "definition": "to do with your work or job",
+        "meaningKr": "전문적으로",
+        "exampleEn": "The consultant handled the negotiation professionally and efficiently.",
+        "exampleKr": "컨설턴트는 협상을 전문적이고 효율적으로 처리했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/prəˈfeʃənəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-334-1780478882872",
+        "term": "publicize",
+        "definition": "make known generally",
+        "meaningKr": "광고하다, 공표하다",
+        "exampleEn": "The company plans to publicize its new product launch next month.",
+        "exampleKr": "회사는 다음 달에 신제품 출시를 광고할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpʌblɪsaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-335-1780478882872",
+        "term": "ray",
+        "definition": "a beam of light from the sun",
+        "meaningKr": "광선, 빛줄기",
+        "exampleEn": "A single ray of sunlight streamed through the window.",
+        "exampleKr": "햇빛 한 줄기가 창문을 통해 흘러 들어왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/reɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-336-1780478882872",
+        "term": "redecorate",
+        "definition": "to redo the inside of a house with new colors and furniture",
+        "meaningKr": "재단장하다, 새로 꾸미다",
+        "exampleEn": "We decided to redecorate the office lobby to create a more welcoming atmosphere.",
+        "exampleKr": "우리는 더 환영하는 분위기를 조성하기 위해 사무실 로비를 재단장하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/riːˈdɛkəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-337-1780478882872",
+        "term": "refinery",
+        "definition": "a factory where raw materials are taken to be made pure",
+        "meaningKr": "정제소, 정유소",
+        "exampleEn": "The new oil refinery is expected to boost the local economy.",
+        "exampleKr": "새로운 정유소는 지역 경제를 활성화할 것으로 예상됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈfaɪnəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-338-1780478882872",
+        "term": "refresh",
+        "definition": "to put new life or energy into",
+        "meaningKr": "새롭게 하다, 기운 나게 하다",
+        "exampleEn": "A short break will help refresh your mind before the next meeting.",
+        "exampleKr": "잠깐의 휴식은 다음 회의 전에 마음을 새롭게 하는 데 도움이 될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈfreʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-339-1780478882872",
+        "term": "refundable",
+        "definition": "money that can be returned if you change your mind about a purchase",
+        "meaningKr": "환불 가능한",
+        "exampleEn": "Please note that all sales are final and non-refundable.",
+        "exampleKr": "모든 판매는 최종적이며 환불되지 않음을 유의하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈfʌndəbəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-340-1780478882872",
+        "term": "reimbursement",
+        "definition": "the money that is given to cover the cost of an expense that has been paid out",
+        "meaningKr": "상환, 변제",
+        "exampleEn": "Employees are eligible for reimbursement of travel expenses.",
+        "exampleKr": "직원들은 여행 경비 상환 자격이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌriːɪmˈbɜːrsmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-341-1780478882872",
+        "term": "reliability",
+        "definition": "the state of being trustworthy",
+        "meaningKr": "신뢰성, 믿음직함",
+        "exampleEn": "The reliability of our products is our top priority.",
+        "exampleKr": "우리 제품의 신뢰성은 우리의 최우선 과제입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˌlaɪəˈbɪləti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-342-1780478882872",
+        "term": "reluctant",
+        "definition": "not very willing to do something",
+        "meaningKr": "꺼리는, 마지못해 하는",
+        "exampleEn": "The team was reluctant to adopt the new software system.",
+        "exampleKr": "팀은 새로운 소프트웨어 시스템을 채택하는 것을 꺼렸습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈlʌktənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-343-1780478882872",
+        "term": "sewer",
+        "definition": "the pipes that carry water and waste away from toilets",
+        "meaningKr": "하수구, 하수도",
+        "exampleEn": "The city is investing in upgrading its aging sewer system.",
+        "exampleKr": "시는 노후된 하수 시스템을 업그레이드하는 데 투자하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsuːər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-344-1780478882872",
+        "term": "skate",
+        "definition": "glide over the surface as if you are sliding on ice",
+        "meaningKr": "스케이트를 타다",
+        "exampleEn": "She learned to skate on the frozen lake during winter.",
+        "exampleKr": "그녀는 겨울 동안 얼어붙은 호수에서 스케이트 타는 법을 배웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/skeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-345-1780478882872",
+        "term": "skateboard",
+        "definition": "a flat board with small wheels on the bottom that you move by pushing on the ground with one foot",
+        "meaningKr": "스케이트보드",
+        "exampleEn": "He bought a new skateboard to use for commuting to work.",
+        "exampleKr": "그는 직장에 통근하는 데 사용하기 위해 새 스케이트보드를 샀습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈskeɪtbɔːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-346-1780478882872",
+        "term": "sleepy",
+        "definition": "tired, ready for bed",
+        "meaningKr": "졸린, 졸리는",
+        "exampleEn": "I feel quite sleepy after that large lunch.",
+        "exampleKr": "그 푸짐한 점심 식사 후에 꽤 졸린 기분이 듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsliːpi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-347-1780478882872",
+        "term": "tailor",
+        "definition": "adjust something to fit a specific need or market",
+        "meaningKr": "맞추다, 조정하다",
+        "exampleEn": "We must tailor our marketing strategy to the target audience.",
+        "exampleKr": "우리는 마케팅 전략을 목표 청중에게 맞춰야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈteɪlər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-348-1780478882872",
+        "term": "termination",
+        "definition": "the  end of something",
+        "meaningKr": "종결, 종료",
+        "exampleEn": "The contract includes a clause for early termination under certain conditions.",
+        "exampleKr": "계약에는 특정 조건 하에서의 조기 종료 조항이 포함되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌtɜːrmɪˈneɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-349-1780478882872",
+        "term": "theft",
+        "definition": "the taking and keeping of something that does not belong to you",
+        "meaningKr": "절도, 도둑질",
+        "exampleEn": "Security measures were implemented to prevent theft of company property.",
+        "exampleKr": "회사 재산의 절도를 방지하기 위해 보안 조치가 시행되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/θɛft/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-350-1780478882872",
+        "term": "thunderstorm",
+        "definition": "an extreme weather condition with rain, wind, thunder and lightening",
+        "meaningKr": "뇌우, 폭풍우",
+        "exampleEn": "The flight was delayed due to an unexpected thunderstorm over the main airport.",
+        "exampleKr": "예상치 못한 뇌우 때문에 주요 공항 상공에서 항공편이 지연되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈθʌndərˌstɔːrm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-351-1780478882872",
+        "term": "transmission",
+        "definition": "the message sent from one to another",
+        "meaningKr": "전송, 전달, 변속기",
+        "exampleEn": "Please confirm receipt of the transmission by replying to this email immediately.",
+        "exampleKr": "이 이메일에 즉시 답장하여 전송 수신을 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/trænzˈmɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-352-1780478882872",
+        "term": "transmit",
+        "definition": "to send a message to someone",
+        "meaningKr": "전송하다, 전달하다",
+        "exampleEn": "We will transmit the final report to the client by the end of the day.",
+        "exampleKr": "오늘 업무 마감 시간까지 최종 보고서를 고객에게 전송할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/trænzˈmɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-353-1780478882872",
+        "term": "unused",
+        "definition": "not yet put into use",
+        "meaningKr": "사용되지 않은, 쓰이지 않은",
+        "exampleEn": "The company has several unused meeting rooms available for booking.",
+        "exampleKr": "그 회사는 예약 가능한 사용되지 않은 회의실이 몇 개 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ʌnˈjuːzd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-354-1780478882872",
+        "term": "waive",
+        "definition": "to give up or do without",
+        "meaningKr": "포기하다, 면제하다",
+        "exampleEn": "The hotel decided to waive the cancellation fee for the group booking.",
+        "exampleKr": "호텔은 단체 예약에 대한 취소 수수료를 면제하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/weɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-355-1780478882872",
+        "term": "yen",
+        "definition": "the basic unit of money in Japan",
+        "meaningKr": "엔 (일본 화폐 단위)",
+        "exampleEn": "The exchange rate for the US dollar to the Japanese yen has been fluctuating.",
+        "exampleKr": "미국 달러와 일본 엔의 환율이 변동하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/jen/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-356-1780478882872",
+        "term": "activate",
+        "definition": "to start or begin something",
+        "meaningKr": "활성화하다, 가동하다",
+        "exampleEn": "Please follow the instructions to activate your new software license.",
+        "exampleKr": "새 소프트웨어 라이선스를 활성화하려면 지침을 따르십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæktɪveɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-357-1780478882872",
+        "term": "additionally",
+        "definition": "furthermore, also",
+        "meaningKr": "게다가, 또한",
+        "exampleEn": "The package includes a complimentary breakfast and additionally offers free Wi-Fi.",
+        "exampleKr": "패키지에는 무료 조식이 포함되며, 또한 무료 와이파이도 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈdɪʃənəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-358-1780478882872",
+        "term": "affirmative",
+        "definition": "positive, meaning 'yes'",
+        "meaningKr": "긍정적인, 긍정의",
+        "exampleEn": "When asked if the deadline could be met, the manager gave an affirmative response.",
+        "exampleKr": "마감일을 맞출 수 있는지 묻자, 관리자는 긍정적인 답변을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈfɜːrmətɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-359-1780478882872",
+        "term": "baker",
+        "definition": "someone who bakes for a living",
+        "meaningKr": "제빵사",
+        "exampleEn": "The new bakery hires a skilled baker known for his artisanal bread.",
+        "exampleKr": "새 빵집은 장인 정신이 깃든 빵으로 유명한 숙련된 제빵사를 고용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbeɪkər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-360-1780478882872",
+        "term": "brainstorm",
+        "definition": "a group discussion to come up with a lot of ideas very quickly",
+        "meaningKr": "브레인스토밍하다, 아이디어를 짜내다",
+        "exampleEn": "Let's brainstorm some innovative marketing strategies for the upcoming product launch.",
+        "exampleKr": "다가오는 신제품 출시를 위한 혁신적인 마케팅 전략을 브레인스토밍해 봅시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbreɪnˌstɔːrm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-361-1780478882872",
+        "term": "cage",
+        "definition": "a box-like crate usually made of steel",
+        "meaningKr": "우리, 새장, (동물을 가두는) 철창",
+        "exampleEn": "The company's new security system includes a secure cage for valuable equipment.",
+        "exampleKr": "그 회사의 새로운 보안 시스템에는 귀중품을 위한 안전한 철창이 포함되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/keɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-362-1780478882872",
+        "term": "cinema",
+        "definition": "a movie theatre",
+        "meaningKr": "영화관, 영화 산업",
+        "exampleEn": "Many people prefer watching movies at home rather than going to the cinema.",
+        "exampleKr": "많은 사람들이 영화관에 가는 것보다 집에서 영화 보는 것을 선호합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɪnəmə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-363-1780478882872",
+        "term": "collaboration",
+        "definition": "the act of working together",
+        "meaningKr": "협업, 협력",
+        "exampleEn": "The successful project was a result of close collaboration between departments.",
+        "exampleKr": "성공적인 프로젝트는 부서 간의 긴밀한 협력의 결과였습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kəˌlæbəˈreɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-364-1780478882872",
+        "term": "condominium",
+        "definition": "a building that has lots of apartments in it, all owned and lived in by different people",
+        "meaningKr": "콘도미니엄, 공동 주택",
+        "exampleEn": "She decided to purchase a condominium in the city center for convenience.",
+        "exampleKr": "그녀는 편의를 위해 시내 중심가에 콘도미니엄을 구입하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌkɑːndəˈmɪniəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-365-1780478882872",
+        "term": "consecutive",
+        "definition": "following one after the other",
+        "meaningKr": "연속적인, 계속되는",
+        "exampleEn": "The company achieved record profits for three consecutive quarters this year.",
+        "exampleKr": "그 회사는 올해 세 분기 연속 기록적인 이익을 달성했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈsekjʊtɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-366-1780478882872",
+        "term": "cordless",
+        "definition": "no electric cable needed",
+        "meaningKr": "무선(의), 코드 없는",
+        "exampleEn": "He prefers using a cordless phone at his desk for greater mobility.",
+        "exampleKr": "그는 더 큰 이동성을 위해 책상에서 무선 전화기를 사용하는 것을 선호합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɔːrdləs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-367-1780478882872",
+        "term": "deluxe",
+        "definition": "rich and superior in quality",
+        "meaningKr": "호화로운, 고급의",
+        "exampleEn": "The package includes a stay in a deluxe suite with an ocean view.",
+        "exampleKr": "패키지에는 바다 전망이 보이는 고급 스위트룸 숙박이 포함됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈlʌks/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-368-1780478882872",
+        "term": "desirable",
+        "definition": "worth having or wanting",
+        "meaningKr": "바람직한, 가치 있는",
+        "exampleEn": "A competitive salary and benefits package makes this position highly desirable.",
+        "exampleKr": "경쟁력 있는 급여와 복리후생 패키지는 이 직책을 매우 바람직하게 만듭니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈzaɪərəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-369-1780478882872",
+        "term": "discrepancy",
+        "definition": "an unexpected difference between two things that needs to be explained",
+        "meaningKr": "불일치, 차이",
+        "exampleEn": "We found a discrepancy between the reported sales figures and the actual revenue.",
+        "exampleKr": "보고된 매출 수치와 실제 수익 간의 불일치를 발견했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈskrepənsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-370-1780478882872",
+        "term": "dispatch",
+        "definition": "to send out",
+        "meaningKr": "급파하다, 발송하다",
+        "exampleEn": "The logistics team will dispatch the urgent order by express courier.",
+        "exampleKr": "물류팀은 긴급 주문을 특송으로 발송할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈspætʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-371-1780478882872",
+        "term": "drawback",
+        "definition": "the downside of something",
+        "meaningKr": "단점, 약점",
+        "exampleEn": "The main drawback of the new software is its steep learning curve.",
+        "exampleKr": "새 소프트웨어의 주요 단점은 가파른 학습 곡선입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdrɔːˌbæk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-372-1780478882872",
+        "term": "dull",
+        "definition": "boring; not exciting",
+        "meaningKr": "지루한, 따분한, 무딘",
+        "exampleEn": "The presentation was quite dull, failing to capture the audience's attention.",
+        "exampleKr": "프레젠테이션은 상당히 지루해서 청중의 주의를 끌지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dʌl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-373-1780478882872",
+        "term": "economically",
+        "definition": "related to use of income and money",
+        "meaningKr": "경제적으로, 절약하여",
+        "exampleEn": "The company aims to operate more economically by reducing waste.",
+        "exampleKr": "그 회사는 낭비를 줄여 더 경제적으로 운영하는 것을 목표로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌiːkəˈnɑːmɪkli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-374-1780478882872",
+        "term": "evenly",
+        "definition": "in equal ways",
+        "meaningKr": "고르게, 균등하게",
+        "exampleEn": "Please distribute the marketing materials evenly among all attendees.",
+        "exampleKr": "모든 참석자들에게 마케팅 자료를 고르게 배포해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈiːvənli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-375-1780478882872",
+        "term": "excellence",
+        "definition": "the state of being very, very good",
+        "meaningKr": "탁월함, 우수성",
+        "exampleEn": "The company is known for its commitment to customer service excellence.",
+        "exampleKr": "그 회사는 고객 서비스 탁월함에 대한 헌신으로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈeksələns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-376-1780478882872",
+        "term": "exclusively",
+        "definition": "offered only to a certain group",
+        "meaningKr": "독점적으로, 오직",
+        "exampleEn": "This offer is available exclusively to our registered members.",
+        "exampleKr": "이 제안은 등록된 회원분들께만 독점적으로 제공됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪkˈskluːsɪvli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-377-1780478882872",
+        "term": "farewell",
+        "definition": "goodbye",
+        "meaningKr": "작별 인사",
+        "exampleEn": "We held a small reception to bid farewell to our departing colleague.",
+        "exampleKr": "우리는 떠나는 동료에게 작별 인사를 하기 위해 작은 환송회를 열었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌferˈwel/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-378-1780478882872",
+        "term": "fatigue",
+        "definition": "what you feel when you are very, very tired",
+        "meaningKr": "피로, 피곤함",
+        "exampleEn": "Long working hours can lead to employee fatigue and reduced productivity.",
+        "exampleKr": "긴 근무 시간은 직원들의 피로와 생산성 저하로 이어질 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fəˈtiːɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-379-1780478882872",
+        "term": "fiscal",
+        "definition": "to do with money",
+        "meaningKr": "재정의, 회계의",
+        "exampleEn": "The government announced new fiscal policies to stimulate the economy.",
+        "exampleKr": "정부는 경제를 활성화하기 위한 새로운 재정 정책을 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɪskl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-380-1780478882872",
+        "term": "fleet",
+        "definition": "a group of ships travelling together",
+        "meaningKr": "함대, (차량/항공기) 집단",
+        "exampleEn": "The logistics company manages a large fleet of delivery trucks.",
+        "exampleKr": "그 물류 회사는 대형 배송 트럭 함대를 관리합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fliːt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-381-1780478882872",
+        "term": "flour",
+        "definition": "white powder from wheat used in baking",
+        "meaningKr": "밀가루",
+        "exampleEn": "We need to order more flour for the bakery's upcoming production.",
+        "exampleKr": "제과점의 다가오는 생산을 위해 밀가루를 더 주문해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈflaʊər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-382-1780478882872",
+        "term": "fog",
+        "definition": "a cloud of white filled with small water droplets",
+        "meaningKr": "안개",
+        "exampleEn": "Heavy fog caused significant delays at the airport this morning.",
+        "exampleKr": "짙은 안개 때문에 오늘 아침 공항에서 상당한 지연이 발생했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fɒɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-383-1780478882872",
+        "term": "formally",
+        "definition": "officially",
+        "meaningKr": "공식적으로",
+        "exampleEn": "The new regulations will be formally announced next week.",
+        "exampleKr": "새로운 규정은 다음 주에 공식적으로 발표될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɔːrməli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-384-1780478882872",
+        "term": "gram",
+        "definition": "a small measurement of weight",
+        "meaningKr": "그램",
+        "exampleEn": "Please measure out exactly 50 grams of the ingredient.",
+        "exampleKr": "재료 50그램을 정확히 측정해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɡræm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-385-1780478882872",
+        "term": "handbook",
+        "definition": "a book that gives intructions on how to do something",
+        "meaningKr": "안내서, 핸드북",
+        "exampleEn": "All new employees receive a handbook outlining company policies.",
+        "exampleKr": "모든 신입 사원은 회사 정책을 설명하는 안내서를 받습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhændbʊk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-386-1780478882872",
+        "term": "headphone",
+        "definition": "a set of small speakers that fit into each ear so that only you can hear the sound",
+        "meaningKr": "헤드폰",
+        "exampleEn": "He used his headphones to listen to the conference call privately.",
+        "exampleKr": "그는 회의 통화를 사적으로 듣기 위해 헤드폰을 사용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhedfoʊn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-387-1780478882872",
+        "term": "heater",
+        "definition": "something that warms a room",
+        "meaningKr": "히터, 난방기",
+        "exampleEn": "The office heater is malfunctioning and needs to be repaired.",
+        "exampleKr": "사무실 히터가 오작동하여 수리가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhiːtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-388-1780478882872",
+        "term": "helmet",
+        "definition": "something you wear to protect your head",
+        "meaningKr": "헬멧",
+        "exampleEn": "Construction workers must wear a safety helmet on site.",
+        "exampleKr": "건설 현장 근로자는 현장에서 안전모를 착용해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhelmɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-389-1780478882872",
+        "term": "hiker",
+        "definition": "someone who likes to go for long walks in their leisure time",
+        "meaningKr": "하이커, 도보 여행자",
+        "exampleEn": "The park is popular with hikers during the autumn season.",
+        "exampleKr": "그 공원은 가을철에 하이커들에게 인기가 많습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhaɪkər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-390-1780478882872",
+        "term": "homeless",
+        "definition": "to be without a place to live",
+        "meaningKr": "집 없는, 노숙자의",
+        "exampleEn": "The organization provides resources for the homeless in the city.",
+        "exampleKr": "그 조직은 도시의 노숙자들을 위한 자원을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhoʊmləs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-391-1780478882872",
+        "term": "lighter",
+        "definition": "not as heavy as",
+        "meaningKr": "더 가벼운",
+        "exampleEn": "This newer model is significantly lighter than the previous one.",
+        "exampleKr": "이 최신 모델은 이전 모델보다 훨씬 더 가볍습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlaɪtər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-392-1780478882872",
+        "term": "loudly",
+        "definition": "in a manner that is not quiet",
+        "meaningKr": "크게, 시끄럽게",
+        "exampleEn": "Please do not talk so loudly during the meeting.",
+        "exampleKr": "회의 중에는 너무 크게 이야기하지 마십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlaʊdli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-393-1780478882872",
+        "term": "loyalty",
+        "definition": "the act of being faithful to someone or something",
+        "meaningKr": "충성심, 충실함",
+        "exampleEn": "Customer loyalty is crucial for long-term business success.",
+        "exampleKr": "고객 충성심은 장기적인 사업 성공에 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlɔɪəlti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-394-1780478882872",
+        "term": "microwave",
+        "definition": "kitchen appliance that cooks food quickly",
+        "meaningKr": "전자레인지",
+        "exampleEn": "The office breakroom is equipped with a microwave for employee use.",
+        "exampleKr": "사무실 휴게실에는 직원용 전자레인지가 갖춰져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmaɪkroʊweɪv/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-395-1780478882872",
+        "term": "misidentify",
+        "definition": "to mistakenly recognise something; to think that it is something else",
+        "meaningKr": "잘못 식별하다",
+        "exampleEn": "The security system flagged the employee due to misidentification.",
+        "exampleKr": "보안 시스템이 잘못된 식별로 인해 직원을 경고했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌmɪsaɪˈdentɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-396-1780478882872",
+        "term": "neat",
+        "definition": "tidy, clean",
+        "meaningKr": "깔끔한, 정돈된",
+        "exampleEn": "She keeps her workspace very neat and organized.",
+        "exampleKr": "그녀는 자신의 작업 공간을 매우 깔끔하고 체계적으로 유지합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/niːt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-397-1780478882872",
+        "term": "nomination",
+        "definition": "the state of being suggested for something",
+        "meaningKr": "지명, 추천",
+        "exampleEn": "The nomination period for the annual award closes next Friday.",
+        "exampleKr": "올해의 수상 후보 추천 기간은 다음 주 금요일에 마감됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌnɒmɪˈneɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-398-1780478882872",
+        "term": "officially",
+        "definition": "done by the government or office in charge",
+        "meaningKr": "공식적으로",
+        "exampleEn": "The company officially announced its merger with a competitor.",
+        "exampleKr": "그 회사는 경쟁사와 합병을 공식적으로 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈfɪʃəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-399-1780478882872",
+        "term": "outfit",
+        "definition": "a set of clothes like a uniform",
+        "meaningKr": "의상, 복장",
+        "exampleEn": "He needed a professional outfit for the important client meeting.",
+        "exampleKr": "그는 중요한 고객과의 회의를 위해 전문적인 복장이 필요했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈaʊtfɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-400-1780478882872",
+        "term": "pastry",
+        "definition": "a food made of flour, fat and water and baked with other food inside it",
+        "meaningKr": "페이스트리, 파이 반죽",
+        "exampleEn": "The new bakery offers a wide selection of delicious pastries and cakes.",
+        "exampleKr": "새 베이커리는 맛있는 페이스트리와 케이크를 다양하게 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpeɪstri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-401-1780478882872",
+        "term": "personalize",
+        "definition": "change something so that it is tailored to a particular person's needs",
+        "meaningKr": "개인화하다, 맞춤 제작하다",
+        "exampleEn": "We can personalize your company's welcome package with your logo.",
+        "exampleKr": "귀사의 로고로 회사 환영 패키지를 개인화해 드릴 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɜːrsənəlaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-402-1780478882872",
+        "term": "poorly",
+        "definition": "Badly; not enough; not sufficient",
+        "meaningKr": "서투르게, 형편없이, 충분하지 않게",
+        "exampleEn": "The project was poorly managed, resulting in significant delays.",
+        "exampleKr": "프로젝트가 서투르게 관리되어 상당한 지연이 발생했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɔːrli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-403-1780478882872",
+        "term": "prestigious",
+        "definition": "very important and well thought of",
+        "meaningKr": "명망 있는, 일류의",
+        "exampleEn": "She works for a prestigious law firm in the city center.",
+        "exampleKr": "그녀는 시내 중심가의 명망 있는 로펌에서 일합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/presˈtiːdʒəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-404-1780478882872",
+        "term": "purser",
+        "definition": "an officer aboard a ship who keeps accounts and attends to the passengers' needs",
+        "meaningKr": "선박/항공기 사무장, 회계 담당자",
+        "exampleEn": "Please contact the purser if you have any questions regarding your cabin.",
+        "exampleKr": "객실과 관련하여 질문이 있으시면 사무장에게 문의해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɜːrsər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-405-1780478882872",
+        "term": "reassure",
+        "definition": "to make someone feel certain of something",
+        "meaningKr": "안심시키다, 재보증하다",
+        "exampleEn": "The manager tried to reassure the staff about the company's future.",
+        "exampleKr": "관리자는 직원들에게 회사의 미래에 대해 안심시키려 노력했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌriːəˈʃʊər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-406-1780478882872",
+        "term": "resume",
+        "definition": "to continue or start again",
+        "meaningKr": "재개하다, 다시 시작하다",
+        "exampleEn": "The meeting will resume after a short coffee break.",
+        "exampleKr": "회의는 짧은 커피 휴식 후 재개될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈzjuːm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-407-1780478882872",
+        "term": "reunion",
+        "definition": "when people get together to meet up after not meeting for a long time",
+        "meaningKr": "재회, 동창회",
+        "exampleEn": "The annual alumni reunion is scheduled for next Saturday.",
+        "exampleKr": "연례 동창회는 다음 주 토요일로 예정되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/riːˈjuːnjən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-408-1780478882872",
+        "term": "revolutionize",
+        "definition": "to make a new, big change in society",
+        "meaningKr": "혁신하다, 대변혁을 일으키다",
+        "exampleEn": "This new technology is expected to revolutionize the industry.",
+        "exampleKr": "이 신기술은 산업에 혁신을 가져올 것으로 예상됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌrevəˈluːʃənaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-409-1780478882872",
+        "term": "seafood",
+        "definition": "things you can eat as food that live in the sea",
+        "meaningKr": "해산물",
+        "exampleEn": "The restaurant is famous for its fresh seafood dishes.",
+        "exampleKr": "그 식당은 신선한 해산물 요리로 유명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsiːfuːd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-410-1780478882872",
+        "term": "signify",
+        "definition": "shows a sign that it has an important meaning",
+        "meaningKr": "의미하다, 나타내다",
+        "exampleEn": "A red light on the dashboard signifies a problem with the engine.",
+        "exampleKr": "계기판의 빨간 불은 엔진 문제을 나타냅니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɪɡnɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-411-1780478882872",
+        "term": "slot",
+        "definition": "a narrow opening",
+        "meaningKr": "틈, 구멍, (시간/좌석) 할당",
+        "exampleEn": "Please insert your ticket into the designated slot.",
+        "exampleKr": "티켓을 지정된 구멍에 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/slɒt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-412-1780478882872",
+        "term": "steer",
+        "definition": "guide the direction of",
+        "meaningKr": "조종하다, 이끌다",
+        "exampleEn": "The captain steered the ship carefully through the narrow channel.",
+        "exampleKr": "선장은 좁은 수로를 통해 배를 조심스럽게 조종했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/stɪər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-413-1780478882872",
+        "term": "sue",
+        "definition": "To take legal action against someone",
+        "meaningKr": "고소하다, 소송을 제기하다",
+        "exampleEn": "The company decided to sue the competitor for patent infringement.",
+        "exampleKr": "회사는 특허 침해로 경쟁사를 고소하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/suː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-414-1780478882872",
+        "term": "superb",
+        "definition": "very good",
+        "meaningKr": "아주 훌륭한, 뛰어난",
+        "exampleEn": "The service at the hotel was superb.",
+        "exampleKr": "호텔의 서비스는 아주 훌륭했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/suːˈpɜːrb/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-415-1780478882872",
+        "term": "traditionally",
+        "definition": "to do things the way they used to be done",
+        "meaningKr": "전통적으로",
+        "exampleEn": "Traditionally, the company holds its annual meeting in December.",
+        "exampleKr": "전통적으로 회사는 12월에 연례 회의를 개최합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/trəˈdɪʃənəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-416-1780478882872",
+        "term": "tremendous",
+        "definition": "extraordinary or excellent",
+        "meaningKr": "엄청난, 거대한, 굉장한",
+        "exampleEn": "The team made tremendous progress on the new project.",
+        "exampleKr": "팀은 신규 프로젝트에서 엄청난 진전을 이루었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/trəˈmendəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-417-1780478882872",
+        "term": "underway",
+        "definition": "happening now",
+        "meaningKr": "진행 중인, 착수된",
+        "exampleEn": "The renovation of the office building is already underway.",
+        "exampleKr": "사무실 건물의 리모델링이 이미 진행 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈʌndərweɪ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-418-1780478882872",
+        "term": "unpleasant",
+        "definition": "not nice, not comfortable",
+        "meaningKr": "불쾌한, 싫은",
+        "exampleEn": "The persistent smell from the factory was very unpleasant.",
+        "exampleKr": "공장에서 나는 지속적인 냄새는 매우 불쾌했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ʌnˈpleznt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-419-1780478882872",
+        "term": "violin",
+        "definition": "small wooden instrument with four strings for making music",
+        "meaningKr": "바이올린",
+        "exampleEn": "The musician played a beautiful melody on the violin.",
+        "exampleKr": "그 음악가는 바이올린으로 아름다운 멜로디를 연주했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌvaɪəˈlɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-420-1780478882872",
+        "term": "ward",
+        "definition": "an electoral district, a small area within which the people can all vote for the same thing",
+        "meaningKr": "병동, (선거) 구역",
+        "exampleEn": "Patients in the surgical ward are recovering well.",
+        "exampleKr": "수술 병동의 환자들은 잘 회복하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/wɔːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-421-1780478882872",
+        "term": "worthwhile",
+        "definition": "useful; there is some value to it",
+        "meaningKr": "가치 있는, 보람 있는",
+        "exampleEn": "We believe this investment will be very worthwhile in the long run.",
+        "exampleKr": "우리는 이 투자가 장기적으로 매우 가치 있을 것이라고 믿습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈwɜːrθwaɪl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-422-1780478882872",
+        "term": "adapter",
+        "definition": "something that connects to something to make it usable",
+        "meaningKr": "어댑터, 변환기",
+        "exampleEn": "Don't forget to bring a universal power adapter for your electronics.",
+        "exampleKr": "전자 제품용 범용 전원 어댑터를 가져오는 것을 잊지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈdæptər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-423-1780478882872",
+        "term": "advisable",
+        "definition": "something one should do, or is good to do",
+        "meaningKr": "권장할 만한, 현명한",
+        "exampleEn": "It is advisable to book your flight tickets in advance.",
+        "exampleKr": "항공권을 미리 예약하는 것이 권장됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ədˈvaɪzəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-424-1780478882872",
+        "term": "archive",
+        "definition": "a place where documents are kept for a long time",
+        "meaningKr": "기록 보관소, 아카이브",
+        "exampleEn": "The company maintains an archive of all its past projects.",
+        "exampleKr": "회사는 모든 과거 프로젝트의 기록 보관소를 유지하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɑːrkaɪv/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-425-1780478882872",
+        "term": "artistic",
+        "definition": "to be creative, good at art",
+        "meaningKr": "예술적인, 미술의",
+        "exampleEn": "The gallery owner appreciated the artistic merit of the new sculpture.",
+        "exampleKr": "갤러리 주인은 새 조각품의 예술적 가치를 높이 평가했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɑːrˈtɪstɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-426-1780478882872",
+        "term": "assurance",
+        "definition": "certainty or full confidence",
+        "meaningKr": "보증, 확신",
+        "exampleEn": "The manager gave his assurance that the project would be completed on time.",
+        "exampleKr": "매니저는 프로젝트가 제시간에 완료될 것이라는 확신을 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈʃʊərəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-427-1780478882872",
+        "term": "athletic",
+        "definition": "to do with sports",
+        "meaningKr": "운동의, 운동 경기의",
+        "exampleEn": "The company offers discounts on athletic apparel for employees.",
+        "exampleKr": "회사는 직원들에게 운동복 할인을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/æθˈlɛtɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-428-1780478882872",
+        "term": "attire",
+        "definition": "clothing",
+        "meaningKr": "의복, 복장",
+        "exampleEn": "Business attire is required for all attendees at the conference.",
+        "exampleKr": "컨퍼런스 모든 참석자는 비즈니스 복장을 착용해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈtaɪər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-429-1780478882872",
+        "term": "auditor",
+        "definition": "a person who checks to make sure things are correct",
+        "meaningKr": "감사원, 회계 감사인",
+        "exampleEn": "The auditor will review the company's financial statements next week.",
+        "exampleKr": "감사원은 다음 주에 회사의 재무제표를 검토할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɔːdɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-430-1780478882872",
+        "term": "bankruptcy",
+        "definition": "the act of having no more money to pay bills",
+        "meaningKr": "파산, 도산",
+        "exampleEn": "The firm had to declare bankruptcy due to mounting debts.",
+        "exampleKr": "회사는 쌓이는 부채 때문에 파산을 선언해야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbæŋkrʌptsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-431-1780478882872",
+        "term": "bulk",
+        "definition": "in big amount",
+        "meaningKr": "대량, 규모",
+        "exampleEn": "We can offer a discount for orders placed in bulk.",
+        "exampleKr": "대량으로 주문하시면 할인을 제공해 드릴 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/bʌlk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-432-1780478882872",
+        "term": "butter",
+        "definition": "a kind of soft spread for bread, made from cow's milk",
+        "meaningKr": "버터",
+        "exampleEn": "Please add a knob of butter to the vegetables before serving.",
+        "exampleKr": "채소를 내기 전에 버터 한 조각을 넣어주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbʌtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-433-1780478882872",
+        "term": "centimeter",
+        "definition": "a form of measurement,  e.g. there are 100 cm in a meter",
+        "meaningKr": "센티미터",
+        "exampleEn": "The package measures approximately 30 centimeters in length.",
+        "exampleKr": "그 소포는 길이가 약 30센티미터입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɛntɪmiːtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-434-1780478882872",
+        "term": "circulate",
+        "definition": "to move around in a circle",
+        "meaningKr": "순환하다, 퍼지다",
+        "exampleEn": "Please circulate the meeting minutes to all department members.",
+        "exampleKr": "회의록을 모든 부서원들에게 배포해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɜːrkjʊleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-435-1780478882872",
+        "term": "comb",
+        "definition": "make smooth by getting the knots out of",
+        "meaningKr": "빗다",
+        "exampleEn": "He took a moment to comb his hair before the interview.",
+        "exampleKr": "그는 인터뷰 전에 잠시 머리를 빗었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/koʊm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-436-1780478882872",
+        "term": "comfortably",
+        "definition": "to do something easily",
+        "meaningKr": "편안하게, 충분히",
+        "exampleEn": "The new chairs allow employees to work comfortably for longer periods.",
+        "exampleKr": "새 의자 덕분에 직원들은 더 오래 편안하게 일할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkʌmftəbli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-437-1780478882872",
+        "term": "compliance",
+        "definition": "the act of obeying rules",
+        "meaningKr": "준수, 순응",
+        "exampleEn": "The company's strict compliance with regulations is commendable.",
+        "exampleKr": "규정에 대한 회사의 엄격한 준수는 칭찬할 만합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kəmˈplaɪəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-438-1780478882872",
+        "term": "contraction",
+        "definition": "a tightening or squeezing movement",
+        "meaningKr": "수축, 축소",
+        "exampleEn": "The economic contraction led to widespread job losses.",
+        "exampleKr": "경제 불황으로 광범위한 일자리 감소가 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈtrækʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-439-1780478882872",
+        "term": "cookbook",
+        "definition": "a book that gives directions  on how to prepare and cook food",
+        "meaningKr": "요리책",
+        "exampleEn": "She found an excellent recipe in the new cookbook.",
+        "exampleKr": "그녀는 새 요리책에서 훌륭한 레시피를 찾았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkʊkbʊk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-440-1780478882872",
+        "term": "cushion",
+        "definition": "a pad to make something more comfortable",
+        "meaningKr": "쿠션, 완충 장치",
+        "exampleEn": "The thick carpet acted as a cushion for the falling equipment.",
+        "exampleKr": "두꺼운 카펫이 떨어지는 장비에 완충 역할을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkʊʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-441-1780478882872",
+        "term": "dose",
+        "definition": "the amount of medicine taken at one time",
+        "meaningKr": "복용량, 투여량",
+        "exampleEn": "The doctor prescribed a specific dose of the medication.",
+        "exampleKr": "의사는 약의 특정 복용량을 처방했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/doʊs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-442-1780478882872",
+        "term": "drum",
+        "definition": "a musical instrument you hit with wooden sticks",
+        "meaningKr": "드럼, 북",
+        "exampleEn": "The sound of the drum could be heard from the rehearsal room.",
+        "exampleKr": "리허설실에서 드럼 소리가 들릴 수 있었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/drʌm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-443-1780478882872",
+        "term": "embed",
+        "definition": "to push something deep inside something else",
+        "meaningKr": "박다, 끼우다",
+        "exampleEn": "The company decided to embed the new software into its existing system.",
+        "exampleKr": "회사는 새 소프트웨어를 기존 시스템에 통합하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪmˈbɛd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-444-1780478882872",
+        "term": "evacuate",
+        "definition": "to make people leave an area",
+        "meaningKr": "대피시키다, 비우다",
+        "exampleEn": "The building was evacuated due to a fire alarm.",
+        "exampleKr": "화재 경보로 인해 건물이 대피되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪˈvækjueɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-445-1780478882872",
+        "term": "expedite",
+        "definition": "speed up the progress of",
+        "meaningKr": "신속히 처리하다, 촉진하다",
+        "exampleEn": "We need to expedite the shipping process to meet the deadline.",
+        "exampleKr": "마감일을 맞추기 위해 배송 절차를 신속히 처리해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɛkspədaɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-446-1780478882872",
+        "term": "extinguisher",
+        "definition": "Device used to put out fires",
+        "meaningKr": "소화기",
+        "exampleEn": "A fire extinguisher is located next to the main entrance.",
+        "exampleKr": "정문 옆에 소화기가 비치되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪkˈstɪŋɡwɪʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-447-1780478882872",
+        "term": "familiarity",
+        "definition": "the state of being used to, or comfortable with something",
+        "meaningKr": "친숙함, 익숙함",
+        "exampleEn": "His familiarity with the market trends gave him an advantage.",
+        "exampleKr": "그 시장 동향에 대한 그의 익숙함이 그에게 이점을 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fəˌmɪliˈærəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-448-1780478882872",
+        "term": "flaw",
+        "definition": "something that is faulty in otherwise perfect person/thing",
+        "meaningKr": "결점, 흠",
+        "exampleEn": "Despite a minor flaw, the product received excellent customer reviews.",
+        "exampleKr": "작은 흠에도 불구하고, 그 제품은 훌륭한 고객 후기를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/flɔː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-449-1780478882872",
+        "term": "fluctuate",
+        "definition": "comes and goes stronger and weaker",
+        "meaningKr": "변동하다, 오르내리다",
+        "exampleEn": "Stock prices tend to fluctuate significantly in the short term.",
+        "exampleKr": "주가는 단기적으로 상당히 오르내리는 경향이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈflʌktʃueɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-450-1780478882872",
+        "term": "fluent",
+        "definition": "able to speak a language easily and with confidence",
+        "meaningKr": "유창한, 능숙한",
+        "exampleEn": "She is fluent in three languages, which is a great asset for the international department.",
+        "exampleKr": "그녀는 세 가지 언어에 유창하여 국제 부서에 큰 자산입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfluːənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-451-1780478882872",
+        "term": "honestly",
+        "definition": "really, truly",
+        "meaningKr": "솔직히, 정직하게",
+        "exampleEn": "Honestly, I did not expect such a significant increase in quarterly sales figures.",
+        "exampleKr": "솔직히, 분기별 매출 수치의 이렇게 상당한 증가를 예상하지 못했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɑːnɪstli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-452-1780478882872",
+        "term": "housekeep",
+        "definition": "take care of all business related to a household",
+        "meaningKr": "가정 살림을 하다, 집안일을 관리하다",
+        "exampleEn": "The hotel staff are responsible for housekeeping duties in all guest rooms.",
+        "exampleKr": "호텔 직원은 모든 객실의 하우스키핑 업무를 책임지고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhaʊskiːp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-453-1780478882872",
+        "term": "hurricane",
+        "definition": "a strong often deadly storm that begins over the water",
+        "meaningKr": "허리케인, 태풍",
+        "exampleEn": "The company issued a travel advisory due to the approaching hurricane and potential flooding.",
+        "exampleKr": "회사는 접근하는 허리케인과 잠재적인 홍수로 인해 여행 주의보를 발령했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhɜːrɪkeɪn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-454-1780478882872",
+        "term": "hygiene",
+        "definition": "how you keep yourself and your surroundings clean and so that you stay healthy",
+        "meaningKr": "위생",
+        "exampleEn": "Maintaining proper hygiene in the workplace is crucial for employee health and safety.",
+        "exampleKr": "직장에서 적절한 위생을 유지하는 것은 직원의 건강과 안전에 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhaɪdʒiːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-455-1780478882872",
+        "term": "integral",
+        "definition": "very important, necessary as part of the whole thing",
+        "meaningKr": "필수적인, 없어서는 안 될",
+        "exampleEn": "Customer feedback is an integral part of our product development process.",
+        "exampleKr": "고객 피드백은 저희 제품 개발 과정의 필수적인 부분입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɪntɪɡrəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-456-1780478882872",
+        "term": "interactive",
+        "definition": "to engage with others",
+        "meaningKr": "상호작용하는, 쌍방향의",
+        "exampleEn": "The new software features an interactive tutorial to guide users through its functions.",
+        "exampleKr": "새로운 소프트웨어는 사용자에게 기능을 안내하는 대화형 튜토리얼을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪntərˈæktɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-457-1780478882872",
+        "term": "interfere",
+        "definition": "to take part in something that is not your business",
+        "meaningKr": "방해하다, 간섭하다",
+        "exampleEn": "Please do not interfere with the ongoing investigation into the financial irregularities.",
+        "exampleKr": "진행 중인 재정 부정 조사에 방해하지 마십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪntərˈfɪər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-458-1780478882872",
+        "term": "kilogram",
+        "definition": "a unit of weight; one kilogram is about the same weight as 2.2 pounds",
+        "meaningKr": "킬로그램",
+        "exampleEn": "The package weighs approximately five kilograms and requires special handling.",
+        "exampleKr": "이 소포는 약 5킬로그램이며 특별 취급이 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɪləɡræm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-459-1780478882872",
+        "term": "layoff",
+        "definition": "the act of ending a worker's job because there is not enough work, or not enough money to pay for it",
+        "meaningKr": "일시 해고, 감원",
+        "exampleEn": "Due to the economic downturn, the company announced a temporary layoff of several departments.",
+        "exampleKr": "경제 침체로 인해 회사는 여러 부서의 일시 해고를 발표했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈleɪɔːf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-460-1780478882872",
+        "term": "lightweight",
+        "definition": "someone or something that is not heavy",
+        "meaningKr": "가벼운",
+        "exampleEn": "This new material is surprisingly lightweight yet incredibly durable for construction.",
+        "exampleKr": "이 신소재는 놀라울 정도로 가볍지만 건설용으로 믿을 수 없을 만큼 내구성이 뛰어납니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlaɪtweɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-461-1780478882872",
+        "term": "merit",
+        "definition": "to deserve praise",
+        "meaningKr": "칭찬받을 만하다, 가치가 있다",
+        "exampleEn": "Her proposal merits serious consideration due to its innovative approach.",
+        "exampleKr": "그녀의 제안은 혁신적인 접근 방식으로 인해 진지한 고려를 받을 만합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmerɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-462-1780478882872",
+        "term": "necklace",
+        "definition": "a piece of jewelery, or decoration, worn around the neck",
+        "meaningKr": "목걸이",
+        "exampleEn": "She received a beautiful diamond necklace as a token of appreciation.",
+        "exampleKr": "그녀는 감사의 표시로 아름다운 다이아몬드 목걸이를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈnekləs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-463-1780478882872",
+        "term": "needy",
+        "definition": "people who are poor and do not have enough to live on",
+        "meaningKr": "가난한, 궁핍한",
+        "exampleEn": "The company organized a charity drive to support needy families in the community.",
+        "exampleKr": "회사는 지역 사회의 어려운 가정들을 지원하기 위해 자선 캠페인을 조직했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈniːdi/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-464-1780478882872",
+        "term": "overpay",
+        "definition": "to hand over too much money",
+        "meaningKr": "초과 지불하다, 너무 많이 지불하다",
+        "exampleEn": "Be careful not to overpay for the service; compare prices from different vendors.",
+        "exampleKr": "서비스에 대해 과다 지불하지 않도록 주의하세요. 다른 공급업체의 가격을 비교하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌoʊvərˈpeɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-465-1780478882872",
+        "term": "pamphlet",
+        "definition": "a small paper leaflet or booklet  that tells you about a single subject",
+        "meaningKr": "소책자, 팸플릿",
+        "exampleEn": "You can find detailed information about the upcoming conference in this pamphlet.",
+        "exampleKr": "이 팸플릿에서 예정된 컨퍼런스에 대한 자세한 정보를 찾을 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpæmflət/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-466-1780478882872",
+        "term": "partial",
+        "definition": "to be a part of something whole",
+        "meaningKr": "부분적인, 불완전한",
+        "exampleEn": "The report provided only a partial analysis, requiring further research.",
+        "exampleKr": "보고서는 부분적인 분석만 제공하여 추가 연구가 필요했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɑːrʃəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-467-1780478882872",
+        "term": "penalize",
+        "definition": "to punish someone",
+        "meaningKr": "처벌하다, 불이익을 주다",
+        "exampleEn": "Companies that fail to comply with environmental regulations will be penalized.",
+        "exampleKr": "환경 규정을 준수하지 않는 회사는 처벌받을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpiːnəlaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-468-1780478882872",
+        "term": "pollute",
+        "definition": "to make the environment dirty",
+        "meaningKr": "오염시키다",
+        "exampleEn": "Efforts are underway to reduce the amount of plastic that pollutes our oceans.",
+        "exampleKr": "우리 바다를 오염시키는 플라스틱 양을 줄이기 위한 노력이 진행 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/pəˈluːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-469-1780478882872",
+        "term": "prescribe",
+        "definition": "to formally tell someone what to do",
+        "meaningKr": "처방하다, 규정하다",
+        "exampleEn": "The committee will prescribe the guidelines for the new project launch.",
+        "exampleKr": "위원회는 신규 프로젝트 출시를 위한 지침을 규정할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/prɪˈskraɪb/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-470-1780478882872",
+        "term": "probable",
+        "definition": "possible, but not certain to be or become true or real",
+        "meaningKr": "있을 법한, 그럴듯한",
+        "exampleEn": "It is probable that the contract will be signed by the end of the week.",
+        "exampleKr": "계약은 이번 주 말까지 서명될 가능성이 높습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈprɑːbəbəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-471-1780478882872",
+        "term": "prominent",
+        "definition": "important, significant",
+        "meaningKr": "저명한, 눈에 띄는",
+        "exampleEn": "He is a prominent figure in the technology industry, known for his innovations.",
+        "exampleKr": "그는 혁신으로 알려진 기술 산업의 저명한 인물입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈprɑːmɪnənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-472-1780478882872",
+        "term": "rainfall",
+        "definition": "Water that falls from the clouds in the sky, in little drops",
+        "meaningKr": "강수량, 비",
+        "exampleEn": "The amount of rainfall this season has been significantly below average.",
+        "exampleKr": "이번 시즌의 강수량은 평균보다 상당히 낮았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈreɪnfɔːl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-473-1780478882872",
+        "term": "relocation",
+        "definition": "the act of moving something to a new location",
+        "meaningKr": "이전, 재배치",
+        "exampleEn": "The company offered a generous relocation package to employees moving overseas.",
+        "exampleKr": "회사는 해외로 이주하는 직원들에게 후한 이주 지원 패키지를 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/riːloʊˈkeɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-474-1780478882872",
+        "term": "residence",
+        "definition": "the house or place you live",
+        "meaningKr": "거주지, 주택",
+        "exampleEn": "Please update your contact information if you have changed your residence.",
+        "exampleKr": "거주지를 변경하셨다면 연락처 정보를 업데이트해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈrezɪdəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-475-1780478882872",
+        "term": "retrieve",
+        "definition": "to go and get something back",
+        "meaningKr": "되찾다, 회수하다",
+        "exampleEn": "The IT department will retrieve the deleted files from the backup server.",
+        "exampleKr": "IT 부서에서 백업 서버에서 삭제된 파일을 복구할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈtriːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-476-1780478882872",
+        "term": "rider",
+        "definition": "someone who uses an animal or a bicycle or motorcycle for transport",
+        "meaningKr": "승객, 탑승자",
+        "exampleEn": "All passengers on the bus are required to wear a seatbelt, including the rider.",
+        "exampleKr": "버스에 탑승한 모든 승객은 탑승자 포함 안전벨트를 착용해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈraɪdər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-477-1780478882872",
+        "term": "rubber",
+        "definition": "the stretchy material that elastic bands are made of",
+        "meaningKr": "고무",
+        "exampleEn": "The new office chairs are equipped with rubber casters to protect the floor.",
+        "exampleKr": "새 사무실 의자는 바닥 보호를 위해 고무 바퀴가 장착되어 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈrʌbər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-478-1780478882872",
+        "term": "rug",
+        "definition": "a small loose floor covering",
+        "meaningKr": "깔개, 작은 융단",
+        "exampleEn": "Please place the welcome rug just inside the main entrance.",
+        "exampleKr": "환영 깔개를 정문 바로 안쪽에 놓아주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rʌɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-479-1780478882872",
+        "term": "salespeople",
+        "definition": "men and women whose job it is get people to buy things from their company",
+        "meaningKr": "판매원들",
+        "exampleEn": "Our top salespeople will receive a bonus for exceeding their quarterly targets.",
+        "exampleKr": "최고 판매원들은 분기별 목표 초과 달성에 대한 보너스를 받을 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈseɪlzˌpiːpəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-480-1780478882872",
+        "term": "sharply",
+        "definition": "harshly",
+        "meaningKr": "급격히, 날카롭게",
+        "exampleEn": "The stock market fell sharply due to the unexpected economic downturn.",
+        "exampleKr": "예상치 못한 경기 침체로 주식 시장이 급락했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈʃɑːrpli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-481-1780478882872",
+        "term": "similarity",
+        "definition": "the state of being almost the same",
+        "meaningKr": "유사성, 비슷함",
+        "exampleEn": "The similarity between the two proposals is striking, requiring further review.",
+        "exampleKr": "두 제안서 간의 유사성이 두드러져 추가 검토가 필요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌsɪməˈlerəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-482-1780478882872",
+        "term": "someday",
+        "definition": "At some unspecified time in the future",
+        "meaningKr": "언젠가",
+        "exampleEn": "We hope to expand our business internationally someday.",
+        "exampleKr": "우리는 언젠가 사업을 국제적으로 확장하기를 희망합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsʌmdeɪ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-483-1780478882872",
+        "term": "spectator",
+        "definition": "a person who watches something happening",
+        "meaningKr": "관중, 구경꾼",
+        "exampleEn": "The conference hall was filled with enthusiastic spectators eager to learn.",
+        "exampleKr": "컨퍼런스 홀은 배우려는 열정적인 관중들로 가득 찼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈspekteɪtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-484-1780478882872",
+        "term": "stereo",
+        "definition": "a device that plays sound through two or more speakers",
+        "meaningKr": "스테레오 음향 장치",
+        "exampleEn": "The executive office is equipped with a high-quality stereo system for background music.",
+        "exampleKr": "임원 사무실에는 배경 음악을 위한 고품질 스테레오 시스템이 갖춰져 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsterioʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-485-1780478882872",
+        "term": "storeroom",
+        "definition": "a room where things can be kept when they are not being used",
+        "meaningKr": "창고, 저장실",
+        "exampleEn": "Please organize the inventory in the storeroom before the audit.",
+        "exampleKr": "감사 전에 창고에 있는 재고를 정리해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈstɔːrˌruːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-486-1780478882872",
+        "term": "subsidize",
+        "definition": "to give financial help",
+        "meaningKr": "보조금을 지급하다, 지원하다",
+        "exampleEn": "The government will subsidize the training program for new employees.",
+        "exampleKr": "정부는 신규 직원을 위한 교육 프로그램에 보조금을 지급할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsʌbsɪdaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-487-1780478882872",
+        "term": "suspicious",
+        "definition": "the feeling that something is not right",
+        "meaningKr": "의심스러운",
+        "exampleEn": "The sudden resignation of the CEO made the board members suspicious.",
+        "exampleKr": "CEO의 갑작스러운 사임은 이사회 구성원들을 의심스럽게 만들었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/səˈspɪʃəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-488-1780478882872",
+        "term": "tasty",
+        "definition": "delicious",
+        "meaningKr": "맛있는",
+        "exampleEn": "The catering service provided a variety of tasty snacks for the meeting.",
+        "exampleKr": "케이터링 서비스는 회의를 위해 다양한 맛있는 간식을 제공했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈteɪsti/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-489-1780478882872",
+        "term": "terrific",
+        "definition": "very great or wonderful",
+        "meaningKr": "아주 좋은, 멋진",
+        "exampleEn": "We received terrific feedback from our clients about the new product launch.",
+        "exampleKr": "우리는 신제품 출시와 관련하여 고객들로부터 아주 좋은 피드백을 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/təˈrɪfɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-490-1780478882872",
+        "term": "underground",
+        "definition": "below the surface",
+        "meaningKr": "지하의, 지하에",
+        "exampleEn": "The city is planning to build a new underground parking facility.",
+        "exampleKr": "시는 새로운 지하 주차 시설을 건설할 계획입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌʌndərˈɡraʊnd/",
+        "pos": "adjective | adverb"
+      },
+      {
+        "id": "word-tsl-advanced-491-1780478882872",
+        "term": "unpaid",
+        "definition": "working for no money",
+        "meaningKr": "지불되지 않은, 무급의",
+        "exampleEn": "The internship program offers valuable experience, though it is unpaid.",
+        "exampleKr": "인턴십 프로그램은 무급이지만 귀중한 경험을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ʌnˈpeɪd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-492-1780478882872",
+        "term": "volleyball",
+        "definition": "a ballgame for two teams who try to hit a large ball backwards and forwards across a central net",
+        "meaningKr": "배구",
+        "exampleEn": "The company picnic includes recreational activities like volleyball and barbecue.",
+        "exampleKr": "회사 야유회에는 배구와 바비큐 같은 레크리에이션 활동이 포함됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈvɑːlibɔːl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-493-1780478882872",
+        "term": "wheelchair",
+        "definition": "a seat, that has wheels, that allows a person who cannot walk to move about",
+        "meaningKr": "휠체어",
+        "exampleEn": "The building is accessible for people using a wheelchair.",
+        "exampleKr": "이 건물은 휠체어를 사용하는 사람들도 접근 가능합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈwiːltʃɛər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-494-1780478882872",
+        "term": "whoever",
+        "definition": "anyone who",
+        "meaningKr": "누구든지, ~하는 사람은 누구든",
+        "exampleEn": "Whoever submits the proposal by Friday will be considered.",
+        "exampleKr": "금요일까지 제안서를 제출하는 사람은 누구든 고려될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/huːˈevər/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-tsl-advanced-495-1780478882872",
+        "term": "wool",
+        "definition": "the fur of sheep",
+        "meaningKr": "양모, 울",
+        "exampleEn": "This scarf is made of 100% pure wool, offering excellent warmth.",
+        "exampleKr": "이 스카프는 100% 순수 양모로 만들어져 탁월한 보온성을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/wʊl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-496-1780478882872",
+        "term": "wrinkle",
+        "definition": "a crease or fold",
+        "meaningKr": "주름",
+        "exampleEn": "Please iron out any wrinkles from the document before printing.",
+        "exampleKr": "인쇄하기 전에 문서의 주름을 모두 다림질해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈrɪŋkəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-497-1780478882872",
+        "term": "accuracy",
+        "definition": "the state of being exact and correct",
+        "meaningKr": "정확성",
+        "exampleEn": "The accuracy of the financial report is crucial for investor confidence.",
+        "exampleKr": "재무 보고서의 정확성은 투자자 신뢰에 매우 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈækjərəsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-498-1780478882872",
+        "term": "anyhow",
+        "definition": "anyway, besides",
+        "meaningKr": "어쨌든, 아무튼",
+        "exampleEn": "The meeting was postponed, but we need to proceed anyhow.",
+        "exampleKr": "회의는 연기되었지만, 우리는 어쨌든 진행해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈenihaʊ/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-499-1780478882872",
+        "term": "appetizer",
+        "definition": "small amount of food eaten before the main meal",
+        "meaningKr": "애피타이저, 전채 요리",
+        "exampleEn": "The restaurant offers a complimentary appetizer with every main course ordered.",
+        "exampleKr": "이 레스토랑은 메인 요리를 주문하면 무료 애피타이저를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæpətaɪzər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-500-1780478882872",
+        "term": "arc",
+        "definition": "a curved line, like part of a circle",
+        "meaningKr": "호, 원호",
+        "exampleEn": "The architect designed a graceful arc for the bridge's main support structure.",
+        "exampleKr": "건축가는 다리의 주 지지 구조물을 위해 우아한 호 모양을 설계했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɑːrk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-501-1780478882872",
+        "term": "audition",
+        "definition": "a try out done by a performer to test whether they have the skills to do the job",
+        "meaningKr": "오디션, 시험 공연",
+        "exampleEn": "The lead actor was chosen after a rigorous audition process last week.",
+        "exampleKr": "주연 배우는 지난주 엄격한 오디션 과정을 거쳐 선정되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɔːˈdɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-502-1780478882872",
+        "term": "backpack",
+        "definition": "a bag with shoulder straps worn on the back",
+        "meaningKr": "배낭",
+        "exampleEn": "Please store your personal belongings in the overhead compartment or under your seat, not on your backpack.",
+        "exampleKr": "개인 소지품은 배낭에 넣지 마시고, 머리 위 선반이나 좌석 밑에 보관해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbækpæk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-503-1780478882872",
+        "term": "ballroom",
+        "definition": "large room used mainly for dancing",
+        "meaningKr": "연회장, 무도회장",
+        "exampleEn": "The annual company gala will be held in the hotel's grand ballroom.",
+        "exampleKr": "연례 회사 갈라 행사는 호텔의 웅장한 연회장에서 열릴 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈbɔːlruːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-504-1780478882872",
+        "term": "beneficial",
+        "definition": "good for you, positive effect",
+        "meaningKr": "유익한, 이로운",
+        "exampleEn": "Regular exercise has been proven to be highly beneficial for overall health.",
+        "exampleKr": "규칙적인 운동은 전반적인 건강에 매우 유익한 것으로 입증되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌbenɪˈfɪʃəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-505-1780478882872",
+        "term": "biography",
+        "definition": "someone's life story",
+        "meaningKr": "전기, 일대기",
+        "exampleEn": "The CEO's biography details his remarkable journey from humble beginnings.",
+        "exampleKr": "그 CEO의 전기는 그의 겸손한 시작부터 놀라운 여정을 상세히 설명합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/baɪˈɒɡrəfi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-506-1780478882872",
+        "term": "bound",
+        "definition": "wrap around with something, so as to cover or enclose",
+        "meaningKr": "묶다, 감싸다",
+        "exampleEn": "Please ensure the package is securely bound before shipping it internationally.",
+        "exampleKr": "국제 배송 전에 포장이 안전하게 묶여 있는지 확인해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/baʊnd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-507-1780478882872",
+        "term": "broom",
+        "definition": "a brush with a long handle used for sweeping the dirt from the floor",
+        "meaningKr": "빗자루",
+        "exampleEn": "After the spill, the janitor used a broom to clean up the debris.",
+        "exampleKr": "유출 사고 후, 청소부가 빗자루를 사용하여 잔해를 치웠습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/bruːm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-508-1780478882872",
+        "term": "cheeseburger",
+        "definition": "a hamburger with melted cheese on it",
+        "meaningKr": "치즈버거",
+        "exampleEn": "For lunch, I'll have a cheeseburger and fries, please.",
+        "exampleKr": "점심으로 치즈버거와 감자튀김 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtʃiːzbɜːrɡər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-509-1780478882872",
+        "term": "chilly",
+        "definition": "when the weather is cold and causing you to shiver",
+        "meaningKr": "쌀쌀한, 추운",
+        "exampleEn": "It's a bit chilly in the office today, so I'm wearing a sweater.",
+        "exampleKr": "오늘 사무실이 좀 쌀쌀해서 스웨터를 입고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtʃɪli/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-510-1780478882872",
+        "term": "circus",
+        "definition": "a showy or noisy performance",
+        "meaningKr": "서커스, 소란",
+        "exampleEn": "The chaotic meeting resembled a circus with everyone shouting at once.",
+        "exampleKr": "혼란스러운 회의는 모든 사람이 동시에 소리치는 서커스 같았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɜːrkəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-511-1780478882872",
+        "term": "compliment",
+        "definition": "saying something nice about someone",
+        "meaningKr": "칭찬",
+        "exampleEn": "The client offered a sincere compliment on the project's timely completion.",
+        "exampleKr": "고객은 프로젝트의 시기적절한 완료에 대해 진심 어린 칭찬을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɒmplɪmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-512-1780478882872",
+        "term": "consignment",
+        "definition": "a shipment of goods for  delivery",
+        "meaningKr": "위탁 판매, 위탁 상품",
+        "exampleEn": "The store received a new consignment of designer clothing this morning.",
+        "exampleKr": "오늘 아침 가게에 디자이너 의류 신규 위탁 상품이 도착했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/kənˈsaɪnmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-513-1780478882872",
+        "term": "continental",
+        "definition": "to do with the mainland",
+        "meaningKr": "대륙의",
+        "exampleEn": "The hotel offers a full continental breakfast each morning.",
+        "exampleKr": "호텔에서는 매일 아침 푸짐한 대륙식 아침 식사를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌkɒntɪˈnentl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-514-1780478882872",
+        "term": "copyright",
+        "definition": "when you cannot copy work",
+        "meaningKr": "저작권",
+        "exampleEn": "All content on this website is protected by copyright law.",
+        "exampleKr": "이 웹사이트의 모든 콘텐츠는 저작권법에 의해 보호됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkɒpiraɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-515-1780478882872",
+        "term": "countryside",
+        "definition": "land outside of cities and towns, that does not have buildings on it",
+        "meaningKr": "시골, 전원",
+        "exampleEn": "Many executives from the city enjoy weekend retreats in the peaceful countryside.",
+        "exampleKr": "도시의 많은 경영진들은 평화로운 시골에서 주말 휴가를 즐깁니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkʌntrisaɪd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-516-1780478882872",
+        "term": "demolish",
+        "definition": "knock down; completely destroy",
+        "meaningKr": "철거하다, 파괴하다",
+        "exampleEn": "The old factory building will be demolished to make way for a new park.",
+        "exampleKr": "오래된 공장 건물은 새 공원을 만들기 위해 철거될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˈmɒlɪʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-517-1780478882872",
+        "term": "departmental",
+        "definition": "to do with a specific area or unit in an organization",
+        "meaningKr": "부서의, 특정 부문에 속한",
+        "exampleEn": "We need to submit a departmental budget proposal by Friday.",
+        "exampleKr": "금요일까지 부서별 예산 제안서를 제출해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪˌpɑːrtˈmentl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-518-1780478882872",
+        "term": "desperate",
+        "definition": "to be in urgent need of something",
+        "meaningKr": "필사적인, 절박한",
+        "exampleEn": "The company is in a desperate situation due to declining sales.",
+        "exampleKr": "매출 감소로 인해 회사는 절박한 상황에 처해 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdespərət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-519-1780478882872",
+        "term": "devastate",
+        "definition": "to destroy completely",
+        "meaningKr": "완전히 파괴하다, 황폐시키다",
+        "exampleEn": "The hurricane threatened to devastate coastal communities.",
+        "exampleKr": "허리케인은 해안 지역 사회를 완전히 파괴할 위협을 가했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdevəsteɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-520-1780478882872",
+        "term": "diagnostic",
+        "definition": "how you solve problems by working out what is wrong",
+        "meaningKr": "진단의, 진단적인",
+        "exampleEn": "The technician ran a diagnostic test on the malfunctioning server.",
+        "exampleKr": "기술자는 오작동하는 서버에 대해 진단 테스트를 실행했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌdaɪəɡˈnɒstɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-521-1780478882872",
+        "term": "diagram",
+        "definition": "a drawing explaining something",
+        "meaningKr": "도표, 그림",
+        "exampleEn": "Please refer to the diagram on page five for assembly instructions.",
+        "exampleKr": "조립 설명서는 5페이지의 도표를 참조하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdaɪəɡræm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-522-1780478882872",
+        "term": "diamond",
+        "definition": "a very valuable gem",
+        "meaningKr": "다이아몬드",
+        "exampleEn": "The engagement ring features a large, flawless diamond.",
+        "exampleKr": "약혼반지는 크고 흠 없는 다이아몬드를 특징으로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdaɪəmənd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-523-1780478882872",
+        "term": "disable",
+        "definition": "to make something not work",
+        "meaningKr": "기능을 정지시키다, 무능하게 하다",
+        "exampleEn": "Please disable the automatic reply function before you leave.",
+        "exampleKr": "떠나시기 전에 자동 응답 기능을 비활성화해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪsˈeɪbl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-524-1780478882872",
+        "term": "disgust",
+        "definition": "strong feelings of dislike",
+        "meaningKr": "혐오감, 역겨움",
+        "exampleEn": "The poor hygiene standards in the kitchen caused considerable disgust among staff.",
+        "exampleKr": "주방의 열악한 위생 기준은 직원들 사이에 상당한 불쾌감을 야기했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dɪsˈɡʌst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-525-1780478882872",
+        "term": "donut",
+        "definition": "small, fried, very sweet piece of dough covered in sugar and good to eat",
+        "meaningKr": "도넛",
+        "exampleEn": "The office break room was stocked with coffee and a variety of fresh donuts each morning.",
+        "exampleKr": "사무실 휴게실에는 매일 아침 커피와 다양한 종류의 신선한 도넛이 비치되어 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdoʊnʌt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-526-1780478882872",
+        "term": "doorman",
+        "definition": "Someone whose job it is to stand at entrance to a hotel to let people go in and out",
+        "meaningKr": "문지기, 현관 안내인",
+        "exampleEn": "The hotel doorman assisted guests with their luggage and hailed taxis.",
+        "exampleKr": "호텔 문지기는 손님들의 짐을 도와주고 택시를 잡아주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdɔːrmæn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-527-1780478882872",
+        "term": "electronically",
+        "definition": "to do something using electronics",
+        "meaningKr": "전자적으로",
+        "exampleEn": "Please submit your expense reports electronically by the end of the week.",
+        "exampleKr": "이번 주 말까지 경비 보고서를 전자적으로 제출해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪlɛkˈtrɑːnɪkli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-528-1780478882872",
+        "term": "elevate",
+        "definition": "to raise or make higher",
+        "meaningKr": "올리다, 높이다",
+        "exampleEn": "The company's new strategy aims to elevate its brand recognition in the market.",
+        "exampleKr": "회사의 새로운 전략은 시장에서 브랜드 인지도를 높이는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɛləveɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-529-1780478882872",
+        "term": "engagement",
+        "definition": "the act of participating in something",
+        "meaningKr": "참여, 약속, 교전",
+        "exampleEn": "We are seeking greater customer engagement through interactive online campaigns.",
+        "exampleKr": "우리는 상호작용하는 온라인 캠페인을 통해 고객 참여를 증대시키고자 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈɡeɪdʒmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-530-1780478882872",
+        "term": "enrollment",
+        "definition": "the act of registering for something",
+        "meaningKr": "등록, 입학",
+        "exampleEn": "The deadline for course enrollment is next Friday, so please register soon.",
+        "exampleKr": "강좌 등록 마감일은 다음 주 금요일이므로 서둘러 등록해 주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈroʊlmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-531-1780478882872",
+        "term": "euro",
+        "definition": "a unit of money used in a number of European countries",
+        "meaningKr": "유로 (화폐 단위)",
+        "exampleEn": "The price is listed in euros, but we accept major credit cards.",
+        "exampleKr": "가격은 유로로 표시되어 있지만, 주요 신용카드를 받습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈjʊroʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-532-1780478882872",
+        "term": "forbid",
+        "definition": "to not allow",
+        "meaningKr": "금지하다",
+        "exampleEn": "Smoking is strictly forbidden in all indoor public areas of the building.",
+        "exampleKr": "건물의 모든 실내 공공장소에서는 흡연이 엄격히 금지됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fərˈbɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-533-1780478882872",
+        "term": "fork",
+        "definition": "eating utensil",
+        "meaningKr": "포크 (식사 도구)",
+        "exampleEn": "Please ensure there is a knife, fork, and spoon at each place setting.",
+        "exampleKr": "각 자리마다 나이프, 포크, 숟가락이 준비되어 있는지 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/fɔːrk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-534-1780478882872",
+        "term": "foster",
+        "definition": "to promote or bring about",
+        "meaningKr": "증진하다, 육성하다",
+        "exampleEn": "The workshop is designed to foster creativity and teamwork among employees.",
+        "exampleKr": "워크숍은 직원들 간의 창의성과 팀워크를 증진하도록 설계되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈfɑːstər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-535-1780478882872",
+        "term": "getaway",
+        "definition": "escape or leave very quickly",
+        "meaningKr": "탈출, 휴가",
+        "exampleEn": "The manager decided to take a short getaway to recharge after the busy quarter.",
+        "exampleKr": "매니저는 바쁜 분기 후 재충전을 위해 짧은 휴가를 가기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɡɛtəweɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-536-1780478882872",
+        "term": "gossip",
+        "definition": "to talk about someone behind his/her back",
+        "meaningKr": "험담, 소문",
+        "exampleEn": "Office gossip can be distracting and negatively impact workplace morale.",
+        "exampleKr": "사무실 험담은 집중을 방해하고 직장 사기에 부정적인 영향을 미칠 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɡɑːsɪp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-537-1780478882872",
+        "term": "hacker",
+        "definition": "someone who gains access to a computer system without permission",
+        "meaningKr": "해커",
+        "exampleEn": "The company implemented new security measures to prevent unauthorized access by hackers.",
+        "exampleKr": "회사는 해커의 무단 접근을 막기 위해 새로운 보안 조치를 시행했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈhækər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-538-1780478882872",
+        "term": "hardworking",
+        "definition": "always puts a lot of effort into the task or job",
+        "meaningKr": "근면한, 열심히 일하는",
+        "exampleEn": "She is a hardworking employee who consistently meets her deadlines.",
+        "exampleKr": "그녀는 마감일을 꾸준히 맞추는 근면한 직원입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌhɑːrdˈwɜːrkɪŋ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-539-1780478882872",
+        "term": "impatient",
+        "definition": "in a hurry, not calm",
+        "meaningKr": "조급한, 참을성 없는",
+        "exampleEn": "Customers can become impatient if customer service response times are too long.",
+        "exampleKr": "고객 서비스 응답 시간이 너무 길면 고객들이 조급해할 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪmˈpeɪʃənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-540-1780478882872",
+        "term": "indirect",
+        "definition": "not in a straight way",
+        "meaningKr": "간접적인",
+        "exampleEn": "The report provided indirect evidence of the project's success.",
+        "exampleKr": "그 보고서는 프로젝트 성공에 대한 간접적인 증거를 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪndəˈrɛkt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-541-1780478882872",
+        "term": "interpreter",
+        "definition": "someone who translates from one language to another",
+        "meaningKr": "통역사",
+        "exampleEn": "An interpreter was hired to facilitate communication during the international conference.",
+        "exampleKr": "국제 회의 중 의사소통을 원활하게 하기 위해 통역사가 고용되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪnˈtɜːrprətər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-542-1780478882872",
+        "term": "intersection",
+        "definition": "where two paths cross each other",
+        "meaningKr": "교차로, 교차점",
+        "exampleEn": "Be cautious when driving through the busy intersection near the downtown area.",
+        "exampleKr": "시내 근처의 번화한 교차로를 운전할 때는 조심하십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɪntərˈsɛkʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-543-1780478882872",
+        "term": "irrelevant",
+        "definition": "not related to the topic, not important",
+        "meaningKr": "관련 없는, 중요하지 않은",
+        "exampleEn": "Please focus on the main agenda items and avoid discussing irrelevant topics.",
+        "exampleKr": "주요 안건에 집중해 주시고 관련 없는 주제에 대한 논의는 피해주십시오.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ɪˈrɛləvənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-544-1780478882872",
+        "term": "jeans",
+        "definition": "pants made from denim",
+        "meaningKr": "청바지",
+        "exampleEn": "Casual Fridays allow employees to wear jeans and other comfortable attire.",
+        "exampleKr": "캐주얼 프라이데이는 직원들이 청바지와 기타 편안한 복장을 입을 수 있도록 허용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/dʒiːnz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-545-1780478882872",
+        "term": "journalism",
+        "definition": "the reporting of news",
+        "meaningKr": "저널리즘, 언론",
+        "exampleEn": "His career in journalism began after graduating from university.",
+        "exampleKr": "그의 언론계 경력은 대학 졸업 후 시작되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈdʒɜːrnəlɪzəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-546-1780478882872",
+        "term": "letterhead",
+        "definition": "the printing at the top of a letter that tells you the name and details of the company sending it",
+        "meaningKr": "편지지 머리, 서신용지",
+        "exampleEn": "All official company correspondence must be printed on company letterhead.",
+        "exampleKr": "모든 공식적인 회사 서신은 회사 레터헤드로 인쇄되어야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlɛtərˌhɛd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-547-1780478882872",
+        "term": "lifeguard",
+        "definition": "the person whose job it is to keep people safe at the beach or at  pool",
+        "meaningKr": "인명 구조원",
+        "exampleEn": "The hotel beach has a lifeguard on duty during daylight hours.",
+        "exampleKr": "호텔 해변에는 낮 시간 동안 근무하는 인명 구조원이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈlaɪfɡɑːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-548-1780478882872",
+        "term": "modem",
+        "definition": "a device that lets you send information from one computer to another",
+        "meaningKr": "모뎀",
+        "exampleEn": "We need to replace the old modem to improve our internet connection speed.",
+        "exampleKr": "인터넷 연결 속도를 향상시키기 위해 오래된 모뎀을 교체해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmoʊdɛm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-549-1780478882872",
+        "term": "monument",
+        "definition": "something built to honor someone",
+        "meaningKr": "기념물, 기념비",
+        "exampleEn": "A monument was erected in the city square to commemorate the historical event.",
+        "exampleKr": "그 역사적인 사건을 기념하기 위해 시 광장에 기념비가 세워졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈmɑːnjəmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-550-1780478882872",
+        "term": "mosquito",
+        "definition": "a small winged insect that bites",
+        "meaningKr": "모기",
+        "exampleEn": "The company is developing a new repellent to protect workers from mosquito bites during outdoor projects.",
+        "exampleKr": "그 회사는 야외 프로젝트 중 작업자를 모기 물림으로부터 보호하기 위한 새로운 방충제를 개발 중입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/məˈskiːtoʊ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-551-1780478882872",
+        "term": "obligate",
+        "definition": "to have to do",
+        "meaningKr": "의무를 지우다, 강요하다",
+        "exampleEn": "The new regulations will obligate all businesses to adopt stricter data privacy measures.",
+        "exampleKr": "새로운 규정은 모든 사업체에 더 엄격한 데이터 개인 정보 보호 조치를 채택하도록 의무화할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈɒblɪɡeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-552-1780478882872",
+        "term": "oblige",
+        "definition": "to make someone have to do something",
+        "meaningKr": "의무를 지우다, ~하게 하다",
+        "exampleEn": "We regret that we cannot oblige your request for an immediate refund.",
+        "exampleKr": "즉각적인 환불 요청을 들어드릴 수 없음을 유감스럽게 생각합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈblaɪdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-553-1780478882872",
+        "term": "occurrence",
+        "definition": "something that happens",
+        "meaningKr": "발생, 사건",
+        "exampleEn": "The sudden power outage was an unusual occurrence for this normally reliable area.",
+        "exampleKr": "갑작스러운 정전은 이 평소에 믿을 만한 지역에서는 드문 사건이었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈkʌrəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-554-1780478882872",
+        "term": "operational",
+        "definition": "in working order",
+        "meaningKr": "운영상의, 작동 중인",
+        "exampleEn": "The new software will be fully operational by the end of the fiscal quarter.",
+        "exampleKr": "새로운 소프트웨어는 회계 분기 말까지 완전히 가동될 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɒpəˈreɪʃənl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-555-1780478882872",
+        "term": "outage",
+        "definition": "a failure in the power system so that there is no electricity available",
+        "meaningKr": "중단, 정전",
+        "exampleEn": "Customers experienced a brief service outage due to unexpected maintenance.",
+        "exampleKr": "예상치 못한 유지보수로 인해 고객들은 잠시 서비스 중단을 겪었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈaʊtɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-556-1780478882872",
+        "term": "overcrowd",
+        "definition": "too many people in too small a space",
+        "meaningKr": "초만원을 이루다, 너무 많게 하다",
+        "exampleEn": "The small conference room began to feel overcrowded with the late arrivals.",
+        "exampleKr": "늦게 도착한 사람들로 인해 작은 회의실이 초만원으로 느껴지기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌoʊvərˈkraʊd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-557-1780478882872",
+        "term": "paralegal",
+        "definition": "someone who works in a law company but who has not trained as a lawyer",
+        "meaningKr": "법률 보조원, 준법률가",
+        "exampleEn": "The paralegal assisted the lawyer with document preparation and client interviews.",
+        "exampleKr": "법률 보조원은 변호사의 서류 준비와 고객 면담을 도왔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpærəˌliːɡəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-558-1780478882872",
+        "term": "partially",
+        "definition": "In part; in some degree; not wholly",
+        "meaningKr": "부분적으로, 어느 정도",
+        "exampleEn": "The building was only partially completed due to funding issues.",
+        "exampleKr": "자금 문제로 인해 건물은 부분적으로만 완공되었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɑːrʃəli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-559-1780478882872",
+        "term": "pepper",
+        "definition": "a strong spice (black or white)",
+        "meaningKr": "후추",
+        "exampleEn": "Please add a pinch of pepper to the soup before serving.",
+        "exampleKr": "내놓기 전에 수프에 후추를 한 꼬집 넣어 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɛpər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-560-1780478882872",
+        "term": "permanently",
+        "definition": "for ever",
+        "meaningKr": "영구적으로, 영원히",
+        "exampleEn": "The company decided to permanently close its branch in the downtown area.",
+        "exampleKr": "그 회사는 시내 지역에 있는 지점을 영구적으로 폐쇄하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈpɜːrmənəntli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-561-1780478882872",
+        "term": "plow",
+        "definition": "to force your way through something",
+        "meaningKr": "밀고 나아가다, 개척하다",
+        "exampleEn": "The team had to plow through a mountain of paperwork to meet the deadline.",
+        "exampleKr": "마감일을 맞추기 위해 팀은 산더미 같은 서류 작업을 헤쳐나가야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/plaʊ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-562-1780478882872",
+        "term": "query",
+        "definition": "question, inquire",
+        "meaningKr": "문의, 질문",
+        "exampleEn": "We received a query from a client regarding the invoice details.",
+        "exampleKr": "송장 세부 사항에 관한 고객의 문의를 받았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈkwɪəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-563-1780478882872",
+        "term": "railway",
+        "definition": "transport system of tracks ,stations and trains",
+        "meaningKr": "철도",
+        "exampleEn": "The new high-speed railway will significantly reduce travel time between cities.",
+        "exampleKr": "새로운 고속 철도는 도시 간 이동 시간을 크게 단축할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈreɪlˌweɪ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-564-1780478882872",
+        "term": "raincoat",
+        "definition": "a water-resistant coat",
+        "meaningKr": "비옷, 레인코트",
+        "exampleEn": "Don't forget to pack a raincoat in case of unexpected showers.",
+        "exampleKr": "갑작스러운 소나기에 대비하여 비옷을 챙기는 것을 잊지 마세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈreɪnkoʊt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-565-1780478882872",
+        "term": "reconsider",
+        "definition": "to think something over again",
+        "meaningKr": "재고하다, 재검토하다",
+        "exampleEn": "The committee will reconsider the proposal at the next meeting.",
+        "exampleKr": "위원회는 다음 회의에서 제안을 재고할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌriːkənˈsɪdər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-566-1780478882872",
+        "term": "redesign",
+        "definition": "change or improve the plan of how a thing is made",
+        "meaningKr": "재설계하다, 개정하다",
+        "exampleEn": "We need to redesign the website to improve user experience.",
+        "exampleKr": "사용자 경험을 개선하기 위해 웹사이트를 재설계해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌriːdɪˈzaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-567-1780478882872",
+        "term": "rehearsal",
+        "definition": "a practice session in preparation for a public performance",
+        "meaningKr": "연습, 리허설",
+        "exampleEn": "The final rehearsal for the product launch presentation will be tomorrow.",
+        "exampleKr": "신제품 출시 발표의 최종 리허설은 내일 있을 예정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈhɜːrsəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-568-1780478882872",
+        "term": "relaxation",
+        "definition": "the act of resting",
+        "meaningKr": "휴식, 완화",
+        "exampleEn": "The spa offers various treatments for stress relaxation.",
+        "exampleKr": "그 스파는 스트레스 해소를 위한 다양한 트리트먼트를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌriːlækˈseɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-569-1780478882872",
+        "term": "repetition",
+        "definition": "to do something over and over again",
+        "meaningKr": "반복",
+        "exampleEn": "Avoid unnecessary repetition of information in the report.",
+        "exampleKr": "보고서에서 불필요한 정보 반복을 피하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌrɛpəˈtɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-570-1780478882872",
+        "term": "retreat",
+        "definition": "to move back or withdraw from a place",
+        "meaningKr": "후퇴하다, 물러나다",
+        "exampleEn": "The company had to retreat from its initial offer due to market changes.",
+        "exampleKr": "시장 변화로 인해 회사는 초기 제안을 철회해야 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/rɪˈtriːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-571-1780478882872",
+        "term": "salon",
+        "definition": "a store where you can get a particular service, like getting your hair styled",
+        "meaningKr": "미용실, 살롱",
+        "exampleEn": "She booked an appointment at the new hair salon downtown.",
+        "exampleKr": "그녀는 시내의 새 헤어 살롱에 예약을 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsælɑːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-572-1780478882872",
+        "term": "satellite",
+        "definition": "another branch of an office elsewhere",
+        "meaningKr": "위성, 지사",
+        "exampleEn": "The company opened a new satellite office to serve the western region.",
+        "exampleKr": "그 회사는 서부 지역을 담당하기 위해 새로운 지사를 열었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsætəˌlaɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-573-1780478882872",
+        "term": "scenery",
+        "definition": "the view of natural surroundings",
+        "meaningKr": "풍경, 경치",
+        "exampleEn": "The hotel offers breathtaking views of the surrounding natural scenery.",
+        "exampleKr": "그 호텔은 주변 자연 경관의 숨 막힐 듯 아름다운 전망을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsiːnəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-574-1780478882872",
+        "term": "serial",
+        "definition": "ongoing, happening more than once in a particular order",
+        "meaningKr": "연속적인, 일련의",
+        "exampleEn": "The company is experiencing a serial number of technical issues.",
+        "exampleKr": "그 회사는 일련의 기술적인 문제를 겪고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsɪəriəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-575-1780478882872",
+        "term": "sew",
+        "definition": "to use a needle and thread",
+        "meaningKr": "바느질하다",
+        "exampleEn": "The seamstress will expertly sew the custom curtains to match the office decor.",
+        "exampleKr": "재봉사는 사무실 장식에 맞게 맞춤 커튼을 능숙하게 바느질할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/soʊ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-576-1780478882872",
+        "term": "sketch",
+        "definition": "a simple, quickly made drawing",
+        "meaningKr": "스케치, 간략한 설명",
+        "exampleEn": "The architect presented a quick sketch of the proposed building design to the client.",
+        "exampleKr": "건축가는 제안된 건물 디자인의 빠른 스케치를 고객에게 제시했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/skɛtʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-577-1780478882872",
+        "term": "smartphone",
+        "definition": "",
+        "meaningKr": "스마트폰",
+        "exampleEn": "All employees are required to have a company-approved smartphone for communication.",
+        "exampleKr": "모든 직원은 소통을 위해 회사 승인 스마트폰을 소지해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈsmɑːrtfoʊn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-578-1780478882872",
+        "term": "soar",
+        "definition": "fly quickly up into the air",
+        "meaningKr": "높이 치솟다, 급증하다",
+        "exampleEn": "The company's profits are expected to soar in the next fiscal quarter.",
+        "exampleKr": "회사의 이익은 다음 회계 분기에 급증할 것으로 예상됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/sɔːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-579-1780478882872",
+        "term": "stimulus",
+        "definition": "the reason or prompt that causes something to happen",
+        "meaningKr": "자극, 격려",
+        "exampleEn": "The government introduced a new economic stimulus package to boost consumer spending.",
+        "exampleKr": "정부는 소비자 지출을 늘리기 위해 새로운 경제 부양책을 도입했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈstɪmjələs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-580-1780478882872",
+        "term": "stockbroker",
+        "definition": "an agent whose job it is to buy and sell stocks and bonds",
+        "meaningKr": "주식 중개인",
+        "exampleEn": "Our financial advisor recommended consulting a stockbroker for investment advice.",
+        "exampleKr": "저희 재정 고문은 투자 조언을 위해 주식 중개인과 상담할 것을 추천했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈstɑːkbroʊkər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-581-1780478882872",
+        "term": "tablecloth",
+        "definition": "a cover for a table",
+        "meaningKr": "식탁보",
+        "exampleEn": "Please ensure the tablecloth is clean and neatly arranged before the dinner meeting.",
+        "exampleKr": "저녁 회의 전에 식탁보가 깨끗하고 깔끔하게 정돈되었는지 확인해 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈteɪbəlklɔːθ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-582-1780478882872",
+        "term": "thirsty",
+        "definition": "in need of water",
+        "meaningKr": "목마른",
+        "exampleEn": "After a long presentation, the attendees were quite thirsty and appreciated the water.",
+        "exampleKr": "긴 발표 후 참석자들은 매우 목말라 했으며 물을 감사히 여겼습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈθɜːrstɪ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-583-1780478882872",
+        "term": "thrill",
+        "definition": "excitement",
+        "meaningKr": "흥분, 스릴",
+        "exampleEn": "The successful product launch provided a great thrill for the entire marketing team.",
+        "exampleKr": "성공적인 제품 출시는 전체 마케팅 팀에게 큰 흥분을 안겨주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/θrɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-584-1780478882872",
+        "term": "tile",
+        "definition": "a thin slab of material, often made of clay, used for covering roofs and floors",
+        "meaningKr": "타일",
+        "exampleEn": "The new office reception area features elegant marble tile flooring.",
+        "exampleKr": "새로운 사무실 접수처는 우아한 대리석 타일 바닥으로 특징지어집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/taɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-585-1780478882872",
+        "term": "toiletry",
+        "definition": "articles used for washing and taking care of your body",
+        "meaningKr": "세면도구",
+        "exampleEn": "The hotel provides complimentary toiletries in each guest room for convenience.",
+        "exampleKr": "호텔은 편의를 위해 각 객실에 무료 세면도구를 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtɔɪlətri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-586-1780478882872",
+        "term": "trademark",
+        "definition": "the trade or brand name",
+        "meaningKr": "상표",
+        "exampleEn": "The company is seeking to register its new logo as a trademark.",
+        "exampleKr": "회사는 새로운 로고를 상표로 등록하려고 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtreɪdmɑːrk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-587-1780478882872",
+        "term": "tropical",
+        "definition": "hot and humid like the climate near the equator",
+        "meaningKr": "열대의",
+        "exampleEn": "The company's new line of beverages features tropical fruit flavors.",
+        "exampleKr": "회사의 새로운 음료 라인은 열대 과일 맛을 특징으로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtrɑːpɪkəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-588-1780478882872",
+        "term": "tuna",
+        "definition": "a type of fish that lives in the sea, and is good to eat",
+        "meaningKr": "참치",
+        "exampleEn": "The catering service offers a popular tuna salad sandwich option.",
+        "exampleKr": "케이터링 서비스는 인기 있는 참치 샐러드 샌드위치 옵션을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈtuːnə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-589-1780478882872",
+        "term": "unemployed",
+        "definition": "having no job",
+        "meaningKr": "실직한, 실업 상태인",
+        "exampleEn": "The government introduced programs to help retrain the recently unemployed.",
+        "exampleKr": "정부는 최근 실직자들을 재교육하기 위한 프로그램을 도입했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌʌnɛmˈplɔɪd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-590-1780478882872",
+        "term": "validate",
+        "definition": "to confirm that something is acceptable",
+        "meaningKr": "입증하다, 확증하다, 유효하게 하다",
+        "exampleEn": "We need to validate the data before finalizing the quarterly report.",
+        "exampleKr": "분기별 보고서를 마무리하기 전에 데이터를 검증해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈvælɪdeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-591-1780478882872",
+        "term": "vanilla",
+        "definition": "a flavoring used in ice cream and other sweet foods to make them taste good",
+        "meaningKr": "바닐라",
+        "exampleEn": "The coffee shop offers a standard vanilla syrup option for its beverages.",
+        "exampleKr": "커피숍은 음료에 표준 바닐라 시럽 옵션을 제공합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/vəˈnɪlə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-592-1780478882872",
+        "term": "willingness",
+        "definition": "being happy to do something",
+        "meaningKr": "기꺼이 하는 마음, 자발성",
+        "exampleEn": "Her willingness to take on extra responsibilities impressed the hiring manager.",
+        "exampleKr": "추가 책임을 맡으려는 그녀의 기꺼이 하는 마음은 채용 담당자에게 깊은 인상을 주었습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈwɪlɪŋnəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-593-1780478882872",
+        "term": "wristwatch",
+        "definition": "a small device for telling the time that you wear on your lower arm",
+        "meaningKr": "손목시계",
+        "exampleEn": "He checked his wristwatch to confirm the exact start time of the meeting.",
+        "exampleKr": "그는 회의 정확한 시작 시간을 확인하기 위해 손목시계를 보았습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈrɪstˌwɑːtʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-594-1780478882872",
+        "term": "abide",
+        "definition": "put up with",
+        "meaningKr": "참다, 견디다, 지키다",
+        "exampleEn": "We must abide by the company's policies and regulations at all times.",
+        "exampleKr": "우리는 항상 회사의 정책과 규정을 준수해야 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/əˈbaɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-tsl-advanced-595-1780478882872",
+        "term": "actively",
+        "definition": "in a way that takes effort and action",
+        "meaningKr": "적극적으로",
+        "exampleEn": "The team is actively seeking new strategies to improve customer satisfaction.",
+        "exampleKr": "팀은 고객 만족도를 향상시키기 위한 새로운 전략을 적극적으로 모색하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈæktɪvli/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-tsl-advanced-596-1780478882872",
+        "term": "allergy",
+        "definition": "condition that means you get ill if you come into contact with a particular material",
+        "meaningKr": "알레르기",
+        "exampleEn": "Please inform us of any food allergies before ordering from the menu.",
+        "exampleKr": "메뉴에서 주문하기 전에 음식 알레르기가 있다면 알려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˈælərdʒi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-tsl-advanced-597-1780478882872",
+        "term": "apprehensive",
+        "definition": "uneasy, worried",
+        "meaningKr": "걱정하는, 불안한",
+        "exampleEn": "The new intern felt a bit apprehensive about starting her first day.",
+        "exampleKr": "신입 인턴은 첫날을 시작하는 것에 대해 약간 불안감을 느꼈습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌæprɪˈhɛnsɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-598-1780478882872",
+        "term": "automotive",
+        "definition": "of or relating to motor vehicles",
+        "meaningKr": "자동차의",
+        "exampleEn": "The company specializes in supplying parts for the automotive industry.",
+        "exampleKr": "이 회사는 자동차 산업에 부품을 공급하는 것을 전문으로 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/ˌɔːtəˈmoʊtɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-tsl-advanced-599-1780478882872",
+        "term": "bacteria",
+        "definition": "small microbes that often make you sick",
+        "meaningKr": "박테리아, 세균",
+        "exampleEn": "Proper hygiene is crucial to prevent the spread of harmful bacteria.",
+        "exampleKr": "유해한 박테리아의 확산을 방지하기 위해서는 적절한 위생이 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "TOEIC",
+          "Advanced"
+        ],
+        "phonetic": "/bækˈtɪəriə/",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-zh-advanced-1",
     "title": "고급 중국어 500 (HSK 5급)",
     "icon": "🐼",

@@ -4,13 +4,13 @@
 
 ## 한 줄 현재 상황
 
-계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **아직 미커밋(working tree)**, 테스트 294 pass/0 fail. **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** (먼저 `git status` 확인 → 검증 후 커밋·push 필요).
+계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **`main`에 커밋·머지·push 완료**(`517d864`), 테스트 294 pass/0 fail. **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** — 코드는 머지됐고 **남은 건 dev client 실기 검증 + 선택적 게스트-leak 보강 결정뿐**.
 
 ---
 
 ## 2026-06-04 세션 (트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush)
 
-> **상태: 코드 수정 + 테스트 완료, 미커밋.** 다음 세션 할 일: (1) dev client 실기 검증 (2) 커밋·push (3) 선택적 게스트-leak 보강 결정. tsc는 변경 파일 0건(전체 7건은 기존 billing/scripts/edge 부채), jest 294 pass/0 fail(못 돈 10 스위트는 sqlite3 미설치·supabase env·`.js` worker crash 등 **기존** 환경 제약).
+> **상태: 코드 수정 + 테스트 완료, `main`에 커밋·머지·push 완료(`517d864`).** 남은 일: (1) dev client 실기 검증 (2) 선택적 게스트-leak 보강 결정. tsc는 변경 파일 0건(전체 7건은 기존 billing/scripts/edge 부채), jest 294 pass/0 fail(못 돈 10 스위트는 sqlite3 미설치·supabase env·`.js` worker crash 등 **기존** 환경 제약).
 
 ### 증상 흐름
 "단어장 편집 중 `NativeDatabase.execAsync ... cannot start a transaction within a transaction` 크래시" → 이어서 "삭제한 단어장이 시간 지나니 화면에 다시 보임(부활)".
@@ -32,22 +32,9 @@
 - **알려진 trade-off(미해결, 선택)**: 보존 케이스(오프라인 로그아웃) 직후 **게스트 전환** 시 이전 계정 로컬 데이터가 게스트 화면에 보일 수 있음. 동일 사용자·동일 기기, 재로그인 시 정상화 → 데이터 유실보다 낫다고 판단해 허용. 더 막으려면 게스트 진입 시 "보존된 클라우드 데이터" 플래그 분기 필요.
 
 ### 다음 세션 할 일
-1. **dev client 실기 검증**: ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영.
-2. **커밋·push**. 제안 메시지:
-   ```
-   fix(sync): 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화
-
-   - lib/db: runInTransaction 직렬화 큐 — withTransactionAsync 동시호출로
-     "cannot start a transaction within a transaction" 크래시 해소.
-     vocab/db.ts(16) + sync/engine.ts pullChanges 교체.
-   - sync/engine.ts pullChanges: 로컬 deletedAt tombstone 행을 클라우드 alive
-     복사본으로 덮어쓰지 않게 가드 — 미전송 삭제 부활 차단.
-   - sync/store.ts: dirty set을 AsyncStorage에 영속 + hydrateDirty —
-     크래시/리로드로 유실되던 미전송 변경이 클라우드까지 전파.
-   - auth/store.ts: pre-logout flush 재시도 + 성공 시에만 파괴적 wipe,
-     실패 시 로컬 보존. use-bootstrap: LAST_GOOGLE_ID_KEY 유지(격리).
-   ```
-3. **선택**: 게스트-leak 보강 여부 결정.
+1. **dev client 실기 검증** (← 여기서 시작): ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영. (실기 재현이 까다로우면 Supabase에서 해당 list/word의 `is_deleted`가 true로 올라갔는지 직접 확인 — 맨 아래 SQL.)
+2. ✅ **커밋·push 완료** — `517d864` `fix(sync): 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화`, `main`에 머지됨.
+3. **선택**: 게스트-leak 보강 여부 결정 (보존 케이스에서 게스트 전환 시 이전 계정 데이터 노출 — 위 "수정 C > 알려진 trade-off" 참고).
 
 ---
 

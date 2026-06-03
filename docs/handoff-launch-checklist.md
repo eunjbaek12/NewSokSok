@@ -252,6 +252,7 @@ C3. 둘 다 승인 받으면 동시 출시 발표
 - BANNER `ca-app-pub-2552217172819688/1006191991`
 - REWARDED `ca-app-pub-2552217172819688/9960062757`
 - EAS Secret `EXPO_PUBLIC_ADMOB_ANDROID_*` 3종 교체 완료
+- ✅ **AdMob 계정 정식 승인 완료 (2026-06-03 승인 메일 수신)** — 광고 단위는 승인 전에도 발급되나 계정 활성화 전엔 실 광고 미송출. 이제 실 광고 송출 가능 상태. (ID는 이미 등록됨 → 추가 발급/등록 작업 없음. 남은 건 vCode 9 빌드뿐)
 - ⚠️ vCode 8 빌드는 옛 테스트 ID로 굽힘. **vCode 9 새 빌드부터 실 ID 반영** — 비공개 테스트엔 vCode 8로 OK, 프로덕션 승격 전 vCode 9 필수
 
 **iOS**: 🟡 미등록 — TestFlight 업로드(트랙 B11) 후 B12에서 추가
@@ -276,6 +277,7 @@ C3. 둘 다 승인 받으면 동시 출시 발표
 **2026-06-03 세션 진척:**
 - 정부24 통신판매업 신고 접수 (§1B, §2 A2 완료) — 신고증 발급 대기
 - AdMob Android 실 ID → EAS Secret 3종 교체 (§5)
+- AdMob 계정 정식 승인 메일 수신 → 실 광고 송출 가능 (§5). 추가 작업 없음, vCode 9 빌드 시 반영
 - `store-assets/listing/ko.md`·`en.md` v1.1 정책 반영 (광고/IAP 사용함, 한국 법규 필드 추가)
 - `store-assets/listing/ios-ko.md`·`ios-en.md` 신규 — App Store Connect 전용 자산 (부제·키워드·홍보텍스트·IAP Tier 매핑·App Privacy 설문·심사 노트)
 - `docs/index.html` 신규 — Apple Review Guideline 1.5 Support URL 충족 (커밋 `273d974`)

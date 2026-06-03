@@ -1,6 +1,6 @@
 import * as Crypto from 'expo-crypto';
 import { VocaList, Word } from '@/lib/types';
-import { getDb } from '@/lib/db';
+import { getDb, runInTransaction } from '@/lib/db';
 
 export function generateId(): string {
   return Crypto.randomUUID();
@@ -148,7 +148,7 @@ export async function clearAllData(): Promise<void> {
 
 export async function mergeCloudData(cloudLists: VocaList[]): Promise<void> {
   const db = await getDb();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     for (const list of cloudLists) {
       await db.runAsync(
         `INSERT OR REPLACE INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position, isCurated, icon,
@@ -184,7 +184,7 @@ export async function mergeCloudData(cloudLists: VocaList[]): Promise<void> {
 
 export async function replaceLocalWithCloudData(lists: VocaList[]): Promise<void> {
   const db = await getDb();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     await db.runAsync('DELETE FROM words');
     await db.runAsync('DELETE FROM lists');
     for (const list of lists) {
@@ -254,7 +254,7 @@ export async function createCuratedList(
   const srcLang = options?.sourceLanguage ?? 'en';
   const tgtLang = options?.targetLanguage ?? 'ko';
 
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     await db.runAsync(
       `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, isCurated, icon, position, updatedAt, sourceLanguage, targetLanguage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [id, title, 1, now, now, 1, icon, now, now, srcLang, tgtLang]
@@ -349,7 +349,7 @@ export async function updateList(id: string, updates: Partial<Omit<VocaList, 'id
 export async function deleteList(id: string): Promise<void> {
   const db = await getDb();
   const now = Date.now();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     await db.runAsync('UPDATE lists SET deletedAt = ?, updatedAt = ? WHERE id = ?', [now, now, id]);
     await db.runAsync('UPDATE words SET deletedAt = ?, updatedAt = ? WHERE listId = ? AND deletedAt IS NULL', [now, now, id]);
   });
@@ -379,7 +379,7 @@ export async function addWord(
   };
 
   try {
-    await db.withTransactionAsync(async () => {
+    await runInTransaction(async () => {
       await db.runAsync(
         `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
@@ -471,7 +471,7 @@ export async function addBatchWords(
     updatedAt: now + index,
   }));
 
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     for (const data of bulkData) {
       await db.runAsync(
         `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, tags, isMemorized, isStarred, position, createdAt, updatedAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -526,7 +526,7 @@ export async function updateWord(
 
   if (setClauses.length > 0) {
     values.push(wordId);
-    await db.withTransactionAsync(async () => {
+    await runInTransaction(async () => {
       await db.runAsync(
         `UPDATE words SET ${setClauses.join(', ')} WHERE id = ?`,
         ...values
@@ -571,7 +571,7 @@ export async function toggleMemorized(
     return;
   }
   const db = await getDb();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     if (forceStatus !== undefined) {
       await db.runAsync('UPDATE words SET isMemorized = ? WHERE id = ?', forceStatus ? 1 : 0, wordId);
     } else {
@@ -591,7 +591,7 @@ export async function toggleStarred(
     return;
   }
   const db = await getDb();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     if (forceStatus !== undefined) {
       await db.runAsync('UPDATE words SET isStarred = ? WHERE id = ?', forceStatus ? 1 : 0, wordId);
     } else {
@@ -618,7 +618,7 @@ export async function mergeLists(
     .filter(w => !existingTerms.has(w.term.toLowerCase()));
 
   const mergeNow = Date.now();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     for (const w of wordsToAdd) {
       await db.runAsync(
         `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr, meaningKr, isMemorized, isStarred, tags, createdAt, sourceLang, targetLang) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -663,7 +663,7 @@ export async function reorderLists(orderedIds: string[]): Promise<void> {
   // but it's better to alter table later.
 
   const now = Date.now();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     // Reverse iterating to give highest position to first item in orderedIds
     for (let i = 0; i < orderedIds.length; i++) {
       const id = orderedIds[i];
@@ -704,7 +704,7 @@ export async function setWordsMemorized(
   const status = isMemorized ? 1 : 0;
   const placeholders = wordIds.map(() => '?').join(',');
 
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     await db.runAsync(
       `UPDATE words SET isMemorized = ? WHERE id IN (${placeholders})`,
       status,
@@ -729,7 +729,7 @@ export async function copyWords(targetListId: string, wordIds: string[]): Promis
   );
 
   const copyNow = Date.now();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     for (const w of sourceWords) {
       await db.runAsync(
         `INSERT INTO words (id, listId, term, definition, phonetic, pos, meaningKr, exampleEn, exampleKr, isMemorized, isStarred, tags, position, createdAt, sourceLang, targetLang)
@@ -763,7 +763,7 @@ export async function moveWords(targetListId: string, wordIds: string[]): Promis
   if (wordIds.length === 0) return;
 
   const placeholders = wordIds.map(() => '?').join(',');
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     await db.runAsync(
       `UPDATE words SET listId = ?, position = ? WHERE id IN (${placeholders})`,
       targetListId,
@@ -803,7 +803,7 @@ export async function savePlan(
 ): Promise<void> {
   const db = await getDb();
   const now = Date.now();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     await db.runAsync(
       `UPDATE lists SET planTotalDays = ?, planCurrentDay = 1, planWordsPerDay = ?, planStartedAt = ?, planUpdatedAt = NULL, planFilter = ? WHERE id = ?`,
       [totalDays, wordsPerDay, now, filter, listId]
@@ -821,7 +821,7 @@ export async function savePlan(
 
 export async function clearPlan(listId: string): Promise<void> {
   const db = await getDb();
-  await db.withTransactionAsync(async () => {
+  await runInTransaction(async () => {
     await db.runAsync(
       `UPDATE lists SET planTotalDays = 0, planCurrentDay = 1, planWordsPerDay = 10, planStartedAt = NULL, planUpdatedAt = NULL WHERE id = ?`,
       [listId]

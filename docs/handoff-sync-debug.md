@@ -1,10 +1,53 @@
 # 동기화 디버깅 세션 Handoff
 
-작성일: 2026-05-22, 갱신: 2026-05-23. dev client(Expo dev build)에서 계정 전환/동기화 버그를 추적한 세션.
+작성일: 2026-05-22, 갱신: 2026-06-04. dev client(Expo dev build)에서 계정 전환/동기화 버그를 추적한 세션.
 
 ## 한 줄 현재 상황
 
-계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22의 3파일 수정은 **커밋·push 완료**(`10280c0`). 2026-05-23 후속 세션에서 닉네임 복원·게스트 데이터 보존·first-login 고아 방지를 추가 수정해 **2개 커밋 push 완료**(`c4c5d63`, `cc5ebd8`). 클라우드 데이터는 안전(손실 없음). **다음 세션은 아래 "2026-05-23 후속 세션" 섹션부터 읽기.**
+계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **아직 미커밋(working tree)**, 테스트 294 pass/0 fail. **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** (먼저 `git status` 확인 → 검증 후 커밋·push 필요).
+
+---
+
+## 2026-06-04 세션 (트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush)
+
+> **상태: 코드 수정 + 테스트 완료, 미커밋.** 다음 세션 할 일: (1) dev client 실기 검증 (2) 커밋·push (3) 선택적 게스트-leak 보강 결정. tsc는 변경 파일 0건(전체 7건은 기존 billing/scripts/edge 부채), jest 294 pass/0 fail(못 돈 10 스위트는 sqlite3 미설치·supabase env·`.js` worker crash 등 **기존** 환경 제약).
+
+### 증상 흐름
+"단어장 편집 중 `NativeDatabase.execAsync ... cannot start a transaction within a transaction` 크래시" → 이어서 "삭제한 단어장이 시간 지나니 화면에 다시 보임(부활)".
+
+### 수정 A — SQLite 중첩 트랜잭션 크래시 → `runInTransaction` 직렬화
+- **원인**: expo-sqlite `withTransactionAsync`는 **단일 공유 커넥션**에서 `BEGIN`/`COMMIT`을 돌리고 exclusive가 아님(공식 d.ts 명시). 토글(`toggleMemorized`/`toggleStarred`)이 `onPress`에서 await 없이 fire-and-forget(`app/list/[id].tsx:435,488`)으로 호출돼 연타·또는 백그라운드 `pullChanges`와 겹치면 두 번째 `BEGIN`이 거부됨.
+- **수정**: `lib/db/index.ts`에 promise-chain 직렬화 헬퍼 `runInTransaction(task)` 추가(`getDb`는 chain 내부에서 resolve해 read-and-advance를 동기 유지). `features/vocab/db.ts`의 트랜잭션 16곳 + `features/sync/engine.ts pullChanges` 1곳을 전부 `db.withTransactionAsync(` → `runInTransaction(`으로 교체. 본문은 `db.runAsync` 그대로(공유 커넥션). `lib/db/index.web.ts`에도 동일 시그니처(웹은 트랜잭션 no-op이라 task 즉시 실행). `withExclusiveTransactionAsync`는 새 커넥션을 열되 동시호출 직렬화 X(겹치면 `database is locked`)+콜백서 `txn` 강제(16곳 재작성+데드락 위험)라 폐기.
+- **테스트**: `__tests__/db-transaction-serialization.test.ts` (control이 nested BEGIN 에러 재현 + fix가 동시 20개 직렬화 maxActive=1 + 실패 트랜잭션이 chain 안 깸).
+
+### 수정 B — 삭제 부활 → pull tombstone 가드 + dirty set 영속화
+- **메커니즘**: 로컬 소프트삭제는 즉시 커밋돼 사라지지만 클라우드 push는 30초 debounce(`DEBOUNCE_MS`)이고 **dirty set이 메모리에만** 있었음(`store.ts`는 lastPulledAt만 영속). 크래시(수정 A 트리거)/리로드로 30초 창이 끊기면 삭제가 클라우드에 안 올라감 → 이후 `pullChanges`가 살아있는 클라우드 복사본을 맹목 `INSERT OR REPLACE`(deletedAt=null)로 덮어써 **부활**. 트리거: lastPulledAt=0 전체 pull(재로그인·계정전환), watermark-무시 완전성 fetch.
+- **Fix 1 (핵심, `engine.ts pullChanges`)**: 트랜잭션 시작부에서 `SELECT id FROM lists/words WHERE deletedAt IS NOT NULL`로 tombstone id Set prefetch → 리스트 루프(gt+backfill)·단어 루프(gt+완전성fetch) 양쪽에서 `!is_deleted && tombstoned.has(id)`면 skip. **`updatedAt` 비교 LWW는 폐기**: 클라우드 `updated_at`은 서버 trigger(`epoch ms bigint`, 위 "발견 1" 참고), 로컬 `updatedAt`은 클라이언트 `Date.now()`, 게다가 pull이 서버값을 로컬 컬럼에 써넣어(`engine.ts:211`) 시계 혼재 → 비교 불가. tombstone은 SQLite에 커밋돼 리로드에도 생존하므로 권위 신호로 적합. trade-off: 다른 기기의 진짜 un-delete 무시(delete-wins, 단일 사용자라 OK).
+- **Fix 2 (보완, `store.ts` + `use-bootstrap.ts`)**: dirty set을 `@soksok_dirty_lists`/`@soksok_dirty_words`에 영속(mark/clear마다, `resetAll`서 제거), `hydrateDirty()`를 bootstrap의 `hydrateLastPulled` 옆에서 호출. 크래시로 유실되던 미전송 삭제가 재기동 후 클라우드까지 전파돼 로컬·클라우드 수렴.
+- **테스트**: `__tests__/pull-tombstone-guard.test.ts`(부활 차단+정상 동기화+cloud삭제 반영, fake supabase/sqlite/auth mock), `__tests__/sync-dirty-persistence.test.ts`(영속/hydrate/clear/reset).
+
+### 수정 C — 로그아웃 flush 견고화 (이전 "후속(미구현)" 해결)
+- **원인**: 기존 pre-logout `flushPush()`는 best-effort라 실패해도 `clearAllData()`+`resetAll()`이 무조건 실행 → 미전송 삭제가 로컬에서 wipe되고 클라우드엔 alive로 남아 재로그인 시 부활. (clearAllData가 tombstone까지 지워 Fix 1로도 못 막는 유일 경로.)
+- **수정**: `features/auth/store.ts`에 `flushPendingForLogout(3회×400ms 재시도)` 추가 — dirty가 완전히 비워졌을 때만 `true`. logout 2단계 파괴적 정리를 **`wasCloudAuth && synced`일 때만** 실행. 미전송분이 남으면 로컬 데이터+dirty+watermark **보존**(같은 계정 재로그인 시 push 재시도, Fix 1이 부활 차단) + 경고 로그. 다른 계정 격리는 bootstrap account-switch guard에 위임하고, 이를 위해 **`use-bootstrap.ts` else 분기의 `removeItem(LAST_GOOGLE_ID_KEY)` 제거**(마지막 google id 유지 → 다른 계정 로그인 시 `prevId!==id`로 guard가 wipe). guest/apple은 push할 게 없어 `synced=true`로 기존 동작 유지.
+- **알려진 trade-off(미해결, 선택)**: 보존 케이스(오프라인 로그아웃) 직후 **게스트 전환** 시 이전 계정 로컬 데이터가 게스트 화면에 보일 수 있음. 동일 사용자·동일 기기, 재로그인 시 정상화 → 데이터 유실보다 낫다고 판단해 허용. 더 막으려면 게스트 진입 시 "보존된 클라우드 데이터" 플래그 분기 필요.
+
+### 다음 세션 할 일
+1. **dev client 실기 검증**: ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영.
+2. **커밋·push**. 제안 메시지:
+   ```
+   fix(sync): 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화
+
+   - lib/db: runInTransaction 직렬화 큐 — withTransactionAsync 동시호출로
+     "cannot start a transaction within a transaction" 크래시 해소.
+     vocab/db.ts(16) + sync/engine.ts pullChanges 교체.
+   - sync/engine.ts pullChanges: 로컬 deletedAt tombstone 행을 클라우드 alive
+     복사본으로 덮어쓰지 않게 가드 — 미전송 삭제 부활 차단.
+   - sync/store.ts: dirty set을 AsyncStorage에 영속 + hydrateDirty —
+     크래시/리로드로 유실되던 미전송 변경이 클라우드까지 전파.
+   - auth/store.ts: pre-logout flush 재시도 + 성공 시에만 파괴적 wipe,
+     실패 시 로컬 보존. use-bootstrap: LAST_GOOGLE_ID_KEY 유지(격리).
+   ```
+3. **선택**: 게스트-leak 보강 여부 결정.
 
 ---
 

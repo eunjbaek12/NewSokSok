@@ -1,5 +1,5 @@
 import { useAuthStore } from '@/features/auth';
-import { getDb } from '@/lib/db';
+import { getDb, runInTransaction } from '@/lib/db';
 import { supabase } from '@/lib/supabase';
 import { useSyncStore } from './store';
 import { vocaListToCloudRow, wordToCloudRow, dbRowToVocaList, dbRowToWord } from './mapping';
@@ -182,7 +182,28 @@ export async function pullChanges(): Promise<void> {
     for (const w of listWords) if (!wordById.has(w.id)) wordById.set(w.id, w);
     const allWords = [...wordById.values()];
 
-    await db.withTransactionAsync(async () => {
+    await runInTransaction(async () => {
+      // Local soft-delete protection. A row the user deleted locally whose
+      // delete hasn't reached the cloud yet (dirty push lost to a crash/reload,
+      // or still inside the debounce window) is still alive in the cloud.
+      // Without this guard the INSERT OR REPLACE below would write it back with
+      // deletedAt = null and resurrect a "deleted" list/word. We key off the
+      // local `deletedAt` tombstone (committed to SQLite, so it survives a
+      // reload) rather than an updatedAt comparison: cloud `updated_at` (server
+      // clock) and local `updatedAt` (client Date.now) live in different clock
+      // domains — and pull even writes server timestamps into the local column —
+      // so a last-writer-wins timestamp compare would be unreliable. Trade-off:
+      // a genuine remote un-delete from another device is ignored (delete wins),
+      // which is the right call for this single-user app.
+      const tombstonedListRows = await db.getAllAsync<{ id: string }>(
+        'SELECT id FROM lists WHERE deletedAt IS NOT NULL',
+      );
+      const tombstonedListIds = new Set(tombstonedListRows.map(r => r.id));
+      const tombstonedWordRows = await db.getAllAsync<{ id: string }>(
+        'SELECT id FROM words WHERE deletedAt IS NOT NULL',
+      );
+      const tombstonedWordIds = new Set(tombstonedWordRows.map(r => r.id));
+
       // Backfilled parents are merged into the lists loop so they populate
       // validListIds. They're intentionally excluded from newWatermark (they
       // predate it) — only the regular batch advances the watermark.
@@ -192,6 +213,8 @@ export async function pullChanges(): Promise<void> {
           await db.runAsync('DELETE FROM lists WHERE id = ?', l.id);
           continue;
         }
+        // Keep the local delete; don't resurrect it from the alive cloud copy.
+        if (tombstonedListIds.has(l.id)) continue;
         const v = dbRowToVocaList(l);
         await db.runAsync(
           `INSERT OR REPLACE INTO lists (
@@ -231,6 +254,8 @@ export async function pullChanges(): Promise<void> {
           console.warn('[sync] skipping orphan cloud word', w.id, 'list_id', w.list_id);
           continue;
         }
+        // Keep the local delete; don't resurrect it from the alive cloud copy.
+        if (tombstonedWordIds.has(w.id)) continue;
         const word = dbRowToWord(w);
         await db.runAsync(
           `INSERT OR REPLACE INTO words (

@@ -27,6 +27,40 @@ function isCloudAuthMode(mode: AuthMode): mode is 'google' | 'apple' {
   return mode === 'google' || mode === 'apple';
 }
 
+/**
+ * Push every pending sync change before logout, retrying a few times so a
+ * transient network blip doesn't cost the user their un-pushed edits/deletes.
+ * Returns true only once the dirty set is fully drained.
+ *
+ * This gates the destructive local wipe in logout(): silently clearing local
+ * data while a soft-delete hasn't reached the cloud is exactly how a "deleted"
+ * list resurrects from its still-alive cloud copy on the next login. A guest /
+ * apple session has nothing to push (flushPush early-returns when not
+ * google-authed and the dirty set is never marked), so this returns true
+ * immediately and logout proceeds unchanged.
+ *
+ * Dynamic imports break the auth ↔ sync require cycle (sync/engine imports
+ * useAuthStore).
+ */
+async function flushPendingForLogout(attempts = 3, delayMs = 400): Promise<boolean> {
+  const { flushPush } = await import('@/features/sync/engine');
+  const { useSyncStore } = await import('@/features/sync/store');
+  const isClean = () => {
+    const { dirtyListIds, dirtyWordIds } = useSyncStore.getState();
+    return dirtyListIds.size === 0 && dirtyWordIds.size === 0;
+  };
+  for (let i = 0; i < attempts; i++) {
+    try {
+      await flushPush();
+    } catch (e: any) {
+      console.warn(`[auth] pre-logout flush attempt ${i + 1}/${attempts} failed:`, e?.message ?? e);
+    }
+    if (isClean()) return true;
+    if (i < attempts - 1) await new Promise(resolve => setTimeout(resolve, delayMs));
+  }
+  return isClean();
+}
+
 const DEFAULT_AUTH: AuthState = { mode: 'none', user: null };
 
 const authStore = persisted('@soksok_auth', AuthStateSchema, DEFAULT_AUTH, {
@@ -242,19 +276,16 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     // local data.
     const wasCloudAuth = isCloudAuthMode(useAuthStore.getState().mode);
 
-    // 1) Best-effort flush while still authenticated (RLS passes), so edits
-    //    made within the push debounce window aren't lost. (No-op for guest:
-    //    flushPush early-returns when not Google-authed.)
-    // Dynamic imports break the auth ↔ sync require cycle (sync/engine imports
-    // useAuthStore).
-    try {
-      const { flushPush } = await import('@/features/sync/engine');
-      await flushPush();
-    } catch (e: any) {
-      console.warn('[auth] pre-logout flush failed:', e?.message ?? e);
+    // 1) Flush pending changes while still authenticated (RLS passes), with
+    //    retries. The destructive wipe in step 2 is GATED on this succeeding —
+    //    see flushPendingForLogout. (No-op → returns true for guest/apple.)
+    let synced = true;
+    if (wasCloudAuth) {
+      synced = await flushPendingForLogout();
     }
 
-    // 2) Clear local account state BEFORE signing out — cloud-auth only.
+    // 2) Clear local account state BEFORE signing out — cloud-auth only, and
+    //    ONLY when the flush fully drained the dirty set.
     //    supabase.auth.signOut() fires onAuthStateChange('SIGNED_OUT'), which
     //    re-renders the tree (and in dev can remount the root → splash). If
     //    the cleanup ran *after* signOut, that remount could interrupt logout
@@ -262,7 +293,16 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     //    the next login can't re-pull the account's data (it stays "behind the
     //    watermark"). This cleanup is local-only and auth-independent, so
     //    running it first is safe and guarantees it completes.
-    if (wasCloudAuth) {
+    //
+    //    If changes remain un-pushed (offline logout / server error), we do NOT
+    //    wipe: that's how un-synced soft-deletes used to resurrect from the
+    //    still-alive cloud copy on the next login. Instead we PRESERVE local
+    //    data + dirty set + watermark so a same-account re-login retries the
+    //    push (and the pull tombstone guard keeps deletes from resurrecting).
+    //    Isolation for a *different* account is still enforced by the bootstrap
+    //    account-switch guard (it keys off @soksok_last_google_id, which is now
+    //    kept across logout precisely so this stays safe).
+    if (wasCloudAuth && synced) {
       try {
         const { clearAllData } = await import('@/features/vocab/db');
         await clearAllData();
@@ -278,6 +318,10 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       } catch (e: any) {
         console.warn('[auth] logout local clear failed:', e?.message ?? e);
       }
+    } else if (wasCloudAuth) {
+      console.warn(
+        '[auth] logout: unsynced changes remain after retries — preserving local data so they reach the cloud on next login (account isolation still enforced on account switch).',
+      );
     }
 
     // 3) Flip to logged-out and PERSIST it *before* signing out. signOut fires

@@ -17,3 +17,9 @@ export async function getDb() {
 export async function closeDb() {
     // no-op on web
 }
+
+// Mirrors lib/db/index.ts. On web the mock DB has no real transactions, so the
+// task runs directly — no BEGIN/COMMIT, nothing to serialize.
+export async function runInTransaction(task: () => Promise<void>): Promise<void> {
+    await task();
+}

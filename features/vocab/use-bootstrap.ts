@@ -125,9 +125,19 @@ export function useVocabBootstrap(): void {
           }
         }
         await useSyncStore.getState().hydrateLastPulled();
+        // Restore pending (un-pushed) dirty ids so a delete/edit made just
+        // before a reload or crash still reaches the cloud on this launch.
+        await useSyncStore.getState().hydrateDirty();
         await loadCloudData();
       } else {
-        await AsyncStorage.removeItem(LAST_GOOGLE_ID_KEY);
+        // Intentionally KEEP @soksok_last_google_id across logout/guest. It is
+        // the input to the account-switch guard above, so preserving it lets
+        // that guard wipe local data when a *different* account next logs in.
+        // This matters because logout() now preserves local data when its
+        // pre-logout flush couldn't drain unsynced changes (offline logout) —
+        // without a sticky last-id, a different account could then merge into
+        // the preserved data. A same-account re-login sees prevId === user.id
+        // and skips the wipe, so nothing is lost there.
         // Seed sample data ONLY for guest mode (first-run experience). Do NOT
         // seed in mode='none' (the brief logged-out window right after
         // logout): logout clears local data, so seeding here would refill it

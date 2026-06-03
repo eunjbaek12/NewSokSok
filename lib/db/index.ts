@@ -87,3 +87,33 @@ export async function closeDb() {
         isInitialized = false;
     }
 }
+
+// Serialization chain for write transactions. See runInTransaction below.
+let txnChain: Promise<unknown> = Promise.resolve();
+
+/**
+ * Run a write transaction, serialized against every other transaction on the
+ * shared connection.
+ *
+ * expo-sqlite's `withTransactionAsync` issues `BEGIN … COMMIT` on the single
+ * app connection and is explicitly *not* exclusive (see its JSDoc). Two
+ * overlapping calls — e.g. the user rapidly tapping the memorize/star toggles
+ * (fired un-awaited from onPress), or a background sync `pullChanges` landing
+ * mid-edit — start a second `BEGIN` before the first `COMMIT`, which SQLite
+ * rejects with "cannot start a transaction within a transaction".
+ *
+ * Chaining each transaction onto the previous one guarantees one BEGIN..COMMIT
+ * fully completes before the next begins. getDb() is resolved *inside* the
+ * chained continuation so the read-and-advance of `txnChain` stays synchronous
+ * (no await between), which keeps concurrent callers from both chaining onto a
+ * stale tail. A failed task is isolated from the chain before re-throwing to
+ * its own caller.
+ */
+export async function runInTransaction(task: () => Promise<void>): Promise<void> {
+    const run = txnChain.then(async () => {
+        const db = await getDb();
+        return db.withTransactionAsync(task);
+    });
+    txnChain = run.then(() => undefined, () => undefined);
+    return run;
+}

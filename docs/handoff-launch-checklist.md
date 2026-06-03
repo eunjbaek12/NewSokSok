@@ -202,6 +202,8 @@ C2. iOS App Store 심사 → 1~3일
 C3. 둘 다 승인 받으면 동시 출시 발표
 ```
 
+**홍보**: 티저 드립(Phase 1, 14일 테스트 기간) + 출시일 채널·커뮤니티 체크리스트(Phase 2)는 `docs/handoff-marketing-teasers.md` 참조.
+
 ---
 
 ## 3. 결제 관련 주의 (Android + iOS 공통)

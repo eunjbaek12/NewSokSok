@@ -227,6 +227,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  kpop: {
+    id: 'curated-kpop-ko-1',
+    title: 'K-Pop & Idol Stan Slang 100',
+    icon: '🎤',
+    category: '문화',
+    level: 'intermediate',
+    description: 'Real K-pop fandom slang every stan should know — 덕질, 최애, 컴백, 직캠, 올킬 and more across fan culture, merch, music activities, member positions & content. Korean→English; meanings & casual fan-style examples AI-generated.',
+    tags: ['Korean', 'K-pop', 'Culture'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
 };
 
 const meta = META[LIST_NAME];

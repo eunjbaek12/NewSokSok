@@ -2,6 +2,1721 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-kpop-ko-1",
+    "title": "K-Pop & Idol Stan Slang 100",
+    "icon": "🎤",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "Real K-pop fandom slang every stan should know — 덕질, 최애, 컴백, 직캠, 올킬 and more across fan culture, merch, music activities, member positions & content. Korean→English; meanings & casual fan-style examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1780590124355,
+    "words": [
+      {
+        "id": "word-kpop-0-1780590124355",
+        "term": "덕질",
+        "definition": "stanning; the act of being an active fan of an idol or group.",
+        "meaningKr": "stanning; the act of being an active fan of an idol or group.",
+        "exampleEn": "요즘 덕질 너무 행복해! 최애 보면서 힐링한다 진짜.",
+        "exampleKr": "Stanning has been making me so happy lately! Just healing by watching my ultimate bias.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "deokjil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-1-1780590124355",
+        "term": "입덕",
+        "definition": "joining a fandom; the moment of becoming a fan of an idol or group.",
+        "meaningKr": "joining a fandom; the moment of becoming a fan of an idol or group.",
+        "exampleEn": "그 영상 보고 바로 입덕했잖아. 진짜 미모가 미쳤어.",
+        "exampleKr": "I immediately joined the fandom after watching that video. Their visuals are insane.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "ipdeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-2-1780590124355",
+        "term": "탈덕",
+        "definition": "leaving a fandom; quitting being a fan of an idol or group.",
+        "meaningKr": "leaving a fandom; quitting being a fan of an idol or group.",
+        "exampleEn": "현생 바빠서 탈덕할까 고민했는데, 컴백 티저 보고 포기했어.",
+        "exampleKr": "I thought about leaving the fandom because I'm so busy with real life, but I gave up after seeing the comeback teaser.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "taldeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-3-1780590124355",
+        "term": "휴덕",
+        "definition": "a hiatus from stanning; taking a break from being an active fan.",
+        "meaningKr": "a hiatus from stanning; taking a break from being an active fan.",
+        "exampleEn": "요즘 현생이 너무 힘들어서 잠시 휴덕하고 쉬어가려고 해.",
+        "exampleKr": "Real life is so hard these days, so I'm thinking of taking a hiatus from stanning for a bit to rest.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "hyudeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-4-1780590124355",
+        "term": "최애",
+        "definition": "ultimate bias (UB); one's absolute favorite member in a group.",
+        "meaningKr": "ultimate bias (UB); one's absolute favorite member in a group.",
+        "exampleEn": "내 최애는 진짜 항상 빛나. 무대에서 너무 멋있어.",
+        "exampleKr": "My ultimate bias always shines so brightly. They're so cool on stage.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "choe-ae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-5-1780590124355",
+        "term": "차애",
+        "definition": "bias wrecker; one's second-favorite member who often competes with their ultimate bias.",
+        "meaningKr": "bias wrecker; one's second-favorite member who often competes with their ultimate bias.",
+        "exampleEn": "요즘 내 차애가 너무 치고 올라와서 최애 흔들린다.",
+        "exampleKr": "My bias wrecker has been coming for my ultimate bias so hard lately, I'm getting shaken.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "cha-ae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-6-1780590124355",
+        "term": "최애곡",
+        "definition": "favorite song; one's ultimate favorite song.",
+        "meaningKr": "favorite song; one's ultimate favorite song.",
+        "exampleEn": "이번 앨범 최애곡은 무조건 이거다. 완전 내 취향 저격이야.",
+        "exampleKr": "This is definitely my favorite song from this album. It totally hits my taste.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "choe-aegok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-7-1780590124355",
+        "term": "본진",
+        "definition": "main group/fandom; the primary idol group or fandom one dedicates most of their time and support to.",
+        "meaningKr": "main group/fandom; the primary idol group or fandom one dedicates most of their time and support to.",
+        "exampleEn": "내 본진은 다음 달에 컴백한대! 벌써부터 너무 기대돼.",
+        "exampleKr": "My main group is making a comeback next month! I'm already so excited.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "bonjin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-8-1780590124355",
+        "term": "영업",
+        "definition": "promoting/recruiting; the act of promoting one's idol to convince others to become fans.",
+        "meaningKr": "promoting/recruiting; the act of promoting one's idol to convince others to become fans.",
+        "exampleEn": "친구한테 우리 애들 영상 영업했는데 드디어 입덕했어!",
+        "exampleKr": "I promoted videos of my faves to my friend and they finally joined the fandom!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "yeong-eop",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-9-1780590124355",
+        "term": "덕메",
+        "definition": "fandom friend; a fellow fan with whom one shares their stanning activities.",
+        "meaningKr": "fandom friend; a fellow fan with whom one shares their stanning activities.",
+        "exampleEn": "이번 콘서트 덕메랑 같이 가기로 했어! 너무 신난다.",
+        "exampleKr": "I decided to go to this concert with my fandom friend! I'm so excited.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "deokme",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-10-1780590124355",
+        "term": "성덕",
+        "definition": "successful fan; a fan who has achieved a dream interaction with their idol, such as meeting them or getting noticed.",
+        "meaningKr": "successful fan; a fan who has achieved a dream interaction with their idol, such as meeting them or getting noticed.",
+        "exampleEn": "팬사인회 가서 최애랑 눈 마주쳤어! 나 완전 성덕 됐어.",
+        "exampleKr": "I went to the fan sign and made eye contact with my ultimate bias! I'm totally a successful fan now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "seongdeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-11-1780590124355",
+        "term": "머글",
+        "definition": "muggle; a non-fan, someone who is not involved in K-pop fandom.",
+        "meaningKr": "muggle; a non-fan, someone who is not involved in K-pop fandom.",
+        "exampleEn": "우리 그룹 노래가 머글들한테도 엄청 인기 많아졌어!",
+        "exampleKr": "Our group's songs have become super popular even among muggles!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "meogeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-12-1780590124355",
+        "term": "덕후",
+        "definition": "hardcore fan; an enthusiastic and often obsessive fan (derived from \"otaku\").",
+        "meaningKr": "hardcore fan; an enthusiastic and often obsessive fan (derived from \"otaku\").",
+        "exampleEn": "나 진짜 우리 애들 덕후라서 굿즈 다 모으고 있어.",
+        "exampleKr": "I'm such a hardcore fan of my faves, I'm collecting all their merchandise.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "deokhu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-13-1780590124355",
+        "term": "입덕부정기",
+        "definition": "denial phase; the period of denying one's growing interest in an idol before fully acknowledging becoming a fan.",
+        "meaningKr": "denial phase; the period of denying one's growing interest in an idol before fully acknowledging becoming a fan.",
+        "exampleEn": "지금 입덕부정기인데, 계속 영상 찾아보는 나를 발견한다.",
+        "exampleKr": "I'm in my denial phase right now, but I keep finding myself looking up their videos.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "ipdeokbujeonggi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-14-1780590124355",
+        "term": "어덕행덕",
+        "definition": "\"Stan happily anyway\"; a fandom motto meaning \"since you're going to stan anyway, you might as well do it happily.\"",
+        "meaningKr": "\"Stan happily anyway\"; a fandom motto meaning \"since you're going to stan anyway, you might as well do it happily.\"",
+        "exampleEn": "어덕행덕! 스트레스 받지 말고 우리 최애 보면서 행복하자.",
+        "exampleKr": "Stan happily anyway! Don't get stressed, let's just be happy watching our ultimate bias.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "eodeokhaengdeok",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-kpop-15-1780590124355",
+        "term": "과몰입",
+        "definition": "over-immersion; being excessively emotionally invested or immersed in something, often to the point of forgetting reality.",
+        "meaningKr": "over-immersion; being excessively emotionally invested or immersed in something, often to the point of forgetting reality.",
+        "exampleEn": "최애 리얼리티에 과몰입해서 마치 내가 같이 여행 간 것 같아.",
+        "exampleKr": "I'm so over-immersed in my bias's reality show, it feels like I went on the trip with them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "gwamollip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-16-1780590124355",
+        "term": "잡덕",
+        "definition": "multi-stan; a fan who follows and supports multiple idol groups or members across different fandoms.",
+        "meaningKr": "multi-stan; a fan who follows and supports multiple idol groups or members across different fandoms.",
+        "exampleEn": "나는 잡덕이라서 매일 스케줄 보느라 정신없어.",
+        "exampleKr": "I'm a multi-stan, so I'm always busy checking schedules every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "japdeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-17-1780590124355",
+        "term": "올팬",
+        "definition": "OT-all fan; a fan who loves and supports all members of a group equally.",
+        "meaningKr": "OT-all fan; a fan who loves and supports all members of a group equally.",
+        "exampleEn": "우리 그룹은 올팬이 많아서 분위기가 너무 좋아.",
+        "exampleKr": "Our group has a lot of OT-all fans, so the atmosphere is really good.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "olpaen",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-18-1780590124355",
+        "term": "개인팬",
+        "definition": "individual fan; a fan who primarily supports only one specific member of a group, often neglecting others.",
+        "meaningKr": "individual fan; a fan who primarily supports only one specific member of a group, often neglecting others.",
+        "exampleEn": "개인팬들 때문에 그룹 내 불화가 생기는 경우도 많아서 걱정돼.",
+        "exampleKr": "I'm worried because individual fans often cause internal conflicts within the group.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "gaeinpaen",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-19-1780590124355",
+        "term": "홈마",
+        "definition": "fansite master; a fan who takes high-quality photos and videos of idols at events and shares them online.",
+        "meaningKr": "fansite master; a fan who takes high-quality photos and videos of idols at events and shares them online.",
+        "exampleEn": "오늘 우리 최애 홈마 사진 떴는데 진짜 레전드야!",
+        "exampleKr": "My bias's fansite master photos came out today and they're truly legendary!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "homma",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-20-1780590124355",
+        "term": "대포",
+        "definition": "\"cannon lens\"; a large telephoto camera lens used by fansite masters to take close-up photos of idols from a distance.",
+        "meaningKr": "\"cannon lens\"; a large telephoto camera lens used by fansite masters to take close-up photos of idols from a distance.",
+        "exampleEn": "홈마들 대포 들고 찍는 거 보면 진짜 대단하다고 느껴.",
+        "exampleKr": "When I see fansite masters shooting with their \"cannon lenses,\" I really think it's amazing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "daepo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-21-1780590124355",
+        "term": "굿즈",
+        "definition": "goods/merch; official merchandise released by an idol group or company.",
+        "meaningKr": "goods/merch; official merchandise released by an idol group or company.",
+        "exampleEn": "이번 팝업 스토어 굿즈 너무 예뻐서 다 사고 싶다.",
+        "exampleKr": "The merchandise at this pop-up store is so pretty, I want to buy everything.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "geujeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-22-1780590124355",
+        "term": "포카",
+        "definition": "photocard; a collectible photo card of an idol, often included in albums or sold as merchandise.",
+        "meaningKr": "photocard; a collectible photo card of an idol, often included in albums or sold as merchandise.",
+        "exampleEn": "앨범깡 했는데 최애 포카 나와서 소리 질렀잖아!",
+        "exampleKr": "I unboxed the album and my ultimate bias's photocard came out, so I screamed!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "poka",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-23-1780590124355",
+        "term": "응원봉",
+        "definition": "light stick; an official fan light stick, unique to each group, waved at concerts and events.",
+        "meaningKr": "light stick; an official fan light stick, unique to each group, waved at concerts and events.",
+        "exampleEn": "드디어 우리 그룹 응원봉 샀다! 콘서트에서 흔들 생각에 벌써 설레.",
+        "exampleKr": "I finally bought our group's light stick! I'm already excited thinking about waving it at the concert.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "eungwonbong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-24-1780590124355",
+        "term": "슬로건",
+        "definition": "slogan/banner; a fan-made or official banner/towel with a slogan, held up at concerts or events.",
+        "meaningKr": "slogan/banner; a fan-made or official banner/towel with a slogan, held up at concerts or events.",
+        "exampleEn": "최애 슬로건 들고 콘서트 가서 열심히 응원해야지.",
+        "exampleKr": "I'm going to hold up my ultimate bias's slogan at the concert and cheer hard.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "seullogeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-25-1780590124355",
+        "term": "조공",
+        "definition": "Lavish gifts or tributes that fans present to their idols, often expensive or custom-made.",
+        "meaningKr": "Lavish gifts or tributes that fans present to their idols, often expensive or custom-made.",
+        "exampleEn": "이번 생일 조공 진짜 역대급이었어! 팬들 사랑이 느껴진다.",
+        "exampleKr": "This birthday jogong was seriously legendary! You can feel the fans' love.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "jogong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-26-1780590124355",
+        "term": "서포트",
+        "definition": "Fan-funded support projects for an idol, such as food trucks for staff, billboard ads, or charity donations in their name.",
+        "meaningKr": "Fan-funded support projects for an idol, such as food trucks for staff, billboard ads, or charity donations in their name.",
+        "exampleEn": "컴백 서포트 총대가 열렸어! 다 같이 참여해서 우리 아이돌 응원하자!",
+        "exampleKr": "The comeback support project leader has opened up! Let's all participate and cheer on our idol!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "seopoteu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-27-1780590124355",
+        "term": "총공",
+        "definition": "A coordinated mass effort by fans, typically for streaming, voting, or buying albums, to help their idol achieve chart success or win awards.",
+        "meaningKr": "A coordinated mass effort by fans, typically for streaming, voting, or buying albums, to help their idol achieve chart success or win awards.",
+        "exampleEn": "다들 스밍 총공 준비됐지? 우리 애들 1위 만들어주자!",
+        "exampleKr": "Everyone ready for the streaming chonggong? Let's get our faves to #1!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "chonggong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-28-1780590124355",
+        "term": "스밍",
+        "definition": "Streaming a song repeatedly on music platforms to boost its chart rankings, often done by fans in coordinated efforts. (Short for 스트리밍)",
+        "meaningKr": "Streaming a song repeatedly on music platforms to boost its chart rankings, often done by fans in coordinated efforts. (Short for 스트리밍)",
+        "exampleEn": "새 앨범 나왔으니까 다들 스밍 열심히 돌리자! 멜론 차트 뚫어야지!",
+        "exampleKr": "The new album is out, so everyone stream hard! We need to break through the Melon charts!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "seuming",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-29-1780590124355",
+        "term": "생일카페",
+        "definition": "A fan-run cafe event organized to celebrate an idol's birthday, often decorated with their photos and offering special merch.",
+        "meaningKr": "A fan-run cafe event organized to celebrate an idol's birthday, often decorated with their photos and offering special merch.",
+        "exampleEn": "이번 주말에 친구랑 같이 우리 최애 생일카페 투어 가기로 했어! 너무 기대돼!",
+        "exampleKr": "This weekend, my friend and I are going on a tour of our bias's birthday cafes! I'm so excited!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "saengilkape",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-30-1780590124355",
+        "term": "전광판",
+        "definition": "An LED billboard advertisement that fans purchase and display in public places, often to celebrate an idol's birthday, debut, or comeback.",
+        "meaningKr": "An LED billboard advertisement that fans purchase and display in public places, often to celebrate an idol's birthday, debut, or comeback.",
+        "exampleEn": "홍대입구역에 우리 아이돌 생일 전광판 걸렸대! 보러 가야겠다!",
+        "exampleKr": "They say our idol's birthday billboard is up at Hongdae Entrance Station! I need to go see it!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "jeongwangpan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-31-1780590124355",
+        "term": "앨범깡",
+        "definition": "The act of unboxing multiple copies of an album at once, primarily to collect the random photocards or other inclusions.",
+        "meaningKr": "The act of unboxing multiple copies of an album at once, primarily to collect the random photocards or other inclusions.",
+        "exampleEn": "이번 앨범 포카 다 모으려면 앨범깡 몇 개 더 해야 할까?",
+        "exampleKr": "How many more album unboxings do I need to do to collect all the photocards for this album?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "aelbeomkkang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-32-1780590124355",
+        "term": "컴백서포트",
+        "definition": "Support events or gifts that fans organize specifically for an idol's comeback period, such as food trucks for the set or promotional ads.",
+        "meaningKr": "Support events or gifts that fans organize specifically for an idol's comeback period, such as food trucks for the set or promotional ads.",
+        "exampleEn": "다음 주 컴백서포트 모금 마감이니까 아직 참여 안 한 팬들은 서둘러줘!",
+        "exampleKr": "The comeback support fundraising closes next week, so fans who haven't participated yet, please hurry!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "keombaekseopoteu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-33-1780590124355",
+        "term": "컴백",
+        "definition": "A comeback; the period when an idol or group releases new music (album, single) and resumes active promotions, often after a hiatus.",
+        "meaningKr": "A comeback; the period when an idol or group releases new music (album, single) and resumes active promotions, often after a hiatus.",
+        "exampleEn": "드디어 우리 오빠들 컴백 날짜 떴다! 달력에 표시해놔야지!",
+        "exampleKr": "Our oppas' comeback date is finally out! I need to mark it on my calendar!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "keombaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-34-1780590124355",
+        "term": "데뷔",
+        "definition": "Debut; an idol or group's official first release of music or public appearance, marking the start of their career.",
+        "meaningKr": "Debut; an idol or group's official first release of music or public appearance, marking the start of their career.",
+        "exampleEn": "벌써 데뷔 5주년이라니! 시간 진짜 빠르다. 앞으로도 꽃길만 걷자!",
+        "exampleKr": "It's already their 5th debut anniversary! Time flies so fast. Let's only walk on flower paths from now on!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "debwi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-35-1780590124355",
+        "term": "데뷔조",
+        "definition": "The final lineup of trainees who have been selected and confirmed to debut as a new idol group.",
+        "meaningKr": "The final lineup of trainees who have been selected and confirmed to debut as a new idol group.",
+        "exampleEn": "이번 서바이벌에서 누가 데뷔조에 들지 너무 궁금하다. 내 픽이 꼭 데뷔했으면!",
+        "exampleKr": "I'm so curious who will make it into the debut lineup from this survival show. I really hope my pick debuts!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "debwijo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-36-1780590124355",
+        "term": "연습생",
+        "definition": "A trainee; an aspiring idol undergoing a rigorous training program at an entertainment agency, hoping to debut.",
+        "meaningKr": "A trainee; an aspiring idol undergoing a rigorous training program at an entertainment agency, hoping to debut.",
+        "exampleEn": "그 연습생 실력도 좋고 비주얼도 완벽해서 데뷔하면 대박일 것 같아.",
+        "exampleKr": "That trainee has great skills and perfect visuals, I think they'll be a huge hit when they debut.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "yeonseupsaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-37-1780590124355",
+        "term": "활동",
+        "definition": "The promotion period for a new release (album or single), during which idols perform on music shows, attend events, and engage with fans.",
+        "meaningKr": "The promotion period for a new release (album or single), during which idols perform on music shows, attend events, and engage with fans.",
+        "exampleEn": "이번 활동 진짜 눈 깜짝할 새 끝났어. 벌써 다음 앨범 기다려진다.",
+        "exampleKr": "This promotion period ended in the blink of an eye. I'm already looking forward to the next album.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "hwaldong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-38-1780590124355",
+        "term": "타이틀곡",
+        "definition": "The title track; the main promoted song of an album or single, often with a music video and extensive performances.",
+        "meaningKr": "The title track; the main promoted song of an album or single, often with a music video and extensive performances.",
+        "exampleEn": "이번 타이틀곡 안무 너무 멋있어! 무대 볼 때마다 소름 돋아.",
+        "exampleKr": "The choreography for this title track is so cool! I get goosebumps every time I watch the stage.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "taiteulgon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-39-1780590124355",
+        "term": "수록곡",
+        "definition": "An album track that is not the main title song; a b-side track.",
+        "meaningKr": "An album track that is not the main title song; a b-side track.",
+        "exampleEn": "이번 앨범 수록곡들이 다 너무 좋아서 뭘 들어야 할지 모르겠어. 전곡 다 명곡!",
+        "exampleKr": "All the b-sides on this album are so good, I don't know what to listen to. Every song is a masterpiece!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "surokgok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-40-1780590124355",
+        "term": "음원",
+        "definition": "A digital track or single released to streaming sites and digital music platforms.",
+        "meaningKr": "A digital track or single released to streaming sites and digital music platforms.",
+        "exampleEn": "이번 신곡 음원 차트에서 1위 찍었다! 다들 수고했어!",
+        "exampleKr": "The new song hit #1 on the digital charts! Everyone worked hard!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "eumwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-41-1780590124355",
+        "term": "음반",
+        "definition": "A physical album or record, typically including a CD, photobook, and photocards.",
+        "meaningKr": "A physical album or record, typically including a CD, photobook, and photocards.",
+        "exampleEn": "이번 음반 초동 기록 세웠대! 역시 우리 팬덤 화력 대단하다.",
+        "exampleKr": "They set a new first-week sales record for this album! Our fandom's power is really amazing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "eumban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-42-1780590124355",
+        "term": "미니앨범",
+        "definition": "A mini album (EP); a release with more tracks than a single but fewer than a full-length album.",
+        "meaningKr": "A mini album (EP); a release with more tracks than a single but fewer than a full-length album.",
+        "exampleEn": "다음 달에 미니앨범 나온대! 드디어 새 노래 들을 수 있겠다.",
+        "exampleKr": "They're releasing a mini album next month! We can finally listen to new songs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "miniaelbeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-43-1780590124355",
+        "term": "정규",
+        "definition": "A full-length studio album (short for 정규 앨범), typically containing 10 or more tracks.",
+        "meaningKr": "A full-length studio album (short for 정규 앨범), typically containing 10 or more tracks.",
+        "exampleEn": "드디어 첫 정규 앨범이 나온다니! 이건 무조건 소장해야 해.",
+        "exampleKr": "They're finally releasing their first full-length album! I definitely have to own this.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "jeonggyu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-44-1780590124355",
+        "term": "선공개",
+        "definition": "A pre-release track dropped before the full album or single, often with a music video, to build anticipation.",
+        "meaningKr": "A pre-release track dropped before the full album or single, often with a music video, to build anticipation.",
+        "exampleEn": "선공개 곡 듣고 이번 앨범 진짜 기대돼! 역시 믿듣돌이다.",
+        "exampleKr": "After hearing the pre-release track, I'm so excited for this album! They're really a group you can trust to listen to.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "seongonggae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-45-1780590124355",
+        "term": "티저",
+        "definition": "A teaser image or video clip previewing an idol's upcoming comeback or release, designed to generate excitement.",
+        "meaningKr": "A teaser image or video clip previewing an idol's upcoming comeback or release, designed to generate excitement.",
+        "exampleEn": "방금 올라온 티저 봤어? 이번 컨셉 대박 예감이야!",
+        "exampleKr": "Did you see the teaser that just dropped? I have a feeling this concept is going to be amazing!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "tijeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-46-1780590124355",
+        "term": "뮤비",
+        "definition": "A music video (short for 뮤직비디오); a visual accompaniment to a song, often elaborate and cinematic.",
+        "meaningKr": "A music video (short for 뮤직비디오); a visual accompaniment to a song, often elaborate and cinematic.",
+        "exampleEn": "이번 뮤비 영상미 미쳤다! 감독님 진짜 천재 아니야?",
+        "exampleKr": "The visuals in this music video are insane! Isn't the director a genius?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "myubi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-47-1780590124355",
+        "term": "안무",
+        "definition": "Choreography; the planned sequence of dance moves performed by idols, especially for their songs.",
+        "meaningKr": "Choreography; the planned sequence of dance moves performed by idols, especially for their songs.",
+        "exampleEn": "이번 안무 진짜 어려워 보이던데, 연습생들이 얼마나 노력했을까?",
+        "exampleKr": "This choreography looks really difficult, I wonder how hard the trainees practiced?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "anmu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-48-1780590124355",
+        "term": "칼군무",
+        "definition": "Razor-sharp, perfectly synchronized group dancing, a hallmark of many K-pop performances.",
+        "meaningKr": "Razor-sharp, perfectly synchronized group dancing, a hallmark of many K-pop performances.",
+        "exampleEn": "쟤네 그룹은 칼군무가 진짜 예술이야. 한 치의 오차도 없어!",
+        "exampleKr": "That group's kalgunmu is truly art. There's not a single mistake!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "kalgunmu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-49-1780590124355",
+        "term": "직캠",
+        "definition": "A fancam; a fan-recorded video focused on a single member's performance, often filmed during music shows or concerts.",
+        "meaningKr": "A fancam; a fan-recorded video focused on a single member's performance, often filmed during music shows or concerts.",
+        "exampleEn": "어제 무대 직캠 떴던데, 우리 최애 표정 연기 진짜 미쳤어!",
+        "exampleKr": "The fancam from yesterday's stage dropped, and my bias's facial expressions are absolutely insane!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "jikcaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-50-1780590124355",
+        "term": "음방",
+        "definition": "a music show broadcast; a music show",
+        "meaningKr": "a music show broadcast; a music show",
+        "exampleEn": "오늘 음방에서 우리 애들 무대 너무 기대돼!",
+        "exampleKr": "So excited for our faves' stage on the music show today!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "eumbang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-51-1780590124355",
+        "term": "음방1위",
+        "definition": "a first-place win on a TV music show; a music show win",
+        "meaningKr": "a first-place win on a TV music show; a music show win",
+        "exampleEn": "와, 드디어 우리 오빠들 음방1위 했어! 너무 자랑스럽다!",
+        "exampleKr": "Wow, our oppas finally got their first music show win! So proud!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "eumbang1wi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-52-1780590124355",
+        "term": "올킬",
+        "definition": "an 'all-kill': topping every major music chart at once",
+        "meaningKr": "an 'all-kill': topping every major music chart at once",
+        "exampleEn": "컴백하자마자 바로 올킬이라니, 역시 우리 그룹 대박이다!",
+        "exampleKr": "An all-kill right after comeback, as expected, our group is amazing!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "olkil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-53-1780590124355",
+        "term": "역주행",
+        "definition": "a song climbing the charts again long after release; a chart-reversal",
+        "meaningKr": "a song climbing the charts again long after release; a chart-reversal",
+        "exampleEn": "그 노래 발매된 지 한참 됐는데 요즘 역주행하고 있더라.",
+        "exampleKr": "That song was released ages ago but it's having a chart-reversal lately.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "yeokjuhaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-54-1780590124355",
+        "term": "차트인",
+        "definition": "charting; entering the music charts",
+        "meaningKr": "charting; entering the music charts",
+        "exampleEn": "드디어 우리 신곡이 차트인했어! 너무 기뻐서 눈물 나!",
+        "exampleKr": "Our new song finally charted! I'm so happy I could cry!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "chateuin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-55-1780590124355",
+        "term": "컴백무대",
+        "definition": "the first stage performance of a comeback",
+        "meaningKr": "the first stage performance of a comeback",
+        "exampleEn": "내일 컴백무대 벌써부터 너무 설레서 잠이 안 와!",
+        "exampleKr": "I'm so excited for tomorrow's comeback stage, I can't sleep!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "keombaekmudae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-56-1780590124355",
+        "term": "아이돌",
+        "definition": "an idol; a K-pop pop star",
+        "meaningKr": "an idol; a K-pop pop star",
+        "exampleEn": "요즘 새로 데뷔한 아이돌 중에 눈에 띄는 그룹 있어?",
+        "exampleKr": "Is there any standout group among the idols who recently debuted?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "aidol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-57-1780590124355",
+        "term": "센터",
+        "definition": "the center; the focal member in formations and promotions",
+        "meaningKr": "the center; the focal member in formations and promotions",
+        "exampleEn": "이번 무대에서 ㅇㅇ이가 센터 포지션이라 너무 잘 보였어.",
+        "exampleKr": "[Idol's name] was in the center position for this stage, so they stood out really well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "senteo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-58-1780590124355",
+        "term": "메인보컬",
+        "definition": "the main vocalist of a group",
+        "meaningKr": "the main vocalist of a group",
+        "exampleEn": "우리 그룹 메인보컬 음색은 진짜 독보적이야.",
+        "exampleKr": "Our group's main vocalist's vocal color is truly unique.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "meinbokeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-59-1780590124355",
+        "term": "리드보컬",
+        "definition": "the lead vocalist (supports the main vocal)",
+        "meaningKr": "the lead vocalist (supports the main vocal)",
+        "exampleEn": "리드보컬이 고음 파트 진짜 안정적으로 잘 소화하더라.",
+        "exampleKr": "The lead vocalist handled the high notes really stably.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "rideubokeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-60-1780590124355",
+        "term": "메인댄서",
+        "definition": "the main dancer of a group",
+        "meaningKr": "the main dancer of a group",
+        "exampleEn": "메인댄서 직캠 보니까 역시 춤선이 너무 예뻐.",
+        "exampleKr": "Watching the main dancer's fancam, their dance lines are so beautiful as expected.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "meindaenseo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-61-1780590124355",
+        "term": "래퍼",
+        "definition": "the rapper of a group",
+        "meaningKr": "the rapper of a group",
+        "exampleEn": "이 노래 래퍼 파트 진짜 중독성 있어서 계속 듣게 돼.",
+        "exampleKr": "The rapper's part in this song is so addictive, I keep listening to it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "raepeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-62-1780590124355",
+        "term": "막내",
+        "definition": "the youngest member (maknae)",
+        "meaningKr": "the youngest member (maknae)",
+        "exampleEn": "우리 막내 이제 성인인데 아직도 아기 같아 보여!",
+        "exampleKr": "Our maknae is an adult now, but they still look like a baby!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "maknae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-63-1780590124355",
+        "term": "맏형",
+        "definition": "the oldest member of a boy group (mathyeong)",
+        "meaningKr": "the oldest member of a boy group (mathyeong)",
+        "exampleEn": "우리 맏형이 멤버들 다 잘 챙겨줘서 너무 듬직해.",
+        "exampleKr": "Our oldest member takes good care of all the members, so reliable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "mathyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-64-1780590124355",
+        "term": "리더",
+        "definition": "the leader of the group",
+        "meaningKr": "the leader of the group",
+        "exampleEn": "우리 리더는 그룹을 너무 잘 이끌어가서 항상 존경스러워.",
+        "exampleKr": "Our leader leads the group so well, I always respect them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "rideo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-65-1780590124355",
+        "term": "비주얼",
+        "definition": "the 'visual'; the member known as the best-looking",
+        "meaningKr": "the 'visual'; the member known as the best-looking",
+        "exampleEn": "ㅇㅇ이는 진짜 비주얼 멤버라서 얼굴 천재야.",
+        "exampleKr": "[Idol's name] is truly the visual member, a face genius.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "bijueol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-66-1780590124355",
+        "term": "막내라인",
+        "definition": "the younger members of the group as a group (maknae line)",
+        "meaningKr": "the younger members of the group as a group (maknae line)",
+        "exampleEn": "우리 막내라인 조합은 진짜 귀여움 폭발이야!",
+        "exampleKr": "Our maknae line combination is seriously cuteness overload!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "maknaerain",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-67-1780590124355",
+        "term": "형라인",
+        "definition": "the older members of a boy group as a group (hyung line)",
+        "meaningKr": "the older members of a boy group as a group (hyung line)",
+        "exampleEn": "형라인 멤버들이 막내들을 잘 챙겨주는 모습이 너무 보기 좋아.",
+        "exampleKr": "It's so nice to see the hyung line members taking good care of the maknaes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "hyeongrain",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-68-1780590124355",
+        "term": "유닛",
+        "definition": "a sub-unit; a smaller group within the group",
+        "meaningKr": "a sub-unit; a smaller group within the group",
+        "exampleEn": "이번에 유닛 활동한다고 해서 너무 기대하고 있어!",
+        "exampleKr": "I'm really looking forward to their sub-unit activities this time!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "yunit",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-69-1780590124355",
+        "term": "보이그룹",
+        "definition": "a boy group",
+        "meaningKr": "a boy group",
+        "exampleEn": "요즘 데뷔하는 보이그룹들은 다 실력이 장난 아니던데?",
+        "exampleKr": "The boy groups debuting these days are all incredibly talented, aren't they?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "boigeurup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-70-1780590124355",
+        "term": "걸그룹",
+        "definition": "a girl group",
+        "meaningKr": "a girl group",
+        "exampleEn": "요즘 제일 좋아하는 걸그룹은 누구야?",
+        "exampleKr": "Who's your favorite girl group these days?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "geolgeurup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-71-1780590124355",
+        "term": "솔로",
+        "definition": "a solo artist or solo activity",
+        "meaningKr": "a solo artist or solo activity",
+        "exampleEn": "ㅇㅇ이 솔로 앨범 발매 소식에 팬들 난리 났어!",
+        "exampleKr": "Fans went wild at the news of [Idol's name]'s solo album release!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "sollo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-72-1780590124355",
+        "term": "다국적",
+        "definition": "multinational; a group with members of multiple nationalities",
+        "meaningKr": "multinational; a group with members of multiple nationalities",
+        "exampleEn": "요즘은 다국적 그룹이 많아서 다양한 매력을 볼 수 있어서 좋아.",
+        "exampleKr": "These days there are many multinational groups, so it's nice to see diverse charms.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "dagukjeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-73-1780590124355",
+        "term": "본명",
+        "definition": "an idol's real name (vs stage name)",
+        "meaningKr": "an idol's real name (vs stage name)",
+        "exampleEn": "ㅇㅇ이 본명 알면 깜짝 놀랄 걸? 완전 의외야!",
+        "exampleKr": "You'd be surprised if you knew [Idol's name]'s real name! It's totally unexpected!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "bonmyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-74-1780590124355",
+        "term": "컨셉",
+        "definition": "the concept/theme of a comeback (e.g., cute, dark, retro)",
+        "meaningKr": "the concept/theme of a comeback (e.g., cute, dark, retro)",
+        "exampleEn": "이번 컴백 컨셉이 진짜 우리 그룹이랑 찰떡이야.",
+        "exampleKr": "This comeback concept really suits our group perfectly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "keonsep",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-75-1780590124355",
+        "term": "팬싸",
+        "definition": "a fansign event; a fansign",
+        "meaningKr": "a fansign event; a fansign",
+        "exampleEn": "이번 팬싸에서 멤버들이랑 얘기 많이 해서 너무 좋았어!",
+        "exampleKr": "It was so good to talk a lot with the members at this fansign!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "paenssa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-76-1780590124355",
+        "term": "영통",
+        "definition": "a video call fansign; a video call with an idol",
+        "meaningKr": "a video call fansign; a video call with an idol",
+        "exampleEn": "드디어 영통 당첨돼서 최애랑 영상통화 했다! 손 떨려 죽는 줄.",
+        "exampleKr": "I finally won a video call fansign and got to video call my bias! My hands were shaking so much.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "yeongtong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-77-1780590124355",
+        "term": "팬미팅",
+        "definition": "a fan meeting",
+        "meaningKr": "a fan meeting",
+        "exampleEn": "다음 주에 팬미팅 가는데 벌써부터 설렌다!",
+        "exampleKr": "I'm going to the fan meeting next week, I'm already so excited!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "paenmiting",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-78-1780590124355",
+        "term": "콘",
+        "definition": "a concert",
+        "meaningKr": "a concert",
+        "exampleEn": "이번 콘 티켓팅 성공해서 너무 행복해!",
+        "exampleKr": "I'm so happy I succeeded in ticketing for this concert!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "kon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-79-1780590124355",
+        "term": "단콘",
+        "definition": "a solo concert; a standalone concert by one group",
+        "meaningKr": "a solo concert; a standalone concert by one group",
+        "exampleEn": "우리 애들 드디어 단콘 한다! 너무 기다렸어.",
+        "exampleKr": "Our faves are finally having a solo concert! I've waited so long.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "dankon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-80-1780590124355",
+        "term": "월드투어",
+        "definition": "a world tour",
+        "meaningKr": "a world tour",
+        "exampleEn": "다음 월드투어는 꼭 갈 거야! 티켓팅 연습해야지.",
+        "exampleKr": "I'm definitely going to the next world tour! Gotta practice ticketing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "woldeu-tueo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-81-1780590124355",
+        "term": "떡밥",
+        "definition": "new content, teasers, or updates released by an idol/group to excite fans",
+        "meaningKr": "new content, teasers, or updates released by an idol/group to excite fans",
+        "exampleEn": "오늘 떡밥 너무 많이 터져서 행복사할 지경이야.",
+        "exampleKr": "So much new content dropped today, I'm practically dying of happiness.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "tteokbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-82-1780590124355",
+        "term": "비하인드",
+        "definition": "behind-the-scenes footage or content",
+        "meaningKr": "behind-the-scenes footage or content",
+        "exampleEn": "앨범 자켓 비하인드 영상 보는데 멤버들 너무 귀엽더라.",
+        "exampleKr": "The members were so cute watching the album jacket behind-the-scenes video.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "bihaindeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-83-1780590124355",
+        "term": "자컨",
+        "definition": "self-produced content by the idol group, often variety shows or vlogs",
+        "meaningKr": "self-produced content by the idol group, often variety shows or vlogs",
+        "exampleEn": "이번 자컨 진짜 레전드야! 꼭 봐야 해.",
+        "exampleKr": "This self-produced content is a total legend! You absolutely have to watch it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "jakeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-84-1780590124355",
+        "term": "브이로그",
+        "definition": "an idol's vlog",
+        "meaningKr": "an idol's vlog",
+        "exampleEn": "멤버 브이로그 보는데 너무 힐링돼서 시간 가는 줄 몰랐어.",
+        "exampleKr": "Watching the member's vlog was so healing, I didn't even notice time passing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "beu-irogeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-85-1780590124355",
+        "term": "위버스",
+        "definition": "Weverse, a fan community platform where idols interact with fans and post content",
+        "meaningKr": "Weverse, a fan community platform where idols interact with fans and post content",
+        "exampleEn": "위버스 알림 오면 심장 떨어지는 줄 알았잖아!",
+        "exampleKr": "When I get a Weverse notification, I always think my heart's going to drop!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "wibeoseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-86-1780590124355",
+        "term": "소통",
+        "definition": "idol-fan interaction or communication",
+        "meaningKr": "idol-fan interaction or communication",
+        "exampleEn": "우리 애들은 팬들이랑 소통 진짜 잘해줘서 너무 고마워.",
+        "exampleKr": "Our faves are so good at communicating with fans, I'm so grateful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "sotong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-87-1780590124355",
+        "term": "셀카",
+        "definition": "a selfie",
+        "meaningKr": "a selfie",
+        "exampleEn": "최애 오늘 셀카 올려줬어! 프사 바로 바꿔야지.",
+        "exampleKr": "My bias posted a selfie today! I'm changing my profile pic right away.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "selka",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-88-1780590124355",
+        "term": "미공개",
+        "definition": "unreleased content (photos, footage, etc.)",
+        "meaningKr": "unreleased content (photos, footage, etc.)",
+        "exampleEn": "앨범 살 때 미공개 포카 받을 수 있대!",
+        "exampleKr": "They say you can get unreleased photocards when you buy the album!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "migonggae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-89-1780590124355",
+        "term": "팬덤",
+        "definition": "a fandom; the official fan community of an idol group",
+        "meaningKr": "a fandom; the official fan community of an idol group",
+        "exampleEn": "우리 팬덤 화력 미쳤다! 이번 컴백도 일위 가자!",
+        "exampleKr": "Our fandom's power is insane! Let's get #1 again this comeback!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "paendeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-90-1780590124355",
+        "term": "공식 응원법",
+        "definition": "the official fanchant",
+        "meaningKr": "the official fanchant",
+        "exampleEn": "이번 신곡 공식 응원법 벌써 다 외웠다! 콘서트 준비 완료!",
+        "exampleKr": "I've already memorized the official fanchant for the new song! Concert prep complete!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "gongsik eungwonbeop",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-kpop-91-1780590124355",
+        "term": "인생곡",
+        "definition": "a life song; a life-changing, all-time favorite song",
+        "meaningKr": "a life song; a life-changing, all-time favorite song",
+        "exampleEn": "이 노래는 내 인생곡이야. 들을 때마다 위로받아.",
+        "exampleKr": "This song is my life song. I feel comforted every time I listen to it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "insaenggok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-92-1780590124355",
+        "term": "띵곡",
+        "definition": "an absolute banger; a masterpiece song (playful spelling of 명곡)",
+        "meaningKr": "an absolute banger; a masterpiece song (playful spelling of 명곡)",
+        "exampleEn": "와, 이번 앨범 타이틀곡 진짜 띵곡이다! 무한 스트리밍 간다.",
+        "exampleKr": "Wow, the title track from this album is seriously a banger! Going to stream it endlessly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "ttinggok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-93-1780590124355",
+        "term": "갓벽",
+        "definition": "god-perfect; utterly flawless or impeccable",
+        "meaningKr": "god-perfect; utterly flawless or impeccable",
+        "exampleEn": "최애 무대 보는데 비주얼부터 퍼포먼스까지 진짜 갓벽해.",
+        "exampleKr": "Watching my bias's stage, everything from visuals to performance is truly god-perfect.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "gatbyeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-kpop-94-1780590124355",
+        "term": "심쿵",
+        "definition": "a heart-fluttering moment; a moment that makes your heart skip a beat",
+        "meaningKr": "a heart-fluttering moment; a moment that makes your heart skip a beat",
+        "exampleEn": "최애가 갑자기 아이컨택 해줘서 심쿵했잖아!",
+        "exampleKr": "My bias suddenly made eye contact with me, my heart totally skipped a beat!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "simkung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-95-1780590124355",
+        "term": "폼 미쳤다",
+        "definition": "\"their form is insane\"; they're absolutely killing it, performing incredibly well",
+        "meaningKr": "\"their form is insane\"; they're absolutely killing it, performing incredibly well",
+        "exampleEn": "오늘 무대 보는데 우리 아이돌 폼 미쳤다! 역시 프로야.",
+        "exampleKr": "Watching today's stage, our idol's form is insane! Professional as always.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "pom michyeotda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-kpop-96-1780590124355",
+        "term": "역대급",
+        "definition": "legendary; the best of all time; record-breaking",
+        "meaningKr": "legendary; the best of all time; record-breaking",
+        "exampleEn": "이번 컴백은 진짜 역대급이야! 모든 기록 다 갈아치울 듯.",
+        "exampleKr": "This comeback is seriously legendary! Looks like they'll break all records.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "yeokdaegeup",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-97-1780590124355",
+        "term": "무대천재",
+        "definition": "a \"stage genius\"; an outstanding and captivating live performer",
+        "meaningKr": "a \"stage genius\"; an outstanding and captivating live performer",
+        "exampleEn": "우리 최애는 진짜 무대천재야. 라이브도 완벽하고 표정 연기도 최고!",
+        "exampleKr": "My bias is truly a stage genius. Their live performance is perfect, and their expressions are the best!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "mudaecheonjae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-98-1780590124355",
+        "term": "입덕영상",
+        "definition": "an \"introductory video\"; the video that makes someone fall for an idol and become a fan",
+        "meaningKr": "an \"introductory video\"; the video that makes someone fall for an idol and become a fan",
+        "exampleEn": "내 입덕영상은 바로 그 직캠이었어. 아직도 보면 심장이 뛰어.",
+        "exampleKr": "My introductory video was that fancam. My heart still races when I watch it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "ipdeok-yeongsan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-kpop-99-1780590124355",
+        "term": "소속사",
+        "definition": "an idol's agency; management label",
+        "meaningKr": "an idol's agency; management label",
+        "exampleEn": "소속사가 열일해서 우리 애들 스케줄이 꽉 찼어.",
+        "exampleKr": "The agency is working hard, so our faves' schedule is packed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "K-pop",
+          "Culture"
+        ],
+        "phonetic": "sosoksa",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-saguk-ko-1",
     "title": "Sageuk: Korean Historical Drama 100",
     "icon": "👑",

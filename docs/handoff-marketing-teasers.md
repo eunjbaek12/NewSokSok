@@ -8,12 +8,16 @@
 
 ## 한 줄 현재 상황
 
-출시 전 **유튜브/숏폼 티저 4편**(기능별) 제작. **2026-06-04: 모든 화면 녹화 + 인트로 마스코트 컷 raw 소스 수집 완료** → 다음은 **CapCut 조립(Phase D)**. 마스코트 컷은 Veo 생성, 앱 기능 컷은 화면 녹화, 조립은 CapCut. Android 출시 자체는 별도 게이트 대기 중.
+출시 전 **유튜브/숏폼 티저 4편**(기능별) 제작. **raw 소스 수집·후처리(녹화표시·광고·사생활 제거) 전부 완료** → 남은 작업은 **CapCut 조립(Phase D) 하나**(수동 작업이라 Claude로는 불가, 본인 진행). 마스코트 컷은 Veo 생성, 앱 기능 컷은 화면 녹화, 조립은 CapCut. Android 출시 자체는 별도 게이트 대기 중.
 
-> ✅ **2026-06-04 처리 완료** (이전 미완 2건):
-> 1. ~~광고 끄기 임시 플래그 원복~~ — `AppBannerAd.tsx`를 HEAD로 완전 복원(데모 플래그 코드 전부 제거, false 잔여 없음).
+> ✅ **2026-06-04 처리 완료** (코드·소스 미완 정리):
+> 1. ~~광고 끄기 임시 플래그 원복~~ — `AppBannerAd.tsx`를 HEAD로 완전 복원(데모 플래그 코드 전부 제거).
 > 2. ~~오버제너레이트 fix 커밋~~ — 커밋 `6dcd0e5` + Edge `generate-words` 프로덕션 재배포 완료.
+> 3. ~~수능 필수 어휘 500 큐레이션~~ — 번역(500/500)·통합·커밋 완료(`1801656`). 다국어 큐레이션 총 45개 덱.
+> 4. ~~마케팅 raw `.gitignore` 처리~~ — `assets/marketing/`·`assets/images/*.mp4` 미추적(`9ce69d5`).
+> 5. ~~ep2 사진첩 사생활 블러~~ — `사진첩에서 단어추가_blurred.mp4` 생성(아래 소스표·🔒 노트 참조). **ep2 조립 시 이 블러본 사용.**
 > - ⬜ **남은 검증 1건(수동)**: BYOK 앱에서 "20요청→정확히 20개" 직접 확인 (UI 실행 필요).
+> - ℹ️ 워킹트리에 마케팅과 무관한 병렬 작업(`features/auth/store.ts` 등 sync/auth)이 진행 중일 수 있음 — 이 문서/티저와 무관.
 
 ---
 
@@ -199,22 +203,29 @@
 | 인트로(마스코트) | `ep1-intro-veo-vertical.mp4` | 아보카도 통통 등장 | Veo 생성·가로→9:16 변환·워터마크 제거. 10초(2~3초로 트림) |
 | 1편 자동완성 | `ep1-autocomplete-clean.mp4` | appreciate 타이핑→뜻·발음·예문 차오름 | "어버이날 어휘" |
 | 2편 사진 | `ep2-photo-clean.mp4` | 영어 시 사진→AI 분석→30개 추출·보강 | 27초(분석중 구간 speed-up 필요) |
+| 2편 사진(갤러리) | `사진첩에서 단어추가_blurred.mp4` ⭐ | 갤러리 진입→사진 picker→추출 | **사생활 블러 처리본(원본 대신 사용)**. 🔒 노트 참조 |
 | 3편 자동생성 | `ep3-generate-clean.mp4` | 주제"여행"→🥑로딩→AI 여행영어 19개 | 27초(로딩 점프컷). 토스트"중복 제외" 구간은 컷 |
 | 4편 학습 | `ep4-card-clean.mp4` | 카드 뒤집기+스와이프(Intersection) | |
 | 4편 학습 | `ep4-quiz-clean.mp4` | 4지선다(alcoholic) | |
 | 4편 학습 | `ep4-examples-clean.mp4` | 빈칸 채우기(Baggage) | |
 | 4편 학습 | `ep4-autoplay-clean.mp4` | 자동넘김+TTS(accordingly) | |
 
-> 원본 녹화(`Screen_Recording_*.mp4`, `카드 학습.mp4` 등)도 같은 폴더에 보존. 후처리 도구 = **ffmpeg**(imageio-ffmpeg 번들, Python 3.14). 녹화표시 제거 패턴: 풀스크린=상단 110px 크롭 / 모달 섞이면=`delogo`로 아이콘·칩만.
+> 원본 녹화(`Screen_Recording_*.mp4`, `카드 학습.mp4` 등)도 같은 폴더에 보존. 후처리 도구 = **ffmpeg**(imageio-ffmpeg 번들, Python 3.14: `C:/Python314/Lib/site-packages/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe`). 녹화표시 제거 패턴: 풀스크린=상단 110px 크롭 / 모달 섞이면=`delogo`로 아이콘·칩만.
+>
+> 🔒 **사생활(2026-06-04 처리)**: `사진첩에서 단어추가.mp4`는 ~3.5~4.5초에 **Android 시스템 사진 picker(개인 사진 썸네일)** 노출. OS picker는 앱 코드로 못 가려 영상 후처리가 유일 → `사진첩에서 단어추가_blurred.mp4` 생성. **사진 그리드(안내박스 아래, 원본 y≈1460↓)에만** 가우시안 블러: `crop=1080:880:0:1460,gblur=sigma=40` + `overlay=0:1460:enable=between(t,3.5,4.5)`. picker UI(검색창·탭·안내박스)·검색/슬라이드 구간은 선명 유지(사진은 정착 후 3.5초경 로드되므로 그때부터만 블러). **ep2 조립 시 이 블러본 사용**. 컷 원하면 picker 뜨기 직전~소멸 구간 trim.
 
 ### ⬜ 다음 세션 할 일 (순서대로)
 
-**0. 미완 정리 (코드)** — ✅ 2026-06-04 완료
-- [x] `AppBannerAd.tsx`: 데모 플래그 HEAD로 완전 복원 (false 잔여 없이 코드 제거)
-- [x] 오버제너레이트 fix 커밋 (`6dcd0e5`: `features/curation/screen.tsx` + `generate-words/index.ts`) + `supabase functions deploy generate-words` 재배포 완료
+> **요약: 코드/소스 정리는 전부 끝. 남은 건 CapCut 조립(수동)뿐.** 아래 1번이 메인.
+
+**0. 미완 정리 (코드/소스)** — ✅ 2026-06-04 전부 완료
+- [x] `AppBannerAd.tsx` 데모 플래그 HEAD 복원
+- [x] 오버제너레이트 fix(`6dcd0e5`) + Edge 재배포
+- [x] 수능 필수 어휘 500(`1801656`), 마케팅 `.gitignore`(`9ce69d5`)
+- [x] ep2 사진첩 사생활 블러(`사진첩에서 단어추가_blurred.mp4`)
 - [ ] (남음·수동) BYOK 앱에서 "20요청→정확히 20개" 검증 — UI 실행 필요
 
-**1. CapCut 조립 (Phase D — 본 작업)**
+**1. CapCut 조립 (Phase D — 본 작업, 수동)**
 - [ ] 편당: Veo 인트로 + 화면녹화 클립을 음악 비트에 맞춰 컷 (스크립트 0~22초 표는 위 "4편 풀스크립트")
 - [ ] AI 대기 구간 speed-up/점프컷 (2편 분석중·3편 로딩)
 - [ ] **자막·앱이름 = CapCut에서**(Veo 금지) · 효과음 · **음악 4편 동일 트랙**

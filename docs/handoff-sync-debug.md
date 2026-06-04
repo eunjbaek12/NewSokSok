@@ -4,7 +4,7 @@
 
 ## 한 줄 현재 상황
 
-계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **`main`에 커밋·머지·push 완료**(`517d864`), 테스트 294 pass/0 fail. **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** — 코드는 머지됐고 **남은 건 dev client 실기 검증 + 선택적 게스트-leak 보강 결정뿐**.
+계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **`main`에 커밋·머지·push 완료**(`517d864`), 테스트 294 pass/0 fail. 이어서 같은 날 **게스트-leak 보강(수정 D)을 구현·커밋** — 오프라인 로그아웃으로 보존된 이전 계정 데이터가 게스트 화면에 노출되던 trade-off를 플래그+프롬프트로 차단. **소스는 `d232aa8`로 커밋됨**(단, 테스트 `__tests__/preserved-cloud-data.test.ts`는 그 커밋에서 누락 → 후속 커밋으로 보완). **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** — 남은 건 **dev client 실기 검증뿐**(게스트-leak 보강 결정은 "구현·커밋"으로 종결).
 
 ---
 
@@ -29,12 +29,21 @@
 ### 수정 C — 로그아웃 flush 견고화 (이전 "후속(미구현)" 해결)
 - **원인**: 기존 pre-logout `flushPush()`는 best-effort라 실패해도 `clearAllData()`+`resetAll()`이 무조건 실행 → 미전송 삭제가 로컬에서 wipe되고 클라우드엔 alive로 남아 재로그인 시 부활. (clearAllData가 tombstone까지 지워 Fix 1로도 못 막는 유일 경로.)
 - **수정**: `features/auth/store.ts`에 `flushPendingForLogout(3회×400ms 재시도)` 추가 — dirty가 완전히 비워졌을 때만 `true`. logout 2단계 파괴적 정리를 **`wasCloudAuth && synced`일 때만** 실행. 미전송분이 남으면 로컬 데이터+dirty+watermark **보존**(같은 계정 재로그인 시 push 재시도, Fix 1이 부활 차단) + 경고 로그. 다른 계정 격리는 bootstrap account-switch guard에 위임하고, 이를 위해 **`use-bootstrap.ts` else 분기의 `removeItem(LAST_GOOGLE_ID_KEY)` 제거**(마지막 google id 유지 → 다른 계정 로그인 시 `prevId!==id`로 guard가 wipe). guest/apple은 push할 게 없어 `synced=true`로 기존 동작 유지.
-- **알려진 trade-off(미해결, 선택)**: 보존 케이스(오프라인 로그아웃) 직후 **게스트 전환** 시 이전 계정 로컬 데이터가 게스트 화면에 보일 수 있음. 동일 사용자·동일 기기, 재로그인 시 정상화 → 데이터 유실보다 낫다고 판단해 허용. 더 막으려면 게스트 진입 시 "보존된 클라우드 데이터" 플래그 분기 필요.
+- **알려진 trade-off → ✅ 수정 D로 해결**: 보존 케이스(오프라인 로그아웃) 직후 **게스트 전환** 시 이전 계정 로컬 데이터가 게스트 화면에 보이던 문제를, "보존된 클라우드 데이터" 플래그 분기로 차단(아래 "### 수정 D"). 데이터 유실 없이 노출만 막음.
+
+### 수정 D — 게스트-leak 보강 (수정 C trade-off 해결, `d232aa8` 커밋·테스트는 후속 보완)
+- **시나리오**: 클라우드 사용자가 삭제/편집(dirty) → 오프라인 → 로그아웃(수정 C의 보존 분기: `wasCloudAuth && !synced`라 destructive wipe skip, 로컬 데이터 보존) → "게스트로 시작" → 이전 계정 단어가 게스트 화면에 노출. (수정 C가 데이터 유실을 막느라 생긴 부수효과.)
+- **수정**: handoff가 제시한 "보존된 클라우드 데이터 플래그" 도입.
+  - `features/auth/preserved-cloud-data.ts`(신규): `@soksok_preserved_cloud_data` 플래그의 `mark/clear/has` + `discardPreservedCloudData`(logout destructive 분기와 동일하게 clearAllData+resetAll+clearAccountScopedSettings+quota.clear 후 플래그 해제).
+  - `auth/store.ts logout`: 보존 분기(`else if (wasCloudAuth)`)에서 `markPreservedCloudData()`, synced wipe 분기에서 `clearPreservedCloudData()`. **불변식**: "플래그 set ⟺ 로그아웃 상태에서 보존된 미전송 클라우드 데이터 존재". 모든 wipe 지점에서 clear(synced logout / bootstrap account-switch guard / discard / deleteAccount는 `@soksok_*` multiRemove로 자동).
+  - `app/login.tsx handleGuestLogin`: 게스트 진입 전 `hasPreservedCloudData()` 체크 → 있으면 Alert("다시 로그인"=취소·로그인 화면 잔류 / "지우고 게스트 시작"=destructive·`discardPreservedCloudData()` 후 진행). i18n `login.preserved*` 4키(ko/en).
+  - `use-bootstrap.ts`: account-switch guard wipe 지점에 `clearPreservedCloudData()` 추가(다른 계정 로그인으로 보존 데이터가 wipe되면 플래그도 stale → clear). **주의**: 일반 google 분기에서는 clear 안 함 — 동일 계정 *오프라인* 재로그인 시 데이터가 여전히 미전송이라 플래그 유지가 맞음(다음 logout이 재평가).
+- **테스트**: `__tests__/preserved-cloud-data.test.ts`(mark/has, clear, discard가 4개 surface wipe+플래그 해제) 3 pass. tsc 신규 0건(baseline 7 유지), lint 신규 0건(login.tsx hex 4건은 기존 Apple 버튼 부채, 테스트 import/first 2건은 기존 sync 테스트와 동일 패턴).
+- **커밋 상태**: 소스 6파일은 `d232aa8`로 커밋 완료. **테스트 파일은 그 커밋에서 누락**돼 후속 커밋으로 보완(이 handoff 갱신과 함께). d232aa8 본문은 내 워킹트리와 동일(워킹트리에 잔존 수정 0 = 동일 내용 확인).
 
 ### 다음 세션 할 일
-1. **dev client 실기 검증** (← 여기서 시작): ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영. (실기 재현이 까다로우면 Supabase에서 해당 list/word의 `is_deleted`가 true로 올라갔는지 직접 확인 — 맨 아래 SQL.)
-2. ✅ **커밋·push 완료** — `517d864` `fix(sync): 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화`, `main`에 머지됨.
-3. **선택**: 게스트-leak 보강 여부 결정 (보존 케이스에서 게스트 전환 시 이전 계정 데이터 노출 — 위 "수정 C > 알려진 trade-off" 참고).
+1. **dev client 실기 검증** (← 여기서 시작): ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영. **+ 수정 D**: ④ 오프라인 삭제→로그아웃→"게스트로 시작" → 프롬프트 노출 확인, "다시 로그인"=로그인 화면 잔류 / "지우고 게스트"=이전 데이터 사라지고 빈 게스트. (실기 재현이 까다로우면 Supabase에서 `is_deleted` 확인 — 맨 아래 SQL.)
+2. ✅ **517d864**(수정 A/B/C) + **d232aa8**(수정 D 소스) 커밋 완료. 수정 D 테스트는 후속 커밋으로 보완. push 여부는 미확인 — `git status`로 ahead 확인 후 필요 시 push.
 
 ---
 

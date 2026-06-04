@@ -216,6 +216,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'en',
     targetLanguage: 'ko',
   },
+  saguk: {
+    id: 'curated-saguk-ko-1',
+    title: 'Sageuk: Korean Historical Drama 100',
+    icon: '👑',
+    category: '문화',
+    level: 'advanced',
+    description: 'Words & honorifics from Korean historical dramas (사극, Joseon era) — royal titles, court speech, officials, palace life, punishments & social classes. For fans of K-dramas like Kingdom & Mr. Sunshine. Korean→English; meanings & sageuk-style examples AI-generated.',
+    tags: ['Korean', 'Sageuk', 'Culture'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
 };
 
 const meta = META[LIST_NAME];

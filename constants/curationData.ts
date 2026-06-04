@@ -2,6 +2,1721 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-saguk-ko-1",
+    "title": "Sageuk: Korean Historical Drama 100",
+    "icon": "👑",
+    "isCurated": true,
+    "category": "문화",
+    "level": "advanced",
+    "description": "Words & honorifics from Korean historical dramas (사극, Joseon era) — royal titles, court speech, officials, palace life, punishments & social classes. For fans of K-dramas like Kingdom & Mr. Sunshine. Korean→English; meanings & sageuk-style examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1780589622431,
+    "words": [
+      {
+        "id": "word-saguk-0-1780589622431",
+        "term": "전하",
+        "definition": "Your Majesty (a formal address for the King)",
+        "meaningKr": "Your Majesty (a formal address for the King)",
+        "exampleEn": "전하, 소신, 죽음을 무릅쓰고 한 말씀 아뢰옵니다.",
+        "exampleKr": "Your Majesty, I, your humble servant, dare to speak at the risk of my life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jeonha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-1-1780589622431",
+        "term": "폐하",
+        "definition": "Your Imperial Majesty (a formal address for an Emperor, used in historical dramas when referring to an emperor or a king claiming imperial status)",
+        "meaningKr": "Your Imperial Majesty (a formal address for an Emperor, used in historical dramas when referring to an emperor or a king claiming imperial status)",
+        "exampleEn": "폐하, 천자의 명을 받들어 이리 행하겠사옵니다.",
+        "exampleKr": "Your Imperial Majesty, I shall act according to the Emperor's command.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "pyeha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-2-1780589622431",
+        "term": "마마",
+        "definition": "Your Highness (an honorific suffix used when addressing the Queen, princes, or princesses)",
+        "meaningKr": "Your Highness (an honorific suffix used when addressing the Queen, princes, or princesses)",
+        "exampleEn": "세자 저하 마마께서는 어찌하여 이리 심려하시옵니까?",
+        "exampleKr": "Your Royal Highness, the Crown Prince, why do you worry so?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "mama",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-3-1780589622431",
+        "term": "저하",
+        "definition": "Your Royal Highness (a formal address for the Crown Prince)",
+        "meaningKr": "Your Royal Highness (a formal address for the Crown Prince)",
+        "exampleEn": "저하, 역모의 증좌가 명백히 드러났사옵니다.",
+        "exampleKr": "Your Royal Highness, the evidence of treason has been clearly revealed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jeoha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-4-1780589622431",
+        "term": "중전",
+        "definition": "The Queen Consort (the reigning King's wife)",
+        "meaningKr": "The Queen Consort (the reigning King's wife)",
+        "exampleEn": "중전께서 옥체를 보존하시고 순산하시기를 바라옵니다.",
+        "exampleKr": "I pray that the Queen will preserve her health and have a safe delivery.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jungjeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-5-1780589622431",
+        "term": "중전마마",
+        "definition": "Her Majesty the Queen (a formal address for the Queen Consort)",
+        "meaningKr": "Her Majesty the Queen (a formal address for the Queen Consort)",
+        "exampleEn": "중전마마, 소신이 미천하오나 마마의 뜻을 따르겠사옵니다.",
+        "exampleKr": "Your Majesty the Queen, though I am humble, I shall follow your will.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jungjeonmama",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-6-1780589622431",
+        "term": "대비",
+        "definition": "The Queen Dowager (the King's mother)",
+        "meaningKr": "The Queen Dowager (the King's mother)",
+        "exampleEn": "대비께서 편찮으시다는 소식에 온 조정이 근심하옵니다.",
+        "exampleKr": "The entire court is worried upon hearing the news that the Queen Dowager is ill.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "daebi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-7-1780589622431",
+        "term": "대비마마",
+        "definition": "Her Majesty the Queen Dowager (a formal address for the King's mother)",
+        "meaningKr": "Her Majesty the Queen Dowager (a formal address for the King's mother)",
+        "exampleEn": "대비마마, 부디 옥체를 보존하시고 만수무강하시옵소서.",
+        "exampleKr": "Your Majesty the Queen Dowager, please preserve your health and live a long life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "daebimama",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-8-1780589622431",
+        "term": "세자",
+        "definition": "The Crown Prince (the designated heir to the throne)",
+        "meaningKr": "The Crown Prince (the designated heir to the throne)",
+        "exampleEn": "세자께서 국본을 굳건히 하시어 만백성의 기대를 한몸에 받으시옵니다.",
+        "exampleKr": "The Crown Prince strengthens the foundation of the nation and receives the hopes of all people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "seja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-9-1780589622431",
+        "term": "세자저하",
+        "definition": "His Royal Highness the Crown Prince (a formal address for the heir apparent)",
+        "meaningKr": "His Royal Highness the Crown Prince (a formal address for the heir apparent)",
+        "exampleEn": "세자저하, 소신이 감히 한 말씀 아뢰려 하옵니다.",
+        "exampleKr": "Your Royal Highness the Crown Prince, I humbly dare to speak a word.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sejajeoha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-10-1780589622431",
+        "term": "빈궁",
+        "definition": "The Crown Princess (the wife of the Crown Prince)",
+        "meaningKr": "The Crown Princess (the wife of the Crown Prince)",
+        "exampleEn": "빈궁께서 회임을 하시어 나라에 경사가 겹쳤사옵니다.",
+        "exampleKr": "The Crown Princess is pregnant, bringing double joy to the nation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "bingung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-11-1780589622431",
+        "term": "대군",
+        "definition": "A Grand Prince (a son of the King and Queen)",
+        "meaningKr": "A Grand Prince (a son of the King and Queen)",
+        "exampleEn": "대군마마께서 강녕하시니 만백성이 기뻐하옵니다.",
+        "exampleKr": "As the Grand Prince is in good health, all the people rejoice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "daegun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-12-1780589622431",
+        "term": "상왕",
+        "definition": "A Retired King (a king who has abdicated the throne but still holds influence)",
+        "meaningKr": "A Retired King (a king who has abdicated the throne but still holds influence)",
+        "exampleEn": "상왕께서 수렴청정을 하심은 조정을 혼란케 할 것입니다.",
+        "exampleKr": "The Retired King's regency will throw the court into confusion.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sangwang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-13-1780589622431",
+        "term": "옹주",
+        "definition": "An Ongju Princess (a princess born to the King and a royal concubine)",
+        "meaningKr": "An Ongju Princess (a princess born to the King and a royal concubine)",
+        "exampleEn": "옹주마마께서는 어찌하여 이리 슬픔에 잠겨 계시옵니까?",
+        "exampleKr": "Princess Ongju, why are you steeped in such sorrow?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "ongju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-14-1780589622431",
+        "term": "공주",
+        "definition": "A Gongju Princess (a princess born to the King and Queen)",
+        "meaningKr": "A Gongju Princess (a princess born to the King and Queen)",
+        "exampleEn": "공주마마께서는 학식이 깊으시고 성품 또한 고우시옵니다.",
+        "exampleKr": "Princess Gongju is deeply learned and her character is also noble.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gongju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-15-1780589622431",
+        "term": "후궁",
+        "definition": "A Royal Concubine (a consort of the King, ranking below the Queen)",
+        "meaningKr": "A Royal Concubine (a consort of the King, ranking below the Queen)",
+        "exampleEn": "후궁의 처소에서 수상한 움직임이 감지되었사옵니다.",
+        "exampleKr": "Suspicious movements have been detected in the royal concubine's chambers.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "hugung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-16-1780589622431",
+        "term": "대감",
+        "definition": "My Lord (an honorific address for a high-ranking government official, especially a State Councillor)",
+        "meaningKr": "My Lord (an honorific address for a high-ranking government official, especially a State Councillor)",
+        "exampleEn": "대감, 이 일은 그리 쉽게 넘길 일이 아니옵니다.",
+        "exampleKr": "My Lord, this matter is not something to be easily overlooked.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "daegam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-17-1780589622431",
+        "term": "영감",
+        "definition": "My Lord / Sir (an honorific address for a mid-ranking government official, lower in status than 대감)",
+        "meaningKr": "My Lord / Sir (an honorific address for a mid-ranking government official, lower in status than 대감)",
+        "exampleEn": "영감, 어찌하여 소인의 청을 들어주지 않으시나이까?",
+        "exampleKr": "My Lord, why do you not grant this humble person's request?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "yeonggam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-18-1780589622431",
+        "term": "나리",
+        "definition": "My Lord / Sir (a respectful address used by commoners or those of lower status towards officials or noblemen)",
+        "meaningKr": "My Lord / Sir (a respectful address used by commoners or those of lower status towards officials or noblemen)",
+        "exampleEn": "나리, 이 억울한 사정을 부디 헤아려 주시옵소서.",
+        "exampleKr": "My Lord, please consider this unfair situation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "nari",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-19-1780589622431",
+        "term": "영의정",
+        "definition": "Chief State Councillor (the highest government official, akin to a prime minister)",
+        "meaningKr": "Chief State Councillor (the highest government official, akin to a prime minister)",
+        "exampleEn": "영의정 대감께서 국정을 총괄하시니 나라가 태평성대하옵니다.",
+        "exampleKr": "As the Chief State Councillor oversees state affairs, the nation enjoys peace and prosperity.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "yeonguijeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-20-1780589622431",
+        "term": "좌의정",
+        "definition": "Left State Councillor (the second-highest government official)",
+        "meaningKr": "Left State Councillor (the second-highest government official)",
+        "exampleEn": "좌의정 대감께서 상소를 올리시어 전하의 뜻을 거스를까 염려되옵니다.",
+        "exampleKr": "I fear the Left State Councillor's petition might go against Your Majesty's will.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jwauijeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-21-1780589622431",
+        "term": "우의정",
+        "definition": "Right State Councillor (the third-highest government official)",
+        "meaningKr": "Right State Councillor (the third-highest government official)",
+        "exampleEn": "우의정 대감은 병판의 자리를 노리고 계신 것이 분명하옵니다.",
+        "exampleKr": "It is clear that the Right State Councillor is aiming for the position of Minister of War.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "uuijeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-22-1780589622431",
+        "term": "정승",
+        "definition": "A State Councillor (a collective term for the top three ministers: Chief, Left, and Right State Councillors)",
+        "meaningKr": "A State Councillor (a collective term for the top three ministers: Chief, Left, and Right State Councillors)",
+        "exampleEn": "삼정승이 모두 한 뜻으로 대의를 따르니 백성이 안정하옵니다.",
+        "exampleKr": "As all three State Councillors follow the great cause with one mind, the people are at peace.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jeongseung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-23-1780589622431",
+        "term": "판서",
+        "definition": "A Minister (a high-ranking official heading one of the Six Boards of Joseon government)",
+        "meaningKr": "A Minister (a high-ranking official heading one of the Six Boards of Joseon government)",
+        "exampleEn": "병조판서께서 군사 훈련을 강화할 것을 주청하셨사옵니다.",
+        "exampleKr": "The Minister of War has requested to strengthen military training.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "panseo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-24-1780589622431",
+        "term": "도승지",
+        "definition": "The Chief Royal Secretary (a high-ranking official who served as the King's closest advisor and liaison to the Six Boards)",
+        "meaningKr": "The Chief Royal Secretary (a high-ranking official who served as the King's closest advisor and liaison to the Six Boards)",
+        "exampleEn": "도승지께서는 전하의 명을 받들어 즉시 교지를 반포하시옵소서.",
+        "exampleKr": "Chief Royal Secretary, receive His Majesty's order and immediately promulgate the royal decree.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "doseungji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-25-1780589622431",
+        "term": "암행어사",
+        "definition": "a secret royal inspector (traveling in disguise to monitor local officials and uncover corruption)",
+        "meaningKr": "a secret royal inspector (traveling in disguise to monitor local officials and uncover corruption)",
+        "exampleEn": "암행어사 출두요! 이 고을의 비리를 낱낱이 밝혀낼 것이다!",
+        "exampleKr": "A secret royal inspector has arrived! I shall uncover every corruption in this town!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "amhaeng-eosa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-26-1780589622431",
+        "term": "어사",
+        "definition": "a royal inspector or envoy (dispatched by the king to investigate local affairs or deliver royal commands)",
+        "meaningKr": "a royal inspector or envoy (dispatched by the king to investigate local affairs or deliver royal commands)",
+        "exampleEn": "폐하의 어명이시니, 어사의 말을 거역할 자 누구인가!",
+        "exampleKr": "It is His Majesty's royal command, who dares defy the royal inspector's words!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "eosa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-27-1780589622431",
+        "term": "사또",
+        "definition": "a local magistrate or governor of a town (often addressed as 사또 나리)",
+        "meaningKr": "a local magistrate or governor of a town (often addressed as 사또 나리)",
+        "exampleEn": "사또, 이 고을에 도적떼가 창궐하여 백성들이 고통받고 있사옵니다.",
+        "exampleKr": "Magistrate, bandits are rampant in this town and the people are suffering.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "satto",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-28-1780589622431",
+        "term": "현감",
+        "definition": "a county magistrate (the lowest-ranking local governor in Joseon)",
+        "meaningKr": "a county magistrate (the lowest-ranking local governor in Joseon)",
+        "exampleEn": "현감 나리, 저희 마을의 억울한 사정을 헤아려 주시옵소서.",
+        "exampleKr": "County Magistrate, please consider the injustice of our village.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "hyeogam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-29-1780589622431",
+        "term": "관찰사",
+        "definition": "a provincial governor (the highest provincial official overseeing multiple counties)",
+        "meaningKr": "a provincial governor (the highest provincial official overseeing multiple counties)",
+        "exampleEn": "관찰사 나리께서 곧 이 행차에 합류하실 것이옵니다.",
+        "exampleKr": "The provincial governor will soon join this procession.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gwanchalsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-30-1780589622431",
+        "term": "포도대장",
+        "definition": "the police commander (head of the Joseon police bureau, responsible for law and order)",
+        "meaningKr": "the police commander (head of the Joseon police bureau, responsible for law and order)",
+        "exampleEn": "포도대장! 당장 저 역적들을 체포하여 심문하라!",
+        "exampleKr": "Police Commander! Immediately arrest and interrogate those traitors!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "pododaejang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-31-1780589622431",
+        "term": "대제학",
+        "definition": "the Grand Scholar (the highest scholarly and literary official, often overseeing royal academies)",
+        "meaningKr": "the Grand Scholar (the highest scholarly and literary official, often overseeing royal academies)",
+        "exampleEn": "대제학께서는 폐하의 총애를 받으시어 지엄하신 분이시옵니다.",
+        "exampleKr": "The Grand Scholar is a revered figure, enjoying His Majesty's favor.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "daejehagi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-32-1780589622431",
+        "term": "상궁",
+        "definition": "a senior court lady (a high-ranking palace woman who supervises junior court ladies and serves the royal family)",
+        "meaningKr": "a senior court lady (a high-ranking palace woman who supervises junior court ladies and serves the royal family)",
+        "exampleEn": "상궁 마마, 마마님께서 드실 수라가 준비되었사옵니다.",
+        "exampleKr": "Senior Court Lady, His Majesty's meal has been prepared.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sang-gung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-33-1780589622431",
+        "term": "궁녀",
+        "definition": "a court lady (a woman serving in the palace, encompassing various ranks from maids to senior officials)",
+        "meaningKr": "a court lady (a woman serving in the palace, encompassing various ranks from maids to senior officials)",
+        "exampleEn": "궁녀들의 규율이 해이해졌으니, 엄히 다스려야 할 것이옵니다.",
+        "exampleKr": "The court ladies' discipline has slackened; they must be strictly managed.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gungnyeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-34-1780589622431",
+        "term": "나인",
+        "definition": "a court maid (a mid-ranking palace woman, serving under a 상궁 and often specializing in certain duties)",
+        "meaningKr": "a court maid (a mid-ranking palace woman, serving under a 상궁 and often specializing in certain duties)",
+        "exampleEn": "나인들은 각자의 처소로 돌아가 밤을 지새우지 말라.",
+        "exampleKr": "Court maids, return to your quarters and do not stay up all night.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "na-in",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-35-1780589622431",
+        "term": "무수리",
+        "definition": "the lowest-ranking palace maidservant (responsible for menial tasks like cleaning and water fetching)",
+        "meaningKr": "the lowest-ranking palace maidservant (responsible for menial tasks like cleaning and water fetching)",
+        "exampleEn": "무수리 주제에 감히 마마님의 물건에 손을 대다니!",
+        "exampleKr": "How dare a mere maidservant touch Her Majesty's belongings!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "musuri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-36-1780589622431",
+        "term": "내시",
+        "definition": "a eunuch (a castrated male servant who served the king and royal family in various capacities)",
+        "meaningKr": "a eunuch (a castrated male servant who served the king and royal family in various capacities)",
+        "exampleEn": "내시부에서는 폐하의 안위를 최우선으로 해야 할 것이옵니다.",
+        "exampleKr": "The Eunuch Bureau must prioritize His Majesty's safety above all else.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "naesi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-37-1780589622431",
+        "term": "환관",
+        "definition": "a eunuch (a more formal term for a castrated male servant in the palace)",
+        "meaningKr": "a eunuch (a more formal term for a castrated male servant in the palace)",
+        "exampleEn": "역모를 꾸민 환관들을 모두 색출하여 엄벌에 처하라!",
+        "exampleKr": "Root out all the eunuchs who plotted treason and punish them severely!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "hwangwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-38-1780589622431",
+        "term": "어의",
+        "definition": "the royal physician (the chief doctor responsible for the health of the king and royal family)",
+        "meaningKr": "the royal physician (the chief doctor responsible for the health of the king and royal family)",
+        "exampleEn": "어의는 폐하의 용태를 살펴 한시바삐 쾌차하시도록 힘쓰라.",
+        "exampleKr": "Royal Physician, examine His Majesty's condition and strive for his swift recovery.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "eoui",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-39-1780589622431",
+        "term": "의녀",
+        "definition": "a female physician or medical court woman (serving in the palace, often attending to royal women or commoners)",
+        "meaningKr": "a female physician or medical court woman (serving in the palace, often attending to royal women or commoners)",
+        "exampleEn": "의녀들을 불러 대비 마마의 몸을 살피도록 하라.",
+        "exampleKr": "Summon the female physicians to examine the Queen Dowager's health.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "uinyeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-40-1780589622431",
+        "term": "상선",
+        "definition": "the chief eunuch (the highest-ranking eunuch, directly serving and advising the king)",
+        "meaningKr": "the chief eunuch (the highest-ranking eunuch, directly serving and advising the king)",
+        "exampleEn": "상선은 지금 당장 어명을 받들라!",
+        "exampleKr": "Chief Eunuch, receive the royal command at once!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sangseon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-41-1780589622431",
+        "term": "제조상궁",
+        "definition": "the head court lady (the highest-ranking court lady, overseeing all palace women and managing royal household affairs)",
+        "meaningKr": "the head court lady (the highest-ranking court lady, overseeing all palace women and managing royal household affairs)",
+        "exampleEn": "제조상궁은 궁궐의 모든 일을 총괄하니 그 권세가 막강하다.",
+        "exampleKr": "The Head Court Lady oversees all palace affairs, so her authority is immense.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jejosaungung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-42-1780589622431",
+        "term": "수라",
+        "definition": "the king's meal (royal dining, specifically referring to the food prepared for the monarch)",
+        "meaningKr": "the king's meal (royal dining, specifically referring to the food prepared for the monarch)",
+        "exampleEn": "폐하의 수라가 준비되었으니, 어서 드시옵소서.",
+        "exampleKr": "His Majesty's meal has been prepared; please partake of it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sura",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-43-1780589622431",
+        "term": "수라간",
+        "definition": "the royal kitchen (the palace kitchen where meals for the king and royal family are prepared)",
+        "meaningKr": "the royal kitchen (the palace kitchen where meals for the king and royal family are prepared)",
+        "exampleEn": "수라간 나인들은 폐하의 수라에 독이 들지 않도록 각별히 유의하라.",
+        "exampleKr": "Kitchen maids, be extremely careful not to let poison enter His Majesty's meal.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "suragan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-44-1780589622431",
+        "term": "어명",
+        "definition": "a royal command or order (an official decree issued by the king)",
+        "meaningKr": "a royal command or order (an official decree issued by the king)",
+        "exampleEn": "이는 폐하의 어명이니, 누구도 거스를 수 없을 것이옵니다.",
+        "exampleKr": "This is His Majesty's royal command; no one may defy it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "eomyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-45-1780589622431",
+        "term": "성은이 망극하옵니다",
+        "definition": "Your Majesty's grace is boundless (a set phrase expressing overwhelming gratitude to the king)",
+        "meaningKr": "Your Majesty's grace is boundless (a set phrase expressing overwhelming gratitude to the king)",
+        "exampleEn": "폐하의 지극한 성은이 망극하옵니다. 소신, 죽어서도 그 은혜 잊지 않겠습니다.",
+        "exampleKr": "Your Majesty's boundless grace overwhelms me. I shall not forget this favor even in death.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "seong-eun-i mang-geuk-ha-op-ni-da",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-46-1780589622431",
+        "term": "통촉하여 주시옵소서",
+        "definition": "Please reconsider / show your wisdom, Your Majesty (a humble plea to the king to carefully consider a matter with wisdom)",
+        "meaningKr": "Please reconsider / show your wisdom, Your Majesty (a humble plea to the king to carefully consider a matter with wisdom)",
+        "exampleEn": "폐하, 부디 소신들의 충언을 통촉하여 주시옵소서.",
+        "exampleKr": "Your Majesty, please graciously consider our loyal counsel.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "tongchok-hayeo jusiobeoseo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-47-1780589622431",
+        "term": "망극하옵니다",
+        "definition": "I am overwhelmed (with gratitude or grief), Your Majesty (a formal expression of being overwhelmed, often by royal grace or sorrow)",
+        "meaningKr": "I am overwhelmed (with gratitude or grief), Your Majesty (a formal expression of being overwhelmed, often by royal grace or sorrow)",
+        "exampleEn": "폐하의 깊으신 배려에 소신은 그저 망극하옵니다.",
+        "exampleKr": "I am simply overwhelmed by Your Majesty's profound consideration.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "mang-geuk-ha-op-ni-da",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-48-1780589622431",
+        "term": "황공하옵니다",
+        "definition": "I am humbled and awestruck (before the king; expressing extreme deference and trepidation in the king's presence)",
+        "meaningKr": "I am humbled and awestruck (before the king; expressing extreme deference and trepidation in the king's presence)",
+        "exampleEn": "폐하의 지엄하신 분부에 소신 황공하옵니다. 명을 받들겠습니다.",
+        "exampleKr": "I am humbled and awestruck by Your Majesty's solemn command. I shall obey.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "hwanggong-ha-op-ni-da",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-49-1780589622431",
+        "term": "송구하옵니다",
+        "definition": "I am deeply sorry, Your Majesty (a humble apology, expressing remorse and regret to the king)",
+        "meaningKr": "I am deeply sorry, Your Majesty (a humble apology, expressing remorse and regret to the king)",
+        "exampleEn": "소신, 폐하께 실례를 범하여 송구하옵니다. 부디 용서하여 주시옵소서.",
+        "exampleKr": "I am deeply sorry for having offended Your Majesty. Please forgive me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "song-gu-ha-op-ni-da",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-50-1780589622431",
+        "term": "아니 되옵니다",
+        "definition": "It must not be done, Your Majesty (a courtly objection to a royal command or action).",
+        "meaningKr": "It must not be done, Your Majesty (a courtly objection to a royal command or action).",
+        "exampleEn": "전하, 이는 결코 아니 되옵니다! 부디 재고하여 주시옵소서.",
+        "exampleKr": "Your Majesty, this must absolutely not be done! Please reconsider.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "ani doeopnida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-51-1780589622431",
+        "term": "분부대로 하겠사옵니다",
+        "definition": "I shall do exactly as you command (an obedient reply to a superior or the king).",
+        "meaningKr": "I shall do exactly as you command (an obedient reply to a superior or the king).",
+        "exampleEn": "마마, 소인이 마마의 분부대로 하겠사옵니다. 염려 마시옵소서.",
+        "exampleKr": "Your Highness, I shall do exactly as you command. Please do not worry.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "bunbudaero haget-saopnida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-52-1780589622431",
+        "term": "명을 받들겠사옵니다",
+        "definition": "I shall obey and carry out the command (a formal declaration of obedience to a royal or superior's order).",
+        "meaningKr": "I shall obey and carry out the command (a formal declaration of obedience to a royal or superior's order).",
+        "exampleEn": "전하의 지엄하신 명을 받들겠사옵니다. 소신, 목숨을 다하겠나이다.",
+        "exampleKr": "I shall obey and carry out Your Majesty's solemn command. I, your subject, will give my life.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "myeong-eul batdeulget-saopnida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-saguk-53-1780589622431",
+        "term": "소인",
+        "definition": "I (a humble 'I' used by a commoner or person of low status when addressing a superior).",
+        "meaningKr": "I (a humble 'I' used by a commoner or person of low status when addressing a superior).",
+        "exampleEn": "나으리, 소인은 그저 지나가던 길이었을 뿐이옵니다.",
+        "exampleKr": "My lord, I was merely passing by.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "soin",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-saguk-54-1780589622431",
+        "term": "소신",
+        "definition": "I (a humble 'I' used by an official when addressing the king).",
+        "meaningKr": "I (a humble 'I' used by an official when addressing the king).",
+        "exampleEn": "전하, 소신은 감히 그리 생각하지 아니하옵니다.",
+        "exampleKr": "Your Majesty, I, your humble subject, dare not think so.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sosin",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-saguk-55-1780589622431",
+        "term": "신",
+        "definition": "I, your subject (a formal 'I' used by an official when addressing the king).",
+        "meaningKr": "I, your subject (a formal 'I' used by an official when addressing the king).",
+        "exampleEn": "전하, 신은 전하의 뜻을 따를 뿐이옵니다.",
+        "exampleKr": "Your Majesty, I, your subject, shall only follow your will.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sin",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-saguk-56-1780589622431",
+        "term": "과인",
+        "definition": "The royal 'I' (used by the king when referring to himself).",
+        "meaningKr": "The royal 'I' (used by the king when referring to himself).",
+        "exampleEn": "과인이 친히 이 일을 처리할 것이니, 모두 물러가라.",
+        "exampleKr": "I, the King, shall personally handle this matter, so all of you withdraw.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gwain",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-saguk-57-1780589622431",
+        "term": "짐",
+        "definition": "The imperial 'I' (used by an emperor when referring to himself, less common in Joseon-era sageuk but sometimes used for historical context of other dynasties).",
+        "meaningKr": "The imperial 'I' (used by an emperor when referring to himself, less common in Joseon-era sageuk but sometimes used for historical context of other dynasties).",
+        "exampleEn": "짐은 이 나라의 태평성대를 이루리라 맹세하노라.",
+        "exampleKr": "I, the Emperor, swear to bring an era of peace and prosperity to this nation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jim",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-saguk-58-1780589622431",
+        "term": "납시오",
+        "definition": "His Majesty arrives! / makes his entrance! (an announcement of the king's arrival or departure).",
+        "meaningKr": "His Majesty arrives! / makes his entrance! (an announcement of the king's arrival or departure).",
+        "exampleEn": "주상 전하 납시오! 모두 고개를 들라!",
+        "exampleKr": "His Majesty the King arrives! All raise your heads!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "napsio",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-saguk-59-1780589622431",
+        "term": "윤허",
+        "definition": "The king's permission or approval (a formal term for royal consent).",
+        "meaningKr": "The king's permission or approval (a formal term for royal consent).",
+        "exampleEn": "전하, 부디 소신의 청을 윤허하여 주시옵소서.",
+        "exampleKr": "Your Majesty, please grant your permission for my request.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "yunheo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-60-1780589622431",
+        "term": "하명",
+        "definition": "A command given by a superior or the king (a formal order from a higher authority).",
+        "meaningKr": "A command given by a superior or the king (a formal order from a higher authority).",
+        "exampleEn": "전하의 하명이 없이는 감히 한 발자국도 움직일 수 없사옵니다.",
+        "exampleKr": "Without Your Majesty's command, I dare not move a single step.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "hamyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-61-1780589622431",
+        "term": "어전",
+        "definition": "The royal presence; before the king (the area or situation directly in front of the king).",
+        "meaningKr": "The royal presence; before the king (the area or situation directly in front of the king).",
+        "exampleEn": "감히 어전에서 소란을 피우다니, 당장 끌어내라!",
+        "exampleKr": "How dare you cause a disturbance in the royal presence! Drag him out at once!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "eojon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-62-1780589622431",
+        "term": "입궐",
+        "definition": "Entering the palace (specifically to attend court or perform palace duties).",
+        "meaningKr": "Entering the palace (specifically to attend court or perform palace duties).",
+        "exampleEn": "대신들은 날이 밝는 대로 입궐하여 어명을 기다리라 이르라.",
+        "exampleKr": "Tell the ministers to enter the palace at dawn and await the royal command.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "ipgwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-63-1780589622431",
+        "term": "퇴궐",
+        "definition": "Leaving the palace (after court duty or official business).",
+        "meaningKr": "Leaving the palace (after court duty or official business).",
+        "exampleEn": "오늘 퇴궐 후, 별도로 대감께 인사를 올리러 가겠습니다.",
+        "exampleKr": "After leaving the palace today, I will separately go to pay my respects to the minister.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "toegwol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-64-1780589622431",
+        "term": "거동",
+        "definition": "The movement or procession of the king (a formal term for the king's travels or movements).",
+        "meaningKr": "The movement or procession of the king (a formal term for the king's travels or movements).",
+        "exampleEn": "주상 전하의 거동이 곧 시작될 것이니, 백성들은 길을 비켜라!",
+        "exampleKr": "His Majesty the King's procession will begin soon, so the people, clear the way!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "geodong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-65-1780589622431",
+        "term": "어가",
+        "definition": "The royal palanquin or carriage (used by the king).",
+        "meaningKr": "The royal palanquin or carriage (used by the king).",
+        "exampleEn": "어가가 지나는 길에 감히 역적의 무리가 나타나다니!",
+        "exampleKr": "How dare a band of traitors appear on the path where the royal palanquin passes!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "eoga",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-66-1780589622431",
+        "term": "자객",
+        "definition": "An assassin (a hired killer, often for political purposes).",
+        "meaningKr": "An assassin (a hired killer, often for political purposes).",
+        "exampleEn": "밤중에 자객이 침입하여 전하를 해하려 하였사옵니다.",
+        "exampleKr": "An assassin infiltrated during the night and attempted to harm Your Majesty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "jagaek",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-67-1780589622431",
+        "term": "장군",
+        "definition": "A general or military commander.",
+        "meaningKr": "A general or military commander.",
+        "exampleEn": "장군, 당장 병사들을 이끌고 적을 토벌하시옵소서!",
+        "exampleKr": "General, lead the soldiers immediately and suppress the enemy!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "janggun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-68-1780589622431",
+        "term": "무사",
+        "definition": "A warrior or swordsman (a skilled combatant).",
+        "meaningKr": "A warrior or swordsman (a skilled combatant).",
+        "exampleEn": "저 무사들의 기세가 예사롭지 않으니, 조심해야 할 것이옵니다.",
+        "exampleKr": "The spirit of those warriors is unusual, so we must be careful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "musa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-69-1780589622431",
+        "term": "호위무사",
+        "definition": "A bodyguard warrior (a warrior assigned to protect someone important).",
+        "meaningKr": "A bodyguard warrior (a warrior assigned to protect someone important).",
+        "exampleEn": "호위무사들은 전하의 곁을 한시도 떠나서는 아니 될 것이다.",
+        "exampleKr": "The bodyguard warriors must not leave His Majesty's side for a single moment.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "howi-musa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-70-1780589622431",
+        "term": "금군",
+        "definition": "The royal guards (the elite military unit responsible for protecting the palace and the king).",
+        "meaningKr": "The royal guards (the elite military unit responsible for protecting the palace and the king).",
+        "exampleEn": "금군은 당장 역적들을 모두 체포하여 국문을 열라!",
+        "exampleKr": "Royal guards, immediately arrest all traitors and commence interrogation!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "geumgun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-71-1780589622431",
+        "term": "도령",
+        "definition": "Young master (an address for an unmarried young nobleman).",
+        "meaningKr": "Young master (an address for an unmarried young nobleman).",
+        "exampleEn": "도령께서는 이제 그만 집으로 돌아가시지요.",
+        "exampleKr": "Young master, please return home now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "doryeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-72-1780589622431",
+        "term": "역모",
+        "definition": "A plot of treason or rebellion against the king or the state.",
+        "meaningKr": "A plot of treason or rebellion against the king or the state.",
+        "exampleEn": "역모의 증좌가 명백하니, 죄인들을 엄히 다스려야 할 것이옵니다.",
+        "exampleKr": "The evidence of treason is clear, so the culprits must be severely punished.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "yeokmo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-73-1780589622431",
+        "term": "모반",
+        "definition": "Rebellion or insurrection (an act of open resistance against the king or established government).",
+        "meaningKr": "Rebellion or insurrection (an act of open resistance against the king or established government).",
+        "exampleEn": "저들이 기어이 모반을 일으켰으니, 즉시 진압해야 하옵니다.",
+        "exampleKr": "They have finally instigated rebellion, so it must be suppressed immediately.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "moban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-74-1780589622431",
+        "term": "역적",
+        "definition": "A traitor or rebel (one who commits treason or rebellion against the king).",
+        "meaningKr": "A traitor or rebel (one who commits treason or rebellion against the king).",
+        "exampleEn": "역적의 무리를 섬멸하고, 나라의 기강을 바로 세워야 할 것이옵니다.",
+        "exampleKr": "We must annihilate the band of traitors and re-establish the nation's discipline.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "yeokjeok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-75-1780589622431",
+        "term": "반정",
+        "definition": "A coup d'état aimed at dethroning a tyrannical ruler and restoring order to the kingdom.",
+        "meaningKr": "A coup d'état aimed at dethroning a tyrannical ruler and restoring order to the kingdom.",
+        "exampleEn": "주상 전하, 역적들이 반정을 일으켜 왕실을 위협하고 있사옵니다!",
+        "exampleKr": "Your Majesty, the rebels have staged a coup and are threatening the royal family!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "banjeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-76-1780589622431",
+        "term": "밀지",
+        "definition": "A secret order or command issued by the king.",
+        "meaningKr": "A secret order or command issued by the king.",
+        "exampleEn": "전하의 밀지를 받들어 역적을 색출하여 벌하겠사옵니다.",
+        "exampleKr": "I shall follow His Majesty's secret order to find and punish the traitors.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "milji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-77-1780589622431",
+        "term": "사약",
+        "definition": "Poison bestowed by the king as a form of execution, typically for high-ranking officials or royalty.",
+        "meaningKr": "Poison bestowed by the king as a form of execution, typically for high-ranking officials or royalty.",
+        "exampleEn": "역적에게 사약을 내리시어 엄히 죄를 물으시옵소서.",
+        "exampleKr": "Bestow poison upon the traitor and severely punish his crime.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sayak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-78-1780589622431",
+        "term": "곤장",
+        "definition": "A large flogging paddle used for corporal punishment, or the punishment by beating itself.",
+        "meaningKr": "A large flogging paddle used for corporal punishment, or the punishment by beating itself.",
+        "exampleEn": "죄인에게 곤장 스무 대를 내리라!",
+        "exampleKr": "Administer twenty blows of the flogging paddle to the criminal!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gonjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-79-1780589622431",
+        "term": "주리",
+        "definition": "A severe torture method involving twisting the legs, often used to extract confessions.",
+        "meaningKr": "A severe torture method involving twisting the legs, often used to extract confessions.",
+        "exampleEn": "역적에게 주리를 틀어 숨겨진 진실을 밝혀내라!",
+        "exampleKr": "Twist the traitor's legs to uncover the hidden truth!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "juri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-80-1780589622431",
+        "term": "유배",
+        "definition": "Banishment or exile to a remote location as a form of punishment, often for political offenses.",
+        "meaningKr": "Banishment or exile to a remote location as a form of punishment, often for political offenses.",
+        "exampleEn": "대역죄인을 먼 곳으로 유배 보내 다시는 한양 땅을 밟지 못하게 하라.",
+        "exampleKr": "Banish the grave traitor to a distant land, never to step foot in Hanyang again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "yubae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-81-1780589622431",
+        "term": "귀양",
+        "definition": "Exile or banishment to a remote place as a form of punishment.",
+        "meaningKr": "Exile or banishment to a remote place as a form of punishment.",
+        "exampleEn": "그 죄인을 제주도로 귀양 보내 영원히 돌아오지 못하게 하라.",
+        "exampleKr": "Banish that criminal to Jeju Island, never to return.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gwiyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-82-1780589622431",
+        "term": "의금부",
+        "definition": "The Royal Investigation Bureau, responsible for investigating and prosecuting grave crimes, especially those involving royalty or high officials.",
+        "meaningKr": "The Royal Investigation Bureau, responsible for investigating and prosecuting grave crimes, especially those involving royalty or high officials.",
+        "exampleEn": "역모에 가담한 자들을 의금부로 압송하여 국문하라!",
+        "exampleKr": "Bring those involved in treason to the Royal Investigation Bureau for interrogation!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "uigeumbu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-83-1780589622431",
+        "term": "포도청",
+        "definition": "The Police Bureau, responsible for maintaining public order, apprehending criminals, and investigating general crimes.",
+        "meaningKr": "The Police Bureau, responsible for maintaining public order, apprehending criminals, and investigating general crimes.",
+        "exampleEn": "한양에 도둑이 들끓으니 포도청은 즉시 도적을 잡으라!",
+        "exampleKr": "Thieves infest Hanyang; the Police Bureau must immediately apprehend them!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "podo-cheong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-84-1780589622431",
+        "term": "국문",
+        "definition": "Interrogation, often involving torture, typically ordered by the king or high officials to extract confessions.",
+        "meaningKr": "Interrogation, often involving torture, typically ordered by the king or high officials to extract confessions.",
+        "exampleEn": "역적에게 국문을 시작하여 모든 죄를 자백하게 하라.",
+        "exampleKr": "Begin the interrogation of the traitor and make him confess all his crimes.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gungmun",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-85-1780589622431",
+        "term": "참수",
+        "definition": "Execution by beheading, a common form of capital punishment.",
+        "meaningKr": "Execution by beheading, a common form of capital punishment.",
+        "exampleEn": "역적의 죄가 명백하니 참수에 처해야 마땅하옵니다.",
+        "exampleKr": "The traitor's crime is clear; he deserves execution by beheading.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "chamsu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-86-1780589622431",
+        "term": "능지처참",
+        "definition": "Death by dismemberment, considered the cruelest form of execution, reserved for the most heinous crimes like treason.",
+        "meaningKr": "Death by dismemberment, considered the cruelest form of execution, reserved for the most heinous crimes like treason.",
+        "exampleEn": "그 역적은 능지처참에 처하여 백성들에게 본보기를 보여야 하옵니다.",
+        "exampleKr": "That traitor must be put to death by dismemberment to set an example for the people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "neungjicheocham",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-87-1780589622431",
+        "term": "옥사",
+        "definition": "A prison or jail, a place for incarceration of criminals.",
+        "meaningKr": "A prison or jail, a place for incarceration of criminals.",
+        "exampleEn": "죄수를 옥사에 가두어 다시는 세상에 나오지 못하게 하라.",
+        "exampleKr": "Imprison the criminal in the jail, never to let him see the world again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "oksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-88-1780589622431",
+        "term": "양반",
+        "definition": "The aristocratic and noble ruling class of Joseon society, consisting of civil and military officials.",
+        "meaningKr": "The aristocratic and noble ruling class of Joseon society, consisting of civil and military officials.",
+        "exampleEn": "그 양반은 당대의 학식 높은 선비로 이름이 자자하옵니다.",
+        "exampleKr": "That noble gentleman is renowned as a highly learned scholar of his time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "yangban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-89-1780589622431",
+        "term": "상민",
+        "definition": "A commoner of the lower class, including farmers, merchants, and craftsmen, subject to taxes and military service.",
+        "meaningKr": "A commoner of the lower class, including farmers, merchants, and craftsmen, subject to taxes and military service.",
+        "exampleEn": "상민들의 고통이 극심하오니 전하께서 헤아려 주시옵소서.",
+        "exampleKr": "The commoners' suffering is severe, Your Majesty; please consider their plight.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "sangmin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-90-1780589622431",
+        "term": "천민",
+        "definition": "The lowest social class in Joseon, considered outcasts, including butchers, shamans, and entertainers.",
+        "meaningKr": "The lowest social class in Joseon, considered outcasts, including butchers, shamans, and entertainers.",
+        "exampleEn": "천민이라 하여 인간 대접을 받지 못하는 것이 옳사옵니까?",
+        "exampleKr": "Is it right for them to be treated as less than human simply because they are of the lowest class?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "cheonmin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-91-1780589622431",
+        "term": "노비",
+        "definition": "A slave or serf, legally bound to a master and considered property.",
+        "meaningKr": "A slave or serf, legally bound to a master and considered property.",
+        "exampleEn": "저 노비는 주인의 명을 거역하였으니 엄히 다스려야 할 것이옵니다.",
+        "exampleKr": "That slave defied his master's order; he must be severely punished.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "nobi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-92-1780589622431",
+        "term": "기생",
+        "definition": "A gisaeng, a female entertainer of arts, skilled in music, dance, and poetry, who served the literati and royalty.",
+        "meaningKr": "A gisaeng, a female entertainer of arts, skilled in music, dance, and poetry, who served the literati and royalty.",
+        "exampleEn": "저 기생의 춤사위는 한양 최고라 하옵니다.",
+        "exampleKr": "That gisaeng's dance is said to be the best in Hanyang.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gisaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-93-1780589622431",
+        "term": "선비",
+        "definition": "A Confucian scholar or learned gentleman, typically of the yangban class, dedicated to academic study and moral integrity.",
+        "meaningKr": "A Confucian scholar or learned gentleman, typically of the yangban class, dedicated to academic study and moral integrity.",
+        "exampleEn": "진정한 선비라면 백성을 위해 자신의 몸을 아끼지 않아야 하옵니다.",
+        "exampleKr": "A true scholar should not spare himself for the sake of the people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "seonbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-94-1780589622431",
+        "term": "백성",
+        "definition": "The common people, the king's subjects, whose welfare was considered the king's primary responsibility.",
+        "meaningKr": "The common people, the king's subjects, whose welfare was considered the king's primary responsibility.",
+        "exampleEn": "전하, 백성들의 삶이 너무나도 고달프옵니다.",
+        "exampleKr": "Your Majesty, the lives of your people are so arduous.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "baekseong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-95-1780589622431",
+        "term": "마님",
+        "definition": "A respectful form of address used by servants towards the noblewoman of the house; madam, my lady.",
+        "meaningKr": "A respectful form of address used by servants towards the noblewoman of the house; madam, my lady.",
+        "exampleEn": "마님, 나으리께서 잠시 후에 도착하실 것이옵니다.",
+        "exampleKr": "Madam, His Lordship will arrive shortly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "manim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-96-1780589622431",
+        "term": "서방님",
+        "definition": "A respectful form of address for a young master of a noble household or, less commonly, one's husband.",
+        "meaningKr": "A respectful form of address for a young master of a noble household or, less commonly, one's husband.",
+        "exampleEn": "서방님, 어찌 그리 늦게 돌아오셨사옵니까?",
+        "exampleKr": "My young master, why have you returned so late?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "seobangnim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-97-1780589622431",
+        "term": "대갓집",
+        "definition": "The household or residence of a great noble or high-ranking family.",
+        "meaningKr": "The household or residence of a great noble or high-ranking family.",
+        "exampleEn": "저 대갓집의 위세는 한양에서 따를 자가 없사옵니다.",
+        "exampleKr": "The prestige of that great noble household is unrivaled in Hanyang.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "daegatjip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-98-1780589622431",
+        "term": "한양",
+        "definition": "Hanyang, the historical name for the capital city of the Joseon Dynasty, now Seoul.",
+        "meaningKr": "Hanyang, the historical name for the capital city of the Joseon Dynasty, now Seoul.",
+        "exampleEn": "한양 도성에 역병이 돌아 백성들이 고통받고 있사옵니다.",
+        "exampleKr": "A plague has spread through the capital city of Hanyang, and the people are suffering.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "Hanyang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-saguk-99-1780589622431",
+        "term": "과거",
+        "definition": "The state civil-service examination, a rigorous test for selecting government officials during the Joseon Dynasty.",
+        "meaningKr": "The state civil-service examination, a rigorous test for selecting government officials during the Joseon Dynasty.",
+        "exampleEn": "아버님, 소인은 과거에 급제하여 가문의 명예를 드높이겠사옵니다.",
+        "exampleKr": "Father, I shall pass the civil service examination and elevate our family's honor.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Sageuk",
+          "Culture"
+        ],
+        "phonetic": "gwageo",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-suneung-1",
     "title": "수능 필수 어휘 500",
     "icon": "🎓",

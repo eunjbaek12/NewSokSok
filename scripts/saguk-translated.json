@@ -1,0 +1,1002 @@
+[
+  {
+    "rank": 1,
+    "term": "전하",
+    "pos": "noun",
+    "meaningEn": "Your Majesty (a formal address for the King)",
+    "romaja": "jeonha",
+    "exampleKo": "전하, 소신, 죽음을 무릅쓰고 한 말씀 아뢰옵니다.",
+    "exampleEn": "Your Majesty, I, your humble servant, dare to speak at the risk of my life.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 2,
+    "term": "폐하",
+    "pos": "noun",
+    "meaningEn": "Your Imperial Majesty (a formal address for an Emperor, used in historical dramas when referring to an emperor or a king claiming imperial status)",
+    "romaja": "pyeha",
+    "exampleKo": "폐하, 천자의 명을 받들어 이리 행하겠사옵니다.",
+    "exampleEn": "Your Imperial Majesty, I shall act according to the Emperor's command.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 3,
+    "term": "마마",
+    "pos": "noun",
+    "meaningEn": "Your Highness (an honorific suffix used when addressing the Queen, princes, or princesses)",
+    "romaja": "mama",
+    "exampleKo": "세자 저하 마마께서는 어찌하여 이리 심려하시옵니까?",
+    "exampleEn": "Your Royal Highness, the Crown Prince, why do you worry so?",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 4,
+    "term": "저하",
+    "pos": "noun",
+    "meaningEn": "Your Royal Highness (a formal address for the Crown Prince)",
+    "romaja": "jeoha",
+    "exampleKo": "저하, 역모의 증좌가 명백히 드러났사옵니다.",
+    "exampleEn": "Your Royal Highness, the evidence of treason has been clearly revealed.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 5,
+    "term": "중전",
+    "pos": "noun",
+    "meaningEn": "The Queen Consort (the reigning King's wife)",
+    "romaja": "jungjeon",
+    "exampleKo": "중전께서 옥체를 보존하시고 순산하시기를 바라옵니다.",
+    "exampleEn": "I pray that the Queen will preserve her health and have a safe delivery.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 6,
+    "term": "중전마마",
+    "pos": "noun",
+    "meaningEn": "Her Majesty the Queen (a formal address for the Queen Consort)",
+    "romaja": "jungjeonmama",
+    "exampleKo": "중전마마, 소신이 미천하오나 마마의 뜻을 따르겠사옵니다.",
+    "exampleEn": "Your Majesty the Queen, though I am humble, I shall follow your will.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 7,
+    "term": "대비",
+    "pos": "noun",
+    "meaningEn": "The Queen Dowager (the King's mother)",
+    "romaja": "daebi",
+    "exampleKo": "대비께서 편찮으시다는 소식에 온 조정이 근심하옵니다.",
+    "exampleEn": "The entire court is worried upon hearing the news that the Queen Dowager is ill.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 8,
+    "term": "대비마마",
+    "pos": "noun",
+    "meaningEn": "Her Majesty the Queen Dowager (a formal address for the King's mother)",
+    "romaja": "daebimama",
+    "exampleKo": "대비마마, 부디 옥체를 보존하시고 만수무강하시옵소서.",
+    "exampleEn": "Your Majesty the Queen Dowager, please preserve your health and live a long life.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 9,
+    "term": "세자",
+    "pos": "noun",
+    "meaningEn": "The Crown Prince (the designated heir to the throne)",
+    "romaja": "seja",
+    "exampleKo": "세자께서 국본을 굳건히 하시어 만백성의 기대를 한몸에 받으시옵니다.",
+    "exampleEn": "The Crown Prince strengthens the foundation of the nation and receives the hopes of all people.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 10,
+    "term": "세자저하",
+    "pos": "noun",
+    "meaningEn": "His Royal Highness the Crown Prince (a formal address for the heir apparent)",
+    "romaja": "sejajeoha",
+    "exampleKo": "세자저하, 소신이 감히 한 말씀 아뢰려 하옵니다.",
+    "exampleEn": "Your Royal Highness the Crown Prince, I humbly dare to speak a word.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 11,
+    "term": "빈궁",
+    "pos": "noun",
+    "meaningEn": "The Crown Princess (the wife of the Crown Prince)",
+    "romaja": "bingung",
+    "exampleKo": "빈궁께서 회임을 하시어 나라에 경사가 겹쳤사옵니다.",
+    "exampleEn": "The Crown Princess is pregnant, bringing double joy to the nation.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 12,
+    "term": "대군",
+    "pos": "noun",
+    "meaningEn": "A Grand Prince (a son of the King and Queen)",
+    "romaja": "daegun",
+    "exampleKo": "대군마마께서 강녕하시니 만백성이 기뻐하옵니다.",
+    "exampleEn": "As the Grand Prince is in good health, all the people rejoice.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 13,
+    "term": "상왕",
+    "pos": "noun",
+    "meaningEn": "A Retired King (a king who has abdicated the throne but still holds influence)",
+    "romaja": "sangwang",
+    "exampleKo": "상왕께서 수렴청정을 하심은 조정을 혼란케 할 것입니다.",
+    "exampleEn": "The Retired King's regency will throw the court into confusion.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 14,
+    "term": "옹주",
+    "pos": "noun",
+    "meaningEn": "An Ongju Princess (a princess born to the King and a royal concubine)",
+    "romaja": "ongju",
+    "exampleKo": "옹주마마께서는 어찌하여 이리 슬픔에 잠겨 계시옵니까?",
+    "exampleEn": "Princess Ongju, why are you steeped in such sorrow?",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 15,
+    "term": "공주",
+    "pos": "noun",
+    "meaningEn": "A Gongju Princess (a princess born to the King and Queen)",
+    "romaja": "gongju",
+    "exampleKo": "공주마마께서는 학식이 깊으시고 성품 또한 고우시옵니다.",
+    "exampleEn": "Princess Gongju is deeply learned and her character is also noble.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 16,
+    "term": "후궁",
+    "pos": "noun",
+    "meaningEn": "A Royal Concubine (a consort of the King, ranking below the Queen)",
+    "romaja": "hugung",
+    "exampleKo": "후궁의 처소에서 수상한 움직임이 감지되었사옵니다.",
+    "exampleEn": "Suspicious movements have been detected in the royal concubine's chambers.",
+    "category": "왕실 호칭"
+  },
+  {
+    "rank": 17,
+    "term": "대감",
+    "pos": "noun",
+    "meaningEn": "My Lord (an honorific address for a high-ranking government official, especially a State Councillor)",
+    "romaja": "daegam",
+    "exampleKo": "대감, 이 일은 그리 쉽게 넘길 일이 아니옵니다.",
+    "exampleEn": "My Lord, this matter is not something to be easily overlooked.",
+    "category": "관직"
+  },
+  {
+    "rank": 18,
+    "term": "영감",
+    "pos": "noun",
+    "meaningEn": "My Lord / Sir (an honorific address for a mid-ranking government official, lower in status than 대감)",
+    "romaja": "yeonggam",
+    "exampleKo": "영감, 어찌하여 소인의 청을 들어주지 않으시나이까?",
+    "exampleEn": "My Lord, why do you not grant this humble person's request?",
+    "category": "관직"
+  },
+  {
+    "rank": 19,
+    "term": "나리",
+    "pos": "noun",
+    "meaningEn": "My Lord / Sir (a respectful address used by commoners or those of lower status towards officials or noblemen)",
+    "romaja": "nari",
+    "exampleKo": "나리, 이 억울한 사정을 부디 헤아려 주시옵소서.",
+    "exampleEn": "My Lord, please consider this unfair situation.",
+    "category": "관직"
+  },
+  {
+    "rank": 20,
+    "term": "영의정",
+    "pos": "noun",
+    "meaningEn": "Chief State Councillor (the highest government official, akin to a prime minister)",
+    "romaja": "yeonguijeong",
+    "exampleKo": "영의정 대감께서 국정을 총괄하시니 나라가 태평성대하옵니다.",
+    "exampleEn": "As the Chief State Councillor oversees state affairs, the nation enjoys peace and prosperity.",
+    "category": "관직"
+  },
+  {
+    "rank": 21,
+    "term": "좌의정",
+    "pos": "noun",
+    "meaningEn": "Left State Councillor (the second-highest government official)",
+    "romaja": "jwauijeong",
+    "exampleKo": "좌의정 대감께서 상소를 올리시어 전하의 뜻을 거스를까 염려되옵니다.",
+    "exampleEn": "I fear the Left State Councillor's petition might go against Your Majesty's will.",
+    "category": "관직"
+  },
+  {
+    "rank": 22,
+    "term": "우의정",
+    "pos": "noun",
+    "meaningEn": "Right State Councillor (the third-highest government official)",
+    "romaja": "uuijeong",
+    "exampleKo": "우의정 대감은 병판의 자리를 노리고 계신 것이 분명하옵니다.",
+    "exampleEn": "It is clear that the Right State Councillor is aiming for the position of Minister of War.",
+    "category": "관직"
+  },
+  {
+    "rank": 23,
+    "term": "정승",
+    "pos": "noun",
+    "meaningEn": "A State Councillor (a collective term for the top three ministers: Chief, Left, and Right State Councillors)",
+    "romaja": "jeongseung",
+    "exampleKo": "삼정승이 모두 한 뜻으로 대의를 따르니 백성이 안정하옵니다.",
+    "exampleEn": "As all three State Councillors follow the great cause with one mind, the people are at peace.",
+    "category": "관직"
+  },
+  {
+    "rank": 24,
+    "term": "판서",
+    "pos": "noun",
+    "meaningEn": "A Minister (a high-ranking official heading one of the Six Boards of Joseon government)",
+    "romaja": "panseo",
+    "exampleKo": "병조판서께서 군사 훈련을 강화할 것을 주청하셨사옵니다.",
+    "exampleEn": "The Minister of War has requested to strengthen military training.",
+    "category": "관직"
+  },
+  {
+    "rank": 25,
+    "term": "도승지",
+    "pos": "noun",
+    "meaningEn": "The Chief Royal Secretary (a high-ranking official who served as the King's closest advisor and liaison to the Six Boards)",
+    "romaja": "doseungji",
+    "exampleKo": "도승지께서는 전하의 명을 받들어 즉시 교지를 반포하시옵소서.",
+    "exampleEn": "Chief Royal Secretary, receive His Majesty's order and immediately promulgate the royal decree.",
+    "category": "관직"
+  },
+  {
+    "rank": 26,
+    "term": "암행어사",
+    "pos": "noun",
+    "meaningEn": "a secret royal inspector (traveling in disguise to monitor local officials and uncover corruption)",
+    "romaja": "amhaeng-eosa",
+    "exampleKo": "암행어사 출두요! 이 고을의 비리를 낱낱이 밝혀낼 것이다!",
+    "exampleEn": "A secret royal inspector has arrived! I shall uncover every corruption in this town!",
+    "category": "관직"
+  },
+  {
+    "rank": 27,
+    "term": "어사",
+    "pos": "noun",
+    "meaningEn": "a royal inspector or envoy (dispatched by the king to investigate local affairs or deliver royal commands)",
+    "romaja": "eosa",
+    "exampleKo": "폐하의 어명이시니, 어사의 말을 거역할 자 누구인가!",
+    "exampleEn": "It is His Majesty's royal command, who dares defy the royal inspector's words!",
+    "category": "관직"
+  },
+  {
+    "rank": 28,
+    "term": "사또",
+    "pos": "noun",
+    "meaningEn": "a local magistrate or governor of a town (often addressed as 사또 나리)",
+    "romaja": "satto",
+    "exampleKo": "사또, 이 고을에 도적떼가 창궐하여 백성들이 고통받고 있사옵니다.",
+    "exampleEn": "Magistrate, bandits are rampant in this town and the people are suffering.",
+    "category": "관직"
+  },
+  {
+    "rank": 29,
+    "term": "현감",
+    "pos": "noun",
+    "meaningEn": "a county magistrate (the lowest-ranking local governor in Joseon)",
+    "romaja": "hyeogam",
+    "exampleKo": "현감 나리, 저희 마을의 억울한 사정을 헤아려 주시옵소서.",
+    "exampleEn": "County Magistrate, please consider the injustice of our village.",
+    "category": "관직"
+  },
+  {
+    "rank": 30,
+    "term": "관찰사",
+    "pos": "noun",
+    "meaningEn": "a provincial governor (the highest provincial official overseeing multiple counties)",
+    "romaja": "gwanchalsa",
+    "exampleKo": "관찰사 나리께서 곧 이 행차에 합류하실 것이옵니다.",
+    "exampleEn": "The provincial governor will soon join this procession.",
+    "category": "관직"
+  },
+  {
+    "rank": 31,
+    "term": "포도대장",
+    "pos": "noun",
+    "meaningEn": "the police commander (head of the Joseon police bureau, responsible for law and order)",
+    "romaja": "pododaejang",
+    "exampleKo": "포도대장! 당장 저 역적들을 체포하여 심문하라!",
+    "exampleEn": "Police Commander! Immediately arrest and interrogate those traitors!",
+    "category": "관직"
+  },
+  {
+    "rank": 32,
+    "term": "대제학",
+    "pos": "noun",
+    "meaningEn": "the Grand Scholar (the highest scholarly and literary official, often overseeing royal academies)",
+    "romaja": "daejehagi",
+    "exampleKo": "대제학께서는 폐하의 총애를 받으시어 지엄하신 분이시옵니다.",
+    "exampleEn": "The Grand Scholar is a revered figure, enjoying His Majesty's favor.",
+    "category": "관직"
+  },
+  {
+    "rank": 33,
+    "term": "상궁",
+    "pos": "noun",
+    "meaningEn": "a senior court lady (a high-ranking palace woman who supervises junior court ladies and serves the royal family)",
+    "romaja": "sang-gung",
+    "exampleKo": "상궁 마마, 마마님께서 드실 수라가 준비되었사옵니다.",
+    "exampleEn": "Senior Court Lady, His Majesty's meal has been prepared.",
+    "category": "궁중"
+  },
+  {
+    "rank": 34,
+    "term": "궁녀",
+    "pos": "noun",
+    "meaningEn": "a court lady (a woman serving in the palace, encompassing various ranks from maids to senior officials)",
+    "romaja": "gungnyeo",
+    "exampleKo": "궁녀들의 규율이 해이해졌으니, 엄히 다스려야 할 것이옵니다.",
+    "exampleEn": "The court ladies' discipline has slackened; they must be strictly managed.",
+    "category": "궁중"
+  },
+  {
+    "rank": 35,
+    "term": "나인",
+    "pos": "noun",
+    "meaningEn": "a court maid (a mid-ranking palace woman, serving under a 상궁 and often specializing in certain duties)",
+    "romaja": "na-in",
+    "exampleKo": "나인들은 각자의 처소로 돌아가 밤을 지새우지 말라.",
+    "exampleEn": "Court maids, return to your quarters and do not stay up all night.",
+    "category": "궁중"
+  },
+  {
+    "rank": 36,
+    "term": "무수리",
+    "pos": "noun",
+    "meaningEn": "the lowest-ranking palace maidservant (responsible for menial tasks like cleaning and water fetching)",
+    "romaja": "musuri",
+    "exampleKo": "무수리 주제에 감히 마마님의 물건에 손을 대다니!",
+    "exampleEn": "How dare a mere maidservant touch Her Majesty's belongings!",
+    "category": "궁중"
+  },
+  {
+    "rank": 37,
+    "term": "내시",
+    "pos": "noun",
+    "meaningEn": "a eunuch (a castrated male servant who served the king and royal family in various capacities)",
+    "romaja": "naesi",
+    "exampleKo": "내시부에서는 폐하의 안위를 최우선으로 해야 할 것이옵니다.",
+    "exampleEn": "The Eunuch Bureau must prioritize His Majesty's safety above all else.",
+    "category": "궁중"
+  },
+  {
+    "rank": 38,
+    "term": "환관",
+    "pos": "noun",
+    "meaningEn": "a eunuch (a more formal term for a castrated male servant in the palace)",
+    "romaja": "hwangwan",
+    "exampleKo": "역모를 꾸민 환관들을 모두 색출하여 엄벌에 처하라!",
+    "exampleEn": "Root out all the eunuchs who plotted treason and punish them severely!",
+    "category": "궁중"
+  },
+  {
+    "rank": 39,
+    "term": "어의",
+    "pos": "noun",
+    "meaningEn": "the royal physician (the chief doctor responsible for the health of the king and royal family)",
+    "romaja": "eoui",
+    "exampleKo": "어의는 폐하의 용태를 살펴 한시바삐 쾌차하시도록 힘쓰라.",
+    "exampleEn": "Royal Physician, examine His Majesty's condition and strive for his swift recovery.",
+    "category": "궁중"
+  },
+  {
+    "rank": 40,
+    "term": "의녀",
+    "pos": "noun",
+    "meaningEn": "a female physician or medical court woman (serving in the palace, often attending to royal women or commoners)",
+    "romaja": "uinyeo",
+    "exampleKo": "의녀들을 불러 대비 마마의 몸을 살피도록 하라.",
+    "exampleEn": "Summon the female physicians to examine the Queen Dowager's health.",
+    "category": "궁중"
+  },
+  {
+    "rank": 41,
+    "term": "상선",
+    "pos": "noun",
+    "meaningEn": "the chief eunuch (the highest-ranking eunuch, directly serving and advising the king)",
+    "romaja": "sangseon",
+    "exampleKo": "상선은 지금 당장 어명을 받들라!",
+    "exampleEn": "Chief Eunuch, receive the royal command at once!",
+    "category": "궁중"
+  },
+  {
+    "rank": 42,
+    "term": "제조상궁",
+    "pos": "noun",
+    "meaningEn": "the head court lady (the highest-ranking court lady, overseeing all palace women and managing royal household affairs)",
+    "romaja": "jejosaungung",
+    "exampleKo": "제조상궁은 궁궐의 모든 일을 총괄하니 그 권세가 막강하다.",
+    "exampleEn": "The Head Court Lady oversees all palace affairs, so her authority is immense.",
+    "category": "궁중"
+  },
+  {
+    "rank": 43,
+    "term": "수라",
+    "pos": "noun",
+    "meaningEn": "the king's meal (royal dining, specifically referring to the food prepared for the monarch)",
+    "romaja": "sura",
+    "exampleKo": "폐하의 수라가 준비되었으니, 어서 드시옵소서.",
+    "exampleEn": "His Majesty's meal has been prepared; please partake of it.",
+    "category": "궁중"
+  },
+  {
+    "rank": 44,
+    "term": "수라간",
+    "pos": "noun",
+    "meaningEn": "the royal kitchen (the palace kitchen where meals for the king and royal family are prepared)",
+    "romaja": "suragan",
+    "exampleKo": "수라간 나인들은 폐하의 수라에 독이 들지 않도록 각별히 유의하라.",
+    "exampleEn": "Kitchen maids, be extremely careful not to let poison enter His Majesty's meal.",
+    "category": "궁중"
+  },
+  {
+    "rank": 45,
+    "term": "어명",
+    "pos": "noun",
+    "meaningEn": "a royal command or order (an official decree issued by the king)",
+    "romaja": "eomyeong",
+    "exampleKo": "이는 폐하의 어명이니, 누구도 거스를 수 없을 것이옵니다.",
+    "exampleEn": "This is His Majesty's royal command; no one may defy it.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 46,
+    "term": "성은이 망극하옵니다",
+    "pos": "phrase",
+    "meaningEn": "Your Majesty's grace is boundless (a set phrase expressing overwhelming gratitude to the king)",
+    "romaja": "seong-eun-i mang-geuk-ha-op-ni-da",
+    "exampleKo": "폐하의 지극한 성은이 망극하옵니다. 소신, 죽어서도 그 은혜 잊지 않겠습니다.",
+    "exampleEn": "Your Majesty's boundless grace overwhelms me. I shall not forget this favor even in death.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 47,
+    "term": "통촉하여 주시옵소서",
+    "pos": "phrase",
+    "meaningEn": "Please reconsider / show your wisdom, Your Majesty (a humble plea to the king to carefully consider a matter with wisdom)",
+    "romaja": "tongchok-hayeo jusiobeoseo",
+    "exampleKo": "폐하, 부디 소신들의 충언을 통촉하여 주시옵소서.",
+    "exampleEn": "Your Majesty, please graciously consider our loyal counsel.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 48,
+    "term": "망극하옵니다",
+    "pos": "phrase",
+    "meaningEn": "I am overwhelmed (with gratitude or grief), Your Majesty (a formal expression of being overwhelmed, often by royal grace or sorrow)",
+    "romaja": "mang-geuk-ha-op-ni-da",
+    "exampleKo": "폐하의 깊으신 배려에 소신은 그저 망극하옵니다.",
+    "exampleEn": "I am simply overwhelmed by Your Majesty's profound consideration.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 49,
+    "term": "황공하옵니다",
+    "pos": "phrase",
+    "meaningEn": "I am humbled and awestruck (before the king; expressing extreme deference and trepidation in the king's presence)",
+    "romaja": "hwanggong-ha-op-ni-da",
+    "exampleKo": "폐하의 지엄하신 분부에 소신 황공하옵니다. 명을 받들겠습니다.",
+    "exampleEn": "I am humbled and awestruck by Your Majesty's solemn command. I shall obey.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 50,
+    "term": "송구하옵니다",
+    "pos": "phrase",
+    "meaningEn": "I am deeply sorry, Your Majesty (a humble apology, expressing remorse and regret to the king)",
+    "romaja": "song-gu-ha-op-ni-da",
+    "exampleKo": "소신, 폐하께 실례를 범하여 송구하옵니다. 부디 용서하여 주시옵소서.",
+    "exampleEn": "I am deeply sorry for having offended Your Majesty. Please forgive me.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 51,
+    "term": "아니 되옵니다",
+    "pos": "phrase",
+    "meaningEn": "It must not be done, Your Majesty (a courtly objection to a royal command or action).",
+    "romaja": "ani doeopnida",
+    "exampleKo": "전하, 이는 결코 아니 되옵니다! 부디 재고하여 주시옵소서.",
+    "exampleEn": "Your Majesty, this must absolutely not be done! Please reconsider.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 52,
+    "term": "분부대로 하겠사옵니다",
+    "pos": "phrase",
+    "meaningEn": "I shall do exactly as you command (an obedient reply to a superior or the king).",
+    "romaja": "bunbudaero haget-saopnida",
+    "exampleKo": "마마, 소인이 마마의 분부대로 하겠사옵니다. 염려 마시옵소서.",
+    "exampleEn": "Your Highness, I shall do exactly as you command. Please do not worry.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 53,
+    "term": "명을 받들겠사옵니다",
+    "pos": "phrase",
+    "meaningEn": "I shall obey and carry out the command (a formal declaration of obedience to a royal or superior's order).",
+    "romaja": "myeong-eul batdeulget-saopnida",
+    "exampleKo": "전하의 지엄하신 명을 받들겠사옵니다. 소신, 목숨을 다하겠나이다.",
+    "exampleEn": "I shall obey and carry out Your Majesty's solemn command. I, your subject, will give my life.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 54,
+    "term": "소인",
+    "pos": "pronoun",
+    "meaningEn": "I (a humble 'I' used by a commoner or person of low status when addressing a superior).",
+    "romaja": "soin",
+    "exampleKo": "나으리, 소인은 그저 지나가던 길이었을 뿐이옵니다.",
+    "exampleEn": "My lord, I was merely passing by.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 55,
+    "term": "소신",
+    "pos": "pronoun",
+    "meaningEn": "I (a humble 'I' used by an official when addressing the king).",
+    "romaja": "sosin",
+    "exampleKo": "전하, 소신은 감히 그리 생각하지 아니하옵니다.",
+    "exampleEn": "Your Majesty, I, your humble subject, dare not think so.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 56,
+    "term": "신",
+    "pos": "pronoun",
+    "meaningEn": "I, your subject (a formal 'I' used by an official when addressing the king).",
+    "romaja": "sin",
+    "exampleKo": "전하, 신은 전하의 뜻을 따를 뿐이옵니다.",
+    "exampleEn": "Your Majesty, I, your subject, shall only follow your will.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 57,
+    "term": "과인",
+    "pos": "pronoun",
+    "meaningEn": "The royal 'I' (used by the king when referring to himself).",
+    "romaja": "gwain",
+    "exampleKo": "과인이 친히 이 일을 처리할 것이니, 모두 물러가라.",
+    "exampleEn": "I, the King, shall personally handle this matter, so all of you withdraw.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 58,
+    "term": "짐",
+    "pos": "pronoun",
+    "meaningEn": "The imperial 'I' (used by an emperor when referring to himself, less common in Joseon-era sageuk but sometimes used for historical context of other dynasties).",
+    "romaja": "jim",
+    "exampleKo": "짐은 이 나라의 태평성대를 이루리라 맹세하노라.",
+    "exampleEn": "I, the Emperor, swear to bring an era of peace and prosperity to this nation.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 59,
+    "term": "납시오",
+    "pos": "interjection",
+    "meaningEn": "His Majesty arrives! / makes his entrance! (an announcement of the king's arrival or departure).",
+    "romaja": "napsio",
+    "exampleKo": "주상 전하 납시오! 모두 고개를 들라!",
+    "exampleEn": "His Majesty the King arrives! All raise your heads!",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 60,
+    "term": "윤허",
+    "pos": "noun",
+    "meaningEn": "The king's permission or approval (a formal term for royal consent).",
+    "romaja": "yunheo",
+    "exampleKo": "전하, 부디 소신의 청을 윤허하여 주시옵소서.",
+    "exampleEn": "Your Majesty, please grant your permission for my request.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 61,
+    "term": "하명",
+    "pos": "noun",
+    "meaningEn": "A command given by a superior or the king (a formal order from a higher authority).",
+    "romaja": "hamyeong",
+    "exampleKo": "전하의 하명이 없이는 감히 한 발자국도 움직일 수 없사옵니다.",
+    "exampleEn": "Without Your Majesty's command, I dare not move a single step.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 62,
+    "term": "어전",
+    "pos": "noun",
+    "meaningEn": "The royal presence; before the king (the area or situation directly in front of the king).",
+    "romaja": "eojon",
+    "exampleKo": "감히 어전에서 소란을 피우다니, 당장 끌어내라!",
+    "exampleEn": "How dare you cause a disturbance in the royal presence! Drag him out at once!",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 63,
+    "term": "입궐",
+    "pos": "noun",
+    "meaningEn": "Entering the palace (specifically to attend court or perform palace duties).",
+    "romaja": "ipgwol",
+    "exampleKo": "대신들은 날이 밝는 대로 입궐하여 어명을 기다리라 이르라.",
+    "exampleEn": "Tell the ministers to enter the palace at dawn and await the royal command.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 64,
+    "term": "퇴궐",
+    "pos": "noun",
+    "meaningEn": "Leaving the palace (after court duty or official business).",
+    "romaja": "toegwol",
+    "exampleKo": "오늘 퇴궐 후, 별도로 대감께 인사를 올리러 가겠습니다.",
+    "exampleEn": "After leaving the palace today, I will separately go to pay my respects to the minister.",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 65,
+    "term": "거동",
+    "pos": "noun",
+    "meaningEn": "The movement or procession of the king (a formal term for the king's travels or movements).",
+    "romaja": "geodong",
+    "exampleKo": "주상 전하의 거동이 곧 시작될 것이니, 백성들은 길을 비켜라!",
+    "exampleEn": "His Majesty the King's procession will begin soon, so the people, clear the way!",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 66,
+    "term": "어가",
+    "pos": "noun",
+    "meaningEn": "The royal palanquin or carriage (used by the king).",
+    "romaja": "eoga",
+    "exampleKo": "어가가 지나는 길에 감히 역적의 무리가 나타나다니!",
+    "exampleEn": "How dare a band of traitors appear on the path where the royal palanquin passes!",
+    "category": "사극체 표현"
+  },
+  {
+    "rank": 67,
+    "term": "자객",
+    "pos": "noun",
+    "meaningEn": "An assassin (a hired killer, often for political purposes).",
+    "romaja": "jagaek",
+    "exampleKo": "밤중에 자객이 침입하여 전하를 해하려 하였사옵니다.",
+    "exampleEn": "An assassin infiltrated during the night and attempted to harm Your Majesty.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 68,
+    "term": "장군",
+    "pos": "noun",
+    "meaningEn": "A general or military commander.",
+    "romaja": "janggun",
+    "exampleKo": "장군, 당장 병사들을 이끌고 적을 토벌하시옵소서!",
+    "exampleEn": "General, lead the soldiers immediately and suppress the enemy!",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 69,
+    "term": "무사",
+    "pos": "noun",
+    "meaningEn": "A warrior or swordsman (a skilled combatant).",
+    "romaja": "musa",
+    "exampleKo": "저 무사들의 기세가 예사롭지 않으니, 조심해야 할 것이옵니다.",
+    "exampleEn": "The spirit of those warriors is unusual, so we must be careful.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 70,
+    "term": "호위무사",
+    "pos": "noun",
+    "meaningEn": "A bodyguard warrior (a warrior assigned to protect someone important).",
+    "romaja": "howi-musa",
+    "exampleKo": "호위무사들은 전하의 곁을 한시도 떠나서는 아니 될 것이다.",
+    "exampleEn": "The bodyguard warriors must not leave His Majesty's side for a single moment.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 71,
+    "term": "금군",
+    "pos": "noun",
+    "meaningEn": "The royal guards (the elite military unit responsible for protecting the palace and the king).",
+    "romaja": "geumgun",
+    "exampleKo": "금군은 당장 역적들을 모두 체포하여 국문을 열라!",
+    "exampleEn": "Royal guards, immediately arrest all traitors and commence interrogation!",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 72,
+    "term": "도령",
+    "pos": "noun",
+    "meaningEn": "Young master (an address for an unmarried young nobleman).",
+    "romaja": "doryeong",
+    "exampleKo": "도령께서는 이제 그만 집으로 돌아가시지요.",
+    "exampleEn": "Young master, please return home now.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 73,
+    "term": "역모",
+    "pos": "noun",
+    "meaningEn": "A plot of treason or rebellion against the king or the state.",
+    "romaja": "yeokmo",
+    "exampleKo": "역모의 증좌가 명백하니, 죄인들을 엄히 다스려야 할 것이옵니다.",
+    "exampleEn": "The evidence of treason is clear, so the culprits must be severely punished.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 74,
+    "term": "모반",
+    "pos": "noun",
+    "meaningEn": "Rebellion or insurrection (an act of open resistance against the king or established government).",
+    "romaja": "moban",
+    "exampleKo": "저들이 기어이 모반을 일으켰으니, 즉시 진압해야 하옵니다.",
+    "exampleEn": "They have finally instigated rebellion, so it must be suppressed immediately.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 75,
+    "term": "역적",
+    "pos": "noun",
+    "meaningEn": "A traitor or rebel (one who commits treason or rebellion against the king).",
+    "romaja": "yeokjeok",
+    "exampleKo": "역적의 무리를 섬멸하고, 나라의 기강을 바로 세워야 할 것이옵니다.",
+    "exampleEn": "We must annihilate the band of traitors and re-establish the nation's discipline.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 76,
+    "term": "반정",
+    "pos": "noun",
+    "meaningEn": "A coup d'état aimed at dethroning a tyrannical ruler and restoring order to the kingdom.",
+    "romaja": "banjeong",
+    "exampleKo": "주상 전하, 역적들이 반정을 일으켜 왕실을 위협하고 있사옵니다!",
+    "exampleEn": "Your Majesty, the rebels have staged a coup and are threatening the royal family!",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 77,
+    "term": "밀지",
+    "pos": "noun",
+    "meaningEn": "A secret order or command issued by the king.",
+    "romaja": "milji",
+    "exampleKo": "전하의 밀지를 받들어 역적을 색출하여 벌하겠사옵니다.",
+    "exampleEn": "I shall follow His Majesty's secret order to find and punish the traitors.",
+    "category": "군사·무관"
+  },
+  {
+    "rank": 78,
+    "term": "사약",
+    "pos": "noun",
+    "meaningEn": "Poison bestowed by the king as a form of execution, typically for high-ranking officials or royalty.",
+    "romaja": "sayak",
+    "exampleKo": "역적에게 사약을 내리시어 엄히 죄를 물으시옵소서.",
+    "exampleEn": "Bestow poison upon the traitor and severely punish his crime.",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 79,
+    "term": "곤장",
+    "pos": "noun",
+    "meaningEn": "A large flogging paddle used for corporal punishment, or the punishment by beating itself.",
+    "romaja": "gonjang",
+    "exampleKo": "죄인에게 곤장 스무 대를 내리라!",
+    "exampleEn": "Administer twenty blows of the flogging paddle to the criminal!",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 80,
+    "term": "주리",
+    "pos": "noun",
+    "meaningEn": "A severe torture method involving twisting the legs, often used to extract confessions.",
+    "romaja": "juri",
+    "exampleKo": "역적에게 주리를 틀어 숨겨진 진실을 밝혀내라!",
+    "exampleEn": "Twist the traitor's legs to uncover the hidden truth!",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 81,
+    "term": "유배",
+    "pos": "noun",
+    "meaningEn": "Banishment or exile to a remote location as a form of punishment, often for political offenses.",
+    "romaja": "yubae",
+    "exampleKo": "대역죄인을 먼 곳으로 유배 보내 다시는 한양 땅을 밟지 못하게 하라.",
+    "exampleEn": "Banish the grave traitor to a distant land, never to step foot in Hanyang again.",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 82,
+    "term": "귀양",
+    "pos": "noun",
+    "meaningEn": "Exile or banishment to a remote place as a form of punishment.",
+    "romaja": "gwiyang",
+    "exampleKo": "그 죄인을 제주도로 귀양 보내 영원히 돌아오지 못하게 하라.",
+    "exampleEn": "Banish that criminal to Jeju Island, never to return.",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 83,
+    "term": "의금부",
+    "pos": "noun",
+    "meaningEn": "The Royal Investigation Bureau, responsible for investigating and prosecuting grave crimes, especially those involving royalty or high officials.",
+    "romaja": "uigeumbu",
+    "exampleKo": "역모에 가담한 자들을 의금부로 압송하여 국문하라!",
+    "exampleEn": "Bring those involved in treason to the Royal Investigation Bureau for interrogation!",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 84,
+    "term": "포도청",
+    "pos": "noun",
+    "meaningEn": "The Police Bureau, responsible for maintaining public order, apprehending criminals, and investigating general crimes.",
+    "romaja": "podo-cheong",
+    "exampleKo": "한양에 도둑이 들끓으니 포도청은 즉시 도적을 잡으라!",
+    "exampleEn": "Thieves infest Hanyang; the Police Bureau must immediately apprehend them!",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 85,
+    "term": "국문",
+    "pos": "noun",
+    "meaningEn": "Interrogation, often involving torture, typically ordered by the king or high officials to extract confessions.",
+    "romaja": "gungmun",
+    "exampleKo": "역적에게 국문을 시작하여 모든 죄를 자백하게 하라.",
+    "exampleEn": "Begin the interrogation of the traitor and make him confess all his crimes.",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 86,
+    "term": "참수",
+    "pos": "noun",
+    "meaningEn": "Execution by beheading, a common form of capital punishment.",
+    "romaja": "chamsu",
+    "exampleKo": "역적의 죄가 명백하니 참수에 처해야 마땅하옵니다.",
+    "exampleEn": "The traitor's crime is clear; he deserves execution by beheading.",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 87,
+    "term": "능지처참",
+    "pos": "noun",
+    "meaningEn": "Death by dismemberment, considered the cruelest form of execution, reserved for the most heinous crimes like treason.",
+    "romaja": "neungjicheocham",
+    "exampleKo": "그 역적은 능지처참에 처하여 백성들에게 본보기를 보여야 하옵니다.",
+    "exampleEn": "That traitor must be put to death by dismemberment to set an example for the people.",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 88,
+    "term": "옥사",
+    "pos": "noun",
+    "meaningEn": "A prison or jail, a place for incarceration of criminals.",
+    "romaja": "oksa",
+    "exampleKo": "죄수를 옥사에 가두어 다시는 세상에 나오지 못하게 하라.",
+    "exampleEn": "Imprison the criminal in the jail, never to let him see the world again.",
+    "category": "형벌·사법"
+  },
+  {
+    "rank": 89,
+    "term": "양반",
+    "pos": "noun",
+    "meaningEn": "The aristocratic and noble ruling class of Joseon society, consisting of civil and military officials.",
+    "romaja": "yangban",
+    "exampleKo": "그 양반은 당대의 학식 높은 선비로 이름이 자자하옵니다.",
+    "exampleEn": "That noble gentleman is renowned as a highly learned scholar of his time.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 90,
+    "term": "상민",
+    "pos": "noun",
+    "meaningEn": "A commoner of the lower class, including farmers, merchants, and craftsmen, subject to taxes and military service.",
+    "romaja": "sangmin",
+    "exampleKo": "상민들의 고통이 극심하오니 전하께서 헤아려 주시옵소서.",
+    "exampleEn": "The commoners' suffering is severe, Your Majesty; please consider their plight.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 91,
+    "term": "천민",
+    "pos": "noun",
+    "meaningEn": "The lowest social class in Joseon, considered outcasts, including butchers, shamans, and entertainers.",
+    "romaja": "cheonmin",
+    "exampleKo": "천민이라 하여 인간 대접을 받지 못하는 것이 옳사옵니까?",
+    "exampleEn": "Is it right for them to be treated as less than human simply because they are of the lowest class?",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 92,
+    "term": "노비",
+    "pos": "noun",
+    "meaningEn": "A slave or serf, legally bound to a master and considered property.",
+    "romaja": "nobi",
+    "exampleKo": "저 노비는 주인의 명을 거역하였으니 엄히 다스려야 할 것이옵니다.",
+    "exampleEn": "That slave defied his master's order; he must be severely punished.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 93,
+    "term": "기생",
+    "pos": "noun",
+    "meaningEn": "A gisaeng, a female entertainer of arts, skilled in music, dance, and poetry, who served the literati and royalty.",
+    "romaja": "gisaeng",
+    "exampleKo": "저 기생의 춤사위는 한양 최고라 하옵니다.",
+    "exampleEn": "That gisaeng's dance is said to be the best in Hanyang.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 94,
+    "term": "선비",
+    "pos": "noun",
+    "meaningEn": "A Confucian scholar or learned gentleman, typically of the yangban class, dedicated to academic study and moral integrity.",
+    "romaja": "seonbi",
+    "exampleKo": "진정한 선비라면 백성을 위해 자신의 몸을 아끼지 않아야 하옵니다.",
+    "exampleEn": "A true scholar should not spare himself for the sake of the people.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 95,
+    "term": "백성",
+    "pos": "noun",
+    "meaningEn": "The common people, the king's subjects, whose welfare was considered the king's primary responsibility.",
+    "romaja": "baekseong",
+    "exampleKo": "전하, 백성들의 삶이 너무나도 고달프옵니다.",
+    "exampleEn": "Your Majesty, the lives of your people are so arduous.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 96,
+    "term": "마님",
+    "pos": "noun",
+    "meaningEn": "A respectful form of address used by servants towards the noblewoman of the house; madam, my lady.",
+    "romaja": "manim",
+    "exampleKo": "마님, 나으리께서 잠시 후에 도착하실 것이옵니다.",
+    "exampleEn": "Madam, His Lordship will arrive shortly.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 97,
+    "term": "서방님",
+    "pos": "noun",
+    "meaningEn": "A respectful form of address for a young master of a noble household or, less commonly, one's husband.",
+    "romaja": "seobangnim",
+    "exampleKo": "서방님, 어찌 그리 늦게 돌아오셨사옵니까?",
+    "exampleEn": "My young master, why have you returned so late?",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 98,
+    "term": "대갓집",
+    "pos": "noun",
+    "meaningEn": "The household or residence of a great noble or high-ranking family.",
+    "romaja": "daegatjip",
+    "exampleKo": "저 대갓집의 위세는 한양에서 따를 자가 없사옵니다.",
+    "exampleEn": "The prestige of that great noble household is unrivaled in Hanyang.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 99,
+    "term": "한양",
+    "pos": "noun",
+    "meaningEn": "Hanyang, the historical name for the capital city of the Joseon Dynasty, now Seoul.",
+    "romaja": "Hanyang",
+    "exampleKo": "한양 도성에 역병이 돌아 백성들이 고통받고 있사옵니다.",
+    "exampleEn": "A plague has spread through the capital city of Hanyang, and the people are suffering.",
+    "category": "신분·사회"
+  },
+  {
+    "rank": 100,
+    "term": "과거",
+    "pos": "noun",
+    "meaningEn": "The state civil-service examination, a rigorous test for selecting government officials during the Joseon Dynasty.",
+    "romaja": "gwageo",
+    "exampleKo": "아버님, 소인은 과거에 급제하여 가문의 명예를 드높이겠사옵니다.",
+    "exampleEn": "Father, I shall pass the civil service examination and elevate our family's honor.",
+    "category": "신분·사회"
+  }
+]

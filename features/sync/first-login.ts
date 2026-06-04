@@ -47,17 +47,7 @@ export interface FirstLoginProbe {
  * Count cloud (non-deleted) words and local words to decide the reconciliation branch.
  */
 export async function probeFirstLoginState(): Promise<FirstLoginProbe> {
-  // count: 'exact' + head: true returns the true row count without fetching
-  // rows. A plain .select('id') is capped at Supabase's default 1000-row page,
-  // so .length would silently max out at 1000 — making the conflict prompt
-  // report "1000" for any account with ≥1000 cloud words.
-  const { count, error } = await supabase
-    .from('cloud_words')
-    .select('*', { count: 'exact', head: true })
-    .eq('is_deleted', false);
-  if (error) throw error;
-
-  const cloudWordCount = count ?? 0;
+  const cloudWordCount = await countLiveCloudWords();
   const localLists = await fetchAllLists();
   const localWordCount = localLists.reduce((sum, l) => sum + l.words.length, 0);
 
@@ -67,6 +57,54 @@ export async function probeFirstLoginState(): Promise<FirstLoginProbe> {
   else if (localWordCount > 0) state = 'local-only';
 
   return { state, cloudWordCount, localWordCount };
+}
+
+/**
+ * Count cloud words that are actually visible to the user — i.e. non-deleted
+ * words whose PARENT LIST is also non-deleted. This mirrors pullChanges, which
+ * SKIPS "orphan" cloud words (parent list soft-deleted, or list_id dangling) so
+ * they never reach local SQLite or any screen (see engine.ts orphan guard).
+ *
+ * Counting every `is_deleted = false` word regardless of its parent — the old
+ * behavior — over-reported the conflict prompt: a stale orphan word inflated
+ * "클라우드에 N개" past what the user can actually see (and could even force a
+ * spurious 'conflict'/'cloud-only' branch when the only surviving cloud rows are
+ * orphans). Orphans accrue from e.g. a list deleted while its words weren't
+ * re-marked — the same class of leftover cleaned up in cc5ebd8.
+ *
+ * Two-step (fetch live list ids, then count words within them) instead of a
+ * PostgREST inner-join so we don't depend on the cloud_words→cloud_lists foreign
+ * key being introspectable as an embeddable relationship. RLS scopes both
+ * queries to the current user.
+ */
+async function countLiveCloudWords(): Promise<number> {
+  // Live parent lists. .select('id') is capped at Supabase's default 1000-row
+  // page; a user with >1000 lists is unrealistic, so we don't paginate here.
+  const { data: aliveLists, error: listErr } = await supabase
+    .from('cloud_lists')
+    .select('id')
+    .eq('is_deleted', false);
+  if (listErr) throw listErr;
+  const aliveListIds = (aliveLists ?? []).map((l: { id: string }) => l.id);
+  if (aliveListIds.length === 0) return 0;
+
+  // count: 'exact' + head: true returns the true row count without fetching
+  // rows (a plain .select would cap at the 1000-row page). Chunk the list-id
+  // filter so the .in() set can't blow past PostgREST's request URL length for
+  // heavy users with hundreds of lists.
+  const CHUNK = 100;
+  let total = 0;
+  for (let i = 0; i < aliveListIds.length; i += CHUNK) {
+    const chunk = aliveListIds.slice(i, i + CHUNK);
+    const { count, error } = await supabase
+      .from('cloud_words')
+      .select('*', { count: 'exact', head: true })
+      .eq('is_deleted', false)
+      .in('list_id', chunk);
+    if (error) throw error;
+    total += count ?? 0;
+  }
+  return total;
 }
 
 /**

@@ -4,7 +4,7 @@
 
 ## 한 줄 현재 상황
 
-계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **`main`에 커밋·머지·push 완료**(`517d864`), 테스트 294 pass/0 fail. 이어서 같은 날 **게스트-leak 보강(수정 D)을 구현·커밋** — 오프라인 로그아웃으로 보존된 이전 계정 데이터가 게스트 화면에 노출되던 trade-off를 플래그+프롬프트로 차단. **소스는 `d232aa8`로 커밋됨**(단, 테스트 `__tests__/preserved-cloud-data.test.ts`는 그 커밋에서 누락 → 후속 커밋으로 보완). **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** — 남은 건 **dev client 실기 검증뿐**(게스트-leak 보강 결정은 "구현·커밋"으로 종결).
+계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **`main`에 커밋·머지·push 완료**(`517d864`), 테스트 294 pass/0 fail. 이어서 같은 날 **게스트-leak 보강(수정 D)을 구현·커밋** — 오프라인 로그아웃으로 보존된 이전 계정 데이터가 게스트 화면에 노출되던 trade-off를 플래그+프롬프트로 차단(소스 `d232aa8`, 테스트는 후속 커밋). 또 **수정 E** — 게스트→구글 재로그인 합치기 다이얼로그가 "클라우드 1001개"로 과다집계되던 버그를 고침(고아 단어 카운트, 코드+테스트 완료·미커밋). **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** — 남은 건 **dev client 실기 검증 + (선택)클라우드 고아 정리뿐**.
 
 ---
 
@@ -41,9 +41,17 @@
 - **테스트**: `__tests__/preserved-cloud-data.test.ts`(mark/has, clear, discard가 4개 surface wipe+플래그 해제) 3 pass. tsc 신규 0건(baseline 7 유지), lint 신규 0건(login.tsx hex 4건은 기존 Apple 버튼 부채, 테스트 import/first 2건은 기존 sync 테스트와 동일 패턴).
 - **커밋 상태**: 소스 6파일은 `d232aa8`로 커밋 완료. **테스트 파일은 그 커밋에서 누락**돼 후속 커밋으로 보완(이 handoff 갱신과 함께). d232aa8 본문은 내 워킹트리와 동일(워킹트리에 잔존 수정 0 = 동일 내용 확인).
 
+### 수정 E — first-login conflict 개수 고아 과다집계 (미커밋)
+- **증상(사용자 보고)**: 게스트("바로 시작하기") → 구글 재로그인 시 합치기 다이얼로그가 "클라우드에 1001개"라는데 실제 단어는 그보다 적음.
+- **원인(코드로 확정)**: `features/sync/first-login.ts:probeFirstLoginState`의 cloud count가 `cloud_words WHERE is_deleted=false` **전체**를 셈 — 부모 list 생사 무시. 반면 `engine.ts pullChanges`(:253-256)는 **부모 list가 죽은 단어를 orphan으로 skip**해 화면에 안 내려줌. 그래서 다이얼로그 표시값 > 실제 보이는 단어. 수정 C(`cc5ebd8`)에서 정리했던 고아 단어 패턴의 **재발**(게스트 삭제 등으로 부모 list만 삭제되고 word가 클라우드에 잔존). cloud에 고아만 남은 경우 잘못된 conflict/cloud-only 분기도 유발 가능.
+- **수정**: `probeFirstLoginState`가 `countLiveCloudWords()`를 쓰도록 변경 — ① `cloud_lists`에서 `is_deleted=false` list id 조회 ② 그 id들로만(`. in('list_id', chunk)`, 100개씩 청크) `is_deleted=false` word를 `count:'exact'` 합산. pullChanges의 orphan-skip과 동일 기준 → 보고 수 = 실제 내려오는 수. FK embedding 미의존(2-step), RLS가 user 격리. list>1000은 비현실적이라 페이지네이션 생략(주석).
+- **테스트**: `__tests__/first-login-probe.test.ts`(고아 2 + 삭제 1 제외하고 live 3만 카운트, local 유무로 conflict/cloud-only 분기) 2 pass. tsc 신규 0(baseline 7), lint 신규 0(테스트 import/first 1은 기존 패턴).
+- **남은 데이터 청소(사용자 확인 필요)**: 코드는 앞으로의 표시/판정만 고침. **이미 클라우드에 쌓인 고아 행은 그대로 남음**(용량). Supabase Dashboard에서 §맨아래 "고아 정리 SQL"로 SELECT 확인 후 DELETE. 단일 테스트 계정이면 전체, 다계정이면 `and w.user_id='<uid>'` 한정. (이 정리는 파괴적이라 코드 작업과 분리 — 사용자 판단.)
+
 ### 다음 세션 할 일
-1. **dev client 실기 검증** (← 여기서 시작): ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영. **+ 수정 D**: ④ 오프라인 삭제→로그아웃→"게스트로 시작" → 프롬프트 노출 확인, "다시 로그인"=로그인 화면 잔류 / "지우고 게스트"=이전 데이터 사라지고 빈 게스트. (실기 재현이 까다로우면 Supabase에서 `is_deleted` 확인 — 맨 아래 SQL.)
-2. ✅ **517d864**(수정 A/B/C) + **d232aa8**(수정 D 소스) 커밋 완료. 수정 D 테스트는 후속 커밋으로 보완. push 여부는 미확인 — `git status`로 ahead 확인 후 필요 시 push.
+1. **dev client 실기 검증** (← 여기서 시작): ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영. **+ 수정 D**: ④ 오프라인 삭제→로그아웃→"게스트로 시작" → 프롬프트 노출 확인, "다시 로그인"=로그인 화면 잔류 / "지우고 게스트"=이전 데이터 사라지고 빈 게스트. **+ 수정 E**: ⑤ 게스트→구글 재로그인 합치기 다이얼로그 숫자가 실제 단어 수와 일치. (실기 재현이 까다로우면 Supabase에서 `is_deleted` 확인 — 맨 아래 SQL.)
+2. **클라우드 고아 정리**(수정 E 후속, 선택): §맨아래 "고아 정리 SQL"로 SELECT→DELETE.
+3. ✅ **517d864**(수정 A/B/C) + **d232aa8**(수정 D 소스) 커밋 완료. 수정 D 테스트·수정 E는 후속 커밋. push 여부는 `git status`로 ahead 확인 후.
 
 ---
 
@@ -198,4 +206,26 @@ from cloud_words
 where list_id = '3ca309cb-0edf-4865-b678-7d00fd4f1c40'
 order by updated_at desc nulls last
 limit 5
+```
+
+### 고아 정리 SQL (수정 E 후속 — Dashboard는 service role이라 전체 계정 대상, 다계정이면 user_id 한정 필수)
+
+```sql
+-- 1) 진단: probe가 세던 전체 vs 실제 보이는(부모 살아있는) 단어
+select
+  count(*) filter (where w.is_deleted = false) as all_alive_words,
+  count(*) filter (where w.is_deleted = false
+    and exists (select 1 from cloud_lists l
+                where l.id = w.list_id and l.is_deleted = false)) as visible_words,
+  count(*) filter (where w.is_deleted = false
+    and not exists (select 1 from cloud_lists l
+                    where l.id = w.list_id and l.is_deleted = false)) as orphan_words
+from cloud_words w
+-- 다계정이면: where w.user_id = '<uid>'  (auth.users에서 이메일로 조회)
+
+-- 2) 정리(파괴적): 부모 list가 없거나 삭제된 word 하드 삭제
+delete from cloud_words w
+where not exists (select 1 from cloud_lists l
+                  where l.id = w.list_id and l.is_deleted = false)
+-- 다계정이면: and w.user_id = '<uid>'
 ```

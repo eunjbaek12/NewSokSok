@@ -8,7 +8,7 @@
 // 동작 단계:
 //   1. withInfoPlist        Info.plist에 base 영문 NSUserTrackingUsageDescription
 //                           + CFBundleDevelopmentRegion + CFBundleLocalizations 설정
-//   2. withDangerousMod     ios/<projectName>/<lang>.lproj/InfoPlist.strings 파일 생성
+//   2. withDangerousMod     ios/<lang>.lproj/InfoPlist.strings 파일 생성
 //   3. withXcodeProject     PBXVariantGroup으로 Xcode project resources에 등록
 //                           (등록 안 하면 빌드에 포함 안 됨)
 
@@ -73,8 +73,13 @@ const withLocalizedATT = (config) => {
   config = withDangerousMod(config, [
     'ios',
     async (cfg) => {
-      const { projectName, platformProjectRoot } = cfg.modRequest;
-      const targetDir = path.join(platformProjectRoot, projectName);
+      // step 3의 PBXFileReference path(`<lang>.lproj/InfoPlist.strings`)는 메인 앱
+      // 그룹의 실효 경로가 ios 루트라 Xcode가 `ios/<lang>.lproj/...`로 해석한다.
+      // 따라서 파일도 platformProjectRoot(ios 루트) 직속에 생성해야 빌드 입력 경로와
+      // 일치. projectName 하위에 두면 "Build input file cannot be found:
+      // ios/ko.lproj/InfoPlist.strings"로 Xcode 빌드가 실패한다.
+      const { platformProjectRoot } = cfg.modRequest;
+      const targetDir = platformProjectRoot;
       for (const lang of collectLanguages()) {
         const lprojDir = path.join(targetDir, `${lang}.lproj`);
         fs.mkdirSync(lprojDir, { recursive: true });

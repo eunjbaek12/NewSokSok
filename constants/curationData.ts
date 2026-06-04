@@ -2,6 +2,8521 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-suneung-1",
+    "title": "수능 필수 어휘 500",
+    "icon": "🎓",
+    "isCurated": true,
+    "category": "시험",
+    "level": "advanced",
+    "description": "수능 필수 어휘 500. 교육부 2015 개정 영어과 교육과정 기본어휘목록(교육부 고시 제2015-74호 [별책14], 공공누리 제1유형) 중 고교 권장 심화어 우선 + 중·고 빈출어. 한국어 뜻·예문 AI 생성",
+    "sourceLanguage": "en",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780555618610,
+    "words": [
+      {
+        "id": "word-suneung-0-1780555618610",
+        "term": "accord",
+        "definition": "",
+        "meaningKr": "협정, 일치, 조화",
+        "exampleEn": "The two nations reached an accord on trade relations, which was celebrated as a significant step towards mutual understanding.",
+        "exampleKr": "양국은 무역 관계에 관한 협정에 도달했으며, 이는 상호 이해를 향한 중요한 진전으로 축하받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈkɔːrd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-1-1780555618610",
+        "term": "executive",
+        "definition": "",
+        "meaningKr": "행정의, 경영의, 운영상의",
+        "exampleEn": "The company's executive board is responsible for making strategic decisions that guide its long-term growth and development.",
+        "exampleKr": "그 회사의 경영진 이사회는 장기적인 성장과 발전을 이끄는 전략적 결정을 내릴 책임이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪɡˈzɛkjʊtɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-2-1780555618610",
+        "term": "federal",
+        "definition": "",
+        "meaningKr": "연방의, 연방제의",
+        "exampleEn": "The federal government plays a crucial role in regulating interstate commerce and ensuring national security.",
+        "exampleKr": "연방 정부는 주간 상업을 규제하고 국가 안보를 보장하는 데 중요한 역할을 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfɛdərəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-3-1780555618610",
+        "term": "procedure",
+        "definition": "",
+        "meaningKr": "절차, 수술",
+        "exampleEn": "Following the established procedure is essential for maintaining accuracy and consistency in scientific experiments.",
+        "exampleKr": "확립된 절차를 따르는 것은 과학 실험의 정확성과 일관성을 유지하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prəˈsiːdʒər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-4-1780555618610",
+        "term": "generate",
+        "definition": "",
+        "meaningKr": "생성하다, 발생시키다",
+        "exampleEn": "Renewable energy sources are being increasingly utilized to generate electricity with minimal environmental impact.",
+        "exampleKr": "환경 영향을 최소화하면서 전기를 생산하기 위해 재생 가능 에너지원이 점점 더 많이 활용되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdʒɛnəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-5-1780555618610",
+        "term": "quote",
+        "definition": "",
+        "meaningKr": "인용하다, (값을) 견적하다",
+        "exampleEn": "The author chose to quote extensively from historical documents to support his arguments about the past.",
+        "exampleKr": "저자는 과거에 대한 자신의 주장을 뒷받침하기 위해 역사적 문서에서 광범위하게 인용하기로 선택했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kwoʊt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-6-1780555618610",
+        "term": "component",
+        "definition": "",
+        "meaningKr": "구성 요소, 부품",
+        "exampleEn": "Each component of the complex machinery must function correctly for the entire system to operate efficiently.",
+        "exampleKr": "복잡한 기계의 각 구성 요소는 전체 시스템이 효율적으로 작동하기 위해 올바르게 기능해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəmˈpoʊnənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-7-1780555618610",
+        "term": "perspective",
+        "definition": "",
+        "meaningKr": "관점, 시각, 전망",
+        "exampleEn": "Adopting a different perspective can often lead to innovative solutions to seemingly intractable problems.",
+        "exampleKr": "다른 관점을 채택하는 것은 종종 해결하기 어려운 문제에 대한 혁신적인 해결책으로 이어질 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pərˈspɛktɪv/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-8-1780555618610",
+        "term": "relevant",
+        "definition": "",
+        "meaningKr": "관련 있는, 적절한",
+        "exampleEn": "It is crucial to consider only the relevant factors when analyzing the data to avoid drawing erroneous conclusions.",
+        "exampleKr": "잘못된 결론을 내리는 것을 피하기 위해 데이터를 분석할 때 관련 요인만을 고려하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈrɛləvənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-9-1780555618610",
+        "term": "notion",
+        "definition": "",
+        "meaningKr": "개념, 생각, 관념",
+        "exampleEn": "The widely held notion that success is solely determined by innate talent is increasingly being challenged.",
+        "exampleKr": "성공이 오로지 타고난 재능에 의해 결정된다는 널리 퍼진 통념은 점점 더 도전을 받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnoʊʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-10-1780555618610",
+        "term": "proportion",
+        "definition": "",
+        "meaningKr": "비율, 비례, 부분",
+        "exampleEn": "The proportion of students opting for STEM fields has significantly increased in recent years.",
+        "exampleKr": "STEM 분야를 선택하는 학생들의 비율이 최근 몇 년간 상당히 증가했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prəˈpɔːrʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-11-1780555618610",
+        "term": "phase",
+        "definition": "",
+        "meaningKr": "단계, 국면",
+        "exampleEn": "The project is currently in its initial phase, focusing on research and development before moving to production.",
+        "exampleKr": "프로젝트는 현재 생산으로 넘어가기 전 연구 개발에 초점을 맞추는 초기 단계에 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/feɪz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-12-1780555618610",
+        "term": "index",
+        "definition": "",
+        "meaningKr": "색인, 지표, 지수",
+        "exampleEn": "The consumer price index is a key indicator used to measure inflation and track economic trends.",
+        "exampleKr": "소비자 물가 지수는 인플레이션을 측정하고 경제 동향을 추적하는 데 사용되는 주요 지표이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪndɛks/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-13-1780555618610",
+        "term": "impose",
+        "definition": "",
+        "meaningKr": "강요하다, 부과하다",
+        "exampleEn": "Governments may impose strict regulations on industries that pose a significant threat to public health.",
+        "exampleKr": "정부는 공중 보건에 심각한 위협을 가하는 산업에 엄격한 규제를 부과할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪmˈpoʊz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-14-1780555618610",
+        "term": "county",
+        "definition": "",
+        "meaningKr": "카운티, 군 (행정 구역)",
+        "exampleEn": "Local authorities in each county are responsible for providing essential public services to residents.",
+        "exampleKr": "각 카운티의 지방 당국은 주민들에게 필수적인 공공 서비스를 제공할 책임이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkaʊnti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-15-1780555618610",
+        "term": "implement",
+        "definition": "",
+        "meaningKr": "실행하다, 이행하다",
+        "exampleEn": "The organization plans to implement a new policy aimed at improving employee well-being and productivity.",
+        "exampleKr": "그 조직은 직원 복지와 생산성 향상을 목표로 하는 새로운 정책을 실행할 계획이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪmplɪmənt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-16-1780555618610",
+        "term": "meanwhile",
+        "definition": "",
+        "meaningKr": "그동안에, 한편",
+        "exampleEn": "The scientists continued their research, meanwhile, the public anxiously awaited the results of the study.",
+        "exampleKr": "과학자들은 연구를 계속했고, 그동안 대중은 연구 결과에 대해 불안하게 기다렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmiːnwaɪl/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-suneung-17-1780555618610",
+        "term": "estate",
+        "definition": "",
+        "meaningKr": "재산, 부동산, 사유지",
+        "exampleEn": "The philanthropist decided to donate a significant portion of his estate to charitable causes upon his death.",
+        "exampleKr": "그 자선가는 사망 시 자신의 재산의 상당 부분을 자선 사업에 기부하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈsteɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-18-1780555618610",
+        "term": "prior",
+        "definition": "",
+        "meaningKr": "이전의, 미리",
+        "exampleEn": "A prior understanding of the subject matter is often beneficial for comprehending advanced academic texts.",
+        "exampleKr": "주제에 대한 사전 이해는 고급 학술 텍스트를 이해하는 데 종종 유익하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpraɪər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-19-1780555618610",
+        "term": "draft",
+        "definition": "",
+        "meaningKr": "초안, 밑그림, 징병",
+        "exampleEn": "The committee reviewed the initial draft of the proposal, providing feedback for revision.",
+        "exampleKr": "위원회는 제안서의 초기 초안을 검토하며 수정 피드백을 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dræft/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-20-1780555618610",
+        "term": "imply",
+        "definition": "",
+        "meaningKr": "암시하다, 내포하다",
+        "exampleEn": "The subtle changes in the experiment's outcome may imply a previously overlooked variable.",
+        "exampleKr": "실험 결과의 미묘한 변화는 이전에 간과되었던 변수를 암시할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪmˈplaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-21-1780555618610",
+        "term": "panel",
+        "definition": "",
+        "meaningKr": "판넬, 패널, 심사 위원단",
+        "exampleEn": "An expert panel was assembled to discuss the ethical implications of artificial intelligence.",
+        "exampleKr": "인공지능의 윤리적 함의를 논의하기 위해 전문가 패널이 소집되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpænəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-22-1780555618610",
+        "term": "reputation",
+        "definition": "",
+        "meaningKr": "평판, 명성",
+        "exampleEn": "The company has built a strong reputation for quality products and exceptional customer service.",
+        "exampleKr": "그 회사는 양질의 제품과 탁월한 고객 서비스로 강력한 명성을 쌓아왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌrɛpjʊˈteɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-23-1780555618610",
+        "term": "split",
+        "definition": "",
+        "meaningKr": "쪼개다, 분열시키다, 나누다",
+        "exampleEn": "Disagreements within the group eventually led to a split in their strategic approach.",
+        "exampleKr": "그룹 내의 불화는 결국 그들의 전략적 접근 방식에서 분열을 초래했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/splɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-24-1780555618610",
+        "term": "criteria",
+        "definition": "",
+        "meaningKr": "기준, 표준 (criterion의 복수형)",
+        "exampleEn": "The selection process was based on clearly defined criteria to ensure fairness and objectivity.",
+        "exampleKr": "선발 과정은 공정성과 객관성을 보장하기 위해 명확하게 정의된 기준에 근거했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kraɪˈtɪəriə/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-25-1780555618610",
+        "term": "integrate",
+        "definition": "",
+        "meaningKr": "통합하다, 통합되다, 결합하다",
+        "exampleEn": "The new software aims to seamlessly integrate all existing company databases into a single, accessible platform.",
+        "exampleKr": "새로운 소프트웨어는 기존의 모든 회사 데이터베이스를 하나의 접근 가능한 플랫폼으로 원활하게 통합하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪntəɡreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-26-1780555618610",
+        "term": "convention",
+        "definition": "",
+        "meaningKr": "관습, 관례, 협약, 대회",
+        "exampleEn": "Adhering to established social conventions is often seen as a sign of maturity and respect within a community.",
+        "exampleKr": "기존의 사회적 관습을 따르는 것은 종종 공동체 내에서 성숙함과 존중의 표시로 여겨진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈvenʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-27-1780555618610",
+        "term": "retain",
+        "definition": "",
+        "meaningKr": "보유하다, 유지하다, 기억하다",
+        "exampleEn": "Effective learning strategies help students retain information long after the examination period has ended.",
+        "exampleKr": "효과적인 학습 전략은 학생들이 시험 기간이 끝난 후에도 오랫동안 정보를 보유하도록 돕는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈteɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-28-1780555618610",
+        "term": "sequence",
+        "definition": "",
+        "meaningKr": "연속, 순서, 결과",
+        "exampleEn": "Understanding the chronological sequence of historical events is crucial for grasping their causal relationships.",
+        "exampleKr": "역사적 사건의 연대기적 순서를 이해하는 것은 그것들의 인과 관계를 파악하는 데 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsiːkwəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-29-1780555618610",
+        "term": "acquisition",
+        "definition": "",
+        "meaningKr": "획득, 인수, 습득",
+        "exampleEn": "The company's strategic acquisition of smaller firms aims to expand its market share and technological capabilities.",
+        "exampleKr": "그 회사의 소규모 회사들에 대한 전략적 인수는 시장 점유율과 기술 역량을 확장하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌækwɪˈzɪʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-30-1780555618610",
+        "term": "dispute",
+        "definition": "",
+        "meaningKr": "논쟁하다, 이의를 제기하다",
+        "exampleEn": "Scientists often dispute findings that contradict well-established theories until sufficient evidence is presented.",
+        "exampleKr": "과학자들은 충분한 증거가 제시될 때까지 잘 확립된 이론과 모순되는 발견에 대해 종종 이의를 제기한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈspjuːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-31-1780555618610",
+        "term": "retail",
+        "definition": "",
+        "meaningKr": "소매",
+        "exampleEn": "The shift towards online shopping has significantly impacted the traditional retail landscape and consumer behavior.",
+        "exampleKr": "온라인 쇼핑으로의 전환은 전통적인 소매 환경과 소비자 행동에 상당한 영향을 미쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈriːteɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-32-1780555618610",
+        "term": "slight",
+        "definition": "",
+        "meaningKr": "약간의, 가벼운, 미미한",
+        "exampleEn": "There was a slight hesitation in her response, suggesting she was not entirely comfortable with the proposal.",
+        "exampleKr": "그녀의 대답에 약간의 망설임이 있었는데, 이는 제안에 완전히 편안하지 않았음을 시사했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/slaɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-33-1780555618610",
+        "term": "restrict",
+        "definition": "",
+        "meaningKr": "제한하다, 금지하다",
+        "exampleEn": "Governments may impose regulations to restrict the emission of harmful pollutants into the atmosphere.",
+        "exampleKr": "정부는 대기 중으로 유해한 오염 물질의 배출을 제한하기 위해 규제를 부과할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈstrɪkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-34-1780555618610",
+        "term": "pitch",
+        "definition": "",
+        "meaningKr": "던지다, (의견 등을) 제시하다, (가격 등을) 책정하다",
+        "exampleEn": "The entrepreneur will pitch his innovative business idea to potential investors at the upcoming conference.",
+        "exampleKr": "그 기업가는 다가오는 컨퍼런스에서 잠재 투자자들에게 그의 혁신적인 사업 아이디어를 제시할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pɪtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-35-1780555618610",
+        "term": "contemporary",
+        "definition": "",
+        "meaningKr": "동시대의, 현대의",
+        "exampleEn": "Contemporary artists often explore themes of globalization and cultural identity in their work.",
+        "exampleKr": "현대 예술가들은 종종 그들의 작품에서 세계화와 문화적 정체성의 주제를 탐구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈtempəreri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-36-1780555618610",
+        "term": "profile",
+        "definition": "",
+        "meaningKr": "개요, 윤곽, 프로필",
+        "exampleEn": "The report provided a detailed profile of the target demographic for the new marketing campaign.",
+        "exampleKr": "그 보고서는 새로운 마케팅 캠페인의 목표 인구 통계에 대한 상세한 개요를 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprəʊfaɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-37-1780555618610",
+        "term": "numerous",
+        "definition": "",
+        "meaningKr": "수많은, 많은",
+        "exampleEn": "The study analyzed numerous variables to identify the key factors influencing consumer purchasing decisions.",
+        "exampleKr": "그 연구는 소비자의 구매 결정에 영향을 미치는 주요 요인을 식별하기 위해 수많은 변수를 분석했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnuːmərəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-38-1780555618610",
+        "term": "recruit",
+        "definition": "",
+        "meaningKr": "모집하다, 신병을 모집하다",
+        "exampleEn": "Universities actively recruit talented students from diverse backgrounds to enrich their academic environment.",
+        "exampleKr": "대학은 학문적 환경을 풍부하게 하기 위해 다양한 배경을 가진 재능 있는 학생들을 적극적으로 모집한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈkruːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-39-1780555618610",
+        "term": "hence",
+        "definition": "",
+        "meaningKr": "따라서, 그러므로",
+        "exampleEn": "The evidence strongly suggests a correlation between the two phenomena; hence, further investigation is warranted.",
+        "exampleKr": "증거는 두 현상 간의 상관관계를 강력하게 시사하며, 따라서 추가 조사가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/hens/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-suneung-40-1780555618610",
+        "term": "formula",
+        "definition": "",
+        "meaningKr": "공식, 방식, 조제",
+        "exampleEn": "The scientist proposed a new formula to predict the complex behavior of climate change models.",
+        "exampleKr": "그 과학자는 기후 변화 모델의 복잡한 행동을 예측하기 위한 새로운 공식을 제안했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfɔːrmjələ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-41-1780555618610",
+        "term": "convert",
+        "definition": "",
+        "meaningKr": "전환하다, 개종하다, 바꾸다",
+        "exampleEn": "Renewable energy technologies aim to convert natural resources into electricity more efficiently.",
+        "exampleKr": "재생 에너지 기술은 천연 자원을 더 효율적으로 전기로 전환하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈvɜːrt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-42-1780555618610",
+        "term": "incorporate",
+        "definition": "",
+        "meaningKr": "포함하다, 통합하다, 법인으로 만들다",
+        "exampleEn": "The committee decided to incorporate feedback from all stakeholders into the final proposal.",
+        "exampleKr": "위원회는 최종 제안에 모든 이해관계자들의 피드백을 통합하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈkɔːrpəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-43-1780555618610",
+        "term": "currency",
+        "definition": "",
+        "meaningKr": "통화, 통용, 화폐",
+        "exampleEn": "Fluctuations in the foreign exchange market can significantly impact the value of a nation's currency.",
+        "exampleKr": "외환 시장의 변동은 한 국가의 통화 가치에 상당한 영향을 미칠 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkʌrənsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-44-1780555618610",
+        "term": "breed",
+        "definition": "",
+        "meaningKr": "품종을 개량하다, 번식하다, 야기하다",
+        "exampleEn": "Selective breeding has been used for centuries to develop plants and animals with desirable traits.",
+        "exampleKr": "선택적 육종은 수세기 동안 바람직한 특성을 가진 식물과 동물을 개발하는 데 사용되어 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/briːd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-45-1780555618610",
+        "term": "extraordinary",
+        "definition": "",
+        "meaningKr": "비범한, 놀라운, 굉장한",
+        "exampleEn": "The human brain possesses an extraordinary capacity for learning and adaptation throughout life.",
+        "exampleKr": "인간의 뇌는 평생에 걸쳐 학습하고 적응하는 비범한 능력을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪkˈstrɔːrdəneri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-46-1780555618610",
+        "term": "reverse",
+        "definition": "",
+        "meaningKr": "역전시키다, 뒤집다, 반대하다",
+        "exampleEn": "The court's decision was to reverse the previous ruling due to new evidence presented.",
+        "exampleKr": "새로운 증거가 제시되었기 때문에 법원의 결정은 이전 판결을 뒤집는 것이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈvɜːrs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-47-1780555618610",
+        "term": "portion",
+        "definition": "",
+        "meaningKr": "부분, 몫, (음식) 한 그릇",
+        "exampleEn": "A small portion of the population consumes a disproportionately large amount of resources.",
+        "exampleKr": "인구의 작은 부분이 불균형적으로 많은 양의 자원을 소비한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɔːrʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-48-1780555618610",
+        "term": "dimension",
+        "definition": "",
+        "meaningKr": "차원, 측면, 크기",
+        "exampleEn": "Understanding the ethical dimension of technological advancement is crucial for responsible innovation.",
+        "exampleKr": "기술 발전의 윤리적 측면을 이해하는 것은 책임감 있는 혁신을 위해 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/daɪˈmenʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-49-1780555618610",
+        "term": "statistic",
+        "definition": "",
+        "meaningKr": "통계치, 통계량",
+        "exampleEn": "According to recent statistic, the unemployment rate has shown a downward trend over the past year.",
+        "exampleKr": "최근 통계에 따르면, 실업률은 지난 한 해 동안 하향 추세를 보여왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/stəˈtɪstɪk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-50-1780555618610",
+        "term": "parallel",
+        "definition": "",
+        "meaningKr": "병렬의, 유사한, 평행한",
+        "exampleEn": "The research found a strong parallel between the decline in bee populations and the increased use of certain pesticides.",
+        "exampleKr": "그 연구는 꿀벌 개체 수 감소와 특정 살충제 사용 증가 사이에 강한 유사점을 발견했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpærəlel/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-51-1780555618610",
+        "term": "entitle",
+        "definition": "",
+        "meaningKr": "자격(권리)을 주다, 표제를 붙이다",
+        "exampleEn": "Citizens who meet the criteria are entitled to receive financial assistance for higher education.",
+        "exampleKr": "기준을 충족하는 시민들은 고등 교육에 대한 재정 지원을 받을 자격이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈtaɪtl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-52-1780555618610",
+        "term": "deposit",
+        "definition": "",
+        "meaningKr": "맡기다, 예금하다, 침전시키다",
+        "exampleEn": "The company decided to deposit the profits into a long-term investment fund for future growth.",
+        "exampleKr": "그 회사는 미래 성장을 위해 이익금을 장기 투자 펀드에 예치하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈpɒzɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-53-1780555618610",
+        "term": "moderate",
+        "definition": "",
+        "meaningKr": "온건한, 적당한, 보통의",
+        "exampleEn": "While extreme views can be polarizing, moderate opinions often foster constructive dialogue and understanding.",
+        "exampleKr": "극단적인 견해는 양극화를 유발할 수 있지만, 온건한 의견은 종종 건설적인 대화와 이해를 촉진한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɒdərət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-54-1780555618610",
+        "term": "constitute",
+        "definition": "",
+        "meaningKr": "구성하다, ~이 되다, 제정하다",
+        "exampleEn": "These findings alone do not constitute definitive proof, but they strongly suggest a causal relationship.",
+        "exampleKr": "이러한 발견만으로는 결정적인 증거를 구성하지는 않지만, 인과 관계를 강력하게 시사한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒnstɪtjuːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-55-1780555618610",
+        "term": "keen",
+        "definition": "",
+        "meaningKr": "예리한, 열심인, 민감한",
+        "exampleEn": "The scientist's keen observation skills were crucial in identifying the subtle anomalies in the data.",
+        "exampleKr": "그 과학자의 예리한 관찰력은 데이터의 미묘한 변칙을 식별하는 데 결정적이었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kiːn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-56-1780555618610",
+        "term": "ethnic",
+        "definition": "",
+        "meaningKr": "인종의, 민족의",
+        "exampleEn": "Multicultural societies benefit from the preservation and celebration of diverse ethnic traditions and heritages.",
+        "exampleKr": "다문화 사회는 다양한 민족 전통과 유산의 보존과 기념으로부터 이익을 얻는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈeθnɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-57-1780555618610",
+        "term": "prompt",
+        "definition": "",
+        "meaningKr": "촉구하다, 유발하다, 즉각적인",
+        "exampleEn": "The government's intervention was prompted by a sudden surge in unemployment figures across the region.",
+        "exampleKr": "정부의 개입은 그 지역 전반의 실업률 수치의 갑작스러운 급증에 의해 촉발되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɒmpt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-58-1780555618610",
+        "term": "compound",
+        "definition": "",
+        "meaningKr": "악화시키다, 복합의, 화합물",
+        "exampleEn": "The economic downturn was compounded by a series of natural disasters, worsening the recovery process.",
+        "exampleKr": "경제 침체는 일련의 자연재해로 인해 악화되어 회복 과정을 더 어렵게 만들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒmpaʊnd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-59-1780555618610",
+        "term": "rid",
+        "definition": "",
+        "meaningKr": "제거하다, 벗어나게 하다",
+        "exampleEn": "It is essential for societies to find effective ways to rid themselves of systemic discrimination and prejudice.",
+        "exampleKr": "사회가 체계적인 차별과 편견을 효과적으로 제거할 방법을 찾는 것이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-60-1780555618610",
+        "term": "privilege",
+        "definition": "",
+        "meaningKr": "특권, 영광",
+        "exampleEn": "Access to quality education should not be a privilege but a fundamental right for all individuals.",
+        "exampleKr": "양질의 교육에 대한 접근은 특권이 아니라 모든 개인의 기본적인 권리가 되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɪvəlɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-61-1780555618610",
+        "term": "mutual",
+        "definition": "",
+        "meaningKr": "상호 간의, 공동의",
+        "exampleEn": "Successful international relations are built upon a foundation of mutual respect and shared interests.",
+        "exampleKr": "성공적인 국제 관계는 상호 존중과 공동의 이익이라는 기반 위에 구축된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmjuːtʃuəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-62-1780555618610",
+        "term": "dedicate",
+        "definition": "",
+        "meaningKr": "바치다, 헌신하다, 전념하다",
+        "exampleEn": "The organization aims to dedicate its resources to finding sustainable solutions for environmental challenges.",
+        "exampleKr": "그 조직은 환경 문제에 대한 지속 가능한 해결책을 찾는 데 자원을 헌신하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdedɪkeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-63-1780555618610",
+        "term": "compromise",
+        "definition": "",
+        "meaningKr": "타협하다, (원칙 등을) 굽히다",
+        "exampleEn": "In negotiations, finding a middle ground often requires parties to compromise on certain demands.",
+        "exampleKr": "협상에서 중간 지점을 찾는 것은 종종 당사자들이 특정 요구 사항에 대해 타협할 것을 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒmprəmaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-64-1780555618610",
+        "term": "embrace",
+        "definition": "",
+        "meaningKr": "받아들이다, 포용하다, 껴안다",
+        "exampleEn": "To foster innovation, companies must embrace new technologies and adapt their strategies accordingly.",
+        "exampleKr": "혁신을 촉진하기 위해 기업은 새로운 기술을 받아들이고 그에 따라 전략을 조정해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪmˈbreɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-65-1780555618610",
+        "term": "deficit",
+        "definition": "",
+        "meaningKr": "적자, 부족",
+        "exampleEn": "Persistent trade deficits can indicate underlying economic vulnerabilities that require careful management.",
+        "exampleKr": "지속적인 무역 적자는 신중한 관리가 필요한 근본적인 경제 취약성을 나타낼 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdefɪsɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-66-1780555618610",
+        "term": "modify",
+        "definition": "",
+        "meaningKr": "수정하다, 변경하다",
+        "exampleEn": "Scientists may need to modify their hypotheses based on new evidence that emerges from experiments.",
+        "exampleKr": "과학자들은 실험에서 나오는 새로운 증거에 기초하여 가설을 수정해야 할 수도 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɒdɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-67-1780555618610",
+        "term": "chamber",
+        "definition": "",
+        "meaningKr": "방, 회의실, (특정 목적의) 공간",
+        "exampleEn": "The legislative chamber debated the proposed bill, considering its potential impact on various sectors.",
+        "exampleKr": "입법 회의실은 제안된 법안이 다양한 부문에 미칠 잠재적 영향을 고려하며 토론했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈtʃeɪmbər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-68-1780555618610",
+        "term": "scope",
+        "definition": "",
+        "meaningKr": "범위, 영역, 기회",
+        "exampleEn": "The scope of the problem extends beyond immediate consequences, affecting long-term societal development.",
+        "exampleKr": "그 문제의 범위는 즉각적인 결과 너머로 확장되어 장기적인 사회 발전에 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/skəʊp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-69-1780555618610",
+        "term": "resign",
+        "definition": "",
+        "meaningKr": "사임하다, 사직하다",
+        "exampleEn": "The CEO decided to resign after facing significant public pressure regarding the company's ethical practices.",
+        "exampleKr": "그 CEO는 회사의 윤리적 관행에 대한 상당한 대중의 압력에 직면한 후 사임하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈzaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-70-1780555618610",
+        "term": "shelter",
+        "definition": "",
+        "meaningKr": "피난처, 보호, 쉼터",
+        "exampleEn": "During the storm, people sought shelter in designated safe zones to protect themselves from the severe weather.",
+        "exampleKr": "폭풍우 동안 사람들은 혹독한 날씨로부터 자신을 보호하기 위해 지정된 안전 구역으로 대피했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈʃeltər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-71-1780555618610",
+        "term": "mere",
+        "definition": "",
+        "meaningKr": "단지 ~의, 불과한",
+        "exampleEn": "The discovery of a mere fossil fragment can provide invaluable insights into prehistoric life forms.",
+        "exampleKr": "단지 화석 조각의 발견만으로도 선사 시대 생명체에 대한 귀중한 통찰력을 제공할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/mɪər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-72-1780555618610",
+        "term": "regulate",
+        "definition": "",
+        "meaningKr": "규제하다, 조절하다",
+        "exampleEn": "Governments must regulate the use of artificial intelligence to ensure ethical development and prevent misuse.",
+        "exampleKr": "정부는 윤리적 개발을 보장하고 오용을 방지하기 위해 인공 지능의 사용을 규제해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈreɡjʊleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-73-1780555618610",
+        "term": "rear",
+        "definition": "",
+        "meaningKr": "기르다, 양육하다, 뒤쪽의",
+        "exampleEn": "Parents play a vital role in nurturing a child's curiosity and encouraging them to rear their own interests.",
+        "exampleKr": "부모는 아이의 호기심을 키우고 스스로의 관심사를 발전시키도록 격려하는 데 중요한 역할을 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-74-1780555618610",
+        "term": "extract",
+        "definition": "",
+        "meaningKr": "추출하다, 뽑아내다",
+        "exampleEn": "Researchers developed a new method to efficiently extract valuable compounds from plant-based materials.",
+        "exampleKr": "연구원들은 식물 기반 물질에서 귀중한 화합물을 효율적으로 추출하는 새로운 방법을 개발했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪkˈstrækt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-75-1780555618610",
+        "term": "hook",
+        "definition": "",
+        "meaningKr": "갈고리, 낚싯바늘; (흥미를 끄는) 여는 부분",
+        "exampleEn": "The opening chapter of the novel employed a compelling hook to immediately capture the reader's attention.",
+        "exampleKr": "그 소설의 첫 장은 독자의 주의를 즉시 사로잡기 위해 흥미로운 여는 부분을 사용했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/hʊk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-76-1780555618610",
+        "term": "slope",
+        "definition": "",
+        "meaningKr": "경사, 비탈",
+        "exampleEn": "The steep slope of the mountain made the ascent challenging for even experienced hikers.",
+        "exampleKr": "그 산의 가파른 경사는 경험이 많은 등산객들에게조차도 등반을 어렵게 만들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/sloʊp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-77-1780555618610",
+        "term": "comprise",
+        "definition": "",
+        "meaningKr": "포함하다, 구성되다",
+        "exampleEn": "The final report will comprise findings from all three experimental groups.",
+        "exampleKr": "최종 보고서는 세 실험 그룹 모두의 조사 결과를 포함할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəmˈpraɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-78-1780555618610",
+        "term": "gaze",
+        "definition": "",
+        "meaningKr": "응시하다, 바라보다",
+        "exampleEn": "She would often gaze out the window, lost in contemplation of complex theories.",
+        "exampleKr": "그녀는 종종 복잡한 이론들에 대한 사색에 잠겨 창밖을 응시하곤 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɡeɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-79-1780555618610",
+        "term": "hypothesis",
+        "definition": "",
+        "meaningKr": "가설",
+        "exampleEn": "The research team formulated a new hypothesis to explain the observed phenomenon.",
+        "exampleKr": "연구팀은 관찰된 현상을 설명하기 위해 새로운 가설을 세웠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/haɪˈpɑːθəsɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-80-1780555618610",
+        "term": "abort",
+        "definition": "",
+        "meaningKr": "중단하다, 실패하다",
+        "exampleEn": "The mission had to be aborted due to unforeseen technical difficulties.",
+        "exampleKr": "예상치 못한 기술적 문제로 인해 임무는 중단되어야 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈbɔːrt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-81-1780555618610",
+        "term": "absurd",
+        "definition": "",
+        "meaningKr": "터무니없는, 불합리한",
+        "exampleEn": "The notion that the Earth was flat seemed absurd in the face of overwhelming scientific evidence.",
+        "exampleKr": "지구가 평평하다는 생각은 압도적인 과학적 증거 앞에서 터무니없어 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/æbˈsɜːrd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-82-1780555618610",
+        "term": "accumulate",
+        "definition": "",
+        "meaningKr": "축적하다, 모으다",
+        "exampleEn": "Over time, small contributions can accumulate to create a significant impact.",
+        "exampleKr": "시간이 지남에 따라 작은 기여들이 모여 상당한 영향을 만들어낼 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈkjuːmjəleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-83-1780555618610",
+        "term": "acquaint",
+        "definition": "",
+        "meaningKr": "알게 하다, 숙지시키다",
+        "exampleEn": "The introductory course aims to acquaint students with the fundamental principles of economics.",
+        "exampleKr": "입문 과정은 학생들이 경제학의 기본 원리에 익숙해지도록 하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈkweɪnt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-84-1780555618610",
+        "term": "adverse",
+        "definition": "",
+        "meaningKr": "부정적인, 불리한",
+        "exampleEn": "The company faced adverse reactions from consumers regarding its new marketing strategy.",
+        "exampleKr": "그 회사는 새로운 마케팅 전략에 대해 소비자들로부터 부정적인 반응에 직면했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈædvɜːrs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-85-1780555618610",
+        "term": "aesthetic",
+        "definition": "",
+        "meaningKr": "미학적인, 심미적인",
+        "exampleEn": "The architect prioritized the building's aesthetic appeal alongside its functional requirements.",
+        "exampleKr": "그 건축가는 기능적 요구 사항과 함께 건물의 미학적 매력을 우선시했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/esˈθetɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-86-1780555618610",
+        "term": "affiliate",
+        "definition": "",
+        "meaningKr": "제휴하다, 연계시키다",
+        "exampleEn": "The university decided to affiliate with a research institute to foster collaboration.",
+        "exampleKr": "그 대학은 협력을 증진하기 위해 한 연구소와 제휴하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈfɪlieɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-87-1780555618610",
+        "term": "allocate",
+        "definition": "",
+        "meaningKr": "할당하다, 배분하다",
+        "exampleEn": "The manager had to carefully allocate the limited resources among competing projects.",
+        "exampleKr": "그 관리자는 제한된 자원을 경쟁하는 프로젝트들 사이에 신중하게 할당해야 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈæləkeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-88-1780555618610",
+        "term": "amplify",
+        "definition": "",
+        "meaningKr": "증폭시키다, 확대하다",
+        "exampleEn": "The sound system was used to amplify the speaker's voice to the entire auditorium.",
+        "exampleKr": "음향 시스템은 강연자의 목소리를 강당 전체에 증폭시키는 데 사용되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈæmplɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-89-1780555618610",
+        "term": "archive",
+        "definition": "",
+        "meaningKr": "기록 보관소, 공문서",
+        "exampleEn": "Historical documents are preserved in the national archive for future research.",
+        "exampleKr": "역사적 문서들은 미래의 연구를 위해 국립 기록 보관소에 보존된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɑːrkaɪv/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-90-1780555618610",
+        "term": "assault",
+        "definition": "",
+        "meaningKr": "공격, 폭행",
+        "exampleEn": "The sudden verbal assault left him feeling defensive and misunderstood.",
+        "exampleKr": "갑작스러운 언어적 공격은 그를 방어적이고 오해받는다고 느끼게 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈsɔːlt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-91-1780555618610",
+        "term": "attorney",
+        "definition": "",
+        "meaningKr": "변호사",
+        "exampleEn": "He sought legal counsel from an experienced attorney regarding the contract dispute.",
+        "exampleKr": "그는 계약 분쟁에 관해 경험 많은 변호사에게 법률 자문을 구했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈtɜːrni/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-92-1780555618610",
+        "term": "authentic",
+        "definition": "",
+        "meaningKr": "진짜의, 정통의",
+        "exampleEn": "The museum curator ensured that the artifacts displayed were authentic historical pieces.",
+        "exampleKr": "박물관 큐레이터는 전시된 유물이 진정한 역사적 작품임을 확인했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɔːˈθentɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-93-1780555618610",
+        "term": "bankrupt",
+        "definition": "",
+        "meaningKr": "파산한",
+        "exampleEn": "The economic downturn unfortunately led to several small businesses going bankrupt.",
+        "exampleKr": "불행히도 경기 침체로 인해 여러 소규모 사업체가 파산하게 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈbæŋkrʌpt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-94-1780555618610",
+        "term": "bishop",
+        "definition": "",
+        "meaningKr": "주교 (기독교)",
+        "exampleEn": "The bishop delivered a sermon on the importance of community service and compassion.",
+        "exampleKr": "그 주교는 지역 사회 봉사와 연민의 중요성에 대한 설교를 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈbɪʃəp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-95-1780555618610",
+        "term": "blast",
+        "definition": "",
+        "meaningKr": "폭발, 강한 바람",
+        "exampleEn": "The sudden blast of cold air made everyone shiver.",
+        "exampleKr": "갑작스러운 찬 바람의 돌풍은 모든 사람을 떨게 만들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/blæst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-96-1780555618610",
+        "term": "brew",
+        "definition": "",
+        "meaningKr": "양조하다, (음료를) 끓이다; (상황이) 조성되다",
+        "exampleEn": "The scientists were brewing a new theory to explain the complex interactions.",
+        "exampleKr": "과학자들은 복잡한 상호작용을 설명하기 위해 새로운 이론을 만들고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/bruː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-97-1780555618610",
+        "term": "brute",
+        "definition": "",
+        "meaningKr": "짐승, 폭력적인 사람",
+        "exampleEn": "He was treated not as a person but as a mere brute force in their calculations.",
+        "exampleKr": "그는 사람으로 대우받지 못하고 그들의 계산에서 단순한 맹수(힘)로 취급되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/bruːt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-98-1780555618610",
+        "term": "bulk",
+        "definition": "",
+        "meaningKr": "대량, 규모; 대부분",
+        "exampleEn": "The bulk of the evidence supported the researcher's initial claims.",
+        "exampleKr": "증거의 대부분은 연구원의 초기 주장을 뒷받침했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/bʌlk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-99-1780555618610",
+        "term": "caption",
+        "definition": "",
+        "meaningKr": "자막, 사진 설명",
+        "exampleEn": "The documentary provided a detailed caption for each historical photograph.",
+        "exampleKr": "그 다큐멘터리는 각 역사적 사진에 대한 상세한 설명을 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkæpʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-100-1780555618610",
+        "term": "cater",
+        "definition": "",
+        "meaningKr": "필요를 충족시키다, 음식을 공급하다",
+        "exampleEn": "The restaurant aims to cater to a diverse clientele, offering a wide range of international cuisines.",
+        "exampleKr": "그 식당은 다양한 고객층의 필요를 충족시키고 폭넓은 국제 요리를 제공하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkeɪtər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-101-1780555618610",
+        "term": "cathedral",
+        "definition": "",
+        "meaningKr": "대성당",
+        "exampleEn": "The ancient cathedral, a masterpiece of Gothic architecture, draws thousands of visitors annually.",
+        "exampleKr": "고딕 건축의 걸작인 그 고대 대성당은 매년 수천 명의 방문객을 끌어모은다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəˈθiːdrəl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-102-1780555618610",
+        "term": "chronic",
+        "definition": "",
+        "meaningKr": "만성적인, 고질적인",
+        "exampleEn": "Addressing chronic issues of inequality requires long-term strategies and societal commitment.",
+        "exampleKr": "불평등의 고질적인 문제들을 해결하기 위해서는 장기적인 전략과 사회적 헌신이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkrɒnɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-103-1780555618610",
+        "term": "commence",
+        "definition": "",
+        "meaningKr": "시작하다, 개시하다",
+        "exampleEn": "The academic year is scheduled to commence with an orientation program for new students.",
+        "exampleKr": "새 학년도는 신입생 오리엔테이션 프로그램으로 시작될 예정이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəˈmens/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-104-1780555618610",
+        "term": "commodity",
+        "definition": "",
+        "meaningKr": "상품, 원자재",
+        "exampleEn": "The price of oil, a vital global commodity, significantly impacts transportation and manufacturing costs.",
+        "exampleKr": "필수적인 세계 원자재인 석유의 가격은 운송 및 제조 비용에 상당한 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəˈmɒdəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-105-1780555618610",
+        "term": "compatible",
+        "definition": "",
+        "meaningKr": "호환되는, 양립할 수 있는",
+        "exampleEn": "Ensuring software compatibility across different operating systems is crucial for user experience.",
+        "exampleKr": "다양한 운영 체제에 걸친 소프트웨어 호환성을 보장하는 것은 사용자 경험에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəmˈpætəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-106-1780555618610",
+        "term": "compel",
+        "definition": "",
+        "meaningKr": "강요하다, 강제하다",
+        "exampleEn": "The evidence presented in court will compel the jury to reach a verdict.",
+        "exampleKr": "법정에서 제시된 증거는 배심원단이 평결에 도달하도록 강요할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəmˈpel/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-107-1780555618610",
+        "term": "compensate",
+        "definition": "",
+        "meaningKr": "보상하다, 상쇄하다",
+        "exampleEn": "Companies must compensate employees fairly for overtime work and hazardous conditions.",
+        "exampleKr": "기업은 초과 근무와 위험한 근무 조건에 대해 직원들에게 공정하게 보상해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒmpenseɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-108-1780555618610",
+        "term": "compile",
+        "definition": "",
+        "meaningKr": "편집하다, 컴파일하다, 종합하다",
+        "exampleEn": "Researchers meticulously compiled data from various sources to support their hypothesis.",
+        "exampleKr": "연구원들은 그들의 가설을 뒷받침하기 위해 다양한 출처의 데이터를 꼼꼼하게 종합했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəmˈpaɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-109-1780555618610",
+        "term": "compulsory",
+        "definition": "",
+        "meaningKr": "의무적인, 강제적인",
+        "exampleEn": "In many countries, completing a certain level of education is compulsory for all citizens.",
+        "exampleKr": "많은 나라에서 일정 수준의 교육을 이수하는 것은 모든 시민에게 의무적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəmˈpʌlsəri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-110-1780555618610",
+        "term": "conceive",
+        "definition": "",
+        "meaningKr": "상상하다, 생각하다, 임신하다",
+        "exampleEn": "It is difficult to conceive of a world without the internet in this modern era.",
+        "exampleKr": "이 현대 시대에 인터넷 없는 세상을 상상하기는 어렵다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈsiːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-111-1780555618610",
+        "term": "condemn",
+        "definition": "",
+        "meaningKr": "비난하다, 선고를 내리다",
+        "exampleEn": "The international community widely condemned the act of aggression as a violation of human rights.",
+        "exampleKr": "국제 사회는 그 침략 행위를 인권 침해로 널리 비난했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈdem/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-112-1780555618610",
+        "term": "confer",
+        "definition": "",
+        "meaningKr": "수여하다, 협의하다",
+        "exampleEn": "The committee will confer an award upon the scientist for her groundbreaking research.",
+        "exampleKr": "위원회는 그녀의 획기적인 연구에 대해 그 과학자에게 상을 수여할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈfɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-113-1780555618610",
+        "term": "consensus",
+        "definition": "",
+        "meaningKr": "합의, 일치",
+        "exampleEn": "Reaching a consensus among diverse stakeholders is often challenging but essential for progress.",
+        "exampleKr": "다양한 이해관계자들 사이에서 합의에 도달하는 것은 종종 어렵지만 발전을 위해 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈsensəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-114-1780555618610",
+        "term": "consent",
+        "definition": "",
+        "meaningKr": "동의, 승인",
+        "exampleEn": "Obtaining informed consent from participants is a fundamental ethical requirement in research.",
+        "exampleKr": "참가자로부터 정보에 입각한 동의를 얻는 것은 연구에서 기본적인 윤리적 요건이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈsent/",
+        "pos": "noun, verb"
+      },
+      {
+        "id": "word-suneung-115-1780555618610",
+        "term": "conserve",
+        "definition": "",
+        "meaningKr": "보존하다, 아끼다",
+        "exampleEn": "Efforts to conserve natural resources are vital for ensuring a sustainable future.",
+        "exampleKr": "천연자원을 보존하려는 노력은 지속 가능한 미래를 보장하는 데 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈsɜːrv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-116-1780555618610",
+        "term": "constrain",
+        "definition": "",
+        "meaningKr": "제약하다, 억제하다",
+        "exampleEn": "Limited funding can constrain the scope of scientific inquiry and technological development.",
+        "exampleKr": "제한된 자금은 과학적 탐구와 기술 개발의 범위를 제약할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈstreɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-117-1780555618610",
+        "term": "contend",
+        "definition": "",
+        "meaningKr": "주장하다, 싸우다, 경쟁하다",
+        "exampleEn": "Many scholars contend that environmental degradation poses the greatest threat to human civilization.",
+        "exampleKr": "많은 학자들은 환경 파괴가 인류 문명에 가장 큰 위협이 된다고 주장한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈtend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-118-1780555618610",
+        "term": "contradict",
+        "definition": "",
+        "meaningKr": "모순되다, 반박하다",
+        "exampleEn": "New evidence often emerges that seems to contradict previous findings in scientific studies.",
+        "exampleKr": "이전의 과학 연구 결과와 모순되는 것처럼 보이는 새로운 증거가 종종 나타난다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌkɒntrəˈdɪkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-119-1780555618610",
+        "term": "coordinate",
+        "definition": "",
+        "meaningKr": "조정하다, 조화시키다",
+        "exampleEn": "Effective teamwork requires individuals to coordinate their efforts towards a common goal.",
+        "exampleKr": "효과적인 팀워크는 개인이 공동의 목표를 향해 노력을 조정할 것을 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəʊˈɔːrdɪneɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-120-1780555618610",
+        "term": "corridor",
+        "definition": "",
+        "meaningKr": "복도, 회랑",
+        "exampleEn": "The long, dimly lit corridor led to the main lecture hall of the university.",
+        "exampleKr": "길고 희미하게 불이 켜진 복도는 대학의 주요 강의실로 이어졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒrɪdɔːr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-121-1780555618610",
+        "term": "counterpart",
+        "definition": "",
+        "meaningKr": "상대방, 대응물",
+        "exampleEn": "The diplomat met with her counterpart from the opposing nation to discuss bilateral relations.",
+        "exampleKr": "그 외교관은 양자 관계를 논의하기 위해 상대국에서 온 상대방과 만났다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkaʊntərpɑːrt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-122-1780555618610",
+        "term": "creek",
+        "definition": "",
+        "meaningKr": "시냇가, 작은 만",
+        "exampleEn": "The hikers followed the winding creek through the dense forest, enjoying the natural scenery.",
+        "exampleKr": "등산객들은 울창한 숲을 통해 구불구불한 시냇가를 따라가며 자연 경관을 즐겼다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kriːk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-123-1780555618610",
+        "term": "creep",
+        "definition": "",
+        "meaningKr": "기어가다, 서서히 퍼지다",
+        "exampleEn": "Technological advancements tend to creep into our daily lives, gradually transforming society.",
+        "exampleKr": "기술 발전은 우리 일상생활에 서서히 스며들어 점진적으로 사회를 변화시키는 경향이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kriːp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-124-1780555618610",
+        "term": "curriculum",
+        "definition": "",
+        "meaningKr": "교육 과정, 커리큘럼",
+        "exampleEn": "Educational institutions are constantly revising their curriculum to meet the evolving demands of the job market.",
+        "exampleKr": "교육 기관들은 직업 시장의 변화하는 요구를 충족시키기 위해 끊임없이 교육 과정을 수정하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəˈrɪkjələm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-125-1780555618610",
+        "term": "curse",
+        "definition": "",
+        "meaningKr": "저주, 욕설; 저주하다, 욕설하다",
+        "exampleEn": "The ancient artifact was believed to carry a curse that would bring misfortune to anyone who disturbed its resting place.",
+        "exampleKr": "그 고대 유물은 그곳을 방해하는 누구에게나 불행을 가져올 저주를 담고 있다고 믿어졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kɜːrs/",
+        "pos": "noun | verb"
+      },
+      {
+        "id": "word-suneung-126-1780555618610",
+        "term": "custody",
+        "definition": "",
+        "meaningKr": "양육권, 구금, 감호",
+        "exampleEn": "Following the divorce, the court granted sole custody of the children to the mother, considering the father's unstable employment.",
+        "exampleKr": "이혼 후, 법원은 아버지의 불안정한 고용 상태를 고려하여 아이들에 대한 단독 양육권을 어머니에게 부여했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkʌstədi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-127-1780555618610",
+        "term": "cynical",
+        "definition": "",
+        "meaningKr": "냉소적인, 비꼬는",
+        "exampleEn": "His cynical outlook on human nature often led him to question the sincerity of altruistic actions, seeing ulterior motives.",
+        "exampleKr": "인간 본성에 대한 그의 냉소적인 시각은 종종 숨겨진 동기를 보며 이타적인 행동의 진실성을 의심하게 만들었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsɪnɪkl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-128-1780555618610",
+        "term": "decent",
+        "definition": "",
+        "meaningKr": "괜찮은, 품위 있는, 예의 바른",
+        "exampleEn": "The organization strives to provide decent housing and basic necessities to all displaced individuals affected by the natural disaster.",
+        "exampleKr": "그 단체는 자연재해로 피해를 입은 모든 실향민들에게 괜찮은 주거지와 기본적인 필수품을 제공하기 위해 노력한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdiːsnt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-129-1780555618610",
+        "term": "deficiency",
+        "definition": "",
+        "meaningKr": "결핍, 부족, 결점",
+        "exampleEn": "A deficiency in vitamin D can lead to weakened bones and an increased susceptibility to various health problems.",
+        "exampleKr": "비타민 D의 결핍은 뼈를 약하게 하고 다양한 건강 문제에 대한 취약성을 증가시킬 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈfɪʃnsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-130-1780555618610",
+        "term": "degrade",
+        "definition": "",
+        "meaningKr": "품위를 떨어뜨리다, 비하하다; (화학적으로) 분해되다",
+        "exampleEn": "The constant exposure to pollutants can degrade the quality of the soil, making it unsuitable for agriculture.",
+        "exampleKr": "지속적인 오염 물질 노출은 토양의 질을 저하시켜 농업에 부적합하게 만들 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈɡreɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-131-1780555618610",
+        "term": "delegate",
+        "definition": "",
+        "meaningKr": "위임하다, 대표로 보내다; 대표",
+        "exampleEn": "The committee decided to delegate the task of organizing the annual conference to a specialized external agency.",
+        "exampleKr": "위원회는 연례 회의 조직 업무를 전문 외부 기관에 위임하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdelɪɡət/",
+        "pos": "verb | noun"
+      },
+      {
+        "id": "word-suneung-132-1780555618610",
+        "term": "deliberate",
+        "definition": "",
+        "meaningKr": "의도적인, 신중한; 숙고하다, 의논하다",
+        "exampleEn": "The government's deliberate policy shift aimed to address long-term environmental sustainability rather than short-term economic gains.",
+        "exampleKr": "정부의 의도적인 정책 변화는 단기적인 경제적 이익보다는 장기적인 환경 지속 가능성을 해결하는 것을 목표로 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈlɪbərət/",
+        "pos": "adjective | verb"
+      },
+      {
+        "id": "word-suneung-133-1780555618610",
+        "term": "depict",
+        "definition": "",
+        "meaningKr": "묘사하다, 그리다",
+        "exampleEn": "The documentary sought to accurately depict the complex social and economic challenges faced by rural communities.",
+        "exampleKr": "그 다큐멘터리는 농촌 공동체가 직면한 복잡한 사회적, 경제적 문제들을 정확하게 묘사하고자 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈpɪkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-134-1780555618610",
+        "term": "deprive",
+        "definition": "",
+        "meaningKr": "빼앗다, 박탈하다",
+        "exampleEn": "Lack of access to quality education can deprive individuals of opportunities to improve their socioeconomic status.",
+        "exampleKr": "양질의 교육에 대한 접근 부족은 개인의 사회경제적 지위를 향상시킬 기회를 박탈할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈpraɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-135-1780555618610",
+        "term": "designate",
+        "definition": "",
+        "meaningKr": "지정하다, 명시하다",
+        "exampleEn": "The area was officially designated as a protected wildlife reserve to prevent further habitat destruction.",
+        "exampleKr": "그 지역은 추가적인 서식지 파괴를 막기 위해 공식적으로 보호 야생 동물 보호 구역으로 지정되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdezɪɡneɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-136-1780555618610",
+        "term": "diabetes",
+        "definition": "",
+        "meaningKr": "당뇨병",
+        "exampleEn": "Managing diabetes effectively requires a combination of dietary changes, regular exercise, and sometimes medication.",
+        "exampleKr": "당뇨병을 효과적으로 관리하기 위해서는 식이요법, 규칙적인 운동, 그리고 때로는 약물 치료의 조합이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌdaɪəˈbiːtiz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-137-1780555618610",
+        "term": "dictate",
+        "definition": "",
+        "meaningKr": "받아쓰게 하다, 구술하다; 좌우하다, 명령하다",
+        "exampleEn": "Economic conditions often dictate the investment strategies adopted by businesses seeking long-term stability.",
+        "exampleKr": "경제 상황은 종종 장기적인 안정을 추구하는 기업들이 채택하는 투자 전략을 좌우한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪkˈteɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-138-1780555618610",
+        "term": "dignity",
+        "definition": "",
+        "meaningKr": "존엄, 위엄",
+        "exampleEn": "The refugees were treated with dignity and respect, ensuring their basic human rights were upheld throughout the process.",
+        "exampleKr": "난민들은 존엄과 존중으로 대우받았으며, 그 과정 전반에 걸쳐 기본적인 인권이 지켜지도록 보장되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdɪɡnəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-139-1780555618610",
+        "term": "dine",
+        "definition": "",
+        "meaningKr": "식사하다 (특히 저녁 식사)",
+        "exampleEn": "The restaurant offers a unique opportunity to dine amidst historical artifacts, providing a culturally enriching experience.",
+        "exampleKr": "그 레스토랑은 역사적인 유물 속에서 식사할 수 있는 독특한 기회를 제공하며 문화적으로 풍요로운 경험을 선사한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/daɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-140-1780555618610",
+        "term": "discharge",
+        "definition": "",
+        "meaningKr": "해고하다, 제대시키다; 방출하다; (의무 등에서) 면제하다; 방출, 배출",
+        "exampleEn": "The factory was ordered to cease discharging industrial waste directly into the river, citing environmental concerns.",
+        "exampleKr": "그 공장은 환경 문제 제기를 인용하여 산업 폐기물을 강으로 직접 방류하는 것을 중단하라는 명령을 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪsˈtʃɑːrdʒ/",
+        "pos": "verb | noun"
+      },
+      {
+        "id": "word-suneung-141-1780555618610",
+        "term": "discourse",
+        "definition": "",
+        "meaningKr": "담론, 대화; 담론을 형성하다, 이야기하다",
+        "exampleEn": "The academic discourse surrounding climate change has intensified, urging for immediate global action and policy reform.",
+        "exampleKr": "기후 변화를 둘러싼 학문적 담론이 심화되면서 즉각적인 국제적 행동과 정책 개혁을 촉구하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdɪskɔːrs/",
+        "pos": "noun | verb"
+      },
+      {
+        "id": "word-suneung-142-1780555618610",
+        "term": "discriminate",
+        "definition": "",
+        "meaningKr": "차별하다; 구별하다",
+        "exampleEn": "It is crucial to develop policies that prevent employers from discriminating against job applicants based on age or gender.",
+        "exampleKr": "고용주가 나이나 성별에 근거하여 구직자를 차별하는 것을 방지하는 정책을 개발하는 것이 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈskrɪmɪneɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-143-1780555618610",
+        "term": "displace",
+        "definition": "",
+        "meaningKr": "쫓아내다, 이동시키다",
+        "exampleEn": "The construction of the new dam will inevitably displace several communities living along the river valley.",
+        "exampleKr": "새 댐 건설은 불가피하게 강 계곡에 거주하는 여러 지역 사회를 이주시킬 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪsˈpleɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-144-1780555618610",
+        "term": "disrupt",
+        "definition": "",
+        "meaningKr": "방해하다, 중단시키다",
+        "exampleEn": "The sudden technological advancements have the potential to significantly disrupt established industries and market structures.",
+        "exampleKr": "갑작스러운 기술 발전은 기존 산업과 시장 구조를 상당히 방해할 잠재력을 가지고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪsˈrʌpt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-145-1780555618610",
+        "term": "distort",
+        "definition": "",
+        "meaningKr": "왜곡하다, 비틀다",
+        "exampleEn": "Media outlets must strive to avoid distorting facts, ensuring that public opinion is based on accurate information.",
+        "exampleKr": "언론 매체는 사실을 왜곡하는 것을 피하고 대중의 의견이 정확한 정보에 기반하도록 노력해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈstɔːrt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-146-1780555618610",
+        "term": "divine",
+        "definition": "",
+        "meaningKr": "신성한, 점치는; 신성한 것, 신학",
+        "exampleEn": "Many ancient cultures believed that divine intervention played a significant role in the affairs of humankind.",
+        "exampleKr": "많은 고대 문화는 신성한 개입이 인류의사에 중요한 역할을 한다고 믿었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈvaɪn/",
+        "pos": "adjective | noun"
+      },
+      {
+        "id": "word-suneung-147-1780555618610",
+        "term": "dominant",
+        "definition": "",
+        "meaningKr": "우세한, 지배적인",
+        "exampleEn": "In many ecosystems, a few dominant species exert a strong influence on the overall biodiversity and structure.",
+        "exampleKr": "많은 생태계에서 몇몇 우세한 종들은 전체적인 생물 다양성과 구조에 강한 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdɒmɪnənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-148-1780555618610",
+        "term": "dose",
+        "definition": "",
+        "meaningKr": "복용량, 투여량; (약 등을) 투여하다",
+        "exampleEn": "The physician carefully calculated the appropriate dose of medication to minimize side effects and maximize therapeutic benefit.",
+        "exampleKr": "의사는 부작용을 최소화하고 치료적 이익을 극대화하기 위해 적절한 약물 용량을 신중하게 계산했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/doʊs/",
+        "pos": "noun | verb"
+      },
+      {
+        "id": "word-suneung-149-1780555618610",
+        "term": "drain",
+        "definition": "",
+        "meaningKr": "배수하다, 소모시키다; 배수구, 소모",
+        "exampleEn": "The prolonged drought began to drain the region's water resources, posing a severe threat to agriculture.",
+        "exampleKr": "지속된 가뭄으로 인해 그 지역의 수자원이 고갈되기 시작했으며, 농업에 심각한 위협을 제기했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dreɪn/",
+        "pos": "verb | noun"
+      },
+      {
+        "id": "word-suneung-150-1780555618610",
+        "term": "dread",
+        "definition": "",
+        "meaningKr": "몹시 두려워하다, 걱정하다",
+        "exampleEn": "Many students dread the upcoming final exams, fearing the pressure and the possibility of failure.",
+        "exampleKr": "많은 학생들은 압박감과 실패 가능성에 대한 두려움 때문에 다가오는 기말고사를 몹시 두려워한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/drɛd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-151-1780555618610",
+        "term": "dual",
+        "definition": "",
+        "meaningKr": "이중의, 두 개의",
+        "exampleEn": "The government adopted a dual approach, combining economic incentives with stricter regulations.",
+        "exampleKr": "정부는 경제적 인센티브와 더 엄격한 규제를 결합하는 이중 접근 방식을 채택했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdjuːəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-152-1780555618610",
+        "term": "elaborate",
+        "definition": "",
+        "meaningKr": "상세히 설명하다, 정교하게 만들다",
+        "exampleEn": "The professor asked the students to elaborate on their research findings during the presentation.",
+        "exampleKr": "교수는 학생들에게 발표 중에 연구 결과에 대해 상세히 설명해 달라고 요청했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈlæbəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-153-1780555618610",
+        "term": "emit",
+        "definition": "",
+        "meaningKr": "방출하다, 내뿜다",
+        "exampleEn": "Industrial factories often emit harmful pollutants into the atmosphere, affecting air quality.",
+        "exampleKr": "산업 공장들은 종종 대기 중으로 해로운 오염 물질을 방출하여 대기 질에 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈmɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-154-1780555618610",
+        "term": "enforce",
+        "definition": "",
+        "meaningKr": "집행하다, 강요하다",
+        "exampleEn": "It is crucial for authorities to strictly enforce environmental protection laws.",
+        "exampleKr": "당국이 환경 보호법을 엄격하게 집행하는 것이 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈfɔːrs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-155-1780555618610",
+        "term": "equate",
+        "definition": "",
+        "meaningKr": "동일시하다, 같다고 여기다",
+        "exampleEn": "We should not equate economic growth with overall societal well-being.",
+        "exampleKr": "우리는 경제 성장을 전반적인 사회 복지와 동일시해서는 안 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈkweɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-156-1780555618610",
+        "term": "erect",
+        "definition": "",
+        "meaningKr": "세우다, 건설하다",
+        "exampleEn": "Engineers worked diligently to erect the new bridge across the river.",
+        "exampleKr": "기술자들은 강을 가로지르는 새 다리를 세우기 위해 부지런히 작업했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈrɛkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-157-1780555618610",
+        "term": "ethical",
+        "definition": "",
+        "meaningKr": "윤리적인, 도덕적인",
+        "exampleEn": "The company faced criticism for its unethical business practices and lack of transparency.",
+        "exampleKr": "그 회사는 비윤리적인 사업 관행과 투명성 부족으로 비판에 직면했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɛθɪkl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-158-1780555618610",
+        "term": "evacuate",
+        "definition": "",
+        "meaningKr": "대피하다, 비우다",
+        "exampleEn": "Residents in the flood-prone area were advised to evacuate their homes immediately.",
+        "exampleKr": "홍수 위험 지역 주민들은 즉시 집에서 대피하라는 권고를 받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈvækjuːeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-159-1780555618610",
+        "term": "exclusive",
+        "definition": "",
+        "meaningKr": "독점적인, 배타적인",
+        "exampleEn": "The research paper offered an exclusive insight into the complex dynamics of the market.",
+        "exampleKr": "그 연구 논문은 시장의 복잡한 역학 관계에 대한 독점적인 통찰력을 제공했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪkˈskluːsɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-160-1780555618610",
+        "term": "expertise",
+        "definition": "",
+        "meaningKr": "전문 지식, 전문 기술",
+        "exampleEn": "The team lacked the necessary expertise to handle the advanced technical challenges.",
+        "exampleKr": "그 팀은 고급 기술적 난제를 다룰 데 필요한 전문 지식이 부족했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌɛkspɜːrˈtiːz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-161-1780555618610",
+        "term": "explicit",
+        "definition": "",
+        "meaningKr": "명시적인, 분명한",
+        "exampleEn": "The instructions were explicit, leaving no room for misinterpretation or ambiguity.",
+        "exampleKr": "지침은 명시적이어서 오해나 모호함의 여지가 전혀 없었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪkˈsplɪsɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-162-1780555618610",
+        "term": "facilitate",
+        "definition": "",
+        "meaningKr": "촉진하다, 용이하게 하다",
+        "exampleEn": "Technology can significantly facilitate communication and collaboration among team members.",
+        "exampleKr": "기술은 팀원 간의 의사소통과 협업을 상당히 촉진할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fəˈsɪlɪteɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-163-1780555618610",
+        "term": "faculty",
+        "definition": "",
+        "meaningKr": "교수진, 학부",
+        "exampleEn": "The university's esteemed faculty comprises leading scholars in various fields of study.",
+        "exampleKr": "그 대학의 존경받는 교수진은 다양한 학문 분야의 선도적인 학자들로 구성되어 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfæklti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-164-1780555618610",
+        "term": "fatal",
+        "definition": "",
+        "meaningKr": "치명적인, 치사의",
+        "exampleEn": "The accident was attributed to a fatal error in judgment by the pilot.",
+        "exampleKr": "그 사고는 조종사의 치명적인 판단 오류에 기인한 것으로 여겨졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfeɪtl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-165-1780555618610",
+        "term": "fertile",
+        "definition": "",
+        "meaningKr": "비옥한, 출산력 있는",
+        "exampleEn": "The region is known for its fertile land, which supports abundant agricultural production.",
+        "exampleKr": "그 지역은 풍부한 농업 생산을 지원하는 비옥한 토지로 유명하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfɜːrtaɪl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-166-1780555618610",
+        "term": "flee",
+        "definition": "",
+        "meaningKr": "달아나다, 도망치다",
+        "exampleEn": "Many citizens were forced to flee their homes due to the ongoing conflict.",
+        "exampleKr": "많은 시민들이 진행 중인 분쟁 때문에 집에서 달아나야 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fliː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-167-1780555618610",
+        "term": "flip",
+        "definition": "",
+        "meaningKr": "뒤집다, 홱 돌리다",
+        "exampleEn": "He quickly flipped through the pages of the book, searching for specific information.",
+        "exampleKr": "그는 특정 정보를 찾기 위해 책장을 빠르게 뒤적였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/flɪp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-168-1780555618610",
+        "term": "fluid",
+        "definition": "",
+        "meaningKr": "유동적인, 변화하기 쉬운",
+        "exampleEn": "The economic situation remains fluid, making long-term predictions challenging.",
+        "exampleKr": "경제 상황은 유동적이어서 장기 예측을 어렵게 만든다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfluːɪd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-169-1780555618610",
+        "term": "flush",
+        "definition": "",
+        "meaningKr": "붉어지다, (물을) 흘려보내다",
+        "exampleEn": "His face began to flush with embarrassment when he realized his mistake.",
+        "exampleKr": "그는 자신의 실수를 깨달았을 때 당황해서 얼굴이 붉어지기 시작했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/flʌʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-170-1780555618610",
+        "term": "fond",
+        "definition": "",
+        "meaningKr": "다정한, 애정 어린",
+        "exampleEn": "She held a fond memory of her childhood summers spent by the sea.",
+        "exampleKr": "그녀는 바닷가에서 보낸 어린 시절 여름에 대한 애틋한 추억을 간직하고 있었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fɒnd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-171-1780555618610",
+        "term": "foster",
+        "definition": "",
+        "meaningKr": "조성하다, 육성하다",
+        "exampleEn": "The program aims to foster a sense of community and encourage civic engagement.",
+        "exampleKr": "그 프로그램은 공동체 의식을 조성하고 시민 참여를 장려하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfɒstər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-172-1780555618610",
+        "term": "fraction",
+        "definition": "",
+        "meaningKr": "부분, 일부, 분수",
+        "exampleEn": "Only a small fraction of the population has access to advanced medical treatments.",
+        "exampleKr": "인구의 아주 작은 부분만이 고급 의료 치료에 접근할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfrækʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-173-1780555618610",
+        "term": "frost",
+        "definition": "",
+        "meaningKr": "서리",
+        "exampleEn": "A thin layer of frost covered the ground overnight, signaling the arrival of winter.",
+        "exampleKr": "하룻밤 사이에 얇은 서리가 땅을 덮어 겨울의 도래를 알렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/frɒst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-174-1780555618610",
+        "term": "furious",
+        "definition": "",
+        "meaningKr": "격노한, 격렬한",
+        "exampleEn": "The public reaction was furious following the government's controversial policy announcement.",
+        "exampleKr": "정부의 논란이 많은 정책 발표 이후 대중의 반응은 격노했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfjʊəriəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-175-1780555618610",
+        "term": "furnish",
+        "definition": "",
+        "meaningKr": "비치하다, 제공하다",
+        "exampleEn": "The research team was tasked to furnish detailed reports on the environmental impact of the new industrial complex.",
+        "exampleKr": "연구팀은 새로운 산업 단지의 환경 영향에 대한 상세 보고서를 제공하는 임무를 맡았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfɜːrnɪʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-176-1780555618610",
+        "term": "fuse",
+        "definition": "",
+        "meaningKr": "융합하다, 녹이다",
+        "exampleEn": "Advanced materials science often involves processes that fuse different elements at high temperatures to create novel composites.",
+        "exampleKr": "첨단 재료 과학은 종종 고온에서 서로 다른 원소들을 융합하여 새로운 복합 재료를 만드는 과정을 포함한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fjuːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-177-1780555618610",
+        "term": "glare",
+        "definition": "",
+        "meaningKr": "눈부신 빛, 노려봄",
+        "exampleEn": "Prolonged exposure to the glare of digital screens can lead to significant eye strain and discomfort.",
+        "exampleKr": "디지털 화면의 눈부신 빛에 장시간 노출되면 상당한 눈의 피로와 불편함을 초래할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɡleər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-178-1780555618610",
+        "term": "glimpse",
+        "definition": "",
+        "meaningKr": "흘긋 봄, 잠깐 봄",
+        "exampleEn": "Archaeological findings often offer a fascinating glimpse into the daily lives and cultural practices of ancient civilizations.",
+        "exampleKr": "고고학적 발견들은 종종 고대 문명의 일상생활과 문화적 관습을 흥미롭게 엿볼 기회를 제공한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɡlɪmps/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-179-1780555618610",
+        "term": "grasp",
+        "definition": "",
+        "meaningKr": "이해하다, 붙잡다",
+        "exampleEn": "Students must effectively grasp complex theoretical concepts to apply them successfully in practical problem-solving scenarios.",
+        "exampleKr": "학생들은 복잡한 이론적 개념을 효과적으로 이해해야 실질적인 문제 해결 시나리오에 성공적으로 적용할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɡrɑːsp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-180-1780555618610",
+        "term": "gross",
+        "definition": "",
+        "meaningKr": "총체적인, 엄청난, 역겨운",
+        "exampleEn": "The gross domestic product (GDP) is a key indicator of a nation's economic health and overall productivity.",
+        "exampleKr": "국내총생산(GDP)은 한 국가의 경제 건전성과 전반적인 생산성을 나타내는 핵심 지표이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɡroʊs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-181-1780555618610",
+        "term": "guardian",
+        "definition": "",
+        "meaningKr": "수호자, 보호자",
+        "exampleEn": "Environmental organizations act as guardians of natural ecosystems, advocating for conservation and sustainable resource management.",
+        "exampleKr": "환경 단체들은 자연 생태계의 수호자 역할을 하며, 보존과 지속 가능한 자원 관리를 옹호한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɡɑːrdiən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-182-1780555618610",
+        "term": "gulf",
+        "definition": "",
+        "meaningKr": "만, 큰 격차",
+        "exampleEn": "Despite technological advancements, a significant gulf often persists between public perception and scientific consensus on climate change.",
+        "exampleKr": "기술 발전에도 불구하고, 기후 변화에 대한 대중의 인식과 과학적 합의 사이에는 종종 상당한 격차가 존재한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɡʌlf/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-183-1780555618610",
+        "term": "habitat",
+        "definition": "",
+        "meaningKr": "서식지",
+        "exampleEn": "Deforestation and climate change are rapidly destroying the natural habitats of countless species worldwide, threatening biodiversity.",
+        "exampleKr": "삼림 벌채와 기후 변화는 전 세계 수많은 종의 자연 서식지를 빠르게 파괴하며 생물 다양성을 위협하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈhæbɪtæt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-184-1780555618610",
+        "term": "halt",
+        "definition": "",
+        "meaningKr": "중단시키다, 멈추다",
+        "exampleEn": "Governments worldwide are struggling to halt the spread of misinformation, which can undermine public trust and social cohesion.",
+        "exampleKr": "전 세계 정부들은 대중의 신뢰와 사회적 결속을 해칠 수 있는 잘못된 정보의 확산을 막기 위해 고군분투하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/hɔːlt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-185-1780555618610",
+        "term": "haunt",
+        "definition": "",
+        "meaningKr": "(생각 등이) 계속 떠오르다, 출몰하다",
+        "exampleEn": "The ethical dilemmas posed by rapidly advancing artificial intelligence continue to haunt philosophers and policymakers alike.",
+        "exampleKr": "빠르게 발전하는 인공지능이 제기하는 윤리적 딜레마는 철학자들과 정책 입안자들 모두를 계속 괴롭히고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/hɔːnt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-186-1780555618610",
+        "term": "headquarters",
+        "definition": "",
+        "meaningKr": "본부, 본사",
+        "exampleEn": "The company's global headquarters announced a new initiative aimed at fostering innovation and employee engagement across all branches.",
+        "exampleKr": "그 회사의 글로벌 본사는 모든 지점에서 혁신과 직원 참여를 촉진하기 위한 새로운 이니셔티브를 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈhɛdkwɔːrtərz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-187-1780555618610",
+        "term": "heir",
+        "definition": "",
+        "meaningKr": "상속인, 후계자",
+        "exampleEn": "Many believe that the next generation is the rightful heir to the responsibility of addressing global climate change.",
+        "exampleKr": "많은 이들이 다음 세대가 지구 기후 변화 문제를 해결할 책임의 정당한 계승자라고 믿는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/eər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-188-1780555618610",
+        "term": "heritage",
+        "definition": "",
+        "meaningKr": "유산",
+        "exampleEn": "Preserving cultural heritage sites is crucial for understanding human history and maintaining a connection to our shared past.",
+        "exampleKr": "문화유산 보존은 인류 역사를 이해하고 우리의 공유된 과거와의 연결성을 유지하는 데 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈhɛrɪtɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-189-1780555618610",
+        "term": "horn",
+        "definition": "",
+        "meaningKr": "뿔, 경적",
+        "exampleEn": "The illegal trade in animal horns, particularly rhinoceros horns, poses a severe threat to endangered species populations.",
+        "exampleKr": "불법적인 동물 뿔 거래, 특히 코뿔소 뿔 거래는 멸종 위기종 개체군에 심각한 위협이 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/hɔːrn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-190-1780555618610",
+        "term": "hostage",
+        "definition": "",
+        "meaningKr": "인질",
+        "exampleEn": "Political negotiations often involve complex situations where the lives of innocent civilians are held hostage by various demands.",
+        "exampleKr": "정치 협상은 종종 무고한 민간인의 생명이 다양한 요구에 의해 인질로 잡히는 복잡한 상황을 포함한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈhɑːstɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-191-1780555618610",
+        "term": "hostile",
+        "definition": "",
+        "meaningKr": "적대적인",
+        "exampleEn": "Exploring exoplanets requires overcoming incredibly hostile environments, including extreme temperatures and radiation.",
+        "exampleKr": "외계 행성을 탐사하려면 극심한 온도와 방사선을 포함한 믿을 수 없을 정도로 적대적인 환경을 극복해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈhɑːstɪl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-192-1780555618610",
+        "term": "ideology",
+        "definition": "",
+        "meaningKr": "이념, 이데올로기",
+        "exampleEn": "Conflicting ideologies often fuel political polarization, making consensus-building and effective governance challenging in diverse societies.",
+        "exampleKr": "상충하는 이념들은 종종 정치적 양극화를 부추겨, 다양한 사회에서 합의 도출과 효과적인 통치를 어렵게 만든다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌaɪdiˈɑːlədʒi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-193-1780555618610",
+        "term": "illusion",
+        "definition": "",
+        "meaningKr": "환상, 착각",
+        "exampleEn": "The perception of free will might be an illusion, as recent neurological studies suggest our choices are often predetermined.",
+        "exampleKr": "자유 의지에 대한 인식은 환상일 수 있는데, 최근 신경학 연구들은 우리의 선택이 종종 미리 결정된다고 시사한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈluːʒn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-194-1780555618610",
+        "term": "immense",
+        "definition": "",
+        "meaningKr": "거대한, 막대한",
+        "exampleEn": "The universe holds immense mysteries, and scientific endeavors constantly strive to unravel its vast complexities.",
+        "exampleKr": "우주에는 거대한 미스터리가 담겨 있으며, 과학적 노력은 그 광대한 복잡성을 끊임없이 풀어내려 노력한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈmɛns/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-195-1780555618610",
+        "term": "immigrate",
+        "definition": "",
+        "meaningKr": "(타국으로) 이민 오다",
+        "exampleEn": "Economic opportunities and political stability often compel individuals and families to immigrate to new countries.",
+        "exampleKr": "경제적 기회와 정치적 안정은 종종 개인과 가족이 새로운 나라로 이민 오도록 만든다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪmɪɡreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-196-1780555618610",
+        "term": "incline",
+        "definition": "",
+        "meaningKr": "~하는 경향이 있다, 기울이다",
+        "exampleEn": "Research suggests that individuals often incline towards confirming their existing beliefs, even when presented with contradictory evidence.",
+        "exampleKr": "연구에 따르면 사람들은 상반되는 증거가 제시될 때조차도 기존 신념을 확인하려는 경향이 있다고 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈklaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-197-1780555618610",
+        "term": "induce",
+        "definition": "",
+        "meaningKr": "유도하다, 야기하다",
+        "exampleEn": "Certain chemical compounds can induce specific cellular responses, a principle vital in pharmaceutical drug development.",
+        "exampleKr": "특정 화학 화합물은 특정한 세포 반응을 유도할 수 있으며, 이는 의약품 개발에 필수적인 원리이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈduːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-198-1780555618610",
+        "term": "inevitable",
+        "definition": "",
+        "meaningKr": "피할 수 없는, 불가피한",
+        "exampleEn": "Climate scientists warn that further global warming is inevitable without drastic reductions in greenhouse gas emissions.",
+        "exampleKr": "기후 과학자들은 온실가스 배출량의 급격한 감소 없이는 추가적인 지구 온난화가 불가피하다고 경고한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈɛvɪtəbl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-199-1780555618610",
+        "term": "infect",
+        "definition": "",
+        "meaningKr": "감염시키다, 오염시키다",
+        "exampleEn": "Misinformation campaigns on social media can quickly infect public discourse, making it difficult to discern factual information.",
+        "exampleKr": "소셜 미디어의 잘못된 정보 캠페인은 대중 담론을 빠르게 오염시켜 사실 정보를 분별하기 어렵게 만들 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈfɛkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-200-1780555618610",
+        "term": "infer",
+        "definition": "",
+        "meaningKr": "추론하다, 추정하다",
+        "exampleEn": "From the observed patterns of consumer behavior, economists often infer underlying market trends and predict future demands.",
+        "exampleKr": "관찰된 소비자 행동 패턴으로부터, 경제학자들은 종종 근원적인 시장 동향을 추론하고 미래 수요를 예측한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈfɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-201-1780555618610",
+        "term": "inflate",
+        "definition": "",
+        "meaningKr": "부풀리다, 인상하다, 과장하다",
+        "exampleEn": "Governments sometimes try to inflate their economic growth figures to present a more favorable image internationally.",
+        "exampleKr": "정부는 때때로 국제적으로 더 유리한 이미지를 제시하기 위해 경제 성장 수치를 부풀리려 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈfleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-202-1780555618610",
+        "term": "inherent",
+        "definition": "",
+        "meaningKr": "내재하는, 본질적인",
+        "exampleEn": "The capacity for language acquisition is an inherent human trait, evident even in the absence of formal instruction.",
+        "exampleKr": "언어 습득 능력은 공식적인 교육이 없어도 분명히 드러나는 인간의 내재적인 특성이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈhɪərənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-203-1780555618610",
+        "term": "inhibit",
+        "definition": "",
+        "meaningKr": "억제하다, 방해하다",
+        "exampleEn": "Excessive stress can inhibit cognitive functions, making it difficult for individuals to concentrate and solve problems effectively.",
+        "exampleKr": "과도한 스트레스는 인지 기능을 억제하여 개인이 효과적으로 집중하고 문제를 해결하기 어렵게 만들 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈhɪbɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-204-1780555618610",
+        "term": "intervene",
+        "definition": "",
+        "meaningKr": "개입하다, 중재하다",
+        "exampleEn": "The international community may intervene in a humanitarian crisis to provide aid and restore stability.",
+        "exampleKr": "국제 사회는 인도주의적 위기에 개입하여 원조를 제공하고 안정을 회복할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌɪntərˈviːn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-205-1780555618610",
+        "term": "intrigue",
+        "definition": "",
+        "meaningKr": "흥미를 유발하다, 음모를 꾸미다",
+        "exampleEn": "The mysterious disappearance of the ancient artifact continues to intrigue historians and archaeologists alike.",
+        "exampleKr": "고대 유물의 신비로운 실종은 역사가와 고고학자 모두의 흥미를 계속해서 유발한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪntriːɡ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-206-1780555618610",
+        "term": "judicial",
+        "definition": "",
+        "meaningKr": "사법의, 재판의",
+        "exampleEn": "The separation of powers ensures that the judicial branch can independently interpret laws and administer justice.",
+        "exampleKr": "삼권분립은 사법부가 독립적으로 법을 해석하고 정의를 집행할 수 있도록 보장한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dʒuˈdɪʃəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-207-1780555618610",
+        "term": "knot",
+        "definition": "",
+        "meaningKr": "매듭, 옹이",
+        "exampleEn": "Sailors rely on various types of knots for securing ropes, each designed for specific purposes and strengths.",
+        "exampleKr": "선원들은 밧줄을 고정하기 위해 다양한 종류의 매듭에 의존하는데, 각 매듭은 특정 목적과 강도를 위해 고안되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/nɒt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-208-1780555618610",
+        "term": "lease",
+        "definition": "",
+        "meaningKr": "임대하다, 빌리다",
+        "exampleEn": "Many businesses choose to lease office space rather than purchase it, allowing for greater flexibility and lower initial costs.",
+        "exampleKr": "많은 기업들이 사무실 공간을 구매하는 대신 임대하는 것을 선택하여, 더 큰 유연성과 낮은 초기 비용을 확보한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/liːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-209-1780555618610",
+        "term": "legislate",
+        "definition": "",
+        "meaningKr": "법률을 제정하다",
+        "exampleEn": "Governments must legislate new policies to address the challenges posed by rapid technological advancements and climate change.",
+        "exampleKr": "정부는 급속한 기술 발전과 기후 변화가 제기하는 문제에 대처하기 위해 새로운 정책을 입법해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈledʒɪsleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-210-1780555618610",
+        "term": "legitimate",
+        "definition": "",
+        "meaningKr": "합법적인, 정당한",
+        "exampleEn": "For a scientific theory to be considered legitimate, it must be testable, falsifiable, and supported by empirical evidence.",
+        "exampleKr": "과학 이론이 정당한 것으로 간주되려면, 그것은 검증 가능하고 반증 가능하며 경험적 증거에 의해 뒷받침되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/lɪˈdʒɪtɪmət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-211-1780555618610",
+        "term": "literal",
+        "definition": "",
+        "meaningKr": "문자 그대로의, 직역의",
+        "exampleEn": "Interpreting ancient texts requires understanding not only the literal meaning of words but also their cultural context.",
+        "exampleKr": "고대 문헌을 해석하려면 단어의 문자 그대로의 의미뿐만 아니라 문화적 맥락도 이해해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈlɪtərəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-212-1780555618610",
+        "term": "lone",
+        "definition": "",
+        "meaningKr": "홀로 있는, 단 하나의",
+        "exampleEn": "Despite the extensive research, the lone surviving manuscript provides the only direct insight into the author's original intentions.",
+        "exampleKr": "광범위한 연구에도 불구하고, 유일하게 남아있는 필사본이 저자의 원래 의도에 대한 유일한 직접적인 통찰력을 제공한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ləʊn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-213-1780555618610",
+        "term": "lump",
+        "definition": "",
+        "meaningKr": "덩어리, 응어리",
+        "exampleEn": "Geologists often analyze the composition of a rock lump to determine its origin and the geological processes involved.",
+        "exampleKr": "지질학자들은 종종 암석 덩어리의 구성을 분석하여 그 기원과 관련된 지질학적 과정을 파악한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/lʌmp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-214-1780555618610",
+        "term": "magnificent",
+        "definition": "",
+        "meaningKr": "웅장한, 장엄한",
+        "exampleEn": "The ancient Roman aqueducts are a magnificent testament to the engineering prowess of past civilizations.",
+        "exampleKr": "고대 로마의 수로들은 과거 문명의 웅장한 공학적 기량을 보여주는 증거이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/mæɡˈnɪfɪsnt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-215-1780555618610",
+        "term": "manifest",
+        "definition": "",
+        "meaningKr": "나타내다, 분명히 보여주다",
+        "exampleEn": "Climate change can manifest in various ways, including extreme weather events, rising sea levels, and altered ecosystems.",
+        "exampleKr": "기후 변화는 극심한 기상 현상, 해수면 상승, 생태계 변화 등 다양한 방식으로 나타날 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmænɪfest/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-216-1780555618610",
+        "term": "manipulate",
+        "definition": "",
+        "meaningKr": "조작하다, 조종하다",
+        "exampleEn": "Advertisers often manipulate consumer perceptions through subtle psychological techniques to influence buying decisions.",
+        "exampleKr": "광고주들은 구매 결정에 영향을 미치기 위해 미묘한 심리적 기술을 통해 소비자 인식을 조작하는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/məˈnɪpjuleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-217-1780555618610",
+        "term": "medieval",
+        "definition": "",
+        "meaningKr": "중세의",
+        "exampleEn": "Medieval art and architecture often reflected religious themes and the hierarchical social structures of the time.",
+        "exampleKr": "중세 예술과 건축은 종종 종교적 주제와 당시의 계층적 사회 구조를 반영했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌmediˈiːvl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-218-1780555618610",
+        "term": "merge",
+        "definition": "",
+        "meaningKr": "합병하다, 병합하다",
+        "exampleEn": "When two galaxies merge, their gravitational forces interact, leading to the formation of new star clusters.",
+        "exampleKr": "두 은하가 합병할 때, 그들의 중력이 상호작용하여 새로운 성단이 형성된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/mɜːrdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-219-1780555618610",
+        "term": "metropolitan",
+        "definition": "",
+        "meaningKr": "대도시의, 수도권의",
+        "exampleEn": "Metropolitan areas face unique challenges related to infrastructure, public transportation, and environmental sustainability.",
+        "exampleKr": "대도시 지역은 사회 기반 시설, 대중교통, 환경 지속 가능성과 관련된 독특한 문제에 직면한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌmetrəˈpɒlɪtən/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-220-1780555618610",
+        "term": "migrate",
+        "definition": "",
+        "meaningKr": "이주하다, 이동하다",
+        "exampleEn": "Many animal species migrate long distances annually in search of food, breeding grounds, or more favorable climates.",
+        "exampleKr": "많은 동물 종들이 먹이, 번식지 또는 더 유리한 기후를 찾아 매년 장거리를 이동한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmaɪɡreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-221-1780555618610",
+        "term": "mock",
+        "definition": "",
+        "meaningKr": "조롱하다, 흉내 내다",
+        "exampleEn": "Critics often mock the superficiality of reality television, arguing it lacks genuine artistic or intellectual merit.",
+        "exampleKr": "비평가들은 종종 리얼리티 TV의 피상성을 조롱하며, 그것이 진정한 예술적 또는 지적 가치가 부족하다고 주장한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/mɒk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-222-1780555618610",
+        "term": "modest",
+        "definition": "",
+        "meaningKr": "겸손한, 적당한, 수수한",
+        "exampleEn": "Despite the profound impact of her research, the scientist maintained a modest demeanor, attributing success to teamwork.",
+        "exampleKr": "그녀의 연구가 미친 엄청난 영향에도 불구하고, 그 과학자는 겸손한 태도를 유지하며 성공을 팀워크 덕분으로 돌렸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɒdɪst/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-223-1780555618610",
+        "term": "molecule",
+        "definition": "",
+        "meaningKr": "분자",
+        "exampleEn": "Understanding how different molecules interact is fundamental to developing new drugs and materials in chemistry.",
+        "exampleKr": "다양한 분자들이 어떻게 상호작용하는지 이해하는 것은 화학에서 새로운 약물과 물질을 개발하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɒlɪkjuːl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-224-1780555618610",
+        "term": "monument",
+        "definition": "",
+        "meaningKr": "기념비, 기념물",
+        "exampleEn": "Ancient civilizations erected impressive monuments to commemorate significant events or honor powerful rulers.",
+        "exampleKr": "고대 문명은 중요한 사건을 기념하거나 강력한 통치자를 기리기 위해 인상적인 기념물을 세웠다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɒnjumənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-225-1780555618610",
+        "term": "mortal",
+        "definition": "",
+        "meaningKr": "죽을 운명의, 치명적인",
+        "exampleEn": "The ancient philosophers contemplated the inherent limitations of mortal existence in contrast to divine immortality.",
+        "exampleKr": "고대 철학자들은 신의 불멸성과 대비되는 죽을 운명인 존재의 본질적인 한계를 숙고했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɔːrtəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-226-1780555618610",
+        "term": "naive",
+        "definition": "",
+        "meaningKr": "순진한, 세상 물정 모르는",
+        "exampleEn": "A naive belief in technological solutions alone often overlooks the complex social and ethical dimensions of problems.",
+        "exampleKr": "기술적 해결책만을 맹목적으로 믿는 순진한 생각은 문제의 복잡한 사회적, 윤리적 측면을 간과하기 쉽다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/naɪˈiːv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-227-1780555618610",
+        "term": "nanny",
+        "definition": "",
+        "meaningKr": "유모",
+        "exampleEn": "While some parents rely on a nanny for childcare, others prefer communal arrangements or family support systems.",
+        "exampleKr": "어떤 부모들은 아이 돌봄을 위해 유모에게 의존하지만, 다른 부모들은 공동 육아나 가족 지원 시스템을 선호한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnæni/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-228-1780555618610",
+        "term": "nasty",
+        "definition": "",
+        "meaningKr": "불쾌한, 끔찍한, 비열한",
+        "exampleEn": "The debate took a nasty turn when personal attacks overshadowed any constructive discussion of policy differences.",
+        "exampleKr": "정책 차이에 대한 건설적인 논의가 개인적인 공격으로 가려지면서 토론은 불쾌한 방향으로 흘러갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnæsti/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-229-1780555618610",
+        "term": "nominate",
+        "definition": "",
+        "meaningKr": "지명하다, 추천하다",
+        "exampleEn": "Political parties typically nominate candidates through a primary election or a caucus system to select their representatives.",
+        "exampleKr": "정당들은 보통 대표를 선출하기 위해 예비 선거나 코커스 시스템을 통해 후보자를 지명한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnɒmɪneɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-230-1780555618610",
+        "term": "nonetheless",
+        "definition": "",
+        "meaningKr": "그럼에도 불구하고",
+        "exampleEn": "Despite the economic downturn, consumer spending remained relatively stable; nonetheless, businesses expressed caution about future growth.",
+        "exampleKr": "경기 침체에도 불구하고 소비 지출은 비교적 안정적으로 유지되었지만, 그럼에도 불구하고 기업들은 미래 성장에 대해 신중함을 표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌnʌnðəˈlɛs/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-suneung-231-1780555618610",
+        "term": "norm",
+        "definition": "",
+        "meaningKr": "규범, 기준, 표준",
+        "exampleEn": "Social norms often dictate acceptable behavior within a community, guiding individuals' interactions and expectations.",
+        "exampleKr": "사회적 규범은 종종 공동체 내에서 용인되는 행동을 지시하며, 개인의 상호작용과 기대를 안내한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/nɔːrm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-232-1780555618610",
+        "term": "nun",
+        "definition": "",
+        "meaningKr": "수녀",
+        "exampleEn": "The nun dedicated her life to charitable work and spiritual contemplation, serving the needs of the underprivileged.",
+        "exampleKr": "그 수녀는 자선 사업과 영적 명상에 일생을 바쳤으며, 소외된 이들의 필요를 채워주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/nʌn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-233-1780555618610",
+        "term": "oblige",
+        "definition": "",
+        "meaningKr": "의무를 지우다, 강요하다, 돕다",
+        "exampleEn": "Companies are legally obliged to disclose financial information to shareholders, ensuring transparency and accountability.",
+        "exampleKr": "기업들은 투명성과 책임성을 보장하기 위해 주주들에게 재무 정보를 공개할 법적 의무가 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈblaɪdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-234-1780555618610",
+        "term": "obsess",
+        "definition": "",
+        "meaningKr": "강박적으로 사로잡다, 집착하다",
+        "exampleEn": "Individuals sometimes obsess over minor details, losing sight of the broader objectives or overall project goals.",
+        "exampleKr": "사람들은 때때로 사소한 세부 사항에 집착하여 더 넓은 목표나 전체 프로젝트 목표를 놓치기도 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əbˈsɛs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-235-1780555618610",
+        "term": "orbit",
+        "definition": "",
+        "meaningKr": "궤도",
+        "exampleEn": "The Earth's stable orbit around the Sun is crucial for maintaining conditions suitable for life on our planet.",
+        "exampleKr": "태양 주위를 도는 지구의 안정적인 궤도는 우리 행성에서 생명체가 살기에 적합한 조건을 유지하는 데 결정적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɔːrbɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-236-1780555618610",
+        "term": "ounce",
+        "definition": "",
+        "meaningKr": "온스 (무게 단위), 소량",
+        "exampleEn": "Even an ounce of prevention can save significant resources and effort compared to extensive reactive measures.",
+        "exampleKr": "한 온스의 예방이라도 광범위한 사후 대책과 비교할 때 상당한 자원과 노력을 절약할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/aʊns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-237-1780555618610",
+        "term": "outrage",
+        "definition": "",
+        "meaningKr": "격분, 분노, 만행",
+        "exampleEn": "The public outrage over the environmental scandal led to widespread protests and calls for stricter regulations.",
+        "exampleKr": "환경 스캔들에 대한 대중의 격분은 광범위한 시위와 더 엄격한 규제 요구로 이어졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈaʊtreɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-238-1780555618610",
+        "term": "overwhelm",
+        "definition": "",
+        "meaningKr": "압도하다, 제압하다",
+        "exampleEn": "Students can easily feel overwhelmed by the sheer volume of information they are expected to process in a short period.",
+        "exampleKr": "학생들은 짧은 기간 내에 처리해야 할 방대한 정보량에 쉽게 압도당할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌoʊvərˈwɛlm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-239-1780555618610",
+        "term": "parliament",
+        "definition": "",
+        "meaningKr": "의회, 국회",
+        "exampleEn": "The parliament debated the proposed legislation for weeks, considering various amendments before reaching a final vote.",
+        "exampleKr": "의회는 최종 투표에 도달하기 전 여러 수정안을 고려하며 제안된 법안을 몇 주 동안 논의했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɑːrləmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-240-1780555618610",
+        "term": "particle",
+        "definition": "",
+        "meaningKr": "입자, 미립자",
+        "exampleEn": "Scientists study subatomic particles to understand the fundamental building blocks and forces of the universe.",
+        "exampleKr": "과학자들은 우주의 근본적인 구성 요소와 힘을 이해하기 위해 아원자 입자를 연구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɑːrtɪkl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-241-1780555618610",
+        "term": "pat",
+        "definition": "",
+        "meaningKr": "가볍게 두드리다",
+        "exampleEn": "The coach would often pat players on the back, offering encouragement regardless of the game's outcome.",
+        "exampleKr": "코치는 경기 결과와 상관없이 격려하며 선수들의 등을 자주 가볍게 두드려 주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pæt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-242-1780555618610",
+        "term": "patch",
+        "definition": "",
+        "meaningKr": "조각, 부분, (수선용) 헝겊 조각",
+        "exampleEn": "A small patch of undisturbed forest can harbor unique biodiversity, even within a largely developed area.",
+        "exampleKr": "작고 교란되지 않은 숲 조각이라도 대부분 개발된 지역 내에서 독특한 생물 다양성을 품을 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pætʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-243-1780555618610",
+        "term": "patent",
+        "definition": "",
+        "meaningKr": "특허",
+        "exampleEn": "Securing a patent for a novel invention grants the inventor exclusive rights, fostering innovation and economic growth.",
+        "exampleKr": "새로운 발명품에 대한 특허를 확보하는 것은 발명가에게 독점적인 권리를 부여하여 혁신과 경제 성장을 촉진한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpætənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-244-1780555618610",
+        "term": "patrol",
+        "definition": "",
+        "meaningKr": "순찰하다",
+        "exampleEn": "Security guards regularly patrol the premises to deter unauthorized entry and ensure the safety of occupants.",
+        "exampleKr": "경비원들은 무단 침입을 막고 거주자들의 안전을 보장하기 위해 정기적으로 구내를 순찰한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pəˈtroʊl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-245-1780555618610",
+        "term": "pave",
+        "definition": "",
+        "meaningKr": "(길을) 포장하다, 길을 열다",
+        "exampleEn": "Early scientific discoveries often pave the way for technological advancements that transform society years later.",
+        "exampleKr": "초기 과학적 발견들은 종종 수년 후 사회를 변화시키는 기술 발전의 길을 닦는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/peɪv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-246-1780555618610",
+        "term": "peasant",
+        "definition": "",
+        "meaningKr": "소작농, 농부",
+        "exampleEn": "Historically, the lives of peasants were often defined by their close relationship with the land and agricultural cycles.",
+        "exampleKr": "역사적으로 소작농의 삶은 종종 땅과의 밀접한 관계와 농업 주기에 의해 규정되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɛzənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-247-1780555618610",
+        "term": "persist",
+        "definition": "",
+        "meaningKr": "고집하다, 지속하다, 끈질기게 계속하다",
+        "exampleEn": "Despite repeated failures, dedicated researchers persist in their efforts to find a cure for complex diseases.",
+        "exampleKr": "반복되는 실패에도 불구하고 헌신적인 연구자들은 복잡한 질병의 치료법을 찾기 위한 노력을 계속한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pərˈsɪst/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-248-1780555618610",
+        "term": "pinch",
+        "definition": "",
+        "meaningKr": "꼬집다, (돈이) 부족하다, 절약하다",
+        "exampleEn": "During economic recessions, many households feel the pinch of reduced income and rising living costs.",
+        "exampleKr": "경제 불황 동안 많은 가구들이 소득 감소와 생활비 상승으로 인해 재정적 어려움을 느낀다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pɪntʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-249-1780555618610",
+        "term": "polish",
+        "definition": "",
+        "meaningKr": "닦다, 광내다, 다듬다",
+        "exampleEn": "Effective communication requires one to constantly polish their presentation skills to convey ideas clearly and persuasively.",
+        "exampleKr": "효과적인 의사소통은 생각을 명확하고 설득력 있게 전달하기 위해 발표 기술을 끊임없이 다듬는 것을 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɒlɪʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-250-1780555618610",
+        "term": "pope",
+        "definition": "",
+        "meaningKr": "교황",
+        "exampleEn": "The Pope's encyclical addressed global climate change, emphasizing humanity's responsibility to protect the environment.",
+        "exampleKr": "교황의 회칙은 지구 기후 변화를 다루며, 환경을 보호해야 할 인류의 책임을 강조했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/poʊp/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-251-1780555618610",
+        "term": "preach",
+        "definition": "",
+        "meaningKr": "설교하다, 역설하다",
+        "exampleEn": "Many philosophers preach the importance of critical thinking as a fundamental skill for navigating complex modern societies.",
+        "exampleKr": "많은 철학자들은 복잡한 현대 사회를 헤쳐나가는 데 필수적인 기술로서 비판적 사고의 중요성을 역설한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/priːtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-252-1780555618610",
+        "term": "precede",
+        "definition": "",
+        "meaningKr": "선행하다, 앞서다",
+        "exampleEn": "Significant scientific breakthroughs often precede major technological advancements, laying the groundwork for innovation.",
+        "exampleKr": "중요한 과학적 돌파구는 종종 주요 기술 발전에 선행하여 혁신의 토대를 마련한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɪˈsiːd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-253-1780555618610",
+        "term": "predator",
+        "definition": "",
+        "meaningKr": "포식자, 약탈자",
+        "exampleEn": "In ecological systems, the balance between predator and prey populations is crucial for maintaining biodiversity.",
+        "exampleKr": "생태계에서 포식자와 피식자 개체군 간의 균형은 생물 다양성을 유지하는 데 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɛdətər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-254-1780555618610",
+        "term": "prejudice",
+        "definition": "",
+        "meaningKr": "편견, 선입견",
+        "exampleEn": "Overcoming ingrained social prejudices requires deliberate effort and education to foster understanding and acceptance.",
+        "exampleKr": "뿌리 깊은 사회적 편견을 극복하려면 이해와 수용을 증진하기 위한 의도적인 노력과 교육이 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɛdʒʊdɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-255-1780555618610",
+        "term": "premier",
+        "definition": "",
+        "meaningKr": "최고의, 으뜸의",
+        "exampleEn": "The university is recognized as a premier institution for research in sustainable energy technologies.",
+        "exampleKr": "그 대학은 지속 가능한 에너지 기술 연구 분야에서 최고의 기관으로 인정받고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɪˈmɪər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-256-1780555618610",
+        "term": "premium",
+        "definition": "",
+        "meaningKr": "할증금, 보험료, 아주 귀한",
+        "exampleEn": "In today's competitive job market, employers often place a premium on candidates with strong problem-solving skills.",
+        "exampleKr": "오늘날의 경쟁적인 취업 시장에서 고용주들은 종종 뛰어난 문제 해결 능력을 가진 지원자들에게 높은 가치를 둔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpriːmiəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-257-1780555618610",
+        "term": "presume",
+        "definition": "",
+        "meaningKr": "추정하다, 가정하다",
+        "exampleEn": "One should not presume a person's intentions without sufficient evidence, as assumptions can lead to misunderstandings.",
+        "exampleKr": "충분한 증거 없이 어떤 사람의 의도를 추정해서는 안 되며, 가정은 오해를 불러일으킬 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɪˈzuːm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-258-1780555618610",
+        "term": "prevail",
+        "definition": "",
+        "meaningKr": "만연하다, 우세하다, 이기다",
+        "exampleEn": "Despite initial setbacks, the spirit of resilience often prevails in communities facing significant environmental challenges.",
+        "exampleKr": "초기의 좌절에도 불구하고, 회복력의 정신은 중대한 환경 문제에 직면한 공동체에서 종종 우세하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɪˈveɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-259-1780555618610",
+        "term": "profound",
+        "definition": "",
+        "meaningKr": "심오한, 지대한",
+        "exampleEn": "The discovery of quantum mechanics had a profound impact on our understanding of the fundamental nature of reality.",
+        "exampleKr": "양자 역학의 발견은 현실의 근본적인 본질에 대한 우리의 이해에 지대한 영향을 미쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prəˈfaʊnd/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-260-1780555618610",
+        "term": "prohibit",
+        "definition": "",
+        "meaningKr": "금지하다",
+        "exampleEn": "Many regulations prohibit the disposal of hazardous waste in landfills to protect public health and the environment.",
+        "exampleKr": "많은 규정은 공중 보건과 환경을 보호하기 위해 매립지에 유해 폐기물을 버리는 것을 금지한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prəˈhɪbɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-261-1780555618610",
+        "term": "prominent",
+        "definition": "",
+        "meaningKr": "저명한, 두드러진",
+        "exampleEn": "A prominent feature of sustainable urban planning is the integration of green spaces and public transportation.",
+        "exampleKr": "지속 가능한 도시 계획의 두드러진 특징은 녹지 공간과 대중교통의 통합이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɒmɪnənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-262-1780555618610",
+        "term": "prosper",
+        "definition": "",
+        "meaningKr": "번영하다, 번성하다",
+        "exampleEn": "Economies tend to prosper when innovation is encouraged and there is a stable regulatory framework.",
+        "exampleKr": "혁신이 장려되고 안정적인 규제 체계가 있을 때 경제는 번영하는 경향이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɒspər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-263-1780555618610",
+        "term": "provoke",
+        "definition": "",
+        "meaningKr": "유발하다, 자극하다",
+        "exampleEn": "Scientific research often aims to provoke new questions and challenge existing paradigms rather than just confirm them.",
+        "exampleKr": "과학 연구는 단순히 기존 패러다임을 확인하기보다는 새로운 질문을 유발하고 도전하는 것을 목표로 하는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prəˈvoʊk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-264-1780555618610",
+        "term": "questionnaire",
+        "definition": "",
+        "meaningKr": "설문지",
+        "exampleEn": "Researchers used a detailed questionnaire to gather data on consumer preferences for eco-friendly products.",
+        "exampleKr": "연구자들은 친환경 제품에 대한 소비자 선호도 데이터를 수집하기 위해 상세한 설문지를 사용했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌkwɛstʃəˈnɛr/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-265-1780555618610",
+        "term": "rage",
+        "definition": "",
+        "meaningKr": "격노, 분노",
+        "exampleEn": "The public's rage over perceived injustices can often lead to widespread social movements and demands for reform.",
+        "exampleKr": "인지된 불의에 대한 대중의 분노는 종종 광범위한 사회 운동과 개혁 요구로 이어질 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/reɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-266-1780555618610",
+        "term": "rally",
+        "definition": "",
+        "meaningKr": "집결하다, 결집하다",
+        "exampleEn": "Environmental activists often rally public support for conservation efforts through organized protests and campaigns.",
+        "exampleKr": "환경 운동가들은 조직적인 시위와 캠페인을 통해 보존 노력에 대한 대중의 지지를 결집하는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈræli/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-267-1780555618610",
+        "term": "rational",
+        "definition": "",
+        "meaningKr": "합리적인, 이성적인",
+        "exampleEn": "Making rational decisions often involves weighing evidence, considering consequences, and avoiding emotional biases.",
+        "exampleKr": "합리적인 결정을 내리는 것은 종종 증거를 평가하고, 결과를 고려하며, 감정적인 편견을 피하는 것을 포함한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈræʃənəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-268-1780555618610",
+        "term": "rebel",
+        "definition": "",
+        "meaningKr": "반항하다, 저항하다",
+        "exampleEn": "Throughout history, marginalized groups have often chosen to rebel against oppressive systems to demand fundamental rights.",
+        "exampleKr": "역사를 통틀어 소외된 집단은 종종 기본적인 권리를 요구하기 위해 억압적인 체제에 반항하는 것을 선택해 왔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈrɛbəl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-269-1780555618610",
+        "term": "refine",
+        "definition": "",
+        "meaningKr": "정제하다, 개선하다",
+        "exampleEn": "Scientists continually refine their theories and experimental methods to achieve a more accurate understanding of natural phenomena.",
+        "exampleKr": "과학자들은 자연 현상에 대한 더 정확한 이해를 얻기 위해 이론과 실험 방법을 끊임없이 개선한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈfaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-270-1780555618610",
+        "term": "reinforce",
+        "definition": "",
+        "meaningKr": "강화하다",
+        "exampleEn": "Educational programs aim to reinforce critical thinking skills, preparing students for complex challenges in the future.",
+        "exampleKr": "교육 프로그램은 비판적 사고 능력을 강화하여 학생들이 미래의 복잡한 도전에 대비하도록 하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌriːɪnˈfɔːrs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-271-1780555618610",
+        "term": "reluctant",
+        "definition": "",
+        "meaningKr": "꺼리는, 마지못한",
+        "exampleEn": "Governments are often reluctant to implement drastic environmental policies due to potential economic repercussions.",
+        "exampleKr": "정부는 잠재적인 경제적 영향 때문에 급진적인 환경 정책을 시행하는 것을 종종 꺼려한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈlʌktənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-272-1780555618610",
+        "term": "reside",
+        "definition": "",
+        "meaningKr": "거주하다, 존재하다",
+        "exampleEn": "The responsibility for addressing climate change does not solely reside with governments but also with individuals and corporations.",
+        "exampleKr": "기후 변화 해결의 책임은 전적으로 정부에만 있는 것이 아니라 개인과 기업에도 존재한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈzaɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-273-1780555618610",
+        "term": "respective",
+        "definition": "",
+        "meaningKr": "각자의, 각각의",
+        "exampleEn": "After the conference, participants returned to their respective countries to implement the strategies discussed.",
+        "exampleKr": "회의가 끝난 후, 참가자들은 논의된 전략을 실행하기 위해 각자의 나라로 돌아갔다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈspɛktɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-274-1780555618610",
+        "term": "restrain",
+        "definition": "",
+        "meaningKr": "억제하다, 제한하다",
+        "exampleEn": "Societies must implement policies to restrain unsustainable consumption patterns that deplete natural resources.",
+        "exampleKr": "사회는 천연자원을 고갈시키는 지속 불가능한 소비 패턴을 억제하기 위한 정책을 시행해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈstreɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-275-1780555618610",
+        "term": "resume",
+        "definition": "",
+        "meaningKr": "재개하다, 다시 시작하다",
+        "exampleEn": "After a brief interruption, the scientific conference will resume its scheduled presentations on climate change.",
+        "exampleKr": "잠시 중단된 후, 과학 학회는 기후 변화에 대한 예정된 발표를 재개할 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈzjuːm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-276-1780555618610",
+        "term": "retreat",
+        "definition": "",
+        "meaningKr": "후퇴하다, 물러나다",
+        "exampleEn": "Faced with overwhelming opposition, the government decided to retreat from its controversial policy proposal.",
+        "exampleKr": "압도적인 반대에 직면하여 정부는 논란이 많은 정책 제안에서 물러나기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈtriːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-277-1780555618610",
+        "term": "revenge",
+        "definition": "",
+        "meaningKr": "복수, 앙갚음",
+        "exampleEn": "The cycle of revenge often perpetuates conflict, preventing any true resolution or reconciliation between parties.",
+        "exampleKr": "복수의 순환은 종종 갈등을 영속시키며, 당사자들 간의 진정한 해결이나 화해를 방해합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈvendʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-278-1780555618610",
+        "term": "ridiculous",
+        "definition": "",
+        "meaningKr": "우스꽝스러운, 터무니없는",
+        "exampleEn": "It would be ridiculous to assume that complex global issues have simple, straightforward solutions applicable everywhere.",
+        "exampleKr": "복잡한 국제 문제들이 어디에나 적용 가능한 간단하고 직접적인 해결책을 가지고 있다고 가정하는 것은 터무니없는 일일 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈdɪkjələs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-279-1780555618610",
+        "term": "riot",
+        "definition": "",
+        "meaningKr": "폭동, 소요",
+        "exampleEn": "Social inequality and perceived injustice are often underlying causes that can trigger widespread public riot.",
+        "exampleKr": "사회적 불평등과 인지된 불의는 종종 광범위한 대중 폭동을 촉발할 수 있는 근본적인 원인입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈraɪət/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-280-1780555618610",
+        "term": "roar",
+        "definition": "",
+        "meaningKr": "으르렁거리다, 고함치다",
+        "exampleEn": "The crowd began to roar in approval as the speaker unveiled a groundbreaking proposal for sustainable energy.",
+        "exampleKr": "연사가 지속 가능한 에너지를 위한 획기적인 제안을 발표하자 군중은 환호하며 고함치기 시작했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɔːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-281-1780555618610",
+        "term": "rod",
+        "definition": "",
+        "meaningKr": "막대기, 지팡이",
+        "exampleEn": "Early scientific instruments often utilized simple metal rods to conduct experiments on thermal conductivity.",
+        "exampleKr": "초기 과학 기구들은 열전도율 실험을 수행하기 위해 종종 간단한 금속 막대들을 활용했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɒd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-282-1780555618610",
+        "term": "rot",
+        "definition": "",
+        "meaningKr": "썩다, 부패하다",
+        "exampleEn": "Understanding the biological processes that cause food to rot is crucial for developing effective preservation methods.",
+        "exampleKr": "음식을 썩게 하는 생물학적 과정을 이해하는 것은 효과적인 보존 방법을 개발하는 데 중요합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɒt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-283-1780555618610",
+        "term": "sack",
+        "definition": "",
+        "meaningKr": "해고하다",
+        "exampleEn": "The company decided to sack several employees due to severe economic downturn and restructuring efforts.",
+        "exampleKr": "회사는 심각한 경기 침체와 구조 조정 노력으로 인해 여러 직원을 해고하기로 결정했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/sæk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-284-1780555618610",
+        "term": "salon",
+        "definition": "",
+        "meaningKr": "미용실, 살롱",
+        "exampleEn": "Historically, intellectual salons in Europe served as crucial forums for philosophical debate and artistic exchange among elites.",
+        "exampleKr": "역사적으로 유럽의 지적 살롱들은 엘리트들 사이에서 철학적 토론과 예술적 교류를 위한 중요한 장소 역할을 했습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsælɒn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-285-1780555618610",
+        "term": "scarce",
+        "definition": "",
+        "meaningKr": "부족한, 희귀한",
+        "exampleEn": "In many developing regions, access to clean water remains scarce, posing significant public health challenges.",
+        "exampleKr": "많은 개발도상국 지역에서 깨끗한 물에 대한 접근은 여전히 부족하여 심각한 공중 보건 문제를 야기합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/skɛərs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-286-1780555618610",
+        "term": "scatter",
+        "definition": "",
+        "meaningKr": "흩뿌리다, 흩어지게 하다",
+        "exampleEn": "The rapid spread of misinformation can scatter public trust in established institutions and expert opinions.",
+        "exampleKr": "잘못된 정보의 급속한 확산은 기존 기관과 전문가 의견에 대한 대중의 신뢰를 흩뜨릴 수 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈskætər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-287-1780555618610",
+        "term": "screw",
+        "definition": "",
+        "meaningKr": "나사",
+        "exampleEn": "The design of a simple screw exemplifies a fundamental mechanical principle for converting rotational motion into linear force.",
+        "exampleKr": "단순한 나사의 설계는 회전 운동을 선형 힘으로 변환하는 근본적인 기계적 원리를 보여줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/skruː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-288-1780555618610",
+        "term": "scrub",
+        "definition": "",
+        "meaningKr": "문지르다, 닦다",
+        "exampleEn": "Scientists often scrub data sets for anomalies before drawing conclusions from their research findings.",
+        "exampleKr": "과학자들은 연구 결과로부터 결론을 도출하기 전에 이상 징후를 찾기 위해 데이터 세트를 자주 검토합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/skrʌb/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-289-1780555618610",
+        "term": "seize",
+        "definition": "",
+        "meaningKr": "붙잡다, 움켜쥐다",
+        "exampleEn": "Governments often seize assets from criminal organizations to disrupt their financial operations and illicit activities.",
+        "exampleKr": "정부는 범죄 조직의 금융 운영과 불법 활동을 방해하기 위해 종종 그들의 자산을 압류합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/siːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-290-1780555618610",
+        "term": "sentiment",
+        "definition": "",
+        "meaningKr": "정서, 감정, 의견",
+        "exampleEn": "Public sentiment towards environmental protection has shifted significantly, driving demand for sustainable policies.",
+        "exampleKr": "환경 보호에 대한 대중의 정서는 크게 변화하여 지속 가능한 정책에 대한 요구를 촉진하고 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsentɪmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-291-1780555618610",
+        "term": "shield",
+        "definition": "",
+        "meaningKr": "보호하다",
+        "exampleEn": "Specialized atmospheric layers shield Earth's surface from harmful solar radiation, enabling life to thrive.",
+        "exampleKr": "특수 대기층은 해로운 태양 복사열로부터 지구 표면을 보호하여 생명이 번성할 수 있도록 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ʃiːld/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-292-1780555618610",
+        "term": "shrink",
+        "definition": "",
+        "meaningKr": "줄어들다, 축소되다",
+        "exampleEn": "Economic recessions often cause consumer spending to shrink, leading to reduced business investment and job losses.",
+        "exampleKr": "경제 불황은 종종 소비자 지출을 감소시켜 기업 투자 감소와 일자리 손실로 이어집니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ʃrɪŋk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-293-1780555618610",
+        "term": "simulate",
+        "definition": "",
+        "meaningKr": "모의실험하다, 흉내 내다",
+        "exampleEn": "Researchers use advanced computer models to simulate complex climate scenarios and predict future environmental changes.",
+        "exampleKr": "연구자들은 복잡한 기후 시나리오를 모의실험하고 미래의 환경 변화를 예측하기 위해 고급 컴퓨터 모델을 사용합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsɪmjuleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-294-1780555618610",
+        "term": "simultaneous",
+        "definition": "",
+        "meaningKr": "동시의, 동시에 일어나는",
+        "exampleEn": "The brain performs numerous simultaneous processes, allowing humans to perceive and react to multiple stimuli at once.",
+        "exampleKr": "뇌는 수많은 동시적인 과정을 수행하여 인간이 여러 자극을 동시에 인지하고 반응할 수 있도록 합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌsɪmlˈteɪniəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-295-1780555618610",
+        "term": "slaughter",
+        "definition": "",
+        "meaningKr": "도살하다, 학살하다",
+        "exampleEn": "Ethical debates surrounding food production often question the necessity and methods used to slaughter animals for consumption.",
+        "exampleKr": "식품 생산을 둘러싼 윤리적 논쟁은 종종 소비를 위해 동물을 도살하는 데 사용되는 필요성과 방법에 의문을 제기합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈslɔːtər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-296-1780555618610",
+        "term": "sneak",
+        "definition": "",
+        "meaningKr": "살금살금 움직이다, 몰래 하다",
+        "exampleEn": "Some animal species sneak into their prey's territory under the cover of darkness to avoid detection.",
+        "exampleKr": "일부 동물 종은 발각을 피하기 위해 어둠을 틈타 먹이의 영역으로 몰래 잠입합니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/sniːk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-297-1780555618610",
+        "term": "sniff",
+        "definition": "",
+        "meaningKr": "코를 킁킁거리다, 냄새 맡다",
+        "exampleEn": "Dogs can sniff out minute traces of substances, a capability utilized in various detection and security roles.",
+        "exampleKr": "개는 미세한 물질의 흔적을 냄새 맡을 수 있으며, 이 능력은 다양한 탐지 및 보안 역할에 활용됩니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/snɪf/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-298-1780555618610",
+        "term": "sole",
+        "definition": "",
+        "meaningKr": "유일한, 단 하나의",
+        "exampleEn": "The sole purpose of scientific inquiry is to expand human knowledge and understanding of the natural world.",
+        "exampleKr": "과학적 탐구의 유일한 목적은 자연 세계에 대한 인간의 지식과 이해를 확장하는 것입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/səʊl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-299-1780555618610",
+        "term": "spectacle",
+        "definition": "",
+        "meaningKr": "장관, 구경거리",
+        "exampleEn": "The migration of millions of wildebeest across the Serengeti Plains is a truly magnificent natural spectacle.",
+        "exampleKr": "세렝게티 평원을 가로지르는 수백만 마리의 누떼 이동은 진정으로 장엄한 자연의 장관입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈspektəkl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-300-1780555618610",
+        "term": "spectrum",
+        "definition": "",
+        "meaningKr": "스펙트럼, 범위",
+        "exampleEn": "The artist used a broad spectrum of colors to convey the complex emotions of the scene.",
+        "exampleKr": "그 화가는 장면의 복잡한 감정을 전달하기 위해 넓은 색채 스펙트럼을 사용했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈspɛktrəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-301-1780555618610",
+        "term": "sphere",
+        "definition": "",
+        "meaningKr": "구, 영역, 범위",
+        "exampleEn": "The new policy aims to expand the government's influence into the economic sphere, regulating market activities more closely.",
+        "exampleKr": "새로운 정책은 시장 활동을 더욱 면밀히 규제하며 정부의 영향력을 경제 영역으로 확대하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/sfɪər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-302-1780555618610",
+        "term": "spill",
+        "definition": "",
+        "meaningKr": "엎지르다, 흘리다",
+        "exampleEn": "An oil spill in the ocean can have devastating long-term effects on marine ecosystems and coastal communities.",
+        "exampleKr": "바다의 기름 유출은 해양 생태계와 해안 지역 사회에 파괴적인 장기적 영향을 미칠 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/spɪl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-303-1780555618610",
+        "term": "spit",
+        "definition": "",
+        "meaningKr": "침을 뱉다, 내뿜다",
+        "exampleEn": "The volcano began to spit ash and lava, signaling an imminent eruption that threatened nearby villages.",
+        "exampleKr": "화산은 재와 용암을 내뿜기 시작했고, 이는 인근 마을을 위협하는 임박한 분출을 알리는 신호였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/spɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-304-1780555618610",
+        "term": "spite",
+        "definition": "",
+        "meaningKr": "악의, 앙심",
+        "exampleEn": "Despite the challenging circumstances, the team managed to achieve their goal in spite of all the difficulties.",
+        "exampleKr": "어려운 상황에도 불구하고, 그 팀은 모든 어려움에도 불구하고 목표를 달성해냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/spaɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-305-1780555618610",
+        "term": "splash",
+        "definition": "",
+        "meaningKr": "튀기다, 첨벙거리다",
+        "exampleEn": "The sudden rain began to splash against the windowpanes, creating a soothing rhythm for those inside.",
+        "exampleKr": "갑작스러운 비가 창문에 튀기기 시작했고, 안에 있는 사람들에게는 편안한 리듬을 만들어냈다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/splæʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-306-1780555618610",
+        "term": "steep",
+        "definition": "",
+        "meaningKr": "가파른, 급격한",
+        "exampleEn": "The company faced a steep decline in profits due to unexpected market changes and increased competition.",
+        "exampleKr": "그 회사는 예상치 못한 시장 변화와 경쟁 심화로 인해 급격한 수익 감소에 직면했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/stiːp/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-307-1780555618610",
+        "term": "contact",
+        "definition": "",
+        "meaningKr": "접촉, 연락",
+        "exampleEn": "Maintaining regular contact with international partners is crucial for fostering global scientific collaboration.",
+        "exampleKr": "국제 파트너들과 정기적인 연락을 유지하는 것은 글로벌 과학 협력을 증진하는 데 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒntækt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-308-1780555618610",
+        "term": "prepare",
+        "definition": "",
+        "meaningKr": "준비하다, 대비하다",
+        "exampleEn": "Scientists are working to prepare new strategies for mitigating the effects of climate change on vulnerable ecosystems.",
+        "exampleKr": "과학자들은 취약한 생태계에 대한 기후 변화의 영향을 완화하기 위한 새로운 전략을 준비하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɪˈpɛər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-309-1780555618610",
+        "term": "piece",
+        "definition": "",
+        "meaningKr": "조각, 부분, 작품",
+        "exampleEn": "Each piece of evidence presented in the trial was meticulously examined to reconstruct the sequence of events.",
+        "exampleKr": "재판에서 제시된 각 증거 조각은 사건의 순서를 재구성하기 위해 꼼꼼하게 조사되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/piːs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-310-1780555618610",
+        "term": "apply",
+        "definition": "",
+        "meaningKr": "적용하다, 지원하다, 바르다",
+        "exampleEn": "The principles of sustainable development should apply to all sectors of the economy for long-term ecological balance.",
+        "exampleKr": "지속 가능한 개발 원칙은 장기적인 생태 균형을 위해 경제의 모든 부문에 적용되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈplaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-311-1780555618610",
+        "term": "president",
+        "definition": "",
+        "meaningKr": "대통령, 회장",
+        "exampleEn": "The president addressed the nation, outlining new economic policies designed to stimulate growth and reduce unemployment.",
+        "exampleKr": "대통령은 성장 촉진과 실업률 감소를 목표로 하는 새로운 경제 정책을 설명하며 국민들에게 연설했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɛzɪdənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-312-1780555618610",
+        "term": "compare",
+        "definition": "",
+        "meaningKr": "비교하다, 견주다",
+        "exampleEn": "Researchers often compare the behavioral patterns of different species to understand evolutionary adaptations.",
+        "exampleKr": "연구자들은 진화적 적응을 이해하기 위해 종종 다른 종들의 행동 패턴을 비교한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəmˈpɛər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-313-1780555618610",
+        "term": "laugh",
+        "definition": "",
+        "meaningKr": "웃다",
+        "exampleEn": "While often seen as a simple human reaction, the act of laughing involves complex neurological processes and social functions.",
+        "exampleKr": "종종 단순한 인간의 반응으로 여겨지지만, 웃는 행위는 복잡한 신경학적 과정과 사회적 기능을 포함한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/lɑːf/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-314-1780555618610",
+        "term": "manage",
+        "definition": "",
+        "meaningKr": "관리하다, 경영하다, 간신히 해내다",
+        "exampleEn": "Effective leadership is essential to manage organizational change smoothly and ensure employee adaptation.",
+        "exampleKr": "효과적인 리더십은 조직 변화를 원활하게 관리하고 직원 적응을 보장하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmænɪdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-315-1780555618610",
+        "term": "firm",
+        "definition": "",
+        "meaningKr": "단단한, 확고한, 견고한",
+        "exampleEn": "The government took a firm stance against environmental pollution, implementing stricter regulations on industrial emissions.",
+        "exampleKr": "정부는 산업 배출에 대한 더 엄격한 규제를 시행하며 환경 오염에 대해 단호한 입장을 취했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fɜːm/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-316-1780555618610",
+        "term": "cell",
+        "definition": "",
+        "meaningKr": "세포, 독방, 전지",
+        "exampleEn": "Understanding the basic functions of a single cell is fundamental to comprehending the complexities of multicellular organisms.",
+        "exampleKr": "단일 세포의 기본 기능을 이해하는 것은 다세포 유기체의 복잡성을 이해하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/sɛl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-317-1780555618610",
+        "term": "article",
+        "definition": "",
+        "meaningKr": "기사, 논문, 조항, 물품",
+        "exampleEn": "The recent academic article presented groundbreaking research on renewable energy technologies and their potential impact.",
+        "exampleKr": "최근 학술 논문은 재생 에너지 기술과 그 잠재적 영향에 대한 획기적인 연구를 제시했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɑːtɪkl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-318-1780555618610",
+        "term": "attack",
+        "definition": "",
+        "meaningKr": "공격하다, 비난하다",
+        "exampleEn": "Some critics often attack new theories, demanding rigorous empirical evidence before widespread acceptance.",
+        "exampleKr": "일부 비평가들은 종종 새로운 이론을 공격하며, 광범위한 수용 전에 엄격한 경험적 증거를 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈtæk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-319-1780555618610",
+        "term": "foreign",
+        "definition": "",
+        "meaningKr": "외국의, 이질적인",
+        "exampleEn": "Adapting to a foreign culture requires an open mind and a willingness to understand different social norms.",
+        "exampleKr": "외국 문화에 적응하려면 열린 마음과 다른 사회 규범을 이해하려는 의지가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfɒrɪn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-320-1780555618610",
+        "term": "feature",
+        "definition": "",
+        "meaningKr": "특징, 특색, 이목구비",
+        "exampleEn": "A prominent feature of modern societies is the rapid advancement of technology, transforming daily life.",
+        "exampleKr": "현대 사회의 두드러진 특징은 일상생활을 변화시키는 기술의 급속한 발전이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfiːtʃər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-321-1780555618610",
+        "term": "factor",
+        "definition": "",
+        "meaningKr": "요인, 요소",
+        "exampleEn": "Environmental factors, such as climate and resource availability, significantly influence the distribution of species.",
+        "exampleKr": "기후 및 자원 가용성과 같은 환경 요인들은 종의 분포에 상당한 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfæktər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-322-1780555618610",
+        "term": "affect",
+        "definition": "",
+        "meaningKr": "~에 영향을 미치다, 감동시키다",
+        "exampleEn": "Climate change continues to affect global weather patterns, leading to more frequent and intense extreme events.",
+        "exampleKr": "기후 변화는 전 세계 기상 패턴에 계속 영향을 미쳐, 더욱 빈번하고 강렬한 극한 현상을 초래하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈfɛkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-323-1780555618610",
+        "term": "recent",
+        "definition": "",
+        "meaningKr": "최근의",
+        "exampleEn": "Recent studies suggest that mindfulness practices can significantly reduce stress levels and improve cognitive function.",
+        "exampleKr": "최근 연구들은 마음챙김 수련이 스트레스 수준을 상당히 줄이고 인지 기능을 향상시킬 수 있다고 제안한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈriːsnt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-324-1780555618610",
+        "term": "relate",
+        "definition": "",
+        "meaningKr": "관련시키다, 이야기하다, 공감하다",
+        "exampleEn": "It is crucial to relate theoretical knowledge to practical applications to ensure its relevance in real-world scenarios.",
+        "exampleKr": "이론적 지식을 실제 시나리오에서의 관련성을 보장하기 위해 실제 적용과 연관시키는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈleɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-325-1780555618610",
+        "term": "official",
+        "definition": "",
+        "meaningKr": "공식적인, 공무상의",
+        "exampleEn": "The official report highlighted the significant impact of climate change on global ecosystems.",
+        "exampleKr": "그 공식 보고서는 기후 변화가 전 세계 생태계에 미치는 중대한 영향을 강조했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈfɪʃəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-326-1780555618610",
+        "term": "private",
+        "definition": "",
+        "meaningKr": "사적인, 개인적인",
+        "exampleEn": "Maintaining a balance between public responsibility and private life is crucial for mental well-being.",
+        "exampleKr": "공적 책임과 사생활 사이의 균형을 유지하는 것은 정신 건강에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpraɪvɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-327-1780555618610",
+        "term": "pause",
+        "definition": "",
+        "meaningKr": "잠시 멈추다, 중단하다",
+        "exampleEn": "Researchers often pause data collection to analyze preliminary findings and adjust their methodology.",
+        "exampleKr": "연구자들은 예비 연구 결과를 분석하고 방법론을 조정하기 위해 종종 데이터 수집을 잠시 중단한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pɔːz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-328-1780555618610",
+        "term": "opinion",
+        "definition": "",
+        "meaningKr": "의견, 견해",
+        "exampleEn": "Public opinion plays a significant role in shaping policy decisions in democratic societies.",
+        "exampleKr": "민주 사회에서 여론은 정책 결정의 방향을 설정하는 데 중요한 역할을 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈpɪnjən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-329-1780555618610",
+        "term": "represent",
+        "definition": "",
+        "meaningKr": "대표하다, 나타내다",
+        "exampleEn": "Statistical data can represent complex social phenomena, but interpretation requires careful consideration of context.",
+        "exampleKr": "통계 데이터는 복잡한 사회 현상을 나타낼 수 있지만, 해석에는 맥락에 대한 신중한 고려가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌreprɪˈzent/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-330-1780555618610",
+        "term": "international",
+        "definition": "",
+        "meaningKr": "국제적인",
+        "exampleEn": "International cooperation is essential for addressing global challenges such as climate change and pandemics.",
+        "exampleKr": "기후 변화와 팬데믹 같은 전 지구적 문제들을 해결하기 위해서는 국제 협력이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌɪntərˈnæʃənəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-331-1780555618610",
+        "term": "contain",
+        "definition": "",
+        "meaningKr": "포함하다, 담고 있다",
+        "exampleEn": "The ancient manuscript was believed to contain valuable insights into the philosophical traditions of the era.",
+        "exampleKr": "그 고대 필사본은 그 시대의 철학적 전통에 대한 귀중한 통찰을 담고 있다고 여겨졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kənˈteɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-332-1780555618610",
+        "term": "notice",
+        "definition": "",
+        "meaningKr": "알아차리다, 주목하다",
+        "exampleEn": "Psychologists often notice subtle behavioral patterns that reveal underlying cognitive processes in individuals.",
+        "exampleKr": "심리학자들은 종종 개인의 기저 인지 과정을 드러내는 미묘한 행동 패턴을 알아차린다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnoʊtɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-333-1780555618610",
+        "term": "plant",
+        "definition": "",
+        "meaningKr": "식물, 공장",
+        "exampleEn": "The indigenous plant species play a critical role in maintaining the biodiversity of the local ecosystem.",
+        "exampleKr": "토착 식물 종들은 지역 생태계의 생물 다양성을 유지하는 데 중요한 역할을 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/plænt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-334-1780555618610",
+        "term": "press",
+        "definition": "",
+        "meaningKr": "누르다, 강요하다",
+        "exampleEn": "Economic pressures often press companies to innovate and adapt to changing market demands.",
+        "exampleKr": "경제적 압력은 종종 기업들이 변화하는 시장 요구에 혁신하고 적응하도록 강요한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pres/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-335-1780555618610",
+        "term": "necessary",
+        "definition": "",
+        "meaningKr": "필요한, 필수적인",
+        "exampleEn": "Access to clean water is a necessary condition for public health and sustainable development in any community.",
+        "exampleKr": "깨끗한 물에 대한 접근은 모든 공동체의 공중 보건과 지속 가능한 발전을 위한 필수적인 조건이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnesəseri/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-336-1780555618610",
+        "term": "region",
+        "definition": "",
+        "meaningKr": "지역, 지방",
+        "exampleEn": "Climate models predict significant temperature increases in the polar regions, leading to ice melt.",
+        "exampleKr": "기후 모델은 극지방에서 상당한 온도 상승을 예측하며, 이는 얼음 융해로 이어진다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈriːdʒən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-337-1780555618610",
+        "term": "influence",
+        "definition": "",
+        "meaningKr": "영향, 영향력",
+        "exampleEn": "Social media platforms exert considerable influence on public discourse and individual perceptions of reality.",
+        "exampleKr": "소셜 미디어 플랫폼은 공론과 현실에 대한 개인의 인식에 상당한 영향력을 행사한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪnfluəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-338-1780555618610",
+        "term": "respect",
+        "definition": "",
+        "meaningKr": "존중, 존경",
+        "exampleEn": "Showing respect for diverse cultural perspectives is fundamental for fostering global understanding and peace.",
+        "exampleKr": "다양한 문화적 관점을 존중하는 것은 국제적인 이해와 평화를 증진하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈspekt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-339-1780555618610",
+        "term": "skill",
+        "definition": "",
+        "meaningKr": "기술, 능력",
+        "exampleEn": "Critical thinking skill is increasingly emphasized as essential for navigating complex information environments.",
+        "exampleKr": "비판적 사고 능력은 복잡한 정보 환경을 탐색하는 데 필수적인 것으로 점점 더 강조되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/skɪl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-340-1780555618610",
+        "term": "attempt",
+        "definition": "",
+        "meaningKr": "시도, 노력",
+        "exampleEn": "Early attempts to develop artificial intelligence faced computational limitations that hindered progress.",
+        "exampleKr": "인공지능을 개발하려는 초기 시도들은 발전을 저해하는 계산상의 한계에 직면했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈtempt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-341-1780555618610",
+        "term": "simple",
+        "definition": "",
+        "meaningKr": "간단한, 단순한",
+        "exampleEn": "While the concept may seem simple, its implications for understanding human behavior are profound.",
+        "exampleKr": "그 개념은 간단해 보일 수 있지만, 인간 행동을 이해하는 데 미치는 영향은 심오하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsɪmpəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-342-1780555618610",
+        "term": "medium",
+        "definition": "",
+        "meaningKr": "매체, 수단",
+        "exampleEn": "Digital platforms have become the primary medium for information dissemination and social interaction in modern society.",
+        "exampleKr": "디지털 플랫폼은 현대 사회에서 정보 유포와 사회적 상호작용의 주요 매체가 되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmiːdiəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-343-1780555618610",
+        "term": "average",
+        "definition": "",
+        "meaningKr": "평균의, 보통의",
+        "exampleEn": "The average global temperature has risen significantly over the past century, indicating climate warming trends.",
+        "exampleKr": "지난 세기 동안 전 세계 평균 기온은 상당히 상승하여 기후 온난화 추세를 나타낸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈævərɪdʒ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-344-1780555618610",
+        "term": "character",
+        "definition": "",
+        "meaningKr": "특징, 성격, 인물",
+        "exampleEn": "The unique character of a society is often reflected in its artistic expressions and cultural values.",
+        "exampleKr": "사회의 독특한 특성은 종종 예술적 표현과 문화적 가치에 반영된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkærəktər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-345-1780555618610",
+        "term": "establish",
+        "definition": "",
+        "meaningKr": "설립하다, 확립하다",
+        "exampleEn": "Scientists strive to establish causality between variables through rigorous experimental design and analysis.",
+        "exampleKr": "과학자들은 엄격한 실험 설계와 분석을 통해 변수들 간의 인과 관계를 확립하려고 노력한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈstæblɪʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-346-1780555618610",
+        "term": "indeed",
+        "definition": "",
+        "meaningKr": "정말로, 사실상",
+        "exampleEn": "While challenges are numerous, the potential benefits of renewable energy sources are indeed substantial.",
+        "exampleKr": "도전 과제가 많지만, 재생 에너지원의 잠재적 이점은 실로 상당하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈdiːd/",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-suneung-347-1780555618610",
+        "term": "final",
+        "definition": "",
+        "meaningKr": "최종적인, 마지막의",
+        "exampleEn": "The final decision on the project's implementation will depend on a comprehensive assessment of risks and benefits.",
+        "exampleKr": "프로젝트 실행에 대한 최종 결정은 위험과 이점에 대한 포괄적인 평가에 달려 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfaɪnəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-348-1780555618610",
+        "term": "economy",
+        "definition": "",
+        "meaningKr": "경제, 절약",
+        "exampleEn": "A robust global economy relies on stable political environments and effective international trade policies.",
+        "exampleKr": "견고한 세계 경제는 안정적인 정치 환경과 효과적인 국제 무역 정책에 의존한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈkɒnəmi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-349-1780555618610",
+        "term": "fit",
+        "definition": "",
+        "meaningKr": "맞다, 적합하다",
+        "exampleEn": "Companies must adapt their strategies to fit the rapidly changing consumer preferences and technological advancements.",
+        "exampleKr": "기업들은 급변하는 소비자 선호도와 기술 발전에 맞춰 전략을 조정해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-350-1780555618610",
+        "term": "function",
+        "definition": "",
+        "meaningKr": "기능, 역할",
+        "exampleEn": "The primary function of the brain's frontal lobe is associated with decision-making and problem-solving.",
+        "exampleKr": "뇌의 전두엽의 주된 기능은 의사 결정 및 문제 해결과 관련이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfʌŋkʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-351-1780555618610",
+        "term": "behavior",
+        "definition": "",
+        "meaningKr": "행동, 태도",
+        "exampleEn": "Understanding animal behavior is crucial for developing effective conservation strategies in their natural habitats.",
+        "exampleKr": "동물 행동을 이해하는 것은 자연 서식지에서 효과적인 보존 전략을 개발하는 데 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/bɪˈheɪvjər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-352-1780555618610",
+        "term": "determine",
+        "definition": "",
+        "meaningKr": "결정하다, 알아내다",
+        "exampleEn": "Researchers are working to determine the precise factors that contribute to the development of chronic diseases.",
+        "exampleKr": "연구자들은 만성 질환 발병에 기여하는 정확한 요인들을 알아내기 위해 노력하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈtɜːrmɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-353-1780555618610",
+        "term": "station",
+        "definition": "",
+        "meaningKr": "역, 정거장, 기지",
+        "exampleEn": "The new research station was established in the Arctic to monitor climate change and its ecological impacts.",
+        "exampleKr": "새로운 연구 기지는 기후 변화와 그 생태학적 영향을 관찰하기 위해 북극에 설립되었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsteɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-354-1780555618610",
+        "term": "population",
+        "definition": "",
+        "meaningKr": "인구, 개체 수",
+        "exampleEn": "Rapid growth in the global population places immense pressure on natural resources and environmental sustainability.",
+        "exampleKr": "전 세계 인구의 급속한 증가는 천연 자원과 환경 지속 가능성에 막대한 압력을 가한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌpɒpjʊˈleɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-355-1780555618610",
+        "term": "environment",
+        "definition": "",
+        "meaningKr": "환경",
+        "exampleEn": "Protecting the natural environment is essential for maintaining biodiversity and supporting human well-being.",
+        "exampleKr": "자연 환경을 보호하는 것은 생물 다양성을 유지하고 인간의 안녕을 지원하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈvaɪrənmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-356-1780555618610",
+        "term": "contract",
+        "definition": "",
+        "meaningKr": "계약",
+        "exampleEn": "The company signed a contract to develop sustainable energy solutions for the entire region.",
+        "exampleKr": "그 회사는 지역 전체를 위한 지속 가능한 에너지 솔루션을 개발하는 계약을 체결했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒntrækt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-357-1780555618610",
+        "term": "comment",
+        "definition": "",
+        "meaningKr": "논평하다, 의견을 말하다",
+        "exampleEn": "Critics often comment on the social implications of new technologies and their potential impact on society.",
+        "exampleKr": "비평가들은 종종 신기술의 사회적 함의와 사회에 미칠 잠재적 영향에 대해 논평한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒment/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-358-1780555618610",
+        "term": "occur",
+        "definition": "",
+        "meaningKr": "발생하다, 일어나다",
+        "exampleEn": "Significant changes in global weather patterns are expected to occur more frequently due to climate change.",
+        "exampleKr": "기후 변화로 인해 전 세계 기상 패턴의 중대한 변화가 더 자주 발생할 것으로 예상된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈkɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-359-1780555618610",
+        "term": "significant",
+        "definition": "",
+        "meaningKr": "중요한, 상당한",
+        "exampleEn": "The discovery of new evidence had a significant impact on the scientific community's understanding of the phenomenon.",
+        "exampleKr": "새로운 증거의 발견은 그 현상에 대한 과학계의 이해에 상당한 영향을 미쳤다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/sɪɡˈnɪfɪkənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-360-1780555618610",
+        "term": "drug",
+        "definition": "",
+        "meaningKr": "약, 마약",
+        "exampleEn": "The new drug shows promise in treating certain types of cancer with fewer side effects than existing therapies.",
+        "exampleKr": "이 신약은 기존 치료법보다 부작용이 적으면서 특정 유형의 암 치료에 유망한 것으로 나타났다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/drʌɡ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-361-1780555618610",
+        "term": "series",
+        "definition": "",
+        "meaningKr": "연속, 일련",
+        "exampleEn": "A series of unfortunate events led to the unexpected collapse of the ancient civilization.",
+        "exampleKr": "일련의 불운한 사건들이 고대 문명의 예상치 못한 붕괴로 이어졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsɪəriːz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-362-1780555618610",
+        "term": "direct",
+        "definition": "",
+        "meaningKr": "지시하다, 안내하다",
+        "exampleEn": "Effective leadership is crucial to direct organizational resources towards achieving long-term strategic objectives.",
+        "exampleKr": "효과적인 리더십은 장기적인 전략 목표를 달성하기 위해 조직 자원을 지시하는 데 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/daɪˈrekt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-363-1780555618610",
+        "term": "lack",
+        "definition": "",
+        "meaningKr": "부족, 결핍",
+        "exampleEn": "A lack of critical thinking skills can hinder students' ability to analyze complex information effectively.",
+        "exampleKr": "비판적 사고 능력의 부족은 학생들이 복잡한 정보를 효과적으로 분석하는 능력을 저해할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/læk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-364-1780555618610",
+        "term": "review",
+        "definition": "",
+        "meaningKr": "검토, 논평",
+        "exampleEn": "Academic journals require a rigorous peer review process to ensure the quality and validity of published research.",
+        "exampleKr": "학술지는 출판되는 연구의 품질과 유효성을 보장하기 위해 엄격한 동료 심사 과정을 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈvjuː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-365-1780555618610",
+        "term": "depend",
+        "definition": "",
+        "meaningKr": "의존하다, ~에 달려있다",
+        "exampleEn": "The success of the project will largely depend on the collaboration and commitment of all team members.",
+        "exampleKr": "프로젝트의 성공은 주로 모든 팀 구성원의 협력과 헌신에 달려 있을 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈpend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-366-1780555618610",
+        "term": "recognize",
+        "definition": "",
+        "meaningKr": "인식하다, 인정하다",
+        "exampleEn": "It is important to recognize the diverse cultural backgrounds of students to foster an inclusive learning environment.",
+        "exampleKr": "포괄적인 학습 환경을 조성하기 위해 학생들의 다양한 문화적 배경을 인식하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈrekəɡnaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-367-1780555618610",
+        "term": "purpose",
+        "definition": "",
+        "meaningKr": "목적, 의도",
+        "exampleEn": "The primary purpose of scientific inquiry is to expand human knowledge and understanding of the natural world.",
+        "exampleKr": "과학적 탐구의 주된 목적은 자연 세계에 대한 인간의 지식과 이해를 확장하는 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɜːrpəs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-368-1780555618610",
+        "term": "department",
+        "definition": "",
+        "meaningKr": "부서, 학과",
+        "exampleEn": "The research department announced a breakthrough in developing new renewable energy technologies.",
+        "exampleKr": "연구 부서는 새로운 재생 에너지 기술 개발에 있어 획기적인 발전을 발표했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈpɑːrtmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-369-1780555618610",
+        "term": "gain",
+        "definition": "",
+        "meaningKr": "얻다, 획득하다",
+        "exampleEn": "Societies gain significant advantages by investing in education, as it fosters innovation and economic growth.",
+        "exampleKr": "사회는 교육에 투자함으로써 혁신과 경제 성장을 촉진하므로 상당한 이점을 얻는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɡeɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-370-1780555618610",
+        "term": "argue",
+        "definition": "",
+        "meaningKr": "주장하다, 논쟁하다",
+        "exampleEn": "Some scholars argue that technological advancements have both positive and negative consequences for human society.",
+        "exampleKr": "일부 학자들은 기술 발전이 인간 사회에 긍정적인 결과와 부정적인 결과를 모두 가져온다고 주장한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɑːrɡjuː/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-371-1780555618610",
+        "term": "mark",
+        "definition": "",
+        "meaningKr": "표시, 흔적",
+        "exampleEn": "The ancient ruins bear the mark of a sophisticated civilization that once flourished in the region.",
+        "exampleKr": "그 고대 유적은 한때 그 지역에서 번성했던 정교한 문명의 흔적을 지니고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/mɑːrk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-372-1780555618610",
+        "term": "machine",
+        "definition": "",
+        "meaningKr": "기계",
+        "exampleEn": "Advanced machine learning algorithms are transforming various industries by automating complex tasks and data analysis.",
+        "exampleKr": "고급 기계 학습 알고리즘은 복잡한 작업과 데이터 분석을 자동화하여 다양한 산업을 변화시키고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/məˈʃiːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-373-1780555618610",
+        "term": "achieve",
+        "definition": "",
+        "meaningKr": "달성하다, 성취하다",
+        "exampleEn": "To achieve sustainable development, societies must balance economic growth with environmental protection.",
+        "exampleKr": "지속 가능한 발전을 달성하기 위해 사회는 경제 성장과 환경 보호의 균형을 이루어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈtʃiːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-374-1780555618610",
+        "term": "item",
+        "definition": "",
+        "meaningKr": "항목, 품목",
+        "exampleEn": "Each item on the agenda requires careful consideration and discussion before a final decision can be made.",
+        "exampleKr": "의제에 있는 각 항목은 최종 결정이 내려지기 전에 신중한 고려와 토론을 필요로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈaɪtəm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-375-1780555618610",
+        "term": "prove",
+        "definition": "",
+        "meaningKr": "증명하다, ~임이 드러나다",
+        "exampleEn": "Scientific research aims to prove or disprove hypotheses through rigorous experimentation and data analysis.",
+        "exampleKr": "과학 연구는 엄격한 실험과 데이터 분석을 통해 가설을 증명하거나 반증하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pruːv/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-376-1780555618610",
+        "term": "method",
+        "definition": "",
+        "meaningKr": "방법, 방식",
+        "exampleEn": "The most effective method for problem-solving often involves breaking down complex issues into smaller, manageable steps.",
+        "exampleKr": "문제 해결을 위한 가장 효과적인 방법은 복잡한 문제들을 더 작고 관리 가능한 단계로 나누는 것을 포함한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmeθəd/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-377-1780555618610",
+        "term": "military",
+        "definition": "",
+        "meaningKr": "군대, 군사",
+        "exampleEn": "Technological advancements have significantly transformed modern military strategies, emphasizing precision and information warfare.",
+        "exampleKr": "기술 발전은 현대 군사 전략을 크게 변화시켰으며, 정밀성과 정보전을 강조한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɪlɪtəri/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-378-1780555618610",
+        "term": "challenge",
+        "definition": "",
+        "meaningKr": "도전, 난제",
+        "exampleEn": "Overcoming environmental challenges requires global cooperation and innovative solutions to ensure sustainable development.",
+        "exampleKr": "환경적 난관을 극복하는 것은 지속 가능한 발전을 보장하기 위한 국제적 협력과 혁신적인 해결책을 필요로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈtʃælɪndʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-379-1780555618610",
+        "term": "link",
+        "definition": "",
+        "meaningKr": "연결하다, 관련시키다",
+        "exampleEn": "Researchers often link early childhood experiences to an individual's long-term cognitive and emotional development.",
+        "exampleKr": "연구자들은 종종 유년기 경험을 개인의 장기적인 인지 및 정서 발달과 연결시킨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/lɪŋk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-380-1780555618610",
+        "term": "despite",
+        "definition": "",
+        "meaningKr": "~에도 불구하고",
+        "exampleEn": "Despite the economic downturn, consumer spending patterns showed surprising resilience in certain sectors of the market.",
+        "exampleKr": "경기 침체에도 불구하고, 소비자 지출 패턴은 시장의 특정 부문에서 놀라운 회복력을 보였다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈspaɪt/",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-suneung-381-1780555618610",
+        "term": "advantage",
+        "definition": "",
+        "meaningKr": "이점, 강점",
+        "exampleEn": "Developing critical thinking skills provides a significant advantage in navigating complex information and making informed decisions.",
+        "exampleKr": "비판적 사고 능력을 개발하는 것은 복잡한 정보를 탐색하고 정보에 입각한 결정을 내리는 데 상당한 이점을 제공한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ədˈvɑːntɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-382-1780555618610",
+        "term": "seek",
+        "definition": "",
+        "meaningKr": "찾다, 추구하다",
+        "exampleEn": "Many philosophical traditions seek to understand the fundamental nature of existence and the meaning of human life.",
+        "exampleKr": "많은 철학적 전통은 존재의 근본적인 본질과 인간 삶의 의미를 이해하려고 노력한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/siːk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-383-1780555618610",
+        "term": "release",
+        "definition": "",
+        "meaningKr": "방출하다, 공개하다",
+        "exampleEn": "Governments worldwide are urged to release environmental data transparently to facilitate public awareness and action.",
+        "exampleKr": "전 세계 정부들은 대중의 인식과 행동을 촉진하기 위해 환경 데이터를 투명하게 공개할 것을 촉구받는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈliːs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-384-1780555618610",
+        "term": "capital",
+        "definition": "",
+        "meaningKr": "수도, 자본",
+        "exampleEn": "Human capital, encompassing skills and knowledge, is increasingly recognized as a crucial driver of economic growth.",
+        "exampleKr": "기술과 지식을 포함하는 인적 자본은 경제 성장의 중요한 동력으로 점점 더 인식되고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkæpɪtl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-385-1780555618610",
+        "term": "popular",
+        "definition": "",
+        "meaningKr": "인기 있는, 대중적인",
+        "exampleEn": "Although initially popular, some policy initiatives may face public backlash once their long-term consequences become apparent.",
+        "exampleKr": "처음에는 인기가 있었음에도 불구하고, 일부 정책적 시도들은 장기적인 결과가 명확해지면 대중의 반발에 직면할 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɒpjələr/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-386-1780555618610",
+        "term": "specific",
+        "definition": "",
+        "meaningKr": "특정한, 구체적인",
+        "exampleEn": "Scientists conduct specific experiments to test hypotheses and gather empirical evidence to support their theories.",
+        "exampleKr": "과학자들은 가설을 검증하고 자신들의 이론을 뒷받침할 실증적 증거를 수집하기 위해 구체적인 실험을 수행한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/spəˈsɪfɪk/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-387-1780555618610",
+        "term": "fear",
+        "definition": "",
+        "meaningKr": "두려움, 공포",
+        "exampleEn": "The fear of the unknown often hinders progress, preventing individuals and societies from embracing necessary change.",
+        "exampleKr": "미지의 것에 대한 두려움은 종종 발전을 저해하며, 개인과 사회가 필요한 변화를 받아들이는 것을 막는다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fɪər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-388-1780555618610",
+        "term": "aim",
+        "definition": "",
+        "meaningKr": "목표로 하다, 겨냥하다",
+        "exampleEn": "Educational reforms often aim to equip students with the skills necessary to thrive in a rapidly evolving global economy.",
+        "exampleKr": "교육 개혁은 종종 학생들이 빠르게 변화하는 세계 경제에서 성공하는 데 필요한 기술을 갖추도록 하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/eɪm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-389-1780555618610",
+        "term": "serious",
+        "definition": "",
+        "meaningKr": "심각한, 진지한",
+        "exampleEn": "Addressing climate change requires serious commitment from all nations to reduce emissions and invest in renewable energy.",
+        "exampleKr": "기후 변화에 대처하는 것은 모든 국가가 배출량을 줄이고 재생 에너지에 투자하려는 진지한 노력을 필요로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsɪəriəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-390-1780555618610",
+        "term": "degree",
+        "definition": "",
+        "meaningKr": "정도, 학위",
+        "exampleEn": "The degree to which technology influences human behavior is a subject of ongoing debate among social scientists.",
+        "exampleKr": "기술이 인간 행동에 영향을 미치는 정도는 사회 과학자들 사이에서 계속되는 논쟁의 대상이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈɡriː/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-391-1780555618610",
+        "term": "pull",
+        "definition": "",
+        "meaningKr": "당기다, 끌어당기다",
+        "exampleEn": "Economic policies can pull a nation out of recession, but often at the cost of increased national debt.",
+        "exampleKr": "경제 정책은 국가를 경기 침체에서 벗어나게 할 수 있지만, 종종 국가 부채 증가라는 대가를 치르게 된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pʊl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-392-1780555618610",
+        "term": "access",
+        "definition": "",
+        "meaningKr": "접근, 이용",
+        "exampleEn": "Universal access to quality education is considered a fundamental human right and a key to societal progress.",
+        "exampleKr": "양질의 교육에 대한 보편적 접근은 기본적인 인권이자 사회 발전의 핵심으로 간주된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈækses/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-393-1780555618610",
+        "term": "identify",
+        "definition": "",
+        "meaningKr": "확인하다, 식별하다",
+        "exampleEn": "Psychologists often identify cognitive biases that can distort an individual's perception and decision-making processes.",
+        "exampleKr": "심리학자들은 종종 개인의 인식과 의사 결정 과정을 왜곡할 수 있는 인지 편향을 식별한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/aɪˈdentɪfaɪ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-394-1780555618610",
+        "term": "loss",
+        "definition": "",
+        "meaningKr": "손실, 상실",
+        "exampleEn": "Biodiversity loss poses a serious threat to ecosystem stability and the essential services they provide to humanity.",
+        "exampleKr": "생물 다양성 손실은 생태계 안정성과 인류에게 제공되는 필수 서비스에 심각한 위협을 가한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/lɒs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-395-1780555618610",
+        "term": "shall",
+        "definition": "",
+        "meaningKr": "~할 것이다, ~해야 한다 (법률/공식적)",
+        "exampleEn": "The committee shall review all submitted proposals and make recommendations based on their feasibility and potential impact.",
+        "exampleKr": "위원회는 제출된 모든 제안을 검토하고 타당성과 잠재적 영향에 따라 권고 사항을 제시해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ʃæl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-396-1780555618610",
+        "term": "modern",
+        "definition": "",
+        "meaningKr": "현대의, 근대의",
+        "exampleEn": "Modern architectural designs often blend innovative materials with traditional aesthetics to create unique urban spaces.",
+        "exampleKr": "현대 건축 디자인은 종종 혁신적인 재료와 전통적인 미학을 융합하여 독특한 도시 공간을 창조한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɒdərn/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-397-1780555618610",
+        "term": "express",
+        "definition": "",
+        "meaningKr": "표현하다, 나타내다",
+        "exampleEn": "Art provides a powerful medium for individuals to express complex emotions and societal critiques that words alone cannot convey.",
+        "exampleKr": "예술은 개인이 말로는 전달할 수 없는 복잡한 감정과 사회적 비판을 표현하는 강력한 매개체를 제공한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪkˈspres/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-398-1780555618610",
+        "term": "indicate",
+        "definition": "",
+        "meaningKr": "나타내다, 지적하다",
+        "exampleEn": "Recent economic indicators indicate a slow but steady recovery, though significant challenges remain in the labor market.",
+        "exampleKr": "최근 경제 지표들은 느리지만 꾸준한 회복세를 나타내고 있지만, 노동 시장에는 여전히 상당한 난관이 남아있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪndɪkeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-399-1780555618610",
+        "term": "attend",
+        "definition": "",
+        "meaningKr": "참석하다, 주의를 기울이다",
+        "exampleEn": "To fully grasp the lecture's content, students must actively attend to the speaker's arguments and engage with the material.",
+        "exampleKr": "강의 내용을 완전히 이해하려면 학생들은 강사의 주장에 적극적으로 주의를 기울이고 자료에 몰입해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈtend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-400-1780555618610",
+        "term": "organize",
+        "definition": "",
+        "meaningKr": "조직하다, 정리하다",
+        "exampleEn": "Effective project management requires the ability to organize tasks and resources efficiently to meet deadlines.",
+        "exampleKr": "효과적인 프로젝트 관리는 마감 기한을 맞추기 위해 업무와 자원을 효율적으로 조직하고 정리하는 능력을 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɔːrɡənaɪz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-401-1780555618610",
+        "term": "beyond",
+        "definition": "",
+        "meaningKr": "~을 넘어서, ~ 저편에",
+        "exampleEn": "Scientific research often pushes the boundaries of current knowledge, exploring concepts beyond common understanding.",
+        "exampleKr": "과학 연구는 종종 현재 지식의 경계를 허물며, 일반적인 이해를 넘어서는 개념들을 탐구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/bɪˈjɑːnd/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-suneung-402-1780555618610",
+        "term": "promise",
+        "definition": "",
+        "meaningKr": "약속하다, ~의 조짐을 보이다",
+        "exampleEn": "Technological advancements promise significant improvements in various sectors, from healthcare to communication.",
+        "exampleKr": "기술 발전은 의료부터 통신에 이르기까지 다양한 분야에서 상당한 개선을 약속한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɑːmɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-403-1780555618610",
+        "term": "potential",
+        "definition": "",
+        "meaningKr": "잠재력, 가능성",
+        "exampleEn": "Investing in renewable energy sources holds immense potential for mitigating climate change and ensuring future sustainability.",
+        "exampleKr": "재생 에너지원에 투자하는 것은 기후 변화를 완화하고 미래의 지속 가능성을 보장하는 데 엄청난 잠재력을 지닌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pəˈtenʃl/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-404-1780555618610",
+        "term": "bar",
+        "definition": "",
+        "meaningKr": "막다, 금지하다",
+        "exampleEn": "Strict regulations are often implemented to bar harmful substances from entering the food supply chain.",
+        "exampleKr": "유해 물질이 식품 공급망에 유입되는 것을 막기 위해 엄격한 규제가 종종 시행된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/bɑːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-405-1780555618610",
+        "term": "except",
+        "definition": "",
+        "meaningKr": "~을 제외하고",
+        "exampleEn": "All participants completed the survey successfully, except for a few who encountered technical difficulties.",
+        "exampleKr": "기술적인 어려움을 겪은 몇 명을 제외하고 모든 참가자가 설문조사를 성공적으로 완료했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪkˈsept/",
+        "pos": "preposition"
+      },
+      {
+        "id": "word-suneung-406-1780555618610",
+        "term": "advance",
+        "definition": "",
+        "meaningKr": "발전시키다, 나아가다",
+        "exampleEn": "Scientists continue to advance our understanding of the universe through groundbreaking research and observation.",
+        "exampleKr": "과학자들은 획기적인 연구와 관찰을 통해 우주에 대한 우리의 이해를 계속 발전시킨다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ədˈvæns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-407-1780555618610",
+        "term": "network",
+        "definition": "",
+        "meaningKr": "연결망, 네트워크",
+        "exampleEn": "A strong professional network is crucial for career development and accessing new opportunities in a competitive job market.",
+        "exampleKr": "강력한 전문 네트워크는 경력 개발과 경쟁적인 취업 시장에서 새로운 기회에 접근하는 데 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnetwɜːrk/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-408-1780555618610",
+        "term": "match",
+        "definition": "",
+        "meaningKr": "일치하다, 어울리다",
+        "exampleEn": "The experimental results did not perfectly match the theoretical predictions, suggesting areas for further investigation.",
+        "exampleKr": "실험 결과가 이론적 예측과 완벽하게 일치하지 않아 추가 조사가 필요한 영역을 시사했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/mætʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-409-1780555618610",
+        "term": "avoid",
+        "definition": "",
+        "meaningKr": "피하다, 회피하다",
+        "exampleEn": "To avoid potential misinterpretations, scientific reports must present data clearly and objectively.",
+        "exampleKr": "잠재적인 오해를 피하기 위해 과학 보고서는 데이터를 명확하고 객관적으로 제시해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈvɔɪd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-410-1780555618610",
+        "term": "seat",
+        "definition": "",
+        "meaningKr": "자리, 좌석",
+        "exampleEn": "The design of public transportation systems often considers the optimal arrangement of seats to maximize passenger capacity.",
+        "exampleKr": "대중교통 시스템의 설계는 승객 수용 능력을 극대화하기 위한 좌석의 최적 배치를 종종 고려한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/siːt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-411-1780555618610",
+        "term": "normal",
+        "definition": "",
+        "meaningKr": "정상적인, 평범한",
+        "exampleEn": "Environmental changes can disrupt the normal migration patterns of animals, affecting entire ecosystems.",
+        "exampleKr": "환경 변화는 동물의 정상적인 이동 패턴을 방해하여 전체 생태계에 영향을 미칠 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈnɔːrml/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-412-1780555618610",
+        "term": "associate",
+        "definition": "",
+        "meaningKr": "연관시키다, 관련시키다",
+        "exampleEn": "People often associate certain colors with specific emotions, influencing their perceptions and behaviors.",
+        "exampleKr": "사람들은 종종 특정 색깔을 특정한 감정과 연관시키며, 이는 그들의 인식과 행동에 영향을 미친다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈsoʊʃieɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-413-1780555618610",
+        "term": "positive",
+        "definition": "",
+        "meaningKr": "긍정적인, 확실한",
+        "exampleEn": "Despite initial challenges, the project yielded positive outcomes, demonstrating its long-term viability.",
+        "exampleKr": "초기 어려움에도 불구하고, 그 프로젝트는 긍정적인 결과를 낳았고, 장기적인 실행 가능성을 보여주었다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɑːzətɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-414-1780555618610",
+        "term": "option",
+        "definition": "",
+        "meaningKr": "선택, 선택권",
+        "exampleEn": "When faced with complex problems, it is crucial to analyze all available options before making a final decision.",
+        "exampleKr": "복잡한 문제에 직면했을 때, 최종 결정을 내리기 전에 가능한 모든 선택지를 분석하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɑːpʃn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-415-1780555618610",
+        "term": "huge",
+        "definition": "",
+        "meaningKr": "거대한, 엄청난",
+        "exampleEn": "The development of artificial intelligence presents a huge potential for transforming industries and daily life.",
+        "exampleKr": "인공지능의 발전은 산업과 일상생활을 변화시킬 엄청난 잠재력을 제시한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/hjuːdʒ/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-416-1780555618610",
+        "term": "instance",
+        "definition": "",
+        "meaningKr": "사례, 경우",
+        "exampleEn": "For instance, climate models predict more frequent extreme weather events in the coming decades.",
+        "exampleKr": "예를 들어, 기후 모델은 향후 수십 년 동안 더 빈번한 극단적인 기상 현상을 예측한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪnstəns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-417-1780555618610",
+        "term": "refer",
+        "definition": "",
+        "meaningKr": "언급하다, 참조하다",
+        "exampleEn": "Academic papers often refer to previous studies to provide context and support new arguments.",
+        "exampleKr": "학술 논문은 종종 맥락을 제공하고 새로운 주장을 뒷받침하기 위해 이전 연구들을 참조한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈfɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-418-1780555618610",
+        "term": "quarter",
+        "definition": "",
+        "meaningKr": "4분의 1, 분기",
+        "exampleEn": "Economic reports indicate that the nation's GDP grew by a modest amount in the last quarter of the year.",
+        "exampleKr": "경제 보고서는 그 나라의 GDP가 연말 마지막 분기에 완만한 증가를 보였다고 나타낸다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkwɔːrtər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-419-1780555618610",
+        "term": "assume",
+        "definition": "",
+        "meaningKr": "가정하다, 추정하다",
+        "exampleEn": "Researchers often assume certain conditions to simplify complex models, but these assumptions must be justified.",
+        "exampleKr": "연구자들은 복잡한 모델을 단순화하기 위해 특정 조건을 가정하지만, 이러한 가정은 정당화되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈsuːm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-420-1780555618610",
+        "term": "doubt",
+        "definition": "",
+        "meaningKr": "의심하다, 확신하지 못하다",
+        "exampleEn": "Scientists generally doubt claims that lack empirical evidence or cannot be replicated through experiments.",
+        "exampleKr": "과학자들은 일반적으로 경험적 증거가 부족하거나 실험을 통해 재현될 수 없는 주장들을 의심한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/daʊt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-421-1780555618610",
+        "term": "propose",
+        "definition": "",
+        "meaningKr": "제안하다, 제시하다",
+        "exampleEn": "The committee will propose new policies aimed at improving educational outcomes for all students.",
+        "exampleKr": "위원회는 모든 학생들의 교육 성과를 개선하는 것을 목표로 하는 새로운 정책들을 제안할 것이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prəˈpoʊz/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-422-1780555618610",
+        "term": "document",
+        "definition": "",
+        "meaningKr": "기록하다, 문서화하다",
+        "exampleEn": "Historians meticulously document events and societal changes to preserve knowledge for future generations.",
+        "exampleKr": "역사가들은 미래 세대를 위해 지식을 보존하고자 사건과 사회 변화를 면밀히 기록한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdɑːkjument/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-423-1780555618610",
+        "term": "pattern",
+        "definition": "",
+        "meaningKr": "양식, 패턴, 유형",
+        "exampleEn": "Analyzing historical data can reveal recurring patterns that help predict future trends in various fields.",
+        "exampleKr": "역사적 데이터를 분석하는 것은 다양한 분야에서 미래 동향을 예측하는 데 도움이 되는 반복되는 패턴을 밝혀낼 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpætərn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-424-1780555618610",
+        "term": "search",
+        "definition": "",
+        "meaningKr": "찾다, 검색하다",
+        "exampleEn": "Modern scientific inquiry often involves a systematic search for evidence to support or refute hypotheses.",
+        "exampleKr": "현대 과학 연구는 종종 가설을 지지하거나 반박할 증거를 체계적으로 찾는 것을 포함한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/sɜːrtʃ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-425-1780555618610",
+        "term": "separate",
+        "definition": "",
+        "meaningKr": "분리하다, 구분하다",
+        "exampleEn": "It is crucial to separate subjective opinions from objective facts when analyzing data for research.",
+        "exampleKr": "연구를 위해 데이터를 분석할 때 주관적인 의견과 객관적인 사실을 구분하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈsɛpəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-426-1780555618610",
+        "term": "career",
+        "definition": "",
+        "meaningKr": "직업, 경력",
+        "exampleEn": "Many individuals choose a career path based on personal passion rather than solely on financial prospects.",
+        "exampleKr": "많은 사람들이 오로지 재정적 전망보다는 개인적인 열정을 바탕으로 직업 경로를 선택한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəˈrɪər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-427-1780555618610",
+        "term": "speech",
+        "definition": "",
+        "meaningKr": "연설, 말",
+        "exampleEn": "The politician's speech emphasized the importance of community engagement for sustainable urban development.",
+        "exampleKr": "그 정치인의 연설은 지속 가능한 도시 개발을 위한 지역사회 참여의 중요성을 강조했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/spiːtʃ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-428-1780555618610",
+        "term": "officer",
+        "definition": "",
+        "meaningKr": "임원, 공무원, 장교",
+        "exampleEn": "A corporate officer is responsible for overseeing specific departments and ensuring compliance with regulations.",
+        "exampleKr": "기업 임원은 특정 부서를 감독하고 규정 준수를 보장할 책임이 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɒfɪsər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-429-1780555618610",
+        "term": "profit",
+        "definition": "",
+        "meaningKr": "이익, 수익",
+        "exampleEn": "Businesses often strive to maximize profit while also considering their social and environmental responsibilities.",
+        "exampleKr": "기업들은 사회적, 환경적 책임도 고려하면서 이윤을 극대화하기 위해 노력한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɒfɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-430-1780555618610",
+        "term": "protect",
+        "definition": "",
+        "meaningKr": "보호하다, 지키다",
+        "exampleEn": "International agreements aim to protect endangered species and their habitats from human activities.",
+        "exampleKr": "국제 협약은 멸종 위기종과 그들의 서식지를 인간 활동으로부터 보호하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prəˈtɛkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-431-1780555618610",
+        "term": "resource",
+        "definition": "",
+        "meaningKr": "자원, 재원",
+        "exampleEn": "Effective management of natural resources is essential for ensuring long-term environmental sustainability.",
+        "exampleKr": "천연자원의 효과적인 관리는 장기적인 환경 지속 가능성을 보장하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈriːsɔːrs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-432-1780555618610",
+        "term": "disease",
+        "definition": "",
+        "meaningKr": "질병, 병",
+        "exampleEn": "Public health campaigns play a vital role in preventing the spread of infectious disease across populations.",
+        "exampleKr": "공중 보건 캠페인은 인구 전반에 걸쳐 전염병 확산을 예방하는 데 중요한 역할을 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈziːz/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-433-1780555618610",
+        "term": "balance",
+        "definition": "",
+        "meaningKr": "균형, 조화",
+        "exampleEn": "Achieving a work-life balance is crucial for an individual's mental well-being and overall productivity.",
+        "exampleKr": "일과 삶의 균형을 이루는 것은 개인의 정신 건강과 전반적인 생산성에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈbæləns/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-434-1780555618610",
+        "term": "damage",
+        "definition": "",
+        "meaningKr": "손상, 피해",
+        "exampleEn": "Environmental pollutants can cause irreparable damage to ecosystems, affecting biodiversity and human health.",
+        "exampleKr": "환경 오염 물질은 생태계에 회복 불가능한 손상을 입혀 생물 다양성과 인간 건강에 영향을 미칠 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈdæmɪdʒ/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-435-1780555618610",
+        "term": "basis",
+        "definition": "",
+        "meaningKr": "근거, 기초",
+        "exampleEn": "Scientific theories are developed on the basis of empirical evidence and rigorous experimentation.",
+        "exampleKr": "과학 이론은 경험적 증거와 엄격한 실험을 기반으로 발전한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈbeɪsɪs/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-436-1780555618610",
+        "term": "author",
+        "definition": "",
+        "meaningKr": "작가, 저자",
+        "exampleEn": "The author's latest work explores complex themes of identity and societal expectations through a compelling narrative.",
+        "exampleKr": "그 작가의 최신작은 설득력 있는 서사를 통해 정체성과 사회적 기대라는 복잡한 주제를 탐구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɔːθər/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-437-1780555618610",
+        "term": "encourage",
+        "definition": "",
+        "meaningKr": "격려하다, 장려하다",
+        "exampleEn": "Educators strive to encourage critical thinking and independent problem-solving skills among students.",
+        "exampleKr": "교육자들은 학생들 사이에서 비판적 사고와 독립적인 문제 해결 능력을 장려하기 위해 노력한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪnˈkʌrɪdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-438-1780555618610",
+        "term": "male",
+        "definition": "",
+        "meaningKr": "남성의, 수컷의",
+        "exampleEn": "In many animal species, the male often displays elaborate courtship rituals to attract a mate.",
+        "exampleKr": "많은 동물 종에서 수컷은 짝을 유인하기 위해 정교한 구애 의식을 보여주는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/meɪl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-439-1780555618610",
+        "term": "operate",
+        "definition": "",
+        "meaningKr": "작동하다, 운영하다",
+        "exampleEn": "Modern industrial systems operate with high efficiency, relying on automation and advanced technology.",
+        "exampleKr": "현대 산업 시스템은 자동화와 첨단 기술에 의존하여 높은 효율성으로 작동한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɒpəreɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-440-1780555618610",
+        "term": "reflect",
+        "definition": "",
+        "meaningKr": "반영하다, 반사하다",
+        "exampleEn": "Economic indicators often reflect the overall health and stability of a nation's financial system.",
+        "exampleKr": "경제 지표는 종종 한 국가의 금융 시스템의 전반적인 건전성과 안정성을 반영한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈflɛkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-441-1780555618610",
+        "term": "income",
+        "definition": "",
+        "meaningKr": "수입, 소득",
+        "exampleEn": "Government policies often aim to redistribute income to reduce economic inequality among citizens.",
+        "exampleKr": "정부 정책은 종종 시민들 간의 경제적 불평등을 줄이기 위해 소득을 재분배하는 것을 목표로 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɪnkʌm/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-442-1780555618610",
+        "term": "property",
+        "definition": "",
+        "meaningKr": "재산, 소유물, 속성",
+        "exampleEn": "The physical property of a material, such as its conductivity, determines its suitability for various applications.",
+        "exampleKr": "재료의 전도성과 같은 물리적 속성은 다양한 용도에 대한 적합성을 결정한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈprɒpərti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-443-1780555618610",
+        "term": "previous",
+        "definition": "",
+        "meaningKr": "이전의, 앞선",
+        "exampleEn": "Understanding previous research findings is essential for building new knowledge and avoiding redundant studies.",
+        "exampleKr": "이전 연구 결과를 이해하는 것은 새로운 지식을 구축하고 중복 연구를 피하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpriːviəs/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-444-1780555618610",
+        "term": "imagine",
+        "definition": "",
+        "meaningKr": "상상하다, 생각하다",
+        "exampleEn": "Scientists often imagine hypothetical scenarios to explore potential outcomes and test theoretical models.",
+        "exampleKr": "과학자들은 잠재적 결과를 탐색하고 이론적 모델을 시험하기 위해 가상의 시나리오를 상상하는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈmædʒɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-445-1780555618610",
+        "term": "earn",
+        "definition": "",
+        "meaningKr": "벌다, 얻다",
+        "exampleEn": "Individuals strive to earn a living wage that allows them to meet their basic needs and improve their quality of life.",
+        "exampleKr": "개인은 기본적인 필요를 충족하고 삶의 질을 향상시킬 수 있는 생활 임금을 벌기 위해 노력한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɜːrn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-446-1780555618610",
+        "term": "post",
+        "definition": "",
+        "meaningKr": "직책, 게시물, 우편",
+        "exampleEn": "Companies often advertise a vacant post internally before opening the application process to external candidates.",
+        "exampleKr": "기업들은 외부 지원자에게 채용 절차를 시작하기 전에 내부적으로 공석을 광고하는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pəʊst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-447-1780555618610",
+        "term": "define",
+        "definition": "",
+        "meaningKr": "정의하다, 규정하다",
+        "exampleEn": "Clearly defining the scope of a project is crucial for effective planning and successful execution.",
+        "exampleKr": "프로젝트의 범위를 명확히 정의하는 것은 효과적인 계획과 성공적인 실행에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈfaɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-448-1780555618610",
+        "term": "perform",
+        "definition": "",
+        "meaningKr": "수행하다, 공연하다",
+        "exampleEn": "Modern AI algorithms can perform complex tasks with remarkable accuracy, often surpassing human capabilities.",
+        "exampleKr": "현대 AI 알고리즘은 놀라운 정확도로 복잡한 작업을 수행할 수 있으며, 종종 인간의 능력을 능가한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/pərˈfɔːrm/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-449-1780555618610",
+        "term": "debate",
+        "definition": "",
+        "meaningKr": "토론, 논쟁",
+        "exampleEn": "Public debate is essential for a healthy democracy, allowing diverse perspectives to be heard and considered.",
+        "exampleKr": "공개 토론은 건강한 민주주의에 필수적이며, 다양한 관점이 경청되고 고려될 수 있도록 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈbeɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-450-1780555618610",
+        "term": "object",
+        "definition": "",
+        "meaningKr": "반대하다, 이의를 제기하다",
+        "exampleEn": "Many scientists object to the theory that consciousness is merely an emergent property of the brain.",
+        "exampleKr": "많은 과학자들은 의식이 단순히 뇌의 발생적 속성이라는 이론에 반대한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əbˈdʒɛkt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-451-1780555618610",
+        "term": "maintain",
+        "definition": "",
+        "meaningKr": "유지하다, 주장하다",
+        "exampleEn": "Societies must maintain a delicate balance between individual freedom and collective responsibility.",
+        "exampleKr": "사회는 개인의 자유와 집단의 책임 사이의 미묘한 균형을 유지해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/meɪnˈteɪn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-452-1780555618610",
+        "term": "credit",
+        "definition": "",
+        "meaningKr": "신용, 학점, 공로",
+        "exampleEn": "The author received significant credit for her innovative approach to environmental policy analysis.",
+        "exampleKr": "그 작가는 환경 정책 분석에 대한 혁신적인 접근 방식으로 상당한 공로를 인정받았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkrɛdɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-453-1780555618610",
+        "term": "discover",
+        "definition": "",
+        "meaningKr": "발견하다, 알아내다",
+        "exampleEn": "Researchers continue to discover new insights into the complex mechanisms of human memory.",
+        "exampleKr": "연구자들은 인간 기억의 복잡한 메커니즘에 대한 새로운 통찰력을 계속해서 발견하고 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dɪˈskʌvər/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-454-1780555618610",
+        "term": "prefer",
+        "definition": "",
+        "meaningKr": "~을 더 좋아하다, 선호하다",
+        "exampleEn": "Many consumers prefer products from companies that demonstrate strong ethical and sustainable practices.",
+        "exampleKr": "많은 소비자들은 강력한 윤리적이고 지속 가능한 관행을 보여주는 회사의 제품을 선호한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɪˈfɜːr/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-455-1780555618610",
+        "term": "extend",
+        "definition": "",
+        "meaningKr": "확장하다, 연장하다, 제공하다",
+        "exampleEn": "The government decided to extend the deadline for submitting proposals to allow more participation.",
+        "exampleKr": "정부는 더 많은 참여를 허용하기 위해 제안서 제출 마감일을 연장하기로 결정했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪkˈstɛnd/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-456-1780555618610",
+        "term": "facility",
+        "definition": "",
+        "meaningKr": "시설, 재능, 편의",
+        "exampleEn": "The new research facility offers state-of-the-art equipment for advanced scientific experiments.",
+        "exampleKr": "새로운 연구 시설은 첨단 과학 실험을 위한 최첨단 장비를 제공한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/fəˈsɪlɪti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-457-1780555618610",
+        "term": "screen",
+        "definition": "",
+        "meaningKr": "심사하다, 가려내다",
+        "exampleEn": "Companies often screen job applicants rigorously to ensure a good cultural fit and necessary skills.",
+        "exampleKr": "기업들은 좋은 문화적 적합성과 필요한 기술을 보장하기 위해 지원자들을 엄격하게 심사하는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/skriːn/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-458-1780555618610",
+        "term": "female",
+        "definition": "",
+        "meaningKr": "여성의, 암컷의",
+        "exampleEn": "Studies show that female leadership often correlates with improved organizational performance and employee satisfaction.",
+        "exampleKr": "연구에 따르면 여성 리더십은 종종 조직 성과 향상 및 직원 만족도와 연관된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfiːmeɪl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-459-1780555618610",
+        "term": "nor",
+        "definition": "",
+        "meaningKr": "~도 또한 아니다",
+        "exampleEn": "The theory was neither fully accepted by the scientific community, nor was it entirely dismissed.",
+        "exampleKr": "그 이론은 과학계에서 완전히 받아들여지지도 않았고, 전적으로 무시되지도 않았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/nɔːr/",
+        "pos": "conjunction"
+      },
+      {
+        "id": "word-suneung-460-1780555618610",
+        "term": "agency",
+        "definition": "",
+        "meaningKr": "기관, 대리점, 작용",
+        "exampleEn": "A government agency was tasked with regulating the ethical implications of emerging artificial intelligence technologies.",
+        "exampleKr": "정부 기관은 신흥 인공지능 기술의 윤리적 함의를 규제하는 임무를 맡았다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈeɪdʒənsi/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-461-1780555618610",
+        "term": "candidate",
+        "definition": "",
+        "meaningKr": "후보자, 지원자",
+        "exampleEn": "Evaluating a candidate's potential for growth is often more crucial than assessing their current skill set.",
+        "exampleKr": "후보자의 성장 잠재력을 평가하는 것이 현재의 기술 세트를 평가하는 것보다 더 중요한 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkændɪdət/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-462-1780555618610",
+        "term": "legal",
+        "definition": "",
+        "meaningKr": "법적인, 합법적인",
+        "exampleEn": "The legal framework governing data privacy needs constant updates to address technological advancements.",
+        "exampleKr": "데이터 프라이버시를 규율하는 법적 틀은 기술 발전에 대응하기 위해 끊임없이 업데이트되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈliːɡəl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-463-1780555618610",
+        "term": "conversation",
+        "definition": "",
+        "meaningKr": "대화",
+        "exampleEn": "Engaging in open conversation is essential for fostering mutual understanding and resolving complex social issues.",
+        "exampleKr": "열린 대화에 참여하는 것은 상호 이해를 증진하고 복잡한 사회 문제를 해결하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌkɒnvərˈseɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-464-1780555618610",
+        "term": "magazine",
+        "definition": "",
+        "meaningKr": "잡지, 탄창",
+        "exampleEn": "Academic researchers often publish their findings in peer-reviewed journals, not popular magazines.",
+        "exampleKr": "학술 연구자들은 대중 잡지가 아닌 동료 심사를 거친 학술지에 연구 결과를 발표하는 경우가 많다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌmæɡəˈziːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-465-1780555618610",
+        "term": "shape",
+        "definition": "",
+        "meaningKr": "형성하다, 영향을 미치다",
+        "exampleEn": "Cultural values profoundly shape individual perceptions and collective societal behaviors over time.",
+        "exampleKr": "문화적 가치는 시간이 지남에 따라 개인의 인식과 집단적인 사회적 행동을 깊이 형성한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ʃeɪp/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-466-1780555618610",
+        "term": "agent",
+        "definition": "",
+        "meaningKr": "대리인, 요원, 행위자",
+        "exampleEn": "In sociological theory, individuals are often viewed as agents of change within broader social structures.",
+        "exampleKr": "사회학 이론에서 개인은 종종 더 넓은 사회 구조 내에서 변화의 주체로 간주된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈeɪdʒənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-467-1780555618610",
+        "term": "replace",
+        "definition": "",
+        "meaningKr": "대체하다, 교체하다",
+        "exampleEn": "Technological advancements continue to replace human labor in routine tasks, demanding new skill sets.",
+        "exampleKr": "기술 발전은 반복적인 업무에서 인간 노동을 계속 대체하며, 새로운 기술 세트를 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈpleɪs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-468-1780555618610",
+        "term": "judge",
+        "definition": "",
+        "meaningKr": "판단하다, 평가하다",
+        "exampleEn": "It is crucial to judge scientific theories based on empirical evidence rather than personal bias.",
+        "exampleKr": "과학 이론을 개인적인 편견보다는 경험적 증거에 기반하여 판단하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/dʒʌdʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-469-1780555618610",
+        "term": "generation",
+        "definition": "",
+        "meaningKr": "세대, 발생, 생성",
+        "exampleEn": "Each generation faces unique challenges and opportunities shaped by historical context and technological shifts.",
+        "exampleKr": "각 세대는 역사적 맥락과 기술 변화에 의해 형성된 고유한 도전과 기회에 직면한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌdʒɛnəˈreɪʃən/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-470-1780555618610",
+        "term": "estimate",
+        "definition": "",
+        "meaningKr": "추정하다, 평가하다",
+        "exampleEn": "Scientists estimate that the global average temperature has risen significantly over the past century.",
+        "exampleKr": "과학자들은 지난 세기 동안 지구 평균 기온이 상당히 상승했다고 추정한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈɛstɪmeɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-471-1780555618610",
+        "term": "favorite",
+        "definition": "",
+        "meaningKr": "가장 좋아하는, 선호하는",
+        "exampleEn": "Among the various philosophical perspectives, existentialism remains a favorite subject for critical analysis.",
+        "exampleKr": "다양한 철학적 관점 중에서 실존주의는 비판적 분석을 위한 가장 좋아하는 주제로 남아있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈfeɪvərɪt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-472-1780555618610",
+        "term": "purchase",
+        "definition": "",
+        "meaningKr": "구매하다, 구입하다",
+        "exampleEn": "Consumers often purchase products not only for their utility but also for their symbolic value.",
+        "exampleKr": "소비자들은 종종 제품을 그 유용성뿐만 아니라 상징적 가치 때문에 구매한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈpɜːrtʃəs/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-473-1780555618610",
+        "term": "shoot",
+        "definition": "",
+        "meaningKr": "쏘다, 촬영하다, 싹이 돋다",
+        "exampleEn": "The unexpected market trends could shoot down initial projections for economic growth.",
+        "exampleKr": "예상치 못한 시장 동향은 초기 경제 성장 전망을 무너뜨릴 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ʃuːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-474-1780555618610",
+        "term": "announce",
+        "definition": "",
+        "meaningKr": "발표하다, 알리다",
+        "exampleEn": "The research team plans to announce their groundbreaking discovery at the upcoming international conference.",
+        "exampleKr": "연구팀은 다가오는 국제 학술대회에서 획기적인 발견을 발표할 계획이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈnaʊns/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-475-1780555618610",
+        "term": "independent",
+        "definition": "",
+        "meaningKr": "독립적인, 자주의",
+        "exampleEn": "Developing an independent critical perspective is essential for students to analyze complex societal issues effectively.",
+        "exampleKr": "학생들이 복잡한 사회 문제를 효과적으로 분석하기 위해서는 독립적인 비판적 관점을 개발하는 것이 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌɪndɪˈpendənt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-476-1780555618610",
+        "term": "recommend",
+        "definition": "",
+        "meaningKr": "추천하다, 권고하다",
+        "exampleEn": "Experts often recommend incorporating diverse viewpoints to foster a more comprehensive understanding of historical events.",
+        "exampleKr": "전문가들은 역사적 사건에 대한 더 포괄적인 이해를 증진하기 위해 다양한 관점을 통합할 것을 종종 권고한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˌrekəˈmend/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-477-1780555618610",
+        "term": "majority",
+        "definition": "",
+        "meaningKr": "대다수, 대부분",
+        "exampleEn": "The majority of scientific studies suggest a strong correlation between regular exercise and improved cognitive function.",
+        "exampleKr": "대다수의 과학 연구는 규칙적인 운동과 인지 기능 향상 사이에 강한 상관관계가 있음을 시사한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/məˈdʒɒrəti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-478-1780555618610",
+        "term": "stick",
+        "definition": "",
+        "meaningKr": "붙이다, 고수하다, 달라붙다",
+        "exampleEn": "It is crucial for researchers to stick to ethical guidelines when conducting experiments involving human subjects.",
+        "exampleKr": "연구자들이 인간 피험자를 대상으로 실험을 수행할 때 윤리적 지침을 고수하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/stɪk/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-479-1780555618610",
+        "term": "request",
+        "definition": "",
+        "meaningKr": "요청, 요청하다",
+        "exampleEn": "Students are encouraged to submit a formal request for academic accommodations if they face learning challenges.",
+        "exampleKr": "학생들은 학습에 어려움을 겪을 경우 학업 편의를 위한 공식적인 요청서를 제출하도록 권장된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/rɪˈkwɛst/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-480-1780555618610",
+        "term": "none",
+        "definition": "",
+        "meaningKr": "아무것도 ~않다, 아무도 ~않다",
+        "exampleEn": "Despite extensive research, none of the proposed solutions fully addresses the multifaceted challenges of climate change.",
+        "exampleKr": "광범위한 연구에도 불구하고, 제안된 해결책 중 어느 것도 기후 변화의 다면적인 도전을 완전히 다루지 못한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/nʌn/",
+        "pos": "pronoun"
+      },
+      {
+        "id": "word-suneung-481-1780555618610",
+        "term": "exchange",
+        "definition": "",
+        "meaningKr": "교환하다, 교환",
+        "exampleEn": "Cultural exchange programs facilitate mutual understanding and foster stronger diplomatic ties between nations.",
+        "exampleKr": "문화 교류 프로그램은 상호 이해를 촉진하고 국가 간의 더 강력한 외교 관계를 육성한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪksˈtʃeɪndʒ/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-482-1780555618610",
+        "term": "budget",
+        "definition": "",
+        "meaningKr": "예산, 예산을 세우다",
+        "exampleEn": "Governments must carefully budget public funds to ensure sustainable development and social welfare initiatives.",
+        "exampleKr": "정부는 지속 가능한 발전과 사회 복지 이니셔티브를 보장하기 위해 공공 자금을 신중하게 예산해야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈbʌdʒɪt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-483-1780555618610",
+        "term": "appropriate",
+        "definition": "",
+        "meaningKr": "적절한, 적합한",
+        "exampleEn": "Selecting the appropriate methodology is critical for conducting reliable scientific experiments and drawing valid conclusions.",
+        "exampleKr": "신뢰할 수 있는 과학 실험을 수행하고 타당한 결론을 도출하기 위해서는 적절한 방법론을 선택하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈprəʊpriət/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-484-1780555618610",
+        "term": "count",
+        "definition": "",
+        "meaningKr": "세다, 계산하다, 중요하다",
+        "exampleEn": "In many democratic systems, every individual vote is designed to count equally, reflecting the principle of equality.",
+        "exampleKr": "많은 민주주의 체제에서 모든 개별 투표는 평등의 원칙을 반영하여 동등하게 중요하도록 설계된다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kaʊnt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-485-1780555618610",
+        "term": "scene",
+        "definition": "",
+        "meaningKr": "장면, 현장",
+        "exampleEn": "Analyzing a particular scene from a historical event can reveal underlying social dynamics and cultural values of the era.",
+        "exampleKr": "역사적 사건의 특정 장면을 분석하는 것은 그 시대의 근본적인 사회 역학과 문화적 가치를 드러낼 수 있다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/siːn/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-486-1780555618610",
+        "term": "content",
+        "definition": "",
+        "meaningKr": "내용, 목차",
+        "exampleEn": "The precise content of the scientific report must be thoroughly reviewed to ensure accuracy and avoid misinterpretation.",
+        "exampleKr": "과학 보고서의 정확한 내용은 정확성을 보장하고 오해를 피하기 위해 철저히 검토되어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒntent/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-487-1780555618610",
+        "term": "prevent",
+        "definition": "",
+        "meaningKr": "막다, 예방하다",
+        "exampleEn": "Implementing robust cybersecurity measures is crucial to prevent unauthorized access and data breaches in digital systems.",
+        "exampleKr": "디지털 시스템에서 무단 접근과 데이터 유출을 막기 위해서는 강력한 사이버 보안 조치를 실행하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/prɪˈvent/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-488-1780555618610",
+        "term": "mix",
+        "definition": "",
+        "meaningKr": "섞다, 혼합하다, 혼합물",
+        "exampleEn": "Modern architectural designs often mix traditional elements with contemporary materials to create unique aesthetic expressions.",
+        "exampleKr": "현대 건축 디자인은 종종 전통적인 요소와 현대적인 재료를 혼합하여 독특한 미적 표현을 창조한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/mɪks/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-489-1780555618610",
+        "term": "element",
+        "definition": "",
+        "meaningKr": "요소, 성분",
+        "exampleEn": "Trust is a fundamental element in building effective collaborative relationships, whether in business or scientific research.",
+        "exampleKr": "신뢰는 사업이든 과학 연구든 효과적인 협력 관계를 구축하는 데 있어 근본적인 요소이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈelɪmənt/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-490-1780555618610",
+        "term": "effective",
+        "definition": "",
+        "meaningKr": "효과적인, 유효한",
+        "exampleEn": "Developing effective strategies for resource management is vital for ensuring environmental sustainability for future generations.",
+        "exampleKr": "자원 관리를 위한 효과적인 전략을 개발하는 것은 미래 세대를 위한 환경 지속 가능성을 보장하는 데 필수적이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ɪˈfektɪv/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-491-1780555618610",
+        "term": "correct",
+        "definition": "",
+        "meaningKr": "올바른, 정확한, 수정하다",
+        "exampleEn": "It is important to correct any factual inaccuracies in academic writing to maintain credibility and avoid misinformation.",
+        "exampleKr": "학술적 글쓰기에서 사실적 부정확성을 수정하여 신뢰성을 유지하고 잘못된 정보를 피하는 것이 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəˈrɛkt/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-492-1780555618610",
+        "term": "medical",
+        "definition": "",
+        "meaningKr": "의학의, 의료의",
+        "exampleEn": "Advances in medical technology have significantly improved diagnostic capabilities, leading to more precise treatments.",
+        "exampleKr": "의학 기술의 발전은 진단 능력을 크게 향상시켜 더욱 정밀한 치료를 가능하게 했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈmɛdɪkl/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-493-1780555618610",
+        "term": "admit",
+        "definition": "",
+        "meaningKr": "인정하다, 허가하다",
+        "exampleEn": "Scientists must be prepared to admit when their initial hypotheses are disproven by empirical evidence.",
+        "exampleKr": "과학자들은 초기 가설이 경험적 증거에 의해 반증될 때 이를 인정할 준비가 되어 있어야 한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ədˈmɪt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-494-1780555618610",
+        "term": "beat",
+        "definition": "",
+        "meaningKr": "이기다, 때리다, 박동",
+        "exampleEn": "Overcoming significant challenges often requires a resilient spirit that refuses to be beaten by adversity.",
+        "exampleKr": "중대한 도전을 극복하는 것은 종종 역경에 굴하지 않는 회복력 있는 정신을 요구한다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/biːt/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-495-1780555618610",
+        "term": "committee",
+        "definition": "",
+        "meaningKr": "위원회",
+        "exampleEn": "The ethics committee reviewed the research proposal to ensure adherence to established moral and professional standards.",
+        "exampleKr": "윤리 위원회는 확립된 도덕적 및 직업적 기준 준수를 확인하기 위해 연구 제안서를 검토했다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/kəˈmɪti/",
+        "pos": "noun"
+      },
+      {
+        "id": "word-suneung-496-1780555618610",
+        "term": "aware",
+        "definition": "",
+        "meaningKr": "인지하는, 알고 있는",
+        "exampleEn": "Being aware of one's own cognitive biases is crucial for objective decision-making and critical thinking.",
+        "exampleKr": "자신의 인지적 편향을 인지하는 것은 객관적인 의사 결정과 비판적 사고에 매우 중요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/əˈweər/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-497-1780555618610",
+        "term": "handle",
+        "definition": "",
+        "meaningKr": "다루다, 처리하다, 손잡이",
+        "exampleEn": "Effective leaders are skilled at handling complex interdepartmental conflicts while maintaining team cohesion.",
+        "exampleKr": "효과적인 리더는 팀 결속력을 유지하면서 복잡한 부서 간 갈등을 처리하는 데 능숙하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈhændl/",
+        "pos": "verb"
+      },
+      {
+        "id": "word-suneung-498-1780555618610",
+        "term": "complex",
+        "definition": "",
+        "meaningKr": "복잡한, 복합적인",
+        "exampleEn": "Understanding the complex interplay between genetic predispositions and environmental factors is key to modern medicine.",
+        "exampleKr": "유전적 소인과 환경적 요인 사이의 복잡한 상호작용을 이해하는 것이 현대 의학의 핵심이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒmplɛks/",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-suneung-499-1780555618610",
+        "term": "context",
+        "definition": "",
+        "meaningKr": "문맥, 맥락",
+        "exampleEn": "Interpreting historical documents accurately requires a deep understanding of the social and political context in which they were created.",
+        "exampleKr": "역사 문헌을 정확하게 해석하려면 해당 문헌이 작성된 사회적, 정치적 맥락에 대한 깊은 이해가 필요하다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "수능",
+          "CSAT"
+        ],
+        "phonetic": "/ˈkɒntɛkst/",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-toeic-tsl-2",
     "title": "토익 심화 600 (TSL 601-1200)",
     "icon": "💼",

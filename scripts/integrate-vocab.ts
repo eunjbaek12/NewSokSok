@@ -205,6 +205,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'en',
     targetLanguage: 'ko',
   },
+  suneung: {
+    id: 'curated-suneung-1',
+    title: '수능 필수 어휘 500',
+    icon: '🎓',
+    category: '시험',
+    level: 'advanced',
+    description: '수능 필수 어휘 500. 교육부 2015 개정 영어과 교육과정 기본어휘목록(교육부 고시 제2015-74호 [별책14], 공공누리 제1유형) 중 고교 권장 심화어 우선 + 중·고 빈출어. 한국어 뜻·예문 AI 생성',
+    tags: ['English', '수능', 'CSAT'],
+    sourceLanguage: 'en',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];

@@ -1,0 +1,4002 @@
+[
+  {
+    "rank": 1,
+    "term": "accord",
+    "sfi": 62.74,
+    "ngslRank": 522,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 2,
+    "term": "executive",
+    "sfi": 59.31,
+    "ngslRank": 1059,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 3,
+    "term": "federal",
+    "sfi": 59.01,
+    "ngslRank": 1123,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 4,
+    "term": "procedure",
+    "sfi": 58.79,
+    "ngslRank": 1168,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 5,
+    "term": "generate",
+    "sfi": 57.73,
+    "ngslRank": 1426,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 6,
+    "term": "quote",
+    "sfi": 57.71,
+    "ngslRank": 1433,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 7,
+    "term": "component",
+    "sfi": 57.47,
+    "ngslRank": 1487,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 8,
+    "term": "perspective",
+    "sfi": 57.42,
+    "ngslRank": 1496,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 9,
+    "term": "relevant",
+    "sfi": 57.38,
+    "ngslRank": 1504,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 10,
+    "term": "notion",
+    "sfi": 56.93,
+    "ngslRank": 1619,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 11,
+    "term": "proportion",
+    "sfi": 56.73,
+    "ngslRank": 1663,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 12,
+    "term": "phase",
+    "sfi": 56.58,
+    "ngslRank": 1697,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 13,
+    "term": "index",
+    "sfi": 56.55,
+    "ngslRank": 1709,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 14,
+    "term": "impose",
+    "sfi": 56.5,
+    "ngslRank": 1723,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 15,
+    "term": "county",
+    "sfi": 56.43,
+    "ngslRank": 1736,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 16,
+    "term": "implement",
+    "sfi": 56.41,
+    "ngslRank": 1740,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 17,
+    "term": "meanwhile",
+    "sfi": 56.36,
+    "ngslRank": 1753,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 18,
+    "term": "estate",
+    "sfi": 56.3,
+    "ngslRank": 1771,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 19,
+    "term": "prior",
+    "sfi": 56.22,
+    "ngslRank": 1792,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 20,
+    "term": "draft",
+    "sfi": 56.16,
+    "ngslRank": 1809,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 21,
+    "term": "imply",
+    "sfi": 56.13,
+    "ngslRank": 1818,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 22,
+    "term": "panel",
+    "sfi": 56.05,
+    "ngslRank": 1837,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 23,
+    "term": "reputation",
+    "sfi": 55.98,
+    "ngslRank": 1859,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 24,
+    "term": "split",
+    "sfi": 55.75,
+    "ngslRank": 1936,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 25,
+    "term": "criteria",
+    "sfi": 55.67,
+    "ngslRank": 1953,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 26,
+    "term": "integrate",
+    "sfi": 55.67,
+    "ngslRank": 1955,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 27,
+    "term": "convention",
+    "sfi": 55.66,
+    "ngslRank": 1957,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 28,
+    "term": "retain",
+    "sfi": 55.66,
+    "ngslRank": 1959,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 29,
+    "term": "sequence",
+    "sfi": 55.66,
+    "ngslRank": 1960,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 30,
+    "term": "acquisition",
+    "sfi": 55.51,
+    "ngslRank": 2010,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 31,
+    "term": "dispute",
+    "sfi": 55.47,
+    "ngslRank": 2029,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 32,
+    "term": "retail",
+    "sfi": 55.44,
+    "ngslRank": 2037,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 33,
+    "term": "slight",
+    "sfi": 55.43,
+    "ngslRank": 2042,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 34,
+    "term": "restrict",
+    "sfi": 55.42,
+    "ngslRank": 2046,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 35,
+    "term": "pitch",
+    "sfi": 55.37,
+    "ngslRank": 2057,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 36,
+    "term": "contemporary",
+    "sfi": 55.36,
+    "ngslRank": 2059,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 37,
+    "term": "profile",
+    "sfi": 55.35,
+    "ngslRank": 2065,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 38,
+    "term": "numerous",
+    "sfi": 55.33,
+    "ngslRank": 2069,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 39,
+    "term": "recruit",
+    "sfi": 55.26,
+    "ngslRank": 2087,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 40,
+    "term": "hence",
+    "sfi": 55.24,
+    "ngslRank": 2094,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 41,
+    "term": "formula",
+    "sfi": 55.21,
+    "ngslRank": 2101,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 42,
+    "term": "convert",
+    "sfi": 55.18,
+    "ngslRank": 2110,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 43,
+    "term": "incorporate",
+    "sfi": 55.14,
+    "ngslRank": 2134,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 44,
+    "term": "currency",
+    "sfi": 55.09,
+    "ngslRank": 2144,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 45,
+    "term": "breed",
+    "sfi": 54.93,
+    "ngslRank": 2198,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 46,
+    "term": "extraordinary",
+    "sfi": 54.93,
+    "ngslRank": 2199,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 47,
+    "term": "reverse",
+    "sfi": 54.92,
+    "ngslRank": 2203,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 48,
+    "term": "portion",
+    "sfi": 54.85,
+    "ngslRank": 2229,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 49,
+    "term": "dimension",
+    "sfi": 54.8,
+    "ngslRank": 2250,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 50,
+    "term": "statistic",
+    "sfi": 54.78,
+    "ngslRank": 2256,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 51,
+    "term": "parallel",
+    "sfi": 54.72,
+    "ngslRank": 2279,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 52,
+    "term": "entitle",
+    "sfi": 54.63,
+    "ngslRank": 2304,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 53,
+    "term": "deposit",
+    "sfi": 54.6,
+    "ngslRank": 2313,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 54,
+    "term": "moderate",
+    "sfi": 54.46,
+    "ngslRank": 2348,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 55,
+    "term": "constitute",
+    "sfi": 54.44,
+    "ngslRank": 2357,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 56,
+    "term": "keen",
+    "sfi": 54.42,
+    "ngslRank": 2364,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 57,
+    "term": "ethnic",
+    "sfi": 54.41,
+    "ngslRank": 2365,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 58,
+    "term": "prompt",
+    "sfi": 54.38,
+    "ngslRank": 2375,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 59,
+    "term": "compound",
+    "sfi": 54.37,
+    "ngslRank": 2380,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 60,
+    "term": "rid",
+    "sfi": 54.29,
+    "ngslRank": 2403,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 61,
+    "term": "privilege",
+    "sfi": 54.18,
+    "ngslRank": 2437,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 62,
+    "term": "mutual",
+    "sfi": 54.18,
+    "ngslRank": 2439,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 63,
+    "term": "dedicate",
+    "sfi": 54.12,
+    "ngslRank": 2449,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 64,
+    "term": "compromise",
+    "sfi": 54.11,
+    "ngslRank": 2455,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 65,
+    "term": "embrace",
+    "sfi": 54.06,
+    "ngslRank": 2472,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 66,
+    "term": "deficit",
+    "sfi": 54.02,
+    "ngslRank": 2483,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 67,
+    "term": "modify",
+    "sfi": 54.02,
+    "ngslRank": 2484,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 68,
+    "term": "chamber",
+    "sfi": 53.86,
+    "ngslRank": 2531,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 69,
+    "term": "scope",
+    "sfi": 53.78,
+    "ngslRank": 2559,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 70,
+    "term": "resign",
+    "sfi": 53.75,
+    "ngslRank": 2566,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 71,
+    "term": "shelter",
+    "sfi": 53.69,
+    "ngslRank": 2581,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 72,
+    "term": "mere",
+    "sfi": 53.69,
+    "ngslRank": 2582,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 73,
+    "term": "regulate",
+    "sfi": 53.69,
+    "ngslRank": 2584,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 74,
+    "term": "rear",
+    "sfi": 53.65,
+    "ngslRank": 2596,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 75,
+    "term": "extract",
+    "sfi": 53.46,
+    "ngslRank": 2647,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 76,
+    "term": "hook",
+    "sfi": 53.25,
+    "ngslRank": 2690,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 77,
+    "term": "slope",
+    "sfi": 53.22,
+    "ngslRank": 2696,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 78,
+    "term": "comprise",
+    "sfi": 52.98,
+    "ngslRank": 2739,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 79,
+    "term": "gaze",
+    "sfi": 52.74,
+    "ngslRank": 2772,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 80,
+    "term": "hypothesis",
+    "sfi": 52.71,
+    "ngslRank": 2775,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 81,
+    "term": "abort",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 82,
+    "term": "absurd",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 83,
+    "term": "accumulate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 84,
+    "term": "acquaint",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 85,
+    "term": "adverse",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 86,
+    "term": "aesthetic",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 87,
+    "term": "affiliate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 88,
+    "term": "allocate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 89,
+    "term": "amplify",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 90,
+    "term": "archive",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 91,
+    "term": "assault",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 92,
+    "term": "attorney",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 93,
+    "term": "authentic",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 94,
+    "term": "bankrupt",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 95,
+    "term": "bishop",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 96,
+    "term": "blast",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 97,
+    "term": "brew",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 98,
+    "term": "brute",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 99,
+    "term": "bulk",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 100,
+    "term": "caption",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 101,
+    "term": "cater",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 102,
+    "term": "cathedral",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 103,
+    "term": "chronic",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 104,
+    "term": "commence",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 105,
+    "term": "commodity",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 106,
+    "term": "compatible",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 107,
+    "term": "compel",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 108,
+    "term": "compensate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 109,
+    "term": "compile",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 110,
+    "term": "compulsory",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 111,
+    "term": "conceive",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 112,
+    "term": "condemn",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 113,
+    "term": "confer",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 114,
+    "term": "consensus",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 115,
+    "term": "consent",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 116,
+    "term": "conserve",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 117,
+    "term": "constrain",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 118,
+    "term": "contend",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 119,
+    "term": "contradict",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 120,
+    "term": "coordinate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 121,
+    "term": "corridor",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 122,
+    "term": "counterpart",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 123,
+    "term": "creek",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 124,
+    "term": "creep",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 125,
+    "term": "curriculum",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 126,
+    "term": "curse",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 127,
+    "term": "custody",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 128,
+    "term": "cynical",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 129,
+    "term": "decent",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 130,
+    "term": "deficiency",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 131,
+    "term": "degrade",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 132,
+    "term": "delegate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 133,
+    "term": "deliberate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 134,
+    "term": "depict",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 135,
+    "term": "deprive",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 136,
+    "term": "designate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 137,
+    "term": "diabetes",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 138,
+    "term": "dictate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 139,
+    "term": "dignity",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 140,
+    "term": "dine",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 141,
+    "term": "discharge",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 142,
+    "term": "discourse",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 143,
+    "term": "discriminate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 144,
+    "term": "displace",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 145,
+    "term": "disrupt",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 146,
+    "term": "distort",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 147,
+    "term": "divine",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 148,
+    "term": "dominant",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 149,
+    "term": "dose",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 150,
+    "term": "drain",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 151,
+    "term": "dread",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 152,
+    "term": "dual",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 153,
+    "term": "elaborate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 154,
+    "term": "emit",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 155,
+    "term": "enforce",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 156,
+    "term": "equate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 157,
+    "term": "erect",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 158,
+    "term": "ethical",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 159,
+    "term": "evacuate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 160,
+    "term": "exclusive",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 161,
+    "term": "expertise",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 162,
+    "term": "explicit",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 163,
+    "term": "facilitate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 164,
+    "term": "faculty",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 165,
+    "term": "fatal",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 166,
+    "term": "fertile",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 167,
+    "term": "flee",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 168,
+    "term": "flip",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 169,
+    "term": "fluid",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 170,
+    "term": "flush",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 171,
+    "term": "fond",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 172,
+    "term": "foster",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 173,
+    "term": "fraction",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 174,
+    "term": "frost",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 175,
+    "term": "furious",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 176,
+    "term": "furnish",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 177,
+    "term": "fuse",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 178,
+    "term": "glare",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 179,
+    "term": "glimpse",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 180,
+    "term": "grasp",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 181,
+    "term": "gross",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 182,
+    "term": "guardian",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 183,
+    "term": "gulf",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 184,
+    "term": "habitat",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 185,
+    "term": "halt",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 186,
+    "term": "haunt",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 187,
+    "term": "headquarters",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 188,
+    "term": "heir",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 189,
+    "term": "heritage",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 190,
+    "term": "horn",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 191,
+    "term": "hostage",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 192,
+    "term": "hostile",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 193,
+    "term": "ideology",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 194,
+    "term": "illusion",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 195,
+    "term": "immense",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 196,
+    "term": "immigrate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 197,
+    "term": "incline",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 198,
+    "term": "induce",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 199,
+    "term": "inevitable",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 200,
+    "term": "infect",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 201,
+    "term": "infer",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 202,
+    "term": "inflate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 203,
+    "term": "inherent",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 204,
+    "term": "inhibit",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 205,
+    "term": "intervene",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 206,
+    "term": "intrigue",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 207,
+    "term": "judicial",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 208,
+    "term": "knot",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 209,
+    "term": "lease",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 210,
+    "term": "legislate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 211,
+    "term": "legitimate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 212,
+    "term": "literal",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 213,
+    "term": "lone",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 214,
+    "term": "lump",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 215,
+    "term": "magnificent",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 216,
+    "term": "manifest",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 217,
+    "term": "manipulate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 218,
+    "term": "medieval",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 219,
+    "term": "merge",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 220,
+    "term": "metropolitan",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 221,
+    "term": "migrate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 222,
+    "term": "mock",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 223,
+    "term": "modest",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 224,
+    "term": "molecule",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 225,
+    "term": "monument",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 226,
+    "term": "mortal",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 227,
+    "term": "naive",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 228,
+    "term": "nanny",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 229,
+    "term": "nasty",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 230,
+    "term": "nominate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 231,
+    "term": "nonetheless",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 232,
+    "term": "norm",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 233,
+    "term": "nun",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 234,
+    "term": "oblige",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 235,
+    "term": "obsess",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 236,
+    "term": "orbit",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 237,
+    "term": "ounce",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 238,
+    "term": "outrage",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 239,
+    "term": "overwhelm",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 240,
+    "term": "parliament",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 241,
+    "term": "particle",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 242,
+    "term": "pat",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 243,
+    "term": "patch",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 244,
+    "term": "patent",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 245,
+    "term": "patrol",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 246,
+    "term": "pave",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 247,
+    "term": "peasant",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 248,
+    "term": "persist",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 249,
+    "term": "pinch",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 250,
+    "term": "polish",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 251,
+    "term": "pope",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 252,
+    "term": "preach",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 253,
+    "term": "precede",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 254,
+    "term": "predator",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 255,
+    "term": "prejudice",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 256,
+    "term": "premier",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 257,
+    "term": "premium",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 258,
+    "term": "presume",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 259,
+    "term": "prevail",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 260,
+    "term": "profound",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 261,
+    "term": "prohibit",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 262,
+    "term": "prominent",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 263,
+    "term": "prosper",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 264,
+    "term": "provoke",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 265,
+    "term": "questionnaire",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 266,
+    "term": "rage",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 267,
+    "term": "rally",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 268,
+    "term": "rational",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 269,
+    "term": "rebel",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 270,
+    "term": "refine",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 271,
+    "term": "reinforce",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 272,
+    "term": "reluctant",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 273,
+    "term": "reside",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 274,
+    "term": "respective",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 275,
+    "term": "restrain",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 276,
+    "term": "resume",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 277,
+    "term": "retreat",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 278,
+    "term": "revenge",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 279,
+    "term": "ridiculous",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 280,
+    "term": "riot",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 281,
+    "term": "roar",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 282,
+    "term": "rod",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 283,
+    "term": "rot",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 284,
+    "term": "sack",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 285,
+    "term": "salon",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 286,
+    "term": "scarce",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 287,
+    "term": "scatter",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 288,
+    "term": "screw",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 289,
+    "term": "scrub",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 290,
+    "term": "seize",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 291,
+    "term": "sentiment",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 292,
+    "term": "shield",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 293,
+    "term": "shrink",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 294,
+    "term": "simulate",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 295,
+    "term": "simultaneous",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 296,
+    "term": "slaughter",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 297,
+    "term": "sneak",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 298,
+    "term": "sniff",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 299,
+    "term": "sole",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 300,
+    "term": "spectacle",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 301,
+    "term": "spectrum",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 302,
+    "term": "sphere",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 303,
+    "term": "spill",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 304,
+    "term": "spit",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 305,
+    "term": "spite",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 306,
+    "term": "splash",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 307,
+    "term": "steep",
+    "sfi": null,
+    "ngslRank": null,
+    "marker": "**",
+    "definition": ""
+  },
+  {
+    "rank": 308,
+    "term": "contact",
+    "sfi": 62.09,
+    "ngslRank": 600,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 309,
+    "term": "prepare",
+    "sfi": 62.04,
+    "ngslRank": 604,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 310,
+    "term": "piece",
+    "sfi": 62.01,
+    "ngslRank": 608,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 311,
+    "term": "apply",
+    "sfi": 61.97,
+    "ngslRank": 611,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 312,
+    "term": "president",
+    "sfi": 61.97,
+    "ngslRank": 612,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 313,
+    "term": "compare",
+    "sfi": 61.95,
+    "ngslRank": 614,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 314,
+    "term": "laugh",
+    "sfi": 61.91,
+    "ngslRank": 620,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 315,
+    "term": "manage",
+    "sfi": 61.87,
+    "ngslRank": 625,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 316,
+    "term": "firm",
+    "sfi": 61.84,
+    "ngslRank": 628,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 317,
+    "term": "cell",
+    "sfi": 61.84,
+    "ngslRank": 629,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 318,
+    "term": "article",
+    "sfi": 61.81,
+    "ngslRank": 630,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 319,
+    "term": "attack",
+    "sfi": 61.79,
+    "ngslRank": 632,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 320,
+    "term": "foreign",
+    "sfi": 61.79,
+    "ngslRank": 633,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 321,
+    "term": "feature",
+    "sfi": 61.77,
+    "ngslRank": 635,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 322,
+    "term": "factor",
+    "sfi": 61.77,
+    "ngslRank": 636,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 323,
+    "term": "affect",
+    "sfi": 61.76,
+    "ngslRank": 639,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 324,
+    "term": "recent",
+    "sfi": 61.74,
+    "ngslRank": 641,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 325,
+    "term": "relate",
+    "sfi": 61.74,
+    "ngslRank": 642,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 326,
+    "term": "official",
+    "sfi": 61.73,
+    "ngslRank": 643,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 327,
+    "term": "private",
+    "sfi": 61.71,
+    "ngslRank": 648,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 328,
+    "term": "pause",
+    "sfi": 61.7,
+    "ngslRank": 649,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 329,
+    "term": "opinion",
+    "sfi": 61.66,
+    "ngslRank": 656,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 330,
+    "term": "represent",
+    "sfi": 61.64,
+    "ngslRank": 658,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 331,
+    "term": "international",
+    "sfi": 61.59,
+    "ngslRank": 662,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 332,
+    "term": "contain",
+    "sfi": 61.58,
+    "ngslRank": 663,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 333,
+    "term": "notice",
+    "sfi": 61.56,
+    "ngslRank": 664,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 334,
+    "term": "plant",
+    "sfi": 61.52,
+    "ngslRank": 671,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 335,
+    "term": "press",
+    "sfi": 61.5,
+    "ngslRank": 674,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 336,
+    "term": "necessary",
+    "sfi": 61.5,
+    "ngslRank": 676,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 337,
+    "term": "region",
+    "sfi": 61.48,
+    "ngslRank": 677,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 338,
+    "term": "influence",
+    "sfi": 61.46,
+    "ngslRank": 680,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 339,
+    "term": "respect",
+    "sfi": 61.46,
+    "ngslRank": 681,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 340,
+    "term": "skill",
+    "sfi": 61.43,
+    "ngslRank": 685,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 341,
+    "term": "attempt",
+    "sfi": 61.42,
+    "ngslRank": 686,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 342,
+    "term": "simple",
+    "sfi": 61.41,
+    "ngslRank": 688,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 343,
+    "term": "medium",
+    "sfi": 61.41,
+    "ngslRank": 689,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 344,
+    "term": "average",
+    "sfi": 61.41,
+    "ngslRank": 690,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 345,
+    "term": "character",
+    "sfi": 61.38,
+    "ngslRank": 693,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 346,
+    "term": "establish",
+    "sfi": 61.37,
+    "ngslRank": 696,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 347,
+    "term": "indeed",
+    "sfi": 61.36,
+    "ngslRank": 697,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 348,
+    "term": "final",
+    "sfi": 61.36,
+    "ngslRank": 698,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 349,
+    "term": "economy",
+    "sfi": 61.35,
+    "ngslRank": 699,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 350,
+    "term": "fit",
+    "sfi": 61.35,
+    "ngslRank": 700,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 351,
+    "term": "function",
+    "sfi": 61.32,
+    "ngslRank": 702,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 352,
+    "term": "behavior",
+    "sfi": 61.3,
+    "ngslRank": 706,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 353,
+    "term": "determine",
+    "sfi": 61.29,
+    "ngslRank": 708,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 354,
+    "term": "station",
+    "sfi": 61.28,
+    "ngslRank": 709,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 355,
+    "term": "population",
+    "sfi": 61.28,
+    "ngslRank": 710,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 356,
+    "term": "environment",
+    "sfi": 61.27,
+    "ngslRank": 712,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 357,
+    "term": "contract",
+    "sfi": 61.24,
+    "ngslRank": 714,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 358,
+    "term": "comment",
+    "sfi": 61.22,
+    "ngslRank": 716,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 359,
+    "term": "occur",
+    "sfi": 61.2,
+    "ngslRank": 718,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 360,
+    "term": "significant",
+    "sfi": 61.18,
+    "ngslRank": 720,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 361,
+    "term": "drug",
+    "sfi": 61.18,
+    "ngslRank": 721,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 362,
+    "term": "series",
+    "sfi": 61.17,
+    "ngslRank": 723,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 363,
+    "term": "direct",
+    "sfi": 61.16,
+    "ngslRank": 724,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 364,
+    "term": "lack",
+    "sfi": 61.12,
+    "ngslRank": 729,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 365,
+    "term": "review",
+    "sfi": 61.12,
+    "ngslRank": 730,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 366,
+    "term": "depend",
+    "sfi": 61.1,
+    "ngslRank": 731,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 367,
+    "term": "recognize",
+    "sfi": 61.1,
+    "ngslRank": 733,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 368,
+    "term": "purpose",
+    "sfi": 61.09,
+    "ngslRank": 735,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 369,
+    "term": "department",
+    "sfi": 61.09,
+    "ngslRank": 736,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 370,
+    "term": "gain",
+    "sfi": 61.08,
+    "ngslRank": 737,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 371,
+    "term": "argue",
+    "sfi": 61.07,
+    "ngslRank": 740,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 372,
+    "term": "mark",
+    "sfi": 61.05,
+    "ngslRank": 743,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 373,
+    "term": "machine",
+    "sfi": 61.02,
+    "ngslRank": 745,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 374,
+    "term": "achieve",
+    "sfi": 61.02,
+    "ngslRank": 746,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 375,
+    "term": "item",
+    "sfi": 61.02,
+    "ngslRank": 747,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 376,
+    "term": "prove",
+    "sfi": 61.02,
+    "ngslRank": 748,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 377,
+    "term": "method",
+    "sfi": 61.01,
+    "ngslRank": 755,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 378,
+    "term": "military",
+    "sfi": 60.99,
+    "ngslRank": 758,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 379,
+    "term": "challenge",
+    "sfi": 60.98,
+    "ngslRank": 766,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 380,
+    "term": "link",
+    "sfi": 60.95,
+    "ngslRank": 770,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 381,
+    "term": "despite",
+    "sfi": 60.94,
+    "ngslRank": 771,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 382,
+    "term": "advantage",
+    "sfi": 60.94,
+    "ngslRank": 773,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 383,
+    "term": "seek",
+    "sfi": 60.92,
+    "ngslRank": 778,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 384,
+    "term": "release",
+    "sfi": 60.85,
+    "ngslRank": 786,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 385,
+    "term": "capital",
+    "sfi": 60.83,
+    "ngslRank": 789,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 386,
+    "term": "popular",
+    "sfi": 60.82,
+    "ngslRank": 790,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 387,
+    "term": "specific",
+    "sfi": 60.82,
+    "ngslRank": 791,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 388,
+    "term": "fear",
+    "sfi": 60.81,
+    "ngslRank": 793,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 389,
+    "term": "aim",
+    "sfi": 60.81,
+    "ngslRank": 794,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 390,
+    "term": "serious",
+    "sfi": 60.81,
+    "ngslRank": 796,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 391,
+    "term": "degree",
+    "sfi": 60.78,
+    "ngslRank": 798,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 392,
+    "term": "pull",
+    "sfi": 60.77,
+    "ngslRank": 799,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 393,
+    "term": "access",
+    "sfi": 60.77,
+    "ngslRank": 802,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 394,
+    "term": "identify",
+    "sfi": 60.73,
+    "ngslRank": 805,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 395,
+    "term": "loss",
+    "sfi": 60.72,
+    "ngslRank": 806,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 396,
+    "term": "shall",
+    "sfi": 60.72,
+    "ngslRank": 807,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 397,
+    "term": "modern",
+    "sfi": 60.7,
+    "ngslRank": 808,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 398,
+    "term": "express",
+    "sfi": 60.64,
+    "ngslRank": 818,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 399,
+    "term": "indicate",
+    "sfi": 60.64,
+    "ngslRank": 819,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 400,
+    "term": "attend",
+    "sfi": 60.63,
+    "ngslRank": 820,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 401,
+    "term": "organize",
+    "sfi": 60.62,
+    "ngslRank": 824,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 402,
+    "term": "beyond",
+    "sfi": 60.62,
+    "ngslRank": 826,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 403,
+    "term": "promise",
+    "sfi": 60.6,
+    "ngslRank": 829,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 404,
+    "term": "potential",
+    "sfi": 60.59,
+    "ngslRank": 830,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 405,
+    "term": "bar",
+    "sfi": 60.55,
+    "ngslRank": 837,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 406,
+    "term": "except",
+    "sfi": 60.54,
+    "ngslRank": 841,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 407,
+    "term": "advance",
+    "sfi": 60.54,
+    "ngslRank": 844,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 408,
+    "term": "network",
+    "sfi": 60.5,
+    "ngslRank": 847,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 409,
+    "term": "match",
+    "sfi": 60.47,
+    "ngslRank": 850,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 410,
+    "term": "avoid",
+    "sfi": 60.47,
+    "ngslRank": 851,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 411,
+    "term": "seat",
+    "sfi": 60.45,
+    "ngslRank": 852,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 412,
+    "term": "normal",
+    "sfi": 60.43,
+    "ngslRank": 855,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 413,
+    "term": "associate",
+    "sfi": 60.42,
+    "ngslRank": 857,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 414,
+    "term": "positive",
+    "sfi": 60.4,
+    "ngslRank": 859,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 415,
+    "term": "option",
+    "sfi": 60.4,
+    "ngslRank": 860,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 416,
+    "term": "huge",
+    "sfi": 60.39,
+    "ngslRank": 862,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 417,
+    "term": "instance",
+    "sfi": 60.38,
+    "ngslRank": 864,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 418,
+    "term": "refer",
+    "sfi": 60.37,
+    "ngslRank": 866,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 419,
+    "term": "quarter",
+    "sfi": 60.36,
+    "ngslRank": 869,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 420,
+    "term": "assume",
+    "sfi": 60.34,
+    "ngslRank": 870,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 421,
+    "term": "doubt",
+    "sfi": 60.32,
+    "ngslRank": 874,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 422,
+    "term": "propose",
+    "sfi": 60.31,
+    "ngslRank": 877,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 423,
+    "term": "document",
+    "sfi": 60.29,
+    "ngslRank": 882,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 424,
+    "term": "pattern",
+    "sfi": 60.29,
+    "ngslRank": 883,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 425,
+    "term": "search",
+    "sfi": 60.26,
+    "ngslRank": 889,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 426,
+    "term": "separate",
+    "sfi": 60.26,
+    "ngslRank": 890,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 427,
+    "term": "career",
+    "sfi": 60.25,
+    "ngslRank": 892,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 428,
+    "term": "speech",
+    "sfi": 60.24,
+    "ngslRank": 894,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 429,
+    "term": "officer",
+    "sfi": 60.24,
+    "ngslRank": 896,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 430,
+    "term": "profit",
+    "sfi": 60.21,
+    "ngslRank": 900,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 431,
+    "term": "protect",
+    "sfi": 60.2,
+    "ngslRank": 903,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 432,
+    "term": "resource",
+    "sfi": 60.19,
+    "ngslRank": 904,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 433,
+    "term": "disease",
+    "sfi": 60.19,
+    "ngslRank": 906,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 434,
+    "term": "balance",
+    "sfi": 60.18,
+    "ngslRank": 907,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 435,
+    "term": "damage",
+    "sfi": 60.18,
+    "ngslRank": 908,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 436,
+    "term": "basis",
+    "sfi": 60.18,
+    "ngslRank": 909,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 437,
+    "term": "author",
+    "sfi": 60.17,
+    "ngslRank": 910,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 438,
+    "term": "encourage",
+    "sfi": 60.16,
+    "ngslRank": 912,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 439,
+    "term": "male",
+    "sfi": 60.15,
+    "ngslRank": 914,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 440,
+    "term": "operate",
+    "sfi": 60.14,
+    "ngslRank": 915,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 441,
+    "term": "reflect",
+    "sfi": 60.14,
+    "ngslRank": 916,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 442,
+    "term": "income",
+    "sfi": 60.12,
+    "ngslRank": 920,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 443,
+    "term": "property",
+    "sfi": 60.12,
+    "ngslRank": 921,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 444,
+    "term": "previous",
+    "sfi": 60.12,
+    "ngslRank": 922,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 445,
+    "term": "imagine",
+    "sfi": 60.11,
+    "ngslRank": 924,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 446,
+    "term": "earn",
+    "sfi": 60.09,
+    "ngslRank": 926,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 447,
+    "term": "post",
+    "sfi": 60.08,
+    "ngslRank": 928,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 448,
+    "term": "define",
+    "sfi": 60.06,
+    "ngslRank": 930,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 449,
+    "term": "perform",
+    "sfi": 60.04,
+    "ngslRank": 935,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 450,
+    "term": "debate",
+    "sfi": 60.03,
+    "ngslRank": 938,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 451,
+    "term": "object",
+    "sfi": 60.0,
+    "ngslRank": 942,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 452,
+    "term": "maintain",
+    "sfi": 60.0,
+    "ngslRank": 943,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 453,
+    "term": "credit",
+    "sfi": 59.99,
+    "ngslRank": 944,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 454,
+    "term": "discover",
+    "sfi": 59.97,
+    "ngslRank": 946,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 455,
+    "term": "prefer",
+    "sfi": 59.96,
+    "ngslRank": 949,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 456,
+    "term": "extend",
+    "sfi": 59.95,
+    "ngslRank": 950,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 457,
+    "term": "facility",
+    "sfi": 59.94,
+    "ngslRank": 953,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 458,
+    "term": "screen",
+    "sfi": 59.9,
+    "ngslRank": 957,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 459,
+    "term": "female",
+    "sfi": 59.88,
+    "ngslRank": 961,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 460,
+    "term": "nor",
+    "sfi": 59.82,
+    "ngslRank": 967,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 461,
+    "term": "agency",
+    "sfi": 59.81,
+    "ngslRank": 970,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 462,
+    "term": "candidate",
+    "sfi": 59.74,
+    "ngslRank": 977,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 463,
+    "term": "legal",
+    "sfi": 59.72,
+    "ngslRank": 979,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 464,
+    "term": "conversation",
+    "sfi": 59.71,
+    "ngslRank": 982,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 465,
+    "term": "magazine",
+    "sfi": 59.69,
+    "ngslRank": 985,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 466,
+    "term": "shape",
+    "sfi": 59.69,
+    "ngslRank": 986,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 467,
+    "term": "agent",
+    "sfi": 59.65,
+    "ngslRank": 992,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 468,
+    "term": "replace",
+    "sfi": 59.64,
+    "ngslRank": 994,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 469,
+    "term": "judge",
+    "sfi": 59.64,
+    "ngslRank": 995,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 470,
+    "term": "generation",
+    "sfi": 59.63,
+    "ngslRank": 998,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 471,
+    "term": "estimate",
+    "sfi": 59.63,
+    "ngslRank": 999,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 472,
+    "term": "favorite",
+    "sfi": 59.62,
+    "ngslRank": 1000,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 473,
+    "term": "purchase",
+    "sfi": 59.61,
+    "ngslRank": 1002,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 474,
+    "term": "shoot",
+    "sfi": 59.6,
+    "ngslRank": 1003,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 475,
+    "term": "announce",
+    "sfi": 59.6,
+    "ngslRank": 1004,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 476,
+    "term": "independent",
+    "sfi": 59.59,
+    "ngslRank": 1006,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 477,
+    "term": "recommend",
+    "sfi": 59.58,
+    "ngslRank": 1007,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 478,
+    "term": "majority",
+    "sfi": 59.58,
+    "ngslRank": 1009,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 479,
+    "term": "stick",
+    "sfi": 59.57,
+    "ngslRank": 1010,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 480,
+    "term": "request",
+    "sfi": 59.56,
+    "ngslRank": 1011,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 481,
+    "term": "none",
+    "sfi": 59.53,
+    "ngslRank": 1014,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 482,
+    "term": "exchange",
+    "sfi": 59.52,
+    "ngslRank": 1015,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 483,
+    "term": "budget",
+    "sfi": 59.51,
+    "ngslRank": 1016,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 484,
+    "term": "appropriate",
+    "sfi": 59.51,
+    "ngslRank": 1019,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 485,
+    "term": "count",
+    "sfi": 59.5,
+    "ngslRank": 1022,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 486,
+    "term": "scene",
+    "sfi": 59.5,
+    "ngslRank": 1023,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 487,
+    "term": "content",
+    "sfi": 59.49,
+    "ngslRank": 1025,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 488,
+    "term": "prevent",
+    "sfi": 59.48,
+    "ngslRank": 1026,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 489,
+    "term": "mix",
+    "sfi": 59.46,
+    "ngslRank": 1029,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 490,
+    "term": "element",
+    "sfi": 59.45,
+    "ngslRank": 1030,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 491,
+    "term": "effective",
+    "sfi": 59.45,
+    "ngslRank": 1031,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 492,
+    "term": "correct",
+    "sfi": 59.45,
+    "ngslRank": 1032,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 493,
+    "term": "medical",
+    "sfi": 59.43,
+    "ngslRank": 1033,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 494,
+    "term": "admit",
+    "sfi": 59.42,
+    "ngslRank": 1034,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 495,
+    "term": "beat",
+    "sfi": 59.42,
+    "ngslRank": 1035,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 496,
+    "term": "committee",
+    "sfi": 59.4,
+    "ngslRank": 1038,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 497,
+    "term": "aware",
+    "sfi": 59.4,
+    "ngslRank": 1039,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 498,
+    "term": "handle",
+    "sfi": 59.39,
+    "ngslRank": 1041,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 499,
+    "term": "complex",
+    "sfi": 59.36,
+    "ngslRank": 1047,
+    "marker": "common",
+    "definition": ""
+  },
+  {
+    "rank": 500,
+    "term": "context",
+    "sfi": 59.35,
+    "ngslRank": 1049,
+    "marker": "common",
+    "definition": ""
+  }
+]

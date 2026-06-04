@@ -815,7 +815,11 @@
     "googleNotReady": "Google Sign-in Not Ready",
     "googleNotReadyMessage": "Google sign-in is still being set up. Please use \"Get Started\" instead.",
     "loginFailed": "Login Failed",
-    "loginFailedMessage": "Failed to sign in with Google. Please try again."
+    "loginFailedMessage": "Failed to sign in with Google. Please try again.",
+    "preservedTitle": "Previous account data is still here",
+    "preservedMessage": "This device still has words from your previous account that haven't been saved to the cloud yet. Sign in again to sync them safely. To continue as a guest, this data must be erased.",
+    "preservedRelogin": "Sign in again",
+    "preservedDiscard": "Erase and continue as guest"
   },
   "plan": {
     "title": "Study Plan",

@@ -815,7 +815,11 @@
     "googleNotReady": "Google 로그인 준비 중",
     "googleNotReadyMessage": "Google 로그인은 아직 설정 중입니다. 먼저 \"바로 시작하기\"를 이용해 주세요.",
     "loginFailed": "로그인 실패",
-    "loginFailedMessage": "Google 로그인에 실패했습니다. 다시 시도해 주세요."
+    "loginFailedMessage": "Google 로그인에 실패했습니다. 다시 시도해 주세요.",
+    "preservedTitle": "이전 계정 데이터가 남아 있어요",
+    "preservedMessage": "아직 클라우드에 저장되지 않은 이전 계정의 단어가 이 기기에 남아 있습니다. 다시 로그인하면 안전하게 동기화돼요. 게스트로 계속하려면 이 데이터를 지워야 합니다.",
+    "preservedRelogin": "다시 로그인",
+    "preservedDiscard": "지우고 게스트 시작"
   },
   "plan": {
     "title": "학습 계획",

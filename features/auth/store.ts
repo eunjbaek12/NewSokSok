@@ -315,6 +315,10 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
         // In-memory quota status belongs to the logged-out account.
         const { useQuotaStore } = await import('@/features/quota');
         useQuotaStore.getState().clear();
+        // Data was wiped — there's nothing left to leak into a later guest
+        // session, so drop the preservation flag if a prior offline logout set it.
+        const { clearPreservedCloudData } = await import('./preserved-cloud-data');
+        await clearPreservedCloudData();
       } catch (e: any) {
         console.warn('[auth] logout local clear failed:', e?.message ?? e);
       }
@@ -322,6 +326,11 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       console.warn(
         '[auth] logout: unsynced changes remain after retries — preserving local data so they reach the cloud on next login (account isolation still enforced on account switch).',
       );
+      // Local data is preserved (above) — flag it so a "게스트로 시작" right after
+      // this offline logout doesn't silently expose the previous account's words.
+      // The guest entry path (app/login.tsx) reads this and prompts instead.
+      const { markPreservedCloudData } = await import('./preserved-cloud-data');
+      await markPreservedCloudData();
     }
 
     // 3) Flip to logged-out and PERSIST it *before* signing out. signOut fires

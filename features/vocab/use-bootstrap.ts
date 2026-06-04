@@ -103,6 +103,11 @@ export function useVocabBootstrap(): void {
             await useSettingsStore.getState().clearAccountScopedSettings();
             const { useQuotaStore } = await import('@/features/quota');
             useQuotaStore.getState().clear();
+            // The previous account's local data was just wiped, so any "preserved
+            // cloud data" flag from its offline logout is now stale — clear it so
+            // a future guest entry doesn't prompt for data that no longer exists.
+            const { clearPreservedCloudData } = await import('@/features/auth/preserved-cloud-data');
+            await clearPreservedCloudData();
           } catch (e: any) {
             console.warn('[bootstrap] settings clear failed:', e?.message ?? e);
           }

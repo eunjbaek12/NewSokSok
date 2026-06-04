@@ -14,6 +14,7 @@ import * as AppleAuthentication from 'expo-apple-authentication';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/features/auth';
+import { hasPreservedCloudData, discardPreservedCloudData } from '@/features/auth/preserved-cloud-data';
 import { useTheme } from '@/features/theme';
 import { Button } from '@/components/ui/Button';
 import { AvocadoCharacter } from '@/features/onboarding/components/AvocadoCharacter';
@@ -72,7 +73,29 @@ export default function LoginScreen() {
 
   const handleGuestLogin = async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    setLoading('guest');
+    // A prior offline logout may have preserved a cloud-auth account's un-synced
+    // data on this device (so an un-pushed delete isn't lost). Starting as guest
+    // would expose that account's words. Ask before proceeding: re-login to sync,
+    // or explicitly discard. Without this the old data would silently appear.
+    if (await hasPreservedCloudData()) {
+      const proceed = await new Promise<boolean>((resolve) => {
+        Alert.alert(
+          t('login.preservedTitle'),
+          t('login.preservedMessage'),
+          [
+            { text: t('login.preservedRelogin'), style: 'cancel', onPress: () => resolve(false) },
+            { text: t('login.preservedDiscard'), style: 'destructive', onPress: () => resolve(true) },
+          ],
+          { cancelable: false },
+        );
+      });
+      // Re-login: stay on the login screen so they can sign back in and sync.
+      if (!proceed) return;
+      setLoading('guest');
+      await discardPreservedCloudData();
+    } else {
+      setLoading('guest');
+    }
     await loginAsGuest();
     router.replace('/');
   };

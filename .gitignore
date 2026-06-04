@@ -72,5 +72,9 @@ debug.log
 # Play Store raw screenshots (대용량 PNG. final/만 commit)
 store-assets/screenshots/raw/
 
+# Marketing teaser raw 영상/소스 (작업용. CapCut 조립 전 raw — 미추적. docs/handoff-marketing-teasers.md 참조)
+assets/marketing/
+assets/images/*.mp4
+
 # Supabase CLI 캐시 (link 정보, 버전 캐시 등 로컬 한정)
 supabase/.temp/

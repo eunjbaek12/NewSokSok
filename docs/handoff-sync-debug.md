@@ -4,7 +4,7 @@
 
 ## 한 줄 현재 상황
 
-계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **`main`에 커밋·머지·push 완료**(`517d864`), 테스트 294 pass/0 fail. 이어서 같은 날 **게스트-leak 보강(수정 D)을 구현·커밋** — 오프라인 로그아웃으로 보존된 이전 계정 데이터가 게스트 화면에 노출되던 trade-off를 플래그+프롬프트로 차단(소스 `d232aa8`, 테스트는 후속 커밋). 또 **수정 E** — 게스트→구글 재로그인 합치기 다이얼로그가 "클라우드 1001개"로 과다집계되던 버그를 고침(고아 단어 카운트, 코드+테스트 완료·미커밋). **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** — 남은 건 **dev client 실기 검증 + (선택)클라우드 고아 정리뿐**.
+계정 전환·로그아웃 시 데이터 격리/복구 버그를 연쇄로 수정. 2026-05-22/05-23 수정은 **커밋·push 완료**(`10280c0`, `c4c5d63`, `cc5ebd8`). **2026-06-04 세션**에서 단어장 편집 중 SQLite 중첩 트랜잭션 크래시 + 삭제 부활 + 로그아웃 flush 견고화 3건을 수정 — **`main`에 커밋·머지·push 완료**(`517d864`), 테스트 294 pass/0 fail. 이어서 같은 날 **게스트-leak 보강(수정 D)을 구현·커밋** — 오프라인 로그아웃으로 보존된 이전 계정 데이터가 게스트 화면에 노출되던 trade-off를 플래그+프롬프트로 차단(소스 `d232aa8`, 테스트는 후속 커밋). 또 **수정 E** — 게스트→구글 재로그인 합치기 다이얼로그가 "클라우드 1001개"로 과다집계되던 버그를 고침(고아 단어 카운트, `ab80e30` 커밋). **수정 F** — 로그아웃→게스트 진입 시 가끔 로그인 화면으로 튕기던 race를 고침(hydrate 1회 가드, 코드+테스트 완료·미커밋). **다음 세션은 바로 아래 "2026-06-04 세션" 섹션부터 읽기** — 남은 건 **dev client 실기 검증 + (선택)클라우드 고아 정리뿐**.
 
 ---
 
@@ -41,17 +41,33 @@
 - **테스트**: `__tests__/preserved-cloud-data.test.ts`(mark/has, clear, discard가 4개 surface wipe+플래그 해제) 3 pass. tsc 신규 0건(baseline 7 유지), lint 신규 0건(login.tsx hex 4건은 기존 Apple 버튼 부채, 테스트 import/first 2건은 기존 sync 테스트와 동일 패턴).
 - **커밋 상태**: 소스 6파일은 `d232aa8`로 커밋 완료. **테스트 파일은 그 커밋에서 누락**돼 후속 커밋으로 보완(이 handoff 갱신과 함께). d232aa8 본문은 내 워킹트리와 동일(워킹트리에 잔존 수정 0 = 동일 내용 확인).
 
-### 수정 E — first-login conflict 개수 고아 과다집계 (미커밋)
+### 수정 E — first-login conflict 개수 고아 과다집계 (`ab80e30` 커밋)
 - **증상(사용자 보고)**: 게스트("바로 시작하기") → 구글 재로그인 시 합치기 다이얼로그가 "클라우드에 1001개"라는데 실제 단어는 그보다 적음.
 - **원인(코드로 확정)**: `features/sync/first-login.ts:probeFirstLoginState`의 cloud count가 `cloud_words WHERE is_deleted=false` **전체**를 셈 — 부모 list 생사 무시. 반면 `engine.ts pullChanges`(:253-256)는 **부모 list가 죽은 단어를 orphan으로 skip**해 화면에 안 내려줌. 그래서 다이얼로그 표시값 > 실제 보이는 단어. 수정 C(`cc5ebd8`)에서 정리했던 고아 단어 패턴의 **재발**(게스트 삭제 등으로 부모 list만 삭제되고 word가 클라우드에 잔존). cloud에 고아만 남은 경우 잘못된 conflict/cloud-only 분기도 유발 가능.
 - **수정**: `probeFirstLoginState`가 `countLiveCloudWords()`를 쓰도록 변경 — ① `cloud_lists`에서 `is_deleted=false` list id 조회 ② 그 id들로만(`. in('list_id', chunk)`, 100개씩 청크) `is_deleted=false` word를 `count:'exact'` 합산. pullChanges의 orphan-skip과 동일 기준 → 보고 수 = 실제 내려오는 수. FK embedding 미의존(2-step), RLS가 user 격리. list>1000은 비현실적이라 페이지네이션 생략(주석).
 - **테스트**: `__tests__/first-login-probe.test.ts`(고아 2 + 삭제 1 제외하고 live 3만 카운트, local 유무로 conflict/cloud-only 분기) 2 pass. tsc 신규 0(baseline 7), lint 신규 0(테스트 import/first 1은 기존 패턴).
-- **남은 데이터 청소(사용자 확인 필요)**: 코드는 앞으로의 표시/판정만 고침. **이미 클라우드에 쌓인 고아 행은 그대로 남음**(용량). Supabase Dashboard에서 §맨아래 "고아 정리 SQL"로 SELECT 확인 후 DELETE. 단일 테스트 계정이면 전체, 다계정이면 `and w.user_id='<uid>'` 한정. (이 정리는 파괴적이라 코드 작업과 분리 — 사용자 판단.)
+- **클라우드 정리 — ✅ 완료(2026-06-04)**: `supabase db query --linked`로 진단·정리. 진단 결과 `eunjbaek12@gmail.com` 계정 alive **1001**(=사용자가 본 그 숫자) 중 고아 **260**, visible **741**. 다른 계정 `yvettefernandez…`는 3개·고아 0. 고아 260을 user_id 한정 트랜잭션 DELETE(삭제 행 수 260 검증)로 제거 → 정리 후 `alive=visible=741, orphan=0`. **수정 E의 1001→741 표시가 실제 데이터와 정합 확인.** (CLI: `& "$env:LOCALAPPDATA\supabase-cli\supabase.exe" db query --linked "<sql>"` — `-o` 플래그는 글로벌과 충돌하니 생략, service role이라 전 계정 대상 → user_id 한정 필수.)
+- **고아 생성 원천 차단 — ✅ DB 트리거 배포(2026-06-04). 아래 "수정 G" 참고.**
+
+### 수정 F — 로그아웃→게스트 진입 시 간헐적으로 로그인 화면 튕김 (미커밋)
+- **증상(사용자 보고)**: 로그아웃 후 "바로 시작하기"를 누르면 **가끔** 팝업 없이 곧장 로그인 화면으로 되돌아감. "가끔"=race(결정론적이면 항상 발생).
+- **원인(코드로 지목)**: `store.ts hydrate()` **재실행** race. dev client는 로그아웃/로그인 시 RootLayout이 리마운트(splash, 위 "버그 2" 참고)→`AppHydrators`의 `useEffect([])` 재실행→`hydrate()` 재호출. hydrate가 `authStore.load()`로 persist 의도를 **다시 읽는데**, 게스트 진입 직후엔 `loginAsGuest`의 `save('guest')`가 AsyncStorage에 아직 flush 안 됨→**옛 `'none'`을 읽어 `set({mode})`로 메모리 덮음**→`AppStack`(:154-161)이 `mode==='none'`이라 `/login`으로 강제 이동. **`SIGNED_OUT` 가드는 무관**(게스트 mode는 isCloudAuthMode=false라 안 덮음 — 확인됨). 수정 D가 `handleGuestLogin`에 끼운 `await hasPreservedCloudData()`가 save 시작을 늦춰 window를 넓힌 것으로 추정. zustand store는 모듈 싱글톤이라 리마운트 후에도 메모리가 권위적인데 hydrate가 stale을 덮은 게 근본.
+- **수정**: `store.ts`에 모듈 플래그 `authHydrated` 추가, `hydrate` 본문 시작에서 `if (authHydrated) return`. JS 컨텍스트당 1회만 실행→리마운트 시 stale persist re-read 차단. `onAuthStateChange` 리스너 **중복 등록 누수**(매 hydrate마다 등록)도 함께 해결. cold start(프로세스 재시작)에선 모듈 새 로드라 정상 1회 실행.
+- **테스트**: `__tests__/auth-hydrate-once.test.ts` — 첫 hydrate 후 메모리 `mode='guest'`로 바꾸고(게스트 로그인 모델), 두 번째 hydrate(리마운트) 호출이 ① mode를 안 덮고 ② `getSession` 재호출 안 하고 ③ 리스너 재등록 안 함을 검증. 가드 없는 옛 코드면 반드시 실패. 1 pass.
+- **검증 한계(중요)**: 간헐적 race라 실기 "재현 안 됨 = 고쳐짐" 증명 약함. 단위 테스트로 "리마운트 시 메모리 불변"을 보장하는 게 1차 근거. 출시 후에도 재발 보고 모니터링. production에서 RootLayout 리마운트가 실제 나는지는 여전히 미확인이나(dev 특유 가능성), 1회 가드는 양쪽 모두 견고.
+
+### 수정 G — 고아 단어 생성 원천 차단 (DB 트리거, 배포 완료·마이그레이션 파일 미커밋)
+- **요청 배경**: 사용자가 "게스트 모드 단어장 삭제 시 자식 word도 함께 처리"를 요청. **조사 결과 이전 handoff 추정("게스트 자식 word 미처리")은 코드상 틀림**: `features/vocab/db.deleteList`(db.ts:354)가 자식 word를 SQLite soft-delete + `features/sync/engine.cascadeSoftDelete`(engine.ts:283-291, **게스트 가드 없음**)가 자식 word를 dirty 마킹 + `flushPush`가 부분 실패 시 dirty를 안 비움 → **정상 경로로는 고아 안 생김**. 260개는 `cc5ebd8` 이전 `applyFirstLoginMerge` 재발급 버그 잔재로 추정. **그래서 클라이언트 코드는 손대지 않음**(고칠 게 없고 건드리면 회귀).
+- **선택한 해법**: 클라이언트는 견고하나 "클라이언트가 올바를 때만" 보장이라, 과거 버그·부분 push·미래 비대칭에 무관하게 **DB가 부모-자식 일관성을 강제**하는 트리거 추가. 클라이언트 `cascadeSoftDelete`는 로컬 화면 반영·dirty 마킹에 여전히 필요 → 이중 안전망.
+- **마이그레이션**: `supabase/migrations/20260604000000_cascade_list_soft_delete.sql`. `cloud_lists`가 `is_deleted` false→true 전이 시 트리거(`after update`, `security definer`, `search_path=public`)가 그 자식 `cloud_words`를 `is_deleted=true`로 전파. 전이 시에만 실행(무한루프/불필요 재발화 방지). `cloud_words`의 `set_updated_at_ms`가 `updated_at` 갱신 → 다음 pull에서 클라이언트도 삭제 반영.
+- **배포·검증(2026-06-04, `supabase db query --linked`로 직접 실행)**: ① 트리거 생성 OK ② 동작 검증 — 살아있는 list(자식 alive 10개)를 `is_deleted=true` update → 트리거가 자식 alive **10→0** 전파 확인 ③ `raise exception`으로 전체 rollback, 재조회로 그 list `is_deleted=false`·word 10개 alive **무변경** 확인(실데이터 안 건드림). **검증이 첫 시도에 내 스크립트 변수 타입 버그(`v_list uuid`)를 잡아냄 → 눈먼 배포 안 한 가치**.
+- **스키마 메모(중요)**: `cloud_lists.id`/`cloud_words.id`/`cloud_words.list_id` 모두 **`text`**(uuid 아님). 트리거·쿼리 작성 시 uuid 캐스팅 주의.
+- **마이그레이션 history 동기화 필요**: `db query`로 직접 적용해 remote `supabase_migrations` 테이블엔 미기록. 다음 `supabase db push`가 이 파일을 재적용하나 `create or replace function` + `drop trigger if exists`라 **멱등**(무해). 파일은 미커밋 — 다른 세션과 충돌 피해 push 보류 중.
 
 ### 다음 세션 할 일
-1. **dev client 실기 검증** (← 여기서 시작): ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영. **+ 수정 D**: ④ 오프라인 삭제→로그아웃→"게스트로 시작" → 프롬프트 노출 확인, "다시 로그인"=로그인 화면 잔류 / "지우고 게스트"=이전 데이터 사라지고 빈 게스트. **+ 수정 E**: ⑤ 게스트→구글 재로그인 합치기 다이얼로그 숫자가 실제 단어 수와 일치. (실기 재현이 까다로우면 Supabase에서 `is_deleted` 확인 — 맨 아래 SQL.)
-2. **클라우드 고아 정리**(수정 E 후속, 선택): §맨아래 "고아 정리 SQL"로 SELECT→DELETE.
-3. ✅ **517d864**(수정 A/B/C) + **d232aa8**(수정 D 소스) 커밋 완료. 수정 D 테스트·수정 E는 후속 커밋. push 여부는 `git status`로 ahead 확인 후.
+1. **dev client 실기 검증** (← 여기서 시작): ① 단어장 편집 중 별표/암기 토글 연타 → 크래시 없음 ② 단어/단어장 삭제 → 앱 리로드/재로그인 → 삭제 유지(부활 없음) ③ 오프라인 상태로 삭제 후 로그아웃 → 온라인 재로그인 → 삭제가 클라우드 반영. **+ 수정 D**: ④ 오프라인 삭제→로그아웃→"게스트로 시작" → 프롬프트 노출 확인, "다시 로그인"=로그인 화면 잔류 / "지우고 게스트"=이전 데이터 사라지고 빈 게스트. **+ 수정 E**: ⑤ 게스트→구글 재로그인 합치기 다이얼로그 숫자가 실제 단어 수와 일치. **+ 수정 F**: ⑥ 로그아웃→바로 시작하기 반복 시 로그인 화면 튕김 없음(간헐적이라 여러 번). (실기 재현이 까다로우면 Supabase에서 `is_deleted` 확인 — 맨 아래 SQL.)
+2. ✅ **클라우드 고아 정리 완료**(2026-06-04, eunjbaek12 고아 260 삭제 → 741 정합) + ✅ **고아 생성 원천 차단 트리거 배포·검증 완료**(수정 G). 단어장 삭제 시 자식 word 고아가 DB 레벨에서 차단됨.
+3. ✅ **517d864**(수정 A/B/C) + **d232aa8/fb05036**(수정 D) + **ab80e30**(수정 E) + **4c9e0b2**(수정 F 흡수) 커밋 완료. **미커밋**: 수정 G 마이그레이션 파일(`supabase/migrations/20260604000000_cascade_list_soft_delete.sql`) + 이 handoff 갱신. push는 다른 세션 작업 일단락 후 한 곳에서(같은 `.git` 공유 중이라 동시 커밋/푸시 충돌 주의). 트리거는 이미 프로덕션 배포됨 — 파일 push는 history 기록용.
 
 ---
 

@@ -1,6 +1,6 @@
 # 출시 마스터 체크리스트 (Play Store + App Store v1.1)
 
-**이 문서가 출시까지 남은 작업의 단일 기준(master)이다.** 2026-06-03 기준 갱신.
+**이 문서가 출시까지 남은 작업의 단일 기준(master)이다.** 2026-06-05 기준 갱신.
 
 > ⚠️ **문서 신뢰도 주의**: 기존 handoff 문서·자동 메모가 시점별로 작성돼 서로 **상충**한다.
 > 본 문서 §1의 (A)·(B)·(C) 분류가 가장 최신·정확.
@@ -18,7 +18,7 @@
 
 ---
 
-## 1. 현재 상태 (2026-06-03)
+## 1. 현재 상태 (2026-06-05)
 
 ### ✅ (A) CLI로 검증된 사실
 | 항목 | 검증 |
@@ -56,17 +56,19 @@
 | **등록면허세 납부** | 유성구청 고지서 도착(1~2일) → 위택스(https://www.wetax.go.kr) 즉시 납부 (4~8만원). 납부 안 하면 신고증 안 나옴 |
 | **통신판매업 신고증 발급** | 납부 완료 후 1~3영업일. 정부24 마이페이지 → 나의 신청내역에서 진행상황 확인 |
 | **Play 비공개 테스트 검토** | 신고증의 신고번호 받으면 → A3·A4 동시 입력 후 검토 재시도 |
-| **Apple Developer Program** | 2026-06-02 가입 신청, 본인 확인 1~2일 대기 중. Team ID `74SA3LF88F`, Apple ID `mtgirltreeguy@gmail.com`. 매일 https://developer.apple.com 로그인해서 활성화 여부 확인 |
 | **Google Service Account 키 (eas submit)** | 미등록 — 현재 AAB 업로드는 수동. vCode 9 빌드 전 등록하면 편함 (선택) |
+| **iOS App Store 심사** | 2026-06-05 제출, "심사 대기 중"(1~3일). 승인 시 수동 출시로 보류(Android와 동시) / 리젝 시 사유 확인 후 재제출 |
 
 ---
 
 ## 2. 다음 세션 실행 순서 (2026-06-03 이후)
 
-> **세션 진입 시 우선 확인할 외부 상태 3가지** (이메일/SMS/정부24/developer.apple.com 체크):
-> 1. **등록면허세 고지서 도착?** (6/3~6/5 예상) → 도착 시 A2.5로
-> 2. **통신판매업 신고증 발급?** (납부 후 1~3일) → 발급 시 A3·A4로
-> 3. **Apple Developer 활성화?** (6/3~6/5 예상) → 활성화 시 트랙 B 시작
+> **세션 진입 시 우선 확인할 외부 상태 3가지** (이메일/정부24/App Store Connect 체크):
+> 1. **iOS 심사 결과?** (제출 2026-06-05, 1~3일) → **승인** 시 "개발자 출시 대기"로 보류(수동 출시 선택했음 — Android와 동시 출시 위해 버튼 안 누름) / **리젝** 시 사유 캡처 → 수정 후 재제출
+> 2. **등록면허세 고지서 도착?** → 도착 시 트랙 A의 A2.5로
+> 3. **통신판매업 신고증 발급?** (납부 후 1~3일) → 발급 시 A3·A4로
+>
+> ✅ **트랙 B(iOS) 전체 완료 (2026-06-05)** — App Store 심사 제출, "심사 대기 중". 이제 **트랙 A(Android)가 유일한 병목**. 둘 다 승인되면 트랙 C 동시 출시. (Team ID `4XZS542GQP`)
 
 ### 🔴 트랙 A: Android 한국 법규 풀기 (병목 1)
 
@@ -107,9 +109,47 @@ A6. 🟡 vCode 9 production 빌드 (Claude 명령) — 프로덕션 승격 전 �
     - 완료되면 Play Console 비공개/프로덕션 트랙에 수동 업로드
 ```
 
-### 🔴 트랙 B: iOS Apple Developer 활성화 (병목 2 — 1~2일 대기)
+### 🟢 트랙 B: iOS — ✅ 완료 (2026-06-05, App Store 심사 제출 "심사 대기 중")
 
-Apple Developer 본인 확인 완료되면:
+B1~B16 전부 완료. 아래는 작업 기록(다음 세션 참고용). **남은 건 심사 결과 대기 + B15 결제 E2E(미완)**. 아래 산출물·완료 내역 참고:
+
+**수집된 산출물 (B6~B9에서 사용):**
+| 항목 | 값 | 비고 |
+|---|---|---|
+| App ID (B1) | `com.soksokvoca` | Sign In with Apple capability 켜짐 |
+| Service ID (B2) | `com.soksokvoca.signin` | Primary App ID `com.soksokvoca`, Return URL Supabase callback |
+| **Sign In with Apple Key ID** (B3) | `58639QRP54` | `.p8` 사용자 로컬 보관 → B8 Supabase `APPLE_PRIVATE_KEY`용은 아님(이건 Sign in OAuth용, B6에서 Supabase Apple Provider에 입력) |
+| **App Store Connect API Key ID** (B4) | `6VRBZPDM3P` | verify-purchase용 → Supabase Secret `APPLE_KEY_ID` |
+| **App Store Connect Issuer ID** (B4) | `7c5b502b-e95e-4f15-a05a-8ac973136f03` | Supabase Secret `APPLE_ISSUER_ID` |
+| iOS OAuth Client ID (B5) | `172087024533-257n6iofivcvsf3le82cld42m2s8hj1f.apps.googleusercontent.com` | EAS Secret `EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS` |
+
+✅ **B6~B9 완료 (2026-06-05)**:
+- **B6** Apple Provider Client IDs `com.soksokvoca,com.soksokvoca.signin` 설정 (네이티브 흐름 → Secret Key 불필요, store.ts:240-258 signInWithIdToken 확인)
+- **B7** EAS Secret `EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS` 등록
+- **B8** Supabase Secret `APPLE_KEY_ID`(6VRBZPDM3P)·`APPLE_ISSUER_ID`·`APPLE_BUNDLE_ID`·`APPLE_PRIVATE_KEY`(B4 `.p8`) 4종 등록 — `apple-auth.ts:82`가 `\n`/실제개행 모두 정규화하므로 PEM 원문 OK
+- **B9** `verify-purchase` 재배포 — iOS 분기(apple-storekit/apple-auth) ACTIVE
+
+⚠️ `.p8` 2개·sb-token.txt는 `OneDrive\바탕 화면\Avocado\`에 보관. B3 `.p8`(58639QRP54)은 네이티브 흐름이라 미사용(웹 OAuth 추가 시).
+
+- **B10** iOS 빌드 성공 — `withLocalizedATT` plugin 경로 버그 수정(커밋 `5a135e9`: InfoPlist.strings를 `ios/<projectName>/` → `ios/` 루트 생성, XCODE_BUILD_ERROR 해소) 후 통과. Build `f455a21b`, buildNumber 2, `EAS_SKIP_AUTO_FINGERPRINT=1`.
+- **B11** TestFlight 업로드 — `eas submit` 성공(submission `10af2157`). eas.json `submit.production.ios`에 ascApiKey 3종 + `ascAppId: 6776714408` 설정. ⚠️ **이 설정은 로컬 전용 — 커밋 금지**(개인 절대경로 `OneDrive/바탕 화면/Avocado/AuthKey_6VRBZPDM3P.p8` 포함). Apple 빌드 처리 중.
+
+**Team ID 정정 (2026-06-05):** 빌드 자격증명 기준 실제 Team ID = **`4XZS542GQP`** (HOSEONG KIM Individual). 기존 `74SA3LF88F`는 오기 → 체크리스트·메모 전부 수정.
+
+✅ **B12~B16 완료 + iOS 심사 제출 (2026-06-05)**:
+- **B12** AdMob iOS 실 ID 교체 (APP `~2860788000`·BANNER `/5454631522`·REWARDED `/7697651484`)
+- **B13** 메타데이터(설명 등 — ▸·↔·★ 특수문자는 App Store가 거부해 `•`/`-`로 치환) + 스크린샷 7장(안드로이드 네비바 크림색 덮기 → 1242×2688 24bpp 변환, 05-add-word는 목업 구조 달라 제외). App Privacy(IDFA만 추적=예)·연령등급 4+·콘텐츠권한 완료
+- **B14** 구독 `pro_monthly`(미국 $2.99 기준+한국 ₩3,900)·`pro_yearly`(미국 $27.99+한국 ₩35,900) + 7일 무료체험(=1주). ascAppId `6776714408`
+- **실 AdMob 재빌드** buildNumber 3 (`901c6ca0`) → TestFlight 업로드(submission `3a9482e0`)
+- **B16 심사 제출 완료 → "심사 대기 중"** (심사 1~3일)
+
+⚠️ **B15 결제 E2E(TestFlight sandbox) 미완** — 심사 통과 후/출시 전 구독 결제→user_subscriptions 갱신 검증 권장.
+⚠️ **eas.json `submit.production.ios` 설정은 로컬 전용 — 커밋 금지** (개인 .p8 절대경로 `OneDrive/바탕 화면/Avocado/AuthKey_6VRBZPDM3P.p8` 포함).
+⚠️ **iOS 스크린샷은 안드로이드 캡처 변환본(임시)** — 사용자가 출시 후 iOS 실기기로 재촬영 예정. 영어 스크린샷은 한국어 7장이 모든 로케일 공용이라 불필요.
+💡 다음 빌드 전 `app.json`에 `ITSAppUsesNonExemptEncryption: false` 넣으면 빌드마다 뜨는 암호화 질문 제거.
+
+**남은 작업:** iOS 심사 결과 대기(1~3일) + Android 통신판매업 신고증 대기 → 둘 다 승인 시 트랙 C 동시 출시.
+
 
 ```
 B1. App ID 등록 + Sign In with Apple capability (5분, 본인)
@@ -143,7 +183,7 @@ B5. Google iOS OAuth 클라이언트 발급 (5분, 본인)
 B6. Supabase Apple Provider 활성화 (10분, Claude 지원)
     Supabase Dashboard → Authentication → Providers → Apple
     - Services ID: com.soksokvoca.signin
-    - Team ID: 74SA3LF88F
+    - Team ID: 4XZS542GQP
     - Key ID: B3에서 발급
     - Private Key: B3의 .p8 내용
 
@@ -240,7 +280,7 @@ C3. 둘 다 승인 받으면 동시 출시 발표
 | **앱 Support URL** | https://eunjbaek12.github.io/NewSokSok/ (ko/en 토글, 커밋 `273d974`로 라이브) |
 | 앱 버전 | 1.1.0 (versionCode는 EAS 원격 관리, **최근 8**) |
 | Play Developer 계정 | 가입 완료. **신규 개인계정 → 비공개 테스트 20명·14일 의무** |
-| **Apple Developer 계정** | 2026-06-02 가입 신청. Team ID `74SA3LF88F`, Apple ID `mtgirltreeguy@gmail.com`. 본인 확인 1~2일 대기 |
+| **Apple Developer 계정** | ✅ **활성화 완료 (2026-06-04)**. Team ID `4XZS542GQP`, Apple ID `mtgirltreeguy@gmail.com` |
 | **사업자등록증** | 2026-06-02 발급. 사업자번호 `215-29-02111`, 상호 `산녀와 나무꾼`, 대표 `김호성`. 개인사업자, 간이과세, 525101+642004, 자택(대전 유성구 와룡로 206, 105동 2103호) |
 | **통신판매업 신고** | 2026-06-03 정부24 접수. 호스트서버 소재지=AWS Korea(GS타워) 우회. 등록면허세 납부 대기, 신고증 발급 후 신고번호 확정 |
 | **Store listing 자산 위치** | `store-assets/listing/ko.md`·`en.md` (Play Console) + `ios-ko.md`·`ios-en.md` (App Store Connect). 모두 v1.1 정책 반영 완료 |
@@ -257,9 +297,12 @@ C3. 둘 다 승인 받으면 동시 출시 발표
 - ✅ **AdMob 계정 정식 승인 완료 (2026-06-03 승인 메일 수신)** — 광고 단위는 승인 전에도 발급되나 계정 활성화 전엔 실 광고 미송출. 이제 실 광고 송출 가능 상태. (ID는 이미 등록됨 → 추가 발급/등록 작업 없음. 남은 건 vCode 9 빌드뿐)
 - ⚠️ vCode 8 빌드는 옛 테스트 ID로 굽힘. **vCode 9 새 빌드부터 실 ID 반영** — 비공개 테스트엔 vCode 8로 OK, 프로덕션 승격 전 vCode 9 필수
 
-**iOS**: 🟡 미등록 — TestFlight 업로드(트랙 B11) 후 B12에서 추가
-- AdMob 콘솔에서 "App Store 등록됨? 예" → com.soksokvoca 검색 흐름이 정공법
-- 미리 만들면 IDFA 통계 분리·재검증 등 부작용 가능 → 권장하지 않음
+**iOS**: ✅ **실 ID 등록 완료 (2026-06-05)** — publisher `2552217172819688`
+- APP_ID `ca-app-pub-2552217172819688~2860788000`
+- BANNER `ca-app-pub-2552217172819688/5454631522`
+- REWARDED `ca-app-pub-2552217172819688/7697651484`
+- EAS Secret 3종 `--force` 교체 완료 (테스트 ID → 실 ID). 보상 수량은 코드 `grant_rewarded_bonus` RPC가 고정 +50 지급 → AdMob 콘솔 reward 값 무관.
+- ⚠️ **현재 TestFlight 빌드(buildNumber 2)는 테스트 AdMob ID로 구움** — 심사 제출 전 실 ID 반영 **재빌드 필수**.
 
 ---
 
@@ -285,8 +328,18 @@ C3. 둘 다 승인 받으면 동시 출시 발표
 - `docs/index.html` 신규 — Apple Review Guideline 1.5 Support URL 충족 (커밋 `273d974`)
 - ES 언어 지원 검증 — `constants/languages.ts`에 6종 + TTS 매핑 확인. "6개 언어" 클레임 정확
 
+**2026-06-04 세션 진척:**
+- **Apple Developer 활성화 완료** — Team ID `4XZS542GQP` 활성. 트랙 B 즉시 시작 가능 (§1 D에서 제거, §2 트랙 B 헤더·§4 갱신)
+
+**2026-06-05 세션 진척 (iOS 트랙 B 전체 — 하루에 B1~B16 완료):**
+- 본인 콘솔 B1~B5(App ID·Service ID·Sign In Key·ASC API Key·iOS OAuth) → Claude B6~B9(Apple Provider는 네이티브 흐름이라 Client IDs만·Supabase APPLE_* 4종·verify-purchase iOS 재배포)
+- B10 빌드: `withLocalizedATT.js`의 InfoPlist.strings 경로 버그 수정(커밋 `5a135e9`: `ios/` 루트 생성) → 성공
+- B11 TestFlight → B12 AdMob iOS 실 ID → B13 메타데이터(특수문자 `•`/`-` 치환)+스크린샷(안드로이드 네비바 제거 1242×2688 변환 7장)+App Privacy(IDFA만 추적=예)+연령 4+ → B14 구독(미국 기준가+한국 개별조정, 7일=1주)
+- 실 AdMob 재빌드 buildNumber 3 → **iOS 심사 제출 완료, "심사 대기 중"**
+- Team ID 정정: `74SA3LF88F`(오기) → `4XZS542GQP` 전체 수정
+- 미완/주의: B15 결제 E2E(TestFlight sandbox), iOS 스크린샷 임시본(출시 후 iOS 실기기 재촬영), eas.json `submit.production.ios` 설정 **커밋 금지**(개인 .p8 경로)
+
 **다음 세션 진입 시 즉시 확인할 외부 상태:**
-1. 등록면허세 고지서 도착 여부 (이메일/SMS)
-2. 통신판매업 신고증 발급 여부 (정부24 마이페이지)
-3. Apple Developer 활성화 여부 (developer.apple.com 로그인)
-4. Apple Developer 활성화 시 → 트랙 B1~B5 본인 작업 (App ID·Service ID·Keys·OAuth) 즉시 시작 가능
+1. **iOS 심사 결과** (제출 6/5, 1~3일) — 승인 시 "개발자 출시 대기"로 보류(수동 출시, Android와 동시) / 리젝 시 사유 캡처 후 수정·재제출
+2. 등록면허세 고지서 도착 여부 (이메일/SMS) → 트랙 A A2.5
+3. 통신판매업 신고증 발급 여부 (정부24 마이페이지) → 신고번호로 트랙 A A3·A4 → 비공개 테스트 재시도 → 14일 시계

@@ -1,0 +1,1002 @@
+[
+  {
+    "rank": 1,
+    "term": "헐",
+    "pos": "interjection",
+    "meaningEn": "OMG!",
+    "romaja": "heol",
+    "exampleKo": "헐, 진짜? 그게 가능하다고? 대박이다!",
+    "exampleEn": "OMG, really? That's possible? That's amazing!",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 2,
+    "term": "대박",
+    "pos": "interjection",
+    "meaningEn": "Awesome!",
+    "romaja": "daebak",
+    "exampleKo": "오늘 콘서트 진짜 대박이었어! 무대 연출 미쳤다!",
+    "exampleEn": "Today's concert was seriously awesome! The stage production was insane!",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 3,
+    "term": "미쳤다",
+    "pos": "phrase",
+    "meaningEn": "That's insane!",
+    "romaja": "michyeotta",
+    "exampleKo": "야, 저 영상 봤어? 진짜 미쳤다! 대박이야.",
+    "exampleEn": "Hey, did you see that video? It's seriously insane! So amazing.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 4,
+    "term": "실화냐",
+    "pos": "phrase",
+    "meaningEn": "Is this for real?",
+    "romaja": "silhwanya",
+    "exampleKo": "벌써 품절이라고? 실화냐? 나 아직 못 샀는데.",
+    "exampleEn": "It's already sold out? Is this for real? I haven't bought it yet.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 5,
+    "term": "레전드",
+    "pos": "noun",
+    "meaningEn": "Legendary; an iconic moment or thing",
+    "romaja": "rejeondeu",
+    "exampleKo": "어제 우리 팀 경기 봤어? 마지막 골은 진짜 레전드였어.",
+    "exampleEn": "Did you see our team's game yesterday? That last goal was truly legendary.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 6,
+    "term": "ㅇㅈ",
+    "pos": "interjection",
+    "meaningEn": "Agreed; Facts",
+    "romaja": "injeong",
+    "exampleKo": "이거 진짜 맛있지 않아? ㅇㅈ? 완전 꿀맛이야.",
+    "exampleEn": "Isn't this seriously delicious? Agreed? It's super yummy.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 7,
+    "term": "ㄹㅇ",
+    "pos": "interjection",
+    "meaningEn": "For real; Seriously",
+    "romaja": "rieol",
+    "exampleKo": "오늘 날씨 ㄹㅇ 좋지 않아? 나들이 가고 싶다.",
+    "exampleEn": "Isn't the weather seriously nice today? I want to go on a picnic.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 8,
+    "term": "갓벽",
+    "pos": "adjective",
+    "meaningEn": "Flawlessly perfect; Divinely perfect",
+    "romaja": "gatbyeok",
+    "exampleKo": "새로 나온 아이돌 앨범 들어봤어? 컨셉부터 갓벽이야.",
+    "exampleEn": "Have you heard the new idol album? From the concept, it's flawlessly perfect.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 9,
+    "term": "띵작",
+    "pos": "noun",
+    "meaningEn": "A masterpiece; A classic",
+    "romaja": "ddingjak",
+    "exampleKo": "이 웹툰 진짜 띵작이니까 꼭 봐봐! 후회 안 할 걸.",
+    "exampleEn": "This webtoon is a real masterpiece, so definitely check it out! You won't regret it.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 10,
+    "term": "꿀잼",
+    "pos": "noun",
+    "meaningEn": "Super fun; A blast",
+    "romaja": "kkuljaem",
+    "exampleKo": "어제 친구들이랑 보드게임 했는데 완전 꿀잼이었어!",
+    "exampleEn": "I played board games with friends yesterday and it was super fun!",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 11,
+    "term": "노잼",
+    "pos": "noun",
+    "meaningEn": "Boring; No fun",
+    "romaja": "nojaem",
+    "exampleKo": "그 영화 너무 노잼이라 중간에 나왔어. 돈 아까워.",
+    "exampleEn": "That movie was so boring I left halfway through. Such a waste of money.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 12,
+    "term": "쩐다",
+    "pos": "verb",
+    "meaningEn": "That's dope/killer; Extremely impressive",
+    "romaja": "jjeonda",
+    "exampleKo": "와, 저 사람 기타 연주하는 거 봤어? 진짜 쩐다!",
+    "exampleEn": "Wow, did you see that person playing guitar? That's seriously dope!",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 13,
+    "term": "소오름",
+    "pos": "interjection",
+    "meaningEn": "Goosebumps; Chills",
+    "romaja": "sooreum",
+    "exampleKo": "그 노래 라이브로 들었는데 소오름 돋았어. 진짜 감동.",
+    "exampleEn": "I heard that song live and got goosebumps. It was truly moving.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 14,
+    "term": "무야호",
+    "pos": "interjection",
+    "meaningEn": "Woohoo!; Yippee! (A joyful cheer)",
+    "romaja": "muyaho",
+    "exampleKo": "드디어 금요일이다! 무야호! 주말에 뭐 할까?",
+    "exampleEn": "It's finally Friday! Woohoo! What should we do this weekend?",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 15,
+    "term": "1도 없다",
+    "pos": "phrase",
+    "meaningEn": "None at all; Zero",
+    "romaja": "il-do eopda",
+    "exampleKo": "그 사람 말은 1도 안 믿겨. 다 거짓말 같아.",
+    "exampleEn": "I don't believe a single word that person says. It all seems like lies.",
+    "category": "감탄·리액션"
+  },
+  {
+    "rank": 16,
+    "term": "인싸",
+    "pos": "noun",
+    "meaningEn": "An insider; A popular, socially active person",
+    "romaja": "inssa",
+    "exampleKo": "그 친구는 완전 인싸라서 아는 사람이 진짜 많아.",
+    "exampleEn": "That friend is a total social butterfly, they know so many people.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 17,
+    "term": "아싸",
+    "pos": "noun",
+    "meaningEn": "An outsider; A loner who keeps to themselves",
+    "romaja": "assa",
+    "exampleKo": "나는 집에서 혼자 노는 게 좋아서 아싸에 가까워.",
+    "exampleEn": "I prefer playing alone at home, so I'm closer to being a loner.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 18,
+    "term": "핵인싸",
+    "pos": "noun",
+    "meaningEn": "A super-insider; An ultra-popular social butterfly",
+    "romaja": "haeginssa",
+    "exampleKo": "우리 과에 핵인싸 한 명 있는데, 모르는 사람이 없어.",
+    "exampleEn": "There's one super-insider in our major; everyone knows them.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 19,
+    "term": "찐",
+    "pos": "adjective",
+    "meaningEn": "Real; Genuine; The real deal",
+    "romaja": "j-jin",
+    "exampleKo": "그 사람은 찐팬이라서 굿즈도 엄청 많이 모았더라.",
+    "exampleEn": "That person is a real fan, they collected so much merchandise.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 20,
+    "term": "찐텐",
+    "pos": "noun",
+    "meaningEn": "Genuine excitement; Real, unforced high energy",
+    "romaja": "jjinten",
+    "exampleKo": "무대 위에서 아이돌들 찐텐으로 즐기는 모습 너무 보기 좋더라.",
+    "exampleEn": "It was so great to see the idols genuinely enjoying themselves on stage with real high energy.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 21,
+    "term": "만렙",
+    "pos": "noun",
+    "meaningEn": "Max level; An expert who's totally mastered something",
+    "romaja": "manrep",
+    "exampleKo": "와, 이 게임 벌써 만렙 찍었어? 너 진짜 만렙 능력자다!",
+    "exampleEn": "Wow, you already reached max level in this game? You're a true master!",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 22,
+    "term": "능력자",
+    "pos": "noun",
+    "meaningEn": "A super-capable, skilled person who gets things done",
+    "romaja": "neungnyeokja",
+    "exampleKo": "우리 팀 막내가 사실 능력자였어. 일 처리 진짜 빨라.",
+    "exampleEn": "Our team's youngest member was actually a super-capable person. They get things done really fast.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 23,
+    "term": "갓생",
+    "pos": "noun",
+    "meaningEn": "A 'god life'; A disciplined, productive, admirable lifestyle",
+    "romaja": "gatsaeng",
+    "exampleKo": "이번 년 목표는 갓생 살기야! 매일 운동하고 공부할 거야.",
+    "exampleEn": "My goal this year is to live a 'god life'! I'm going to exercise and study every day.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 24,
+    "term": "분위기 메이커",
+    "pos": "noun",
+    "meaningEn": "The mood-maker; The life of the party",
+    "romaja": "bunwigi meikeo",
+    "exampleKo": "우리 모임에는 항상 분위기 메이커가 있어야 더 재밌어.",
+    "exampleEn": "Our gatherings are always more fun when there's a mood-maker.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 25,
+    "term": "TMT",
+    "pos": "noun",
+    "meaningEn": "Too much talker; Someone who talks excessively",
+    "romaja": "ti-em-ti",
+    "exampleKo": "걔는 진짜 TMT라서 한번 말 시작하면 끝이 없어.",
+    "exampleEn": "That person is a real TMT, once they start talking, there's no end.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 26,
+    "term": "답정너",
+    "pos": "noun",
+    "meaningEn": "Someone who already knows the answer they want to hear and just wants you to confirm it.",
+    "romaja": "dapjeongneo",
+    "exampleKo": "야, 너 진짜 답정너다. 내가 뭐라고 대답해주길 바라는 거야?",
+    "exampleEn": "Hey, you're such a 'dapjeongneo.' What answer do you want me to give you?",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 27,
+    "term": "관종",
+    "pos": "noun",
+    "meaningEn": "An attention-seeker; someone who craves attention.",
+    "romaja": "gwanjong",
+    "exampleKo": "쟤 또 관종짓 하네. 관심받고 싶어서 안달났나봐.",
+    "exampleEn": "There they go again, being an attention-seeker. They must be desperate for attention.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 28,
+    "term": "프로불편러",
+    "pos": "noun",
+    "meaningEn": "A 'professional complainer' or 'professional discomforter'; someone who easily finds things to be offended by or complain about.",
+    "romaja": "peurobulpyeonreo",
+    "exampleKo": "걔는 진짜 프로불편러야. 뭘 해도 다 불편해하는 것 같아.",
+    "exampleEn": "They're a real 'professional complainer.' It seems like everything makes them uncomfortable.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 29,
+    "term": "모쏠",
+    "pos": "noun",
+    "meaningEn": "Someone who has been single their entire life and has never dated anyone; a 'lifetime solo'.",
+    "romaja": "molsol",
+    "exampleKo": "친구 중에 모쏠이 많아서 다 같이 솔로 파티했어.",
+    "exampleEn": "I have a lot of friends who've never dated, so we all had a solo party together.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 30,
+    "term": "금사빠",
+    "pos": "noun",
+    "meaningEn": "Someone who falls in love quickly and easily; a 'quick-to-fall-in-love person'.",
+    "romaja": "geumsappa",
+    "exampleKo": "걔는 완전 금사빠라니까. 또 새로운 사람한테 푹 빠진 것 같아.",
+    "exampleEn": "They're totally a 'quick-to-fall-in-love person.' It seems like they've fallen for someone new again.",
+    "category": "인물·유형"
+  },
+  {
+    "rank": 31,
+    "term": "워라밸",
+    "pos": "noun",
+    "meaningEn": "Work-life balance; the state of having a healthy balance between work and personal life.",
+    "romaja": "worabel",
+    "exampleKo": "요즘 회사 워라밸 너무 좋아서 행복해. 퇴근하고 바로 운동 가!",
+    "exampleEn": "My company's work-life balance is so good these days, I'm happy. I go straight to work out after leaving work!",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 32,
+    "term": "가성비",
+    "pos": "noun",
+    "meaningEn": "Value for money; bang for the buck, meaning good performance or quality relative to its price.",
+    "romaja": "gaseongbi",
+    "exampleKo": "이 식당 진짜 가성비 최고야. 맛도 좋고 양도 많아.",
+    "exampleEn": "This restaurant offers amazing value for money. The food's good and the portions are big.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 33,
+    "term": "가심비",
+    "pos": "noun",
+    "meaningEn": "Value for emotional satisfaction; buying something that brings personal happiness or fulfillment, regardless of its objective cost-effectiveness.",
+    "romaja": "gasimbi",
+    "exampleKo": "가심비 좋은 물건이라 비싸도 후회 안 해. 나한테 주는 선물이야.",
+    "exampleEn": "It's a product with great emotional value, so I don't regret it even if it's expensive. It's a gift to myself.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 34,
+    "term": "갓성비",
+    "pos": "noun",
+    "meaningEn": "Amazing, 'god-tier' value for money; exceptionally good performance or quality relative to its price.",
+    "romaja": "gasseongbi",
+    "exampleKo": "와, 이 노트북 갓성비 미쳤다! 이 가격에 이런 사양이라니.",
+    "exampleEn": "Wow, this laptop has insane 'god-tier' value for money! These specs for this price?",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 35,
+    "term": "오운완",
+    "pos": "phrase",
+    "meaningEn": "An initialism used to declare 'today's workout done' or 'finished my workout for today,' often posted with a gym selfie.",
+    "romaja": "ounwan",
+    "exampleKo": "드디어 오운완! 힘들어 죽는 줄 알았어.",
+    "exampleEn": "Finally, today's workout done! I thought I was going to die.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 36,
+    "term": "플렉스",
+    "pos": "verb",
+    "meaningEn": "To flex; to splurge on something expensive and show it off, especially money or luxury items.",
+    "romaja": "peullekseu",
+    "exampleKo": "오늘 월급 받아서 명품 가방 플렉스 했어!",
+    "exampleEn": "I got paid today so I flexed with a luxury bag!",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 37,
+    "term": "영끌",
+    "pos": "noun",
+    "meaningEn": "Scraping together every last penny or resource, often to make a significant purchase like a home or investment; 'soul-squeezing'.",
+    "romaja": "yeongkkeul",
+    "exampleKo": "요즘 집 살 때 영끌해서 사는 게 기본이 되었어.",
+    "exampleEn": "These days, when buying a house, it's become standard to gather every last penny.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 38,
+    "term": "짠테크",
+    "pos": "noun",
+    "meaningEn": "A frugal money-saving lifestyle that involves being very stingy and creative with finances; 'stingy tech/finance'.",
+    "romaja": "jjantecheu",
+    "exampleKo": "나 요즘 짠테크 중이야. 한 푼이라도 아끼려고 노력하고 있어.",
+    "exampleEn": "I'm doing 'stingy tech' these days. I'm trying to save every penny.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 39,
+    "term": "탕진잼",
+    "pos": "noun",
+    "meaningEn": "The fun or joy of blowing money on small, often unnecessary, everyday treats or impulse buys.",
+    "romaja": "tangjinjaem",
+    "exampleKo": "소소하게 탕진잼 누리는 중. 이 맛에 돈 벌지!",
+    "exampleEn": "I'm enjoying a little 'squandering fun'. This is why I earn money!",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 40,
+    "term": "멍청비용",
+    "pos": "noun",
+    "meaningEn": "Money wasted due to one's own carelessness, forgetfulness, or poor judgment; a 'dumb tax'.",
+    "romaja": "meongcheongbiyong",
+    "exampleKo": "어제 택시 타고 갔어야 했는데, 멍청비용 또 썼네.",
+    "exampleEn": "I should've taken a taxi yesterday, but I spent 'dumb tax' again.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 41,
+    "term": "욜로",
+    "pos": "noun",
+    "meaningEn": "YOLO; You Only Live Once, an acronym used to justify enjoying the present moment and living life to the fullest, often involving spending.",
+    "romaja": "yollo",
+    "exampleKo": "욜로! 일단 즐기고 보는 거지 뭐.",
+    "exampleEn": "YOLO! Just enjoy it for now, you know?",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 42,
+    "term": "칼퇴",
+    "pos": "noun",
+    "meaningEn": "Leaving work exactly on time, not a minute late; 'knife-like departure'.",
+    "romaja": "kaltoe",
+    "exampleKo": "나 오늘 칼퇴하고 바로 약속 있어. 후딱 마무리해야지.",
+    "exampleEn": "I have plans right after leaving work exactly on time today. Gotta finish quickly.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 43,
+    "term": "점메추",
+    "pos": "phrase",
+    "meaningEn": "An initialism asking for a 'lunch menu recommendation'.",
+    "romaja": "jeommechyu",
+    "exampleKo": "얘들아, 오늘 점메추 좀! 뭐 먹을지 고민돼.",
+    "exampleEn": "Guys, any lunch menu recommendations for today? I can't decide what to eat.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 44,
+    "term": "저메추",
+    "pos": "phrase",
+    "meaningEn": "An initialism asking for a 'dinner menu recommendation'.",
+    "romaja": "jeomechyu",
+    "exampleKo": "퇴근하고 뭐 먹지? 저메추 해주라!",
+    "exampleEn": "What should I eat after work? Recommend me a dinner menu!",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 45,
+    "term": "혼밥",
+    "pos": "noun",
+    "meaningEn": "Eating alone; solo dining.",
+    "romaja": "honbap",
+    "exampleKo": "오늘 저녁은 혼밥할 건데, 맛집 추천해 줄 사람?",
+    "exampleEn": "I'm eating alone for dinner tonight, anyone recommend a good restaurant?",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 46,
+    "term": "혼술",
+    "pos": "noun",
+    "meaningEn": "Drinking alone; solo drinking.",
+    "romaja": "honsul",
+    "exampleKo": "오늘 힘든 일이 있어서 집에서 혼술 좀 해야겠어.",
+    "exampleEn": "I had a tough day today, so I think I need to drink alone at home.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 47,
+    "term": "얼죽아",
+    "pos": "phrase",
+    "meaningEn": "An initialism for 'iced americano even if I freeze to death,' referring to someone who always drinks iced americano regardless of the weather.",
+    "romaja": "eoljuga",
+    "exampleKo": "날씨 추운데도 얼죽아 정신으로 아이스 아메리카노 마셨어.",
+    "exampleEn": "Even though the weather's cold, I drank an iced americano with that 'iced americano even if I freeze to death' spirit.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 48,
+    "term": "꿀팁",
+    "pos": "noun",
+    "meaningEn": "A great, handy, or extremely useful tip or piece of advice; a 'honey tip'.",
+    "romaja": "kkultip",
+    "exampleKo": "이거 진짜 꿀팁인데, 너한테만 알려주는 거야.",
+    "exampleEn": "This is a real 'honey tip', I'm only telling you.",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 49,
+    "term": "국룰",
+    "pos": "noun",
+    "meaningEn": "The universal rule everyone follows; an unspoken standard or common practice that's widely accepted; 'national rule'.",
+    "romaja": "gungnyul",
+    "exampleKo": "떡볶이 먹을 땐 쿨피스 마시는 게 국룰 아니겠어?",
+    "exampleEn": "Isn't it a 'national rule' to drink Coolpis when you eat tteokbokki?",
+    "category": "일상·소비"
+  },
+  {
+    "rank": 50,
+    "term": "썸",
+    "pos": "noun",
+    "meaningEn": "A budding romance; the 'talking stage' or 'something' between two people who are interested in each other but not officially dating.",
+    "romaja": "sseom",
+    "exampleKo": "쟤랑 나랑 요즘 썸 타는 중이야. 어떻게 될지 궁금하다.",
+    "exampleEn": "We're in the 'talking stage' these days. I wonder what will happen.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 51,
+    "term": "썸타다",
+    "pos": "verb",
+    "meaningEn": "To be in the early, flirty \"talking stage\" with someone; to have romantic chemistry with someone before officially dating.",
+    "romaja": "sseomtada",
+    "exampleKo": "요즘 나 쟤랑 썸타는 것 같아! 우리 사귀게 될까?",
+    "exampleEn": "I think I'm in the talking stage with them these days! Will we start dating?",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 52,
+    "term": "케미",
+    "pos": "noun",
+    "meaningEn": "Chemistry; great rapport or natural connection between two people, especially in a romantic or friendship context.",
+    "romaja": "kemi",
+    "exampleKo": "와, 너네 둘이 케미 진짜 좋다! 완전 잘 어울려.",
+    "exampleEn": "Wow, you two have great chemistry! You match so well.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 53,
+    "term": "읽씹",
+    "pos": "noun",
+    "meaningEn": "The act of reading a message and intentionally not replying; to leave someone on read.",
+    "romaja": "ikssip",
+    "exampleKo": "걔 내 메시지 또 읽씹했어. 완전 얄밉다!",
+    "exampleEn": "They left my message on read again. So annoying!",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 54,
+    "term": "안읽씹",
+    "pos": "noun",
+    "meaningEn": "The act of not even opening a message and intentionally ignoring it; to completely ghost a message.",
+    "romaja": "anikssip",
+    "exampleKo": "얘가 내 톡을 아예 안읽씹하네. 진짜 너무한 거 아니야?",
+    "exampleEn": "They're not even opening my message. Isn't that too much?",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 55,
+    "term": "손절",
+    "pos": "verb",
+    "meaningEn": "To cut someone off; to end a relationship (friendship, business, etc.) abruptly and completely to avoid further loss or hassle.",
+    "romaja": "sonjeol",
+    "exampleKo": "걔 자꾸 나한테 피해만 줘서 결국 손절했어.",
+    "exampleEn": "They kept causing me trouble, so I finally cut them off.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 56,
+    "term": "내로남불",
+    "pos": "phrase",
+    "meaningEn": "A double standard; \"romance when I do it, an affair when others do it.\" Hypocrisy where one judges others by a stricter standard than oneself.",
+    "romaja": "naeroneambul",
+    "exampleKo": "자기 할 땐 괜찮고 남이 하면 안 된대. 완전 내로남불 아니야?",
+    "exampleEn": "When they do it, it's fine, but when others do it, it's not. Isn't that a total double standard?",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 57,
+    "term": "낄끼빠빠",
+    "pos": "phrase",
+    "meaningEn": "Know when to join in and when to back off; to \"read the room\" and act appropriately in social situations.",
+    "romaja": "kkilkkibappa",
+    "exampleKo": "야, 쟤는 진짜 낄끼빠빠를 너무 못해. 분위기 흐리네.",
+    "exampleEn": "Hey, they really don't know when to join in and when to back off. They're ruining the mood.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 58,
+    "term": "자만추",
+    "pos": "noun",
+    "meaningEn": "Seeking natural encounters; preferring to meet people organically rather than through dating apps or arranged blind dates.",
+    "romaja": "jamanchu",
+    "exampleKo": "나는 데이팅 앱보다 자만추가 더 좋아. 자연스러운 만남이 최고지.",
+    "exampleEn": "I prefer natural encounters over dating apps. Natural meetings are the best.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 59,
+    "term": "갑분싸",
+    "pos": "phrase",
+    "meaningEn": "A sudden awkward chill that kills the mood; when the atmosphere suddenly becomes cold or uncomfortable.",
+    "romaja": "gapbunssa",
+    "exampleKo": "걔 농담에 다들 갑분싸 됐어. 진짜 노잼이야.",
+    "exampleEn": "Everyone went quiet after their joke. It really killed the mood.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 60,
+    "term": "케바케",
+    "pos": "phrase",
+    "meaningEn": "It depends; case by case; meaning that the outcome or situation varies depending on the specific circumstances.",
+    "romaja": "kebabke",
+    "exampleKo": "그거 되는지 안 되는지는 케바케야. 상황마다 달라.",
+    "exampleEn": "Whether that works or not is case by case. It varies with the situation.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 61,
+    "term": "사바사",
+    "pos": "phrase",
+    "meaningEn": "It varies from person to person; meaning that preferences or outcomes differ depending on the individual.",
+    "romaja": "sabasa",
+    "exampleKo": "그 음식 맛은 사바사야. 어떤 사람은 좋아하고 어떤 사람은 싫어해.",
+    "exampleEn": "The taste of that food varies from person to person. Some like it, some don't.",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 62,
+    "term": "만반잘부",
+    "pos": "phrase",
+    "meaningEn": "A shortened, casual greeting meaning \"Nice to meet you, please take care of me well\" or \"Nice to meet you, let's get along.\"",
+    "romaja": "manbanjalbu",
+    "exampleKo": "안녕! 새로 온 멤버야. 만반잘부~ 잘 지내보자!",
+    "exampleEn": "Hi! I'm the new member. Nice to meet you, let's get along!",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 63,
+    "term": "알잘딱깔센",
+    "pos": "phrase",
+    "meaningEn": "A request to \"handle it well, neatly, and with good sense, on your own\"; implying to take care of something skillfully and appropriately without needing detailed instructions.",
+    "romaja": "aljaltakkkalsen",
+    "exampleKo": "그 일은 네가 알잘딱깔센하게 처리해 줘. 믿는다!",
+    "exampleEn": "Please handle that task well and smartly on your own. I trust you!",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 64,
+    "term": "어쩔티비",
+    "pos": "phrase",
+    "meaningEn": "A playful, often dismissive \"whatever, I don't care\" or \"so what?\" brush-off, often used among friends.",
+    "romaja": "eojjeoltibi",
+    "exampleKo": "나 오늘 시험 망했어. 어쩔티비?",
+    "exampleEn": "I bombed my test today. Whatever, don't care?",
+    "category": "연애·관계"
+  },
+  {
+    "rank": 65,
+    "term": "별다줄",
+    "pos": "phrase",
+    "meaningEn": "\"You abbreviate literally everything\"; a playful or exasperated remark about someone who shortens too many words or phrases.",
+    "romaja": "byeoldajul",
+    "exampleKo": "요즘 애들은 별다줄이야. 너무 줄임말 많이 써.",
+    "exampleEn": "Kids these days abbreviate literally everything. They use too many acronyms.",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 66,
+    "term": "ㄱㄱ",
+    "pos": "interjection",
+    "meaningEn": "\"Let's go,\" \"go go\"; used to urge action or start something.",
+    "romaja": "gogo",
+    "exampleKo": "야, 우리 피시방 ㄱㄱ?",
+    "exampleEn": "Hey, wanna go to the PC bang? Let's go!",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 67,
+    "term": "ㅇㅋ",
+    "pos": "interjection",
+    "meaningEn": "\"Okay\"; an informal acknowledgment or agreement.",
+    "romaja": "okei",
+    "exampleKo": "이따 저녁에 봐. ㅇㅋ?",
+    "exampleEn": "See you later tonight. Okay?",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 68,
+    "term": "ㄴㄴ",
+    "pos": "interjection",
+    "meaningEn": "\"No no,\" \"nope\"; an informal refusal or disagreement.",
+    "romaja": "nono",
+    "exampleKo": "밥 먹었어? ㄴㄴ 아직.",
+    "exampleEn": "Did you eat? Nope, not yet.",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 69,
+    "term": "ㅎㅇ",
+    "pos": "interjection",
+    "meaningEn": "\"Hi\"; an informal greeting.",
+    "romaja": "hai",
+    "exampleKo": "ㅎㅇ! 다들 잘 지냈어?",
+    "exampleEn": "Hi! Has everyone been doing well?",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 70,
+    "term": "ㅂㅂ",
+    "pos": "interjection",
+    "meaningEn": "\"Bye bye\"; an informal farewell.",
+    "romaja": "baibai",
+    "exampleKo": "나 먼저 갈게. ㅂㅂ!",
+    "exampleEn": "I'm gonna head out first. Bye bye!",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 71,
+    "term": "ㄱㅅ",
+    "pos": "interjection",
+    "meaningEn": "\"Thanks\"; an informal expression of gratitude.",
+    "romaja": "gamsa",
+    "exampleKo": "도와줘서 ㄱㅅ! 다음에 내가 밥 살게.",
+    "exampleEn": "Thanks for helping! I'll buy you a meal next time.",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 72,
+    "term": "ㅈㅅ",
+    "pos": "interjection",
+    "meaningEn": "\"Sorry\"; an informal apology.",
+    "romaja": "joesong",
+    "exampleKo": "늦어서 ㅈㅅ! 빨리 갈게.",
+    "exampleEn": "Sorry for being late! I'll be there soon.",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 73,
+    "term": "ㅊㅋ",
+    "pos": "interjection",
+    "meaningEn": "\"Congrats\"; an informal congratulation.",
+    "romaja": "chuka",
+    "exampleKo": "시험 합격 ㅊㅋㅊㅋ! 정말 대단하다.",
+    "exampleEn": "Congrats on passing the test! That's really amazing.",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 74,
+    "term": "ㅅㄱ",
+    "pos": "interjection",
+    "meaningEn": "\"Good work,\" \"take care\"; an informal way to acknowledge someone's effort or bid them farewell after work/effort.",
+    "romaja": "sugo",
+    "exampleKo": "오늘 회의 준비하느라 ㅅㄱ 많았어!",
+    "exampleEn": "You worked hard preparing for the meeting today! (or \"Good job today!\")",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 75,
+    "term": "TMI",
+    "pos": "noun",
+    "meaningEn": "Too much information; used when someone shares excessive or unnecessary personal details.",
+    "romaja": "TMI",
+    "exampleKo": "방금 내가 말한 거 혹시 TMI였어? 미안!",
+    "exampleEn": "Was what I just said TMI? Sorry!",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 76,
+    "term": "오저치고",
+    "pos": "phrase",
+    "meaningEn": "Chicken for dinner tonight?",
+    "romaja": "ojeochigo",
+    "exampleKo": "오늘 저녁 뭐 먹지? 오저치고 할래?",
+    "exampleEn": "What should we eat tonight? Chicken for dinner tonight?",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 77,
+    "term": "갑통알",
+    "pos": "phrase",
+    "meaningEn": "Suddenly checked my bank account and realized I need a part-time job.",
+    "romaja": "gaptongal",
+    "exampleKo": "월급날 멀었는데 벌써 갑통알... 알바 찾아봐야겠다.",
+    "exampleEn": "Payday is so far away, already checked my bank account and realized I need a part-time job... Gotta look for a gig.",
+    "category": "줄임말·초성"
+  },
+  {
+    "rank": 78,
+    "term": "짤",
+    "pos": "noun",
+    "meaningEn": "A meme image or reaction picture, often used in texts or online.",
+    "romaja": "jjal",
+    "exampleKo": "이 상황에 딱 맞는 짤이 있는데 보내줄게!",
+    "exampleEn": "I have the perfect meme for this situation, I'll send it to you!",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 79,
+    "term": "움짤",
+    "pos": "noun",
+    "meaningEn": "An animated GIF, a moving meme or reaction picture.",
+    "romaja": "umjjal",
+    "exampleKo": "와, 이 움짤 진짜 웃기다. 저장해서 친구들한테 보내야지.",
+    "exampleEn": "Wow, this GIF is really funny. I should save it and send it to my friends.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 80,
+    "term": "어그로",
+    "pos": "noun",
+    "meaningEn": "Provocative bait or a troll post designed to stir reactions or attention online; 'aggro'.",
+    "romaja": "eogeuro",
+    "exampleKo": "쟤 왜 자꾸 어그로 끌지? 그냥 무시하는 게 답이야.",
+    "exampleEn": "Why does that person keep trying to bait people? The best response is just to ignore them.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 81,
+    "term": "가즈아",
+    "pos": "interjection",
+    "meaningEn": "'Let's gooo!' — a drawn-out cheer of hype, excitement, or encouragement.",
+    "romaja": "gajeua",
+    "exampleKo": "우리 팀 오늘 경기 이기자! 가즈아!",
+    "exampleEn": "Let's win today's game, team! Let's gooo!",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 82,
+    "term": "띵언",
+    "pos": "noun",
+    "meaningEn": "A great quote or profound words of wisdom, often used playfully.",
+    "romaja": "dding-eon",
+    "exampleKo": "와, 방금 네가 한 말 완전 띵언이다. 메모해 놔야겠어.",
+    "exampleEn": "Wow, what you just said is totally words of wisdom. I should write that down.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 83,
+    "term": "갓겜",
+    "pos": "noun",
+    "meaningEn": "A 'god-tier' or exceptionally excellent video game.",
+    "romaja": "gatgem",
+    "exampleKo": "이번에 새로 나온 게임 해봤어? 완전 갓겜이야!",
+    "exampleEn": "Have you played the new game that just came out? It's a god-tier game!",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 84,
+    "term": "현타",
+    "pos": "noun",
+    "meaningEn": "A sudden hit of harsh reality; a moment of deflating clarity or disillusionment.",
+    "romaja": "hyeonta",
+    "exampleKo": "밤새 게임하고 나니 갑자기 현타 와서 현실로 돌아왔어.",
+    "exampleEn": "After playing games all night, I suddenly had a moment of deflating clarity and came back to reality.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 85,
+    "term": "멘붕",
+    "pos": "noun",
+    "meaningEn": "A mental breakdown or meltdown; feeling completely overwhelmed or flustered.",
+    "romaja": "menbung",
+    "exampleKo": "시험 망쳐서 멘붕 왔어. 오늘 하루 종일 아무것도 못 하겠어.",
+    "exampleEn": "I messed up my exam, so I'm having a mental breakdown. I can't do anything all day today.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 86,
+    "term": "노답",
+    "pos": "adjective",
+    "meaningEn": "Hopeless; having no solution, no answer, or no redeeming qualities.",
+    "romaja": "nodap",
+    "exampleKo": "걔 진짜 노답이다. 어떻게 그렇게 행동할 수 있지?",
+    "exampleEn": "That person is truly hopeless. How can they act like that?",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 87,
+    "term": "꾸안꾸",
+    "pos": "noun",
+    "meaningEn": "An effortlessly stylish 'done but not done' look, appearing natural yet put-together.",
+    "romaja": "kkuankku",
+    "exampleKo": "오늘 꾸안꾸 스타일로 입었는데 괜찮아 보여?",
+    "exampleEn": "I dressed in an effortlessly stylish 'done but not done' look today, does it look good?",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 88,
+    "term": "인생샷",
+    "pos": "noun",
+    "meaningEn": "The best photo of one's life; a perfect, once-in-a-lifetime picture.",
+    "romaja": "insaengsyat",
+    "exampleKo": "와, 여기서 찍은 사진 완전 인생샷 건졌다! 프로필 사진 해야지.",
+    "exampleEn": "Wow, I got the best photo of my life taken here! I should use it as my profile picture.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 89,
+    "term": "인생네컷",
+    "pos": "noun",
+    "meaningEn": "A four-cut photo booth picture, a popular type of photo booth for friends.",
+    "romaja": "insaengnekeot",
+    "exampleKo": "오랜만에 친구랑 인생네컷 찍었는데 너무 재밌었어!",
+    "exampleEn": "It's been a while since I took a four-cut photo booth picture with my friend, it was so much fun!",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 90,
+    "term": "핫플",
+    "pos": "noun",
+    "meaningEn": "A hot, trendy spot or popular place; a 'hot place'.",
+    "romaja": "hatpeul",
+    "exampleKo": "주말에 새로 생긴 핫플 같이 가볼래?",
+    "exampleEn": "Want to go to that new trendy spot together this weekend?",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 91,
+    "term": "맛집",
+    "pos": "noun",
+    "meaningEn": "A famously delicious restaurant or a popular foodie hotspot.",
+    "romaja": "matjip",
+    "exampleKo": "이 근처에 엄청 유명한 맛집 있는데, 점심 거기서 먹을까?",
+    "exampleEn": "There's a super famous foodie hotspot near here, should we have lunch there?",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 92,
+    "term": "직관",
+    "pos": "noun",
+    "meaningEn": "Watching a game or performance live in person, rather than on a screen.",
+    "romaja": "jikgwan",
+    "exampleKo": "어제 콘서트 직관 다녀왔는데 진짜 너무 감동적이었어.",
+    "exampleEn": "I went to watch the concert live yesterday, and it was truly so moving.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 93,
+    "term": "불멍",
+    "pos": "noun",
+    "meaningEn": "Zoning out or spacing out while staring at a fire, finding it relaxing and calming.",
+    "romaja": "bulmeong",
+    "exampleKo": "캠핑 가서 불멍 때리니까 너무 힐링된다.",
+    "exampleEn": "Just zoning out while staring at the fire during camping is so healing.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 94,
+    "term": "멍때리다",
+    "pos": "verb",
+    "meaningEn": "To space out, zone out, or blank your mind, often without purpose.",
+    "romaja": "meongttaerida",
+    "exampleKo": "요즘 너무 피곤해서 자꾸 멍때리게 돼. 정신이 없어.",
+    "exampleEn": "I'm so tired these days that I keep spacing out. My mind is just blank.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 95,
+    "term": "광클",
+    "pos": "noun",
+    "meaningEn": "Frantic, lightning-fast clicking, often done to secure tickets or limited items online.",
+    "romaja": "gwangkeul",
+    "exampleKo": "콘서트 티켓 광클 성공했어! 드디어 갈 수 있다니!",
+    "exampleEn": "I succeeded in frantic clicking for the concert tickets! I can finally go!",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 96,
+    "term": "좋댓구알",
+    "pos": "phrase",
+    "meaningEn": "'Like, comment, subscribe, and turn on notifications' — a common call to action for content creators.",
+    "romaja": "jotdaetgual",
+    "exampleKo": "제 채널 영상이 좋았다면 좋댓구알 부탁드립니다!",
+    "exampleEn": "If you liked my channel's video, please like, comment, subscribe, and turn on notifications!",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 97,
+    "term": "짱",
+    "pos": "adjective",
+    "meaningEn": "The best; awesome; fantastic. Used as an intensifier to express strong approval.",
+    "romaja": "jjang",
+    "exampleKo": "와, 오늘 너 패션 완전 짱인데? 너무 멋지다!",
+    "exampleEn": "Wow, your fashion today is totally awesome, isn't it? So cool!",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 98,
+    "term": "개꿀",
+    "pos": "adjective",
+    "meaningEn": "Super sweet; awesome; a great, easy deal or situation.",
+    "romaja": "gaekkul",
+    "exampleKo": "오늘 시험 완전 개꿀이었다. 벼락치기 안 해도 되겠어.",
+    "exampleEn": "Today's exam was super easy. I guess I don't even need to cram.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 99,
+    "term": "핵",
+    "pos": "prefix",
+    "meaningEn": "A 'super' or 'ultra' intensifier prefix, meaning extremely or tremendously.",
+    "romaja": "haek",
+    "exampleKo": "주말에 본 영화 핵꿀잼이었어. 너도 꼭 봐봐.",
+    "exampleEn": "The movie I saw this weekend was super fun. You should definitely watch it too.",
+    "category": "트렌드·밈"
+  },
+  {
+    "rank": 100,
+    "term": "갓",
+    "pos": "prefix",
+    "meaningEn": "A 'god-tier' intensifier prefix, used to praise something as exceptional or perfect.",
+    "romaja": "gat",
+    "exampleKo": "이번에 출시된 스마트폰 진짜 갓성비 대박이다.",
+    "exampleEn": "The smartphone that just came out has truly amazing god-tier value for money.",
+    "category": "트렌드·밈"
+  }
+]

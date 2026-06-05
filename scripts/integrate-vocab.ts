@@ -249,6 +249,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'en',
     targetLanguage: 'ko',
   },
+  krslang: {
+    id: 'curated-krslang-ko-1',
+    title: 'Korean Gen-Z & MZ Slang 100',
+    icon: '💬',
+    category: '문화',
+    level: 'intermediate',
+    description: 'Real Korean Gen-Z / MZ slang you\'ll see all over Korean social media, K-dramas, and chats — 인싸, 갓생, 썸, 꿀잼, 가즈아 and more across reactions, social types, lifestyle, dating, abbreviations & memes. Korean→English; meanings & casual examples AI-generated.',
+    tags: ['Korean', 'Slang', 'MZ'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'en',
+  },
 };
 
 const meta = META[LIST_NAME];

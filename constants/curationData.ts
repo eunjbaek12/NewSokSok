@@ -2,6 +2,1721 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-krslang-ko-1",
+    "title": "Korean Gen-Z & MZ Slang 100",
+    "icon": "💬",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "Real Korean Gen-Z / MZ slang you'll see all over Korean social media, K-dramas, and chats — 인싸, 갓생, 썸, 꿀잼, 가즈아 and more across reactions, social types, lifestyle, dating, abbreviations & memes. Korean→English; meanings & casual examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1780637880220,
+    "words": [
+      {
+        "id": "word-krslang-0-1780637880220",
+        "term": "헐",
+        "definition": "OMG!",
+        "meaningKr": "OMG!",
+        "exampleEn": "헐, 진짜? 그게 가능하다고? 대박이다!",
+        "exampleKr": "OMG, really? That's possible? That's amazing!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "heol",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-1-1780637880220",
+        "term": "대박",
+        "definition": "Awesome!",
+        "meaningKr": "Awesome!",
+        "exampleEn": "오늘 콘서트 진짜 대박이었어! 무대 연출 미쳤다!",
+        "exampleKr": "Today's concert was seriously awesome! The stage production was insane!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "daebak",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-2-1780637880220",
+        "term": "미쳤다",
+        "definition": "That's insane!",
+        "meaningKr": "That's insane!",
+        "exampleEn": "야, 저 영상 봤어? 진짜 미쳤다! 대박이야.",
+        "exampleKr": "Hey, did you see that video? It's seriously insane! So amazing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "michyeotta",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-3-1780637880220",
+        "term": "실화냐",
+        "definition": "Is this for real?",
+        "meaningKr": "Is this for real?",
+        "exampleEn": "벌써 품절이라고? 실화냐? 나 아직 못 샀는데.",
+        "exampleKr": "It's already sold out? Is this for real? I haven't bought it yet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "silhwanya",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-4-1780637880220",
+        "term": "레전드",
+        "definition": "Legendary; an iconic moment or thing",
+        "meaningKr": "Legendary; an iconic moment or thing",
+        "exampleEn": "어제 우리 팀 경기 봤어? 마지막 골은 진짜 레전드였어.",
+        "exampleKr": "Did you see our team's game yesterday? That last goal was truly legendary.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "rejeondeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-5-1780637880220",
+        "term": "ㅇㅈ",
+        "definition": "Agreed; Facts",
+        "meaningKr": "Agreed; Facts",
+        "exampleEn": "이거 진짜 맛있지 않아? ㅇㅈ? 완전 꿀맛이야.",
+        "exampleKr": "Isn't this seriously delicious? Agreed? It's super yummy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "injeong",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-6-1780637880220",
+        "term": "ㄹㅇ",
+        "definition": "For real; Seriously",
+        "meaningKr": "For real; Seriously",
+        "exampleEn": "오늘 날씨 ㄹㅇ 좋지 않아? 나들이 가고 싶다.",
+        "exampleKr": "Isn't the weather seriously nice today? I want to go on a picnic.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "rieol",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-7-1780637880220",
+        "term": "갓벽",
+        "definition": "Flawlessly perfect; Divinely perfect",
+        "meaningKr": "Flawlessly perfect; Divinely perfect",
+        "exampleEn": "새로 나온 아이돌 앨범 들어봤어? 컨셉부터 갓벽이야.",
+        "exampleKr": "Have you heard the new idol album? From the concept, it's flawlessly perfect.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gatbyeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-8-1780637880220",
+        "term": "띵작",
+        "definition": "A masterpiece; A classic",
+        "meaningKr": "A masterpiece; A classic",
+        "exampleEn": "이 웹툰 진짜 띵작이니까 꼭 봐봐! 후회 안 할 걸.",
+        "exampleKr": "This webtoon is a real masterpiece, so definitely check it out! You won't regret it.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ddingjak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-9-1780637880220",
+        "term": "꿀잼",
+        "definition": "Super fun; A blast",
+        "meaningKr": "Super fun; A blast",
+        "exampleEn": "어제 친구들이랑 보드게임 했는데 완전 꿀잼이었어!",
+        "exampleKr": "I played board games with friends yesterday and it was super fun!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkuljaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-10-1780637880220",
+        "term": "노잼",
+        "definition": "Boring; No fun",
+        "meaningKr": "Boring; No fun",
+        "exampleEn": "그 영화 너무 노잼이라 중간에 나왔어. 돈 아까워.",
+        "exampleKr": "That movie was so boring I left halfway through. Such a waste of money.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nojaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-11-1780637880220",
+        "term": "쩐다",
+        "definition": "That's dope/killer; Extremely impressive",
+        "meaningKr": "That's dope/killer; Extremely impressive",
+        "exampleEn": "와, 저 사람 기타 연주하는 거 봤어? 진짜 쩐다!",
+        "exampleKr": "Wow, did you see that person playing guitar? That's seriously dope!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjeonda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-12-1780637880220",
+        "term": "소오름",
+        "definition": "Goosebumps; Chills",
+        "meaningKr": "Goosebumps; Chills",
+        "exampleEn": "그 노래 라이브로 들었는데 소오름 돋았어. 진짜 감동.",
+        "exampleKr": "I heard that song live and got goosebumps. It was truly moving.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sooreum",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-13-1780637880220",
+        "term": "무야호",
+        "definition": "Woohoo!; Yippee! (A joyful cheer)",
+        "meaningKr": "Woohoo!; Yippee! (A joyful cheer)",
+        "exampleEn": "드디어 금요일이다! 무야호! 주말에 뭐 할까?",
+        "exampleKr": "It's finally Friday! Woohoo! What should we do this weekend?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "muyaho",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-14-1780637880220",
+        "term": "1도 없다",
+        "definition": "None at all; Zero",
+        "meaningKr": "None at all; Zero",
+        "exampleEn": "그 사람 말은 1도 안 믿겨. 다 거짓말 같아.",
+        "exampleKr": "I don't believe a single word that person says. It all seems like lies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "il-do eopda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-15-1780637880220",
+        "term": "인싸",
+        "definition": "An insider; A popular, socially active person",
+        "meaningKr": "An insider; A popular, socially active person",
+        "exampleEn": "그 친구는 완전 인싸라서 아는 사람이 진짜 많아.",
+        "exampleKr": "That friend is a total social butterfly, they know so many people.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "inssa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-16-1780637880220",
+        "term": "아싸",
+        "definition": "An outsider; A loner who keeps to themselves",
+        "meaningKr": "An outsider; A loner who keeps to themselves",
+        "exampleEn": "나는 집에서 혼자 노는 게 좋아서 아싸에 가까워.",
+        "exampleKr": "I prefer playing alone at home, so I'm closer to being a loner.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "assa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-17-1780637880220",
+        "term": "핵인싸",
+        "definition": "A super-insider; An ultra-popular social butterfly",
+        "meaningKr": "A super-insider; An ultra-popular social butterfly",
+        "exampleEn": "우리 과에 핵인싸 한 명 있는데, 모르는 사람이 없어.",
+        "exampleKr": "There's one super-insider in our major; everyone knows them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "haeginssa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-18-1780637880220",
+        "term": "찐",
+        "definition": "Real; Genuine; The real deal",
+        "meaningKr": "Real; Genuine; The real deal",
+        "exampleEn": "그 사람은 찐팬이라서 굿즈도 엄청 많이 모았더라.",
+        "exampleKr": "That person is a real fan, they collected so much merchandise.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "j-jin",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-19-1780637880220",
+        "term": "찐텐",
+        "definition": "Genuine excitement; Real, unforced high energy",
+        "meaningKr": "Genuine excitement; Real, unforced high energy",
+        "exampleEn": "무대 위에서 아이돌들 찐텐으로 즐기는 모습 너무 보기 좋더라.",
+        "exampleKr": "It was so great to see the idols genuinely enjoying themselves on stage with real high energy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjinten",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-20-1780637880220",
+        "term": "만렙",
+        "definition": "Max level; An expert who's totally mastered something",
+        "meaningKr": "Max level; An expert who's totally mastered something",
+        "exampleEn": "와, 이 게임 벌써 만렙 찍었어? 너 진짜 만렙 능력자다!",
+        "exampleKr": "Wow, you already reached max level in this game? You're a true master!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "manrep",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-21-1780637880220",
+        "term": "능력자",
+        "definition": "A super-capable, skilled person who gets things done",
+        "meaningKr": "A super-capable, skilled person who gets things done",
+        "exampleEn": "우리 팀 막내가 사실 능력자였어. 일 처리 진짜 빨라.",
+        "exampleKr": "Our team's youngest member was actually a super-capable person. They get things done really fast.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "neungnyeokja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-22-1780637880220",
+        "term": "갓생",
+        "definition": "A 'god life'; A disciplined, productive, admirable lifestyle",
+        "meaningKr": "A 'god life'; A disciplined, productive, admirable lifestyle",
+        "exampleEn": "이번 년 목표는 갓생 살기야! 매일 운동하고 공부할 거야.",
+        "exampleKr": "My goal this year is to live a 'god life'! I'm going to exercise and study every day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gatsaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-23-1780637880220",
+        "term": "분위기 메이커",
+        "definition": "The mood-maker; The life of the party",
+        "meaningKr": "The mood-maker; The life of the party",
+        "exampleEn": "우리 모임에는 항상 분위기 메이커가 있어야 더 재밌어.",
+        "exampleKr": "Our gatherings are always more fun when there's a mood-maker.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bunwigi meikeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-24-1780637880220",
+        "term": "TMT",
+        "definition": "Too much talker; Someone who talks excessively",
+        "meaningKr": "Too much talker; Someone who talks excessively",
+        "exampleEn": "걔는 진짜 TMT라서 한번 말 시작하면 끝이 없어.",
+        "exampleKr": "That person is a real TMT, once they start talking, there's no end.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ti-em-ti",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-25-1780637880220",
+        "term": "답정너",
+        "definition": "Someone who already knows the answer they want to hear and just wants you to confirm it.",
+        "meaningKr": "Someone who already knows the answer they want to hear and just wants you to confirm it.",
+        "exampleEn": "야, 너 진짜 답정너다. 내가 뭐라고 대답해주길 바라는 거야?",
+        "exampleKr": "Hey, you're such a 'dapjeongneo.' What answer do you want me to give you?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dapjeongneo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-26-1780637880220",
+        "term": "관종",
+        "definition": "An attention-seeker; someone who craves attention.",
+        "meaningKr": "An attention-seeker; someone who craves attention.",
+        "exampleEn": "쟤 또 관종짓 하네. 관심받고 싶어서 안달났나봐.",
+        "exampleKr": "There they go again, being an attention-seeker. They must be desperate for attention.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gwanjong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-27-1780637880220",
+        "term": "프로불편러",
+        "definition": "A 'professional complainer' or 'professional discomforter'; someone who easily finds things to be offended by or complain about.",
+        "meaningKr": "A 'professional complainer' or 'professional discomforter'; someone who easily finds things to be offended by or complain about.",
+        "exampleEn": "걔는 진짜 프로불편러야. 뭘 해도 다 불편해하는 것 같아.",
+        "exampleKr": "They're a real 'professional complainer.' It seems like everything makes them uncomfortable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "peurobulpyeonreo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-28-1780637880220",
+        "term": "모쏠",
+        "definition": "Someone who has been single their entire life and has never dated anyone; a 'lifetime solo'.",
+        "meaningKr": "Someone who has been single their entire life and has never dated anyone; a 'lifetime solo'.",
+        "exampleEn": "친구 중에 모쏠이 많아서 다 같이 솔로 파티했어.",
+        "exampleKr": "I have a lot of friends who've never dated, so we all had a solo party together.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "molsol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-29-1780637880220",
+        "term": "금사빠",
+        "definition": "Someone who falls in love quickly and easily; a 'quick-to-fall-in-love person'.",
+        "meaningKr": "Someone who falls in love quickly and easily; a 'quick-to-fall-in-love person'.",
+        "exampleEn": "걔는 완전 금사빠라니까. 또 새로운 사람한테 푹 빠진 것 같아.",
+        "exampleKr": "They're totally a 'quick-to-fall-in-love person.' It seems like they've fallen for someone new again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "geumsappa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-30-1780637880220",
+        "term": "워라밸",
+        "definition": "Work-life balance; the state of having a healthy balance between work and personal life.",
+        "meaningKr": "Work-life balance; the state of having a healthy balance between work and personal life.",
+        "exampleEn": "요즘 회사 워라밸 너무 좋아서 행복해. 퇴근하고 바로 운동 가!",
+        "exampleKr": "My company's work-life balance is so good these days, I'm happy. I go straight to work out after leaving work!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "worabel",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-31-1780637880220",
+        "term": "가성비",
+        "definition": "Value for money; bang for the buck, meaning good performance or quality relative to its price.",
+        "meaningKr": "Value for money; bang for the buck, meaning good performance or quality relative to its price.",
+        "exampleEn": "이 식당 진짜 가성비 최고야. 맛도 좋고 양도 많아.",
+        "exampleKr": "This restaurant offers amazing value for money. The food's good and the portions are big.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gaseongbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-32-1780637880220",
+        "term": "가심비",
+        "definition": "Value for emotional satisfaction; buying something that brings personal happiness or fulfillment, regardless of its objective cost-effectiveness.",
+        "meaningKr": "Value for emotional satisfaction; buying something that brings personal happiness or fulfillment, regardless of its objective cost-effectiveness.",
+        "exampleEn": "가심비 좋은 물건이라 비싸도 후회 안 해. 나한테 주는 선물이야.",
+        "exampleKr": "It's a product with great emotional value, so I don't regret it even if it's expensive. It's a gift to myself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gasimbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-33-1780637880220",
+        "term": "갓성비",
+        "definition": "Amazing, 'god-tier' value for money; exceptionally good performance or quality relative to its price.",
+        "meaningKr": "Amazing, 'god-tier' value for money; exceptionally good performance or quality relative to its price.",
+        "exampleEn": "와, 이 노트북 갓성비 미쳤다! 이 가격에 이런 사양이라니.",
+        "exampleKr": "Wow, this laptop has insane 'god-tier' value for money! These specs for this price?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gasseongbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-34-1780637880220",
+        "term": "오운완",
+        "definition": "An initialism used to declare 'today's workout done' or 'finished my workout for today,' often posted with a gym selfie.",
+        "meaningKr": "An initialism used to declare 'today's workout done' or 'finished my workout for today,' often posted with a gym selfie.",
+        "exampleEn": "드디어 오운완! 힘들어 죽는 줄 알았어.",
+        "exampleKr": "Finally, today's workout done! I thought I was going to die.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ounwan",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-35-1780637880220",
+        "term": "플렉스",
+        "definition": "To flex; to splurge on something expensive and show it off, especially money or luxury items.",
+        "meaningKr": "To flex; to splurge on something expensive and show it off, especially money or luxury items.",
+        "exampleEn": "오늘 월급 받아서 명품 가방 플렉스 했어!",
+        "exampleKr": "I got paid today so I flexed with a luxury bag!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "peullekseu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-36-1780637880220",
+        "term": "영끌",
+        "definition": "Scraping together every last penny or resource, often to make a significant purchase like a home or investment; 'soul-squeezing'.",
+        "meaningKr": "Scraping together every last penny or resource, often to make a significant purchase like a home or investment; 'soul-squeezing'.",
+        "exampleEn": "요즘 집 살 때 영끌해서 사는 게 기본이 되었어.",
+        "exampleKr": "These days, when buying a house, it's become standard to gather every last penny.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yeongkkeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-37-1780637880220",
+        "term": "짠테크",
+        "definition": "A frugal money-saving lifestyle that involves being very stingy and creative with finances; 'stingy tech/finance'.",
+        "meaningKr": "A frugal money-saving lifestyle that involves being very stingy and creative with finances; 'stingy tech/finance'.",
+        "exampleEn": "나 요즘 짠테크 중이야. 한 푼이라도 아끼려고 노력하고 있어.",
+        "exampleKr": "I'm doing 'stingy tech' these days. I'm trying to save every penny.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjantecheu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-38-1780637880220",
+        "term": "탕진잼",
+        "definition": "The fun or joy of blowing money on small, often unnecessary, everyday treats or impulse buys.",
+        "meaningKr": "The fun or joy of blowing money on small, often unnecessary, everyday treats or impulse buys.",
+        "exampleEn": "소소하게 탕진잼 누리는 중. 이 맛에 돈 벌지!",
+        "exampleKr": "I'm enjoying a little 'squandering fun'. This is why I earn money!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tangjinjaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-39-1780637880220",
+        "term": "멍청비용",
+        "definition": "Money wasted due to one's own carelessness, forgetfulness, or poor judgment; a 'dumb tax'.",
+        "meaningKr": "Money wasted due to one's own carelessness, forgetfulness, or poor judgment; a 'dumb tax'.",
+        "exampleEn": "어제 택시 타고 갔어야 했는데, 멍청비용 또 썼네.",
+        "exampleKr": "I should've taken a taxi yesterday, but I spent 'dumb tax' again.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "meongcheongbiyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-40-1780637880220",
+        "term": "욜로",
+        "definition": "YOLO; You Only Live Once, an acronym used to justify enjoying the present moment and living life to the fullest, often involving spending.",
+        "meaningKr": "YOLO; You Only Live Once, an acronym used to justify enjoying the present moment and living life to the fullest, often involving spending.",
+        "exampleEn": "욜로! 일단 즐기고 보는 거지 뭐.",
+        "exampleKr": "YOLO! Just enjoy it for now, you know?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yollo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-41-1780637880220",
+        "term": "칼퇴",
+        "definition": "Leaving work exactly on time, not a minute late; 'knife-like departure'.",
+        "meaningKr": "Leaving work exactly on time, not a minute late; 'knife-like departure'.",
+        "exampleEn": "나 오늘 칼퇴하고 바로 약속 있어. 후딱 마무리해야지.",
+        "exampleKr": "I have plans right after leaving work exactly on time today. Gotta finish quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kaltoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-42-1780637880220",
+        "term": "점메추",
+        "definition": "An initialism asking for a 'lunch menu recommendation'.",
+        "meaningKr": "An initialism asking for a 'lunch menu recommendation'.",
+        "exampleEn": "얘들아, 오늘 점메추 좀! 뭐 먹을지 고민돼.",
+        "exampleKr": "Guys, any lunch menu recommendations for today? I can't decide what to eat.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jeommechyu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-43-1780637880220",
+        "term": "저메추",
+        "definition": "An initialism asking for a 'dinner menu recommendation'.",
+        "meaningKr": "An initialism asking for a 'dinner menu recommendation'.",
+        "exampleEn": "퇴근하고 뭐 먹지? 저메추 해주라!",
+        "exampleKr": "What should I eat after work? Recommend me a dinner menu!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jeomechyu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-44-1780637880220",
+        "term": "혼밥",
+        "definition": "Eating alone; solo dining.",
+        "meaningKr": "Eating alone; solo dining.",
+        "exampleEn": "오늘 저녁은 혼밥할 건데, 맛집 추천해 줄 사람?",
+        "exampleKr": "I'm eating alone for dinner tonight, anyone recommend a good restaurant?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "honbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-45-1780637880220",
+        "term": "혼술",
+        "definition": "Drinking alone; solo drinking.",
+        "meaningKr": "Drinking alone; solo drinking.",
+        "exampleEn": "오늘 힘든 일이 있어서 집에서 혼술 좀 해야겠어.",
+        "exampleKr": "I had a tough day today, so I think I need to drink alone at home.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "honsul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-46-1780637880220",
+        "term": "얼죽아",
+        "definition": "An initialism for 'iced americano even if I freeze to death,' referring to someone who always drinks iced americano regardless of the weather.",
+        "meaningKr": "An initialism for 'iced americano even if I freeze to death,' referring to someone who always drinks iced americano regardless of the weather.",
+        "exampleEn": "날씨 추운데도 얼죽아 정신으로 아이스 아메리카노 마셨어.",
+        "exampleKr": "Even though the weather's cold, I drank an iced americano with that 'iced americano even if I freeze to death' spirit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "eoljuga",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-47-1780637880220",
+        "term": "꿀팁",
+        "definition": "A great, handy, or extremely useful tip or piece of advice; a 'honey tip'.",
+        "meaningKr": "A great, handy, or extremely useful tip or piece of advice; a 'honey tip'.",
+        "exampleEn": "이거 진짜 꿀팁인데, 너한테만 알려주는 거야.",
+        "exampleKr": "This is a real 'honey tip', I'm only telling you.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkultip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-48-1780637880220",
+        "term": "국룰",
+        "definition": "The universal rule everyone follows; an unspoken standard or common practice that's widely accepted; 'national rule'.",
+        "meaningKr": "The universal rule everyone follows; an unspoken standard or common practice that's widely accepted; 'national rule'.",
+        "exampleEn": "떡볶이 먹을 땐 쿨피스 마시는 게 국룰 아니겠어?",
+        "exampleKr": "Isn't it a 'national rule' to drink Coolpis when you eat tteokbokki?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gungnyul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-49-1780637880220",
+        "term": "썸",
+        "definition": "A budding romance; the 'talking stage' or 'something' between two people who are interested in each other but not officially dating.",
+        "meaningKr": "A budding romance; the 'talking stage' or 'something' between two people who are interested in each other but not officially dating.",
+        "exampleEn": "쟤랑 나랑 요즘 썸 타는 중이야. 어떻게 될지 궁금하다.",
+        "exampleKr": "We're in the 'talking stage' these days. I wonder what will happen.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sseom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-50-1780637880220",
+        "term": "썸타다",
+        "definition": "To be in the early, flirty \"talking stage\" with someone; to have romantic chemistry with someone before officially dating.",
+        "meaningKr": "To be in the early, flirty \"talking stage\" with someone; to have romantic chemistry with someone before officially dating.",
+        "exampleEn": "요즘 나 쟤랑 썸타는 것 같아! 우리 사귀게 될까?",
+        "exampleKr": "I think I'm in the talking stage with them these days! Will we start dating?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sseomtada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-51-1780637880220",
+        "term": "케미",
+        "definition": "Chemistry; great rapport or natural connection between two people, especially in a romantic or friendship context.",
+        "meaningKr": "Chemistry; great rapport or natural connection between two people, especially in a romantic or friendship context.",
+        "exampleEn": "와, 너네 둘이 케미 진짜 좋다! 완전 잘 어울려.",
+        "exampleKr": "Wow, you two have great chemistry! You match so well.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kemi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-52-1780637880220",
+        "term": "읽씹",
+        "definition": "The act of reading a message and intentionally not replying; to leave someone on read.",
+        "meaningKr": "The act of reading a message and intentionally not replying; to leave someone on read.",
+        "exampleEn": "걔 내 메시지 또 읽씹했어. 완전 얄밉다!",
+        "exampleKr": "They left my message on read again. So annoying!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ikssip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-53-1780637880220",
+        "term": "안읽씹",
+        "definition": "The act of not even opening a message and intentionally ignoring it; to completely ghost a message.",
+        "meaningKr": "The act of not even opening a message and intentionally ignoring it; to completely ghost a message.",
+        "exampleEn": "얘가 내 톡을 아예 안읽씹하네. 진짜 너무한 거 아니야?",
+        "exampleKr": "They're not even opening my message. Isn't that too much?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "anikssip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-54-1780637880220",
+        "term": "손절",
+        "definition": "To cut someone off; to end a relationship (friendship, business, etc.) abruptly and completely to avoid further loss or hassle.",
+        "meaningKr": "To cut someone off; to end a relationship (friendship, business, etc.) abruptly and completely to avoid further loss or hassle.",
+        "exampleEn": "걔 자꾸 나한테 피해만 줘서 결국 손절했어.",
+        "exampleKr": "They kept causing me trouble, so I finally cut them off.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sonjeol",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-55-1780637880220",
+        "term": "내로남불",
+        "definition": "A double standard; \"romance when I do it, an affair when others do it.\" Hypocrisy where one judges others by a stricter standard than oneself.",
+        "meaningKr": "A double standard; \"romance when I do it, an affair when others do it.\" Hypocrisy where one judges others by a stricter standard than oneself.",
+        "exampleEn": "자기 할 땐 괜찮고 남이 하면 안 된대. 완전 내로남불 아니야?",
+        "exampleKr": "When they do it, it's fine, but when others do it, it's not. Isn't that a total double standard?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "naeroneambul",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-56-1780637880220",
+        "term": "낄끼빠빠",
+        "definition": "Know when to join in and when to back off; to \"read the room\" and act appropriately in social situations.",
+        "meaningKr": "Know when to join in and when to back off; to \"read the room\" and act appropriately in social situations.",
+        "exampleEn": "야, 쟤는 진짜 낄끼빠빠를 너무 못해. 분위기 흐리네.",
+        "exampleKr": "Hey, they really don't know when to join in and when to back off. They're ruining the mood.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkilkkibappa",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-57-1780637880220",
+        "term": "자만추",
+        "definition": "Seeking natural encounters; preferring to meet people organically rather than through dating apps or arranged blind dates.",
+        "meaningKr": "Seeking natural encounters; preferring to meet people organically rather than through dating apps or arranged blind dates.",
+        "exampleEn": "나는 데이팅 앱보다 자만추가 더 좋아. 자연스러운 만남이 최고지.",
+        "exampleKr": "I prefer natural encounters over dating apps. Natural meetings are the best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jamanchu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-58-1780637880220",
+        "term": "갑분싸",
+        "definition": "A sudden awkward chill that kills the mood; when the atmosphere suddenly becomes cold or uncomfortable.",
+        "meaningKr": "A sudden awkward chill that kills the mood; when the atmosphere suddenly becomes cold or uncomfortable.",
+        "exampleEn": "걔 농담에 다들 갑분싸 됐어. 진짜 노잼이야.",
+        "exampleKr": "Everyone went quiet after their joke. It really killed the mood.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gapbunssa",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-59-1780637880220",
+        "term": "케바케",
+        "definition": "It depends; case by case; meaning that the outcome or situation varies depending on the specific circumstances.",
+        "meaningKr": "It depends; case by case; meaning that the outcome or situation varies depending on the specific circumstances.",
+        "exampleEn": "그거 되는지 안 되는지는 케바케야. 상황마다 달라.",
+        "exampleKr": "Whether that works or not is case by case. It varies with the situation.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kebabke",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-60-1780637880220",
+        "term": "사바사",
+        "definition": "It varies from person to person; meaning that preferences or outcomes differ depending on the individual.",
+        "meaningKr": "It varies from person to person; meaning that preferences or outcomes differ depending on the individual.",
+        "exampleEn": "그 음식 맛은 사바사야. 어떤 사람은 좋아하고 어떤 사람은 싫어해.",
+        "exampleKr": "The taste of that food varies from person to person. Some like it, some don't.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sabasa",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-61-1780637880220",
+        "term": "만반잘부",
+        "definition": "A shortened, casual greeting meaning \"Nice to meet you, please take care of me well\" or \"Nice to meet you, let's get along.\"",
+        "meaningKr": "A shortened, casual greeting meaning \"Nice to meet you, please take care of me well\" or \"Nice to meet you, let's get along.\"",
+        "exampleEn": "안녕! 새로 온 멤버야. 만반잘부~ 잘 지내보자!",
+        "exampleKr": "Hi! I'm the new member. Nice to meet you, let's get along!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "manbanjalbu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-62-1780637880220",
+        "term": "알잘딱깔센",
+        "definition": "A request to \"handle it well, neatly, and with good sense, on your own\"; implying to take care of something skillfully and appropriately without needing detailed instructions.",
+        "meaningKr": "A request to \"handle it well, neatly, and with good sense, on your own\"; implying to take care of something skillfully and appropriately without needing detailed instructions.",
+        "exampleEn": "그 일은 네가 알잘딱깔센하게 처리해 줘. 믿는다!",
+        "exampleKr": "Please handle that task well and smartly on your own. I trust you!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "aljaltakkkalsen",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-63-1780637880220",
+        "term": "어쩔티비",
+        "definition": "A playful, often dismissive \"whatever, I don't care\" or \"so what?\" brush-off, often used among friends.",
+        "meaningKr": "A playful, often dismissive \"whatever, I don't care\" or \"so what?\" brush-off, often used among friends.",
+        "exampleEn": "나 오늘 시험 망했어. 어쩔티비?",
+        "exampleKr": "I bombed my test today. Whatever, don't care?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "eojjeoltibi",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-64-1780637880220",
+        "term": "별다줄",
+        "definition": "\"You abbreviate literally everything\"; a playful or exasperated remark about someone who shortens too many words or phrases.",
+        "meaningKr": "\"You abbreviate literally everything\"; a playful or exasperated remark about someone who shortens too many words or phrases.",
+        "exampleEn": "요즘 애들은 별다줄이야. 너무 줄임말 많이 써.",
+        "exampleKr": "Kids these days abbreviate literally everything. They use too many acronyms.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "byeoldajul",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-65-1780637880220",
+        "term": "ㄱㄱ",
+        "definition": "\"Let's go,\" \"go go\"; used to urge action or start something.",
+        "meaningKr": "\"Let's go,\" \"go go\"; used to urge action or start something.",
+        "exampleEn": "야, 우리 피시방 ㄱㄱ?",
+        "exampleKr": "Hey, wanna go to the PC bang? Let's go!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gogo",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-66-1780637880220",
+        "term": "ㅇㅋ",
+        "definition": "\"Okay\"; an informal acknowledgment or agreement.",
+        "meaningKr": "\"Okay\"; an informal acknowledgment or agreement.",
+        "exampleEn": "이따 저녁에 봐. ㅇㅋ?",
+        "exampleKr": "See you later tonight. Okay?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "okei",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-67-1780637880220",
+        "term": "ㄴㄴ",
+        "definition": "\"No no,\" \"nope\"; an informal refusal or disagreement.",
+        "meaningKr": "\"No no,\" \"nope\"; an informal refusal or disagreement.",
+        "exampleEn": "밥 먹었어? ㄴㄴ 아직.",
+        "exampleKr": "Did you eat? Nope, not yet.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nono",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-68-1780637880220",
+        "term": "ㅎㅇ",
+        "definition": "\"Hi\"; an informal greeting.",
+        "meaningKr": "\"Hi\"; an informal greeting.",
+        "exampleEn": "ㅎㅇ! 다들 잘 지냈어?",
+        "exampleKr": "Hi! Has everyone been doing well?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hai",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-69-1780637880220",
+        "term": "ㅂㅂ",
+        "definition": "\"Bye bye\"; an informal farewell.",
+        "meaningKr": "\"Bye bye\"; an informal farewell.",
+        "exampleEn": "나 먼저 갈게. ㅂㅂ!",
+        "exampleKr": "I'm gonna head out first. Bye bye!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "baibai",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-70-1780637880220",
+        "term": "ㄱㅅ",
+        "definition": "\"Thanks\"; an informal expression of gratitude.",
+        "meaningKr": "\"Thanks\"; an informal expression of gratitude.",
+        "exampleEn": "도와줘서 ㄱㅅ! 다음에 내가 밥 살게.",
+        "exampleKr": "Thanks for helping! I'll buy you a meal next time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gamsa",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-71-1780637880220",
+        "term": "ㅈㅅ",
+        "definition": "\"Sorry\"; an informal apology.",
+        "meaningKr": "\"Sorry\"; an informal apology.",
+        "exampleEn": "늦어서 ㅈㅅ! 빨리 갈게.",
+        "exampleKr": "Sorry for being late! I'll be there soon.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "joesong",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-72-1780637880220",
+        "term": "ㅊㅋ",
+        "definition": "\"Congrats\"; an informal congratulation.",
+        "meaningKr": "\"Congrats\"; an informal congratulation.",
+        "exampleEn": "시험 합격 ㅊㅋㅊㅋ! 정말 대단하다.",
+        "exampleKr": "Congrats on passing the test! That's really amazing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chuka",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-73-1780637880220",
+        "term": "ㅅㄱ",
+        "definition": "\"Good work,\" \"take care\"; an informal way to acknowledge someone's effort or bid them farewell after work/effort.",
+        "meaningKr": "\"Good work,\" \"take care\"; an informal way to acknowledge someone's effort or bid them farewell after work/effort.",
+        "exampleEn": "오늘 회의 준비하느라 ㅅㄱ 많았어!",
+        "exampleKr": "You worked hard preparing for the meeting today! (or \"Good job today!\")",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sugo",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-74-1780637880220",
+        "term": "TMI",
+        "definition": "Too much information; used when someone shares excessive or unnecessary personal details.",
+        "meaningKr": "Too much information; used when someone shares excessive or unnecessary personal details.",
+        "exampleEn": "방금 내가 말한 거 혹시 TMI였어? 미안!",
+        "exampleKr": "Was what I just said TMI? Sorry!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "TMI",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-75-1780637880220",
+        "term": "오저치고",
+        "definition": "Chicken for dinner tonight?",
+        "meaningKr": "Chicken for dinner tonight?",
+        "exampleEn": "오늘 저녁 뭐 먹지? 오저치고 할래?",
+        "exampleKr": "What should we eat tonight? Chicken for dinner tonight?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ojeochigo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-76-1780637880220",
+        "term": "갑통알",
+        "definition": "Suddenly checked my bank account and realized I need a part-time job.",
+        "meaningKr": "Suddenly checked my bank account and realized I need a part-time job.",
+        "exampleEn": "월급날 멀었는데 벌써 갑통알... 알바 찾아봐야겠다.",
+        "exampleKr": "Payday is so far away, already checked my bank account and realized I need a part-time job... Gotta look for a gig.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gaptongal",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-77-1780637880220",
+        "term": "짤",
+        "definition": "A meme image or reaction picture, often used in texts or online.",
+        "meaningKr": "A meme image or reaction picture, often used in texts or online.",
+        "exampleEn": "이 상황에 딱 맞는 짤이 있는데 보내줄게!",
+        "exampleKr": "I have the perfect meme for this situation, I'll send it to you!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-78-1780637880220",
+        "term": "움짤",
+        "definition": "An animated GIF, a moving meme or reaction picture.",
+        "meaningKr": "An animated GIF, a moving meme or reaction picture.",
+        "exampleEn": "와, 이 움짤 진짜 웃기다. 저장해서 친구들한테 보내야지.",
+        "exampleKr": "Wow, this GIF is really funny. I should save it and send it to my friends.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "umjjal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-79-1780637880220",
+        "term": "어그로",
+        "definition": "Provocative bait or a troll post designed to stir reactions or attention online; 'aggro'.",
+        "meaningKr": "Provocative bait or a troll post designed to stir reactions or attention online; 'aggro'.",
+        "exampleEn": "쟤 왜 자꾸 어그로 끌지? 그냥 무시하는 게 답이야.",
+        "exampleKr": "Why does that person keep trying to bait people? The best response is just to ignore them.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "eogeuro",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-80-1780637880220",
+        "term": "가즈아",
+        "definition": "'Let's gooo!' — a drawn-out cheer of hype, excitement, or encouragement.",
+        "meaningKr": "'Let's gooo!' — a drawn-out cheer of hype, excitement, or encouragement.",
+        "exampleEn": "우리 팀 오늘 경기 이기자! 가즈아!",
+        "exampleKr": "Let's win today's game, team! Let's gooo!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gajeua",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-81-1780637880220",
+        "term": "띵언",
+        "definition": "A great quote or profound words of wisdom, often used playfully.",
+        "meaningKr": "A great quote or profound words of wisdom, often used playfully.",
+        "exampleEn": "와, 방금 네가 한 말 완전 띵언이다. 메모해 놔야겠어.",
+        "exampleKr": "Wow, what you just said is totally words of wisdom. I should write that down.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dding-eon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-82-1780637880220",
+        "term": "갓겜",
+        "definition": "A 'god-tier' or exceptionally excellent video game.",
+        "meaningKr": "A 'god-tier' or exceptionally excellent video game.",
+        "exampleEn": "이번에 새로 나온 게임 해봤어? 완전 갓겜이야!",
+        "exampleKr": "Have you played the new game that just came out? It's a god-tier game!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gatgem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-83-1780637880220",
+        "term": "현타",
+        "definition": "A sudden hit of harsh reality; a moment of deflating clarity or disillusionment.",
+        "meaningKr": "A sudden hit of harsh reality; a moment of deflating clarity or disillusionment.",
+        "exampleEn": "밤새 게임하고 나니 갑자기 현타 와서 현실로 돌아왔어.",
+        "exampleKr": "After playing games all night, I suddenly had a moment of deflating clarity and came back to reality.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hyeonta",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-84-1780637880220",
+        "term": "멘붕",
+        "definition": "A mental breakdown or meltdown; feeling completely overwhelmed or flustered.",
+        "meaningKr": "A mental breakdown or meltdown; feeling completely overwhelmed or flustered.",
+        "exampleEn": "시험 망쳐서 멘붕 왔어. 오늘 하루 종일 아무것도 못 하겠어.",
+        "exampleKr": "I messed up my exam, so I'm having a mental breakdown. I can't do anything all day today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "menbung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-85-1780637880220",
+        "term": "노답",
+        "definition": "Hopeless; having no solution, no answer, or no redeeming qualities.",
+        "meaningKr": "Hopeless; having no solution, no answer, or no redeeming qualities.",
+        "exampleEn": "걔 진짜 노답이다. 어떻게 그렇게 행동할 수 있지?",
+        "exampleKr": "That person is truly hopeless. How can they act like that?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nodap",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-86-1780637880220",
+        "term": "꾸안꾸",
+        "definition": "An effortlessly stylish 'done but not done' look, appearing natural yet put-together.",
+        "meaningKr": "An effortlessly stylish 'done but not done' look, appearing natural yet put-together.",
+        "exampleEn": "오늘 꾸안꾸 스타일로 입었는데 괜찮아 보여?",
+        "exampleKr": "I dressed in an effortlessly stylish 'done but not done' look today, does it look good?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkuankku",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-87-1780637880220",
+        "term": "인생샷",
+        "definition": "The best photo of one's life; a perfect, once-in-a-lifetime picture.",
+        "meaningKr": "The best photo of one's life; a perfect, once-in-a-lifetime picture.",
+        "exampleEn": "와, 여기서 찍은 사진 완전 인생샷 건졌다! 프로필 사진 해야지.",
+        "exampleKr": "Wow, I got the best photo of my life taken here! I should use it as my profile picture.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "insaengsyat",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-88-1780637880220",
+        "term": "인생네컷",
+        "definition": "A four-cut photo booth picture, a popular type of photo booth for friends.",
+        "meaningKr": "A four-cut photo booth picture, a popular type of photo booth for friends.",
+        "exampleEn": "오랜만에 친구랑 인생네컷 찍었는데 너무 재밌었어!",
+        "exampleKr": "It's been a while since I took a four-cut photo booth picture with my friend, it was so much fun!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "insaengnekeot",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-89-1780637880220",
+        "term": "핫플",
+        "definition": "A hot, trendy spot or popular place; a 'hot place'.",
+        "meaningKr": "A hot, trendy spot or popular place; a 'hot place'.",
+        "exampleEn": "주말에 새로 생긴 핫플 같이 가볼래?",
+        "exampleKr": "Want to go to that new trendy spot together this weekend?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hatpeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-90-1780637880220",
+        "term": "맛집",
+        "definition": "A famously delicious restaurant or a popular foodie hotspot.",
+        "meaningKr": "A famously delicious restaurant or a popular foodie hotspot.",
+        "exampleEn": "이 근처에 엄청 유명한 맛집 있는데, 점심 거기서 먹을까?",
+        "exampleKr": "There's a super famous foodie hotspot near here, should we have lunch there?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "matjip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-91-1780637880220",
+        "term": "직관",
+        "definition": "Watching a game or performance live in person, rather than on a screen.",
+        "meaningKr": "Watching a game or performance live in person, rather than on a screen.",
+        "exampleEn": "어제 콘서트 직관 다녀왔는데 진짜 너무 감동적이었어.",
+        "exampleKr": "I went to watch the concert live yesterday, and it was truly so moving.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jikgwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-92-1780637880220",
+        "term": "불멍",
+        "definition": "Zoning out or spacing out while staring at a fire, finding it relaxing and calming.",
+        "meaningKr": "Zoning out or spacing out while staring at a fire, finding it relaxing and calming.",
+        "exampleEn": "캠핑 가서 불멍 때리니까 너무 힐링된다.",
+        "exampleKr": "Just zoning out while staring at the fire during camping is so healing.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bulmeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-93-1780637880220",
+        "term": "멍때리다",
+        "definition": "To space out, zone out, or blank your mind, often without purpose.",
+        "meaningKr": "To space out, zone out, or blank your mind, often without purpose.",
+        "exampleEn": "요즘 너무 피곤해서 자꾸 멍때리게 돼. 정신이 없어.",
+        "exampleKr": "I'm so tired these days that I keep spacing out. My mind is just blank.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "meongttaerida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-94-1780637880220",
+        "term": "광클",
+        "definition": "Frantic, lightning-fast clicking, often done to secure tickets or limited items online.",
+        "meaningKr": "Frantic, lightning-fast clicking, often done to secure tickets or limited items online.",
+        "exampleEn": "콘서트 티켓 광클 성공했어! 드디어 갈 수 있다니!",
+        "exampleKr": "I succeeded in frantic clicking for the concert tickets! I can finally go!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gwangkeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-95-1780637880220",
+        "term": "좋댓구알",
+        "definition": "'Like, comment, subscribe, and turn on notifications' — a common call to action for content creators.",
+        "meaningKr": "'Like, comment, subscribe, and turn on notifications' — a common call to action for content creators.",
+        "exampleEn": "제 채널 영상이 좋았다면 좋댓구알 부탁드립니다!",
+        "exampleKr": "If you liked my channel's video, please like, comment, subscribe, and turn on notifications!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jotdaetgual",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-96-1780637880220",
+        "term": "짱",
+        "definition": "The best; awesome; fantastic. Used as an intensifier to express strong approval.",
+        "meaningKr": "The best; awesome; fantastic. Used as an intensifier to express strong approval.",
+        "exampleEn": "와, 오늘 너 패션 완전 짱인데? 너무 멋지다!",
+        "exampleKr": "Wow, your fashion today is totally awesome, isn't it? So cool!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjang",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-97-1780637880220",
+        "term": "개꿀",
+        "definition": "Super sweet; awesome; a great, easy deal or situation.",
+        "meaningKr": "Super sweet; awesome; a great, easy deal or situation.",
+        "exampleEn": "오늘 시험 완전 개꿀이었다. 벼락치기 안 해도 되겠어.",
+        "exampleKr": "Today's exam was super easy. I guess I don't even need to cram.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gaekkul",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-98-1780637880220",
+        "term": "핵",
+        "definition": "A 'super' or 'ultra' intensifier prefix, meaning extremely or tremendously.",
+        "meaningKr": "A 'super' or 'ultra' intensifier prefix, meaning extremely or tremendously.",
+        "exampleEn": "주말에 본 영화 핵꿀잼이었어. 너도 꼭 봐봐.",
+        "exampleKr": "The movie I saw this weekend was super fun. You should definitely watch it too.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "haek",
+        "pos": "prefix"
+      },
+      {
+        "id": "word-krslang-99-1780637880220",
+        "term": "갓",
+        "definition": "A 'god-tier' intensifier prefix, used to praise something as exceptional or perfect.",
+        "meaningKr": "A 'god-tier' intensifier prefix, used to praise something as exceptional or perfect.",
+        "exampleEn": "이번에 출시된 스마트폰 진짜 갓성비 대박이다.",
+        "exampleKr": "The smartphone that just came out has truly amazing god-tier value for money.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gat",
+        "pos": "prefix"
+      }
+    ]
+  },
+{
     "id": "curated-mzslang-en-1",
     "title": "미국 MZ·Z세대 슬랭 100",
     "icon": "😎",

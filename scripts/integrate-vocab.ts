@@ -238,6 +238,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  mzslang: {
+    id: 'curated-mzslang-en-1',
+    title: '미국 MZ·Z세대 슬랭 100',
+    icon: '😎',
+    category: '문화',
+    level: 'intermediate',
+    description: '미국 MZ·Z세대가 실제로 쓰는 SNS·일상 슬랭 100 — slay, no cap, rizz, vibe, GOAT 등 감탄·칭찬·관계·바이브·밈까지. 자극적이지 않은 재미 위주로 엄선. 영어→한국어; 뜻·캐주얼 예문 AI 생성.',
+    tags: ['English', 'Slang', 'MZ'],
+    sourceLanguage: 'en',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];

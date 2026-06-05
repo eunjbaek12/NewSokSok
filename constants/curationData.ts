@@ -2,6 +2,1721 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-mzslang-en-1",
+    "title": "미국 MZ·Z세대 슬랭 100",
+    "icon": "😎",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "미국 MZ·Z세대가 실제로 쓰는 SNS·일상 슬랭 100 — slay, no cap, rizz, vibe, GOAT 등 감탄·칭찬·관계·바이브·밈까지. 자극적이지 않은 재미 위주로 엄선. 영어→한국어; 뜻·캐주얼 예문 AI 생성.",
+    "sourceLanguage": "en",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1780591484391,
+    "words": [
+      {
+        "id": "word-mzslang-0-1780591484391",
+        "term": "slay",
+        "definition": "to do something exceptionally well or look amazing; 'you did great!'",
+        "meaningKr": "끝내주게 잘하다, 완벽하게 해내다; 아주 멋지게 보이다.",
+        "exampleEn": "Your new hairstyle slays! You look absolutely amazing today, seriously.",
+        "exampleKr": "너 새 헤어스타일 진짜 슬레이! 오늘 완전 멋져 보여, 진심이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "슬레이",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-1-1780591484391",
+        "term": "bet",
+        "definition": "an expression of agreement or confirmation; 'okay, deal' / 'sure thing'",
+        "meaningKr": "좋아, 알았어; 당연하지, 콜! (동의나 확인의 표현)",
+        "exampleEn": "Wanna grab coffee after class? Bet, I'll meet you by the library entrance.",
+        "exampleKr": "수업 끝나고 커피 마실래? 벳, 도서관 입구에서 보자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "벳",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mzslang-2-1780591484391",
+        "term": "no cap",
+        "definition": "no lie; for real, I'm being totally honest",
+        "meaningKr": "뻥 아냐, 진짜야; 거짓말 없이 완전 솔직히 말하는 거야.",
+        "exampleEn": "This is the best pizza I've ever had, no cap. You gotta try a slice.",
+        "exampleKr": "내가 먹어본 피자 중에 최고야, 노 캡. 한 조각 꼭 먹어봐야 해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "노 캡",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-3-1780591484391",
+        "term": "cap",
+        "definition": "a lie; 'that's cap' means that's false",
+        "meaningKr": "거짓말, 허풍. ('That's cap'은 '그거 거짓말이야'라는 뜻.)",
+        "exampleEn": "You got a perfect score on the exam? Nah, that's definitely cap, I saw you stressing.",
+        "exampleKr": "시험 만점 받았다고? 에이, 완전 캡이다, 너 스트레스 받는 거 봤는데.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "캡",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-4-1780591484391",
+        "term": "fr",
+        "definition": "short for 'for real'; expressing sincerity or strong agreement",
+        "meaningKr": "진심으로, 진짜로; 정말 동의하거나 진실임을 강조할 때.",
+        "exampleEn": "This concert was amazing, fr! Best night ever, I had so much fun.",
+        "exampleKr": "이 콘서트 진짜 대박이었어, fr! 최고의 밤이었고, 완전 신났어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "에프알",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-5-1780591484391",
+        "term": "deadass",
+        "definition": "seriously; I really mean it, I'm not joking",
+        "meaningKr": "진지하게, 진심으로; 농담 아니고 진짜라는 것을 강조할 때.",
+        "exampleEn": "I deadass forgot my wallet at home, can you lend me some cash?",
+        "exampleKr": "나 진심으로 지갑 집에 놓고 왔어, 현금 좀 빌려줄 수 있어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "데드애스",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mzslang-6-1780591484391",
+        "term": "periodt",
+        "definition": "and that's final; emphatic 'end of discussion'",
+        "meaningKr": "끝, 더 이상 할 말 없어; 논쟁의 여지 없이 확실하다는 것을 강조할 때.",
+        "exampleEn": "She is the most talented singer of our generation, periodt. No arguments.",
+        "exampleKr": "그녀는 우리 세대에서 가장 재능 있는 가수야, 피리오트. 반박 불가.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "피리오트",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mzslang-7-1780591484391",
+        "term": "say less",
+        "definition": "I get it, no need to explain more; I'm on it",
+        "meaningKr": "더 말할 필요 없어, 다 알아들었어; 내가 알아서 처리할게.",
+        "exampleEn": "Can you pick up snacks for movie night? Say less, I'll get all our favorites.",
+        "exampleKr": "영화 보면서 먹을 간식 좀 사다 줄래? 세이 레스, 우리가 좋아하는 거 다 사갈게.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "세이 레스",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-8-1780591484391",
+        "term": "sheesh",
+        "definition": "an exclamation of awe, admiration, or being impressed",
+        "meaningKr": "와우, 대박; 감탄, 놀라움, 깊은 인상을 받았을 때 내는 소리.",
+        "exampleEn": "Sheesh, your new car looks incredible! Is that a sports model?",
+        "exampleKr": "쉬쉬, 네 새 차 진짜 멋지다! 스포츠 모델이야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "쉬쉬",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mzslang-9-1780591484391",
+        "term": "let's go",
+        "definition": "an excited cheer of celebration or hype; 'yes!'",
+        "meaningKr": "가자!; 신나는 환호성, 축하하거나 분위기를 띄울 때 쓰는 말.",
+        "exampleEn": "We finally finished the project on time! Let's go, time to celebrate!",
+        "exampleKr": "드디어 프로젝트 제시간에 끝냈다! 렛츠 고, 이제 축하할 시간이야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "렛츠 고",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-10-1780591484391",
+        "term": "it's giving",
+        "definition": "it has the vibe of; it resembles or feels like (e.g. 'it's giving summer')",
+        "meaningKr": "~한 느낌을 주네; ~한 분위기나 인상을 풍긴다.",
+        "exampleEn": "This outfit is giving main character vibes. You look ready for anything.",
+        "exampleKr": "이 옷차림 주인공 느낌을 주네. 뭐든 할 준비가 된 것 같아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "이츠 기빙",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-11-1780591484391",
+        "term": "sending me",
+        "definition": "making me laugh really hard; cracking me up",
+        "meaningKr": "나를 너무 웃게 만들다; 빵 터지게 하다, 배꼽 빠지게 웃기다.",
+        "exampleEn": "That TikTok video is absolutely sending me! I can't stop laughing.",
+        "exampleKr": "저 틱톡 영상 나를 너무 웃게 만들어! 웃음을 멈출 수가 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "센딩 미",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-12-1780591484391",
+        "term": "I'm dead",
+        "definition": "that's so funny I'm 'dying' laughing",
+        "meaningKr": "나 죽겠다; 너무 웃겨서 기절할 것 같다는 과장된 표현.",
+        "exampleEn": "Did you see what he just said? I'm dead, that was hilarious!",
+        "exampleKr": "쟤 방금 뭐라고 한 거 봤어? 나 죽겠다, 너무 웃겨!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "아임 데드",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-13-1780591484391",
+        "term": "yikes",
+        "definition": "an exclamation reacting to something awkward, cringey, or 'oh no'",
+        "meaningKr": "이크, 맙소사; 어색하거나 민망한 상황, 곤란한 일에 대한 반응.",
+        "exampleEn": "Yikes, I just realized I sent that message to the wrong group chat. My bad!",
+        "exampleKr": "아익스, 방금 메시지를 엉뚱한 단톡방에 보냈어. 내 실수!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "아익스",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mzslang-14-1780591484391",
+        "term": "oof",
+        "definition": "an exclamation of sympathy for a painful, awkward, or unlucky moment",
+        "meaningKr": "으악, 아야; 아프거나 어색하거나 불운한 순간에 대한 공감의 표현.",
+        "exampleEn": "Oof, I just spilled coffee all over my new shirt. This day is not going well.",
+        "exampleKr": "우프, 방금 새 셔츠에 커피 다 쏟았어. 오늘 운이 안 좋네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "우프",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mzslang-15-1780591484391",
+        "term": "W",
+        "definition": "a win; a success or a good thing ('big W')",
+        "meaningKr": "승리, 성공; 좋거나 긍정적인 일. ('big W'는 '대성공'.)",
+        "exampleEn": "Got an A on my final exam! Big W for me this semester.",
+        "exampleKr": "기말고사 A 받았어! 이번 학기 나한테는 완전 큰 W.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "더블유",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-16-1780591484391",
+        "term": "L",
+        "definition": "a loss; a failure or a bad thing ('took an L')",
+        "meaningKr": "패배, 실패; 나쁘거나 실망스러운 일. ('took an L'은 '실패하다'.)",
+        "exampleEn": "I totally forgot about the presentation today and took a huge L. So embarrassing.",
+        "exampleKr": "오늘 발표 완전 까먹고 엄청난 L을 봤어. 너무 창피해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "엘",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-17-1780591484391",
+        "term": "based",
+        "definition": "admirably true to oneself; saying what you believe without caring about approval",
+        "meaningKr": "자기 소신을 지키는, 멋진; 남의 시선에 신경 쓰지 않고 자신의 믿음을 말하는.",
+        "exampleEn": "He just shared his honest opinion on the topic, that's so based of him.",
+        "exampleKr": "그는 그 주제에 대해 솔직한 의견을 말했어, 정말 based한 행동이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "베이스드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-18-1780591484391",
+        "term": "valid",
+        "definition": "reasonable, acceptable, or justified; 'that's fair'",
+        "meaningKr": "타당한, 합리적인; 괜찮다, 정당하다는 의미.",
+        "exampleEn": "I think her point about taking a break is totally valid, we've been working too hard.",
+        "exampleKr": "쉬어야 한다는 그녀의 주장은 전적으로 valid해, 우리 너무 열심히 일했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "밸리드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-19-1780591484391",
+        "term": "mid",
+        "definition": "mediocre; average and unimpressive",
+        "meaningKr": "평범한, 별 볼 일 없는; 기대 이하고 인상적이지 않은.",
+        "exampleEn": "I heard the new movie was mid, so I didn't even bother watching it.",
+        "exampleKr": "새 영화가 미드라고 들었어, 그래서 보지도 않았어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "미드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-20-1780591484391",
+        "term": "GOAT",
+        "definition": "Greatest Of All Time; the very best ever",
+        "meaningKr": "역대 최고 (Greatest Of All Time의 약자); 역사상 가장 뛰어난 인물이나 것.",
+        "exampleEn": "Michael Jordan is definitely the GOAT when it comes to basketball, no debate.",
+        "exampleKr": "농구에 관해서는 마이클 조던이 단연 GOAT야, 논쟁의 여지가 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "고트",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-21-1780591484391",
+        "term": "goated",
+        "definition": "regarded as the greatest; the best of its kind",
+        "meaningKr": "최고로 인정받는; 어떤 분야에서 최고 수준에 달한.",
+        "exampleEn": "His skills in gaming are absolutely goated, nobody can beat him.",
+        "exampleKr": "그의 게임 실력은 완전히 goated야, 아무도 그를 이길 수 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "고티드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-22-1780591484391",
+        "term": "iconic",
+        "definition": "memorably impressive; legendary and unforgettable",
+        "meaningKr": "상징적인, 전설적인; 기억에 남을 만큼 인상적이고 잊을 수 없는.",
+        "exampleEn": "That moment when she won the award was truly iconic, everyone was cheering.",
+        "exampleKr": "그녀가 상을 받았던 그 순간은 정말 아이코닉했어, 모두가 환호했지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "아이코닉",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-23-1780591484391",
+        "term": "legend",
+        "definition": "an awesome, admirable person who did something great",
+        "meaningKr": "레전드, 전설적인 인물; 대단하고 존경할 만한 일을 해낸 사람.",
+        "exampleEn": "My grandpa is a true legend, he always has the best stories to tell.",
+        "exampleKr": "우리 할아버지는 진짜 레전드야, 항상 최고의 이야기를 들려주셔.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "레전드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-24-1780591484391",
+        "term": "ate",
+        "definition": "did something flawlessly and impressively ('she ate that')",
+        "meaningKr": "완벽하게 해내다, 끝내주게 해내다; (어떤 일을) 흠잡을 데 없이 잘 해치우다.",
+        "exampleEn": "Her performance last night? She absolutely ate, the crowd went wild!",
+        "exampleKr": "어젯밤 그녀의 공연? 완벽하게 해냈어, 관객들이 열광했잖아!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "에이트",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-25-1780591484391",
+        "term": "understood the assignment",
+        "definition": "did exactly what was needed, perfectly; totally nailed it",
+        "meaningKr": "주어진 임무를 완벽하게 해내다; 기대 이상으로 잘하다.",
+        "exampleEn": "She totally understood the assignment with that outfit, she looks amazing!",
+        "exampleKr": "그녀는 그 옷으로 임무를 완벽하게 이해했어, 정말 멋져 보여!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "언더스투드 디 어싸인먼트",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-26-1780591484391",
+        "term": "pop off",
+        "definition": "to do something impressively or passionately; go all out",
+        "meaningKr": "(놀랍거나 열정적으로) 엄청나게 잘 해내다; 한껏 기량을 뽐내다.",
+        "exampleEn": "Did you see her dance performance? She really popped off on stage!",
+        "exampleKr": "걔 춤 공연 봤어? 무대에서 정말 제대로 터뜨렸더라!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "팝 오프",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-27-1780591484391",
+        "term": "let them cook",
+        "definition": "let someone do their thing because they're doing it well",
+        "meaningKr": "(잘하고 있으니) 하던 대로 내버려 둬; 재능을 발휘하게 하다.",
+        "exampleEn": "He's in the zone with that project, just let him cook and see what happens.",
+        "exampleKr": "걔 지금 그 프로젝트에 몰두하고 있어, 그냥 내버려 둬 봐. 무슨 일이 생길지 보자고.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "렛 뎀 쿡",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-28-1780591484391",
+        "term": "hits different",
+        "definition": "feels uniquely better or more powerful than usual",
+        "meaningKr": "평소보다 훨씬 좋거나 특별하게 느껴지다; 독특한 감동을 주다.",
+        "exampleEn": "This song at night with the windows down just hits different, you know?",
+        "exampleKr": "밤에 창문 열고 이 노래 들으면 뭔가 느낌이 달라, 알지?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "히츠 디퍼런트",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-29-1780591484391",
+        "term": "fire",
+        "definition": "amazing; excellent and exciting",
+        "meaningKr": "끝내주게 멋지다; 최고다; 정말 좋다.",
+        "exampleEn": "That new restaurant downtown is absolutely fire, we have to go!",
+        "exampleKr": "시내에 새로 생긴 레스토랑 진짜 끝내줘, 우리 꼭 가야 해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "파이어",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-30-1780591484391",
+        "term": "lit",
+        "definition": "exciting, fun, and full of energy; awesome",
+        "meaningKr": "아주 신나고 재미있는; 끝내주는, 멋진.",
+        "exampleEn": "The party last night was so lit, everyone had an amazing time!",
+        "exampleKr": "어젯밤 파티 진짜 최고였어, 모두들 너무 즐거웠어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "릿",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-31-1780591484391",
+        "term": "bussin",
+        "definition": "extremely delicious, especially food ('this is bussin')",
+        "meaningKr": "엄청나게 맛있는 (주로 음식에 사용).",
+        "exampleEn": "This pizza is so bussin, I could eat the whole thing myself!",
+        "exampleKr": "이 피자 진짜 핵존맛이야, 나 혼자 다 먹을 수 있겠어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "버씬",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-32-1780591484391",
+        "term": "slaps",
+        "definition": "(of music) is really good ('this song slaps')",
+        "meaningKr": "(음악이) 엄청 좋다, 끝내준다.",
+        "exampleEn": "Turn up the volume, this song seriously slaps right now!",
+        "exampleKr": "볼륨 키워봐, 이 노래 지금 완전 미쳤어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "슬랩스",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-33-1780591484391",
+        "term": "banger",
+        "definition": "an excellent, catchy song or hit",
+        "meaningKr": "아주 신나고 중독성 있는 곡; 히트곡.",
+        "exampleEn": "OMG, her new single is such a banger, I can't stop listening to it!",
+        "exampleKr": "세상에, 걔 새 싱글 완전 대박곡이야, 계속 듣게 돼!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "뱅어",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-34-1780591484391",
+        "term": "ratio",
+        "definition": "online, when a reply gets far more likes than the original post, signaling people disagree",
+        "meaningKr": "온라인에서 원본 게시물보다 답글의 좋아요가 훨씬 많아 반대 의견이 압도적임을 나타내다.",
+        "exampleEn": "My tweet got totally ratioed after I shared that controversial opinion.",
+        "exampleKr": "그 논란이 되는 의견을 공유하고 나서 내 트윗은 완전히 '레이쇼' 당했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "레이쇼",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-35-1780591484391",
+        "term": "bestie",
+        "definition": "best friend; also a friendly way to address anyone",
+        "meaningKr": "절친, 가장 친한 친구; 친근하게 상대를 부를 때도 사용.",
+        "exampleEn": "Hey bestie, wanna grab coffee later and catch up?",
+        "exampleKr": "안녕 베스티, 나중에 커피 한잔하면서 밀린 이야기할래?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "베스티",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-36-1780591484391",
+        "term": "bruh",
+        "definition": "an exclamation of disbelief, dismay, or 'come on, man'",
+        "meaningKr": "야, 이봐 (불신, 실망, '에이 설마' 등의 감탄사로 사용).",
+        "exampleEn": "Bruh, you're telling me you forgot my birthday again?",
+        "exampleKr": "야, 또 내 생일 까먹었다고 말하는 거야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "브루",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-mzslang-37-1780591484391",
+        "term": "fam",
+        "definition": "close friends treated like family",
+        "meaningKr": "가족처럼 가까운 친구들; 친한 친구 무리.",
+        "exampleEn": "Tonight we're all chilling with the fam at my place, come join!",
+        "exampleKr": "오늘 밤엔 우리 집에서 팸들이랑 놀 거야, 너도 와!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "팸",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-38-1780591484391",
+        "term": "squad",
+        "definition": "one's tight group of friends",
+        "meaningKr": "친한 친구들로 이루어진 그룹; 팀.",
+        "exampleEn": "My squad is always ready for an adventure, no matter what.",
+        "exampleKr": "내 스쿼드는 무슨 일이 있어도 항상 모험을 떠날 준비가 되어 있어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "스쿼드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-39-1780591484391",
+        "term": "ride or die",
+        "definition": "a loyal friend or partner who sticks with you no matter what",
+        "meaningKr": "어떤 상황에서도 함께하는 아주 충성스러운 친구나 파트너.",
+        "exampleEn": "She's my ride or die, we've been through everything together.",
+        "exampleKr": "그녀는 내 '라이드 오어 다이'야, 우리는 모든 것을 함께 겪어왔어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "라이드 오어 다이",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-40-1780591484391",
+        "term": "simp",
+        "definition": "someone who is over-eager to please a person they have a crush on",
+        "meaningKr": "좋아하는 사람에게 지나치게 잘 보이려 애쓰는 사람.",
+        "exampleEn": "He's such a simp, always buying her expensive gifts hoping she'll notice him.",
+        "exampleKr": "그는 완전 '심프'야, 그녀가 자기를 알아봐 주길 바라며 항상 비싼 선물을 사줘.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "심프",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-41-1780591484391",
+        "term": "menace",
+        "definition": "a playful troublemaker; said affectionately about someone goofy",
+        "meaningKr": "장난기 많고 말썽꾸러기 같은 사람 (애정 어린 표현).",
+        "exampleEn": "That kid is a total menace, always pulling pranks but in a funny way.",
+        "exampleKr": "그 아이는 완전 '메니스'야, 항상 장난을 치는데 웃긴 방식이지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "메니스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-42-1780591484391",
+        "term": "NPC",
+        "definition": "someone acting robotic or unoriginal, like a video-game background character",
+        "meaningKr": "로봇 같거나 독창성 없이 행동하는 사람; 비디오 게임의 배경 캐릭터처럼.",
+        "exampleEn": "He just stands there and doesn't react, acting like a complete NPC.",
+        "exampleKr": "그는 그냥 서서 아무 반응도 안 해, 완전 NPC처럼 행동하네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "엔피씨",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-43-1780591484391",
+        "term": "main character",
+        "definition": "the central, special person; acting like the star of your own story",
+        "meaningKr": "주인공처럼 행동하는 특별한 사람; 자기 삶의 중심인 사람.",
+        "exampleEn": "She always dresses like she's the main character, and I love it.",
+        "exampleKr": "그녀는 항상 주인공처럼 옷을 입는데, 난 그게 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "메인 캐릭터",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-44-1780591484391",
+        "term": "side quest",
+        "definition": "a fun, random activity off your main plan, like a video-game side mission",
+        "meaningKr": "주요 계획 외의 재미있고 즉흥적인 활동.",
+        "exampleEn": "We were on our way to the store but ended up on a side quest to find the best boba.",
+        "exampleKr": "우리는 가게에 가는 중이었는데, 결국 최고의 버블티를 찾으러 '사이드 퀘스트'를 떠났어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "사이드 퀘스트",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-45-1780591484391",
+        "term": "wingman",
+        "definition": "a friend who helps you approach or impress a romantic interest",
+        "meaningKr": "친구가 맘에 드는 이성에게 다가가거나 잘 보이도록 도와주는 친구.",
+        "exampleEn": "He was my wingman last night, totally helped me talk to that cute girl.",
+        "exampleKr": "어젯밤 걔가 내 '윙맨'이었어, 귀여운 여자애랑 얘기하는 걸 완전히 도와줬지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "윙맨",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-46-1780591484391",
+        "term": "ghost",
+        "definition": "to suddenly cut off all contact with someone with no explanation",
+        "meaningKr": "아무런 설명 없이 갑자기 연락을 끊고 사라지다.",
+        "exampleEn": "She just ghosted me after our first date, I haven't heard from her since.",
+        "exampleKr": "첫 데이트 후에 그녀가 나를 '고스트'했어, 그 이후로 아무 소식도 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "고스트",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-47-1780591484391",
+        "term": "left on read",
+        "definition": "having your message seen but not replied to",
+        "meaningKr": "메시지를 읽었지만 답장하지 않고 무시당하다.",
+        "exampleEn": "I sent him a long text and he just left me on read, so rude!",
+        "exampleKr": "내가 긴 문자를 보냈는데 그가 그냥 '읽씹'했어, 너무 무례하잖아!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "레프트 온 리드",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-48-1780591484391",
+        "term": "slide into the DMs",
+        "definition": "to send someone a private message, often to flirt or start a chat",
+        "meaningKr": "누군가에게 (주로 작업을 걸기 위해) 개인 메시지를 보내다.",
+        "exampleEn": "I'm thinking of sliding into her DMs and asking her out for coffee.",
+        "exampleKr": "그녀에게 DM을 보내서 커피 마시자고 할까 생각 중이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "슬라이드 인투 더 디엠스",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-49-1780591484391",
+        "term": "ick",
+        "definition": "a sudden feeling of being turned off by a small thing someone does",
+        "meaningKr": "누군가의 사소한 행동 때문에 갑자기 매력이 떨어지는 불쾌한 느낌.",
+        "exampleEn": "He tried to pay with a coupon on our first date, and honestly, it gave me the ick.",
+        "exampleKr": "그가 첫 데이트에서 쿠폰으로 계산하려고 했는데, 솔직히 나 '익' 왔어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "익",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-50-1780591484391",
+        "term": "vibe",
+        "definition": "a mood, feeling, or atmosphere ('good vibes')",
+        "meaningKr": "분위기, 느낌, 기운. 특히 사람이나 장소에서 느껴지는 에너지.",
+        "exampleEn": "The cafe had such a chill vibe, perfect for studying all afternoon.",
+        "exampleKr": "그 카페 분위기가 너무 편안해서 오후 내내 공부하기 딱 좋았어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "바이브",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-51-1780591484391",
+        "term": "vibe check",
+        "definition": "a quick read of someone's mood or the energy of a situation",
+        "meaningKr": "누군가의 기분이나 상황의 분위기를 빠르게 파악하는 행위.",
+        "exampleEn": "Before the meeting, I did a quick vibe check to see if everyone was ready.",
+        "exampleKr": "회의 전에 다들 준비됐는지 분위기를 빠르게 파악해봤어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "바이브 체크",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-52-1780591484391",
+        "term": "mood",
+        "definition": "something extremely relatable; 'that's so me'",
+        "meaningKr": "매우 공감 가는 상황이나 감정. '완전 내 얘기'라는 뜻.",
+        "exampleEn": "My phone battery dying right before I leave? Yeah, that's a whole mood.",
+        "exampleKr": "나가기 직전에 휴대폰 배터리 없는 거? 아, 완전 내 얘기야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "무드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-53-1780591484391",
+        "term": "lowkey",
+        "definition": "slightly, secretly, or kind of ('lowkey nervous')",
+        "meaningKr": "약간, 은근히, 조용히, 사실은.",
+        "exampleEn": "I'm lowkey nervous about presenting tomorrow, but I'll be fine.",
+        "exampleKr": "내일 발표하는 거 은근히 긴장되는데, 괜찮을 거야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "로키",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mzslang-54-1780591484391",
+        "term": "highkey",
+        "definition": "openly, obviously, or very much ('highkey excited')",
+        "meaningKr": "솔직히, 아주 많이, 대놓고.",
+        "exampleEn": "I'm highkey obsessed with this new song, it's been on repeat all day.",
+        "exampleKr": "나 이 신곡에 완전 빠졌어, 하루 종일 반복해서 듣고 있어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "하이키",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-mzslang-55-1780591484391",
+        "term": "sus",
+        "definition": "suspicious or shady (short for suspicious)",
+        "meaningKr": "수상한, 의심스러운. 'suspicious'의 줄임말.",
+        "exampleEn": "That guy has been acting a little sus all evening, what's he up to?",
+        "exampleKr": "저 남자 저녁 내내 좀 수상하게 행동하는데, 뭐 하는 걸까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "서스",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-56-1780591484391",
+        "term": "salty",
+        "definition": "bitter or annoyed, especially after losing or being teased",
+        "meaningKr": "패배하거나 놀림받은 후 짜증 나거나 심술 난 상태.",
+        "exampleEn": "Don't be salty just because I beat you at the game, it was fun!",
+        "exampleKr": "게임에서 졌다고 심술 부리지 마, 재밌었잖아!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "솔티",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-57-1780591484391",
+        "term": "shook",
+        "definition": "shocked, stunned, or caught off guard",
+        "meaningKr": "깜짝 놀라거나 충격받은, 멘탈이 흔들린.",
+        "exampleEn": "When I saw the final test results, I was completely shook by my score.",
+        "exampleKr": "최종 시험 결과 보고 내 점수에 완전 충격받았어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "슉",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-58-1780591484391",
+        "term": "pressed",
+        "definition": "upset or worked up over something minor",
+        "meaningKr": "사소한 일로 화가 나거나 초조해하는.",
+        "exampleEn": "He got so pressed when I accidentally spilled a little water on his desk.",
+        "exampleKr": "내가 실수로 책상에 물 좀 흘렸다고 엄청 화내더라.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "프레스드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-59-1780591484391",
+        "term": "unbothered",
+        "definition": "calm and totally unconcerned; not letting it get to you",
+        "meaningKr": "전혀 신경 쓰지 않고 침착한, 평온한.",
+        "exampleEn": "Even after all the drama, she remained totally unbothered and calm.",
+        "exampleKr": "모든 드라마 속에서도 그녀는 전혀 신경 쓰지 않고 침착했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "언바더드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-60-1780591484391",
+        "term": "chill",
+        "definition": "relaxed and easygoing",
+        "meaningKr": "편안하고 느긋한, 쿨한.",
+        "exampleEn": "My new roommate is super chill, we get along really well.",
+        "exampleKr": "새 룸메이트 완전 쿨해, 우리 진짜 잘 맞아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "칠",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-61-1780591484391",
+        "term": "extra",
+        "definition": "over-the-top; doing way too much or being dramatic",
+        "meaningKr": "과장된, 너무 지나친, 유난스러운.",
+        "exampleEn": "He's always so extra with his birthday celebrations, but it's fun.",
+        "exampleKr": "그는 생일 파티를 항상 너무 유난스럽게 해, 그래도 재밌어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "엑스트라",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-62-1780591484391",
+        "term": "basic",
+        "definition": "unoriginal; only liking mainstream, trendy things",
+        "meaningKr": "개성 없고 흔한, 유행만 좇는.",
+        "exampleEn": "Pumpkin spice lattes in fall? So basic, but I still love them.",
+        "exampleKr": "가을에 펌킨 스파이스 라떼? 완전 흔하지만 그래도 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "베이직",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-63-1780591484391",
+        "term": "cringe",
+        "definition": "awkward and secondhand-embarrassing",
+        "meaningKr": "어색하고 오글거리는, 손발이 오그라드는.",
+        "exampleEn": "Watching my old videos from middle school is totally cringe now.",
+        "exampleKr": "중학교 때 찍은 내 예전 영상들을 보면 지금은 완전 오글거려.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "크린지",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-64-1780591484391",
+        "term": "wholesome",
+        "definition": "heartwarming, sweet, and pure",
+        "meaningKr": "훈훈하고 마음이 따뜻해지는, 순수하고 건전한.",
+        "exampleEn": "Their friendship is so wholesome, always supporting each other.",
+        "exampleKr": "그들의 우정은 정말 훈훈해, 항상 서로를 응원해줘.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "홀썸",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-65-1780591484391",
+        "term": "hangry",
+        "definition": "irritable because of being hungry (hungry + angry)",
+        "meaningKr": "배고파서 화나는, 배고픔과 분노가 합쳐진.",
+        "exampleEn": "I get really hangry if I miss lunch, so let's eat soon!",
+        "exampleKr": "점심 놓치면 나 완전 배고파서 예민해지니까 빨리 먹자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "행그리",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-66-1780591484391",
+        "term": "delulu",
+        "definition": "delusional in a playful way, especially about unrealistic hopes",
+        "meaningKr": "재미있고 귀여운 방식으로 망상에 빠진, 비현실적인 희망을 품은.",
+        "exampleEn": "I'm a little delulu, but I still think my crush will notice me soon.",
+        "exampleKr": "약간 망상에 빠진 거 같긴 한데, 내 짝사랑 상대가 곧 날 알아봐 줄 거라고 생각해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "델룰루",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-67-1780591484391",
+        "term": "unhinged",
+        "definition": "wildly chaotic or out of control, often in a funny way",
+        "meaningKr": "제정신이 아닌 듯이 광적이거나 통제 불능인, 종종 웃긴 상황에서 사용.",
+        "exampleEn": "His reaction to winning the lottery was totally unhinged and hilarious.",
+        "exampleKr": "복권 당첨됐을 때 그의 반응은 완전 제정신이 아니었고 너무 웃겼어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "언힌지드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-68-1780591484391",
+        "term": "obsessed",
+        "definition": "absolutely loving something; can't get enough of it",
+        "meaningKr": "무언가에 완전히 빠져서 헤어나오지 못하는, 엄청 좋아하는.",
+        "exampleEn": "I'm totally obsessed with this new K-drama, I've watched it twice.",
+        "exampleKr": "나 이 새 K-드라마에 완전 빠졌어, 두 번이나 봤잖아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "옵세스드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-69-1780591484391",
+        "term": "living rent-free",
+        "definition": "stuck in your head; something you can't stop thinking about",
+        "meaningKr": "머릿속에서 떠나지 않고 계속 생각나는 것.",
+        "exampleEn": "That catchy song has been living rent-free in my head all week.",
+        "exampleKr": "그 중독성 있는 노래가 이번 주 내내 내 머릿속에서 떠나질 않아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "리빙 렌트 프리",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-70-1780591484391",
+        "term": "drip",
+        "definition": "stylish, fashionable clothing or accessories",
+        "meaningKr": "아주 멋지고 세련된 옷이나 액세서리, 패션 센스.",
+        "exampleEn": "Check out his new sneakers, that drip is absolutely fresh!",
+        "exampleKr": "그의 새 운동화 좀 봐, 패션 센스가 진짜 끝내준다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "드립",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-71-1780591484391",
+        "term": "fit",
+        "definition": "an outfit (short for outfit); 'fit check' shows off your outfit",
+        "meaningKr": "옷차림, 복장. 'outfit'의 줄임말. 'fit check'은 오늘 입은 옷을 보여주는 것.",
+        "exampleEn": "I love your fit today! Where did you get that jacket?",
+        "exampleKr": "오늘 옷차림 너무 예쁘다! 그 재킷 어디서 샀어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "핏",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-72-1780591484391",
+        "term": "clean",
+        "definition": "sleek, crisp, and impressively neat (style or design)",
+        "meaningKr": "깔끔하고 세련된, 군더더기 없이 멋진 (스타일이나 디자인).",
+        "exampleEn": "Her presentation slides were so clean and professional, I was impressed.",
+        "exampleKr": "그녀의 발표 슬라이드는 정말 깔끔하고 전문적이라 인상 깊었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "클린",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-73-1780591484391",
+        "term": "snatched",
+        "definition": "looking sharp, sleek, and flawless (outfit, makeup, or figure)",
+        "meaningKr": "날씬하고 완벽하게 정돈된, 아주 멋진 (몸매, 메이크업, 의상).",
+        "exampleEn": "Her makeup for the party was absolutely snatched, she looked amazing.",
+        "exampleKr": "파티를 위한 그녀의 메이크업은 정말 완벽했어, 엄청 멋져 보였지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "스내치드",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-74-1780591484391",
+        "term": "glow up",
+        "definition": "a dramatic improvement in looks, style, or life",
+        "meaningKr": "외모, 스타일, 또는 삶이 극적으로 좋아지는 것, 정변.",
+        "exampleEn": "After she started college, she had a massive glow up and looks so confident now.",
+        "exampleKr": "대학에 입학하고 나서 그녀는 엄청난 정변을 겪었고 지금은 정말 자신감 있어 보여.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "글로우 업",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-75-1780591484391",
+        "term": "aesthetic",
+        "definition": "a distinctive visual style, look, or vibe",
+        "meaningKr": "독특한 시각적 스타일, 분위기, 룩.",
+        "exampleEn": "Her room has such a dreamy aesthetic, I love how everything matches.",
+        "exampleKr": "걔 방은 정말 꿈꾸는 듯한 분위기야, 모든 게 잘 어울려서 너무 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "애스테틱",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-76-1780591484391",
+        "term": "core",
+        "definition": "a suffix marking a style or aesthetic, like 'cottagecore' or 'cleancore'",
+        "meaningKr": "특정 스타일이나 미학을 나타내는 접미사 (예: 코티지코어, 클린코어).",
+        "exampleEn": "I'm really into the 'dark academia' core for my fall outfits this year.",
+        "exampleKr": "올해 가을 옷으로는 '다크 아카데미아' 스타일이 정말 끌려.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "코어",
+        "pos": "suffix"
+      },
+      {
+        "id": "word-mzslang-77-1780591484391",
+        "term": "serving",
+        "definition": "presenting a striking, confident look ('serving looks')",
+        "meaningKr": "인상적이고 자신감 넘치는 모습을 보여주다 ('serving looks'처럼).",
+        "exampleEn": "Wow, she's really serving in that outfit, absolutely stunning!",
+        "exampleKr": "와, 쟤 저 옷 입고 진짜 끝내주게 멋지다, 완전 눈부셔!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "서빙",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-78-1780591484391",
+        "term": "cheugy",
+        "definition": "trying a bit too hard and slightly outdated; uncool",
+        "meaningKr": "너무 애쓰고 약간 시대에 뒤떨어져 보이는, 촌스러운.",
+        "exampleEn": "Wearing skinny jeans with Ugg boots? That's definitely a bit cheugy now.",
+        "exampleKr": "어그 부츠에 스키니진 입는다고? 그거 요즘엔 좀 촌스러워.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "추지",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-79-1780591484391",
+        "term": "flex",
+        "definition": "to show off; also a noun for the thing you're showing off",
+        "meaningKr": "자랑하다, 과시하다; (명사) 자랑하는 것.",
+        "exampleEn": "He likes to flex his new gaming PC online, it's pretty powerful.",
+        "exampleKr": "걔는 새 게이밍 PC를 온라인에 자랑하는 걸 좋아하는데, 꽤 성능이 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "플렉스",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-80-1780591484391",
+        "term": "stan",
+        "definition": "to be a devoted, enthusiastic fan of someone; a superfan",
+        "meaningKr": "어떤 사람의 열렬한 팬이 되다; (명사) 광팬.",
+        "exampleEn": "I totally stan that K-pop group, their music is incredible!",
+        "exampleKr": "나 그 K팝 그룹 완전 스탠이야, 음악이 너무 대단해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "스탠",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-81-1780591484391",
+        "term": "ship",
+        "definition": "to wish two people were a couple and root for them",
+        "meaningKr": "두 사람이 커플이 되기를 바라며 응원하다.",
+        "exampleEn": "Everyone in our friend group ships Sarah and Tom, they'd be so cute together.",
+        "exampleKr": "우리 친구들은 사라랑 톰을 다 응원해, 둘이 너무 잘 어울릴 텐데.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "쉽",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-82-1780591484391",
+        "term": "tea",
+        "definition": "gossip; juicy news ('what's the tea?')",
+        "meaningKr": "가십, 흥미로운 소식 ('what's the tea?'처럼).",
+        "exampleEn": "Spill the tea, I heard you have some juicy gossip from last night's party!",
+        "exampleKr": "가십 좀 풀어봐, 어제 파티에서 흥미로운 얘기 들었다며!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "티",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-83-1780591484391",
+        "term": "spill the tea",
+        "definition": "to share the gossip or tell the juicy details",
+        "meaningKr": "가십을 공유하거나 흥미로운 세부 사항을 말하다.",
+        "exampleEn": "Come on, spill the tea about what happened on your date yesterday!",
+        "exampleKr": "어서, 어제 데이트에서 무슨 일 있었는지 얘기 좀 해봐!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "스필 더 티",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-84-1780591484391",
+        "term": "shade",
+        "definition": "a subtle, sly insult ('throwing shade')",
+        "meaningKr": "미묘하고 교활한 모욕 ('throwing shade'처럼).",
+        "exampleEn": "She just threw some serious shade at his outfit without even saying much.",
+        "exampleKr": "걔는 별말 안 했는데도 걔 옷에 대해 엄청 미묘하게 비꼬았어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "셰이드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-85-1780591484391",
+        "term": "clapback",
+        "definition": "a sharp, witty comeback to criticism or an insult",
+        "meaningKr": "비판이나 모욕에 대한 날카롭고 재치 있는 반격.",
+        "exampleEn": "Her clapback to that rude comment was legendary, everyone was shocked.",
+        "exampleKr": "걔가 그 무례한 댓글에 날린 반격은 정말 레전드였어, 다들 놀랐잖아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "클랩백",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-86-1780591484391",
+        "term": "receipts",
+        "definition": "screenshots or proof of what someone said or did",
+        "meaningKr": "누군가가 말하거나 행동한 것에 대한 스크린샷이나 증거.",
+        "exampleEn": "I have the receipts to prove what he said, check my DMs!",
+        "exampleKr": "걔가 뭐라고 했는지 증명할 증거 있어, 내 DM 확인해봐!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "리시츠",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-87-1780591484391",
+        "term": "clout",
+        "definition": "influence or fame, especially online",
+        "meaningKr": "영향력이나 명성, 특히 온라인에서.",
+        "exampleEn": "He's always chasing clout on social media, trying to go viral.",
+        "exampleKr": "걔는 항상 소셜 미디어에서 유명세를 좇으며 바이럴 되려고 해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "클라우트",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-88-1780591484391",
+        "term": "flop",
+        "definition": "a total failure; something that flopped",
+        "meaningKr": "완전한 실패; 실패한 것.",
+        "exampleEn": "That new movie was a total flop at the box office, no one went to see it.",
+        "exampleKr": "그 새 영화는 박스오피스에서 완전히 망했어, 아무도 보러 안 갔어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "플롭",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-89-1780591484391",
+        "term": "plot twist",
+        "definition": "an unexpected, surprising turn of events",
+        "meaningKr": "예상치 못한, 놀라운 사건의 전환.",
+        "exampleEn": "The ending had such a huge plot twist, I never saw it coming!",
+        "exampleKr": "결말에 정말 엄청난 반전이 있었어, 전혀 예상 못 했어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "플롯 트위스트",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-90-1780591484391",
+        "term": "character development",
+        "definition": "noticeable personal growth or change in someone, like in a story",
+        "meaningKr": "이야기 속 인물처럼, 눈에 띄는 개인적인 성장이나 변화.",
+        "exampleEn": "After that trip, her character development was amazing; she became so much stronger.",
+        "exampleKr": "그 여행 후에 걔의 인격적인 성장은 정말 놀라웠어; 훨씬 강해졌거든.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "캐릭터 디벨롭먼트",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-91-1780591484391",
+        "term": "caught in 4K",
+        "definition": "caught red-handed with clear, undeniable proof",
+        "meaningKr": "명백하고 부인할 수 없는 증거와 함께 현장에서 딱 걸리다.",
+        "exampleEn": "He tried to deny it, but with that video, he was caught in 4K!",
+        "exampleKr": "걔는 부인하려고 했지만, 그 비디오 때문에 현장에서 딱 걸렸지!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "캣 인 포 케이",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-92-1780591484391",
+        "term": "gatekeep",
+        "definition": "to hoard access or info and refuse to let others in on it",
+        "meaningKr": "접근이나 정보를 독점하고 다른 사람들이 참여하는 것을 막다.",
+        "exampleEn": "Don't gatekeep your favorite coffee spot, share the love!",
+        "exampleKr": "네가 좋아하는 커피집 혼자만 알려고 하지 마, 같이 즐기자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "게이트킵",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-93-1780591484391",
+        "term": "glaze",
+        "definition": "to praise someone way too much; to hype them excessively",
+        "meaningKr": "누군가를 너무 과도하게 칭찬하다; 지나치게 띄워주다.",
+        "exampleEn": "He always glazes over the boss's ideas, it's a bit much.",
+        "exampleKr": "걔는 항상 사장님 아이디어를 너무 과하게 칭찬해, 좀 심해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "글레이즈",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-94-1780591484391",
+        "term": "yap",
+        "definition": "to talk a lot, often about nothing important",
+        "meaningKr": "주로 중요하지 않은 것에 대해 말이 많다.",
+        "exampleEn": "She was yapping about her weekend plans for like twenty minutes straight.",
+        "exampleKr": "걔는 주말 계획에 대해 한 20분 내내 계속 떠들었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "얍",
+        "pos": "verb"
+      },
+      {
+        "id": "word-mzslang-95-1780591484391",
+        "term": "cooked",
+        "definition": "doomed, exhausted, or in big trouble ('we're cooked')",
+        "meaningKr": "망했거나, 지쳤거나, 큰 곤경에 처한 ('we're cooked'처럼).",
+        "exampleEn": "If we don't finish this project by tomorrow, we are totally cooked.",
+        "exampleKr": "우리 내일까지 이 프로젝트 못 끝내면, 완전히 망했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "쿡트",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-mzslang-96-1780591484391",
+        "term": "touch grass",
+        "definition": "go outside and reconnect with real life; stop being so online",
+        "meaningKr": "밖에 나가서 현실과 다시 연결되다; 온라인에 너무 빠져 있지 마라.",
+        "exampleEn": "You've been on your computer all day, seriously, go touch grass.",
+        "exampleKr": "하루 종일 컴퓨터만 했잖아, 진심으로, 밖에 나가서 바람 좀 쐬.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "터치 그래스",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-mzslang-97-1780591484391",
+        "term": "brain rot",
+        "definition": "low-quality online content you can't stop scrolling; mental mush from it",
+        "meaningKr": "계속 스크롤하게 되는 저품질 온라인 콘텐츠; 이로 인한 정신적 피로감.",
+        "exampleEn": "Scrolling through TikTok for hours just feels like pure brain rot sometimes.",
+        "exampleKr": "몇 시간 동안 틱톡을 스크롤하는 건 가끔 순수하게 뇌 썩는 기분이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "브레인 랸",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-98-1780591484391",
+        "term": "era",
+        "definition": "a phase or season of one's life ('in my reading era')",
+        "meaningKr": "인생의 한 시기나 단계 ('in my reading era'처럼).",
+        "exampleEn": "I'm currently in my \"trying new recipes\" era, everything tastes amazing.",
+        "exampleKr": "나는 지금 \"새로운 레시피 시도하는\" 시기인데, 모든 게 다 맛있어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "에라",
+        "pos": "noun"
+      },
+      {
+        "id": "word-mzslang-99-1780591484391",
+        "term": "core memory",
+        "definition": "an unforgettable, formative moment you'll always remember",
+        "meaningKr": "절대 잊을 수 없는, 형성적인 순간, 항상 기억할 중요한 추억.",
+        "exampleEn": "That trip to the beach with my friends was definitely a core memory.",
+        "exampleKr": "친구들과 해변으로 갔던 그 여행은 분명히 중요한 추억이었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "English",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "코어 메모리",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-kpop-ko-1",
     "title": "K-Pop & Idol Stan Slang 100",
     "icon": "🎤",

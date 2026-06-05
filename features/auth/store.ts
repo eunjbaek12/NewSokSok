@@ -80,6 +80,17 @@ interface AuthStoreState {
   deleteAccount: () => Promise<void>;
 }
 
+// hydrate() must run at most once per JS context. The zustand store is a module
+// singleton that survives a React tree remount, so once we've restored auth from
+// the persisted intent the in-memory state is authoritative. Re-running hydrate
+// on a remount (the dev-client RootLayout remounts to splash on logout/login)
+// would (a) register a duplicate onAuthStateChange listener every time, and
+// (b) re-read the persisted intent and `set()` it — racing the AsyncStorage
+// write of a just-made login. A remount right after "게스트로 시작" could load
+// the still-'none' persisted value (the save('guest') hasn't flushed yet) and
+// clobber mode back to 'none', which makes AppStack bounce the user to /login.
+let authHydrated = false;
+
 let googleConfigured = false;
 function configureGoogleSignIn() {
   if (googleConfigured) return;
@@ -124,6 +135,11 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
   loading: true,
 
   hydrate: async () => {
+    // Once per JS context — see authHydrated note above. A remount must NOT
+    // re-read the persisted intent (it would race a fresh login's save) or
+    // re-add the auth listener.
+    if (authHydrated) return;
+    authHydrated = true;
     configureGoogleSignIn();
 
     // Our own persisted intent (@soksok_auth) is authoritative — NOT whatever

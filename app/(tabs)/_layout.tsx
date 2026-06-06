@@ -1,8 +1,6 @@
-import { isLiquidGlassAvailable } from "expo-glass-effect";
 import { Tabs, Redirect, router } from "expo-router";
-import { NativeTabs, Icon, Label } from "expo-router/unstable-native-tabs";
 import { BlurView } from "expo-blur";
-import { Platform, Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -35,30 +33,6 @@ function AddWordTabButton() {
     >
       <Ionicons name="add" size={32} color={colors.onPrimary} />
     </Pressable>
-  );
-}
-
-function NativeTabLayout({ startupTab }: { startupTab: StartupTab }) {
-  const { t } = useTranslation();
-  return (
-    <NativeTabs {...({ initialRouteName: startupTab } as any)}>
-      <NativeTabs.Trigger name="index">
-        <Icon sf={{ default: "house", selected: "house.fill" }} />
-        <Label>{t('tabs.home')}</Label>
-      </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="vocab-lists">
-        <Icon sf={{ default: "books.vertical", selected: "books.vertical.fill" }} />
-        <Label>{t('tabs.vocabLists')}</Label>
-      </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="curation">
-        <Icon sf={{ default: "square.stack", selected: "square.stack.fill" }} />
-        <Label>{t('tabs.curation')}</Label>
-      </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="settings">
-        <Icon sf={{ default: "gearshape", selected: "gearshape.fill" }} />
-        <Label>{t('tabs.settings')}</Label>
-      </NativeTabs.Trigger>
-    </NativeTabs>
   );
 }
 
@@ -204,8 +178,10 @@ export default function TabLayout() {
 
   const startupTab = profileSettings.startupTab ?? 'index';
 
-  if (isLiquidGlassAvailable()) {
-    return <NativeTabLayout startupTab={startupTab} />;
-  }
+  // iOS 26(Liquid Glass)에서 expo-router/unstable-native-tabs 경로는 미검증(개발 환경이
+  // Windows라 iOS 로컬 실행 불가)이라 App Store 심사에서 홈 진입 시 크래시했다(반려 2.1a,
+  // 2026-06-05). 게스트·구글·애플 모든 로그인이 (tabs)로 수렴하므로 이 경로가 "Get Started/
+  // 로그인 버튼 → 에러"의 공통 원인. 검증된 ClassicTabLayout으로 통일. Liquid Glass 네이티브
+  // 탭은 iOS 26 실기 테스트가 가능해진 뒤 별도 업데이트에서 재도입한다.
   return <ClassicTabLayout startupTab={startupTab} />;
 }

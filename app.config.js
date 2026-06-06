@@ -11,6 +11,19 @@ const ADMOB_IOS_TEST_APP_ID = 'ca-app-pub-3940256099942544~1458002511';
 const androidAppId = process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID || ADMOB_ANDROID_TEST_APP_ID;
 const iosAppId = process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID || ADMOB_IOS_TEST_APP_ID;
 
+// iOS Google Sign-In은 reversed-client-id URL scheme(com.googleusercontent.apps.<id>)이
+// Info.plist의 CFBundleURLTypes에 있어야 OAuth 시트가 앱으로 리다이렉트해 돌아온다. 누락 시
+// iOS에서 GoogleSignin.signIn()이 실패 → 로그인 화면에 "Login Failed" alert (App Store 심사
+// 반려 2.1a, 2026-06-05). google-signin config plugin은 옵션 없이 등록돼 Firebase 모드로
+// 동작 중이라(= GoogleService-Info.plist를 읽음, 그런데 iOS plist가 없음) scheme을 안 넣는다.
+// Android Firebase 모드 동작을 깨지 않으려 plugin은 그대로 두고 scheme만 직접 주입한다.
+// 런타임 iosClientId(EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS, store.ts:configureGoogleSignIn)와 별개의
+// 빌드타임 설정이다. env 미설정(Android/로컬 dev)이면 주입하지 않는다 — iOS 전용.
+const iosGoogleClientId = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS || '';
+const googleReversedClientScheme = iosGoogleClientId
+  ? `com.googleusercontent.apps.${iosGoogleClientId.replace(/\.apps\.googleusercontent\.com$/, '')}`
+  : null;
+
 // Production 빌드 환경변수 검증.
 //
 // 누락된 채로 production AAB이 나가면 (a) AdMob이 TestIds로 fallback해
@@ -59,6 +72,22 @@ if (process.env.EAS_BUILD_PROFILE === 'production') {
 /** @type {import('@expo/config').ExpoConfig} */
 module.exports = {
   ...expo,
+  ios: {
+    ...expo.ios,
+    infoPlist: {
+      ...expo.ios.infoPlist,
+      // Google reversed-client-id scheme을 추가. expo의 `scheme`(soksokvoca)·앱 자체 scheme은
+      // prebuild의 withScheme가 이 배열에 append하므로 공존한다. iOS 빌드에서만 주입됨.
+      ...(googleReversedClientScheme
+        ? {
+            CFBundleURLTypes: [
+              ...(expo.ios.infoPlist?.CFBundleURLTypes ?? []),
+              { CFBundleURLSchemes: [googleReversedClientScheme] },
+            ],
+          }
+        : {}),
+    },
+  },
   android: {
     ...expo.android,
     googleServicesFile: process.env.GOOGLE_SERVICES_JSON ?? './google-services.json',

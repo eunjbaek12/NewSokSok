@@ -13,6 +13,10 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Platform } from 'react-native';
 import {
   useIAP,
+  // root(index) API: 훅의 getAvailablePurchases는 Promise<void>라 값을 안 준다(상태로만
+  // 노출). restore/자동정산은 즉시 배열이 필요하므로 값-반환하는 root API를 쓴다.
+  // expo-iap CLAUDE.md "Hook API Semantics" 참고. (3.1→3.4 API 변경으로 깨졌던 부분)
+  getAvailablePurchases,
   type ProductSubscription,
   type Purchase,
 } from 'expo-iap';
@@ -127,7 +131,6 @@ export function usePurchaseFlow(): PurchaseFlow {
     subscriptions,
     fetchProducts,
     requestPurchase,
-    getAvailablePurchases,
     finishTransaction,
   } = useIAP({
     onPurchaseSuccess: handleSuccess,

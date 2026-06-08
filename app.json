@@ -18,6 +18,7 @@
       "bundleIdentifier": "com.soksokvoca",
       "usesAppleSignIn": true,
       "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
         "NSSpeechRecognitionUsageDescription": "Allow 아보카도 to use speech recognition for voice input.",
         "NSMicrophoneUsageDescription": "Allow 아보카도 to use the microphone for voice input.",
         "NSCameraUsageDescription": "Allow 아보카도 to use the camera to scan word lists from photos.",

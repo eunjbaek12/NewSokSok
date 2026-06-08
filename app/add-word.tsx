@@ -44,7 +44,7 @@ import { autoFillWord } from '@/lib/translation-api';
 import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
-import { useAuth } from '@/features/auth';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { speak } from '@/lib/tts';
 import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, LanguageCode } from '@/constants/languages';
 import Animated, {
@@ -283,9 +283,9 @@ export default function AddWordScreen() {
     const { authMode } = useAuth();
     const { status: quotaStatus, refresh: refreshQuota } = useQuota();
     // 화면 진입 시 1회 한도 갱신 (보상형 광고 + Edge 차감으로 carrier 갱신될 수 있음)
-    useEffect(() => { if (authMode === 'google') refreshQuota(); }, [authMode, refreshQuota]);
+    useEffect(() => { if (isCloudAuthMode(authMode)) refreshQuota(); }, [authMode, refreshQuota]);
 
-    const showQuotaChip = authMode === 'google' && !apiKey && quotaStatus && quotaStatus.tier === 'free';
+    const showQuotaChip = isCloudAuthMode(authMode) && !apiKey && quotaStatus && quotaStatus.tier === 'free';
 
     const {
         term, setTerm,
@@ -647,7 +647,7 @@ export default function AddWordScreen() {
     };
 
     // 사진 스캔 진입: BYOK 키 또는 로그인+Edge면 허용. 그 외(게스트·키없음)는 안내.
-    const canScanPhoto = !!apiKey || (authMode === 'google' && EDGE_ENABLED);
+    const canScanPhoto = !!apiKey || (isCloudAuthMode(authMode) && EDGE_ENABLED);
     const openPhotoScan = (src: 'camera' | 'gallery') => {
         if (!canScanPhoto) {
             Alert.alert(

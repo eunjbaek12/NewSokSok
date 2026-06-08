@@ -15,7 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { useAuth } from '@/features/auth';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useSettings } from '@/features/settings';
 import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
 import { usePurchaseFlow } from '@/features/billing';
@@ -30,7 +30,7 @@ export default function PlansScreen() {
   const { status, refresh } = useQuota();
   const flow = usePurchaseFlow();
 
-  const isLoggedIn = authMode === 'google';
+  const isLoggedIn = isCloudAuthMode(authMode);
   const isByok = !!apiKey;
   const isPro = status?.tier === 'pro';
   // 서버는 트라이얼/유료를 모두 tier='pro'로 내려보낸다(같은 한도·동일 기능).

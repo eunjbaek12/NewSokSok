@@ -1,4 +1,4 @@
-import { useAuthStore } from '@/features/auth';
+import { useAuthStore, isCloudAuthMode } from '@/features/auth';
 import { getDb, runInTransaction } from '@/lib/db';
 import { supabase } from '@/lib/supabase';
 import { useSyncStore } from './store';
@@ -9,9 +9,12 @@ const DEBOUNCE_MS = 30000;
 let pushTimer: ReturnType<typeof setTimeout> | null = null;
 let pushInFlight = false;
 
-function isGoogleAuthed(): boolean {
+// 클라우드 동기화 대상 = Google 또는 Apple 로그인 사용자(둘 다 Supabase 세션 보유).
+// Apple도 포함해야 Apple 사용자 데이터가 클라우드에 백업되고, 로그아웃 시 wipe가
+// 안전해진다(미동기 상태로 wipe하면 데이터 유실).
+function isCloudAuthed(): boolean {
   const { mode, user } = useAuthStore.getState();
-  return mode === 'google' && !!user?.id;
+  return isCloudAuthMode(mode) && !!user?.id;
 }
 
 export function schedulePush(): void {
@@ -23,7 +26,7 @@ export function schedulePush(): void {
 }
 
 export async function flushPush(): Promise<void> {
-  if (!isGoogleAuthed()) return;
+  if (!isCloudAuthed()) return;
 
   const { dirtyListIds, dirtyWordIds, setIsSyncing, setLastPulledAt, clearDirtyLists, clearDirtyWords } =
     useSyncStore.getState();
@@ -91,7 +94,7 @@ export async function flushPush(): Promise<void> {
 }
 
 export async function pullChanges(): Promise<void> {
-  if (!isGoogleAuthed()) return;
+  if (!isCloudAuthed()) return;
 
   const { lastPulledAt, setLastPulledAt, setIsSyncing } = useSyncStore.getState();
   setIsSyncing(true);

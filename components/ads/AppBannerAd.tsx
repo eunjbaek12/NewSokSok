@@ -14,7 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useQuota } from '@/features/quota';
-import { useAuth } from '@/features/auth';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { AD_UNIT_BANNER, isAdsAllowed } from '@/lib/ads/admob';
 
 /**
@@ -42,7 +42,7 @@ export function useAdsAllowed(): boolean {
   return useMemo(() => {
     if (Platform.OS === 'web') return false;
     // 게스트는 quota 정보 없음 → tier=null → Free 동급으로 광고 노출
-    const tier = authMode === 'google' ? (status?.tier ?? null) : null;
+    const tier = isCloudAuthMode(authMode) ? (status?.tier ?? null) : null;
     return isAdsAllowed({ tier });
   }, [authMode, status?.tier]);
 }

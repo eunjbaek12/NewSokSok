@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import type { VocaList, Word, PlanStatus } from '@/lib/types';
-import { useAuth } from '@/features/auth';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useSettings } from '@/features/settings';
 import { useListsQuery } from './queries';
 import {
@@ -44,7 +44,7 @@ export function useShareList() {
     listId: string,
     options?: { force?: boolean; updateId?: string; description?: string },
   ): Promise<void> => {
-    if (authMode !== 'google') throw new Error('GUEST_CANNOT_SHARE');
+    if (!isCloudAuthMode(authMode)) throw new Error('GUEST_CANNOT_SHARE');
 
     const list = lists.find(l => l.id === listId);
     if (!list) throw new Error('List not found');

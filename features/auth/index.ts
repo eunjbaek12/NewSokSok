@@ -1,1 +1,1 @@
-export { useAuth, useAuthStore } from './store';
+export { useAuth, useAuthStore, isCloudAuthMode } from './store';

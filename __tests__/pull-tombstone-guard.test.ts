@@ -38,6 +38,7 @@ jest.mock('@react-native-async-storage/async-storage', () => {
 // pullChanges early-returns unless google-authed.
 jest.mock('@/features/auth', () => ({
   useAuthStore: { getState: () => ({ mode: 'google', user: { id: 'u1' } }) },
+  isCloudAuthMode: (mode: string) => mode === 'google' || mode === 'apple',
 }));
 
 jest.mock('@/lib/supabase', () => {

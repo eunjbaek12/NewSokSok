@@ -23,7 +23,7 @@ const GOOGLE_CLIENT_ID_IOS = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID_IOS || '';
 
 // Google·Apple 양쪽을 합쳐 "클라우드 인증 사용자"로 취급. hydrate/logout 분기가
 // 사회 로그인 모드 전체에 동일 동작을 해야 해서 별도 헬퍼로 추출.
-function isCloudAuthMode(mode: AuthMode): mode is 'google' | 'apple' {
+export function isCloudAuthMode(mode: AuthMode): mode is 'google' | 'apple' {
   return mode === 'google' || mode === 'apple';
 }
 

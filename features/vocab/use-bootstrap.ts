@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Alert, AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
-import { useAuth } from '@/features/auth';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import {
   flushPush,
   pullChanges,
@@ -82,7 +82,7 @@ export function useVocabBootstrap(): void {
     useBootstrapStore.getState().setLoading(true);
 
     const run = async () => {
-      if (authMode === 'google' && user?.id) {
+      if (isCloudAuthMode(authMode) && user?.id) {
         // Account-switch guard (safety net for paths that bypass logout(): app
         // reinstall, restored session on a different account, etc.). If the
         // device last synced under a *different* google id, the local SQLite

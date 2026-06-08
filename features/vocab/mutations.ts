@@ -16,7 +16,7 @@
  *      this, the VocabContext wrapper was the invalidation call site)
  */
 import type { VocaList, Word, PlanStatus } from '@/lib/types';
-import { useAuthStore } from '@/features/auth';
+import { useAuthStore, isCloudAuthMode } from '@/features/auth';
 import { useSyncStore, schedulePush, cascadeSoftDelete } from '@/features/sync';
 import * as PlanEngine from '@/features/study/plan/engine';
 import { getDb } from '@/lib/db';
@@ -39,18 +39,20 @@ function assertListTitle(title: string): void {
 
 // ---- Auth-gated sync helpers ------------------------------------------------
 
-function isGoogleAuthed(): boolean {
+// 클라우드 동기화 대상 = Google 또는 Apple 로그인(둘 다 Supabase 세션 보유).
+// dirty 마킹/푸시가 Apple도 포함해야 데이터가 클라우드에 동기화된다.
+function isCloudAuthed(): boolean {
   const { mode, user } = useAuthStore.getState();
-  return mode === 'google' && !!user?.id;
+  return isCloudAuthMode(mode) && !!user?.id;
 }
 
 function markListsDirty(ids: string[]): void {
-  if (!isGoogleAuthed() || ids.length === 0) return;
+  if (!isCloudAuthed() || ids.length === 0) return;
   useSyncStore.getState().markListsDirty(ids);
 }
 
 function markWordsDirty(ids: string[]): void {
-  if (!isGoogleAuthed() || ids.length === 0) return;
+  if (!isCloudAuthed() || ids.length === 0) return;
   useSyncStore.getState().markWordsDirty(ids);
 }
 
@@ -61,7 +63,7 @@ function markWordsDirty(ids: string[]): void {
  * read-side cache learns about write-side changes.
  */
 async function commit(): Promise<void> {
-  if (isGoogleAuthed()) schedulePush();
+  if (isCloudAuthed()) schedulePush();
   await invalidateLists();
 }
 
@@ -73,7 +75,7 @@ async function commit(): Promise<void> {
  * filter so tombstone rows get re-marked too.
  */
 export async function markAllWordsInListDirty(listId: string): Promise<void> {
-  if (!isGoogleAuthed()) return;
+  if (!isCloudAuthed()) return;
   const conn = await getDb();
   const rows = await conn.getAllAsync<{ id: string }>(
     'SELECT id FROM words WHERE listId = ?',

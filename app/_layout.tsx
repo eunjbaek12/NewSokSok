@@ -10,7 +10,7 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { queryClient } from "@/lib/api/client";
 import { ThemeProvider, useSkinStore } from "@/features/theme";
 import { useVocabBootstrap } from "@/features/vocab";
-import { useAuth, useAuthStore } from "@/features/auth";
+import { useAuth, useAuthStore, isCloudAuthMode } from "@/features/auth";
 import { useSettings, useSettingsStore } from "@/features/settings";
 import { LocaleProvider } from "@/features/locale";
 import { useFonts } from "expo-font";
@@ -97,7 +97,7 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
   // 로그인 직후 / 토큰 갱신 직후에 quota 1회 새로고침.
   const authMode = useAuthStore(s => s.mode);
   useEffect(() => {
-    if (authMode === 'google') {
+    if (isCloudAuthMode(authMode)) {
       useQuotaStore.getState().refresh(true);
     } else {
       useQuotaStore.getState().clear();

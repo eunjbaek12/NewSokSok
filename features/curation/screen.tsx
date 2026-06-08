@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTheme } from '@/features/theme';
-import { useAuth } from '@/features/auth';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import {
   useLists,
   useFetchCloudCurations,
@@ -580,7 +580,7 @@ export default function CurationScreen() {
 
     const hasApiKey = !!apiKey;
     // 키 없는 로그인 사용자는 운영자 키(Edge)로 생성 가능. 게스트(미로그인)·키없음만 차단.
-    const canGenerateAi = hasApiKey || (authMode === 'google' && EDGE_ENABLED);
+    const canGenerateAi = hasApiKey || (isCloudAuthMode(authMode) && EDGE_ENABLED);
 
     const handleOpenAiModal = () => {
         if (!canGenerateAi) {

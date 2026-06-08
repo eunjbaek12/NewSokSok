@@ -18,7 +18,7 @@ import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { SkinSelector } from '@/components/SkinSelector';
-import { useAuth } from '@/features/auth';
+import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useLocale } from '@/features/locale';
 import { UI_LOCALES } from '@/i18n';
 import { ModalPicker } from '@/components/ui/ModalPicker';
@@ -36,6 +36,9 @@ export default function SettingsScreen() {
   const { t } = useTranslation();
   const { colors, isDark, skinId, setSkin, fontFamily } = useTheme();
   const { authMode, user, logout, signInWithGoogle, deleteAccount } = useAuth();
+  // Google·Apple 모두 클라우드 로그인 사용자(동기화·계정 UI 동일 취급). Apple을
+  // 빼면 게스트로 오인돼 동기화 배지·tier 칩·계정삭제가 사라진다.
+  const isCloud = isCloudAuthMode(authMode);
   const { locale, setLocale } = useLocale();
   const { profileSettings, updateProfileSettings, apiKey } = useSettings();
   const { status: quotaStatus, refresh: refreshQuota } = useQuota();
@@ -49,7 +52,7 @@ export default function SettingsScreen() {
 
   // 로그인 사용자는 진입 시 한도 갱신 (계정 행 tier 칩 표시용)
   useEffect(() => {
-    if (authMode === 'google') refreshQuota();
+    if (isCloud) refreshQuota();
   }, [authMode, refreshQuota]);
 
   const handleResetOnboarding = () => {
@@ -73,7 +76,7 @@ export default function SettingsScreen() {
     const isFromGoogle = !profileSettings.nickname && authMode === 'google' && !!user?.displayName;
     const defaultNickname =
       profileSettings.nickname ||
-      (authMode === 'google' && user?.displayName ? user.displayName : '');
+      (isCloud && user?.displayName ? user.displayName : '');
     setNicknameInput(defaultNickname);
     setNicknameFromGoogle(isFromGoogle);
     setNicknameModalOpen(true);
@@ -91,7 +94,7 @@ export default function SettingsScreen() {
   // 게스트는 quota 없음(로그인 유도), 로그인 직후 status 로딩 중이면 칩 생략.
   const accountTierChip = (() => {
     if (apiKey) return { label: t('settings.accountTierByok'), onPress: undefined as undefined | (() => void) };
-    if (authMode !== 'google') return { label: t('settings.accountTierGuest'), onPress: () => handleGoogleUpgrade() };
+    if (!isCloud) return { label: t('settings.accountTierGuest'), onPress: () => handleGoogleUpgrade() };
     if (!quotaStatus) return null;
     if (quotaStatus.tier === 'pro') {
       // 트라이얼과 유료를 구분 — 둘 다 서버 tier='pro'지만 사용자에겐 매우 다른 상태.
@@ -150,7 +153,7 @@ export default function SettingsScreen() {
   const handleLogout = () => {
     Alert.alert(
       t('settings.logoutTitle'),
-      authMode === 'google'
+      isCloud
         ? t('settings.logoutMessageGoogle')
         : t('settings.logoutMessageGuest'),
       [
@@ -182,7 +185,7 @@ export default function SettingsScreen() {
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
             <View style={styles.rowLeft}>
-              {authMode === 'google' && user?.avatarUrl ? (
+              {isCloud && user?.avatarUrl ? (
                 <Image
                   source={{ uri: user.avatarUrl }}
                   style={styles.avatar}
@@ -190,7 +193,7 @@ export default function SettingsScreen() {
               ) : (
                 <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
                   <Ionicons
-                    name={authMode === 'google' ? 'person' : 'phone-portrait-outline'}
+                    name={isCloud ? 'person' : 'phone-portrait-outline'}
                     size={18}
                     color={colors.primary}
                   />
@@ -198,12 +201,12 @@ export default function SettingsScreen() {
               )}
               <View style={{ flex: 1 }}>
                 <Text style={[styles.rowTitle, { color: colors.text }]}>
-                  {authMode === 'google' && user?.displayName
+                  {isCloud && user?.displayName
                     ? user.displayName
                     : t('settings.guestUser')}
                 </Text>
                 <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>
-                  {authMode === 'google' && user?.email
+                  {isCloud && user?.email
                     ? user.email
                     : t('settings.localStorageInUse')}
                 </Text>
@@ -221,7 +224,7 @@ export default function SettingsScreen() {
                 )}
               </View>
             </View>
-            {authMode === 'google' && (
+            {isCloud && (
               <View style={[styles.cloudBadge, { backgroundColor: colors.successLight }]}>
                 <Ionicons name="cloud-done-outline" size={14} color={colors.success} />
                 <Text style={[styles.cloudBadgeText, { color: colors.success }]}>{t('settings.sync')}</Text>
@@ -486,7 +489,7 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
-        {authMode === 'google' && (
+        {isCloud && (
           <Pressable
             style={styles.deleteAccountLink}
             onPress={handleDeleteAccount}

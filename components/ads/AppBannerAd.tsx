@@ -8,8 +8,8 @@
 //      답 버튼 측 paddingBottom = insets.bottom + BANNER_SLOT_HEIGHT + 16.
 //   3. inline: 일반 흐름 안에 배너 (예: 모달 등). 가드만 받는 단순 BannerAd.
 
-import React, { useMemo } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import React, { useMemo, useState } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
@@ -72,39 +72,75 @@ export function useTabContentBottomInset(extra: number = 16): number {
   return tabBarHeight + adsInset + extra;
 }
 
+// 광고 진단 모드. EXPO_PUBLIC_AD_DEBUG='1'로 빌드하면 배너 로드 성공/실패 상태를
+// 화면에 직접 표시한다 (Windows는 아이폰 os_log을 못 읽어 no-fill vs 설정오류를
+// 구분할 방법이 화면 표시뿐). 평소(미설정)엔 동작 변화 없음. 공개 출시 전 제거.
+const AD_DEBUG = process.env.EXPO_PUBLIC_AD_DEBUG === '1';
+
 export function AppBannerAd({ mode = 'inline' }: Props) {
   const allowed = useAdsAllowed();
   const insets = useSafeAreaInsets();
+  const [adStatus, setAdStatus] = useState<string>('loading…');
 
   if (!allowed) return null;
 
-  const banner = <BannerAd unitId={AD_UNIT_BANNER} size={BannerAdSize.BANNER} />;
+  const banner = (
+    <BannerAd
+      unitId={AD_UNIT_BANNER}
+      size={BannerAdSize.BANNER}
+      onAdLoaded={AD_DEBUG ? () => setAdStatus('LOADED ✓') : undefined}
+      onAdFailedToLoad={
+        AD_DEBUG
+          ? (e: { code?: string | number; message?: string }) =>
+              setAdStatus(`FAIL code=${e?.code ?? '?'} ${e?.message ?? ''}`)
+          : undefined
+      }
+    />
+  );
+
+  // 진단 오버레이 — 화면 하단 고정. 배너가 비어 보여도 로드 결과(code 등)는 보인다.
+  const debugOverlay = AD_DEBUG ? (
+    <View style={[styles.debugOverlay, { bottom: insets.bottom }]} pointerEvents="none">
+      <Text style={styles.debugText}>{`banner[${mode}]: ${adStatus}`}</Text>
+    </View>
+  ) : null;
 
   if (mode === 'tab-anchor') {
     // ClassicTabLayout: 탭바 바로 위
     return (
-      <View
-        pointerEvents="box-none"
-        style={[styles.anchor, { bottom: insets.bottom + TAB_BAR_HEIGHT }]}
-      >
-        {banner}
-      </View>
+      <>
+        <View
+          pointerEvents="box-none"
+          style={[styles.anchor, { bottom: insets.bottom + TAB_BAR_HEIGHT }]}
+        >
+          {banner}
+        </View>
+        {debugOverlay}
+      </>
     );
   }
 
   if (mode === 'bottom-anchor') {
     // 학습 화면: 답 버튼 영역 위. safe area 위에 직접 배치.
     return (
-      <View
-        pointerEvents="box-none"
-        style={[styles.anchor, { bottom: insets.bottom }]}
-      >
-        {banner}
-      </View>
+      <>
+        <View
+          pointerEvents="box-none"
+          style={[styles.anchor, { bottom: insets.bottom }]}
+        >
+          {banner}
+        </View>
+        {debugOverlay}
+      </>
     );
   }
 
-  return <View style={styles.inline}>{banner}</View>;
+  return (
+    <View style={styles.inline}>
+      {banner}
+      {debugOverlay}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -120,5 +156,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: BANNER_SLOT_HEIGHT,
+  },
+  // 진단 오버레이 (AD_DEBUG 전용)
+  debugOverlay: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+    paddingVertical: 2,
+    backgroundColor: 'rgba(0,0,0,0.7)',
+  },
+  debugText: {
+    color: 'rgb(255,255,255)',
+    fontSize: 10,
   },
 });

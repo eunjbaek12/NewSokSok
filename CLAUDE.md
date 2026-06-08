@@ -53,6 +53,8 @@ There is no configured test script. Jest and ts-jest are in devDependencies with
 
 ### Environment Variables
 
+> Secret storage/rotation policy (5-tier registry, "where does a new secret go?" decision rule, pre-commit hook): **`docs/secrets-management.md`**. Server-only secrets (`SUPABASE_SERVICE_ROLE_KEY`, `VERTEX_SA_*`, `PLAY_SA_*`, `APPLE_*`) live in Supabase Edge Secrets, never the bundle.
+
 ```
 EXPO_PUBLIC_SUPABASE_URL              # Supabase project URL
 EXPO_PUBLIC_SUPABASE_ANON_KEY         # Supabase anon/public key

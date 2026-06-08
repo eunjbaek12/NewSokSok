@@ -902,6 +902,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    // 좁은 화면(예: iPhone 13 mini)에서 제목+필터 칩이 한 줄에 안 들어가면 칩이
+    // 잘려나갔다. RN은 기본 flexShrink=0이라 wrap을 켜면 줄어들지 않고 칩 그룹이
+    // 통째로 다음 줄로 내려간다(칩 4개 모두 노출). 넓은 화면은 한 줄 유지 = 기존 그대로.
+    // rowGap은 wrap된 경우에만 두 줄 사이 간격을 주고 한 줄일 땐 영향 없음.
+    flexWrap: 'wrap',
+    rowGap: 8,
     marginBottom: 12,
   },
   sectionHeaderLeft: {

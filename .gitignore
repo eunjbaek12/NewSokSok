@@ -72,6 +72,9 @@ debug.log
 # Play Store raw screenshots (대용량 PNG. final/만 commit)
 store-assets/screenshots/raw/
 
+# App Store iOS raw screenshots (아이폰 실기 캡처 원본. final/만 commit, raw/{ko,en}/ 디렉토리는 .gitkeep로 유지)
+store-assets/screenshots/appstore/raw/**/*.png
+
 # Marketing teaser raw 영상/소스 (작업용. CapCut 조립 전 raw — 미추적. docs/handoff-marketing-teasers.md 참조)
 assets/marketing/
 assets/images/*.mp4

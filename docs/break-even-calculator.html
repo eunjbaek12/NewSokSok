@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>쏙쏙 보카 — 손익분기 계산기</title>
+<style>
+  :root {
+    --cream: #faf6ec;
+    --card: #fffdf7;
+    --ink: #3a3a32;
+    --muted: #8a8576;
+    --line: #e8e0cd;
+    --avocado: #6b8e23;
+    --avocado-dark: #557018;
+    --pit: #8a6d3b;
+    --good: #2e7d32;
+    --bad: #c0392b;
+    --shadow: 0 1px 3px rgba(90,80,40,.08), 0 6px 20px rgba(90,80,40,.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", "Malgun Gothic", system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  header {
+    padding: 28px 24px 20px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  h1 { margin: 0 0 4px; font-size: 1.5rem; letter-spacing: -.02em; }
+  h1 .em { color: var(--avocado-dark); }
+  header p { margin: 0; color: var(--muted); font-size: .9rem; }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 880px) {
+    .wrap { grid-template-columns: 1fr; }
+    .results { position: static !important; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    margin: 0 0 14px;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--pit);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card h2::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--avocado);
+  }
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+  .field .top {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    margin-bottom: 6px;
+  }
+  .field label { font-size: .9rem; font-weight: 600; }
+  .field .hint { display: block; font-size: .72rem; color: var(--muted); font-weight: 400; margin-top: 1px; }
+  .field .valbox {
+    display: flex; align-items: center; gap: 4px;
+    background: #f4efe0; border: 1px solid var(--line); border-radius: 8px;
+    padding: 3px 8px; flex: 0 0 auto;
+  }
+  .field .valbox .unit { font-size: .72rem; color: var(--muted); }
+  .field input[type="number"] {
+    width: 84px; border: none; background: transparent; text-align: right;
+    font-size: .92rem; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums;
+  }
+  .field input[type="number"]:focus { outline: none; }
+  input[type="range"] {
+    width: 100%; accent-color: var(--avocado); height: 4px; cursor: pointer;
+  }
+  /* Results */
+  .results { position: sticky; top: 16px; }
+  .headline {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .headline .net {
+    padding: 22px 20px 18px; text-align: center;
+    background: linear-gradient(180deg, #fffdf7, #f7f2e4);
+    border-bottom: 1px solid var(--line);
+  }
+  .headline .net .lbl { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .headline .net .amt { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .amt.pos { color: var(--good); }
+  .amt.neg { color: var(--bad); }
+  .bep {
+    padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .bep .lbl { font-size: .82rem; color: var(--muted); }
+  .bep .v { font-weight: 800; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+  .bar {
+    display: flex; height: 26px; border-radius: 7px; overflow: hidden; margin: 14px 20px 4px;
+    background: #efe8d6; font-size: .68rem; font-weight: 700; color: #fff;
+  }
+  .bar .rev { background: var(--avocado); }
+  .bar .cost { background: var(--pit); }
+  .bar span { display: flex; align-items: center; justify-content: center; white-space: nowrap; overflow: hidden; }
+  .barlegend { display: flex; gap: 16px; padding: 4px 20px 16px; font-size: .72rem; color: var(--muted); }
+  .barlegend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 5px; vertical-align: middle; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  table td { padding: 6px 0; border-bottom: 1px dashed var(--line); font-variant-numeric: tabular-nums; }
+  table td:last-child { text-align: right; font-weight: 600; }
+  table tr.sum td { border-bottom: none; border-top: 2px solid var(--line); padding-top: 8px; font-weight: 800; }
+  table .sec { font-weight: 800; color: var(--pit); padding-top: 12px; font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; }
+  .peruser { font-size: .78rem; color: var(--muted); padding: 12px 20px 4px; display: flex; justify-content: space-between; }
+  .peruser b { color: var(--ink); }
+  .notes {
+    font-size: .76rem; color: var(--muted); margin-top: 18px; line-height: 1.6;
+  }
+  .notes b { color: var(--pit); }
+  .reset {
+    background: none; border: 1px solid var(--line); color: var(--muted);
+    border-radius: 8px; padding: 5px 12px; font-size: .78rem; cursor: pointer; float: right;
+  }
+  .reset:hover { background: #f4efe0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🥑 쏙쏙 보카 — <span class="em">손익분기 계산기</span></h1>
+  <p>가정을 바꿔가며 월 순익과 손익분기 DAU를 추정합니다. 모든 값은 직접 조정하세요. (월 = 30일 기준)</p>
+</header>
+
+<div class="wrap">
+  <div class="inputs" id="inputs">
+    <button class="reset" id="reset">기본값 복원</button>
+  </div>
+
+  <div class="results">
+    <div class="headline">
+      <div class="net">
+        <div class="lbl">월 순익 (추정)</div>
+        <div class="amt" id="netAmt">—</div>
+      </div>
+      <div class="bep">
+        <span class="lbl">손익분기 DAU</span>
+        <span class="v" id="bepVal">—</span>
+      </div>
+      <div class="bar" id="bar">
+        <span class="rev" id="barRev"></span>
+        <span class="cost" id="barCost"></span>
+      </div>
+      <div class="barlegend">
+        <span><i style="background:var(--avocado)"></i>월 수익</span>
+        <span><i style="background:var(--pit)"></i>월 비용</span>
+      </div>
+      <div class="peruser">
+        <span>사용자당 월 수익 <b id="arpuRev">—</b></span>
+        <span>사용자당 월 비용 <b id="arpuCost">—</b></span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <h2>상세 내역</h2>
+      <table id="breakdown"></table>
+    </div>
+
+    <div class="notes" id="notes"></div>
+  </div>
+</div>
+
+<script>
+const KRW = n => "₩" + Math.round(n).toLocaleString("ko-KR");
+const NUM = n => Math.round(n).toLocaleString("ko-KR");
+
+// --- 입력 필드 정의 -------------------------------------------------
+const FIELDS = [
+  { group: "사용자 규모", id: "dau",         label: "일일 활성 사용자 (DAU)", min: 0, max: 50000, step: 100, val: 1000, unit: "명" },
+  { group: "사용자 규모", id: "fPro",        label: "Pro 전환율",            min: 0, max: 20, step: 0.1, val: 2, unit: "%", hint: "유료 구독 사용자 비율" },
+  { group: "사용자 규모", id: "fBYOK",       label: "BYOK 비율",             min: 0, max: 40, step: 0.5, val: 5, unit: "%", hint: "본인 키 사용 → AI 비용 0, 배너만 노출" },
+
+  { group: "수익 가정", id: "proArpu",      label: "Pro 1인 월 결제액 (ARPU)", min: 0, max: 10000, step: 100, val: 3500, unit: "₩", hint: "월 3,900 / 연 35,900(월 2,992) 혼합" },
+  { group: "수익 가정", id: "storeCut",     label: "스토어 수수료",          min: 0, max: 30, step: 1, val: 15, unit: "%", hint: "연매출 $1M 미만 소규모 프로그램 = 15%" },
+  { group: "수익 가정", id: "bannerEcpm",   label: "배너 eCPM",             min: 0, max: 5000, step: 100, val: 1500, unit: "₩", hint: "노출 1,000회당 광고 수익(한국 기준)" },
+  { group: "수익 가정", id: "bannerImpr",   label: "비-Pro 1인 일 배너 노출", min: 0, max: 60, step: 1, val: 15, unit: "회" },
+  { group: "수익 가정", id: "rewardedEcpm", label: "보상형 eCPM",           min: 0, max: 50000, step: 500, val: 15000, unit: "₩", hint: "보상형은 단가가 배너의 ~10배" },
+  { group: "수익 가정", id: "rewardedViews",label: "Free 1인 일 보상형 시청", min: 0, max: 3, step: 0.05, val: 0.3, unit: "회", hint: "평균값(대부분 0, 일부만 시청)" },
+
+  { group: "비용 가정", id: "costPerWord",  label: "AI 단어당 단가",        min: 0, max: 5, step: 0.05, val: 0.7, unit: "₩", hint: "Gemini Flash 기준 ~₩0.7/단어" },
+  { group: "비용 가정", id: "freeWords",    label: "Free 1인 일 AI 단어",   min: 0, max: 300, step: 5, val: 15, unit: "개", hint: "quota 100/일(광고 시 최대 300)" },
+  { group: "비용 가정", id: "proWords",     label: "Pro 1인 일 AI 단어",    min: 0, max: 1000, step: 10, val: 50, unit: "개", hint: "quota 1,000/일" },
+  { group: "비용 가정", id: "supabase",     label: "월 인프라 추가비",       min: 0, max: 300000, step: 5000, val: 0, unit: "₩", hint: "Supabase/EAS 등 무료 티어 초과분(평소 0)" },
+  { group: "비용 가정", id: "fx",           label: "환율",                  min: 1000, max: 1600, step: 10, val: 1370, unit: "₩/$", hint: "Apple $99/년 환산용" },
+];
+
+const DEFAULTS = Object.fromEntries(FIELDS.map(f => [f.id, f.val]));
+const state = { ...DEFAULTS };
+
+// --- UI 생성 -------------------------------------------------------
+const inputsEl = document.getElementById("inputs");
+const groups = {};
+FIELDS.forEach(f => {
+  if (!groups[f.group]) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<h2>${f.group}</h2>`;
+    inputsEl.appendChild(card);
+    groups[f.group] = card;
+  }
+  const wrap = document.createElement("div");
+  wrap.className = "field";
+  wrap.innerHTML = `
+    <div class="top">
+      <label>${f.label}${f.hint ? `<span class="hint">${f.hint}</span>` : ""}</label>
+      <div class="valbox">
+        <input type="number" id="n_${f.id}" min="${f.min}" max="${f.max}" step="${f.step}" value="${f.val}">
+        <span class="unit">${f.unit}</span>
+      </div>
+    </div>
+    <input type="range" id="r_${f.id}" min="${f.min}" max="${f.max}" step="${f.step}" value="${f.val}">`;
+  groups[f.group].appendChild(wrap);
+
+  const r = wrap.querySelector(`#r_${f.id}`);
+  const n = wrap.querySelector(`#n_${f.id}`);
+  const sync = (v, fromRange) => {
+    let x = parseFloat(v); if (isNaN(x)) x = 0;
+    state[f.id] = x;
+    if (fromRange) n.value = x; else r.value = x;
+    compute();
+  };
+  r.addEventListener("input", e => sync(e.target.value, true));
+  n.addEventListener("input", e => sync(e.target.value, false));
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  Object.assign(state, DEFAULTS);
+  FIELDS.forEach(f => {
+    document.getElementById("n_" + f.id).value = f.val;
+    document.getElementById("r_" + f.id).value = f.val;
+  });
+  compute();
+});
+
+// --- 모델 ----------------------------------------------------------
+function model(dau) {
+  const fPro = state.fPro / 100;
+  const fBYOK = state.fBYOK / 100;
+  const fFree = Math.max(0, 1 - fPro - fBYOK);
+  const nPro = dau * fPro, nBYOK = dau * fBYOK, nFree = dau * fFree;
+  const D = 30;
+
+  // 수익
+  const revPro = nPro * state.proArpu * (1 - state.storeCut / 100);
+  const revBanner = (nFree + nBYOK) * state.bannerImpr * D * state.bannerEcpm / 1000;
+  const revRewarded = nFree * state.rewardedViews * D * state.rewardedEcpm / 1000;
+  const revenue = revPro + revBanner + revRewarded;
+
+  // 비용
+  const costAI = (nFree * state.freeWords + nPro * state.proWords) * D * state.costPerWord;
+  const fixed = (99 * state.fx) / 12 + 40000 / 12; // Apple 연 $99 + 등록면허세 연 4만
+  const cost = costAI + fixed + state.supabase;
+
+  return { nPro, nBYOK, nFree, revPro, revBanner, revRewarded, revenue, costAI, fixed, infra: state.supabase, cost, net: revenue - cost };
+}
+
+function compute() {
+  const m = model(state.dau);
+  const net = m.net;
+
+  const netEl = document.getElementById("netAmt");
+  netEl.textContent = (net >= 0 ? "+" : "−") + KRW(Math.abs(net));
+  netEl.className = "amt " + (net >= 0 ? "pos" : "neg");
+
+  // 손익분기 DAU: 고정비 / (사용자당 한계이익). 비율·단가 고정 가정.
+  const unit = state.dau > 0 ? model(state.dau) : model(1000);
+  // 사용자당 한계이익 = (수익 - 변동비) / dau  — 1000명으로 정규화
+  const probe = model(1000);
+  const marginPerUser = (probe.revenue - probe.costAI) / 1000; // 고정비 제외 변동 한계이익
+  const bepEl = document.getElementById("bepVal");
+  if (marginPerUser > 0) {
+    const bep = m.fixed / marginPerUser; // infra는 고정성으로 보지 않고 0 가정(평소 0)
+    bepEl.textContent = NUM(bep) + " 명";
+    bepEl.style.color = "var(--ink)";
+  } else {
+    bepEl.textContent = "도달 불가 ⚠";
+    bepEl.style.color = "var(--bad)";
+  }
+
+  // 사용자당 값
+  const dau = state.dau || 1;
+  document.getElementById("arpuRev").textContent = KRW(m.revenue / dau);
+  document.getElementById("arpuCost").textContent = KRW(m.cost / dau);
+
+  // 막대
+  const total = Math.max(m.revenue, m.cost, 1);
+  const barRev = document.getElementById("barRev");
+  const barCost = document.getElementById("barCost");
+  barRev.style.width = (m.revenue / total * 100) + "%";
+  barCost.style.width = (m.cost / total * 100) + "%";
+  barRev.textContent = m.revenue / total > 0.18 ? KRW(m.revenue) : "";
+  barCost.textContent = m.cost / total > 0.18 ? KRW(m.cost) : "";
+  // 막대를 수익/비용 합 비례로
+  document.getElementById("bar").style.background = "#efe8d6";
+  const sum = m.revenue + m.cost || 1;
+  barRev.style.flex = m.revenue / sum;
+  barCost.style.flex = m.cost / sum;
+  barRev.style.width = ""; barCost.style.width = "";
+
+  // 내역 표
+  document.getElementById("breakdown").innerHTML = `
+    <tr><td class="sec" colspan="2">수익 — Free ${NUM(m.nFree)} · BYOK ${NUM(m.nBYOK)} · Pro ${NUM(m.nPro)}명</td></tr>
+    <tr><td>Pro 구독 (수수료 ${state.storeCut}% 차감 후)</td><td>${KRW(m.revPro)}</td></tr>
+    <tr><td>배너 광고</td><td>${KRW(m.revBanner)}</td></tr>
+    <tr><td>보상형 광고</td><td>${KRW(m.revRewarded)}</td></tr>
+    <tr class="sum"><td>월 수익 합계</td><td>${KRW(m.revenue)}</td></tr>
+    <tr><td class="sec" colspan="2">비용</td></tr>
+    <tr><td>AI (Vertex AI Gemini)</td><td>${KRW(m.costAI)}</td></tr>
+    <tr><td>고정비 (Apple $99/년 + 등록면허세)</td><td>${KRW(m.fixed)}</td></tr>
+    <tr><td>인프라 추가비</td><td>${KRW(m.infra)}</td></tr>
+    <tr class="sum"><td>월 비용 합계</td><td>${KRW(m.cost)}</td></tr>`;
+
+  document.getElementById("notes").innerHTML = `
+    <b>모델 가정</b><br>
+    · 손익분기 DAU = 고정비 ÷ (사용자당 월 한계이익). 입력한 전환율·단가·소비량을 고정한 채 DAU만 늘렸을 때 순익 0이 되는 지점.<br>
+    · BYOK 사용자는 AI 비용 0(본인 키)이며 배너 광고만 노출. Pro는 광고 미노출.<br>
+    · 스토어 수수료는 구독에만 적용. 광고 수익엔 미적용.<br>
+    · 고정비에 등록면허세 ₩4만/년 포함. Google Play $25는 1회성이라 제외. Supabase/EAS는 무료 티어 가정(초과분은 '월 인프라 추가비'로 직접 입력).<br>
+    · <b>미반영 주의</b>: 7일 Pro 무료체험 기간 동안 비결제 사용자가 Pro quota(1,000/일)로 AI를 쓰는 비용, 부가세/종합소득세, 환불·미수금은 모델에 없음. 보수적으로 보려면 Free 단어 소비·체험 비용을 약간 높게 잡으세요.`;
+}
+
+compute();
+</script>
+</body>
+</html>

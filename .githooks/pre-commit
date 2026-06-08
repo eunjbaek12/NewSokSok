@@ -1,0 +1,33 @@
+#!/bin/sh
+# 시크릿이 커밋에 섞여 들어가는 것을 막는 pre-commit 훅.
+# 스테이징된 "추가 라인(+)"만 검사한다 (기존 라인·삭제는 무시).
+#
+# 우회(드물게만): git commit --no-verify
+# 특정 라인 예외: 해당 라인에 주석으로 'secret-ok' 표기
+#
+# 패턴은 레포 전체 dry-run에서 오탐 0이 되도록 튜닝됨. 새 시크릿 종류가 생기면
+# PATTERN에 고신뢰(고유 prefix/길이) 정규식만 추가할 것 — 광범위한 단어(secret, token)는 오탐 유발.
+
+PATTERN='MII[A-Za-z0-9+/]{60,}|AIza[0-9A-Za-z_-]{35}|AKIA[0-9A-Z]{16}|ghp_[0-9A-Za-z]{36}|github_pat_[0-9A-Za-z_]{50,}|xox[baprs]-[0-9A-Za-z-]{10,}|sk-(proj-)?[A-Za-z0-9]{32,}|ascApiKey(Id|IssuerId|Path)|eyJ[A-Za-z0-9_-]{15,}\.eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]{10,}'
+
+# 스테이징된 추가 라인만 추출하면서 현재 파일 경로를 함께 표기
+hits=$(git diff --cached --no-color -U0 | awk '
+  /^\+\+\+ / { file=substr($0,7); next }   # "+++ b/path" → path
+  /^\+/ && !/^\+\+\+/ {
+    line=substr($0,2)
+    if (line ~ /secret-ok/) next            # 라인 단위 예외
+    print file ":\t" line
+  }
+' | grep -E "$PATTERN")
+
+if [ -n "$hits" ]; then
+  echo "🚫 커밋 차단 — 스테이징된 변경에 시크릿 의심 내용이 있습니다:"
+  echo ""
+  echo "$hits"
+  echo ""
+  echo "  • 진짜 시크릿: 값을 .env / EAS Secrets / SecureStore로 옮기고 추적 파일에서 제거하세요."
+  echo "  • 오탐: 해당 라인에 'secret-ok' 주석을 달거나, 정말 예외면 'git commit --no-verify'."
+  exit 1
+fi
+
+exit 0

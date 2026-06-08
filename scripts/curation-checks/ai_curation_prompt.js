@@ -1,5 +1,5 @@
 // Standalone harness mirroring features/curation/screen.tsx::buildPrompt.
-// Run with: node __tests__/ai_curation_prompt.test.js
+// Run with: node scripts/curation-checks/ai_curation_prompt.js
 
 const DIFFICULTY_PROMPT = {
     beginner: '초급 수준의 쉬운',

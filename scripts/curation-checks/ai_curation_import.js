@@ -1,5 +1,5 @@
 // Standalone harness mirroring features/curation/screen.tsx::handleImport
-// dedupe logic. Run with: node __tests__/ai_curation_import.test.js
+// dedupe logic. Run with: node scripts/curation-checks/ai_curation_import.js
 //
 // Mirrors the in-screen dedupe path (sourceLang gate + term normalization)
 // without touching the actual DB layer; addBatchWords is mocked.

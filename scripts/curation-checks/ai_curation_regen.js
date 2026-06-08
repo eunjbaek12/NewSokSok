@@ -1,5 +1,5 @@
 // Standalone harness mirroring features/curation/screen.tsx::handleRegenerate
-// state-machine logic. Run with: node __tests__/ai_curation_regen.test.js
+// state-machine logic. Run with: node scripts/curation-checks/ai_curation_regen.js
 //
 // Mirrors the 직전 회차만 배제 + 클라이언트 dedupe 동작:
 // - excludeTerms = current selectedTheme.words.map(w => w.term) 전달

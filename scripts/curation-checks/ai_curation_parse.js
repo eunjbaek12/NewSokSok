@@ -1,5 +1,5 @@
 // Standalone harness mirroring features/curation/screen.tsx::generateAIWords
-// post-fetch parsing/validation. Run with: node __tests__/ai_curation_parse.test.js
+// post-fetch parsing/validation. Run with: node scripts/curation-checks/ai_curation_parse.js
 const { z } = require('zod');
 
 const AIWordResultSchema = z.object({

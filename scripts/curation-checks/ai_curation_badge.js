@@ -1,5 +1,5 @@
 // Standalone harness mirroring ListCard.tsx::statusType/isAiGenerated logic.
-// Run with: node __tests__/ai_curation_badge.test.js
+// Run with: node scripts/curation-checks/ai_curation_badge.js
 
 const AI_GENERATED_TAG = 'AI생성';
 

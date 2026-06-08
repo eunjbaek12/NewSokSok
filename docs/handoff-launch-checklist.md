@@ -21,7 +21,9 @@
 
 ## 🟢 2026-06-08 최신 상태 — 다음 세션은 여기부터 읽어라
 
-**iOS 1차 반려(2.1a/2.3.10) 수정 완료 + 결제 설정 100% 완료. 남은 건 build 6 실기 검증 → App Store 재제출.**
+**iOS 1차 반려(2.1a/2.3.10) 수정 완료 + 결제 설정 100% 완료. build 7 제출 완료(ASC 처리 중) → 실기 검증 → App Store 재제출.**
+
+> 🔴 **build 6 함정 정정 (06-08 후속 세션)**: 이전 기록의 "build 6에 모든 코드 수정 포함"은 **틀렸음**. build 6은 14:59 트리거됐는데 핵심 수정 커밋들(`b745542` Apple 동등성·`c01222b` restore·`e8583d5` 스플래시·`274d357` 칩·`f7da488` TTS·`c76ae9b` Android lazy-require)은 15:02~15:10에 커밋됨 → **build 6 = build 5 (둘 다 `212adc1`), 수정 전부 누락**. 게다가 build 6은 ASC 제출까지 안 돼 TestFlight에 build 5만 떴음. → **build 7로 재빌드**(커밋 `7ed51e3`, 모든 수정 + `ITSAppUsesNonExemptEncryption:false`). `Submitted to App Store Connect!` 확인, Apple 처리 중. **교훈: 빌드 트리거 전에 커밋 먼저.**
 
 **이번 세션(06-08) 한 일:**
 - **iOS Google 로그인 3겹 차단 전부 해소 → 실기 로그인 성공(Google/Apple/게스트):**
@@ -32,12 +34,15 @@
 - **Apple 로그인 클라우드 동등성 버그 수정**(커밋 `b745542`) — `=== 'google'` 산재 검사로 Apple 사용자가 게스트 취급(동기화 안 됨→로그아웃 데이터 유실·무료AI/사진스캔/공유 차단)되던 것 `isCloudAuthMode`로 12파일 일괄 수정. [[project_apple_login_cloud_parity]]
 - 추가 수정: 빌링 restore(expo-iap 3.4 getAvailablePurchases void → root API) `c01222b` · 스플래시 cover→contain `e8583d5` · 홈 필터칩 flexWrap `274d357` · TTS 무음스위치 playsInSilentMode(expo-audio) `f7da488`
 - **결제 설정 완료:** 유료 앱 계약 **활성화됨** · 구독 `pro_monthly`/`pro_yearly` 메타데이터+심사스크린샷 완료(제출 준비) · W-8BEN 2종 활성 · 한국세금/은행(우리은행) 제출(처리됨) · DSA 거래자 신고+문서 제출(**심사 중**) · Supabase APPLE_* 4종 확인
-- **build 6 (buildNumber 6, v1.1.0) 빌드+자동제출** — 위 모든 코드 수정 포함. submission `e042fc35`, TestFlight 처리 대기
+- ~~build 6 (buildNumber 6) 빌드+자동제출~~ — **실패/무의미**(위 정정 박스 참조: 수정 누락 + ASC 미제출)
+- **build 7 (buildNumber 7, v1.1.0, 커밋 `7ed51e3`) 빌드+자동제출 성공** — 모든 코드 수정 + 암호화 면제 플래그 포함. Build ID `4461f0b1`, submission `aab8d2a6`, IPA `9rLcmXKowPV9yvjhfbe1kR`. **`Submitted to App Store Connect!` 확인 → Apple 처리 중(5~10분)**. 사전검증: Jest 300/300, TSC 에러 4건 전부 빌드 무관(Android 가드/dev 스크립트/Deno)
+- **암호화 면제 플래그 추가**(커밋 `7ed51e3`) — `app.json` ios.infoPlist `ITSAppUsesNonExemptEncryption:false`. HTTPS/Keychain/OAuth 표준 암호화만 사용 → 면제 정확. 제출마다 뜨는 수출 컴플라이언스 질문 제거
 
 **다음 세션 즉시 할 일:**
-1. **build 6 실기 테스트(아이폰)** — ① 로그인 3종→홈 ② **Apple 로그인 시 무료검색·설정 동기화 배지**(동등성 검증) ③ 홈 필터칩 안 잘림 ④ 스플래시 양옆 안 잘림 ⑤ TTS 무음스위치에서 소리남 ⑥ **플랜→가격 표시→샌드박스 구매→Pro 전환→구매 복원(Restore)**
-2. 전부 OK → **App Store 심사 재제출** (스크린샷 이미 반영됨)
-3. DSA 거래자 검증 결과 확인(심사 중) — EU 제품페이지 표시용, 결제/심사 차단은 아님
+1. **build 7 TestFlight 처리 완료 확인** (5~10분, Apple 이메일) → https://appstoreconnect.apple.com/apps/6776714408/testflight/ios 에 **build 7** 뜨는지
+2. **build 7 실기 테스트(아이폰)** — ① 로그인 3종→홈 ② **Apple 로그인 시 무료검색·설정 동기화 배지**(동등성 검증) ③ 홈 필터칩 안 잘림 ④ 스플래시 양옆 안 잘림 ⑤ TTS 무음스위치에서 소리남 ⑥ **플랜→가격 표시→샌드박스 구매→Pro 전환→구매 복원(Restore)**
+3. 전부 OK → **App Store 심사 재제출** (스크린샷 이미 반영됨)
+4. DSA 거래자 검증 결과 확인(심사 중) — EU 제품페이지 표시용, 결제/심사 차단은 아님
 
 ⚠️ 결제 실기 테스트 전 유료 앱 계약 "활성화됨" 유지 + 은행/한국세금 "처리 중→활성" 확정 확인.
 ⚠️ `eas.json submit.production.ios`는 개인 .p8 절대경로라 **커밋 금지**(미커밋 상태 유지). docs 노트(`handoff-*.md`)·`break-even-calculator.html`도 이번 커밋에서 제외함.

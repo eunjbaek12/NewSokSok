@@ -16,6 +16,13 @@
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "ascApiKeyPath": "C:/Users/kimos/OneDrive/바탕 화면/Avocado/AuthKey_6VRBZPDM3P.p8",
+        "ascApiKeyId": "6VRBZPDM3P",
+        "ascApiKeyIssuerId": "7c5b502b-e95e-4f15-a05a-8ac973136f03",
+        "ascAppId": "6776714408"
+      }
+    }
   }
 }

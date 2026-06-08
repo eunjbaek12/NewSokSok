@@ -7,6 +7,42 @@
 >
 > **출시 전략 변경 (2026-06-02)**: "한국 first"(v1.2 글로벌)는 **폐기**, **전 세계 동시 출시**로 결정.
 > 비공개 테스트는 한국 트랙으로 진행하고 프로덕션 승격 시 전 국가 선택. iOS도 동시 출시 결정.
+>
+> **출시 전략 재변경 (2026-06-07)**: "동시 출시" → **iOS 소프트 런치 선행**으로 결정. 근거: 두 플랫폼 임계경로가 비대칭 —
+> iOS는 아이폰 확보 후 build 4 실기 검증 + iOS 스크린샷 재촬영 + 재제출 → 심사 1~3일이면 ~1주 내 승인 가능한 반면,
+> Android는 신규 개인계정 의무 비공개 테스트(20명·14일)가 하드 게이트라 등록면허세·신고증 관료절차까지 최소 ~3주.
+> "승인"과 "공개 출시"는 분리돼 있으므로(App Store=수동 출시 보류 / Play=관리형 게시), 둘 다 승인까지 병렬로 밀되
+> **먼저 깨끗이 승인되는 쪽(현재 iOS 유력)을 먼저 공개**한다. 한국은 Android ~70%라 iOS는 작은 모집단 →
+> 결제 E2E(B15 미완)·크래시·구독 갱신 등 **공통 백엔드 로직을 적은 사용자에서 먼저 검증**하고 Android 대규모 출시 전 수정.
+> ⚠️ iOS 클린 ≠ Android 안전: Android 전용(Play Developer API 결제·R8 난독화·기기 파편화)은 14일 비공개 테스트에서 별도 검증 필수.
+> 인디 앱 "동시 출시"의 마케팅 효과는 미미해 상징성 대비 소프트 런치의 학습 가치가 큼.
+
+---
+
+## 🟢 2026-06-08 최신 상태 — 다음 세션은 여기부터 읽어라
+
+**iOS 1차 반려(2.1a/2.3.10) 수정 완료 + 결제 설정 100% 완료. 남은 건 build 6 실기 검증 → App Store 재제출.**
+
+**이번 세션(06-08) 한 일:**
+- **iOS Google 로그인 3겹 차단 전부 해소 → 실기 로그인 성공(Google/Apple/게스트):**
+  1. Info.plist reversed-client URL scheme 누락 → `app.config.js`에서 주입 (커밋 `212adc1`)
+  2. Supabase Google provider **Client IDs**에 iOS client ID(`...257n6iof...`) 추가
+  3. Supabase Google provider **"Skip nonce checks" ON** — iOS google-signin이 idToken에 nonce 자동주입 → `AuthApiError 400 nonce mismatch`였음 (진단빌드 5로 원인 포착)
+- **2.3.10 스크린샷 해소:** Android 크롬 제거 합성본 **6.9"(1290×2796)·6.5"(1284×2778) 5종** ASC 업로드 완료. 원본 `assets/marketing/appstore-screenshots/`(gitignored)
+- **Apple 로그인 클라우드 동등성 버그 수정**(커밋 `b745542`) — `=== 'google'` 산재 검사로 Apple 사용자가 게스트 취급(동기화 안 됨→로그아웃 데이터 유실·무료AI/사진스캔/공유 차단)되던 것 `isCloudAuthMode`로 12파일 일괄 수정. [[project_apple_login_cloud_parity]]
+- 추가 수정: 빌링 restore(expo-iap 3.4 getAvailablePurchases void → root API) `c01222b` · 스플래시 cover→contain `e8583d5` · 홈 필터칩 flexWrap `274d357` · TTS 무음스위치 playsInSilentMode(expo-audio) `f7da488`
+- **결제 설정 완료:** 유료 앱 계약 **활성화됨** · 구독 `pro_monthly`/`pro_yearly` 메타데이터+심사스크린샷 완료(제출 준비) · W-8BEN 2종 활성 · 한국세금/은행(우리은행) 제출(처리됨) · DSA 거래자 신고+문서 제출(**심사 중**) · Supabase APPLE_* 4종 확인
+- **build 6 (buildNumber 6, v1.1.0) 빌드+자동제출** — 위 모든 코드 수정 포함. submission `e042fc35`, TestFlight 처리 대기
+
+**다음 세션 즉시 할 일:**
+1. **build 6 실기 테스트(아이폰)** — ① 로그인 3종→홈 ② **Apple 로그인 시 무료검색·설정 동기화 배지**(동등성 검증) ③ 홈 필터칩 안 잘림 ④ 스플래시 양옆 안 잘림 ⑤ TTS 무음스위치에서 소리남 ⑥ **플랜→가격 표시→샌드박스 구매→Pro 전환→구매 복원(Restore)**
+2. 전부 OK → **App Store 심사 재제출** (스크린샷 이미 반영됨)
+3. DSA 거래자 검증 결과 확인(심사 중) — EU 제품페이지 표시용, 결제/심사 차단은 아님
+
+⚠️ 결제 실기 테스트 전 유료 앱 계약 "활성화됨" 유지 + 은행/한국세금 "처리 중→활성" 확정 확인.
+⚠️ `eas.json submit.production.ios`는 개인 .p8 절대경로라 **커밋 금지**(미커밋 상태 유지). docs 노트(`handoff-*.md`)·`break-even-calculator.html`도 이번 커밋에서 제외함.
+
+---
 
 관련 상세 문서:
 - `handoff-monetization-setup.md` — GCP/Vertex·AdMob·Play 구독 등록 상세 절차
@@ -234,13 +270,22 @@ B15. iOS 결제 E2E 검증 (TestFlight 빌드에서) — Sandbox 환경 자동
 B16. App Store 심사 제출 → 1~3일
 ```
 
-### 🟢 트랙 C: 동시 출시 (둘 다 끝나면)
+### 🟢 트랙 C: iOS 소프트 런치 선행 (전략 재변경 2026-06-07)
 
 ```
-C1. Android 14일 시계 완료 + 프로덕션 트랙 승격 → 전 세계 국가 선택 → 심사 1~7일
-C2. iOS App Store 심사 → 1~3일
-C3. 둘 다 승인 받으면 동시 출시 발표
+C1. iOS 먼저 — build 4 실기 검증(아이폰) → iOS 스크린샷 재촬영(2.3.10) → 재빌드/재제출 → 심사 1~3일
+    → 승인 시 즉시 공개(보류 안 함). 소프트 런치.
+C2. iOS 출시 후 집중 관찰:
+    - 결제 E2E(B15 미완): 구독→finishTransaction→user_subscriptions 갱신, JWS production/sandbox fallback (verify-purchase 로그)
+    - 크래시: iOS26 ClassicTabLayout 회피 안정성, 기기/OS 파편화
+    - AI quota(Free 100/일·KST 리셋)·실 AdMob 송출(buildNumber 3 실 ID)
+    - Google + Apple 로그인 production 동작
+C3. Android — 14일 시계 완료 + 프로덕션 승격 → 전 세계 국가 선택 → 심사 1~7일.
+    iOS 소프트 런치에서 잡은 공통 백엔드 버그 수정 반영한 vCode 9로 출시.
+    ⚠️ Android 전용(Play 결제·R8·기기 파편화)은 iOS에서 검증 안 됨 — 비공개 테스트에서 별도 확인.
 ```
+
+**유연성**: "iOS 무조건 먼저"로 못 박지 말 것. iOS 재심사가 또 막힐 수 있으니(이미 1차 반려) **먼저 깨끗이 승인되는 쪽을 먼저 공개**. 두 트랙은 독립(Android 병목=관료절차, iOS=재심사)이라 서로 발목 안 잡음.
 
 **홍보**: 티저 드립(Phase 1, 14일 테스트 기간) + 출시일 채널·커뮤니티 체크리스트(Phase 2)는 `docs/handoff-marketing-teasers.md` 참조.
 
@@ -339,7 +384,14 @@ C3. 둘 다 승인 받으면 동시 출시 발표
 - Team ID 정정: `74SA3LF88F`(오기) → `4XZS542GQP` 전체 수정
 - 미완/주의: B15 결제 E2E(TestFlight sandbox), iOS 스크린샷 임시본(출시 후 iOS 실기기 재촬영), eas.json `submit.production.ios` 설정 **커밋 금지**(개인 .p8 경로)
 
+**2026-06-08 세션 진척 (iOS 반려 수정 + 결제 설정 완료):** 상세는 문서 상단 "🟢 2026-06-08 최신 상태" 블록 참조.
+- iOS Google 로그인 3겹 차단 해소(URL scheme + Supabase Client IDs + Skip nonce checks) → 실기 로그인 성공
+- 2.3.10 스크린샷 6.9"/6.5" 합성본 업로드 / Apple 클라우드 동등성·빌링 restore·스플래시·칩·TTS 수정 커밋(`b745542`·`c01222b`·`e8583d5`·`274d357`·`f7da488`)
+- 결제 설정 완료(유료 앱 계약 활성·구독 제출준비·세금/은행 제출·DSA 심사중·Supabase APPLE_* 확인)
+- build 6(buildNumber 6) 빌드+제출 → TestFlight 처리 대기
+
 **다음 세션 진입 시 즉시 확인할 외부 상태:**
-1. **iOS 심사 결과** (제출 6/5, 1~3일) — 승인 시 "개발자 출시 대기"로 보류(수동 출시, Android와 동시) / 리젝 시 사유 캡처 후 수정·재제출
-2. 등록면허세 고지서 도착 여부 (이메일/SMS) → 트랙 A A2.5
-3. 통신판매업 신고증 발급 여부 (정부24 마이페이지) → 신고번호로 트랙 A A3·A4 → 비공개 테스트 재시도 → 14일 시계
+1. **build 6 TestFlight 처리 완료?** → 아이폰 실기 테스트(상단 블록 "다음 세션 즉시 할 일" 6항목) → 통과 시 **App Store 심사 재제출**
+2. **DSA 거래자 검증 결과?** (심사 중) — 승인 시 EU 배포 열림 / 보완요청 시 문서 재제출
+3. **유료 앱 계약 "활성화됨" 유지 + 은행/한국세금 처리완료?** → 샌드박스 결제 테스트 가능 상태 확인
+4. (Android 트랙) 등록면허세 고지서·통신판매업 신고증 발급 여부 → 트랙 A A2.5/A3·A4 → 비공개 테스트 14일 시계

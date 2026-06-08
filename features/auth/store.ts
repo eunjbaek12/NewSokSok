@@ -206,6 +206,12 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     if (!GOOGLE_CLIENT_ID) throw new Error('GOOGLE_CLIENT_ID_MISSING');
 
     await GoogleSignin.hasPlayServices();
+    // Force the account chooser on every sign-in. logout()'s GoogleSignin.signOut()
+    // is best-effort (try/catch) and can fail on a network blip — or the app may
+    // have been killed mid-logout — leaving the native session cached. signIn()
+    // then silently reuses the last account instead of prompting. Clearing right
+    // before signIn() guarantees a clean slate so the picker always appears.
+    try { await GoogleSignin.signOut(); } catch {}
     await GoogleSignin.signIn();
     const tokens = await GoogleSignin.getTokens();
     const idToken = tokens.idToken;

@@ -23,7 +23,16 @@ export default function TermsScreen() {
   const { t } = useTranslation();
   const { colors } = useTheme();
 
-  const sections = t('terms.sections', { returnObjects: true }) as TermsSection[];
+  // 스토어명·구독 해지 경로는 플랫폼마다 다르다. i18next는 returnObjects 배열
+  // 안의 {{store}}/{{manageSubscription}}도 보간하므로 한 곳에서 주입한다.
+  const store = Platform.OS === 'ios' ? 'App Store' : 'Google Play';
+  const manageSubscription =
+    Platform.OS === 'ios' ? t('terms.manageViaApple') : t('terms.manageViaGoogle');
+  const sections = t('terms.sections', {
+    returnObjects: true,
+    store,
+    manageSubscription,
+  }) as TermsSection[];
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
 
   return (

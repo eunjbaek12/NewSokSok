@@ -18,12 +18,15 @@ import {
   // expo-iap CLAUDE.md "Hook API Semantics" 참고. (3.1→3.4 API 변경으로 깨졌던 부분)
   getAvailablePurchases,
   type ProductSubscription,
+  type ProductSubscriptionAndroid,
+  type ProductSubscriptionIOS,
   type Purchase,
 } from 'expo-iap';
 import { supabase } from '@/lib/supabase/client';
 import { useQuotaStore } from '@/features/quota';
 import { PRO_SKUS, type ProSku } from '@/lib/billing/skus';
 import { mapPurchaseError, type MappedPurchaseError } from './error-mapping';
+import type { PriceDetail } from './pricing';
 
 // Module-level flag: auto-reconcile runs at most once per app session, not
 // once per plans-screen mount. Re-runs on app restart (which is when we'd
@@ -45,8 +48,10 @@ export interface PurchaseFlow {
   /** Mapped error for UI consumption — null when no error pending. */
   error: MappedPurchaseError | null;
 
-  /** SKU별 표시 가격 (없으면 null) */
+  /** SKU별 표시 가격 문자열 (없으면 null) */
   priceFor: (sku: ProSku) => string | null;
+  /** SKU별 가격 상세 (숫자 금액·통화코드 — 월 환산/절약률 계산용. 없으면 null) */
+  priceDetailFor: (sku: ProSku) => PriceDetail | null;
   /** 구매 시도 */
   buy: (sku: ProSku) => Promise<void>;
   /** 기존 구매 복원 (재설치/기기 변경 시) */
@@ -212,18 +217,43 @@ export function usePurchaseFlow(): PurchaseFlow {
     return () => { cancelled = true; };
   }, [connected, getAvailablePurchases, finishTransaction]);
 
+  // Android 구독의 base(반복결제) phase를 찾는다. recurrenceMode===1(무한 반복)
+  // 또는 가격이 0이 아닌 첫 phase = 무료체험/할인 phase를 건너뛴 실제 정기결제가.
+  const androidBasePhase = useCallback((sub: ProductSubscription) => {
+    const phases = (sub as ProductSubscriptionAndroid)
+      .subscriptionOfferDetailsAndroid?.[0]?.pricingPhases?.pricingPhaseList;
+    return phases?.find((p) => p.recurrenceMode === 1 || p.priceAmountMicros !== '0') ?? null;
+  }, []);
+
   const priceFor = useCallback((sku: ProSku): string | null => {
     const sub = subscriptions.find((s) => s.id === sku);
     if (!sub) return null;
     if (Platform.OS === 'android') {
-      const phases = sub.subscriptionOfferDetailsAndroid?.[0]?.pricingPhases?.pricingPhaseList;
-      const baseRecurring = phases?.find(
-        (p) => p.recurrenceMode === 1 || p.priceAmountMicros !== '0',
-      );
-      return baseRecurring?.formattedPrice ?? sub.displayPrice ?? null;
+      return androidBasePhase(sub)?.formattedPrice ?? sub.displayPrice ?? null;
     }
     return sub.displayPrice ?? null;
-  }, [subscriptions]);
+  }, [subscriptions, androidBasePhase]);
+
+  const priceDetailFor = useCallback((sku: ProSku): PriceDetail | null => {
+    const sub = subscriptions.find((s) => s.id === sku);
+    if (!sub) return null;
+    if (Platform.OS === 'android') {
+      const base = androidBasePhase(sub);
+      if (!base) return null;
+      return {
+        display: base.formattedPrice ?? sub.displayPrice ?? '',
+        amount: Number(base.priceAmountMicros) / 1_000_000,
+        currency: base.priceCurrencyCode ?? sub.currency ?? '',
+      };
+    }
+    const ios = sub as ProductSubscriptionIOS;
+    if (ios.price == null) return null;
+    return {
+      display: sub.displayPrice ?? '',
+      amount: ios.price,
+      currency: sub.currency ?? '',
+    };
+  }, [subscriptions, androidBasePhase]);
 
   const buy = useCallback(async (sku: ProSku) => {
     setError(null);
@@ -235,7 +265,7 @@ export function usePurchaseFlow(): PurchaseFlow {
           type: 'subs',
         });
       } else {
-        const sub = subscriptions.find((s) => s.id === sku);
+        const sub = subscriptions.find((s) => s.id === sku) as ProductSubscriptionAndroid | undefined;
         const offerToken = sub?.subscriptionOfferDetailsAndroid?.[0]?.offerToken;
         if (!offerToken) {
           throw new Error('no_offer_token');
@@ -301,8 +331,9 @@ export function usePurchaseFlow(): PurchaseFlow {
     stage,
     error,
     priceFor,
+    priceDetailFor,
     buy,
     restore,
     resetStage,
-  }), [connected, subscriptions, stage, error, priceFor, buy, restore, resetStage]);
+  }), [connected, subscriptions, stage, error, priceFor, priceDetailFor, buy, restore, resetStage]);
 }

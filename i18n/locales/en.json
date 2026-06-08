@@ -413,16 +413,16 @@
     "freeFeat3": "Watch ads for +50 (up to +200/day)",
     "freeIncludesAd": "Includes: banner ad at the bottom",
     "proTitle": "Pro",
-    "proPrice": "₩3,900 / month",
-    "proSubPrice": "₩35,900 / year",
-    "proMonthlyEquivalent": "₩2,992/mo · save ~23%",
+    "priceOr": "or",
+    "proPrice": "Monthly",
+    "proSubPrice": "Yearly",
+    "monthlyEquivalentSavings": "{{monthly}}/mo · save ~{{percent}}%",
     "proFeat1": "1,000 AI words/day (10× Free)",
     "proFeat2": "No ads",
     "proFeat3": "All features",
     "subscribeCta": "Subscribe to Pro",
     "subscribeSubCta": "Coming soon",
     "subscribeYearlyCta": "Yearly · {{price}}",
-    "subscribeYearlySubCta": "₩2,992/mo · save ~23%",
     "subscribeMonthlyCta": "Monthly · {{price}}",
     "restoreCta": "Restore previous purchase",
     "billingConnecting": "Connecting to store…",
@@ -473,6 +473,8 @@
   "terms": {
     "title": "Terms of Service",
     "lastUpdated": "Last updated: May 18, 2026",
+    "manageViaApple": "Settings app → Apple Account → Subscriptions",
+    "manageViaGoogle": "Google Play app → Menu → Payments and subscriptions → Subscriptions",
     "sections": [
       {
         "title": "Use of Service",
@@ -496,7 +498,7 @@
       },
       {
         "title": "Pro Subscription & Billing",
-        "body": "Pro subscription is provided through Google Play in-app billing. Pricing: ₩3,900/month or ₩35,900/year (annual saves ~23% vs. monthly). A 7-day free trial is granted automatically at signup, with no auto-charge — you only pay if you subscribe explicitly.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows Google Play policy. Cancel anytime via Google Play app → Menu → Payments and subscriptions → Subscriptions. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow Google Play's refund policy and must be requested through Google Play."
+        "body": "Pro subscription is provided through {{store}} in-app billing. Annual billing saves ~23% vs. monthly; the exact localized price is shown on the app's Plans screen. A 7-day free trial is granted automatically at signup, with no auto-charge — you only pay if you subscribe explicitly.\n\nPro benefits: no ads, 1,000-word/day AI quota, uninterrupted experience.\n\nRenewal & cancellation: Recurring billing follows {{store}} policy. Cancel anytime via {{manageSubscription}}. Pro benefits remain active until the end of the prepaid period.\n\nRefunds follow {{store}}'s refund policy and must be requested through {{store}}."
       },
       {
         "title": "Advertising",
@@ -504,7 +506,7 @@
       },
       {
         "title": "Privacy",
-        "body": "If you use Google Sign-In, your email and display name are used to operate the service. Vocabulary data is stored securely on Supabase and is never sold or shared with third parties.\n\nWhen you subscribe to Pro, the Google Play purchase token and product ID are stored to verify subscription status. Payment instrument details (card number, etc.) are handled exclusively by Google Play and are never stored by us. See the Privacy Policy for full details."
+        "body": "If you use Google Sign-In, your email and display name are used to operate the service. Vocabulary data is stored securely on Supabase and is never sold or shared with third parties.\n\nWhen you subscribe to Pro, the {{store}} purchase token and product ID are stored to verify subscription status. Payment instrument details (card number, etc.) are handled exclusively by {{store}} and are never stored by us. See the Privacy Policy for full details."
       },
       {
         "title": "Disclaimer",
@@ -679,7 +681,7 @@
         "items": [
           {
             "q": "What plans are there?",
-            "a": "• Free — all study and management features. AI daily quota: 100 words. A small banner ad is shown at the bottom of the screen.\n• Pro — ₩3,900/month or ₩35,900/year (~23% off). All ads removed + AI daily quota of 1,000 words.\n\nPro offers a 7-day free trial that won't auto-charge after it ends."
+            "a": "• Free — all study and management features. AI daily quota: 100 words. A small banner ad is shown at the bottom of the screen.\n• Pro — annual billing saves ~23%. All ads removed + AI daily quota of 1,000 words. See the Plans screen for the exact localized price.\n\nPro offers a 7-day free trial that won't auto-charge after it ends."
           },
           {
             "q": "How is the \"word count\" measured?",

@@ -18,7 +18,7 @@ import { useTheme } from '@/features/theme';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useSettings } from '@/features/settings';
 import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
-import { usePurchaseFlow } from '@/features/billing';
+import { usePurchaseFlow, monthlyEquivalent, savingsPercent } from '@/features/billing';
 import { SKU_PRO_MONTHLY, SKU_PRO_YEARLY } from '@/lib/billing/skus';
 
 export default function PlansScreen() {
@@ -100,8 +100,23 @@ export default function PlansScreen() {
   const topPadding = insets.top + (Platform.OS === 'web' ? 67 : 0);
   const busy = flow.stage === 'purchasing' || flow.stage === 'verifying';
 
+  // 가격은 스토어 실시간 값이 단일 출처(SoT). 로드 전이면 통화중립 폴백 문자열.
   const monthlyPrice = flow.priceFor(SKU_PRO_MONTHLY) ?? t('plans.proPrice');
   const yearlyPrice = flow.priceFor(SKU_PRO_YEARLY) ?? t('plans.proSubPrice');
+
+  // 월 환산·절약률은 연/월 숫자 가격에서 런타임 계산 → 모든 스토어프론트에서 통화 일관.
+  // 하드코딩 "월 ₩2,992"는 미국 등에서 CTA(실시간 $)와 통화가 어긋났다.
+  const monthlyDetail = flow.priceDetailFor(SKU_PRO_MONTHLY);
+  const yearlyDetail = flow.priceDetailFor(SKU_PRO_YEARLY);
+  const savings = monthlyDetail && yearlyDetail ? savingsPercent(monthlyDetail, yearlyDetail) : null;
+  // 월 환산 + 절약 배지 문구. 두 가격이 모두 로드돼 절약률이 계산될 때만 노출.
+  const equivLabel =
+    yearlyDetail && savings != null
+      ? t('plans.monthlyEquivalentSavings', {
+          monthly: monthlyEquivalent(yearlyDetail),
+          percent: savings,
+        })
+      : null;
 
   // 진행률 (Free/Pro 사용자만 의미 있음 — BYOK/게스트는 별도 표시)
   const used = status?.used ?? 0;
@@ -217,12 +232,14 @@ export default function PlansScreen() {
           <Text style={[styles.planTitle, { color: colors.primary }]}>{t('plans.proTitle')}</Text>
 
           <View style={styles.priceBlock}>
-            <Text style={[styles.planPrice, { color: colors.text }]}>{t('plans.proPrice')}</Text>
-            <Text style={[styles.priceOr, { color: colors.textTertiary }]}>또는</Text>
-            <Text style={[styles.planSubPrice, { color: colors.text }]}>{t('plans.proSubPrice')}</Text>
-            <Text style={[styles.priceSaveBadge, { color: colors.primary, backgroundColor: colors.primaryLight }]}>
-              {t('plans.proMonthlyEquivalent')}
-            </Text>
+            <Text style={[styles.planPrice, { color: colors.text }]}>{monthlyPrice}</Text>
+            <Text style={[styles.priceOr, { color: colors.textTertiary }]}>{t('plans.priceOr')}</Text>
+            <Text style={[styles.planSubPrice, { color: colors.text }]}>{yearlyPrice}</Text>
+            {equivLabel && (
+              <Text style={[styles.priceSaveBadge, { color: colors.primary, backgroundColor: colors.primaryLight }]}>
+                {equivLabel}
+              </Text>
+            )}
           </View>
 
           <View style={styles.featureList}>
@@ -262,9 +279,11 @@ export default function PlansScreen() {
                     <Text style={[styles.ctaLabel, { color: colors.onPrimary }]}>
                       {t('plans.subscribeYearlyCta', { price: yearlyPrice })}
                     </Text>
-                    <Text style={[styles.ctaSubLabel, { color: colors.onPrimary }]}>
-                      {t('plans.subscribeYearlySubCta')}
-                    </Text>
+                    {equivLabel && (
+                      <Text style={[styles.ctaSubLabel, { color: colors.onPrimary }]}>
+                        {equivLabel}
+                      </Text>
+                    )}
                   </>
                 )}
               </Pressable>

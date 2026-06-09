@@ -18,7 +18,7 @@
       "screen": "단어 추가 — app/add-word.tsx",
       "captureHint": "단어 하나를 입력해 뜻·예문·발음·품사가 모두 자동완성으로 채워진 상태. 빈 칸 없이 다 뜬 순간 캡처.",
       "ko": { "caption": "단어만 치면, 나머지는 AI가", "sub": "뜻·예문·발음·품사까지 자동완성" },
-      "en": { "caption": "Type the word. AI does the rest.", "sub": "Meaning, example, pronunciation — auto-filled" }
+      "en": { "caption": "Type the word.<br>AI does the rest.", "sub": "Meaning, example, pronunciation — auto-filled" }
     },
     {
       "id": "03-photo",
@@ -46,21 +46,21 @@
       "screen": "단어 모음 — features/curation/screen.tsx",
       "captureHint": "큐레이션 단어장 카드들이 나열된 상태. NGSL·JLPT·HSK 등 여러 언어 덱이 섞여 보이게. 라이트 테마.",
       "ko": { "caption": "원하는 단어장이, 이미 여기", "sub": "NGSL·JLPT·HSK·TOPIK — 6개 언어 49개 단어장" },
-      "en": { "caption": "The list you wanted is already here", "sub": "NGSL·JLPT·HSK·TOPIK — 49 lists, 6 languages" }
+      "en": { "caption": "The list you wanted,<br>already here", "sub": "NGSL·JLPT·HSK·TOPIK — 49 lists, 6 languages" }
     },
     {
-      "id": "07-theme",
-      "screen": "설정 → 표시 → 스킨 — app/(tabs)/settings.tsx",
-      "captureHint": "스킨 선택 UI(클래식·다크 고요·Y2K·실험실)가 보이는 화면. 상단 헤더는 라이트(흰색) 유지 — 상태바 더미가 자연스럽게 얹히도록.",
+      "id": "07-theme1",
+      "screen": "스킨 적용 화면 1 — 설정 → 표시 → 스킨",
+      "captureHint": "특정 스킨(예: 다크 고요)이 적용된 실제 홈/학습 화면. 일반 화면과 톤이 확 다르게. 상태바 더미는 자동 색 보정됨.",
       "ko": { "caption": "분위기를 바꿔 외우는 재미", "sub": "클래식 · 다크 고요 · Y2K · 실험실" },
-      "en": { "caption": "Switch the mood, keep the streak", "sub": "Classic · Dark Calm · Y2K · Lab" }
+      "en": { "caption": "Switch the mood,<br>keep the streak", "sub": "Classic · Dark Calm · Y2K · Lab" }
     },
     {
-      "id": "08-sync",
-      "screen": "설정 상단 — app/(tabs)/settings.tsx",
-      "captureHint": "계정 영역 + '동기화' 배지가 보이는 설정 상단. 라이트 테마. (밋밋하면 생략 가능 — 7장으로 줄여도 무방.)",
-      "ko": { "caption": "오프라인에서도, 기기 사이에서도", "sub": "끊김 없이 저장되고 자동 동기화" },
-      "en": { "caption": "Offline, and across your devices", "sub": "Saved seamlessly, synced automatically" }
+      "id": "07-theme2",
+      "screen": "스킨 적용 화면 2 — 다른 스킨",
+      "captureHint": "theme1과 다른 스킨(예: Y2K)이 적용된 화면. 두 장이 서로 대비되게.",
+      "ko": { "caption": "취향대로 고르는 학습 테마", "sub": "스킨 하나로 분위기가 확" },
+      "en": { "caption": "Pick your vibe", "sub": "One skin, a whole new feel" }
     }
   ]
 }

@@ -49,9 +49,12 @@ export async function fetchAppleTransaction(
     return { environment: 'production', info: prodRes.info };
   }
 
-  // 404 또는 prod에서 못 찾으면 sandbox 재시도. Apple 가이드: prod에서 transaction
-  // 못 찾으면 sandbox 시도. 다른 에러(401 등)는 그대로 실패 처리.
-  if (prodRes.status === 404) {
+  // prod에서 못 찾으면 sandbox 재시도.
+  // TestFlight·Xcode 구매는 sandbox 거래라, production 조회 시 Apple이 404가 아니라
+  // 401(빈 본문)을 돌려준다(실측 확인 2026-06-09). 그래서 404뿐 아니라 401도
+  // sandbox fallback 트리거에 포함한다. 자격 증명이 진짜 틀렸다면 sandbox도 401 →
+  // 아래서 null 반환되므로 안전.
+  if (prodRes.status === 404 || prodRes.status === 401) {
     const sbRes = await callTransactionApi(SANDBOX_ENDPOINT, transactionId, token);
     if (sbRes.ok) {
       return { environment: 'sandbox', info: sbRes.info };

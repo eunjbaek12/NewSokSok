@@ -22,7 +22,7 @@ import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getDefinitionLabel, LanguageCode } from '@/constants/languages';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -121,7 +121,7 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang }: {
                         <View style={[styles.roDivider, { borderTopColor: colors.borderLight }]} />
                         <View style={styles.roSection}>
                             <Text style={[styles.roLabel, { color: colors.textTertiary }]}>
-                                {t('wordDetail.definitionLabel')}
+                                {getDefinitionLabel((sourceLang ?? 'en') as LanguageCode, t)}
                             </Text>
                             <Text style={[styles.roBody, { color: colors.text }]}>
                                 {word.definition}
@@ -472,7 +472,7 @@ export default function WordDetailModal({
                                         <EditableField label={t('wordDetail.meaningRequired')} placeholder={t('wordDetail.meaningPlaceholder')} value={meaningKr}
                                             onChangeText={(v) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
                                             error={errors.meaningKr ? t('wordDetail.enterWord') : undefined} isCore maxLength={300} />
-                                        <EditableField label={t('wordDetail.definitionLabel')} placeholder={t('wordDetail.definitionPlaceholder')} value={definition}
+                                        <EditableField label={getDefinitionLabel((resolvedSourceLang ?? 'en') as LanguageCode, t)} placeholder={t('wordDetail.definitionPlaceholder')} value={definition}
                                             onChangeText={setDefinition} multiline maxLength={500} />
 
                                         <View style={[styles.exampleGroup, { backgroundColor: mode === 'read' ? 'transparent' : colors.surfaceSecondary }]}>

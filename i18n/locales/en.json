@@ -1083,7 +1083,6 @@
     "aiAutoComplete": "AI Auto-fill Meaning/Example",
     "meaningRequired": "Meaning (Required)",
     "meaningPlaceholder": "Enter the meaning",
-    "definitionLabel": "English Definition",
     "definitionPlaceholder": "Enter the definition",
     "exampleLabel": "Example",
     "examplePlaceholder": "Enter an example sentence",

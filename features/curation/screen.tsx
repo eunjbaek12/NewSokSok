@@ -22,7 +22,8 @@ import {
 } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { VocaList, Word } from '@/lib/types';
-import { AIWordResultSchema, AI_GENERATED_TAG, type AiDifficulty } from '@shared/contracts';
+import { AIWordResultSchema, AI_GENERATED_TAG, DIFFICULTY_TAGS, type AiDifficulty } from '@shared/contracts';
+import { displayTag } from '@/lib/tag-display';
 import { generateWordsViaEdge } from '@/lib/ai/edge-generate';
 import { curationPresets } from '@/constants/curationData';
 import ReportCurationModal from './ReportCurationModal';
@@ -42,11 +43,7 @@ const DIFFICULTY_PROMPT: Record<AiDifficulty, string> = {
     advanced: '고급/전문적인',
 };
 
-const DIFFICULTY_TAG: Record<AiDifficulty, string> = {
-    beginner: '초급',
-    intermediate: '중급',
-    advanced: '고급',
-};
+const DIFFICULTY_TAG = DIFFICULTY_TAGS;
 
 const LANG_LABEL_KO: Record<string, string> = {
     en: '영어',
@@ -872,7 +869,7 @@ export default function CurationScreen() {
                                         <View style={[styles.tagRow, { marginTop: 8, justifyContent: 'flex-end' }]}>
                                             {tags.map(tag => (
                                                 <View key={tag} style={[styles.tagChip, { backgroundColor: isDark ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.65)' }]}>
-                                                    <Text style={[styles.tagText, { color: colors.text }]}>#{tag}</Text>
+                                                    <Text style={[styles.tagText, { color: colors.text }]}>#{displayTag(tag, t)}</Text>
                                                 </View>
                                             ))}
                                         </View>
@@ -1158,7 +1155,7 @@ export default function CurationScreen() {
                                                     <View style={styles.tagRow}>
                                                         {tags.map(tag => (
                                                             <View key={tag} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
-                                                                <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{tag}</Text>
+                                                                <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{displayTag(tag, t)}</Text>
                                                             </View>
                                                         ))}
                                                     </View>
@@ -1201,7 +1198,7 @@ export default function CurationScreen() {
                                                 )}
                                                 {tags.length > 0 && (
                                                     <View style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
-                                                        <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{tags[0]}</Text>
+                                                        <Text style={[styles.tagText, { color: colors.textSecondary }]}>#{displayTag(tags[0], t)}</Text>
                                                     </View>
                                                 )}
                                             </View>

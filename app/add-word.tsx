@@ -29,6 +29,7 @@ try {
     // Native module not available
 }
 import { useTranslation } from 'react-i18next';
+import { displayTag } from '@/lib/tag-display';
 import { useTheme } from '@/features/theme';
 import { useLists, selectWordsForList, createList, addWord } from '@/features/vocab';
 import { useAddWord } from '@/hooks/useAddWord';
@@ -1154,10 +1155,10 @@ export default function AddWordScreen() {
 
                                                 {tags.length > 0 && (
                                                     <View style={styles.tagsFlexBox}>
-                                                        {tags.map((t, idx) => (
-                                                            <View key={`${t}-${idx}`} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
-                                                                <Text style={[styles.tagChipText, { color: colors.text }]}>#{t}</Text>
-                                                                <Pressable onPress={() => handleRemoveTag(t)} hitSlop={6} style={styles.tagChipClose}>
+                                                        {tags.map((tag, idx) => (
+                                                            <View key={`${tag}-${idx}`} style={[styles.tagChip, { backgroundColor: colors.surfaceSecondary }]}>
+                                                                <Text style={[styles.tagChipText, { color: colors.text }]}>#{displayTag(tag, t)}</Text>
+                                                                <Pressable onPress={() => handleRemoveTag(tag)} hitSlop={6} style={styles.tagChipClose}>
                                                                     <Ionicons name="close-circle" size={16} color={colors.textTertiary} />
                                                                 </Pressable>
                                                             </View>

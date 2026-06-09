@@ -11,6 +11,7 @@ import ProgressBar from '@/components/ui/ProgressBar';
 import StatusBadge, { StatusBadgeType } from '@/components/ui/StatusBadge';
 import { Radius } from '@/constants/tokens';
 import { AI_GENERATED_TAG } from '@shared/contracts';
+import { displayTag } from '@/lib/tag-display';
 
 export function getRelativeTime(timestamp: number | undefined, t: (key: string, opts?: any) => string): string {
   if (!timestamp) return t('listCard.noStudyRecord');
@@ -160,7 +161,7 @@ export default function ListCard({
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 4, marginTop: 8 }}>
           {topTags.map((tag, idx) => (
             <View key={idx} style={{ backgroundColor: colors.surfaceSecondary, paddingHorizontal: 5, paddingVertical: 1, borderRadius: 4 }}>
-              <Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: 'Pretendard_500Medium' }}>#{tag}</Text>
+              <Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: 'Pretendard_500Medium' }}>#{displayTag(tag, t)}</Text>
             </View>
           ))}
         </View>

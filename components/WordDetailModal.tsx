@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
+import { displayTag } from '@/lib/tag-display';
 import { useTheme } from '@/features/theme';
 import { useListWords, toggleStarred } from '@/features/vocab';
 import { useAddWord } from '@/hooks/useAddWord';
@@ -166,7 +167,7 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang }: {
                                         key={`${tag}-${idx}`}
                                         style={[styles.roTagChip, { backgroundColor: colors.surfaceSecondary }]}
                                     >
-                                        <Text style={[styles.roTagText, { color: colors.textSecondary }]}>#{tag}</Text>
+                                        <Text style={[styles.roTagText, { color: colors.textSecondary }]}>#{displayTag(tag, t)}</Text>
                                     </View>
                                 ))}
                             </View>
@@ -502,7 +503,7 @@ export default function WordDetailModal({
                                                 <View style={styles.tagsFlexBox}>
                                                     {tags.map((tag, idx) => (
                                                         <View key={`${tag}-${idx}`} style={[styles.tagChip, { backgroundColor: mode === 'read' ? colors.surfaceSecondary : colors.primaryLight }]}>
-                                                            <Text style={[styles.tagChipText, { color: mode === 'read' ? colors.text : colors.primary }]}>#{tag}</Text>
+                                                            <Text style={[styles.tagChipText, { color: mode === 'read' ? colors.text : colors.primary }]}>#{displayTag(tag, t)}</Text>
                                                             {mode !== 'read' && (
                                                                 <Pressable onPress={() => handleRemoveTag(tag)} hitSlop={6} style={styles.tagChipClose}>
                                                                     <Ionicons name="close-circle" size={16} color={colors.primary} />

@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useLists, selectWordsForList } from '@/features/vocab';
 import { filterAndRankResults, getTopTags, type AllDataItem, type SearchResult } from '@/lib/search';
+import { displayTag } from '@/lib/tag-display';
 import * as Haptics from 'expo-haptics';
 
 export default function SearchModalScreen() {
@@ -114,11 +115,11 @@ export default function SearchModalScreen() {
                         {matchingTags.map((tag, idx) => (
                             <View key={idx} style={[styles.matchedTag, { backgroundColor: colors.primaryLight, borderColor: isDark ? colors.primary + '40' : 'rgba(49,130,246,0.2)' }]}>
                                 <Ionicons name="pricetag" size={11} color={colors.primary} />
-                                <Text style={[styles.matchedTagText, { color: colors.primary }]}>#{tag}</Text>
+                                <Text style={[styles.matchedTagText, { color: colors.primary }]}>#{displayTag(tag, t)}</Text>
                             </View>
                         ))}
                         {otherTags.map((tag, idx) => (
-                            <Text key={`o${idx}`} style={[styles.smallTag, { color: colors.textTertiary, backgroundColor: colors.background }]}>#{tag}</Text>
+                            <Text key={`o${idx}`} style={[styles.smallTag, { color: colors.textTertiary, backgroundColor: colors.background }]}>#{displayTag(tag, t)}</Text>
                         ))}
                     </View>
                 )}
@@ -127,7 +128,7 @@ export default function SearchModalScreen() {
                 {!item.isTagMatch && otherTags.length > 0 && (
                     <View style={styles.tagsRow}>
                         {otherTags.map((tag, idx) => (
-                            <Text key={idx} style={[styles.smallTag, { color: colors.textTertiary, backgroundColor: colors.background }]}>#{tag}</Text>
+                            <Text key={idx} style={[styles.smallTag, { color: colors.textTertiary, backgroundColor: colors.background }]}>#{displayTag(tag, t)}</Text>
                         ))}
                     </View>
                 )}
@@ -294,7 +295,7 @@ export default function SearchModalScreen() {
                                         ]}
                                     >
                                         <Ionicons name="pricetag" size={13} color={colors.primary} />
-                                        <Text style={[styles.recTagText, { color: colors.primary }]}>{tag}</Text>
+                                        <Text style={[styles.recTagText, { color: colors.primary }]}>{displayTag(tag, t)}</Text>
                                     </Pressable>
                                 ))}
                             </View>

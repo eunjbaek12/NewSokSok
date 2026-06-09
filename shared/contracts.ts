@@ -203,6 +203,26 @@ export type StudyResult = z.infer<typeof StudyResultSchema>;
 // AI-origin lists and render the AI-generated badge.
 export const AI_GENERATED_TAG = 'AI생성';
 
+// Difficulty tag injected into every AI-generated word. Stored as a stable
+// Korean sentinel (legacy); localized to the UI language at display time only
+// (see INTERNAL_TAG_I18N + lib/tag-display.ts). Do NOT localize at storage —
+// these double as detection keys and must stay constant across UI languages.
+export const DIFFICULTY_TAGS: Record<'beginner' | 'intermediate' | 'advanced', string> = {
+  beginner: '초급',
+  intermediate: '중급',
+  advanced: '고급',
+};
+
+// Internal/system tags are stored as fixed Korean strings but should render in
+// the user's UI language. Maps stored tag value → i18n key; unknown tags
+// (user-typed, topic, category) pass through unchanged at display time.
+export const INTERNAL_TAG_I18N: Record<string, string> = {
+  [AI_GENERATED_TAG]: 'status.aiGenerated',
+  [DIFFICULTY_TAGS.beginner]: 'curation.beginner',
+  [DIFFICULTY_TAGS.intermediate]: 'curation.intermediate',
+  [DIFFICULTY_TAGS.advanced]: 'curation.advanced',
+};
+
 // Receive-side ("lenient") limits — applied to AI responses and cloud pulls to
 // reject obviously runaway payloads while still tolerating values that a save
 // (strict) schema would reject. Save-time validation happens in WordSaveSchema.

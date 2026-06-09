@@ -21,7 +21,9 @@
 
 ## 🟢 2026-06-08 최신 상태 — 다음 세션은 여기부터 읽어라
 
-**iOS 1차 반려(2.1a/2.3.10) 수정 완료 + 결제 설정 100% 완료. build 7 제출 완료(ASC 처리 중) → 실기 검증 → App Store 재제출.**
+**iOS 1차 반려(2.1a/2.3.10) 수정 완료 + 결제 설정 100% 완료. build 8 제출 완료(ASC 처리 중) → 실기 검증 → App Store 재제출.**
+
+> 🟢 **build 8이 최신·심사 대상 (06-08 후속2 세션)**: build 7(`7ed51e3`) 이후 **요금제 가격 통화 버그 수정**(`e40e72f`) + 배너 진단(`e89f234`)이 추가됨. **반드시 build 8(커밋 `e89f234`)로 심사 제출** — build 7엔 가격 수정이 없어 통화 섞인 화면(₩블록+$CTA) 그대로 나감. build 8 = Build ID `d96ce297`, buildNumber 8, IPA `sRdHpCdjWps5E1wv3HmM6d`, submission `aa867fe6`. `Submitted to App Store Connect!` 확인, Apple 처리 중. 사전검증 Jest 308·TSC 클린·lint 클린.
 
 > 🔴 **build 6 함정 정정 (06-08 후속 세션)**: 이전 기록의 "build 6에 모든 코드 수정 포함"은 **틀렸음**. build 6은 14:59 트리거됐는데 핵심 수정 커밋들(`b745542` Apple 동등성·`c01222b` restore·`e8583d5` 스플래시·`274d357` 칩·`f7da488` TTS·`c76ae9b` Android lazy-require)은 15:02~15:10에 커밋됨 → **build 6 = build 5 (둘 다 `212adc1`), 수정 전부 누락**. 게다가 build 6은 ASC 제출까지 안 돼 TestFlight에 build 5만 떴음. → **build 7로 재빌드**(커밋 `7ed51e3`, 모든 수정 + `ITSAppUsesNonExemptEncryption:false`). `Submitted to App Store Connect!` 확인, Apple 처리 중. **교훈: 빌드 트리거 전에 커밋 먼저.**
 
@@ -37,11 +39,14 @@
 - ~~build 6 (buildNumber 6) 빌드+자동제출~~ — **실패/무의미**(위 정정 박스 참조: 수정 누락 + ASC 미제출)
 - **build 7 (buildNumber 7, v1.1.0, 커밋 `7ed51e3`) 빌드+자동제출 성공** — 모든 코드 수정 + 암호화 면제 플래그 포함. Build ID `4461f0b1`, submission `aab8d2a6`, IPA `9rLcmXKowPV9yvjhfbe1kR`. **`Submitted to App Store Connect!` 확인 → Apple 처리 중(5~10분)**. 사전검증: Jest 300/300, TSC 에러 4건 전부 빌드 무관(Android 가드/dev 스크립트/Deno)
 - **암호화 면제 플래그 추가**(커밋 `7ed51e3`) — `app.json` ios.infoPlist `ITSAppUsesNonExemptEncryption:false`. HTTPS/Keychain/OAuth 표준 암호화만 사용 → 면제 정확. 제출마다 뜨는 수출 컴플라이언스 질문 제거
+- **요금제 가격 통화 일관화**(커밋 `e40e72f`) — 가격블록·서브CTA가 하드코딩 ₩, 메인CTA만 실시간 → US 스토어프론트에서 한 화면에 ₩+$ 혼재. pricing.ts(Intl 런타임 월환산·절약%)+priceDetailFor로 단일 출처화. terms/FAQ prose의 ₩·"Google Play"도 Platform분기. **달러 표시 자체는 버그 아님**(테스트 Apple ID가 US 스토어프론트 — KR 계정은 ₩). 기존 billing 타입에러 4건도 정리
+- **iOS 배너 no-fill 조사 종결** — 빈 배너는 코드 아님, AdMob "광고 게재 제한됨"(스토어 미연결). 출시 후 "스토어 추가"로 해제. 진단 오버레이 `EXPO_PUBLIC_AD_DEBUG=1`(커밋 `e89f234`) 마련. [[project_admob_serving_limited_prelaunch]]
+- **build 8 (buildNumber 8, 커밋 `e89f234`) 빌드+자동제출 성공** — 위 가격수정 포함. Build ID `d96ce297`, IPA `sRdHpCdjWps5E1wv3HmM6d`. Apple 처리 중. ⚠️eas.json submit.ios 블록은 빌드용 복원 후 `git checkout`으로 커밋상태(`{}`) 복원함 — 트리 클린
 
 **다음 세션 즉시 할 일:**
-1. **build 7 TestFlight 처리 완료 확인** (5~10분, Apple 이메일) → https://appstoreconnect.apple.com/apps/6776714408/testflight/ios 에 **build 7** 뜨는지
-2. **build 7 실기 테스트(아이폰)** — ① 로그인 3종→홈 ② **Apple 로그인 시 무료검색·설정 동기화 배지**(동등성 검증) ③ 홈 필터칩 안 잘림 ④ 스플래시 양옆 안 잘림 ⑤ TTS 무음스위치에서 소리남 ⑥ **플랜→가격 표시→샌드박스 구매→Pro 전환→구매 복원(Restore)**
-3. 전부 OK → **App Store 심사 재제출** (스크린샷 이미 반영됨)
+1. **build 8 TestFlight 처리 완료 확인** (5~10분, Apple 이메일) → https://appstoreconnect.apple.com/apps/6776714408/testflight/ios 에 **build 8** 뜨는지
+2. **build 8 실기 테스트(아이폰)** — ① 로그인 3종→홈 ② **Apple 로그인 시 무료검색·설정 동기화 배지**(동등성 검증) ③ 홈 필터칩 안 잘림 ④ 스플래시 양옆 안 잘림 ⑤ TTS 무음스위치에서 소리남 ⑥ **플랜→가격: KR Apple ID는 ₩ 일관 표시·월환산/절약% 정상→샌드박스 구매→Pro 전환→구매 복원(Restore)** ⑦ **Apple 로그인 "이메일 가리기(Hide My Email)" 켠 케이스** — 릴레이 이메일(`@privaterelay.appleid.com`)이라 기존 Google과 **별개 user_id 생성→데이터 갈라짐**. 같은 사람인데 빈 계정처럼 보이는지 확인. 치명적 판단 시 v1.2 account-linking 안내로 보완. [[project_supabase_identity_autolink]]
+3. 전부 OK → **App Store 심사 재제출 (반드시 build 8 선택, 스크린샷 이미 반영됨)**
 4. DSA 거래자 검증 결과 확인(심사 중) — EU 제품페이지 표시용, 결제/심사 차단은 아님
 
 ⚠️ 결제 실기 테스트 전 유료 앱 계약 "활성화됨" 유지 + 은행/한국세금 "처리 중→활성" 확정 확인.

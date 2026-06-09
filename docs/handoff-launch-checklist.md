@@ -19,7 +19,42 @@
 
 ---
 
-## 🟢 2026-06-08 최신 상태 — 다음 세션은 여기부터 읽어라
+## 🟢 2026-06-10 최신 상태 — 다음 세션은 여기부터 읽어라
+
+**build 11(커밋 `26bdc94`, 맨 마지막 커밋에서 빌드) 실기 테스트 중. build 8 이후 빌링·UI 코드 커밋 6개 추가됨. iOS 결제 E2E는 6/9 sandbox fallback 수정으로 verify→tier=pro 실측 통과. 남은 건 build 11 실기 검증 → App Store 재제출.**
+
+> 🟢 **build 11이 최신·테스트 대상 (06-10)**: build 8(`e89f234`) 이후 코드 커밋 6개 —
+> ① `26bdc94` Pro 구독화면 결제주기(월간/연간)+"~까지 이용" 종료일 표시
+> ② `6fd62a4` iOS sandbox verify 401 fallback (결제 E2E 수정, [[project_ios_sandbox_verify_401]])
+> ③ `5e175ac` AI 생성 단어 태그(#중급·#AI생성) UI 언어로 표시
+> ④ `ce499de` 정의 라벨 출처 언어별 표시(영영/일일 등)
+> ⑤ `3aa34e9` iOS 모달 안 picker 미표시 + 설정 적용 후 화면 멈춤 해소 ([[project_nested_modal_ios]])
+> ⑥ `969f7e5` 입력 모달 키보드 dismiss + AI 생성 언어 드롭다운 ([[project_dialogmodal_scrollable_keyboard]])
+> 빌드↔커밋 매핑(EAS 기록): build 9 = `969f7e5`(입력모달), build 10 = `3aa34e9`(모달 picker), **build 11 = `26bdc94`(빌링화면, HEAD) — 위 6개 전부 포함**. IPA `afhPm3og9ToLnJ6h7pVmCm`, Build ID `4ae1062d`, finished 06-10 04:01. ⚠️교훈 재확인: 빌드 직후 buildNumber↔커밋 해시를 즉시 문서에 박을 것(build 6 함정 방지).
+
+### ✅ build 11 실기 검증 체크리스트 (다음 세션 즉시)
+
+**A. 이번 빌드 신규 (실기 검증 0회):**
+1. **빌링 화면**(`26bdc94`) — Pro 월간/연간 + "YYYY.MM.DD까지 이용" 정확, 트라이얼은 "체험 D-N", `play_product_id` 병렬조회가 RLS에 안 막히고 로드되는지(값 비면 조용히 실패)
+2. **AI 단어 태그**(`5e175ac`) — #중급·#AI생성이 UI 언어로 표시(영어 UI면 영어)
+3. **정의 라벨**(`ce499de`) — 출처 언어별(영영/일일/중중) 정확
+4. **모달 picker**(`3aa34e9`) — iOS 모달 안 언어 picker 표시 + 설정 적용 후 화면 안 멈춤
+5. **입력 모달**(`969f7e5`) — 키보드 배경탭 dismiss + AI 생성 언어 드롭다운 표시
+
+**B. 결제 E2E 회귀**(`6fd62a4`, 6/9 통과) — 샌드박스 구매→verify→tier=pro→종료일 표시→Restore(복원)
+
+**C. build 8부터 이월 (어느 빌드에서도 실기 검증 기록 없음):**
+- 로그인 3종(Google/Apple/게스트)→홈
+- Apple 동등성(무료검색·설정 동기화 배지) [[project_apple_login_cloud_parity]]
+- Apple "이메일 가리기" 케이스 — 릴레이 이메일이라 기존 Google과 별개 user_id로 갈라지는지 [[project_supabase_identity_autolink]]
+- TTS 무음 스위치에서 소리남 [[project_ios_tts_silent_switch]]
+- 홈 필터칩 안 잘림 / 스플래시 양옆 안 잘림
+
+**D. 전부 OK → App Store 심사 재제출 (반드시 build 11 선택, 스크린샷 이미 반영됨)**
+
+---
+
+## (이전 기록) 2026-06-08 build 8 — 히스토리 보존
 
 **iOS 1차 반려(2.1a/2.3.10) 수정 완료 + 결제 설정 100% 완료. build 8 제출 완료(ASC 처리 중) → 실기 검증 → App Store 재제출.**
 

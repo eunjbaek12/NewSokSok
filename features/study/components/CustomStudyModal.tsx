@@ -269,24 +269,25 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                 </View>
               </>
             )}
+        {/* ListDayPicker는 부모 모달(ModalOverlay)의 자식으로 렌더 —
+            iOS에서 형제 Modal은 부모 Modal 위에 표시되지 않으므로 (add-word/curation 동일 수정) */}
+        <ListDayPicker
+          visible={showListPicker}
+          onClose={() => setShowListPicker(false)}
+          lists={visibleLists}
+          selectedListIds={settings.useAllLists ? visibleLists.map(l => l.id) : settings.selectedListIds}
+          selectedDaysByList={settings.selectedDaysByList}
+          onApply={(listIds, daysByList) => {
+            const isAll = listIds.length === visibleLists.length &&
+              listIds.every(id => !daysByList[id] || daysByList[id] === 'all');
+            updateCustomStudySettings({
+              useAllLists: isAll,
+              selectedListIds: isAll ? [] : listIds,
+              selectedDaysByList: daysByList,
+            });
+          }}
+        />
       </ModalOverlay>
-
-      <ListDayPicker
-        visible={showListPicker}
-        onClose={() => setShowListPicker(false)}
-        lists={visibleLists}
-        selectedListIds={settings.useAllLists ? visibleLists.map(l => l.id) : settings.selectedListIds}
-        selectedDaysByList={settings.selectedDaysByList}
-        onApply={(listIds, daysByList) => {
-          const isAll = listIds.length === visibleLists.length &&
-            listIds.every(id => !daysByList[id] || daysByList[id] === 'all');
-          updateCustomStudySettings({
-            useAllLists: isAll,
-            selectedListIds: isAll ? [] : listIds,
-            selectedDaysByList: daysByList,
-          });
-        }}
-      />
     </>
   );
 }

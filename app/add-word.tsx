@@ -545,10 +545,16 @@ export default function AddWordScreen() {
             };
             if (wordId) params.wordId = wordId;
 
-            router.replace({
-                pathname: '/add-word',
-                params
-            });
+            // iOS: Field Settings RN <Modal>이 닫히는 도중 router.replace로 라우트를
+            // 교체하면 모달의 네이티브 host가 고아로 남아 새 화면 전체 터치를 막는다
+            // ("설정 적용 후 화면 멈춤"). 모달 dismiss 애니메이션(iOS fade ~300ms)이
+            // 끝난 뒤 navigate. 경계 레이스 방지로 마진을 둬 350ms.
+            setTimeout(() => {
+                router.replace({
+                    pathname: '/add-word',
+                    params
+                });
+            }, 350);
         }, 500);
     };
 
@@ -1419,6 +1425,40 @@ export default function AddWordScreen() {
                         </GestureDetector>
                     </Pressable>
                 </GestureHandlerRootView>
+
+                {/* 입력/뜻 언어 picker — iOS에서 형제 Modal은 부모 Modal 위에 표시되지 않으므로
+                    Field Settings 모달의 자식으로 렌더해야 함 (커밋 969f7e5 큐레이션과 동일 수정) */}
+                <ModalPicker
+                    visible={sourceLangPickerOpen}
+                    onClose={() => setSourceLangPickerOpen(false)}
+                    title={t('addWord.inputLanguageSelect')}
+                    options={SUPPORTED_LANGUAGES.map(l => ({
+                        id: l.code,
+                        title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
+                        disabled: l.code === tempSettings.targetLang,
+                    }))}
+                    selectedValue={tempSettings.sourceLang}
+                    onSelect={(code: string) => {
+                        setTempSettings(s => ({ ...s, sourceLang: code as LanguageCode }));
+                        setSourceLangPickerOpen(false);
+                    }}
+                />
+
+                <ModalPicker
+                    visible={targetLangPickerOpen}
+                    onClose={() => setTargetLangPickerOpen(false)}
+                    title={t('addWord.meaningLanguageSelect')}
+                    options={SUPPORTED_LANGUAGES.map(l => ({
+                        id: l.code,
+                        title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
+                        disabled: l.code === tempSettings.sourceLang,
+                    }))}
+                    selectedValue={tempSettings.targetLang}
+                    onSelect={(code: string) => {
+                        setTempSettings(s => ({ ...s, targetLang: code as LanguageCode }));
+                        setTargetLangPickerOpen(false);
+                    }}
+                />
             </Modal>
 
             <ModalPicker
@@ -1431,39 +1471,7 @@ export default function AddWordScreen() {
                 footer={pickerFooter}
             />
 
-            {/* 입력 언어 선택 */}
-            <ModalPicker
-                visible={sourceLangPickerOpen}
-                onClose={() => setSourceLangPickerOpen(false)}
-                title={t('addWord.inputLanguageSelect')}
-                options={SUPPORTED_LANGUAGES.map(l => ({
-                    id: l.code,
-                    title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
-                    disabled: l.code === tempSettings.targetLang,
-                }))}
-                selectedValue={tempSettings.sourceLang}
-                onSelect={(code: string) => {
-                    setTempSettings(s => ({ ...s, sourceLang: code as LanguageCode }));
-                    setSourceLangPickerOpen(false);
-                }}
-            />
-
-            {/* 뜻 언어 선택 */}
-            <ModalPicker
-                visible={targetLangPickerOpen}
-                onClose={() => setTargetLangPickerOpen(false)}
-                title={t('addWord.meaningLanguageSelect')}
-                options={SUPPORTED_LANGUAGES.map(l => ({
-                    id: l.code,
-                    title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
-                    disabled: l.code === tempSettings.sourceLang,
-                }))}
-                selectedValue={tempSettings.targetLang}
-                onSelect={(code: string) => {
-                    setTempSettings(s => ({ ...s, targetLang: code as LanguageCode }));
-                    setTargetLangPickerOpen(false);
-                }}
-            />
+            {/* 입력/뜻 언어 picker는 Field Settings <Modal>의 자식으로 이동됨 (iOS 형제 Modal 버그) */}
 
             {/* 사진 스캔 모달 */}
             <Modal

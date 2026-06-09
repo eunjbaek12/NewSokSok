@@ -96,7 +96,7 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 
 ▸ Fair pricing — free is generous
 - Free: 100 AI word lookups per day + watch an ad for +50 (up to 300/day)
-- Pro: ad-free, 1,000 words per day — $2.99/mo or $26.99/yr (23% off vs monthly)
+- Pro: ad-free, 1,000 words per day — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
 - 7-day Pro free trial on signup, no auto-charge
 
@@ -118,7 +118,7 @@ v1.1 — a smarter, smoother vocabulary experience.
 - Sign in with Apple support
 - AI word auto-analysis: type one word, get pronunciation, meaning, examples, and synonyms
 - AI generation quota expanded: 100/day free + 50 more per rewarded ad
-- New Pro plan: ad-free, 1,000 words/day ($2.99/mo or $26.99/yr, 7-day free trial)
+- New Pro plan: ad-free, 1,000 words/day ($2.99/mo or $27.99/yr, 7-day free trial)
 - Expanded curations for Japanese, Chinese, and Vietnamese learners
 - App Tracking Transparency localized (Korean / English)
 - Improved AI accuracy (auto-blocks hallucinated fake words)
@@ -140,12 +140,13 @@ v1.1 — a smarter, smoother vocabulary experience.
 
 | Product ID | Type | KR Price | Tier | Notes |
 |---|---|---|---|---|
-| `pro_monthly` | Auto-Renewable Subscription | ₩3,900 | **Tier 2 (USD $2.99)** | 7-day free trial |
-| `pro_yearly` | Auto-Renewable Subscription | ₩35,900 | **Tier 19–20 (USD $27.99–29.99)** | 7-day free trial |
+| `pro_monthly` | Auto-Renewable Subscription | ₩3,900 | **USD $2.99** (base price point) | 7-day free trial |
+| `pro_yearly` | Auto-Renewable Subscription | ₩35,900 | **USD $27.99** (base price point) | 7-day free trial |
 
 > ⚠️ **Product IDs must be exactly `pro_monthly` / `pro_yearly`** — code matches on this. Mismatch → verify-purchase returns 402 product_mismatch.
 > Both products belong to the same Subscription Group: **"SokSok Voca Pro"**.
-> Apple does not accept raw KRW — pick the tier whose KRW value matches. Check current matrix at App Store Connect → IAP → Pricing.
+> Apple's current pricing has 900 price points (not legacy tiers) — set the base country to USD and pick $2.99 / $27.99; Apple auto-fills other regions including ₩3,900 / ₩35,900. Verify the KRW row matches. Check at App Store Connect → IAP → Pricing.
+> ⚠️ Keep these prices in sync with: the KO listing (`ios-ko.md`), the in-app paywall (fetches live store price — should match), and this English Description text.
 
 ## App Privacy (Privacy Questionnaire) — Data Collection
 

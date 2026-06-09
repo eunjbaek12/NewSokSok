@@ -48,31 +48,31 @@ The word list you want. The word list you've been looking for. And the cleanest 
 
 Avocado is a personal vocabulary learning tool for six languages — English, Korean, Japanese, Chinese, Vietnamese, and Spanish — built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
 
-▸ Four study modes
+• Four study modes
 - Flashcards: one card at a time, the way you remember best
 - Quiz: multiple choice and short answer
 - Example sentences: learn words in context
 - Autoplay & shadowing: listen and speak along for pronunciation and listening practice
 
-▸ A daily learning flow that fits you
+• A daily learning flow that fits you
 - Set a daily target and Avocado distributes the words for you
 - Clear graphs of progress and mastery
 - Words you've nailed and words that trip you up are tracked separately
 - Star a word or revisit only the ones you got wrong
 
-▸ Add words by photo or spreadsheet
+• Add words by photo or spreadsheet
 - Scan a photo and pull in all the words at once
 - Paste in or import a CSV file as-is
 - Bulk paste: drop a line-separated list and it just works
 - Voice input and manual entry also supported
 
-▸ AI word generation & auto-analysis
+• AI word generation & auto-analysis
 - Type a topic and AI builds an entire list for you
   e.g. "Renting an apartment in the US", "Ordering at a cafe", "TOEIC verbs"
 - Add a single word and AI auto-fills pronunciation, meaning, examples, and synonyms
 - Choose language pair, difficulty, and word count
 
-▸ Find what others have built
+• Find what others have built
 - Browse word lists shared by other learners and import the ones you love
 - A rich set of official curated lists, ready to study
   · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
@@ -82,25 +82,25 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
   · Vietnamese — Basic 500
 - Share your own lists to help the community
 
-▸ Six languages, every direction
+• Six languages, every direction
 - English, Korean, Japanese, Chinese, Vietnamese, Spanish
-- Mix any input and meaning language (EN↔KR, KR↔JP, EN↔ZH, VI↔EN, KR↔VI, ES↔EN — any pair)
+- Mix any input and meaning language (EN-KR, KR-JP, EN-ZH, VI-EN, KR-VI, ES-EN — any pair)
 
-▸ Make it yours with skins
+• Make it yours with skins
 - Classic, Dark Calm, Y2K, Lab, and more themes
 
-▸ Offline-first with cloud sync
+• Offline-first with cloud sync
 - Data lives on your device first — study without internet
 - Sign in with Apple or Google to sync securely to the cloud
 - Or use guest mode and start instantly
 
-▸ Fair pricing — free is generous
+• Fair pricing — free is generous
 - Free: 100 AI word lookups per day + watch an ad for +50 (up to 300/day)
 - Pro: ad-free, 1,000 words per day — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
 - 7-day Pro free trial on signup, no auto-charge
 
-▸ Transparent privacy
+• Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)
 - App Tracking Transparency supported — you control whether tracking is allowed
 - The only permission requested is the microphone, for voice input

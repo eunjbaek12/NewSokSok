@@ -284,7 +284,7 @@ export default function ListContextMenu({
         visible={renameModalOpen}
         onClose={handleRenameClose}
         title={t('contextMenu.renameTitle')}
-        scrollable={false}
+        scrollable={true}
         footer={
           <View style={styles.actions}>
             <Pressable
@@ -336,7 +336,7 @@ export default function ListContextMenu({
         visible={shareModalOpen}
         onClose={handleShareClose}
         title={t('contextMenu.shareTitle')}
-        scrollable={false}
+        scrollable={true}
         footer={
           <View style={styles.actions}>
             <Pressable

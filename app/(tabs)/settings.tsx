@@ -541,7 +541,7 @@ export default function SettingsScreen() {
         visible={nicknameModalOpen}
         onClose={() => setNicknameModalOpen(false)}
         title={t('settings.nicknameTitle')}
-        scrollable={false}
+        scrollable={true}
         footer={
           <View style={styles.modalActions}>
             <Pressable

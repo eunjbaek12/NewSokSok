@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, KeyboardAvoidingView, BackHandler, Animated as RNAnimated, Alert } from 'react-native';
+import { View, Text, Pressable, ScrollView, StyleSheet, Platform, ActivityIndicator, TextInput, Keyboard, KeyboardAvoidingView, BackHandler, Animated as RNAnimated, Alert } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -1272,7 +1272,7 @@ export default function CurationScreen() {
                 visible={aiModalVisible}
                 onClose={() => { if (generating) handleCancelGenerate(); else setAiModalVisible(false); }}
                 title={t('curation.aiGenerate')}
-                scrollable={false}
+                scrollable={true}
                 footer={generating ? null : (
                     <Pressable
                         onPress={handleGenerateAI}
@@ -1328,7 +1328,7 @@ export default function CurationScreen() {
                         <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiLanguagePairLabel')}</Text>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                             <Pressable
-                                onPress={() => !generating && setAiSourceLangPickerOpen(true)}
+                                onPress={() => { if (!generating) { Keyboard.dismiss(); setAiSourceLangPickerOpen(true); } }}
                                 style={{
                                     flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
                                     paddingVertical: 10, borderRadius: 12,
@@ -1341,7 +1341,7 @@ export default function CurationScreen() {
                             </Pressable>
                             <Ionicons name="arrow-forward" size={16} color={colors.textTertiary} />
                             <Pressable
-                                onPress={() => !generating && setAiTargetLangPickerOpen(true)}
+                                onPress={() => { if (!generating) { Keyboard.dismiss(); setAiTargetLangPickerOpen(true); } }}
                                 style={{
                                     flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6,
                                     paddingVertical: 10, borderRadius: 12,
@@ -1402,35 +1402,34 @@ export default function CurationScreen() {
                     </View>
                 </View>
                 )}
+                <ModalPicker
+                    visible={aiSourceLangPickerOpen}
+                    onClose={() => setAiSourceLangPickerOpen(false)}
+                    title={t('addWord.inputLanguageSelect')}
+                    options={SUPPORTED_LANGUAGES
+                        .filter(l => l.code !== aiTargetLang)
+                        .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                    selectedValue={aiSourceLang}
+                    onSelect={(code: string) => {
+                        updateAiCurationSettings({ sourceLang: code as LanguageCode });
+                        setAiSourceLangPickerOpen(false);
+                    }}
+                />
+
+                <ModalPicker
+                    visible={aiTargetLangPickerOpen}
+                    onClose={() => setAiTargetLangPickerOpen(false)}
+                    title={t('addWord.meaningLanguageSelect')}
+                    options={SUPPORTED_LANGUAGES
+                        .filter(l => l.code !== aiSourceLang)
+                        .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
+                    selectedValue={aiTargetLang}
+                    onSelect={(code: string) => {
+                        updateAiCurationSettings({ targetLang: code as LanguageCode });
+                        setAiTargetLangPickerOpen(false);
+                    }}
+                />
             </DialogModal>
-
-            <ModalPicker
-                visible={aiSourceLangPickerOpen}
-                onClose={() => setAiSourceLangPickerOpen(false)}
-                title={t('addWord.inputLanguageSelect')}
-                options={SUPPORTED_LANGUAGES
-                    .filter(l => l.code !== aiTargetLang)
-                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
-                selectedValue={aiSourceLang}
-                onSelect={(code: string) => {
-                    updateAiCurationSettings({ sourceLang: code as LanguageCode });
-                    setAiSourceLangPickerOpen(false);
-                }}
-            />
-
-            <ModalPicker
-                visible={aiTargetLangPickerOpen}
-                onClose={() => setAiTargetLangPickerOpen(false)}
-                title={t('addWord.meaningLanguageSelect')}
-                options={SUPPORTED_LANGUAGES
-                    .filter(l => l.code !== aiSourceLang)
-                    .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
-                selectedValue={aiTargetLang}
-                onSelect={(code: string) => {
-                    updateAiCurationSettings({ targetLang: code as LanguageCode });
-                    setAiTargetLangPickerOpen(false);
-                }}
-            />
 
             <Snackbar
                 visible={snackbar.visible}

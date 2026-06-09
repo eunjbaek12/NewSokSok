@@ -427,6 +427,12 @@
     "restoreCta": "이전 구매 복원",
     "billingConnecting": "스토어 연결 중…",
     "proActiveNote": "현재 Pro 구독 중이에요",
+    "proActivePeriodNote": "Pro {{period}} 구독 중이에요",
+    "proUntilNote": "{{date}}까지 이용",
+    "period": {
+      "monthly": "월간",
+      "yearly": "연간"
+    },
     "trialActiveNote": "무료 체험 {{daysLeft}}일 남았어요 · 종료 후 자동으로 Free 전환",
     "errors": {
       "generic": "결제를 처리하지 못했어요. 잠시 후 다시 시도해주세요.",

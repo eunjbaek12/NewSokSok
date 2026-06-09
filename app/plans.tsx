@@ -19,7 +19,7 @@ import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { useSettings } from '@/features/settings';
 import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
 import { usePurchaseFlow, monthlyEquivalent, savingsPercent } from '@/features/billing';
-import { SKU_PRO_MONTHLY, SKU_PRO_YEARLY } from '@/lib/billing/skus';
+import { SKU_PRO_MONTHLY, SKU_PRO_YEARLY, getPlanPeriod } from '@/lib/billing/skus';
 
 export default function PlansScreen() {
   const insets = useSafeAreaInsets();
@@ -27,7 +27,7 @@ export default function PlansScreen() {
   const { colors } = useTheme();
   const { authMode, signInWithGoogle } = useAuth();
   const { apiKey } = useSettings();
-  const { status, refresh } = useQuota();
+  const { status, productId, refresh } = useQuota();
   const flow = usePurchaseFlow();
 
   const isLoggedIn = isCloudAuthMode(authMode);
@@ -37,6 +37,12 @@ export default function PlansScreen() {
   // UI에선 둘을 구분해야 사용자가 "이미 결제했다"고 오해하지 않는다.
   const proMode = getProMode(status);
   const trialDaysLeft = getTrialDaysLeft(status);
+  // 유료 Pro의 결제 주기(월간/연간)와 만료/이용 종료일. 취소 여부를 알 수 없어
+  // 날짜는 "갱신"이 아닌 중립적 "~까지 이용"으로 표기.
+  const planPeriod = proMode === 'paid' ? getPlanPeriod(productId) : null;
+  const proUntilLabel = proMode === 'paid' && status?.pro_until
+    ? new Date(status.pro_until).toLocaleDateString()
+    : null;
   // 체험을 한 번도 받지 않은 신규 후보(로그인 + 비Pro + trial_ends_at 부재)에게만 7일 체험 배너 노출
   const showTrialBanner = isLoggedIn && !isPro && (status?.trial_ends_at == null);
 
@@ -259,11 +265,20 @@ export default function PlansScreen() {
               </Text>
             </View>
           ) : isPro ? (
-            <View style={[styles.proActiveBadge, { backgroundColor: colors.primaryLight }]}>
-              <Ionicons name="checkmark-circle" size={16} color={colors.primary} />
-              <Text style={[styles.proActiveText, { color: colors.primary }]}>
-                {t('plans.proActiveNote')}
-              </Text>
+            <View style={styles.proActiveColumn}>
+              <View style={[styles.proActiveBadge, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="checkmark-circle" size={16} color={colors.primary} />
+                <Text style={[styles.proActiveText, { color: colors.primary }]}>
+                  {planPeriod
+                    ? t('plans.proActivePeriodNote', { period: t(`plans.period.${planPeriod}`) })
+                    : t('plans.proActiveNote')}
+                </Text>
+              </View>
+              {proUntilLabel && (
+                <Text style={[styles.proUntilText, { color: colors.textSecondary }]}>
+                  {t('plans.proUntilNote', { date: proUntilLabel })}
+                </Text>
+              )}
             </View>
           ) : (
             <View style={styles.ctaColumn}>
@@ -526,6 +541,8 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   proActiveText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
+  proActiveColumn: { alignItems: 'flex-start', gap: 4 },
+  proUntilText: { fontSize: 12, fontFamily: 'Pretendard_500Medium', marginLeft: 4 },
 
   // 복원
   restoreRow: {

@@ -13,3 +13,13 @@ export type ProSku = typeof SKU_PRO_MONTHLY | typeof SKU_PRO_YEARLY;
 export function isProSku(id: string): id is ProSku {
   return PRO_SKUS.includes(id as ProSku);
 }
+
+export type PlanPeriod = 'monthly' | 'yearly';
+
+/** 저장된 구독 상품 ID(play_product_id)로부터 결제 주기를 도출. 알 수 없으면 null. */
+export function getPlanPeriod(productId: string | null | undefined): PlanPeriod | null {
+  if (!productId) return null;
+  if (productId === SKU_PRO_YEARLY) return 'yearly';
+  if (productId === SKU_PRO_MONTHLY) return 'monthly';
+  return null;
+}

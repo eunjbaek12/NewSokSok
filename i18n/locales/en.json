@@ -427,6 +427,12 @@
     "restoreCta": "Restore previous purchase",
     "billingConnecting": "Connecting to store…",
     "proActiveNote": "Pro subscription is active",
+    "proActivePeriodNote": "Pro ({{period}}) subscription is active",
+    "proUntilNote": "Active until {{date}}",
+    "period": {
+      "monthly": "Monthly",
+      "yearly": "Annual"
+    },
     "trialActiveNote": "{{daysLeft}} day(s) left in your free trial · auto-switches to Free after",
     "errors": {
       "generic": "Couldn't complete the purchase. Please try again later.",

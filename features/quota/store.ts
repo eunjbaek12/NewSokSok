@@ -24,6 +24,8 @@ export interface QuotaStatus {
 
 interface QuotaState {
   status: QuotaStatus | null;
+  /** 구독 상품 ID(play_product_id). 결제 주기(월간/연간) 표시용. 유료 Pro에만 존재. */
+  productId: string | null;
   loading: boolean;
   lastFetchedAt: number;
   /** Free 사용자의 quota_exceeded 시각. RewardedAdModal trigger. */
@@ -45,6 +47,7 @@ const STALE_MS = 90 * 1000; // 90초
 
 export const useQuotaStore = create<QuotaState>((set, get) => ({
   status: null,
+  productId: null,
   loading: false,
   lastFetchedAt: 0,
   quotaExceededAt: 0,
@@ -56,16 +59,24 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
     try {
       const { data: userData } = await supabase.auth.getUser();
       if (!userData?.user) {
-        set({ status: null, loading: false, lastFetchedAt: Date.now() });
+        set({ status: null, productId: null, loading: false, lastFetchedAt: Date.now() });
         return;
       }
-      const { data, error } = await supabase.rpc('get_ai_quota_status', {
-        p_user_id: userData.user.id,
-      });
-      if (!error && data) {
-        set({ status: data as QuotaStatus, loading: false, lastFetchedAt: Date.now() });
+      // quota 상태(RPC)와 구독 상품 ID(테이블 직접 조회, RLS self_read 허용)를 병렬로.
+      // product_id는 결제 주기 표시용이라 실패해도 quota 갱신을 막지 않는다.
+      const [quotaRes, subRes] = await Promise.all([
+        supabase.rpc('get_ai_quota_status', { p_user_id: userData.user.id }),
+        supabase
+          .from('user_subscriptions')
+          .select('play_product_id')
+          .eq('user_id', userData.user.id)
+          .maybeSingle(),
+      ]);
+      const productId = (subRes.data?.play_product_id as string | null | undefined) ?? null;
+      if (!quotaRes.error && quotaRes.data) {
+        set({ status: quotaRes.data as QuotaStatus, productId, loading: false, lastFetchedAt: Date.now() });
       } else {
-        set({ loading: false, lastFetchedAt: Date.now() });
+        set({ productId, loading: false, lastFetchedAt: Date.now() });
       }
     } catch {
       set({ loading: false, lastFetchedAt: Date.now() });
@@ -88,7 +99,7 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
       lastFetchedAt: Date.now(),
     });
   },
-  clear: () => set({ status: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0 }),
+  clear: () => set({ status: null, productId: null, lastFetchedAt: 0, quotaExceededAt: 0, proLimitReachedAt: 0 }),
   notifyQuotaExceeded: (status) => {
     const current = get().status;
     // tier 우선순위: Edge 응답 quota > 기존 status > 'free' (게스트는 여기 도달 X)
@@ -112,9 +123,10 @@ export const useQuotaStore = create<QuotaState>((set, get) => ({
 
 export function useQuota() {
   const status = useQuotaStore((s) => s.status);
+  const productId = useQuotaStore((s) => s.productId);
   const loading = useQuotaStore((s) => s.loading);
   const refresh = useQuotaStore((s) => s.refresh);
-  return { status, loading, refresh };
+  return { status, productId, loading, refresh };
 }
 
 // ---- Pro tier disambiguation ----

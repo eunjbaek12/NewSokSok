@@ -74,9 +74,11 @@ store-assets/screenshots/raw/
 
 # App Store iOS raw screenshots (아이폰 실기 캡처 원본. final/만 commit, raw/{ko,en}/ 디렉토리는 .gitkeep로 유지)
 store-assets/screenshots/appstore/raw/**/*.png
+store-assets/screenshots/appstore/raw/**/*.jpg
 
 # Play Store Android raw screenshots (안드로이드 실기 캡처 원본. final/만 commit, raw/{ko,en}/ 디렉토리는 .gitkeep로 유지)
 store-assets/screenshots/playstore/raw/**/*.png
+store-assets/screenshots/playstore/raw/**/*.jpg
 
 # Marketing teaser raw 영상/소스 (작업용. CapCut 조립 전 raw — 미추적. docs/handoff-marketing-teasers.md 참조)
 assets/marketing/

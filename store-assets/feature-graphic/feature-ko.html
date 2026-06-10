@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Feature Graphic — KO</title>
+<title>Feature Graphic — KO (cream)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
@@ -12,14 +12,14 @@
   html, body { width: 1024px; height: 500px; overflow: hidden; }
   body {
     position: relative;
-    background: radial-gradient(ellipse at 25% 35%, #348C89 0%, #2A7B78 45%, #1F6764 100%);
+    background: radial-gradient(ellipse at 25% 32%, #FBF5EA 0%, #F2E8D5 52%, #E9DCC4 100%);
     display: flex;
     align-items: center;
     padding: 0 72px;
     font-family: 'Pretendard', -apple-system, sans-serif;
-    color: #fff;
+    color: #3C3526;
   }
-  /* Decorative card silhouettes behind text */
+  /* 우측 배경 카드 실루엣 (teal 톤) */
   .deco {
     position: absolute;
     right: -40px;
@@ -27,16 +27,16 @@
     transform: translateY(-50%) rotate(-8deg);
     width: 380px;
     height: 240px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    background: rgba(42, 123, 120, 0.05);
+    border: 1.5px solid rgba(42, 123, 120, 0.16);
     border-radius: 20px;
   }
   .deco::before {
     content: '';
     position: absolute;
     inset: 18px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    background: rgba(42, 123, 120, 0.04);
+    border: 1.5px solid rgba(42, 123, 120, 0.12);
     border-radius: 14px;
   }
   .character {
@@ -46,25 +46,30 @@
     margin-right: 40px;
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(0 12px 26px rgba(60, 53, 38, 0.22));
   }
   .character img { width: 100%; height: 100%; object-fit: contain; }
   .text { position: relative; z-index: 2; flex: 1; }
+  /* 상단 틸 액센트 바 (스크린샷 모티프와 통일) */
+  .accent {
+    width: 64px; height: 8px; border-radius: 5px;
+    background: #2A7B78; margin-bottom: 22px;
+  }
   .headline {
     font-family: 'Jua', 'Pretendard', sans-serif;
     font-size: 52px;
     line-height: 1.28;
     letter-spacing: -1.2px;
+    color: #3C3526;
   }
   .headline .emph {
-    color: #C8E8A8;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: #2A7B78;
   }
   .subline {
     margin-top: 22px;
     font-size: 19px;
     font-weight: 500;
-    opacity: 0.88;
+    color: #6B6358;
     letter-spacing: -0.3px;
   }
   .brand {
@@ -73,7 +78,8 @@
     left: 72px;
     font-size: 15px;
     font-weight: 700;
-    opacity: 0.72;
+    color: #6B6358;
+    opacity: 0.85;
     letter-spacing: 2px;
     text-transform: uppercase;
     z-index: 2;
@@ -83,9 +89,10 @@
 <body>
   <div class="deco"></div>
   <div class="character">
-    <img src="../../assets/images/Avocado-main character.svg" alt="Avocado">
+    <img src="../../assets/images/Avocado-3D-clean.png" alt="Avocado">
   </div>
   <div class="text">
+    <div class="accent"></div>
     <div class="headline">내가 원하는 단어장,<br><span class="emph">내가 찾던 단어장.</span></div>
     <div class="subline">한 · 영 · 일 · 중 · 베 · 스 6개 언어 · AI 단어 생성 · 플래시카드 · 퀴즈</div>
   </div>

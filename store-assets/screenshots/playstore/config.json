@@ -1,0 +1,65 @@
+{
+  "target": "Google Play 폰 스크린샷 (1290x2580, 정확히 2:1). Play는 비율 최대 2:1까지만 허용 → iOS 2796 그대로 못 써서 세로만 줄임. 캡션·라인업은 iOS appstore/와 동일.",
+  "viewport": { "width": 1290, "height": 2580 },
+  "captureStatusBarPx": 80,
+  "captureDevice": "안드로이드 실기 (예: 1080x2400). 상단 안드로이드 상태바는 합성 시 9:41 더미로 자동 교체. 하단 네비바(제스처 바)는 폰 목업 하단에서 자연히 잘림.",
+  "palette": { "cream": "#F2E8D5", "ink": "#3C3526", "sub": "#6B6358", "teal": "#2A7B78" },
+  "screenshots": [
+    {
+      "id": "01-home",
+      "screen": "홈 탭 — app/(tabs)/index.tsx",
+      "captureHint": "단어장 2~3개가 진행 중이고 오늘 진척/달성이 보이는 상태. 라이트 테마. 빈 화면 금지.",
+      "ko": { "caption": "내 단어 공부, 한눈에", "sub": "단어장·진척·오늘 할 일까지" },
+      "en": { "caption": "Your vocabulary, at a glance", "sub": "Word lists, progress, and today's to-dos" }
+    },
+    {
+      "id": "02-autocomplete",
+      "screen": "단어 추가 — app/add-word.tsx",
+      "captureHint": "단어 하나를 입력해 뜻·예문·발음·품사가 모두 자동완성으로 채워진 상태. 빈 칸 없이 다 뜬 순간 캡처.",
+      "ko": { "caption": "단어만 치면, 나머지는 AI가", "sub": "뜻·예문·발음·품사까지 자동완성" },
+      "en": { "caption": "Type the word.<br>AI does the rest.", "sub": "Meaning, example, pronunciation — auto-filled" }
+    },
+    {
+      "id": "03-photo",
+      "screen": "사진 스캔 결과 — components/PhotoImportWorkflow.tsx",
+      "captureHint": "추출된 단어 리스트 + '최종 저장하기' 버튼이 정상 표시된 리뷰 화면. 갤러리/picker는 절대 보이지 않게(결과 화면만). PII 금지.",
+      "ko": { "caption": "교재를 찍으면, 단어장이 돼", "sub": "사진 한 장에서 단어를 쏙쏙 추출" },
+      "en": { "caption": "Snap a page, get a word list", "sub": "Words pulled straight from the photo" }
+    },
+    {
+      "id": "04-generate",
+      "screen": "AI 단어 생성 — features/curation/screen.tsx",
+      "captureHint": "주제 '배 아플 때 병원 가서 쓰는 단어 20개'를 입력해 생성된 단어 리스트. 주제 텍스트가 화면에 보이게. 라이트 테마.",
+      "ko": { "caption": "주제만 말하면, 단어장 완성", "sub": "\"배 아플 때 병원 가서 쓰는 단어 20개\"도 바로" },
+      "en": { "caption": "Name a topic, get a full set", "sub": "Even \"20 words for a stomachache at the clinic\"" }
+    },
+    {
+      "id": "05-study",
+      "screen": "플래시카드 — features/study/flashcards/screen.tsx",
+      "captureHint": "카드 한 장이 펼쳐져 단어+뜻이 함께 보이는 상태. 가장 상징적인 학습 화면. 라이트 테마.",
+      "ko": { "caption": "카드·퀴즈·예문·섀도잉", "sub": "넘기고, 풀고, 따라 말하며 진짜 외운다" },
+      "en": { "caption": "Cards, quizzes, examples, shadowing", "sub": "Flip, solve, and speak it into memory" }
+    },
+    {
+      "id": "06-curation",
+      "screen": "단어 모음 — features/curation/screen.tsx",
+      "captureHint": "큐레이션 단어장 카드들이 나열된 상태. NGSL·JLPT·HSK 등 여러 언어 덱이 섞여 보이게. 라이트 테마.",
+      "ko": { "caption": "원하는 단어장이, 이미 여기", "sub": "NGSL·JLPT·HSK·TOPIK — 6개 언어 49개 단어장" },
+      "en": { "caption": "The list you wanted,<br>already here", "sub": "NGSL·JLPT·HSK·TOPIK — 49 lists, 6 languages" }
+    },
+    {
+      "id": "07-theme1",
+      "screen": "스킨 적용 화면 1 — 설정 → 표시 → 스킨",
+      "captureHint": "특정 스킨(예: 다크 고요)이 적용된 실제 홈/학습 화면. 일반 화면과 톤이 확 다르게. 상태바 더미는 자동 색 보정됨.",
+      "ko": { "caption": "분위기를 바꿔 외우는 재미", "sub": "클래식 · 다크 고요 · Y2K · 실험실" },
+      "en": { "caption": "Switch the mood,<br>keep the streak", "sub": "Classic · Dark Calm · Y2K · Lab" }
+    },
+    {
+      "id": "07-theme2",
+      "screen": "스킨 적용 화면 2 — 다른 스킨",
+      "captureHint": "theme1과 다른 스킨(예: Y2K)이 적용된 화면. 두 장이 서로 대비되게.",
+      "ko": { "caption": "취향대로 고르는 학습 테마", "sub": "스킨 하나로 분위기가 확" },
+      "en": { "caption": "Pick your vibe", "sub": "One skin, a whole new feel" }
+    }
+  ]
+}

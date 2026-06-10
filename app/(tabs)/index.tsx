@@ -22,7 +22,7 @@ import { useScrollToTop } from '@react-navigation/native';
 import Svg, { Circle, G } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { useLists, useBootstrapLoading, clearPlan } from '@/features/vocab';
+import { useLists, useBootstrapLoading, clearPlan, restartPlan } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { useAuth } from '@/features/auth';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/features/study/plan/engine';
@@ -181,6 +181,18 @@ export default function DashboardScreen() {
 
   const handlePlanPress = useCallback((listId: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    router.push({ pathname: '/plan/[id]', params: { id: listId } });
+  }, []);
+
+  // "다시 학습": 기간 만료(overdue) 플랜은 진행 상태(planCurrentDay)를 유지한 채
+  // 마감 창만 새로 시작해 'in-progress'로 되돌린다. 이렇게 해야 학습 후 카드가
+  // "학습하기"/"추가학습"으로 표시되고 계속 "기간 만료"로 떠 있지 않는다.
+  // 비활성(inactive)은 플랜 화면의 재설정 흐름을 유지하기 위해 그대로 둔다.
+  const handleRestartPlan = useCallback(async (listId: string, status: PlanStatus) => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    if (status === 'overdue') {
+      await restartPlan(listId);
+    }
     router.push({ pathname: '/plan/[id]', params: { id: listId } });
   }, []);
 
@@ -546,7 +558,7 @@ export default function DashboardScreen() {
                             <Text style={[styles.actionButtonText, { color: colors.error }]}>{t('home.endStudy')}</Text>
                           </Pressable>
                           <Pressable
-                            onPress={() => handlePlanPress(list.id)}
+                            onPress={() => handleRestartPlan(list.id, status)}
                             style={({ pressed }) => [
                               styles.actionButton,
                               { backgroundColor: colors.primaryButton, opacity: pressed ? 0.85 : 1 },

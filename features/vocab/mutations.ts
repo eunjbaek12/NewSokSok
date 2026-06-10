@@ -359,6 +359,17 @@ export async function resetPlanForReStudy(listId: string): Promise<void> {
   await commit();
 }
 
+/**
+ * Re-anchors an expired/inactive plan to a fresh window so it returns to
+ * 'in-progress' (resuming at planCurrentDay) instead of being stuck on
+ * "기간 만료". Used by the home "다시 학습" action on overdue plans.
+ */
+export async function restartPlan(listId: string): Promise<void> {
+  await db.restartPlanWindow(listId);
+  markListsDirty([listId]);
+  await commit();
+}
+
 // Re-export selected PlanStatus type so call sites importing mutations don't
 // need a separate `@/lib/types` import just for the return shape.
 export type { PlanStatus };

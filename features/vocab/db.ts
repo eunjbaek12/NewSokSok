@@ -849,3 +849,19 @@ export async function resetPlanCurrentDayToTotal(listId: string): Promise<void> 
     [planTotalDays, Date.now(), listId]
   );
 }
+
+/**
+ * Re-anchors a stale/expired plan's window to now without touching progress.
+ * `planCurrentDay` and word assignments are preserved so the user resumes where
+ * they left off; only the deadline clock restarts. `planUpdatedAt` is cleared so
+ * the inactive threshold resets and today's study state is recomputed cleanly
+ * (shows "학습하기" until studied, then "추가학습"). Without this, computePlanStatus
+ * keeps returning 'overdue' forever because planEndDate stays in the past.
+ */
+export async function restartPlanWindow(listId: string): Promise<void> {
+  const db = await getDb();
+  await db.runAsync(
+    'UPDATE lists SET planStartedAt = ?, planUpdatedAt = NULL WHERE id = ?',
+    [Date.now(), listId]
+  );
+}

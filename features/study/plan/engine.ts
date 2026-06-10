@@ -44,12 +44,20 @@ export function rechunkPlan(words: Word[], wordsPerDay: number): PlanGenerationR
  * Derives the current plan status from list metadata and word state.
  * Evaluation priority:
  * 1. No planStartedAt → 'none'
- * 2. All words memorized → 'completed'
- * 3. Plan end date passed with unmemorized words → 'overdue'
- * 4. 7+ days since planUpdatedAt → 'inactive'
- * 5. Otherwise → 'in-progress'
+ * 2. planCurrentDay past the last day (with a recorded study) → 'completed'
+ * 3. Stale (7+ days idle) AND past the end date → 'overdue'
+ * 4. Stale (7+ days idle) within the end date → 'inactive'
+ * 5. Otherwise (recently active) → 'in-progress'
+ *
+ * 'overdue'/'inactive' are gated behind staleness on purpose: a plan the user is
+ * actively studying (planUpdatedAt within the threshold) should read as
+ * 'in-progress' even after its deadline passed. Otherwise computePlanStatus would
+ * keep returning 'overdue' on every entry path (home card AND opening the plan
+ * screen directly) until the whole plan is finished, leaving the card stuck on
+ * "기간 만료" no matter how much the user studies. Resuming study (planUpdatedAt
+ * → today) self-heals the status back to active.
  */
-export function computePlanStatus(list: VocaList, words: Word[], now: number): PlanStatus {
+export function computePlanStatus(list: VocaList, _words: Word[], now: number): PlanStatus {
   if (!list.planStartedAt || !list.planTotalDays) {
     return 'none';
   }
@@ -59,15 +67,12 @@ export function computePlanStatus(list: VocaList, words: Word[], now: number): P
   ) {
     return 'completed';
   }
-  const planWords = words.filter(w => w.assignedDay != null && w.assignedDay > 0);
   const planEndDate = list.planStartedAt + list.planTotalDays * 86400000;
-  if (now > planEndDate) {
-    return 'overdue';
-  }
   const INACTIVE_THRESHOLD = 7 * 24 * 60 * 60 * 1000;
   const lastActivity = list.planUpdatedAt ?? list.planStartedAt;
-  if (lastActivity && now - lastActivity >= INACTIVE_THRESHOLD) {
-    return 'inactive';
+  const isStale = lastActivity != null && now - lastActivity >= INACTIVE_THRESHOLD;
+  if (isStale) {
+    return now > planEndDate ? 'overdue' : 'inactive';
   }
   return 'in-progress';
 }

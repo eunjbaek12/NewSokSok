@@ -145,13 +145,23 @@ describe('computePlanStatus', () => {
     expect(status).not.toBe('completed');
   });
 
-  test('종료일 초과 → overdue', () => {
+  test('종료일 초과 + 방치 → overdue', () => {
     const list = makeList({
       planStartedAt: NOW - DAY * 10,
       planTotalDays: 3, // 종료일 = NOW - 7일
       planCurrentDay: 1,
     });
     expect(computePlanStatus(list, [], NOW)).toBe('overdue');
+  });
+
+  test('종료일 초과여도 최근 학습 활동 있으면 → in-progress (직접 진입 경로 자동 복구)', () => {
+    const list = makeList({
+      planStartedAt: NOW - DAY * 10,
+      planTotalDays: 3, // 종료일 = NOW - 7일 (이미 지남)
+      planCurrentDay: 2,
+      planUpdatedAt: NOW - 1000 * 60 * 30, // 30분 전에 학습
+    });
+    expect(computePlanStatus(list, [], NOW)).toBe('in-progress');
   });
 
   test('7일 이상 비활동 → inactive', () => {
@@ -416,5 +426,105 @@ describe('groupWordsByDay', () => {
     const sections = groupWordsByDay(words);
     expect(sections).toHaveLength(1);
     expect(sections[0].data).toHaveLength(3);
+  });
+});
+
+// ─── 시나리오: 기간 만료 → 다시 학습 복구 ──────────────────────────────────────
+// 사용자 보고 플로우를 엔진 함수로 재현한다. DB 계층이 바꾸는 컬럼을 그대로
+// 모사한다:
+//   restartPlanWindow:   planStartedAt = now, planUpdatedAt = null (진행도 보존)
+//   updatePlanProgress:  planCurrentDay = max(cur, newDay), planUpdatedAt = now
+
+describe('시나리오: 기간 만료 → 다시 학습 복구', () => {
+  // 홈 카드의 액션 라벨 매핑(app/(tabs)/index.tsx:getStudyStateConfig와 동일)
+  const actionLabelFor: Record<string, string> = {
+    'needs-study': '학습하기',
+    studying: '이어서 학습',
+    completed: '추가학습',
+  };
+
+  // restartPlanWindow(=홈 "다시 학습")가 만지는 컬럼 모사
+  function restartPlanWindow(list: VocaList, now: number): VocaList {
+    return { ...list, planStartedAt: now, planUpdatedAt: undefined };
+  }
+
+  // updatePlanProgress(=학습 완료)가 만지는 컬럼 모사
+  function updatePlanProgress(list: VocaList, newDay: number, now: number): VocaList {
+    return {
+      ...list,
+      planCurrentDay: Math.max(list.planCurrentDay ?? 1, newDay),
+      planUpdatedAt: now,
+    };
+  }
+
+  // 14일 플랜인데 5일째까지 학습(planCurrentDay=5) 후 방치되어 종료일이 지난 상태
+  function makeExpiredPlan(): VocaList {
+    return makeList({
+      planStartedAt: NOW - DAY * 20,   // 종료일 = NOW - 6일 (이미 지남)
+      planTotalDays: 14,
+      planCurrentDay: 5,               // Day4까지 학습, 다음은 Day5
+      planWordsPerDay: 5,
+      planUpdatedAt: NOW - DAY * 10,   // 10일 전 마지막 학습 → 방치
+    });
+  }
+
+  const planWords = [
+    makeWord({ assignedDay: 5, isMemorized: false }),
+    makeWord({ assignedDay: 5, isMemorized: false }),
+    makeWord({ assignedDay: 6, isMemorized: false }),
+  ];
+
+  test('① 초기: 방치 + 종료일 지남 → overdue (기간 만료)', () => {
+    const list = makeExpiredPlan();
+    expect(computePlanStatus(list, planWords, NOW)).toBe('overdue');
+  });
+
+  test('② 홈 "다시 학습" 탭(학습 전) → in-progress + Day5 "학습하기"', () => {
+    let list = makeExpiredPlan();
+    list = restartPlanWindow(list, NOW); // 재anchor, planCurrentDay=5 보존
+
+    expect(computePlanStatus(list, planWords, NOW)).toBe('in-progress');
+
+    const day = computeDayStudyStatus(list, planWords, NOW);
+    expect(day.displayDay).toBe(5); // 기존 진행도 이어서
+    expect(day.state).toBe('needs-study');
+    expect(actionLabelFor[day.state]).toBe('학습하기');
+  });
+
+  test('③ Day5 학습 완료 → in-progress 유지 + "추가학습"(오늘 달성)', () => {
+    let list = makeExpiredPlan();
+    list = restartPlanWindow(list, NOW);
+    list = updatePlanProgress(list, 6, NOW); // Day5 학습 끝 → 다음 Day6, 오늘 학습됨
+
+    expect(computePlanStatus(list, planWords, NOW)).toBe('in-progress');
+
+    const day = computeDayStudyStatus(list, planWords, NOW);
+    expect(day.displayDay).toBe(5);       // 오늘 달성한 Day5 표시
+    expect(day.state).toBe('completed');
+    expect(actionLabelFor[day.state]).toBe('추가학습');
+  });
+
+  test('④ 직접 진입 경로: 만료 플랜을 다시 학습 없이 바로 학습 → 자동 in-progress 복구', () => {
+    // restartPlanWindow를 거치지 않고(=플랜 화면 직접 진입) 학습만 한 경우.
+    // 중앙 처리(computePlanStatus)가 planUpdatedAt=오늘을 보고 overdue를 해제한다.
+    let list = makeExpiredPlan();
+    expect(computePlanStatus(list, planWords, NOW)).toBe('overdue'); // 학습 전
+
+    list = updatePlanProgress(list, 6, NOW); // planStartedAt 그대로, planUpdatedAt=오늘
+    expect(computePlanStatus(list, planWords, NOW)).toBe('in-progress'); // 자동 복구
+  });
+
+  test('⑤ 다음 날 자정 이후, 학습 없이 열면 → "학습하기"로 자연 전환', () => {
+    let list = makeExpiredPlan();
+    list = restartPlanWindow(list, NOW);
+    list = updatePlanProgress(list, 6, NOW); // 오늘 Day5 학습
+
+    const TOMORROW = NOW + DAY; // 다음 날
+    expect(computePlanStatus(list, planWords, TOMORROW)).toBe('in-progress'); // 아직 방치 아님
+
+    const day = computeDayStudyStatus(list, planWords, TOMORROW);
+    expect(day.displayDay).toBe(6); // 다음 학습 Day
+    expect(day.state).toBe('needs-study');
+    expect(actionLabelFor[day.state]).toBe('학습하기');
   });
 });

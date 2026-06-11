@@ -173,6 +173,13 @@ function AppStack() {
           headerShown: false,
         }}
       />
+      <Stack.Screen
+        name="import-csv"
+        options={{
+          presentation: "fullScreenModal",
+          headerShown: false,
+        }}
+      />
 
       <Stack.Screen name="plan/[id]" options={{ headerShown: false }} />
       <Stack.Screen name="flashcards/[id]" options={{ headerShown: false, gestureEnabled: false }} />

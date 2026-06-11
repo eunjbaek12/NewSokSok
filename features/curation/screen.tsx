@@ -1404,7 +1404,6 @@ export default function CurationScreen() {
                     onClose={() => setAiSourceLangPickerOpen(false)}
                     title={t('addWord.inputLanguageSelect')}
                     options={SUPPORTED_LANGUAGES
-                        .filter(l => l.code !== aiTargetLang)
                         .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
                     selectedValue={aiSourceLang}
                     onSelect={(code: string) => {
@@ -1418,7 +1417,6 @@ export default function CurationScreen() {
                     onClose={() => setAiTargetLangPickerOpen(false)}
                     title={t('addWord.meaningLanguageSelect')}
                     options={SUPPORTED_LANGUAGES
-                        .filter(l => l.code !== aiSourceLang)
                         .map(l => ({ id: l.code, title: `${l.flag} ${getLanguageLabel(l.code, t)}` }))}
                     selectedValue={aiTargetLang}
                     onSelect={(code: string) => {

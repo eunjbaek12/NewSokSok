@@ -900,7 +900,7 @@ export default function AddWordScreen() {
                                                             <Ionicons name="images-outline" size={16} color={colors.textSecondary} />
                                                         </Pressable>
                                                         <Pressable onPress={() => setShowExcel(true)} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
-                                                            <MaterialCommunityIcons name="microsoft-excel" size={16} color={colors.textSecondary} />
+                                                            <MaterialCommunityIcons name="auto-fix" size={16} color={colors.textSecondary} />
                                                         </Pressable>
                                                     </View>
                                                 )}
@@ -1436,7 +1436,6 @@ export default function AddWordScreen() {
                     options={SUPPORTED_LANGUAGES.map(l => ({
                         id: l.code,
                         title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
-                        disabled: l.code === tempSettings.targetLang,
                     }))}
                     selectedValue={tempSettings.sourceLang}
                     onSelect={(code: string) => {
@@ -1452,7 +1451,6 @@ export default function AddWordScreen() {
                     options={SUPPORTED_LANGUAGES.map(l => ({
                         id: l.code,
                         title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
-                        disabled: l.code === tempSettings.sourceLang,
                     }))}
                     selectedValue={tempSettings.targetLang}
                     onSelect={(code: string) => {

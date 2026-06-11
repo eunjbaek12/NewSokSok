@@ -12,7 +12,9 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
+import { exportListToCsv, SharingUnavailableError } from '@/lib/csv-file';
 import { useTheme } from '@/features/theme';
 import { VocaList } from '@/lib/types';
 import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
@@ -64,7 +66,7 @@ export default function ListContextMenu({
   const [mergeSourceList, setMergeSourceList] = useState<VocaList | null>(null);
 
   const POPUP_WIDTH = 192;
-  const POPUP_ESTIMATED_HEIGHT = 250;
+  const POPUP_ESTIMATED_HEIGHT = 340;
   const popupLeft = menuPos
     ? Math.max(8, Math.min(menuPos.x + menuPos.width - POPUP_WIDTH, screenWidth - POPUP_WIDTH - 8))
     : 0;
@@ -213,6 +215,39 @@ export default function ListContextMenu({
     setTimeout(() => setDeleteModalOpen(true), 100);
   }, [menuList, onClose]);
 
+  // CSV 내보내기 — 공유 시트는 네이티브라 RN Modal 핸드오프 레이스가 없다.
+  // 메뉴를 먼저 닫고 다음 틱에 공유한다.
+  const handleMenuExport = useCallback(() => {
+    if (!menuList) return;
+    const target = menuList;
+    onClose();
+    if ((target.words?.length ?? 0) === 0) {
+      Alert.alert(t('contextMenu.exportEmptyTitle'), t('contextMenu.exportEmptyMessage'));
+      return;
+    }
+    setTimeout(() => {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      exportListToCsv(target).catch((e) => {
+        if (e instanceof SharingUnavailableError) {
+          Alert.alert(t('contextMenu.exportFailedTitle'), t('contextMenu.exportUnavailable'));
+        } else {
+          Alert.alert(t('contextMenu.exportFailedTitle'), t('contextMenu.exportFailedMessage'));
+        }
+      });
+    }, 0);
+  }, [menuList, onClose, t]);
+
+  // CSV 가져오기 — 미리보기 화면이 RN Modal이므로 핸드오프 레이스를 피하려 라우트로
+  // 띄운다(컨텍스트 메뉴 자식 Modal로 열지 않음).
+  const handleMenuImport = useCallback(() => {
+    if (!menuList) return;
+    const listId = menuList.id;
+    onClose();
+    setTimeout(() => {
+      router.push({ pathname: '/import-csv', params: { listId } });
+    }, 0);
+  }, [menuList, onClose]);
+
   const handleDeleteConfirm = useCallback(async () => {
     if (!deleteTargetList) return;
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
@@ -258,6 +293,24 @@ export default function ListContextMenu({
         >
           <Ionicons name="share-social-outline" size={16} color={colors.primary} />
           <Text style={[styles.menuItemText, { color: colors.primary }]}>{t('contextMenu.share')}</Text>
+        </Pressable>
+
+        <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />
+
+        <Pressable
+          onPress={handleMenuImport}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="download-outline" size={16} color={colors.text} />
+          <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.importCsv')}</Text>
+        </Pressable>
+
+        <Pressable
+          onPress={handleMenuExport}
+          style={({ pressed }) => [styles.menuItem, pressed && { backgroundColor: colors.surfaceSecondary }]}
+        >
+          <Ionicons name="share-outline" size={16} color={colors.text} />
+          <Text style={[styles.menuItemText, { color: colors.text }]}>{t('contextMenu.exportCsv')}</Text>
         </Pressable>
 
         <View style={[styles.menuDivider, { backgroundColor: colors.borderLight }]} />

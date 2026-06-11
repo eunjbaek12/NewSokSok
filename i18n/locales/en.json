@@ -1139,7 +1139,9 @@
     "exportEmptyMessage": "This list has no words to export.",
     "exportFailedTitle": "Export Failed",
     "exportFailedMessage": "Something went wrong while exporting the CSV.",
-    "exportUnavailable": "File sharing is not available on this device."
+    "exportUnavailable": "File sharing is not available on this device.",
+    "exportSavedTitle": "Saved",
+    "exportSavedMessage": "Saved {{name}} to the folder you chose."
   },
   "manage": {
     "title": "Manage Vocab Lists",

@@ -1139,7 +1139,9 @@
     "exportEmptyMessage": "이 단어장에는 내보낼 단어가 없습니다.",
     "exportFailedTitle": "내보내기 실패",
     "exportFailedMessage": "CSV를 내보내는 중 문제가 발생했습니다.",
-    "exportUnavailable": "이 기기에서는 파일 공유를 사용할 수 없습니다."
+    "exportUnavailable": "이 기기에서는 파일 공유를 사용할 수 없습니다.",
+    "exportSavedTitle": "저장 완료",
+    "exportSavedMessage": "{{name}} 파일을 선택한 폴더에 저장했어요."
   },
   "manage": {
     "title": "나의 단어장 관리",

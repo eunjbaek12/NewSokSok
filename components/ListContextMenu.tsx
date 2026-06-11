@@ -227,7 +227,13 @@ export default function ListContextMenu({
     }
     setTimeout(() => {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-      exportListToCsv(target).catch((e) => {
+      exportListToCsv(target).then((res) => {
+        // Android 저장 완료만 안내. iOS(shared)는 시트가, cancelled는 사용자가 처리.
+        if (res.kind === 'saved') {
+          Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+          Alert.alert(t('contextMenu.exportSavedTitle'), t('contextMenu.exportSavedMessage', { name: res.fileName }));
+        }
+      }).catch((e) => {
         if (e instanceof SharingUnavailableError) {
           Alert.alert(t('contextMenu.exportFailedTitle'), t('contextMenu.exportUnavailable'));
         } else {

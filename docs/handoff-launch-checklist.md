@@ -19,9 +19,20 @@
 
 ---
 
-## 🟢 2026-06-10 최신 상태 — 다음 세션은 여기부터 읽어라
+## 🟢 2026-06-11 최신 상태 — 다음 세션은 여기부터 읽어라
 
-**✅ build 11(커밋 `26bdc94`) 실기 테스트 통과 → App Store 심사 제출 완료(2026-06-10, "심사 대기 중"). build 8 이후 빌링·UI 코드 커밋 6개 포함. 결제 E2E는 6/9 sandbox fallback 수정으로 verify→tier=pro 실측 통과. 남은 건 심사 결과(1~3일) 대기.**
+**🎉🎉 iOS 출시 완료(2026-06-11) — build 11 심사 통과 + "이 버전 출시" 버튼 누름 → "배포 준비됨". 최대 24시간 내 App Store 공개. 유료 앱 계약 "활성" 확인. 한국 세금 양식만 "대기중"(검토 중, 빨간경고·빈칸 없음 → 앱 공개 무관, 한국 판매 정산/지급에만 영향, 자동 해소 대기). 트랙 C(iOS 소프트 런치) 달성. 이후 Android(트랙 A) 14일 비공개 테스트 + 통신판매업 신고증 대기가 유일 병목.**
+
+> 🟢 **2026-06-11 출시 완료 → 공개되면 즉시 할 일**:
+> 1. ✅ **App Store Connect "이 버전 출시" 완료** — "배포 준비됨", 24h 내 공개. 유료 앱 계약 "활성" 확인됨.
+> 2. **AdMob 스토어 연결** (앱 공개 후, **사용자 작업** — 콘솔 로그인 필요) — iOS·Android 모두 "광고 게재 제한됨(스토어 미연결)". AdMob → 앱 → 앱 설정 → "앱 스토어에 연결" → App Store URL 입력(iOS·Android 각각). 이게 제한 해제의 핵심. [[project_admob_serving_limited_prelaunch]]
+>    - ✅ **app-ads.txt 게시 완료(2026-06-11)**: `eunjbaek12.github.io` 유저 사이트 레포 신설 → 루트에 `google.com, pub-2552217172819688, DIRECT, f08c47fec0942fa0` 게시. 라이브 검증 https://eunjbaek12.github.io/app-ads.txt (HTTP 200). iOS·Android 공통 publisher라 한 줄로 둘 다 커버. AdMob 크롤은 자동(~하루), AdMob 앱 → app-ads.txt에서 "찾음" 확인. ⚠️ 크롤러는 App Store 개발자/마케팅 URL의 도메인(`eunjbaek12.github.io`)을 봄 — 커스텀 도메인 쓰면 파일 위치 이전 필요.
+> 3. **출시 후 집중 관찰**(소프트 런치 목적): 결제(production 구매→verify-purchase→user_subscriptions, JWS prod/sandbox fallback 로그) · 크래시(iOS26 ClassicTabLayout) · AI quota(Free 100/일·KST 리셋) · 실 AdMob 송출 · Google+Apple 로그인 production.
+> 4. **한국 세금 양식 "대기중"** 모니터 — 며칠 내 "활성"으로 바뀌는지 확인(정산/지급용, 출시 무관). 통신판매업 신고와 무관(그건 Play/한국정부용).
+
+**✅ build 11(커밋 `26bdc94`) 실기 검증 A·B·C 전 항목 통과(2026-06-11) → App Store 심사 통과(2026-06-11). build 8 이후 빌링·UI 코드 커밋 6개 포함. 결제 E2E는 6/9 sandbox fallback 수정으로 verify→tier=pro 실측 통과. 유일한 미검증은 §E(build 11 미포함, 다음 빌드 대상).**
+
+> 🟢 **2026-06-11 실기 검증 종료**: 사용자가 아이폰 실기로 **A(신규 5개)·B(결제 E2E 회귀)·C(build 8 이월: 로그인 3종·Apple 동등성·Apple "이메일 가리기"·TTS 무음스위치·칩/스플래시) 전부 정상** 확인. → build 11은 검증 0회 항목이 더 이상 없음. ⚠️ §E(기간 만료 "다시 학습" 복구 `f8e6a74`)는 build 11에 **미포함** → 다음 빌드에서 검증 예정.
 
 > 🟢 **build 11이 최신·테스트 대상 (06-10)**: build 8(`e89f234`) 이후 코드 커밋 6개 —
 > ① `26bdc94` Pro 구독화면 결제주기(월간/연간)+"~까지 이용" 종료일 표시
@@ -32,25 +43,25 @@
 > ⑥ `969f7e5` 입력 모달 키보드 dismiss + AI 생성 언어 드롭다운 ([[project_dialogmodal_scrollable_keyboard]])
 > 빌드↔커밋 매핑(EAS 기록): build 9 = `969f7e5`(입력모달), build 10 = `3aa34e9`(모달 picker), **build 11 = `26bdc94`(빌링화면, HEAD) — 위 6개 전부 포함**. IPA `afhPm3og9ToLnJ6h7pVmCm`, Build ID `4ae1062d`, finished 06-10 04:01. ⚠️교훈 재확인: 빌드 직후 buildNumber↔커밋 해시를 즉시 문서에 박을 것(build 6 함정 방지).
 
-### ✅ build 11 실기 검증 체크리스트 (다음 세션 즉시)
+### ✅ build 11 실기 검증 체크리스트 — **A·B·C 전부 통과 (2026-06-11 사용자 확인)**
 
-**A. 이번 빌드 신규 (실기 검증 0회):**
-1. **빌링 화면**(`26bdc94`) — Pro 월간/연간 + "YYYY.MM.DD까지 이용" 정확, 트라이얼은 "체험 D-N", `play_product_id` 병렬조회가 RLS에 안 막히고 로드되는지(값 비면 조용히 실패)
-2. **AI 단어 태그**(`5e175ac`) — #중급·#AI생성이 UI 언어로 표시(영어 UI면 영어)
-3. **정의 라벨**(`ce499de`) — 출처 언어별(영영/일일/중중) 정확
-4. **모달 picker**(`3aa34e9`) — iOS 모달 안 언어 picker 표시 + 설정 적용 후 화면 안 멈춤
-5. **입력 모달**(`969f7e5`) — 키보드 배경탭 dismiss + AI 생성 언어 드롭다운 표시
+**A. 이번 빌드 신규 — ✅ 통과:**
+1. ✅ **빌링 화면**(`26bdc94`) — Pro 월간/연간 + "YYYY.MM.DD까지 이용" 정확, 트라이얼은 "체험 D-N", `play_product_id` 병렬조회가 RLS에 안 막히고 로드되는지(값 비면 조용히 실패)
+2. ✅ **AI 단어 태그**(`5e175ac`) — #중급·#AI생성이 UI 언어로 표시(영어 UI면 영어)
+3. ✅ **정의 라벨**(`ce499de`) — 출처 언어별(영영/일일/중중) 정확
+4. ✅ **모달 picker**(`3aa34e9`) — iOS 모달 안 언어 picker 표시 + 설정 적용 후 화면 안 멈춤
+5. ✅ **입력 모달**(`969f7e5`) — 키보드 배경탭 dismiss + AI 생성 언어 드롭다운 표시
 
-**B. 결제 E2E 회귀**(`6fd62a4`, 6/9 통과) — 샌드박스 구매→verify→tier=pro→종료일 표시→Restore(복원)
+**B. 결제 E2E 회귀 — ✅ 통과**(`6fd62a4`, 6/9 통과 + 6/11 재확인) — 샌드박스 구매→verify→tier=pro→종료일 표시→Restore(복원)
 
-**C. build 8부터 이월 (어느 빌드에서도 실기 검증 기록 없음):**
-- 로그인 3종(Google/Apple/게스트)→홈
-- Apple 동등성(무료검색·설정 동기화 배지) [[project_apple_login_cloud_parity]]
-- Apple "이메일 가리기" 케이스 — 릴레이 이메일이라 기존 Google과 별개 user_id로 갈라지는지 [[project_supabase_identity_autolink]]
-- TTS 무음 스위치에서 소리남 [[project_ios_tts_silent_switch]]
-- 홈 필터칩 안 잘림 / 스플래시 양옆 안 잘림
+**C. build 8부터 이월 — ✅ 통과 (6/11 일괄 확인):**
+- ✅ 로그인 3종(Google/Apple/게스트)→홈
+- ✅ Apple 동등성(무료검색·설정 동기화 배지) [[project_apple_login_cloud_parity]]
+- ✅ Apple "이메일 가리기" 케이스 — 릴레이 이메일이라 기존 Google과 별개 user_id로 갈라지는지 [[project_supabase_identity_autolink]]
+- ✅ TTS 무음 스위치에서 소리남 [[project_ios_tts_silent_switch]]
+- ✅ 홈 필터칩 안 잘림 / 스플래시 양옆 안 잘림
 
-**D. ✅ build 11 App Store 심사 제출 완료 (2026-06-10, "심사 대기 중"). 심사 1~3일 → 승인 시 트랙 C대로 보류 없이 즉시 공개(iOS 소프트 런치). 반려 시 사유 캡처 → 수정 후 재제출.**
+**D. 🎉 build 11 App Store 심사 통과 (2026-06-11) → 배포 준비 완료. 트랙 C대로 보류 없이 즉시 공개(iOS 소프트 런치). 출시 직후 AdMob 스토어 연결 + production 관찰(상단 박스 참조).**
 
 **E. build 11 이후 신규 수정 — 다음 빌드 대상 (실기 검증 0회):**
 

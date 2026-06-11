@@ -75,6 +75,26 @@
   5. **(회귀) 정상 만료 유지**: 만료 + 8일 이상 손 안 댄 단어장은 여전히 **"기간만료"**로 표시되는지(정상 넛지 유지) 확인.
   6. **(동기화)** 로그인 상태라면 2~3 수행 후 다른 기기/재로그인 시 진행 상태가 동일하게 보이는지(planStartedAt·planUpdatedAt sync) 확인.
 
+**F. 단어장 CSV 내보내기/가져오기 + 같은 언어 쌍 — 다음 빌드 대상 (실기 검증 0회):**
+
+> PR #7(`feat/csv-import-export`, https://github.com/eunjbaek12/NewSokSok/pull/7, 미머지). `expo-sharing`·`expo-document-picker` 네이티브라 단위/통합 테스트(csv.test 12 + csv-roundtrip 4 통과)로는 파싱·dedup만 검증됨 → 아래는 **빌드 후에만** 가능. 가능하면 iOS·Android 둘 다. [[project_csv_import_export]]
+
+- **CSV 내보내기**:
+  1. 단어장 `...` 메뉴에 **"CSV 내보내기"** 항목 보이는지.
+  2. 단어 있는 단어장 → 탭 → **공유 시트** 뜨고 파일 저장/전송 되는지.
+  3. **빈 단어장** → "내보낼 단어 없음" 알림(공유 시트 안 뜸).
+  4. 내보낸 CSV를 **엑셀/구글시트로 열기** → ⓐ한글 안 깨짐(UTF-8 BOM) ⓑ콤마 든 뜻·예문이 한 칸에 유지 ⓒ태그가 `;`로 구분.
+- **CSV 가져오기**:
+  5. `...` 메뉴 **"CSV 가져오기"** → `/import-csv` 화면 전환 + ⚠️**iOS에서 전환 후 단어장 화면 터치 정상**(좀비 오버레이/터치 죽음 회귀 없는지 [[project_vocab_lists_touch_dead_ios]]).
+  6. 파일 선택(document-picker) → **미리보기** 표시(추가 N개 / 제외 M개 / 중복 배지 수치 정확).
+  7. 확정 → 단어 실제 추가 + "가져오기 완료 {added}, 중복 {dup}" 알림. 단어/뜻 누락 행 섞인 CSV는 그 행만 제외.
+  8. 헤더에 단어/뜻 없는 CSV → "첫 줄에 단어·뜻 헤더 필요" 에러 알림.
+  9. **왕복**: A 내보내기 → B 단어장에 가져오기 → 내용 그대로 들어가는지.
+  10. **quota 0 확인**: 가져오기 후 설정의 AI 사용량(used) 변화 없는지.
+- **같은 언어 쌍 / add-word**:
+  11. 단어 추가 Field Settings + AI 생성에서 **출발어=도착어 동일 언어** 선택 가능 + en→en 자동완성 동작.
+  12. 일괄추가 아이콘이 **마법봉(`auto-fix`)**, 화면 제목 **"자동완성으로 추가"**.
+
 ---
 
 ## (이전 기록) 2026-06-08 build 8 — 히스토리 보존
@@ -206,11 +226,13 @@ A4. 🟡 Play Console 폼 재답변 (v1.0 → v1.1 변경) (15분, 본인)
 
 A5. 🟡 비공개 테스트 검토 재시도 → 통과 → 14일 시계 시작 (검토 1~3일)
 
-A6. 🟡 vCode 9 production 빌드 (Claude 명령) — 프로덕션 승격 전 필수
-    - 옛 빌드(vCode 8)는 AdMob 테스트 ID로 굽힘 → 비공개 테스트엔 OK, 프로덕션 금지
-    - 새 빌드: EAS_SKIP_AUTO_FINGERPRINT=1 eas build --profile production --platform android --non-interactive
-    - 함께 처리: expo-image-manipulator 복원 (commits 89bbb92 참조, package.json + PhotoImportWorkflow.tsx)
-    - 완료되면 Play Console 비공개/프로덕션 트랙에 수동 업로드
+A6. ✅ vCode 9 production AAB 빌드 완료 (2026-06-11) — 통신판매업 신고증 받는 즉시 업로드 대기
+    - 실 AdMob Android ID 3종 자동 주입 확인(EXPO_PUBLIC_ADMOB_ANDROID_*), 기존 keystore(u1klXNT9iC) → Play 업로드 호환
+    - HEAD `6b8a5a6`에서 빌드 = iOS build 11 수정 전부 + plan 수정(`f8e6a74`)까지 포함(iOS보다 최신)
+    - Build ID `c25f022c-6757-4130-a374-a2ead20ee953`, 버전 1.1.0 / versionCode 9
+    - **AAB: https://expo.dev/artifacts/eas/0otV7qC1Z-lk0cRmf2-QNbq7nmS9MazBFsxNFiHAeNo.aab**
+    - ⚠️ expo-image-manipulator 복원은 **미포함**(사용자 결정 — 안정성 우선, 깨끗이 빌드). 복원 시 별도 빌드 필요(commits 89bbb92 참조)
+    - 다음: 신고증 → A3·A4 입력 → A5 비공개 테스트 검토 → 이 AAB 수동 업로드
 ```
 
 ### 🟢 트랙 B: iOS — ✅ 완료 (2026-06-05, App Store 심사 제출 "심사 대기 중")

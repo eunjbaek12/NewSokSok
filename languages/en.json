@@ -1,0 +1,12 @@
+{
+  "ios": {
+    "CFBundleDisplayName": "Avocado",
+    "NSMicrophoneUsageDescription": "Avocado uses the microphone for voice input.",
+    "NSSpeechRecognitionUsageDescription": "Avocado uses speech recognition for voice input.",
+    "NSCameraUsageDescription": "Avocado uses the camera to scan word lists from photos.",
+    "NSPhotoLibraryUsageDescription": "Avocado imports word list photos from your library."
+  },
+  "android": {
+    "app_name": "Avocado"
+  }
+}

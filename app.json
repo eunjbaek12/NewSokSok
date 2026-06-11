@@ -1,9 +1,13 @@
 {
   "expo": {
-    "name": "아보카도",
+    "name": "Avocado",
     "slug": "soksok-voca",
     "version": "1.1.0",
     "orientation": "portrait",
+    "locales": {
+      "ko": "./languages/ko.json",
+      "en": "./languages/en.json"
+    },
     "icon": "./assets/images/icon.png",
     "scheme": "soksokvoca",
     "userInterfaceStyle": "automatic",
@@ -19,10 +23,11 @@
       "usesAppleSignIn": true,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
-        "NSSpeechRecognitionUsageDescription": "Allow 아보카도 to use speech recognition for voice input.",
-        "NSMicrophoneUsageDescription": "Allow 아보카도 to use the microphone for voice input.",
-        "NSCameraUsageDescription": "Allow 아보카도 to use the camera to scan word lists from photos.",
-        "NSPhotoLibraryUsageDescription": "Allow 아보카도 to import word list photos from your library."
+        "CFBundleAllowMixedLocalizations": true,
+        "NSSpeechRecognitionUsageDescription": "Avocado uses speech recognition for voice input.",
+        "NSMicrophoneUsageDescription": "Avocado uses the microphone for voice input.",
+        "NSCameraUsageDescription": "Avocado uses the camera to scan word lists from photos.",
+        "NSPhotoLibraryUsageDescription": "Avocado imports word list photos from your library."
       }
     },
     "android": {
@@ -59,15 +64,15 @@
       [
         "expo-speech-recognition",
         {
-          "microphonePermission": "Allow 아보카도 to use the microphone for voice input.",
-          "speechRecognitionPermission": "Allow 아보카도 to use speech recognition for voice input."
+          "microphonePermission": "Avocado uses the microphone for voice input.",
+          "speechRecognitionPermission": "Avocado uses speech recognition for voice input."
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "Allow 아보카도 to import word list photos from your library.",
-          "cameraPermission": "Allow 아보카도 to use the camera to scan word lists from photos."
+          "photosPermission": "Avocado imports word list photos from your library.",
+          "cameraPermission": "Avocado uses the camera to scan word lists from photos."
         }
       ]
     ],

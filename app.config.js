@@ -101,6 +101,23 @@ module.exports = {
         iosAppId,
       },
     ],
+    // iOS pod install 수정: Google Mobile Ads가 끌어오는 Swift pod `AppCheckCore`가
+    // `GoogleUtilities`·`RecaptchaInterop`을 static library로 import하려면 두 pod이
+    // modular headers를 정의해야 한다. managed 워크플로는 Podfile.lock을 안 박아
+    // 매 빌드 CocoaPods 최신 버전을 재해석하는데, build 11 이후 AppCheckCore 드리프트로
+    // 이 요구가 생겨 pod install이 실패했다. 전역 useFrameworks 전환은 다른 pod을 깰
+    // 위험이 있어, 문제 pod 2개에만 targeted로 modular headers를 부여한다.
+    [
+      'expo-build-properties',
+      {
+        ios: {
+          extraPods: [
+            { name: 'GoogleUtilities', modular_headers: true },
+            { name: 'RecaptchaInterop', modular_headers: true },
+          ],
+        },
+      },
+    ],
     // NSUserTrackingUsageDescription을 ko/en .lproj로 다국어화. expo-tracking-transparency
     // plugin은 base 값만 다루므로 글로벌 출시용으로 별도 plugin이 필요. 자세한 동작은
     // plugins/withLocalizedATT.js 헤더 참고.

@@ -90,6 +90,26 @@ Privacy policy: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 
 ## Release notes / What's new (max 500 chars)
 
+> ⚠️ **Android is a first launch** — use the [First launch] intro tone, not an update changelog. [Future updates] is for the next version onward.
+
+### [First launch — Android first release]
+
+```
+Memorize vocabulary the smart way, with Avocado 🥑
+
+📸 Build a deck from one photo — snap your textbook, words are pulled out automatically
+✨ AI auto-fill — type one word, get its meaning, examples, pronunciation, and part of speech
+✈️ AI word generation — just name a topic, get a ready-made word set
+🥑 4 study modes — flashcards, quiz, example sentences, autoplay shadowing
+🌏 6 languages (EN/KR/JP/ZH/VI/ES), mix any direction
+📂 Add words by CSV, photo, voice, and more
+☁️ Study offline, sign in to auto-back up to the cloud
+
+Create your first deck today!
+```
+
+### [Future updates — v1.1 changelog]
+
 ```
 v1.1 update — a smarter, smoother vocabulary experience.
 

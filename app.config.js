@@ -2,7 +2,6 @@
 // Local dev: falls back to ./google-services.json (file on disk, not in git).
 // EAS Build: set GOOGLE_SERVICES_JSON as a file secret env var.
 const { expo } = require('./app.json');
-const withLocalizedATT = require('./plugins/withLocalizedATT');
 
 // AdMob App ID. EAS Secret `EXPO_PUBLIC_ADMOB_ANDROID_APP_ID` (실 ID) 또는
 // 미설정 시 Google 공식 테스트 App ID로 fallback.
@@ -118,9 +117,8 @@ module.exports = {
         },
       },
     ],
-    // NSUserTrackingUsageDescription을 ko/en .lproj로 다국어화. expo-tracking-transparency
-    // plugin은 base 값만 다루므로 글로벌 출시용으로 별도 plugin이 필요. 자세한 동작은
-    // plugins/withLocalizedATT.js 헤더 참고.
-    withLocalizedATT,
+    // NSUserTrackingUsageDescription 다국어화는 expo.locales(languages/ko.json·en.json)가
+    // InfoPlist.strings로 처리한다. 과거의 withLocalizedATT plugin은 같은 InfoPlist.strings를
+    // 중복 생성해 "Multiple commands produce" Xcode 충돌을 일으켜 제거했다(expo.locales 도입 후).
   ],
 };

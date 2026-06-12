@@ -4,7 +4,8 @@
     "NSMicrophoneUsageDescription": "Avocado uses the microphone for voice input.",
     "NSSpeechRecognitionUsageDescription": "Avocado uses speech recognition for voice input.",
     "NSCameraUsageDescription": "Avocado uses the camera to scan word lists from photos.",
-    "NSPhotoLibraryUsageDescription": "Avocado imports word list photos from your library."
+    "NSPhotoLibraryUsageDescription": "Avocado imports word list photos from your library.",
+    "NSUserTrackingUsageDescription": "This permission lets us show you more relevant ads. The app works the same if you decline."
   },
   "android": {
     "app_name": "Avocado"

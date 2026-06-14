@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  'krslang-vi': {
+    id: 'curated-krslang-vi-1',
+    title: 'Tiếng lóng Gen-Z & MZ Hàn Quốc 100',
+    icon: '💬',
+    category: '문화',
+    level: 'intermediate',
+    description: 'Tiếng lóng Gen-Z / MZ Hàn Quốc thường gặp khắp mạng xã hội, phim Hàn và tin nhắn — 인싸, 갓생, 썸, 꿀잼, 가즈아 và nhiều từ khác về cảm thán, kiểu người, đời sống, hẹn hò, viết tắt & meme. Tiếng Hàn→Tiếng Việt; nghĩa & ví dụ thân mật do AI tạo.',
+    tags: ['Korean', 'Slang', 'MZ'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'vi',
+  },
   zhslang: {
     id: 'curated-zhslang-zh-1',
     title: '중국 MZ·Z세대 슬랭 100',

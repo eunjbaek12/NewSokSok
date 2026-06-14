@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  zhslang: {
+    id: 'curated-zhslang-zh-1',
+    title: '중국 MZ·Z세대 슬랭 100',
+    icon: '🐲',
+    category: '문화',
+    level: 'intermediate',
+    description: '중국 MZ·Z세대가 웨이보·더우인·게임·채팅에서 실제로 쓰는 인터넷 유행어(网络流行语) 100 — 牛, 绝绝子, yyds, 内卷, 躺平, 社牛, 磕CP 등 감탄·인물·감정·일상·연애·밈/줄임말까지. 자극적이지 않은 재미 위주로 엄선. 중국어→한국어; 병음·뜻·캐주얼 예문 AI 생성.',
+    tags: ['Chinese', 'Slang', 'MZ'],
+    sourceLanguage: 'zh',
+    targetLanguage: 'ko',
+  },
 };
 
 const meta = META[LIST_NAME];

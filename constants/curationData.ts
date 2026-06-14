@@ -2,6 +2,1721 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-zhslang-zh-1",
+    "title": "중국 MZ·Z세대 슬랭 100",
+    "icon": "🐲",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "중국 MZ·Z세대가 웨이보·더우인·게임·채팅에서 실제로 쓰는 인터넷 유행어(网络流行语) 100 — 牛, 绝绝子, yyds, 内卷, 躺平, 社牛, 磕CP 등 감탄·인물·감정·일상·연애·밈/줄임말까지. 자극적이지 않은 재미 위주로 엄선. 중국어→한국어; 병음·뜻·캐주얼 예문 AI 생성.",
+    "sourceLanguage": "zh",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1781415877192,
+    "words": [
+      {
+        "id": "word-zhslang-0-1781415877192",
+        "term": "牛",
+        "definition": "Awesome, badass, super impressive.",
+        "meaningKr": "대단하다, 쩐다",
+        "exampleEn": "你太牛了！",
+        "exampleKr": "너 진짜 대단하다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "niú",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-1-1781415877192",
+        "term": "绝绝子",
+        "definition": "Absolutely amazing, the best ever.",
+        "meaningKr": "완전 최고, 넘사벽",
+        "exampleEn": "这电影绝绝子！",
+        "exampleKr": "이 영화 완전 최고야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "juéjuézi",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-2-1781415877192",
+        "term": "666",
+        "definition": "So pro, so skilled.",
+        "meaningKr": "지린다, 개쩐다",
+        "exampleEn": "哇，你这操作666！",
+        "exampleKr": "와, 너 플레이 지린다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "liùliùliù",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-zhslang-3-1781415877192",
+        "term": "笑死",
+        "definition": "Dying of laughter, LOL.",
+        "meaningKr": "개웃겨, 웃겨 죽겠다",
+        "exampleEn": "哈哈，笑死我了！",
+        "exampleKr": "하하, 개웃겨 죽겠다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiàosǐ",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-4-1781415877192",
+        "term": "哇塞",
+        "definition": "Wow, whoa; exclamation of amazement.",
+        "meaningKr": "와우, 헐, 대박",
+        "exampleEn": "哇塞，好漂亮！",
+        "exampleKr": "와우, 완전 예쁘다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "wāsài",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-zhslang-5-1781415877192",
+        "term": "离谱",
+        "definition": "Ridiculous, absurd, unbelievable.",
+        "meaningKr": "어이없다, 말도 안 된다",
+        "exampleEn": "这也太离谱了！",
+        "exampleKr": "이건 너무 어이없다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "lípǔ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-6-1781415877192",
+        "term": "绝了",
+        "definition": "Extreme, usually amazing; peak/iconic.",
+        "meaningKr": "대박이다, 끝내준다",
+        "exampleEn": "这歌声绝了！",
+        "exampleKr": "이 노랫소리 대박이다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jué le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-7-1781415877192",
+        "term": "太顶了",
+        "definition": "Mind-blowing, overwhelming in a good way.",
+        "meaningKr": "완전 최고, 미쳤다",
+        "exampleEn": "这表演太顶了！",
+        "exampleKr": "이 공연 완전 최고야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tài dǐng le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-8-1781415877192",
+        "term": "真香",
+        "definition": "It's actually great; eating your words.",
+        "meaningKr": "결국 좋았다, 내뱉은 말 거두기",
+        "exampleEn": "哎呀，这剧真香！",
+        "exampleKr": "아, 이 드라마 결국 좋잖아!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhēnxiāng",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-9-1781415877192",
+        "term": "神仙打架",
+        "definition": "Top-tier talents competing, clash of titans.",
+        "meaningKr": "신들의 전쟁, 고수들의 대결",
+        "exampleEn": "这次比赛真是神仙打架！",
+        "exampleKr": "이번 시합은 진짜 신들의 전쟁이네!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shénxiān dǎjià",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-10-1781415877192",
+        "term": "破防",
+        "definition": "Emotionally broken, deeply moved.",
+        "meaningKr": "감동받다, 멘탈 무너지다",
+        "exampleEn": "我哭了，彻底破防了。",
+        "exampleKr": "울었어, 완전히 감동받았네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "pòfáng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-11-1781415877192",
+        "term": "泪目",
+        "definition": "Teary-eyed, touched, on verge of tears.",
+        "meaningKr": "눈물 그렁그렁, 울컥하다",
+        "exampleEn": "看到这里，我泪目了。",
+        "exampleKr": "이 부분 보니까, 울컥했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "lèimù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-12-1781415877192",
+        "term": "笑不活了",
+        "definition": "Can't stop laughing, dying of laughter.",
+        "meaningKr": "웃겨 죽겠다, 웃음을 멈출 수 없어",
+        "exampleEn": "这个视频，我笑不活了！",
+        "exampleKr": "이 영상, 웃겨 죽겠다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiào bù huó le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-13-1781415877192",
+        "term": "给力",
+        "definition": "Awesome, powerful, really delivers.",
+        "meaningKr": "짱이다, 힘이 된다, 최고다",
+        "exampleEn": "这次活动太给力了！",
+        "exampleKr": "이번 행사 완전 짱이야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gěilì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-14-1781415877192",
+        "term": "顶呱呱",
+        "definition": "Top-notch, first-rate, excellent.",
+        "meaningKr": "최고다, 아주 좋다, 짱이다",
+        "exampleEn": "你的表现顶呱呱！",
+        "exampleKr": "네 활약 최고다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dǐngguāguā",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-15-1781415877192",
+        "term": "害",
+        "definition": "Ugh, sigh; a resigned interjection.",
+        "meaningKr": "에휴, 아이고 (체념)",
+        "exampleEn": "害，没办法了。",
+        "exampleKr": "에휴, 어쩔 수 없지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hài",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-zhslang-16-1781415877192",
+        "term": "我裂开了",
+        "definition": "I'm falling apart, overwhelmed or shook.",
+        "meaningKr": "멘붕이다, 충격받았다",
+        "exampleEn": "听到这消息，我裂开了。",
+        "exampleKr": "이 소식 듣고 멘붕왔어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "wǒ liě kāi le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-17-1781415877192",
+        "term": "社牛",
+        "definition": "Social butterfly, super outgoing.",
+        "meaningKr": "인싸, 핵인싸",
+        "exampleEn": "他真是个社牛。",
+        "exampleKr": "걔 진짜 인싸네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shèniú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-18-1781415877192",
+        "term": "社恐",
+        "definition": "Socially anxious person, introvert.",
+        "meaningKr": "아싸, 사회성 부족",
+        "exampleEn": "我有点社恐。",
+        "exampleKr": "나 약간 아싸야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shèkǒng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-19-1781415877192",
+        "term": "打工人",
+        "definition": "Wage worker, working stiff (self-deprecating).",
+        "meaningKr": "직장인, 알바생 (자조적)",
+        "exampleEn": "早安，打工人！",
+        "exampleKr": "좋은 아침, 직장인 여러분!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dǎgōngrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-20-1781415877192",
+        "term": "干饭人",
+        "definition": "Hearty eater, foodie who lives to eat.",
+        "meaningKr": "먹짱, 먹보",
+        "exampleEn": "干饭人，干饭魂！",
+        "exampleKr": "먹짱이여, 먹짱의 영혼이여!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gànfànrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-21-1781415877192",
+        "term": "卷王",
+        "definition": "Over-competitive overachiever, king of the rat race.",
+        "meaningKr": "경쟁왕, 노력왕 (부정적)",
+        "exampleEn": "他真是个卷王。",
+        "exampleKr": "걔 진짜 경쟁왕이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "juǎnwáng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-22-1781415877192",
+        "term": "显眼包",
+        "definition": "Attention-grabbing goofball, lovable show-off.",
+        "meaningKr": "관종, 유쾌한 분위기 메이커",
+        "exampleEn": "他就是个显眼包。",
+        "exampleKr": "걔 완전 관종이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiǎnyǎnbāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-23-1781415877192",
+        "term": "凡尔赛",
+        "definition": "Humble-bragger, bragging by complaining.",
+        "meaningKr": "겸손한 척 자랑하기, 허세",
+        "exampleEn": "别凡尔赛了！",
+        "exampleKr": "허세 좀 부리지 마!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "fán'ěrsài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-24-1781415877192",
+        "term": "杠精",
+        "definition": "Contrarian who argues for arguing's sake.",
+        "meaningKr": "트집쟁이, 반박 전문",
+        "exampleEn": "你别当杠精。",
+        "exampleKr": "너 트집쟁이처럼 굴지 마.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gàngjīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-25-1781415877192",
+        "term": "大佬",
+        "definition": "Big shot, expert, master, GOAT.",
+        "meaningKr": "대가, 고수, 짱, 갓",
+        "exampleEn": "哇，大佬求带飞！",
+        "exampleKr": "와, 고수님 캐리 좀요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dàlǎo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-26-1781415877192",
+        "term": "萌新",
+        "definition": "Cute newbie, fresh beginner.",
+        "meaningKr": "풋내기, 귀요미 초보, 뉴비",
+        "exampleEn": "大家好，我是萌新，请多关照！",
+        "exampleKr": "여러분 안녕하세요, 저는 뉴비입니다, 잘 부탁드려요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "méngxīn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-27-1781415877192",
+        "term": "老司机",
+        "definition": "Experienced veteran, old hand.",
+        "meaningKr": "베테랑, 고수, 숙련자",
+        "exampleEn": "老司机带路，稳了！",
+        "exampleKr": "베테랑이 길을 안내해주니, 안심이야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "lǎosījī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-28-1781415877192",
+        "term": "锦鲤",
+        "definition": "Super lucky person, lucky charm.",
+        "meaningKr": "행운의 아이콘, 럭키 가이/걸",
+        "exampleEn": "转发这个锦鲤，好运连连！",
+        "exampleKr": "이 행운의 아이콘을 공유하면, 행운이 계속될 거야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jǐnlǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-29-1781415877192",
+        "term": "戏精",
+        "definition": "Drama queen, over-actor.",
+        "meaningKr": "관종, 드라마 퀸/킹",
+        "exampleEn": "你真是个戏精！",
+        "exampleKr": "너 정말 관종이네!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xìjīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-30-1781415877192",
+        "term": "吃货",
+        "definition": "Foodie, big eater.",
+        "meaningKr": "먹보, 미식가",
+        "exampleEn": "我是个不折不扣的吃货。",
+        "exampleKr": "나는 완전 먹보야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chīhuò",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-31-1781415877192",
+        "term": "颜值担当",
+        "definition": "The good-looking one, visual.",
+        "meaningKr": "비주얼 담당, 얼굴마담",
+        "exampleEn": "他是我们队的颜值担当。",
+        "exampleKr": "그가 우리 팀의 비주얼 담당이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yánzhí dāndāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-32-1781415877192",
+        "term": "学霸",
+        "definition": "Top student, academic ace.",
+        "meaningKr": "학업 우수생, 수재",
+        "exampleEn": "学霸的世界我不懂。",
+        "exampleKr": "수재들의 세계는 난 모르겠어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xuébà",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-33-1781415877192",
+        "term": "学渣",
+        "definition": "Struggling, lazy student.",
+        "meaningKr": "공부 못하는 학생, 학업 부진생",
+        "exampleEn": "我就是个学渣，呜呜。",
+        "exampleKr": "난 그냥 공부 못하는 학생이야, 엉엉.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xuézhā",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-34-1781415877192",
+        "term": "内卷",
+        "definition": "Exhausting, pointless rat-race competition.",
+        "meaningKr": "과도한 경쟁, 비효율적 경쟁",
+        "exampleEn": "别内卷了，躺平吧。",
+        "exampleKr": "그만 과도하게 경쟁해, 드러눕자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nèijuǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-35-1781415877192",
+        "term": "躺平",
+        "definition": "To 'lie flat', stop striving.",
+        "meaningKr": "드러눕다, 갓생 포기, 그냥저냥 살다",
+        "exampleEn": "我想躺平，什么都不做。",
+        "exampleKr": "나 드러눕고 싶어, 아무것도 안 하고 싶어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tǎngpíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-36-1781415877192",
+        "term": "摆烂",
+        "definition": "To give up trying, stop caring.",
+        "meaningKr": "망해도 좋다, 포기하고 막 살다, 놔버리다",
+        "exampleEn": "算了，我直接摆烂了。",
+        "exampleKr": "됐어, 나 그냥 망해도 좋다고 생각할래.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bǎilàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-37-1781415877192",
+        "term": "佛系",
+        "definition": "Zen, chill, go-with-the-flow attitude.",
+        "meaningKr": "득도한, 무념무상, 젠(zen)한",
+        "exampleEn": "我现在很佛系，不争不抢。",
+        "exampleKr": "나 지금 되게 득도한 상태야, 다투거나 뺏지 않아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "fóxì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-38-1781415877192",
+        "term": "emo",
+        "definition": "Feeling down, melancholy, in your feels.",
+        "meaningKr": "감성 터지다, 우울하다, 센치하다",
+        "exampleEn": "今晚有点emo了。",
+        "exampleKr": "오늘 밤 좀 우울하네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-39-1781415877192",
+        "term": "焦虑",
+        "definition": "Anxious, experiencing anxiety.",
+        "meaningKr": "불안하다, 걱정되다, 초조하다",
+        "exampleEn": "最近有点焦虑，睡不好。",
+        "exampleKr": "요즘 좀 불안해서, 잠을 잘 못 자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jiāolǜ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-40-1781415877192",
+        "term": "治愈",
+        "definition": "Healing, wholesome, comforting, soothing.",
+        "meaningKr": "힐링되는, 위로가 되는, 치유되는",
+        "exampleEn": "这部剧好治愈啊。",
+        "exampleKr": "이 드라마 너무 힐링돼.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhìyù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-41-1781415877192",
+        "term": "上瘾",
+        "definition": "To get addicted, hooked on.",
+        "meaningKr": "중독되다, 푹 빠지다",
+        "exampleEn": "我对奶茶上瘾了。",
+        "exampleKr": "나 밀크티에 중독됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shàngyǐn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-42-1781415877192",
+        "term": "摸鱼",
+        "definition": "To slack off, goof around.",
+        "meaningKr": "딴짓하다, 농땡이 부리다",
+        "exampleEn": "别摸鱼了，快干活！",
+        "exampleKr": "딴짓 그만하고, 빨리 일해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "mōyú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-43-1781415877192",
+        "term": "划水",
+        "definition": "To coast, do the bare minimum.",
+        "meaningKr": "대충하다, 설렁설렁하다",
+        "exampleEn": "开会的时候我一直在划水。",
+        "exampleKr": "회의 내내 난 계속 설렁설렁했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "huáshuǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-44-1781415877192",
+        "term": "心态崩了",
+        "definition": "To lose your cool, mentally crack.",
+        "meaningKr": "멘탈 터지다, 멘붕 오다",
+        "exampleEn": "考试没过，我心态崩了。",
+        "exampleKr": "시험에 떨어져서, 나 멘탈 터졌어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xīntài bēng le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-45-1781415877192",
+        "term": "社死",
+        "definition": "'Social death', mortifying moment.",
+        "meaningKr": "사회적 죽음, 쪽팔리다, 현타",
+        "exampleEn": "刚才在路上社死了。",
+        "exampleKr": "방금 길에서 사회적 죽음을 겪었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shèsǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-46-1781415877192",
+        "term": "麻了",
+        "definition": "Numb, done, emotionally drained.",
+        "meaningKr": "멘탈 나갔다, 지쳤다, 무감각해졌다",
+        "exampleEn": "听到这消息我直接麻了。",
+        "exampleKr": "이 소식 듣고 나 그냥 멘탈 나갔어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "má le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-47-1781415877192",
+        "term": "解压",
+        "definition": "To de-stress, relieve pressure.",
+        "meaningKr": "스트레스 해소, 힐링",
+        "exampleEn": "听音乐是我的解压方式。",
+        "exampleKr": "음악 듣는 건 내 스트레스 해소법이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jiěyā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-48-1781415877192",
+        "term": "上岸",
+        "definition": "To 'reach the shore', succeed.",
+        "meaningKr": "(힘든 과정 끝에) 성공하다, 합격하다",
+        "exampleEn": "恭喜你终于上岸了！",
+        "exampleKr": "드디어 성공한 거 축하해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shàng'àn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-49-1781415877192",
+        "term": "内耗",
+        "definition": "Mental self-drain, exhausting overthinking.",
+        "meaningKr": "정신적 소모, 에너지 소진",
+        "exampleEn": "别再内耗了，放轻松。",
+        "exampleKr": "더 이상 정신 소모하지 마, 편하게 생각해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nèihào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-50-1781415877192",
+        "term": "干饭",
+        "definition": "Eat heartily, chow down.",
+        "meaningKr": "밥 야무지게 먹다, 밥 먹자!",
+        "exampleEn": "走，干饭去！",
+        "exampleKr": "가자, 밥 야무지게 먹으러!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gànfàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-51-1781415877192",
+        "term": "种草",
+        "definition": "Make someone want to buy something.",
+        "meaningKr": "(물건을) 영업당하다, 사고 싶게 만들다.",
+        "exampleEn": "这个包包我被种草了。",
+        "exampleKr": "이 가방 나 영업당했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhòngcǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-52-1781415877192",
+        "term": "拔草",
+        "definition": "Lose urge to buy, cross off wishlist.",
+        "meaningKr": "(사려던 물건에 대한) 구매욕이 사라지다, 뽐뿌가 사라지다.",
+        "exampleEn": "纠结了好久，还是拔草了。",
+        "exampleKr": "한참 고민했는데, 결국 구매욕이 사라졌어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bácǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-53-1781415877192",
+        "term": "剁手",
+        "definition": "Shop till you drop, impulse-buy.",
+        "meaningKr": "지름신 강림, 과소비하다.",
+        "exampleEn": "双十一我又剁手了！",
+        "exampleKr": "솽스이(광군제) 때 나 또 지름신 강림했어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "duòshǒu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-54-1781415877192",
+        "term": "薅羊毛",
+        "definition": "Bargain-hunt, milk deals/freebies.",
+        "meaningKr": "꿀팁 찾아서 이득 보다, 공짜/할인 챙기다.",
+        "exampleEn": "快来薅羊毛，好多优惠！",
+        "exampleKr": "빨리 와서 꿀팁 챙겨, 할인 많아!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hāo yángmáo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-55-1781415877192",
+        "term": "996",
+        "definition": "Brutal 9am-9pm, 6-days-a-week overwork culture.",
+        "meaningKr": "996 (오전 9시부터 밤 9시까지 주 6일 근무하는 과로 문화).",
+        "exampleEn": "996真的太累了。",
+        "exampleKr": "996는 진짜 너무 힘들어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jiǔ jiǔ liù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-56-1781415877192",
+        "term": "打卡",
+        "definition": "Clock in, check off task, visit trendy spot.",
+        "meaningKr": "인증하다, 출석 체크하다, (핫플) 방문하다.",
+        "exampleEn": "今天我去新咖啡店打卡了。",
+        "exampleKr": "오늘 나 새 카페 가서 인증했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dǎkǎ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-57-1781415877192",
+        "term": "网红",
+        "definition": "Internet celebrity, influencer; instagrammable.",
+        "meaningKr": "인플루언서, (장소 등이) 인스타그래머블하다, 핫플이다.",
+        "exampleEn": "这家店是网红店。",
+        "exampleKr": "이 가게는 인플루언서들이 많이 오는 핫플이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "wǎnghóng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-58-1781415877192",
+        "term": "带货",
+        "definition": "Sell products via livestream as influencer.",
+        "meaningKr": "(인플루언서가) 라이브 방송으로 물건을 팔다.",
+        "exampleEn": "她带货能力很强。",
+        "exampleKr": "그분은 라이브 커머스 판매 능력이 아주 뛰어나.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dàihuò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-59-1781415877192",
+        "term": "吃土",
+        "definition": "Be flat broke after overspending.",
+        "meaningKr": "돈 한 푼 없다, 거지가 되다.",
+        "exampleEn": "我最近买太多，要吃土了。",
+        "exampleKr": "나 요즘 너무 많이 사서, 거지 됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chītǔ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-60-1781415877192",
+        "term": "月光族",
+        "definition": "People who spend entire paycheck monthly.",
+        "meaningKr": "통장 잔고 0원족, 월급을 다 쓰는 사람.",
+        "exampleEn": "我就是典型的月光族。",
+        "exampleKr": "내가 바로 전형적인 통장 잔고 0원족이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yuèguāngzú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-61-1781415877192",
+        "term": "性价比",
+        "definition": "Value for money, cost-performance.",
+        "meaningKr": "가성비, 가심비.",
+        "exampleEn": "这个手机性价比很高。",
+        "exampleKr": "이 핸드폰 가성비가 아주 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xìngjiàbǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-62-1781415877192",
+        "term": "平替",
+        "definition": "Cheaper equivalent, budget dupe.",
+        "meaningKr": "저렴이 버전, 가성비 좋은 대체품.",
+        "exampleEn": "找到这款口红的平替了！",
+        "exampleKr": "이 립스틱의 저렴이 버전을 찾았어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "píngtì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-63-1781415877192",
+        "term": "整活",
+        "definition": "Pull off funny/creative content.",
+        "meaningKr": "재밌는 콘텐츠 만들다, 웃긴 짓 하다.",
+        "exampleEn": "他又开始整活了。",
+        "exampleKr": "걔 또 재밌는 짓 하기 시작했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhěnghuó",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-64-1781415877192",
+        "term": "躺赢",
+        "definition": "Win effortlessly, win lying down.",
+        "meaningKr": "드러눕다 (가만히 있어도 이기다), 날로 먹다.",
+        "exampleEn": "这次比赛我躺赢了。",
+        "exampleKr": "이번 경기 나 드러누워서 이겼어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tǎngyíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-65-1781415877192",
+        "term": "退退退",
+        "definition": "\"Back off! Shoo!\" viral meme.",
+        "meaningKr": "(저리) 가!, 꺼져! (밈)",
+        "exampleEn": "烦人的事情快退退退！",
+        "exampleKr": "귀찮은 일들 저리 가!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tuì tuì tuì",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-66-1781415877192",
+        "term": "磕CP",
+        "definition": "Ship a couple, root for pairing.",
+        "meaningKr": "(가상) 커플을 덕질하다, 커플 밀다.",
+        "exampleEn": "我最近在磕这对CP。",
+        "exampleKr": "나 요즘 이 커플 덕질하고 있어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kē CP",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-67-1781415877192",
+        "term": "官宣",
+        "definition": "Officially announce, make it official.",
+        "meaningKr": "공식 발표하다, (관계) 공개하다.",
+        "exampleEn": "他们官宣了！",
+        "exampleKr": "그들 공식 발표했어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "guānxuān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-68-1781415877192",
+        "term": "暧昧",
+        "definition": "Talking stage, ambiguous flirty vibe.",
+        "meaningKr": "썸 타다, 애매한 관계.",
+        "exampleEn": "我们还在暧昧期。",
+        "exampleKr": "우리 아직 썸 타는 중이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "àimèi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-69-1781415877192",
+        "term": "舔狗",
+        "definition": "A simp, someone who over-pursues.",
+        "meaningKr": "호구, 찐따, 눈치 없이 퍼주는 사람.",
+        "exampleEn": "别做舔狗了！",
+        "exampleKr": "호구 짓 그만해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tiǎngǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-70-1781415877192",
+        "term": "撒娇",
+        "definition": "Act cute/clingy to charm someone.",
+        "meaningKr": "애교 부리다, 어리광 부리다.",
+        "exampleEn": "她很会撒娇。",
+        "exampleKr": "걔는 애교가 엄청 많아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sājiāo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-71-1781415877192",
+        "term": "心动",
+        "definition": "Feel a heart-flutter, be smitten.",
+        "meaningKr": "심쿵하다, 반하다.",
+        "exampleEn": "我对他心动了。",
+        "exampleKr": "나 그 사람한테 심쿵했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xīndòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-72-1781415877192",
+        "term": "单身狗",
+        "definition": "A single person (self-deprecating).",
+        "meaningKr": "솔로 (자학적 표현), 솔로 부대.",
+        "exampleEn": "我又成了单身狗。",
+        "exampleKr": "나 또 솔로가 됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dānshēngǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-73-1781415877192",
+        "term": "CP感",
+        "definition": "Chemistry/couple-vibes between two people.",
+        "meaningKr": "(커플) 케미, 잘 어울리는 느낌.",
+        "exampleEn": "他们俩很有CP感。",
+        "exampleKr": "그 둘 케미가 아주 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "CP gǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-74-1781415877192",
+        "term": "备胎",
+        "definition": "Backup/second-choice romantic option.",
+        "meaningKr": "어장관리 당하는 사람, 보험 (상대).",
+        "exampleEn": "他成了别人的备胎。",
+        "exampleKr": "그는 다른 사람의 보험이 됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bèitāi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-75-1781415877192",
+        "term": "脱单",
+        "definition": "Get out of singlehood, start dating.",
+        "meaningKr": "솔로 탈출하다, 연애 시작하다",
+        "exampleEn": "我终于脱单啦，可以约会了！",
+        "exampleKr": "나 드디어 솔로 탈출했어, 데이트할 수 있다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tuōdān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-76-1781415877192",
+        "term": "异地恋",
+        "definition": "A long-distance romantic relationship.",
+        "meaningKr": "장거리 연애",
+        "exampleEn": "异地恋真的好难啊。",
+        "exampleKr": "장거리 연애 진짜 너무 힘들다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yìdìliàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-77-1781415877192",
+        "term": "撩",
+        "definition": "To flirt with, hit on.",
+        "meaningKr": "썸타다, 유혹하다",
+        "exampleEn": "他总喜欢撩我，但我没当真。",
+        "exampleKr": "걔는 맨날 나한테 썸 걸지만, 난 진지하게 안 받아들였어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "liáo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-78-1781415877192",
+        "term": "吃醋",
+        "definition": "To get jealous in a relationship.",
+        "meaningKr": "질투하다, 삐치다",
+        "exampleEn": "看你这样子是吃醋了吧？",
+        "exampleKr": "너 그런 거 보니 질투하는 거지?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chīcù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-79-1781415877192",
+        "term": "秀恩爱",
+        "definition": "To flaunt relationship, show PDA online.",
+        "meaningKr": "염장 지르다, 애정 과시하다",
+        "exampleEn": "你们别再秀恩爱了！",
+        "exampleKr": "너희들 그만 염장 질러!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiù'ēn'ài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-80-1781415877192",
+        "term": "暖男",
+        "definition": "A warm, caring, considerate guy.",
+        "meaningKr": "다정한 남자, 쏘스윗남",
+        "exampleEn": "他真是个大暖男啊。",
+        "exampleKr": "걔 정말 다정한 남자야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nuǎnnán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-81-1781415877192",
+        "term": "双向奔赴",
+        "definition": "Mutual effort, two people running toward each other.",
+        "meaningKr": "쌍방 노력, 상호 호감",
+        "exampleEn": "爱情需要双向奔赴。",
+        "exampleKr": "사랑은 서로 노력해야 해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shuāngxiàng bēnfù",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-82-1781415877192",
+        "term": "yyds",
+        "definition": "Forever the best, GOAT.",
+        "meaningKr": "갓, 역대급, 최고다",
+        "exampleEn": "他的歌yyds，太好听了！",
+        "exampleKr": "걔 노래 갓이야, 너무 좋다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yǒngyuǎn de shén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-83-1781415877192",
+        "term": "xswl",
+        "definition": "Laughing so hard, lol.",
+        "meaningKr": "개웃겨, 현웃 터짐",
+        "exampleEn": "哈哈，这简直xswl了。",
+        "exampleKr": "ㅋㅋ, 이거 완전 개웃겨.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiào sǐ wǒ le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-84-1781415877192",
+        "term": "awsl",
+        "definition": "So cute I'm dying.",
+        "meaningKr": "심쿵, 귀여워 죽겠네",
+        "exampleEn": "这只猫咪awsl，太可爱了！",
+        "exampleKr": "이 고양이 심쿵이야, 너무 귀여워!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ā wǒ sǐ le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-85-1781415877192",
+        "term": "u1s1",
+        "definition": "Honestly, to be fair.",
+        "meaningKr": "솔직히 말하면, 까놓고 말해서",
+        "exampleEn": "u1s1，他说得对。",
+        "exampleKr": "솔직히 말하면, 걔 말이 맞아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yǒu yī shuō yī",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-86-1781415877192",
+        "term": "nsdd",
+        "definition": "You're right, fair point.",
+        "meaningKr": "네 말이 맞아, 인정",
+        "exampleEn": "嗯嗯，你说的nsdd。",
+        "exampleKr": "응응, 네 말이 맞아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nǐ shuō de duì",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-87-1781415877192",
+        "term": "dbq",
+        "definition": "Sorry, my bad.",
+        "meaningKr": "미안, 죄송",
+        "exampleEn": "dbq，我刚才说错了。",
+        "exampleKr": "미안, 내가 방금 잘못 말했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "duì bù qǐ",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-88-1781415877192",
+        "term": "zqsg",
+        "definition": "Genuine, heartfelt feelings, for real.",
+        "meaningKr": "진심, 찐텐",
+        "exampleEn": "我对这部剧zqsg了。",
+        "exampleKr": "나 이 드라마에 찐텐으로 몰입했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhēn qíng shí gǎn",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-89-1781415877192",
+        "term": "plmm",
+        "definition": "Pretty girl, a cutie.",
+        "meaningKr": "예쁜 여자애, 미녀",
+        "exampleEn": "那边有个plmm！",
+        "exampleKr": "저쪽에 예쁜 여자애 있다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "piàoliang mèimei",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-90-1781415877192",
+        "term": "xdm",
+        "definition": "Bros, fam, you guys.",
+        "meaningKr": "얘들아, 형제들, 친구들",
+        "exampleEn": "xdm，我们一起冲啊！",
+        "exampleKr": "얘들아, 우리 같이 돌격하자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiōngdìmen",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-91-1781415877192",
+        "term": "bdjw",
+        "definition": "Asking since I don't get it.",
+        "meaningKr": "질문 있어요, 궁금해서 묻는데",
+        "exampleEn": "bdjw，这是什么意思？",
+        "exampleKr": "궁금해서 묻는데, 이게 무슨 뜻이야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bù dǒng jiù wèn",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-92-1781415877192",
+        "term": "yygq",
+        "definition": "Passive-aggressive, snarky, sarcastic.",
+        "meaningKr": "비꼬다, 띠껍다",
+        "exampleEn": "别对我yygq的！",
+        "exampleKr": "나한테 비꼬지 마!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yīnyáng guài qì",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-93-1781415877192",
+        "term": "pyq",
+        "definition": "WeChat Moments (friend feed).",
+        "meaningKr": "웨이신 모멘트, 친구 피드",
+        "exampleEn": "我刚发pyq了，快看！",
+        "exampleKr": "나 방금 웨이신 모멘트에 올렸어, 빨리 봐!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "péngyǒu quān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-94-1781415877192",
+        "term": "gkd",
+        "definition": "Hurry up, let's gooo.",
+        "meaningKr": "빨리빨리, 얼른 해",
+        "exampleEn": "gkd，等不及了！",
+        "exampleKr": "빨리빨리, 못 기다리겠어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gǎo kuài diǎn",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-95-1781415877192",
+        "term": "xjj",
+        "definition": "Cute/pretty young woman, miss.",
+        "meaningKr": "예쁜 언니, 아가씨",
+        "exampleEn": "那个xjj好漂亮啊。",
+        "exampleKr": "저 언니 너무 예쁘다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiǎo jiějie",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-96-1781415877192",
+        "term": "ssfd",
+        "definition": "Shivering (scared or thrilled, often joking).",
+        "meaningKr": "부들부들 떨다, 오들오들 떨다",
+        "exampleEn": "听到这个消息我ssfd。",
+        "exampleKr": "이 소식 듣고 나 부들부들 떨었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sè sè fā dǒu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-97-1781415877192",
+        "term": "nbcs",
+        "definition": "Nobody cares, shrug it off.",
+        "meaningKr": "아무도 신경 안 써, 알 바 아님",
+        "exampleEn": "nbcs，他爱怎么说就怎么说吧。",
+        "exampleKr": "아무도 신경 안 써, 걔가 뭐라고 하든 말든 상관 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-98-1781415877192",
+        "term": "bhys",
+        "definition": "Excuse me, sorry to bother.",
+        "meaningKr": "죄송합니다, 실례합니다",
+        "exampleEn": "bhys，打扰一下。",
+        "exampleKr": "죄송합니다, 잠시 실례할게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bù hǎo yì si",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-99-1781415877192",
+        "term": "栓Q",
+        "definition": "“Thank you” meme, often ironic.",
+        "meaningKr": "땡큐, 고맙다 (비꼬는 뉘앙스)",
+        "exampleEn": "栓Q，我真的会谢。",
+        "exampleKr": "땡큐, 진짜 고맙네 (비꼬는 뉘앙스).",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shuān Q",
+        "pos": "phrase"
+      }
+    ]
+  },
+{
     "id": "curated-krslang-ko-1",
     "title": "Korean Gen-Z & MZ Slang 100",
     "icon": "💬",

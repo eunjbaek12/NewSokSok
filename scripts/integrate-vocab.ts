@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  krteen: {
+    id: 'curated-krteen-ko-1',
+    title: '요즘 10대 유행어 37 (2026)',
+    icon: '🧃',
+    category: '문화',
+    level: 'beginner',
+    description: '2026년 상반기 한국 10대·잘파세대가 실제로 쓰는 유행어 37 — 알잘딱깔쎈, 중꺽마, 이왜진, 럭키비키, 추구미, 얼죽아, 킹받다 등 신상 밈·줄임말·감정 표현까지. 트렌드를 놓친 사람을 위한 한국어 뜻풀이. 자극적이지 않은 깨끗한 것만 엄선, 뜻·유래·예문 AI 생성.',
+    tags: ['Korean', 'Slang', 'MZ'],
+    sourceLanguage: 'ko',
+    targetLanguage: 'ko',
+  },
   'es-basic': {
     id: 'curated-es-basic-1',
     title: '기초 스페인어 122 (일상 필수)',

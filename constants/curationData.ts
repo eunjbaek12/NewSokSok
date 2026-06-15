@@ -2,6 +2,650 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-krteen-ko-1",
+    "title": "요즘 10대 유행어 37 (2026)",
+    "icon": "🧃",
+    "isCurated": true,
+    "category": "문화",
+    "level": "beginner",
+    "description": "2026년 상반기 한국 10대·잘파세대가 실제로 쓰는 유행어 37 — 알잘딱깔쎈, 중꺽마, 이왜진, 럭키비키, 추구미, 얼죽아, 킹받다 등 신상 밈·줄임말·감정 표현까지. 트렌드를 놓친 사람을 위한 한국어 뜻풀이. 자극적이지 않은 깨끗한 것만 엄선, 뜻·유래·예문 AI 생성.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1781532880627,
+    "words": [
+      {
+        "id": "word-krteen-0-1781532880627",
+        "term": "알잘딱깔쎈",
+        "definition": "알아서 잘, 딱, 깔끔하고 센스있게",
+        "meaningKr": "‘알아서 잘, 딱, 깔끔하고 센스있게’의 줄임말이에요. 어떤 일을 상황에 맞게 눈치껏 능숙하게 처리하라는 뜻으로 쓰이죠.",
+        "exampleEn": "이거 알잘딱깔쎈하게 처리해 줘!",
+        "exampleKr": "이거 알아서 잘 깔끔하고 센스있게 처리해 줘!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-1-1781532880627",
+        "term": "중꺽마",
+        "definition": "중요한 건 꺾이지 않는 마음",
+        "meaningKr": "‘중요한 건 꺾이지 않는 마음’의 줄임말로, 어떤 어려움에도 포기하지 않고 끝까지 해내려는 강한 의지를 표현할 때 사용해요.",
+        "exampleEn": "우리 팀, 중꺽마로 우승하자!",
+        "exampleKr": "우리 팀, 꺾이지 않는 마음으로 우승하자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-2-1781532880627",
+        "term": "이왜진",
+        "definition": "이게 왜 진짜야? 믿기 힘든 현실",
+        "meaningKr": "‘이게 왜 진짜야?’의 줄임말이에요. 말도 안 되는 일이 실제로 벌어졌을 때, 놀라움과 황당함을 동시에 표현하는 말이죠.",
+        "exampleEn": "헐, 걔네 둘이 사귄다고? 이왜진?",
+        "exampleKr": "헐, 걔네 둘이 사귄다고? 이게 왜 진짜야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-3-1781532880627",
+        "term": "홀리몰리",
+        "definition": "깜짝 놀랐을 때 외치는 감탄사",
+        "meaningKr": "영어로 'holy moly'에서 유래한 감탄사예요. 예상치 못한 상황에 깜짝 놀라거나, 어이없을 때 '세상에!'처럼 외치며 사용해요.",
+        "exampleEn": "홀리몰리! 벌써 시간이 이렇게 됐어?",
+        "exampleKr": "세상에! 벌써 시간이 이렇게 됐어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "감탄사"
+      },
+      {
+        "id": "word-krteen-4-1781532880627",
+        "term": "머선129",
+        "definition": "무슨 일이야? (놀람 표현)",
+        "meaningKr": "‘무슨 일이고?’라는 경상도 사투리를 숫자 ‘129’와 결합해 만든 말장난이에요. 주로 놀라거나 궁금할 때 ‘무슨 일이야?’라는 뜻으로 사용하죠.",
+        "exampleEn": "야, 너 머선129? 왜 이렇게 늦었어?",
+        "exampleKr": "야, 너 무슨 일이야? 왜 이렇게 늦었어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-5-1781532880627",
+        "term": "군싹",
+        "definition": "군침이 싹 도네 (탐날 때)",
+        "meaningKr": "‘군침이 싹 도네’의 줄임말이에요. 아주 맛있어 보이는 음식을 봤을 때나, 어떤 물건이 탐나서 갖고 싶을 때 사용해요.",
+        "exampleEn": "와, 저 치킨 비주얼 군싹 돈다!",
+        "exampleKr": "와, 저 치킨 비주얼 군침이 싹 도네!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-6-1781532880627",
+        "term": "어쩔티비",
+        "definition": "어쩌라고? (상대방 말 무시)",
+        "meaningKr": "‘어쩌라고?’에 ‘티비’를 붙여 만든 말이에요. 상대방의 말이나 행동에 대해 무관심하거나 무시하는 태도를 장난스럽게 표현할 때 사용하죠.",
+        "exampleEn": "나 오늘 숙제 안 했어. 어쩔티비?",
+        "exampleKr": "나 오늘 숙제 안 했어. 어쩌라고?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "감탄사"
+      },
+      {
+        "id": "word-krteen-7-1781532880627",
+        "term": "럭키비키",
+        "definition": "초긍정 마인드 (장원영 유래)",
+        "meaningKr": "아이브 장원영 님에게서 유래한 말로, 안 좋은 일도 오히려 자신에게 행운이 될 거라고 긍정적으로 생각하는 태도를 뜻해요.",
+        "exampleEn": "지갑 잃어버렸지만 럭키비키!",
+        "exampleKr": "지갑 잃어버렸지만 오히려 잘됐어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-8-1781532880627",
+        "term": "원영적 사고",
+        "definition": "무조건 긍정적으로 해석하는 사고방식",
+        "meaningKr": "아이브 장원영 님에게서 유래한, 어떤 상황이든 무조건 긍정적으로 해석하고 자신에게 유리하게 생각하는 사고방식을 말해요.",
+        "exampleEn": "이게 바로 원영적 사고지!",
+        "exampleKr": "이게 바로 긍정적으로 해석하는 사고방식이지!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-9-1781532880627",
+        "term": "추구미",
+        "definition": "내가 추구하는 이미지, 스타일, 미",
+        "meaningKr": "‘내가 추구하는 이미지, 스타일, 미(美)’를 줄인 말이에요. 자신이 어떤 모습이나 가치를 지향하는지 표현할 때 사용하죠.",
+        "exampleEn": "요즘 내 추구미는 자연스러운 거야.",
+        "exampleKr": "요즘 내가 추구하는 이미지는 자연스러운 거야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-10-1781532880627",
+        "term": "폼 미쳤다",
+        "definition": "컨디션이나 실력이 최고조일 때",
+        "meaningKr": "영어 ‘form(폼)’과 ‘미쳤다’가 결합된 말로, 어떤 사람의 컨디션이나 실력이 최고조에 달했을 때 감탄하며 칭찬하는 표현이에요.",
+        "exampleEn": "와, 오늘 축구 폼 미쳤다!",
+        "exampleKr": "와, 오늘 축구 실력이 최고조다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-11-1781532880627",
+        "term": "점메추",
+        "definition": "점심 메뉴 추천 (줄임말)",
+        "meaningKr": "‘점심 메뉴 추천’의 줄임말이에요. 점심 식사로 뭘 먹을지 고민될 때 다른 사람에게 메뉴를 추천해 달라고 요청할 때 사용하죠.",
+        "exampleEn": "오늘 점메추 좀 해줘!",
+        "exampleKr": "오늘 점심 메뉴 추천 좀 해줘!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-12-1781532880627",
+        "term": "저메추",
+        "definition": "저녁 메뉴 추천 (줄임말)",
+        "meaningKr": "‘저녁 메뉴 추천’의 줄임말이에요. 점메추와 마찬가지로 저녁 식사로 뭘 먹을지 고민될 때 다른 사람에게 메뉴를 추천해 달라고 요청할 때 사용해요.",
+        "exampleEn": "저녁 뭐 먹지? 저메추!",
+        "exampleKr": "저녁 뭐 먹지? 저녁 메뉴 추천!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-13-1781532880627",
+        "term": "얼죽아",
+        "definition": "얼어 죽어도 아이스 아메리카노",
+        "meaningKr": "‘얼어 죽어도 아이스 아메리카노’의 줄임말이에요. 날씨가 아무리 추워도 따뜻한 음료 대신 차가운 아이스 음료를 고집하는 사람들을 뜻해요.",
+        "exampleEn": "난 겨울에도 얼죽아지!",
+        "exampleKr": "난 겨울에도 얼어 죽어도 아이스 아메리카노지!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-14-1781532880627",
+        "term": "갑통알",
+        "definition": "갑자기 통장을 보니 알바해야겠다",
+        "meaningKr": "‘갑자기 통장을 보니 알바해야겠다’의 줄임말이에요. 통장 잔고를 확인하고 현실을 깨달아 아르바이트를 해야겠다고 다짐하는 상황에서 쓰여요.",
+        "exampleEn": "갑통알... 오늘부터 알바 알아봐야지.",
+        "exampleKr": "갑자기 통장을 보니 알바해야겠다... 오늘부터 알아봐야지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-15-1781532880627",
+        "term": "스불재",
+        "definition": "스스로 불러온 재앙 (자업자득)",
+        "meaningKr": "‘스스로 불러온 재앙’의 줄임말이에요. 자신의 행동 때문에 좋지 않은 결과가 발생했을 때, ‘자업자득’이라는 뜻으로 사용하며 자조적인 상황에 어울려요.",
+        "exampleEn": "이게 다 내 스불재지 뭐.",
+        "exampleKr": "이게 다 내가 스스로 불러온 재앙이지 뭐.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-16-1781532880627",
+        "term": "별다줄",
+        "definition": "별걸 다 줄인다 (줄임말 지적)",
+        "meaningKr": "‘별걸 다 줄인다’의 줄임말이에요. 너무 많은 줄임말이 사용되는 현실을 지적하거나, 특정 줄임말이 과하다고 느낄 때 사용되는 표현이죠.",
+        "exampleEn": "요즘 애들은 별다줄이야 진짜.",
+        "exampleKr": "요즘 애들은 별걸 다 줄여 말해 진짜.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-17-1781532880627",
+        "term": "꾸안꾸",
+        "definition": "꾸민 듯 안 꾸민 듯 자연스러운 스타일",
+        "meaningKr": "‘꾸민 듯 안 꾸민 듯’의 줄임말이에요. 자연스러우면서도 멋을 잃지 않는 패션이나 메이크업 스타일을 설명할 때 주로 사용돼요.",
+        "exampleEn": "오늘 내 꾸안꾸 패션 어때?",
+        "exampleKr": "오늘 내 꾸민 듯 안 꾸민 듯한 패션 어때?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-18-1781532880627",
+        "term": "완내스",
+        "definition": "완전 내 스타일 (취향 저격)",
+        "meaningKr": "‘완전 내 스타일’의 줄임말이에요. 어떤 것이 자신의 취향에 완벽하게 들어맞을 때, 강한 만족감과 함께 감탄하며 사용하는 표현이죠.",
+        "exampleEn": "이 노래 완내스야! 완전 취향 저격!",
+        "exampleKr": "이 노래 완전 내 스타일이야! 완전 취향 저격!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-19-1781532880627",
+        "term": "슬세권",
+        "definition": "슬리퍼 신고 다닐 수 있는 생활권",
+        "meaningKr": "‘슬리퍼’와 ‘역세권’을 합친 말이에요. 슬리퍼를 신고 편하게 걸어 다닐 수 있을 정도로 가까운 주거 지역 주변의 생활 편의 시설들을 뜻하죠.",
+        "exampleEn": "우리 집은 완전 슬세권이라 편해.",
+        "exampleKr": "우리 집은 슬리퍼 신고 다닐 수 있는 생활권이라 편해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-20-1781532880627",
+        "term": "캘박",
+        "definition": "캘린더에 일정 박제 (등록)",
+        "meaningKr": "‘캘린더에 박제’의 줄임말이에요. 중요한 약속이나 일정을 잊지 않도록 캘린더에 확실하게 등록해 두라는 의미로 사용됩니다.",
+        "exampleEn": "그 약속 캘박해 놨어!",
+        "exampleKr": "그 약속 캘린더에 박제(등록)해 놨어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-21-1781532880627",
+        "term": "좋댓구알",
+        "definition": "좋아요, 댓글, 구독, 알림설정 (유튜브)",
+        "meaningKr": "‘좋아요, 댓글, 구독, 알림설정’의 줄임말이에요. 주로 유튜브 크리에이터들이 시청자들에게 채널 활동을 독려할 때 사용하는 멘트입니다.",
+        "exampleEn": "영상 좋댓구알 부탁드려요!",
+        "exampleKr": "영상 좋아요, 댓글, 구독, 알림설정 부탁드려요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-22-1781532880627",
+        "term": "자만추",
+        "definition": "자연스러운 만남 추구 (연애)",
+        "meaningKr": "‘자연스러운 만남 추구’의 줄임말이에요. 소개팅이나 인위적인 만남보다는 우연하고 자연스러운 방식으로 인연을 만나고 싶을 때 사용해요.",
+        "exampleEn": "나는 자만추가 좋아.",
+        "exampleKr": "나는 자연스러운 만남 추구가 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-23-1781532880627",
+        "term": "억텐",
+        "definition": "억지로 끌어올린 텐션 (분위기)",
+        "meaningKr": "‘억지 텐션’의 줄임말이에요. 실제 기분은 그렇지 않은데, 억지로 활기찬 분위기를 만들거나 과하게 들떠 보이는 모습을 표현할 때 사용해요.",
+        "exampleEn": "오늘 회식 억텐 너무 힘들다.",
+        "exampleKr": "오늘 회식 억지 텐션 너무 힘들다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-24-1781532880627",
+        "term": "만반잘부",
+        "definition": "만나서 반가워 잘 부탁해",
+        "meaningKr": "‘만나서 반가워 잘 부탁해’의 줄임말이에요. 주로 온라인 커뮤니티나 채팅방에서 새로운 사람에게 인사할 때 친근하게 사용되는 표현입니다.",
+        "exampleEn": "안녕! 새로 왔어. 만반잘부!",
+        "exampleKr": "안녕! 새로 왔어. 만나서 반가워 잘 부탁해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-25-1781532880627",
+        "term": "당모치",
+        "definition": "모든 치킨은 언제나 옳다",
+        "meaningKr": "‘당연히 모든 치킨은 옳다’의 줄임말이에요. 치킨은 무조건 맛있으니 어떤 치킨을 먹어도 후회하지 않는다는 뜻이죠. 치킨을 찬양할 때 써요.",
+        "exampleEn": "오늘 저녁은 치킨이다! 당모치~",
+        "exampleKr": "오늘 저녁은 치킨이다! 당연히 모든 치킨은 옳지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-26-1781532880627",
+        "term": "갑분싸",
+        "definition": "갑자기 분위기가 싸해지는 상황",
+        "meaningKr": "‘갑자기 분위기 싸해짐’의 줄임말이에요. 대화나 상황의 흐름이 갑자기 어색해지거나 차가워질 때 사용하는 표현입니다.",
+        "exampleEn": "개그 실패로 갑분싸 됐다...",
+        "exampleKr": "개그가 실패해서 갑자기 분위기가 싸해졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-27-1781532880627",
+        "term": "졌잘싸",
+        "definition": "졌지만 잘 싸웠다는 위로의 말",
+        "meaningKr": "‘졌지만 잘 싸웠다’의 줄임말이에요. 경기나 경쟁에서 비록 패배했지만, 최선을 다해 좋은 모습을 보여주었을 때 격려하는 표현입니다.",
+        "exampleEn": "아쉽게 졌네. 그래도 졌잘싸!",
+        "exampleKr": "아쉽게 졌네. 그래도 잘 싸웠어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-28-1781532880627",
+        "term": "빼박",
+        "definition": "확실해서 피할 수 없는 상황",
+        "meaningKr": "‘빼도 박도 못하다’에서 온 말로, 어떤 상황이나 사실이 너무 확실해서 피할 수 없을 때 사용해요. 주로 부정할 수 없는 증거가 있을 때 쓰죠.",
+        "exampleEn": "증거가 너무 많아서 빼박이네.",
+        "exampleKr": "증거가 너무 많아서 피할 수 없네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-29-1781532880627",
+        "term": "킹받다",
+        "definition": "매우 화나거나 짜증이 난다",
+        "meaningKr": "‘King(킹)’과 ‘열받다’가 합쳐진 말로, ‘엄청나게 열받다’는 뜻이에요. 마치 왕처럼 크게 화가 나거나 짜증이 날 때 과장해서 표현하는 유행어입니다.",
+        "exampleEn": "그 소식 듣고 완전 킹받았어.",
+        "exampleKr": "그 소식을 듣고 완전히 열받았어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "동사"
+      },
+      {
+        "id": "word-krteen-30-1781532880627",
+        "term": "개이득",
+        "definition": "예상치 못한 큰 이득이나 이점",
+        "meaningKr": "강조 접두사 ‘개-’와 ‘이득’이 합쳐진 말이에요. 기대하지 않았던 큰 이득이나 이점을 얻었을 때 사용하는 유행어로, 기쁨을 표현할 때 쓰죠.",
+        "exampleEn": "버스에서 지갑 주웠어. 개이득!",
+        "exampleKr": "버스에서 지갑 주웠어. 엄청난 이득이다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-31-1781532880627",
+        "term": "뇌절",
+        "definition": "같은 행동이나 말을 반복해 질리게 함",
+        "meaningKr": "일본 만화 '나루토'에서 유래한 말로, 어떤 말이나 행동을 너무 지나치게 반복해서 주변 사람들을 질리게 하거나 선을 넘는 상황을 뜻해요.",
+        "exampleEn": "그만해, 이제 뇌절이야.",
+        "exampleKr": "그만해, 이제 너무 지나쳐서 질려.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-32-1781532880627",
+        "term": "갈비",
+        "definition": "보면 볼수록 비호감이 된다",
+        "meaningKr": "‘갈수록 비호감’의 줄임말이에요. 어떤 사람이나 대상이 처음에는 괜찮았지만, 시간이 지날수록 점점 더 싫어지거나 부정적인 감정이 커질 때 사용합니다.",
+        "exampleEn": "그 사람 진짜 갈비다...",
+        "exampleKr": "그 사람은 진짜 갈수록 비호감이야...",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-33-1781532880627",
+        "term": "현타",
+        "definition": "현실을 자각하며 밀려오는 허무함",
+        "meaningKr": "‘현실 자각 타임’의 줄임말이에요. 어떤 비현실적인 상황이나 행동 후에 갑자기 현실을 깨닫고 허무함이나 자괴감을 느끼는 순간을 말합니다.",
+        "exampleEn": "게임하다가 갑자기 현타왔어.",
+        "exampleKr": "게임을 하다가 갑자기 현실을 자각하며 허무해졌어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-34-1781532880627",
+        "term": "도파민",
+        "definition": "강한 재미나 자극을 뜻하는 말",
+        "meaningKr": "뇌에서 분비되는 신경전달물질인 도파민에 비유하여, 강렬한 재미나 자극을 느낄 때 사용하는 유행어입니다. '도파민 터진다'는 '너무 재밌다'는 뜻이죠.",
+        "exampleEn": "이 드라마 진짜 도파민 터진다!",
+        "exampleKr": "이 드라마 진짜 너무 재밌다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-35-1781532880627",
+        "term": "머쓱타드",
+        "definition": "머쓱하거나 민망할 때 쓰는 감탄사",
+        "meaningKr": "‘머쓱하다’와 조미료 ‘머스타드’를 합쳐 만든 말장난이에요. 민망하거나 쑥스러워서 어색한 상황일 때 가볍게 사용하는 귀여운 감탄사입니다.",
+        "exampleEn": "앗, 실수! 머쓱타드~",
+        "exampleKr": "앗, 실수! 머쓱하네~",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "감탄사"
+      },
+      {
+        "id": "word-krteen-36-1781532880627",
+        "term": "시강",
+        "definition": "시선을 강하게 사로잡음",
+        "meaningKr": "‘시선 강탈’의 줄임말이에요. 어떤 대상이 너무 멋지거나 독특해서 사람들의 눈길을 한 번에 확 사로잡을 때 사용하는 표현입니다. 존재감이 강할 때 쓰죠.",
+        "exampleEn": "저 언니 옷 완전 시강인데?",
+        "exampleKr": "저 언니 옷이 완전히 시선을 사로잡는데?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      }
+    ]
+  },
+{
     "id": "curated-es-basic-1",
     "title": "기초 스페인어 122 (일상 필수)",
     "icon": "🇪🇸",

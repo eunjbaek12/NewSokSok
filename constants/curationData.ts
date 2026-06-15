@@ -2,6 +2,6169 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-krteen-ko-1",
+    "title": "요즘 10대 유행어 37 (2026)",
+    "icon": "🧃",
+    "isCurated": true,
+    "category": "문화",
+    "level": "beginner",
+    "description": "2026년 상반기 한국 10대·잘파세대가 실제로 쓰는 유행어 37 — 알잘딱깔쎈, 중꺽마, 이왜진, 럭키비키, 추구미, 얼죽아, 킹받다 등 신상 밈·줄임말·감정 표현까지. 트렌드를 놓친 사람을 위한 한국어 뜻풀이. 자극적이지 않은 깨끗한 것만 엄선, 뜻·유래·예문 AI 생성.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1781532880627,
+    "words": [
+      {
+        "id": "word-krteen-0-1781532880627",
+        "term": "알잘딱깔쎈",
+        "definition": "알아서 잘, 딱, 깔끔하고 센스있게",
+        "meaningKr": "‘알아서 잘, 딱, 깔끔하고 센스있게’의 줄임말이에요. 어떤 일을 상황에 맞게 눈치껏 능숙하게 처리하라는 뜻으로 쓰이죠.",
+        "exampleEn": "이거 알잘딱깔쎈하게 처리해 줘!",
+        "exampleKr": "이거 알아서 잘 깔끔하고 센스있게 처리해 줘!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-1-1781532880627",
+        "term": "중꺽마",
+        "definition": "중요한 건 꺾이지 않는 마음",
+        "meaningKr": "‘중요한 건 꺾이지 않는 마음’의 줄임말로, 어떤 어려움에도 포기하지 않고 끝까지 해내려는 강한 의지를 표현할 때 사용해요.",
+        "exampleEn": "우리 팀, 중꺽마로 우승하자!",
+        "exampleKr": "우리 팀, 꺾이지 않는 마음으로 우승하자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-2-1781532880627",
+        "term": "이왜진",
+        "definition": "이게 왜 진짜야? 믿기 힘든 현실",
+        "meaningKr": "‘이게 왜 진짜야?’의 줄임말이에요. 말도 안 되는 일이 실제로 벌어졌을 때, 놀라움과 황당함을 동시에 표현하는 말이죠.",
+        "exampleEn": "헐, 걔네 둘이 사귄다고? 이왜진?",
+        "exampleKr": "헐, 걔네 둘이 사귄다고? 이게 왜 진짜야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-3-1781532880627",
+        "term": "홀리몰리",
+        "definition": "깜짝 놀랐을 때 외치는 감탄사",
+        "meaningKr": "영어로 'holy moly'에서 유래한 감탄사예요. 예상치 못한 상황에 깜짝 놀라거나, 어이없을 때 '세상에!'처럼 외치며 사용해요.",
+        "exampleEn": "홀리몰리! 벌써 시간이 이렇게 됐어?",
+        "exampleKr": "세상에! 벌써 시간이 이렇게 됐어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "감탄사"
+      },
+      {
+        "id": "word-krteen-4-1781532880627",
+        "term": "머선129",
+        "definition": "무슨 일이야? (놀람 표현)",
+        "meaningKr": "‘무슨 일이고?’라는 경상도 사투리를 숫자 ‘129’와 결합해 만든 말장난이에요. 주로 놀라거나 궁금할 때 ‘무슨 일이야?’라는 뜻으로 사용하죠.",
+        "exampleEn": "야, 너 머선129? 왜 이렇게 늦었어?",
+        "exampleKr": "야, 너 무슨 일이야? 왜 이렇게 늦었어?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-5-1781532880627",
+        "term": "군싹",
+        "definition": "군침이 싹 도네 (탐날 때)",
+        "meaningKr": "‘군침이 싹 도네’의 줄임말이에요. 아주 맛있어 보이는 음식을 봤을 때나, 어떤 물건이 탐나서 갖고 싶을 때 사용해요.",
+        "exampleEn": "와, 저 치킨 비주얼 군싹 돈다!",
+        "exampleKr": "와, 저 치킨 비주얼 군침이 싹 도네!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-6-1781532880627",
+        "term": "어쩔티비",
+        "definition": "어쩌라고? (상대방 말 무시)",
+        "meaningKr": "‘어쩌라고?’에 ‘티비’를 붙여 만든 말이에요. 상대방의 말이나 행동에 대해 무관심하거나 무시하는 태도를 장난스럽게 표현할 때 사용하죠.",
+        "exampleEn": "나 오늘 숙제 안 했어. 어쩔티비?",
+        "exampleKr": "나 오늘 숙제 안 했어. 어쩌라고?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "감탄사"
+      },
+      {
+        "id": "word-krteen-7-1781532880627",
+        "term": "럭키비키",
+        "definition": "초긍정 마인드 (장원영 유래)",
+        "meaningKr": "아이브 장원영 님에게서 유래한 말로, 안 좋은 일도 오히려 자신에게 행운이 될 거라고 긍정적으로 생각하는 태도를 뜻해요.",
+        "exampleEn": "지갑 잃어버렸지만 럭키비키!",
+        "exampleKr": "지갑 잃어버렸지만 오히려 잘됐어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-8-1781532880627",
+        "term": "원영적 사고",
+        "definition": "무조건 긍정적으로 해석하는 사고방식",
+        "meaningKr": "아이브 장원영 님에게서 유래한, 어떤 상황이든 무조건 긍정적으로 해석하고 자신에게 유리하게 생각하는 사고방식을 말해요.",
+        "exampleEn": "이게 바로 원영적 사고지!",
+        "exampleKr": "이게 바로 긍정적으로 해석하는 사고방식이지!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-9-1781532880627",
+        "term": "추구미",
+        "definition": "내가 추구하는 이미지, 스타일, 미",
+        "meaningKr": "‘내가 추구하는 이미지, 스타일, 미(美)’를 줄인 말이에요. 자신이 어떤 모습이나 가치를 지향하는지 표현할 때 사용하죠.",
+        "exampleEn": "요즘 내 추구미는 자연스러운 거야.",
+        "exampleKr": "요즘 내가 추구하는 이미지는 자연스러운 거야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-10-1781532880627",
+        "term": "폼 미쳤다",
+        "definition": "컨디션이나 실력이 최고조일 때",
+        "meaningKr": "영어 ‘form(폼)’과 ‘미쳤다’가 결합된 말로, 어떤 사람의 컨디션이나 실력이 최고조에 달했을 때 감탄하며 칭찬하는 표현이에요.",
+        "exampleEn": "와, 오늘 축구 폼 미쳤다!",
+        "exampleKr": "와, 오늘 축구 실력이 최고조다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-11-1781532880627",
+        "term": "점메추",
+        "definition": "점심 메뉴 추천 (줄임말)",
+        "meaningKr": "‘점심 메뉴 추천’의 줄임말이에요. 점심 식사로 뭘 먹을지 고민될 때 다른 사람에게 메뉴를 추천해 달라고 요청할 때 사용하죠.",
+        "exampleEn": "오늘 점메추 좀 해줘!",
+        "exampleKr": "오늘 점심 메뉴 추천 좀 해줘!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-12-1781532880627",
+        "term": "저메추",
+        "definition": "저녁 메뉴 추천 (줄임말)",
+        "meaningKr": "‘저녁 메뉴 추천’의 줄임말이에요. 점메추와 마찬가지로 저녁 식사로 뭘 먹을지 고민될 때 다른 사람에게 메뉴를 추천해 달라고 요청할 때 사용해요.",
+        "exampleEn": "저녁 뭐 먹지? 저메추!",
+        "exampleKr": "저녁 뭐 먹지? 저녁 메뉴 추천!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-13-1781532880627",
+        "term": "얼죽아",
+        "definition": "얼어 죽어도 아이스 아메리카노",
+        "meaningKr": "‘얼어 죽어도 아이스 아메리카노’의 줄임말이에요. 날씨가 아무리 추워도 따뜻한 음료 대신 차가운 아이스 음료를 고집하는 사람들을 뜻해요.",
+        "exampleEn": "난 겨울에도 얼죽아지!",
+        "exampleKr": "난 겨울에도 얼어 죽어도 아이스 아메리카노지!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-14-1781532880627",
+        "term": "갑통알",
+        "definition": "갑자기 통장을 보니 알바해야겠다",
+        "meaningKr": "‘갑자기 통장을 보니 알바해야겠다’의 줄임말이에요. 통장 잔고를 확인하고 현실을 깨달아 아르바이트를 해야겠다고 다짐하는 상황에서 쓰여요.",
+        "exampleEn": "갑통알... 오늘부터 알바 알아봐야지.",
+        "exampleKr": "갑자기 통장을 보니 알바해야겠다... 오늘부터 알아봐야지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-15-1781532880627",
+        "term": "스불재",
+        "definition": "스스로 불러온 재앙 (자업자득)",
+        "meaningKr": "‘스스로 불러온 재앙’의 줄임말이에요. 자신의 행동 때문에 좋지 않은 결과가 발생했을 때, ‘자업자득’이라는 뜻으로 사용하며 자조적인 상황에 어울려요.",
+        "exampleEn": "이게 다 내 스불재지 뭐.",
+        "exampleKr": "이게 다 내가 스스로 불러온 재앙이지 뭐.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-16-1781532880627",
+        "term": "별다줄",
+        "definition": "별걸 다 줄인다 (줄임말 지적)",
+        "meaningKr": "‘별걸 다 줄인다’의 줄임말이에요. 너무 많은 줄임말이 사용되는 현실을 지적하거나, 특정 줄임말이 과하다고 느낄 때 사용되는 표현이죠.",
+        "exampleEn": "요즘 애들은 별다줄이야 진짜.",
+        "exampleKr": "요즘 애들은 별걸 다 줄여 말해 진짜.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-17-1781532880627",
+        "term": "꾸안꾸",
+        "definition": "꾸민 듯 안 꾸민 듯 자연스러운 스타일",
+        "meaningKr": "‘꾸민 듯 안 꾸민 듯’의 줄임말이에요. 자연스러우면서도 멋을 잃지 않는 패션이나 메이크업 스타일을 설명할 때 주로 사용돼요.",
+        "exampleEn": "오늘 내 꾸안꾸 패션 어때?",
+        "exampleKr": "오늘 내 꾸민 듯 안 꾸민 듯한 패션 어때?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-18-1781532880627",
+        "term": "완내스",
+        "definition": "완전 내 스타일 (취향 저격)",
+        "meaningKr": "‘완전 내 스타일’의 줄임말이에요. 어떤 것이 자신의 취향에 완벽하게 들어맞을 때, 강한 만족감과 함께 감탄하며 사용하는 표현이죠.",
+        "exampleEn": "이 노래 완내스야! 완전 취향 저격!",
+        "exampleKr": "이 노래 완전 내 스타일이야! 완전 취향 저격!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-19-1781532880627",
+        "term": "슬세권",
+        "definition": "슬리퍼 신고 다닐 수 있는 생활권",
+        "meaningKr": "‘슬리퍼’와 ‘역세권’을 합친 말이에요. 슬리퍼를 신고 편하게 걸어 다닐 수 있을 정도로 가까운 주거 지역 주변의 생활 편의 시설들을 뜻하죠.",
+        "exampleEn": "우리 집은 완전 슬세권이라 편해.",
+        "exampleKr": "우리 집은 슬리퍼 신고 다닐 수 있는 생활권이라 편해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-20-1781532880627",
+        "term": "캘박",
+        "definition": "캘린더에 일정 박제 (등록)",
+        "meaningKr": "‘캘린더에 박제’의 줄임말이에요. 중요한 약속이나 일정을 잊지 않도록 캘린더에 확실하게 등록해 두라는 의미로 사용됩니다.",
+        "exampleEn": "그 약속 캘박해 놨어!",
+        "exampleKr": "그 약속 캘린더에 박제(등록)해 놨어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-21-1781532880627",
+        "term": "좋댓구알",
+        "definition": "좋아요, 댓글, 구독, 알림설정 (유튜브)",
+        "meaningKr": "‘좋아요, 댓글, 구독, 알림설정’의 줄임말이에요. 주로 유튜브 크리에이터들이 시청자들에게 채널 활동을 독려할 때 사용하는 멘트입니다.",
+        "exampleEn": "영상 좋댓구알 부탁드려요!",
+        "exampleKr": "영상 좋아요, 댓글, 구독, 알림설정 부탁드려요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-22-1781532880627",
+        "term": "자만추",
+        "definition": "자연스러운 만남 추구 (연애)",
+        "meaningKr": "‘자연스러운 만남 추구’의 줄임말이에요. 소개팅이나 인위적인 만남보다는 우연하고 자연스러운 방식으로 인연을 만나고 싶을 때 사용해요.",
+        "exampleEn": "나는 자만추가 좋아.",
+        "exampleKr": "나는 자연스러운 만남 추구가 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-23-1781532880627",
+        "term": "억텐",
+        "definition": "억지로 끌어올린 텐션 (분위기)",
+        "meaningKr": "‘억지 텐션’의 줄임말이에요. 실제 기분은 그렇지 않은데, 억지로 활기찬 분위기를 만들거나 과하게 들떠 보이는 모습을 표현할 때 사용해요.",
+        "exampleEn": "오늘 회식 억텐 너무 힘들다.",
+        "exampleKr": "오늘 회식 억지 텐션 너무 힘들다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-24-1781532880627",
+        "term": "만반잘부",
+        "definition": "만나서 반가워 잘 부탁해",
+        "meaningKr": "‘만나서 반가워 잘 부탁해’의 줄임말이에요. 주로 온라인 커뮤니티나 채팅방에서 새로운 사람에게 인사할 때 친근하게 사용되는 표현입니다.",
+        "exampleEn": "안녕! 새로 왔어. 만반잘부!",
+        "exampleKr": "안녕! 새로 왔어. 만나서 반가워 잘 부탁해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-25-1781532880627",
+        "term": "당모치",
+        "definition": "모든 치킨은 언제나 옳다",
+        "meaningKr": "‘당연히 모든 치킨은 옳다’의 줄임말이에요. 치킨은 무조건 맛있으니 어떤 치킨을 먹어도 후회하지 않는다는 뜻이죠. 치킨을 찬양할 때 써요.",
+        "exampleEn": "오늘 저녁은 치킨이다! 당모치~",
+        "exampleKr": "오늘 저녁은 치킨이다! 당연히 모든 치킨은 옳지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-26-1781532880627",
+        "term": "갑분싸",
+        "definition": "갑자기 분위기가 싸해지는 상황",
+        "meaningKr": "‘갑자기 분위기 싸해짐’의 줄임말이에요. 대화나 상황의 흐름이 갑자기 어색해지거나 차가워질 때 사용하는 표현입니다.",
+        "exampleEn": "개그 실패로 갑분싸 됐다...",
+        "exampleKr": "개그가 실패해서 갑자기 분위기가 싸해졌다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-27-1781532880627",
+        "term": "졌잘싸",
+        "definition": "졌지만 잘 싸웠다는 위로의 말",
+        "meaningKr": "‘졌지만 잘 싸웠다’의 줄임말이에요. 경기나 경쟁에서 비록 패배했지만, 최선을 다해 좋은 모습을 보여주었을 때 격려하는 표현입니다.",
+        "exampleEn": "아쉽게 졌네. 그래도 졌잘싸!",
+        "exampleKr": "아쉽게 졌네. 그래도 잘 싸웠어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "구"
+      },
+      {
+        "id": "word-krteen-28-1781532880627",
+        "term": "빼박",
+        "definition": "확실해서 피할 수 없는 상황",
+        "meaningKr": "‘빼도 박도 못하다’에서 온 말로, 어떤 상황이나 사실이 너무 확실해서 피할 수 없을 때 사용해요. 주로 부정할 수 없는 증거가 있을 때 쓰죠.",
+        "exampleEn": "증거가 너무 많아서 빼박이네.",
+        "exampleKr": "증거가 너무 많아서 피할 수 없네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-29-1781532880627",
+        "term": "킹받다",
+        "definition": "매우 화나거나 짜증이 난다",
+        "meaningKr": "‘King(킹)’과 ‘열받다’가 합쳐진 말로, ‘엄청나게 열받다’는 뜻이에요. 마치 왕처럼 크게 화가 나거나 짜증이 날 때 과장해서 표현하는 유행어입니다.",
+        "exampleEn": "그 소식 듣고 완전 킹받았어.",
+        "exampleKr": "그 소식을 듣고 완전히 열받았어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "동사"
+      },
+      {
+        "id": "word-krteen-30-1781532880627",
+        "term": "개이득",
+        "definition": "예상치 못한 큰 이득이나 이점",
+        "meaningKr": "강조 접두사 ‘개-’와 ‘이득’이 합쳐진 말이에요. 기대하지 않았던 큰 이득이나 이점을 얻었을 때 사용하는 유행어로, 기쁨을 표현할 때 쓰죠.",
+        "exampleEn": "버스에서 지갑 주웠어. 개이득!",
+        "exampleKr": "버스에서 지갑 주웠어. 엄청난 이득이다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-31-1781532880627",
+        "term": "뇌절",
+        "definition": "같은 행동이나 말을 반복해 질리게 함",
+        "meaningKr": "일본 만화 '나루토'에서 유래한 말로, 어떤 말이나 행동을 너무 지나치게 반복해서 주변 사람들을 질리게 하거나 선을 넘는 상황을 뜻해요.",
+        "exampleEn": "그만해, 이제 뇌절이야.",
+        "exampleKr": "그만해, 이제 너무 지나쳐서 질려.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-32-1781532880627",
+        "term": "갈비",
+        "definition": "보면 볼수록 비호감이 된다",
+        "meaningKr": "‘갈수록 비호감’의 줄임말이에요. 어떤 사람이나 대상이 처음에는 괜찮았지만, 시간이 지날수록 점점 더 싫어지거나 부정적인 감정이 커질 때 사용합니다.",
+        "exampleEn": "그 사람 진짜 갈비다...",
+        "exampleKr": "그 사람은 진짜 갈수록 비호감이야...",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-33-1781532880627",
+        "term": "현타",
+        "definition": "현실을 자각하며 밀려오는 허무함",
+        "meaningKr": "‘현실 자각 타임’의 줄임말이에요. 어떤 비현실적인 상황이나 행동 후에 갑자기 현실을 깨닫고 허무함이나 자괴감을 느끼는 순간을 말합니다.",
+        "exampleEn": "게임하다가 갑자기 현타왔어.",
+        "exampleKr": "게임을 하다가 갑자기 현실을 자각하며 허무해졌어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-34-1781532880627",
+        "term": "도파민",
+        "definition": "강한 재미나 자극을 뜻하는 말",
+        "meaningKr": "뇌에서 분비되는 신경전달물질인 도파민에 비유하여, 강렬한 재미나 자극을 느낄 때 사용하는 유행어입니다. '도파민 터진다'는 '너무 재밌다'는 뜻이죠.",
+        "exampleEn": "이 드라마 진짜 도파민 터진다!",
+        "exampleKr": "이 드라마 진짜 너무 재밌다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      },
+      {
+        "id": "word-krteen-35-1781532880627",
+        "term": "머쓱타드",
+        "definition": "머쓱하거나 민망할 때 쓰는 감탄사",
+        "meaningKr": "‘머쓱하다’와 조미료 ‘머스타드’를 합쳐 만든 말장난이에요. 민망하거나 쑥스러워서 어색한 상황일 때 가볍게 사용하는 귀여운 감탄사입니다.",
+        "exampleEn": "앗, 실수! 머쓱타드~",
+        "exampleKr": "앗, 실수! 머쓱하네~",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "감탄사"
+      },
+      {
+        "id": "word-krteen-36-1781532880627",
+        "term": "시강",
+        "definition": "시선을 강하게 사로잡음",
+        "meaningKr": "‘시선 강탈’의 줄임말이에요. 어떤 대상이 너무 멋지거나 독특해서 사람들의 눈길을 한 번에 확 사로잡을 때 사용하는 표현입니다. 존재감이 강할 때 쓰죠.",
+        "exampleEn": "저 언니 옷 완전 시강인데?",
+        "exampleKr": "저 언니 옷이 완전히 시선을 사로잡는데?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "명사"
+      }
+    ]
+  },
+{
+    "id": "curated-es-basic-1",
+    "title": "기초 스페인어 122 (일상 필수)",
+    "icon": "🇪🇸",
+    "isCurated": true,
+    "category": "기초",
+    "level": "beginner",
+    "description": "일상에서 가장 많이 쓰는 스페인어 기초 단어 122 — 인사·숫자·가족·음식·색깔·요일·기본 동사/형용사·장소·신체까지. 표제어 직접 선별, 한글 발음·한국어 뜻·예문 AI 생성.",
+    "sourceLanguage": "es",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1781502856370,
+    "words": [
+      {
+        "id": "word-es-basic-0-1781502856370",
+        "term": "hola",
+        "definition": "Used as a greeting.",
+        "meaningKr": "안녕, 안녕하세요",
+        "exampleEn": "¡Hola! ¿Cómo estás?",
+        "exampleKr": "안녕! 잘 지내?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "올라",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-1-1781502856370",
+        "term": "adiós",
+        "definition": "Used to say goodbye.",
+        "meaningKr": "안녕히 계세요, 안녕히 가세요",
+        "exampleEn": "¡Adiós! Hasta mañana.",
+        "exampleKr": "안녕! 내일 봐.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아디오스",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-2-1781502856370",
+        "term": "gracias",
+        "definition": "Used to express gratitude.",
+        "meaningKr": "고마워요, 감사합니다",
+        "exampleEn": "Gracias por tu ayuda.",
+        "exampleKr": "도와줘서 고마워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "그라시아스",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-3-1781502856370",
+        "term": "por favor",
+        "definition": "Used to make a polite request.",
+        "meaningKr": "부탁합니다, 제발",
+        "exampleEn": "Un café, por favor.",
+        "exampleKr": "커피 한 잔 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "포르 파보르",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-4-1781502856370",
+        "term": "perdón",
+        "definition": "Used to apologize or get attention.",
+        "meaningKr": "죄송합니다, 실례합니다",
+        "exampleEn": "Perdón, ¿puedes repetir?",
+        "exampleKr": "죄송합니다, 다시 말씀해주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페르돈",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-5-1781502856370",
+        "term": "sí",
+        "definition": "Used to affirm or agree.",
+        "meaningKr": "네, 응",
+        "exampleEn": "¿Vienes? Sí, voy.",
+        "exampleKr": "올래? 응, 갈게.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-6-1781502856370",
+        "term": "no",
+        "definition": "Used to deny or negate.",
+        "meaningKr": "아니요, ~ 아니다",
+        "exampleEn": "No tengo tiempo.",
+        "exampleKr": "시간이 없어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "노",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-7-1781502856370",
+        "term": "buenos días",
+        "definition": "A greeting used in the morning.",
+        "meaningKr": "좋은 아침입니다, 안녕하세요",
+        "exampleEn": "¡Buenos días a todos!",
+        "exampleKr": "모두 좋은 아침입니다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "부에노스 디아스",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-8-1781502856370",
+        "term": "buenas noches",
+        "definition": "A greeting or farewell used in the evening or night.",
+        "meaningKr": "좋은 저녁입니다, 안녕히 주무세요",
+        "exampleEn": "¡Buenas noches! Hasta mañana.",
+        "exampleKr": "안녕히 주무세요! 내일 봐요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "부에나스 노체스",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-9-1781502856370",
+        "term": "de nada",
+        "definition": "Used as a polite response to 'thank you'.",
+        "meaningKr": "천만에요, 별말씀을요",
+        "exampleEn": "Gracias. De nada.",
+        "exampleKr": "고마워요. 천만에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "데 나다",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-10-1781502856370",
+        "term": "bienvenido",
+        "definition": "Greeted with pleasure upon arrival.",
+        "meaningKr": "환영하는, 환영받는",
+        "exampleEn": "¡Bienvenido a nuestra casa!",
+        "exampleKr": "우리 집에 오신 것을 환영합니다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비엔베니도",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-11-1781502856370",
+        "term": "salud",
+        "definition": "Used to toast, or after someone sneezes.",
+        "meaningKr": "건배!, 건강, (재채기 후) 축복합니다",
+        "exampleEn": "¡Salud! Por nuestra amistad.",
+        "exampleKr": "건배! 우리의 우정을 위하여.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "살루드",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-12-1781502856370",
+        "term": "uno",
+        "definition": "The first cardinal number.",
+        "meaningKr": "하나, 일",
+        "exampleEn": "Tengo un lápiz.",
+        "exampleKr": "연필 하나가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "우노",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-13-1781502856370",
+        "term": "dos",
+        "definition": "The cardinal number after one.",
+        "meaningKr": "둘, 이",
+        "exampleEn": "Tengo dos gatos.",
+        "exampleKr": "고양이 두 마리가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "도스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-14-1781502856370",
+        "term": "tres",
+        "definition": "The cardinal number after two.",
+        "meaningKr": "셋, 삼",
+        "exampleEn": "Ella tiene tres libros.",
+        "exampleKr": "그녀는 책 세 권이 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "트레스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-15-1781502856370",
+        "term": "cuatro",
+        "definition": "The cardinal number after three.",
+        "meaningKr": "넷, 사",
+        "exampleEn": "Hay cuatro sillas.",
+        "exampleKr": "의자가 네 개 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "쿠아트로",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-16-1781502856370",
+        "term": "cinco",
+        "definition": "The cardinal number after four.",
+        "meaningKr": "다섯, 오",
+        "exampleEn": "Compro cinco manzanas.",
+        "exampleKr": "사과 다섯 개를 사요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "신코",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-17-1781502856370",
+        "term": "seis",
+        "definition": "The cardinal number after five.",
+        "meaningKr": "여섯, 육",
+        "exampleEn": "Mi hermano tiene seis años.",
+        "exampleKr": "제 남동생은 여섯 살이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "세이스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-18-1781502856370",
+        "term": "siete",
+        "definition": "The cardinal number after six.",
+        "meaningKr": "일곱, 칠",
+        "exampleEn": "Son las siete.",
+        "exampleKr": "일곱 시예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시에테",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-19-1781502856370",
+        "term": "ocho",
+        "definition": "The cardinal number after seven.",
+        "meaningKr": "여덟, 팔",
+        "exampleEn": "Hay ocho estudiantes.",
+        "exampleKr": "학생이 여덟 명 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오초",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-20-1781502856370",
+        "term": "nueve",
+        "definition": "The cardinal number after eight.",
+        "meaningKr": "아홉, 구",
+        "exampleEn": "Mi número favorito es el nueve.",
+        "exampleKr": "제가 가장 좋아하는 숫자는 아홉이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "누에베",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-21-1781502856370",
+        "term": "diez",
+        "definition": "The cardinal number after nine.",
+        "meaningKr": "열, 십",
+        "exampleEn": "Tengo diez euros.",
+        "exampleKr": "저는 십 유로가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디에스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-22-1781502856370",
+        "term": "cien",
+        "definition": "The cardinal number for one hundred.",
+        "meaningKr": "백",
+        "exampleEn": "Cien personas asistieron.",
+        "exampleKr": "백 명이 참석했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시엔",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-23-1781502856370",
+        "term": "mil",
+        "definition": "The cardinal number for one thousand.",
+        "meaningKr": "천",
+        "exampleEn": "Son mil pesos.",
+        "exampleKr": "천 페소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "밀",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-24-1781502856370",
+        "term": "familia",
+        "definition": "A group of related people.",
+        "meaningKr": "가족",
+        "exampleEn": "Mi familia es grande.",
+        "exampleKr": "우리 가족은 대가족이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파밀리아",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-25-1781502856370",
+        "term": "madre",
+        "definition": "A female parent.",
+        "meaningKr": "엄마, 어머니",
+        "exampleEn": "Mi madre es muy buena.",
+        "exampleKr": "우리 엄마는 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마드레",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-26-1781502856370",
+        "term": "padre",
+        "definition": "A male parent.",
+        "meaningKr": "아빠, 아버지",
+        "exampleEn": "Mi padre trabaja mucho.",
+        "exampleKr": "우리 아빠는 일을 많이 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파드레",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-27-1781502856370",
+        "term": "hijo",
+        "definition": "A male child.",
+        "meaningKr": "아들",
+        "exampleEn": "Él es mi hijo.",
+        "exampleKr": "그는 제 아들이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "이호",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-28-1781502856370",
+        "term": "hija",
+        "definition": "A female child.",
+        "meaningKr": "딸",
+        "exampleEn": "Ella es mi hija.",
+        "exampleKr": "그녀는 제 딸이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "이하",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-29-1781502856370",
+        "term": "hermano",
+        "definition": "A male sibling.",
+        "meaningKr": "형제, 오빠, 남동생",
+        "exampleEn": "Tengo un hermano mayor.",
+        "exampleKr": "저는 형이 한 명 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에르마노",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-30-1781502856370",
+        "term": "hermana",
+        "definition": "A female sibling.",
+        "meaningKr": "자매, 언니, 여동생",
+        "exampleEn": "Mi hermana es estudiante.",
+        "exampleKr": "제 여동생은 학생이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에르마나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-31-1781502856370",
+        "term": "abuelo",
+        "definition": "A paternal or maternal grandfather.",
+        "meaningKr": "할아버지",
+        "exampleEn": "Mi abuelo vive aquí.",
+        "exampleKr": "우리 할아버지는 여기 사세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아부엘로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-32-1781502856370",
+        "term": "abuela",
+        "definition": "A paternal or maternal grandmother.",
+        "meaningKr": "할머니",
+        "exampleEn": "Mi abuela cocina bien.",
+        "exampleKr": "우리 할머니는 요리를 잘 하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아부엘라",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-33-1781502856370",
+        "term": "amigo",
+        "definition": "A male friend.",
+        "meaningKr": "친구 (남성)",
+        "exampleEn": "Él es mi mejor amigo.",
+        "exampleKr": "그는 제 가장 친한 친구예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아미고",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-34-1781502856370",
+        "term": "hombre",
+        "definition": "An adult male human being.",
+        "meaningKr": "남자, 사람",
+        "exampleEn": "Es un hombre muy alto.",
+        "exampleKr": "그는 아주 키 큰 남자예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "옴브레",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-35-1781502856370",
+        "term": "mujer",
+        "definition": "An adult female human being; a wife.",
+        "meaningKr": "여자, 아내",
+        "exampleEn": "Ella es mi mujer.",
+        "exampleKr": "그녀는 제 아내입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "무헤르",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-36-1781502856370",
+        "term": "agua",
+        "definition": "A colorless, transparent, odorless liquid.",
+        "meaningKr": "물",
+        "exampleEn": "Quiero un vaso de agua.",
+        "exampleKr": "물 한 잔 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아과",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-37-1781502856370",
+        "term": "pan",
+        "definition": "A staple food made from flour and water.",
+        "meaningKr": "빵",
+        "exampleEn": "Me gusta comer pan.",
+        "exampleKr": "저는 빵 먹는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "판",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-38-1781502856370",
+        "term": "leche",
+        "definition": "A white liquid produced by mammals.",
+        "meaningKr": "우유",
+        "exampleEn": "Bebo leche cada mañana.",
+        "exampleKr": "저는 매일 아침 우유를 마셔요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "레체",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-39-1781502856370",
+        "term": "café",
+        "definition": "A dark brown beverage; a place for drinks.",
+        "meaningKr": "커피, 카페",
+        "exampleEn": "¿Quieres un café?",
+        "exampleKr": "커피 한 잔 할래요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카페",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-40-1781502856370",
+        "term": "té",
+        "definition": "An aromatic beverage prepared by steeping tea leaves.",
+        "meaningKr": "차",
+        "exampleEn": "Prefiero té verde.",
+        "exampleKr": "저는 녹차를 더 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "테",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-41-1781502856370",
+        "term": "arroz",
+        "definition": "A starchy grain, widely consumed.",
+        "meaningKr": "쌀, 밥",
+        "exampleEn": "Me gusta comer arroz.",
+        "exampleKr": "저는 밥 먹는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아로스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-42-1781502856370",
+        "term": "carne",
+        "definition": "The flesh of an animal as food.",
+        "meaningKr": "고기",
+        "exampleEn": "Comemos carne los domingos.",
+        "exampleKr": "우리는 일요일마다 고기를 먹어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카르네",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-43-1781502856370",
+        "term": "pollo",
+        "definition": "A chicken, especially as food.",
+        "meaningKr": "닭고기, 닭",
+        "exampleEn": "El pollo está delicioso.",
+        "exampleKr": "닭고기가 맛있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "포요",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-44-1781502856370",
+        "term": "pescado",
+        "definition": "Fish prepared for eating.",
+        "meaningKr": "생선 (요리된)",
+        "exampleEn": "Me gusta comer pescado.",
+        "exampleKr": "저는 생선 먹는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페스카도",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-45-1781502856370",
+        "term": "fruta",
+        "definition": "The sweet, fleshy product of a tree or plant.",
+        "meaningKr": "과일",
+        "exampleEn": "La fruta es muy sana.",
+        "exampleKr": "과일은 아주 건강에 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "프루타",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-46-1781502856370",
+        "term": "manzana",
+        "definition": "A round, edible fruit.",
+        "meaningKr": "사과",
+        "exampleEn": "Quiero una manzana roja.",
+        "exampleKr": "저는 빨간 사과 하나를 원해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "만사나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-47-1781502856370",
+        "term": "huevo",
+        "definition": "An oval or round body laid by female birds.",
+        "meaningKr": "달걀, 계란",
+        "exampleEn": "Me gusta el huevo frito.",
+        "exampleKr": "저는 계란 프라이를 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "우에보",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-48-1781502856370",
+        "term": "rojo",
+        "definition": "Having the color of blood or fire.",
+        "meaningKr": "빨간색의, 빨강",
+        "exampleEn": "Mi coche es rojo.",
+        "exampleKr": "제 차는 빨간색이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "로호",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-49-1781502856370",
+        "term": "azul",
+        "definition": "Having the color of a clear sky or the sea.",
+        "meaningKr": "파란색의, 파랑",
+        "exampleEn": "El cielo es azul.",
+        "exampleKr": "하늘은 파란색이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아술",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-50-1781502856370",
+        "term": "verde",
+        "definition": "green",
+        "meaningKr": "초록색의, 녹색의",
+        "exampleEn": "La manzana es verde.",
+        "exampleKr": "사과는 초록색입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베르데",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-51-1781502856370",
+        "term": "amarillo",
+        "definition": "yellow",
+        "meaningKr": "노란색의",
+        "exampleEn": "El sol es amarillo.",
+        "exampleKr": "태양은 노란색입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아마리요",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-52-1781502856370",
+        "term": "negro",
+        "definition": "black",
+        "meaningKr": "검은색의",
+        "exampleEn": "Mi coche es negro.",
+        "exampleKr": "제 차는 검은색입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "네그로",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-53-1781502856370",
+        "term": "blanco",
+        "definition": "white",
+        "meaningKr": "흰색의, 하얀",
+        "exampleEn": "La nieve es blanca.",
+        "exampleKr": "눈은 하얗습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "블랑코",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-54-1781502856370",
+        "term": "lunes",
+        "definition": "Monday",
+        "meaningKr": "월요일",
+        "exampleEn": "Hoy es lunes.",
+        "exampleKr": "오늘은 월요일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "루네스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-55-1781502856370",
+        "term": "martes",
+        "definition": "Tuesday",
+        "meaningKr": "화요일",
+        "exampleEn": "Mañana es martes.",
+        "exampleKr": "내일은 화요일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마르테스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-56-1781502856370",
+        "term": "miércoles",
+        "definition": "Wednesday",
+        "meaningKr": "수요일",
+        "exampleEn": "El miércoles tengo clase.",
+        "exampleKr": "수요일에 수업이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "미에르콜레스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-57-1781502856370",
+        "term": "jueves",
+        "definition": "Thursday",
+        "meaningKr": "목요일",
+        "exampleEn": "Hoy es jueves.",
+        "exampleKr": "오늘은 목요일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "후에베스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-58-1781502856370",
+        "term": "viernes",
+        "definition": "Friday",
+        "meaningKr": "금요일",
+        "exampleEn": "El viernes vamos al cine.",
+        "exampleKr": "금요일에 영화 보러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비에르네스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-59-1781502856370",
+        "term": "sábado",
+        "definition": "Saturday",
+        "meaningKr": "토요일",
+        "exampleEn": "El sábado no trabajo.",
+        "exampleKr": "토요일에는 일하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "사바도",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-60-1781502856370",
+        "term": "domingo",
+        "definition": "Sunday",
+        "meaningKr": "일요일",
+        "exampleEn": "El domingo descanso.",
+        "exampleKr": "일요일에 쉽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "도밍고",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-61-1781502856370",
+        "term": "hoy",
+        "definition": "today",
+        "meaningKr": "오늘",
+        "exampleEn": "Hoy hace buen tiempo.",
+        "exampleKr": "오늘은 날씨가 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오이",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-62-1781502856370",
+        "term": "mañana",
+        "definition": "tomorrow; morning",
+        "meaningKr": "내일, 아침",
+        "exampleEn": "Hasta mañana!",
+        "exampleKr": "내일 봐요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마냐나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-63-1781502856370",
+        "term": "ayer",
+        "definition": "yesterday",
+        "meaningKr": "어제",
+        "exampleEn": "Ayer fui al mercado.",
+        "exampleKr": "어제 시장에 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아예르",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-64-1781502856370",
+        "term": "hora",
+        "definition": "hour; time (o'clock)",
+        "meaningKr": "시간, 시(時)",
+        "exampleEn": "¿Qué hora es?",
+        "exampleKr": "몇 시입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오라",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-65-1781502856370",
+        "term": "día",
+        "definition": "day",
+        "meaningKr": "날, 하루",
+        "exampleEn": "Es un buen día.",
+        "exampleKr": "좋은 날입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디아",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-66-1781502856370",
+        "term": "ser",
+        "definition": "to be (permanent characteristics, identity)",
+        "meaningKr": "~이다, ~이다 (본질, 신분, 특징)",
+        "exampleEn": "Yo soy estudiante.",
+        "exampleKr": "저는 학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "세르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-67-1781502856370",
+        "term": "estar",
+        "definition": "to be (temporary states, location, feelings)",
+        "meaningKr": "~있다, ~이다 (상태, 위치, 감정)",
+        "exampleEn": "Ella está en casa.",
+        "exampleKr": "그녀는 집에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에스타르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-68-1781502856370",
+        "term": "tener",
+        "definition": "to have",
+        "meaningKr": "가지다, 있다",
+        "exampleEn": "Yo tengo un perro.",
+        "exampleKr": "저는 개 한 마리가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "테네르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-69-1781502856370",
+        "term": "hacer",
+        "definition": "to do, to make",
+        "meaningKr": "하다, 만들다",
+        "exampleEn": "¿Qué haces hoy?",
+        "exampleKr": "오늘 뭐 하세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아세르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-70-1781502856370",
+        "term": "ir",
+        "definition": "to go",
+        "meaningKr": "가다",
+        "exampleEn": "Voy a la escuela.",
+        "exampleKr": "저는 학교에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "이르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-71-1781502856370",
+        "term": "venir",
+        "definition": "to come",
+        "meaningKr": "오다",
+        "exampleEn": "¿Vienes mañana?",
+        "exampleKr": "내일 오세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베니르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-72-1781502856370",
+        "term": "comer",
+        "definition": "to eat",
+        "meaningKr": "먹다",
+        "exampleEn": "Quiero comer pizza.",
+        "exampleKr": "피자를 먹고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "코메르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-73-1781502856370",
+        "term": "beber",
+        "definition": "to drink",
+        "meaningKr": "마시다",
+        "exampleEn": "Ella bebe agua.",
+        "exampleKr": "그녀는 물을 마십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베베르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-74-1781502856370",
+        "term": "hablar",
+        "definition": "to speak, to talk",
+        "meaningKr": "말하다, 이야기하다",
+        "exampleEn": "¿Puedes hablar español?",
+        "exampleKr": "스페인어 할 수 있어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아블라르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-75-1781502856370",
+        "term": "querer",
+        "definition": "to want; to love",
+        "meaningKr": "원하다, 사랑하다",
+        "exampleEn": "Yo quiero un café.",
+        "exampleKr": "저는 커피 한 잔을 원해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "케레르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-76-1781502856370",
+        "term": "poder",
+        "definition": "to be able to, can",
+        "meaningKr": "~할 수 있다",
+        "exampleEn": "¿Puedes hablar español?",
+        "exampleKr": "스페인어를 말할 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "포데르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-77-1781502856370",
+        "term": "ver",
+        "definition": "to see, to watch",
+        "meaningKr": "보다",
+        "exampleEn": "Quiero ver una película.",
+        "exampleKr": "영화를 보고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-78-1781502856370",
+        "term": "dar",
+        "definition": "to give",
+        "meaningKr": "주다",
+        "exampleEn": "Ella me da un libro.",
+        "exampleKr": "그녀는 저에게 책을 줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "다르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-79-1781502856370",
+        "term": "vivir",
+        "definition": "to live",
+        "meaningKr": "살다",
+        "exampleEn": "Yo vivo en Seúl.",
+        "exampleKr": "저는 서울에 살아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비비르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-80-1781502856370",
+        "term": "grande",
+        "definition": "big, large",
+        "meaningKr": "큰, 커다란",
+        "exampleEn": "Mi casa es grande.",
+        "exampleKr": "제 집은 커요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "그란데",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-81-1781502856370",
+        "term": "pequeño",
+        "definition": "small, little",
+        "meaningKr": "작은",
+        "exampleEn": "Tengo un perro pequeño.",
+        "exampleKr": "저는 작은 개를 키워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페케뇨",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-82-1781502856370",
+        "term": "bueno",
+        "definition": "good",
+        "meaningKr": "좋은",
+        "exampleEn": "Este café es muy bueno.",
+        "exampleKr": "이 커피는 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "부에노",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-83-1781502856370",
+        "term": "malo",
+        "definition": "bad",
+        "meaningKr": "나쁜",
+        "exampleEn": "No es un día malo.",
+        "exampleKr": "나쁜 날이 아니에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "말로",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-84-1781502856370",
+        "term": "nuevo",
+        "definition": "new",
+        "meaningKr": "새로운",
+        "exampleEn": "Compré un coche nuevo.",
+        "exampleKr": "저는 새 차를 샀어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "누에보",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-85-1781502856370",
+        "term": "viejo",
+        "definition": "old",
+        "meaningKr": "오래된, 늙은",
+        "exampleEn": "Mi abuelo es viejo.",
+        "exampleKr": "제 할아버지는 나이가 많으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비에호",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-86-1781502856370",
+        "term": "feliz",
+        "definition": "happy",
+        "meaningKr": "행복한",
+        "exampleEn": "Estoy muy feliz hoy.",
+        "exampleKr": "저는 오늘 매우 행복해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "펠리스",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-87-1781502856370",
+        "term": "bonito",
+        "definition": "pretty, nice, cute",
+        "meaningKr": "예쁜, 멋진, 귀여운",
+        "exampleEn": "Tu vestido es bonito.",
+        "exampleKr": "네 드레스 예쁘다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "보니토",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-88-1781502856370",
+        "term": "fácil",
+        "definition": "easy",
+        "meaningKr": "쉬운",
+        "exampleEn": "Este ejercicio es fácil.",
+        "exampleKr": "이 연습은 쉬워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파실",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-89-1781502856370",
+        "term": "difícil",
+        "definition": "difficult, hard",
+        "meaningKr": "어려운",
+        "exampleEn": "El examen es difícil.",
+        "exampleKr": "시험이 어려워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디피실",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-90-1781502856370",
+        "term": "caliente",
+        "definition": "hot (temperature)",
+        "meaningKr": "뜨거운, 더운",
+        "exampleEn": "El café está caliente.",
+        "exampleKr": "커피가 뜨거워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "칼리엔테",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-91-1781502856370",
+        "term": "frío",
+        "definition": "cold",
+        "meaningKr": "차가운, 추운",
+        "exampleEn": "Hace mucho frío hoy.",
+        "exampleKr": "오늘 날씨가 아주 추워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "프리오",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-92-1781502856370",
+        "term": "casa",
+        "definition": "house, home",
+        "meaningKr": "집, 가정",
+        "exampleEn": "Voy a mi casa.",
+        "exampleKr": "저는 제 집에 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카사",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-93-1781502856370",
+        "term": "escuela",
+        "definition": "school",
+        "meaningKr": "학교",
+        "exampleEn": "Mi hermana va a la escuela.",
+        "exampleKr": "제 여동생은 학교에 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에스쿠엘라",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-94-1781502856370",
+        "term": "ciudad",
+        "definition": "city",
+        "meaningKr": "도시",
+        "exampleEn": "Vivo en una ciudad grande.",
+        "exampleKr": "저는 큰 도시에 살아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시우다드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-95-1781502856370",
+        "term": "país",
+        "definition": "country, nation",
+        "meaningKr": "나라, 국가",
+        "exampleEn": "¿De qué país eres?",
+        "exampleKr": "어느 나라 사람이에요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파이스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-96-1781502856370",
+        "term": "calle",
+        "definition": "street",
+        "meaningKr": "거리, 길",
+        "exampleEn": "La tienda está en esta calle.",
+        "exampleKr": "그 가게는 이 거리에 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카예",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-97-1781502856370",
+        "term": "tienda",
+        "definition": "store, shop",
+        "meaningKr": "가게, 상점",
+        "exampleEn": "Voy a la tienda.",
+        "exampleKr": "저는 가게에 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "티엔다",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-98-1781502856370",
+        "term": "restaurante",
+        "definition": "restaurant",
+        "meaningKr": "식당, 레스토랑",
+        "exampleEn": "Comemos en el restaurante.",
+        "exampleKr": "우리는 식당에서 밥을 먹어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "레스토란테",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-99-1781502856370",
+        "term": "hospital",
+        "definition": "hospital",
+        "meaningKr": "병원",
+        "exampleEn": "El hospital está cerca.",
+        "exampleKr": "병원이 가까워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오스피탈",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-100-1781502856370",
+        "term": "baño",
+        "definition": "A room with a toilet and often a sink and shower/bathtub.",
+        "meaningKr": "화장실, 욕실",
+        "exampleEn": "El baño está aquí, por favor.",
+        "exampleKr": "화장실은 여기입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "바뇨",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-101-1781502856370",
+        "term": "mercado",
+        "definition": "A public place where goods are bought and sold.",
+        "meaningKr": "시장",
+        "exampleEn": "Vamos al mercado hoy.",
+        "exampleKr": "오늘 시장에 갑시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "메르카도",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-102-1781502856370",
+        "term": "mar",
+        "definition": "The expanse of salt water that covers most of the earth's surface.",
+        "meaningKr": "바다",
+        "exampleEn": "Me gusta mucho el mar.",
+        "exampleKr": "저는 바다를 정말 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마르",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-103-1781502856370",
+        "term": "sol",
+        "definition": "The star that the Earth orbits, providing light and heat.",
+        "meaningKr": "태양, 해",
+        "exampleEn": "El sol es muy brillante hoy.",
+        "exampleKr": "오늘은 해가 아주 밝아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "솔",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-104-1781502856370",
+        "term": "luna",
+        "definition": "The natural satellite of the Earth.",
+        "meaningKr": "달",
+        "exampleEn": "La luna es hermosa esta noche.",
+        "exampleKr": "오늘 밤 달이 아름다워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "루나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-105-1781502856370",
+        "term": "árbol",
+        "definition": "A tall plant with a trunk, branches, and leaves.",
+        "meaningKr": "나무",
+        "exampleEn": "Hay un árbol grande en el parque.",
+        "exampleKr": "공원에 큰 나무가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아르볼",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-106-1781502856370",
+        "term": "flor",
+        "definition": "The part of a plant that produces seeds, often colorful and fragrant.",
+        "meaningKr": "꽃",
+        "exampleEn": "Esta flor es muy bonita.",
+        "exampleKr": "이 꽃은 아주 예뻐요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "플로르",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-107-1781502856370",
+        "term": "perro",
+        "definition": "A domesticated carnivorous mammal, often kept as a pet.",
+        "meaningKr": "개",
+        "exampleEn": "Mi perro es muy amigable.",
+        "exampleKr": "제 개는 아주 친근해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-108-1781502856370",
+        "term": "gato",
+        "definition": "A small domesticated carnivorous mammal, often kept as a pet.",
+        "meaningKr": "고양이",
+        "exampleEn": "El gato duerme en el sofá.",
+        "exampleKr": "고양이가 소파에서 자요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "가토",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-109-1781502856370",
+        "term": "pájaro",
+        "definition": "A warm-blooded egg-laying vertebrate with feathers and wings.",
+        "meaningKr": "새",
+        "exampleEn": "El pájaro canta en el árbol.",
+        "exampleKr": "새가 나무에서 노래해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파하로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-110-1781502856370",
+        "term": "cabeza",
+        "definition": "The upper part of the human body, containing the brain, eyes, ears, nose, and mouth.",
+        "meaningKr": "머리",
+        "exampleEn": "Me duele la cabeza un poco.",
+        "exampleKr": "머리가 조금 아파요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카베사",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-111-1781502856370",
+        "term": "mano",
+        "definition": "The end part of a person's arm, including the fingers and thumb.",
+        "meaningKr": "손",
+        "exampleEn": "Dame tu mano, por favor.",
+        "exampleKr": "손을 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마노",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-112-1781502856370",
+        "term": "ojo",
+        "definition": "The organ of sight in humans and animals.",
+        "meaningKr": "눈",
+        "exampleEn": "Ella tiene ojos muy bonitos.",
+        "exampleKr": "그녀는 아주 예쁜 눈을 가지고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오호",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-113-1781502856370",
+        "term": "boca",
+        "definition": "The opening in the lower part of the human face, surrounded by the lips, through which food is taken in and sounds are emitted.",
+        "meaningKr": "입",
+        "exampleEn": "Abre la boca, por favor.",
+        "exampleKr": "입을 벌려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "보카",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-114-1781502856370",
+        "term": "pie",
+        "definition": "The lower extremity of the leg, on which a person stands or walks.",
+        "meaningKr": "발",
+        "exampleEn": "Me duele el pie derecho.",
+        "exampleKr": "오른발이 아파요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "피에",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-115-1781502856370",
+        "term": "corazón",
+        "definition": "A muscular organ that pumps blood through the body.",
+        "meaningKr": "심장, 마음",
+        "exampleEn": "Mi corazón late muy rápido.",
+        "exampleKr": "제 심장이 아주 빨리 뛰어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "코라손",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-116-1781502856370",
+        "term": "tiempo",
+        "definition": "The indefinite continued progress of existence and events; also, the state of the atmosphere.",
+        "meaningKr": "시간, 날씨",
+        "exampleEn": "¿Qué tiempo hace hoy?",
+        "exampleKr": "오늘 날씨가 어때요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "티엠포",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-117-1781502856370",
+        "term": "dinero",
+        "definition": "Coins or banknotes used as a medium of exchange.",
+        "meaningKr": "돈",
+        "exampleEn": "No tengo mucho dinero ahora.",
+        "exampleKr": "지금 돈이 많지 않아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디네로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-118-1781502856370",
+        "term": "trabajo",
+        "definition": "Activity involving mental or physical effort done to achieve a purpose or result; a paid occupation.",
+        "meaningKr": "일, 직업",
+        "exampleEn": "Mi trabajo es muy interesante.",
+        "exampleKr": "제 직업은 아주 흥미로워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "트라바호",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-119-1781502856370",
+        "term": "libro",
+        "definition": "A written or printed work consisting of pages glued or sewn together along one side and bound in covers.",
+        "meaningKr": "책",
+        "exampleEn": "Este libro es muy bueno.",
+        "exampleKr": "이 책은 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "리브로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-120-1781502856370",
+        "term": "coche",
+        "definition": "A road vehicle, typically with four wheels, powered by an internal combustion engine or electric motor and able to carry a small number of people.",
+        "meaningKr": "자동차, 차",
+        "exampleEn": "Compré un coche nuevo ayer.",
+        "exampleKr": "어제 새 차를 샀어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "코체",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-121-1781502856370",
+        "term": "amor",
+        "definition": "An intense feeling of deep affection.",
+        "meaningKr": "사랑",
+        "exampleEn": "El amor es un sentimiento bonito.",
+        "exampleKr": "사랑은 아름다운 감정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아모르",
+        "pos": "noun"
+      }
+    ]
+  },
+{
+    "id": "curated-krslang-vi-1",
+    "title": "Tiếng lóng Gen-Z & MZ Hàn Quốc 100",
+    "icon": "💬",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "Tiếng lóng Gen-Z / MZ Hàn Quốc thường gặp khắp mạng xã hội, phim Hàn và tin nhắn — 인싸, 갓생, 썸, 꿀잼, 가즈아 và nhiều từ khác về cảm thán, kiểu người, đời sống, hẹn hò, viết tắt & meme. Tiếng Hàn→Tiếng Việt; nghĩa & ví dụ thân mật do AI tạo.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "vi",
+    "isVisible": true,
+    "createdAt": 1781417645787,
+    "words": [
+      {
+        "id": "word-krslang-vi-0-1781417645787",
+        "term": "헐",
+        "definition": "Trời ơi!, Ối chà!, Cái gì vậy trời! (thể hiện sự bất ngờ, ngạc nhiên)",
+        "meaningKr": "Trời ơi!, Ối chà!, Cái gì vậy trời! (thể hiện sự bất ngờ, ngạc nhiên)",
+        "exampleEn": "헐, 너 시험 만점 받았다고? 대박!",
+        "exampleKr": "Trời ơi, mày thi được điểm tuyệt đối á? Đỉnh quá!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "heol",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-1-1781417645787",
+        "term": "대박",
+        "definition": "Đỉnh của chóp!, Bá đạo!, Quá dữ! (thể hiện sự kinh ngạc, có thể tốt hoặc xấu)",
+        "meaningKr": "Đỉnh của chóp!, Bá đạo!, Quá dữ! (thể hiện sự kinh ngạc, có thể tốt hoặc xấu)",
+        "exampleEn": "와, 이 드라마 진짜 대박이야! 꼭 봐야 해.",
+        "exampleKr": "Oa, bộ phim này đỉnh của chóp luôn! Nhất định phải xem đó.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "daebak",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-2-1781417645787",
+        "term": "미쳤다",
+        "definition": "Đỉnh của chóp!, Khét lẹt!, Điên thật rồi! (tuyệt vời, không thể tin nổi, tích cực)",
+        "meaningKr": "Đỉnh của chóp!, Khét lẹt!, Điên thật rồi! (tuyệt vời, không thể tin nổi, tích cực)",
+        "exampleEn": "걔 춤추는 거 봤어? 와, 미쳤다 진짜!",
+        "exampleKr": "Mày xem nó nhảy chưa? Oa, đỉnh của chóp thật sự!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "michyeotda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-3-1781417645787",
+        "term": "실화냐",
+        "definition": "Thật hả?, Có thật không vậy?, Không đùa chứ? (không tin vào điều khó tin)",
+        "meaningKr": "Thật hả?, Có thật không vậy?, Không đùa chứ? (không tin vào điều khó tin)",
+        "exampleEn": "내가 1등 당첨됐다고? 이거 실화냐?",
+        "exampleKr": "Tớ trúng số độc đắc á? Cái này có thật không vậy?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "silhwanya",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-4-1781417645787",
+        "term": "레전드",
+        "definition": "Huyền thoại, Cực phẩm; một khoảnh khắc hay điều gì đó đáng nhớ, mang tính biểu tượng",
+        "meaningKr": "Huyền thoại, Cực phẩm; một khoảnh khắc hay điều gì đó đáng nhớ, mang tính biểu tượng",
+        "exampleEn": "어제 콘서트 진짜 레전드였어. 평생 못 잊을 듯!",
+        "exampleKr": "Buổi concert hôm qua đúng là huyền thoại luôn. Chắc cả đời không quên được!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "rejeondeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-5-1781417645787",
+        "term": "ㅇㅈ",
+        "definition": "Chuẩn luôn!, Công nhận!, Đúng vậy! (đồng ý, thừa nhận điều gì đó)",
+        "meaningKr": "Chuẩn luôn!, Công nhận!, Đúng vậy! (đồng ý, thừa nhận điều gì đó)",
+        "exampleEn": "이 카페 분위기 진짜 좋다. ㅇㅈ?",
+        "exampleKr": "Quán cà phê này không khí tốt ghê. Chuẩn không?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "injeong",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-6-1781417645787",
+        "term": "ㄹㅇ",
+        "definition": "Thật sự luôn!, Thiệt á?, Đúng là vậy! (xác nhận điều gì đó là thật)",
+        "meaningKr": "Thật sự luôn!, Thiệt á?, Đúng là vậy! (xác nhận điều gì đó là thật)",
+        "exampleEn": "그 연예인 실물 ㄹㅇ 잘생겼어.",
+        "exampleKr": "Người nổi tiếng đó ngoài đời thật sự đẹp trai luôn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "rieol",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-7-1781417645787",
+        "term": "갓벽",
+        "definition": "Hoàn hảo thần sầu, Đẹp không tì vết; hoàn hảo đến mức như thần thánh",
+        "meaningKr": "Hoàn hảo thần sầu, Đẹp không tì vết; hoàn hảo đến mức như thần thánh",
+        "exampleEn": "와, 저 아이돌 무대 진짜 갓벽하다!",
+        "exampleKr": "Oa, sân khấu của nhóm idol đó hoàn hảo thần sầu luôn!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gatbyeok",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-vi-8-1781417645787",
+        "term": "띵작",
+        "definition": "Kiệt tác, Tác phẩm để đời; cách gọi vui của 명작 (kiệt tác)",
+        "meaningKr": "Kiệt tác, Tác phẩm để đời; cách gọi vui của 명작 (kiệt tác)",
+        "exampleEn": "이 영화 진짜 띵작이야. 두 번 봐도 재밌어.",
+        "exampleKr": "Bộ phim này đúng là kiệt tác. Xem hai lần vẫn thấy hay.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ddingjak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-9-1781417645787",
+        "term": "꿀잼",
+        "definition": "Siêu vui, Cực kỳ thú vị; 'mật ong' + 'vui' (재미)",
+        "meaningKr": "Siêu vui, Cực kỳ thú vị; 'mật ong' + 'vui' (재미)",
+        "exampleEn": "어제 친구들이랑 보드게임 했는데 꿀잼이었어.",
+        "exampleKr": "Hôm qua tớ chơi board game với bạn, siêu vui luôn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkuljaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-10-1781417645787",
+        "term": "노잼",
+        "definition": "Buồn tẻ, Chán phèo; không vui (no + 재미)",
+        "meaningKr": "Buồn tẻ, Chán phèo; không vui (no + 재미)",
+        "exampleEn": "그 영화는 스토리가 너무 노잼이라 중간에 나왔어.",
+        "exampleKr": "Bộ phim đó cốt truyện chán phèo nên tớ bỏ ra giữa chừng.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nojaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-11-1781417645787",
+        "term": "쩐다",
+        "definition": "Bá cháy!, Cực đỉnh!, Quá dữ! (cực kỳ ấn tượng hoặc mãnh liệt)",
+        "meaningKr": "Bá cháy!, Cực đỉnh!, Quá dữ! (cực kỳ ấn tượng hoặc mãnh liệt)",
+        "exampleEn": "와, 쟤 노래 진짜 쩐다! 소름 돋았어.",
+        "exampleKr": "Oa, nó hát bá cháy luôn! Nổi hết cả da gà.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjeonda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-vi-12-1781417645787",
+        "term": "소오름",
+        "definition": "Nổi da gà!, Rùng mình! (biểu cảm kéo dài của 소름, thường là do ấn tượng mạnh)",
+        "meaningKr": "Nổi da gà!, Rùng mình! (biểu cảm kéo dài của 소름, thường là do ấn tượng mạnh)",
+        "exampleEn": "그 반전 보고 소오름 돋았잖아!",
+        "exampleKr": "Xem cái cú twist đó mà nổi da gà luôn á!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "soooreum",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-13-1781417645787",
+        "term": "무야호",
+        "definition": "Múa nhao!, Múa nhao! (một tiếng reo hò vui sướng, phấn khích từ meme)",
+        "meaningKr": "Múa nhao!, Múa nhao! (một tiếng reo hò vui sướng, phấn khích từ meme)",
+        "exampleEn": "드디어 금요일이다! 무야호~!",
+        "exampleKr": "Cuối cùng cũng là thứ Sáu rồi! Múa nhao~!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "muyaho",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-14-1781417645787",
+        "term": "1도 없다",
+        "definition": "Không có một chút nào, Không hề có (dù chỉ là '1')",
+        "meaningKr": "Không có một chút nào, Không hề có (dù chỉ là '1')",
+        "exampleEn": "난 그 사람한테 관심 1도 없어.",
+        "exampleKr": "Tớ không có một chút hứng thú nào với người đó luôn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "il-do eopda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-15-1781417645787",
+        "term": "인싸",
+        "definition": "Người hướng ngoại, Người nổi bật; người năng động, hòa đồng",
+        "meaningKr": "Người hướng ngoại, Người nổi bật; người năng động, hòa đồng",
+        "exampleEn": "쟤는 어딜 가든 인싸라서 친구가 진짜 많아.",
+        "exampleKr": "Nó đi đâu cũng là người hướng ngoại nên có rất nhiều bạn bè.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "inssa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-16-1781417645787",
+        "term": "아싸",
+        "definition": "Người hướng nội, Người sống khép kín; người ít giao tiếp xã hội",
+        "meaningKr": "Người hướng nội, Người sống khép kín; người ít giao tiếp xã hội",
+        "exampleEn": "난 집에서 혼자 노는 거 좋아하는 아싸야.",
+        "exampleKr": "Tớ là người hướng nội thích chơi một mình ở nhà.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "assa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-17-1781417645787",
+        "term": "핵인싸",
+        "definition": "Siêu hướng ngoại, Trung tâm của mọi sự chú ý; người cực kỳ nổi tiếng, năng động",
+        "meaningKr": "Siêu hướng ngoại, Trung tâm của mọi sự chú ý; người cực kỳ nổi tiếng, năng động",
+        "exampleEn": "우리 반 반장은 핵인싸라 모르는 사람이 없어.",
+        "exampleKr": "Lớp trưởng lớp tớ là siêu hướng ngoại nên không ai là không biết.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "haeginssa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-18-1781417645787",
+        "term": "찐",
+        "definition": "Thật sự, Chính hiệu, Đích thực; từ rút gọn của 진짜",
+        "meaningKr": "Thật sự, Chính hiệu, Đích thực; từ rút gọn của 진짜",
+        "exampleEn": "걔는 찐 친구라서 모든 비밀을 말할 수 있어.",
+        "exampleKr": "Nó là bạn thân đích thực nên tớ có thể kể mọi bí mật.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "j-jin",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-vi-19-1781417645787",
+        "term": "찐텐",
+        "definition": "Năng lượng thật, Sự phấn khích thật lòng; biểu hiện cảm xúc thật, không gượng ép",
+        "meaningKr": "Năng lượng thật, Sự phấn khích thật lòng; biểu hiện cảm xúc thật, không gượng ép",
+        "exampleEn": "걔 오늘 찐텐으로 신나 보여서 다행이다.",
+        "exampleKr": "May quá, hôm nay nó trông phấn khích thật lòng.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjintaen",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-20-1781417645787",
+        "term": "만렙",
+        "definition": "Đạt cấp tối đa, Cực kỳ thành thạo; người đã làm chủ hoàn toàn điều gì đó",
+        "meaningKr": "Đạt cấp tối đa, Cực kỳ thành thạo; người đã làm chủ hoàn toàn điều gì đó",
+        "exampleEn": "쟤는 요리 만렙이라 뭘 만들어도 다 맛있어.",
+        "exampleKr": "Nó là cao thủ nấu ăn nên làm món gì cũng ngon hết.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "mallep",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-21-1781417645787",
+        "term": "능력자",
+        "definition": "Người có năng lực, Người tài giỏi; người có khả năng thực hiện mọi thứ",
+        "meaningKr": "Người có năng lực, Người tài giỏi; người có khả năng thực hiện mọi thứ",
+        "exampleEn": "우리 팀에 능력자가 많아서 프로젝트가 순조로워.",
+        "exampleKr": "Trong team mình có nhiều người tài giỏi nên dự án rất thuận lợi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "neungnyeokja",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-22-1781417645787",
+        "term": "갓생",
+        "definition": "Cuộc sống chuẩn mực, Cuộc sống kiểu mẫu; lối sống kỷ luật, năng suất và đáng ngưỡng mộ",
+        "meaningKr": "Cuộc sống chuẩn mực, Cuộc sống kiểu mẫu; lối sống kỷ luật, năng suất và đáng ngưỡng mộ",
+        "exampleEn": "나도 갓생 살고 싶은데 너무 게을러.",
+        "exampleKr": "Tớ cũng muốn sống một cuộc sống chuẩn mực nhưng mà lười quá.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gatssaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-23-1781417645787",
+        "term": "분위기 메이커",
+        "definition": "Người khuấy động không khí, Người tạo mood; người làm cho không khí nhóm trở nên sôi động",
+        "meaningKr": "Người khuấy động không khí, Người tạo mood; người làm cho không khí nhóm trở nên sôi động",
+        "exampleEn": "걔는 분위기 메이커라서 같이 있으면 항상 즐거워.",
+        "exampleKr": "Nó là người khuấy động không khí nên ở cùng lúc nào cũng vui vẻ.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bunwigi meikeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-24-1781417645787",
+        "term": "TMT",
+        "definition": "Người nói quá nhiều, Bà tám; người nói chuyện luyên thuyên không ngừng",
+        "meaningKr": "Người nói quá nhiều, Bà tám; người nói chuyện luyên thuyên không ngừng",
+        "exampleEn": "우리 엄마는 진짜 TMT라서 전화하면 끊을 수가 없어.",
+        "exampleKr": "Mẹ tớ đúng là người nói quá nhiều nên gọi điện thoại là không thể cúp máy được.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "t-em-ti",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-25-1781417645787",
+        "term": "답정너",
+        "definition": "Kiểu người đã tự quyết định câu trả lời mình muốn nghe rồi, chỉ chờ người khác nói ra thôi. (Người chỉ hỏi cho có, đã có đáp án trong đầu)",
+        "meaningKr": "Kiểu người đã tự quyết định câu trả lời mình muốn nghe rồi, chỉ chờ người khác nói ra thôi. (Người chỉ hỏi cho có, đã có đáp án trong đầu)",
+        "exampleEn": "야, 너 진짜 답정너다. 내가 뭐라고 말하든 똑같잖아!",
+        "exampleKr": "Này, cậu đúng là đồ chỉ hỏi cho có. Mình nói gì thì cậu cũng như vậy thôi!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dapjeongneo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-26-1781417645787",
+        "term": "관종",
+        "definition": "Người thích gây chú ý, thích được quan tâm. (Kẻ khát fame, con nghiện sự chú ý)",
+        "meaningKr": "Người thích gây chú ý, thích được quan tâm. (Kẻ khát fame, con nghiện sự chú ý)",
+        "exampleEn": "쟤 완전 관종이네. 맨날 이상한 짓 해서 관심 받으려고 해.",
+        "exampleKr": "Cậu ta đúng là đồ thích gây chú ý. Ngày nào cũng làm mấy trò lạ để được quan tâm.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gwanjong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-27-1781417645787",
+        "term": "프로불편러",
+        "definition": "Người hay khó chịu, dễ bị phật ý về mọi thứ, kiểu như \"chuyên gia bất mãn\".",
+        "meaningKr": "Người hay khó chịu, dễ bị phật ý về mọi thứ, kiểu như \"chuyên gia bất mãn\".",
+        "exampleEn": "걔는 진짜 프로불편러야. 뭘 해도 다 불편하다고 해.",
+        "exampleKr": "Cậu ta đúng là \"chuyên gia bất mãn\" đó. Làm gì cũng thấy khó chịu.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "peurobulpyeonreo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-28-1781417645787",
+        "term": "모쏠",
+        "definition": "Người chưa từng hẹn hò, chưa có mảnh tình vắt vai nào từ bé đến giờ. (FA bẩm sinh)",
+        "meaningKr": "Người chưa từng hẹn hò, chưa có mảnh tình vắt vai nào từ bé đến giờ. (FA bẩm sinh)",
+        "exampleEn": "나 모쏠인데 이번 크리스마스도 혼자 보내야 해.",
+        "exampleKr": "Tớ là FA bẩm sinh nè, Giáng sinh năm nay cũng phải ở một mình rồi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "mosssol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-29-1781417645787",
+        "term": "금사빠",
+        "definition": "Người dễ yêu, nhanh yêu, vừa gặp đã đổ đứ đừ. (Trái tim mong manh dễ vỡ)",
+        "meaningKr": "Người dễ yêu, nhanh yêu, vừa gặp đã đổ đứ đừ. (Trái tim mong manh dễ vỡ)",
+        "exampleEn": "걔는 진짜 금사빠라서 금방 사랑에 빠지고 금방 헤어져.",
+        "exampleKr": "Cậu ấy đúng là người dễ yêu, nhanh yêu lắm, yêu nhanh rồi chia tay cũng nhanh.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "geumsappa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-30-1781417645787",
+        "term": "워라밸",
+        "definition": "Sự cân bằng giữa công việc và cuộc sống cá nhân. (Work-life balance)",
+        "meaningKr": "Sự cân bằng giữa công việc và cuộc sống cá nhân. (Work-life balance)",
+        "exampleEn": "요즘 직장인들은 워라밸을 제일 중요하게 생각하는 것 같아.",
+        "exampleKr": "Dạo này dân văn phòng hình như coi trọng sự cân bằng công việc-cuộc sống nhất thì phải.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "worabael",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-31-1781417645787",
+        "term": "가성비",
+        "definition": "Tỷ lệ hiệu suất/giá cả tốt, đáng tiền, mua không bị lỗ. (Hời, ngon-bổ-rẻ)",
+        "meaningKr": "Tỷ lệ hiệu suất/giá cả tốt, đáng tiền, mua không bị lỗ. (Hời, ngon-bổ-rẻ)",
+        "exampleEn": "이 식당은 가성비가 진짜 좋아서 자주 와요.",
+        "exampleKr": "Quán ăn này đáng tiền thật sự nên tớ hay ghé.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gaseongbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-32-1781417645787",
+        "term": "가심비",
+        "definition": "Giá trị mang lại sự hài lòng về mặt cảm xúc, không chỉ đơn thuần là giá cả. (Giá trị cảm xúc)",
+        "meaningKr": "Giá trị mang lại sự hài lòng về mặt cảm xúc, không chỉ đơn thuần là giá cả. (Giá trị cảm xúc)",
+        "exampleEn": "비싸도 가심비 좋으면 사는 편이야. 만족감이 중요하잖아.",
+        "exampleKr": "Dù đắt nhưng nếu mang lại giá trị cảm xúc thì mình vẫn mua. Sự hài lòng quan trọng mà.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gasimbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-33-1781417645787",
+        "term": "갓성비",
+        "definition": "Giá trị tuyệt vời, siêu hời, đáng tiền một cách thần sầu. (Siêu ngon-bổ-rẻ, giá trị đỉnh cao)",
+        "meaningKr": "Giá trị tuyệt vời, siêu hời, đáng tiền một cách thần sầu. (Siêu ngon-bổ-rẻ, giá trị đỉnh cao)",
+        "exampleEn": "와, 이 카페 커피 진짜 갓성비다! 가격도 저렴하고 맛도 최고네.",
+        "exampleKr": "Oa, cà phê quán này đúng là siêu ngon-bổ-rẻ! Giá vừa rẻ mà hương vị cũng đỉnh nữa.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gatseongbi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-34-1781417645787",
+        "term": "오운완",
+        "definition": "Hôm nay đã hoàn thành bài tập thể dục/tập gym. (Đã tập xong hôm nay)",
+        "meaningKr": "Hôm nay đã hoàn thành bài tập thể dục/tập gym. (Đã tập xong hôm nay)",
+        "exampleEn": "오운완! 오늘도 운동 완료! 뿌듯하다.",
+        "exampleKr": "Đã tập xong hôm nay! Cảm thấy tự hào ghê.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "o-un-wan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-35-1781417645787",
+        "term": "플렉스",
+        "definition": "Vung tiền, chi tiêu mạnh tay, mua sắm thả ga để khoe khoang. (Flex, chốt đơn)",
+        "meaningKr": "Vung tiền, chi tiêu mạnh tay, mua sắm thả ga để khoe khoang. (Flex, chốt đơn)",
+        "exampleEn": "월급 들어왔으니까 오늘은 내가 쏜다! 플렉스 해버렸지 뭐야.",
+        "exampleKr": "Tiền lương về rồi nên hôm nay tớ bao! Chốt đơn luôn chứ sao nữa.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "peulrekseu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-vi-36-1781417645787",
+        "term": "영끌",
+        "definition": "Gom góp từng đồng cuối cùng, dốc hết tất cả tiền bạc, sức lực (thường để mua nhà).",
+        "meaningKr": "Gom góp từng đồng cuối cùng, dốc hết tất cả tiền bạc, sức lực (thường để mua nhà).",
+        "exampleEn": "영끌해서 겨우 내 집 마련했어. 이제 열심히 갚아야지.",
+        "exampleKr": "Dốc hết tiền bạc cuối cùng ra mới mua được nhà. Giờ phải chăm chỉ trả nợ thôi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yeongkkeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-37-1781417645787",
+        "term": "짠테크",
+        "definition": "Lối sống tiết kiệm triệt để, thắt lưng buộc bụng để tích lũy tiền bạc. (Tằn tiện, tiết kiệm từng đồng)",
+        "meaningKr": "Lối sống tiết kiệm triệt để, thắt lưng buộc bụng để tích lũy tiền bạc. (Tằn tiện, tiết kiệm từng đồng)",
+        "exampleEn": "요즘 짠테크 열심히 해서 돈 모으는 중이야.",
+        "exampleKr": "Dạo này mình đang chăm chỉ tiết kiệm từng đồng để gom tiền nè.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjantaekeu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-38-1781417645787",
+        "term": "탕진잼",
+        "definition": "Niềm vui khi tiêu tiền vào những món đồ nhỏ nhặt, không quá giá trị nhưng mang lại sự thỏa mãn tức thời. (Tiêu tiền cho vui)",
+        "meaningKr": "Niềm vui khi tiêu tiền vào những món đồ nhỏ nhặt, không quá giá trị nhưng mang lại sự thỏa mãn tức thời. (Tiêu tiền cho vui)",
+        "exampleEn": "탕진잼으로 스트레스 푸는 게 최고지! 작은 행복이야.",
+        "exampleKr": "Xả stress bằng cách tiêu tiền cho vui là nhất! Một niềm hạnh phúc nhỏ bé.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tangjinjaem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-39-1781417645787",
+        "term": "멍청비용",
+        "definition": "Khoản tiền lãng phí do sự bất cẩn, ngốc nghếch của bản thân. (Tiền ngu, thuế ngu)",
+        "meaningKr": "Khoản tiền lãng phí do sự bất cẩn, ngốc nghếch của bản thân. (Tiền ngu, thuế ngu)",
+        "exampleEn": "아, 또 멍청비용 썼네. 왜 항상 이런 실수를 하는 걸까?",
+        "exampleKr": "Haizz, lại tốn tiền ngu rồi. Sao lúc nào mình cũng mắc mấy lỗi này vậy nhỉ?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "meongcheongbiyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-40-1781417645787",
+        "term": "욜로",
+        "definition": "Tận hưởng cuộc sống hiện tại, sống hết mình vì đời chỉ có một lần (YOLO - You Only Live Once).",
+        "meaningKr": "Tận hưởng cuộc sống hiện tại, sống hết mình vì đời chỉ có một lần (YOLO - You Only Live Once).",
+        "exampleEn": "욜로! 한 번 사는 인생인데 하고 싶은 거 다 하고 살아야지.",
+        "exampleKr": "YOLO! Đời chỉ có một lần, mình phải sống sao cho làm được tất cả những gì mình muốn chứ.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yollo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-41-1781417645787",
+        "term": "칼퇴",
+        "definition": "Tan làm đúng giờ \"như dao cắt\", không ở lại thêm một phút nào.",
+        "meaningKr": "Tan làm đúng giờ \"như dao cắt\", không ở lại thêm một phút nào.",
+        "exampleEn": "드디어 칼퇴했다! 오늘 저녁 약속 있어서 빨리 가야 해.",
+        "exampleKr": "Cuối cùng cũng tan làm đúng giờ! Tối nay có hẹn nên phải đi nhanh thôi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kaltoe",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-42-1781417645787",
+        "term": "점메추",
+        "definition": "Gợi ý món ăn trưa cho mình với (viết tắt của \"점심 메뉴 추천\").",
+        "meaningKr": "Gợi ý món ăn trưa cho mình với (viết tắt của \"점심 메뉴 추천\").",
+        "exampleEn": "뭐 먹을지 모르겠어. 점메추 해줄 사람?",
+        "exampleKr": "Không biết ăn gì nữa. Ai gợi ý món ăn trưa cho mình với?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jeommaechu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-43-1781417645787",
+        "term": "저메추",
+        "definition": "Gợi ý món ăn tối cho mình với (viết tắt của \"저녁 메뉴 추천\").",
+        "meaningKr": "Gợi ý món ăn tối cho mình với (viết tắt của \"저녁 메뉴 추천\").",
+        "exampleEn": "오늘 저녁 뭐 먹지? 저메추 좀 해줘!",
+        "exampleKr": "Tối nay ăn gì đây? Gợi ý món ăn tối cho mình với!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jeomaechu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-44-1781417645787",
+        "term": "혼밥",
+        "definition": "Ăn một mình. (Độc thực)",
+        "meaningKr": "Ăn một mình. (Độc thực)",
+        "exampleEn": "혼밥은 이제 너무 익숙해. 혼자 먹는 게 편해.",
+        "exampleKr": "Ăn một mình giờ quen quá rồi. Ăn một mình thoải mái hơn.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "honbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-45-1781417645787",
+        "term": "혼술",
+        "definition": "Uống rượu/bia một mình. (Độc ẩm)",
+        "meaningKr": "Uống rượu/bia một mình. (Độc ẩm)",
+        "exampleEn": "오늘 스트레스 받아서 혼술 한잔 해야겠어.",
+        "exampleKr": "Hôm nay căng thẳng quá nên chắc phải uống một mình một ly thôi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "honsul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-46-1781417645787",
+        "term": "얼죽아",
+        "definition": "Dù có lạnh đến chết cũng phải uống Americano đá. (Americano đá là chân ái)",
+        "meaningKr": "Dù có lạnh đến chết cũng phải uống Americano đá. (Americano đá là chân ái)",
+        "exampleEn": "날씨 아무리 추워도 난 얼죽아야! 아이스 아메리카노 주세요.",
+        "exampleKr": "Trời có lạnh đến mấy thì mình cũng là \"team Americano đá\"! Cho mình một ly Americano đá nha.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "eoljjuga",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-47-1781417645787",
+        "term": "꿀팁",
+        "definition": "Mẹo hay, bí quyết hữu ích, lời khuyên cực kỳ giá trị. (Mẹo \"mật ong\", tips hay)",
+        "meaningKr": "Mẹo hay, bí quyết hữu ích, lời khuyên cực kỳ giá trị. (Mẹo \"mật ong\", tips hay)",
+        "exampleEn": "이 꿀팁 덕분에 일 처리 속도가 훨씬 빨라졌어! 고마워.",
+        "exampleKr": "Nhờ cái mẹo hay này mà tốc độ xử lý công việc của mình nhanh hơn hẳn! Cảm ơn cậu nhé.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkultip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-48-1781417645787",
+        "term": "국룰",
+        "definition": "Quy tắc bất thành văn mà ai cũng ngầm tuân theo, luật chung của mọi người. (Luật quốc dân)",
+        "meaningKr": "Quy tắc bất thành văn mà ai cũng ngầm tuân theo, luật chung của mọi người. (Luật quốc dân)",
+        "exampleEn": "짜장면 먹을 땐 단무지가 국룰이지! 안 주면 섭섭해.",
+        "exampleKr": "Khi ăn jajangmyeon thì củ cải vàng muối là luật quốc dân rồi! Không có thì buồn lắm.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gukrul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-49-1781417645787",
+        "term": "썸",
+        "definition": "Giai đoạn tìm hiểu, \"thả thính\" trước khi chính thức hẹn hò. (Tình trong như đã mặt ngoài còn e, overthinking stage)",
+        "meaningKr": "Giai đoạn tìm hiểu, \"thả thính\" trước khi chính thức hẹn hò. (Tình trong như đã mặt ngoài còn e, overthinking stage)",
+        "exampleEn": "나 요즘 썸 타는 사람 생겼어! 잘 됐으면 좋겠다.",
+        "exampleKr": "Dạo này mình có người đang trong giai đoạn tìm hiểu rồi nè! Mong là sẽ thành công.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sseom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-50-1781417645787",
+        "term": "썸타다",
+        "definition": "đang trong giai đoạn 'tìm hiểu', 'thả thính' với ai đó; trên tình bạn dưới tình yêu.",
+        "meaningKr": "đang trong giai đoạn 'tìm hiểu', 'thả thính' với ai đó; trên tình bạn dưới tình yêu.",
+        "exampleEn": "걔랑 너랑 썸 타는 거 아니야? 분위기가 심상치 않은데?",
+        "exampleKr": "Hai đứa mày đang 'thả thính' nhau à? Không khí có vẻ không bình thường đâu nhé.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sseomtada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-vi-51-1781417645787",
+        "term": "케미",
+        "definition": "phản ứng hóa học; sự ăn ý, hợp nhau giữa hai người (từ 'chemistry').",
+        "meaningKr": "phản ứng hóa học; sự ăn ý, hợp nhau giữa hai người (từ 'chemistry').",
+        "exampleEn": "와, 저 둘 케미 장난 아니다. 드라마에서 만나면 대박일 듯!",
+        "exampleKr": "Wow, hai người đó hợp nhau ghê. Nếu đóng phim chung chắc bùng nổ luôn!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kemi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-52-1781417645787",
+        "term": "읽씹",
+        "definition": "đã đọc tin nhắn nhưng không trả lời; 'seen' mà không rep.",
+        "meaningKr": "đã đọc tin nhắn nhưng không trả lời; 'seen' mà không rep.",
+        "exampleEn": "어제 보낸 카톡 읽씹 당했어. 너무해!",
+        "exampleKr": "Tin nhắn Kakao mình gửi hôm qua bị 'seen' không rep rồi. Đáng ghét ghê!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ikssip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-53-1781417645787",
+        "term": "안읽씹",
+        "definition": "chưa đọc tin nhắn mà đã ngó lơ; không mở tin nhắn ra xem.",
+        "meaningKr": "chưa đọc tin nhắn mà đã ngó lơ; không mở tin nhắn ra xem.",
+        "exampleEn": "내 메시지 안읽씹이야. 얘 나한테 화났나?",
+        "exampleKr": "Tin nhắn của mình bị 'treo' không đọc luôn. Nó giận mình à?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "an-ikssip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-54-1781417645787",
+        "term": "손절",
+        "definition": "cắt đứt quan hệ với ai đó; bỏ qua để khỏi thiệt hại thêm.",
+        "meaningKr": "cắt đứt quan hệ với ai đó; bỏ qua để khỏi thiệt hại thêm.",
+        "exampleEn": "걔는 진짜 답이 없어. 이제 손절해야 할 것 같아.",
+        "exampleKr": "Thằng đó hết thuốc chữa rồi. Chắc phải cắt đứt quan hệ thôi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sonjeol",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-vi-55-1781417645787",
+        "term": "내로남불",
+        "definition": "tiêu chuẩn kép; 'ta làm thì được, người khác làm thì không'.",
+        "meaningKr": "tiêu chuẩn kép; 'ta làm thì được, người khác làm thì không'.",
+        "exampleEn": "너 맨날 내로남불이야. 네가 하면 괜찮고 내가 하면 안 돼?",
+        "exampleKr": "Mày lúc nào cũng tiêu chuẩn kép. Mày làm thì được, tao làm thì không à?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "naeronambul",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-56-1781417645787",
+        "term": "낄끼빠빠",
+        "definition": "biết khi nào nên tham gia và khi nào nên rút lui; biết 'đọc vị' tình huống.",
+        "meaningKr": "biết khi nào nên tham gia và khi nào nên rút lui; biết 'đọc vị' tình huống.",
+        "exampleEn": "야, 좀 낄끼빠빠 좀 해라. 지금 그 얘기 할 때 아니잖아.",
+        "exampleKr": "Này, biết 'đọc vị' tình huống chút đi chứ. Giờ đâu phải lúc nói chuyện đó.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkilkkippappa",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-57-1781417645787",
+        "term": "자만추",
+        "definition": "tìm kiếm mối quan hệ tự nhiên, không qua ứng dụng hẹn hò (từ viết tắt của '자연스러운 만남 추구').",
+        "meaningKr": "tìm kiếm mối quan hệ tự nhiên, không qua ứng dụng hẹn hò (từ viết tắt của '자연스러운 만남 추구').",
+        "exampleEn": "나는 소개팅이나 앱 말고 자만추가 더 좋아.",
+        "exampleKr": "Mình thích tìm người yêu tự nhiên hơn là qua xem mắt hay ứng dụng.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jaman-chu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-58-1781417645787",
+        "term": "갑분싸",
+        "definition": "không khí đột nhiên trở nên lạnh lẽo, khó xử; 'tụt mood' bất thình lình.",
+        "meaningKr": "không khí đột nhiên trở nên lạnh lẽo, khó xử; 'tụt mood' bất thình lình.",
+        "exampleEn": "내 농담에 갑분싸 됐어. 망했다...",
+        "exampleKr": "Trò đùa của mình làm không khí 'tụt mood' luôn. Tiêu rồi...",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gapbunssa",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-59-1781417645787",
+        "term": "케바케",
+        "definition": "tùy trường hợp; tùy từng vụ việc (từ tiếng Anh 'case by case').",
+        "meaningKr": "tùy trường hợp; tùy từng vụ việc (từ tiếng Anh 'case by case').",
+        "exampleEn": "그거 케바케라서 딱 잘라 말하기 어렵다.",
+        "exampleKr": "Cái đó tùy trường hợp nên khó nói chính xác lắm.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kebake",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-60-1781417645787",
+        "term": "사바사",
+        "definition": "tùy người; mỗi người mỗi khác (từ '사람 바이 사람' - người theo người).",
+        "meaningKr": "tùy người; mỗi người mỗi khác (từ '사람 바이 사람' - người theo người).",
+        "exampleEn": "그 옷은 사바사라 직접 입어봐야 알아.",
+        "exampleKr": "Cái áo đó tùy người mặc nên phải thử mới biết được.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sabasa",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-61-1781417645787",
+        "term": "만반잘부",
+        "definition": "chào mừng, rất vui được gặp bạn, mong được giúp đỡ/hòa hợp (viết tắt của '만나서 반가워 잘 부탁해').",
+        "meaningKr": "chào mừng, rất vui được gặp bạn, mong được giúp đỡ/hòa hợp (viết tắt của '만나서 반가워 잘 부탁해').",
+        "exampleEn": "안녕, 오늘부터 잘 부탁해! 만반잘부~",
+        "exampleKr": "Chào, từ hôm nay mong được giúp đỡ nhé! Rất vui được gặp!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "manbanjalbu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-62-1781417645787",
+        "term": "알잘딱깔센",
+        "definition": "tự giác làm mọi thứ một cách thông minh, gọn gàng, đúng mực và hợp lý (viết tắt của '알아서 잘 딱 깔끔하고 센스있게').",
+        "meaningKr": "tự giác làm mọi thứ một cách thông minh, gọn gàng, đúng mực và hợp lý (viết tắt của '알아서 잘 딱 깔끔하고 센스있게').",
+        "exampleEn": "그 일은 네가 알잘딱깔센하게 처리해줘.",
+        "exampleKr": "Cái việc đó mày tự giác xử lý cho gọn gàng và hợp lý nhé.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "aljalttakkalsen",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-63-1781417645787",
+        "term": "어쩔티비",
+        "definition": "thôi kệ đi, không quan tâm đâu; 'kệ mày' (cách nói bông đùa, trêu chọc).",
+        "meaningKr": "thôi kệ đi, không quan tâm đâu; 'kệ mày' (cách nói bông đùa, trêu chọc).",
+        "exampleEn": "나 시험 망했어... 어쩔티비? ㅠㅠ",
+        "exampleKr": "Mình thi trượt rồi... Kệ mày à? ㅠㅠ",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "eojjeoltibi",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-64-1781417645787",
+        "term": "별다줄",
+        "definition": "cái gì cũng rút gọn hết trơn (viết tắt của '별걸 다 줄인다').",
+        "meaningKr": "cái gì cũng rút gọn hết trơn (viết tắt của '별걸 다 줄인다').",
+        "exampleEn": "요즘 애들은 진짜 별다줄이야. 뭔 말인지 모르겠어.",
+        "exampleKr": "Mấy đứa trẻ bây giờ cái gì cũng rút gọn hết trơn. Chẳng hiểu chúng nó nói gì.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "byeoldajul",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-65-1781417645787",
+        "term": "ㄱㄱ",
+        "definition": "đi thôi; 'go go' (viết tắt của 고고).",
+        "meaningKr": "đi thôi; 'go go' (viết tắt của 고고).",
+        "exampleEn": "우리 PC방 ㄱㄱ? 오늘 신작 나왔대!",
+        "exampleKr": "Chúng ta đi quán net không? Nghe nói hôm nay có game mới ra!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gogo",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-66-1781417645787",
+        "term": "ㅇㅋ",
+        "definition": "được thôi; 'okay' (viết tắt của 오케이).",
+        "meaningKr": "được thôi; 'okay' (viết tắt của 오케이).",
+        "exampleEn": "내일 3시에 봐. ㅇㅋ?",
+        "exampleKr": "Ngày mai gặp lúc 3 giờ nhé. Okay không?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "okei",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-67-1781417645787",
+        "term": "ㄴㄴ",
+        "definition": "không không; 'no no', 'nope' (viết tắt của 노노).",
+        "meaningKr": "không không; 'no no', 'nope' (viết tắt của 노노).",
+        "exampleEn": "오늘 술 마실래? ㄴㄴ, 나 약속 있어.",
+        "exampleKr": "Hôm nay đi uống rượu không? Không không, mình có hẹn rồi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nono",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-68-1781417645787",
+        "term": "ㅎㅇ",
+        "definition": "chào; 'hi' (viết tắt của 하이).",
+        "meaningKr": "chào; 'hi' (viết tắt của 하이).",
+        "exampleEn": "ㅎㅇ! 잘 지냈어?",
+        "exampleKr": "Chào! Dạo này khỏe không?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hai",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-69-1781417645787",
+        "term": "ㅂㅂ",
+        "definition": "tạm biệt; 'bye bye' (viết tắt của 바이바이).",
+        "meaningKr": "tạm biệt; 'bye bye' (viết tắt của 바이바이).",
+        "exampleEn": "나 먼저 갈게. ㅂㅂ!",
+        "exampleKr": "Mình đi trước đây. Bye bye!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "baibai",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-70-1781417645787",
+        "term": "ㄱㅅ",
+        "definition": "cảm ơn (viết tắt của 감사).",
+        "meaningKr": "cảm ơn (viết tắt của 감사).",
+        "exampleEn": "숙제 도와줘서 ㄱㅅ! 덕분에 다 했어.",
+        "exampleKr": "Cảm ơn đã giúp tớ làm bài tập! Nhờ cậu mà tớ làm xong hết rồi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gamsa",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-71-1781417645787",
+        "term": "ㅈㅅ",
+        "definition": "xin lỗi (viết tắt của 죄송).",
+        "meaningKr": "xin lỗi (viết tắt của 죄송).",
+        "exampleEn": "약속 늦어서 ㅈㅅ! 빨리 갈게.",
+        "exampleKr": "Xin lỗi vì đến muộn nhé! Mình sẽ đến nhanh thôi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "joesong",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-72-1781417645787",
+        "term": "ㅊㅋ",
+        "definition": "chúc mừng (viết tắt của 축하).",
+        "meaningKr": "chúc mừng (viết tắt của 축하).",
+        "exampleEn": "생일 ㅊㅋㅊㅋ! 오늘 파티에서 보자.",
+        "exampleKr": "Chúc mừng sinh nhật! Hẹn gặp ở bữa tiệc hôm nay nhé.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chukka",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-73-1781417645787",
+        "term": "ㅅㄱ",
+        "definition": "làm tốt lắm; tạm biệt, giữ gìn sức khỏe (viết tắt của 수고).",
+        "meaningKr": "làm tốt lắm; tạm biệt, giữ gìn sức khỏe (viết tắt của 수고).",
+        "exampleEn": "오늘 수업 끝! 다들 ㅅㄱ했어요.",
+        "exampleKr": "Hôm nay tan học rồi! Mọi người làm tốt lắm.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sugo",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-74-1781417645787",
+        "term": "TMI",
+        "definition": "quá nhiều thông tin không cần thiết; kể lể quá đà (từ tiếng Anh 'Too Much Information').",
+        "meaningKr": "quá nhiều thông tin không cần thiết; kể lể quá đà (từ tiếng Anh 'Too Much Information').",
+        "exampleEn": "방금 말한 거 완전 TMI였다. 좀 부끄럽네.",
+        "exampleKr": "Cái mình vừa nói đúng là TMI. Hơi ngại ghê.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tie:m-a-i",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-75-1781417645787",
+        "term": "오저치고",
+        "definition": "Tối nay chén gà rán không?",
+        "meaningKr": "Tối nay chén gà rán không?",
+        "exampleEn": "야, 오늘 저녁 치킨 고? 오저치고 할래?",
+        "exampleKr": "Ê, tối nay chén gà không? Tối nay gà rán nha?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ojeochigo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-76-1781417645787",
+        "term": "갑통알",
+        "definition": "Tự nhiên nhìn tài khoản thấy cần đi làm thêm liền.",
+        "meaningKr": "Tự nhiên nhìn tài khoản thấy cần đi làm thêm liền.",
+        "exampleEn": "월급 벌써 다 썼어... 갑통알 제대로 왔네.",
+        "exampleKr": "Lương xài hết sạch rồi... Tự nhiên nhìn tài khoản cái muốn đi làm thêm liền.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gaptong-al",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-77-1781417645787",
+        "term": "짤",
+        "definition": "Ảnh chế, ảnh meme, ảnh phản ứng.",
+        "meaningKr": "Ảnh chế, ảnh meme, ảnh phản ứng.",
+        "exampleEn": "이 짤 진짜 웃기다! 저장해서 친구들한테 보내줘야지.",
+        "exampleKr": "Cái ảnh chế này mắc cười ghê! Lưu về gửi cho bạn bè mới được.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-78-1781417645787",
+        "term": "움짤",
+        "definition": "Ảnh GIF động.",
+        "meaningKr": "Ảnh GIF động.",
+        "exampleEn": "이 움짤 너무 귀엽다, 나도 이런 거 만들어보고 싶어!",
+        "exampleKr": "Cái GIF này cưng quá, tui cũng muốn làm thử cái này!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "umjjal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-79-1781417645787",
+        "term": "어그로",
+        "definition": "Lời lẽ/hành động gây hấn, cố ý chọc tức để gây chú ý.",
+        "meaningKr": "Lời lẽ/hành động gây hấn, cố ý chọc tức để gây chú ý.",
+        "exampleEn": "쟤는 맨날 어그로 끌어서 관심받으려고 해.",
+        "exampleKr": "Cậu ta lúc nào cũng cố ý chọc tức để được chú ý.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "eogeuro",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-80-1781417645787",
+        "term": "가즈아",
+        "definition": "Đi thôi!, Cháy lên!, Lên nào! (dùng để cổ vũ, khích lệ)",
+        "meaningKr": "Đi thôi!, Cháy lên!, Lên nào! (dùng để cổ vũ, khích lệ)",
+        "exampleEn": "우리 팀 이겨라! 가즈아!",
+        "exampleKr": "Đội mình thắng lên nào! Cố lên!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gajeua",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-krslang-vi-81-1781417645787",
+        "term": "띵언",
+        "definition": "Câu nói hay, lời nói chí lý, danh ngôn (cách nói vui của 명언).",
+        "meaningKr": "Câu nói hay, lời nói chí lý, danh ngôn (cách nói vui của 명언).",
+        "exampleEn": "와, 방금 그 말 진짜 띵언이다! 완전 공감해.",
+        "exampleKr": "Wow, câu đó vừa rồi đúng là danh ngôn luôn! Hoàn toàn đồng cảm.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tting-eon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-82-1781417645787",
+        "term": "갓겜",
+        "definition": "Game đỉnh của chóp, game hay bá cháy bọ chét.",
+        "meaningKr": "Game đỉnh của chóp, game hay bá cháy bọ chét.",
+        "exampleEn": "이 게임 진짜 갓겜이야! 밤새도록 해도 질리지가 않아.",
+        "exampleKr": "Game này đỉnh của chóp luôn! Chơi cả đêm cũng không chán.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gatgem",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-83-1781417645787",
+        "term": "현타",
+        "definition": "Cú sốc thực tại, giây phút nhận ra sự thật phũ phàng, vỡ mộng.",
+        "meaningKr": "Cú sốc thực tại, giây phút nhận ra sự thật phũ phàng, vỡ mộng.",
+        "exampleEn": "밤새 놀고 집에 오니 현타 제대로 왔어.",
+        "exampleKr": "Chơi suốt đêm về đến nhà là thấy sốc thực tại liền.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hyeonta",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-84-1781417645787",
+        "term": "멘붕",
+        "definition": "Suy sụp tinh thần, hoảng loạn, khủng hoảng tâm lý.",
+        "meaningKr": "Suy sụp tinh thần, hoảng loạn, khủng hoảng tâm lý.",
+        "exampleEn": "시험 망쳐서 완전 멘붕 왔어. 어떡하지?",
+        "exampleKr": "Thi trượt nên tui suy sụp tinh thần luôn rồi. Giờ phải làm sao đây?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "menbung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-85-1781417645787",
+        "term": "노답",
+        "definition": "Vô phương cứu chữa, hết cách, không có đáp án/giải pháp.",
+        "meaningKr": "Vô phương cứu chữa, hết cách, không có đáp án/giải pháp.",
+        "exampleEn": "쟤는 진짜 노답이야. 아무리 말해도 안 들어.",
+        "exampleKr": "Cậu ta đúng là hết cách nói luôn. Có nói gì cũng không nghe.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nodap",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-vi-86-1781417645787",
+        "term": "꾸안꾸",
+        "definition": "Phong cách ăn mặc \"tưởng không cố mà cố không tưởng\", đẹp tự nhiên nhưng thực chất có đầu tư.",
+        "meaningKr": "Phong cách ăn mặc \"tưởng không cố mà cố không tưởng\", đẹp tự nhiên nhưng thực chất có đầu tư.",
+        "exampleEn": "오늘 꾸안꾸 스타일로 입었는데 괜찮아 보여?",
+        "exampleKr": "Hôm nay tui mặc đồ theo kiểu \"tưởng không cố mà cố không tưởng\" nè, nhìn được không?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kkuankku",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-87-1781417645787",
+        "term": "인생샷",
+        "definition": "Bức ảnh đẹp nhất đời, ảnh để đời.",
+        "meaningKr": "Bức ảnh đẹp nhất đời, ảnh để đời.",
+        "exampleEn": "와, 이 사진 진짜 인생샷이다! 프사로 바꿔야겠어.",
+        "exampleKr": "Wow, tấm ảnh này đúng là ảnh để đời luôn! Phải đổi làm ảnh đại diện mới được.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "insaengsyat",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-88-1781417645787",
+        "term": "인생네컷",
+        "definition": "Ảnh chụp 4 ô theo phong cách retro ở các tiệm tự chụp, ảnh 4 khung.",
+        "meaningKr": "Ảnh chụp 4 ô theo phong cách retro ở các tiệm tự chụp, ảnh 4 khung.",
+        "exampleEn": "우리 인생네컷 찍으러 갈까? 예쁜 옷 입고 와!",
+        "exampleKr": "Mình đi chụp ảnh 4 ô không? Mặc đồ đẹp đẹp vào nha!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "insaengnekeot",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-89-1781417645787",
+        "term": "핫플",
+        "definition": "Địa điểm hot, địa điểm nổi tiếng, nơi tụ tập được giới trẻ yêu thích.",
+        "meaningKr": "Địa điểm hot, địa điểm nổi tiếng, nơi tụ tập được giới trẻ yêu thích.",
+        "exampleEn": "주말에 새로 생긴 핫플 같이 가자!",
+        "exampleKr": "Cuối tuần mình đi đến điểm hot mới mở kia nha!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hatpeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-90-1781417645787",
+        "term": "맛집",
+        "definition": "Quán ăn ngon nổi tiếng, quán ruột của dân sành ăn.",
+        "meaningKr": "Quán ăn ngon nổi tiếng, quán ruột của dân sành ăn.",
+        "exampleEn": "이 근처에 진짜 맛집 있는데, 다음 주에 같이 갈래?",
+        "exampleKr": "Gần đây có một quán ăn ngon nổi tiếng nè, tuần sau mình đi cùng không?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "matjip",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-91-1781417645787",
+        "term": "직관",
+        "definition": "Xem trực tiếp (trận đấu, buổi biểu diễn) tại hiện trường, không qua màn hình.",
+        "meaningKr": "Xem trực tiếp (trận đấu, buổi biểu diễn) tại hiện trường, không qua màn hình.",
+        "exampleEn": "이번 콘서트 꼭 직관 가고 싶어. 티켓팅 성공해야 할 텐데!",
+        "exampleKr": "Buổi concert này tui nhất định muốn đi xem trực tiếp. Phải giành được vé mới được!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jikgwan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-92-1781417645787",
+        "term": "불멍",
+        "definition": "Ngẩn ngơ nhìn lửa cháy, thư giãn đầu óc khi nhìn lửa trại.",
+        "meaningKr": "Ngẩn ngơ nhìn lửa cháy, thư giãn đầu óc khi nhìn lửa trại.",
+        "exampleEn": "캠핑 가서 불멍 때리는 게 요즘 제일 행복해.",
+        "exampleKr": "Đi cắm trại ngồi ngẩn ngơ nhìn lửa cháy là điều hạnh phúc nhất của tớ dạo này.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bulmeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-93-1781417645787",
+        "term": "멍때리다",
+        "definition": "Đứng hình, ngẩn ngơ, đầu óc trống rỗng.",
+        "meaningKr": "Đứng hình, ngẩn ngơ, đầu óc trống rỗng.",
+        "exampleEn": "요즘 너무 피곤해서 자꾸 멍때리게 돼.",
+        "exampleKr": "Dạo này mệt quá nên cứ hay bị đứng hình, ngẩn ngơ.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "meongttaerida",
+        "pos": "verb"
+      },
+      {
+        "id": "word-krslang-vi-94-1781417645787",
+        "term": "광클",
+        "definition": "Nhấp chuột điên cuồng, click chuột thần tốc (để giành vé, săn sale).",
+        "meaningKr": "Nhấp chuột điên cuồng, click chuột thần tốc (để giành vé, săn sale).",
+        "exampleEn": "콘서트 티켓 광클해야 하는데 너무 떨려.",
+        "exampleKr": "Phải click chuột điên cuồng để giành vé concert mà run quá.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gwangkeul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-95-1781417645787",
+        "term": "좋댓구알",
+        "definition": "Thích, bình luận, đăng ký, bật thông báo (thường dùng trên YouTube).",
+        "meaningKr": "Thích, bình luận, đăng ký, bật thông báo (thường dùng trên YouTube).",
+        "exampleEn": "제 채널 좋댓구알 부탁드립니다!",
+        "exampleKr": "Mọi người nhớ thích, bình luận, đăng ký và bật thông báo kênh của em nha!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jotdaetgu-al",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-krslang-vi-96-1781417645787",
+        "term": "짱",
+        "definition": "Tuyệt vời, đỉnh, số một, nhất.",
+        "meaningKr": "Tuyệt vời, đỉnh, số một, nhất.",
+        "exampleEn": "와, 너 진짜 짱이다! 어떻게 그런 생각을 했어?",
+        "exampleKr": "Wow, cậu đỉnh thật đó! Sao mà nghĩ ra được vậy?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jjang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-krslang-vi-97-1781417645787",
+        "term": "개꿀",
+        "definition": "Cực kỳ sướng, siêu hời, dễ như ăn kẹo, ngon ơ.",
+        "meaningKr": "Cực kỳ sướng, siêu hời, dễ như ăn kẹo, ngon ơ.",
+        "exampleEn": "이번 시험 진짜 개꿀이었다! 만점 받은 것 같아.",
+        "exampleKr": "Bài kiểm tra này siêu dễ luôn! Chắc tớ được điểm tuyệt đối rồi.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gaekkulk",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-krslang-vi-98-1781417645787",
+        "term": "핵",
+        "definition": "Tiền tố chỉ mức độ 'cực kỳ', 'siêu', 'siêu cấp'.",
+        "meaningKr": "Tiền tố chỉ mức độ 'cực kỳ', 'siêu', 'siêu cấp'.",
+        "exampleEn": "어제 본 영화 핵꿀잼이었어! 너도 꼭 봐봐.",
+        "exampleKr": "Bộ phim hôm qua tớ xem cực kỳ hay luôn! Cậu cũng nhất định phải xem đó.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "haek",
+        "pos": "prefix"
+      },
+      {
+        "id": "word-krslang-vi-99-1781417645787",
+        "term": "갓",
+        "definition": "Tiền tố chỉ sự 'thần thánh', 'đỉnh cao', 'cực phẩm' (thường dùng để khen).",
+        "meaningKr": "Tiền tố chỉ sự 'thần thánh', 'đỉnh cao', 'cực phẩm' (thường dùng để khen).",
+        "exampleEn": "와, 이 카페 분위기 갓성비 대박이야!",
+        "exampleKr": "Wow, quán cà phê này không gian đỉnh mà giá lại thần thánh nữa!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gat",
+        "pos": "prefix"
+      }
+    ]
+  },
+{
+    "id": "curated-zhslang-zh-1",
+    "title": "중국 MZ·Z세대 슬랭 100",
+    "icon": "🐲",
+    "isCurated": true,
+    "category": "문화",
+    "level": "intermediate",
+    "description": "중국 MZ·Z세대가 웨이보·더우인·게임·채팅에서 실제로 쓰는 인터넷 유행어(网络流行语) 100 — 牛, 绝绝子, yyds, 内卷, 躺平, 社牛, 磕CP 등 감탄·인물·감정·일상·연애·밈/줄임말까지. 자극적이지 않은 재미 위주로 엄선. 중국어→한국어; 병음·뜻·캐주얼 예문 AI 생성.",
+    "sourceLanguage": "zh",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1781415877192,
+    "words": [
+      {
+        "id": "word-zhslang-0-1781415877192",
+        "term": "牛",
+        "definition": "Awesome, badass, super impressive.",
+        "meaningKr": "대단하다, 쩐다",
+        "exampleEn": "你太牛了！",
+        "exampleKr": "너 진짜 대단하다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "niú",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-1-1781415877192",
+        "term": "绝绝子",
+        "definition": "Absolutely amazing, the best ever.",
+        "meaningKr": "완전 최고, 넘사벽",
+        "exampleEn": "这电影绝绝子！",
+        "exampleKr": "이 영화 완전 최고야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "juéjuézi",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-2-1781415877192",
+        "term": "666",
+        "definition": "So pro, so skilled.",
+        "meaningKr": "지린다, 개쩐다",
+        "exampleEn": "哇，你这操作666！",
+        "exampleKr": "와, 너 플레이 지린다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "liùliùliù",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-zhslang-3-1781415877192",
+        "term": "笑死",
+        "definition": "Dying of laughter, LOL.",
+        "meaningKr": "개웃겨, 웃겨 죽겠다",
+        "exampleEn": "哈哈，笑死我了！",
+        "exampleKr": "하하, 개웃겨 죽겠다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiàosǐ",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-4-1781415877192",
+        "term": "哇塞",
+        "definition": "Wow, whoa; exclamation of amazement.",
+        "meaningKr": "와우, 헐, 대박",
+        "exampleEn": "哇塞，好漂亮！",
+        "exampleKr": "와우, 완전 예쁘다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "wāsài",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-zhslang-5-1781415877192",
+        "term": "离谱",
+        "definition": "Ridiculous, absurd, unbelievable.",
+        "meaningKr": "어이없다, 말도 안 된다",
+        "exampleEn": "这也太离谱了！",
+        "exampleKr": "이건 너무 어이없다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "lípǔ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-6-1781415877192",
+        "term": "绝了",
+        "definition": "Extreme, usually amazing; peak/iconic.",
+        "meaningKr": "대박이다, 끝내준다",
+        "exampleEn": "这歌声绝了！",
+        "exampleKr": "이 노랫소리 대박이다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jué le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-7-1781415877192",
+        "term": "太顶了",
+        "definition": "Mind-blowing, overwhelming in a good way.",
+        "meaningKr": "완전 최고, 미쳤다",
+        "exampleEn": "这表演太顶了！",
+        "exampleKr": "이 공연 완전 최고야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tài dǐng le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-8-1781415877192",
+        "term": "真香",
+        "definition": "It's actually great; eating your words.",
+        "meaningKr": "결국 좋았다, 내뱉은 말 거두기",
+        "exampleEn": "哎呀，这剧真香！",
+        "exampleKr": "아, 이 드라마 결국 좋잖아!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhēnxiāng",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-9-1781415877192",
+        "term": "神仙打架",
+        "definition": "Top-tier talents competing, clash of titans.",
+        "meaningKr": "신들의 전쟁, 고수들의 대결",
+        "exampleEn": "这次比赛真是神仙打架！",
+        "exampleKr": "이번 시합은 진짜 신들의 전쟁이네!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shénxiān dǎjià",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-10-1781415877192",
+        "term": "破防",
+        "definition": "Emotionally broken, deeply moved.",
+        "meaningKr": "감동받다, 멘탈 무너지다",
+        "exampleEn": "我哭了，彻底破防了。",
+        "exampleKr": "울었어, 완전히 감동받았네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "pòfáng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-11-1781415877192",
+        "term": "泪目",
+        "definition": "Teary-eyed, touched, on verge of tears.",
+        "meaningKr": "눈물 그렁그렁, 울컥하다",
+        "exampleEn": "看到这里，我泪目了。",
+        "exampleKr": "이 부분 보니까, 울컥했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "lèimù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-12-1781415877192",
+        "term": "笑不活了",
+        "definition": "Can't stop laughing, dying of laughter.",
+        "meaningKr": "웃겨 죽겠다, 웃음을 멈출 수 없어",
+        "exampleEn": "这个视频，我笑不活了！",
+        "exampleKr": "이 영상, 웃겨 죽겠다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiào bù huó le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-13-1781415877192",
+        "term": "给力",
+        "definition": "Awesome, powerful, really delivers.",
+        "meaningKr": "짱이다, 힘이 된다, 최고다",
+        "exampleEn": "这次活动太给力了！",
+        "exampleKr": "이번 행사 완전 짱이야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gěilì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-14-1781415877192",
+        "term": "顶呱呱",
+        "definition": "Top-notch, first-rate, excellent.",
+        "meaningKr": "최고다, 아주 좋다, 짱이다",
+        "exampleEn": "你的表现顶呱呱！",
+        "exampleKr": "네 활약 최고다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dǐngguāguā",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-15-1781415877192",
+        "term": "害",
+        "definition": "Ugh, sigh; a resigned interjection.",
+        "meaningKr": "에휴, 아이고 (체념)",
+        "exampleEn": "害，没办法了。",
+        "exampleKr": "에휴, 어쩔 수 없지.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hài",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-zhslang-16-1781415877192",
+        "term": "我裂开了",
+        "definition": "I'm falling apart, overwhelmed or shook.",
+        "meaningKr": "멘붕이다, 충격받았다",
+        "exampleEn": "听到这消息，我裂开了。",
+        "exampleKr": "이 소식 듣고 멘붕왔어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "wǒ liě kāi le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-17-1781415877192",
+        "term": "社牛",
+        "definition": "Social butterfly, super outgoing.",
+        "meaningKr": "인싸, 핵인싸",
+        "exampleEn": "他真是个社牛。",
+        "exampleKr": "걔 진짜 인싸네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shèniú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-18-1781415877192",
+        "term": "社恐",
+        "definition": "Socially anxious person, introvert.",
+        "meaningKr": "아싸, 사회성 부족",
+        "exampleEn": "我有点社恐。",
+        "exampleKr": "나 약간 아싸야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shèkǒng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-19-1781415877192",
+        "term": "打工人",
+        "definition": "Wage worker, working stiff (self-deprecating).",
+        "meaningKr": "직장인, 알바생 (자조적)",
+        "exampleEn": "早安，打工人！",
+        "exampleKr": "좋은 아침, 직장인 여러분!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dǎgōngrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-20-1781415877192",
+        "term": "干饭人",
+        "definition": "Hearty eater, foodie who lives to eat.",
+        "meaningKr": "먹짱, 먹보",
+        "exampleEn": "干饭人，干饭魂！",
+        "exampleKr": "먹짱이여, 먹짱의 영혼이여!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gànfànrén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-21-1781415877192",
+        "term": "卷王",
+        "definition": "Over-competitive overachiever, king of the rat race.",
+        "meaningKr": "경쟁왕, 노력왕 (부정적)",
+        "exampleEn": "他真是个卷王。",
+        "exampleKr": "걔 진짜 경쟁왕이다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "juǎnwáng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-22-1781415877192",
+        "term": "显眼包",
+        "definition": "Attention-grabbing goofball, lovable show-off.",
+        "meaningKr": "관종, 유쾌한 분위기 메이커",
+        "exampleEn": "他就是个显眼包。",
+        "exampleKr": "걔 완전 관종이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiǎnyǎnbāo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-23-1781415877192",
+        "term": "凡尔赛",
+        "definition": "Humble-bragger, bragging by complaining.",
+        "meaningKr": "겸손한 척 자랑하기, 허세",
+        "exampleEn": "别凡尔赛了！",
+        "exampleKr": "허세 좀 부리지 마!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "fán'ěrsài",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-24-1781415877192",
+        "term": "杠精",
+        "definition": "Contrarian who argues for arguing's sake.",
+        "meaningKr": "트집쟁이, 반박 전문",
+        "exampleEn": "你别当杠精。",
+        "exampleKr": "너 트집쟁이처럼 굴지 마.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gàngjīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-25-1781415877192",
+        "term": "大佬",
+        "definition": "Big shot, expert, master, GOAT.",
+        "meaningKr": "대가, 고수, 짱, 갓",
+        "exampleEn": "哇，大佬求带飞！",
+        "exampleKr": "와, 고수님 캐리 좀요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dàlǎo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-26-1781415877192",
+        "term": "萌新",
+        "definition": "Cute newbie, fresh beginner.",
+        "meaningKr": "풋내기, 귀요미 초보, 뉴비",
+        "exampleEn": "大家好，我是萌新，请多关照！",
+        "exampleKr": "여러분 안녕하세요, 저는 뉴비입니다, 잘 부탁드려요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "méngxīn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-27-1781415877192",
+        "term": "老司机",
+        "definition": "Experienced veteran, old hand.",
+        "meaningKr": "베테랑, 고수, 숙련자",
+        "exampleEn": "老司机带路，稳了！",
+        "exampleKr": "베테랑이 길을 안내해주니, 안심이야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "lǎosījī",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-28-1781415877192",
+        "term": "锦鲤",
+        "definition": "Super lucky person, lucky charm.",
+        "meaningKr": "행운의 아이콘, 럭키 가이/걸",
+        "exampleEn": "转发这个锦鲤，好运连连！",
+        "exampleKr": "이 행운의 아이콘을 공유하면, 행운이 계속될 거야!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jǐnlǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-29-1781415877192",
+        "term": "戏精",
+        "definition": "Drama queen, over-actor.",
+        "meaningKr": "관종, 드라마 퀸/킹",
+        "exampleEn": "你真是个戏精！",
+        "exampleKr": "너 정말 관종이네!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xìjīng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-30-1781415877192",
+        "term": "吃货",
+        "definition": "Foodie, big eater.",
+        "meaningKr": "먹보, 미식가",
+        "exampleEn": "我是个不折不扣的吃货。",
+        "exampleKr": "나는 완전 먹보야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chīhuò",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-31-1781415877192",
+        "term": "颜值担当",
+        "definition": "The good-looking one, visual.",
+        "meaningKr": "비주얼 담당, 얼굴마담",
+        "exampleEn": "他是我们队的颜值担当。",
+        "exampleKr": "그가 우리 팀의 비주얼 담당이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yánzhí dāndāng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-32-1781415877192",
+        "term": "学霸",
+        "definition": "Top student, academic ace.",
+        "meaningKr": "학업 우수생, 수재",
+        "exampleEn": "学霸的世界我不懂。",
+        "exampleKr": "수재들의 세계는 난 모르겠어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xuébà",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-33-1781415877192",
+        "term": "学渣",
+        "definition": "Struggling, lazy student.",
+        "meaningKr": "공부 못하는 학생, 학업 부진생",
+        "exampleEn": "我就是个学渣，呜呜。",
+        "exampleKr": "난 그냥 공부 못하는 학생이야, 엉엉.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xuézhā",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-34-1781415877192",
+        "term": "内卷",
+        "definition": "Exhausting, pointless rat-race competition.",
+        "meaningKr": "과도한 경쟁, 비효율적 경쟁",
+        "exampleEn": "别内卷了，躺平吧。",
+        "exampleKr": "그만 과도하게 경쟁해, 드러눕자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nèijuǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-35-1781415877192",
+        "term": "躺平",
+        "definition": "To 'lie flat', stop striving.",
+        "meaningKr": "드러눕다, 갓생 포기, 그냥저냥 살다",
+        "exampleEn": "我想躺平，什么都不做。",
+        "exampleKr": "나 드러눕고 싶어, 아무것도 안 하고 싶어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tǎngpíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-36-1781415877192",
+        "term": "摆烂",
+        "definition": "To give up trying, stop caring.",
+        "meaningKr": "망해도 좋다, 포기하고 막 살다, 놔버리다",
+        "exampleEn": "算了，我直接摆烂了。",
+        "exampleKr": "됐어, 나 그냥 망해도 좋다고 생각할래.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bǎilàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-37-1781415877192",
+        "term": "佛系",
+        "definition": "Zen, chill, go-with-the-flow attitude.",
+        "meaningKr": "득도한, 무념무상, 젠(zen)한",
+        "exampleEn": "我现在很佛系，不争不抢。",
+        "exampleKr": "나 지금 되게 득도한 상태야, 다투거나 뺏지 않아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "fóxì",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-38-1781415877192",
+        "term": "emo",
+        "definition": "Feeling down, melancholy, in your feels.",
+        "meaningKr": "감성 터지다, 우울하다, 센치하다",
+        "exampleEn": "今晚有点emo了。",
+        "exampleKr": "오늘 밤 좀 우울하네.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-39-1781415877192",
+        "term": "焦虑",
+        "definition": "Anxious, experiencing anxiety.",
+        "meaningKr": "불안하다, 걱정되다, 초조하다",
+        "exampleEn": "最近有点焦虑，睡不好。",
+        "exampleKr": "요즘 좀 불안해서, 잠을 잘 못 자.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jiāolǜ",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-40-1781415877192",
+        "term": "治愈",
+        "definition": "Healing, wholesome, comforting, soothing.",
+        "meaningKr": "힐링되는, 위로가 되는, 치유되는",
+        "exampleEn": "这部剧好治愈啊。",
+        "exampleKr": "이 드라마 너무 힐링돼.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhìyù",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-zhslang-41-1781415877192",
+        "term": "上瘾",
+        "definition": "To get addicted, hooked on.",
+        "meaningKr": "중독되다, 푹 빠지다",
+        "exampleEn": "我对奶茶上瘾了。",
+        "exampleKr": "나 밀크티에 중독됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shàngyǐn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-42-1781415877192",
+        "term": "摸鱼",
+        "definition": "To slack off, goof around.",
+        "meaningKr": "딴짓하다, 농땡이 부리다",
+        "exampleEn": "别摸鱼了，快干活！",
+        "exampleKr": "딴짓 그만하고, 빨리 일해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "mōyú",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-43-1781415877192",
+        "term": "划水",
+        "definition": "To coast, do the bare minimum.",
+        "meaningKr": "대충하다, 설렁설렁하다",
+        "exampleEn": "开会的时候我一直在划水。",
+        "exampleKr": "회의 내내 난 계속 설렁설렁했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "huáshuǐ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-44-1781415877192",
+        "term": "心态崩了",
+        "definition": "To lose your cool, mentally crack.",
+        "meaningKr": "멘탈 터지다, 멘붕 오다",
+        "exampleEn": "考试没过，我心态崩了。",
+        "exampleKr": "시험에 떨어져서, 나 멘탈 터졌어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xīntài bēng le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-45-1781415877192",
+        "term": "社死",
+        "definition": "'Social death', mortifying moment.",
+        "meaningKr": "사회적 죽음, 쪽팔리다, 현타",
+        "exampleEn": "刚才在路上社死了。",
+        "exampleKr": "방금 길에서 사회적 죽음을 겪었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shèsǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-46-1781415877192",
+        "term": "麻了",
+        "definition": "Numb, done, emotionally drained.",
+        "meaningKr": "멘탈 나갔다, 지쳤다, 무감각해졌다",
+        "exampleEn": "听到这消息我直接麻了。",
+        "exampleKr": "이 소식 듣고 나 그냥 멘탈 나갔어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "má le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-47-1781415877192",
+        "term": "解压",
+        "definition": "To de-stress, relieve pressure.",
+        "meaningKr": "스트레스 해소, 힐링",
+        "exampleEn": "听音乐是我的解压方式。",
+        "exampleKr": "음악 듣는 건 내 스트레스 해소법이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jiěyā",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-48-1781415877192",
+        "term": "上岸",
+        "definition": "To 'reach the shore', succeed.",
+        "meaningKr": "(힘든 과정 끝에) 성공하다, 합격하다",
+        "exampleEn": "恭喜你终于上岸了！",
+        "exampleKr": "드디어 성공한 거 축하해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shàng'àn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-49-1781415877192",
+        "term": "内耗",
+        "definition": "Mental self-drain, exhausting overthinking.",
+        "meaningKr": "정신적 소모, 에너지 소진",
+        "exampleEn": "别再内耗了，放轻松。",
+        "exampleKr": "더 이상 정신 소모하지 마, 편하게 생각해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nèihào",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-50-1781415877192",
+        "term": "干饭",
+        "definition": "Eat heartily, chow down.",
+        "meaningKr": "밥 야무지게 먹다, 밥 먹자!",
+        "exampleEn": "走，干饭去！",
+        "exampleKr": "가자, 밥 야무지게 먹으러!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gànfàn",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-51-1781415877192",
+        "term": "种草",
+        "definition": "Make someone want to buy something.",
+        "meaningKr": "(물건을) 영업당하다, 사고 싶게 만들다.",
+        "exampleEn": "这个包包我被种草了。",
+        "exampleKr": "이 가방 나 영업당했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhòngcǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-52-1781415877192",
+        "term": "拔草",
+        "definition": "Lose urge to buy, cross off wishlist.",
+        "meaningKr": "(사려던 물건에 대한) 구매욕이 사라지다, 뽐뿌가 사라지다.",
+        "exampleEn": "纠结了好久，还是拔草了。",
+        "exampleKr": "한참 고민했는데, 결국 구매욕이 사라졌어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bácǎo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-53-1781415877192",
+        "term": "剁手",
+        "definition": "Shop till you drop, impulse-buy.",
+        "meaningKr": "지름신 강림, 과소비하다.",
+        "exampleEn": "双十一我又剁手了！",
+        "exampleKr": "솽스이(광군제) 때 나 또 지름신 강림했어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "duòshǒu",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-54-1781415877192",
+        "term": "薅羊毛",
+        "definition": "Bargain-hunt, milk deals/freebies.",
+        "meaningKr": "꿀팁 찾아서 이득 보다, 공짜/할인 챙기다.",
+        "exampleEn": "快来薅羊毛，好多优惠！",
+        "exampleKr": "빨리 와서 꿀팁 챙겨, 할인 많아!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "hāo yángmáo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-55-1781415877192",
+        "term": "996",
+        "definition": "Brutal 9am-9pm, 6-days-a-week overwork culture.",
+        "meaningKr": "996 (오전 9시부터 밤 9시까지 주 6일 근무하는 과로 문화).",
+        "exampleEn": "996真的太累了。",
+        "exampleKr": "996는 진짜 너무 힘들어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "jiǔ jiǔ liù",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-56-1781415877192",
+        "term": "打卡",
+        "definition": "Clock in, check off task, visit trendy spot.",
+        "meaningKr": "인증하다, 출석 체크하다, (핫플) 방문하다.",
+        "exampleEn": "今天我去新咖啡店打卡了。",
+        "exampleKr": "오늘 나 새 카페 가서 인증했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dǎkǎ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-57-1781415877192",
+        "term": "网红",
+        "definition": "Internet celebrity, influencer; instagrammable.",
+        "meaningKr": "인플루언서, (장소 등이) 인스타그래머블하다, 핫플이다.",
+        "exampleEn": "这家店是网红店。",
+        "exampleKr": "이 가게는 인플루언서들이 많이 오는 핫플이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "wǎnghóng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-58-1781415877192",
+        "term": "带货",
+        "definition": "Sell products via livestream as influencer.",
+        "meaningKr": "(인플루언서가) 라이브 방송으로 물건을 팔다.",
+        "exampleEn": "她带货能力很强。",
+        "exampleKr": "그분은 라이브 커머스 판매 능력이 아주 뛰어나.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dàihuò",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-59-1781415877192",
+        "term": "吃土",
+        "definition": "Be flat broke after overspending.",
+        "meaningKr": "돈 한 푼 없다, 거지가 되다.",
+        "exampleEn": "我最近买太多，要吃土了。",
+        "exampleKr": "나 요즘 너무 많이 사서, 거지 됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chītǔ",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-60-1781415877192",
+        "term": "月光族",
+        "definition": "People who spend entire paycheck monthly.",
+        "meaningKr": "통장 잔고 0원족, 월급을 다 쓰는 사람.",
+        "exampleEn": "我就是典型的月光族。",
+        "exampleKr": "내가 바로 전형적인 통장 잔고 0원족이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yuèguāngzú",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-61-1781415877192",
+        "term": "性价比",
+        "definition": "Value for money, cost-performance.",
+        "meaningKr": "가성비, 가심비.",
+        "exampleEn": "这个手机性价比很高。",
+        "exampleKr": "이 핸드폰 가성비가 아주 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xìngjiàbǐ",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-62-1781415877192",
+        "term": "平替",
+        "definition": "Cheaper equivalent, budget dupe.",
+        "meaningKr": "저렴이 버전, 가성비 좋은 대체품.",
+        "exampleEn": "找到这款口红的平替了！",
+        "exampleKr": "이 립스틱의 저렴이 버전을 찾았어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "píngtì",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-63-1781415877192",
+        "term": "整活",
+        "definition": "Pull off funny/creative content.",
+        "meaningKr": "재밌는 콘텐츠 만들다, 웃긴 짓 하다.",
+        "exampleEn": "他又开始整活了。",
+        "exampleKr": "걔 또 재밌는 짓 하기 시작했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhěnghuó",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-64-1781415877192",
+        "term": "躺赢",
+        "definition": "Win effortlessly, win lying down.",
+        "meaningKr": "드러눕다 (가만히 있어도 이기다), 날로 먹다.",
+        "exampleEn": "这次比赛我躺赢了。",
+        "exampleKr": "이번 경기 나 드러누워서 이겼어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tǎngyíng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-65-1781415877192",
+        "term": "退退退",
+        "definition": "\"Back off! Shoo!\" viral meme.",
+        "meaningKr": "(저리) 가!, 꺼져! (밈)",
+        "exampleEn": "烦人的事情快退退退！",
+        "exampleKr": "귀찮은 일들 저리 가!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tuì tuì tuì",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-66-1781415877192",
+        "term": "磕CP",
+        "definition": "Ship a couple, root for pairing.",
+        "meaningKr": "(가상) 커플을 덕질하다, 커플 밀다.",
+        "exampleEn": "我最近在磕这对CP。",
+        "exampleKr": "나 요즘 이 커플 덕질하고 있어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "kē CP",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-67-1781415877192",
+        "term": "官宣",
+        "definition": "Officially announce, make it official.",
+        "meaningKr": "공식 발표하다, (관계) 공개하다.",
+        "exampleEn": "他们官宣了！",
+        "exampleKr": "그들 공식 발표했어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "guānxuān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-68-1781415877192",
+        "term": "暧昧",
+        "definition": "Talking stage, ambiguous flirty vibe.",
+        "meaningKr": "썸 타다, 애매한 관계.",
+        "exampleEn": "我们还在暧昧期。",
+        "exampleKr": "우리 아직 썸 타는 중이야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "àimèi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-69-1781415877192",
+        "term": "舔狗",
+        "definition": "A simp, someone who over-pursues.",
+        "meaningKr": "호구, 찐따, 눈치 없이 퍼주는 사람.",
+        "exampleEn": "别做舔狗了！",
+        "exampleKr": "호구 짓 그만해!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tiǎngǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-70-1781415877192",
+        "term": "撒娇",
+        "definition": "Act cute/clingy to charm someone.",
+        "meaningKr": "애교 부리다, 어리광 부리다.",
+        "exampleEn": "她很会撒娇。",
+        "exampleKr": "걔는 애교가 엄청 많아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sājiāo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-71-1781415877192",
+        "term": "心动",
+        "definition": "Feel a heart-flutter, be smitten.",
+        "meaningKr": "심쿵하다, 반하다.",
+        "exampleEn": "我对他心动了。",
+        "exampleKr": "나 그 사람한테 심쿵했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xīndòng",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-72-1781415877192",
+        "term": "单身狗",
+        "definition": "A single person (self-deprecating).",
+        "meaningKr": "솔로 (자학적 표현), 솔로 부대.",
+        "exampleEn": "我又成了单身狗。",
+        "exampleKr": "나 또 솔로가 됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "dānshēngǒu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-73-1781415877192",
+        "term": "CP感",
+        "definition": "Chemistry/couple-vibes between two people.",
+        "meaningKr": "(커플) 케미, 잘 어울리는 느낌.",
+        "exampleEn": "他们俩很有CP感。",
+        "exampleKr": "그 둘 케미가 아주 좋아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "CP gǎn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-74-1781415877192",
+        "term": "备胎",
+        "definition": "Backup/second-choice romantic option.",
+        "meaningKr": "어장관리 당하는 사람, 보험 (상대).",
+        "exampleEn": "他成了别人的备胎。",
+        "exampleKr": "그는 다른 사람의 보험이 됐어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bèitāi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-75-1781415877192",
+        "term": "脱单",
+        "definition": "Get out of singlehood, start dating.",
+        "meaningKr": "솔로 탈출하다, 연애 시작하다",
+        "exampleEn": "我终于脱单啦，可以约会了！",
+        "exampleKr": "나 드디어 솔로 탈출했어, 데이트할 수 있다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "tuōdān",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-76-1781415877192",
+        "term": "异地恋",
+        "definition": "A long-distance romantic relationship.",
+        "meaningKr": "장거리 연애",
+        "exampleEn": "异地恋真的好难啊。",
+        "exampleKr": "장거리 연애 진짜 너무 힘들다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yìdìliàn",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-77-1781415877192",
+        "term": "撩",
+        "definition": "To flirt with, hit on.",
+        "meaningKr": "썸타다, 유혹하다",
+        "exampleEn": "他总喜欢撩我，但我没当真。",
+        "exampleKr": "걔는 맨날 나한테 썸 걸지만, 난 진지하게 안 받아들였어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "liáo",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-78-1781415877192",
+        "term": "吃醋",
+        "definition": "To get jealous in a relationship.",
+        "meaningKr": "질투하다, 삐치다",
+        "exampleEn": "看你这样子是吃醋了吧？",
+        "exampleKr": "너 그런 거 보니 질투하는 거지?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "chīcù",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-79-1781415877192",
+        "term": "秀恩爱",
+        "definition": "To flaunt relationship, show PDA online.",
+        "meaningKr": "염장 지르다, 애정 과시하다",
+        "exampleEn": "你们别再秀恩爱了！",
+        "exampleKr": "너희들 그만 염장 질러!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiù'ēn'ài",
+        "pos": "verb"
+      },
+      {
+        "id": "word-zhslang-80-1781415877192",
+        "term": "暖男",
+        "definition": "A warm, caring, considerate guy.",
+        "meaningKr": "다정한 남자, 쏘스윗남",
+        "exampleEn": "他真是个大暖男啊。",
+        "exampleKr": "걔 정말 다정한 남자야.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nuǎnnán",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-81-1781415877192",
+        "term": "双向奔赴",
+        "definition": "Mutual effort, two people running toward each other.",
+        "meaningKr": "쌍방 노력, 상호 호감",
+        "exampleEn": "爱情需要双向奔赴。",
+        "exampleKr": "사랑은 서로 노력해야 해.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shuāngxiàng bēnfù",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-82-1781415877192",
+        "term": "yyds",
+        "definition": "Forever the best, GOAT.",
+        "meaningKr": "갓, 역대급, 최고다",
+        "exampleEn": "他的歌yyds，太好听了！",
+        "exampleKr": "걔 노래 갓이야, 너무 좋다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yǒngyuǎn de shén",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-83-1781415877192",
+        "term": "xswl",
+        "definition": "Laughing so hard, lol.",
+        "meaningKr": "개웃겨, 현웃 터짐",
+        "exampleEn": "哈哈，这简直xswl了。",
+        "exampleKr": "ㅋㅋ, 이거 완전 개웃겨.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiào sǐ wǒ le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-84-1781415877192",
+        "term": "awsl",
+        "definition": "So cute I'm dying.",
+        "meaningKr": "심쿵, 귀여워 죽겠네",
+        "exampleEn": "这只猫咪awsl，太可爱了！",
+        "exampleKr": "이 고양이 심쿵이야, 너무 귀여워!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "ā wǒ sǐ le",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-85-1781415877192",
+        "term": "u1s1",
+        "definition": "Honestly, to be fair.",
+        "meaningKr": "솔직히 말하면, 까놓고 말해서",
+        "exampleEn": "u1s1，他说得对。",
+        "exampleKr": "솔직히 말하면, 걔 말이 맞아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yǒu yī shuō yī",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-86-1781415877192",
+        "term": "nsdd",
+        "definition": "You're right, fair point.",
+        "meaningKr": "네 말이 맞아, 인정",
+        "exampleEn": "嗯嗯，你说的nsdd。",
+        "exampleKr": "응응, 네 말이 맞아.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "nǐ shuō de duì",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-87-1781415877192",
+        "term": "dbq",
+        "definition": "Sorry, my bad.",
+        "meaningKr": "미안, 죄송",
+        "exampleEn": "dbq，我刚才说错了。",
+        "exampleKr": "미안, 내가 방금 잘못 말했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "duì bù qǐ",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-88-1781415877192",
+        "term": "zqsg",
+        "definition": "Genuine, heartfelt feelings, for real.",
+        "meaningKr": "진심, 찐텐",
+        "exampleEn": "我对这部剧zqsg了。",
+        "exampleKr": "나 이 드라마에 찐텐으로 몰입했어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "zhēn qíng shí gǎn",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-89-1781415877192",
+        "term": "plmm",
+        "definition": "Pretty girl, a cutie.",
+        "meaningKr": "예쁜 여자애, 미녀",
+        "exampleEn": "那边有个plmm！",
+        "exampleKr": "저쪽에 예쁜 여자애 있다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "piàoliang mèimei",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-90-1781415877192",
+        "term": "xdm",
+        "definition": "Bros, fam, you guys.",
+        "meaningKr": "얘들아, 형제들, 친구들",
+        "exampleEn": "xdm，我们一起冲啊！",
+        "exampleKr": "얘들아, 우리 같이 돌격하자!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiōngdìmen",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-91-1781415877192",
+        "term": "bdjw",
+        "definition": "Asking since I don't get it.",
+        "meaningKr": "질문 있어요, 궁금해서 묻는데",
+        "exampleEn": "bdjw，这是什么意思？",
+        "exampleKr": "궁금해서 묻는데, 이게 무슨 뜻이야?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bù dǒng jiù wèn",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-92-1781415877192",
+        "term": "yygq",
+        "definition": "Passive-aggressive, snarky, sarcastic.",
+        "meaningKr": "비꼬다, 띠껍다",
+        "exampleEn": "别对我yygq的！",
+        "exampleKr": "나한테 비꼬지 마!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "yīnyáng guài qì",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-93-1781415877192",
+        "term": "pyq",
+        "definition": "WeChat Moments (friend feed).",
+        "meaningKr": "웨이신 모멘트, 친구 피드",
+        "exampleEn": "我刚发pyq了，快看！",
+        "exampleKr": "나 방금 웨이신 모멘트에 올렸어, 빨리 봐!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "péngyǒu quān",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-94-1781415877192",
+        "term": "gkd",
+        "definition": "Hurry up, let's gooo.",
+        "meaningKr": "빨리빨리, 얼른 해",
+        "exampleEn": "gkd，等不及了！",
+        "exampleKr": "빨리빨리, 못 기다리겠어!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "gǎo kuài diǎn",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-95-1781415877192",
+        "term": "xjj",
+        "definition": "Cute/pretty young woman, miss.",
+        "meaningKr": "예쁜 언니, 아가씨",
+        "exampleEn": "那个xjj好漂亮啊。",
+        "exampleKr": "저 언니 너무 예쁘다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "xiǎo jiějie",
+        "pos": "noun"
+      },
+      {
+        "id": "word-zhslang-96-1781415877192",
+        "term": "ssfd",
+        "definition": "Shivering (scared or thrilled, often joking).",
+        "meaningKr": "부들부들 떨다, 오들오들 떨다",
+        "exampleEn": "听到这个消息我ssfd。",
+        "exampleKr": "이 소식 듣고 나 부들부들 떨었어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "sè sè fā dǒu",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-97-1781415877192",
+        "term": "nbcs",
+        "definition": "Nobody cares, shrug it off.",
+        "meaningKr": "아무도 신경 안 써, 알 바 아님",
+        "exampleEn": "nbcs，他爱怎么说就怎么说吧。",
+        "exampleKr": "아무도 신경 안 써, 걔가 뭐라고 하든 말든 상관 없어.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-98-1781415877192",
+        "term": "bhys",
+        "definition": "Excuse me, sorry to bother.",
+        "meaningKr": "죄송합니다, 실례합니다",
+        "exampleEn": "bhys，打扰一下。",
+        "exampleKr": "죄송합니다, 잠시 실례할게요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "bù hǎo yì si",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-zhslang-99-1781415877192",
+        "term": "栓Q",
+        "definition": "“Thank you” meme, often ironic.",
+        "meaningKr": "땡큐, 고맙다 (비꼬는 뉘앙스)",
+        "exampleEn": "栓Q，我真的会谢。",
+        "exampleKr": "땡큐, 진짜 고맙네 (비꼬는 뉘앙스).",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Chinese",
+          "Slang",
+          "MZ"
+        ],
+        "phonetic": "shuān Q",
+        "pos": "phrase"
+      }
+    ]
+  },
+{
     "id": "curated-krslang-ko-1",
     "title": "Korean Gen-Z & MZ Slang 100",
     "icon": "💬",

@@ -260,6 +260,17 @@ const META: Record<string, ListMeta> = {
     sourceLanguage: 'ko',
     targetLanguage: 'en',
   },
+  'es-basic': {
+    id: 'curated-es-basic-1',
+    title: '기초 스페인어 122 (일상 필수)',
+    icon: '🇪🇸',
+    category: '기초',
+    level: 'beginner',
+    description: '일상에서 가장 많이 쓰는 스페인어 기초 단어 122 — 인사·숫자·가족·음식·색깔·요일·기본 동사/형용사·장소·신체까지. 표제어 직접 선별, 한글 발음·한국어 뜻·예문 AI 생성.',
+    tags: ['Spanish', 'Daily', 'Foundation'],
+    sourceLanguage: 'es',
+    targetLanguage: 'ko',
+  },
   'krslang-vi': {
     id: 'curated-krslang-vi-1',
     title: 'Tiếng lóng Gen-Z & MZ Hàn Quốc 100',

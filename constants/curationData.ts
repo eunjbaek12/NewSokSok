@@ -2,6 +2,2095 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-es-basic-1",
+    "title": "기초 스페인어 122 (일상 필수)",
+    "icon": "🇪🇸",
+    "isCurated": true,
+    "category": "기초",
+    "level": "beginner",
+    "description": "일상에서 가장 많이 쓰는 스페인어 기초 단어 122 — 인사·숫자·가족·음식·색깔·요일·기본 동사/형용사·장소·신체까지. 표제어 직접 선별, 한글 발음·한국어 뜻·예문 AI 생성.",
+    "sourceLanguage": "es",
+    "targetLanguage": "ko",
+    "isVisible": true,
+    "createdAt": 1781502856370,
+    "words": [
+      {
+        "id": "word-es-basic-0-1781502856370",
+        "term": "hola",
+        "definition": "Used as a greeting.",
+        "meaningKr": "안녕, 안녕하세요",
+        "exampleEn": "¡Hola! ¿Cómo estás?",
+        "exampleKr": "안녕! 잘 지내?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "올라",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-1-1781502856370",
+        "term": "adiós",
+        "definition": "Used to say goodbye.",
+        "meaningKr": "안녕히 계세요, 안녕히 가세요",
+        "exampleEn": "¡Adiós! Hasta mañana.",
+        "exampleKr": "안녕! 내일 봐.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아디오스",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-2-1781502856370",
+        "term": "gracias",
+        "definition": "Used to express gratitude.",
+        "meaningKr": "고마워요, 감사합니다",
+        "exampleEn": "Gracias por tu ayuda.",
+        "exampleKr": "도와줘서 고마워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "그라시아스",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-3-1781502856370",
+        "term": "por favor",
+        "definition": "Used to make a polite request.",
+        "meaningKr": "부탁합니다, 제발",
+        "exampleEn": "Un café, por favor.",
+        "exampleKr": "커피 한 잔 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "포르 파보르",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-4-1781502856370",
+        "term": "perdón",
+        "definition": "Used to apologize or get attention.",
+        "meaningKr": "죄송합니다, 실례합니다",
+        "exampleEn": "Perdón, ¿puedes repetir?",
+        "exampleKr": "죄송합니다, 다시 말씀해주시겠어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페르돈",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-5-1781502856370",
+        "term": "sí",
+        "definition": "Used to affirm or agree.",
+        "meaningKr": "네, 응",
+        "exampleEn": "¿Vienes? Sí, voy.",
+        "exampleKr": "올래? 응, 갈게.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-6-1781502856370",
+        "term": "no",
+        "definition": "Used to deny or negate.",
+        "meaningKr": "아니요, ~ 아니다",
+        "exampleEn": "No tengo tiempo.",
+        "exampleKr": "시간이 없어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "노",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-7-1781502856370",
+        "term": "buenos días",
+        "definition": "A greeting used in the morning.",
+        "meaningKr": "좋은 아침입니다, 안녕하세요",
+        "exampleEn": "¡Buenos días a todos!",
+        "exampleKr": "모두 좋은 아침입니다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "부에노스 디아스",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-8-1781502856370",
+        "term": "buenas noches",
+        "definition": "A greeting or farewell used in the evening or night.",
+        "meaningKr": "좋은 저녁입니다, 안녕히 주무세요",
+        "exampleEn": "¡Buenas noches! Hasta mañana.",
+        "exampleKr": "안녕히 주무세요! 내일 봐요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "부에나스 노체스",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-9-1781502856370",
+        "term": "de nada",
+        "definition": "Used as a polite response to 'thank you'.",
+        "meaningKr": "천만에요, 별말씀을요",
+        "exampleEn": "Gracias. De nada.",
+        "exampleKr": "고마워요. 천만에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "데 나다",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-es-basic-10-1781502856370",
+        "term": "bienvenido",
+        "definition": "Greeted with pleasure upon arrival.",
+        "meaningKr": "환영하는, 환영받는",
+        "exampleEn": "¡Bienvenido a nuestra casa!",
+        "exampleKr": "우리 집에 오신 것을 환영합니다!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비엔베니도",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-11-1781502856370",
+        "term": "salud",
+        "definition": "Used to toast, or after someone sneezes.",
+        "meaningKr": "건배!, 건강, (재채기 후) 축복합니다",
+        "exampleEn": "¡Salud! Por nuestra amistad.",
+        "exampleKr": "건배! 우리의 우정을 위하여.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "살루드",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-es-basic-12-1781502856370",
+        "term": "uno",
+        "definition": "The first cardinal number.",
+        "meaningKr": "하나, 일",
+        "exampleEn": "Tengo un lápiz.",
+        "exampleKr": "연필 하나가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "우노",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-13-1781502856370",
+        "term": "dos",
+        "definition": "The cardinal number after one.",
+        "meaningKr": "둘, 이",
+        "exampleEn": "Tengo dos gatos.",
+        "exampleKr": "고양이 두 마리가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "도스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-14-1781502856370",
+        "term": "tres",
+        "definition": "The cardinal number after two.",
+        "meaningKr": "셋, 삼",
+        "exampleEn": "Ella tiene tres libros.",
+        "exampleKr": "그녀는 책 세 권이 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "트레스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-15-1781502856370",
+        "term": "cuatro",
+        "definition": "The cardinal number after three.",
+        "meaningKr": "넷, 사",
+        "exampleEn": "Hay cuatro sillas.",
+        "exampleKr": "의자가 네 개 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "쿠아트로",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-16-1781502856370",
+        "term": "cinco",
+        "definition": "The cardinal number after four.",
+        "meaningKr": "다섯, 오",
+        "exampleEn": "Compro cinco manzanas.",
+        "exampleKr": "사과 다섯 개를 사요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "신코",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-17-1781502856370",
+        "term": "seis",
+        "definition": "The cardinal number after five.",
+        "meaningKr": "여섯, 육",
+        "exampleEn": "Mi hermano tiene seis años.",
+        "exampleKr": "제 남동생은 여섯 살이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "세이스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-18-1781502856370",
+        "term": "siete",
+        "definition": "The cardinal number after six.",
+        "meaningKr": "일곱, 칠",
+        "exampleEn": "Son las siete.",
+        "exampleKr": "일곱 시예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시에테",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-19-1781502856370",
+        "term": "ocho",
+        "definition": "The cardinal number after seven.",
+        "meaningKr": "여덟, 팔",
+        "exampleEn": "Hay ocho estudiantes.",
+        "exampleKr": "학생이 여덟 명 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오초",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-20-1781502856370",
+        "term": "nueve",
+        "definition": "The cardinal number after eight.",
+        "meaningKr": "아홉, 구",
+        "exampleEn": "Mi número favorito es el nueve.",
+        "exampleKr": "제가 가장 좋아하는 숫자는 아홉이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "누에베",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-21-1781502856370",
+        "term": "diez",
+        "definition": "The cardinal number after nine.",
+        "meaningKr": "열, 십",
+        "exampleEn": "Tengo diez euros.",
+        "exampleKr": "저는 십 유로가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디에스",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-22-1781502856370",
+        "term": "cien",
+        "definition": "The cardinal number for one hundred.",
+        "meaningKr": "백",
+        "exampleEn": "Cien personas asistieron.",
+        "exampleKr": "백 명이 참석했어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시엔",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-23-1781502856370",
+        "term": "mil",
+        "definition": "The cardinal number for one thousand.",
+        "meaningKr": "천",
+        "exampleEn": "Son mil pesos.",
+        "exampleKr": "천 페소입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "밀",
+        "pos": "number"
+      },
+      {
+        "id": "word-es-basic-24-1781502856370",
+        "term": "familia",
+        "definition": "A group of related people.",
+        "meaningKr": "가족",
+        "exampleEn": "Mi familia es grande.",
+        "exampleKr": "우리 가족은 대가족이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파밀리아",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-25-1781502856370",
+        "term": "madre",
+        "definition": "A female parent.",
+        "meaningKr": "엄마, 어머니",
+        "exampleEn": "Mi madre es muy buena.",
+        "exampleKr": "우리 엄마는 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마드레",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-26-1781502856370",
+        "term": "padre",
+        "definition": "A male parent.",
+        "meaningKr": "아빠, 아버지",
+        "exampleEn": "Mi padre trabaja mucho.",
+        "exampleKr": "우리 아빠는 일을 많이 해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파드레",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-27-1781502856370",
+        "term": "hijo",
+        "definition": "A male child.",
+        "meaningKr": "아들",
+        "exampleEn": "Él es mi hijo.",
+        "exampleKr": "그는 제 아들이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "이호",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-28-1781502856370",
+        "term": "hija",
+        "definition": "A female child.",
+        "meaningKr": "딸",
+        "exampleEn": "Ella es mi hija.",
+        "exampleKr": "그녀는 제 딸이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "이하",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-29-1781502856370",
+        "term": "hermano",
+        "definition": "A male sibling.",
+        "meaningKr": "형제, 오빠, 남동생",
+        "exampleEn": "Tengo un hermano mayor.",
+        "exampleKr": "저는 형이 한 명 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에르마노",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-30-1781502856370",
+        "term": "hermana",
+        "definition": "A female sibling.",
+        "meaningKr": "자매, 언니, 여동생",
+        "exampleEn": "Mi hermana es estudiante.",
+        "exampleKr": "제 여동생은 학생이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에르마나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-31-1781502856370",
+        "term": "abuelo",
+        "definition": "A paternal or maternal grandfather.",
+        "meaningKr": "할아버지",
+        "exampleEn": "Mi abuelo vive aquí.",
+        "exampleKr": "우리 할아버지는 여기 사세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아부엘로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-32-1781502856370",
+        "term": "abuela",
+        "definition": "A paternal or maternal grandmother.",
+        "meaningKr": "할머니",
+        "exampleEn": "Mi abuela cocina bien.",
+        "exampleKr": "우리 할머니는 요리를 잘 하세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아부엘라",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-33-1781502856370",
+        "term": "amigo",
+        "definition": "A male friend.",
+        "meaningKr": "친구 (남성)",
+        "exampleEn": "Él es mi mejor amigo.",
+        "exampleKr": "그는 제 가장 친한 친구예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아미고",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-34-1781502856370",
+        "term": "hombre",
+        "definition": "An adult male human being.",
+        "meaningKr": "남자, 사람",
+        "exampleEn": "Es un hombre muy alto.",
+        "exampleKr": "그는 아주 키 큰 남자예요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "옴브레",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-35-1781502856370",
+        "term": "mujer",
+        "definition": "An adult female human being; a wife.",
+        "meaningKr": "여자, 아내",
+        "exampleEn": "Ella es mi mujer.",
+        "exampleKr": "그녀는 제 아내입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "무헤르",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-36-1781502856370",
+        "term": "agua",
+        "definition": "A colorless, transparent, odorless liquid.",
+        "meaningKr": "물",
+        "exampleEn": "Quiero un vaso de agua.",
+        "exampleKr": "물 한 잔 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아과",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-37-1781502856370",
+        "term": "pan",
+        "definition": "A staple food made from flour and water.",
+        "meaningKr": "빵",
+        "exampleEn": "Me gusta comer pan.",
+        "exampleKr": "저는 빵 먹는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "판",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-38-1781502856370",
+        "term": "leche",
+        "definition": "A white liquid produced by mammals.",
+        "meaningKr": "우유",
+        "exampleEn": "Bebo leche cada mañana.",
+        "exampleKr": "저는 매일 아침 우유를 마셔요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "레체",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-39-1781502856370",
+        "term": "café",
+        "definition": "A dark brown beverage; a place for drinks.",
+        "meaningKr": "커피, 카페",
+        "exampleEn": "¿Quieres un café?",
+        "exampleKr": "커피 한 잔 할래요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카페",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-40-1781502856370",
+        "term": "té",
+        "definition": "An aromatic beverage prepared by steeping tea leaves.",
+        "meaningKr": "차",
+        "exampleEn": "Prefiero té verde.",
+        "exampleKr": "저는 녹차를 더 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "테",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-41-1781502856370",
+        "term": "arroz",
+        "definition": "A starchy grain, widely consumed.",
+        "meaningKr": "쌀, 밥",
+        "exampleEn": "Me gusta comer arroz.",
+        "exampleKr": "저는 밥 먹는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아로스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-42-1781502856370",
+        "term": "carne",
+        "definition": "The flesh of an animal as food.",
+        "meaningKr": "고기",
+        "exampleEn": "Comemos carne los domingos.",
+        "exampleKr": "우리는 일요일마다 고기를 먹어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카르네",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-43-1781502856370",
+        "term": "pollo",
+        "definition": "A chicken, especially as food.",
+        "meaningKr": "닭고기, 닭",
+        "exampleEn": "El pollo está delicioso.",
+        "exampleKr": "닭고기가 맛있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "포요",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-44-1781502856370",
+        "term": "pescado",
+        "definition": "Fish prepared for eating.",
+        "meaningKr": "생선 (요리된)",
+        "exampleEn": "Me gusta comer pescado.",
+        "exampleKr": "저는 생선 먹는 것을 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페스카도",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-45-1781502856370",
+        "term": "fruta",
+        "definition": "The sweet, fleshy product of a tree or plant.",
+        "meaningKr": "과일",
+        "exampleEn": "La fruta es muy sana.",
+        "exampleKr": "과일은 아주 건강에 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "프루타",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-46-1781502856370",
+        "term": "manzana",
+        "definition": "A round, edible fruit.",
+        "meaningKr": "사과",
+        "exampleEn": "Quiero una manzana roja.",
+        "exampleKr": "저는 빨간 사과 하나를 원해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "만사나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-47-1781502856370",
+        "term": "huevo",
+        "definition": "An oval or round body laid by female birds.",
+        "meaningKr": "달걀, 계란",
+        "exampleEn": "Me gusta el huevo frito.",
+        "exampleKr": "저는 계란 프라이를 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "우에보",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-48-1781502856370",
+        "term": "rojo",
+        "definition": "Having the color of blood or fire.",
+        "meaningKr": "빨간색의, 빨강",
+        "exampleEn": "Mi coche es rojo.",
+        "exampleKr": "제 차는 빨간색이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "로호",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-49-1781502856370",
+        "term": "azul",
+        "definition": "Having the color of a clear sky or the sea.",
+        "meaningKr": "파란색의, 파랑",
+        "exampleEn": "El cielo es azul.",
+        "exampleKr": "하늘은 파란색이에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아술",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-50-1781502856370",
+        "term": "verde",
+        "definition": "green",
+        "meaningKr": "초록색의, 녹색의",
+        "exampleEn": "La manzana es verde.",
+        "exampleKr": "사과는 초록색입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베르데",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-51-1781502856370",
+        "term": "amarillo",
+        "definition": "yellow",
+        "meaningKr": "노란색의",
+        "exampleEn": "El sol es amarillo.",
+        "exampleKr": "태양은 노란색입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아마리요",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-52-1781502856370",
+        "term": "negro",
+        "definition": "black",
+        "meaningKr": "검은색의",
+        "exampleEn": "Mi coche es negro.",
+        "exampleKr": "제 차는 검은색입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "네그로",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-53-1781502856370",
+        "term": "blanco",
+        "definition": "white",
+        "meaningKr": "흰색의, 하얀",
+        "exampleEn": "La nieve es blanca.",
+        "exampleKr": "눈은 하얗습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "블랑코",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-54-1781502856370",
+        "term": "lunes",
+        "definition": "Monday",
+        "meaningKr": "월요일",
+        "exampleEn": "Hoy es lunes.",
+        "exampleKr": "오늘은 월요일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "루네스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-55-1781502856370",
+        "term": "martes",
+        "definition": "Tuesday",
+        "meaningKr": "화요일",
+        "exampleEn": "Mañana es martes.",
+        "exampleKr": "내일은 화요일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마르테스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-56-1781502856370",
+        "term": "miércoles",
+        "definition": "Wednesday",
+        "meaningKr": "수요일",
+        "exampleEn": "El miércoles tengo clase.",
+        "exampleKr": "수요일에 수업이 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "미에르콜레스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-57-1781502856370",
+        "term": "jueves",
+        "definition": "Thursday",
+        "meaningKr": "목요일",
+        "exampleEn": "Hoy es jueves.",
+        "exampleKr": "오늘은 목요일입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "후에베스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-58-1781502856370",
+        "term": "viernes",
+        "definition": "Friday",
+        "meaningKr": "금요일",
+        "exampleEn": "El viernes vamos al cine.",
+        "exampleKr": "금요일에 영화 보러 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비에르네스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-59-1781502856370",
+        "term": "sábado",
+        "definition": "Saturday",
+        "meaningKr": "토요일",
+        "exampleEn": "El sábado no trabajo.",
+        "exampleKr": "토요일에는 일하지 않습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "사바도",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-60-1781502856370",
+        "term": "domingo",
+        "definition": "Sunday",
+        "meaningKr": "일요일",
+        "exampleEn": "El domingo descanso.",
+        "exampleKr": "일요일에 쉽니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "도밍고",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-61-1781502856370",
+        "term": "hoy",
+        "definition": "today",
+        "meaningKr": "오늘",
+        "exampleEn": "Hoy hace buen tiempo.",
+        "exampleKr": "오늘은 날씨가 좋습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오이",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-62-1781502856370",
+        "term": "mañana",
+        "definition": "tomorrow; morning",
+        "meaningKr": "내일, 아침",
+        "exampleEn": "Hasta mañana!",
+        "exampleKr": "내일 봐요!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마냐나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-63-1781502856370",
+        "term": "ayer",
+        "definition": "yesterday",
+        "meaningKr": "어제",
+        "exampleEn": "Ayer fui al mercado.",
+        "exampleKr": "어제 시장에 갔습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아예르",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-es-basic-64-1781502856370",
+        "term": "hora",
+        "definition": "hour; time (o'clock)",
+        "meaningKr": "시간, 시(時)",
+        "exampleEn": "¿Qué hora es?",
+        "exampleKr": "몇 시입니까?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오라",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-65-1781502856370",
+        "term": "día",
+        "definition": "day",
+        "meaningKr": "날, 하루",
+        "exampleEn": "Es un buen día.",
+        "exampleKr": "좋은 날입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디아",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-66-1781502856370",
+        "term": "ser",
+        "definition": "to be (permanent characteristics, identity)",
+        "meaningKr": "~이다, ~이다 (본질, 신분, 특징)",
+        "exampleEn": "Yo soy estudiante.",
+        "exampleKr": "저는 학생입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "세르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-67-1781502856370",
+        "term": "estar",
+        "definition": "to be (temporary states, location, feelings)",
+        "meaningKr": "~있다, ~이다 (상태, 위치, 감정)",
+        "exampleEn": "Ella está en casa.",
+        "exampleKr": "그녀는 집에 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에스타르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-68-1781502856370",
+        "term": "tener",
+        "definition": "to have",
+        "meaningKr": "가지다, 있다",
+        "exampleEn": "Yo tengo un perro.",
+        "exampleKr": "저는 개 한 마리가 있습니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "테네르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-69-1781502856370",
+        "term": "hacer",
+        "definition": "to do, to make",
+        "meaningKr": "하다, 만들다",
+        "exampleEn": "¿Qué haces hoy?",
+        "exampleKr": "오늘 뭐 하세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아세르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-70-1781502856370",
+        "term": "ir",
+        "definition": "to go",
+        "meaningKr": "가다",
+        "exampleEn": "Voy a la escuela.",
+        "exampleKr": "저는 학교에 갑니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "이르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-71-1781502856370",
+        "term": "venir",
+        "definition": "to come",
+        "meaningKr": "오다",
+        "exampleEn": "¿Vienes mañana?",
+        "exampleKr": "내일 오세요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베니르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-72-1781502856370",
+        "term": "comer",
+        "definition": "to eat",
+        "meaningKr": "먹다",
+        "exampleEn": "Quiero comer pizza.",
+        "exampleKr": "피자를 먹고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "코메르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-73-1781502856370",
+        "term": "beber",
+        "definition": "to drink",
+        "meaningKr": "마시다",
+        "exampleEn": "Ella bebe agua.",
+        "exampleKr": "그녀는 물을 마십니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베베르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-74-1781502856370",
+        "term": "hablar",
+        "definition": "to speak, to talk",
+        "meaningKr": "말하다, 이야기하다",
+        "exampleEn": "¿Puedes hablar español?",
+        "exampleKr": "스페인어 할 수 있어요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아블라르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-75-1781502856370",
+        "term": "querer",
+        "definition": "to want; to love",
+        "meaningKr": "원하다, 사랑하다",
+        "exampleEn": "Yo quiero un café.",
+        "exampleKr": "저는 커피 한 잔을 원해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "케레르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-76-1781502856370",
+        "term": "poder",
+        "definition": "to be able to, can",
+        "meaningKr": "~할 수 있다",
+        "exampleEn": "¿Puedes hablar español?",
+        "exampleKr": "스페인어를 말할 수 있나요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "포데르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-77-1781502856370",
+        "term": "ver",
+        "definition": "to see, to watch",
+        "meaningKr": "보다",
+        "exampleEn": "Quiero ver una película.",
+        "exampleKr": "영화를 보고 싶어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "베르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-78-1781502856370",
+        "term": "dar",
+        "definition": "to give",
+        "meaningKr": "주다",
+        "exampleEn": "Ella me da un libro.",
+        "exampleKr": "그녀는 저에게 책을 줍니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "다르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-79-1781502856370",
+        "term": "vivir",
+        "definition": "to live",
+        "meaningKr": "살다",
+        "exampleEn": "Yo vivo en Seúl.",
+        "exampleKr": "저는 서울에 살아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비비르",
+        "pos": "verb"
+      },
+      {
+        "id": "word-es-basic-80-1781502856370",
+        "term": "grande",
+        "definition": "big, large",
+        "meaningKr": "큰, 커다란",
+        "exampleEn": "Mi casa es grande.",
+        "exampleKr": "제 집은 커요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "그란데",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-81-1781502856370",
+        "term": "pequeño",
+        "definition": "small, little",
+        "meaningKr": "작은",
+        "exampleEn": "Tengo un perro pequeño.",
+        "exampleKr": "저는 작은 개를 키워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페케뇨",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-82-1781502856370",
+        "term": "bueno",
+        "definition": "good",
+        "meaningKr": "좋은",
+        "exampleEn": "Este café es muy bueno.",
+        "exampleKr": "이 커피는 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "부에노",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-83-1781502856370",
+        "term": "malo",
+        "definition": "bad",
+        "meaningKr": "나쁜",
+        "exampleEn": "No es un día malo.",
+        "exampleKr": "나쁜 날이 아니에요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "말로",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-84-1781502856370",
+        "term": "nuevo",
+        "definition": "new",
+        "meaningKr": "새로운",
+        "exampleEn": "Compré un coche nuevo.",
+        "exampleKr": "저는 새 차를 샀어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "누에보",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-85-1781502856370",
+        "term": "viejo",
+        "definition": "old",
+        "meaningKr": "오래된, 늙은",
+        "exampleEn": "Mi abuelo es viejo.",
+        "exampleKr": "제 할아버지는 나이가 많으세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "비에호",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-86-1781502856370",
+        "term": "feliz",
+        "definition": "happy",
+        "meaningKr": "행복한",
+        "exampleEn": "Estoy muy feliz hoy.",
+        "exampleKr": "저는 오늘 매우 행복해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "펠리스",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-87-1781502856370",
+        "term": "bonito",
+        "definition": "pretty, nice, cute",
+        "meaningKr": "예쁜, 멋진, 귀여운",
+        "exampleEn": "Tu vestido es bonito.",
+        "exampleKr": "네 드레스 예쁘다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "보니토",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-88-1781502856370",
+        "term": "fácil",
+        "definition": "easy",
+        "meaningKr": "쉬운",
+        "exampleEn": "Este ejercicio es fácil.",
+        "exampleKr": "이 연습은 쉬워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파실",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-89-1781502856370",
+        "term": "difícil",
+        "definition": "difficult, hard",
+        "meaningKr": "어려운",
+        "exampleEn": "El examen es difícil.",
+        "exampleKr": "시험이 어려워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디피실",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-90-1781502856370",
+        "term": "caliente",
+        "definition": "hot (temperature)",
+        "meaningKr": "뜨거운, 더운",
+        "exampleEn": "El café está caliente.",
+        "exampleKr": "커피가 뜨거워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "칼리엔테",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-91-1781502856370",
+        "term": "frío",
+        "definition": "cold",
+        "meaningKr": "차가운, 추운",
+        "exampleEn": "Hace mucho frío hoy.",
+        "exampleKr": "오늘 날씨가 아주 추워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "프리오",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-es-basic-92-1781502856370",
+        "term": "casa",
+        "definition": "house, home",
+        "meaningKr": "집, 가정",
+        "exampleEn": "Voy a mi casa.",
+        "exampleKr": "저는 제 집에 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카사",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-93-1781502856370",
+        "term": "escuela",
+        "definition": "school",
+        "meaningKr": "학교",
+        "exampleEn": "Mi hermana va a la escuela.",
+        "exampleKr": "제 여동생은 학교에 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "에스쿠엘라",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-94-1781502856370",
+        "term": "ciudad",
+        "definition": "city",
+        "meaningKr": "도시",
+        "exampleEn": "Vivo en una ciudad grande.",
+        "exampleKr": "저는 큰 도시에 살아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "시우다드",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-95-1781502856370",
+        "term": "país",
+        "definition": "country, nation",
+        "meaningKr": "나라, 국가",
+        "exampleEn": "¿De qué país eres?",
+        "exampleKr": "어느 나라 사람이에요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파이스",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-96-1781502856370",
+        "term": "calle",
+        "definition": "street",
+        "meaningKr": "거리, 길",
+        "exampleEn": "La tienda está en esta calle.",
+        "exampleKr": "그 가게는 이 거리에 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카예",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-97-1781502856370",
+        "term": "tienda",
+        "definition": "store, shop",
+        "meaningKr": "가게, 상점",
+        "exampleEn": "Voy a la tienda.",
+        "exampleKr": "저는 가게에 가요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "티엔다",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-98-1781502856370",
+        "term": "restaurante",
+        "definition": "restaurant",
+        "meaningKr": "식당, 레스토랑",
+        "exampleEn": "Comemos en el restaurante.",
+        "exampleKr": "우리는 식당에서 밥을 먹어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "레스토란테",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-99-1781502856370",
+        "term": "hospital",
+        "definition": "hospital",
+        "meaningKr": "병원",
+        "exampleEn": "El hospital está cerca.",
+        "exampleKr": "병원이 가까워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오스피탈",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-100-1781502856370",
+        "term": "baño",
+        "definition": "A room with a toilet and often a sink and shower/bathtub.",
+        "meaningKr": "화장실, 욕실",
+        "exampleEn": "El baño está aquí, por favor.",
+        "exampleKr": "화장실은 여기입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "바뇨",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-101-1781502856370",
+        "term": "mercado",
+        "definition": "A public place where goods are bought and sold.",
+        "meaningKr": "시장",
+        "exampleEn": "Vamos al mercado hoy.",
+        "exampleKr": "오늘 시장에 갑시다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "메르카도",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-102-1781502856370",
+        "term": "mar",
+        "definition": "The expanse of salt water that covers most of the earth's surface.",
+        "meaningKr": "바다",
+        "exampleEn": "Me gusta mucho el mar.",
+        "exampleKr": "저는 바다를 정말 좋아해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마르",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-103-1781502856370",
+        "term": "sol",
+        "definition": "The star that the Earth orbits, providing light and heat.",
+        "meaningKr": "태양, 해",
+        "exampleEn": "El sol es muy brillante hoy.",
+        "exampleKr": "오늘은 해가 아주 밝아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "솔",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-104-1781502856370",
+        "term": "luna",
+        "definition": "The natural satellite of the Earth.",
+        "meaningKr": "달",
+        "exampleEn": "La luna es hermosa esta noche.",
+        "exampleKr": "오늘 밤 달이 아름다워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "루나",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-105-1781502856370",
+        "term": "árbol",
+        "definition": "A tall plant with a trunk, branches, and leaves.",
+        "meaningKr": "나무",
+        "exampleEn": "Hay un árbol grande en el parque.",
+        "exampleKr": "공원에 큰 나무가 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아르볼",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-106-1781502856370",
+        "term": "flor",
+        "definition": "The part of a plant that produces seeds, often colorful and fragrant.",
+        "meaningKr": "꽃",
+        "exampleEn": "Esta flor es muy bonita.",
+        "exampleKr": "이 꽃은 아주 예뻐요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "플로르",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-107-1781502856370",
+        "term": "perro",
+        "definition": "A domesticated carnivorous mammal, often kept as a pet.",
+        "meaningKr": "개",
+        "exampleEn": "Mi perro es muy amigable.",
+        "exampleKr": "제 개는 아주 친근해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "페로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-108-1781502856370",
+        "term": "gato",
+        "definition": "A small domesticated carnivorous mammal, often kept as a pet.",
+        "meaningKr": "고양이",
+        "exampleEn": "El gato duerme en el sofá.",
+        "exampleKr": "고양이가 소파에서 자요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "가토",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-109-1781502856370",
+        "term": "pájaro",
+        "definition": "A warm-blooded egg-laying vertebrate with feathers and wings.",
+        "meaningKr": "새",
+        "exampleEn": "El pájaro canta en el árbol.",
+        "exampleKr": "새가 나무에서 노래해요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "파하로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-110-1781502856370",
+        "term": "cabeza",
+        "definition": "The upper part of the human body, containing the brain, eyes, ears, nose, and mouth.",
+        "meaningKr": "머리",
+        "exampleEn": "Me duele la cabeza un poco.",
+        "exampleKr": "머리가 조금 아파요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "카베사",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-111-1781502856370",
+        "term": "mano",
+        "definition": "The end part of a person's arm, including the fingers and thumb.",
+        "meaningKr": "손",
+        "exampleEn": "Dame tu mano, por favor.",
+        "exampleKr": "손을 주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "마노",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-112-1781502856370",
+        "term": "ojo",
+        "definition": "The organ of sight in humans and animals.",
+        "meaningKr": "눈",
+        "exampleEn": "Ella tiene ojos muy bonitos.",
+        "exampleKr": "그녀는 아주 예쁜 눈을 가지고 있어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "오호",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-113-1781502856370",
+        "term": "boca",
+        "definition": "The opening in the lower part of the human face, surrounded by the lips, through which food is taken in and sounds are emitted.",
+        "meaningKr": "입",
+        "exampleEn": "Abre la boca, por favor.",
+        "exampleKr": "입을 벌려주세요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "보카",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-114-1781502856370",
+        "term": "pie",
+        "definition": "The lower extremity of the leg, on which a person stands or walks.",
+        "meaningKr": "발",
+        "exampleEn": "Me duele el pie derecho.",
+        "exampleKr": "오른발이 아파요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "피에",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-115-1781502856370",
+        "term": "corazón",
+        "definition": "A muscular organ that pumps blood through the body.",
+        "meaningKr": "심장, 마음",
+        "exampleEn": "Mi corazón late muy rápido.",
+        "exampleKr": "제 심장이 아주 빨리 뛰어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "코라손",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-116-1781502856370",
+        "term": "tiempo",
+        "definition": "The indefinite continued progress of existence and events; also, the state of the atmosphere.",
+        "meaningKr": "시간, 날씨",
+        "exampleEn": "¿Qué tiempo hace hoy?",
+        "exampleKr": "오늘 날씨가 어때요?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "티엠포",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-117-1781502856370",
+        "term": "dinero",
+        "definition": "Coins or banknotes used as a medium of exchange.",
+        "meaningKr": "돈",
+        "exampleEn": "No tengo mucho dinero ahora.",
+        "exampleKr": "지금 돈이 많지 않아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "디네로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-118-1781502856370",
+        "term": "trabajo",
+        "definition": "Activity involving mental or physical effort done to achieve a purpose or result; a paid occupation.",
+        "meaningKr": "일, 직업",
+        "exampleEn": "Mi trabajo es muy interesante.",
+        "exampleKr": "제 직업은 아주 흥미로워요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "트라바호",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-119-1781502856370",
+        "term": "libro",
+        "definition": "A written or printed work consisting of pages glued or sewn together along one side and bound in covers.",
+        "meaningKr": "책",
+        "exampleEn": "Este libro es muy bueno.",
+        "exampleKr": "이 책은 아주 좋아요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "리브로",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-120-1781502856370",
+        "term": "coche",
+        "definition": "A road vehicle, typically with four wheels, powered by an internal combustion engine or electric motor and able to carry a small number of people.",
+        "meaningKr": "자동차, 차",
+        "exampleEn": "Compré un coche nuevo ayer.",
+        "exampleKr": "어제 새 차를 샀어요.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "코체",
+        "pos": "noun"
+      },
+      {
+        "id": "word-es-basic-121-1781502856370",
+        "term": "amor",
+        "definition": "An intense feeling of deep affection.",
+        "meaningKr": "사랑",
+        "exampleEn": "El amor es un sentimiento bonito.",
+        "exampleKr": "사랑은 아름다운 감정입니다.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Spanish",
+          "Daily",
+          "Foundation"
+        ],
+        "phonetic": "아모르",
+        "pos": "noun"
+      }
+    ]
+  },
+{
     "id": "curated-krslang-vi-1",
     "title": "Tiếng lóng Gen-Z & MZ Hàn Quốc 100",
     "icon": "💬",

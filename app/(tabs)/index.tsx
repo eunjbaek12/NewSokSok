@@ -184,13 +184,13 @@ export default function DashboardScreen() {
     router.push({ pathname: '/plan/[id]', params: { id: listId } });
   }, []);
 
-  // "다시 학습": 기간 만료(overdue) 플랜은 진행 상태(planCurrentDay)를 유지한 채
-  // 마감 창만 새로 시작해 'in-progress'로 되돌린다. 이렇게 해야 학습 후 카드가
-  // "학습하기"/"추가학습"으로 표시되고 계속 "기간 만료"로 떠 있지 않는다.
-  // 비활성(inactive)은 플랜 화면의 재설정 흐름을 유지하기 위해 그대로 둔다.
+  // "다시 학습"(이어서): 기간 만료(overdue)·중단(inactive) 플랜 모두 진행 상태
+  // (planCurrentDay)와 Day 배정을 보존한 채 마감 창만 새로 시작해 'in-progress'로
+  // 되돌린다. 재구성(setupPlan)을 거치지 않으므로 외운 단어가 미배정으로 추방되거나
+  // Day가 축소되지 않고, 카드도 계속 "기간 만료/중단"에 갇히지 않는다.
   const handleRestartPlan = useCallback(async (listId: string, status: PlanStatus) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    if (status === 'overdue') {
+    if (status === 'overdue' || status === 'inactive') {
       await restartPlan(listId);
     }
     router.push({ pathname: '/plan/[id]', params: { id: listId } });

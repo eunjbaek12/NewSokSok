@@ -17,7 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { useLists, toggleMemorized, setupPlan, clearPlan, resetPlanForReStudy } from '@/features/vocab';
+import { useLists, toggleMemorized, setupPlan, clearPlan, resetPlanForReStudy, restartPlan } from '@/features/vocab';
 import { PlanStatus, Word } from '@/lib/types';
 import {
   computePlanStatus,
@@ -260,13 +260,11 @@ export default function PlanScreen() {
 
   const handleOpenSetup = useCallback(() => {
     setWordsPerDayInput(String(suggested));
-    if (planStatus === 'inactive' || planStatus === 'overdue') {
-      setFilterMode(unmemorizedCount > 0 ? 'unmemorized' : 'all');
-    } else {
-      setFilterMode('all');
-    }
+    // 기본은 항상 'all'. 만료/중단 플랜은 더 이상 여기로 오지 않고(이어서 재개로 처리),
+    // 외운 단어만 강제로 추리던 동작은 제거한다. 사용자가 원하면 모달 안에서 직접 필터 선택.
+    setFilterMode('all');
     setSetupModalVisible(true);
-  }, [suggested, planStatus, unmemorizedCount]);
+  }, [suggested]);
 
   const handleConfirmSetup = useCallback(async () => {
     if (!id) return;
@@ -340,9 +338,12 @@ export default function PlanScreen() {
       return;
     }
 
-    if (planStatus === 'inactive') {
-      handleOpenSetup();
-      return;
+    // 기간만료(overdue)·중단(inactive) → "이어서": 진행도(planCurrentDay)와 Day 배정을
+    // 보존한 채 마감 창만 리셋해 'in-progress'로 되돌린다. setupPlan(재구성)을 거치지
+    // 않으므로 외운 단어가 미배정으로 추방되거나 Day가 축소되지 않는다. 아래로 진행해
+    // 현재 Day(viewingDay)부터 그대로 학습을 재개한다.
+    if (planStatus === 'inactive' || planStatus === 'overdue') {
+      await restartPlan(id);
     }
 
     // viewingDay가 아직 초기화되지 않았으면 학습 불가
@@ -360,10 +361,10 @@ export default function PlanScreen() {
     } else {
       router.push({ pathname: destination as any, params: { id, filter: studyFilter, planDay: String(viewingDay) } });
     }
-  }, [id, planStatus, viewingDay, allDays, viewingWords, selectedMode, handleOpenSetup, list, resetPlanForReStudy]);
+  }, [id, planStatus, viewingDay, allDays, viewingWords, selectedMode, handleOpenSetup, list, resetPlanForReStudy, restartPlan]);
 
   const isStudyLocked = useMemo(() => {
-    if (planStatus !== 'in-progress' && planStatus !== 'overdue') return false;
+    if (planStatus !== 'in-progress' && planStatus !== 'overdue' && planStatus !== 'inactive') return false;
     if (viewingDay <= 0) return false;
     return viewingDay > (list?.planCurrentDay ?? 1);
   }, [planStatus, viewingDay, list?.planCurrentDay]);
@@ -372,12 +373,12 @@ export default function PlanScreen() {
     if (planStatus === 'none') return t('plan.createPlan');
     if (planStatus === 'completed') return t('plan.randomReview');
     if (viewingDay === -1) return t('plan.includeInPlan');
-    if (planStatus === 'inactive') return t('plan.resetPlan');
     if (isStudyLocked) return t('plan.locked');
+    if (planStatus === 'inactive' || planStatus === 'overdue') return t('plan.resumeStudy');
     return t('plan.startDay', { day: viewingDay });
   }, [planStatus, viewingDay, isStudyLocked, t]);
 
-  const showModeButtons = (planStatus === 'in-progress' || planStatus === 'overdue') && viewingDay !== -1;
+  const showModeButtons = (planStatus === 'in-progress' || planStatus === 'overdue' || planStatus === 'inactive') && viewingDay !== -1;
 
   const handleSelectMode = useCallback((pathname: string) => {
     Haptics.selectionAsync();

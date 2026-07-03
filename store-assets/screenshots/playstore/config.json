@@ -44,8 +44,8 @@
       "id": "06-curation",
       "screen": "단어 모음 — features/curation/screen.tsx",
       "captureHint": "큐레이션 단어장 카드들이 나열된 상태. NGSL·JLPT·HSK 등 여러 언어 덱이 섞여 보이게. 라이트 테마.",
-      "ko": { "caption": "원하는 단어장이, 이미 여기", "sub": "NGSL·JLPT·HSK·TOPIK — 6개 언어 49개 단어장" },
-      "en": { "caption": "The list you wanted,<br>already here", "sub": "NGSL·JLPT·HSK·TOPIK — 49 lists, 6 languages" }
+      "ko": { "caption": "원하는 단어장이, 이미 여기", "sub": "NGSL·JLPT·HSK·TOPIK — 6개 언어 50여 개 단어장" },
+      "en": { "caption": "The list you wanted,<br>already here", "sub": "NGSL·JLPT·HSK·TOPIK — 50+ lists, 6 languages" }
     },
     {
       "id": "07-theme1",

@@ -1044,6 +1044,7 @@
     "shuffleSentences": "Shuffle Sentences",
     "shuffleWords": "Shuffle Words",
     "autoSound": "Auto Sound Playback",
+    "autoSoundExample": "Read example aloud",
     "nextDelay": "Next Word Delay",
     "displaySettings": "Display Settings",
     "pos": "Part of Speech",

@@ -1044,6 +1044,7 @@
     "shuffleSentences": "문장 섞기 (Shuffle)",
     "shuffleWords": "단어 섞기 (Shuffle)",
     "autoSound": "자동 음성 재생",
+    "autoSoundExample": "예문도 읽기",
     "nextDelay": "다음 단어 딜레이",
     "displaySettings": "표시 설정",
     "pos": "품사",

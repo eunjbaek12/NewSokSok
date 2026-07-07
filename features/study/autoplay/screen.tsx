@@ -21,7 +21,7 @@ import { useTheme } from '@/features/theme';
 import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
-import { speak } from '@/lib/tts';
+import { speak, stopSpeaking } from '@/lib/tts';
 import { getTtsLang, getSpeakableText } from '@/constants/languages';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import TimerRing from '@/components/ui/TimerRing';
@@ -66,6 +66,15 @@ export default function AutoPlayScreen() {
     });
 
     const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
+    // 재생 시퀀스 취소 토큰. 일시정지/스킵/이전/이탈 시 증가시켜 진행 중인
+    // async 시퀀스(await speak · 대기 타이머)를 무효화하고 발화를 끊는다.
+    const playTokenRef = useRef(0);
+
+    const stopPlayback = useCallback(() => {
+        playTokenRef.current++;
+        if (timerRef.current) clearTimeout(timerRef.current);
+        stopSpeaking();
+    }, []);
 
     const delayMs = useMemo(() =>
         settings.delay === '1s' ? 1000 : settings.delay === '3s' ? 3000 : 2000,
@@ -163,6 +172,7 @@ export default function AutoPlayScreen() {
     });
 
     const goToNext = useCallback(() => {
+        stopPlayback();
         if (currentIndex < words.length - 1) {
             if (timerRef.current) clearTimeout(timerRef.current);
 
@@ -176,37 +186,55 @@ export default function AutoPlayScreen() {
             setIsPlaying(false);
             setIsComplete(true);
         }
-    }, [currentIndex, words.length, translateX]);
+    }, [currentIndex, words.length, translateX, stopPlayback]);
 
     const playCurrentWord = useCallback(async () => {
         if (!currentWord) return;
+        const token = ++playTokenRef.current;
         setIsRevealed(false);
 
         if (settings.autoPlaySound) {
             await speak(getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang), ttsLang);
+            if (token !== playTokenRef.current) return; // 도중 일시정지/스킵됨
         }
 
         setRingResetKey(k => k + 1);
 
-        timerRef.current = setTimeout(() => {
+        timerRef.current = setTimeout(async () => {
             setIsRevealed(true);
+
+            // 정답 공개 시점에 예문을 낭독한다. 예문 길이가 가변이라 발화가 끝날
+            // 때까지 기다린 뒤 다음 단어로 넘어가야 잘리지 않는다.
+            if (settings.autoPlaySound && settings.autoPlayExample && settings.showExample && currentWord.exampleEn) {
+                await speak(currentWord.exampleEn, ttsLang);
+                if (token !== playTokenRef.current) return;
+            }
 
             timerRef.current = setTimeout(() => {
                 goToNext();
             }, delayMs) as unknown as NodeJS.Timeout;
         }, 1500) as unknown as NodeJS.Timeout;
-    }, [currentWord, goToNext, settings.autoPlaySound, settings.delay, ttsLang, sourceLang]);
+    }, [currentWord, goToNext, settings.autoPlaySound, settings.autoPlayExample, settings.showExample, delayMs, ttsLang, sourceLang]);
 
     const handleCardClick = () => {
         if (!isRevealed) {
             tapHintOpacity.value = 0;
-            setIsRevealed(true);
+            // 진행 중인 자동 시퀀스(공개 전 대기 등)를 무효화하고 즉시 정답 공개.
             if (timerRef.current) clearTimeout(timerRef.current);
-            if (isPlaying) {
-                timerRef.current = setTimeout(() => {
-                    goToNext();
-                }, delayMs) as unknown as NodeJS.Timeout;
-            }
+            const token = ++playTokenRef.current;
+            setIsRevealed(true);
+            (async () => {
+                // 수동으로 미리 공개해도 예문 낭독은 자동 재생과 동일하게 동작.
+                if (settings.autoPlaySound && settings.autoPlayExample && settings.showExample && currentWord.exampleEn) {
+                    await speak(currentWord.exampleEn, ttsLang);
+                    if (token !== playTokenRef.current) return;
+                }
+                if (isPlaying) {
+                    timerRef.current = setTimeout(() => {
+                        goToNext();
+                    }, delayMs) as unknown as NodeJS.Timeout;
+                }
+            })();
         }
     };
 
@@ -217,6 +245,7 @@ export default function AutoPlayScreen() {
     }, [id, toggleStarred]);
 
     const goToPrev = useCallback(() => {
+        stopPlayback();
         if (currentIndex > 0) {
             if (timerRef.current) clearTimeout(timerRef.current);
 
@@ -226,17 +255,18 @@ export default function AutoPlayScreen() {
                 translateX.value = withSpring(0);
             });
         }
-    }, [currentIndex, translateX]);
+    }, [currentIndex, translateX, stopPlayback]);
 
     useEffect(() => {
         if (isPlaying && currentWord) {
             playCurrentWord();
         }
 
+        // 일시정지·단어 이동·언마운트 시 진행 중인 발화와 대기 타이머를 정리한다.
         return () => {
-            if (timerRef.current) clearTimeout(timerRef.current);
+            stopPlayback();
         };
-    }, [currentIndex, isPlaying, playCurrentWord, currentWord]);
+    }, [currentIndex, isPlaying, playCurrentWord, currentWord, stopPlayback]);
 
     const togglePlayPause = () => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -244,17 +274,17 @@ export default function AutoPlayScreen() {
     };
 
     const handleRestart = useCallback(() => {
-        if (timerRef.current) clearTimeout(timerRef.current);
+        stopPlayback();
         setIsComplete(false);
         setCurrentIndex(0);
         setIsRevealed(false);
         setIsPlaying(true);
         setRingResetKey(k => k + 1);
         translateX.value = 0;
-    }, [translateX]);
+    }, [translateX, stopPlayback]);
 
     const handleClose = () => {
-        if (timerRef.current) clearTimeout(timerRef.current);
+        stopPlayback();
         router.back();
     };
 

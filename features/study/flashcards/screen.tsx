@@ -151,17 +151,28 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
       )}
 
       {showExample && word.exampleEn ? (
-        <ScrollView
-          style={[styles.cardExampleBox, { backgroundColor: colors.surfaceSecondary, maxHeight: exampleMaxHeight }]}
-          contentContainerStyle={styles.cardExampleContent}
-          showsVerticalScrollIndicator
-          nestedScrollEnabled
-        >
-          <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
-          {showExampleKr && word.exampleKr ? (
-            <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
-          ) : null}
-        </ScrollView>
+        <View style={styles.exampleWrapper}>
+          <ScrollView
+            style={[styles.cardExampleBox, { backgroundColor: colors.surfaceSecondary, maxHeight: exampleMaxHeight }]}
+            contentContainerStyle={styles.cardExampleContent}
+            showsVerticalScrollIndicator
+            nestedScrollEnabled
+          >
+            <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
+            {showExampleKr && word.exampleKr ? (
+              <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
+            ) : null}
+          </ScrollView>
+          <Pressable
+            onPress={() => speak(word.exampleEn, ttsLang)}
+            hitSlop={8}
+            style={[styles.exampleSpeakerBtn, { backgroundColor: colors.surface + 'F2', borderColor: colors.borderLight }]}
+          >
+            {({ pressed }) => (
+              <Ionicons name="volume-medium-outline" size={18} color={pressed ? colors.primary : colors.textSecondary} />
+            )}
+          </Pressable>
+        </View>
       ) : null}
     </Animated.View>
   );
@@ -867,12 +878,26 @@ const styles = StyleSheet.create({
     marginTop: 8,
     lineHeight: 20,
   },
+  exampleWrapper: {
+    width: '100%',
+    position: 'relative',
+  },
   cardExampleBox: {
     borderRadius: 12,
     width: '100%',
   },
   cardExampleContent: {
     padding: 16,
+    paddingRight: 44, // 예문 스피커 버튼과 겹치지 않도록 우측 여백 확보
+  },
+  exampleSpeakerBtn: {
+    position: 'absolute',
+    top: 6,
+    right: 6,
+    padding: 6,
+    borderRadius: 16,
+    borderWidth: 1,
+    zIndex: 5,
   },
   cardBackTerm: {
     fontSize: 18,

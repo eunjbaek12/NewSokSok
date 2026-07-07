@@ -65,6 +65,7 @@ export interface StudySettings {
     showTerm?: boolean;
     // Autoplay specific
     delay?: '1s' | '2s' | '3s';
+    autoPlayExample?: boolean;
 }
 
 interface StudySettingsModalProps {
@@ -251,6 +252,24 @@ export default function StudySettingsModal({
                                             onValueChange={v => updateSetting('autoPlaySound', v)}
                                         />
                                     </View>
+
+                                    {mode === 'autoplay' && tempSettings.autoPlaySound && (
+                                        <>
+                                            <View style={[styles.divider, { backgroundColor: colors.border }]} />
+                                            <View style={styles.settingRow}>
+                                                <View style={styles.settingRowContent}>
+                                                    <View style={styles.iconContainer}>
+                                                        <Ionicons name="volume-low-outline" size={16} color={colors.icons.sound} />
+                                                    </View>
+                                                    <Text style={[styles.settingLabel, { color: colors.text }]}>{t('studySettings.autoSoundExample')}</Text>
+                                                </View>
+                                                <CustomToggle
+                                                    value={!!tempSettings.autoPlayExample}
+                                                    onValueChange={v => updateSetting('autoPlayExample', v)}
+                                                />
+                                            </View>
+                                        </>
+                                    )}
 
                                     {mode === 'autoplay' && (
                                         <>

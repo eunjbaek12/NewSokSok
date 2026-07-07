@@ -48,6 +48,37 @@ import FastScrollHandle from '@/components/ui/FastScrollHandle';
 type FilterStatus = 'all' | 'learning' | 'memorized';
 type SortOrder = 'newest' | 'az' | 'za';
 
+// 품사 필터. word.pos는 소스별로 형식이 제각각인 자유 텍스트("verb", "dependent noun",
+// "noun, verb", 빈값 등)라, 정규 카테고리에 토큰 부분일치로 매핑한다. 값이 없거나
+// 어느 카테고리에도 안 걸리는 단어는 '기타'(POS_OTHER) 버킷으로 모은다.
+const POS_CATEGORIES = [
+  { key: 'noun', match: ['noun'] },
+  { key: 'pronoun', match: ['pronoun'] },
+  { key: 'verb', match: ['verb'] },
+  { key: 'adjective', match: ['adjective'] },
+  { key: 'adverb', match: ['adverb'] },
+  { key: 'preposition', match: ['preposition', 'postposition', 'adposition'] },
+  { key: 'conjunction', match: ['conjunction'] },
+  { key: 'interjection', match: ['interjection', 'exclamation'] },
+  { key: 'determiner', match: ['determiner', 'article'] },
+  { key: 'numeral', match: ['numeral', 'number'] },
+  { key: 'phrase', match: ['phrase', 'idiom', 'expression'] },
+] as const;
+
+const POS_OTHER = '__other__';
+
+// pos 문자열을 정규 카테고리 키 배열로 매핑. 토큰 단위 startsWith로 "pronoun"이 "noun"에
+// 오분류되는 것을 막는다("noun, verb" 같은 다중값은 두 카테고리 모두 매칭).
+function posCategoriesOf(pos?: string): string[] {
+  if (!pos) return [];
+  const tokens = pos.toLowerCase().split(/[^a-z]+/).filter(Boolean);
+  const cats: string[] = [];
+  for (const c of POS_CATEGORIES) {
+    if (c.match.some(root => tokens.some(tok => tok.startsWith(root)))) cats.push(c.key);
+  }
+  return cats;
+}
+
 export default function ListDetailScreen() {
   const { t } = useTranslation();
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -71,6 +102,7 @@ export default function ListDetailScreen() {
 
   const [filterStarred, setFilterStarred] = useState<boolean>(false);
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('all');
+  const [filterPos, setFilterPos] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
@@ -127,11 +159,36 @@ export default function ListDetailScreen() {
   const memorizedWords = useMemo(() => allWords.filter(w => w.isMemorized), [allWords]);
   const starredWords = useMemo(() => allWords.filter(w => w.isStarred), [allWords]);
 
+  // 이 리스트에 실제로 존재하는 품사 카테고리만 칩으로 노출. 카테고리가 2개 미만이면
+  // (품사 미태깅 덱/단일 품사) 필터가 무의미하므로 UI를 숨긴다.
+  const posFilter = useMemo(() => {
+    const present = new Set<string>();
+    let hasOther = false;
+    for (const w of allWords) {
+      const cats = posCategoriesOf(w.pos);
+      if (cats.length === 0) hasOther = true;
+      else cats.forEach(c => present.add(c));
+    }
+    const categories: string[] = POS_CATEGORIES.filter(c => present.has(c.key)).map(c => c.key);
+    return { categories, hasOther, show: categories.length >= 2 };
+  }, [allWords]);
+
   const filteredWords = useMemo(() => {
+    // 선택했던 품사가 더 이상 존재하지 않으면(해당 단어 전부 삭제 등) 필터를 자동 해제.
+    const posActive = !!filterPos && posFilter.show &&
+      (filterPos === POS_OTHER ? posFilter.hasOther : posFilter.categories.includes(filterPos));
     const filtered = allWords.filter(w => {
       if (filterStarred && !w.isStarred) return false;
       if (filterStatus === 'learning' && w.isMemorized) return false;
       if (filterStatus === 'memorized' && !w.isMemorized) return false;
+      if (posActive) {
+        const cats = posCategoriesOf(w.pos);
+        if (filterPos === POS_OTHER) {
+          if (cats.length > 0) return false;
+        } else if (!cats.includes(filterPos!)) {
+          return false;
+        }
+      }
       return true;
     });
 
@@ -144,7 +201,7 @@ export default function ListDetailScreen() {
       sorted.sort((a, b) => (b.createdAt ?? 0) - (a.createdAt ?? 0));
     }
     return sorted;
-  }, [filterStarred, filterStatus, sortOrder, allWords]);
+  }, [filterStarred, filterStatus, filterPos, posFilter, sortOrder, allWords]);
 
   const progress = useMemo(() => {
     const total = allWords.length;
@@ -717,9 +774,49 @@ export default function ListDetailScreen() {
     );
   };
 
+  const renderPosFilter = () => {
+    if (editMode || !posFilter.show) return null;
+    const chips: { key: string; label: string }[] = [
+      { key: '__all__', label: t('list.posAll') },
+      ...posFilter.categories.map(c => ({ key: c, label: t(`list.pos.${c}`) })),
+      ...(posFilter.hasOther ? [{ key: POS_OTHER, label: t('list.pos.other') }] : []),
+    ];
+    return (
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={[styles.posFilterRow, { borderBottomColor: colors.borderLight }]}
+        contentContainerStyle={styles.posFilterContent}
+        keyboardShouldPersistTaps="handled"
+      >
+        {chips.map(chip => {
+          const active = chip.key === '__all__' ? filterPos === null : filterPos === chip.key;
+          return (
+            <Pressable
+              key={chip.key}
+              onPress={() => {
+                setFilterPos(chip.key === '__all__' ? null : chip.key);
+                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              }}
+              style={[styles.posChip, {
+                backgroundColor: active ? colors.primary : colors.surfaceSecondary,
+                borderColor: active ? colors.primary : colors.borderLight,
+              }]}
+            >
+              <Text style={[styles.posChipText, { color: active ? colors.onPrimary : colors.textSecondary }]}>
+                {chip.label}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </ScrollView>
+    );
+  };
+
   const renderListHeader = () => (
     <View>
       {renderFilterHeader()}
+      {renderPosFilter()}
     </View>
   );
 
@@ -1051,6 +1148,26 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     paddingVertical: 2,
     backgroundColor: 'transparent',
+  },
+  posFilterRow: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  posFilterContent: {
+    flexDirection: 'row',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    alignItems: 'center',
+  },
+  posChip: {
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 16,
+    borderWidth: 1,
+  },
+  posChipText: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_600SemiBold',
   },
   filterContent: {
     flexDirection: 'row',

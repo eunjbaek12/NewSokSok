@@ -113,6 +113,7 @@ export const CustomStudySettingsSchema = z.object({
   selectedListIds: z.array(z.string()).default([]),
   selectedDaysByList: z.record(z.string(), z.union([z.array(z.number().int()), z.literal('all')])).default({}),
   wordFilter: z.enum(['all', 'learning', 'memorized', 'wrongCount', 'recent', 'starred']).default('all'),
+  posFilter: z.enum(['all', 'noun', 'verb', 'adjective', 'adverb', 'phrase', 'other']).default('all'),
   studyMode: z.enum(['flashcard', 'quiz']).default('flashcard'),
 });
 export type CustomStudySettings = z.infer<typeof CustomStudySettingsSchema>;

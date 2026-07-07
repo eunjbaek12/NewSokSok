@@ -14,6 +14,7 @@ import { useTheme } from '@/features/theme';
 import { useLists } from '@/features/vocab';
 import { useSettings, type CustomStudySettings } from '@/features/settings';
 import { Word } from '@/lib/types';
+import { POS_ALL, POS_OTHER, matchesPosFilter, presentPosCategories, type PosFilter } from '@/lib/pos';
 import ListDayPicker from '@/components/ListDayPicker';
 import ModalOverlay from '@/components/ui/ModalOverlay';
 
@@ -63,7 +64,8 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
     }
   }, [visibleLists, settings.useAllLists, settings.selectedListIds, updateCustomStudySettings]);
 
-  const { wordCount, filteredWords } = useMemo(() => {
+  // 범위(단어장/일차) + 단어 필터까지 적용한 집합 (품사 필터 적용 전)
+  const scopeWords = useMemo(() => {
     const sourceLists = settings.useAllLists
       ? visibleLists
       : visibleLists.filter(l => settings.selectedListIds.includes(l.id));
@@ -101,8 +103,35 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
         break;
     }
 
-    return { wordCount: words.length, filteredWords: words };
+    return words;
   }, [visibleLists, settings.useAllLists, settings.selectedListIds, settings.selectedDaysByList, settings.wordFilter]);
+
+  // 현재 범위에 실제로 존재하는 품사만 칩으로 노출. 선택지가 2개 미만이면 숨김.
+  const posOptions = useMemo(() => presentPosCategories(scopeWords), [scopeWords]);
+  const showPosFilter = posOptions.keys.length + (posOptions.hasOther ? 1 : 0) >= 2;
+  const posChips = useMemo(() => {
+    const chips: { key: PosFilter; label: string }[] = [{ key: POS_ALL, label: t('pos.all') }];
+    for (const k of posOptions.keys) chips.push({ key: k, label: t(`pos.${k}`) });
+    if (posOptions.hasOther) chips.push({ key: POS_OTHER, label: t('pos.other') });
+    return chips;
+  }, [posOptions, t]);
+
+  const { wordCount, filteredWords } = useMemo(() => {
+    const words = (showPosFilter && settings.posFilter !== POS_ALL)
+      ? scopeWords.filter(w => matchesPosFilter(w.pos, settings.posFilter as PosFilter))
+      : scopeWords;
+    return { wordCount: words.length, filteredWords: words };
+  }, [scopeWords, settings.posFilter, showPosFilter]);
+
+  // 범위가 바뀌어 선택했던 품사가 더 이상 없으면 자동으로 '전체'로 되돌린다.
+  useEffect(() => {
+    const f = settings.posFilter;
+    if (f === POS_ALL) return;
+    const available = f === POS_OTHER
+      ? posOptions.hasOther
+      : (posOptions.keys as string[]).includes(f);
+    if (!available) updateCustomStudySettings({ posFilter: POS_ALL });
+  }, [posOptions, settings.posFilter, updateCustomStudySettings]);
 
   const handleStart = useCallback(() => {
     if (wordCount === 0) return;
@@ -231,6 +260,38 @@ export default function CustomStudyModal({ visible, onClose }: CustomStudyModalP
                       })}
                     </View>
                   </View>
+
+                  {/* 품사 필터 (현재 범위에 품사가 2종 이상일 때만 노출) */}
+                  {showPosFilter && (
+                    <View style={[styles.card, { backgroundColor: colors.surface }]}>
+                      <Text style={[styles.sectionTitle, { color: colors.textSecondary }]}>{t('customStudy.posFilter')}</Text>
+                      <View style={styles.chipRow}>
+                        {posChips.map(chip => {
+                          const isActive = settings.posFilter === chip.key;
+                          return (
+                            <Pressable
+                              key={chip.key}
+                              onPress={() => updateCustomStudySettings({ posFilter: chip.key })}
+                              style={[
+                                styles.chip,
+                                {
+                                  backgroundColor: isActive ? (colors.primaryLight ?? `${colors.primary}20`) : 'transparent',
+                                  borderColor: isActive ? colors.primary : colors.borderLight,
+                                },
+                              ]}
+                            >
+                              <Text style={[
+                                styles.chipText,
+                                { color: isActive ? colors.primary : colors.textSecondary },
+                              ]}>
+                                {chip.label}
+                              </Text>
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+                    </View>
+                  )}
                 </ScrollView>
 
                 {/* 하단: 단어 수 + 버튼 */}

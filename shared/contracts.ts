@@ -94,6 +94,7 @@ export const AutoPlaySettingsSchema = z.object({
   showExample: z.boolean().default(true),
   showExampleKr: z.boolean().default(true),
   autoPlaySound: z.boolean().default(true),
+  autoPlayExample: z.boolean().default(true),
   delay: z.enum(['1s', '2s', '3s']).default('2s'),
   shuffle: z.boolean().default(false),
 });

@@ -58,6 +58,41 @@ export function getLanguageLabel(code: string, t: (key: string) => string): stri
   return t(`languages.${code}`) || code.toUpperCase();
 }
 
+/**
+ * 단어장 상세·편집 화면 표시용 대표 언어쌍.
+ *
+ * 언어는 "단어마다" 귀속되므로(단어장 생성 시 언어를 강제하지 않음) 단어들의
+ * 최빈 sourceLang/targetLang을 진실로 삼는다. 단어가 하나도 없는 빈 단어장만
+ * list 메타데이터로, 그것도 없으면 en→ko로 폴백한다. 동률이면 먼저 등장한
+ * 언어를 택한다(Map 삽입 순서 = 안정적).
+ */
+export function deriveDisplayLanguages(
+  words: { sourceLang?: string; targetLang?: string }[],
+  list?: { sourceLanguage?: string; targetLanguage?: string },
+): { source: string; target: string } {
+  const mode = (
+    pick: (w: { sourceLang?: string; targetLang?: string }) => string | undefined,
+  ): string | undefined => {
+    const counts = new Map<string, number>();
+    for (const w of words) {
+      const v = pick(w);
+      if (!v) continue;
+      counts.set(v, (counts.get(v) ?? 0) + 1);
+    }
+    let best: string | undefined;
+    let bestN = 0;
+    for (const [code, n] of counts) {
+      if (n > bestN) { best = code; bestN = n; }
+    }
+    return best;
+  };
+
+  return {
+    source: mode(w => w.sourceLang) ?? list?.sourceLanguage ?? 'en',
+    target: mode(w => w.targetLang) ?? list?.targetLanguage ?? 'ko',
+  };
+}
+
 /** Returns the input placeholder text for the given source language. */
 export function getPlaceholderText(sourceLang: LanguageCode, t: (key: string) => string): string {
   return t(`languages.placeholder.${sourceLang}`) || 'Enter a word';
@@ -73,6 +108,12 @@ export function getMeaningLabel(targetLang: LanguageCode, t: (key: string, opts?
 export function getDefinitionLabel(sourceLang: LanguageCode, t: (key: string, opts?: any) => string): string {
   const lang = getLanguageLabel(sourceLang, t);
   return t('languages.definitionLabel', { lang });
+}
+
+/** Returns localized label for the (source-language) example sentence field. */
+export function getExampleLabel(sourceLang: LanguageCode, t: (key: string, opts?: any) => string): string {
+  const lang = getLanguageLabel(sourceLang, t);
+  return t('languages.exampleLabel', { lang });
 }
 
 /** Returns localized label for the example translation field. */

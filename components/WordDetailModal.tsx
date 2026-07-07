@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getDefinitionLabel, LanguageCode } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, LanguageCode } from '@/constants/languages';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -36,19 +36,22 @@ interface WordDetailModalProps {
     readOnly?: boolean;
     /** Source language of the word (BCP-47 resolved for TTS). Defaults via word.sourceLang → en. */
     sourceLanguage?: string;
+    /** Target (meaning) language. Defaults via word.targetLang → ko. Drives 뜻/해석 labels. */
+    targetLanguage?: string;
     onClose: () => void;
     onModeChange?: (mode: WordModalMode) => void;
 }
 
 // ─── Read-only content view ────────────────────────────────────────────────────
 
-function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang }: {
+function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang, targetLang }: {
     word: Word;
     onClose: () => void;
     colors: any;
     t: (key: string) => string;
     ttsLang: string;
     sourceLang: string | undefined;
+    targetLang: string | undefined;
 }) {
     const hasExample = !!(word.exampleEn || word.exampleKr);
 
@@ -109,7 +112,7 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang }: {
                 <View style={[styles.roDivider, { borderTopColor: colors.borderLight }]} />
                 <View style={styles.roSection}>
                     <Text style={[styles.roLabel, { color: colors.textTertiary }]}>
-                        {t('wordDetail.meaningRequired').replace(' *', '')}
+                        {getMeaningLabel((targetLang ?? 'ko') as LanguageCode, t)}
                     </Text>
                     <Text style={[styles.roMeaning, { color: colors.primary }]}>
                         {word.meaningKr || '—'}
@@ -137,7 +140,7 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang }: {
                         <View style={[styles.roDivider, { borderTopColor: colors.borderLight }]} />
                         <View style={styles.roSection}>
                             <Text style={[styles.roLabel, { color: colors.textTertiary }]}>
-                                {t('wordDetail.exampleLabel')}
+                                {getExampleLabel((sourceLang ?? 'en') as LanguageCode, t)}
                             </Text>
                             {word.exampleEn ? (
                                 <Text style={[styles.roBody, { color: colors.text }]}>
@@ -190,6 +193,7 @@ export default function WordDetailModal({
     word,
     readOnly = false,
     sourceLanguage,
+    targetLanguage,
     onClose,
     onModeChange,
 }: WordDetailModalProps) {
@@ -204,6 +208,7 @@ export default function WordDetailModal({
     // TTS 언어: 명시 prop > 단어 자체의 sourceLang > en. 영어 보이스로 일본어를
     // 읽으면 무음이 되므로 발음 재생은 반드시 단어의 실제 출발어로 호출한다.
     const resolvedSourceLang = sourceLanguage ?? existingWord?.sourceLang;
+    const resolvedTargetLang = targetLanguage ?? existingWord?.targetLang;
     const ttsLang = getTtsLang(resolvedSourceLang);
 
     const {
@@ -221,7 +226,7 @@ export default function WordDetailModal({
         handleSaveWord,
         isPendingFill,
         isPendingSave,
-    } = useAddWord(listId, wordId || undefined, existingWord, undefined, undefined, undefined, apiKey || undefined);
+    } = useAddWord(listId, wordId || undefined, existingWord, undefined, resolvedSourceLang, resolvedTargetLang, apiKey || undefined);
 
     const [tagInput, setTagInput] = useState('');
 
@@ -363,6 +368,7 @@ export default function WordDetailModal({
                                 t={t}
                                 ttsLang={ttsLang}
                                 sourceLang={resolvedSourceLang}
+                                targetLang={resolvedTargetLang}
                             />
                         ) : (
                             <>
@@ -470,16 +476,16 @@ export default function WordDetailModal({
                                     </View>
 
                                     <View style={styles.fieldsContainer}>
-                                        <EditableField label={t('wordDetail.meaningRequired')} placeholder={t('wordDetail.meaningPlaceholder')} value={meaningKr}
+                                        <EditableField label={getMeaningLabel((resolvedTargetLang ?? 'ko') as LanguageCode, t)} placeholder={t('wordDetail.meaningPlaceholder')} value={meaningKr}
                                             onChangeText={(v) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
                                             error={errors.meaningKr ? t('wordDetail.enterWord') : undefined} isCore maxLength={300} />
-                                        <EditableField label={getDefinitionLabel((resolvedSourceLang ?? 'en') as LanguageCode, t)} placeholder={t('wordDetail.definitionPlaceholder')} value={definition}
+                                        <EditableField label={getDefinitionLabel((resolvedSourceLang ?? 'en') as LanguageCode, t)} placeholder={getDefinitionLabel((resolvedSourceLang ?? 'en') as LanguageCode, t)} value={definition}
                                             onChangeText={setDefinition} multiline maxLength={500} />
 
                                         <View style={[styles.exampleGroup, { backgroundColor: mode === 'read' ? 'transparent' : colors.surfaceSecondary }]}>
-                                            <EditableField label={t('wordDetail.exampleLabel')} placeholder={t('wordDetail.examplePlaceholder')} value={exampleEn}
+                                            <EditableField label={getExampleLabel((resolvedSourceLang ?? 'en') as LanguageCode, t)} placeholder={t('wordDetail.examplePlaceholder')} value={exampleEn}
                                                 onChangeText={setExampleEn} multiline maxLength={300} />
-                                            <EditableField label={t('wordDetail.translationLabel')} placeholder={t('wordDetail.translationPlaceholder')} value={exampleKr}
+                                            <EditableField label={getExampleTranslationLabel((resolvedTargetLang ?? 'ko') as LanguageCode, t)} placeholder={getExampleTranslationLabel((resolvedTargetLang ?? 'ko') as LanguageCode, t)} value={exampleKr}
                                                 onChangeText={setExampleKr} multiline maxLength={300} />
                                         </View>
 

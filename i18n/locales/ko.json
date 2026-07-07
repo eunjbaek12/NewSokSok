@@ -1056,6 +1056,15 @@
     "wordToMeaning": "단어 → 뜻",
     "nPerSet": "{{size}}개"
   },
+  "pos": {
+    "all": "전체",
+    "noun": "명사",
+    "verb": "동사",
+    "adjective": "형용사",
+    "adverb": "부사",
+    "phrase": "구·표현",
+    "other": "기타"
+  },
   "customStudy": {
     "title": "맞춤 학습",
     "noLists": "단어장이 없습니다.",
@@ -1064,6 +1073,7 @@
     "quiz": "객관식 퀴즈",
     "studyScope": "학습 범위",
     "wordFilter": "단어 필터",
+    "posFilter": "품사",
     "filterAll": "전체",
     "filterUnmemorized": "미암기",
     "filterMemorized": "암기",

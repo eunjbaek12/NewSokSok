@@ -1056,6 +1056,15 @@
     "wordToMeaning": "Word → Meaning",
     "nPerSet": "{{size}}"
   },
+  "pos": {
+    "all": "All",
+    "noun": "Noun",
+    "verb": "Verb",
+    "adjective": "Adjective",
+    "adverb": "Adverb",
+    "phrase": "Phrase",
+    "other": "Other"
+  },
   "customStudy": {
     "title": "Custom Study",
     "noLists": "No vocab lists available.",
@@ -1064,6 +1073,7 @@
     "quiz": "Multiple Choice Quiz",
     "studyScope": "Study Scope",
     "wordFilter": "Word Filter",
+    "posFilter": "Part of Speech",
     "filterAll": "All",
     "filterUnmemorized": "Not Memorized",
     "filterMemorized": "Memorized",

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useDeferredValue, useCallback } from 'react';
+import React, { useState, useMemo, useDeferredValue, useCallback, useEffect } from 'react';
 import {
     View,
     Text,
@@ -20,6 +20,7 @@ import { useTheme } from '@/features/theme';
 import { useLists, selectWordsForList } from '@/features/vocab';
 import { filterAndRankResults, getTopTags, type AllDataItem, type SearchResult } from '@/lib/search';
 import { displayTag } from '@/lib/tag-display';
+import { POS_ALL, POS_OTHER, matchesPosFilter, presentPosCategories, type PosFilter } from '@/lib/pos';
 import * as Haptics from 'expo-haptics';
 
 export default function SearchModalScreen() {
@@ -33,6 +34,7 @@ export default function SearchModalScreen() {
     const [query, setQuery] = useState('');
     const [selectedListId, setSelectedListId] = useState<string | null>(null);
     const [starredOnly, setStarredOnly] = useState(false);
+    const [posFilter, setPosFilter] = useState<PosFilter>(POS_ALL);
 
     // 키입력은 즉시 반응, 무거운 필터 연산은 낮은 우선순위로 처리
     const deferredQuery = useDeferredValue(query);
@@ -60,7 +62,35 @@ export default function SearchModalScreen() {
         [deferredQuery, allData, selectedListId, starredOnly],
     );
 
-    const showResults = !!query.trim() || starredOnly;
+    // 현재 보이는 단어들에 실제로 존재하는 품사만 칩으로 노출. 2종 미만이면 숨김.
+    const posOptions = useMemo(() => presentPosCategories(allData.map(d => d.word)), [allData]);
+    const showPosFilter = posOptions.keys.length + (posOptions.hasOther ? 1 : 0) >= 2;
+    const posActive = showPosFilter && posFilter !== POS_ALL;
+
+    // 랭킹 로직(filterAndRankResults)은 건드리지 않고 결과를 품사로 후처리.
+    const results = useMemo(
+        () => posActive ? searchResults.filter(r => matchesPosFilter(r.word.pos, posFilter)) : searchResults,
+        [searchResults, posActive, posFilter],
+    );
+
+    // 품사만 선택하고 질의가 없어도 결과를 보여준다(품사 브라우징).
+    const showResults = !!query.trim() || starredOnly || posActive;
+
+    // 단어 구성이 바뀌어 선택했던 품사가 사라지면 자동으로 '전체'로 되돌린다.
+    useEffect(() => {
+        if (posFilter === POS_ALL) return;
+        const available = posFilter === POS_OTHER
+            ? posOptions.hasOther
+            : (posOptions.keys as string[]).includes(posFilter);
+        if (!available) setPosFilter(POS_ALL);
+    }, [posOptions, posFilter]);
+
+    const posChips = useMemo(() => {
+        const chips: { key: PosFilter; label: string }[] = [{ key: POS_ALL, label: t('pos.all') }];
+        for (const k of posOptions.keys) chips.push({ key: k, label: t(`pos.${k}`) });
+        if (posOptions.hasOther) chips.push({ key: POS_OTHER, label: t('pos.other') });
+        return chips;
+    }, [posOptions, t]);
 
     const handleTagClick = (tag: string) => {
         setQuery(tag);
@@ -264,13 +294,47 @@ export default function SearchModalScreen() {
                         pointerEvents="none"
                     />
                 </View>
+
+                {/* 품사 필터 — 단어장 필터와 섞이지 않게 별도 줄. 품사 2종 이상일 때만. */}
+                {showPosFilter && (
+                    <View style={styles.filterScrollerWrap}>
+                        <ScrollView
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={styles.filterContent}
+                        >
+                            {posChips.map(chip => {
+                                const isActive = posFilter === chip.key;
+                                return (
+                                    <Pressable
+                                        key={chip.key}
+                                        onPress={() => {
+                                            setPosFilter(chip.key);
+                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                                        }}
+                                        style={[
+                                            styles.filterChip,
+                                            isActive
+                                                ? { backgroundColor: colors.primary, borderColor: colors.primary }
+                                                : { backgroundColor: colors.surface, borderColor: colors.border },
+                                        ]}
+                                    >
+                                        <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
+                                            {chip.label}
+                                        </Text>
+                                    </Pressable>
+                                );
+                            })}
+                        </ScrollView>
+                    </View>
+                )}
             </View>
 
             {/* 결과 개수 바 */}
-            {showResults && searchResults.length > 0 && (
+            {showResults && results.length > 0 && (
                 <View style={[styles.resultCountBar, { borderBottomColor: colors.borderLight }]}>
                     <Text style={[styles.resultCountText, { color: colors.textTertiary }]}>
-                        {t('search.resultCount', { count: searchResults.length })}
+                        {t('search.resultCount', { count: results.length })}
                     </Text>
                 </View>
             )}
@@ -311,7 +375,7 @@ export default function SearchModalScreen() {
                 </View>
             ) : (
                 <FlatList
-                    data={searchResults}
+                    data={results}
                     keyExtractor={item => item.word.id}
                     renderItem={renderResult}
                     contentContainerStyle={[styles.resultsContent, { paddingBottom: insets.bottom + 20 }]}

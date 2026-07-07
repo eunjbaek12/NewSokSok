@@ -47,7 +47,7 @@ import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { speak } from '@/lib/tts';
-import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
     FadeOut,
@@ -195,10 +195,9 @@ const DraggableFieldItem = ({
     );
 };
 
-const DraggableFieldList = ({ settings, onUpdate, colors, t }: { settings: any, onUpdate: (s: any) => void, colors: any, t: (key: string, opts?: any) => string }) => {
-    // 모든 필드를 포함하되, term과 meaningKr은 isFixed 처리
-    const sourceLang = (settings.sourceLang || 'en') as LanguageCode;
-    const targetLang = (settings.targetLang || 'ko') as LanguageCode;
+const DraggableFieldList = ({ settings, onUpdate, colors, t, sourceLang, targetLang }: { settings: any, onUpdate: (s: any) => void, colors: any, t: (key: string, opts?: any) => string, sourceLang: LanguageCode, targetLang: LanguageCode }) => {
+    // 모든 필드를 포함하되, term과 meaningKr은 isFixed 처리.
+    // 레이블 언어는 전역 설정이 아니라 화면의 유효 언어(편집 대상 단어/선택 단어장)를 따른다.
     const labels: Record<string, string> = {
         term: t('addWord.wordInput'),
         meaningKr: getMeaningLabel(targetLang, t),
@@ -288,6 +287,29 @@ export default function AddWordScreen() {
 
     const showQuotaChip = isCloudAuthMode(authMode) && !apiKey && quotaStatus && quotaStatus.tier === 'free';
 
+    // 이 화면의 "유효 언어" — 전역 입력 설정이 아니라 편집 대상 단어(편집)/선택한
+    // 단어장(신규)의 실제 언어를 따른다. 편집 레이블 정확화 + 저장 시 언어 보존의 핵심.
+    // 편집 시 lists가 늦게 로드되면 existingWord가 잠깐 null일 수 있어, 아래 effect가
+    // 값이 채워지는 시점에 한 번 더 보정한다.
+    const resolveInitialLang = (kind: 'source' | 'target'): LanguageCode => {
+        const draftV = kind === 'source' ? draftState?.sourceLang : draftState?.targetLang;
+        if (draftV) return draftV as LanguageCode;
+        if (isEditing && existingWord) {
+            const v = kind === 'source' ? existingWord.sourceLang : existingWord.targetLang;
+            if (v) return v as LanguageCode;
+        }
+        if (listId) {
+            const l = lists.find(x => x.id === listId);
+            if (l) {
+                const d = deriveDisplayLanguages(getWordsForList(listId), l);
+                return (kind === 'source' ? d.source : d.target) as LanguageCode;
+            }
+        }
+        return inputSettings[kind === 'source' ? 'sourceLang' : 'targetLang'];
+    };
+    const [sourceLang, setSourceLang] = useState<LanguageCode>(() => resolveInitialLang('source'));
+    const [targetLang, setTargetLang] = useState<LanguageCode>(() => resolveInitialLang('target'));
+
     const {
         term, setTerm,
         definition, setDefinition,
@@ -306,7 +328,7 @@ export default function AddWordScreen() {
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
-    } = useAddWord(listId, wordId, existingWord, draftState, inputSettings.sourceLang, inputSettings.targetLang, apiKey || undefined);
+    } = useAddWord(listId, wordId, existingWord, draftState, sourceLang, targetLang, apiKey || undefined);
 
     useEffect(() => {
         if (aiQuotaHitAt) {
@@ -423,7 +445,7 @@ export default function AddWordScreen() {
         setIsListening(false);
         const code: string | undefined = event?.error;
         if (!code || code === 'no-speech' || code === 'aborted') return; // 자연 종료
-        const langLabel = getLanguageLabel(inputSettings.sourceLang, t);
+        const langLabel = getLanguageLabel(sourceLang, t);
         if (code === 'language-not-supported' || code === 'language-not-allowed') {
             Alert.alert(t('common.error'), t('addWord.voiceLangNotSupported', { lang: langLabel }));
         } else if (code === 'network') {
@@ -452,7 +474,7 @@ export default function AddWordScreen() {
             }
             Haptics.selectionAsync();
             // STT는 TTS와 동일한 BCP-47 태그를 받는다 — ja-JP/zh-CN 등 4개 언어 공용.
-            const lang = getTtsLang(inputSettings.sourceLang);
+            const lang = getTtsLang(sourceLang);
 
             // 미지원/미설치 로케일은 start 시 'error' 이벤트로 빠지지만, 시도 전에 잡으면
             // 사용자가 "음성 안 되네"가 아닌 "데이터 받으세요" 같은 행동 가능한 안내를 받는다.
@@ -462,7 +484,7 @@ export default function AddWordScreen() {
             try {
                 supportInfo = await ExpoSpeechRecognitionModule.getSupportedLocales?.();
             } catch { /* API 미지원 디바이스 — fall through. */ }
-            const langLabel = getLanguageLabel(inputSettings.sourceLang, t);
+            const langLabel = getLanguageLabel(sourceLang, t);
             const supported = supportInfo?.locales ?? [];
             const installed = supportInfo?.installedLocales ?? [];
             if (supported.length > 0 && !supported.includes(lang)) {
@@ -534,7 +556,13 @@ export default function AddWordScreen() {
 
         // 시각적 피드백을 위해 약간의 지연
         setTimeout(async () => {
-            await updateInputSettings(tempSettings);
+            // 언어는 피커에서 로컬 상태로 즉시 반영되며 tempSettings와 분리돼 있다.
+            // 신규 모드: 현재 유효 언어를 전역 기본값으로 저장. 편집 모드: 이 단어의
+            // 언어가 전역 기본을 오염시키지 않도록 기존 전역값을 그대로 유지.
+            const langOverride = isEditing
+                ? { sourceLang: inputSettings.sourceLang, targetLang: inputSettings.targetLang }
+                : { sourceLang, targetLang };
+            await updateInputSettings({ ...tempSettings, ...langOverride });
             setFieldSettingsOpen(false);
             setIsApplying(false);
 
@@ -542,7 +570,8 @@ export default function AddWordScreen() {
             const params: any = {
                 listId: selectedListId,
                 initialMode: tempSettings.addWordMode,
-                draft: JSON.stringify({ term, meaningKr, definition, exampleEn, exampleKr, tags, pos, phonetic })
+                // 언어도 draft에 실어 재마운트 후 유효 언어를 보존(편집/신규 공통).
+                draft: JSON.stringify({ term, meaningKr, definition, exampleEn, exampleKr, tags, pos, phonetic, sourceLang, targetLang })
             };
             if (wordId) params.wordId = wordId;
 
@@ -573,6 +602,10 @@ export default function AddWordScreen() {
             setTags(existingWord.tags || []);
             setPos(existingWord.pos || '');
             setPhonetic(existingWord.phonetic || '');
+            // 편집 진입 시 lists가 늦게 로드되면 초기값이 폴백으로 잡혔을 수 있다.
+            // draft로 사용자가 명시 변경한 경우가 아니면 이 단어의 실제 언어로 보정.
+            if (!draftState?.sourceLang && existingWord.sourceLang) setSourceLang(existingWord.sourceLang as LanguageCode);
+            if (!draftState?.targetLang && existingWord.targetLang) setTargetLang(existingWord.targetLang as LanguageCode);
         }
     }, [existingWord, setTerm, setDefinition, setMeaningKr, setExampleEn, setExampleKr, setTags, setPos, setPhonetic]);
 
@@ -616,6 +649,8 @@ export default function AddWordScreen() {
                 exampleKr: w.exampleKr || '',
                 isStarred: false,
                 tags: [],
+                sourceLang,
+                targetLang,
             });
             addedCount++;
         }
@@ -713,7 +748,7 @@ export default function AddWordScreen() {
                         t('addWord.duplicateWord'),
                         t('addWord.duplicateWordMessage', {
                             term: term.trim(),
-                            lang: getLanguageLabel(inputSettings.targetLang, t),
+                            lang: getLanguageLabel(targetLang, t),
                         }),
                     );
                 } else {
@@ -876,7 +911,20 @@ export default function AddWordScreen() {
                         </Pressable>
                     )}
 
-
+                    {/* 언어쌍 표시 — 이 화면의 유효 출발어→도착어. 탭하면 언어 설정(Field
+                        Settings)을 연다. iOS 형제 Modal 제약상 언어 picker는 그 모달의
+                        자식으로만 뜨므로 여기서 직접 열지 않고 설정 모달을 경유한다. */}
+                    <Pressable
+                        onPress={() => setFieldSettingsOpen(true)}
+                        style={[styles.langChip, { backgroundColor: colors.primary + '0D', borderColor: colors.primary + '20' }]}
+                    >
+                        <Text style={{ fontSize: 13 }}>{getLanguageFlag(sourceLang)}</Text>
+                        <Text style={[styles.langChipText, { color: colors.text }]}>{getLanguageLabel(sourceLang, t)}</Text>
+                        <Ionicons name="arrow-forward" size={12} color={colors.textTertiary} />
+                        <Text style={{ fontSize: 13 }}>{getLanguageFlag(targetLang)}</Text>
+                        <Text style={[styles.langChipText, { color: colors.text }]}>{getLanguageLabel(targetLang, t)}</Text>
+                        <Ionicons name="chevron-down" size={13} color={colors.textTertiary} style={{ marginLeft: 'auto' }} />
+                    </Pressable>
 
                     {(true) && (
                         <>
@@ -916,7 +964,7 @@ export default function AddWordScreen() {
                                                         onBlur={() => {
                                                             if (!suppressBlurRef.current) setIsTermFocused(false);
                                                         }}
-                                                        placeholder={getPlaceholderText(inputSettings.sourceLang, t)}
+                                                        placeholder={getPlaceholderText(sourceLang, t)}
                                                         placeholderTextColor={colors.textTertiary}
                                                         value={term}
                                                         maxLength={50}
@@ -932,7 +980,7 @@ export default function AddWordScreen() {
                                                                 return;
                                                             }
                                                             autocompleteTimerRef.current = setTimeout(async () => {
-                                                                const results = inputSettings.sourceLang === 'en'
+                                                                const results = sourceLang === 'en'
                                                                     ? await fetchDatamuseAutocomplete(text.trim())
                                                                     : [];
                                                                 // 검색/선택으로 닫힌 뒤 늦게 도착한 응답이면 무시
@@ -953,7 +1001,7 @@ export default function AddWordScreen() {
                                                             onPress={() => {
                                                                 if (term.trim()) {
                                                                     Haptics.selectionAsync();
-                                                                    speak(getSpeakableText(term, phonetic, inputSettings.sourceLang).trim(), getTtsLang(inputSettings.sourceLang));
+                                                                    speak(getSpeakableText(term, phonetic, sourceLang).trim(), getTtsLang(sourceLang));
                                                                 }
                                                             }}
                                                             disabled={!term.trim()}
@@ -982,7 +1030,7 @@ export default function AddWordScreen() {
                                                             onPress={() => {
                                                                 if (!term.trim()) return;
                                                                 Haptics.selectionAsync();
-                                                                const dictCode = getNaverDictCode(inputSettings.sourceLang, inputSettings.targetLang);
+                                                                const dictCode = getNaverDictCode(sourceLang, targetLang);
                                                                 const subdomain = dictCode ? getNaverDictSubdomain(dictCode) : 'en';
                                                                 WebBrowser.openBrowserAsync(
                                                                     `https://${subdomain}.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`
@@ -1052,8 +1100,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Input
                                                 key="meaningKr"
-                                                label={getMeaningLabel(inputSettings.targetLang, t)}
-                                                placeholder={getMeaningLabel(inputSettings.targetLang, t)}
+                                                label={getMeaningLabel(targetLang, t)}
+                                                placeholder={getMeaningLabel(targetLang, t)}
                                                 value={meaningKr}
                                                 maxLength={200}
                                                 onChangeText={(v: string) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
@@ -1094,8 +1142,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Animated.View key="example" entering={FadeIn} exiting={FadeOut} layout={Layout} style={{ gap: 10 }}>
                                                 <Input
-                                                    label={t('addWord.exampleLabel')}
-                                                    placeholder={t('addWord.exampleLabel')}
+                                                    label={getExampleLabel(sourceLang, t)}
+                                                    placeholder={getExampleLabel(sourceLang, t)}
                                                     value={exampleEn}
                                                     onChangeText={setExampleEn}
                                                     maxLength={300}
@@ -1103,8 +1151,8 @@ export default function AddWordScreen() {
                                                     style={{ fontStyle: 'italic' }}
                                                 />
                                                 <Input
-                                                    label={getExampleTranslationLabel(inputSettings.targetLang, t)}
-                                                    placeholder={getExampleTranslationLabel(inputSettings.targetLang, t)}
+                                                    label={getExampleTranslationLabel(targetLang, t)}
+                                                    placeholder={getExampleTranslationLabel(targetLang, t)}
                                                     value={exampleKr}
                                                     onChangeText={setExampleKr}
                                                     maxLength={300}
@@ -1118,8 +1166,8 @@ export default function AddWordScreen() {
                                         return (
                                             <Animated.View key="definition" entering={FadeIn} exiting={FadeOut} layout={Layout}>
                                                 <Input
-                                                    label={getDefinitionLabel(inputSettings.sourceLang, t)}
-                                                    placeholder={getDefinitionLabel(inputSettings.sourceLang, t)}
+                                                    label={getDefinitionLabel(sourceLang, t)}
+                                                    placeholder={getDefinitionLabel(sourceLang, t)}
                                                     value={definition}
                                                     onChangeText={setDefinition}
                                                     maxLength={500}
@@ -1340,8 +1388,8 @@ export default function AddWordScreen() {
                                         <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.inputLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.sourceLang)}</Text>
-                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.sourceLang, t)}</Text>
+                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(sourceLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(sourceLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>
                                 </Pressable>
@@ -1366,8 +1414,8 @@ export default function AddWordScreen() {
                                         <Text style={{ fontFamily: 'Pretendard_600SemiBold', color: colors.primary, fontSize: 13 }}>{t('addWord.meaningLanguage')}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(tempSettings.targetLang)}</Text>
-                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(tempSettings.targetLang, t)}</Text>
+                                        <Text style={{ fontSize: 14 }}>{getLanguageFlag(targetLang)}</Text>
+                                        <Text style={{ fontFamily: 'Pretendard_500Medium', color: colors.text, fontSize: 13 }}>{getLanguageLabel(targetLang, t)}</Text>
                                         <Ionicons name="chevron-forward" size={14} color={colors.textTertiary} />
                                     </View>
                                 </Pressable>
@@ -1383,6 +1431,8 @@ export default function AddWordScreen() {
                                         onUpdate={setTempSettings}
                                         colors={colors}
                                         t={t}
+                                        sourceLang={sourceLang}
+                                        targetLang={targetLang}
                                     />
                                 </View>
 
@@ -1437,9 +1487,13 @@ export default function AddWordScreen() {
                         id: l.code,
                         title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
                     }))}
-                    selectedValue={tempSettings.sourceLang}
+                    selectedValue={sourceLang}
                     onSelect={(code: string) => {
-                        setTempSettings(s => ({ ...s, sourceLang: code as LanguageCode }));
+                        const c = code as LanguageCode;
+                        setSourceLang(c);
+                        // 신규 입력이면 다음 단어에도 이어지도록 전역 기본값도 갱신(현행 동작).
+                        // 편집이면 이 단어에만 적용 — 전역 기본을 오염시키지 않는다.
+                        if (!isEditing) void updateInputSettings({ sourceLang: c });
                         setSourceLangPickerOpen(false);
                     }}
                 />
@@ -1452,9 +1506,11 @@ export default function AddWordScreen() {
                         id: l.code,
                         title: `${l.flag} ${getLanguageLabel(l.code, t)}`,
                     }))}
-                    selectedValue={tempSettings.targetLang}
+                    selectedValue={targetLang}
                     onSelect={(code: string) => {
-                        setTempSettings(s => ({ ...s, targetLang: code as LanguageCode }));
+                        const c = code as LanguageCode;
+                        setTargetLang(c);
+                        if (!isEditing) void updateInputSettings({ targetLang: c });
                         setTargetLangPickerOpen(false);
                     }}
                 />
@@ -1485,8 +1541,8 @@ export default function AddWordScreen() {
                         <PhotoImportWorkflow
                             listId={selectedListId}
                             source={photoSource}
-                            sourceLang={inputSettings.sourceLang}
-                            targetLang={inputSettings.targetLang}
+                            sourceLang={sourceLang}
+                            targetLang={targetLang}
                             existingTerms={getWordsForList(selectedListId).map(w => w.term)}
                             onClose={() => setPhotoSource(null)}
                             onSaveWords={handlePhotoSaveWords}
@@ -1506,8 +1562,8 @@ export default function AddWordScreen() {
                 <SafeAreaProvider>
                     <BatchImportWorkflow
                         listId={selectedListId}
-                        sourceLang={inputSettings.sourceLang}
-                        targetLang={inputSettings.targetLang}
+                        sourceLang={sourceLang}
+                        targetLang={targetLang}
                         existingTerms={getWordsForList(selectedListId).map(w => w.term)}
                         onClose={() => setShowExcel(false)}
                         onSaveWords={handlePhotoSaveWords}
@@ -1535,6 +1591,8 @@ const styles = StyleSheet.create({
     scrollContent: { padding: 20, paddingBottom: 40 },
     listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
+    langChip: { flexDirection: 'row', alignItems: 'center', gap: 5, borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, marginBottom: 12 },
+    langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
     wordSection: { marginBottom: 8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
     wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 124 },

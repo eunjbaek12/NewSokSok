@@ -1254,6 +1254,7 @@ export default function CurationScreen() {
                 listId="curation"
                 word={detailWord}
                 sourceLanguage={selectedTheme?.sourceLanguage}
+                targetLanguage={selectedTheme?.targetLanguage}
                 onClose={() => setDetailWord(null)}
             />
 

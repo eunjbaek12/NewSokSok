@@ -1285,6 +1285,7 @@
     "meaningLabel": "{{lang}} Meaning",
     "definitionLabel": "{{lang}} Definition",
     "translationLabel": "{{lang}} Translation",
+    "exampleLabel": "{{lang}} Example",
     "placeholder": {
       "en": "Enter a word",
       "ko": "단어를 입력하세요",

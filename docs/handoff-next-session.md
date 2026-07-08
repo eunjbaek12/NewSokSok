@@ -1,13 +1,42 @@
 # 다음 세션 handoff
 
-작성: 2026-07-08 (갱신) · 대상: 다음 작업 세션 시작 시
+작성: 2026-07-08 (후반 갱신) · 대상: 다음 작업 세션 시작 시
 
-이전 세션(07-07~08)에서 품사 필터·예문 오디오·CSV 작업을 정리하고 **세 PR을 모두 main에 머지**했다.
-연속성 메모리: `project_pos_filter_and_example_audio`, `project_csv_import_export`.
+07-07~08 세션에서 (전반) 품사 필터·예문 오디오·CSV 세 PR을, (후반) 언어 표시·발음 표기 두 PR을 **모두 main에 머지**했다. 총 **5개 PR 머지**(#15·#17·#18·#19·#20), 열린 PR 없음.
+연속성 메모리: `project_pos_filter_and_example_audio`, `project_csv_import_export`, `project_word_language_display_fix`, `project_phonetic_target_independent`.
 
 ---
 
-## ✅ 이번 세션(2026-07-08)에 끝낸 것
+## 🚨 다음 세션 0순위 — Edge 재배포 (안 하면 발음 수정 반영 안 됨)
+
+PR #20(발음 표기)은 **Supabase Edge Function을 고쳤는데 아직 배포 안 됨.** 배포 전까지 AI 생성/검색 발음은 옛 동작(ko/vi/es 비움) 그대로다.
+
+```bash
+supabase functions deploy generate-words
+supabase functions deploy enrich-word
+```
+(둘 다 `supabase/functions/_shared/gemini-vertex.ts`를 공유하므로 **함께** 배포)
+
+배포 후 기기에서: 한국어/베트남어/스페인어 AI 생성 → 발음 채워지는지(ko=로마자 annyeong, es/vi=IPA), 베트남어 **검색**이 생성과 같은 규칙으로 나오는지, flash-lite 출력 품질.
+
+---
+
+## ✅ 이번 세션(2026-07-08 후반)에 끝낸 것 — 언어/발음
+
+### 4. 단어 언어 표시·저장 정확화 → #19 머지 (`00cc6e1`)
+- 편집·상세·큐레이션 화면이 단어 자체 언어 대신 **전역 입력설정**을 참조하던 버그. 증상: 뜻 레이블 "한국어 뜻" 고정 / 언어 표시 없음 / 저장 시 언어 덮어써 TTS 손상 / 편집 "단어 검색" 시 "사전에서 못 찾음"(비영어를 en으로 조회).
+- 화면 "유효 언어"(단어별) 로컬 상태로 전환, `deriveDisplayLanguages`·`getExampleLabel` 신설, 상세 헤더에 언어쌍 칩, WordDetailModal 레이블 언어화. jest 365/365.
+- 메모리: `project_word_language_display_fix`.
+
+### 5. AI 발음 표기 "도착어 독립" 규칙 통일 → #20 머지 (`05e6d5e`)
+- 신고: "AI 생성 시 ko/vi/es 발음 안 나옴". 원인=생성 `PHONETIC_INSTRUCTION`이 이 언어들 "비워두기" + 생성/검색이 다른 프롬프트.
+- **세계인 대상이라 한글 전사 배제**, 도착어 독립 표기로 통일: **en·es·vi=IPA, ja=후리가나, zh=병음, ko=로마자(RR)**. 생성·검색 프롬프트 통일.
+- 4파일 수정(gemini-vertex.ts·gemini-client.ts·curation/screen.tsx·ai_curation_prompt.js). 체크스크립트 9/9. ⚠️PHONETIC_INSTRUCTION 맵이 이 3곳+체크스크립트에 **중복** → 수정 시 동기화 필수.
+- 메모리: `project_phonetic_target_independent`. **⚠️ 위 0순위 Edge 재배포 필요.**
+
+---
+
+## ✅ 이번 세션(2026-07-08 전반)에 끝낸 것 — 품사/예문/CSV
 
 ### 1. CSV PR(#7) 살려서 재작성 → #18로 머지
 - #7은 main과 3주+ 벌어지고 CSV 무관 커밋(버전 범프·iOS InfoPlist/AppCheckCore[이미 main 반영]·릴리스노트)이 섞여 있었음.
@@ -65,9 +94,28 @@
 - [ ] AI 단어생성: 출발어=영어일 때 도착어에 영어 노출 + 선택 가능
 - [ ] 단어 편집 설정: 학습언어=영어일 때 뜻언어에 영어 노출 + 선택 가능(회색 아님)
 
+### PR #19 언어 표시/저장 (클라이언트 — 빌드만으로 반영)
+- [ ] 베트남어/스페인어 덱 편집 → 레이블 "베트남어 정의 / 베트남어 예문 / 한국어 뜻"
+- [ ] ko→en 덱(K-pop 슬랭) 편집 → 뜻 레이블이 **"영어 뜻"**(더 이상 "한국어 뜻" 아님)
+- [ ] 언어 바꿔 저장 후 재진입 시 유지 + 목록 스피커 발음 언어 유지
+- [ ] 단어장 상세 헤더 언어쌍 칩, 큐레이션 미리보기 레이블
+- [ ] 비영어 AI 단어 편집에서 "단어 검색" 시 "사전에서 못 찾음" 안 뜸
+
+### PR #20 발음 표기 (⚠️ Edge 재배포 후에만 반영 — 0순위 참조)
+- [ ] 한국어 생성 → 발음=로마자(annyeong·gap), 비어있지 않음
+- [ ] 스페인어/베트남어 생성 → 발음=IPA, 한글 전사 아님
+- [ ] 같은 단어를 "검색"과 "생성"했을 때 발음 표기가 동일(통일 확인)
+
 ---
 
-## 참고 — 현재 브랜치/PR 상태 (2026-07-08 갱신)
-- `main`: #15·#17·#18 머지 반영, 원격 동기화됨. HEAD `bfdc4f6`.
+## 🔮 미결/후속 (원하면)
+- **생성 경로 responseSchema 없음**(검색엔 있음) → flash-lite가 드물게 phonetic 누락 여지. array schema 하드닝 추가 가능.
+- **정적 스페인어 큐레이션 덱**(올라·그라시아스, 한글) — 새 도착어 독립 규칙(IPA)과 어긋나나 정적 데이터라 재생성은 별도 결정.
+
+---
+
+## 참고 — 현재 브랜치/PR 상태 (2026-07-08 후반 갱신)
+- `main`: #15·#17·#18·#19·#20 머지 반영, 원격 동기화됨. HEAD `05e6d5e`.
 - 열린 PR: 없음.
-- 정리 완료: `feat/csv-import-export`(닫힌 #7), `feat/csv-import-export-v2`·`feat/pos-filter-custom-study`·`feat/flashcard-example-audio`(머지) 로컬·원격 삭제.
+- 정리 완료: 모든 머지 브랜치 로컬·원격 삭제(`fix/word-language-display`·`fix/phonetic-target-independent` 포함).
+- ⚠️ **미검증 코드가 main에 다수** — 스토어엔 다음 제출 빌드로만 나가므로 현재 라이브 영향 0. 문제 시 해당 머지만 `git revert`.

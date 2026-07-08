@@ -20,9 +20,19 @@ export const primarySubtag = (tag: string): string => {
   return p === 'cmn' ? 'zh' : p;
 };
 
+// iOS는 Eloquence(구식 로봇 음색)와 novelty(Bad News 등 효과음) 음성도 표준 음성과
+// 똑같이 quality 'Default'로 보고한다. 알파벳순 tie-break에서 'com.apple.eloquence.…'가
+// 'com.apple.voice.…'보다 항상 앞서므로, 페널티 없이는 로봇 음성이 고정 선택된다.
+// 표준 음성이 하나도 없을 때만 폴백으로 허용한다. (안드로이드 identifier는 이 접두사가
+// 없어 영향 없음 — zh 결정적 선택 동작 유지.)
+const ROBOTIC_VOICE_PREFIXES = ['com.apple.eloquence.', 'com.apple.speech.synthesis.voice.'];
+const roboticPenalty = (identifier: string): number =>
+  ROBOTIC_VOICE_PREFIXES.some((p) => identifier.startsWith(p)) ? 1 : 0;
+
 /**
  * language 태그(예: 'zh-CN')에 가장 잘 맞는 음성 identifier를 결정적으로 선택한다.
- * 우선순위: 기본 언어 일치 → 지역/스크립트 일치 → Enhanced 품질 → identifier 정렬.
+ * 우선순위: 기본 언어 일치 → 지역/스크립트 일치 → 표준 음성(비 Eloquence/novelty)
+ * → Enhanced 품질 → identifier 정렬.
  * 매칭 음성이 없으면 undefined → 호출부가 language 기준으로 폴백.
  *
  * 결정적 선택이 핵심: language만 지정하면 OS가 호출마다 다른 음성을 골라 중국어에서
@@ -47,6 +57,9 @@ export function pickVoice(
   const pool = regionMatch.length > 0 ? regionMatch : sameLang;
 
   const sorted = [...pool].sort((a, b) => {
+    const ra = roboticPenalty(a.identifier);
+    const rb = roboticPenalty(b.identifier);
+    if (ra !== rb) return ra - rb; // 표준 음성 우선 (Eloquence/novelty는 최후 폴백)
     const qa = a.quality === 'Enhanced' ? 0 : 1;
     const qb = b.quality === 'Enhanced' ? 0 : 1;
     if (qa !== qb) return qa - qb; // 고품질 우선

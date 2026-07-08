@@ -47,7 +47,7 @@ import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { speak } from '@/lib/tts';
-import { SUPPORTED_LANGUAGES, getNaverDictUrl, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getNaverDictUrl, getPlaceholderText, getWordLabel, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
     FadeOut,
@@ -199,7 +199,7 @@ const DraggableFieldList = ({ settings, onUpdate, colors, t, sourceLang, targetL
     // 모든 필드를 포함하되, term과 meaningKr은 isFixed 처리.
     // 레이블 언어는 전역 설정이 아니라 화면의 유효 언어(편집 대상 단어/선택 단어장)를 따른다.
     const labels: Record<string, string> = {
-        term: t('addWord.wordInput'),
+        term: getWordLabel(sourceLang, t),
         meaningKr: getMeaningLabel(targetLang, t),
         pos: t('addWord.pos'),
         phonetic: t('addWord.phonetic'),
@@ -911,21 +911,6 @@ export default function AddWordScreen() {
                         </Pressable>
                     )}
 
-                    {/* 언어쌍 표시 — 이 화면의 유효 출발어→도착어. 탭하면 언어 설정(Field
-                        Settings)을 연다. iOS 형제 Modal 제약상 언어 picker는 그 모달의
-                        자식으로만 뜨므로 여기서 직접 열지 않고 설정 모달을 경유한다. */}
-                    <Pressable
-                        onPress={() => setFieldSettingsOpen(true)}
-                        style={[styles.langChip, { backgroundColor: colors.primary + '0D', borderColor: colors.primary + '20' }]}
-                    >
-                        <Text style={{ fontSize: 13 }}>{getLanguageFlag(sourceLang)}</Text>
-                        <Text style={[styles.langChipText, { color: colors.text }]}>{getLanguageLabel(sourceLang, t)}</Text>
-                        <Ionicons name="arrow-forward" size={12} color={colors.textTertiary} />
-                        <Text style={{ fontSize: 13 }}>{getLanguageFlag(targetLang)}</Text>
-                        <Text style={[styles.langChipText, { color: colors.text }]}>{getLanguageLabel(targetLang, t)}</Text>
-                        <Ionicons name="chevron-down" size={13} color={colors.textTertiary} style={{ marginLeft: 'auto' }} />
-                    </Pressable>
-
                     {(true) && (
                         <>
                             <View style={styles.fieldsContainer}>
@@ -933,25 +918,30 @@ export default function AddWordScreen() {
                                     if (fieldId === 'term') {
                                         return (
                                             <View key="term" style={styles.wordSection}>
-                                                {!isEditing && (
-                                                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 6, marginBottom: 6 }}>
-                                                        {/* Expo Go / 모듈 로드 실패 시 죽은 버튼 노출 방지 — 음성 인식은 dev build 이상에서만 동작. */}
-                                                        {ExpoSpeechRecognitionModule && (
-                                                            <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
-                                                                <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? colors.onPrimary : colors.textSecondary} />
+                                                {/* 유효 출발어를 다른 필드 제목과 같은 스타일로 표시 — 도착어는
+                                                    "OO 뜻" 레이블이 전달한다. 언어 변경은 우상단 설정 모달로 일원화. */}
+                                                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 6 }}>
+                                                    <Text style={[styles.wordLabel, { color: colors.textSecondary }]}>{getWordLabel(sourceLang, t)}</Text>
+                                                    {!isEditing && (
+                                                        <>
+                                                            {/* Expo Go / 모듈 로드 실패 시 죽은 버튼 노출 방지 — 음성 인식은 dev build 이상에서만 동작. */}
+                                                            {ExpoSpeechRecognitionModule && (
+                                                                <Pressable onPress={handleVoiceInput} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: isListening ? colors.primaryButton : colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                                    <Ionicons name={isListening ? 'mic' : 'mic-outline'} size={16} color={isListening ? colors.onPrimary : colors.textSecondary} />
+                                                                </Pressable>
+                                                            )}
+                                                            <Pressable onPress={() => openPhotoScan('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                                <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
                                                             </Pressable>
-                                                        )}
-                                                        <Pressable onPress={() => openPhotoScan('camera')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
-                                                            <Ionicons name="camera-outline" size={16} color={colors.textSecondary} />
-                                                        </Pressable>
-                                                        <Pressable onPress={() => openPhotoScan('gallery')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
-                                                            <Ionicons name="images-outline" size={16} color={colors.textSecondary} />
-                                                        </Pressable>
-                                                        <Pressable onPress={() => setShowExcel(true)} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
-                                                            <MaterialCommunityIcons name="auto-fix" size={16} color={colors.textSecondary} />
-                                                        </Pressable>
-                                                    </View>
-                                                )}
+                                                            <Pressable onPress={() => openPhotoScan('gallery')} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                                <Ionicons name="images-outline" size={16} color={colors.textSecondary} />
+                                                            </Pressable>
+                                                            <Pressable onPress={() => setShowExcel(true)} hitSlop={10} style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: colors.surfaceSecondary, alignItems: 'center', justifyContent: 'center' }}>
+                                                                <MaterialCommunityIcons name="auto-fix" size={16} color={colors.textSecondary} />
+                                                            </Pressable>
+                                                        </>
+                                                    )}
+                                                </View>
                                                 <View style={{ zIndex: showSuggestions ? 1000 : 1 }}>
                                                 <View
                                                     style={styles.wordInputWrapper}
@@ -1587,9 +1577,8 @@ const styles = StyleSheet.create({
     scrollContent: { padding: 20, paddingBottom: 40 },
     listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
     listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
-    langChip: { flexDirection: 'row', alignItems: 'center', gap: 5, borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, marginBottom: 12 },
-    langChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold' },
     wordSection: { marginBottom: 8 },
+    wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
     wordInput: { flex: 1, fontSize: 16, fontFamily: 'Pretendard_600SemiBold', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 12, borderWidth: 1, paddingRight: 124 },
     searchActions: { position: 'absolute', right: 4, flexDirection: 'row', alignItems: 'center' },

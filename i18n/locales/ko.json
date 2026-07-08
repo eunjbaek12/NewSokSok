@@ -1317,6 +1317,7 @@
     "zh": "중국어",
     "vi": "베트남어",
     "es": "스페인어",
+    "wordLabel": "{{lang}} 단어",
     "meaningLabel": "{{lang}} 뜻",
     "definitionLabel": "{{lang}} 정의",
     "translationLabel": "{{lang}} 해석",

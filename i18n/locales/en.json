@@ -1317,6 +1317,7 @@
     "zh": "Chinese",
     "vi": "Vietnamese",
     "es": "Spanish",
+    "wordLabel": "{{lang}} Word",
     "meaningLabel": "{{lang}} Meaning",
     "definitionLabel": "{{lang}} Definition",
     "translationLabel": "{{lang}} Translation",

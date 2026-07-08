@@ -98,6 +98,12 @@ export function getPlaceholderText(sourceLang: LanguageCode, t: (key: string) =>
   return t(`languages.placeholder.${sourceLang}`) || 'Enter a word';
 }
 
+/** Returns localized label for the word (term) input field. */
+export function getWordLabel(sourceLang: LanguageCode, t: (key: string, opts?: any) => string): string {
+  const lang = getLanguageLabel(sourceLang, t);
+  return t('languages.wordLabel', { lang });
+}
+
 /** Returns localized label for the meaning field. */
 export function getMeaningLabel(targetLang: LanguageCode, t: (key: string, opts?: any) => string): string {
   const lang = getLanguageLabel(targetLang, t);

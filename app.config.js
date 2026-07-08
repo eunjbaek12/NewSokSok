@@ -63,7 +63,7 @@ if (process.env.EAS_BUILD_PROFILE === 'production') {
       '[app.config] Production build is missing required environment variables:\n  - ' +
       missing.join('\n  - ') +
       '\n\nRegister these as EAS Secrets before re-running ' +
-      "`eas build --profile production` (see docs/handoff-play-release.md)."
+      "`eas build --profile production` (see docs/secrets-management.md)."
     );
   }
 }

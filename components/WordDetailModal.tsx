@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, LanguageCode } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, getNaverDictUrl, LanguageCode } from '@/constants/languages';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -526,7 +526,7 @@ export default function WordDetailModal({
                                         {mode === 'read' && (
                                             <View style={{ marginTop: 24, paddingBottom: 12 }}>
                                                 <Button
-                                                    onPress={() => { if (term.trim()) Linking.openURL(`https://en.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`); }}
+                                                    onPress={() => { if (term.trim()) Linking.openURL(getNaverDictUrl(resolvedSourceLang, resolvedTargetLang, term)); }}
                                                     disabled={!term.trim()} icon="language-outline" title={t('wordDetail.naverDict')}
                                                     style={{ backgroundColor: term.trim() ? colors.brand.naverGreen : colors.surfaceSecondary, paddingVertical: 10 }}
                                                 />

@@ -1,11 +1,23 @@
 # 다음 세션 handoff
 
-작성: 2026-07-08 (심야 세션 갱신) · 대상: 다음 작업 세션 시작 시
+작성: 2026-07-08 (심야 세션 갱신 → 7/8 저녁 세션 추가 갱신) · 대상: 다음 작업 세션 시작 시
 
-이번 세션에서 **5개 PR 머지(#21·#22·#23·#24·#25)** + **iOS TestFlight 빌드 2회(build 23·24)** 를 냈다.
-`main` HEAD `43ca53a`, 버전 **1.1.4**, 열린 PR 없음.
+심야 세션에서 **5개 PR 머지(#21~#25)** + **iOS TestFlight 빌드 2회(build 23·24)**, 이어진 저녁 세션에서 **3개 PR 추가 머지(#27 문서정리 · #28 개발자섹션 숨김 · #29 동기화 유실 수정)**.
+`main` HEAD `4b0b048`, 버전 **1.1.4**, 열린 PR 없음. jest 429/429.
 
-연속성 메모리: `project_study_streak_stats`, `project_naver_dict_language_pairs`, `project_word_language_display_fix`, `project_phonetic_target_independent`.
+연속성 메모리: `sync-pull-pagination-fix`, `project_study_streak_stats`, `project_naver_dict_language_pairs`, `project_word_language_display_fix`, `project_phonetic_target_independent`.
+
+---
+
+## 🚨 신규 (7/8 저녁) — 동기화 pull 1000행 잘림 유실 수정 머지 (#29, `4b0b048`)
+
+**실사용자 신고**("다른 기기 로그인하면 단어장은 보이는데 단어 사라짐") 근본 원인 수정. PostgREST가 응답을 1000행에서 조용히 잘랐고, 워터마크 점프로 잘린 단어가 영구 스킵되던 것. (updated_at, id) 키셋 페이지네이션(페이지 500) + 빈 배치 워터마크 유지 + push 워터마크 점프 제거 + pull dirty-skip 가드. 상세는 PR #29 본문·메모리 `sync-pull-pagination-fix`.
+
+- [ ] **다음 앱 빌드에 포함 필수** — build 24(`43ca53a`)엔 미포함. 엔진은 앱 코드라 빌드로만 기기 반영.
+- [ ] 빌드 후 실기 E2E: 1000+ 단어 계정으로 **새 기기(또는 재설치) 로그인 → 전체 단어 도착** 확인.
+- [ ] **증상 겪은 사용자 복구 안내 = 로그아웃→재로그인(또는 재설치)**. 워터마크가 유실분을 지나쳐 있어 앱 업데이트만으론 복구 안 됨.
+
+같이 머지: **#28** 설정 '개발자' 섹션(온보딩 다시 보기) `__DEV__` 게이트 — 프로덕션에서 숨김(다음 빌드에서 실기 확인). **#27** 종료된 핸드오프 문서 12개 삭제.
 
 ---
 
@@ -94,6 +106,8 @@ supabase functions deploy enrich-word
 |---|---|---|---|
 | TestFlight build 24 실기 검증 | — | (완료) | **0순위**, 위 체크리스트 |
 | AI 발음 Edge 재배포(#20) | 서버 | ❌ | **1순위**, `supabase functions deploy` |
+| **동기화 유실 수정(#29) 빌드 반영+실기 E2E** | 앱 | ✅ | 위 신규 섹션. 피해 사용자 재로그인 안내 |
+| 개발자 섹션 숨김(#28) 실기 확인 | 앱 | ✅ | 프로덕션 빌드에서 설정 탭 '개발자' 미노출 |
 | **스트릭 Phase 3** | 앱+서버 | ✅ | 클라우드 동기화(cloud_study_days, RLS·날짜별 max 병합)·캘린더 히트맵·**마일스톤 자동 축하 팝업**(7·30·100일, 중복방지)·스트릭 프리즈·알림 |
 | 자랑하기 Android 저장 | 앱 | ✅ | media-library 권한/플러그인 추가 필요(Phase 2는 iOS 타깃) |
 | 생성경로 responseSchema 하드닝 | 서버 | 부분 | flash-lite 드문 phonetic 누락 |
@@ -101,9 +115,9 @@ supabase functions deploy enrich-word
 
 ---
 
-## 참고 — 현재 상태 (2026-07-08 심야)
-- `main` HEAD `43ca53a`, 버전 1.1.4, 원격 동기화됨.
-- 열린 PR: **없음**(#21~#25 전부 머지, 브랜치 정리 완료).
+## 참고 — 현재 상태 (2026-07-08 저녁)
+- `main` HEAD `4b0b048`, 버전 1.1.4, 원격 동기화됨.
+- 열린 PR: **없음**(#21~#25·#27~#29 전부 머지, 브랜치 정리 완료).
 - TestFlight: **build 24**(1.1.4) Apple 처리 중 → https://appstoreconnect.apple.com/apps/6776714408/testflight/ios
 - ⚠️ 이번 세션 머지분 다수 실기 미검증 — 스토어 프로덕션엔 안 나감(TestFlight만). 문제 시 해당 머지 `git revert`.
 - ⚠️ 로컬 앱 구동 불가(SQLite mock + OneDrive prebuild 제약) → 검증은 TestFlight로만. `env_onedrive_prebuild`.

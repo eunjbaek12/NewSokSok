@@ -12,3 +12,5 @@ export {
   type StatsSummary,
 } from './db';
 export { useStatsSummary } from './useStats';
+export { default as ShareCard } from './ShareCard';
+export { shareStatsCard, saveStatsCard, type ShareOutcome, type SaveOutcome } from './share';

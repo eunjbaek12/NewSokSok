@@ -1009,9 +1009,20 @@
     "wordsValue": "{{count}}",
     "quoteLabel": "Quote of the day",
     "share": "Share",
-    "shareComingSoon": "Sharing is coming soon!",
     "weekdays": "M,T,W,T,F,S,S",
     "empty": "No study history yet.\nStart your first session today!"
+  },
+  "shareCard": {
+    "appName": "Avocado",
+    "memorizedLine": "I've learned {{count}} words so far",
+    "shareMessage": "On a {{days}}-day streak with Avocado! 🥑🔥",
+    "save": "Save image",
+    "savedTitle": "Saved",
+    "saved": "Saved to your Photos.",
+    "saveDeniedTitle": "Permission needed",
+    "saveDenied": "Photo access is needed. Please allow it in Settings.",
+    "shareError": "Something went wrong. Please try again.",
+    "unavailable": "Sharing isn't available on this device."
   },
   "flashcards": {
     "title": "Flashcards",

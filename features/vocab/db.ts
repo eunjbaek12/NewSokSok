@@ -1,6 +1,7 @@
 import * as Crypto from 'expo-crypto';
 import { VocaList, Word } from '@/lib/types';
 import { getDb, runInTransaction } from '@/lib/db';
+import { recordMemorized } from '@/features/stats';
 
 export function generateId(): string {
   return Crypto.randomUUID();
@@ -571,6 +572,14 @@ export async function toggleMemorized(
     return;
   }
   const db = await getDb();
+
+  // 이 토글로 미암기→암기가 되는지 판정(통계 기록용). forceStatus=false면 항상 아님.
+  let becameMemorized = false;
+  if (forceStatus !== false) {
+    const r = await db.getFirstAsync<{ m: number }>('SELECT isMemorized as m FROM words WHERE id = ?', wordId);
+    becameMemorized = (r?.m ?? 0) === 0; // 직전이 미암기 → 토글/강제 후 암기
+  }
+
   await runInTransaction(async () => {
     if (forceStatus !== undefined) {
       await db.runAsync('UPDATE words SET isMemorized = ? WHERE id = ?', forceStatus ? 1 : 0, wordId);
@@ -579,6 +588,8 @@ export async function toggleMemorized(
     }
     await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
   });
+
+  if (becameMemorized) await recordMemorized(1).catch(() => {});
 }
 
 export async function toggleStarred(
@@ -704,6 +715,16 @@ export async function setWordsMemorized(
   const status = isMemorized ? 1 : 0;
   const placeholders = wordIds.map(() => '?').join(',');
 
+  // 미암기→암기 전환분을 트랜잭션 전에 집계(통계 기록용).
+  let newlyMemorized = 0;
+  if (isMemorized) {
+    const r = await db.getFirstAsync<{ n: number }>(
+      `SELECT COUNT(*) as n FROM words WHERE id IN (${placeholders}) AND isMemorized = 0`,
+      ...wordIds
+    );
+    newlyMemorized = r?.n ?? 0;
+  }
+
   await runInTransaction(async () => {
     await db.runAsync(
       `UPDATE words SET isMemorized = ? WHERE id IN (${placeholders})`,
@@ -716,6 +737,9 @@ export async function setWordsMemorized(
       listId
     );
   });
+
+  // 트랜잭션 커밋 후 기록(중첩 트랜잭션 방지).
+  if (newlyMemorized > 0) await recordMemorized(newlyMemorized).catch(() => {});
 }
 
 export async function copyWords(targetListId: string, wordIds: string[]): Promise<void> {

@@ -268,6 +268,7 @@
   "settings": {
     "title": "설정",
     "account": "계정",
+    "myLearning": "내 학습",
     "guestUser": "게스트 사용자",
     "localStorageInUse": "로컬 저장소 사용 중",
     "sync": "동기화",
@@ -988,6 +989,26 @@
     "enterQuery": "검색어를 입력해보세요.",
     "noResults": "검색 결과가 없습니다.",
     "resultCount": "단어 {{count}}개"
+  },
+  "stats": {
+    "title": "학습 통계",
+    "streakLabel": "연속 학습",
+    "memorizedLabel": "외운 단어",
+    "dayStreak": "일 연속",
+    "streakSub": "오늘도 이어가는 중!",
+    "streakSubZero": "오늘 첫 학습으로 시작해볼까요?",
+    "longestRecord": "최장 기록 {{count}}일",
+    "totalMemorized": "총 외운 단어",
+    "weekStudied": "이번 주 학습",
+    "monthStudied": "이번 달 학습",
+    "totalDays": "학습한 날",
+    "daysValue": "{{count}}일",
+    "wordsValue": "{{count}}개",
+    "quoteLabel": "오늘의 명언",
+    "share": "자랑하기",
+    "shareComingSoon": "공유 기능은 곧 제공될 예정이에요!",
+    "weekdays": "월,화,수,목,금,토,일",
+    "empty": "아직 학습 기록이 없어요.\n오늘 첫 학습을 시작해보세요!"
   },
   "flashcards": {
     "title": "카드 학습",

@@ -26,6 +26,7 @@ import migration_012 from './012_add_list_plan_filter';
 import migration_013 from './013_add_soft_delete';
 import migration_014 from './014_add_word_unique_term';
 import migration_015 from './015_widen_word_unique_term';
+import migration_016 from './016_add_study_days';
 
 export const MIGRATIONS: readonly Migration[] = [
   migration_001,
@@ -43,6 +44,7 @@ export const MIGRATIONS: readonly Migration[] = [
   migration_013,
   migration_014,
   migration_015,
+  migration_016,
 ];
 
 export const SCHEMA_VERSION = MIGRATIONS.length;

@@ -25,6 +25,7 @@ import { ModalPicker } from '@/components/ui/ModalPicker';
 import DialogModal from '@/components/ui/DialogModal';
 import { useSettings } from '@/features/settings';
 import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
+import { useStatsSummary } from '@/features/stats';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -42,6 +43,7 @@ export default function SettingsScreen() {
   const { locale, setLocale } = useLocale();
   const { profileSettings, updateProfileSettings, apiKey } = useSettings();
   const { status: quotaStatus, refresh: refreshQuota } = useQuota();
+  const stats = useStatsSummary();
   const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
@@ -276,6 +278,35 @@ export default function SettingsScreen() {
             </View>
           </Pressable>
         </View>
+
+        {/* 내 학습 — 스트릭·외운 단어 컴팩트 스트립 → 전체 통계 화면 */}
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.myLearning')}</Text>
+        <Pressable
+          onPress={() => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+            router.push('/stats');
+          }}
+          style={({ pressed }) => [
+            styles.section,
+            styles.statStrip,
+            { backgroundColor: colors.surface, borderColor: colors.borderLight, opacity: pressed ? 0.85 : 1 },
+          ]}
+        >
+          <View style={styles.statCell}>
+            <Text style={[styles.statBig, { color: colors.warning }]}>
+              🔥 {t('stats.daysValue', { count: stats?.currentStreak ?? 0 })}
+            </Text>
+            <Text style={[styles.statCap, { color: colors.textTertiary }]}>{t('stats.streakLabel')}</Text>
+          </View>
+          <View style={[styles.statVDivider, { backgroundColor: colors.borderLight }]} />
+          <View style={styles.statCell}>
+            <Text style={[styles.statBig, { color: colors.text }]}>
+              {t('stats.wordsValue', { count: stats?.totalMemorized ?? 0 })}
+            </Text>
+            <Text style={[styles.statCap, { color: colors.textTertiary }]}>{t('stats.memorizedLabel')}</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={18} color={colors.textTertiary} />
+        </Pressable>
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.display')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
@@ -616,6 +647,30 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     overflow: 'hidden',
+  },
+  statStrip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 8,
+  },
+  statCell: {
+    flex: 1,
+    alignItems: 'center',
+    gap: 3,
+  },
+  statBig: {
+    fontSize: 20,
+    fontFamily: 'Pretendard_700Bold',
+  },
+  statCap: {
+    fontSize: 11.5,
+    fontFamily: 'Pretendard_500Medium',
+  },
+  statVDivider: {
+    width: 1,
+    height: 30,
+    marginHorizontal: 4,
   },
   row: {
     flexDirection: 'row',

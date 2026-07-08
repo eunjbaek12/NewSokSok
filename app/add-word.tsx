@@ -47,7 +47,7 @@ import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import { speak } from '@/lib/tts';
-import { SUPPORTED_LANGUAGES, getNaverDictCode, getNaverDictSubdomain, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
+import { SUPPORTED_LANGUAGES, getNaverDictUrl, getPlaceholderText, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
     FadeOut,
@@ -1030,11 +1030,7 @@ export default function AddWordScreen() {
                                                             onPress={() => {
                                                                 if (!term.trim()) return;
                                                                 Haptics.selectionAsync();
-                                                                const dictCode = getNaverDictCode(sourceLang, targetLang);
-                                                                const subdomain = dictCode ? getNaverDictSubdomain(dictCode) : 'en';
-                                                                WebBrowser.openBrowserAsync(
-                                                                    `https://${subdomain}.dict.naver.com/#/search?query=${encodeURIComponent(term.trim())}`
-                                                                );
+                                                                WebBrowser.openBrowserAsync(getNaverDictUrl(sourceLang, targetLang, term));
                                                             }}
                                                             disabled={!term.trim()}
                                                             style={styles.searchIconButton}

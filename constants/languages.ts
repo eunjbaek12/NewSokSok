@@ -122,22 +122,54 @@ export function getExampleTranslationLabel(targetLang: LanguageCode, t: (key: st
   return t('languages.translationLabel', { lang });
 }
 
-export function getNaverDictCode(sourceLang: string, targetLang: string): string | null {
-  const map: Record<string, string> = {
-    'en-ko': 'enko',
-    'ja-ko': 'jako',
-    'zh-ko': 'zhko',
-    'ko-en': 'koen',
-    'ko-ja': 'koja',
-    'ko-zh': 'kozh',
-  };
-  return map[`${sourceLang}-${targetLang}`] || null;
-}
+/** 한국어와 짝을 이루는 사전(한국 로케일). 각 사전은 양방향 검색을 처리한다. */
+const NAVER_KO_PAIR_DICT: Record<string, string> = {
+  en: 'https://en.dict.naver.com',
+  ja: 'https://ja.dict.naver.com',
+  zh: 'https://zh.dict.naver.com',
+  vi: 'https://dict.naver.com/vikodict',
+  es: 'https://dict.naver.com/eskodict',
+};
 
-export function getNaverDictSubdomain(dictCode: string): string {
-  if (dictCode.startsWith('en') || dictCode === 'koen') return 'en';
-  if (dictCode.startsWith('ja') || dictCode === 'koja') return 'ja';
-  if (dictCode.startsWith('zh') || dictCode === 'kozh') return 'zh';
-  if (dictCode.startsWith('ko')) return 'korean';
-  return 'en';
+/**
+ * 영어와 짝을 이루는 글로벌 사전(UI 영어).
+ * ⚠️ dict.naver.com/enjadict 류 경로는 한국 로케일에서 영한사전으로 강제
+ * 리다이렉트되므로 반드시 english.dict.naver.com 경로를 써야 한다(2026-07 실측).
+ */
+const NAVER_EN_PAIR_DICT: Record<string, string> = {
+  ja: 'https://english.dict.naver.com/english-japanese-dictionary',
+  zh: 'https://english.dict.naver.com/english-chinese-dictionary',
+  vi: 'https://english.dict.naver.com/english-vietnamese-dictionary',
+  es: 'https://english.dict.naver.com/english-spanish-dictionary',
+};
+
+/**
+ * 네이버 사전 검색 URL. 언어쌍당 사전 1개가 양방향 검색을 처리하므로
+ * (예: vikodict는 "ăn"도 "먹다"도 찾는다) 방향 구분은 필요 없다.
+ *
+ * 우선순위:
+ *   1. 한국어가 낀 쌍(ko→ko 포함) → 한국 로케일 사전
+ *   2. 영어가 낀 쌍(en→en 포함) → 글로벌 사전
+ *   3. 그 외(ja↔zh, es↔vi 등) → en↔출발어 글로벌 사전 폴백.
+ *      출발어 단어를 확실히 찾을 수 있고 뜻이 영어로 나온다.
+ */
+export function getNaverDictUrl(
+  sourceLang: string | undefined,
+  targetLang: string | undefined,
+  term: string,
+): string {
+  const src = sourceLang || 'en';
+  const tgt = targetLang || 'ko';
+  let base: string;
+  if (src === 'ko') {
+    base = tgt === 'ko' ? 'https://ko.dict.naver.com' : NAVER_KO_PAIR_DICT[tgt] ?? 'https://ko.dict.naver.com';
+  } else if (tgt === 'ko') {
+    base = NAVER_KO_PAIR_DICT[src] ?? 'https://en.dict.naver.com';
+  } else if (src === 'en') {
+    base = tgt === 'en' ? 'https://english.dict.naver.com/english-dictionary' : NAVER_EN_PAIR_DICT[tgt] ?? 'https://en.dict.naver.com';
+  } else {
+    // tgt === 'en'인 쌍과 비영어·비한국어 상호쌍 모두 en↔출발어 사전이 최선.
+    base = NAVER_EN_PAIR_DICT[src] ?? 'https://en.dict.naver.com';
+  }
+  return `${base}/#/search?query=${encodeURIComponent(term.trim())}`;
 }

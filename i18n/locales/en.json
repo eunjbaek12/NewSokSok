@@ -268,6 +268,7 @@
   "settings": {
     "title": "Settings",
     "account": "Account",
+    "myLearning": "My Learning",
     "guestUser": "Guest User",
     "localStorageInUse": "Using local storage",
     "sync": "Synced",
@@ -991,6 +992,26 @@
     "enterQuery": "Enter a search term.",
     "noResults": "No results found.",
     "resultCount": "{{count}} words"
+  },
+  "stats": {
+    "title": "Learning Stats",
+    "streakLabel": "Day streak",
+    "memorizedLabel": "Words learned",
+    "dayStreak": "day streak",
+    "streakSub": "Keep it going today!",
+    "streakSubZero": "Start your streak with today's first session!",
+    "longestRecord": "Longest streak: {{count}} days",
+    "totalMemorized": "Total learned",
+    "weekStudied": "This week",
+    "monthStudied": "This month",
+    "totalDays": "Days studied",
+    "daysValue": "{{count}}",
+    "wordsValue": "{{count}}",
+    "quoteLabel": "Quote of the day",
+    "share": "Share",
+    "shareComingSoon": "Sharing is coming soon!",
+    "weekdays": "M,T,W,T,F,S,S",
+    "empty": "No study history yet.\nStart your first session today!"
   },
   "flashcards": {
     "title": "Flashcards",

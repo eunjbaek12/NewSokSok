@@ -7,6 +7,7 @@ import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useStudyResultsStore } from '@/features/study';
+import { recordStudySession } from '@/features/stats';
 
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
@@ -51,6 +52,8 @@ export default function StudyResultsScreen() {
           ? Haptics.NotificationFeedbackType.Success
           : Haptics.NotificationFeedbackType.Warning
       );
+      // 세션 완료 = 오늘을 '학습일'로 기록(스트릭·주간 통계). 실패는 조용히 무시.
+      recordStudySession(studyResults.length).catch(() => {});
     }
   }, []);
 

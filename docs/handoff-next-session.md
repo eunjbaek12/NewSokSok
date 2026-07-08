@@ -1,137 +1,109 @@
 # 다음 세션 handoff
 
-작성: 2026-07-08 (후반 갱신) · 대상: 다음 작업 세션 시작 시
+작성: 2026-07-08 (심야 세션 갱신) · 대상: 다음 작업 세션 시작 시
 
-07-07~08 세션에서 (전반) 품사 필터·예문 오디오·CSV 세 PR을, (후반) 언어 표시·발음 표기 두 PR을 **모두 main에 머지**했다. 총 **5개 PR 머지**(#15·#17·#18·#19·#20), 열린 PR 없음.
-연속성 메모리: `project_pos_filter_and_example_audio`, `project_csv_import_export`, `project_word_language_display_fix`, `project_phonetic_target_independent`.
+이번 세션에서 **5개 PR 머지(#21·#22·#23·#24·#25)** + **iOS TestFlight 빌드 2회(build 23·24)** 를 냈다.
+`main` HEAD `43ca53a`, 버전 **1.1.4**, 열린 PR 없음.
+
+연속성 메모리: `project_study_streak_stats`, `project_naver_dict_language_pairs`, `project_word_language_display_fix`, `project_phonetic_target_independent`.
 
 ---
 
-## 🚨 다음 세션 0순위 — Edge 재배포 (안 하면 발음 수정 반영 안 됨)
+## 🎯 다음 세션 0순위 — TestFlight build 24 실기 검증
 
-PR #20(발음 표기)은 **Supabase Edge Function을 고쳤는데 아직 배포 안 됨.** 배포 전까지 AI 생성/검색 발음은 옛 동작(ko/vi/es 비움) 그대로다.
+**1.1.4 / build 24**(커밋 `43ca53a`)가 TestFlight 처리 중. 이번 세션에 머지한 **4개 기능이 처음 실기로 들어감** — 전부 로컬/jest 구동 불가라 미검증 상태다. 스토어 프로덕션엔 안 나갔으니 라이브 영향 0.
+
+### ⭐ 자랑하기 (공유 카드, Phase 2 — 이번 빌드에 처음) `project_study_streak_stats`
+- [ ] 설정 "내 학습" → 통계 화면 → "자랑하기" → **공유 시트** 뜸(카톡·인스타 등)
+- [ ] 공유 이미지에 🥑아보카도·🔥연속일·외운 단어·앱명·URL 선명(1080²), 폰트·아보카도 렌더 정상
+- [ ] "이미지로 저장" → 사진 권한 팝업 1회 → 갤러리 저장됨 / 거부 시 안내 문구
+- [ ] 연속일 0일이어도 카드 정상, 중복 탭 시 로딩 가드
+- [ ] 웹에서는 버튼 눌러도 크래시 없음(미지원 안내)
+
+### 학습 스트릭·통계 (Phase 1) `project_study_streak_stats`
+- [ ] 학습 세션(플래시/퀴즈/예문) 완료 → 설정 "내 학습" 🔥 +1, `/stats` 주간 스트립 오늘 칸 채워짐
+- [ ] 단어장 상세 "외움" 체크(세션 없이)도 그날 학습일 기록
+- [ ] 자정 넘겨 이틀 미학습 → 스트릭 0으로 끊김 / 어제까지면 유지
+- [ ] 설정 스트립 수치 = `/stats` 수치 일치, 타일(총 외운·이번 주·이번 달·학습한 날) 정확
+- [ ] 오늘의 명언 매일 교체·하루 고정·UI 언어 따라 ko/en
+
+### 검색 필터 칩 (#21)
+- [ ] 상태(전체/미암기/암기)·별표·품사·단어장·태그 칩, 필터만으로도 브라우징
+- [ ] 태그 단일 선택(재탭 해제), 영어→영어 등 같은 언어쌍 정상
+
+### 네이버 사전 언어쌍 (#22) `project_naver_dict_language_pairs`
+- [ ] 비영어(일/중/베/스 등) 단어의 N 버튼이 **맞는 언어쌍 사전**으로 연결(영한 폴백 아님)
+- [ ] add-word·WordDetailModal 양쪽
+
+---
+
+## 🚨 다음 세션 1순위 — AI 발음 Edge 재배포 (앱 아님, 서버)
+
+지난 세션 **PR #20(발음 표기 규칙)** 이 고친 건 **Supabase Edge Function 코드**라, main 머지·앱 빌드와 **무관**하게 **서버에 따로 배포**해야 반영된다. 배포 전까지 로그인 사용자의 AI 생성 발음은 옛 동작(ko/vi/es 비움).
 
 ```bash
 supabase functions deploy generate-words
 supabase functions deploy enrich-word
 ```
-(둘 다 `supabase/functions/_shared/gemini-vertex.ts`를 공유하므로 **함께** 배포)
+(둘 다 `supabase/functions/_shared/gemini-vertex.ts` 공유 → 함께 배포)
 
-배포 후 기기에서: 한국어/베트남어/스페인어 AI 생성 → 발음 채워지는지(ko=로마자 annyeong, es/vi=IPA), 베트남어 **검색**이 생성과 같은 규칙으로 나오는지, flash-lite 출력 품질.
+배포 후 기기에서: 한/베/스 AI 생성 발음 채워지는지(ko=로마자, es/vi=IPA), 생성·검색 발음 통일. `project_phonetic_target_independent`.
 
----
-
-## ✅ 이번 세션(2026-07-08 후반)에 끝낸 것 — 언어/발음
-
-### 4. 단어 언어 표시·저장 정확화 → #19 머지 (`00cc6e1`)
-- 편집·상세·큐레이션 화면이 단어 자체 언어 대신 **전역 입력설정**을 참조하던 버그. 증상: 뜻 레이블 "한국어 뜻" 고정 / 언어 표시 없음 / 저장 시 언어 덮어써 TTS 손상 / 편집 "단어 검색" 시 "사전에서 못 찾음"(비영어를 en으로 조회).
-- 화면 "유효 언어"(단어별) 로컬 상태로 전환, `deriveDisplayLanguages`·`getExampleLabel` 신설, 상세 헤더에 언어쌍 칩, WordDetailModal 레이블 언어화. jest 365/365.
-- 메모리: `project_word_language_display_fix`.
-
-### 5. AI 발음 표기 "도착어 독립" 규칙 통일 → #20 머지 (`05e6d5e`)
-- 신고: "AI 생성 시 ko/vi/es 발음 안 나옴". 원인=생성 `PHONETIC_INSTRUCTION`이 이 언어들 "비워두기" + 생성/검색이 다른 프롬프트.
-- **세계인 대상이라 한글 전사 배제**, 도착어 독립 표기로 통일: **en·es·vi=IPA, ja=후리가나, zh=병음, ko=로마자(RR)**. 생성·검색 프롬프트 통일.
-- 4파일 수정(gemini-vertex.ts·gemini-client.ts·curation/screen.tsx·ai_curation_prompt.js). 체크스크립트 9/9. ⚠️PHONETIC_INSTRUCTION 맵이 이 3곳+체크스크립트에 **중복** → 수정 시 동기화 필수.
-- 메모리: `project_phonetic_target_independent`. **⚠️ 위 0순위 Edge 재배포 필요.**
+> ⚠️ 두 배포 트랙 구분: **앱 빌드**(폰에서 도는 코드, EAS) vs **Edge 배포**(Supabase 서버, `supabase functions deploy`). 발음은 서버 트랙이라 이번 빌드들과 별개.
 
 ---
 
-## ✅ 이번 세션(2026-07-08 전반)에 끝낸 것 — 품사/예문/CSV
+## ✅ 이번 세션(2026-07-08 심야)에 끝낸 것
 
-### 1. CSV PR(#7) 살려서 재작성 → #18로 머지
-- #7은 main과 3주+ 벌어지고 CSV 무관 커밋(버전 범프·iOS InfoPlist/AppCheckCore[이미 main 반영]·릴리스노트)이 섞여 있었음.
-- `main` 최신에서 `feat/csv-import-export-v2`를 파고 **CSV 핵심 커밋만 cherry-pick**: `25efdcc`(코어)+`b89a9d8`(Android SAF/iOS 공유시트). 둘 다 충돌 없이 클린.
-- 검증: CSV jest 16/16, 타입/lint 신규 에러 없음, `expo-sharing`은 `pnpm install`로 보정 설치.
-- **새 PR #18 생성 → 머지(`bfdc4f6`)**, 기존 **#7은 닫음**.
+### PR #21 검색 필터 칩 — 머지 `558c11f`
+- 검색 모달(홈·단어장 공용)에 **상태(전체/미암기/암기)·별표·품사·단어장·태그** 필터 칩. 별표(즐겨찾기)와 암기(진행도)를 **별개 축**으로 분리(단어장 상세와 동일 어휘). `lib/search.ts`에 status/tag 선택 인자 추가(기존 시그니처 보존), 무질의 브라우징 확장. jest +9.
 
-### 2. 세 PR 순서대로 머지 (모두 CLEAN, 충돌 없음)
-| PR | 기능 | 머지 커밋 |
-|---|---|---|
-| #17 | 품사 필터 (맞춤학습 + 검색) | `9c890c7` |
-| #15 | 예문 오디오 (플래시카드 + 오토플레이) | `2138fdc` |
-| #18 | CSV 내보내기/가져오기 | `bfdc4f6` |
+### PR #22 네이버 사전 언어쌍 — 머지 `41def55` · `project_naver_dict_language_pairs`
+- N 버튼·WordDetailModal이 6쌍 외 영한 폴백이던 것을 `getNaverDictUrl` 단일 함수로 **36쌍 전부** 연결.
 
-- 머지 후 로컬 main 최신화, **머지된 로컬·원격 브랜치 및 닫힌 #7 잔여 브랜치 정리 완료**.
-- 최종 검증: 실행된 jest **358/358 통과** / 타입체크 신규 에러 없음.
-  - ⚠️ "5 suites failed"는 RN/supabase를 import해 jest가 로드 자체를 못 하는 **기존 인프라 한계**(vocab-db·gemini-api·batch-import-pipeline·photo-import-pipeline·word-unique-target). 이번 작업과 무관.
+### PR #23 학습 스트릭·통계 Phase 1 — 머지 `80655c9` · `project_study_streak_stats`
+- migration 016 `study_days`(하루 1행, 기기 로컬 자정 경계) + `features/stats`(date·streak·quotes·db·useStats) + 기록 훅 2곳(세션완료 study-results / 미암기→암기 전환) + 설정 "내 학습" 스트립 + `/stats` 화면(스트릭·주간·타일·명언). 로컬 전용. jest +29.
 
-### 3. 같은 언어쌍(예: 영어→영어) 처리 검토 — 결론: 코드 변경 없음
-- 사용자 신고: "AI 단어생성에서 출발어=영어면 도착어에 영어가 없다" + "단어 편집 설정에선 회색 disable로 막혀 있다".
-- **원인 = 설치된 옛 빌드.** 옛 코드는 두 곳이 서로 다른 방식으로 같은 언어를 막고 있었음:
-  - AI 단어생성(`features/curation/screen.tsx`): `.filter()`로 **숨김**
-  - 단어 편집 설정(`app/add-word.tsx`): `disabled: l.code === targetLang`으로 **회색 비활성**
-- **CSV PR `9ddb4ff`("같은 언어 쌍 허용")이 두 제한을 모두 제거함** → 현재 main은 두 곳 다 전체 언어 표시 + 같은 언어 선택 가능(일관됨).
-- 사용자 결정: **"모두 허용" 유지**(영영/국어 단일어 학습용). 추가 작업 없음. 새 빌드하면 자동 반영.
+### PR #25 자랑하기 카드 Phase 2 — 머지 `43ca53a` · `project_study_streak_stats`
+- 정사각 1:1 카드 캡처(`react-native-view-shot`) → `expo-sharing` 공유 / `expo-media-library` 갤러리 저장(add-only 권한). `ShareCard.tsx`(Colors.light 고정 브랜드 룩)·`share.ts`. app.json `NSPhotoLibraryAddUsageDescription`. deps는 OneDrive ENOENT로 package.json 편집+`pnpm install` 보정.
+
+### PR #24 버전 1.1.3 → 1.1.4 — 머지 `593dcf3`
+- iOS 빌드 제출용 버전 상향(아래 교훈 참조).
+
+### iOS 빌드 2회 (EAS, `production` 프로필 autoIncrement)
+| build | 버전 | 담긴 것 | 결과 |
+|---|---|---|---|
+| 23 | 1.1.4 | #21·#22·#23 | TestFlight 업로드 성공 |
+| 24 | 1.1.4 | + #25 자랑하기 | TestFlight 업로드 성공(`43ca53a`) |
 
 ---
 
-## 🎯 다음 세션 1순위 — 실기 빌드로 머지된 3기능 검증
+## 💡 교훈 — iOS 버전/빌드 번호 (중요)
 
-세 PR 모두 **미검증 상태로 main 머지됨**(사용자와 "검증 후 머지"였으나 빌드는 사용자 몫이라, 실질적으로 미검증 코드가 main에 있음). ⚠️ 단, **스토어엔 다음 제출 빌드로만 나가므로 현재 라이브 사용자 영향 0**. 문제 시 `git revert`로 해당 머지만 되돌리면 됨.
-
-빌드 한 번으로 아래 셋 + 언어쌍 확인을 함께:
-
-### PR #17 품사 필터
-- [ ] 맞춤학습: 범위(단어장/일차/필터) 변경 시 품사 칩 갱신, 선택 품사 사라지면 자동 '전체' 해제
-- [ ] 맞춤학습: 품사 골라 학습 시작 시 실제 그 품사만 출제
-- [ ] 검색: 질의 없이 품사만 골라도 결과(브라우징)
-- [ ] 검색: 품사 칩 줄이 단어장 필터 줄과 안 겹침
-
-### PR #15 예문 오디오
-- [ ] 플래시카드 답면 예문 스피커 버튼 재생
-- [ ] 오토플레이: 단어→예문 순서, 긴 예문 끝까지 재생 후 다음
-- [ ] 오토플레이: 예문 재생 중 일시정지/스킵/이전 시 소리 즉시 끊김
-- [ ] 설정 "예문도 읽기" 토글 on/off 반영
-
-### PR #18 CSV
-- [ ] iOS 공유시트 내보내기 + Android SAF 폴더 저장
-- [ ] picker로 가져오기, iOS 모달 레이스 없음
-- [ ] 엑셀에서 열 때 한글 안 깨짐(BOM)
-- [ ] 같은 언어 쌍 단어장 picker 허용
-- [ ] 제어문자 든 CSV 가져와도 저장 실패 없음(sanitize)
-
-### 언어쌍 회귀 확인 (같은 CSV 머지에 포함)
-- [ ] AI 단어생성: 출발어=영어일 때 도착어에 영어 노출 + 선택 가능
-- [ ] 단어 편집 설정: 학습언어=영어일 때 뜻언어에 영어 노출 + 선택 가능(회색 아님)
-
-### PR #19 언어 표시/저장 (클라이언트 — 빌드만으로 반영)
-- [ ] 베트남어/스페인어 덱 편집 → 레이블 "베트남어 정의 / 베트남어 예문 / 한국어 뜻"
-- [ ] ko→en 덱(K-pop 슬랭) 편집 → 뜻 레이블이 **"영어 뜻"**(더 이상 "한국어 뜻" 아님)
-- [ ] 언어 바꿔 저장 후 재진입 시 유지 + 목록 스피커 발음 언어 유지
-- [ ] 단어장 상세 헤더 언어쌍 칩, 큐레이션 미리보기 레이블
-- [ ] 비영어 AI 단어 편집에서 "단어 검색" 시 "사전에서 못 찾음" 안 뜸
-
-### PR #20 발음 표기 (⚠️ Edge 재배포 후에만 반영 — 0순위 참조)
-- [ ] 한국어 생성 → 발음=로마자(annyeong·gap), 비어있지 않음
-- [ ] 스페인어/베트남어 생성 → 발음=IPA, 한글 전사 아님
-- [ ] 같은 단어를 "검색"과 "생성"했을 때 발음 표기가 동일(통일 확인)
-
-### PR #23 학습 스트릭·통계 (Phase 1, 로컬 전용 — 빌드만으로 반영)
-> 자동 테스트는 통과(순수 로직 jest 29건, 전체 394 pass). 아래는 **기기에서만** 검증 가능(SQLite mock이라 jest·웹 구동 불가). 메모리: `project_study_streak_stats`.
-- [ ] 학습 세션(플래시카드/퀴즈/예문) 완료 → 설정 "내 학습" 🔥 연속일 +1, `/stats` 주간 스트립에 오늘 칸 채워짐
-- [ ] 단어장 상세에서 "외움" 체크(세션 없이) → 그날도 학습일로 기록(스트릭 유지)
-- [ ] 자정 넘겨 **이틀** 연속 미학습 → 스트릭 0으로 끊김 / 어제까지 했으면 유지
-- [ ] 설정 "내 학습" 스트립 수치 = `/stats` 화면 수치 일치(연속일·외운 단어)
-- [ ] `/stats` 지표 타일: 총 외운·이번 주·이번 달·학습한 날 값이 실제와 맞음
-- [ ] 오늘의 명언이 날짜별로 바뀌고 하루 안엔 고정, UI 언어 따라 ko/en 전환
-- [ ] "자랑하기" 버튼 → "곧 제공" 안내(Phase 2 placeholder, 크래시 없음)
-- [ ] 오토플레이(수동 낭독)는 학습일에 **미집계**가 의도대로인지(포함 원하면 훅 추가)
+- `eas.json` production은 `autoIncrement: true` → **빌드 번호(CFBundleVersion)만** 자동 증가. **마케팅 버전(expo.version)은 안 올라감**.
+- **App Store에 이미 제출/출시된 버전(1.1.3)** 으로는 새 빌드 제출 불가 → EAS submit이 "You've already submitted this version" 에러. 이때만 `app.json` expo.version을 올려야 함(1.1.3→1.1.4).
+- **TestFlight 전용 버전**(1.1.4처럼 심사 제출 안 한 버전)은 같은 버전에 **여러 빌드 허용**(build 23·24…) → 버전 안 올려도 됨.
+- 즉 다음 iOS 빌드: 1.1.4를 **App Store 심사에 제출하기 전까지는** 버전 안 올리고 계속 빌드 가능. 심사 제출 후 새 기능 빌드는 1.1.5로.
+- ⚠️ 빌드 직후 **build번호↔커밋** 즉시 기록: build 23·24 = `43ca53a`(24), 23은 `593dcf3`+#25 미포함.
 
 ---
 
-## 🔮 미결/후속 (원하면)
-- **생성 경로 responseSchema 없음**(검색엔 있음) → flash-lite가 드물게 phonetic 누락 여지. array schema 하드닝 추가 가능.
-- **정적 스페인어 큐레이션 덱**(올라·그라시아스, 한글) — 새 도착어 독립 규칙(IPA)과 어긋나나 정적 데이터라 재생성은 별도 결정.
+## 🔮 남은 개발 backlog
+
+| 항목 | 트랙 | 빌드 | 비고 |
+|---|---|---|---|
+| TestFlight build 24 실기 검증 | — | (완료) | **0순위**, 위 체크리스트 |
+| AI 발음 Edge 재배포(#20) | 서버 | ❌ | **1순위**, `supabase functions deploy` |
+| **스트릭 Phase 3** | 앱+서버 | ✅ | 클라우드 동기화(cloud_study_days, RLS·날짜별 max 병합)·캘린더 히트맵·**마일스톤 자동 축하 팝업**(7·30·100일, 중복방지)·스트릭 프리즈·알림 |
+| 자랑하기 Android 저장 | 앱 | ✅ | media-library 권한/플러그인 추가 필요(Phase 2는 iOS 타깃) |
+| 생성경로 responseSchema 하드닝 | 서버 | 부분 | flash-lite 드문 phonetic 누락 |
+| 정적 ES덱 발음 정합 | 데이터 | — | 새 IPA 규칙과 어긋남(재생성 별도 결정) |
 
 ---
 
-## 참고 — 현재 브랜치/PR 상태 (2026-07-08 최신 갱신)
-- `main`: #15·#17·#18·#19·#20 머지 반영. 그 위 세션에서 아래 3개 PR을 **새로 열었고 아직 미머지**.
-- **열린 PR 3개(모두 실기 미검증):**
-  | PR | 브랜치 | 내용 | 메모리 |
-  |---|---|---|---|
-  | #21 | `feat/search-filter-chips` | 검색에 상태·단어장·태그 필터 칩(별표/암기 분리) | — |
-  | #22 | `feat/naver-dict-language-pairs` | 네이버 사전 36쌍 전부 연결(`getNaverDictUrl`) | `project_naver_dict_language_pairs` |
-  | #23 | `feat/study-streak-stats` | 학습 스트릭·통계 Phase 1(로컬) | `project_study_streak_stats` |
-- ⚠️ **미검증 코드가 main에 다수 + 열린 PR 3개도 미검증** — 스토어엔 다음 제출 빌드로만 나가므로 현재 라이브 영향 0. 문제 시 해당 머지만 `git revert`.
-- ⚠️ 스트릭·통계 **Phase 2(자랑 카드 공유)·Phase 3(클라우드·히트맵)** 는 빌드 필요, 미착수. 범위·결정은 `project_study_streak_stats` 참조.
+## 참고 — 현재 상태 (2026-07-08 심야)
+- `main` HEAD `43ca53a`, 버전 1.1.4, 원격 동기화됨.
+- 열린 PR: **없음**(#21~#25 전부 머지, 브랜치 정리 완료).
+- TestFlight: **build 24**(1.1.4) Apple 처리 중 → https://appstoreconnect.apple.com/apps/6776714408/testflight/ios
+- ⚠️ 이번 세션 머지분 다수 실기 미검증 — 스토어 프로덕션엔 안 나감(TestFlight만). 문제 시 해당 머지 `git revert`.
+- ⚠️ 로컬 앱 구동 불가(SQLite mock + OneDrive prebuild 제약) → 검증은 TestFlight로만. `env_onedrive_prebuild`.

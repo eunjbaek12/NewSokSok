@@ -400,6 +400,78 @@ describe('getTopTags', () => {
     });
 });
 
+// ─── filterAndRankResults — 상태(암기/미암기) 필터 ────────────────────────────
+
+describe('filterAndRankResults — 상태 필터', () => {
+    const pool = [
+        makeItem({ term: 'alpha', isMemorized: true }),
+        makeItem({ term: 'beta', isMemorized: false }),
+        makeItem({ term: 'gamma', isMemorized: false }),
+    ];
+
+    test("status='memorized'는 암기 단어만 (질의 있음)", () => {
+        const r = filterAndRankResults(pool, 'a', null, false, { status: 'memorized' });
+        expect(r.map(x => x.word.term)).toEqual(['alpha']);
+    });
+
+    test("status='learning'은 미암기 단어만 (질의 있음)", () => {
+        // 'a'는 alpha/beta/gamma 모두 포함 → 미암기 2개
+        const r = filterAndRankResults(pool, 'a', null, false, { status: 'learning' });
+        expect(r.map(x => x.word.term).sort()).toEqual(['beta', 'gamma']);
+    });
+
+    test("status='all'은 전체 (기본값과 동일)", () => {
+        const withOpt = filterAndRankResults(pool, 'a', null, false, { status: 'all' });
+        const noOpt = filterAndRankResults(pool, 'a', null, false);
+        expect(withOpt).toHaveLength(3);
+        expect(noOpt).toHaveLength(3);
+    });
+
+    test('질의 없이 상태만 골라도 브라우징된다', () => {
+        const r = filterAndRankResults(pool, '', null, false, { status: 'memorized' });
+        expect(r.map(x => x.word.term)).toEqual(['alpha']);
+    });
+
+    test('상태 + 별표 AND 조합', () => {
+        const p = [
+            makeItem({ term: 'x', isMemorized: true, isStarred: true }),
+            makeItem({ term: 'y', isMemorized: true, isStarred: false }),
+        ];
+        const r = filterAndRankResults(p, '', null, true, { status: 'memorized' });
+        expect(r.map(x => x.word.term)).toEqual(['x']);
+    });
+});
+
+// ─── filterAndRankResults — 태그 필터 ─────────────────────────────────────────
+
+describe('filterAndRankResults — 태그 필터', () => {
+    const pool = [
+        makeItem({ term: 'apple', tags: ['fruit', 'food'] }),
+        makeItem({ term: 'carrot', tags: ['veggie', 'food'] }),
+        makeItem({ term: 'stone', tags: [] }),
+    ];
+
+    test('tag는 정확히 그 태그를 가진 단어만 (질의 없이 브라우징)', () => {
+        const r = filterAndRankResults(pool, '', null, false, { tag: 'food' });
+        expect(r.map(x => x.word.term).sort()).toEqual(['apple', 'carrot']);
+    });
+
+    test('tag는 부분일치가 아니라 정확일치', () => {
+        const r = filterAndRankResults(pool, '', null, false, { tag: 'fru' });
+        expect(r).toHaveLength(0);
+    });
+
+    test('tag + 질의 AND 조합', () => {
+        const r = filterAndRankResults(pool, 'apple', null, false, { tag: 'food' });
+        expect(r.map(x => x.word.term)).toEqual(['apple']);
+    });
+
+    test('tag=null이면 태그 필터 없음', () => {
+        const r = filterAndRankResults(pool, '', null, true, { tag: null });
+        expect(r).toEqual([]); // 별표도 없으니 브라우징 안 됨
+    });
+});
+
 // ─── 엣지 케이스 ──────────────────────────────────────────────────────────────
 
 describe('엣지 케이스', () => {

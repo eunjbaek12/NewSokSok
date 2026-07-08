@@ -985,6 +985,9 @@
     "starred": "별표 단어",
     "allLists": "전체",
     "popularTags": "자주 쓰는 태그",
+    "filterAll": "전체",
+    "filterLearning": "미암기",
+    "filterMemorized": "암기",
     "enterQuery": "검색어를 입력해보세요.",
     "noResults": "검색 결과가 없습니다.",
     "resultCount": "단어 {{count}}개"

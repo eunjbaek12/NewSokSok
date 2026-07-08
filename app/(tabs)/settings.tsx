@@ -504,21 +504,25 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>개발자</Text>
-        <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-          <Pressable style={styles.row} onPress={handleResetOnboarding}>
-            <View style={styles.rowLeft}>
-              <View style={[styles.iconCircle, { backgroundColor: colors.warningLight }]}>
-                <Ionicons name="refresh-outline" size={18} color={colors.warning} />
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>온보딩 다시 보기</Text>
-                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>초기화 후 앱 재시작 시 온보딩 표시</Text>
-              </View>
+        {__DEV__ && (
+          <>
+            <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>개발자</Text>
+            <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+              <Pressable style={styles.row} onPress={handleResetOnboarding}>
+                <View style={styles.rowLeft}>
+                  <View style={[styles.iconCircle, { backgroundColor: colors.warningLight }]}>
+                    <Ionicons name="refresh-outline" size={18} color={colors.warning} />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.rowTitle, { color: colors.text }]}>온보딩 다시 보기</Text>
+                    <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>초기화 후 앱 재시작 시 온보딩 표시</Text>
+                  </View>
+                </View>
+                <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+              </Pressable>
             </View>
-            <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
-          </Pressable>
-        </View>
+          </>
+        )}
 
         {isCloud && (
           <Pressable

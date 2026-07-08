@@ -1009,9 +1009,20 @@
     "wordsValue": "{{count}}개",
     "quoteLabel": "오늘의 명언",
     "share": "자랑하기",
-    "shareComingSoon": "공유 기능은 곧 제공될 예정이에요!",
     "weekdays": "월,화,수,목,금,토,일",
     "empty": "아직 학습 기록이 없어요.\n오늘 첫 학습을 시작해보세요!"
+  },
+  "shareCard": {
+    "appName": "아보카도",
+    "memorizedLine": "지금까지 {{count}}개 단어를 외웠어요",
+    "shareMessage": "아보카도로 {{days}}일 연속 학습 중! 🥑🔥",
+    "save": "이미지로 저장",
+    "savedTitle": "저장 완료",
+    "saved": "사진에 저장했어요.",
+    "saveDeniedTitle": "권한 필요",
+    "saveDenied": "사진 접근 권한이 필요해요. 설정에서 허용해 주세요.",
+    "shareError": "문제가 생겼어요. 잠시 후 다시 시도해 주세요.",
+    "unavailable": "이 기기에서는 공유를 사용할 수 없어요."
   },
   "flashcards": {
     "title": "카드 학습",

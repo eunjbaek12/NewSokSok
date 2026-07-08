@@ -18,7 +18,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useLists, selectWordsForList } from '@/features/vocab';
-import { filterAndRankResults, getTopTags, type AllDataItem, type SearchResult } from '@/lib/search';
+import { filterAndRankResults, getTopTags, type AllDataItem, type SearchResult, type StatusFilter } from '@/lib/search';
 import { displayTag } from '@/lib/tag-display';
 import { POS_ALL, POS_OTHER, matchesPosFilter, presentPosCategories, type PosFilter } from '@/lib/pos';
 import * as Haptics from 'expo-haptics';
@@ -34,6 +34,8 @@ export default function SearchModalScreen() {
     const [query, setQuery] = useState('');
     const [selectedListId, setSelectedListId] = useState<string | null>(null);
     const [starredOnly, setStarredOnly] = useState(false);
+    const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+    const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [posFilter, setPosFilter] = useState<PosFilter>(POS_ALL);
 
     // 키입력은 즉시 반응, 무거운 필터 연산은 낮은 우선순위로 처리
@@ -58,8 +60,8 @@ export default function SearchModalScreen() {
 
     // 필터 + 단일 패스 매칭 + 관련도 정렬
     const searchResults = useMemo(
-        () => filterAndRankResults(allData, deferredQuery, selectedListId, starredOnly),
-        [deferredQuery, allData, selectedListId, starredOnly],
+        () => filterAndRankResults(allData, deferredQuery, selectedListId, starredOnly, { status: statusFilter, tag: selectedTag }),
+        [deferredQuery, allData, selectedListId, starredOnly, statusFilter, selectedTag],
     );
 
     // 현재 보이는 단어들에 실제로 존재하는 품사만 칩으로 노출. 2종 미만이면 숨김.
@@ -73,8 +75,9 @@ export default function SearchModalScreen() {
         [searchResults, posActive, posFilter],
     );
 
-    // 품사만 선택하고 질의가 없어도 결과를 보여준다(품사 브라우징).
-    const showResults = !!query.trim() || starredOnly || posActive;
+    // 질의가 없어도 활성 필터(별표·단어장·상태·태그·품사)가 하나라도 있으면 결과를 보여준다(브라우징).
+    const showResults = !!query.trim() || starredOnly || posActive
+        || selectedListId !== null || statusFilter !== 'all' || selectedTag !== null;
 
     // 단어 구성이 바뀌어 선택했던 품사가 사라지면 자동으로 '전체'로 되돌린다.
     useEffect(() => {
@@ -85,6 +88,11 @@ export default function SearchModalScreen() {
         if (!available) setPosFilter(POS_ALL);
     }, [posOptions, posFilter]);
 
+    // 단어 구성이 바뀌어 선택했던 태그가 사라지면 자동 해제.
+    useEffect(() => {
+        if (selectedTag && !topTags.includes(selectedTag)) setSelectedTag(null);
+    }, [topTags, selectedTag]);
+
     const posChips = useMemo(() => {
         const chips: { key: PosFilter; label: string }[] = [{ key: POS_ALL, label: t('pos.all') }];
         for (const k of posOptions.keys) chips.push({ key: k, label: t(`pos.${k}`) });
@@ -92,10 +100,11 @@ export default function SearchModalScreen() {
         return chips;
     }, [posOptions, t]);
 
-    const handleTagClick = (tag: string) => {
-        setQuery(tag);
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    };
+    const statusChips = useMemo<{ key: StatusFilter; label: string }[]>(() => [
+        { key: 'all', label: t('search.filterAll') },
+        { key: 'learning', label: t('search.filterLearning') },
+        { key: 'memorized', label: t('search.filterMemorized') },
+    ], [t]);
 
     const renderResult = ({ item }: { item: SearchResult }) => {
         const trimmed = deferredQuery.trim().toLowerCase();
@@ -207,14 +216,39 @@ export default function SearchModalScreen() {
                     </Pressable>
                 </View>
 
-                {/* 필터 칩 */}
+                {/* 1줄: 암기 상태(전체·미암기·암기, 단일 선택) + 별표(독립 토글) */}
                 <View style={styles.filterScrollerWrap}>
                     <ScrollView
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         contentContainerStyle={styles.filterContent}
                     >
-                        {/* 별표 필터 */}
+                        {statusChips.map(chip => {
+                            const isActive = statusFilter === chip.key;
+                            return (
+                                <Pressable
+                                    key={chip.key}
+                                    onPress={() => {
+                                        setStatusFilter(chip.key);
+                                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                                    }}
+                                    style={[
+                                        styles.filterChip,
+                                        isActive
+                                            ? { backgroundColor: colors.primary, borderColor: colors.primary }
+                                            : { backgroundColor: colors.surface, borderColor: colors.border },
+                                    ]}
+                                >
+                                    <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
+                                        {chip.label}
+                                    </Text>
+                                </Pressable>
+                            );
+                        })}
+
+                        <View style={[styles.filterDivider, { backgroundColor: colors.borderLight }]} />
+
+                        {/* 별표 필터 (독립 토글) */}
                         <Pressable
                             onPress={() => {
                                 setStarredOnly(!starredOnly);
@@ -236,66 +270,10 @@ export default function SearchModalScreen() {
                                 {t('search.starred')}
                             </Text>
                         </Pressable>
-
-                        <View style={[styles.filterDivider, { backgroundColor: colors.borderLight }]} />
-
-                        {/* 전체 */}
-                        <Pressable
-                            onPress={() => {
-                                setSelectedListId(null);
-                                Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                            }}
-                            style={[
-                                styles.filterChip,
-                                selectedListId === null
-                                    ? { backgroundColor: colors.primary, borderColor: colors.primary }
-                                    : { backgroundColor: colors.surface, borderColor: colors.border },
-                            ]}
-                        >
-                            <Text style={[styles.filterChipText, { color: selectedListId === null ? colors.onPrimary : colors.textSecondary }]}>
-                                {t('search.allLists')}
-                            </Text>
-                        </Pressable>
-
-                        {/* 단어장 칩 */}
-                        {visibleLists.map(item => {
-                            const isActive = selectedListId === item.id;
-                            return (
-                                <Pressable
-                                    key={item.id}
-                                    onPress={() => {
-                                        setSelectedListId(item.id);
-                                        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-                                    }}
-                                    style={[
-                                        styles.filterChip,
-                                        isActive
-                                            ? { backgroundColor: colors.primary, borderColor: colors.primary }
-                                            : { backgroundColor: colors.surface, borderColor: colors.border },
-                                    ]}
-                                >
-                                    {item.icon ? (
-                                        <Text style={{ fontSize: 12, lineHeight: 16 }}>{item.icon}</Text>
-                                    ) : null}
-                                    <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
-                                        {item.title}
-                                    </Text>
-                                </Pressable>
-                            );
-                        })}
                     </ScrollView>
-
-                    {/* 우측 스크롤 힌트 */}
-                    <LinearGradient
-                        colors={['transparent', isDark ? 'rgba(18,18,18,0.95)' : 'rgba(240,244,255,0.95)']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                        style={styles.filterFadeRight}
-                        pointerEvents="none"
-                    />
                 </View>
 
-                {/* 품사 필터 — 단어장 필터와 섞이지 않게 별도 줄. 품사 2종 이상일 때만. */}
+                {/* 2줄: 품사 필터 — 품사 2종 이상일 때만. */}
                 {showPosFilter && (
                     <View style={styles.filterScrollerWrap}>
                         <ScrollView
@@ -328,6 +306,124 @@ export default function SearchModalScreen() {
                         </ScrollView>
                     </View>
                 )}
+
+                {/* 3줄: 단어장 필터 — 단어장 2개 이상일 때만(1개면 전체와 동일해 무의미). */}
+                {visibleLists.length >= 2 && (
+                    <View style={styles.filterScrollerWrap}>
+                        <ScrollView
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={styles.filterContent}
+                        >
+                            {/* 전체 */}
+                            <Pressable
+                                onPress={() => {
+                                    setSelectedListId(null);
+                                    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                                }}
+                                style={[
+                                    styles.filterChip,
+                                    selectedListId === null
+                                        ? { backgroundColor: colors.primary, borderColor: colors.primary }
+                                        : { backgroundColor: colors.surface, borderColor: colors.border },
+                                ]}
+                            >
+                                <Ionicons
+                                    name="folder-outline"
+                                    size={12}
+                                    color={selectedListId === null ? colors.onPrimary : colors.textSecondary}
+                                />
+                                <Text style={[styles.filterChipText, { color: selectedListId === null ? colors.onPrimary : colors.textSecondary }]}>
+                                    {t('search.allLists')}
+                                </Text>
+                            </Pressable>
+
+                            {/* 단어장 칩 */}
+                            {visibleLists.map(item => {
+                                const isActive = selectedListId === item.id;
+                                return (
+                                    <Pressable
+                                        key={item.id}
+                                        onPress={() => {
+                                            setSelectedListId(item.id);
+                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                                        }}
+                                        style={[
+                                            styles.filterChip,
+                                            isActive
+                                                ? { backgroundColor: colors.primary, borderColor: colors.primary }
+                                                : { backgroundColor: colors.surface, borderColor: colors.border },
+                                        ]}
+                                    >
+                                        {item.icon ? (
+                                            <Text style={{ fontSize: 12, lineHeight: 16 }}>{item.icon}</Text>
+                                        ) : null}
+                                        <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
+                                            {item.title}
+                                        </Text>
+                                    </Pressable>
+                                );
+                            })}
+                        </ScrollView>
+
+                        {/* 우측 스크롤 힌트 */}
+                        <LinearGradient
+                            colors={['transparent', isDark ? 'rgba(18,18,18,0.95)' : 'rgba(240,244,255,0.95)']}
+                            start={{ x: 0, y: 0 }}
+                            end={{ x: 1, y: 0 }}
+                            style={styles.filterFadeRight}
+                            pointerEvents="none"
+                        />
+                    </View>
+                )}
+
+                {/* 4줄: 태그 필터 — 태그가 하나라도 있을 때만. 단일 선택(다시 누르면 해제). */}
+                {topTags.length > 0 && (
+                    <View style={styles.filterScrollerWrap}>
+                        <ScrollView
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={styles.filterContent}
+                        >
+                            {topTags.map(tag => {
+                                const isActive = selectedTag === tag;
+                                return (
+                                    <Pressable
+                                        key={tag}
+                                        onPress={() => {
+                                            setSelectedTag(isActive ? null : tag);
+                                            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                                        }}
+                                        style={[
+                                            styles.filterChip,
+                                            isActive
+                                                ? { backgroundColor: colors.primary, borderColor: colors.primary }
+                                                : { backgroundColor: colors.surface, borderColor: colors.border },
+                                        ]}
+                                    >
+                                        <Ionicons
+                                            name="pricetag"
+                                            size={12}
+                                            color={isActive ? colors.onPrimary : colors.textSecondary}
+                                        />
+                                        <Text style={[styles.filterChipText, { color: isActive ? colors.onPrimary : colors.textSecondary }]}>
+                                            {displayTag(tag, t)}
+                                        </Text>
+                                    </Pressable>
+                                );
+                            })}
+                        </ScrollView>
+
+                        {/* 우측 스크롤 힌트 */}
+                        <LinearGradient
+                            colors={['transparent', isDark ? 'rgba(18,18,18,0.95)' : 'rgba(240,244,255,0.95)']}
+                            start={{ x: 0, y: 0 }}
+                            end={{ x: 1, y: 0 }}
+                            style={styles.filterFadeRight}
+                            pointerEvents="none"
+                        />
+                    </View>
+                )}
             </View>
 
             {/* 결과 개수 바 */}
@@ -339,39 +435,15 @@ export default function SearchModalScreen() {
                 </View>
             )}
 
-            {/* 본문 */}
+            {/* 본문 — 인기 태그는 헤더 태그 칩으로 상시 노출되므로 빈 화면은 힌트만. */}
             {!showResults ? (
                 <View style={styles.emptyStateContainer}>
-                    {topTags.length > 0 ? (
-                        <View style={styles.recommendationBox}>
-                            <Text style={[styles.recommendTitle, { color: colors.textSecondary }]}>
-                                {t('search.popularTags')}
-                            </Text>
-                            <View style={styles.tagWrap}>
-                                {topTags.map(tag => (
-                                    <Pressable
-                                        key={tag}
-                                        onPress={() => handleTagClick(tag)}
-                                        style={({ pressed }) => [
-                                            styles.recTagChip,
-                                            { backgroundColor: colors.primaryLight, borderColor: isDark ? colors.border : 'rgba(49,130,246,0.15)' },
-                                            pressed && { opacity: 0.7 },
-                                        ]}
-                                    >
-                                        <Ionicons name="pricetag" size={13} color={colors.primary} />
-                                        <Text style={[styles.recTagText, { color: colors.primary }]}>{displayTag(tag, t)}</Text>
-                                    </Pressable>
-                                ))}
-                            </View>
-                        </View>
-                    ) : (
-                        <View style={styles.emptyHintBox}>
-                            <Ionicons name="search-outline" size={48} color={colors.border} />
-                            <Text style={[styles.emptyHintText, { color: colors.textTertiary }]}>
-                                {t('search.enterQuery')}
-                            </Text>
-                        </View>
-                    )}
+                    <View style={styles.emptyHintBox}>
+                        <Ionicons name="search-outline" size={48} color={colors.border} />
+                        <Text style={[styles.emptyHintText, { color: colors.textTertiary }]}>
+                            {t('search.enterQuery')}
+                        </Text>
+                    </View>
                 </View>
             ) : (
                 <FlatList
@@ -566,32 +638,6 @@ const styles = StyleSheet.create({
     emptyStateContainer: {
         flex: 1,
         padding: 20,
-    },
-    recommendationBox: {
-        marginTop: 10,
-    },
-    recommendTitle: {
-        fontSize: 13,
-        fontFamily: 'Pretendard_600SemiBold',
-        marginBottom: 14,
-    },
-    tagWrap: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: 8,
-    },
-    recTagChip: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 12,
-        paddingVertical: 8,
-        borderRadius: 20,
-        borderWidth: 1,
-        gap: 5,
-    },
-    recTagText: {
-        fontSize: 14,
-        fontFamily: 'Pretendard_500Medium',
     },
     emptyHintBox: {
         alignItems: 'center',

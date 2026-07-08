@@ -985,6 +985,9 @@
     "starred": "Starred",
     "allLists": "All",
     "popularTags": "Popular Tags",
+    "filterAll": "All",
+    "filterLearning": "Learning",
+    "filterMemorized": "Memorized",
     "enterQuery": "Enter a search term.",
     "noResults": "No results found.",
     "resultCount": "{{count}} words"

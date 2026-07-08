@@ -76,6 +76,10 @@ jest.mock('@/lib/supabase', () => {
     const q: any = {
       select: () => q,
       gt: () => q,
+      // 키셋 페이지네이션 체인(no-op: 전 데이터가 한 페이지에 들어온다)
+      or: () => q,
+      order: () => q,
+      limit: () => q,
       in: (field: string, ids: any[]) => { state.inField = field; state.inIds = ids; return q; },
       eq: (field: string, val: any) => { if (field === 'is_deleted' && val === false) state.onlyAlive = true; return q; },
       then: (resolve: any, reject: any) => {

@@ -28,7 +28,7 @@ export function schedulePush(): void {
 export async function flushPush(): Promise<void> {
   if (!isCloudAuthed()) return;
 
-  const { dirtyListIds, dirtyWordIds, setIsSyncing, setLastPulledAt, clearDirtyLists, clearDirtyWords } =
+  const { dirtyListIds, dirtyWordIds, setIsSyncing, clearDirtyLists, clearDirtyWords } =
     useSyncStore.getState();
   if (dirtyListIds.size === 0 && dirtyWordIds.size === 0) return;
   if (pushInFlight) return;
@@ -42,6 +42,13 @@ export async function flushPush(): Promise<void> {
   try {
     const db = await getDb();
 
+    // 워터마크(lastPulledAt)는 push에서 절대 전진시키지 않는다. 과거의
+    // "echo-prevention"(push한 행의 서버 updated_at으로 워터마크 점프)은 그
+    // 사이에 다른 기기가 push해 둔, 아직 pull하지 않은 행들을 영원히
+    // 건너뛰었다(워터마크가 그 행들의 updated_at을 넘어가므로). 자기 push의
+    // echo는 다음 pull에서 한 번 되받는 대신(멱등 REPLACE라 무해), 아직
+    // push되지 않은 로컬 수정의 echo-덮어쓰기는 pull 쪽 dirty-skip 가드가
+    // 막는다.
     if (listIds.length > 0) {
       const placeholders = listIds.map(() => '?').join(',');
       const rows = await db.getAllAsync<any>(
@@ -49,16 +56,10 @@ export async function flushPush(): Promise<void> {
         ...listIds,
       );
       const cloudRows = rows.map(r => vocaListToCloudRow(rowToVocaList(r), { deletedAt: r.deletedAt ?? null }));
-      // echo-prevention: upsert + select in one request to advance watermark past our own writes
-      const { data: pushedLists, error } = await supabase
+      const { error } = await supabase
         .from('cloud_lists')
-        .upsert(cloudRows, { onConflict: 'id' })
-        .select('updated_at');
+        .upsert(cloudRows, { onConflict: 'id' });
       if (error) throw error;
-      if (pushedLists && pushedLists.length > 0) {
-        const maxTs = Math.max(...pushedLists.map((r: any) => r.updated_at as number));
-        await setLastPulledAt(maxTs);
-      }
     }
 
     if (wordIds.length > 0) {
@@ -73,16 +74,10 @@ export async function flushPush(): Promise<void> {
           position: r.position ?? 0,
         }),
       );
-      // echo-prevention: upsert + select in one request to advance watermark past our own writes
-      const { data: pushedWords, error: wordError } = await supabase
+      const { error: wordError } = await supabase
         .from('cloud_words')
-        .upsert(cloudRows, { onConflict: 'id' })
-        .select('updated_at');
+        .upsert(cloudRows, { onConflict: 'id' });
       if (wordError) throw wordError;
-      if (pushedWords && pushedWords.length > 0) {
-        const maxTs = Math.max(...pushedWords.map((r: any) => r.updated_at as number));
-        await setLastPulledAt(maxTs);
-      }
     }
 
     clearDirtyLists(listIds);
@@ -93,23 +88,107 @@ export async function flushPush(): Promise<void> {
   }
 }
 
+// PostgREST는 응답을 서버 설정 max-rows(호스티드 기본 1000행)로 자르고, 잘렸다는
+// 신호는 주지 않는다. 페이지 크기는 그 캡보다 확실히 작게 잡아야 "꽉 찬 페이지 =
+// 더 있음, 짧은 페이지 = 끝" 판정이 성립한다(캡과 같으면 캡에 잘린 페이지를
+// 마지막 페이지로 오판해 조용히 유실 — 이번 "다른 기기에서 단어 사라짐"의 주범).
+export const PULL_PAGE = 500;
+
+/**
+ * updated_at > since 행 전체를 (updated_at, id) 키셋 페이지네이션으로 드레인.
+ *
+ * offset(.range) 대신 키셋인 이유: 페이지네이션 도중 어떤 행이 갱신되면 그 행은
+ * 정렬 끝으로 이동하고 뒤 행들이 한 칸씩 앞으로 밀린다 — offset 방식은 밀려
+ * 들어온 행을 이미 읽은 구간으로 놓친다. 키셋은 커서 뒤로 행이 이동할 수 없어
+ * (updated_at은 단조 증가) 누락이 구조적으로 불가능하다. updated_at은 배치
+ * upsert 시 여러 행이 같은 값을 갖므로(트리거가 statement 시각으로 통일) id를
+ * 타이브레이커로 쓴다.
+ */
+async function fetchAllSince(table: 'cloud_lists' | 'cloud_words', since: number): Promise<any[]> {
+  const rows: any[] = [];
+  let cursor: { ts: number; id: string } | null = null;
+  for (;;) {
+    let q = supabase
+      .from(table)
+      .select('*')
+      .order('updated_at', { ascending: true })
+      .order('id', { ascending: true })
+      .limit(PULL_PAGE);
+    q = cursor
+      ? q.or(`updated_at.gt.${cursor.ts},and(updated_at.eq.${cursor.ts},id.gt.${cursor.id})`)
+      : q.gt('updated_at', since);
+    const { data, error } = await q;
+    if (error) throw error;
+    const page = data ?? [];
+    rows.push(...page);
+    if (page.length < PULL_PAGE) return rows;
+    const last = page[page.length - 1];
+    cursor = { ts: last.updated_at as number, id: last.id as string };
+  }
+}
+
+/** 지정한 단어장들의 살아있는 단어 전체. .in()은 100개씩 청크(URL 길이), 각 청크는 id 키셋으로 드레인. */
+async function fetchAliveWordsByListIds(listIds: string[]): Promise<any[]> {
+  const rows: any[] = [];
+  const CHUNK = 100;
+  for (let i = 0; i < listIds.length; i += CHUNK) {
+    const chunk = listIds.slice(i, i + CHUNK);
+    let cursor: string | null = null;
+    for (;;) {
+      let q = supabase
+        .from('cloud_words')
+        .select('*')
+        .in('list_id', chunk)
+        .eq('is_deleted', false)
+        .order('id', { ascending: true })
+        .limit(PULL_PAGE);
+      if (cursor) q = q.gt('id', cursor);
+      const { data, error } = await q;
+      if (error) throw error;
+      const page = data ?? [];
+      rows.push(...page);
+      if (page.length < PULL_PAGE) break;
+      cursor = page[page.length - 1].id as string;
+    }
+  }
+  return rows;
+}
+
+/** 지정한 id의 살아있는 단어장들. .in()은 100개씩 청크(청크 ≤ 100행이라 페이지 캡과 무관). */
+async function fetchAliveListsByIds(ids: string[]): Promise<any[]> {
+  const rows: any[] = [];
+  const CHUNK = 100;
+  for (let i = 0; i < ids.length; i += CHUNK) {
+    const { data, error } = await supabase
+      .from('cloud_lists')
+      .select('*')
+      .in('id', ids.slice(i, i + CHUNK))
+      .eq('is_deleted', false);
+    if (error) throw error;
+    rows.push(...(data ?? []));
+  }
+  return rows;
+}
+
 export async function pullChanges(): Promise<void> {
   if (!isCloudAuthed()) return;
 
   const { lastPulledAt, setLastPulledAt, setIsSyncing } = useSyncStore.getState();
   setIsSyncing(true);
   try {
-    const [{ data: lists, error: listErr }, { data: words, error: wordErr }] = await Promise.all([
-      supabase.from('cloud_lists').select('*').gt('updated_at', lastPulledAt),
-      supabase.from('cloud_words').select('*').gt('updated_at', lastPulledAt),
+    const [lists, words] = await Promise.all([
+      fetchAllSince('cloud_lists', lastPulledAt),
+      fetchAllSince('cloud_words', lastPulledAt),
     ]);
-    if (listErr) throw listErr;
-    if (wordErr) throw wordErr;
 
-    const allRows = [...(lists ?? []), ...(words ?? [])];
+    // 드레인이 완료됐으므로 배치의 max(updated_at)까지는 전부 수신했음이 보장된다.
+    // 빈 배치면 워터마크를 유지한다 — 과거의 Date.now() 점프는 클라이언트 시계가
+    // 서버보다 빠를 때 그 사이 서버 쓰기를 영구히 건너뛰는 구멍이었다(서버
+    // updated_at과 클라이언트 시계는 다른 시계 도메인).
+    const allRows = [...lists, ...words];
     const newWatermark = allRows.length > 0
       ? Math.max(...allRows.map((r: any) => r.updated_at as number))
-      : Date.now();
+      : lastPulledAt;
 
     const db = await getDb();
 
@@ -126,25 +205,19 @@ export async function pullChanges(): Promise<void> {
     // words below insert normally. Only alive parents are fetched; a word
     // whose parent was genuinely deleted stays skipped and the watermark
     // advances past it (correct — that's stale cloud data).
-    const batchListIds = new Set((lists ?? []).map((l: any) => l.id as string));
+    const batchListIds = new Set(lists.map((l: any) => l.id as string));
     const localListRows = await db.getAllAsync<{ id: string }>(
       'SELECT id FROM lists WHERE deletedAt IS NULL',
     );
     const localListIds = new Set(localListRows.map(r => r.id));
     const missingParentIds = [...new Set(
-      (words ?? [])
+      words
         .filter((w: any) => !w.is_deleted && !batchListIds.has(w.list_id) && !localListIds.has(w.list_id))
         .map((w: any) => w.list_id as string),
     )];
     let extraLists: any[] = [];
     if (missingParentIds.length > 0) {
-      const { data: parents, error: parentErr } = await supabase
-        .from('cloud_lists')
-        .select('*')
-        .in('id', missingParentIds)
-        .eq('is_deleted', false);
-      if (parentErr) throw parentErr;
-      extraLists = parents ?? [];
+      extraLists = await fetchAliveListsByIds(missingParentIds);
       if (extraLists.length > 0) {
         console.warn('[sync] backfilled', extraLists.length, 'parent list(s) for orphaned words');
       }
@@ -164,24 +237,17 @@ export async function pullChanges(): Promise<void> {
     // parent), fetch ALL its words by list_id, watermark-independent, so the
     // children always travel with the parent.
     const aliveListIds = [...new Set([
-      ...(lists ?? []).filter((l: any) => !l.is_deleted).map((l: any) => l.id as string),
+      ...lists.filter((l: any) => !l.is_deleted).map((l: any) => l.id as string),
       ...extraLists.map((l: any) => l.id as string),
     ])];
-    let listWords: any[] = [];
-    if (aliveListIds.length > 0) {
-      const { data: lw, error: lwErr } = await supabase
-        .from('cloud_words')
-        .select('*')
-        .in('list_id', aliveListIds)
-        .eq('is_deleted', false);
-      if (lwErr) throw lwErr;
-      listWords = lw ?? [];
-    }
+    const listWords: any[] = aliveListIds.length > 0
+      ? await fetchAliveWordsByListIds(aliveListIds)
+      : [];
     // Merge gt-batch words with by-list words, de-duped by id. The by-list set
     // is intentionally excluded from newWatermark (it may predate it) — only
     // the regular gt batch advances the watermark.
     const wordById = new Map<string, any>();
-    for (const w of (words ?? [])) wordById.set(w.id, w);
+    for (const w of words) wordById.set(w.id, w);
     for (const w of listWords) if (!wordById.has(w.id)) wordById.set(w.id, w);
     const allWords = [...wordById.values()];
 
@@ -207,10 +273,19 @@ export async function pullChanges(): Promise<void> {
       );
       const tombstonedWordIds = new Set(tombstonedWordRows.map(r => r.id));
 
+      // Dirty-skip 가드: 아직 push되지 않은 로컬 수정(dirty)이 있는 행은 pull이
+      // 덮어쓰지 않는다. push가 워터마크를 전진시키지 않으므로 자기 쓰기의
+      // echo(또는 더 오래된 클라우드 복사본)가 pull에 되돌아오는데, 그대로
+      // REPLACE하면 디바운스 창 안의 편집이 옛 데이터로 롤백된 채 다음 push에
+      // 실려 영구 유실된다. 로컬 수정은 곧 push로 클라우드에 반영되므로 로컬
+      // 우선이 맞다. 단, 클라우드 삭제(is_deleted)는 이 가드보다 먼저 처리 —
+      // 삭제 우선 원칙(위 tombstone 가드 주석 참조)과 일관되게 유지한다.
+      const { dirtyListIds, dirtyWordIds } = useSyncStore.getState();
+
       // Backfilled parents are merged into the lists loop so they populate
       // validListIds. They're intentionally excluded from newWatermark (they
       // predate it) — only the regular batch advances the watermark.
-      for (const l of [...(lists ?? []), ...extraLists]) {
+      for (const l of [...lists, ...extraLists]) {
         if (l.is_deleted) {
           await db.runAsync('DELETE FROM words WHERE listId = ?', l.id);
           await db.runAsync('DELETE FROM lists WHERE id = ?', l.id);
@@ -218,6 +293,8 @@ export async function pullChanges(): Promise<void> {
         }
         // Keep the local delete; don't resurrect it from the alive cloud copy.
         if (tombstonedListIds.has(l.id)) continue;
+        // Keep the pending local edit; the upcoming push will publish it.
+        if (dirtyListIds.has(l.id)) continue;
         const v = dbRowToVocaList(l);
         await db.runAsync(
           `INSERT OR REPLACE INTO lists (
@@ -259,6 +336,8 @@ export async function pullChanges(): Promise<void> {
         }
         // Keep the local delete; don't resurrect it from the alive cloud copy.
         if (tombstonedWordIds.has(w.id)) continue;
+        // Keep the pending local edit; the upcoming push will publish it.
+        if (dirtyWordIds.has(w.id)) continue;
         const word = dbRowToWord(w);
         await db.runAsync(
           `INSERT OR REPLACE INTO words (

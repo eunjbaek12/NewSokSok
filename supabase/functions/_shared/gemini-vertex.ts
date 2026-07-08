@@ -39,6 +39,8 @@ export async function analyzeWord(
 
   const srcName = LANG_NAME[sourceLang] ?? sourceLang;
   const tgtName = LANG_NAME[targetLang] ?? targetLang;
+  // 검색(enrich)도 생성과 동일한 언어별 발음 표기 규칙을 따르게 통일.
+  const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기 (IPA)';
 
   const token = await getVertexAccessToken();
 
@@ -46,7 +48,7 @@ export async function analyzeWord(
     `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
     `/locations/${location}/publishers/google/models/${model}:generateContent`;
 
-  const prompt = buildPrompt(word, srcName, tgtName);
+  const prompt = buildPrompt(word, srcName, tgtName, phoneticInstr);
 
   const body = {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],
@@ -97,7 +99,7 @@ export async function analyzeWord(
   };
 }
 
-function buildPrompt(word: string, srcName: string, tgtName: string): string {
+function buildPrompt(word: string, srcName: string, tgtName: string, phoneticInstr: string): string {
   const avoid = srcName === 'Korean' || tgtName === 'Korean' ? 'any other language' : 'Korean';
   return `Analyze the ${srcName} word/phrase "${word}".
 
@@ -111,7 +113,7 @@ When isReal is true, provide:
 3. The meaning translated into ${tgtName}.
 4. A "mnemonic" to help remember the word easily, written in ${tgtName}.
 5. The part of speech (pos, e.g., noun, verb).
-6. The phonetic transcription.
+6. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
 7. A translation of the example sentence in ${tgtName}.
 
 IMPORTANT — Field naming is legacy and MUST be ignored:
@@ -163,13 +165,16 @@ const DIFFICULTY_PROMPT: Record<string, string> = {
   advanced: '고급/전문적인',
 };
 
+// 발음 표기는 도착어(독자)에 독립적이어야 세계인 대상 앱에서 통한다. 그래서 도착어
+// 문자(한글 등)가 아니라 각 출발어의 국제/표준 표기를 쓴다: en/es/vi=IPA, ja=후리가나,
+// zh=병음, ko=로마자(RR). 한글 전사(그라시아스 등)는 한국어 독자 전용이라 배제.
 const PHONETIC_INSTRUCTION: Record<string, string> = {
   en: 'IPA 발음기호 (슬래시 없이, 예: prəˈnʌnsiˌeɪʃən)',
-  ko: '비워두기 (한글 자체가 발음 표기)',
+  ko: '로마자 표기 (국립국어원 로마자 표기법, 예: 안녕 → annyeong, 값 → gap)',
   ja: '후리가나 (예: ありがとう)',
   zh: '병음 (성조 포함, 예: nǐ hǎo)',
-  vi: '비워두기 (베트남어 정자법에 성조·발음이 포함됨)',
-  es: '비워두기 (스페인어는 정자법이 발음과 거의 1:1, 강세는 á é í ó ú로 표기됨)',
+  vi: 'IPA 발음기호 (성조 포함, 예: đi → ɗi˧˧)',
+  es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',
 };
 
 function buildGeneratePrompt(
@@ -191,7 +196,7 @@ function buildGeneratePrompt(
     ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`
     : '';
   return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
-  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며 (phonetic은 지시에 따라 비워둘 수 있음), 그 외 필드는 비워두지 마.
+  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
   - pos: 품사 (예: noun, verb, adj, adv)
   - phonetic: ${phoneticInstr}

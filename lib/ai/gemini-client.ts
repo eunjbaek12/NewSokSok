@@ -55,6 +55,20 @@ function getFullLanguageName(code: string): string {
   return map[code] || code;
 }
 
+// 발음 표기는 도착어(독자)에 독립적인 각 출발어의 표준 표기를 쓴다(세계인 대상).
+// en/es/vi=IPA, ja=후리가나, zh=병음, ko=로마자(RR). 생성 경로(gemini-vertex/curation)와 동일 규칙.
+function getPhoneticInstruction(code: string): string {
+  const map: Record<string, string> = {
+    en: 'IPA (no slashes, e.g., prəˈnʌnsiˌeɪʃən)',
+    ko: 'Revised Romanization of Korean (e.g., 안녕 → annyeong, 값 → gap)',
+    ja: 'furigana in kana (e.g., ありがとう)',
+    zh: 'Pinyin with tone marks (e.g., nǐ hǎo)',
+    vi: 'IPA with tone marks (e.g., đi → ɗi˧˧)',
+    es: 'IPA (e.g., gracias → ˈɡɾasjas)',
+  };
+  return map[code] || 'the standard phonetic notation (IPA) for the source language';
+}
+
 function parseAIJson<T>(
   text: string | undefined,
   schema: { safeParse(v: unknown): { success: boolean; data?: T; error?: any } },
@@ -99,7 +113,7 @@ export async function analyzeWord(
       3. The meaning translated into ${tgtName}.
       4. A "mnemonic" to help remember the word easily, written in ${tgtName}.
       5. The part of speech (pos, e.g., noun, verb).
-      6. The phonetic transcription.
+      6. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
       7. A translation of the example sentence in ${tgtName}.
 
       IMPORTANT — Field naming is legacy and MUST be ignored:
@@ -121,7 +135,7 @@ export async function analyzeWord(
           meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). Empty string if isReal is false.` },
           mnemonic: { type: Type.STRING, description: `A memory aid written in ${tgtName}. Empty string if isReal is false.` },
           pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb). Empty string if isReal is false.' },
-          phonetic: { type: Type.STRING, description: 'Phonetic transcription (IPA). Empty string if isReal is false.' },
+          phonetic: { type: Type.STRING, description: 'Phonetic transcription using the notation specified for the source language in the prompt. Empty string if isReal is false.' },
         },
         required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
       },

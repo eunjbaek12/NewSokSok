@@ -50,14 +50,20 @@ const LANG_LABEL_KO: Record<string, string> = {
     ko: '한국어',
     ja: '일본어',
     zh: '중국어',
+    vi: '베트남어',
+    es: '스페인어',
 };
 
-// Phonetic notation per source language. Empty string instructs LLM to leave blank.
+// 발음 표기는 도착어(독자)에 독립적인 각 출발어의 표준 표기를 쓴다(세계인 대상).
+// en/es/vi=IPA, ja=후리가나, zh=병음, ko=로마자(RR). 한글 전사는 한국어 독자 전용이라 배제.
+// Edge(gemini-vertex)·enrich(gemini-client)와 동일 규칙으로 통일.
 const PHONETIC_INSTRUCTION: Record<string, string> = {
     en: 'IPA 발음기호 (슬래시 없이, 예: prəˈnʌnsiˌeɪʃən)',
-    ko: '비워두기 (한글 자체가 발음 표기)',
+    ko: '로마자 표기 (국립국어원 로마자 표기법, 예: 안녕 → annyeong, 값 → gap)',
     ja: '후리가나 (예: ありがとう)',
     zh: '병음 (성조 포함, 예: nǐ hǎo)',
+    vi: 'IPA 발음기호 (성조 포함, 예: đi → ɗi˧˧)',
+    es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',
 };
 
 // NOTE: 응답 필드 meaningKr/exampleEn/exampleKr은 레거시 명칭. 실제로는 targetLang 뜻/sourceLang 예문/targetLang 예문 번역.
@@ -74,7 +80,7 @@ function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty,
         ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`
         : '';
     return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
-  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며 (phonetic은 지시에 따라 비워둘 수 있음), 그 외 필드는 비워두지 마.
+  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
   - pos: 품사 (예: noun, verb, adj, adv)
   - phonetic: ${phoneticInstr}

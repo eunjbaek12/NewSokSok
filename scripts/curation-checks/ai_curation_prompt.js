@@ -12,13 +12,18 @@ const LANG_LABEL_KO = {
     ko: '한국어',
     ja: '일본어',
     zh: '중국어',
+    vi: '베트남어',
+    es: '스페인어',
 };
 
+// 발음 표기는 도착어 독립(세계인 대상): en/es/vi=IPA, ja=후리가나, zh=병음, ko=로마자(RR).
 const PHONETIC_INSTRUCTION = {
     en: 'IPA 발음기호 (슬래시 없이, 예: prəˈnʌnsiˌeɪʃən)',
-    ko: '비워두기 (한글 자체가 발음 표기)',
+    ko: '로마자 표기 (국립국어원 로마자 표기법, 예: 안녕 → annyeong, 값 → gap)',
     ja: '후리가나 (예: ありがとう)',
     zh: '병음 (성조 포함, 예: nǐ hǎo)',
+    vi: 'IPA 발음기호 (성조 포함, 예: đi → ɗi˧˧)',
+    es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',
 };
 
 function buildPrompt(query, wordCount, difficulty, sourceLang, targetLang) {
@@ -30,7 +35,7 @@ function buildPrompt(query, wordCount, difficulty, sourceLang, targetLang) {
         ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성.)`
         : '';
     return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}
-  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며 (phonetic은 지시에 따라 비워둘 수 있음), 그 외 필드는 비워두지 마.
+  응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
   - pos: 품사 (예: noun, verb, adj, adv)
   - phonetic: ${phoneticInstr}
@@ -71,12 +76,25 @@ test('P3 — zh→ko: includes 중국어 + 병음', () => {
     if (!p.includes('고급/전문적인')) throw new Error('missing advanced difficulty');
 });
 
-// P4: ko → en (Korean as source for English speaker)
-test('P4 — ko→en: phonetic instruction = 비워두기', () => {
+// P4: ko → en (Korean as source for English speaker) — 로마자(RR), 도착어 독립
+test('P4 — ko→en: phonetic instruction = 로마자(RR), not 비워두기', () => {
     const p = buildPrompt('카페', 10, 'intermediate', 'ko', 'en');
     if (!p.includes('한국어 단어')) throw new Error('missing 한국어');
-    if (!p.includes('비워두기')) throw new Error('Korean should instruct phonetic blank');
+    if (!p.includes('로마자 표기')) throw new Error('Korean should instruct Revised Romanization');
+    if (p.includes('비워두기')) throw new Error('Korean phonetic must NOT be blank anymore');
     if (!p.includes('영어 뜻')) throw new Error('English target label missing');
+});
+
+// P4b: es/vi → ko — 도착어 독립 IPA (한글 전사 아님)
+test('P4b — es→ko & vi→ko: phonetic = IPA, never 한글 전사', () => {
+    const es = buildPrompt('gracias', 20, 'beginner', 'es', 'ko');
+    if (!es.includes('스페인어 단어')) throw new Error('missing 스페인어 label');
+    if (!es.includes('IPA 발음기호')) throw new Error('es should instruct IPA');
+    if (es.includes('비워두기')) throw new Error('es phonetic must NOT be blank');
+    const vi = buildPrompt('xin chào', 20, 'beginner', 'vi', 'ko');
+    if (!vi.includes('베트남어 단어')) throw new Error('missing 베트남어 label');
+    if (!vi.includes('IPA 발음기호')) throw new Error('vi should instruct IPA');
+    if (vi.includes('비워두기')) throw new Error('vi phonetic must NOT be blank');
 });
 
 // P5: same-lang edge case

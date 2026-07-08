@@ -49,17 +49,11 @@
 
 ---
 
-## 🚨 다음 세션 1순위 — AI 발음 Edge 재배포 (앱 아님, 서버)
+## ✅ AI 발음 Edge 재배포 — 완료 (7/8 저녁)
 
-지난 세션 **PR #20(발음 표기 규칙)** 이 고친 건 **Supabase Edge Function 코드**라, main 머지·앱 빌드와 **무관**하게 **서버에 따로 배포**해야 반영된다. 배포 전까지 로그인 사용자의 AI 생성 발음은 옛 동작(ko/vi/es 비움).
+**PR #20(발음 표기 규칙)** 의 Edge Function 코드를 서버에 배포 완료: `supabase functions deploy generate-words` + `enrich-word` 둘 다 성공(Avocado 프로젝트). 로그인 사용자의 AI 생성/검색 발음이 새 규칙(ko=로마자, es/vi=IPA)으로 동작한다.
 
-```bash
-supabase functions deploy generate-words
-supabase functions deploy enrich-word
-```
-(둘 다 `supabase/functions/_shared/gemini-vertex.ts` 공유 → 함께 배포)
-
-배포 후 기기에서: 한/베/스 AI 생성 발음 채워지는지(ko=로마자, es/vi=IPA), 생성·검색 발음 통일. `project_phonetic_target_independent`.
+남은 확인(기기): 한/베/스 AI 생성 발음 채워지는지, 생성·검색 발음 통일. `project_phonetic_target_independent`.
 
 > ⚠️ 두 배포 트랙 구분: **앱 빌드**(폰에서 도는 코드, EAS) vs **Edge 배포**(Supabase 서버, `supabase functions deploy`). 발음은 서버 트랙이라 이번 빌드들과 별개.
 
@@ -105,7 +99,7 @@ supabase functions deploy enrich-word
 | 항목 | 트랙 | 빌드 | 비고 |
 |---|---|---|---|
 | TestFlight build 24 실기 검증 | — | (완료) | **0순위**, 위 체크리스트 |
-| AI 발음 Edge 재배포(#20) | 서버 | ❌ | **1순위**, `supabase functions deploy` |
+| ~~AI 발음 Edge 재배포(#20)~~ | 서버 | — | ✅ 7/8 저녁 배포 완료, 실기 확인만 남음 |
 | **동기화 유실 수정(#29) 빌드 반영+실기 E2E** | 앱 | ✅ | 위 신규 섹션. 피해 사용자 재로그인 안내 |
 | 개발자 섹션 숨김(#28) 실기 확인 | 앱 | ✅ | 프로덕션 빌드에서 설정 탭 '개발자' 미노출 |
 | **스트릭 Phase 3** | 앱+서버 | ✅ | 클라우드 동기화(cloud_study_days, RLS·날짜별 max 병합)·캘린더 히트맵·**마일스톤 자동 축하 팝업**(7·30·100일, 중복방지)·스트릭 프리즈·알림 |

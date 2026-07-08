@@ -99,5 +99,5 @@ AdMob 콘솔 → 보고서에서 **노출수 · 일치율(match rate) · 예상 
 ---
 
 ## 관련 문서 / 메모리
-- `docs/handoff-launch-checklist.md` — 출시 게이트 전체 이력.
+- 출시 게이트 전체 이력은 `project_play_release` 메모리 참고(출시 마스터 체크리스트는 출시 완료 후 정리됨).
 - 메모리: `project_play_release`, `project_admob_serving_limited_prelaunch`, `project_ios_sandbox_verify_401`, `project_debounce_push_data_loss`.

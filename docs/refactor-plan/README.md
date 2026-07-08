@@ -4,7 +4,6 @@
 
 ## 활성 문서
 
-- [post-native-qa-handoff.md](./post-native-qa-handoff.md) — 2026-04-22 네이티브 QA 세션 후 남은 작업 (sync 검증, deprecation 정리, KAV 인프라 참고)
 - [post-merge-followup.md](./post-merge-followup.md) — main 머지(`19d06ad`) 후속 작업 원본 (대부분 완료)
 - [post-refactor-test-plan.md](./post-refactor-test-plan.md) — 리팩터 후 회귀 검증용 QA 시나리오
 

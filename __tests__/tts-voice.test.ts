@@ -72,6 +72,56 @@ describe('pickVoice — 중국어 음색 널뛰기 방지(핵심)', () => {
   });
 });
 
+describe('pickVoice — iOS Eloquence/novelty 음성 회피', () => {
+  // iOS 16.4+ 실기 음성 구성: Eloquence(구식 로봇 음색)와 novelty(효과음)가
+  // 표준 음성(compact Samantha)과 함께 전부 quality 'Default'로 보고된다.
+  // 알파벳순 tie-break만으로는 'com.apple.eloquence.…'(e)가 'com.apple.voice.…'(v)를
+  // 항상 이겨 로봇 음성이 고정 선택되는 회귀가 있었다.
+  const iosEnVoices: SelectableVoice[] = [
+    v('com.apple.eloquence.en-US.Eddy', 'en-US'),
+    v('com.apple.eloquence.en-US.Flo', 'en-US'),
+    v('com.apple.speech.synthesis.voice.Albert', 'en-US'),
+    v('com.apple.speech.synthesis.voice.BadNews', 'en-US'),
+    v('com.apple.voice.compact.en-US.Samantha', 'en-US'),
+  ];
+
+  it('Eloquence·novelty보다 표준(compact) 음성을 우선한다', () => {
+    expect(pickVoice(iosEnVoices, 'en-US')).toBe('com.apple.voice.compact.en-US.Samantha');
+  });
+
+  it('한국어도 Eloquence 대신 표준 음성(Yuna)을 고른다', () => {
+    const voices = [
+      v('com.apple.eloquence.ko-KR.Eddy', 'ko-KR'),
+      v('com.apple.voice.compact.ko-KR.Yuna', 'ko-KR'),
+    ];
+    expect(pickVoice(voices, 'ko-KR')).toBe('com.apple.voice.compact.ko-KR.Yuna');
+  });
+
+  it('Enhanced 음성이 있으면 여전히 최우선이다', () => {
+    const voices = [
+      ...iosEnVoices,
+      v('com.apple.voice.enhanced.en-US.Samantha', 'en-US', 'Enhanced'),
+    ];
+    expect(pickVoice(voices, 'en-US')).toBe('com.apple.voice.enhanced.en-US.Samantha');
+  });
+
+  it('표준 음성이 하나도 없으면 Eloquence라도 결정적으로 고른다(무음보다 낫다)', () => {
+    const voices = [
+      v('com.apple.eloquence.en-US.Flo', 'en-US'),
+      v('com.apple.eloquence.en-US.Eddy', 'en-US'),
+    ];
+    expect(pickVoice(voices, 'en-US')).toBe('com.apple.eloquence.en-US.Eddy');
+  });
+
+  it('안드로이드 identifier(비 com.apple.*)는 페널티 없이 기존 순서를 유지한다', () => {
+    const voices = [
+      v('zh-CN-language', 'zh-CN'),
+      v('cmn-cn-x-ccc-network', 'zh-CN'),
+    ];
+    expect(pickVoice(voices, 'zh-CN')).toBe('cmn-cn-x-ccc-network');
+  });
+});
+
 describe('pickVoice — 기타 언어 & 폴백', () => {
   it('en-US 요청 시 지역이 일치하는 음성을 고른다', () => {
     const voices = [v('gb', 'en-GB'), v('us', 'en-US'), v('au', 'en-AU')];

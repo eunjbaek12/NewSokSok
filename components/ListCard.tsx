@@ -12,6 +12,7 @@ import StatusBadge, { StatusBadgeType } from '@/components/ui/StatusBadge';
 import { Radius } from '@/constants/tokens';
 import { AI_GENERATED_TAG } from '@shared/contracts';
 import { displayTag } from '@/lib/tag-display';
+import { deriveDisplayLanguages, getLanguageFlag } from '@/constants/languages';
 
 export function getRelativeTime(timestamp: number | undefined, t: (key: string, opts?: any) => string): string {
   if (!timestamp) return t('listCard.noStudyRecord');
@@ -64,6 +65,12 @@ export default function ListCard({
     if (item.isCurated) return 'curated';
     return null;
   }, [planStatus, isAiGenerated, item.isCurated]);
+
+  // 대표 출발어→도착어 (단어 최빈 언어, 빈 단어장은 list 메타). 큐레이션 카드와 동일 포맷.
+  const langPair = React.useMemo(() => {
+    const { source, target } = deriveDisplayLanguages(words, item);
+    return `${getLanguageFlag(source)} ${source.toUpperCase()} → ${getLanguageFlag(target)} ${target.toUpperCase()}`;
+  }, [words, item]);
 
   const topTags = React.useMemo(() => {
     const counts: Record<string, number> = {};
@@ -123,6 +130,9 @@ export default function ListCard({
           </View>
           <Text style={[styles.lastStudied, { color: colors.textTertiary }]}>
             {t('listCard.lastStudy', { time: relativeTime })}
+          </Text>
+          <Text style={[styles.langPair, { color: colors.textTertiary }]} numberOfLines={1}>
+            {langPair}
           </Text>
         </View>
         <View style={styles.cardActions}>
@@ -198,6 +208,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'Pretendard_400Regular',
     marginTop: 4,
+  },
+  langPair: {
+    fontSize: 12,
+    fontFamily: 'Pretendard_500Medium',
+    marginTop: 3,
   },
   cardActions: {
     flexDirection: 'row',

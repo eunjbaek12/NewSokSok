@@ -36,7 +36,7 @@ import {
   moveWords,
 } from '@/features/vocab';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getLanguageFlag, getLanguageLabel, deriveDisplayLanguages } from '@/constants/languages';
+import { getTtsLang, getSpeakableText } from '@/constants/languages';
 import { Word } from '@/lib/types';
 import { computePlanStatus } from '@/features/study/plan/engine';
 import { useTranslation } from 'react-i18next';
@@ -99,9 +99,6 @@ export default function ListDetailScreen() {
     [list, allWords]
   );
   const hasPlan = planStatus !== 'none';
-
-  // 이 단어장의 대표 출발어→도착어 (단어들의 최빈 언어, 빈 단어장은 list 메타).
-  const displayLangs = useMemo(() => deriveDisplayLanguages(allWords, list), [allWords, list]);
 
   // FAB 애니메이션 제어 (트리거 방식)
   const fabAnim = useRef(new Animated.Value(0)).current;
@@ -822,19 +819,6 @@ export default function ListDetailScreen() {
         </View>
 
         <View
-          style={[styles.langRow, { opacity: editMode ? 0 : 1 }]}
-          pointerEvents={editMode ? 'none' : 'auto'}
-        >
-          <Text style={[styles.langText, { color: colors.textSecondary }]} numberOfLines={1}>
-            {getLanguageFlag(displayLangs.source)} {getLanguageLabel(displayLangs.source, t)}
-          </Text>
-          <Ionicons name="arrow-forward" size={12} color={colors.textTertiary} style={{ marginHorizontal: 5 }} />
-          <Text style={[styles.langText, { color: colors.textSecondary }]} numberOfLines={1}>
-            {getLanguageFlag(displayLangs.target)} {getLanguageLabel(displayLangs.target, t)}
-          </Text>
-        </View>
-
-        <View
           style={[styles.progressContainer, { opacity: editMode ? 0 : 1 }]}
           pointerEvents={editMode ? 'none' : 'auto'}
         >
@@ -1035,15 +1019,6 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontFamily: 'Pretendard_700Bold',
-  },
-  langRow: {
-    marginTop: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  langText: {
-    fontSize: 12,
-    fontFamily: 'Pretendard_600SemiBold',
   },
   progressContainer: {
     marginTop: 10,

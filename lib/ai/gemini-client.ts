@@ -116,7 +116,7 @@ export async function analyzeWord(
       6. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
       7. A translation of the example sentence in ${tgtName}.
 
-      HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"), the meaning field MUST list the 2-3 most common senses numbered with ①②③ (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. Do NOT number minor variations of one core meaning. For the example sentence, pos, and phonetic, use only the most common sense (①).
+      HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"), the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. Do NOT number minor variations of one core meaning. For the example sentence, pos, and phonetic, use only the most common sense (①).
 
       IMPORTANT — Field naming is legacy and MUST be ignored:
       - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.

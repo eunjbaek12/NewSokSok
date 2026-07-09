@@ -1,6 +1,26 @@
 import { getDb } from '@/lib/db';
+import { useAuthStore, isCloudAuthMode } from '@/features/auth';
+// Direct (non-barrel) imports break the features/sync ↔ features/stats require
+// cycle: the sync barrel re-exports first-login.ts → features/vocab/db.ts →
+// features/stats barrel → this module. store/engine 자체는 stats/vocab을
+// import하지 않아 직접 경로는 순환이 없다.
+// eslint-disable-next-line no-restricted-imports
+import { useSyncStore } from '@/features/sync/store';
+// eslint-disable-next-line no-restricted-imports
+import { schedulePush } from '@/features/sync/engine';
 import { todayStr, startOfWeekStr } from './date';
 import { computeStreak, computeLongestStreak, sumMemorized, type StudyDay } from './streak';
+
+/**
+ * 로컬 통계 변경을 클라우드 push 대상으로 마킹(게스트는 no-op). 단어 mutation의
+ * markWordsDirty + schedulePush와 같은 계약 — 30초 디바운스에 합류한다.
+ */
+function markStatDateDirtyAndSchedule(date: string): void {
+  const { mode, user } = useAuthStore.getState();
+  if (!isCloudAuthMode(mode) || !user?.id) return;
+  useSyncStore.getState().markStatDatesDirty([date]);
+  schedulePush();
+}
 
 /**
  * 오늘 행을 UPSERT. studied/memorized 델타를 누적한다. 단일 문장이라 트랜잭션 불필요
@@ -9,6 +29,7 @@ import { computeStreak, computeLongestStreak, sumMemorized, type StudyDay } from
  */
 async function upsertToday(studiedDelta: number, memorizedDelta: number): Promise<void> {
   const db = await getDb();
+  const date = todayStr();
   await db.runAsync(
     `INSERT INTO study_days (date, studiedCount, memorizedCount, updatedAt)
      VALUES (?, ?, ?, ?)
@@ -16,8 +37,11 @@ async function upsertToday(studiedDelta: number, memorizedDelta: number): Promis
        studiedCount   = studiedCount + excluded.studiedCount,
        memorizedCount = memorizedCount + excluded.memorizedCount,
        updatedAt      = excluded.updatedAt`,
-    todayStr(), studiedDelta, memorizedDelta, Date.now()
+    date, studiedDelta, memorizedDelta, Date.now()
   );
+  // 같은 날짜의 memorized_log 행도 push가 date 기준으로 함께 실어 나른다 —
+  // recordMemorizedWords는 로그 삽입 후 여기(upsertToday)를 반드시 지난다.
+  markStatDateDirtyAndSchedule(date);
 }
 
 /** 학습 세션 완료 기록(복습한 단어 수). 오늘을 '학습일'로 마킹. */

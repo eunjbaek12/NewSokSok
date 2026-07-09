@@ -5,6 +5,7 @@ export {
   applyFirstLoginMerge,
   applyFirstLoginCloudReset,
   markAllLocalDirty,
+  markAllLocalStatsDirty,
   type FirstLoginState,
   type FirstLoginProbe,
 } from './first-login';

@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const LAST_PULLED_AT_KEY = '@soksok_last_pulled_at';
 const DIRTY_LISTS_KEY = '@soksok_dirty_lists';
 const DIRTY_WORDS_KEY = '@soksok_dirty_words';
+const DIRTY_STAT_DATES_KEY = '@soksok_dirty_stat_dates';
 
 /**
  * Durably back up a dirty set to AsyncStorage. The dirty set is the record of
@@ -32,6 +33,8 @@ function parseStoredIds(raw: string | null): string[] {
 interface SyncStoreState {
   dirtyListIds: Set<string>;
   dirtyWordIds: Set<string>;
+  /** 아직 push되지 않은 study_days/memorized_log 변경이 있는 날짜('YYYY-MM-DD'). */
+  dirtyStatDates: Set<string>;
   lastPulledAt: number;
   isSyncing: boolean;
 
@@ -39,9 +42,11 @@ interface SyncStoreState {
   markWordDirty: (id: string) => void;
   markListsDirty: (ids: string[]) => void;
   markWordsDirty: (ids: string[]) => void;
+  markStatDatesDirty: (dates: string[]) => void;
 
   clearDirtyLists: (ids?: string[]) => void;
   clearDirtyWords: (ids?: string[]) => void;
+  clearDirtyStatDates: (dates?: string[]) => void;
 
   hydrateLastPulled: () => Promise<void>;
   hydrateDirty: () => Promise<void>;
@@ -53,6 +58,7 @@ interface SyncStoreState {
 export const useSyncStore = create<SyncStoreState>((set, get) => ({
   dirtyListIds: new Set(),
   dirtyWordIds: new Set(),
+  dirtyStatDates: new Set(),
   lastPulledAt: 0,
   isSyncing: false,
 
@@ -80,6 +86,12 @@ export const useSyncStore = create<SyncStoreState>((set, get) => ({
     set({ dirtyWordIds: next });
     persistSet(DIRTY_WORDS_KEY, next);
   },
+  markStatDatesDirty: (dates) => {
+    const next = new Set(get().dirtyStatDates);
+    for (const d of dates) next.add(d);
+    set({ dirtyStatDates: next });
+    persistSet(DIRTY_STAT_DATES_KEY, next);
+  },
 
   clearDirtyLists: (ids) => {
     if (!ids) {
@@ -103,6 +115,17 @@ export const useSyncStore = create<SyncStoreState>((set, get) => ({
     set({ dirtyWordIds: next });
     persistSet(DIRTY_WORDS_KEY, next);
   },
+  clearDirtyStatDates: (dates) => {
+    if (!dates) {
+      set({ dirtyStatDates: new Set() });
+      persistSet(DIRTY_STAT_DATES_KEY, new Set());
+      return;
+    }
+    const next = new Set(get().dirtyStatDates);
+    for (const d of dates) next.delete(d);
+    set({ dirtyStatDates: next });
+    persistSet(DIRTY_STAT_DATES_KEY, next);
+  },
 
   hydrateLastPulled: async () => {
     try {
@@ -116,9 +139,10 @@ export const useSyncStore = create<SyncStoreState>((set, get) => ({
 
   hydrateDirty: async () => {
     try {
-      const [rawLists, rawWords] = await Promise.all([
+      const [rawLists, rawWords, rawStatDates] = await Promise.all([
         AsyncStorage.getItem(DIRTY_LISTS_KEY),
         AsyncStorage.getItem(DIRTY_WORDS_KEY),
+        AsyncStorage.getItem(DIRTY_STAT_DATES_KEY),
       ]);
       // Union with any ids already marked this session so a hydrate that races
       // an early mutation can't drop it.
@@ -126,7 +150,9 @@ export const useSyncStore = create<SyncStoreState>((set, get) => ({
       for (const id of parseStoredIds(rawLists)) lists.add(id);
       const words = new Set(get().dirtyWordIds);
       for (const id of parseStoredIds(rawWords)) words.add(id);
-      set({ dirtyListIds: lists, dirtyWordIds: words });
+      const statDates = new Set(get().dirtyStatDates);
+      for (const d of parseStoredIds(rawStatDates)) statDates.add(d);
+      set({ dirtyListIds: lists, dirtyWordIds: words, dirtyStatDates: statDates });
     } catch {
       // Leave the in-memory sets as-is on read/parse failure.
     }
@@ -140,12 +166,13 @@ export const useSyncStore = create<SyncStoreState>((set, get) => ({
   setIsSyncing: (b) => set({ isSyncing: b }),
 
   resetAll: async () => {
-    set({ dirtyListIds: new Set(), dirtyWordIds: new Set(), lastPulledAt: 0, isSyncing: false });
+    set({ dirtyListIds: new Set(), dirtyWordIds: new Set(), dirtyStatDates: new Set(), lastPulledAt: 0, isSyncing: false });
     try {
       await Promise.all([
         AsyncStorage.removeItem(LAST_PULLED_AT_KEY),
         AsyncStorage.removeItem(DIRTY_LISTS_KEY),
         AsyncStorage.removeItem(DIRTY_WORDS_KEY),
+        AsyncStorage.removeItem(DIRTY_STAT_DATES_KEY),
       ]);
     } catch {}
   },

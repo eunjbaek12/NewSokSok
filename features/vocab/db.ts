@@ -145,6 +145,11 @@ export async function clearAllData(): Promise<void> {
   const db = await getDb();
   await db.runAsync('DELETE FROM words');
   await db.runAsync('DELETE FROM lists');
+  // 학습 통계(스트릭·달력·날짜별 로그)도 계정 데이터 — 계정 전환/로그아웃/
+  // 클라우드 리셋 시 함께 비워야 다음 계정으로 이전 계정 기록이 새지 않는다.
+  // 클라우드 동기화 대상이라 로그인 계정의 기록은 다음 pull이 복원한다.
+  await db.runAsync('DELETE FROM study_days');
+  await db.runAsync('DELETE FROM memorized_log');
 }
 
 export async function mergeCloudData(cloudLists: VocaList[]): Promise<void> {

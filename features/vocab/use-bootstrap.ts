@@ -11,6 +11,7 @@ import {
   applyFirstLoginMerge,
   applyFirstLoginCloudReset,
   markAllLocalDirty,
+  markAllLocalStatsDirty,
 } from '@/features/sync';
 import { initSeedDataIfEmpty, clearAllData } from './db';
 import { invalidateLists } from './queries';
@@ -54,11 +55,15 @@ async function loadCloudData(): Promise<void> {
       } else if (state === 'local-only') {
         await markAllLocalDirty();
       }
+      // 게스트 시절 학습 통계(스트릭·달력) 업로드 — 단어 probe 분기와 무관하게
+      // 모든 첫 로그인에서. cloud-reset 뒤에는 테이블이 비어 있어 no-op.
+      await markAllLocalStatsDirty();
     }
 
     await pullChanges();
     if (useSyncStore.getState().dirtyListIds.size > 0 ||
-        useSyncStore.getState().dirtyWordIds.size > 0) {
+        useSyncStore.getState().dirtyWordIds.size > 0 ||
+        useSyncStore.getState().dirtyStatDates.size > 0) {
       await flushPush();
     }
   } catch (e: any) {

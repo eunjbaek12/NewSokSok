@@ -283,8 +283,10 @@ export async function createCuratedList(
           0,
           JSON.stringify(w.tags ?? []),
           now,
-          (w as any).sourceLang ?? 'en',
-          (w as any).targetLang ?? 'ko',
+          // 단어별 언어가 없으면(큐레이션 덱·AI 생성) 리스트 언어를 스탬프.
+          // 'en'/'ko' 하드코딩 폴백은 비영어 덱 단어 전체를 en→ko로 오염시켰다.
+          (w as any).sourceLang ?? srcLang,
+          (w as any).targetLang ?? tgtLang,
         ]
       );
     }

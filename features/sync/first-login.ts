@@ -159,3 +159,20 @@ export async function markAllLocalDirty(): Promise<void> {
   markListsDirty(listRows.map(r => r.id));
   markWordsDirty(wordRows.map(r => r.id));
 }
+
+/**
+ * 로컬 학습 통계(study_days) 전 날짜를 push 대상으로 마킹. 첫 로그인
+ * (lastPulledAt === 0)의 모든 분기에서 호출된다 — 게스트 시절 쌓인 스트릭·달력
+ * 기록을 계정에 업로드하기 위함. 단어 probe 분기(conflict/cloud-only/…)와
+ * 무관하게 항상 안전하다: 서버는 날짜별 GREATEST 병합이라 클라우드 기존 기록을
+ * 깎지 않고, cloud-reset 직후에는 테이블이 비어 있어 no-op이다.
+ */
+export async function markAllLocalStatsDirty(): Promise<void> {
+  const db = await getDb();
+  const dayRows = await db.getAllAsync<{ date: string }>(
+    'SELECT date FROM study_days',
+  );
+  if (dayRows.length > 0) {
+    useSyncStore.getState().markStatDatesDirty(dayRows.map(r => r.date));
+  }
+}

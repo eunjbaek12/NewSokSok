@@ -28,9 +28,11 @@ export function schedulePush(): void {
 export async function flushPush(): Promise<void> {
   if (!isCloudAuthed()) return;
 
-  const { dirtyListIds, dirtyWordIds, setIsSyncing, clearDirtyLists, clearDirtyWords } =
-    useSyncStore.getState();
-  if (dirtyListIds.size === 0 && dirtyWordIds.size === 0) return;
+  const {
+    dirtyListIds, dirtyWordIds, dirtyStatDates, setIsSyncing,
+    clearDirtyLists, clearDirtyWords, clearDirtyStatDates,
+  } = useSyncStore.getState();
+  if (dirtyListIds.size === 0 && dirtyWordIds.size === 0 && dirtyStatDates.size === 0) return;
   if (pushInFlight) return;
 
   pushInFlight = true;
@@ -38,6 +40,7 @@ export async function flushPush(): Promise<void> {
 
   const listIds = Array.from(dirtyListIds);
   const wordIds = Array.from(dirtyWordIds);
+  const statDates = Array.from(dirtyStatDates);
 
   try {
     const db = await getDb();
@@ -80,8 +83,45 @@ export async function flushPush(): Promise<void> {
       if (wordError) throw wordError;
     }
 
+    // 학습 통계 push. study_days는 merge_study_days RPC(서버 GREATEST 병합) —
+    // plain upsert(LWW)는 다른 기기가 올려 둔 더 큰 카운트를 깎아먹는다.
+    // memorized_log는 append-only라 중복 무시 upsert면 충분하다.
+    if (statDates.length > 0) {
+      const placeholders = statDates.map(() => '?').join(',');
+      const dayRows = await db.getAllAsync<any>(
+        `SELECT date, studiedCount, memorizedCount FROM study_days WHERE date IN (${placeholders})`,
+        ...statDates,
+      );
+      if (dayRows.length > 0) {
+        const { error } = await supabase.rpc('merge_study_days', {
+          p_rows: dayRows.map(r => ({
+            date: r.date,
+            studied_count: r.studiedCount ?? 0,
+            memorized_count: r.memorizedCount ?? 0,
+          })),
+        });
+        if (error) throw error;
+      }
+      const logRows = await db.getAllAsync<any>(
+        `SELECT date, wordId, createdAt FROM memorized_log WHERE date IN (${placeholders})`,
+        ...statDates,
+      );
+      if (logRows.length > 0) {
+        // user_id는 컬럼 default(auth.uid())가 채운다. ignoreDuplicates =
+        // ON CONFLICT DO NOTHING — 이미 있는 (user, date, word) 행은 불변.
+        const { error } = await supabase
+          .from('cloud_memorized_log')
+          .upsert(
+            logRows.map(r => ({ date: r.date, word_id: r.wordId, created_at_ms: r.createdAt ?? 0 })),
+            { onConflict: 'user_id,date,word_id', ignoreDuplicates: true },
+          );
+        if (error) throw error;
+      }
+    }
+
     clearDirtyLists(listIds);
     clearDirtyWords(wordIds);
+    clearDirtyStatDates(statDates);
   } finally {
     pushInFlight = false;
     setIsSyncing(false);
@@ -104,7 +144,10 @@ export const PULL_PAGE = 500;
  * upsert 시 여러 행이 같은 값을 갖므로(트리거가 statement 시각으로 통일) id를
  * 타이브레이커로 쓴다.
  */
-async function fetchAllSince(table: 'cloud_lists' | 'cloud_words', since: number): Promise<any[]> {
+async function fetchAllSince(
+  table: 'cloud_lists' | 'cloud_words' | 'cloud_study_days' | 'cloud_memorized_log',
+  since: number,
+): Promise<any[]> {
   const rows: any[] = [];
   let cursor: { ts: number; id: string } | null = null;
   for (;;) {
@@ -176,16 +219,18 @@ export async function pullChanges(): Promise<void> {
   const { lastPulledAt, setLastPulledAt, setIsSyncing } = useSyncStore.getState();
   setIsSyncing(true);
   try {
-    const [lists, words] = await Promise.all([
+    const [lists, words, statDays, statLog] = await Promise.all([
       fetchAllSince('cloud_lists', lastPulledAt),
       fetchAllSince('cloud_words', lastPulledAt),
+      fetchAllSince('cloud_study_days', lastPulledAt),
+      fetchAllSince('cloud_memorized_log', lastPulledAt),
     ]);
 
     // 드레인이 완료됐으므로 배치의 max(updated_at)까지는 전부 수신했음이 보장된다.
     // 빈 배치면 워터마크를 유지한다 — 과거의 Date.now() 점프는 클라이언트 시계가
     // 서버보다 빠를 때 그 사이 서버 쓰기를 영구히 건너뛰는 구멍이었다(서버
     // updated_at과 클라이언트 시계는 다른 시계 도메인).
-    const allRows = [...lists, ...words];
+    const allRows = [...lists, ...words, ...statDays, ...statLog];
     const newWatermark = allRows.length > 0
       ? Math.max(...allRows.map((r: any) => r.updated_at as number))
       : lastPulledAt;
@@ -352,6 +397,33 @@ export async function pullChanges(): Promise<void> {
             w.position, word.createdAt, word.updatedAt,
             word.wrongCount, word.assignedDay ?? null, word.sourceLang, word.targetLang, null,
           ],
+        );
+      }
+
+      // 학습 통계 병합. study_days는 날짜별 MAX — 서버 merge_study_days와 동일
+      // 규칙이라 push/pull 어느 방향에서도 카운트가 줄어들 수 없다. 덕분에 dirty
+      // 날짜도 skip 없이 병합해도 안전하다(로컬의 미전송 증가분은 MAX가 보존).
+      // 클라우드가 더 컸던 날짜는 로컬이 그 값으로 올라서는 것으로 끝 — 다시
+      // push할 필요 없다(서버가 이미 그 값). 로컬이 더 큰 날짜는 dirty가
+      // 걸려 있어야 정상이며, 곧 push가 서버를 따라잡는다.
+      for (const d of statDays) {
+        await db.runAsync(
+          `INSERT INTO study_days (date, studiedCount, memorizedCount, updatedAt)
+           VALUES (?, ?, ?, ?)
+           ON CONFLICT(date) DO UPDATE SET
+             studiedCount   = MAX(studiedCount, excluded.studiedCount),
+             memorizedCount = MAX(memorizedCount, excluded.memorizedCount),
+             updatedAt      = excluded.updatedAt`,
+          d.date, d.studied_count ?? 0, d.memorized_count ?? 0, d.updated_at ?? 0,
+        );
+      }
+
+      // memorized_log는 양방향 append-only 합집합. wordId가 로컬에 없는 단어를
+      // 가리켜도 그대로 둔다 — getDayDetail이 조인 시점에 알아서 제외한다.
+      for (const l of statLog) {
+        await db.runAsync(
+          `INSERT OR IGNORE INTO memorized_log (date, wordId, createdAt) VALUES (?, ?, ?)`,
+          l.date, l.word_id, l.created_at_ms ?? 0,
         );
       }
     });

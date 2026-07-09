@@ -33,6 +33,14 @@ describe('posCategoriesOf', () => {
     expect(posCategoriesOf('proverb')).toEqual([]);
   });
 
+  it("AI 생성 데이터의 'adj'/'adv' 약어도 매핑한다(프롬프트가 약어 예시를 주던 시기 데이터)", () => {
+    expect(posCategoriesOf('adj')).toEqual(['adjective']);
+    expect(posCategoriesOf('adv')).toEqual(['adverb']);
+    expect(posCategoriesOf('adj.')).toEqual(['adjective']); // 구두점은 토큰 분리로 제거
+    expect(posCategoriesOf('ADV')).toEqual(['adverb']);
+    expect(posCategoriesOf('noun, adj')).toEqual(['noun', 'adjective']);
+  });
+
   it('구/관용구/표현은 phrase로 모은다', () => {
     expect(posCategoriesOf('phrase')).toEqual(['phrase']);
     expect(posCategoriesOf('idiom')).toEqual(['phrase']);

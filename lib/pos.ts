@@ -18,8 +18,11 @@ export type PosFilter = typeof POS_ALL | PosFilterKey | typeof POS_OTHER;
 const MATCH: Record<PosFilterKey, string[]> = {
   noun: ['noun'],
   verb: ['verb'],
-  adjective: ['adjective'],
-  adverb: ['adverb'],
+  // AI 생성 프롬프트가 한동안 'adj'/'adv' 약어를 예시로 줘서 그대로 저장된
+  // 데이터가 존재한다 — 접두사 루트로 완화해 약어·전체 단어를 모두 잡는다
+  // ("adjective"·"adverb"도 startsWith로 매칭됨).
+  adjective: ['adj'],
+  adverb: ['adv'],
   phrase: ['phrase', 'idiom', 'expression'],
 };
 

@@ -198,7 +198,7 @@ function buildGeneratePrompt(
   return `성인 학습자가 '${query}' 상황에서 사용할 수 있는 ${diffLabel} ${srcLabel} 단어 ${wordCount}개를 생성해줘.${sameLangNote}${excludeNote}
   응답은 오직 JSON 배열만 반환해야 해. 모든 필드를 빠짐없이 채워야 하며, 비워두지 마.
   - term: ${srcLabel} 단어
-  - pos: 품사 (예: noun, verb, adj, adv)
+  - pos: 품사 — 영어 전체 단어로 (예: noun, verb, adjective, adverb)
   - phonetic: ${phoneticInstr}
   - definition: ${srcLabel}로 작성한 정의
   - meaningKr: ${tgtLabel} 뜻

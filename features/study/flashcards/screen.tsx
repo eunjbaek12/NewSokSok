@@ -817,7 +817,9 @@ const styles = StyleSheet.create({
   },
   cardBack: {
     position: 'absolute',
-    paddingTop: 100,
+    // 우상단 별 버튼(top 16 + 아이콘 영역)만 피하면 됨. 100은 위/아래(32) 비대칭이
+    // 심해 콘텐츠가 시각 중심보다 처지고 긴 예문 공간을 잡아먹었다.
+    paddingTop: 48,
   },
   cardWord: {
     fontSize: 36,
@@ -885,6 +887,10 @@ const styles = StyleSheet.create({
   exampleWrapper: {
     width: '100%',
     position: 'relative',
+    // 카드가 maxHeight에 걸리면 예문 영역이 줄어들어 스크롤로 전환되게 한다.
+    // 스피커 버튼용 wrapper(기본 flexShrink 0)가 ScrollView의 내장 flexShrink를
+    // 가리면서 예문 박스가 카드 밖으로 넘치던 버그의 수정.
+    flexShrink: 1,
   },
   cardExampleBox: {
     borderRadius: 12,

@@ -45,13 +45,15 @@ export function getRelevanceScore(word: Word, trimmed: string): number {
  * - query가 빈 문자열이면: 활성 필터(별표·단어장·상태·태그)가 하나라도 있으면 해당 조건의 단어 전체를,
  *   아무 필터도 없으면 빈 배열을 반환(브라우징).
  * - opts는 하위호환을 위해 선택 인자. status/tag는 별표·단어장과 같은 풀 필터(AND).
+ * - opts.browse: 이 함수가 모르는 외부 필터(품사 칩 등)가 활성일 때 호출자가 켠다.
+ *   빈 질의여도 브라우징 모드로 전체 목록을 반환해 호출자의 후처리 필터가 걸 대상을 준다.
  */
 export function filterAndRankResults(
     pool: AllDataItem[],
     query: string,
     selectedListId: string | null,
     starredOnly: boolean,
-    opts?: { status?: StatusFilter; tag?: string | null },
+    opts?: { status?: StatusFilter; tag?: string | null; browse?: boolean },
 ): SearchResult[] {
     const status = opts?.status ?? 'all';
     const tag = opts?.tag ?? null;
@@ -74,7 +76,9 @@ export function filterAndRankResults(
     }
 
     if (!trimmed) {
-        const browse = starredOnly || !!selectedListId || status !== 'all' || !!tag;
+        // 여기 내부 판정은 품사 필터를 모른다 — 품사 칩만 켠 경우를 opts.browse가
+        // 알려주지 않으면 "질의 없이 명사 칩 탭"이 빈 결과가 된다(build 25 실기 신고).
+        const browse = !!opts?.browse || starredOnly || !!selectedListId || status !== 'all' || !!tag;
         return browse
             ? filtered.map(item => ({ ...item, isTagMatch: false, isDefinitionMatch: false, score: 0 }))
             : [];

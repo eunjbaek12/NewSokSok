@@ -144,6 +144,26 @@ describe('filterAndRankResults — 필터링', () => {
             expect(result).toHaveLength(2);
             expect(result.map(r => r.word.term)).toEqual(expect.arrayContaining(['apple', 'cherry']));
         });
+
+        test('쿼리 없어도 opts.browse=true → 전체 반환(품사 칩 등 외부 필터 브라우징)', () => {
+            const pool = [makeItem({ term: 'apple' }), makeItem({ term: 'banana' })];
+            const result = filterAndRankResults(pool, '', null, false, { browse: true });
+            expect(result).toHaveLength(2);
+        });
+
+        test('opts.browse=false는 기존 동작 유지(빈 배열)', () => {
+            const pool = [makeItem({ term: 'apple' })];
+            expect(filterAndRankResults(pool, '', null, false, { browse: false })).toEqual([]);
+        });
+
+        test('opts.browse=true여도 다른 풀 필터(별표)는 그대로 AND 적용', () => {
+            const pool = [
+                makeItem({ term: 'apple', isStarred: true }),
+                makeItem({ term: 'banana', isStarred: false }),
+            ];
+            const result = filterAndRankResults(pool, '', null, true, { browse: true });
+            expect(result.map(r => r.word.term)).toEqual(['apple']);
+        });
     });
 
     describe('단어장 필터', () => {

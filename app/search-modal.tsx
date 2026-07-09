@@ -58,16 +58,17 @@ export default function SearchModalScreen() {
     // 자주 쓰는 태그 top 5
     const topTags = useMemo(() => getTopTags(allData), [allData]);
 
-    // 필터 + 단일 패스 매칭 + 관련도 정렬
-    const searchResults = useMemo(
-        () => filterAndRankResults(allData, deferredQuery, selectedListId, starredOnly, { status: statusFilter, tag: selectedTag }),
-        [deferredQuery, allData, selectedListId, starredOnly, statusFilter, selectedTag],
-    );
-
     // 현재 보이는 단어들에 실제로 존재하는 품사만 칩으로 노출. 2종 미만이면 숨김.
     const posOptions = useMemo(() => presentPosCategories(allData.map(d => d.word)), [allData]);
     const showPosFilter = posOptions.keys.length + (posOptions.hasOther ? 1 : 0) >= 2;
     const posActive = showPosFilter && posFilter !== POS_ALL;
+
+    // 필터 + 단일 패스 매칭 + 관련도 정렬. 품사 칩이 켜져 있으면 빈 질의도
+    // 브라우징 모드(browse)로 — 후처리 필터가 걸 전체 목록을 받아야 한다.
+    const searchResults = useMemo(
+        () => filterAndRankResults(allData, deferredQuery, selectedListId, starredOnly, { status: statusFilter, tag: selectedTag, browse: posActive }),
+        [deferredQuery, allData, selectedListId, starredOnly, statusFilter, selectedTag, posActive],
+    );
 
     // 랭킹 로직(filterAndRankResults)은 건드리지 않고 결과를 품사로 후처리.
     const results = useMemo(

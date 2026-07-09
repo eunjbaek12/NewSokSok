@@ -146,7 +146,12 @@ export default function StatsScreen() {
       >
         {/* 스트릭 히어로 — 가로형 컴팩트. 왼쪽 캐릭터+숫자, 오른쪽 응원문구+최장기록. */}
         <View style={[styles.hero, { backgroundColor: colors.warningLight, borderColor: colors.border }]}>
-          <Image source={require('../assets/images/streak-success.png')} style={styles.heroImg} />
+          <Image
+            source={streak > 0
+              ? require('../assets/images/streak-success.png')
+              : require('../assets/images/streak-idle.png')}
+            style={styles.heroImg}
+          />
           <View>
             <Text style={[styles.heroNum, { color: colors.warning }]}>
               {t('stats.daysValue', { count: streak })}

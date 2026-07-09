@@ -225,6 +225,19 @@ export const INTERNAL_TAG_I18N: Record<string, string> = {
   [DIFFICULTY_TAGS.advanced]: 'curation.advanced',
 };
 
+// 동음이의어 뜻 후보 1개. AI 단어 분석(analyzeWord)이 서로 무관한 뜻이 2개 이상일 때
+// senses 배열로 반환한다(최빈 뜻 먼저). 각 항목은 단일 뜻 기준(내부에 ①② 번호 없음).
+// mnemonic은 add-word 폼이 쓰지 않아 출력 토큰 절약을 위해 제외.
+export const WordSenseSchema = z.object({
+  meaningKr: z.string().max(900),
+  definition: z.string().max(1500).optional(),
+  exampleEn: z.string().max(900).optional(),
+  exampleKr: z.string().max(900).optional(),
+  pos: z.string().max(60).optional(),
+  phonetic: z.string().max(240).optional(),
+});
+export type WordSense = z.infer<typeof WordSenseSchema>;
+
 // Receive-side ("lenient") limits — applied to AI responses and cloud pulls to
 // reject obviously runaway payloads while still tolerating values that a save
 // (strict) schema would reject. Save-time validation happens in WordSaveSchema.
@@ -242,6 +255,9 @@ export const AIWordResultSchema = z.object({
   // 단어가 실제 사전에 존재하는지에 대한 모델의 판단. 자동입력에서만 사용.
   // 옛 캐시·옛 응답은 undefined로 통과(=실재로 간주).
   isReal: z.boolean().optional(),
+  // 동음이의어 뜻 후보(2개 이상일 때만 의미). 상위 필드는 병기(①②) 하위호환용으로
+  // 유지되고, 신버전 클라이언트만 이 배열로 인라인 뜻 제안 UI를 띄운다.
+  senses: z.array(WordSenseSchema).max(4).optional(),
 });
 export type AIWordResult = z.infer<typeof AIWordResultSchema>;
 

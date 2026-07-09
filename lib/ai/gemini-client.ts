@@ -116,7 +116,10 @@ export async function analyzeWord(
       6. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
       7. A translation of the example sentence in ${tgtName}.
 
-      HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"), the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. Do NOT number minor variations of one core meaning. For the example sentence, pos, and phonetic, use only the most common sense (①).
+      HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
+      - Top-level fields combine the senses: the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. For the example sentence, pos, and phonetic, use only the most common sense (①).
+      - ALSO fill the "senses" array with one entry per distinct sense (2-3, most common first). Each entry covers exactly ONE sense with NO numbering inside: a short meaning gloss, definition, one example sentence with its translation, pos, and phonetic for that sense.
+      If the word has a single meaning (or only minor variations of one core meaning), return an empty "senses" array and do not use numbering anywhere. Do NOT number minor variations of one core meaning.
 
       IMPORTANT — Field naming is legacy and MUST be ignored:
       - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
@@ -138,8 +141,24 @@ export async function analyzeWord(
           mnemonic: { type: Type.STRING, description: `A memory aid written in ${tgtName}. Empty string if isReal is false.` },
           pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb). Empty string if isReal is false.' },
           phonetic: { type: Type.STRING, description: 'Phonetic transcription using the notation specified for the source language in the prompt. Empty string if isReal is false.' },
+          senses: {
+            type: Type.ARRAY,
+            description: 'Homonyms only: one entry per distinct, unrelated sense (2-3, most common first), each single-sense with no numbering. Empty array for single-meaning words or when isReal is false.',
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                meaningKr: { type: Type.STRING, description: `Short gloss of this sense in ${tgtName} (field name is legacy; not necessarily Korean).` },
+                definition: { type: Type.STRING, description: `Definition of this sense in ${srcName}.` },
+                exampleEn: { type: Type.STRING, description: `Example sentence for this sense in ${srcName}.` },
+                exampleKr: { type: Type.STRING, description: `The example translated into ${tgtName}.` },
+                pos: { type: Type.STRING, description: 'Part of speech of this sense.' },
+                phonetic: { type: Type.STRING, description: 'Phonetic transcription of this sense (may differ per sense, e.g., English "lead").' },
+              },
+              required: ['meaningKr', 'definition', 'exampleEn', 'exampleKr', 'pos', 'phonetic'],
+            },
+          },
         },
-        required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
+        required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic', 'senses'],
       },
     },
   }));

@@ -950,7 +950,11 @@
     "inputLanguageSelect": "Select Input Language",
     "meaningLanguageSelect": "Select Meaning Language",
     "autocomplete": "Autocomplete",
-    "disableAutocomplete": "Disable Autocomplete"
+    "disableAutocomplete": "Disable Autocomplete",
+    "senseOther": "Other meaning: \"{{meaning}}\"",
+    "senseRevert": "Back to \"{{meaning}}\"",
+    "senseAll": "Add all meanings",
+    "senseOnly": "\"{{meaning}}\" only"
   },
   "studyResults": {
     "noResults": "No results available",

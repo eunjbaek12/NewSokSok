@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, Pressable, Platform, Alert, ActivityIndicator, Modal } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Pressable, Platform, Alert, ActivityIndicator, Modal, Image } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -144,9 +144,9 @@ export default function StatsScreen() {
         contentContainerStyle={[styles.scrollContent, { paddingBottom: insets.bottom + 32 }]}
         showsVerticalScrollIndicator={false}
       >
-        {/* 스트릭 히어로 — 가로형 컴팩트. 왼쪽 불꽃+숫자, 오른쪽 응원문구+최장기록. */}
+        {/* 스트릭 히어로 — 가로형 컴팩트. 왼쪽 캐릭터+숫자, 오른쪽 응원문구+최장기록. */}
         <View style={[styles.hero, { backgroundColor: colors.warningLight, borderColor: colors.border }]}>
-          <Text style={styles.heroFlame}>🔥</Text>
+          <Image source={require('../assets/images/streak-success.png')} style={styles.heroImg} />
           <View>
             <Text style={[styles.heroNum, { color: colors.warning }]}>
               {t('stats.daysValue', { count: streak })}
@@ -353,7 +353,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 16,
   },
-  heroFlame: { fontSize: 28, lineHeight: 34 },
+  heroImg: { width: 52, height: 52, borderRadius: 26 },
   heroNum: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5, lineHeight: 31 },
   heroLabel: { fontSize: 12, fontFamily: 'Pretendard_700Bold' },
   heroRight: { marginLeft: 'auto', alignItems: 'flex-end', gap: 6 },

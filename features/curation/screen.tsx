@@ -1122,7 +1122,9 @@ export default function CurationScreen() {
                             const tgtCode = (theme.targetLanguage || 'ko').toUpperCase();
                             const alreadySaved = isAlreadySaved(theme);
                             const canDelete = activeTab === 'community' && canDeleteCuration(theme);
-                            const showLangPair = languageFilter === 'all';
+                            // 언어 미상 덱(언어 컬럼 이전의 구버전 앱이 공유한 것)은
+                            // en→ko 폴백이 틀린 정보라 언어쌍 줄 자체를 숨긴다.
+                            const showLangPair = languageFilter === 'all' && !!theme.sourceLanguage;
 
                             return (
                                 <Pressable key={theme.id} onPress={() => { Haptics.selectionAsync(); setSelectedTheme(theme); }} style={[styles.themeCard, { backgroundColor: colors.surface, borderColor: isDark ? colors.border : 'rgba(49, 130, 246, 0.1)', shadowColor: colors.cardShadow }, viewMode === 'detailed' ? styles.cardDetailed : styles.cardCompact]}>

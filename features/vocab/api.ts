@@ -1,6 +1,7 @@
 import type { VocaList } from '@/lib/types';
 import { supabase } from '@/lib/supabase';
 import { generateId } from './db';
+import { deriveDisplayLanguages } from '@/constants/languages';
 import { CurationShareSchema, WordSaveSchema, type CuratedThemeWithWords } from '@shared/contracts';
 
 export type { CuratedThemeWithWords };
@@ -28,22 +29,30 @@ export class CurationCapacityError extends Error {
   }
 }
 
+// 공유·조회가 공유하는 단어 조인 select. 컬럼을 추가하면 아래 매핑과
+// shareCuration의 wordRows도 함께 갱신할 것.
+const CURATED_WORDS_SELECT =
+  '*, words:curated_words(id, term, definition, meaning_kr, example_en, example_kr, pronunciation, pos, tags)';
+
 export async function fetchCloudCurations(): Promise<CuratedThemeWithWords[]> {
   try {
     const { data, error } = await supabase
       .from('curated_themes')
-      .select('*, words:curated_words(id, term, definition, meaning_kr, example_en, example_kr, pronunciation)')
+      .select(CURATED_WORDS_SELECT)
       .order('created_at', { ascending: false });
     if (error) throw error;
 
     // UI는 camelCase 컨벤션이라 owner 판정(canDeleteCuration)·작성자 표시
-    // (creatorName)이 동작하려면 snake_case 컬럼을 명시적으로 매핑해야 한다.
+    // (creatorName)·언어쌍(sourceLanguage — 언어 필터·카드 표시·저장 시 단어
+    // 언어 스탬프에 쓰임)이 동작하려면 snake_case 컬럼을 명시적으로 매핑해야 한다.
     return (data ?? []).map((theme: any) => ({
       ...theme,
       creatorId: theme.creator_id,
       creatorName: theme.creator_name,
       createdAt: theme.created_at,
       updatedAt: theme.updated_at,
+      sourceLanguage: theme.source_language ?? undefined,
+      targetLanguage: theme.target_language ?? undefined,
       words: (theme.words ?? []).map((w: any) => ({
         id: w.id,
         term: w.term,
@@ -52,6 +61,8 @@ export async function fetchCloudCurations(): Promise<CuratedThemeWithWords[]> {
         exampleEn: w.example_en ?? '',
         exampleKr: w.example_kr ?? undefined,
         phonetic: w.pronunciation ?? undefined,
+        pos: w.pos ?? undefined,
+        tags: Array.isArray(w.tags) ? w.tags.map(String) : undefined,
       })),
     }));
   } catch (e) {
@@ -118,6 +129,33 @@ export interface ShareCurationOptions {
   force?: boolean;
 }
 
+// 공유 경계 태그 정리 — 하드 실패(zod) 대신 조용히 걸러낸다(태그는 부가 정보라
+// 태그 하나 때문에 공유 전체가 막히면 안 됨). 서버 CHECK(jsonb array·2KB)와
+// 같은 계약의 상한.
+function sanitizeShareTags(tags: string[] | undefined): string[] | null {
+  if (!tags?.length) return null;
+  const cleaned = tags
+    .map(t => t.trim())
+    .filter(t => t.length > 0 && t.length <= 60)
+    .slice(0, 20);
+  return cleaned.length > 0 ? cleaned : null;
+}
+
+function toCuratedWordRows(list: VocaList, themeId: string) {
+  return list.words.map(w => ({
+    id: generateId(),
+    theme_id: themeId,
+    term: w.term,
+    definition: w.definition ?? '',
+    meaning_kr: w.meaningKr ?? '',
+    example_en: w.exampleEn ?? '',
+    example_kr: w.exampleKr ?? null,
+    pronunciation: w.phonetic ?? null,
+    pos: w.pos ?? null,
+    tags: sanitizeShareTags(w.tags),
+  }));
+}
+
 export async function shareCuration(
   list: VocaList,
   options: ShareCurationOptions,
@@ -136,6 +174,16 @@ export async function shareCuration(
   if (list.words.length > MAX_WORDS_PER_CURATION) {
     throw new CurationCapacityError('WORDS_PER_CURATION', MAX_WORDS_PER_CURATION);
   }
+
+  // 언어쌍은 리스트 메타가 아니라 단어 최빈 언어로 산출 — 메타가 비어 있는
+  // 옛 개인 단어장도 정확하게 공유된다(수신 측 createCuratedList가 이 값을
+  // 단어 언어 스탬프·언어 필터·카드 표시에 사용).
+  const { source: sourceLanguage, target: targetLanguage } = deriveDisplayLanguages(list.words, list);
+  const themeMeta = {
+    source_language: sourceLanguage,
+    target_language: targetLanguage,
+    icon: list.icon ?? null,
+  };
   if (!updateId) {
     const { count } = await supabase
       .from('curated_themes')
@@ -149,26 +197,17 @@ export async function shareCuration(
   if (updateId) {
     const { error } = await supabase
       .from('curated_themes')
-      .update({ title: list.title, creator_name: creatorName, description: description ?? null })
+      .update({ title: list.title, creator_name: creatorName, description: description ?? null, ...themeMeta })
       .eq('id', updateId);
     if (error) throw error;
 
     await supabase.from('curated_words').delete().eq('theme_id', updateId);
-    const wordRows = list.words.map(w => ({
-      id: generateId(),
-      theme_id: updateId,
-      term: w.term,
-      definition: w.definition ?? '',
-      meaning_kr: w.meaningKr ?? '',
-      example_en: w.exampleEn ?? '',
-      example_kr: w.exampleKr ?? null,
-      pronunciation: w.phonetic ?? null,
-    }));
+    const wordRows = toCuratedWordRows(list, updateId);
     if (wordRows.length > 0) await supabase.from('curated_words').insert(wordRows);
 
     const { data } = await supabase
       .from('curated_themes')
-      .select('*, words:curated_words(id, term, definition, meaning_kr, example_en, example_kr, pronunciation)')
+      .select(CURATED_WORDS_SELECT)
       .eq('id', updateId)
       .single();
     return data!;
@@ -190,19 +229,11 @@ export async function shareCuration(
     creator_name: creatorName,
     title: list.title,
     description: description ?? null,
+    ...themeMeta,
   });
   if (themeErr) throw themeErr;
 
-  const wordRows = list.words.map(w => ({
-    id: generateId(),
-    theme_id: themeId,
-    term: w.term,
-    definition: w.definition ?? '',
-    meaning_kr: w.meaningKr ?? '',
-    example_en: w.exampleEn ?? '',
-    example_kr: w.exampleKr ?? null,
-    pronunciation: w.phonetic ?? null,
-  }));
+  const wordRows = toCuratedWordRows(list, themeId);
   if (wordRows.length > 0) {
     const { error: wordsErr } = await supabase.from('curated_words').insert(wordRows);
     if (wordsErr) throw wordsErr;
@@ -210,7 +241,7 @@ export async function shareCuration(
 
   const { data } = await supabase
     .from('curated_themes')
-    .select('*, words:curated_words(id, term, definition, meaning_kr, example_en, example_kr, pronunciation)')
+    .select(CURATED_WORDS_SELECT)
     .eq('id', themeId)
     .single();
   return data!;

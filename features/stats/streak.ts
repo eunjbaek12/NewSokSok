@@ -50,3 +50,8 @@ export function computeLongestStreak(days: StudyDay[]): number {
 export function sumStudied(days: StudyDay[], predicate: (date: string) => boolean): number {
   return days.reduce((acc, d) => (predicate(d.date) ? acc + d.studiedCount : acc), 0);
 }
+
+/** 조건을 만족하는 날짜의 memorizedCount 합. (오늘/이번 주 외운 단어 타일용) */
+export function sumMemorized(days: StudyDay[], predicate: (date: string) => boolean): number {
+  return days.reduce((acc, d) => (predicate(d.date) ? acc + d.memorizedCount : acc), 0);
+}

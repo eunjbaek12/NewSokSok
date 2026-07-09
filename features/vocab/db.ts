@@ -1,7 +1,7 @@
 import * as Crypto from 'expo-crypto';
 import { VocaList, Word } from '@/lib/types';
 import { getDb, runInTransaction } from '@/lib/db';
-import { recordMemorized } from '@/features/stats';
+import { recordMemorizedWords } from '@/features/stats';
 
 export function generateId(): string {
   return Crypto.randomUUID();
@@ -589,7 +589,7 @@ export async function toggleMemorized(
     await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
   });
 
-  if (becameMemorized) await recordMemorized(1).catch(() => {});
+  if (becameMemorized) await recordMemorizedWords([wordId]).catch(() => {});
 }
 
 export async function toggleStarred(
@@ -715,14 +715,14 @@ export async function setWordsMemorized(
   const status = isMemorized ? 1 : 0;
   const placeholders = wordIds.map(() => '?').join(',');
 
-  // 미암기→암기 전환분을 트랜잭션 전에 집계(통계 기록용).
-  let newlyMemorized = 0;
+  // 미암기→암기 전환되는 단어 id를 트랜잭션 전에 수집(통계·날짜별 로그 기록용).
+  let newlyMemorizedIds: string[] = [];
   if (isMemorized) {
-    const r = await db.getFirstAsync<{ n: number }>(
-      `SELECT COUNT(*) as n FROM words WHERE id IN (${placeholders}) AND isMemorized = 0`,
+    const rows = await db.getAllAsync<{ id: string }>(
+      `SELECT id FROM words WHERE id IN (${placeholders}) AND isMemorized = 0`,
       ...wordIds
     );
-    newlyMemorized = r?.n ?? 0;
+    newlyMemorizedIds = rows.map(r => r.id);
   }
 
   await runInTransaction(async () => {
@@ -739,7 +739,7 @@ export async function setWordsMemorized(
   });
 
   // 트랜잭션 커밋 후 기록(중첩 트랜잭션 방지).
-  if (newlyMemorized > 0) await recordMemorized(newlyMemorized).catch(() => {});
+  if (newlyMemorizedIds.length > 0) await recordMemorizedWords(newlyMemorizedIds).catch(() => {});
 }
 
 export async function copyWords(targetListId: string, wordIds: string[]): Promise<void> {

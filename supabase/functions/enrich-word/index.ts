@@ -30,7 +30,8 @@ const COST_BY_MODE: Record<string, number> = {
 // 공용 enrich 캐시 스키마/프롬프트 버전. _shared/gemini-vertex.ts의 프롬프트나
 // AIWordResult 필드 구조가 바뀌면 bump → 옛 캐시는 미스 처리되어 재생성·덮어쓰기됨.
 // v2: isReal 판정 추가 — 옛 캐시는 가짜 단어에 그럴듯한 정의를 담고 있을 수 있어 재생성.
-const PROMPT_VERSION = 2;
+// v3: 동음이의어 대표 뜻 ①② 병기 지시 — 옛 캐시는 단일 뜻만 담고 있어 재생성.
+const PROMPT_VERSION = 3;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 

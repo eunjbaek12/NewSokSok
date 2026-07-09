@@ -17,6 +17,7 @@ import {
   updatePlanProgress,
 } from '@/features/vocab';
 import { useStudyResultsStore } from '@/features/study';
+import { useAbandonRecord } from '../use-abandon-record';
 import { useSettings } from '@/features/settings';
 import { Word, StudyResult } from '@/lib/types';
 import { speak } from '@/lib/tts';
@@ -83,6 +84,7 @@ export default function QuizScreen() {
   const [answers, setAnswers] = useState<Record<number, { selected: string; isCorrect: boolean }>>({});
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
+  const sessionCompletedRef = useAbandonRecord(results);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids });
@@ -224,6 +226,8 @@ export default function QuizScreen() {
   }, [answers, currentIndex, currentWord, currentBatchWords.length, currentBatchIndex, batchSizeNum, studyWords.length]);
 
   const finishSession = async () => {
+    // 완주 — 복습 기록은 결과 화면 몫. replace 언마운트 전에 반드시 먼저 세운다.
+    sessionCompletedRef.current = true;
     const finalResults = results.current;
     const memorizedWords = finalResults
       .filter(r => r.gotIt && !r.word.isMemorized)

@@ -1,7 +1,19 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import * as Haptics from 'expo-haptics';
 import { addWord, updateWord } from '@/features/vocab';
 import { enrichWord } from '@/lib/translation-api';
+import { senseToFill, type SensePick } from '@/lib/senses';
+import type { WordSense } from '@shared/contracts';
+import type { AutoFillResult } from '@/lib/types';
+
+// 동음이의어 인라인 뜻 제안 상태. base = 병기(①②) 상위 결과('모두 담기'용),
+// term = 검색 당시 표제어(바뀌면 제안 무효), current = 현재 폼에 적용된 선택.
+interface SenseState {
+    senses: WordSense[];
+    base: AutoFillResult;
+    term: string;
+    current: SensePick;
+}
 
 export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string) {
 
@@ -26,6 +38,32 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
     // 구분해 사용자에게 정확한 안내("찾지 못함" vs "잠시 후 재시도")를 보여주기 위함.
     const [autoFillNotFoundAt, setAutoFillNotFoundAt] = useState(0);
 
+    const [senseState, setSenseState] = useState<SenseState | null>(null);
+    // 사용자가 필드를 직접 고치기 시작하면 true — 제안 탭이 편집 내용을 덮어쓰는 사고 방지.
+    const [senseDismissed, setSenseDismissed] = useState(false);
+
+    // 표제어가 검색 당시와 달라지면 제안은 낡은 것 → 통째로 무효화.
+    useEffect(() => {
+        if (senseState && term.trim() !== senseState.term) {
+            setSenseState(null);
+        }
+    }, [term, senseState]);
+
+    // 선택한 뜻으로 폼 전체를 교체. 'all' = 병기(①②) 카드.
+    const applySense = useCallback((pick: SensePick) => {
+        if (!senseState) return;
+        const fill = senseToFill(pick, senseState.senses, senseState.base);
+        setMeaningKr(fill.meaningKr);
+        setDefinition(fill.definition);
+        setExampleEn(fill.exampleEn);
+        setExampleKr(fill.exampleKr);
+        setPos(fill.pos);
+        setPhonetic(fill.phonetic);
+        setSenseState({ ...senseState, current: pick });
+    }, [senseState]);
+
+    const dismissSensePicker = useCallback(() => setSenseDismissed(true), []);
+
     const runAutoFill = useCallback(async (searchTerm: string) => {
         if (!searchTerm.trim() || isPendingFillRef.current) return;
         isPendingFillRef.current = true;
@@ -34,6 +72,9 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         let quotaHit = false;
         try {
             Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+            // 새 검색은 이전 제안을 무효화하고 숨김 상태도 초기화.
+            setSenseState(null);
+            setSenseDismissed(false);
 
             const result = await enrichWord(
                 trimmed, sourceLang, targetLang, apiKey, undefined, 'autocomplete',
@@ -46,12 +87,25 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 // 모델이 명시적으로 "실재하지 않음" 판정 → 폼은 비워두고 안내만.
                 setAutoFillNotFoundAt(Date.now());
             } else if (hasAny && result) {
-                if (result.definition) setDefinition(result.definition);
-                if (result.meaningKr) setMeaningKr(result.meaningKr);
-                if (result.phonetic) setPhonetic(result.phonetic);
-                if (result.pos) setPos(result.pos);
-                if (result.exampleEn) setExampleEn(result.exampleEn);
-                if (result.exampleKr) setExampleKr(result.exampleKr);
+                const senses = result.senses && result.senses.length >= 2 ? result.senses : null;
+                if (senses) {
+                    // 동음이의어: 대표 뜻(①) 기준으로 채우고 인라인 제안 칩을 띄운다.
+                    const fill = senseToFill(0, senses, result);
+                    if (fill.definition) setDefinition(fill.definition);
+                    if (fill.meaningKr) setMeaningKr(fill.meaningKr);
+                    if (fill.phonetic) setPhonetic(fill.phonetic);
+                    if (fill.pos) setPos(fill.pos);
+                    if (fill.exampleEn) setExampleEn(fill.exampleEn);
+                    if (fill.exampleKr) setExampleKr(fill.exampleKr);
+                    setSenseState({ senses, base: result, term: trimmed, current: 0 });
+                } else {
+                    if (result.definition) setDefinition(result.definition);
+                    if (result.meaningKr) setMeaningKr(result.meaningKr);
+                    if (result.phonetic) setPhonetic(result.phonetic);
+                    if (result.pos) setPos(result.pos);
+                    if (result.exampleEn) setExampleEn(result.exampleEn);
+                    if (result.exampleKr) setExampleKr(result.exampleKr);
+                }
             } else if (!quotaHit) {
                 setAutoFillFailedAt(Date.now());
             }
@@ -127,6 +181,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
                 setTags([]);
                 setIsStarred(false);
                 setErrors({});
+                setSenseState(null);
+                setSenseDismissed(false);
                 onSuccess(savedTerm);
             }
         } catch (error: any) {
@@ -165,5 +221,11 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        // 동음이의어 인라인 뜻 제안 — 숨김(수동 편집) 상태면 null.
+        sensePicker: senseState && !senseDismissed
+            ? { senses: senseState.senses, current: senseState.current }
+            : null,
+        applySense,
+        dismissSensePicker,
     };
 }

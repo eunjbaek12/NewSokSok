@@ -14,6 +14,16 @@ const LANG_NAME: Record<string, string> = {
   en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish',
 };
 
+// 동음이의어 뜻 후보 1개(단일 뜻 기준, 내부 번호 없음). 클라이언트 WordSenseSchema와 동일 형태.
+export interface AnalyzedSense {
+  meaningKr: string;
+  definition?: string;
+  exampleEn?: string;
+  exampleKr?: string;
+  pos?: string;
+  phonetic?: string;
+}
+
 export interface AnalyzedWord {
   term: string;
   definition: string;
@@ -25,6 +35,8 @@ export interface AnalyzedWord {
   phonetic: string;
   // 단어가 사전에 존재한다고 모델이 판단했는지. 옛 캐시·옛 응답은 undefined로 통과(=실재로 간주).
   isReal?: boolean;
+  // 동음이의어 뜻 후보(2개 이상일 때만 포함). 상위 필드는 병기(①②) 하위호환용.
+  senses?: AnalyzedSense[];
 }
 
 export async function analyzeWord(
@@ -86,6 +98,14 @@ export async function analyzeWord(
     throw new Error(`vertex gemini returned non-JSON: ${(e as Error).message}`);
   }
 
+  // senses는 뜻이 2개 이상일 때만 응답에 포함(빈 배열·1개는 의미 없음 → 생략).
+  // 캐시(enrich_cache)에 result가 통째로 저장되므로 여기서 정리해야 캐시도 깨끗하다.
+  const senses = Array.isArray(parsed.senses)
+    ? parsed.senses.filter((s): s is AnalyzedSense =>
+        !!s && typeof s === 'object' && typeof s.meaningKr === 'string' && s.meaningKr.trim().length > 0,
+      ).slice(0, 3)
+    : [];
+
   return {
     term: parsed.term ?? word,
     definition: parsed.definition ?? '',
@@ -96,6 +116,7 @@ export async function analyzeWord(
     pos: parsed.pos ?? '',
     phonetic: parsed.phonetic ?? '',
     isReal: parsed.isReal,
+    ...(senses.length >= 2 ? { senses } : {}),
   };
 }
 
@@ -116,7 +137,10 @@ When isReal is true, provide:
 6. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
 7. A translation of the example sentence in ${tgtName}.
 
-HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"), the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. Do NOT number minor variations of one core meaning. For the example sentence, pos, and phonetic, use only the most common sense (①).
+HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
+- Top-level fields combine the senses: the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. For the example sentence, pos, and phonetic, use only the most common sense (①).
+- ALSO fill the "senses" array with one entry per distinct sense (2-3, most common first). Each entry covers exactly ONE sense with NO numbering inside: a short meaning gloss, definition, one example sentence with its translation, pos, and phonetic for that sense.
+If the word has a single meaning (or only minor variations of one core meaning), return an empty "senses" array and do not use numbering anywhere. Do NOT number minor variations of one core meaning.
 
 IMPORTANT — Field naming is legacy and MUST be ignored:
 - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
@@ -139,8 +163,24 @@ function responseSchema(srcName: string, tgtName: string) {
       mnemonic:   { type: 'STRING', description: `Memory aid in ${tgtName}. Empty if isReal=false.` },
       pos:        { type: 'STRING' },
       phonetic:   { type: 'STRING' },
+      senses: {
+        type: 'ARRAY',
+        description: 'Homonyms only: one entry per distinct, unrelated sense (2-3, most common first), each single-sense with no numbering. Empty array for single-meaning words or when isReal=false.',
+        items: {
+          type: 'OBJECT',
+          properties: {
+            meaningKr:  { type: 'STRING', description: `Short gloss of this sense in ${tgtName}.` },
+            definition: { type: 'STRING', description: `Definition of this sense in ${srcName}.` },
+            exampleEn:  { type: 'STRING', description: `Example sentence for this sense in ${srcName}.` },
+            exampleKr:  { type: 'STRING', description: `The example translated into ${tgtName}.` },
+            pos:        { type: 'STRING' },
+            phonetic:   { type: 'STRING', description: 'May differ per sense (e.g., English "lead").' },
+          },
+          required: ['meaningKr', 'definition', 'exampleEn', 'exampleKr', 'pos', 'phonetic'],
+        },
+      },
     },
-    required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic'],
+    required: ['isReal', 'term', 'definition', 'exampleEn', 'meaningKr', 'mnemonic', 'pos', 'phonetic', 'senses'],
   };
 }
 

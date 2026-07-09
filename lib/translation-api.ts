@@ -1,6 +1,7 @@
 import { AutoFillResult } from './types';
 import { fetch } from 'expo/fetch';
 import { analyzeWord, isQuotaError } from '@/lib/ai/gemini-client';
+import { normalizeSenses } from '@/lib/senses';
 import { fetchSharedEnrich } from './enrich-cache-shared';
 import { enrichWordViaEdge, type EnrichMode } from '@/lib/ai/edge-enrich';
 import { supabase } from '@/lib/supabase/client';
@@ -94,6 +95,7 @@ export async function autoFillWord(
       if (data.isReal === false) {
         return { definition: '', meaningKr: '', exampleEn: '', isReal: false };
       }
+      const byokSenses = normalizeSenses(data.senses);
       return {
         definition: data.definition || '',
         meaningKr: data.meaningKr || '',
@@ -102,6 +104,7 @@ export async function autoFillWord(
         mnemonic: data.mnemonic || '',
         pos: data.pos || '',
         phonetic: data.phonetic || '',
+        ...(byokSenses ? { senses: byokSenses } : {}),
       };
     } catch (e: any) {
       if (isQuotaError(e)) onByokQuota?.();
@@ -127,6 +130,7 @@ export async function autoFillWord(
           if (d.isReal === false) {
             return { definition: '', meaningKr: '', exampleEn: '', isReal: false };
           }
+          const edgeSenses = normalizeSenses(d.senses);
           return {
             definition: d.definition || '',
             meaningKr: d.meaningKr || '',
@@ -135,6 +139,7 @@ export async function autoFillWord(
             mnemonic: d.mnemonic || '',
             pos: d.pos || '',
             phonetic: d.phonetic || '',
+            ...(edgeSenses ? { senses: edgeSenses } : {}),
           };
         }
         // unauthorized(재시도 후도 실패)/quota_exceeded/rate_limited/upstream → 사전 fallback으로 계속

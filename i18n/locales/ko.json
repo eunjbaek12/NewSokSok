@@ -950,7 +950,11 @@
     "inputLanguageSelect": "입력 언어 선택",
     "meaningLanguageSelect": "뜻 언어 선택",
     "autocomplete": "자동 완성",
-    "disableAutocomplete": "자동 완성 끄기"
+    "disableAutocomplete": "자동 완성 끄기",
+    "senseOther": "다른 뜻: \"{{meaning}}\" 검색",
+    "senseRevert": "\"{{meaning}}\" 뜻으로 되돌리기",
+    "senseAll": "모두 담기",
+    "senseOnly": "\"{{meaning}}\"만 담기"
   },
   "studyResults": {
     "noResults": "결과 정보가 없습니다",

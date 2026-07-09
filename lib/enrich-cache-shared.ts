@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase/client';
+import { normalizeSenses } from '@/lib/senses';
 import type { AutoFillResult } from './types';
 
 // 전 사용자 공용 enrich 캐시(Supabase enrich_cache)의 클라이언트 읽기.
@@ -10,7 +11,7 @@ import type { AutoFillResult } from './types';
 //
 // SHARED_ENRICH_PROMPT_VERSION은 Edge Function의 PROMPT_VERSION과 반드시 동일해야 한다
 // (supabase/functions/enrich-word/index.ts). 한쪽만 bump하면 영영 미스가 난다.
-export const SHARED_ENRICH_PROMPT_VERSION = 2;
+export const SHARED_ENRICH_PROMPT_VERSION = 4;
 
 export async function fetchSharedEnrich(
   term: string,
@@ -35,15 +36,17 @@ export async function fetchSharedEnrich(
 
     if (error || !data?.result) return null;
 
-    const r = data.result as Record<string, string | undefined>;
+    const r = data.result as Record<string, unknown>;
+    const senses = normalizeSenses(r.senses);
     return {
-      definition: r.definition || '',
-      meaningKr: r.meaningKr || '',
-      exampleEn: r.exampleEn || '',
-      exampleKr: r.exampleKr || '',
-      mnemonic: r.mnemonic || '',
-      pos: r.pos || '',
-      phonetic: r.phonetic || '',
+      definition: (r.definition as string) || '',
+      meaningKr: (r.meaningKr as string) || '',
+      exampleEn: (r.exampleEn as string) || '',
+      exampleKr: (r.exampleKr as string) || '',
+      mnemonic: (r.mnemonic as string) || '',
+      pos: (r.pos as string) || '',
+      phonetic: (r.phonetic as string) || '',
+      ...(senses ? { senses } : {}),
     };
   } catch {
     return null;

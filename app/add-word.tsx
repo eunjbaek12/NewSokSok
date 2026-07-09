@@ -18,6 +18,7 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets, SafeAreaProvider } from 'react-native-safe-area-context';
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
+import { senseChipLabel } from '@/lib/senses';
 // expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
 let ExpoSpeechRecognitionModule: any = null;
 let useSpeechRecognitionEvent: any = (_event: string, _cb: any) => {};
@@ -328,6 +329,9 @@ export default function AddWordScreen() {
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
+        sensePicker,
+        applySense,
+        dismissSensePicker,
     } = useAddWord(listId, wordId, existingWord, draftState, sourceLang, targetLang, apiKey || undefined);
 
     useEffect(() => {
@@ -1078,6 +1082,38 @@ export default function AddWordScreen() {
                                                         </Text>
                                                     </View>
                                                 )}
+                                                {/* 동음이의어 인라인 뜻 제안 — 검색 결과에 뜻이 2개 이상일 때만.
+                                                    수동 편집을 시작하면 사라짐(덮어쓰기 방지, useAddWord.dismissSensePicker). */}
+                                                {sensePicker && (
+                                                    <Animated.View entering={FadeIn} exiting={FadeOut} style={styles.senseChipsRow}>
+                                                        {sensePicker.senses.map((s, i) => {
+                                                            if (sensePicker.current !== 'all' && i === sensePicker.current) return null;
+                                                            const label = sensePicker.current === 'all'
+                                                                ? t('addWord.senseOnly', { meaning: senseChipLabel(s) })
+                                                                : i === 0
+                                                                    ? t('addWord.senseRevert', { meaning: senseChipLabel(s) })
+                                                                    : t('addWord.senseOther', { meaning: senseChipLabel(s) });
+                                                            return (
+                                                                <Pressable
+                                                                    key={i}
+                                                                    onPress={() => { Haptics.selectionAsync(); applySense(i); }}
+                                                                    style={({ pressed }) => [styles.senseChip, { backgroundColor: colors.accentLight, borderColor: colors.accent, opacity: pressed ? 0.8 : 1 }]}
+                                                                >
+                                                                    <Ionicons name={i === 0 && sensePicker.current !== 'all' ? 'arrow-undo-outline' : 'bulb-outline'} size={14} color={colors.accent} />
+                                                                    <Text style={[styles.senseChipText, { color: colors.text }]} numberOfLines={1}>{label}</Text>
+                                                                </Pressable>
+                                                            );
+                                                        })}
+                                                        {sensePicker.current !== 'all' && (
+                                                            <Pressable
+                                                                onPress={() => { Haptics.selectionAsync(); applySense('all'); }}
+                                                                style={({ pressed }) => [styles.senseChip, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border, opacity: pressed ? 0.8 : 1 }]}
+                                                            >
+                                                                <Text style={[styles.senseChipText, { color: colors.textSecondary }]} numberOfLines={1}>{t('addWord.senseAll')}</Text>
+                                                            </Pressable>
+                                                        )}
+                                                    </Animated.View>
+                                                )}
                                             </View>
                                         );
                                     }
@@ -1090,7 +1126,7 @@ export default function AddWordScreen() {
                                                 placeholder={getMeaningLabel(targetLang, t)}
                                                 value={meaningKr}
                                                 maxLength={200}
-                                                onChangeText={(v: string) => { setMeaningKr(v); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
+                                                onChangeText={(v: string) => { setMeaningKr(v); dismissSensePicker(); if (errors.meaningKr) setErrors(e => ({ ...e, meaningKr: false })); }}
                                                 error={errors.meaningKr ? t('addWord.enterMeaningError') : undefined}
                                             />
                                         );
@@ -1103,7 +1139,7 @@ export default function AddWordScreen() {
                                                     label={t('addWord.pos')}
                                                     placeholder={t('addWord.pos')}
                                                     value={pos}
-                                                    onChangeText={setPos}
+                                                    onChangeText={(v: string) => { setPos(v); dismissSensePicker(); }}
                                                     maxLength={60}
                                                 />
                                             </Animated.View>
@@ -1117,7 +1153,7 @@ export default function AddWordScreen() {
                                                     label={t('addWord.phonetic')}
                                                     placeholder={t('addWord.phonetic')}
                                                     value={phonetic}
-                                                    onChangeText={setPhonetic}
+                                                    onChangeText={(v: string) => { setPhonetic(v); dismissSensePicker(); }}
                                                     maxLength={80}
                                                 />
                                             </Animated.View>
@@ -1131,7 +1167,7 @@ export default function AddWordScreen() {
                                                     label={getExampleLabel(sourceLang, t)}
                                                     placeholder={getExampleLabel(sourceLang, t)}
                                                     value={exampleEn}
-                                                    onChangeText={setExampleEn}
+                                                    onChangeText={(v: string) => { setExampleEn(v); dismissSensePicker(); }}
                                                     maxLength={300}
                                                     multiline
                                                     style={{ fontStyle: 'italic' }}
@@ -1140,7 +1176,7 @@ export default function AddWordScreen() {
                                                     label={getExampleTranslationLabel(targetLang, t)}
                                                     placeholder={getExampleTranslationLabel(targetLang, t)}
                                                     value={exampleKr}
-                                                    onChangeText={setExampleKr}
+                                                    onChangeText={(v: string) => { setExampleKr(v); dismissSensePicker(); }}
                                                     maxLength={300}
                                                     multiline
                                                 />
@@ -1155,7 +1191,7 @@ export default function AddWordScreen() {
                                                     label={getDefinitionLabel(sourceLang, t)}
                                                     placeholder={getDefinitionLabel(sourceLang, t)}
                                                     value={definition}
-                                                    onChangeText={setDefinition}
+                                                    onChangeText={(v: string) => { setDefinition(v); dismissSensePicker(); }}
                                                     maxLength={500}
                                                     multiline
                                                 />
@@ -1588,6 +1624,9 @@ const styles = StyleSheet.create({
     errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
     notFoundBanner: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginTop: 8, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, borderWidth: 1 },
     notFoundBannerText: { flex: 1, fontSize: 13, fontFamily: 'Pretendard_500Medium', lineHeight: 18 },
+    senseChipsRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6, marginTop: 8 },
+    senseChip: { flexDirection: 'row', alignItems: 'center', gap: 5, borderRadius: 999, borderWidth: 1.5, paddingVertical: 7, paddingHorizontal: 12, maxWidth: '100%' },
+    senseChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold', flexShrink: 1 },
     loadingContainer: { alignItems: 'center', paddingVertical: 20, gap: 8 },
     loadingText: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     tagsContainer: { marginTop: 0, gap: 6 },

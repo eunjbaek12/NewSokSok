@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, Pressable, Platform, Alert, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Pressable, Platform, Alert, ActivityIndicator, Modal, Image } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,8 +10,12 @@ import {
   useStatsSummary,
   pickDailyQuote,
   todayStr,
-  startOfWeekStr,
-  addDaysStr,
+  monthPrefix,
+  addMonths,
+  monthGridDates,
+  weekdayIndexMon0,
+  getDayDetail,
+  type DayDetail,
   ShareCard,
   shareStatsCard,
   saveStatsCard,
@@ -33,22 +37,75 @@ export default function StatsScreen() {
 
   const quote = useMemo(() => pickDailyQuote(todayStr(), i18n.language), [i18n.language]);
 
-  // 이번 주(월~일) 7칸: 학습한 날 채움, 오늘 강조.
-  const week = useMemo(() => {
-    const today = todayStr();
-    const start = startOfWeekStr();
-    const studied = new Set((summary?.days ?? []).map(d => d.date));
-    const labels = t('stats.weekdays').split(',');
-    return Array.from({ length: 7 }, (_, i) => {
-      const date = addDaysStr(start, i);
-      return { date, label: labels[i] ?? '', on: studied.has(date), isToday: date === today };
+  const today = todayStr();
+  const currentMonth = monthPrefix();
+  const [month, setMonth] = useState(currentMonth);
+
+  // 날짜 탭 상세 시트. dayReqRef는 늦게 도착한 이전 날짜 응답이 시트를 덮는 경합 방지.
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [dayDetail, setDayDetail] = useState<DayDetail | null>(null);
+  const dayReqRef = useRef<string | null>(null);
+
+  const weekdayLabels = useMemo(() => t('stats.weekdays').split(','), [t]);
+  const monthNames = useMemo(() => t('stats.monthNames').split(','), [t]);
+
+  // 학습한 날(활동 기록이 있는 날) — 달력 채움 + 탭 가능 여부의 기준.
+  const studiedSet = useMemo(() => new Set((summary?.days ?? []).map(d => d.date)), [summary]);
+
+  // 이전 달 탐색 하한 = 가장 오래된 기록의 달. 기록이 없으면 이번 달만.
+  const earliestMonth = useMemo(() => {
+    const days = summary?.days ?? [];
+    if (days.length === 0) return currentMonth;
+    let min = days[0].date;
+    for (const d of days) if (d.date < min) min = d.date;
+    return min.slice(0, 7);
+  }, [summary, currentMonth]);
+
+  const grid = useMemo(() => monthGridDates(month), [month]);
+  const prevDisabled = month <= earliestMonth;
+  const nextDisabled = month >= currentMonth;
+
+  const monthTitle = useMemo(() => {
+    const [y, m] = month.split('-').map(Number);
+    return t('stats.monthTitle', { year: y, month: m, monthName: monthNames[m - 1] ?? String(m) });
+  }, [month, monthNames, t]);
+
+  const sheetTitle = useMemo(() => {
+    if (!selectedDate) return '';
+    const [, m, d] = selectedDate.split('-').map(Number);
+    return t('stats.sheetDateTitle', {
+      month: m,
+      day: d,
+      weekday: weekdayLabels[weekdayIndexMon0(selectedDate)] ?? '',
+      monthName: monthNames[m - 1] ?? String(m),
     });
-  }, [summary, t]);
+  }, [selectedDate, weekdayLabels, monthNames, t]);
+
+  const openDay = (date: string) => {
+    Haptics.selectionAsync();
+    dayReqRef.current = date;
+    setSelectedDate(date);
+    setDayDetail(null);
+    getDayDetail(date)
+      .then(detail => { if (dayReqRef.current === date) setDayDetail(detail); })
+      .catch(() => {});
+  };
+
+  const closeDay = () => {
+    dayReqRef.current = null;
+    setSelectedDate(null);
+    setDayDetail(null);
+  };
+
+  const moveMonth = (delta: number) => {
+    Haptics.selectionAsync();
+    setMonth(m => addMonths(m, delta));
+  };
 
   const tiles = [
+    { icon: 'sunny', color: colors.warning, value: t('stats.wordsValue', { count: summary?.todayMemorized ?? 0 }), label: t('stats.todayMemorized') },
+    { icon: 'calendar', color: colors.accent, value: t('stats.wordsValue', { count: summary?.weekMemorized ?? 0 }), label: t('stats.weekMemorized') },
     { icon: 'book', color: colors.primary, value: t('stats.wordsValue', { count: summary?.totalMemorized ?? 0 }), label: t('stats.totalMemorized') },
-    { icon: 'calendar', color: colors.accent, value: t('stats.wordsValue', { count: summary?.weekStudied ?? 0 }), label: t('stats.weekStudied') },
-    { icon: 'calendar-outline', color: colors.accent, value: t('stats.wordsValue', { count: summary?.monthStudied ?? 0 }), label: t('stats.monthStudied') },
     { icon: 'checkmark-done', color: colors.success, value: t('stats.daysValue', { count: summary?.totalDays ?? 0 }), label: t('stats.totalDays') },
   ] as const;
 
@@ -87,50 +144,96 @@ export default function StatsScreen() {
         contentContainerStyle={[styles.scrollContent, { paddingBottom: insets.bottom + 32 }]}
         showsVerticalScrollIndicator={false}
       >
-        {/* 스트릭 히어로 */}
+        {/* 스트릭 히어로 — 가로형 컴팩트. 왼쪽 캐릭터+숫자, 오른쪽 응원문구+최장기록. */}
         <View style={[styles.hero, { backgroundColor: colors.warningLight, borderColor: colors.border }]}>
-          <Text style={styles.heroFlame}>🔥</Text>
-          <Text style={[styles.heroNum, { color: colors.warning }]}>
-            {t('stats.daysValue', { count: streak })}
-          </Text>
-          <Text style={[styles.heroLabel, { color: colors.warning }]}>{t('stats.streakLabel')}</Text>
-          <Text style={[styles.heroSub, { color: colors.textSecondary }]}>
-            {streak > 0 ? t('stats.streakSub') : t('stats.streakSubZero')}
-          </Text>
-          <View style={[styles.heroRec, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-            <Text style={[styles.heroRecText, { color: colors.textSecondary }]}>
-              🏆 {t('stats.longestRecord', { count: longest })}
+          <Image
+            source={streak > 0
+              ? require('../assets/images/streak-success.png')
+              : require('../assets/images/streak-idle.png')}
+            style={styles.heroImg}
+          />
+          <View>
+            <Text style={[styles.heroNum, { color: colors.warning }]}>
+              {t('stats.daysValue', { count: streak })}
             </Text>
+            <Text style={[styles.heroLabel, { color: colors.warning }]}>{t('stats.streakLabel')}</Text>
+          </View>
+          <View style={styles.heroRight}>
+            <Text style={[styles.heroSub, { color: colors.textSecondary }]}>
+              {streak > 0 ? t('stats.streakSub') : t('stats.streakSubZero')}
+            </Text>
+            <View style={[styles.heroRec, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+              <Text style={[styles.heroRecText, { color: colors.textSecondary }]}>
+                🏆 {t('stats.longestRecord', { count: longest })}
+              </Text>
+            </View>
           </View>
         </View>
 
-        {/* 주간 스트립 */}
-        <View style={[styles.week, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-          {week.map(d => (
-            <View key={d.date} style={styles.day}>
-              <View
-                style={[
-                  styles.dayDot,
-                  { borderColor: d.isToday ? colors.warning : colors.borderLight },
-                  d.on && { backgroundColor: colors.primary, borderColor: d.isToday ? colors.warning : colors.primary },
-                ]}
-              >
-                {d.on && <Ionicons name="checkmark" size={14} color={colors.onPrimary} />}
-              </View>
-              <Text style={[styles.dayLabel, { color: d.isToday ? colors.warning : colors.textTertiary }]}>{d.label}</Text>
+        {/* 요약 타일 — 달력 위. 지표는 전부 "외운 단어" 계열 + 학습한 날. */}
+        <View style={styles.tiles}>
+          {tiles.map((tile, i) => (
+            <View key={i} style={[styles.tile, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+              <Ionicons name={tile.icon as any} size={15} color={tile.color} />
+              <Text style={[styles.tileNum, { color: colors.text }]} numberOfLines={1}>{tile.value}</Text>
+              <Text style={[styles.tileLabel, { color: colors.textTertiary }]} numberOfLines={1}>{tile.label}</Text>
             </View>
           ))}
         </View>
 
-        {/* 지표 타일 */}
-        <View style={styles.tiles}>
-          {tiles.map((tile, i) => (
-            <View key={i} style={[styles.tile, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
-              <Ionicons name={tile.icon as any} size={19} color={tile.color} />
-              <Text style={[styles.tileNum, { color: colors.text }]}>{tile.value}</Text>
-              <Text style={[styles.tileLabel, { color: colors.textTertiary }]}>{tile.label}</Text>
-            </View>
-          ))}
+        {/* 월 달력 — 이진 표시(학습한 날 = 채움). 학습한 과거~오늘만 탭 가능. */}
+        <View style={[styles.cal, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <View style={styles.calHead}>
+            <Pressable onPress={() => moveMonth(-1)} disabled={prevDisabled} hitSlop={8} style={styles.calArrow}>
+              <Ionicons name="chevron-back" size={18} color={prevDisabled ? colors.borderLight : colors.textSecondary} />
+            </Pressable>
+            <Text style={[styles.calMonth, { color: colors.text }]}>{monthTitle}</Text>
+            <Pressable onPress={() => moveMonth(1)} disabled={nextDisabled} hitSlop={8} style={styles.calArrow}>
+              <Ionicons name="chevron-forward" size={18} color={nextDisabled ? colors.borderLight : colors.textSecondary} />
+            </Pressable>
+          </View>
+
+          <View style={styles.calGrid}>
+            {weekdayLabels.map((label, i) => (
+              <View key={`dow-${i}`} style={styles.calCell}>
+                <Text style={[styles.calDow, { color: colors.textTertiary }]}>{label}</Text>
+              </View>
+            ))}
+            {grid.map((date, i) => {
+              if (!date) return <View key={`pad-${i}`} style={styles.calCell} />;
+              const isFuture = date > today;
+              const on = studiedSet.has(date);
+              const isToday = date === today;
+              return (
+                <Pressable
+                  key={date}
+                  style={styles.calCell}
+                  disabled={!on || isFuture}
+                  onPress={() => openDay(date)}
+                >
+                  <View
+                    style={[
+                      styles.calDay,
+                      on && { backgroundColor: colors.primary },
+                      isToday && { borderWidth: 2, borderColor: colors.warning },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.calDayNum,
+                        { color: on ? colors.onPrimary : isFuture ? colors.borderLight : colors.textSecondary },
+                        isToday && !on && { color: colors.warning },
+                      ]}
+                    >
+                      {Number(date.slice(8))}
+                    </Text>
+                  </View>
+                </Pressable>
+              );
+            })}
+          </View>
+
+          <Text style={[styles.calHint, { color: colors.textTertiary }]}>{t('stats.calHint')}</Text>
         </View>
 
         {/* 오늘의 명언 */}
@@ -169,6 +272,66 @@ export default function StatsScreen() {
       <View style={styles.offscreen} pointerEvents="none">
         <ShareCard ref={cardRef} streak={streak} memorized={summary?.totalMemorized ?? 0} />
       </View>
+
+      {/* 날짜 탭 상세 — 하단 시트. 기록은 불변: 미암기로 되돌린 단어는 배지로만 구분.
+          ⓘ 설명은 네이티브 Alert(모달 위에 안전하게 뜸). */}
+      <Modal visible={selectedDate !== null} transparent animationType="slide" onRequestClose={closeDay}>
+        <View style={styles.sheetRoot}>
+          <Pressable style={[StyleSheet.absoluteFill, { backgroundColor: colors.overlay }]} onPress={closeDay} />
+          <View style={[styles.sheet, { backgroundColor: colors.surface, paddingBottom: insets.bottom + 16 }]}>
+            <View style={[styles.sheetHandle, { backgroundColor: colors.borderLight }]} />
+            <Text style={[styles.sheetDate, { color: colors.text }]}>{sheetTitle}</Text>
+            <View style={styles.sheetSumRow}>
+              <Text style={[styles.sheetSum, { color: colors.textSecondary }]}>
+                {t('stats.reviewedCount', { count: dayDetail?.studiedCount ?? 0 })}
+                {' · '}
+                <Text style={{ color: colors.primary, fontFamily: 'Pretendard_700Bold' }}>
+                  {t('stats.memorizedCount', { count: dayDetail?.memorizedCount ?? 0 })}
+                </Text>
+              </Text>
+              <Pressable
+                onPress={() => Alert.alert(t('stats.termInfoTitle'), t('stats.termInfoBody'))}
+                hitSlop={10}
+              >
+                <Ionicons name="information-circle-outline" size={17} color={colors.textTertiary} />
+              </Pressable>
+            </View>
+
+            {dayDetail === null ? (
+              <ActivityIndicator style={styles.sheetLoading} color={colors.primary} />
+            ) : dayDetail.words.length > 0 ? (
+              <ScrollView style={styles.sheetList} bounces={false}>
+                {dayDetail.words.map(w => (
+                  <View key={w.id} style={[styles.wordRow, { borderTopColor: colors.borderLight }]}>
+                    <View style={styles.wordTextCol}>
+                      <Text style={[styles.wordTerm, { color: colors.text }]} numberOfLines={1}>{w.term}</Text>
+                      {!!w.meaningKr && (
+                        <Text style={[styles.wordMeaning, { color: colors.textSecondary }]} numberOfLines={1}>
+                          {w.meaningKr}
+                        </Text>
+                      )}
+                    </View>
+                    {!w.isMemorized && (
+                      <View style={[styles.wordBadge, { backgroundColor: colors.surfaceSecondary }]}>
+                        <Text style={[styles.wordBadgeText, { color: colors.textTertiary }]}>
+                          {t('stats.notMemorized')}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                ))}
+              </ScrollView>
+            ) : dayDetail.memorizedCount > 0 && dayDetail.logCount === 0 ? (
+              // memorized_log 도입 이전의 기록 — 개수만 있고 목록은 없다.
+              <View style={[styles.sheetNotice, { borderColor: colors.border, backgroundColor: colors.background }]}>
+                <Text style={[styles.sheetNoticeText, { color: colors.textSecondary }]}>
+                  {t('stats.preLogNotice')}
+                </Text>
+              </View>
+            ) : null}
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -187,68 +350,78 @@ const styles = StyleSheet.create({
   scrollContent: { paddingHorizontal: 16, paddingTop: 4 },
 
   hero: {
-    borderRadius: 20,
-    borderWidth: 1,
-    paddingVertical: 22,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-  },
-  heroFlame: { fontSize: 40, lineHeight: 46 },
-  heroNum: { fontSize: 44, fontFamily: 'Pretendard_700Bold', letterSpacing: -1, marginTop: 2 },
-  heroLabel: { fontSize: 14, fontFamily: 'Pretendard_700Bold', marginTop: -2 },
-  heroSub: { fontSize: 13.5, fontFamily: 'Pretendard_500Medium', marginTop: 8 },
-  heroRec: {
-    marginTop: 14,
-    borderRadius: 999,
-    borderWidth: 1,
-    paddingVertical: 6,
-    paddingHorizontal: 14,
-  },
-  heroRecText: { fontSize: 12.5, fontFamily: 'Pretendard_600SemiBold' },
-
-  week: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderRadius: 16,
+    alignItems: 'center',
+    gap: 12,
+    borderRadius: 18,
     borderWidth: 1,
     paddingVertical: 14,
+    paddingHorizontal: 16,
+  },
+  heroImg: { width: 52, height: 52, borderRadius: 26 },
+  heroNum: { fontSize: 26, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5, lineHeight: 31 },
+  heroLabel: { fontSize: 12, fontFamily: 'Pretendard_700Bold' },
+  heroRight: { marginLeft: 'auto', alignItems: 'flex-end', gap: 6 },
+  heroSub: { fontSize: 12, fontFamily: 'Pretendard_500Medium' },
+  heroRec: {
+    borderRadius: 999,
+    borderWidth: 1,
+    paddingVertical: 4,
     paddingHorizontal: 10,
-    marginTop: 12,
   },
-  day: { alignItems: 'center', gap: 7, flex: 1 },
-  dayDot: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  dayLabel: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
+  heroRecText: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold' },
 
   tiles: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 12,
-    marginTop: 12,
+    gap: 7,
+    marginTop: 11,
   },
   tile: {
-    flexGrow: 1,
-    flexBasis: '47%',
+    flex: 1,
+    borderRadius: 13,
+    borderWidth: 1,
+    paddingVertical: 9,
+    paddingHorizontal: 4,
+    alignItems: 'center',
+    gap: 3,
+  },
+  tileNum: { fontSize: 15.5, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.3 },
+  tileLabel: { fontSize: 10, fontFamily: 'Pretendard_500Medium' },
+
+  cal: {
     borderRadius: 16,
     borderWidth: 1,
-    paddingVertical: 15,
-    paddingHorizontal: 14,
-    gap: 7,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    marginTop: 11,
   },
-  tileNum: { fontSize: 23, fontFamily: 'Pretendard_700Bold', letterSpacing: -0.5 },
-  tileLabel: { fontSize: 12.5, fontFamily: 'Pretendard_500Medium' },
+  calHead: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 4,
+    paddingBottom: 8,
+  },
+  calArrow: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
+  calMonth: { fontSize: 15, fontFamily: 'Pretendard_700Bold' },
+  calGrid: { flexDirection: 'row', flexWrap: 'wrap' },
+  calCell: { width: `${100 / 7}%`, aspectRatio: 1, padding: 3, alignItems: 'center', justifyContent: 'center' },
+  calDow: { fontSize: 10.5, fontFamily: 'Pretendard_600SemiBold' },
+  calDay: {
+    flex: 1,
+    alignSelf: 'stretch',
+    borderRadius: 999,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  calDayNum: { fontSize: 12.5, fontFamily: 'Pretendard_600SemiBold' },
+  calHint: { fontSize: 10.5, fontFamily: 'Pretendard_500Medium', textAlign: 'center', paddingTop: 8 },
 
   quote: {
     borderRadius: 16,
     borderWidth: 1,
     padding: 16,
-    marginTop: 12,
+    marginTop: 11,
   },
   quoteLabel: { fontSize: 11, fontFamily: 'Pretendard_700Bold', letterSpacing: 0.6, textTransform: 'uppercase', marginBottom: 6 },
   quoteText: { fontSize: 15, fontFamily: 'Pretendard_600SemiBold', lineHeight: 23 },
@@ -275,4 +448,39 @@ const styles = StyleSheet.create({
   },
   saveText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
   offscreen: { position: 'absolute', left: -10000, top: 0 },
+
+  sheetRoot: { flex: 1, justifyContent: 'flex-end' },
+  sheet: {
+    borderTopLeftRadius: 22,
+    borderTopRightRadius: 22,
+    paddingHorizontal: 18,
+    paddingTop: 8,
+    maxHeight: '75%',
+  },
+  sheetHandle: { width: 38, height: 4, borderRadius: 2, alignSelf: 'center', marginBottom: 12 },
+  sheetDate: { fontSize: 17, fontFamily: 'Pretendard_700Bold' },
+  sheetSumRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 4, marginBottom: 10 },
+  sheetSum: { fontSize: 13, fontFamily: 'Pretendard_500Medium' },
+  sheetLoading: { paddingVertical: 28 },
+  sheetList: { flexGrow: 0 },
+  wordRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+  },
+  wordTextCol: { flex: 1, gap: 2 },
+  wordTerm: { fontSize: 15, fontFamily: 'Pretendard_700Bold' },
+  wordMeaning: { fontSize: 12.5, fontFamily: 'Pretendard_500Medium' },
+  wordBadge: { borderRadius: 999, paddingVertical: 3, paddingHorizontal: 9 },
+  wordBadgeText: { fontSize: 10, fontFamily: 'Pretendard_700Bold' },
+  sheetNotice: {
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderRadius: 12,
+    padding: 14,
+    marginTop: 2,
+  },
+  sheetNoticeText: { fontSize: 12.5, fontFamily: 'Pretendard_500Medium', textAlign: 'center', lineHeight: 19 },
 });

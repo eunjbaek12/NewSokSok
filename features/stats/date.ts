@@ -51,3 +51,33 @@ export function startOfWeekStr(now: Date = new Date()): string {
 export function monthPrefix(now: Date = new Date()): string {
   return toLocalDateStr(now).slice(0, 7);
 }
+
+/** 'YYYY-MM' 접두사에 delta개월을 더한 접두사. 연 경계를 넘어도 정확. */
+export function addMonths(prefix: string, delta: number): string {
+  const [y, m] = prefix.split('-').map(Number);
+  const total = y * 12 + (m - 1) + delta;
+  const ny = Math.floor(total / 12);
+  const nm = (total % 12) + 1;
+  return `${ny}-${String(nm).padStart(2, '0')}`;
+}
+
+/**
+ * 월 달력 그리드(월요일 시작). 앞뒤 패딩 칸은 null, 나머지는 'YYYY-MM-DD'.
+ * 길이는 항상 7의 배수 — 7개씩 끊으면 주 단위 행이 된다.
+ */
+export function monthGridDates(prefix: string): (string | null)[] {
+  const [y, m] = prefix.split('-').map(Number);
+  const lead = (new Date(Date.UTC(y, m - 1, 1)).getUTCDay() + 6) % 7; // Mon=0
+  const daysInMonth = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  const cells: (string | null)[] = Array(lead).fill(null);
+  for (let d = 1; d <= daysInMonth; d++) {
+    cells.push(`${prefix}-${String(d).padStart(2, '0')}`);
+  }
+  while (cells.length % 7 !== 0) cells.push(null);
+  return cells;
+}
+
+/** 'YYYY-MM-DD'의 요일 인덱스(월=0 … 일=6). epoch day 0(1970-01-01)은 목요일. */
+export function weekdayIndexMon0(dateStr: string): number {
+  return (dateStrToEpochDay(dateStr) + 3) % 7;
+}

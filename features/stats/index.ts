@@ -5,11 +5,14 @@ export * from './streak';
 export * from './quotes';
 export {
   recordStudySession,
-  recordMemorized,
+  recordMemorizedWords,
   getStatsSummary,
   getMemorizedTotal,
   getAllStudyDays,
+  getDayDetail,
   type StatsSummary,
+  type DayDetail,
+  type DayWordEntry,
 } from './db';
 export { useStatsSummary } from './useStats';
 export { default as ShareCard } from './ShareCard';

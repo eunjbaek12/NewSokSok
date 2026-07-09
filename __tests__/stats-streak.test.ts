@@ -1,4 +1,4 @@
-import { computeStreak, computeLongestStreak, sumStudied, type StudyDay } from '../features/stats/streak';
+import { computeStreak, computeLongestStreak, sumStudied, sumMemorized, type StudyDay } from '../features/stats/streak';
 import {
   toLocalDateStr,
   todayStr,
@@ -7,6 +7,9 @@ import {
   addDaysStr,
   startOfWeekStr,
   monthPrefix,
+  addMonths,
+  monthGridDates,
+  weekdayIndexMon0,
 } from '../features/stats/date';
 import { pickDailyQuote, getQuotes } from '../features/stats/quotes';
 
@@ -142,6 +145,100 @@ describe('sumStudied', () => {
 
   test('빈 목록 → 0', () => {
     expect(sumStudied([], () => true)).toBe(0);
+  });
+});
+
+// ─── sumMemorized ────────────────────────────────────────────────────────────
+
+describe('sumMemorized', () => {
+  const days = [day('2026-07-06', 10, 3), day('2026-07-07', 5, 2), day('2026-06-30', 8, 7)];
+
+  test('주간 필터(>= weekStart) 합', () => {
+    expect(sumMemorized(days, d => d >= '2026-07-06')).toBe(5);
+  });
+
+  test('단일 날짜 필터 → 그날 외운 수', () => {
+    expect(sumMemorized(days, d => d === '2026-07-07')).toBe(2);
+  });
+
+  test('빈 목록 → 0', () => {
+    expect(sumMemorized([], () => true)).toBe(0);
+  });
+});
+
+// ─── addMonths ───────────────────────────────────────────────────────────────
+
+describe('addMonths', () => {
+  test('같은 해 안에서 이동', () => {
+    expect(addMonths('2026-07', -1)).toBe('2026-06');
+    expect(addMonths('2026-07', 1)).toBe('2026-08');
+  });
+
+  test('연 경계를 넘는 이동', () => {
+    expect(addMonths('2026-01', -1)).toBe('2025-12');
+    expect(addMonths('2026-12', 1)).toBe('2027-01');
+    expect(addMonths('2026-07', -12)).toBe('2025-07');
+  });
+
+  test('delta 0 → 그대로', () => {
+    expect(addMonths('2026-07', 0)).toBe('2026-07');
+  });
+});
+
+// ─── monthGridDates ──────────────────────────────────────────────────────────
+
+describe('monthGridDates', () => {
+  test('2026-07: 1일은 수요일 → 앞 패딩 2칸(월·화), 31일', () => {
+    const grid = monthGridDates('2026-07');
+    expect(grid[0]).toBeNull();
+    expect(grid[1]).toBeNull();
+    expect(grid[2]).toBe('2026-07-01');
+    expect(grid.filter(Boolean)).toHaveLength(31);
+    expect(grid[2 + 30]).toBe('2026-07-31');
+  });
+
+  test('길이는 항상 7의 배수', () => {
+    for (const m of ['2026-07', '2026-02', '2024-02', '2026-11']) {
+      expect(monthGridDates(m).length % 7).toBe(0);
+    }
+  });
+
+  test('요일 열 정렬: 날짜의 셀 인덱스 % 7 == 월요일 기준 요일 인덱스', () => {
+    const grid = monthGridDates('2026-07');
+    // 2026-07-06은 월요일 → 인덱스 % 7 == 0
+    expect(grid.indexOf('2026-07-06') % 7).toBe(0);
+    // 2026-07-08은 수요일 → 인덱스 % 7 == 2
+    expect(grid.indexOf('2026-07-08') % 7).toBe(2);
+    // 2026-07-12는 일요일 → 인덱스 % 7 == 6
+    expect(grid.indexOf('2026-07-12') % 7).toBe(6);
+  });
+
+  test('윤년 2월(2024-02): 29일', () => {
+    expect(monthGridDates('2024-02').filter(Boolean)).toHaveLength(29);
+  });
+
+  test('평년 2월(2026-02): 28일', () => {
+    expect(monthGridDates('2026-02').filter(Boolean)).toHaveLength(28);
+  });
+
+  test('월요일로 시작하는 달은 앞 패딩 없음', () => {
+    // 2026-06-01은 월요일
+    expect(monthGridDates('2026-06')[0]).toBe('2026-06-01');
+  });
+});
+
+// ─── weekdayIndexMon0 ────────────────────────────────────────────────────────
+
+describe('weekdayIndexMon0', () => {
+  test('월=0 … 일=6', () => {
+    expect(weekdayIndexMon0('2026-07-06')).toBe(0); // 월
+    expect(weekdayIndexMon0('2026-07-08')).toBe(2); // 수
+    expect(weekdayIndexMon0('2026-07-11')).toBe(5); // 토
+    expect(weekdayIndexMon0('2026-07-12')).toBe(6); // 일
+  });
+
+  test('epoch day 0(1970-01-01)은 목요일 → 3', () => {
+    expect(weekdayIndexMon0('1970-01-01')).toBe(3);
   });
 });
 

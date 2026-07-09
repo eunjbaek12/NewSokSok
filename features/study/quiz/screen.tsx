@@ -10,14 +10,12 @@ import {
   useLists,
   selectWordsForList,
   toggleStarred,
-  setWordsMemorized,
-  incrementWrongCount,
-  resetWrongCount,
   saveLastResult,
   updatePlanProgress,
 } from '@/features/vocab';
 import { useStudyResultsStore } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
+import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { Word, StudyResult } from '@/lib/types';
 import { speak } from '@/lib/tts';
@@ -85,6 +83,7 @@ export default function QuizScreen() {
   const startTime = useRef(Date.now());
   const results = useRef<StudyResult[]>([]);
   const sessionCompletedRef = useAbandonRecord(results);
+  const commitSession = useSessionCommit(id, results, sessionCompletedRef);
   const isInitialLoad = useRef(true);
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
   const lastSettingsRef = useRef({ id, filter: settings.filter, isStarred: settings.isStarred, quizType: settings.quizType, batchSize: studySettings.studyBatchSize, ids });
@@ -229,31 +228,7 @@ export default function QuizScreen() {
     // 완주 — 복습 기록은 결과 화면 몫. replace 언마운트 전에 반드시 먼저 세운다.
     sessionCompletedRef.current = true;
     const finalResults = results.current;
-    const memorizedWords = finalResults
-      .filter(r => r.gotIt && !r.word.isMemorized)
-      .map(r => r.word.id);
-
-    const failedWords = finalResults
-      .filter(r => !r.gotIt && r.word.isMemorized)
-      .map(r => r.word.id);
-
-    const wrongWordIds = finalResults.filter(r => !r.gotIt).map(r => r.word.id);
-    const correctWordIds = finalResults
-      .filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0)
-      .map(r => r.word.id);
-
-    if (memorizedWords.length > 0) {
-      await setWordsMemorized(id!, memorizedWords, true);
-    }
-    if (failedWords.length > 0) {
-      await setWordsMemorized(id!, failedWords, false);
-    }
-    if (wrongWordIds.length > 0) {
-      await incrementWrongCount(wrongWordIds);
-    }
-    if (correctWordIds.length > 0) {
-      await resetWrongCount(correctWordIds);
-    }
+    await commitSessionResults(id!, finalResults);
     await saveLastResult(id!);
     const gotItRatio = finalResults.length > 0 ? finalResults.filter(r => r.gotIt).length / finalResults.length : 0;
     if (planDay && gotItRatio >= 0.5) await updatePlanProgress(id!, parseInt(planDay as string) + 1);
@@ -271,15 +246,12 @@ export default function QuizScreen() {
     });
   };
 
+  // 중도 이탈 — 그때까지의 암기 전환·오답 카운트를 커밋(useSessionCommit).
+  // 하드웨어 백 등 이 핸들러를 안 거치는 pop은 훅의 언마운트 fallback이 커버.
   const handleClose = useCallback(async () => {
-    const wrongIds = results.current.filter(r => !r.gotIt).map(r => r.word.id);
-    const correctIds = results.current
-      .filter(r => r.gotIt && (r.word.wrongCount ?? 0) > 0)
-      .map(r => r.word.id);
-    if (wrongIds.length > 0) await incrementWrongCount(wrongIds);
-    if (correctIds.length > 0) await resetWrongCount(correctIds);
+    await commitSession();
     router.back();
-  }, []);
+  }, [commitSession]);
 
   if (studyWords.length === 0) {
     return (

@@ -116,6 +116,8 @@ When isReal is true, provide:
 6. The phonetic transcription. Notation for ${srcName}: ${phoneticInstr}
 7. A translation of the example sentence in ${tgtName}.
 
+HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"), the meaning field MUST list the 2-3 most common senses numbered with ①②③ (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. Do NOT number minor variations of one core meaning. For the example sentence, pos, and phonetic, use only the most common sense (①).
+
 IMPORTANT — Field naming is legacy and MUST be ignored:
 - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
 - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
@@ -130,10 +132,10 @@ function responseSchema(srcName: string, tgtName: string) {
     properties: {
       isReal:     { type: 'BOOLEAN', description: `True if the input is a recognized ${srcName} entry; false if gibberish/typo.` },
       term:       { type: 'STRING' },
-      definition: { type: 'STRING', description: `Definition in ${srcName}. Empty if isReal=false.` },
+      definition: { type: 'STRING', description: `Definition in ${srcName}. For homonyms, list the top senses numbered ①②. Empty if isReal=false.` },
       exampleEn:  { type: 'STRING', description: `Example sentence in ${srcName}. Empty if isReal=false.` },
       exampleKr:  { type: 'STRING', description: `Example translation in ${tgtName}. Empty if isReal=false.` },
-      meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}. Empty if isReal=false.` },
+      meaningKr:  { type: 'STRING', description: `Meaning translated into ${tgtName}. For homonyms, list the top senses numbered ①②. Empty if isReal=false.` },
       mnemonic:   { type: 'STRING', description: `Memory aid in ${tgtName}. Empty if isReal=false.` },
       pos:        { type: 'STRING' },
       phonetic:   { type: 'STRING' },

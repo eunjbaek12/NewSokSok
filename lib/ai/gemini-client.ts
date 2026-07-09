@@ -116,6 +116,8 @@ export async function analyzeWord(
       6. The phonetic transcription. Notation for ${srcName}: ${getPhoneticInstruction(sourceLang)}
       7. A translation of the example sentence in ${tgtName}.
 
+      HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"), the meaning field MUST list the 2-3 most common senses numbered with ①②③ (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. Do NOT number minor variations of one core meaning. For the example sentence, pos, and phonetic, use only the most common sense (①).
+
       IMPORTANT — Field naming is legacy and MUST be ignored:
       - "meaningKr" is NOT Korean. Put the meaning in ${tgtName}.
       - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
@@ -129,10 +131,10 @@ export async function analyzeWord(
         properties: {
           isReal: { type: Type.BOOLEAN, description: `True if "${word}" is a recognized ${srcName} word/phrase/idiom/proper noun. False if it appears to be a typo, gibberish, or unrecognizable.` },
           term: { type: Type.STRING, description: `The original word in ${srcName}` },
-          definition: { type: Type.STRING, description: `A simple definition written in ${srcName}. Empty string if isReal is false.` },
+          definition: { type: Type.STRING, description: `A simple definition written in ${srcName}. For homonyms, list the top senses numbered ①②. Empty string if isReal is false.` },
           exampleEn: { type: Type.STRING, description: `An example sentence written in ${srcName} (field name is legacy; not necessarily English). Empty string if isReal is false.` },
           exampleKr: { type: Type.STRING, description: `The example sentence translated into ${tgtName} (field name is legacy; not necessarily Korean). Empty string if isReal is false.` },
-          meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). Empty string if isReal is false.` },
+          meaningKr: { type: Type.STRING, description: `The meaning of the word translated into ${tgtName} (field name is legacy; not necessarily Korean). For homonyms, list the top senses numbered ①②. Empty string if isReal is false.` },
           mnemonic: { type: Type.STRING, description: `A memory aid written in ${tgtName}. Empty string if isReal is false.` },
           pos: { type: Type.STRING, description: 'Part of speech (e.g., noun, verb). Empty string if isReal is false.' },
           phonetic: { type: Type.STRING, description: 'Phonetic transcription using the notation specified for the source language in the prompt. Empty string if isReal is false.' },

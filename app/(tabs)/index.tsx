@@ -29,6 +29,7 @@ import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/fea
 import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/features/study/components/CustomStudyModal';
 import ProgressBar from '@/components/ui/ProgressBar';
+import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
 
 function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
@@ -250,6 +251,9 @@ export default function DashboardScreen() {
       >
         {/* Content */}
         <View style={styles.content}>
+          {/* 내 학습 스트립 — 스트릭·외운 단어 요약 → /stats (설정 탭에서 이동) */}
+          <StatsStrip style={styles.statsStrip} />
+
           {/* Quick Action Cards */}
           <View style={styles.quickActionRow}>
             {/* 맞춤 학습 */}
@@ -847,6 +851,9 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 20,
     paddingTop: 8,
+  },
+  statsStrip: {
+    marginBottom: 12,
   },
 
   // Quick Action Cards

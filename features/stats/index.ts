@@ -15,5 +15,6 @@ export {
   type DayWordEntry,
 } from './db';
 export { useStatsSummary } from './useStats';
+export { default as StatsStrip } from './StatsStrip';
 export { default as ShareCard } from './ShareCard';
 export { shareStatsCard, saveStatsCard, type ShareOutcome, type SaveOutcome } from './share';

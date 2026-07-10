@@ -24,6 +24,29 @@ export interface MappedPurchaseError {
   rawMessage: string;
 }
 
+// supabase.functions.invoke의 FunctionsHttpError(non-2xx)에서 응답 body를 꺼낸다.
+// (edge-enrich.ts와 같은 패턴 — context가 Response류일 때만 성공, 아니면 null.)
+export async function readEdgeErrorBody(error: unknown): Promise<unknown | null> {
+  const ctx = (error as any)?.context;
+  try {
+    if (typeof ctx?.json === 'function') return await ctx.json();
+    if (typeof ctx?.text === 'function') return JSON.parse(await ctx.text());
+  } catch {
+    // body 소진·비JSON 등 — 판별 불가로 처리
+  }
+  return null;
+}
+
+// verify-purchase의 "확정 거절"(402 subscription_invalid: expired/revoked/
+// product_mismatch…) 판별. 확정 거절인 미완료 거래는 finishTransaction으로
+// 큐에서 제거해도 안전하다 — 구독은 finish 후에도 getAvailablePurchases로
+// 복원 가능해 잃을 게 없고, 남겨두면 연결 때마다 영구 재생된다.
+// 일시 오류(unauthorized/rate_limited/upstream_failure/internal_error)는
+// 진짜 결제일 수 있으므로 false — 큐에 남겨 다음 기회에 재검증.
+export function isDefinitiveVerifyRejection(body: unknown): boolean {
+  return (body as { error?: string } | null)?.error === 'subscription_invalid';
+}
+
 export function mapPurchaseError(err: any): MappedPurchaseError {
   const rawCode = String(err?.code ?? '');
   const rawMessage = String(err?.message ?? err ?? '');

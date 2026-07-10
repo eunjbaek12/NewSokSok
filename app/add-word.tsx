@@ -18,7 +18,7 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets, SafeAreaProvider } from 'react-native-safe-area-context';
 import * as WebBrowser from 'expo-web-browser';
 import * as Haptics from 'expo-haptics';
-import { senseChipLabel } from '@/lib/senses';
+import { senseChipLabel, CIRCLED_NUMBERS } from '@/lib/senses';
 // expo-speech-recognition requires a custom dev build (not supported in standard Expo Go)
 let ExpoSpeechRecognitionModule: any = null;
 let useSpeechRecognitionEvent: any = (_event: string, _cb: any) => {};
@@ -330,7 +330,7 @@ export default function AddWordScreen() {
         autoFillFailedAt,
         autoFillNotFoundAt,
         sensePicker,
-        applySense,
+        toggleSense,
         dismissSensePicker,
     } = useAddWord(listId, wordId, existingWord, draftState, sourceLang, targetLang, apiKey || undefined);
 
@@ -392,6 +392,13 @@ export default function AddWordScreen() {
     // 사전에서 찾지 못한 단어. 인라인 배너로 표시되며, 사용자가 term을 한 글자라도
     // 수정하면 자동으로 사라진다. 토스트보다 명시적이고 흐름을 끊지 않는 안내.
     const [notFoundTerm, setNotFoundTerm] = useState('');
+    // 뜻 칩 토글 거부 안내('min'=마지막 1개 못 끔 · 'overflow'=저장 한도 초과). 잠시 후 자동 소멸.
+    const [senseHint, setSenseHint] = useState<'min' | 'overflow' | null>(null);
+    useEffect(() => {
+        if (!senseHint) return;
+        const id = setTimeout(() => setSenseHint(null), 1800);
+        return () => clearTimeout(id);
+    }, [senseHint]);
 
     useEffect(() => {
         if (autoFillFailedAt) {
@@ -1082,35 +1089,47 @@ export default function AddWordScreen() {
                                                         </Text>
                                                     </View>
                                                 )}
-                                                {/* 동음이의어 인라인 뜻 제안 — 검색 결과에 뜻이 2개 이상일 때만.
-                                                    수동 편집을 시작하면 사라짐(덮어쓰기 방지, useAddWord.dismissSensePicker). */}
+                                                {/* 동음이의어 토글 칩 — 검색 결과에 뜻이 2개 이상일 때만. 뜻마다 칩 하나,
+                                                    탭해서 담거나 뺀다(최소 1개). 수동 편집 시작 시 사라짐(dismissSensePicker). */}
                                                 {sensePicker && (
-                                                    <Animated.View entering={FadeIn} exiting={FadeOut} style={styles.senseChipsRow}>
-                                                        {sensePicker.senses.map((s, i) => {
-                                                            if (sensePicker.current !== 'all' && i === sensePicker.current) return null;
-                                                            const label = sensePicker.current === 'all'
-                                                                ? t('addWord.senseOnly', { meaning: senseChipLabel(s) })
-                                                                : i === 0
-                                                                    ? t('addWord.senseRevert', { meaning: senseChipLabel(s) })
-                                                                    : t('addWord.senseOther', { meaning: senseChipLabel(s) });
-                                                            return (
-                                                                <Pressable
-                                                                    key={i}
-                                                                    onPress={() => { Haptics.selectionAsync(); applySense(i); }}
-                                                                    style={({ pressed }) => [styles.senseChip, { backgroundColor: colors.accentLight, borderColor: colors.accent, opacity: pressed ? 0.8 : 1 }]}
-                                                                >
-                                                                    <Ionicons name={i === 0 && sensePicker.current !== 'all' ? 'arrow-undo-outline' : 'bulb-outline'} size={14} color={colors.accent} />
-                                                                    <Text style={[styles.senseChipText, { color: colors.text }]} numberOfLines={1}>{label}</Text>
-                                                                </Pressable>
-                                                            );
-                                                        })}
-                                                        {sensePicker.current !== 'all' && (
-                                                            <Pressable
-                                                                onPress={() => { Haptics.selectionAsync(); applySense('all'); }}
-                                                                style={({ pressed }) => [styles.senseChip, { backgroundColor: colors.surfaceSecondary, borderColor: colors.border, opacity: pressed ? 0.8 : 1 }]}
-                                                            >
-                                                                <Text style={[styles.senseChipText, { color: colors.textSecondary }]} numberOfLines={1}>{t('addWord.senseAll')}</Text>
-                                                            </Pressable>
+                                                    <Animated.View entering={FadeIn} exiting={FadeOut} style={styles.senseChipsWrap}>
+                                                        <Text style={[styles.senseChipsLabel, { color: colors.textTertiary }]}>{t('addWord.sensePicker')}</Text>
+                                                        <View style={styles.senseChipsRow}>
+                                                            {sensePicker.senses.map((s, i) => {
+                                                                const on = sensePicker.selected.includes(i);
+                                                                return (
+                                                                    <Pressable
+                                                                        key={i}
+                                                                        onPress={() => {
+                                                                            const res = toggleSense(i);
+                                                                            if (res === 'ok') {
+                                                                                Haptics.selectionAsync();
+                                                                                setSenseHint(null);
+                                                                            } else {
+                                                                                Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+                                                                                setSenseHint(res);
+                                                                            }
+                                                                        }}
+                                                                        style={({ pressed }) => [
+                                                                            styles.senseChip,
+                                                                            on
+                                                                                ? { backgroundColor: colors.accentLight, borderColor: colors.accent }
+                                                                                : { backgroundColor: colors.surfaceSecondary, borderColor: colors.borderLight },
+                                                                            { opacity: pressed ? 0.8 : 1 },
+                                                                        ]}
+                                                                    >
+                                                                        {on && <Ionicons name="checkmark" size={13} color={colors.accent} />}
+                                                                        <Text style={[styles.senseChipText, { color: on ? colors.text : colors.textSecondary }]} numberOfLines={1}>
+                                                                            {`${CIRCLED_NUMBERS[i]} ${senseChipLabel(s)}`}
+                                                                        </Text>
+                                                                    </Pressable>
+                                                                );
+                                                            })}
+                                                        </View>
+                                                        {senseHint && (
+                                                            <Text style={[styles.senseHintText, { color: colors.accent }]}>
+                                                                {t(senseHint === 'min' ? 'addWord.senseMinOne' : 'addWord.senseOverflow')}
+                                                            </Text>
                                                         )}
                                                     </Animated.View>
                                                 )}
@@ -1624,9 +1643,12 @@ const styles = StyleSheet.create({
     errorText: { fontSize: 12, fontFamily: 'Pretendard_400Regular', marginTop: 2 },
     notFoundBanner: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, marginTop: 8, paddingVertical: 10, paddingHorizontal: 12, borderRadius: 10, borderWidth: 1 },
     notFoundBannerText: { flex: 1, fontSize: 13, fontFamily: 'Pretendard_500Medium', lineHeight: 18 },
-    senseChipsRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6, marginTop: 8 },
-    senseChip: { flexDirection: 'row', alignItems: 'center', gap: 5, borderRadius: 999, borderWidth: 1.5, paddingVertical: 7, paddingHorizontal: 12, maxWidth: '100%' },
+    senseChipsWrap: { marginTop: 8, gap: 5 },
+    senseChipsLabel: { fontSize: 11, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.3 },
+    senseChipsRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
+    senseChip: { flexDirection: 'row', alignItems: 'center', gap: 4, borderRadius: 999, borderWidth: 1.5, paddingVertical: 7, paddingHorizontal: 12, maxWidth: '100%' },
     senseChipText: { fontSize: 13, fontFamily: 'Pretendard_600SemiBold', flexShrink: 1 },
+    senseHintText: { fontSize: 11.5, fontFamily: 'Pretendard_500Medium' },
     loadingContainer: { alignItems: 'center', paddingVertical: 20, gap: 8 },
     loadingText: { fontSize: 14, fontFamily: 'Pretendard_500Medium' },
     tagsContainer: { marginTop: 0, gap: 6 },

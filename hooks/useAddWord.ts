@@ -2,18 +2,21 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import * as Haptics from 'expo-haptics';
 import { addWord, updateWord } from '@/features/vocab';
 import { enrichWord } from '@/lib/translation-api';
-import { senseToFill, type SensePick } from '@/lib/senses';
+import { composeSenseFill, fitsSaveLimits, type SenseFill } from '@/lib/senses';
 import type { WordSense } from '@shared/contracts';
 import type { AutoFillResult } from '@/lib/types';
 
-// 동음이의어 인라인 뜻 제안 상태. base = 병기(①②) 상위 결과('모두 담기'용),
-// term = 검색 당시 표제어(바뀌면 제안 무효), current = 현재 폼에 적용된 선택.
+// 동음이의어 토글 칩 상태. base = 병기(①②) 상위 결과(뜻별 빈 필드 보충용),
+// term = 검색 당시 표제어(바뀌면 무효), selected = 켜져 있는 뜻 인덱스(항상 1개+).
 interface SenseState {
     senses: WordSense[];
     base: AutoFillResult;
     term: string;
-    current: SensePick;
+    selected: number[];
 }
+
+// 토글 결과. 'min' = 마지막 1개는 못 끔, 'overflow' = 저장 한도 초과로 못 켬.
+export type SenseToggleResult = 'ok' | 'min' | 'overflow';
 
 export function useAddWord(listId?: string, wordId?: string, existingWord?: any, initialState?: any, sourceLang: string = 'en', targetLang: string = 'ko', apiKey?: string) {
 
@@ -49,18 +52,30 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         }
     }, [term, senseState]);
 
-    // 선택한 뜻으로 폼 전체를 교체. 'all' = 병기(①②) 카드.
-    const applySense = useCallback((pick: SensePick) => {
-        if (!senseState) return;
-        const fill = senseToFill(pick, senseState.senses, senseState.base);
+    const applyFill = useCallback((fill: SenseFill) => {
         setMeaningKr(fill.meaningKr);
         setDefinition(fill.definition);
         setExampleEn(fill.exampleEn);
         setExampleKr(fill.exampleKr);
         setPos(fill.pos);
         setPhonetic(fill.phonetic);
-        setSenseState({ ...senseState, current: pick });
-    }, [senseState]);
+    }, []);
+
+    // 뜻 칩 토글. 켜기/끄기 후의 선택 집합으로 폼 전체를 재조립한다.
+    // 거부 사유를 반환해 UI가 안내(햅틱+힌트)를 분기할 수 있게 한다.
+    const toggleSense = useCallback((index: number): SenseToggleResult => {
+        if (!senseState) return 'ok';
+        const isOn = senseState.selected.includes(index);
+        if (isOn && senseState.selected.length === 1) return 'min'; // 빈 카드 방지
+        const next = isOn
+            ? senseState.selected.filter(i => i !== index)
+            : [...senseState.selected, index];
+        const fill = composeSenseFill(next, senseState.senses, senseState.base);
+        if (!isOn && !fitsSaveLimits(fill)) return 'overflow'; // 켤 때만 한도 검사
+        applyFill(fill);
+        setSenseState({ ...senseState, selected: next });
+        return 'ok';
+    }, [senseState, applyFill]);
 
     const dismissSensePicker = useCallback(() => setSenseDismissed(true), []);
 
@@ -89,15 +104,15 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             } else if (hasAny && result) {
                 const senses = result.senses && result.senses.length >= 2 ? result.senses : null;
                 if (senses) {
-                    // 동음이의어: 대표 뜻(①) 기준으로 채우고 인라인 제안 칩을 띄운다.
-                    const fill = senseToFill(0, senses, result);
+                    // 동음이의어: 대표 뜻(①)만 켜진 상태로 채우고 토글 칩을 띄운다.
+                    const fill = composeSenseFill([0], senses, result);
                     if (fill.definition) setDefinition(fill.definition);
                     if (fill.meaningKr) setMeaningKr(fill.meaningKr);
                     if (fill.phonetic) setPhonetic(fill.phonetic);
                     if (fill.pos) setPos(fill.pos);
                     if (fill.exampleEn) setExampleEn(fill.exampleEn);
                     if (fill.exampleKr) setExampleKr(fill.exampleKr);
-                    setSenseState({ senses, base: result, term: trimmed, current: 0 });
+                    setSenseState({ senses, base: result, term: trimmed, selected: [0] });
                 } else {
                     if (result.definition) setDefinition(result.definition);
                     if (result.meaningKr) setMeaningKr(result.meaningKr);
@@ -221,11 +236,11 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         aiQuotaHitAt,
         autoFillFailedAt,
         autoFillNotFoundAt,
-        // 동음이의어 인라인 뜻 제안 — 숨김(수동 편집) 상태면 null.
+        // 동음이의어 토글 칩 — 숨김(수동 편집) 상태면 null.
         sensePicker: senseState && !senseDismissed
-            ? { senses: senseState.senses, current: senseState.current }
+            ? { senses: senseState.senses, selected: senseState.selected }
             : null,
-        applySense,
+        toggleSense,
         dismissSensePicker,
     };
 }

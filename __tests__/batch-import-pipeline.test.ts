@@ -1,18 +1,11 @@
 /**
  * 일괄 단어 추가 파이프라인 — 시나리오 테스트
  *
- * 1) parseImportedText — 텍스트/CSV/엑셀 붙여넣기를 단어 후보로 정제
- * 2) runEnrichWorkerQueue — 동시성 제한 worker 큐 알고리즘 (순수 함수)
+ * parseImportedText — 텍스트/CSV/엑셀 붙여넣기를 단어 후보로 정제
+ * (worker 큐 알고리즘 테스트는 enrich-queue-core.test.ts로 이전)
  */
 
-// translation-api → expo/fetch → react-native import 체인 회피
-jest.mock('expo/fetch', () => ({ fetch: jest.fn() }));
-jest.mock('../lib/ai/gemini-client', () => ({
-    analyzeWord: jest.fn(),
-}));
-
 import { parseImportedText } from '../utils/importParser';
-import { runEnrichWorkerQueue } from '../hooks/useEnrichQueue';
 
 describe('Scenario A: parseImportedText (단어만 입력)', () => {
     it('한 줄에 한 단어 → 그대로 파싱', () => {
@@ -189,84 +182,3 @@ describe('Scenario F: 통합 흐름 (BatchImportWorkflow.handleNextStage 시뮬)
     });
 });
 
-describe('Scenario E: runEnrichWorkerQueue (worker 큐 알고리즘)', () => {
-    it('items가 0개면 즉시 종료, worker 호출 없음', async () => {
-        const calls: number[] = [];
-        const controller = new AbortController();
-        await runEnrichWorkerQueue(
-            [],
-            async (n: number) => { calls.push(n); },
-            4,
-            controller.signal,
-        );
-        expect(calls).toEqual([]);
-    });
-
-    it('concurrency 1이면 순차 실행', async () => {
-        const order: number[] = [];
-        const controller = new AbortController();
-        await runEnrichWorkerQueue(
-            [1, 2, 3, 4],
-            async (n: number) => {
-                order.push(n);
-                await new Promise(r => setTimeout(r, 10));
-            },
-            1,
-            controller.signal,
-        );
-        expect(order).toEqual([1, 2, 3, 4]);
-    });
-
-    it('concurrency가 items 수보다 크면 모두 병렬 시작', async () => {
-        const startTimes: Record<number, number> = {};
-        const controller = new AbortController();
-        const t0 = Date.now();
-        await runEnrichWorkerQueue(
-            [1, 2, 3],
-            async (n: number) => {
-                startTimes[n] = Date.now() - t0;
-                await new Promise(r => setTimeout(r, 30));
-            },
-            10,
-            controller.signal,
-        );
-        // 3개 모두 거의 동시에 시작
-        const maxStart = Math.max(...Object.values(startTimes));
-        expect(maxStart).toBeLessThan(20);
-    });
-
-    it('signal abort 시 남은 작업은 시작하지 않음', async () => {
-        const calls: number[] = [];
-        const controller = new AbortController();
-        const promise = runEnrichWorkerQueue(
-            [1, 2, 3, 4, 5, 6, 7, 8],
-            async (n: number) => {
-                calls.push(n);
-                await new Promise(r => setTimeout(r, 30));
-            },
-            2,
-            controller.signal,
-        );
-        setTimeout(() => controller.abort(), 15);
-        await promise;
-        // 첫 2개는 무조건 시작했지만, abort 후엔 더 안 시작
-        expect(calls.length).toBeLessThan(8);
-        expect(calls.length).toBeGreaterThanOrEqual(2);
-    });
-
-    it('worker 하나가 예외 throw해도 다른 worker는 계속 동작', async () => {
-        const completed: number[] = [];
-        const controller = new AbortController();
-        await runEnrichWorkerQueue(
-            [1, 2, 3, 4],
-            async (n: number) => {
-                if (n === 2) throw new Error('boom');
-                completed.push(n);
-            },
-            1,
-            controller.signal,
-        ).catch(() => { /* worker가 throw하면 Promise.all이 reject — 호출자가 catch */ });
-        // n=1은 무조건 통과, n=2에서 throw, 1번 worker라 그 후 진행 안 됨
-        expect(completed).toContain(1);
-    });
-});

@@ -7,6 +7,20 @@ import { enrichWordViaEdge, type EnrichMode } from '@/lib/ai/edge-enrich';
 import { supabase } from '@/lib/supabase/client';
 import { getCachedEnrich, setCachedEnrich } from './enrich-cache';
 import { stripToneBars } from './phonetic';
+import { RateLimitedError } from './enrich-queue-core';
+
+export interface EnrichOpts {
+  /**
+   * 배치 흐름(사진 스캔·일괄 추가 큐) 표시. true면:
+   * - 타임아웃 12초 → 30초. 배치는 백그라운드 진행이라 길어도 UX 손해가 없고,
+   *   12초에 끊으면 서버는 완료해 quota만 차감되고 결과를 버리는 낭비가 생긴다
+   *   (실측: 클라 실패로 표시된 단어가 서버 캐시엔 완전한 결과로 존재).
+   * - Edge 429(rate_limited)를 사전 폴백으로 삼키는 대신 RateLimitedError로
+   *   던진다 — 큐가 retry_after만큼 대기 후 재시도(enrich-queue-core.ts).
+   * 실시간 단건 검색(autocomplete UI)은 false: 짧은 타임아웃 + 조용한 폴백 유지.
+   */
+  batch?: boolean;
+}
 
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
 
@@ -39,6 +53,7 @@ export async function enrichWord(
   signal?: AbortSignal,
   mode: EnrichMode = 'autocomplete',
   onByokQuota?: () => void,
+  opts?: EnrichOpts,
 ): Promise<AutoFillResult | null> {
   const trimmed = term.trim();
   if (!trimmed) return null;
@@ -66,7 +81,8 @@ export async function enrichWord(
   };
 
   try {
-    const result = cleanPhonetics(await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota), 12000));
+    const timeoutMs = opts?.batch ? 30000 : 12000;
+    const result = cleanPhonetics(await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota, opts), timeoutMs));
     if (result) {
       // 모델이 "이 단어는 실재하지 않는다"고 명시한 경우 — 빈 결과지만 null이 아닌
       // 명시적 not-found 신호를 호출자에게 전달(캐시는 하지 않음). UI에서 "찾지
@@ -78,7 +94,8 @@ export async function enrichWord(
       }
     }
   } catch (e: any) {
-    if (e?.name === 'AbortError') throw e;
+    // RateLimitedError는 배치 큐가 대기·재시도로 처리하므로 null로 뭉개지 않는다.
+    if (e?.name === 'AbortError' || e instanceof RateLimitedError) throw e;
   }
   return null;
 }
@@ -91,6 +108,7 @@ export async function autoFillWord(
   mode: EnrichMode = 'autocomplete',
   signal?: AbortSignal,
   onByokQuota?: () => void,
+  opts?: EnrichOpts,
 ): Promise<AutoFillResult> {
   const trimmed = term.trim().toLowerCase();
   if (!trimmed) {
@@ -155,10 +173,16 @@ export async function autoFillWord(
             ...(edgeSenses ? { senses: edgeSenses } : {}),
           };
         }
+        // 배치 흐름은 429를 큐가 retry_after 대기 후 재시도할 수 있게 신호로 올린다.
+        // (autocomplete 단건은 기존대로 조용히 사전 폴백 — 아래 계속)
+        if (edge.kind === 'rate_limited' && opts?.batch) {
+          throw new RateLimitedError(edge.retryAfter);
+        }
         // unauthorized(재시도 후도 실패)/quota_exceeded/rate_limited/upstream → 사전 fallback으로 계속
       }
-    } catch {
-      // 세션 조회 실패 등 → 사전 fallback
+    } catch (e: any) {
+      // RateLimitedError·AbortError는 호출자 몫 — 나머지(세션 조회 실패 등)만 사전 fallback
+      if (e instanceof RateLimitedError || e?.name === 'AbortError') throw e;
     }
   }
 

@@ -46,7 +46,7 @@ jest.mock('expo-iap', () => ({
   },
 }));
 
-import { mapPurchaseError } from '../features/billing/error-mapping';
+import { mapPurchaseError, readEdgeErrorBody, isDefinitiveVerifyRejection } from '../features/billing/error-mapping';
 
 describe('mapPurchaseError — expo-iap 코드 매핑', () => {
   it('사용자 취소는 silent (Alert 미표시)', () => {
@@ -95,6 +95,40 @@ describe('mapPurchaseError — expo-iap 코드 매핑', () => {
       expect(r.suggestRestore).toBe(true);
     },
   );
+});
+
+describe('replay 침묵 정산 — verify 실패 분류', () => {
+  it('readEdgeErrorBody: FunctionsHttpError.context.json()에서 body를 꺼낸다', async () => {
+    const err = { context: { json: async () => ({ ok: false, error: 'subscription_invalid', detail: 'expired' }) } };
+    expect(await readEdgeErrorBody(err)).toEqual({ ok: false, error: 'subscription_invalid', detail: 'expired' });
+  });
+
+  it('readEdgeErrorBody: json 없고 text만 있으면 JSON.parse 폴백', async () => {
+    const err = { context: { text: async () => '{"error":"rate_limited"}' } };
+    expect(await readEdgeErrorBody(err)).toEqual({ error: 'rate_limited' });
+  });
+
+  it('readEdgeErrorBody: context 없음·비JSON·throw는 null (판별 불가 = 일시 오류 취급)', async () => {
+    expect(await readEdgeErrorBody(new Error('network'))).toBeNull();
+    expect(await readEdgeErrorBody(null)).toBeNull();
+    expect(await readEdgeErrorBody({ context: { text: async () => 'not json' } })).toBeNull();
+    expect(await readEdgeErrorBody({ context: { json: async () => { throw new Error('consumed'); } } })).toBeNull();
+  });
+
+  it('확정 거절(subscription_invalid)만 true — finishTransaction으로 큐 청소 허용', () => {
+    expect(isDefinitiveVerifyRejection({ ok: false, error: 'subscription_invalid', detail: 'expired' })).toBe(true);
+    expect(isDefinitiveVerifyRejection({ ok: false, error: 'subscription_invalid', detail: 'revoked' })).toBe(true);
+  });
+
+  it('일시 오류(401/429/5xx)·판별 불가는 false — 진짜 결제 보호를 위해 큐에 남긴다', () => {
+    expect(isDefinitiveVerifyRejection({ ok: false, error: 'unauthorized' })).toBe(false);
+    expect(isDefinitiveVerifyRejection({ ok: false, error: 'rate_limited' })).toBe(false);
+    expect(isDefinitiveVerifyRejection({ ok: false, error: 'upstream_failure' })).toBe(false);
+    expect(isDefinitiveVerifyRejection({ ok: false, error: 'internal_error' })).toBe(false);
+    expect(isDefinitiveVerifyRejection(null)).toBe(false);
+    expect(isDefinitiveVerifyRejection(undefined)).toBe(false);
+    expect(isDefinitiveVerifyRejection('subscription_invalid')).toBe(false);
+  });
 });
 
 describe('mapPurchaseError — 자체 throw 메시지 매핑', () => {

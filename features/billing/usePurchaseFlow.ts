@@ -9,7 +9,7 @@
 //
 // 영수증 검증은 반드시 서버 측 (Edge). 클라이언트 finishTransaction은 검증 응답 OK 후에만 호출.
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Platform } from 'react-native';
 import {
   useIAP,
@@ -25,7 +25,7 @@ import {
 import { supabase } from '@/lib/supabase/client';
 import { useQuotaStore } from '@/features/quota';
 import { PRO_SKUS, type ProSku } from '@/lib/billing/skus';
-import { mapPurchaseError, type MappedPurchaseError } from './error-mapping';
+import { mapPurchaseError, readEdgeErrorBody, isDefinitiveVerifyRejection, type MappedPurchaseError } from './error-mapping';
 import type { PriceDetail } from './pricing';
 
 // Module-level flag: auto-reconcile runs at most once per app session, not
@@ -64,7 +64,48 @@ export function usePurchaseFlow(): PurchaseFlow {
   const [stage, setStage] = useState<PurchaseStage>('idle');
   const [error, setError] = useState<MappedPurchaseError | null>(null);
 
+  // buy()가 진행 중일 때만 true. iOS는 IAP 연결 시 큐의 미완료 거래를
+  // onPurchaseSuccess/onPurchaseError로 자동 재생(replay)하는데, 이 플래그가
+  // false면 사용자가 시작한 결제가 아니므로 UI 상태·알림 없이 조용히 처리한다
+  // (auto-reconcile과 같은 철학). 없으면 화면에 들어오기만 해도 "결제 실패"
+  // 알림이 뜬다 — 게스트 + 만료 샌드박스 거래 조합에서 실측된 증상.
+  const userInitiatedRef = useRef(false);
+
+  // 재생된 미완료 거래의 침묵 정산: 로그인 상태에서만 verify를 시도하고,
+  // 성공하면 finish+quota 갱신, 확정 거절이면 finish로 영구 재생을 끊는다.
+  // 일시 오류는 큐에 남긴다(다음 연결·auto-reconcile이 재시도).
+  const reconcileReplayed = useCallback(async (purchase: Purchase) => {
+    const purchaseToken = purchase.purchaseToken ?? '';
+    if (!purchaseToken) return;
+    try {
+      const { data: sess } = await supabase.auth.getSession();
+      if (!sess.session) return; // 게스트 — verify는 401 확정이라 호출 자체를 생략
+      const { data, error: edgeErr } = await supabase.functions.invoke('verify-purchase', {
+        body: { purchaseToken, productId: purchase.productId, platform: Platform.OS },
+      });
+      if (!edgeErr && data?.ok) {
+        await finishTransaction({ purchase, isConsumable: false });
+        try { await useQuotaStore.getState().refresh(true); } catch {}
+        console.warn('[billing] replayed purchase reconciled:', purchase.productId);
+        return;
+      }
+      if (isDefinitiveVerifyRejection(await readEdgeErrorBody(edgeErr))) {
+        await finishTransaction({ purchase, isConsumable: false });
+        console.warn('[billing] replayed purchase definitively rejected — finished:', purchase.productId);
+      } else {
+        console.warn('[billing] replayed purchase verify failed (transient), left in queue:', edgeErr?.message ?? 'not ok');
+      }
+    } catch (e: any) {
+      console.warn('[billing] replay reconcile failed:', e?.message ?? String(e));
+    }
+  }, []);
+
   const handleSuccess = useCallback(async (purchase: Purchase) => {
+    if (!userInitiatedRef.current) {
+      await reconcileReplayed(purchase);
+      return;
+    }
+    userInitiatedRef.current = false;
     // [billing-diag] checkpoint logs use console.warn so they survive
     // babel-plugin-transform-remove-console in production AABs (which only
     // strips console.log). They never print the token value itself — only
@@ -123,6 +164,9 @@ export function usePurchaseFlow(): PurchaseFlow {
       'code=', err?.code ?? null,
       'msg=', err?.message ?? String(err),
     );
+    // 연결 시 재생된 과거 실패 거래 — 사용자가 시작한 결제가 아니므로 알림 없음.
+    if (!userInitiatedRef.current) return;
+    userInitiatedRef.current = false;
     const mapped = mapPurchaseError(err);
     setError(mapped);
     // User-cancelled isn't a "failure" worth showing an alert for — drop
@@ -258,6 +302,7 @@ export function usePurchaseFlow(): PurchaseFlow {
   const buy = useCallback(async (sku: ProSku) => {
     setError(null);
     setStage('purchasing');
+    userInitiatedRef.current = true;
     try {
       if (Platform.OS === 'ios') {
         await requestPurchase({

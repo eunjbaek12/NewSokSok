@@ -18,7 +18,7 @@ import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
-import { getTtsLang } from '@/constants/languages';
+import { getTtsLang, getStudySourceLang } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
@@ -398,9 +398,9 @@ export default function ExamplesScreen() {
 
   const handleSpeak = useCallback(() => {
     if (currentWord?.exampleEn) {
-      speak(stripSenseMarkers(currentWord.exampleEn), getTtsLang(list?.sourceLanguage));
+      speak(stripSenseMarkers(currentWord.exampleEn), getTtsLang(getStudySourceLang(currentWord, list)));
     }
-  }, [currentWord, list?.sourceLanguage]);
+  }, [currentWord, list]);
 
   // 모두 예문 없음 + 백그라운드 enrich 진행 중 → 풀스크린 진행 상태.
   // 첫 단어가 완성되면 studyWords.length > 0이 되어 자동으로 학습 화면으로 전환됨.

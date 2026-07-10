@@ -34,6 +34,22 @@ export function getTtsLang(code?: string): string {
 }
 
 /**
+ * 학습 화면(플래시카드·퀴즈·예문·오토플레이) TTS용 소스 언어 결정.
+ *
+ * 리스트 언어를 우선한다: 구버전 createCuratedList가 단어 언어를 en/ko로 잘못
+ * 스탬프한 기존 저장 덱은 리스트 메타만 정확하므로, 단어 우선이면 그 덱들의
+ * TTS가 역행한다. 반대로 + 버튼 개인 단어장은 createList가 언어를 저장하지
+ * 않아 리스트가 NULL — 단어 자체 언어로 폴백해야 비영어 단어·예문이 en-US로
+ * 읽히지 않는다.
+ */
+export function getStudySourceLang(
+  word: { sourceLang?: string },
+  list?: { sourceLanguage?: string },
+): string | undefined {
+  return list?.sourceLanguage ?? word.sourceLang;
+}
+
+/**
  * Picks the best string to feed to TTS for a given word.
  *
  * 일본어 단독 한자 단어(예: "層", "対象層")는 안드로이드/iOS 일본어 TTS가

@@ -19,7 +19,7 @@ import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { Word, StudyResult } from '@/lib/types';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
@@ -51,8 +51,6 @@ export default function QuizScreen() {
   const { studySettings, updateStudySettings } = useSettings();
   const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
-  const sourceLang = list?.sourceLanguage;
-  const ttsLang = getTtsLang(sourceLang);
 
   // Settings State
   const [settingsVisible, setSettingsVisible] = useState(false);
@@ -166,6 +164,8 @@ export default function QuizScreen() {
   }, [studyWords, currentBatchIndex, batchSizeNum]);
 
   const currentWord = currentBatchWords[currentIndex];
+  const sourceLang = currentWord ? getStudySourceLang(currentWord, list) : list?.sourceLanguage;
+  const ttsLang = getTtsLang(sourceLang);
 
   const handleToggleStar = useCallback(async (wordId: string) => {
     setStudyWords(prev => prev.map(w => w.id === wordId ? { ...w, isStarred: !w.isStarred } : w));

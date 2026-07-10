@@ -31,7 +31,7 @@ import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
@@ -189,8 +189,7 @@ export default function FlashcardsScreen() {
   const { studySettings, updateStudySettings } = useSettings();
   const adsBottomInset = useAdsBottomInset();
   const list = lists.find(l => l.id === id);
-  const sourceLang = list?.sourceLanguage;
-  const ttsLang = getTtsLang(sourceLang);
+  const wordLang = useCallback((w: Word) => getStudySourceLang(w, list), [list]);
 
   // 카드 영역 실측 높이 — 카드가 버튼 영역까지 자라지 않도록 maxHeight 계산에 사용
   const [cardAreaHeight, setCardAreaHeight] = useState(0);
@@ -357,10 +356,11 @@ export default function FlashcardsScreen() {
     if (settings.autoPlaySound) {
       const nextWord = currentBatchWords[currentIndex + 1];
       if (nextWord) {
-        speak(getSpeakableText(nextWord.term, nextWord.phonetic, sourceLang), ttsLang);
+        const nextLang = wordLang(nextWord);
+        speak(getSpeakableText(nextWord.term, nextWord.phonetic, nextLang), getTtsLang(nextLang));
       }
     }
-  }, [currentWord, currentIndex, currentBatchWords, rotation, setStudyResults, id, settings.autoPlaySound, currentBatchIndex, batchSizeNum, studyWords.length, ttsLang, sourceLang]);
+  }, [currentWord, currentIndex, currentBatchWords, rotation, setStudyResults, id, settings.autoPlaySound, currentBatchIndex, batchSizeNum, studyWords.length, wordLang]);
 
   const finishSession = async () => {
     // 완주 — 복습 기록은 결과 화면 몫. replace 언마운트 전에 반드시 먼저 세운다.
@@ -599,7 +599,7 @@ export default function FlashcardsScreen() {
         <GestureDetector gesture={panGesture}>
           <Animated.View style={[styles.cardContainer, { paddingBottom: bottomReserve }, animatedCardStyle]}>
             <Pressable style={{ flex: 1, width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }} onPress={handleFlip}>
-              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} cardMaxHeight={cardMaxHeight} t={t} ttsLang={ttsLang} sourceLang={sourceLang} />
+              <CardFront word={currentWord} colors={colors} isDark={isDark} rotation={rotation} onToggleStar={handleToggleStar} showPos={!!settings.showPos} cardMaxHeight={cardMaxHeight} t={t} ttsLang={getTtsLang(wordLang(currentWord))} sourceLang={wordLang(currentWord)} />
               <CardBack
                 word={currentWord}
                 colors={colors}
@@ -614,8 +614,8 @@ export default function FlashcardsScreen() {
                 showPhonetic={!!settings.showPhonetic}
                 showPos={!!settings.showPos}
                 t={t}
-                ttsLang={ttsLang}
-                sourceLang={sourceLang}
+                ttsLang={getTtsLang(wordLang(currentWord))}
+                sourceLang={wordLang(currentWord)}
               />
             </Pressable>
           </Animated.View>
@@ -692,7 +692,10 @@ export default function FlashcardsScreen() {
           if (settings.autoPlaySound) {
             const nextStart = (currentBatchIndex + 1) * batchSizeNum;
             const nextWord = studyWords[nextStart];
-            if (nextWord) speak(getSpeakableText(nextWord.term, nextWord.phonetic, sourceLang), ttsLang);
+            if (nextWord) {
+              const nextLang = wordLang(nextWord);
+              speak(getSpeakableText(nextWord.term, nextWord.phonetic, nextLang), getTtsLang(nextLang));
+            }
           }
         }}
         onRetryBatch={() => {

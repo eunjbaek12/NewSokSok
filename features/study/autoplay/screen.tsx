@@ -22,7 +22,7 @@ import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak, stopSpeaking } from '@/lib/tts';
-import { getTtsLang, getSpeakableText } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import TimerRing from '@/components/ui/TimerRing';
@@ -40,8 +40,6 @@ export default function AutoPlayScreen() {
     const { studySettings, updateStudySettings, autoPlaySettings, updateAutoPlaySettings } = useSettings();
     const adsBottomInset = useAdsBottomInset();
     const list = lists.find(l => l.id === id);
-    const sourceLang = list?.sourceLanguage;
-    const ttsLang = getTtsLang(sourceLang);
 
     const [words, setWords] = useState(() => {
         let all = getWordsForList(id!);
@@ -145,6 +143,8 @@ export default function AutoPlayScreen() {
     }, [studySettings.studyBatchSize, updateStudySettings, updateAutoPlaySettings]);
 
     const currentWord = words[currentIndex] || null;
+    const sourceLang = currentWord ? getStudySourceLang(currentWord, list) : list?.sourceLanguage;
+    const ttsLang = getTtsLang(sourceLang);
 
     // Animation styles
     const cardStyle = useAnimatedStyle(() => ({

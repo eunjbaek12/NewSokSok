@@ -215,7 +215,7 @@ const PHONETIC_INSTRUCTION: Record<string, string> = {
   ko: '로마자 표기 (국립국어원 로마자 표기법, 예: 안녕 → annyeong, 값 → gap)',
   ja: '후리가나 (예: ありがとう)',
   zh: '병음 (성조 포함, 예: nǐ hǎo)',
-  vi: 'IPA 발음기호 (성조 포함, 예: đi → ɗi˧˧)',
+  vi: 'IPA 발음기호 (성조 막대 기호 없이 분절음만 — 성조는 철자의 성조 부호로 충분, 예: đi → ɗi)',
   es: 'IPA 발음기호 (예: gracias → ˈɡɾasjas)',
 };
 

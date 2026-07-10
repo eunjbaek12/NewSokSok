@@ -2,6 +2,7 @@ import * as Crypto from 'expo-crypto';
 import { VocaList, Word } from '@/lib/types';
 import { getDb, runInTransaction } from '@/lib/db';
 import { recordMemorizedWords } from '@/features/stats';
+import { stripToneBars } from '@/lib/phonetic';
 
 export function generateId(): string {
   return Crypto.randomUUID();
@@ -30,7 +31,9 @@ function rowToWord(row: any): Word {
     id: row.id,
     term: row.term ?? '',
     definition: row.definition ?? '',
-    phonetic: row.phonetic ?? undefined,
+    // 성조 막대(ㅓㅓ처럼 보임) 잔존 데이터는 읽기 시점에 정리 — DB를 고치는 대신
+    // 여기서 지워야 동기화 pull이 클라우드 옛값을 되살려도 표시가 안 깨진다.
+    phonetic: row.phonetic ? stripToneBars(row.phonetic) || undefined : undefined,
     pos: row.pos ?? undefined,
     exampleEn: row.exampleEn ?? '',
     exampleKr: row.exampleKr ?? undefined,

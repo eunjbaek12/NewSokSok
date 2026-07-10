@@ -6,8 +6,21 @@ import { fetchSharedEnrich } from './enrich-cache-shared';
 import { enrichWordViaEdge, type EnrichMode } from '@/lib/ai/edge-enrich';
 import { supabase } from '@/lib/supabase/client';
 import { getCachedEnrich, setCachedEnrich } from './enrich-cache';
+import { stripToneBars } from './phonetic';
 
 const EDGE_ENABLED = process.env.EXPO_PUBLIC_ENRICH_VIA_EDGE === '1';
+
+// 발음 표기 성조 막대 제거 — enrichWord가 단일 진입점이라 여기 한 번이면
+// BYOK·Edge·공용캐시·로컬캐시 전 경로를 덮는다. 근거는 lib/phonetic.ts.
+function cleanPhonetics(r: AutoFillResult): AutoFillResult {
+  return {
+    ...r,
+    ...(r.phonetic ? { phonetic: stripToneBars(r.phonetic) } : {}),
+    ...(r.senses
+      ? { senses: r.senses.map(s => (s.phonetic ? { ...s, phonetic: stripToneBars(s.phonetic) } : s)) }
+      : {}),
+  };
+}
 
 // 단어 1개를 (sourceLang → targetLang) 페어로 보강한다.
 // 우선순위:
@@ -31,7 +44,7 @@ export async function enrichWord(
   if (!trimmed) return null;
 
   const cached = await getCachedEnrich(trimmed, sourceLang, targetLang);
-  if (cached) return cached;
+  if (cached) return cleanPhonetics(cached);
 
   const withTimeout = <T>(promise: Promise<T>, ms: number): Promise<T> => {
     return new Promise<T>((resolve, reject) => {
@@ -53,7 +66,7 @@ export async function enrichWord(
   };
 
   try {
-    const result = await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota), 12000);
+    const result = cleanPhonetics(await withTimeout(autoFillWord(trimmed, sourceLang, targetLang, apiKey, mode, signal, onByokQuota), 12000));
     if (result) {
       // 모델이 "이 단어는 실재하지 않는다"고 명시한 경우 — 빈 결과지만 null이 아닌
       // 명시적 not-found 신호를 호출자에게 전달(캐시는 하지 않음). UI에서 "찾지

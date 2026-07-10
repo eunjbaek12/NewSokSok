@@ -63,7 +63,7 @@ function getPhoneticInstruction(code: string): string {
     ko: 'Revised Romanization of Korean (e.g., 안녕 → annyeong, 값 → gap)',
     ja: 'furigana in kana (e.g., ありがとう)',
     zh: 'Pinyin with tone marks (e.g., nǐ hǎo)',
-    vi: 'IPA with tone marks (e.g., đi → ɗi˧˧)',
+    vi: 'IPA segmentals only, WITHOUT tone letters/bars — tones are already shown by the orthography (e.g., đi → ɗi)',
     es: 'IPA (e.g., gracias → ˈɡɾasjas)',
   };
   return map[code] || 'the standard phonetic notation (IPA) for the source language';

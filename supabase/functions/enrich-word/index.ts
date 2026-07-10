@@ -32,8 +32,9 @@ const COST_BY_MODE: Record<string, number> = {
 // v2: isReal 판정 추가 — 옛 캐시는 가짜 단어에 그럴듯한 정의를 담고 있을 수 있어 재생성.
 // v3: 동음이의어 대표 뜻 ①② 병기 지시 — 옛 캐시는 단일 뜻만 담고 있어 재생성.
 // v4: 동음이의어 senses 배열 추가(인라인 뜻 제안 UI용) — v3 캐시엔 배열이 없어 재생성.
+// v5: 베트남어 발음 성조 막대(˧˧, ㅓㅓ처럼 렌더링) 제거 지시 — v4 캐시는 막대 포함이라 재생성.
 //     ⚠️ 클라이언트 lib/enrich-cache-shared.ts SHARED_ENRICH_PROMPT_VERSION과 함께 bump.
-const PROMPT_VERSION = 4;
+const PROMPT_VERSION = 5;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 

@@ -951,10 +951,9 @@
     "meaningLanguageSelect": "뜻 언어 선택",
     "autocomplete": "자동 완성",
     "disableAutocomplete": "자동 완성 끄기",
-    "senseOther": "다른 뜻: \"{{meaning}}\" 검색",
-    "senseRevert": "\"{{meaning}}\" 뜻으로 되돌리기",
-    "senseAll": "모두 담기",
-    "senseOnly": "\"{{meaning}}\"만 담기"
+    "sensePicker": "뜻 선택 — 탭해서 담거나 뺄 수 있어요",
+    "senseMinOne": "뜻은 최소 1개 담겨야 해요",
+    "senseOverflow": "내용이 길어 더 담을 수 없어요"
   },
   "studyResults": {
     "noResults": "결과 정보가 없습니다",

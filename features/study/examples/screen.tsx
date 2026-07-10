@@ -19,6 +19,7 @@ import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
 import { getTtsLang } from '@/constants/languages';
+import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
@@ -397,7 +398,7 @@ export default function ExamplesScreen() {
 
   const handleSpeak = useCallback(() => {
     if (currentWord?.exampleEn) {
-      speak(currentWord.exampleEn, getTtsLang(list?.sourceLanguage));
+      speak(stripSenseMarkers(currentWord.exampleEn), getTtsLang(list?.sourceLanguage));
     }
   }, [currentWord, list?.sourceLanguage]);
 

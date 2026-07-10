@@ -951,10 +951,9 @@
     "meaningLanguageSelect": "Select Meaning Language",
     "autocomplete": "Autocomplete",
     "disableAutocomplete": "Disable Autocomplete",
-    "senseOther": "Other meaning: \"{{meaning}}\"",
-    "senseRevert": "Back to \"{{meaning}}\"",
-    "senseAll": "Add all meanings",
-    "senseOnly": "\"{{meaning}}\" only"
+    "sensePicker": "Meanings — tap to add or remove",
+    "senseMinOne": "Keep at least one meaning",
+    "senseOverflow": "Too long to add more meanings"
   },
   "studyResults": {
     "noResults": "No results available",

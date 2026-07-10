@@ -23,6 +23,7 @@ import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak, stopSpeaking } from '@/lib/tts';
 import { getTtsLang, getSpeakableText } from '@/constants/languages';
+import { stripSenseMarkers } from '@/lib/senses';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import TimerRing from '@/components/ui/TimerRing';
 
@@ -206,7 +207,7 @@ export default function AutoPlayScreen() {
             // 정답 공개 시점에 예문을 낭독한다. 예문 길이가 가변이라 발화가 끝날
             // 때까지 기다린 뒤 다음 단어로 넘어가야 잘리지 않는다.
             if (settings.autoPlaySound && settings.autoPlayExample && settings.showExample && currentWord.exampleEn) {
-                await speak(currentWord.exampleEn, ttsLang);
+                await speak(stripSenseMarkers(currentWord.exampleEn), ttsLang);
                 if (token !== playTokenRef.current) return;
             }
 
@@ -226,7 +227,7 @@ export default function AutoPlayScreen() {
             (async () => {
                 // 수동으로 미리 공개해도 예문 낭독은 자동 재생과 동일하게 동작.
                 if (settings.autoPlaySound && settings.autoPlayExample && settings.showExample && currentWord.exampleEn) {
-                    await speak(currentWord.exampleEn, ttsLang);
+                    await speak(stripSenseMarkers(currentWord.exampleEn), ttsLang);
                     if (token !== playTokenRef.current) return;
                 }
                 if (isPlaying) {

@@ -32,6 +32,7 @@ import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
 import { getTtsLang, getSpeakableText } from '@/constants/languages';
+import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
@@ -163,7 +164,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
             ) : null}
           </ScrollView>
           <Pressable
-            onPress={() => speak(word.exampleEn, ttsLang)}
+            onPress={() => speak(stripSenseMarkers(word.exampleEn), ttsLang)}
             hitSlop={8}
             style={[styles.exampleSpeakerBtn, { backgroundColor: colors.surface + 'F2', borderColor: colors.borderLight }]}
           >

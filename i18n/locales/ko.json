@@ -919,6 +919,8 @@
     "aiQuotaMessage": "사용 중인 Gemini API 키의 무료 일일 한도를 초과했습니다. 한도는 매일 초기화되며, Google Cloud에서 해당 키 프로젝트에 결제를 연결하면 한도가 늘어납니다. (지금은 영어 사전 정보만 자동 입력됩니다.)",
     "autoFillFailed": "자동완성을 불러오지 못했어요. 잠시 후 다시 시도해주세요.",
     "autoFillNotFound": "사전에서 \"{{term}}\"을(를) 찾지 못했어요. 철자를 확인하거나 직접 입력해주세요.",
+    "langChangeResetTitle": "언어 변경",
+    "langChangeResetMessage": "언어를 바꾸면 입력된 내용이 초기화됩니다. 계속할까요? (단어는 유지됩니다)",
     "selectList": "단어장 고르기",
     "newListName": "새 단어장 이름",
     "createNewList": "새 단어장 만들기",

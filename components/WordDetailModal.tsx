@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, getNaverDictUrl, LanguageCode } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, getNaverDictUrl, shouldShowExampleTranslation, LanguageCode } from '@/constants/languages';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
 
@@ -147,7 +147,7 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang, targetLan
                                     {word.exampleEn}
                                 </Text>
                             ) : null}
-                            {word.exampleKr ? (
+                            {shouldShowExampleTranslation(word.exampleEn, word.exampleKr) ? (
                                 <Text style={[styles.roBodySub, { color: colors.textSecondary }]}>
                                     {word.exampleKr}
                                 </Text>

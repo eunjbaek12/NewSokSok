@@ -11,7 +11,7 @@ import type { AutoFillResult } from './types';
 //
 // SHARED_ENRICH_PROMPT_VERSION은 Edge Function의 PROMPT_VERSION과 반드시 동일해야 한다
 // (supabase/functions/enrich-word/index.ts). 한쪽만 bump하면 영영 미스가 난다.
-export const SHARED_ENRICH_PROMPT_VERSION = 5;
+export const SHARED_ENRICH_PROMPT_VERSION = 6;
 
 export async function fetchSharedEnrich(
   term: string,

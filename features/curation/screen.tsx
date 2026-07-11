@@ -75,7 +75,7 @@ function buildPrompt(query: string, wordCount: number, difficulty: AiDifficulty,
     const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
     const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
     const sameLangNote = sourceLang === targetLang
-        ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성.)`
+        ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성. meaningKr=같은 언어의 쉬운 뜻풀이, exampleKr=빈 문자열 "" — 같은 언어로의 예문 번역은 무의미. 다른 언어 절대 금지.)`
         : '';
     const excludeNote = excludeTerms && excludeTerms.length > 0
         ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`

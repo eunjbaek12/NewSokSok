@@ -217,6 +217,28 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         }
     };
 
+    // 언어쌍 변경 시 낡은 검색 결과 초기화 — 표제어·태그·즐겨찾기는 보존.
+    // (언어가 바뀌면 정의·뜻·예문·발음은 이전 언어쌍의 산물이라 레이블과 모순된다.)
+    const resetForLanguageChange = useCallback(() => {
+        setDefinition('');
+        setMeaningKr('');
+        setExampleEn('');
+        setExampleKr('');
+        setPhonetic('');
+        setPos('');
+        setErrors({});
+        setSenseState(null);
+        setSenseDismissed(false);
+        setAutoFillFailedAt(0);
+        setAutoFillNotFoundAt(0);
+    }, []);
+
+    // 초기화로 날아갈 내용이 있는지 — 호출자(add-word)가 확인 Alert 표시 여부를 결정.
+    const hasFillContent = !!(
+        definition.trim() || meaningKr.trim() || exampleEn.trim()
+        || exampleKr.trim() || phonetic.trim() || pos.trim()
+    );
+
     return {
         term, setTerm,
         definition, setDefinition,
@@ -228,6 +250,8 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
         isStarred, setIsStarred,
         tags, setTags,
         errors, setErrors,
+        resetForLanguageChange,
+        hasFillContent,
         handleAutoFill,
         handleAutoFillWithTerm,
         handleSaveWord,

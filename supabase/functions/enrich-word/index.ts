@@ -33,8 +33,11 @@ const COST_BY_MODE: Record<string, number> = {
 // v3: 동음이의어 대표 뜻 ①② 병기 지시 — 옛 캐시는 단일 뜻만 담고 있어 재생성.
 // v4: 동음이의어 senses 배열 추가(인라인 뜻 제안 UI용) — v3 캐시엔 배열이 없어 재생성.
 // v5: 베트남어 발음 성조 막대(˧˧, ㅓㅓ처럼 렌더링) 제거 지시 — v4 캐시는 막대 포함이라 재생성.
+// v6: 같은 언어쌍 규칙(뜻=쉬운 뜻풀이·예문 번역=빈 문자열 — ko→ko senses 예문 번역이
+//     영어로 이탈하던 실측 수정) + 뜻 목록(개수·순서)은 출발어 속성으로 고정 + 언어 가드
+//     교정("출발어·도착어만 사용") — v5 캐시는 같은 언어쌍 오염·뜻 개수 편차 가능성으로 재생성.
 //     ⚠️ 클라이언트 lib/enrich-cache-shared.ts SHARED_ENRICH_PROMPT_VERSION과 함께 bump.
-const PROMPT_VERSION = 5;
+const PROMPT_VERSION = 6;
 
 const ALLOWED_LANGS = new Set(['en', 'ko', 'ja', 'zh', 'vi', 'es']);
 

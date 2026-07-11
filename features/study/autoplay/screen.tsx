@@ -22,7 +22,7 @@ import { AppBannerAd, useAdsBottomInset } from '@/components/ads/AppBannerAd';
 import { useLists, selectWordsForList, toggleStarred } from '@/features/vocab';
 import { useSettings } from '@/features/settings';
 import { speak, stopSpeaking } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import TimerRing from '@/components/ui/TimerRing';
@@ -447,7 +447,7 @@ export default function AutoPlayScreen() {
                                     <Text style={[styles.exampleText, { color: colors.textSecondary }]}>
                                         {currentWord.exampleEn}
                                     </Text>
-                                    {settings.showExampleKr && !!currentWord.exampleKr && (
+                                    {settings.showExampleKr && shouldShowExampleTranslation(currentWord.exampleEn, currentWord.exampleKr) && (
                                         <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>
                                             {currentWord.exampleKr}
                                         </Text>

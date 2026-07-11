@@ -41,10 +41,9 @@ export default function ListCard({
 }: ListCardProps) {
   const { colors, isDark, fontFamily } = useTheme();
   const { t } = useTranslation();
-  const hasSnapshot = (item.lastResultTotal ?? 0) > 0;
-  const progress = hasSnapshot
-    ? { memorized: item.lastResultMemorized!, total: item.lastResultTotal!, percent: item.lastResultPercent! }
-    : getListProgress(item.id);
+  // 카운트는 항상 라이브. lastResult* 스냅샷(완주 시점 고정)은 이후의 단어
+  // 추가·삭제·암기 토글을 반영하지 못해 상세 화면 라이브 카운트와 어긋난다.
+  const progress = getListProgress(item.id);
   const relativeTime = getRelativeTime(item.lastStudiedAt, t);
 
   const planStatus = React.useMemo(

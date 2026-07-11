@@ -1254,9 +1254,8 @@
     "title": "사진 스캔으로 추가",
     "reviewTitle": "단어 확인 및 수정",
     "reviewDesc": "총 {{count}}개의 단어를 찾았습니다. 틀린 부분을 수정하거나 제외할 수 있습니다.",
-    "wordLabel": "단어",
-    "meaningLabel": "뜻",
-    "exampleLabel": "예문",
+    "excludedNotReal": "{{count}}개는 사전에 없는 단어라 제외했어요.",
+    "allExcluded": "추출된 단어가 모두 사전에 없어 제외되었어요. 사진 속 언어와 입력 언어 설정이 같은지 확인해 주세요.",
     "finalSave": "최종 저장하기",
     "retake": "다시 찍기",
     "reselect": "다시 선택",
@@ -1281,8 +1280,7 @@
     "lookupFailed": "사전에서 찾지 못했어요. 직접 입력해 주세요.",
     "loadMore": "단어 {{count}}개 더 보기",
     "savedWithSkip": "{{added}}개 저장됨 ({{skipped}}개는 이미 있어서 제외)",
-    "phoneticLabel": "발음기호",
-    "exampleKrLabel": "예문 한국어 해석"
+    "phoneticLabel": "발음기호"
   },
   "listCard": {
     "noStudyRecord": "학습 기록 없음",

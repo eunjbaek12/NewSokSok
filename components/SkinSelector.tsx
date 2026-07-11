@@ -51,7 +51,9 @@ export function SkinSelector() {
                 styles.skinName,
                 {
                   fontFamily: skin.fontFamily.semiBold,
-                  color: isSelected ? colors.primary : colors.text,
+                  // 카드 배경이 각 스킨 고유색이므로 글자색도 스킨에 고정 —
+                  // 현재 테마 글자색을 쓰면 반대 밝기 스킨 카드에서 안 보인다.
+                  color: skin.previewColors.text,
                 },
               ]}
               numberOfLines={1}

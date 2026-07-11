@@ -9,6 +9,7 @@ import { useSettings } from '@/features/settings';
 import { useEnrichQueue } from '@/hooks/useEnrichQueue';
 import { Button } from '@/components/ui/Button';
 import { parseImportedText, ParsedWord } from '@/utils/importParser';
+import { getWordLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, type LanguageCode } from '@/constants/languages';
 import * as Haptics from 'expo-haptics';
 
 type ImportStage = 'input' | 'review';
@@ -277,7 +278,7 @@ export default function BatchImportWorkflow({
                                 style={[styles.inputBold, { color: colors.text, borderBottomColor: colors.border }]}
                                 value={item.term}
                                 onChangeText={(val) => updateField(item.id, 'term', val)}
-                                placeholder={t('photoImport.wordLabel')}
+                                placeholder={getWordLabel(sourceLang as LanguageCode, t)}
                                 placeholderTextColor={colors.textTertiary}
                                 autoCapitalize="none"
                                 autoCorrect={false}
@@ -302,7 +303,7 @@ export default function BatchImportWorkflow({
                             style={[styles.input, { color: colors.text, borderBottomColor: colors.border }]}
                             value={item.meaningKr}
                             onChangeText={(val) => updateField(item.id, 'meaningKr', val)}
-                            placeholder={t('photoImport.meaningLabel')}
+                            placeholder={getMeaningLabel(targetLang as LanguageCode, t)}
                             placeholderTextColor={colors.textTertiary}
                         />
 
@@ -310,7 +311,7 @@ export default function BatchImportWorkflow({
                             style={[styles.input, styles.exampleInput, { color: colors.textSecondary, borderBottomColor: colors.border }]}
                             value={item.exampleEn}
                             onChangeText={(val) => updateField(item.id, 'exampleEn', val)}
-                            placeholder={t('photoImport.exampleLabel')}
+                            placeholder={getExampleLabel(sourceLang as LanguageCode, t)}
                             placeholderTextColor={colors.textTertiary}
                             multiline
                         />
@@ -319,7 +320,7 @@ export default function BatchImportWorkflow({
                             style={[styles.input, styles.exampleKrInput, { color: colors.textTertiary }]}
                             value={item.exampleKr}
                             onChangeText={(val) => updateField(item.id, 'exampleKr', val)}
-                            placeholder={t('photoImport.exampleKrLabel')}
+                            placeholder={getExampleTranslationLabel(targetLang as LanguageCode, t)}
                             placeholderTextColor={colors.textTertiary}
                             multiline
                         />

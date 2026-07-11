@@ -1,0 +1,23 @@
+-- cloud_words.position int4 → bigint — "동기화 오류: value is out of range for type integer" 수정.
+--
+-- 클라이언트는 단어 position에 ms 타임스탬프(Date.now() ≈ 1.78e12)를 쓰는 경로가
+-- 3곳 있다(features/vocab/db.ts):
+--   - addBatchWords: 대상 단어장이 비어 있으면 currentPosition = Date.now()
+--     (CSV 가져오기·일괄 추가·사진 스캔이 빈 덱에 들어갈 때)
+--   - copyWords / moveWords: position = Date.now()
+-- 반면 서버 cloud_words.position은 int4(최대 2,147,483,647)라 push upsert가
+-- 22003으로 터지고, 배치 upsert 전체가 실패해 dirty가 영원히 안 빠진다 —
+-- 이후 모든 단어 동기화가 침묵 속에 막히고 앱 재시작 때만 알림이 뜬다.
+--
+-- 일반 경로가 멀쩡했던 이유: addWord(단일)·createCuratedList(큐레이션/AI 덱)는
+-- position을 안 넣어 SQLite DEFAULT 0, 비어 있지 않은 덱의 addBatchWords는
+-- 기존 최소값-1000이라 작은 값에 머문다.
+--
+-- cloud_lists.position은 이미 bigint(리스트 position은 처음부터 Date.now())라
+-- 같은 타입으로 맞춘다. 로컬 SQLite INTEGER는 8바이트라 클라 변경 불필요 —
+-- 이 서버 마이그레이션만으로 배포된 전 빌드(1.1.3 라이브 포함)가 즉시 복구되고,
+-- 막혀 있던 dirty 단어들은 다음 push에서 그대로 올라간다.
+--
+-- int4→int8은 테이블 리라이트(잠금) 동반 — 현재 규모(개인 단어 수만 행)에서는 순간.
+
+alter table public.cloud_words alter column position type bigint;

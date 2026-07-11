@@ -1,19 +1,22 @@
 # 다음 세션 handoff
 
-작성: 2026-07-11 (build 27 검증 진행 반영) · 대상: 다음 작업 세션 시작 시
+작성: 2026-07-11 밤 (1.1.4 양대 스토어 제출 완료 반영) · 대상: 다음 작업 세션 시작 시
 
-이번 세션(7/10~11): **build 26 검증 전 항목 종료(15건+스모크)** — 검증 중 버그 5건 발견·전부 수정 머지(#52 TTS·#53 vi발음·#58 결제알림·#60 사진스캔·#64 같은언어쌍 v6) + **🚀 build 27 빌드·TestFlight 제출·검증 개시**. Edge 전부 최신(enrich v6·rate limit 40/분). 브랜치 대청소(46개).
-`main` HEAD = PR #66까지, 버전 1.1.4, jest 538/538.
+이번 세션(7/11 밤): **🚀🚀 1.1.4 양대 스토어 심사 제출 완료** — iOS build 28 App Store 제출(ASC 웹) + Android vCode 15 Play 프로덕션 제출(출시노트 ko/en/ja/vi/zh). 도중 Play 사진·동영상 권한 정책 폼 발생 → PR #73으로 해결 후 vCode 14→15 재빌드(§5).
+`main` HEAD = `03914b9`(PR #73), 버전 1.1.4.
+
+직전 세션(7/10~11): build 26 검증 전 항목 종료(15건+스모크) + build 27·28 빌드·실기 검증 전 항목 통과. Edge 전부 최신(enrich v6·rate limit 40/분).
 
 연속성 메모리: `project_build27`, `project_homonym_meanings`, `project_photo_enrich_recovery`, `project_plans_replay_silent`, `feedback_confirm_before_prod_deploy`.
 
 ---
 
-## 🎯 다음 세션 최우선 = 스토어 제출 2트랙
+## 🎯 다음 세션 최우선 = 심사 결과 관찰 + 공개 후 확인
 
-**build 28 = 1.1.4 / buildNumber 28 / 커밋 `273474b`** — 7/11 TestFlight 라이브 + **실기 검증 전 항목 당일 통과(§3)**. 남은 것:
-1. **1.1.4 App Store 프로덕션 제출**(build 28 선택, What's New 작성 — ASC 웹에서. 제출 후 다음 버전 1.1.5).
-2. **Android 빌드**(같은 커밋 `273474b`, vCode 갱신) — Play 라이브가 아직 vCode 12(1.1.3)라 #29 단어 사라짐·#47 암기 유실 등 데이터 체감 수정 전부 미반영. 우선순위 높음.
+**1.1.4 양대 스토어 심사 제출 완료(7/11)**: iOS = build 28(`273474b`) App Store 심사 중 · Android = vCode 15(`03914b9`) Play 검토 중(vCode 14는 권한 이슈로 폐기, §5).
+1. **심사 결과 관찰** — iOS는 1.1.3 기준 1~2일, Android는 라이브 앱 업데이트라 수시간~수일.
+2. **Android 공개 후 실기 확인**: 사진 스캔(갤러리 선택 + 카메라 촬영)·자랑카드 갤러리 저장 — READ_MEDIA 권한 제거 영향 최종 확인(§5).
+3. 이후 개발은 **1.1.5**: backlog 상단 2건(동음이의어 칩 기본 전체 선택·스킨 이름 i18n)부터.
 
 ### 1. build 26 검증 — ✅ 전 항목 종료(7/10~11)
 **build 26 = 1.1.4 / buildNumber 26 / 커밋 `ffdcfcb`**. 아래는 기록용.
@@ -53,9 +56,15 @@
 - [x] **⑥ #64 클라 변경분**: ✅통과(7/11 — ko→ko 예문 해석 필드 숨김 · 언어쌍 변경 시 초기화 · ko→ko 예문 번역 플래시카드 표시 생략 모두 확인).
 - 관찰: **음성인식 첫 사용 오류(7/11 신고)** — 권한 허용 직후 1회 오류 알림 → 이후 정상(사용자 확인). 일시 오류 추정·수정 없음. 재발 시 팝업 문구 확보.
 
-### 4. 검증 통과 시 다음 트랙
-- **1.1.4 App Store 프로덕션 제출 = build 28**(1.1.4 빌드 중 최신·수정 전부 포함. 제출 후 다음 버전은 1.1.5).
-- **Android 빌드(우선순위 ↑)**: Play 라이브는 아직 vCode 12(1.1.3) — #29(단어 사라짐)·#47(암기 유실) 등 데이터 체감 수정 전부 미반영. build 28과 같은 커밋(`273474b`)으로 vCode 갱신 빌드 권장.
+### 4. 검증 통과 시 다음 트랙 — ✅ 둘 다 실행 완료(7/11 밤, §5)
+
+### 5. 1.1.4 스토어 제출 2트랙 (7/11 밤) — ✅ 완료
+- **iOS**: build 28 선택 + What's New 작성 → App Store 심사 제출(ASC 웹).
+- **Android**: vCode 14(`97d04a6` = 273474b+docs, 앱 코드 동일) 빌드 → Play 업로드 시 **미선언 사진·동영상 권한(READ_MEDIA_IMAGES/VIDEO) 선언 폼** 발생.
+  - 원인: 자랑카드 저장용 `expo-media-library`(7/9 추가)의 config plugin 기본값(granularPermissions photo/video/audio)이 읽기 권한 3종을 매니페스트에 자동 추가. 1.1.3(vCode 12)엔 없던 라이브러리.
+  - 앱은 읽기 접근 미사용: 사진 스캔 = 시스템 photo picker(API 33+ 권한 불필요, `ImagePickerModule.kt:254` emptyArray) · 자랑카드 = writeOnly 저장(API 33+ granular 읽기 요청 제외, `MediaLibraryModule.kt:309`). Google 정책상 picker 기반 일회성 접근은 선언 승인 대상이 아니라 권한 제거 대상 → 폼 미작성.
+  - **PR #73(`03914b9`)**: `android.blockedPermissions`에 READ_MEDIA_IMAGES·VIDEO·AUDIO 3종 차단(API 32↓ READ/WRITE_EXTERNAL_STORAGE 경로는 유지) → **vCode 15 재빌드 + AAB 매니페스트 직접 검증**(READ_MEDIA 0건·CAMERA/RECORD_AUDIO 유지) → vCode 14 초안 폐기, vCode 15 업로드 시 권한 폼 재발 없음 → 출시노트 5개 언어 입력 후 검토 제출.
+  - 가독화 파일(매핑) 경고는 무시 — EAS 기본 빌드는 R8 난독화 OFF라 매핑 파일 자체가 없음(vCode 12도 동일 경고로 정상 운영).
 
 ---
 
@@ -98,7 +107,9 @@ EAS production(autoIncrement), **1.1.4 / build 26 / `ffdcfcb`**. `eas build` →
 - **ScrollView를 View로 감싸면 flex 축소가 사라진다**: wrapper에 flexShrink 명시 필요.
 - **학습 화면 이탈 경로는 3개**: 헤더 back(handleClose)·Android 하드웨어 백(기본 pop, 핸들러 안 거침)·완주(replace). 커밋은 useSessionCommit 단일 지점 — 새 학습 화면 추가 시 이 훅 사용.
 - **Supabase CLI 토큰 만료**: `!` 실행은 non-TTY라 login 불가 → 사용자가 일반 터미널에서.
-- **빌드 직후 build↔커밋 기록**: build 28=`273474b`, 27=`909abe1`, 26=`ffdcfcb`, 25=`8097e34`, 24=`43ca53a`.
+- **빌드 직후 build↔커밋 기록**: iOS build 28=`273474b`, 27=`909abe1`, 26=`ffdcfcb`, 25=`8097e34`, 24=`43ca53a` · Android vCode 15=`03914b9`(14=`97d04a6` 폐기).
+- **네이티브 라이브러리 추가 시 plugin이 넣는 Android 권한 확인**: 옵션 없이 autolink되면 기본값이 광범위 권한을 추가할 수 있음(expo-media-library 사례). prebuild 불가 환경이라 `node_modules/<pkg>/plugin/build/*.js` 소스로 확인. Play 정책 폼이 뜨면 설명 제출보다 `android.blockedPermissions` 제거가 정석.
+- **AAB 권한 검증법**: AAB(zip)에서 `base/manifest/AndroidManifest.xml` 추출 후 grep — protobuf 인코딩이어도 권한 문자열은 평문이라 업로드 전 로컬 확인 가능.
 
 ---
 
@@ -108,9 +119,8 @@ EAS production(autoIncrement), **1.1.4 / build 26 / `ffdcfcb`**. `eas build` →
 |---|---|---|
 | **동음이의어 칩 기본 전체 선택** | 앱 1.1.5 | 사용자 제안(7/11)·검토 찬성. 현재 `selected:[0]`(useAddWord). 사진/일괄 경로는 전체 병기 저장이라 불일치. 한도 초과 시 뒤 순위 뜻부터 제외 폴백(최소 ①) 필수 |
 | **스킨 이름 i18n** | 앱 1.1.5 | SkinSelector가 nameKo 하드코딩 — 영어 UI에서도 "클래식" 한글. nameEn 이미 있음, 앱 언어 따라 분기 |
-| build 26 잔여 검증 + build 27(토글 칩) | — | 위 체크리스트 |
-| 1.1.4 App Store 심사 제출 여부 | 스토어 | 검증 통과 후 결정 |
-| Android 빌드(vCode 갱신) | 스토어 | 같은 커밋 기반 검토 |
+| **Android 1.1.4 공개 후 실기 확인** | 스토어 | 사진 스캔(갤러리+카메라)·자랑카드 저장 — READ_MEDIA 제거 영향(§5) |
+| R8/ProGuard 활성화 검토 | 앱 1.1.5+ | 앱 크기 절감. RN 라이브러리 충돌 위험 → proguard 규칙 검증+실기 필수 |
 | 동음이의어 senses 안정성 관찰 | 서버 | flash-lite가 senses를 항상 주는지 실사용 관찰 |
 | **마일스톤 축하 팝업**(7·30·100일) | 앱 | **사용자가 명시적으로 미룸(7/9)** |
 | 스트릭 프리즈·알림 | 앱 | Phase 3 잔여 |
@@ -124,8 +134,8 @@ EAS production(autoIncrement), **1.1.4 / build 26 / `ffdcfcb`**. `eas build` →
 
 ---
 
-## 참고 — 현재 상태 (2026-07-10)
-- `main` HEAD `079d112`(1.1.4, #49 토글 칩까지) + 이 문서 커밋. 열린 PR 없음.
-- TestFlight: **build 26**(1.1.4, `ffdcfcb`) 라이브·검증 진행 중(10건 통과, 잔여 7항목은 위 절차 참조). #49는 main에만 — **build 27 필요**.
-- Supabase: Edge enrich-word **v5**(vi 성조 막대 제거, 7/10 재배포·서버 E2E 통과. v4=senses) 라이브. DB 마이그레이션 `20260710000000_curation_share_fidelity`까지 원격 적용 확인.
+## 참고 — 현재 상태 (2026-07-11 밤)
+- `main` HEAD `03914b9`(1.1.4, PR #73 blockedPermissions까지) + 이 문서 커밋. 열린 PR 없음.
+- **App Store: 1.1.4(build 28) 심사 중** · **Play: 1.1.4(vCode 15) 검토 중** — 라이브는 각각 1.1.3(build 21)·vCode 12(1.1.3).
+- Supabase: Edge enrich-word **v6**(같은 언어쌍 예문 번역 제거, PROMPT_VERSION 6=SHARED 6) 라이브·rate limit 40/분. DB 마이그레이션 `20260710000000_curation_share_fidelity`까지 원격 적용 확인.
 - ⚠️ 로컬 앱 구동 불가(SQLite mock + OneDrive prebuild 제약) → 검증은 TestFlight로만. `env_onedrive_prebuild`.

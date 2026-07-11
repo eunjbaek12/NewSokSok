@@ -18,7 +18,7 @@ import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getStudySourceLang } from '@/constants/languages';
+import { getTtsLang, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
@@ -530,7 +530,7 @@ export default function ExamplesScreen() {
                   colors={colors}
                 />
 
-                {settings.showExampleKr && currentWord.exampleKr && selectedAnswer !== null && (
+                {settings.showExampleKr && shouldShowExampleTranslation(currentWord.exampleEn, currentWord.exampleKr) && selectedAnswer !== null && (
                   <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
                 )}
 

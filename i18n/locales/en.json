@@ -919,6 +919,8 @@
     "aiQuotaMessage": "Your Gemini API key has hit its free daily limit. The limit resets each day; enabling billing on the key's Google Cloud project raises it. (For now, only English dictionary info is auto-filled.)",
     "autoFillFailed": "Couldn't load auto-fill. Please try again in a moment.",
     "autoFillNotFound": "Couldn't find \"{{term}}\" in the dictionary. Check the spelling or enter it manually.",
+    "langChangeResetTitle": "Change language",
+    "langChangeResetMessage": "Changing the language will clear the filled-in fields. Continue? (The word itself is kept)",
     "selectList": "Choose a List",
     "newListName": "New list name",
     "createNewList": "Create New List",

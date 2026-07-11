@@ -109,6 +109,18 @@ export function deriveDisplayLanguages(
   };
 }
 
+/**
+ * 예문 번역 표시 여부. 같은 언어쌍은 예문 번역이 논리적으로 예문과 같은 문장이라
+ * 무의미하고, 실제로 AI가 예문을 그대로 복사(중복)하거나 영어로 이탈해 저장된
+ * 데이터가 존재한다(v5 이전 캐시). 빈 값이거나 예문과 동일 문장이면 숨긴다 —
+ * 기존 저장 단어의 중복도 마이그레이션 없이 표시 단계에서 정리된다.
+ */
+export function shouldShowExampleTranslation(exampleEn?: string, exampleKr?: string): boolean {
+  const kr = (exampleKr ?? '').trim();
+  if (!kr) return false;
+  return kr !== (exampleEn ?? '').trim();
+}
+
 /** Returns the input placeholder text for the given source language. */
 export function getPlaceholderText(sourceLang: LanguageCode, t: (key: string) => string): string {
   return t(`languages.placeholder.${sourceLang}`) || 'Enter a word';

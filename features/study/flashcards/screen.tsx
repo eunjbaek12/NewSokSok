@@ -31,7 +31,7 @@ import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { speak } from '@/lib/tts';
-import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
+import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
@@ -159,7 +159,7 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
             nestedScrollEnabled
           >
             <Text style={[styles.cardExample, { color: colors.textSecondary }]}>{word.exampleEn}</Text>
-            {showExampleKr && word.exampleKr ? (
+            {showExampleKr && shouldShowExampleTranslation(word.exampleEn, word.exampleKr) ? (
               <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
             ) : null}
           </ScrollView>

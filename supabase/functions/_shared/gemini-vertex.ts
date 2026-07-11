@@ -121,7 +121,16 @@ export async function analyzeWord(
 }
 
 function buildPrompt(word: string, srcName: string, tgtName: string, phoneticInstr: string): string {
-  const avoid = srcName === 'Korean' || tgtName === 'Korean' ? 'any other language' : 'Korean';
+  const sameLang = srcName === tgtName;
+  // 같은 언어쌍은 "번역" 지시가 무의미(no-op)해서 모델이 영어로 이탈하는 실측
+  // 사례가 있었다(v5, ko→ko의 senses[].exampleKr가 전부 영어). 뜻은 쉬운 뜻풀이로,
+  // 예문 번역은 아예 비우도록 명시한다.
+  const sameLangBlock = sameLang ? `
+
+SAME-LANGUAGE MODE — the learner's language and the study language are BOTH ${srcName}:
+- "meaningKr" = a short, simpler gloss or synonyms in ${srcName} (easier wording than the definition). NEVER another language.
+- "exampleKr" MUST be an empty string "" — translating an example into the same language is meaningless. Apply this to every "exampleKr" inside "senses" too.
+- "mnemonic" must be written in ${srcName}.` : '';
   return `Analyze the ${srcName} word/phrase "${word}".
 
 FIRST, decide whether "${word}" is a real, recognized ${srcName} word, phrase, idiom, common abbreviation, or proper noun.
@@ -140,6 +149,7 @@ When isReal is true, provide:
 HOMONYMS: If "${word}" has two or more distinct, unrelated meanings (homonyms — e.g., the Korean word "사과" means both "apple" and "apology"):
 - Top-level fields combine the senses: the meaning field MUST list the 2-3 most common senses numbered with ①②③, each as a short gloss of a few words — NOT a full definition sentence (e.g., "① apple (the fruit) ② apology"). Number the definition the same way. For the example sentence, pos, and phonetic, use only the most common sense (①).
 - ALSO fill the "senses" array with one entry per distinct sense (2-3, most common first). Each entry covers exactly ONE sense with NO numbering inside: a short meaning gloss, definition, one example sentence with its translation, pos, and phonetic for that sense.
+- The inventory of distinct senses — how many, which ones, and their frequency order — is a property of the ${srcName} word ALONE and must be IDENTICAL no matter what the learner's language is. Fill EVERY field of every sense; never leave a field blank${sameLang ? ' (exception: "exampleKr" is an empty string in same-language mode)' : ''}.
 If the word has a single meaning (or only minor variations of one core meaning), return an empty "senses" array and do not use numbering anywhere. Do NOT number minor variations of one core meaning.
 
 IMPORTANT — Field naming is legacy and MUST be ignored:
@@ -147,7 +157,7 @@ IMPORTANT — Field naming is legacy and MUST be ignored:
 - "exampleKr" is NOT Korean. Put the example translation in ${tgtName}.
 - "exampleEn" is NOT English. Put the example sentence in ${srcName}.
 - "mnemonic" must be written in ${tgtName}.
-Do not output ${avoid} unless ${tgtName} or ${srcName} is Korean.`;
+Use ONLY ${srcName}${sameLang ? '' : ` and ${tgtName}`} anywhere in the output — never any other language.${sameLangBlock}`;
 }
 
 function responseSchema(srcName: string, tgtName: string) {
@@ -232,7 +242,7 @@ function buildGeneratePrompt(
   const tgtLabel = LANG_LABEL_KO[targetLang] ?? targetLang;
   const phoneticInstr = PHONETIC_INSTRUCTION[sourceLang] ?? '해당 언어의 표준 발음 표기';
   const sameLangNote = sourceLang === targetLang
-    ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성.)`
+    ? `\n  (참고: 학습 언어와 모국어가 같음. 동의어·유의어 또는 고급 어휘 위주로 생성. meaningKr=같은 언어의 쉬운 뜻풀이, exampleKr=빈 문자열 "" — 같은 언어로의 예문 번역은 무의미. 다른 언어 절대 금지.)`
     : '';
   const excludeNote = excludeTerms && excludeTerms.length > 0
     ? `\n  중요: 다음 단어들은 절대 포함하지 말고 새로운 단어로만 ${wordCount}개 생성해줘 — ${excludeTerms.join(', ')}`

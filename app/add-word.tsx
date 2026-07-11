@@ -321,6 +321,8 @@ export default function AddWordScreen() {
         exampleKr, setExampleKr,
         tags, setTags,
         errors, setErrors,
+        resetForLanguageChange,
+        hasFillContent,
         handleAutoFill,
         handleAutoFillWithTerm,
         handleSaveWord,
@@ -423,6 +425,29 @@ export default function AddWordScreen() {
     const [isApplying, setIsApplying] = useState(false);
     const [sourceLangPickerOpen, setSourceLangPickerOpen] = useState(false);
     const [targetLangPickerOpen, setTargetLangPickerOpen] = useState(false);
+
+    // 언어쌍 변경. 신규 모드에서 채워진 검색 결과가 있으면 확인 후 초기화 —
+    // 안 지우면 이전 언어쌍의 내용 위에 레이블만 바뀌어 모순된다(2026-07-11 신고).
+    // 편집 모드는 잘못 저장된 언어를 교정하는 용도라 내용을 보존한다.
+    const changeLanguage = (kind: 'source' | 'target', c: LanguageCode) => {
+        const apply = () => {
+            if (kind === 'source') setSourceLang(c); else setTargetLang(c);
+            // 신규 입력이면 다음 단어에도 이어지도록 전역 기본값도 갱신(현행 동작).
+            // 편집이면 이 단어에만 적용 — 전역 기본을 오염시키지 않는다.
+            if (!isEditing) void updateInputSettings(kind === 'source' ? { sourceLang: c } : { targetLang: c });
+        };
+        const current = kind === 'source' ? sourceLang : targetLang;
+        if (c === current) return;
+        if (isEditing || !hasFillContent) { apply(); return; }
+        Alert.alert(
+            t('addWord.langChangeResetTitle'),
+            t('addWord.langChangeResetMessage'),
+            [
+                { text: t('common.cancel'), style: 'cancel' },
+                { text: t('common.confirm'), onPress: () => { resetForLanguageChange(); apply(); } },
+            ],
+        );
+    };
     const [isListening, setIsListening] = useState(false);
     const [isTermFocused, setIsTermFocused] = useState(false);
 
@@ -1191,14 +1216,17 @@ export default function AddWordScreen() {
                                                     multiline
                                                     style={{ fontStyle: 'italic' }}
                                                 />
-                                                <Input
-                                                    label={getExampleTranslationLabel(targetLang, t)}
-                                                    placeholder={getExampleTranslationLabel(targetLang, t)}
-                                                    value={exampleKr}
-                                                    onChangeText={(v: string) => { setExampleKr(v); dismissSensePicker(); }}
-                                                    maxLength={300}
-                                                    multiline
-                                                />
+                                                {sourceLang !== targetLang && (
+                                                    // 같은 언어쌍은 예문 번역이 예문과 같은 문장일 수밖에 없어 필드 자체를 숨긴다.
+                                                    <Input
+                                                        label={getExampleTranslationLabel(targetLang, t)}
+                                                        placeholder={getExampleTranslationLabel(targetLang, t)}
+                                                        value={exampleKr}
+                                                        onChangeText={(v: string) => { setExampleKr(v); dismissSensePicker(); }}
+                                                        maxLength={300}
+                                                        multiline
+                                                    />
+                                                )}
                                             </Animated.View>
                                         );
                                     }
@@ -1530,12 +1558,8 @@ export default function AddWordScreen() {
                     }))}
                     selectedValue={sourceLang}
                     onSelect={(code: string) => {
-                        const c = code as LanguageCode;
-                        setSourceLang(c);
-                        // 신규 입력이면 다음 단어에도 이어지도록 전역 기본값도 갱신(현행 동작).
-                        // 편집이면 이 단어에만 적용 — 전역 기본을 오염시키지 않는다.
-                        if (!isEditing) void updateInputSettings({ sourceLang: c });
                         setSourceLangPickerOpen(false);
+                        changeLanguage('source', code as LanguageCode);
                     }}
                 />
 
@@ -1549,10 +1573,8 @@ export default function AddWordScreen() {
                     }))}
                     selectedValue={targetLang}
                     onSelect={(code: string) => {
-                        const c = code as LanguageCode;
-                        setTargetLang(c);
-                        if (!isEditing) void updateInputSettings({ targetLang: c });
                         setTargetLangPickerOpen(false);
+                        changeLanguage('target', code as LanguageCode);
                     }}
                 />
             </Modal>

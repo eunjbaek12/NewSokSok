@@ -34,9 +34,9 @@ interface WordDetailModalProps {
     wordId?: string | null;
     word?: Word | null;
     readOnly?: boolean;
-    /** Source language of the word (BCP-47 resolved for TTS). Defaults via word.sourceLang → en. */
+    /** Fallback source language when the word has no sourceLang (e.g. static curation preview). word.sourceLang wins. */
     sourceLanguage?: string;
-    /** Target (meaning) language. Defaults via word.targetLang → ko. Drives 뜻/해석 labels. */
+    /** Fallback target (meaning) language when the word has no targetLang. Drives 뜻/해석 labels. */
     targetLanguage?: string;
     onClose: () => void;
     onModeChange?: (mode: WordModalMode) => void;
@@ -205,10 +205,13 @@ export default function WordDetailModal({
     const isEditing = wordId !== undefined && wordId !== null;
     const existingWord = word || (isEditing ? listWords.find(w => w.id === wordId) : null);
 
-    // TTS 언어: 명시 prop > 단어 자체의 sourceLang > en. 영어 보이스로 일본어를
-    // 읽으면 무음이 되므로 발음 재생은 반드시 단어의 실제 출발어로 호출한다.
-    const resolvedSourceLang = sourceLanguage ?? existingWord?.sourceLang;
-    const resolvedTargetLang = targetLanguage ?? existingWord?.targetLang;
+    // TTS 언어: 단어 자체의 sourceLang > 명시 prop(리스트/테마 언어) > en.
+    // 한 덱에 여러 언어쌍이 섞일 수 있으므로 단어 언어가 있으면 그게 진실이고,
+    // prop은 단어에 언어가 없는 경우(정적 큐레이션 미리보기 등)의 폴백이다.
+    // 영어 보이스로 일본어를 읽으면 무음이 되므로 발음 재생은 반드시 단어의
+    // 실제 출발어로 호출한다.
+    const resolvedSourceLang = existingWord?.sourceLang ?? sourceLanguage;
+    const resolvedTargetLang = existingWord?.targetLang ?? targetLanguage;
     const ttsLang = getTtsLang(resolvedSourceLang);
 
     const {

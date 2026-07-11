@@ -1,4 +1,4 @@
-import { deriveDisplayLanguages } from '@/constants/languages';
+import { deriveDisplayLanguages, hasMixedLanguagePairs } from '@/constants/languages';
 
 // 헬퍼: 언어만 담은 최소 단어.
 const w = (sourceLang?: string, targetLang?: string) => ({ sourceLang, targetLang });
@@ -40,5 +40,32 @@ describe('deriveDisplayLanguages', () => {
   it('source와 target을 독립적으로 계산한다(ko→en 덱)', () => {
     const words = [w('ko', 'en'), w('ko', 'en')];
     expect(deriveDisplayLanguages(words)).toEqual({ source: 'ko', target: 'en' });
+  });
+});
+
+describe('hasMixedLanguagePairs', () => {
+  it('단일 언어쌍이면 false — 카드에 언어쌍 표시', () => {
+    expect(hasMixedLanguagePairs([w('vi', 'ko'), w('vi', 'ko')])).toBe(false);
+  });
+
+  it('출발어가 2종이면 true — 표시 숨김(vi 덱에 en 단어 추가)', () => {
+    expect(hasMixedLanguagePairs([w('vi', 'ko'), w('vi', 'ko'), w('en', 'ko')])).toBe(true);
+  });
+
+  it('도착어만 2종이어도 true', () => {
+    expect(hasMixedLanguagePairs([w('ko', 'en'), w('ko', 'vi')])).toBe(true);
+  });
+
+  it('언어 없는 구버전 단어는 다양성으로 치지 않는다', () => {
+    expect(hasMixedLanguagePairs([w('es', 'ko'), w(undefined, undefined)])).toBe(false);
+  });
+
+  it('빈 단어장·전부 언어 없음은 false — 기존 폴백 표시 유지', () => {
+    expect(hasMixedLanguagePairs([])).toBe(false);
+    expect(hasMixedLanguagePairs([w(undefined, undefined)])).toBe(false);
+  });
+
+  it('같은 언어쌍(ko→ko) 덱은 혼합이 아니다', () => {
+    expect(hasMixedLanguagePairs([w('ko', 'ko'), w('ko', 'ko')])).toBe(false);
   });
 });

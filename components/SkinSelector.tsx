@@ -2,11 +2,13 @@ import React from 'react';
 import { ScrollView, Pressable, View, Text, StyleSheet } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { useTheme } from '@/features/theme';
+import { useLocale } from '@/features/locale';
 import { SKIN_LIST } from '@/constants/skins';
 import type { SkinId } from '@/features/theme/types';
 
 export function SkinSelector() {
   const { skinId, setSkin, colors } = useTheme();
+  const { locale } = useLocale();
 
   const handlePress = (id: SkinId) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -58,7 +60,7 @@ export function SkinSelector() {
               ]}
               numberOfLines={1}
             >
-              {skin.nameKo}
+              {locale === 'ko' ? skin.nameKo : skin.nameEn}
             </Text>
 
             {isSelected && (

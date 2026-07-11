@@ -34,19 +34,20 @@ export function getTtsLang(code?: string): string {
 }
 
 /**
- * 학습 화면(플래시카드·퀴즈·예문·오토플레이) TTS용 소스 언어 결정.
+ * 학습 화면(플래시카드·퀴즈·예문·오토플레이)·단어장 상세 TTS용 소스 언어 결정.
  *
- * 리스트 언어를 우선한다: 구버전 createCuratedList가 단어 언어를 en/ko로 잘못
- * 스탬프한 기존 저장 덱은 리스트 메타만 정확하므로, 단어 우선이면 그 덱들의
- * TTS가 역행한다. 반대로 + 버튼 개인 단어장은 createList가 언어를 저장하지
- * 않아 리스트가 NULL — 단어 자체 언어로 폴백해야 비영어 단어·예문이 en-US로
- * 읽히지 않는다.
+ * 단어 자체 언어를 우선한다: 한 단어장에 여러 언어쌍이 섞일 수 있어(저장한
+ * 덱에 다른 언어 단어 추가, AI 생성 언어 변경 등) 리스트 언어를 우선하면
+ * 소수 언어 단어가 엉뚱한 보이스로 호출돼 무음·오독이 된다. 리스트 언어는
+ * 단어에 언어가 없을 때(sourceLang 컬럼 이전 구버전 단어)의 폴백.
+ * 구버전 createCuratedList가 단어를 en/ko로 오스탬프한 덱은 단어 우선 시
+ * 역행하지만, 표시도 이미 깨져 보이는 덱이며 재저장으로 복구된다.
  */
 export function getStudySourceLang(
   word: { sourceLang?: string },
   list?: { sourceLanguage?: string },
 ): string | undefined {
-  return list?.sourceLanguage ?? word.sourceLang;
+  return word.sourceLang ?? list?.sourceLanguage;
 }
 
 /**

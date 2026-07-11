@@ -3,6 +3,7 @@
 export * from './date';
 export * from './streak';
 export * from './quotes';
+export * from './milestones';
 export {
   recordStudySession,
   recordMemorizedWords,
@@ -14,7 +15,9 @@ export {
   type DayDetail,
   type DayWordEntry,
 } from './db';
+export { loadCelebratedMap, saveCelebratedMap } from './milestones-storage';
 export { useStatsSummary } from './useStats';
 export { default as StatsStrip } from './StatsStrip';
+export { default as MilestoneCelebration } from './MilestoneCelebration';
 export { default as ShareCard } from './ShareCard';
 export { shareStatsCard, saveStatsCard, type ShareOutcome, type SaveOutcome } from './share';

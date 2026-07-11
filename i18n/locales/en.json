@@ -1039,6 +1039,16 @@
     "shareError": "Something went wrong. Please try again.",
     "unavailable": "Sharing isn't available on this device."
   },
+  "milestone": {
+    "daysReached": "{{count}}-day streak!",
+    "stage3": "A freshman avocado is born — this is just the beginning",
+    "stage7": "Backpack on! One full week of studying",
+    "stage30": "A full month — gold-medal honor student!",
+    "stage100": "100 days — happy graduation!",
+    "stage365": "A whole year — now a professor avocado!",
+    "share": "Share",
+    "continue": "Continue"
+  },
   "flashcards": {
     "title": "Flashcards",
     "tapToReveal": "Tap to reveal meaning",

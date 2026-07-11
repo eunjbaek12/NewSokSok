@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/Button';
 import { fetchWordsFromImage } from '@/lib/gemini-api';
 import { filterExtractedWords } from '@/lib/stopwords';
 import { useEnrichQueue } from '@/hooks/useEnrichQueue';
+import { getWordLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, type LanguageCode } from '@/constants/languages';
 
 export type ScannedWord = {
     id: string;
@@ -59,11 +60,21 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
     const [isScanning, setIsScanning] = useState(false);
     const [pendingTerms, setPendingTerms] = useState<string[]>([]);  // 아직 카드로 표시되지 않은 후보
     const [scannedWords, setScannedWords] = useState<ScannedWord[]>([]);
+    const [excludedCount, setExcludedCount] = useState(0);  // isReal=false로 자동 제거된 카드 수
     const [isSaving, setIsSaving] = useState(false);
 
     const { enrichBatch, enrichingCount } = useEnrichQueue(sourceLang, targetLang, apiKey || undefined, CONCURRENCY, 'photo');
 
     const handleEnrichUpdate = (id: string, result: any) => {
+        // 추출 모델이 다른 언어 단어를 잘못 뽑은 경우 — 사전 조회가 "실재하지 않는
+        // 단어"(isReal=false)로 판정하면 카드를 지운다. 빈 카드를 남기면 사용자가
+        // 일일이 지워야 하고, 조용히 지우면 오판(실재 단어를 없다고 판정)을 눈치챌
+        // 수 없으니 제외 개수를 세어 안내한다.
+        if (result?.isReal === false) {
+            setScannedWords(prev => prev.filter(w => w.id !== id));
+            setExcludedCount(c => c + 1);
+            return;
+        }
         setScannedWords(prev => prev.map(w => {
             if (w.id !== id) return w;
             if (result) {
@@ -81,6 +92,15 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
             return { ...w, enrichStatus: 'failed' };
         }));
     };
+
+    // 추출된 카드가 전부 사전 미등재로 제거된 경우 — 화면이 말없이 미리보기로
+    // 되돌아가므로, 배치가 끝난 시점(enrichingCount 0)에 이유를 알려준다.
+    useEffect(() => {
+        if (excludedCount > 0 && scannedWords.length === 0 && enrichingCount === 0 && !isScanning) {
+            setExcludedCount(0);
+            Alert.alert(t('common.notice'), t('photoImport.allExcluded'));
+        }
+    }, [excludedCount, scannedWords.length, enrichingCount, isScanning, t]);
 
     useEffect(() => {
         launchSource(source);
@@ -138,6 +158,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
         setSelectedImage(null);
         setScannedWords([]);
         setPendingTerms([]);
+        setExcludedCount(0);
         launchSource(source);
     };
 
@@ -146,6 +167,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
         const controller = new AbortController();
         abortControllerRef.current = controller;
         setIsScanning(true);
+        setExcludedCount(0);
         try {
             const raw = await fetchWordsFromImage(base64Image, 3, controller.signal, apiKey || undefined, sourceLang);
             const rawTerms = (Array.isArray(raw) ? raw : []).map((w: any) => (w?.word || '')).filter(Boolean);
@@ -294,6 +316,11 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                     <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
                         {t('photoImport.reviewDesc', { count: scannedWords.length })}
                     </Text>
+                    {excludedCount > 0 && (
+                        <Text style={[styles.subtitle, { color: colors.textTertiary }]}>
+                            {t('photoImport.excludedNotReal', { count: excludedCount })}
+                        </Text>
+                    )}
                 </View>
 
                 <ScrollView style={styles.listContainer} keyboardShouldPersistTaps="handled">
@@ -304,7 +331,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                                     style={[styles.inputBold, { color: colors.text, borderBottomColor: colors.border }]}
                                     value={item.term}
                                     onChangeText={(val) => updateWord(item.id, 'term', val)}
-                                    placeholder={t('photoImport.wordLabel')}
+                                    placeholder={getWordLabel(sourceLang as LanguageCode, t)}
                                     placeholderTextColor={colors.textTertiary}
                                 />
                                 {item.enrichStatus === 'pending' && (
@@ -327,7 +354,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                                 style={[styles.input, { color: colors.text, borderBottomColor: colors.border }]}
                                 value={item.meaningKr}
                                 onChangeText={(val) => updateWord(item.id, 'meaningKr', val)}
-                                placeholder={t('photoImport.meaningLabel')}
+                                placeholder={getMeaningLabel(targetLang as LanguageCode, t)}
                                 placeholderTextColor={colors.textTertiary}
                             />
 
@@ -335,7 +362,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                                 style={[styles.input, styles.exampleInput, { color: colors.textSecondary, borderBottomColor: colors.border }]}
                                 value={item.exampleEn}
                                 onChangeText={(val) => updateWord(item.id, 'exampleEn', val)}
-                                placeholder={t('photoImport.exampleLabel')}
+                                placeholder={getExampleLabel(sourceLang as LanguageCode, t)}
                                 placeholderTextColor={colors.textTertiary}
                                 multiline
                             />
@@ -344,7 +371,7 @@ export default function PhotoImportWorkflow({ listId, source, sourceLang, target
                                 style={[styles.input, styles.exampleKrInput, { color: colors.textTertiary }]}
                                 value={item.exampleKr}
                                 onChangeText={(val) => updateWord(item.id, 'exampleKr', val)}
-                                placeholder={t('photoImport.exampleKrLabel')}
+                                placeholder={getExampleTranslationLabel(targetLang as LanguageCode, t)}
                                 placeholderTextColor={colors.textTertiary}
                                 multiline
                             />

@@ -9,6 +9,7 @@ import { useSettings } from '@/features/settings';
 import { useEnrichQueue } from '@/hooks/useEnrichQueue';
 import { Button } from '@/components/ui/Button';
 import { parseImportedText, ParsedWord } from '@/utils/importParser';
+import { getWordLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, type LanguageCode } from '@/constants/languages';
 import * as Haptics from 'expo-haptics';
 
 type ImportStage = 'input' | 'review';
@@ -55,6 +56,12 @@ export default function BatchImportWorkflow({
     const handleEnrichUpdate = (id: string, result: any) => {
         setWords(prev => prev.map(w => {
             if (w.id !== id) return w;
+            // 사전 미등재(isReal=false) 판정 — 사진 스캔과 달리 사용자가 직접
+            // 입력한 단어라 자동 삭제하지 않고 '찾지 못함' 표시로 남긴다(오타
+            // 수정 기회). 빈 필드로 done 처리하면 아무 안내 없이 넘어간다.
+            if (result?.isReal === false) {
+                return { ...w, enrichStatus: 'failed' };
+            }
             if (result) {
                 return {
                     ...w,
@@ -277,7 +284,7 @@ export default function BatchImportWorkflow({
                                 style={[styles.inputBold, { color: colors.text, borderBottomColor: colors.border }]}
                                 value={item.term}
                                 onChangeText={(val) => updateField(item.id, 'term', val)}
-                                placeholder={t('photoImport.wordLabel')}
+                                placeholder={getWordLabel(sourceLang as LanguageCode, t)}
                                 placeholderTextColor={colors.textTertiary}
                                 autoCapitalize="none"
                                 autoCorrect={false}
@@ -302,7 +309,7 @@ export default function BatchImportWorkflow({
                             style={[styles.input, { color: colors.text, borderBottomColor: colors.border }]}
                             value={item.meaningKr}
                             onChangeText={(val) => updateField(item.id, 'meaningKr', val)}
-                            placeholder={t('photoImport.meaningLabel')}
+                            placeholder={getMeaningLabel(targetLang as LanguageCode, t)}
                             placeholderTextColor={colors.textTertiary}
                         />
 
@@ -310,7 +317,7 @@ export default function BatchImportWorkflow({
                             style={[styles.input, styles.exampleInput, { color: colors.textSecondary, borderBottomColor: colors.border }]}
                             value={item.exampleEn}
                             onChangeText={(val) => updateField(item.id, 'exampleEn', val)}
-                            placeholder={t('photoImport.exampleLabel')}
+                            placeholder={getExampleLabel(sourceLang as LanguageCode, t)}
                             placeholderTextColor={colors.textTertiary}
                             multiline
                         />
@@ -319,7 +326,7 @@ export default function BatchImportWorkflow({
                             style={[styles.input, styles.exampleKrInput, { color: colors.textTertiary }]}
                             value={item.exampleKr}
                             onChangeText={(val) => updateField(item.id, 'exampleKr', val)}
-                            placeholder={t('photoImport.exampleKrLabel')}
+                            placeholder={getExampleTranslationLabel(targetLang as LanguageCode, t)}
                             placeholderTextColor={colors.textTertiary}
                             multiline
                         />

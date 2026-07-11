@@ -1254,9 +1254,8 @@
     "title": "Add from Photo",
     "reviewTitle": "Review & Edit Words",
     "reviewDesc": "Found {{count}} words. You can edit or exclude incorrect ones.",
-    "wordLabel": "Word",
-    "meaningLabel": "Meaning",
-    "exampleLabel": "Example",
+    "excludedNotReal": "{{count}} removed — not found in the dictionary.",
+    "allExcluded": "All extracted words were removed because none were found in the dictionary. Check that the photo language matches your input language setting.",
     "finalSave": "Save All",
     "retake": "Retake",
     "reselect": "Reselect",
@@ -1281,8 +1280,7 @@
     "lookupFailed": "Not found in dictionary. Please enter manually.",
     "loadMore": "Load {{count}} more words",
     "savedWithSkip": "{{added}} saved ({{skipped}} already existed)",
-    "phoneticLabel": "Pronunciation",
-    "exampleKrLabel": "Example translation"
+    "phoneticLabel": "Pronunciation"
   },
   "listCard": {
     "noStudyRecord": "No study record",

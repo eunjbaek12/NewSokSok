@@ -111,6 +111,26 @@ export function deriveDisplayLanguages(
 }
 
 /**
+ * 단어들의 언어쌍이 섞여 있는지(출발어 또는 도착어가 2종 이상).
+ *
+ * 카드의 대표 언어쌍은 최빈 언어라 혼합 덱에서는 소수 언어 단어의 존재를
+ * 가려 오해를 부른다 — 이 경우 언어쌍 표시를 숨기는 판정용. 언어가 없는
+ * 구버전 단어는 다양성의 증거가 아니므로 무시한다.
+ */
+export function hasMixedLanguagePairs(
+  words: { sourceLang?: string; targetLang?: string }[],
+): boolean {
+  const sources = new Set<string>();
+  const targets = new Set<string>();
+  for (const w of words) {
+    if (w.sourceLang) sources.add(w.sourceLang);
+    if (w.targetLang) targets.add(w.targetLang);
+    if (sources.size > 1 || targets.size > 1) return true;
+  }
+  return false;
+}
+
+/**
  * 예문 번역 표시 여부. 같은 언어쌍은 예문 번역이 논리적으로 예문과 같은 문장이라
  * 무의미하고, 실제로 AI가 예문을 그대로 복사(중복)하거나 영어로 이탈해 저장된
  * 데이터가 존재한다(v5 이전 캐시). 빈 값이거나 예문과 동일 문장이면 숨긴다 —

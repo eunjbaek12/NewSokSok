@@ -12,7 +12,7 @@ import StatusBadge, { StatusBadgeType } from '@/components/ui/StatusBadge';
 import { Radius } from '@/constants/tokens';
 import { AI_GENERATED_TAG } from '@shared/contracts';
 import { displayTag } from '@/lib/tag-display';
-import { deriveDisplayLanguages, getLanguageFlag } from '@/constants/languages';
+import { deriveDisplayLanguages, getLanguageFlag, hasMixedLanguagePairs } from '@/constants/languages';
 
 export function getRelativeTime(timestamp: number | undefined, t: (key: string, opts?: any) => string): string {
   if (!timestamp) return t('listCard.noStudyRecord');
@@ -67,7 +67,9 @@ export default function ListCard({
   }, [planStatus, isAiGenerated, item.isCurated]);
 
   // 대표 출발어→도착어 (단어 최빈 언어, 빈 단어장은 list 메타). 큐레이션 카드와 동일 포맷.
+  // 언어쌍이 섞인 덱은 대표 쌍이 소수 언어 단어를 가리는 오정보라 표시하지 않는다.
   const langPair = React.useMemo(() => {
+    if (hasMixedLanguagePairs(words)) return null;
     const { source, target } = deriveDisplayLanguages(words, item);
     return `${getLanguageFlag(source)} ${source.toUpperCase()} → ${getLanguageFlag(target)} ${target.toUpperCase()}`;
   }, [words, item]);
@@ -131,9 +133,11 @@ export default function ListCard({
           <Text style={[styles.lastStudied, { color: colors.textTertiary }]}>
             {t('listCard.lastStudy', { time: relativeTime })}
           </Text>
-          <Text style={[styles.langPair, { color: colors.textTertiary }]} numberOfLines={1}>
-            {langPair}
-          </Text>
+          {langPair && (
+            <Text style={[styles.langPair, { color: colors.textTertiary }]} numberOfLines={1}>
+              {langPair}
+            </Text>
+          )}
         </View>
         <View style={styles.cardActions}>
           {statusType && <StatusBadge type={statusType} />}

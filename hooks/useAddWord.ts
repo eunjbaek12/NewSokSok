@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import * as Haptics from 'expo-haptics';
 import { addWord, updateWord } from '@/features/vocab';
 import { enrichWord } from '@/lib/translation-api';
-import { composeSenseFill, fitsSaveLimits, type SenseFill } from '@/lib/senses';
+import { composeSenseFill, defaultSenseSelection, fitsSaveLimits, type SenseFill } from '@/lib/senses';
 import type { WordSense } from '@shared/contracts';
 import type { AutoFillResult } from '@/lib/types';
 
@@ -104,15 +104,17 @@ export function useAddWord(listId?: string, wordId?: string, existingWord?: any,
             } else if (hasAny && result) {
                 const senses = result.senses && result.senses.length >= 2 ? result.senses : null;
                 if (senses) {
-                    // 동음이의어: 대표 뜻(①)만 켜진 상태로 채우고 토글 칩을 띄운다.
-                    const fill = composeSenseFill([0], senses, result);
+                    // 동음이의어: 사진/일괄 저장(전 뜻 병기)과 맞춰 기본 전체 선택으로 채우고
+                    // 토글 칩을 띄운다. 한도 초과 시 뒤 순위 뜻부터 제외(최소 ①).
+                    const selected = defaultSenseSelection(senses, result);
+                    const fill = composeSenseFill(selected, senses, result);
                     if (fill.definition) setDefinition(fill.definition);
                     if (fill.meaningKr) setMeaningKr(fill.meaningKr);
                     if (fill.phonetic) setPhonetic(fill.phonetic);
                     if (fill.pos) setPos(fill.pos);
                     if (fill.exampleEn) setExampleEn(fill.exampleEn);
                     if (fill.exampleKr) setExampleKr(fill.exampleKr);
-                    setSenseState({ senses, base: result, term: trimmed, selected: [0] });
+                    setSenseState({ senses, base: result, term: trimmed, selected });
                 } else {
                     if (result.definition) setDefinition(result.definition);
                     if (result.meaningKr) setMeaningKr(result.meaningKr);

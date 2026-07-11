@@ -1,6 +1,7 @@
 import {
   normalizeSenses,
   composeSenseFill,
+  defaultSenseSelection,
   fitsSaveLimits,
   stripSenseMarkers,
   senseChipLabel,
@@ -163,6 +164,32 @@ describe('fitsSaveLimits', () => {
   it('품사 병기가 60자 초과 → 거부 (WordSaveSchema pos 상한 동기)', () => {
     expect(fitsSaveLimits({ ...okFill, pos: 'a'.repeat(60) })).toBe(true);
     expect(fitsSaveLimits({ ...okFill, pos: 'a'.repeat(61) })).toBe(false);
+  });
+});
+
+describe('defaultSenseSelection (검색 직후 기본 선택)', () => {
+  it('전체 병기가 한도 내 → 전부 선택 (사진/일괄 경로와 일치)', () => {
+    expect(defaultSenseSelection([eye, snow, discern], base)).toEqual([0, 1, 2]);
+  });
+
+  it('전체 병기가 한도 초과 → 뒤 순위(저빈도) 뜻부터 제외', () => {
+    const fat = { ...discern, definition: 'a'.repeat(480) }; // ③ 포함 시 definition 500 초과
+    expect(defaultSenseSelection([eye, snow, fat], base)).toEqual([0, 1]);
+  });
+
+  it('2개 병기조차 초과 → 최소 ①만 (기존 초기값과 동일한 바닥)', () => {
+    const fat = { ...snow, exampleEn: 'a'.repeat(290) }; // 병기 시 exampleEn 300 초과
+    expect(defaultSenseSelection([eye, fat], base)).toEqual([0]);
+  });
+
+  it('품사 병기 초과(60자)도 뒤 순위 제외로 이어진다', () => {
+    const longPos = { ...snow, pos: 'x'.repeat(58) }; // ①② 병기 시 pos 60자 초과
+    expect(defaultSenseSelection([eye, longPos], base)).toEqual([0]);
+  });
+
+  it('기본 선택 결과는 항상 저장 한도 검사와 일관 — 2개+ 선택이면 fits 통과', () => {
+    const sel = defaultSenseSelection([eye, snow, discern], base);
+    expect(fitsSaveLimits(composeSenseFill(sel, [eye, snow, discern], base))).toBe(true);
   });
 });
 

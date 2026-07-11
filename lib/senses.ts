@@ -118,6 +118,21 @@ export function fitsSaveLimits(fill: SenseFill): boolean {
   );
 }
 
+// 검색 직후 칩의 기본 선택 집합. 사진 스캔·AI 생성 경로가 전 뜻 병기로 저장하는 것과
+// 맞춰 전체 선택으로 시작한다(경로별 불일치 해소 + 못 알아챈 사용자의 뜻 유실 방지).
+// 전체 병기가 저장 한도를 넘으면 뒤 순위(저빈도) 뜻부터 제외하고, 최소 ①은 한도와
+// 무관하게 유지 — 기존 [0] 초기값과 동일한 바닥이라 저장 실패 케이스가 늘지 않는다.
+export function defaultSenseSelection(
+  senses: readonly WordSense[],
+  base: AutoFillResult,
+): number[] {
+  for (let n = senses.length; n >= 2; n--) {
+    const candidate = senses.slice(0, n).map((_, i) => i);
+    if (fitsSaveLimits(composeSenseFill(candidate, senses, base))) return candidate;
+  }
+  return [0];
+}
+
 // 예문 낭독(TTS) 직전에 병기 번호 기호를 제거한다 — 음성이 "일", "circled one"처럼
 // 기호를 읽는 것을 방지. 표시는 기호 유지, 낭독만 문장으로.
 export function stripSenseMarkers(text: string): string {

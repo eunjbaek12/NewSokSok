@@ -106,6 +106,8 @@ EAS production(autoIncrement), **1.1.4 / build 26 / `ffdcfcb`**. `eas build` →
 
 | 항목 | 트랙 | 비고 |
 |---|---|---|
+| **동음이의어 칩 기본 전체 선택** | 앱 1.1.5 | 사용자 제안(7/11)·검토 찬성. 현재 `selected:[0]`(useAddWord). 사진/일괄 경로는 전체 병기 저장이라 불일치. 한도 초과 시 뒤 순위 뜻부터 제외 폴백(최소 ①) 필수 |
+| **스킨 이름 i18n** | 앱 1.1.5 | SkinSelector가 nameKo 하드코딩 — 영어 UI에서도 "클래식" 한글. nameEn 이미 있음, 앱 언어 따라 분기 |
 | build 26 잔여 검증 + build 27(토글 칩) | — | 위 체크리스트 |
 | 1.1.4 App Store 심사 제출 여부 | 스토어 | 검증 통과 후 결정 |
 | Android 빌드(vCode 갱신) | 스토어 | 같은 커밋 기반 검토 |

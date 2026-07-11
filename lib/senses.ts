@@ -14,7 +14,7 @@ export const CIRCLED_NUMBERS = ['①', '②', '③', '④'] as const;
 
 // WordSaveSchema(shared/contracts.ts)의 저장 상한과 반드시 동기.
 // 병기 조립이 이 한도를 넘으면 저장 자체가 실패하므로 토글 단계에서 거부한다.
-const SAVE_LIMITS = { meaningKr: 300, exampleEn: 300, exampleKr: 300, definition: 500 } as const;
+const SAVE_LIMITS = { meaningKr: 300, exampleEn: 300, exampleKr: 300, definition: 500, pos: 60 } as const;
 
 // AI 응답의 senses를 검증·정규화한다. 뜻이 2개 이상일 때만 배열을 돌려주고,
 // 그 외(없음·1개·비정상)는 null — null이면 UI는 칩 없이 기존 흐름 그대로.
@@ -41,7 +41,8 @@ export interface SenseFill {
 // 선택된 뜻 집합으로 폼에 채울 값을 조립한다. selected는 senses 인덱스(중복 없음 가정).
 // - 1개: 그 뜻의 필드 그대로(번호 없음). 뜻별 필드가 비면 상위(병기) 결과로 보충.
 // - 2개+: 뜻·예문·예문 번역·정의를 ①② 번호로 병기. 번호는 빈도순(인덱스 오름차순)으로
-//   재부여 — ①+③만 골라도 카드엔 ①②. 품사·발음은 첫 선택 기준(뜻마다 대체로 동일).
+//   재부여 — ①+③만 골라도 카드엔 ①②. 품사는 전부 같으면 하나만, 다르면 ①② 병기
+//   (동음이의어는 품사가 다른 경우가 흔하다 — watch: ① verb ② noun). 발음은 첫 선택 기준.
 //   비어 있는 뜻별 필드는 그 필드 목록에서 번호째 생략(뜻 번호와의 대응 유지).
 export function composeSenseFill(
   selected: readonly number[],
@@ -87,12 +88,20 @@ export function composeSenseFill(
       .filter(Boolean)
       .join(' ');
 
+  // 품사: 선택된 뜻들의 pos가 (대소문자 무시) 하나로 모이면 그 값, 갈리면 뜻과 같은
+  // 번호로 병기. 병기 문자열은 pos 필터(lib/pos.ts)가 토큰 단위로 읽어 양쪽 다 매칭된다.
+  const posValues = picks.map(s => (s.pos ?? '').trim());
+  const distinctPos = new Set(posValues.filter(Boolean).map(p => p.toLowerCase()));
+  const pos = distinctPos.size > 1
+    ? numbered('pos')
+    : posValues.find(Boolean) || base.pos || '';
+
   return {
     meaningKr: numbered('meaningKr'),
     definition: numbered('definition'),
     exampleEn: numbered('exampleEn'),
     exampleKr: numbered('exampleKr'),
-    pos: picks[0].pos || base.pos || '',
+    pos,
     phonetic: picks[0].phonetic || base.phonetic || '',
   };
 }
@@ -104,7 +113,8 @@ export function fitsSaveLimits(fill: SenseFill): boolean {
     fill.meaningKr.length <= SAVE_LIMITS.meaningKr &&
     fill.exampleEn.length <= SAVE_LIMITS.exampleEn &&
     fill.exampleKr.length <= SAVE_LIMITS.exampleKr &&
-    fill.definition.length <= SAVE_LIMITS.definition
+    fill.definition.length <= SAVE_LIMITS.definition &&
+    fill.pos.length <= SAVE_LIMITS.pos
   );
 }
 

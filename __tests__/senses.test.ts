@@ -112,6 +112,32 @@ describe('composeSenseFill', () => {
     expect(fill.exampleEn).toBe('① 그녀는 슬픈 눈으로 나를 바라보았다.');
   });
 
+  it('품사가 뜻마다 다르면 뜻과 같은 번호로 병기 (watch: 동사/명사)', () => {
+    const see = { ...eye, meaningKr: 'to watch', pos: 'verb' };
+    const clock = { ...snow, meaningKr: 'watch (timepiece)', pos: 'noun' };
+    const fill = composeSenseFill([0, 1], [see, clock], base);
+    expect(fill.pos).toBe('① verb ② noun');
+  });
+
+  it('품사가 전부 같으면 병기 없이 하나만 (대소문자 차이 무시)', () => {
+    const upper = { ...snow, pos: 'Noun' };
+    const fill = composeSenseFill([0, 1], [eye, upper], base);
+    expect(fill.pos).toBe('noun');
+  });
+
+  it('일부 뜻의 품사가 비고 나머지가 같으면 그 하나만 (번호 없음)', () => {
+    const noPos = { meaningKr: 'snow', pos: '' };
+    const fill = composeSenseFill([0, 1], [eye, noPos], base);
+    expect(fill.pos).toBe('noun');
+  });
+
+  it('일부 뜻의 품사가 비고 나머지가 갈리면 빈 것만 번호째 생략하고 병기', () => {
+    const noPos = { meaningKr: 'snow' };
+    const adj = { ...discern, pos: 'adjective' };
+    const fill = composeSenseFill([0, 1, 2], [eye, noPos, adj], base);
+    expect(fill.pos).toBe('① noun ③ adjective');
+  });
+
   it('빈 선택(방어) → base 그대로', () => {
     const fill = composeSenseFill([], senses, base);
     expect(fill.meaningKr).toBe(base.meaningKr);
@@ -132,6 +158,11 @@ describe('fitsSaveLimits', () => {
   it('정의는 500자까지 허용', () => {
     expect(fitsSaveLimits({ ...okFill, definition: 'a'.repeat(500) })).toBe(true);
     expect(fitsSaveLimits({ ...okFill, definition: 'a'.repeat(501) })).toBe(false);
+  });
+
+  it('품사 병기가 60자 초과 → 거부 (WordSaveSchema pos 상한 동기)', () => {
+    expect(fitsSaveLimits({ ...okFill, pos: 'a'.repeat(60) })).toBe(true);
+    expect(fitsSaveLimits({ ...okFill, pos: 'a'.repeat(61) })).toBe(false);
   });
 });
 

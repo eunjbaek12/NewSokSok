@@ -56,6 +56,12 @@ export default function BatchImportWorkflow({
     const handleEnrichUpdate = (id: string, result: any) => {
         setWords(prev => prev.map(w => {
             if (w.id !== id) return w;
+            // 사전 미등재(isReal=false) 판정 — 사진 스캔과 달리 사용자가 직접
+            // 입력한 단어라 자동 삭제하지 않고 '찾지 못함' 표시로 남긴다(오타
+            // 수정 기회). 빈 필드로 done 처리하면 아무 안내 없이 넘어간다.
+            if (result?.isReal === false) {
+                return { ...w, enrichStatus: 'failed' };
+            }
             if (result) {
                 return {
                     ...w,

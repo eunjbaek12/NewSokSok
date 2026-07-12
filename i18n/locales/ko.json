@@ -268,7 +268,6 @@
   "settings": {
     "title": "설정",
     "account": "계정",
-    "myLearning": "내 학습",
     "guestUser": "게스트 사용자",
     "localStorageInUse": "로컬 저장소 사용 중",
     "sync": "동기화",

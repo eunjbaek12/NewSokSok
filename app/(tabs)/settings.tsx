@@ -277,28 +277,6 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
-        {/* 내 학습 — 통계 화면 진입 행. 요약 스트립(스트릭·외운 단어)은 홈 탭
-            검색창 아래로 이동(상시 노출), 여기는 기존 위치를 기억하는 사용자용 입구만 유지 */}
-        <Pressable
-          onPress={() => {
-            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-            router.push('/stats');
-          }}
-          style={({ pressed }) => [
-            styles.section,
-            styles.row,
-            { marginTop: 20, backgroundColor: colors.surface, borderColor: colors.borderLight, opacity: pressed ? 0.85 : 1 },
-          ]}
-        >
-          <View style={styles.rowLeft}>
-            <View style={[styles.iconCircle, { backgroundColor: colors.warningLight }]}>
-              <Ionicons name="flame-outline" size={18} color={colors.warning} />
-            </View>
-            <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.myLearning')}</Text>
-          </View>
-          <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
-        </Pressable>
-
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.display')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <View style={[styles.skinSelectorRow, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>

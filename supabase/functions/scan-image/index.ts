@@ -14,6 +14,7 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.7';
 import { extractWordsFromImage } from '../_shared/gemini-vertex.ts';
+import { matchesSourceScript } from '../_shared/script-filter.ts';
 import { checkRateLimit } from '../_shared/rate-limit.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
@@ -84,7 +85,13 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const result = await extractWordsFromImage(image, sourceLang);
+    const extracted = await extractWordsFromImage(image, sourceLang);
+    // 프롬프트가 출발어 단어만 요청해도 모델이 사진 속 다른 언어 텍스트를 뽑는
+    // 사례가 있어(ko 덱에 영어 혼입), 문자 체계가 다른 토큰은 반환 전에 제거.
+    const result = extracted.filter((e) => {
+      const word = (e as { word?: unknown })?.word;
+      return typeof word === 'string' && matchesSourceScript(word, sourceLang);
+    });
     return json(200, { result, quota });
   } catch (e) {
     console.error('vertex image extract failed', e);

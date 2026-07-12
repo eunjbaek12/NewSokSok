@@ -268,6 +268,18 @@ const LANG_NAMES_EN: Record<string, string> = {
   en: 'English', ko: 'Korean', ja: 'Japanese', zh: 'Chinese', vi: 'Vietnamese', es: 'Spanish',
 };
 
+// 사진 추출 프롬프트. 교착어(ko/ja)는 사진 텍스트가 활용·조사결합형이라 표면형을
+// 그대로 뽑으면 "하는중입니다" 같은 문장 덩어리가 나온다 → 사전 기본형을 요청한다.
+// 그 외(en/es/vi/zh)는 표면형이 곧 학습 가치라 현행 유지.
+// ⚠️ 클라이언트 lib/gemini-api.ts의 동일 프롬프트와 함께 갱신할 것.
+function buildExtractPrompt(langName: string, sourceLang: string): string {
+  const isAgglutinative = sourceLang === 'ko' || sourceLang === 'ja';
+  const formInstr = isAgglutinative
+    ? `Return each entry in its DICTIONARY BASE FORM (the headword a learner would look up): strip attached particles and verb/adjective conjugation endings. For example, Korean "하는중입니다" → "하다", "학교에서" → "학교"; Japanese conjugated forms → 辞書形 (dictionary form).`
+    : `Preserve each word's surface form exactly as it appears; do not lemmatize.`;
+  return `Extract the ${langName} vocabulary visible in the image. Extract individual vocabulary words only — never full sentences, clauses, or particle-attached phrases. ${formInstr} Only include words written in ${langName}. IGNORE any text in other languages or scripts. Return ONLY a JSON array. Format: [{"word":"..."}]`;
+}
+
 export async function extractWordsFromImage(
   base64Image: string,
   sourceLang: string,
@@ -278,6 +290,7 @@ export async function extractWordsFromImage(
   if (!projectId) throw new Error('VERTEX_PROJECT_ID not configured');
 
   const langName = LANG_NAMES_EN[sourceLang] ?? 'English';
+  const extractPrompt = buildExtractPrompt(langName, sourceLang);
   const token = await getVertexAccessToken();
   const endpoint =
     `https://${location}-aiplatform.googleapis.com/v1/projects/${projectId}` +
@@ -287,7 +300,7 @@ export async function extractWordsFromImage(
     contents: [{
       role: 'user',
       parts: [
-        { text: `Extract every ${langName} word visible in the image, exactly as it appears (preserve surface form, do not lemmatize). Only include words written in ${langName}. IGNORE any text in other languages or scripts. Return ONLY a JSON array. Format: [{"word":"..."}]` },
+        { text: extractPrompt },
         { inlineData: { mimeType: 'image/jpeg', data: base64Image } },
       ],
     }],

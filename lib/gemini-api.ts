@@ -10,6 +10,17 @@ const LANG_NAMES: Record<string, string> = {
     es: 'Spanish',
 };
 
+// 사진 추출 프롬프트(BYOK 경로). 교착어(ko/ja)는 사전 기본형을 요청해 "하는중입니다"
+// 같은 문장 덩어리 추출을 줄인다. 그 외는 표면형 유지.
+// ⚠️ Edge supabase/functions/_shared/gemini-vertex.ts의 buildExtractPrompt와 동일 문구 유지.
+function buildExtractPrompt(langName: string, sourceLang: string): string {
+    const isAgglutinative = sourceLang === 'ko' || sourceLang === 'ja';
+    const formInstr = isAgglutinative
+        ? `Return each entry in its DICTIONARY BASE FORM (the headword a learner would look up): strip attached particles and verb/adjective conjugation endings. For example, Korean "하는중입니다" → "하다", "학교에서" → "학교"; Japanese conjugated forms → 辞書形 (dictionary form).`
+        : `Preserve each word's surface form exactly as it appears; do not lemmatize.`;
+    return `Extract the ${langName} vocabulary visible in the image. Extract individual vocabulary words only — never full sentences, clauses, or particle-attached phrases. ${formInstr} Only include words written in ${langName}. IGNORE any text in other languages or scripts. Return ONLY a JSON array. Format: [{"word":"..."}]`;
+}
+
 const scanEdgeErrorMessage = (kind: string): string => {
     switch (kind) {
         case 'quota_exceeded':
@@ -50,7 +61,7 @@ export const fetchWordsFromImage = async (
         contents: [
             {
                 parts: [
-                    { text: `Extract every ${langName} word visible in the image, exactly as it appears (preserve surface form, do not lemmatize). Only include words written in ${langName}. IGNORE any text in other languages or scripts. Return ONLY a JSON array. Format: [{"word":"..."}]` },
+                    { text: buildExtractPrompt(langName, sourceLang) },
                     {
                         inlineData: {
                             mimeType: "image/jpeg",

@@ -118,10 +118,39 @@ export function matchesSourceScript(term: string, sourceLang: string): boolean {
   }
 }
 
+// ── 문장·구 백스톱 ─────────────────────────────────────────────
+// 교착어(ko/ja)는 사진 텍스트가 활용·조사결합형이라 추출 모델이 "하는중입니다"
+// 같은 문장 덩어리를 뽑기도 한다(추출 프롬프트는 기본형을 요청하지만 LLM이라
+// 100% 보장 못 함). 표제어엔 없는 종결어미·다어절·과도한 길이를 결정론적으로
+// 걸러 카드화 전에 제외한다. 보수적으로 — 오탐(정당한 단어 제거)을 피한다.
+// ⚠️ supabase/functions/_shared/script-filter.ts에 동일 복제본 존재 —
+//    수정 시 함께 갱신 (__tests__/scan-phrase-filter.test.ts 패리티가 검증).
+
+// 표제어엔 나타나지 않는 한국어 종결어미. 기본형 ~다(하다·예쁘다·먹다)는
+// 여기에 없으므로 절대 제외되지 않는다.
+const KO_SENTENCE_ENDING = /(니다|어요|아요|여요|에요|예요|세요|셔요|네요|군요|나요|까요|았어요?|었어요?|였어요?)$/;
+// 일본어 문장 종결(정중·과거). 辞書形(기본형)은 여기에 없다.
+const JA_SENTENCE_ENDING = /(ます|ました|ません|でした|です|でしょう)$/;
+// 단일 어휘 항목이 넘기 어려운 길이(런온 문장 컷). 한국어 최장 합성어도 여유롭게 통과.
+const MAX_WORD_LEN = 24;
+
+// 토큰이 단어가 아니라 문장/구로 보이면 true(=제외).
+export function isLikelyPhrase(term: string, sourceLang: string): boolean {
+  const t = term.trim();
+  if (!t) return false;
+  // 공백으로 3덩어리 이상 = 구/문장. (1공백 다어절 "sinh viên"·"ice cream"은 생존)
+  if (t.split(/\s+/).filter(Boolean).length >= 3) return true;
+  if (t.length > MAX_WORD_LEN) return true;
+  if (sourceLang === 'ko') return KO_SENTENCE_ENDING.test(t);
+  if (sourceLang === 'ja') return JA_SENTENCE_ENDING.test(t);
+  return false;
+}
+
 // 사진에서 추출한 raw 단어 배열 → 학습용 후보로 정제.
 // - trim, lowercase 정규화
 // - 길이 < 2 또는 숫자/기호만인 토큰 제거
 // - 출발어 문자 체계가 아닌 토큰 제거 (ko 덱의 영어 혼입 등)
+// - 문장·구로 보이는 토큰 제거 ("하는중입니다" 등)
 // - 해당 언어의 불용어 제거
 // - 중복 제거 (lowercase 기준)
 // 동작은 결정론적. 입력 순서를 보존.
@@ -137,6 +166,7 @@ export function filterExtractedWords(raw: string[], sourceLang: string): string[
     const isCJK = /[぀-ヿ一-鿿가-힯]/.test(trimmed);
     if (!isCJK && trimmed.length < 2) continue;
     if (!matchesSourceScript(trimmed, sourceLang)) continue;
+    if (isLikelyPhrase(trimmed, sourceLang)) continue;
 
     const key = trimmed.toLowerCase();
     if (seen.has(key)) continue;

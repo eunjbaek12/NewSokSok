@@ -84,5 +84,8 @@ store-assets/screenshots/playstore/raw/**/*.jpg
 assets/marketing/
 assets/images/*.mp4
 
+# 마일스톤 히어로 원본 (Gemini 2048px 생성본, OneDrive 백업. 앱은 512px 리사이즈본만 번들)
+store-assets/milestones-source/
+
 # Supabase CLI 캐시 (link 정보, 버전 캐시 등 로컬 한정)
 supabase/.temp/

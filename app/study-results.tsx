@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback } from 'react';
+import React, { useEffect, useMemo, useCallback, useState } from 'react';
 import { View, Text, Pressable, Platform, StyleSheet, ScrollView, BackHandler } from 'react-native';
 import { router, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -7,7 +7,15 @@ import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { useStudyResultsStore } from '@/features/study';
-import { recordStudySession } from '@/features/stats';
+import {
+  recordStudySession,
+  getStatsSummary,
+  pickMilestone,
+  loadMaxCelebrated,
+  saveMaxCelebrated,
+  MilestoneCelebration,
+  type StreakMilestone,
+} from '@/features/stats';
 
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
@@ -25,6 +33,14 @@ export default function StudyResultsScreen() {
   }>();
 
   const topInset = Platform.OS === 'web' ? insets.top + 67 : insets.top;
+
+  // 스트릭 마일스톤 축하(3·7·30·100·365일). 판정·중복 방지는 features/stats/milestones.ts.
+  const [milestone, setMilestone] = useState<{
+    m: StreakMilestone;
+    streak: number;
+    memorized: number;
+  } | null>(null);
+  const [milestoneVisible, setMilestoneVisible] = useState(false);
 
   const gotItResults = useMemo(() => studyResults.filter(r => r.gotIt), [studyResults]);
   const reviewResults = useMemo(() => studyResults.filter(r => !r.gotIt), [studyResults]);
@@ -52,8 +68,21 @@ export default function StudyResultsScreen() {
           ? Haptics.NotificationFeedbackType.Success
           : Haptics.NotificationFeedbackType.Warning
       );
-      // 세션 완료 = 오늘을 '학습일'로 기록(스트릭·주간 통계). 실패는 조용히 무시.
-      recordStudySession(studyResults.length).catch(() => {});
+      // 세션 완료 = 오늘을 '학습일'로 기록(스트릭·주간 통계) 후 마일스톤 판정.
+      // 실패는 조용히 무시 — 최악이 "축하 팝업이 안 뜸"이라 학습 흐름에 무해.
+      (async () => {
+        try {
+          await recordStudySession(studyResults.length);
+          const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
+          const m = pickMilestone(summary.currentStreak, maxCelebrated);
+          if (!m) return;
+          // 표시 전에 마킹 — 도중 종료 시 재축하보다 1회 누락이 낫다(반복 방지 우선).
+          await saveMaxCelebrated(m);
+          setMilestone({ m, streak: summary.currentStreak, memorized: summary.totalMemorized });
+          // 결과 화면이 자리 잡은 뒤에 등장해야 축하로 읽힌다(진입 전환과 겹침 방지).
+          setTimeout(() => setMilestoneVisible(true), 600);
+        } catch {}
+      })();
     }
   }, []);
 
@@ -181,6 +210,16 @@ export default function StudyResultsScreen() {
           <Text style={[styles.doneBtnText, { color: colors.onPrimary }]}>{t('studyResults.endStudy')}</Text>
         </Pressable>
       </View>
+
+      {milestone && (
+        <MilestoneCelebration
+          visible={milestoneVisible}
+          milestone={milestone.m}
+          streak={milestone.streak}
+          memorized={milestone.memorized}
+          onClose={() => setMilestoneVisible(false)}
+        />
+      )}
     </View>
   );
 }

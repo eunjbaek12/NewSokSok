@@ -40,6 +40,9 @@ export default function StatsScreen() {
   const today = todayStr();
   const currentMonth = monthPrefix();
   const [month, setMonth] = useState(currentMonth);
+  // 달력 셀의 실측 너비(px). 원형 반경 = 이 값의 절반. Android는 '50%'/과대 고정
+  // 반경을 원으로 클램프하지 못하므로 측정한 픽셀 반경을 직접 부여한다.
+  const [calCellSize, setCalCellSize] = useState(0);
 
   // 날짜 탭 상세 시트. dayReqRef는 늦게 도착한 이전 날짜 응답이 시트를 덮는 경합 방지.
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -222,8 +225,13 @@ export default function StatsScreen() {
                     onPress={() => openDay(date)}
                   >
                     <View
+                      onLayout={(e) => {
+                        const w = e.nativeEvent.layout.width;
+                        if (w && Math.abs(w - calCellSize) > 0.5) setCalCellSize(w);
+                      }}
                       style={[
                         styles.calDay,
+                        calCellSize ? { borderRadius: calCellSize / 2 } : null,
                         on && { backgroundColor: colors.primary },
                         isToday && { borderWidth: 2, borderColor: colors.warning },
                       ]}
@@ -421,9 +429,8 @@ const styles = StyleSheet.create({
   calDay: {
     flex: 1,
     alignSelf: 'stretch',
-    // 정사각 셀의 원형 표시. Android는 뷰 크기 대비 과대한 고정 반경(999)을
-    // 클램프하지 못하고 사각형으로 렌더 → 크기 비례 '50%'로 정확한 원 보장.
-    borderRadius: '50%',
+    // 원형 반경은 onLayout으로 측정한 실제 셀 크기의 절반을 픽셀로 부여한다(위 calCellSize).
+    // 정사각 셀이므로 width/2 = 완전한 원. iOS/Android/태블릿 모두 동일하게 동작.
     alignItems: 'center',
     justifyContent: 'center',
   },

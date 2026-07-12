@@ -62,6 +62,13 @@ export default function StatsScreen() {
   }, [summary, currentMonth]);
 
   const grid = useMemo(() => monthGridDates(month), [month]);
+  // 주(7칸) 단위 행으로 분할 렌더 — %너비+flexWrap 7열은 Android 픽셀 반올림으로
+  // 합이 컨테이너를 서브픽셀 초과해 7번째 칸(일)이 다음 줄로 래핑된다.
+  const weeks = useMemo(() => {
+    const rows: (string | null)[][] = [];
+    for (let i = 0; i < grid.length; i += 7) rows.push(grid.slice(i, i + 7));
+    return rows;
+  }, [grid]);
   const prevDisabled = month <= earliestMonth;
   const nextDisabled = month >= currentMonth;
 
@@ -193,45 +200,49 @@ export default function StatsScreen() {
             </Pressable>
           </View>
 
-          <View style={styles.calGrid}>
+          <View style={styles.calRow}>
             {weekdayLabels.map((label, i) => (
               <View key={`dow-${i}`} style={styles.calCell}>
                 <Text style={[styles.calDow, { color: colors.textTertiary }]}>{label}</Text>
               </View>
             ))}
-            {grid.map((date, i) => {
-              if (!date) return <View key={`pad-${i}`} style={styles.calCell} />;
-              const isFuture = date > today;
-              const on = studiedSet.has(date);
-              const isToday = date === today;
-              return (
-                <Pressable
-                  key={date}
-                  style={styles.calCell}
-                  disabled={!on || isFuture}
-                  onPress={() => openDay(date)}
-                >
-                  <View
-                    style={[
-                      styles.calDay,
-                      on && { backgroundColor: colors.primary },
-                      isToday && { borderWidth: 2, borderColor: colors.warning },
-                    ]}
+          </View>
+          {weeks.map((week, w) => (
+            <View key={`week-${w}`} style={styles.calRow}>
+              {week.map((date, i) => {
+                if (!date) return <View key={`pad-${w}-${i}`} style={styles.calCell} />;
+                const isFuture = date > today;
+                const on = studiedSet.has(date);
+                const isToday = date === today;
+                return (
+                  <Pressable
+                    key={date}
+                    style={styles.calCell}
+                    disabled={!on || isFuture}
+                    onPress={() => openDay(date)}
                   >
-                    <Text
+                    <View
                       style={[
-                        styles.calDayNum,
-                        { color: on ? colors.onPrimary : isFuture ? colors.borderLight : colors.textSecondary },
-                        isToday && !on && { color: colors.warning },
+                        styles.calDay,
+                        on && { backgroundColor: colors.primary },
+                        isToday && { borderWidth: 2, borderColor: colors.warning },
                       ]}
                     >
-                      {Number(date.slice(8))}
-                    </Text>
-                  </View>
-                </Pressable>
-              );
-            })}
-          </View>
+                      <Text
+                        style={[
+                          styles.calDayNum,
+                          { color: on ? colors.onPrimary : isFuture ? colors.borderLight : colors.textSecondary },
+                          isToday && !on && { color: colors.warning },
+                        ]}
+                      >
+                        {Number(date.slice(8))}
+                      </Text>
+                    </View>
+                  </Pressable>
+                );
+              })}
+            </View>
+          ))}
 
           <Text style={[styles.calHint, { color: colors.textTertiary }]}>{t('stats.calHint')}</Text>
         </View>
@@ -404,8 +415,8 @@ const styles = StyleSheet.create({
   },
   calArrow: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
   calMonth: { fontSize: 15, fontFamily: 'Pretendard_700Bold' },
-  calGrid: { flexDirection: 'row', flexWrap: 'wrap' },
-  calCell: { width: `${100 / 7}%`, aspectRatio: 1, padding: 3, alignItems: 'center', justifyContent: 'center' },
+  calRow: { flexDirection: 'row' },
+  calCell: { flex: 1, aspectRatio: 1, padding: 3, alignItems: 'center', justifyContent: 'center' },
   calDow: { fontSize: 10.5, fontFamily: 'Pretendard_600SemiBold' },
   calDay: {
     flex: 1,

@@ -87,9 +87,41 @@ export function isStopword(word: string, lang: string): boolean {
   return set.has(word.toLowerCase());
 }
 
+// ── 출발어 스크립트(문자 체계) 검사 ─────────────────────────────
+// 사진 추출 모델이 프롬프트("Extract every Korean word...")를 무시하고 사진 속
+// 다른 언어 텍스트까지 뽑는 실측 사례(ko 덱에 영어 단어 혼입)가 있어, 프롬프트에
+// 기대지 않는 결정론적 필터를 둔다. Hermes의 \p{Script=...} 지원이 불확실해
+// 명시적 유니코드 범위를 쓴다 (아래 isCJK와 같은 방식).
+// ⚠️ supabase/functions/_shared/script-filter.ts에 동일 로직 복제본 존재 —
+//    수정 시 반드시 함께 갱신 (__tests__/stopwords-script.test.ts 패리티 테스트가 검증).
+const HANGUL_RE = /[가-힣ㄱ-ㅎㅏ-ㅣ]/;
+const KANA_RE = /[぀-ヿ]/;
+const HAN_RE = /[一-鿿]/;
+const LATIN_RE = /[A-Za-zÀ-ɏḀ-ỿ]/; // 라틴 기본 + 확장(es 악센트·vi 성조 문자 포함)
+
+// 단어가 출발어의 문자 체계로 적혀 있는지. 같은 라틴 문자끼리(en↔es↔vi)는
+// 구분 불가 — 그 케이스는 enrich isReal 판정에 위임.
+export function matchesSourceScript(term: string, sourceLang: string): boolean {
+  switch (sourceLang) {
+    case 'ko':
+      return HANGUL_RE.test(term);
+    case 'ja':
+      return KANA_RE.test(term) || HAN_RE.test(term);
+    case 'zh':
+      return HAN_RE.test(term) && !KANA_RE.test(term) && !HANGUL_RE.test(term);
+    case 'en':
+    case 'es':
+    case 'vi':
+      return LATIN_RE.test(term) && !HANGUL_RE.test(term) && !KANA_RE.test(term) && !HAN_RE.test(term);
+    default:
+      return true; // 미지원 언어는 판정 불가 — 통과
+  }
+}
+
 // 사진에서 추출한 raw 단어 배열 → 학습용 후보로 정제.
 // - trim, lowercase 정규화
 // - 길이 < 2 또는 숫자/기호만인 토큰 제거
+// - 출발어 문자 체계가 아닌 토큰 제거 (ko 덱의 영어 혼입 등)
 // - 해당 언어의 불용어 제거
 // - 중복 제거 (lowercase 기준)
 // 동작은 결정론적. 입력 순서를 보존.
@@ -104,6 +136,7 @@ export function filterExtractedWords(raw: string[], sourceLang: string): string[
     // CJK 한 글자(漢/がな/한글)는 의미 단위로 인정, 그 외(영문 등)는 2자 이상만
     const isCJK = /[぀-ヿ一-鿿가-힯]/.test(trimmed);
     if (!isCJK && trimmed.length < 2) continue;
+    if (!matchesSourceScript(trimmed, sourceLang)) continue;
 
     const key = trimmed.toLowerCase();
     if (seen.has(key)) continue;

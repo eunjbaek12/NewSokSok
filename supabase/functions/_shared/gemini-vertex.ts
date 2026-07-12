@@ -287,7 +287,7 @@ export async function extractWordsFromImage(
     contents: [{
       role: 'user',
       parts: [
-        { text: `Extract every ${langName} word visible in the image, exactly as it appears (preserve surface form, do not lemmatize). Return ONLY a JSON array. Format: [{"word":"..."}]` },
+        { text: `Extract every ${langName} word visible in the image, exactly as it appears (preserve surface form, do not lemmatize). Only include words written in ${langName}. IGNORE any text in other languages or scripts. Return ONLY a JSON array. Format: [{"word":"..."}]` },
         { inlineData: { mimeType: 'image/jpeg', data: base64Image } },
       ],
     }],

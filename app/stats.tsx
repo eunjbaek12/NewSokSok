@@ -421,7 +421,9 @@ const styles = StyleSheet.create({
   calDay: {
     flex: 1,
     alignSelf: 'stretch',
-    borderRadius: 999,
+    // 정사각 셀의 원형 표시. Android는 뷰 크기 대비 과대한 고정 반경(999)을
+    // 클램프하지 못하고 사각형으로 렌더 → 크기 비례 '50%'로 정확한 원 보장.
+    borderRadius: '50%',
     alignItems: 'center',
     justifyContent: 'center',
   },

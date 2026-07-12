@@ -23,6 +23,7 @@ import { getDb } from '@/lib/db';
 import * as db from './db';
 import { invalidateLists } from './queries';
 import { WordSaveSchema } from '@shared/contracts';
+import { sanitizeWordForSave } from '@/utils/word-sanitize';
 
 // Lenient list-title rule. Kept inline since it's only used at write boundaries
 // inside this module. Matches the strict CHECK constraint on cloud_lists.title.
@@ -195,8 +196,11 @@ export async function addWord(
   listId: string,
   wordData: Omit<Word, 'id' | 'isMemorized'>,
 ): Promise<Word> {
-  WordSaveSchema.parse(wordData);
-  const newWord = await db.addWord(listId, wordData);
+  // 제어문자 제거 + 컬럼별 길이 클램프 후 검증. AI 보강/생성 결과가 저장 한도
+  // (WordSaveSchema)를 넘겨 parse가 throw하던 것을 막는다. utils/word-sanitize.ts.
+  const clean = sanitizeWordForSave(wordData);
+  WordSaveSchema.parse(clean);
+  const newWord = await db.addWord(listId, clean);
   markWordsDirty([newWord.id]);
   // lastStudiedAt-ish fields aren't touched here but the list still needs to
   // show the new word count on the next pull — keep the parent in the set.
@@ -209,8 +213,9 @@ export async function addBatchWords(
   listId: string,
   wordsData: Array<Partial<Omit<Word, 'id' | 'createdAt' | 'updatedAt' | 'listId'>> & { term: string; meaningKr: string }>,
 ): Promise<Word[]> {
-  for (const w of wordsData) WordSaveSchema.parse(w);
-  const words = await db.addBatchWords(listId, wordsData);
+  const clean = wordsData.map(sanitizeWordForSave);
+  for (const w of clean) WordSaveSchema.parse(w);
+  const words = await db.addBatchWords(listId, clean);
   markWordsDirty(words.map(w => w.id));
   markListsDirty([listId]);
   await commit();
@@ -222,8 +227,11 @@ export async function updateWord(
   wordId: string,
   updates: Partial<Omit<Word, 'id'>>,
 ): Promise<Word | null> {
-  WordSaveSchema.partial().parse(updates);
-  const result = await db.updateWord(listId, wordId, updates);
+  // 편집 저장도 같은 경계 정제 — "자동완성으로 채우기"의 AI 결과가 저장 한도를
+  // 넘겨도 통과하도록. 존재하는 문자열 필드만 정제하므로 부분 업데이트에 안전.
+  const clean = sanitizeWordForSave(updates);
+  WordSaveSchema.partial().parse(clean);
+  const result = await db.updateWord(listId, wordId, clean);
   markWordsDirty([wordId]);
   markListsDirty([listId]);
   await commit();

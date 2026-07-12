@@ -8,6 +8,7 @@
 // 가져온 행은 features/vocab의 addBatchWords(→ WordSaveSchema)로 저장되므로,
 // 파싱 단계에서 제어문자 제거(NO_CONTROL)와 컬럼별 길이 제한을 미리 적용해
 // 저장 시 throw를 방지한다.
+import { WORD_SAVE_CAPS, sanitizeWordField } from './word-sanitize';
 
 export interface CsvWordRow {
   term: string;
@@ -25,16 +26,6 @@ export interface CsvWordRow {
 export const CSV_COLUMNS = ['term', 'meaningKr', 'phonetic', 'pos', 'definition', 'exampleEn', 'exampleKr', 'tags'] as const;
 export const CSV_HEADERS_KO = ['단어', '뜻', '발음', '품사', '정의', '예문', '예문뜻', '태그'] as const;
 
-// WordSaveSchema와 동기화된 컬럼별 최대 길이. 변경 시 shared/contracts.ts도 확인.
-const CAPS: Record<string, number> = {
-  term: 50,
-  meaningKr: 300,
-  phonetic: 80,
-  pos: 60,
-  definition: 500,
-  exampleEn: 300,
-  exampleKr: 300,
-};
 const TAG_CAP = 60;
 const TAG_DELIM = ';';
 const BOM = '﻿';
@@ -51,21 +42,10 @@ const HEADER_ALIASES: Record<string, string[]> = {
   tags: ['태그', 'tags', 'tag'],
 };
 
-// 제어문자(NO_CONTROL = U+0000–U+001F, U+007F–U+009F)를 공백으로 치환한 뒤
-// trim + 길이 제한. 소스에 리터럴 제어문자를 두지 않도록 코드포인트로 검사한다.
-function isControl(code: number): boolean {
-  return code <= 0x1f || (code >= 0x7f && code <= 0x9f);
-}
-
-function sanitize(value: string, cap: number): string {
-  let out = '';
-  for (const ch of value) {
-    const code = ch.codePointAt(0) ?? 0;
-    out += isControl(code) ? ' ' : ch;
-  }
-  out = out.trim();
-  return out.length > cap ? out.slice(0, cap) : out;
-}
+// 제어문자 제거 + 길이 클램프는 저장 경계와 공용 헬퍼를 쓴다(단일 소스).
+// CAPS(WordSaveSchema 동기화)도 거기서 가져온다.
+const CAPS = WORD_SAVE_CAPS;
+const sanitize = sanitizeWordField;
 
 // RFC 4180: 콤마·따옴표·개행이 있으면 따옴표로 감싸고 내부 따옴표는 두 개로.
 function escapeField(value: string): string {

@@ -10,11 +10,9 @@ import { useStudyResultsStore } from '@/features/study';
 import {
   recordStudySession,
   getStatsSummary,
-  todayStr,
   pickMilestone,
-  markCelebrated,
-  loadCelebratedMap,
-  saveCelebratedMap,
+  loadMaxCelebrated,
+  saveMaxCelebrated,
   MilestoneCelebration,
   type StreakMilestone,
 } from '@/features/stats';
@@ -75,12 +73,11 @@ export default function StudyResultsScreen() {
       (async () => {
         try {
           await recordStudySession(studyResults.length);
-          const [summary, celebrated] = await Promise.all([getStatsSummary(), loadCelebratedMap()]);
-          const today = todayStr();
-          const m = pickMilestone(summary.currentStreak, celebrated, today);
+          const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
+          const m = pickMilestone(summary.currentStreak, maxCelebrated);
           if (!m) return;
           // 표시 전에 마킹 — 도중 종료 시 재축하보다 1회 누락이 낫다(반복 방지 우선).
-          await saveCelebratedMap(markCelebrated(celebrated, summary.currentStreak, today));
+          await saveMaxCelebrated(m);
           setMilestone({ m, streak: summary.currentStreak, memorized: summary.totalMemorized });
           // 결과 화면이 자리 잡은 뒤에 등장해야 축하로 읽힌다(진입 전환과 겹침 방지).
           setTimeout(() => setMilestoneVisible(true), 600);

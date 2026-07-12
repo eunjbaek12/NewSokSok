@@ -15,7 +15,7 @@ export {
   type DayDetail,
   type DayWordEntry,
 } from './db';
-export { loadCelebratedMap, saveCelebratedMap } from './milestones-storage';
+export { loadMaxCelebrated, saveMaxCelebrated } from './milestones-storage';
 export { useStatsSummary } from './useStats';
 export { default as StatsStrip } from './StatsStrip';
 export { default as MilestoneCelebration } from './MilestoneCelebration';

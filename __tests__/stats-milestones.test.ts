@@ -1,93 +1,54 @@
-import {
-  STREAK_MILESTONES,
-  pickMilestone,
-  markCelebrated,
-  runStartDate,
-  type CelebratedMap,
-} from '../features/stats/milestones';
+import { STREAK_MILESTONES, pickMilestone } from '../features/stats/milestones';
 
-const TODAY = '2026-07-12';
-
-describe('runStartDate', () => {
-  it('스트릭 길이만큼 거슬러 올라간 시작일', () => {
-    expect(runStartDate(1, TODAY)).toBe('2026-07-12');
-    expect(runStartDate(3, TODAY)).toBe('2026-07-10');
-    expect(runStartDate(7, TODAY)).toBe('2026-07-06');
-  });
-
-  it('월·연 경계를 넘어도 정확 (epoch day 산술)', () => {
-    expect(runStartDate(12, TODAY)).toBe('2026-07-01');
-    expect(runStartDate(365, '2026-12-31')).toBe('2026-01-01');
-  });
-});
-
-describe('pickMilestone', () => {
+describe('pickMilestone (평생 최고 기록 갱신 시에만 축하)', () => {
   it('첫 마일스톤(3) 미만은 null', () => {
-    expect(pickMilestone(0, {}, TODAY)).toBeNull();
-    expect(pickMilestone(2, {}, TODAY)).toBeNull();
+    expect(pickMilestone(0, 0)).toBeNull();
+    expect(pickMilestone(2, 0)).toBeNull();
   });
 
   it('정확히 도달한 날 해당 마일스톤 반환', () => {
-    expect(pickMilestone(3, {}, TODAY)).toBe(3);
-    expect(pickMilestone(7, {}, TODAY)).toBe(7);
-    expect(pickMilestone(365, {}, TODAY)).toBe(365);
+    expect(pickMilestone(3, 0)).toBe(3);
+    expect(pickMilestone(7, 0)).toBe(7);
+    expect(pickMilestone(365, 0)).toBe(365);
   });
 
-  it('도달한 것 중 최고 하나만 — 동기화 점프·소급 축하 공용 규칙', () => {
-    expect(pickMilestone(9, {}, TODAY)).toBe(7);
-    expect(pickMilestone(35, {}, TODAY)).toBe(30);
-    expect(pickMilestone(400, {}, TODAY)).toBe(365);
+  it('도달한 것 중 최고 하나만 — 중도 이탈 소급·동기화 점프 공용 규칙', () => {
+    expect(pickMilestone(9, 0)).toBe(7);
+    expect(pickMilestone(40, 0)).toBe(30);
+    expect(pickMilestone(400, 0)).toBe(365);
   });
 
-  it('같은 런에서 이미 축하한 마일스톤은 반복하지 않는다', () => {
-    const celebrated = markCelebrated({}, 7, TODAY);
-    expect(pickMilestone(7, celebrated, TODAY)).toBeNull();
-    // 다음날(스트릭 8) — 런 시작일이 같으므로 여전히 null.
-    expect(pickMilestone(8, celebrated, '2026-07-13')).toBeNull();
+  it('평생 최고와 같은 단계 재도달은 null — 같은 런 다음날도 동일', () => {
+    expect(pickMilestone(7, 7)).toBeNull();
+    expect(pickMilestone(8, 7)).toBeNull();
   });
 
-  it('같은 런에서 다음 마일스톤 도달 시엔 다시 축하', () => {
-    const celebrated = markCelebrated({}, 7, TODAY);
-    // 23일 뒤 스트릭 30 (런 시작일 동일 2026-07-06).
-    expect(pickMilestone(30, celebrated, '2026-08-04')).toBe(30);
+  it('스트릭이 끊겼다 재도달해도 이미 받은 단계는 반복 없음 (핵심 결정)', () => {
+    // 예전 런에서 20일(3·7 축하 완료, max=7) → 끊김 → 새 런.
+    expect(pickMilestone(3, 7)).toBeNull();
+    expect(pickMilestone(7, 7)).toBeNull();
+    // 평생 처음 넘는 고지(30)에서만 다시 축하.
+    expect(pickMilestone(30, 7)).toBe(30);
   });
 
-  it('스트릭이 끊겼다 재도달하면 새 런으로 재축하', () => {
-    const celebrated = markCelebrated({}, 3, TODAY); // 런 시작 7/10
-    // 끊긴 뒤 새 런(시작 8/01)에서 다시 3일 도달.
-    expect(pickMilestone(3, celebrated, '2026-08-03')).toBe(3);
+  it('같은 런에서 다음 단계 도달 시엔 축하 (max를 넘어서므로)', () => {
+    expect(pickMilestone(30, 7)).toBe(30);
+    expect(pickMilestone(100, 30)).toBe(100);
   });
 
-  it('상위 축하 후 하위 마일스톤이 역행해 뜨지 않는다 (전체 마킹 덕분)', () => {
-    // 스트릭 35에서 30 축하 — 3·7·30 전부 마킹됨.
-    const celebrated = markCelebrated({}, 35, TODAY);
-    expect(pickMilestone(36, celebrated, '2026-07-13')).toBeNull();
-    expect(pickMilestone(40, celebrated, '2026-07-17')).toBeNull();
-  });
-});
-
-describe('markCelebrated', () => {
-  it('도달한 모든 마일스톤을 현재 런 시작일로 마킹', () => {
-    const map = markCelebrated({}, 35, TODAY);
-    const runStart = runStartDate(35, TODAY);
-    expect(map['3']).toBe(runStart);
-    expect(map['7']).toBe(runStart);
-    expect(map['30']).toBe(runStart);
-    expect(map['100']).toBeUndefined();
-    expect(map['365']).toBeUndefined();
+  it('상위 축하 후 하위 단계는 어떤 경로로도 다시 뜨지 않는다', () => {
+    // max=30인 사용자: 새 런 3·7일, 소급 점프 어느 쪽도 null.
+    expect(pickMilestone(3, 30)).toBeNull();
+    expect(pickMilestone(9, 30)).toBeNull();
+    expect(pickMilestone(35, 30)).toBeNull();
   });
 
-  it('기존 맵을 변경하지 않고 새 맵 반환 (불변)', () => {
-    const before: CelebratedMap = { '3': '2026-01-01' };
-    const after = markCelebrated(before, 7, TODAY);
-    expect(before).toEqual({ '3': '2026-01-01' });
-    expect(after['3']).toBe(runStartDate(7, TODAY));
-  });
-
-  it('이전 런 기록은 덮어쓴다 — 새 런 재축하의 근거', () => {
-    const old = markCelebrated({}, 3, '2026-01-03'); // 런 시작 1/01
-    const renewed = markCelebrated(old, 3, TODAY); // 런 시작 7/10
-    expect(renewed['3']).toBe('2026-07-10');
+  it('여러 단계를 한 번에 건너뛰어도 팝업은 최고 1개 — 다음 완주에도 안 몰림', () => {
+    // 40일째 첫 완주: 3·7 건너뛰고 30 하나만.
+    const first = pickMilestone(40, 0);
+    expect(first).toBe(30);
+    // 30을 마킹한 다음 완주(41일째): 아무것도 안 뜸.
+    expect(pickMilestone(41, first!)).toBeNull();
   });
 });
 

@@ -35,14 +35,21 @@ export default function StatsStrip({ style }: { style?: StyleProp<ViewStyle> }) 
         <Text style={[styles.statBig, { color: colors.warning }]}>
           🔥 {t('stats.daysValue', { count: stats?.currentStreak ?? 0 })}
         </Text>
-        <Text style={[styles.statCap, { color: colors.textTertiary }]}>{t('stats.streakLabel')}</Text>
+        <Text style={[styles.statCap, { color: colors.textTertiary }]} numberOfLines={1}>{t('stats.streakLabel')}</Text>
+      </View>
+      <View style={[styles.statVDivider, { backgroundColor: colors.borderLight }]} />
+      <View style={styles.statCell}>
+        <Text style={[styles.statBig, { color: colors.text }]}>
+          {t('stats.wordsValue', { count: stats?.todayMemorized ?? 0 })}
+        </Text>
+        <Text style={[styles.statCap, { color: colors.textTertiary }]} numberOfLines={1}>{t('stats.todayMemorized')}</Text>
       </View>
       <View style={[styles.statVDivider, { backgroundColor: colors.borderLight }]} />
       <View style={styles.statCell}>
         <Text style={[styles.statBig, { color: colors.text }]}>
           {t('stats.wordsValue', { count: stats?.totalMemorized ?? 0 })}
         </Text>
-        <Text style={[styles.statCap, { color: colors.textTertiary }]}>{t('stats.memorizedLabel')}</Text>
+        <Text style={[styles.statCap, { color: colors.textTertiary }]} numberOfLines={1}>{t('stats.memorizedLabel')}</Text>
       </View>
       <Ionicons name="chevron-forward" size={18} color={colors.textTertiary} />
     </Pressable>
@@ -62,13 +69,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     gap: 3,
+    paddingHorizontal: 2,
   },
   statBig: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'Pretendard_700Bold',
   },
   statCap: {
-    fontSize: 11.5,
+    fontSize: 11,
     fontFamily: 'Pretendard_500Medium',
   },
   statVDivider: {

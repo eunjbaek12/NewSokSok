@@ -2,6 +2,25 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ Git branch discipline (multiple sessions share ONE working tree)
+
+The operator often runs several Claude sessions against this single checkout at
+the same time. The repo can only have one branch checked out, and uncommitted
+changes follow a branch switch — so if one session switches branches, every other
+session's working tree changes underfoot and it becomes impossible to tell which
+work belongs to which branch. This has already caused a session's edits to appear
+lost. Therefore, unless the user explicitly asks in this session:
+
+- **Do NOT switch branches** (`git switch`/`checkout`), create branches, or
+  `git stash`. Work on — and commit to — whatever branch is currently checked
+  out. If a change really belongs on a different branch, ask the user; don't move
+  it yourself.
+- **Never `git add -A`/`git add .`/`git commit -a`.** Other sessions' uncommitted
+  work is sitting in the same tree. Stage only the explicit file paths you
+  changed (`git commit <path> -m …`).
+- Before committing, run `git status` and confirm every path you're staging is
+  yours. Leave everything else alone.
+
 ## Commands
 
 ```bash

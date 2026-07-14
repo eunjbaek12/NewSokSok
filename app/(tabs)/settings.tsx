@@ -28,7 +28,7 @@ import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
-import { openStoreReview } from '@/features/reviews';
+import { requestManualReview } from '@/features/reviews';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
@@ -378,7 +378,7 @@ export default function SettingsScreen() {
             style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              openStoreReview();
+              requestManualReview();
             }}
           >
             <View style={styles.rowLeft}>

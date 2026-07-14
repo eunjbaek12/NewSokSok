@@ -20,7 +20,7 @@ import {
   shareStatsCard,
   saveStatsCard,
 } from '@/features/stats';
-import { openStoreReview } from '@/features/reviews';
+import { requestManualReview } from '@/features/reviews';
 
 export default function StatsScreen() {
   const insets = useSafeAreaInsets();
@@ -143,7 +143,7 @@ export default function StatsScreen() {
 
   const handleRate = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    openStoreReview();
+    requestManualReview();
   };
 
   return (

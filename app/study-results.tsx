@@ -16,6 +16,7 @@ import {
   MilestoneCelebration,
   type StreakMilestone,
 } from '@/features/stats';
+import { maybeRequestReview, MEMORIZED_THRESHOLD } from '@/features/reviews';
 
 export default function StudyResultsScreen() {
   const { t } = useTranslation();
@@ -75,7 +76,12 @@ export default function StudyResultsScreen() {
           await recordStudySession(studyResults.length);
           const [summary, maxCelebrated] = await Promise.all([getStatsSummary(), loadMaxCelebrated()]);
           const m = pickMilestone(summary.currentStreak, maxCelebrated);
-          if (!m) return;
+          if (!m) {
+            // 마일스톤이 없는 세션 — 충분히 몰입한 사용자(누적 암기 임계 이상)에게만
+            // 리뷰 요청 시도. 스트릭 없이 한 번에 몰아 외운 열정 신규 사용자를 커버한다.
+            if (summary.totalMemorized >= MEMORIZED_THRESHOLD) maybeRequestReview();
+            return;
+          }
           // 표시 전에 마킹 — 도중 종료 시 재축하보다 1회 누락이 낫다(반복 방지 우선).
           await saveMaxCelebrated(m);
           setMilestone({ m, streak: summary.currentStreak, memorized: summary.totalMemorized });
@@ -217,7 +223,13 @@ export default function StudyResultsScreen() {
           milestone={milestone.m}
           streak={milestone.streak}
           memorized={milestone.memorized}
-          onClose={() => setMilestoneVisible(false)}
+          onClose={() => {
+            setMilestoneVisible(false);
+            // 축하를 닫는 순간 = 최고 기분. 축하 모달 페이드아웃이 끝난 뒤 네이티브 리뷰
+            // 팝업(별점만)을 조용히 시도(시스템 시트가 모달 dismiss와 겹치지 않게).
+            // maybeRequestReview는 컴포넌트 상태를 안 건드려 언마운트 후 실행돼도 안전.
+            setTimeout(() => maybeRequestReview(), 500);
+          }}
         />
       )}
     </View>

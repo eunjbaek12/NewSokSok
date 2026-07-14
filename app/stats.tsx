@@ -20,6 +20,7 @@ import {
   shareStatsCard,
   saveStatsCard,
 } from '@/features/stats';
+import { openStoreReview } from '@/features/reviews';
 
 export default function StatsScreen() {
   const insets = useSafeAreaInsets();
@@ -138,6 +139,11 @@ export default function StatsScreen() {
     if (outcome === 'saved') Alert.alert(t('shareCard.savedTitle'), t('shareCard.saved'));
     else if (outcome === 'denied') Alert.alert(t('shareCard.saveDeniedTitle'), t('shareCard.saveDenied'));
     else if (outcome === 'error') Alert.alert(t('stats.share'), t('shareCard.shareError'));
+  };
+
+  const handleRate = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    openStoreReview();
   };
 
   return (
@@ -284,6 +290,13 @@ export default function StatsScreen() {
         <Pressable onPress={handleSave} disabled={busy} style={styles.saveBtn}>
           <Ionicons name="download-outline" size={16} color={colors.textSecondary} />
           <Text style={[styles.saveText, { color: colors.textSecondary }]}>{t('shareCard.save')}</Text>
+        </Pressable>
+
+        {/* 앱 평가하기 — 스트릭 보러 오는 몰입 사용자가 모이는 화면. 스토어 리스팅으로
+            이동해 별점만으로 응원(글 안 써도 됨). */}
+        <Pressable onPress={handleRate} style={styles.rateBtn}>
+          <Ionicons name="star-outline" size={15} color={colors.warning} />
+          <Text style={[styles.rateText, { color: colors.textSecondary }]}>{t('stats.rateApp')}</Text>
         </Pressable>
       </ScrollView>
 
@@ -467,6 +480,15 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   saveText: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold' },
+  rateBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 12,
+    marginTop: 2,
+  },
+  rateText: { fontSize: 13.5, fontFamily: 'Pretendard_600SemiBold' },
   offscreen: { position: 'absolute', left: -10000, top: 0 },
 
   sheetRoot: { flex: 1, justifyContent: 'flex-end' },

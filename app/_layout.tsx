@@ -17,6 +17,7 @@ import { useFonts } from "expo-font";
 import { Jua_400Regular } from "@expo-google-fonts/jua";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import { useQuotaStore } from "@/features/quota";
+import { reconcileSubscriptionOnLaunch } from "@/features/billing";
 import { initAdMob } from "@/lib/ads/admob";
 import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
 import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
@@ -99,6 +100,9 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (isCloudAuthMode(authMode)) {
       useQuotaStore.getState().refresh(true);
+      // 구독 갱신 반영 gap 보완: 세션당 1회, 구독 이력+만료 임박 유저만 조용히
+      // 재검증(내부 자체 게이트). fire-and-forget — 실패해도 UI 영향 없음.
+      void reconcileSubscriptionOnLaunch();
     } else {
       useQuotaStore.getState().clear();
     }

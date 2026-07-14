@@ -28,6 +28,7 @@ import { useQuota, getProMode, getTrialDaysLeft } from '@/features/quota';
 import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
+import { requestManualReview } from '@/features/reviews';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
@@ -373,6 +374,26 @@ export default function SettingsScreen() {
 
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.info')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <Pressable
+            style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              requestManualReview();
+            }}
+          >
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.warningLight }]}>
+                <Ionicons name="star-outline" size={18} color={colors.warning} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.rateApp')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]} numberOfLines={1}>
+                  {t('settings.rateAppDesc')}
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="open-outline" size={16} color={colors.textTertiary} />
+          </Pressable>
           <Pressable
             style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}
             onPress={() => {

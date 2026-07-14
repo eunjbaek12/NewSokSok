@@ -2,7 +2,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Stack, router, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect, useState } from "react";
-import { ImageBackground, StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -29,6 +29,11 @@ import { useReviewNotificationScheduler } from '@/features/study/review/use-revi
 
 SplashScreen.preventAutoHideAsync();
 
+// 브랜드 스플래시(splash-full.png) 노출 시간. 앱 트리는 이 뒤에서 이미 마운트되어
+// hydrate·SQLite 마이그레이션·클라우드 동기화를 진행하므로, 이 시간은 초기화와
+// 겹쳐 소비된다(초기화를 뒤로 미루지 않는다).
+const SPLASH_MS = 1500;
+
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     Pretendard_400Regular: require("../assets/fonts/Pretendard-Regular.otf"),
@@ -37,28 +42,19 @@ export default function RootLayout() {
     Pretendard_700Bold: require("../assets/fonts/Pretendard-Bold.otf"),
     Jua_400Regular,
   });
-  const [splashDone, setSplashDone] = useState(false);
+  const [splashElapsed, setSplashElapsed] = useState(false);
 
+  // 타이머는 마운트 즉시 시작한다. 스플래시 이미지 자체는 폰트가 필요 없으므로
+  // 폰트 로딩(수백 ms)과 노출 시간이 겹친다 — 예전처럼 더해지지 않는다.
   useEffect(() => {
     SplashScreen.hideAsync();
+    const t = setTimeout(() => setSplashElapsed(true), SPLASH_MS);
+    return () => clearTimeout(t);
   }, []);
 
-  useEffect(() => {
-    if (fontsLoaded) {
-      const t = setTimeout(() => setSplashDone(true), 1500);
-      return () => clearTimeout(t);
-    }
-  }, [fontsLoaded]);
-
-  if (!splashDone) {
-    return (
-      <ImageBackground
-        source={require("../assets/images/splash-full.png")}
-        style={styles.splash}
-        resizeMode="cover"
-      />
-    );
-  }
+  // 폰트가 아직이면 노출 시간이 지나도 스플래시를 유지한다. 그동안 아래 트리는
+  // 폴백 폰트로 렌더되지만 스플래시에 완전히 가려져 보이지 않는다.
+  const showSplash = !splashElapsed || !fontsLoaded;
 
   return (
     <SafeAreaProvider>
@@ -82,6 +78,19 @@ export default function RootLayout() {
           </QueryClientProvider>
         </LocaleProvider>
       </ErrorBoundary>
+      {showSplash && (
+        <View
+          style={[StyleSheet.absoluteFill, styles.splash]}
+          // 가려진 UI가 눌리지 않도록 스플래시가 터치를 흡수한다.
+          onStartShouldSetResponder={() => true}
+        >
+          <ImageBackground
+            source={require("../assets/images/splash-full.png")}
+            style={StyleSheet.absoluteFill}
+            resizeMode="cover"
+          />
+        </View>
+      )}
     </SafeAreaProvider>
   );
 }
@@ -237,7 +246,10 @@ function AppStack() {
 
 const styles = StyleSheet.create({
   splash: {
-    flex: 1,
     backgroundColor: "#2A7B78",
+    // 형제 오버레이라 Android에서는 elevation이 큰 하위 뷰(탭바 등)에 가려질 수
+    // 있다. zIndex(iOS)와 elevation(Android)을 함께 올려 항상 최상단에 둔다.
+    zIndex: 10,
+    elevation: 10,
   },
 });

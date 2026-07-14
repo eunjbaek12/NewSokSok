@@ -100,8 +100,10 @@ export function useVocabBootstrap(): void {
         // and sync watermark belong to that other account — wipe them so the
         // pull below repopulates from this account instead of leaking the old
         // account's words.
+        let accountSwitched = false;
         const prevId = await AsyncStorage.getItem(LAST_GOOGLE_ID_KEY);
         if (prevId && prevId !== user.id) {
+          accountSwitched = true;
           await clearAllData();
           await useSyncStore.getState().resetAll();
           // Mirror logout's account-scoped settings + quota clear so nickname,
@@ -144,7 +146,30 @@ export function useVocabBootstrap(): void {
         // Restore pending (un-pushed) dirty ids so a delete/edit made just
         // before a reload or crash still reaches the cloud on this launch.
         await useSyncStore.getState().hydrateDirty();
-        await loadCloudData();
+
+        // 클라우드 왕복(pull 드레인 + push)은 홈을 막을 이유가 없다 — 평상시
+        // 실행에서는 로컬 SQLite에 이미 이 계정의 데이터가 그대로 있으므로 그
+        // 스냅샷으로 홈을 먼저 그리고, 동기화는 뒤에서 돌린 뒤 끝나면 목록을
+        // 무효화해 화면을 갱신한다. 앱 시작 때마다 네트워크가 끝날 때까지
+        // 스피너만 보이던 게 이 await였다.
+        //
+        // 단, 로컬에 보여줄 게 없는 두 경우는 그대로 기다린다:
+        //  - 첫 동기화(lastPulledAt === 0): 아직 아무것도 안 받아왔다. 첫 로그인
+        //    conflict Alert(합치기/클라우드 유지)도 이 경로라 반드시 blocking.
+        //  - 계정 전환: 바로 위에서 clearAllData()로 로컬을 비웠다. 기다리지 않으면
+        //    빈 홈이 잠깐 보였다가 채워진다.
+        const needsBlockingSync =
+          accountSwitched || useSyncStore.getState().lastPulledAt === 0;
+
+        if (needsBlockingSync) {
+          await loadCloudData();
+        } else {
+          void loadCloudData()
+            .then(() => {
+              if (!cancelled) return invalidateLists();
+            })
+            .catch(e => console.warn('[bootstrap] background sync failed:', e?.message ?? e));
+        }
       } else {
         // Intentionally KEEP @soksok_last_google_id across logout/guest. It is
         // the input to the account-switch guard above, so preserving it lets

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1024px;height:1024px;overflow:hidden;}
+  body{
+    font-family:'Segoe UI','Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    background:linear-gradient(158deg,#FBF6EA 0%,#F3EAD3 52%,#E4EED2 100%);
+    position:relative;
+  }
+  /* 배경 소프트 블롭 */
+  .blob{
+    position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);
+    width:720px;height:720px;border-radius:50%;
+    background:radial-gradient(circle at 50% 40%,rgba(167,199,127,0.38),rgba(167,199,127,0) 68%);
+    filter:blur(2px);
+  }
+  .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+    justify-content:space-between;padding:78px 70px 84px;}
+  .tag{
+    display:inline-flex;align-items:center;gap:12px;
+    background:#6E9A47;color:#fff;font-weight:800;font-size:34px;letter-spacing:4px;
+    padding:16px 34px;border-radius:999px;box-shadow:0 10px 24px rgba(110,154,71,0.34);
+  }
+  .tag .dot{width:14px;height:14px;border-radius:50%;background:#D9EBB6;}
+  .char{width:560px;height:560px;object-fit:contain;
+    filter:drop-shadow(0 30px 34px rgba(90,110,60,0.30));margin-top:-6px;}
+  .foot{display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .word{font-size:150px;font-weight:900;line-height:0.9;color:#3E5A2A;letter-spacing:-3px;}
+  .sub{font-size:36px;font-weight:800;color:#6E9A47;letter-spacing:7px;
+    padding:10px 26px;border:3px solid #A7C77F;border-radius:999px;}
+</style></head>
+<body>
+  <div class="blob"></div>
+  <div class="wrap">
+    <div class="tag"><span class="dot"></span>MONTHLY</div>
+    <img class="char" src="../../assets/images/Avocado-3D-clean.png">
+    <div class="foot">
+      <div class="word">Pro</div>
+      <div class="sub">AD-FREE</div>
+    </div>
+  </div>
+</body>
+</html>

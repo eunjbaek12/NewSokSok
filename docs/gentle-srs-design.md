@@ -415,20 +415,25 @@ iPhone 13 mini(375×812) 실측 — `app/(tabs)/index.tsx` 기준:
 INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NULL/0)로 초기화된다.**
 복습 컬럼을 빠뜨리면 pull이 돌 때마다 진도가 지워지고 → NULL이라 due가 안 되고 → **앱은 멀쩡해 보인다.**
 
-**복원 경로 3곳(전부 갱신 완료):**
+**복원 경로 = pull 하나(갱신 완료):**
 
 | 위치 | 언제 |
 |---|---|
 | `features/sync/engine.ts` pull `INSERT OR REPLACE INTO words` | 동기화마다 |
-| `features/vocab/db.ts` `mergeCloudData` | 첫 로그인(병합 선택) |
-| `features/vocab/db.ts` `replaceLocalWithCloudData` | 첫 로그인(클라우드 선택) — 로컬 words를 전부 지우고 재삽입 |
+
+첫 로그인 "클라우드 선택"도 별도 복원 함수를 쓰지 않는다 — `features/sync/first-login.ts`가
+`clearAllData` 후 `pullChanges`를 불러 위 INSERT를 그대로 탄다. (한때 `db.ts`에
+`mergeCloudData`/`replaceLocalWithCloudData`가 있었으나 contexts→features 리팩터 때
+호출자를 잃은 죽은 코드였고, 2026-07-17 삭제했다. 죽은 코드에 복습 컬럼을 실어두면
+"복원 경로가 지켜지고 있다"는 착시만 준다.)
 
 **새 단어를 만드는 INSERT(addWord·addBatchWords·createCuratedList·copyWords·mergeLists·샘플 시드)는
 복습 컬럼을 넣지 않는 것이 맞다** — 미암기로 시작하므로 NULL/0이 정답.
 
 🛡️ **`__tests__/review-sync-columns.test.ts`가 이 규칙을 강제한다.** 소스의 INSERT 컬럼 목록을 읽어
-복원 경로 3곳에 복습 컬럼이 있는지 검사한다. 전례(컬럼 추가 시 매퍼 누락 → `sourceLanguage`가 새어
-일본어 TTS 무음)를 자동화한 가드다. **`words`에 새 컬럼을 추가할 때 이 테스트를 함께 볼 것.**
+복원 경로(pull)에 복습 컬럼이 있는지, 새 단어 생성 INSERT엔 없는지 검사한다. 전례(컬럼 추가 시
+매퍼 누락 → `sourceLanguage`가 새어 일본어 TTS 무음)를 자동화한 가드다.
+**`words`에 새 컬럼을 추가할 때 이 테스트를 함께 볼 것.**
 
 - **매퍼 4곳도 함께 갱신됨:** `wordToCloudRow`(push) · `dbRowToWord`(pull) · `cloudWordToWord` ·
   `engine.ts:rowToWord`(로컬 행 → push 도메인). 계약: `shared/contracts.ts`의 `WordSchema` / `CloudWordSchema`.

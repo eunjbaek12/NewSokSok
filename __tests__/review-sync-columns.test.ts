@@ -36,9 +36,12 @@ function restoreInsertColumnLists(relPath: string): string[][] {
   return found;
 }
 
+// 클라우드에서 단어를 복원하는 경로는 pull 하나뿐이다. 첫 로그인 "클라우드 선택"도
+// features/sync/first-login.ts가 clearAllData 후 pullChanges를 부르는 방식이라 결국 이
+// INSERT를 탄다. (한때 db.ts에 mergeCloudData/replaceLocalWithCloudData가 있었으나
+// contexts→features 리팩터 때 호출자를 잃은 죽은 코드였고 삭제했다.)
 const RESTORE_PATHS: { path: string; expected: number; label: string }[] = [
   { path: 'features/sync/engine.ts', expected: 1, label: 'pull (INSERT OR REPLACE — 행 전체 교체)' },
-  { path: 'features/vocab/db.ts', expected: 2, label: 'mergeCloudData / replaceLocalWithCloudData (첫 로그인)' },
 ];
 
 /** 이 값들이 빠지면 복습 기능이 조용히 죽는다. */

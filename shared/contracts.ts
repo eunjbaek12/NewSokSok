@@ -85,6 +85,28 @@ export const AiCurationSettingsSchema = z.object({
 });
 export type AiCurationSettings = z.infer<typeof AiCurationSettingsSchema>;
 
+/**
+ * 복습 알림(gentle SRS §8.3). 설정은 딱 두 줄 — 토글 하나와 시간 하나.
+ * 간격·상한 같은 기계는 노출하지 않는다(P3).
+ *
+ * `enabled` 기본값이 false인 이유: 켜는 행위가 곧 OS 권한 요청의 방아쇠다(§8.4).
+ * true로 시작하면 권한이 없는 동안 "켜져 있는데 안 오는" 모순 상태가 된다.
+ *
+ * 시간에 밤 제한을 두지 않는다(§8.2): 조용한 시간대는 iOS 집중 모드 / Android
+ * 방해 금지가 이미 담당한다. 앱이 중복 구현하면 시간 설정과 모순만 낳는다.
+ */
+export const ReviewNotificationSettingsSchema = z.object({
+  enabled: z.boolean().default(false),
+  hour: z.number().int().min(0).max(23).default(20),
+  minute: z.number().int().min(0).max(59).default(0),
+  /**
+   * soft ask 시트를 이미 띄웠는가. 한 번만 묻고 다시 조르지 않는다(§8.4) —
+   * "나중에"도 존중이며, 사용자는 설정에서 언제든 켤 수 있다.
+   */
+  softAsked: z.boolean().default(false),
+});
+export type ReviewNotificationSettings = z.infer<typeof ReviewNotificationSettingsSchema>;
+
 export const AutoPlaySettingsSchema = z.object({
   filter: z.enum(['all', 'learning', 'memorized']).default('all'),
   isStarred: z.boolean().default(false),

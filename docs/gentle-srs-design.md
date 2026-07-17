@@ -1,7 +1,8 @@
 # Gentle SRS — 설계 문서 (부드러운 복습)
 
-> **상태: CORE + UX 구현됨 · ENGINE(알림) · SYNC 미착수 (2026-07-17 갱신).** 1.2.0급 "큰 업데이트"의 헤드라인.
-> 범위는 **완성형** = MVP(홈 원탭) + 로컬 알림 + 클라우드 동기화. 진행 현황은 §9.
+> **상태: CORE · UX · ENGINE · SYNC 전부 구현됨 — 실기 검증 대기 (2026-07-17 갱신).** 1.2.0급 "큰 업데이트"의 헤드라인.
+> 범위는 **완성형** = MVP(홈 원탭) + 로컬 알림 + 클라우드 동기화. 진행 현황·구현 위치는 §9.
+> 서버 마이그레이션은 배포 완료. 알림은 네이티브 모듈이라 **새 기기 빌드가 필요**하다.
 > 이전 "보류" 판단과 초기 설계(필터 방식·암기 유지 규칙)는 **폐기**됐다. 아래 §0을 먼저 볼 것.
 >
 > ⚠️ **구현하며 뒤집힌 규칙이 4개 있다**(D13~D16, §0.1). 초기 설계대로 두면 기능이 조용히 죽는
@@ -447,6 +448,26 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
 ### 8.1 발송 규칙
 
 - **방식:** `expo-notifications` **로컬** 스케줄 (서버·푸시 인프라 불필요).
+
+#### 8.1.1 ⚠️ "due=0이면 안 보냄"을 어떻게 지키나 (구현 핵심)
+
+**"매일 저녁 8시 반복 알림" 하나로는 이 약속을 지킬 수 없다.** 로컬 알림은 OS가 미리 잡아두고
+발사하는 구조라, **8시에 우리 코드가 깨어나 "오늘 복습할 게 있나?"를 확인할 방법이 없다.**
+반복 트리거를 쓰면 복습거리가 없는 날에도 부르게 되어 §8.3의 약속이 거짓말이 된다.
+
+**해법: 미래의 due를 미리 계산해, 실제로 복습거리가 있을 날짜만 골라 일정을 잡는다.**
+(`features/study/review/notification-plan.ts` — 순수 모듈)
+
+- **이 예측이 정확한 이유:** due는 `isMemorized`·`lastReviewedAt`·`reviewSuccessCount`로만
+  결정되고 그 값들은 **학습해야만 바뀐다.** 앱을 안 열면 예측은 근사가 아니라 **정확**하다
+  (시간이 흐르면 due는 늘기만 한다). 학습하면 그 순간 앱이 켜져 있으므로 다시 계획한다.
+- **어긋나는 유일한 경우:** 다른 기기에서 학습(동기화 전). "복습거리가 없는데 부르는" 쪽으로만
+  틀리고 pull 이후 스스로 교정된다.
+- **14일치를 잡아둔다.** 하나만 잡으면 안 된다 — 알림의 목적이 **앱을 안 여는 사용자를 데려오는
+  것**인데, 첫 알림 발사 후 앱을 안 열면 다음 일정을 잡아줄 사람이 없어 영영 조용해진다.
+  iOS 대기 알림 상한 64개 대비 여유.
+- **재계획은 전체 취소 후 재생성.** 학습 한 번에 여러 날의 예측이 동시에 바뀌므로 증분 추적이
+  재생성보다 비싸고 틀리기 쉽다. 15개 남짓이라 값싸다. 데이터·설정 변경 시 디바운스(1.5초).
 - **시간: 기본 저녁 8시(20:00)** — 설정에서 변경 가능(§8.3).
   - 근거: 퇴근·하교 후 잠들기 전, 국내 학습 시간대로 가장 무난. Duolingo 기본값도 저녁 7~8시대.
   - due는 **날짜 단위**로 계산되므로 하루 중 어느 시각이든 무방 — 그래서 시각은 순수 UX 선택.
@@ -511,7 +532,7 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
 |---|---|---|
 | **CORE** | ✅ 구현 | migration 018(`lastReviewedAt`+`reviewSuccessCount`+매퍼+시드) · 후보 선정(§4.3) · 간격 사다리(§4.2) |
 | **UX** | ✅ 구현 | 홈 컴팩트 배너(§5.2, due>0일 때만 · 아보카도 그린 · 퀵액션 위) · due 0이면 완전 숨김(§5.3) · 기존 카드학습 재사용 + 세션 커밋에서 `lastReviewedAt` 갱신 · "다시 볼게요"=미암기 일관(§4.5) |
-| **ENGINE** | ⬜ 미착수 | 로컬 알림 1일 1회 · 기본 저녁 8시(§8.1) · 2단계 soft ask 권한(§8.4) · 설정 2줄(토글+시간, §8.3) |
+| **ENGINE** | ✅ 구현 | 로컬 알림 1일 1회 · 기본 저녁 8시(§8.1) · 2단계 soft ask 권한(§8.4) · 설정 2줄(토글+시간, §8.3) |
 | **SYNC** | ✅ 구현 (⚠️ 서버 미배포) | `lastReviewedAt` 클라우드 LWW(§7) · 복원 경로 3곳 + 매퍼 4곳 · 가드 테스트 |
 
 **구현 위치 (CORE·UX):**
@@ -527,14 +548,26 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
 | `constants/colors.ts` `reviewGradient` | 아보카도 그린(대비 실측 반영 — §5.2 주의) |
 | `supabase/migrations/20260717000000_review_sync.sql` | `cloud_words` 컬럼 2개 — **아직 미배포** |
 | `features/sync/mapping.ts` · `engine.ts` | push/pull 매퍼 + 복원 INSERT(§7.1) |
+| `features/study/review/notification-plan.ts` | **알림 계획(순수)** — 어느 날 몇 개(§8.1.1) |
+| `features/study/review/notifications.ts` | expo-notifications 래퍼 · 권한 · 채널 |
+| `features/study/review/use-review-notifications.ts` | 일정 유지(디바운스) + soft ask 트리거 |
+| `features/study/review/ReviewNotifySoftAsk.tsx` | 2단계 soft ask 시트(§8.4) |
+| `features/study/review/notify-time.ts` | 시각 선택 30분 간격 48개 · 표기 |
+| `app/(tabs)/settings.tsx` | 복습 알림 섹션(토글+시간+각주) |
+| `app/_layout.tsx` | 알림 탭 → 홈 라우팅(콜드 스타트 포함) |
 
-**테스트:** `__tests__/review-engine.test.ts`(사다리·은퇴·정렬·일생 타임라인) ·
+**테스트:** `__tests__/review-notification-plan.test.ts`(빈 날 안 부르기·상한·2주치) ·
+`__tests__/review-engine.test.ts`(사다리·은퇴·정렬·일생 타임라인) ·
 `__tests__/migration-018-review-seed.test.ts`(실제 SQLite에 001→018 재생) ·
 `__tests__/session-results.test.ts`(전진 게이트) · `__tests__/sync-mapping.test.ts`(push/pull 왕복) ·
 `__tests__/review-sync-columns.test.ts`(복원 경로 컬럼 가드 — §7.1).
 
-**남은 실기 검증:** 배너 실제 높이·간격(§5.2.1, §10.4) · `recordReviewOutcomes`의 SQL과
-동기화 왕복은 기기 빌드에서 첫 확인.
+**남은 실기 검증(전부 기기 빌드에서 첫 확인):**
+- 배너 실제 높이·간격(§5.2.1, §10.4) — 설계가 "구현 전 실제 컴포넌트 높이로 다시 확인할 것"이라 경고한 부분.
+- `recordReviewOutcomes` SQL · 동기화 왕복(push/pull).
+- **알림 전체** — `expo-notifications`는 네이티브 모듈이라 새 빌드 필요. 확인할 것:
+  권한 soft ask 2단계 · 실제 발사 시각 · Android 알림 아이콘(모노크롬 실루엣이 흰 뭉치로 안 나오는지) ·
+  탭 → 홈 라우팅(콜드 스타트 포함) · 복습거리 없는 날 안 오는지.
 
 ⚠️ **배포 필요:** `supabase/migrations/20260717000000_review_sync.sql`을 올려야 SYNC가 실제로 동작한다.
 안 올리면 push의 upsert가 없는 컬럼을 보내 실패한다 — **단어 동기화 전체가 막힌다**(dirty가 안 빠짐).
@@ -558,7 +591,8 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
 4. 복습 배너 · StatsStrip · 퀵액션의 최종 간격값(§5.2의 비대칭 여백)을 실기기에서 확정.
    현재 구현값: 배너 `marginTop: 6` / `marginBottom: 8`(위 넓게·아래 좁게).
 5. 알림 기본 시각(저녁 8시) 검증 — 실제 학습 시간대 데이터가 쌓이면 재검토.
-6. Android 알림 권한(13+ `POST_NOTIFICATIONS`) 요청 흐름 — iOS와 동일한 soft ask로 통일할지.
+6. ~~Android 알림 권한(13+ `POST_NOTIFICATIONS`) 요청 흐름~~ → **iOS와 동일한 soft ask로 통일.**
+   `requestPermissionsAsync`가 양 플랫폼을 함께 처리하고, 플러그인이 매니페스트 권한을 넣는다.
 
 > 해결됨(§8로 이동): ~~알림 권한 요청 타이밍·화면~~(D11) · ~~설정 토글 위치·문구~~(D9).
 

@@ -1372,5 +1372,25 @@
   "skinClassic": "Classic",
   "skinDark": "Dark",
   "skinY2k": "Y2K",
-  "skinLab": "Lab"
+  "skinLab": "Lab",
+  "reviewNotif": {
+    "channelName": "Review reminders",
+    "title": "{{count}} words ready for review 🌱",
+    "body": "We gathered the words you're about to forget. Three minutes is plenty.",
+    "settingsSection": "Review reminders",
+    "enableLabel": "Get review reminders",
+    "enableSub": "Only when you have words to review",
+    "timeLabel": "Reminder time",
+    "timeSub": "Once a day",
+    "footnote": "We don't send anything on days with nothing to review. Quiet hours follow your device's Focus / Do Not Disturb settings.",
+    "softAskTitle": "Your first review is ready!",
+    "softAskBody": "Want a gentle nudge when it's time? Once a day, only then.",
+    "softAskReassure": "Every evening at 8:00 · turn it off or change the time anytime",
+    "softAskAccept": "Get reminders",
+    "softAskLater": "Not now",
+    "blockedTitle": "Notifications are off",
+    "blockedBody": "Turn on SokSok Voca notifications in your device settings.",
+    "blockedOpen": "Open Settings",
+    "cancel": "Cancel"
+  }
 }

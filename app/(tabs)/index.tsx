@@ -30,6 +30,8 @@ import { selectReviewWords } from '@/features/study/review/engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/features/study/components/CustomStudyModal';
 import ReviewBanner from '@/features/study/review/ReviewBanner';
+import ReviewNotifySoftAsk from '@/features/study/review/ReviewNotifySoftAsk';
+import { useReviewNotifications } from '@/features/study/review/use-review-notifications';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -155,6 +157,9 @@ export default function DashboardScreen() {
   // `Date.now()`를 memo 안에서 읽으므로 앱을 열어둔 채 자정을 넘기면 lists가 다시
   // 바뀔 때까지 개수가 갱신되지 않는다 — 학습을 하면 곧바로 맞춰지므로 수용한다.
   const reviewWords = useMemo(() => selectReviewWords(lists, Date.now()), [lists]);
+
+  // 복습 알림 일정 유지 + 첫 복습이 생긴 날의 권한 soft ask(§8.4).
+  const { softAskVisible, handleSoftAskDecided } = useReviewNotifications(lists, reviewWords.length);
 
   const handleReviewStudy = useCallback(() => {
     if (reviewWords.length === 0) return;
@@ -813,6 +818,9 @@ export default function DashboardScreen() {
         visible={showCustomStudy}
         onClose={() => setShowCustomStudy(false)}
       />
+
+      {/* 첫 복습이 준비된 날에만 한 번. "나중에"를 누르면 다시 묻지 않는다(§8.4). */}
+      <ReviewNotifySoftAsk visible={softAskVisible} onDecided={handleSoftAskDecided} />
 
       <AppBannerAd mode="tab-anchor" />
     </View>

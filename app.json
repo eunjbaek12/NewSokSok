@@ -81,6 +81,13 @@
           "photosPermission": "Avocado imports word list photos from your library.",
           "cameraPermission": "Avocado uses the camera to scan word lists from photos."
         }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/android-icon-monochrome.png",
+          "color": "#488325"
+        }
       ]
     ],
     "experiments": {

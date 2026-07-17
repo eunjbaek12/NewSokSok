@@ -10,6 +10,7 @@ import {
   Image,
   TextInput,
   Linking,
+  Switch,
 } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -29,6 +30,13 @@ import { PopupTokens } from '@/constants/popup';
 import { useOnboarding } from '@/features/onboarding';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
 import { requestManualReview } from '@/features/reviews';
+import {
+  REVIEW_TIME_OPTIONS,
+  formatReviewTime,
+  reviewTimeId,
+  parseReviewTimeId,
+} from '@/features/study/review/notify-time';
+import { hasNotificationPermission, requestNotificationPermission } from '@/features/study/review/notifications';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
@@ -41,11 +49,43 @@ export default function SettingsScreen() {
   // 빼면 게스트로 오인돼 동기화 배지·tier 칩·계정삭제가 사라진다.
   const isCloud = isCloudAuthMode(authMode);
   const { locale, setLocale } = useLocale();
-  const { profileSettings, updateProfileSettings, apiKey } = useSettings();
+  const { profileSettings, updateProfileSettings, apiKey, reviewNotificationSettings, updateReviewNotificationSettings } = useSettings();
   const { status: quotaStatus, refresh: refreshQuota } = useQuota();
   const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
   const [showStartupPicker, setShowStartupPicker] = useState(false);
+  const [showReviewTimePicker, setShowReviewTimePicker] = useState(false);
+
+  /**
+   * 토글을 켜는 행위가 곧 OS 권한 요청의 방아쇠다(§8.4). 권한이 없으면 켜도 알림이
+   * 오지 않으므로, 허용을 받은 경우에만 enabled를 true로 만든다 — "켜져 있는데 안 오는"
+   * 모순 상태를 만들지 않기 위해서다.
+   *
+   * 이미 거절당한 뒤라면 iOS는 앱에서 다시 물어볼 수 없다. 그때는 OS 설정으로 안내한다.
+   */
+  const handleToggleReviewNotif = async (next: boolean) => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    if (!next) {
+      await updateReviewNotificationSettings({ enabled: false });
+      return;
+    }
+    const already = await hasNotificationPermission();
+    const granted = already || (await requestNotificationPermission());
+    if (!granted) {
+      Alert.alert(
+        t('reviewNotif.blockedTitle'),
+        t('reviewNotif.blockedBody'),
+        [
+          { text: t('reviewNotif.cancel'), style: 'cancel' },
+          { text: t('reviewNotif.blockedOpen'), onPress: () => { Linking.openSettings().catch(() => {}); } },
+        ],
+      );
+      return;
+    }
+    // 설정에서 직접 켠 사용자에게 나중에 soft ask 시트를 또 띄우지 않는다.
+    await updateReviewNotificationSettings({ enabled: true, softAsked: true });
+  };
+
   const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
   const [nicknameInput, setNicknameInput] = useState('');
   const [nicknameFromGoogle, setNicknameFromGoogle] = useState(false);
@@ -328,6 +368,61 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
+        {/*
+          복습 알림(gentle SRS §8.3) — 딱 두 줄. 간격·하루 상한 같은 기계는 노출하지 않는다(P3).
+          보통은 설정을 늘리지 않는 게 원칙이지만 알림은 이 기능의 엔진이라, 시간이 안 맞아
+          거슬리면 사용자가 알림을 꺼버리고 그러면 기능의 가치가 통째로 날아간다.
+          아침형/저녁형을 감당하는 값싼 보험.
+        */}
+        <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('reviewNotif.settingsSection')}</Text>
+        <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
+          <View style={[styles.row, { borderBottomWidth: 1, borderBottomColor: colors.borderLight }]}>
+            <View style={styles.rowLeft}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="notifications-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('reviewNotif.enableLabel')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>{t('reviewNotif.enableSub')}</Text>
+              </View>
+            </View>
+            <Switch
+              value={reviewNotificationSettings.enabled}
+              onValueChange={handleToggleReviewNotif}
+              trackColor={{ false: colors.borderLight, true: colors.primary }}
+              thumbColor={colors.onPrimary}
+            />
+          </View>
+          <Pressable
+            style={styles.row}
+            onPress={() => {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+              setShowReviewTimePicker(true);
+            }}
+            disabled={!reviewNotificationSettings.enabled}
+          >
+            <View style={[styles.rowLeft, { opacity: reviewNotificationSettings.enabled ? 1 : 0.4 }]}>
+              <View style={[styles.iconCircle, { backgroundColor: colors.primaryLight }]}>
+                <Ionicons name="time-outline" size={18} color={colors.primary} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.rowTitle, { color: colors.text }]}>{t('reviewNotif.timeLabel')}</Text>
+                <Text style={[styles.rowSubtitle, { color: colors.textTertiary }]}>{t('reviewNotif.timeSub')}</Text>
+              </View>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, opacity: reviewNotificationSettings.enabled ? 1 : 0.4 }}>
+              <Text style={[styles.rowValue, { color: colors.textSecondary }]}>
+                {formatReviewTime(reviewNotificationSettings.hour, reviewNotificationSettings.minute, locale)}
+              </Text>
+              <Ionicons name="chevron-forward" size={16} color={colors.textTertiary} />
+            </View>
+          </Pressable>
+        </View>
+        {/* 지킬 수 있는 것만 약속한다(§8.2): 조용한 시간대는 OS에 위임하므로 "밤엔 안 보내요"라고 하지 않는다. */}
+        <Text style={[styles.sectionFootnote, { color: colors.textTertiary }]}>
+          {t('reviewNotif.footnote')}
+        </Text>
+
         <Text style={[styles.sectionHeader, { color: colors.textSecondary }]}>{t('settings.plansAndMore')}</Text>
         <View style={[styles.section, { backgroundColor: colors.surface, borderColor: colors.borderLight }]}>
           <Pressable
@@ -562,6 +657,24 @@ export default function SettingsScreen() {
         }}
       />
 
+      {/* 30분 간격 48개. 밤 시간대도 고를 수 있다 — 조용한 시간은 OS에 위임한다(§8.2). */}
+      <ModalPicker
+        visible={showReviewTimePicker}
+        onClose={() => setShowReviewTimePicker(false)}
+        title={t('reviewNotif.timeLabel')}
+        options={REVIEW_TIME_OPTIONS.map(o => ({
+          id: o.id,
+          title: formatReviewTime(o.hour, o.minute, locale),
+        }))}
+        selectedValue={reviewTimeId(reviewNotificationSettings.hour, reviewNotificationSettings.minute)}
+        onSelect={(id) => {
+          Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+          const { hour, minute } = parseReviewTimeId(id);
+          updateReviewNotificationSettings({ hour, minute });
+          setShowReviewTimePicker(false);
+        }}
+      />
+
       <DialogModal
         visible={nicknameModalOpen}
         onClose={() => setNicknameModalOpen(false)}
@@ -641,6 +754,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     overflow: 'hidden',
+  },
+  // 섹션 아래 붙는 보조 설명. 카드 밖에 두어 설정 행과 구별된다.
+  sectionFootnote: {
+    fontSize: 11,
+    lineHeight: 16,
+    fontFamily: 'Pretendard_400Regular',
+    marginTop: 8,
+    marginHorizontal: 4,
   },
   row: {
     flexDirection: 'row',

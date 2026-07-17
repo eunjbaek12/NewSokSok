@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { StyleSheet, Text, View, Pressable, Linking } from 'react-native';
+import { StyleSheet, Text, View, Pressable } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
@@ -38,11 +38,13 @@ export default function ReviewNotifySoftAsk({
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     // 2단계: 여기서만 시스템 창을 띄운다.
     const granted = await requestNotificationPermission();
-    if (!granted) {
-      // 시스템 창에서 거절 — 조르지 않는다. 설정에서 켤 수 있다는 것만 알린다.
-      // (iOS는 여기서 다시 물어볼 수 없으므로 OS 설정으로 안내하는 게 유일한 경로다.)
-      Linking.openSettings().catch(() => {});
-    }
+    // 거절이어도 아무것도 하지 않는다 — 시트를 닫고 물러난다.
+    //
+    // 여기서 OS 설정으로 보내지 않는 이유: 방금 "싫다"고 답한 사람을 설정 앱으로 끌고 가는
+    // 것은 이 화면이 표방하는 "조르지 않는다"(§8.4)의 정반대다. 거절은 최종 답이지
+    // 다시 협상할 신호가 아니다. 설정 화면(app/(tabs)/settings.tsx)의 토글은 다르다 —
+    // 거기서는 사용자가 **켜달라고 먼저 요청**한 것이라, 권한이 막혀 있으면 왜 안 켜지는지
+    // 설명할 의무가 생기고 그때 비로소 OS 설정 안내가 정당해진다.
     onDecided(granted);
   }, [onDecided]);
 

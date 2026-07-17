@@ -589,7 +589,7 @@ export async function toggleMemorized(
   }
   const db = await getDb();
 
-  // 이 토글로 미암기→암기가 되는지 판정(통계 기록용). forceStatus=false면 항상 아님.
+  // 이 토글로 미암기→암기가 되는지 판정(통계·복습 기록용). forceStatus=false면 항상 아님.
   let becameMemorized = false;
   if (forceStatus !== false) {
     const r = await db.getFirstAsync<{ m: number }>('SELECT isMemorized as m FROM words WHERE id = ?', wordId);
@@ -601,6 +601,18 @@ export async function toggleMemorized(
       await db.runAsync('UPDATE words SET isMemorized = ? WHERE id = ?', forceStatus ? 1 : 0, wordId);
     } else {
       await db.runAsync('UPDATE words SET isMemorized = CASE WHEN isMemorized = 1 THEN 0 ELSE 1 END WHERE id = ?', wordId);
+    }
+    // 손으로 켠 암기도 학습으로 외운 것과 같은 출발선에 세운다(gentle SRS §4.3).
+    // 이 두 줄이 없으면 lastReviewedAt이 NULL로 남고, 엔진은 NULL을 "학습 이력 없음"으로
+    // 읽어 due에서 제외하므로(engine.isWordDue) 그 단어는 **영영 복습에 안 걸린다.**
+    // 세션 커밋의 startIds와 같은 규칙 — 카운트는 += 1이 아니라 = 1이어야 한다
+    // (껐다 켠 단어의 잔여 카운트 위에 얹히면 3일이 아니라 90일에서 재시작한다).
+    if (becameMemorized) {
+      await db.runAsync(
+        'UPDATE words SET lastReviewedAt = ?, reviewSuccessCount = 1 WHERE id = ?',
+        Date.now(),
+        wordId,
+      );
     }
     await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
   });

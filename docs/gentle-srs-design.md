@@ -533,7 +533,7 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
 | **CORE** | ✅ 구현 | migration 018(`lastReviewedAt`+`reviewSuccessCount`+매퍼+시드) · 후보 선정(§4.3) · 간격 사다리(§4.2) |
 | **UX** | ✅ 구현 | 홈 컴팩트 배너(§5.2, due>0일 때만 · 아보카도 그린 · 퀵액션 위) · due 0이면 완전 숨김(§5.3) · 기존 카드학습 재사용 + 세션 커밋에서 `lastReviewedAt` 갱신 · "다시 볼게요"=미암기 일관(§4.5) |
 | **ENGINE** | ✅ 구현 | 로컬 알림 1일 1회 · 기본 저녁 8시(§8.1) · 2단계 soft ask 권한(§8.4) · 설정 2줄(토글+시간, §8.3) |
-| **SYNC** | ✅ 구현 (⚠️ 서버 미배포) | `lastReviewedAt` 클라우드 LWW(§7) · 복원 경로 3곳 + 매퍼 4곳 · 가드 테스트 |
+| **SYNC** | ✅ 구현 · 서버 배포 완료(2026-07-17) | `lastReviewedAt` 클라우드 LWW(§7) · pull 복원 INSERT + 매퍼 4곳 · 가드 테스트 |
 
 **구현 위치 (CORE·UX):**
 
@@ -546,7 +546,8 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
 | `features/vocab/db.ts` `recordReviewOutcomes` | 복습 상태 4갈래를 한 트랜잭션에 기록 |
 | `app/(tabs)/index.tsx` | 배너 배치 + `__custom__` 카드학습으로 라우팅 |
 | `constants/colors.ts` `reviewGradient` | 아보카도 그린(대비 실측 반영 — §5.2 주의) |
-| `supabase/migrations/20260717000000_review_sync.sql` | `cloud_words` 컬럼 2개 — **아직 미배포** |
+| `supabase/migrations/20260717000000_review_sync.sql` | `cloud_words` 컬럼 2개 — **배포 완료**(`supabase migration list`로 확인) |
+| `features/vocab/db.ts` `toggleMemorized` | 손으로 켠 암기도 사다리 첫 칸에 올린다(§4.3 — 아래 주의) |
 | `features/sync/mapping.ts` · `engine.ts` | push/pull 매퍼 + 복원 INSERT(§7.1) |
 | `features/study/review/notification-plan.ts` | **알림 계획(순수)** — 어느 날 몇 개(§8.1.1) |
 | `features/study/review/notifications.ts` | expo-notifications 래퍼 · 권한 · 채널 |
@@ -559,8 +560,17 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
 **테스트:** `__tests__/review-notification-plan.test.ts`(빈 날 안 부르기·상한·2주치) ·
 `__tests__/review-engine.test.ts`(사다리·은퇴·정렬·일생 타임라인) ·
 `__tests__/migration-018-review-seed.test.ts`(실제 SQLite에 001→018 재생) ·
+`__tests__/review-memorize-entry.test.ts`(**사다리 입구** — 진짜 `toggleMemorized`를 node:sqlite 위에서 실행) ·
+`__tests__/review-notification-sync.test.ts`(**재예약 겹침** — 중복·유실·"껐는데 살아남기") ·
 `__tests__/session-results.test.ts`(전진 게이트) · `__tests__/sync-mapping.test.ts`(push/pull 왕복) ·
 `__tests__/review-sync-columns.test.ts`(복원 경로 컬럼 가드 — §7.1).
+
+> ⚠️ **사다리의 입구는 두 개다.** 학습 세션 커밋(`recordReviewOutcomes`)과 **손으로 켜는 암기
+> 토글**(`toggleMemorized` — 단어 목록·플랜 화면). 둘 다 `lastReviewedAt`을 남겨야 한다. 엔진이
+> `lastReviewedAt = NULL`을 due에서 제외하기 때문에(복원 직후 서재가 쏟아지는 P1 위반을 막는
+> 의도된 규칙), 한 경로라도 빠뜨리면 그 단어는 **영영 복습에 안 걸린다.** 실제로 토글 경로가
+> 그랬고, migration 018이 기존 암기 단어를 시드해 주는 탓에 업데이트 직후엔 정상으로 보였다.
+> 앞으로 암기를 켜는 경로를 새로 만들면 `review-memorize-entry.test.ts`에 케이스를 추가할 것.
 
 **남은 실기 검증(전부 기기 빌드에서 첫 확인):**
 - 배너 실제 높이·간격(§5.2.1, §10.4) — 설계가 "구현 전 실제 컴포넌트 높이로 다시 확인할 것"이라 경고한 부분.
@@ -569,9 +579,12 @@ INSERT 컬럼 목록에서 빠진 값은 보존되는 게 아니라 **DEFAULT(NU
   권한 soft ask 2단계 · 실제 발사 시각 · Android 알림 아이콘(모노크롬 실루엣이 흰 뭉치로 안 나오는지) ·
   탭 → 홈 라우팅(콜드 스타트 포함) · 복습거리 없는 날 안 오는지.
 
-⚠️ **배포 필요:** `supabase/migrations/20260717000000_review_sync.sql`을 올려야 SYNC가 실제로 동작한다.
-안 올리면 push의 upsert가 없는 컬럼을 보내 실패한다 — **단어 동기화 전체가 막힌다**(dirty가 안 빠짐).
-즉 **서버 마이그레이션이 앱 배포보다 먼저**여야 한다.
+**서버 마이그레이션:** `supabase/migrations/20260717000000_review_sync.sql`은 **2026-07-17 배포 완료**다
+(`npx supabase migration list`의 remote 열에 `20260717000000`이 찍혀 있다). 다시 올릴 필요 없다.
+
+> 배포 순서가 왜 중요했는지는 남겨 둔다 — 같은 모양의 컬럼 추가를 또 할 때 반복된다:
+> 안 올린 상태로 앱을 내보내면 push의 upsert가 없는 컬럼을 보내 PGRST204로 배치 전체가 실패하고,
+> **단어 동기화 전체가 침묵 속에 막힌다**(dirty가 안 빠짐). 즉 **서버가 앱보다 먼저**다.
 
 **후속 (이번엔 안 함):**
 - 위젯(WidgetKit) — 공수 큰 별건, 다음 업데이트 후보

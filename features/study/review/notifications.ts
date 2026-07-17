@@ -73,6 +73,11 @@ export async function cancelReviewNotifications(): Promise<void> {
   );
 }
 
+// 재예약 실행을 직렬화하는 체인 + 세대 카운터. 아래 syncReviewNotifications 주석 참조.
+// (lib/db의 runInTransaction과 같은 수법 — 이 레포의 기존 관용구다.)
+let syncChain: Promise<unknown> = Promise.resolve();
+let syncGeneration = 0;
+
 /**
  * 복습 알림 일정을 현재 데이터에 맞춰 다시 건다 — 이 모듈의 유일한 진입점.
  *
@@ -82,11 +87,42 @@ export async function cancelReviewNotifications(): Promise<void> {
  *
  * 끄여 있거나 권한이 없으면 남은 일정만 지우고 끝낸다 — OS 설정에서 권한을
  * 껐는데 예전 일정이 살아남아 있는 상태를 막는다.
+ *
+ * ## 왜 직렬화하나
+ *
+ * "전체 취소 후 재생성"은 겹쳐 돌면 **깨진다**. 한 번 실행이 취소 1회 + 등록 15회를
+ * 순차 await하는 긴 작업이라, 그 사이에 두 번째 실행이 끼어들면:
+ *   - 2번의 cancel이 1번의 "이미 등록된 것"만 지우고, 그 뒤 1번이 남은 등록을 계속
+ *     발사 → 1번의 잔여 알림이 살아남은 채 2번도 전량 등록 → **같은 날 두 번 울린다.**
+ *   - 순서가 반대면 2번이 등록한 것을 1번 기준의 cancel이 걷어가 **알림이 사라진다.**
+ * 호출부(홈 화면)는 학습 커밋·동기화 pull·단어 편집마다 이 함수를 부르므로 실제로 겹친다.
+ *
+ * 세대 카운터가 체인 위에 하나 더 얹힌 이유: 직렬화만 하면 밀린 요청이 순서대로 전부
+ * 실행되는데, 어차피 마지막 것이 앞의 결과를 통째로 덮어쓴다. 자기보다 새 요청이
+ * 들어와 있으면 건너뛰어(coalesce) 무의미한 재예약을 아낀다.
  */
 export async function syncReviewNotifications(
   lists: VocaList[],
   settings: ReviewNotificationSettings,
   now: number = Date.now(),
+): Promise<number> {
+  const myGeneration = ++syncGeneration;
+  // 체인의 read-and-advance 사이에 await가 없어야 한다 — 동시 호출자가 같은 꼬리에
+  // 매달려 결국 병렬로 도는 것을 막는다(runInTransaction의 주의사항과 동일).
+  const run = syncChain.then(async () => {
+    // 내 차례가 오기 전에 더 새로운 요청이 들어왔다면 이 실행은 의미가 없다.
+    if (myGeneration !== syncGeneration) return 0;
+    return applyReviewNotificationPlan(lists, settings, now);
+  });
+  syncChain = run.then(() => undefined, () => undefined);
+  return run;
+}
+
+/** 실제 작업. 반드시 syncReviewNotifications의 체인 위에서만 부를 것. */
+async function applyReviewNotificationPlan(
+  lists: VocaList[],
+  settings: ReviewNotificationSettings,
+  now: number,
 ): Promise<number> {
   await cancelReviewNotifications();
 
@@ -101,11 +137,11 @@ export async function syncReviewNotifications(
         title: i18n.t('reviewNotif.title', { count }),
         body: i18n.t('reviewNotif.body'),
         data: { kind: REVIEW_TAG },
-        ...(Platform.OS === 'android' ? { channelId: ANDROID_CHANNEL_ID } : null),
       },
       trigger: {
         type: Notifications.SchedulableTriggerInputTypes.DATE,
         date: new Date(fireAt),
+        // Android 채널 지정은 trigger에서만 읽힌다(content에는 그런 필드가 없다).
         ...(Platform.OS === 'android' ? { channelId: ANDROID_CHANNEL_ID } : null),
       },
     });

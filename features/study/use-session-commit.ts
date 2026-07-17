@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useRef, type RefObject } from 'react';
-import { setWordsMemorized, incrementWrongCount, resetWrongCount } from '@/features/vocab';
+import {
+  setWordsMemorized,
+  incrementWrongCount,
+  resetWrongCount,
+  recordReviewOutcomes,
+} from '@/features/vocab';
 import { partitionSessionResults } from './session-results';
 import type { StudyResult } from '@/lib/types';
 
@@ -58,6 +63,10 @@ export function useSessionCommit(
 
 // 완주·이탈 공용 커밋. 암기 전환은 setWordsMemorized 내부에서 memorized_log
 // 통계 기록(recordMemorizedWords)까지 이어진다.
+//
+// 복습 상태(gentle SRS)도 여기서 함께 남긴다 — 학습 결과가 DB에 닿는 유일한
+// 지점이라, 이탈 경로 3개(완주·헤더 백·하드웨어 백)가 자동으로 같은 규칙을 받는다.
+// 암기 상태와 복습 상태는 서로 다른 컬럼을 건드리므로 호출 순서에 의존하지 않는다.
 export async function commitSessionResults(
   listId: string,
   results: readonly (StudyResult | undefined)[],
@@ -67,4 +76,10 @@ export async function commitSessionResults(
   if (plan.failedIds.length > 0) await setWordsMemorized(listId, plan.failedIds, false);
   if (plan.wrongIds.length > 0) await incrementWrongCount(plan.wrongIds);
   if (plan.correctIds.length > 0) await resetWrongCount(plan.correctIds);
+  await recordReviewOutcomes({
+    seenIds: plan.seenIds,
+    startIds: plan.memorizedIds,
+    advanceIds: plan.reviewAdvanceIds,
+    resetIds: plan.wrongIds,
+  });
 }

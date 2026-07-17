@@ -384,18 +384,27 @@ export async function pullChanges(): Promise<void> {
         // Keep the pending local edit; the upcoming push will publish it.
         if (dirtyWordIds.has(w.id)) continue;
         const word = dbRowToWord(w);
+        // ⚠️ INSERT OR REPLACE는 행을 통째로 갈아끼운다 — 여기 빠진 컬럼은 값이
+        // 보존되는 게 아니라 DEFAULT(NULL/0)로 초기화된다. 복습 컬럼을 빠뜨리면
+        // pull이 내려올 때마다 그 단어의 복습 진도가 조용히 지워지고, 클라이언트는
+        // lastReviewedAt이 NULL인 암기 단어를 due로 치지 않으므로 그 단어는 영영
+        // 복습에 안 걸린다. 새 단어 컬럼을 추가할 때 이 목록을 반드시 함께 갱신할 것.
         await db.runAsync(
           `INSERT OR REPLACE INTO words (
             id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
             meaningKr, isMemorized, isStarred, tags, position, createdAt, updatedAt,
-            wrongCount, assignedDay, sourceLang, targetLang, deletedAt
-          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            wrongCount, assignedDay, sourceLang, targetLang,
+            lastReviewedAt, reviewSuccessCount, deletedAt
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             word.id, w.list_id, word.term, word.definition, word.phonetic ?? null, word.pos ?? null,
             word.exampleEn, word.exampleKr ?? null, word.meaningKr,
             word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, w.tags ?? null,
             w.position, word.createdAt, word.updatedAt,
-            word.wrongCount, word.assignedDay ?? null, word.sourceLang, word.targetLang, null,
+            word.wrongCount, word.assignedDay ?? null, word.sourceLang, word.targetLang,
+            // null과 0을 구별해서 넣어야 한다: 0은 1970-01-01이라 "즉시 due"가 되고,
+            // null이라야 "학습 이력 없음"(due 아님)으로 읽힌다.
+            word.lastReviewedAt ?? null, word.reviewSuccessCount ?? 0, null,
           ],
         );
       }
@@ -494,6 +503,9 @@ function rowToWord(r: any) {
     assignedDay: r.assignedDay ?? null,
     sourceLang: r.sourceLang ?? 'en',
     targetLang: r.targetLang ?? 'ko',
+    // `?? null`이지 `?? 0`이 아니다 — 아래 pull INSERT 주석 참조.
+    lastReviewedAt: r.lastReviewedAt ?? null,
+    reviewSuccessCount: r.reviewSuccessCount ?? 0,
   };
 }
 

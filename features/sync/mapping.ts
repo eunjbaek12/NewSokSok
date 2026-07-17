@@ -61,6 +61,10 @@ export function wordToCloudRow(
     assigned_day: w.assignedDay ?? null,
     source_lang: w.sourceLang ?? 'en',
     target_lang: w.targetLang ?? 'ko',
+    // Gentle SRS(§7). null은 "학습 이력 없음" — 0으로 뭉개면 1970년이 되어
+    // 복원한 기기에서 서재 전체가 즉시 due로 쏟아진다.
+    last_reviewed_at: w.lastReviewedAt ?? null,
+    review_success_count: w.reviewSuccessCount ?? 0,
     created_at: w.createdAt,
     is_deleted: opts.deletedAt != null,
   };
@@ -123,6 +127,8 @@ export function dbRowToWord(row: Record<string, any>): Word {
     assignedDay: row.assigned_day ?? null,
     sourceLang: row.source_lang ?? 'en',
     targetLang: row.target_lang ?? 'ko',
+    lastReviewedAt: row.last_reviewed_at ?? null,
+    reviewSuccessCount: row.review_success_count ?? 0,
   };
 }
 
@@ -188,5 +194,7 @@ export function cloudWordToWord(c: CloudWord): Word {
     assignedDay: c.assignedDay ?? null,
     sourceLang: c.sourceLang,
     targetLang: c.targetLang,
+    lastReviewedAt: c.lastReviewedAt ?? null,
+    reviewSuccessCount: c.reviewSuccessCount ?? 0,
   };
 }

@@ -88,6 +88,8 @@
     "wrongWords": "Wrong Words",
     "wrongWordsLimit": "Top 50",
     "starredWords": "Starred Words",
+    "reviewBannerTitle": "Today's review · {{count}} ready",
+    "reviewBannerSubtitle": "Words due for a refresh · one tap to start",
     "studyingLists": "My Study",
     "filterAll": "All",
     "filterStudying": "Todo",

@@ -155,6 +155,9 @@ export const WordSchema = z.object({
   assignedDay: z.number().nullable().optional(),
   sourceLang: z.string().optional(),
   targetLang: z.string().optional(),
+  // Gentle SRS 복습 상태(docs/gentle-srs-design.md §4). null = 학습 이력 없음.
+  lastReviewedAt: z.number().nullable().optional(),
+  reviewSuccessCount: z.number().optional(),
 });
 export type Word = z.infer<typeof WordSchema>;
 
@@ -383,6 +386,10 @@ export const CloudWordSchema = z.object({
   assignedDay: z.number().int().nullable(),
   sourceLang: z.string(),
   targetLang: z.string(),
+  // Gentle SRS(§7). 018 이전 빌드가 올린 행은 last_reviewed_at이 NULL —
+  // 클라이언트가 NULL을 "due 아님"으로 취급하므로 안전하다.
+  lastReviewedAt: EpochMsSchema.nullable().default(null),
+  reviewSuccessCount: z.number().int().default(0),
   createdAt: EpochMsSchema,
   updatedAt: EpochMsSchema,
   deletedAt: EpochMsSchema.nullable(),

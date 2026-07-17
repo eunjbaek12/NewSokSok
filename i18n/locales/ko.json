@@ -88,6 +88,8 @@
     "wrongWords": "오답 정복",
     "wrongWordsLimit": "상위 50개",
     "starredWords": "별표 학습",
+    "reviewBannerTitle": "오늘의 복습 · {{count}}개 준비됨",
+    "reviewBannerSubtitle": "잊을 때가 된 단어 · 탭 한 번이면 바로 시작",
     "studyingLists": "나의 학습",
     "filterAll": "전체",
     "filterStudying": "오늘 할일",

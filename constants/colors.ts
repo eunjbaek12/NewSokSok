@@ -1,3 +1,16 @@
+/**
+ * 복습 배너(gentle SRS) 그라디언트 — 아보카도 그린. docs/gentle-srs-design.md §5.2 D12.
+ *
+ * 맞춤학습 카드가 이미 `accentActionGradient`(티에이룰)를 쓴다. 배너가 같은 색이면
+ * 주인공이 아니라 경쟁자로 읽혀 "사이에 낀 것"처럼 보이므로 브랜드 그린으로 분리한다.
+ *
+ * 밝은 쪽 스톱이 흰 텍스트 대비 4.5:1을 넘어야 해서 값이 깊다. 브랜드 그린 `#6AB045`는
+ * 2.66:1로 한참 미달이고, 설계가 제안한 `#4C8A2E`도 실측 4.22:1로 아슬하게 모자라
+ * `#488325`(4.62:1)로 한 단계 더 내렸다. 어두운 쪽 `#2F5C18`은 7.88:1.
+ * 네 테마 모두 같은 값 — 어느 테마에서도 브랜드 그린으로 읽혀야 하기 때문.
+ */
+const REVIEW_GRADIENT = ['#488325', '#2F5C18'] as readonly [string, string];
+
 const Colors = {
   light: {
     primary: '#2A7B78',
@@ -10,6 +23,7 @@ const Colors = {
     accentAction: '#4A7DFF',
     accentActionLight: '#E5EDFF',
     accentActionGradient: ['#2A7B78', '#1F5C5A'] as readonly [string, string],
+    reviewGradient: REVIEW_GRADIENT,
     background: '#F5EDE3',
     surface: '#FFF8F2',
     surfaceSecondary: '#EDE0D4',
@@ -72,6 +86,7 @@ const Colors = {
     accentAction: '#6B95FF',
     accentActionLight: '#1A2540',
     accentActionGradient: ['#1F6764', '#1F5C5A'] as readonly [string, string],
+    reviewGradient: REVIEW_GRADIENT,
     background: '#1C1410',
     surface: '#281E18',
     surfaceSecondary: '#342820',
@@ -134,6 +149,7 @@ const Colors = {
     accentAction: '#0891B2',
     accentActionLight: '#E0F7FA',
     accentActionGradient: ['#0891B2', '#0E7490'] as readonly [string, string],
+    reviewGradient: REVIEW_GRADIENT,
     background: '#F0F2F5',
     surface: '#FFFFFF',
     surfaceSecondary: '#E2E6ED',
@@ -196,6 +212,7 @@ const Colors = {
     accentAction: '#8B50D4',
     accentActionLight: '#EDD9F8',
     accentActionGradient: ['#D456B8', '#9B4DD4'] as readonly [string, string],
+    reviewGradient: REVIEW_GRADIENT,
     background: '#FDF0F8',
     surface: '#FFF5FB',
     surfaceSecondary: '#F5DCF0',

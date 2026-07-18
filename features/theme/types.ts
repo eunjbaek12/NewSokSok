@@ -1,4 +1,4 @@
-export type SkinId = 'classic' | 'dark' | 'y2k' | 'lab';
+export type SkinId = 'classic' | 'dark' | 'y2k' | 'lab' | 'ocean';
 
 export interface FontFamily {
   regular: string;
@@ -7,7 +7,7 @@ export interface FontFamily {
   bold: string;
 }
 
-export type CharacterAccessory = 'none' | 'y2k-ribbon';
+export type CharacterAccessory = 'none' | 'y2k-ribbon' | 'ocean-hat';
 
 export interface SkinDefinition {
   id: SkinId;

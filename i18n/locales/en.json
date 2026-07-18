@@ -81,6 +81,9 @@
       "Star ★ words to build your review set",
       "Study Plans pace your progress automatically",
       "Quiz mode double-checks your memory",
+      "Words due for a refresh wait in Home's \"Today's Review\"",
+      "Study one word a day and your streak keeps growing",
+      "Turn on review reminders in Settings for a gentle nudge",
       "A Voca Do! Just one more step today"
     ],
     "searchPlaceholder": "Search words, meanings, tags...",
@@ -158,6 +161,8 @@
       "Context beats definitions — read examples first",
       "Forgetting and relearning IS the learning",
       "10 words today becomes 100 words in a month",
+      "See your streak, calendar, and memorized words in \"My Learning\"",
+      "Export a list as CSV to back it up or open it elsewhere",
       "It does not matter how slowly you go — Confucius",
       "Knowledge pays the best interest — Franklin",
       "A thousand miles starts with one step — Lao Tzu"
@@ -540,6 +545,10 @@
             "a": "Guest mode stores your lists only on this device — they'll be lost if you uninstall or switch devices.\nGoogle sign-in stores your data in the cloud, keeping it safe across devices and syncing automatically."
           },
           {
+            "q": "Can I sign in with Apple instead of Google?",
+            "a": "Yes — on iPhone and iPad you can sign in with Apple too. Cloud backup and multi-device sync work the same either way.\n\nIf the email matches, your Google and Apple sign-ins link to a single account automatically. Note: Apple's \"Hide My Email\" may create a separate account."
+          },
+          {
             "q": "Where should I begin?",
             "a": "1. Import a list from the Curation tab, or create your own from the Lists tab.\n2. Add words (manual, AI auto-complete, photo scan, and more — 6 methods in total).\n3. Start studying with Flashcards or Quiz."
           },
@@ -616,6 +625,27 @@
         ]
       },
       {
+        "title": "Review",
+        "items": [
+          {
+            "q": "What is \"Today's Review\" on the Home screen?",
+            "a": "It automatically gathers words you learned earlier that are now due for a refresh. Tap the banner near the top of Home to start reviewing right away.\n\nWords you get right come back at longer and longer intervals; words you miss return sooner. There's nothing to switch on — it builds up naturally as you study."
+          },
+          {
+            "q": "How are review words chosen?",
+            "a": "A word becomes a review candidate once enough time has passed that you're about to forget it. Well-known words stretch to longer intervals and appear rarely; frequently-missed words show up more often.\n\nEach day's review is capped at 20 words so it never piles up too much."
+          },
+          {
+            "q": "How do I turn review reminders on or off?",
+            "a": "Go to Settings → Review reminders to toggle them and change the reminder time (once a day).\n\nReminders only arrive on days you have words to review — none are sent on empty days. The first time words are due, we'll ask once whether you'd like reminders."
+          },
+          {
+            "q": "I'm not getting review reminders.",
+            "a": "1. Check that Settings → Review reminders is on.\n2. No reminder is sent on days with nothing to review — that's normal.\n3. Notifications for SokSok Voca may be off in your device settings, or Focus / Do Not Disturb may be on."
+          }
+        ]
+      },
+      {
         "title": "Study Plans",
         "items": [
           {
@@ -633,6 +663,23 @@
           {
             "q": "What is Free Study mode?",
             "a": "It runs through the whole list without a daily portion limit. Use it when you want to study freely without a plan."
+          }
+        ]
+      },
+      {
+        "title": "Progress & Stats",
+        "items": [
+          {
+            "q": "How is the \"study streak\" counted?",
+            "a": "Study at least one word in a day and your streak goes up by 1. Skip a whole day and it resets to 0.\n\nYou can see your current and longest streak near the top of Home and on the \"My Learning\" screen."
+          },
+          {
+            "q": "Where can I see my study history?",
+            "a": "The stats area near the top of Home and the \"My Learning\" screen show your streak, total memorized words, and a calendar. Tap a studied day on the calendar to see the words you memorized that day.\n\nTap \"Share\" to save your record as an image and share it."
+          },
+          {
+            "q": "What's the difference between \"reviewed\" and \"memorized\"?",
+            "a": "Reviewed is how many words you studied that day; memorized is how many you newly marked as memorized. Seeing the same word many times still counts as memorized only once."
           }
         ]
       },

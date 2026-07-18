@@ -35,13 +35,15 @@ const CATEGORY_ICONS: IoniconName[] = [
   'rocket-outline',           // 0 시작하기
   'add-circle-outline',       // 1 단어 추가하기
   'school-outline',           // 2 학습하기
-  'calendar-outline',         // 3 학습 계획
-  'sync-outline',             // 4 데이터 및 동기화
-  'sparkles-outline',         // 5 AI 기능
-  'pricetag-outline',         // 6 요금제 · 광고
-  'albums-outline',           // 7 단어 모음
-  'settings-outline',         // 8 설정 · 계정
-  'construct-outline',        // 9 문제 해결
+  'refresh-outline',          // 3 복습
+  'calendar-outline',         // 4 학습 계획
+  'flame-outline',            // 5 학습 기록 · 통계
+  'sync-outline',             // 6 데이터 및 동기화
+  'sparkles-outline',         // 7 AI 기능
+  'pricetag-outline',         // 8 요금제 · 광고
+  'albums-outline',           // 9 단어 모음
+  'settings-outline',         // 10 설정 · 계정
+  'construct-outline',        // 11 문제 해결
 ];
 
 if (

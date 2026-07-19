@@ -13,8 +13,10 @@ Avocado — Vocabulary Builder
 ## Short description (max 80 chars)
 
 ```
-AI-built flashcards in 6 languages. Photo, CSV, K-pop — vocab your way.
+AI flashcards, 6 languages. Gentle review before you forget — photo, CSV, K-pop.
 ```
+
+> ~80 chars (80 limit). ⚠️ On **Play, the short & full description ARE indexed for search** (unlike the App Store), so the 1.2.0 headline keyword "review" is placed up front alongside flashcards / languages / photo.
 
 ## Full description (max 4000 chars)
 
@@ -23,32 +25,43 @@ The word list you want. The word list you've been looking for. And the cleanest 
 
 Avocado is a personal vocabulary learning tool for six languages — English, Korean, Japanese, Chinese, Vietnamese, and Spanish — built to make every spare minute count. Whatever your native language, whatever you're learning, mix and match any direction.
 
-▸ Four study modes
+• Four study modes
 - Flashcards: one card at a time, the way you remember best
 - Quiz: multiple choice and short answer
 - Example sentences: learn words in context
 - Autoplay & shadowing: listen and speak along for pronunciation and listening practice
 
-▸ A daily learning flow that fits you
+• A daily learning flow that fits you
 - Set a daily target and Avocado distributes the words for you
 - Clear graphs of progress and mastery
 - Words you've nailed and words that trip you up are tracked separately
 - Star a word or revisit only the ones you got wrong
 
-▸ Add words by photo or spreadsheet
+• Gentle Review — right before you forget (NEW)
+- Memorized words quietly resurface right when you're about to forget them
+- Words you know well come back rarely; ones you keep missing come back sooner — spaced repetition that stays kind
+- Each day's review is capped, so nothing piles up even if you skip a few days
+- A soft reminder once a day, only when there's something to review
+
+• Streaks & stats
+- Day streak, calendar, and words learned — all in "My Learning"
+- Watch today's, this week's, and total memorized words add up
+- Share your progress as an image
+
+• Add words by photo or spreadsheet
 - Scan a photo and pull in all the words at once
 - Paste in or import a CSV file as-is
 - Bulk paste: drop a line-separated list and it just works
 - Voice input and manual entry also supported
 
-▸ AI word generation & auto-analysis
+• AI word generation & auto-analysis
 - Type a topic and AI builds an entire list for you
   e.g. "Renting an apartment in the US", "Ordering at a cafe", "TOEIC verbs"
 - Add a single word and AI auto-fills pronunciation, meaning, examples, and synonyms
 - Choose language pair, difficulty, and word count
 - Keep only the words you like, regenerate fresh ones on the same topic for more
 
-▸ Find what others have built
+• Find what others have built
 - Browse word lists shared by other learners and import the ones you love
 - A rich set of official curated lists, ready to study
   · English — NGSL (foundation) · BSL (business) · NAWL · TSL (academic / exam)
@@ -58,27 +71,27 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
   · Vietnamese — Basic 500
 - Share your own lists to help the community
 
-▸ Six languages, every direction
+• Six languages, every direction
 - English, Korean, Japanese, Chinese, Vietnamese, Spanish
-- Mix any input and meaning language (EN↔KR, KR↔JP, EN↔ZH, VI↔EN, KR↔VI, ES↔EN — any pair)
+- Mix any input and meaning language (EN-KR, KR-JP, EN-ZH, VI-EN, KR-VI, ES-EN — any pair)
 - Built equally for learners coming from any language to any language — including Korean for K-pop and Hallyu fans worldwide
 
-▸ Make it yours with skins
+• Make it yours with skins
 - Classic, Dark Calm, Y2K, Lab, and more themes to choose from
 - Set the mood for how you study
 
-▸ Offline-first with cloud sync
+• Offline-first with cloud sync
 - Data lives on your device first — study without internet
 - Sign in with Google to sync securely to the cloud
 - Or use guest mode and start instantly
 
-▸ Fair pricing — free is generous
+• Fair pricing — free is generous
 - Free: 100 AI word lookups per day + watch an ad for +50 (up to 300/day)
-- Pro: ad-free, 1,000 words per day — $2.99/mo or $26.99/yr (23% off vs monthly)
+- Pro: ad-free, 1,000 words per day — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
 - 7-day Pro free trial on signup, no auto-charge
 
-▸ Transparent privacy
+• Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)
 - The only permission requested is the microphone, for voice input
 - Your personal study data is visible only to you
@@ -91,15 +104,15 @@ Privacy policy: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ## Release notes / What's new (max 500 chars)
 
 ```
-v1.1 update — a smarter, smoother vocabulary experience.
+v1.2 — Review right before you forget.
 
-- AI word auto-analysis: type one word, get pronunciation, meaning, examples, and synonyms
-- AI generation quota expanded: 100/day free + 50 more per rewarded ad
-- New Pro plan: ad-free, 1,000 words/day ($2.99/mo or $26.99/yr, 7-day free trial)
-- Expanded curations for Japanese, Chinese, and Vietnamese learners
-- Improved AI accuracy (auto-blocks hallucinated fake words)
-- Numerous stability improvements
+- Gentle Review: memorized words quietly resurface right when you're about to forget them. No backlog, no red badges — spaced repetition that stays kind.
+- Review reminders: only on days you have words to review, once a day, at a time you choose.
+- Streaks & stats: day streak, calendar, and words learned in "My Learning," plus share your progress as an image.
+- Subscription reliability fixes, expanded in-app Help (FAQ), and various stability improvements.
 ```
+
+> ~499 chars (500 limit). Matches the iOS English "What's New" message.
 
 ---
 
@@ -110,7 +123,7 @@ v1.1 update — a smarter, smoother vocabulary experience.
 | Category | Education |
 | Content rating | Everyone (auto-determined via questionnaire — re-answer "digital purchases=yes", "ads=yes") |
 | **Contains ads** | **Yes** (banner + rewarded) |
-| **In-app purchases** | **Yes** (Pro monthly/yearly subscription, $2.99 / $26.99) |
+| **In-app purchases** | **Yes** (Pro monthly/yearly subscription, $2.99 / $27.99) |
 | **Advertising ID declaration** | **Yes — used** (changed v1.0 → v1.1) |
 | **Data safety** | Add advertising ID + transaction info to collected data |
 | Privacy policy URL | https://eunjbaek12.github.io/NewSokSok/privacy-policy (ko/en toggle) |

@@ -8,6 +8,7 @@ import {
   DashboardFilterSchema,
   NicknameSchema,
   AiCurationSettingsSchema,
+  ReviewNotificationSettingsSchema,
   type InputSettings,
   type StudySettings,
   type AutoPlaySettings,
@@ -15,6 +16,7 @@ import {
   type ProfileSettings,
   type DashboardFilter,
   type AiCurationSettings,
+  type ReviewNotificationSettings,
 } from '@shared/contracts';
 import { persisted } from '@/lib/storage/persisted';
 import { supabase } from '@/lib/supabase';
@@ -43,6 +45,7 @@ const DEFAULT_AUTOPLAY_SETTINGS: AutoPlaySettings = AutoPlaySettingsSchema.parse
 const DEFAULT_CUSTOM_STUDY_SETTINGS: CustomStudySettings = CustomStudySettingsSchema.parse({}) as CustomStudySettings;
 const DEFAULT_PROFILE_SETTINGS: ProfileSettings = ProfileSettingsSchema.parse({}) as ProfileSettings;
 const DEFAULT_AI_CURATION_SETTINGS: AiCurationSettings = AiCurationSettingsSchema.parse({}) as AiCurationSettings;
+const DEFAULT_REVIEW_NOTIFICATION_SETTINGS: ReviewNotificationSettings = ReviewNotificationSettingsSchema.parse({}) as ReviewNotificationSettings;
 const DEFAULT_DASHBOARD_FILTER: DashboardFilter = 'all';
 
 const inputStore    = persisted('@soksok_user_input_settings',    InputSettingsSchema,       DEFAULT_INPUT_SETTINGS);
@@ -50,6 +53,8 @@ const studyStore    = persisted('@soksok_user_study_settings',    StudySettingsS
 const autoplayStore = persisted('@soksok_user_autoplay_settings', AutoPlaySettingsSchema,    DEFAULT_AUTOPLAY_SETTINGS);
 const customStore   = persisted('@soksok_custom_study_settings',  CustomStudySettingsSchema, DEFAULT_CUSTOM_STUDY_SETTINGS);
 const aiCurationStore = persisted('@soksok_ai_curation_settings', AiCurationSettingsSchema, DEFAULT_AI_CURATION_SETTINGS);
+// 기기 설정(알림 시각·권한 의사)이라 계정 전환 시 지우지 않는다 — clearAccountScopedSettings 참조.
+const reviewNotifStore = persisted('@soksok_review_notification_settings', ReviewNotificationSettingsSchema, DEFAULT_REVIEW_NOTIFICATION_SETTINGS);
 const profileStore  = persisted('@soksok_profile_settings',       ProfileSettingsSchema,     DEFAULT_PROFILE_SETTINGS, {
   // Legacy nicknames written before the 20-char limit was introduced get
   // silently truncated on load so the user keeps a usable display name.
@@ -83,6 +88,7 @@ interface SettingsState {
   customStudySettings: CustomStudySettings;
   profileSettings: ProfileSettings;
   aiCurationSettings: AiCurationSettings;
+  reviewNotificationSettings: ReviewNotificationSettings;
   apiKey: string;
   dashboardFilterMode: DashboardFilter;
   isLoading: boolean;
@@ -94,6 +100,7 @@ interface SettingsState {
   updateCustomStudySettings: (updates: Partial<CustomStudySettings>) => Promise<void>;
   updateProfileSettings: (updates: Partial<ProfileSettings>) => Promise<void>;
   updateAiCurationSettings: (updates: Partial<AiCurationSettings>) => Promise<void>;
+  updateReviewNotificationSettings: (updates: Partial<ReviewNotificationSettings>) => Promise<void>;
   updateApiKey: (key: string) => Promise<void>;
   updateDashboardFilter: (mode: DashboardFilter) => Promise<void>;
   /**
@@ -112,12 +119,13 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   customStudySettings: DEFAULT_CUSTOM_STUDY_SETTINGS,
   profileSettings: DEFAULT_PROFILE_SETTINGS,
   aiCurationSettings: DEFAULT_AI_CURATION_SETTINGS,
+  reviewNotificationSettings: DEFAULT_REVIEW_NOTIFICATION_SETTINGS,
   apiKey: '',
   dashboardFilterMode: DEFAULT_DASHBOARD_FILTER,
   isLoading: true,
 
   hydrate: async () => {
-    const [inputSettings, studySettings, autoPlaySettings, customStudySettings, profileSettings, aiCurationSettings, dashboardFilterMode, apiKey] =
+    const [inputSettings, studySettings, autoPlaySettings, customStudySettings, profileSettings, aiCurationSettings, reviewNotificationSettings, dashboardFilterMode, apiKey] =
       await Promise.all([
         inputStore.load(),
         studyStore.load(),
@@ -125,6 +133,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
         customStore.load(),
         profileStore.load(),
         aiCurationStore.load(),
+        reviewNotifStore.load(),
         loadDashboardFilter(),
         loadAndMigrateApiKey(),
       ]);
@@ -135,6 +144,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       customStudySettings,
       profileSettings,
       aiCurationSettings,
+      reviewNotificationSettings,
       apiKey,
       dashboardFilterMode,
       isLoading: false,
@@ -177,6 +187,12 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     const next = { ...get().aiCurationSettings, ...updates };
     set({ aiCurationSettings: next });
     await aiCurationStore.save(next);
+  },
+
+  updateReviewNotificationSettings: async (updates) => {
+    const next = { ...get().reviewNotificationSettings, ...updates };
+    set({ reviewNotificationSettings: next });
+    await reviewNotifStore.save(next);
   },
 
   updateApiKey: async (key) => {

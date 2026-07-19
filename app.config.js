@@ -92,6 +92,12 @@ module.exports = {
     googleServicesFile: process.env.GOOGLE_SERVICES_JSON ?? './google-services.json',
   },
   plugins: [
+    // expo-notifications가 주입하는 aps-environment(원격 푸시 전용) entitlement를 제거한다.
+    // 이 앱은 로컬 알림만 쓰므로 불필요하고, 있으면 푸시 미포함 프로비저닝 프로필로 서명이
+    // 실패한다. entitlements mod는 "등록 역순"으로 실행되므로(나중 등록이 먼저 실행), 삭제가
+    // expo-notifications의 주입보다 나중에 실행되게 하려면 이 플러그인을 배열의 *맨 앞*
+    // (= expo-notifications보다 먼저 등록)에 둬야 한다. 상세: 플러그인 주석.
+    './plugins/withNoApsEnvironment',
     ...expo.plugins,
     [
       'react-native-google-mobile-ads',

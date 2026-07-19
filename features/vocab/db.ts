@@ -47,6 +47,8 @@ function rowToWord(row: any): Word {
     assignedDay: row.assignedDay ?? null,
     sourceLang: row.sourceLang ?? 'en',
     targetLang: row.targetLang ?? 'ko',
+    lastReviewedAt: row.lastReviewedAt ?? null,
+    reviewSuccessCount: row.reviewSuccessCount ?? 0,
   };
 }
 
@@ -153,80 +155,6 @@ export async function clearAllData(): Promise<void> {
   // 클라우드 동기화 대상이라 로그인 계정의 기록은 다음 pull이 복원한다.
   await db.runAsync('DELETE FROM study_days');
   await db.runAsync('DELETE FROM memorized_log');
-}
-
-export async function mergeCloudData(cloudLists: VocaList[]): Promise<void> {
-  const db = await getDb();
-  await runInTransaction(async () => {
-    for (const list of cloudLists) {
-      await db.runAsync(
-        `INSERT OR REPLACE INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position, isCurated, icon,
-           planTotalDays, planCurrentDay, planWordsPerDay, planStartedAt, planUpdatedAt, planFilter,
-           lastResultMemorized, lastResultTotal, lastResultPercent)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [
-          list.id, list.title, list.isVisible ? 1 : 0, list.createdAt,
-          list.lastStudiedAt ?? null, list.position ?? 0, list.isCurated ? 1 : 0, list.icon ?? null,
-          list.planTotalDays ?? 0, list.planCurrentDay ?? 1, list.planWordsPerDay ?? 10,
-          list.planStartedAt ?? null, list.planUpdatedAt ?? null, list.planFilter ?? 'all',
-          list.lastResultMemorized ?? 0, list.lastResultTotal ?? 0, list.lastResultPercent ?? 0,
-        ]
-      );
-      for (const word of list.words) {
-        await db.runAsync(
-          `INSERT OR REPLACE INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
-             meaningKr, isMemorized, isStarred, tags, createdAt, updatedAt, wrongCount, assignedDay,
-             sourceLang, targetLang)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            word.id, list.id, word.term, word.definition ?? null, word.phonetic ?? null,
-            word.pos ?? null, word.exampleEn ?? null, word.exampleKr ?? null, word.meaningKr,
-            word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, JSON.stringify(word.tags ?? []),
-            word.createdAt ?? 0, word.updatedAt ?? 0, word.wrongCount ?? 0,
-            word.assignedDay ?? null, word.sourceLang ?? 'en', word.targetLang ?? 'ko',
-          ]
-        );
-      }
-    }
-  });
-}
-
-export async function replaceLocalWithCloudData(lists: VocaList[]): Promise<void> {
-  const db = await getDb();
-  await runInTransaction(async () => {
-    await db.runAsync('DELETE FROM words');
-    await db.runAsync('DELETE FROM lists');
-    for (const list of lists) {
-      await db.runAsync(
-        `INSERT INTO lists (id, title, isVisible, createdAt, lastStudiedAt, position, isCurated, icon,
-           planTotalDays, planCurrentDay, planWordsPerDay, planStartedAt, planUpdatedAt, planFilter,
-           lastResultMemorized, lastResultTotal, lastResultPercent)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [
-          list.id, list.title, list.isVisible ? 1 : 0, list.createdAt,
-          list.lastStudiedAt ?? null, list.position ?? 0, list.isCurated ? 1 : 0, list.icon ?? null,
-          list.planTotalDays ?? 0, list.planCurrentDay ?? 1, list.planWordsPerDay ?? 10,
-          list.planStartedAt ?? null, list.planUpdatedAt ?? null, list.planFilter ?? 'all',
-          list.lastResultMemorized ?? 0, list.lastResultTotal ?? 0, list.lastResultPercent ?? 0,
-        ]
-      );
-      for (const word of list.words) {
-        await db.runAsync(
-          `INSERT INTO words (id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
-             meaningKr, isMemorized, isStarred, tags, createdAt, updatedAt, wrongCount, assignedDay,
-             sourceLang, targetLang)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            word.id, list.id, word.term, word.definition ?? null, word.phonetic ?? null,
-            word.pos ?? null, word.exampleEn ?? null, word.exampleKr ?? null, word.meaningKr,
-            word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, JSON.stringify(word.tags ?? []),
-            word.createdAt ?? 0, word.updatedAt ?? 0, word.wrongCount ?? 0,
-            word.assignedDay ?? null, word.sourceLang ?? 'en', word.targetLang ?? 'ko',
-          ]
-        );
-      }
-    }
-  });
 }
 
 export async function createList(title: string): Promise<VocaList> {
@@ -583,7 +511,7 @@ export async function toggleMemorized(
   }
   const db = await getDb();
 
-  // 이 토글로 미암기→암기가 되는지 판정(통계 기록용). forceStatus=false면 항상 아님.
+  // 이 토글로 미암기→암기가 되는지 판정(통계·복습 기록용). forceStatus=false면 항상 아님.
   let becameMemorized = false;
   if (forceStatus !== false) {
     const r = await db.getFirstAsync<{ m: number }>('SELECT isMemorized as m FROM words WHERE id = ?', wordId);
@@ -595,6 +523,18 @@ export async function toggleMemorized(
       await db.runAsync('UPDATE words SET isMemorized = ? WHERE id = ?', forceStatus ? 1 : 0, wordId);
     } else {
       await db.runAsync('UPDATE words SET isMemorized = CASE WHEN isMemorized = 1 THEN 0 ELSE 1 END WHERE id = ?', wordId);
+    }
+    // 손으로 켠 암기도 학습으로 외운 것과 같은 출발선에 세운다(gentle SRS §4.3).
+    // 이 두 줄이 없으면 lastReviewedAt이 NULL로 남고, 엔진은 NULL을 "학습 이력 없음"으로
+    // 읽어 due에서 제외하므로(engine.isWordDue) 그 단어는 **영영 복습에 안 걸린다.**
+    // 세션 커밋의 startIds와 같은 규칙 — 카운트는 += 1이 아니라 = 1이어야 한다
+    // (껐다 켠 단어의 잔여 카운트 위에 얹히면 3일이 아니라 90일에서 재시작한다).
+    if (becameMemorized) {
+      await db.runAsync(
+        'UPDATE words SET lastReviewedAt = ?, reviewSuccessCount = 1 WHERE id = ?',
+        Date.now(),
+        wordId,
+      );
     }
     await db.runAsync(`UPDATE lists SET lastStudiedAt = ? WHERE id = ?`, Date.now(), listId);
   });
@@ -826,6 +766,70 @@ export async function resetWrongCount(wordIds: string[]): Promise<void> {
     `UPDATE words SET wrongCount = 0 WHERE id IN (${placeholders})`,
     ...wordIds
   );
+}
+
+// ---- Gentle SRS 복습 상태 (docs/gentle-srs-design.md §4) ---------------------
+
+/**
+ * 한 세션의 복습 상태 변화. 네 집합은 각각 다른 규칙이라 따로 받는다.
+ * 분류는 features/study/session-results.ts가 담당한다(순수 함수).
+ */
+export interface ReviewOutcomes {
+  /** 답한 전부 → lastReviewedAt = now. "볼 때마다 자동 갱신"(§4.1) */
+  seenIds: string[];
+  /** 처음 외운 단어 → 사다리 첫 칸. 증가가 아니라 **대입**이다(아래 주석) */
+  startIds: string[];
+  /** due였던 단어를 맞힘 → 사다리 한 칸 전진 */
+  advanceIds: string[];
+  /** "다시 볼게요" → 사다리 리셋 */
+  resetIds: string[];
+}
+
+// SQLite 파라미터 한도(999) 회피를 위해 300개씩 끊는다 — 큰 단어장을 통째로
+// 학습하면 세션 하나가 그 한도를 넘길 수 있다(recordMemorizedWords와 같은 규칙).
+const REVIEW_CHUNK = 300;
+
+/**
+ * 한 세션의 복습 상태를 한 번에 기록한다.
+ *
+ * 네 갈래를 개별 mutation으로 쪼개지 않고 묶은 이유: mutation 하나가 끝날 때마다
+ * lists 캐시를 무효화(= 전체 재조회)하므로, 쪼개면 세션 커밋 한 번에 재조회가 네 번 더
+ * 붙는다. 트랜잭션으로 묶으면 중간 상태가 UI에 새지도 않는다.
+ *
+ * ⚠️ 호출자의 트랜잭션 안에서 부르지 말 것(중첩 트랜잭션 크래시) — commitSessionResults가
+ * setWordsMemorized 등과 **순차로** 부르는 것을 전제한다.
+ */
+export async function recordReviewOutcomes(
+  outcomes: ReviewOutcomes,
+  now: number = Date.now(),
+): Promise<void> {
+  const { seenIds, startIds, advanceIds, resetIds } = outcomes;
+  if (seenIds.length === 0 && startIds.length === 0 && advanceIds.length === 0 && resetIds.length === 0) return;
+
+  const db = await getDb();
+  const applyChunked = async (ids: string[], sql: (placeholders: string) => string, lead: (string | number)[] = []) => {
+    for (let i = 0; i < ids.length; i += REVIEW_CHUNK) {
+      const chunk = ids.slice(i, i + REVIEW_CHUNK);
+      await db.runAsync(sql(chunk.map(() => '?').join(',')), ...lead, ...chunk);
+    }
+  };
+
+  await runInTransaction(async () => {
+    // 본 시각은 정답·오답 무관하게 갱신 — 아래 카운트 변경들과 컬럼이 겹치지 않는다.
+    await applyChunked(seenIds, ph => `UPDATE words SET lastReviewedAt = ? WHERE id IN (${ph})`, [now]);
+
+    // 처음 외운 단어는 += 1이 아니라 = 1이어야 한다. 단어 목록에서 수동으로 암기를
+    // 껐다 켜면(toggleMemorized) 카운트가 남아 있을 수 있는데, 증가로 처리하면 그
+    // 잔여값 위에 얹혀 3일이 아니라 30일·90일에서 재시작해 버린다.
+    await applyChunked(startIds, ph => `UPDATE words SET reviewSuccessCount = 1 WHERE id IN (${ph})`);
+
+    await applyChunked(
+      advanceIds,
+      ph => `UPDATE words SET reviewSuccessCount = COALESCE(reviewSuccessCount, 0) + 1 WHERE id IN (${ph})`,
+    );
+
+    await applyChunked(resetIds, ph => `UPDATE words SET reviewSuccessCount = 0 WHERE id IN (${ph})`);
+  });
 }
 
 export async function savePlan(

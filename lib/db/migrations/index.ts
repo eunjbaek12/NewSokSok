@@ -28,6 +28,7 @@ import migration_014 from './014_add_word_unique_term';
 import migration_015 from './015_widen_word_unique_term';
 import migration_016 from './016_add_study_days';
 import migration_017 from './017_add_memorized_log';
+import migration_018 from './018_add_word_review';
 
 export const MIGRATIONS: readonly Migration[] = [
   migration_001,
@@ -47,6 +48,7 @@ export const MIGRATIONS: readonly Migration[] = [
   migration_015,
   migration_016,
   migration_017,
+  migration_018,
 ];
 
 export const SCHEMA_VERSION = MIGRATIONS.length;

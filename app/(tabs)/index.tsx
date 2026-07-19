@@ -26,8 +26,12 @@ import { useLists, useBootstrapLoading, clearPlan, restartPlan } from '@/feature
 import { useSettings } from '@/features/settings';
 import { useAuth } from '@/features/auth';
 import { computePlanStatus, computeDayStudyStatus, type StudyState } from '@/features/study/plan/engine';
+import { selectReviewWords } from '@/features/study/review/engine';
 import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/features/study/components/CustomStudyModal';
+import ReviewBanner from '@/features/study/review/ReviewBanner';
+import ReviewNotifySoftAsk from '@/features/study/review/ReviewNotifySoftAsk';
+import { useReviewNotifications } from '@/features/study/review/use-review-notifications';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -149,6 +153,23 @@ export default function DashboardScreen() {
       .length;
   }, [lists]);
 
+  // 오늘의 복습 후보. 상한(20)이 이미 적용된 목록이라 배너 개수와 세션 단어가 항상 같다.
+  // `Date.now()`를 memo 안에서 읽으므로 앱을 열어둔 채 자정을 넘기면 lists가 다시
+  // 바뀔 때까지 개수가 갱신되지 않는다 — 학습을 하면 곧바로 맞춰지므로 수용한다.
+  const reviewWords = useMemo(() => selectReviewWords(lists, Date.now()), [lists]);
+
+  // 복습 알림 일정 유지 + 첫 복습이 생긴 날의 권한 soft ask(§8.4).
+  const { softAskVisible, handleSoftAskDecided } = useReviewNotifications(lists, reviewWords.length);
+
+  const handleReviewStudy = useCallback(() => {
+    if (reviewWords.length === 0) return;
+    const ids = reviewWords.map(w => w.id).join(',');
+    // 복습은 설정을 건너뛰고 항상 카드학습으로 간다(§5.1·§5.4). 맞춤·오답·별표와 달리
+    // studyMode 설정을 따르지 않는 이유: "외웠어요/다시 볼게요" 스와이프가 간격 사다리의
+    // 입력 그 자체라, 퀴즈로 열면 복습의 성공/실패 신호가 사라진다.
+    router.push({ pathname: '/flashcards/[id]', params: { id: '__custom__', ids } });
+  }, [reviewWords]);
+
   const handleCustomStudy = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setShowCustomStudy(true);
@@ -253,6 +274,11 @@ export default function DashboardScreen() {
         <View style={styles.content}>
           {/* 내 학습 스트립 — 스트릭·외운 단어 요약 → /stats (설정 탭에서 이동) */}
           <StatsStrip style={styles.statsStrip} />
+
+          {/* 오늘의 복습 — due>0일 때만 나타난다(0이면 스스로 null을 반환해 홈이 지금과
+              똑같아진다). 위치가 퀵액션 바로 위인 건 의도: StatsStrip은 '지표'이고
+              복습·맞춤·오답·별표는 '학습 액션'이라 기능으로 묶는다(§5.2). */}
+          <ReviewBanner count={reviewWords.length} onPress={handleReviewStudy} style={styles.reviewBanner} />
 
           {/* Quick Action Cards */}
           <View style={styles.quickActionRow}>
@@ -793,6 +819,9 @@ export default function DashboardScreen() {
         onClose={() => setShowCustomStudy(false)}
       />
 
+      {/* 첫 복습이 준비된 날에만 한 번. "나중에"를 누르면 다시 묻지 않는다(§8.4). */}
+      <ReviewNotifySoftAsk visible={softAskVisible} onDecided={handleSoftAskDecided} />
+
       <AppBannerAd mode="tab-anchor" />
     </View>
   );
@@ -854,6 +883,13 @@ const styles = StyleSheet.create({
   },
   statsStrip: {
     marginBottom: 12,
+  },
+  // 비대칭 여백(§5.2): 위는 넓게(StatsStrip과 그룹 경계), 아래는 좁게(퀵액션과 근접).
+  // 근접성으로 `배너 + 퀵액션 = 한 덩어리`로 읽히게 해 등간격 밴드의 "낀" 느낌을 없앤다.
+  // 배너가 숨으면(due=0) statsStrip의 marginBottom만 남아 지금 앱의 간격 그대로다.
+  reviewBanner: {
+    marginTop: 6,
+    marginBottom: 8,
   },
 
   // Quick Action Cards

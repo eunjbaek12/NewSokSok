@@ -23,6 +23,7 @@ import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
 import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
 import { useAdsAllowed } from "@/components/ads/AppBannerAd";
 import "@/i18n";
+import { useReviewNotificationRouting } from '@/features/study/review/use-review-notification-routing';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -143,6 +144,8 @@ function GlobalProLimitReachedModal() {
 }
 
 function AppStack() {
+  // 복습 알림을 탭하면 홈으로(§8.1). 콜드 스타트로 실행된 경우도 포함한다.
+  useReviewNotificationRouting();
   const { inputSettings } = useSettings();
   const { isOnboardingDone } = useOnboarding();
   const { authMode, loading: authLoading } = useAuth();

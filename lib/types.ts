@@ -21,6 +21,10 @@ export interface Word {
   assignedDay?: number | null;
   sourceLang?: string;
   targetLang?: string;
+  /** 마지막으로 이 단어를 학습한 시각(epoch ms). null = 학습 이력 없음. 복습 due 판정의 기준. */
+  lastReviewedAt?: number | null;
+  /** "외웠어요" 누적 횟수. 복습 간격 사다리(3/10/30/90일)의 위치. */
+  reviewSuccessCount?: number;
 }
 
 export interface VocaList {

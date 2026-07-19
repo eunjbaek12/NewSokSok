@@ -311,6 +311,20 @@ export async function resetWrongCount(wordIds: string[]): Promise<void> {
   await commit();
 }
 
+/**
+ * 복습 상태 기록(gentle SRS). 학습 세션 커밋(features/study/use-session-commit) 전용이며,
+ * 암기 상태 자체는 setWordsMemorized가 따로 담당한다. 네 집합의 의미는 ReviewOutcomes 참조.
+ */
+export async function recordReviewOutcomes(outcomes: db.ReviewOutcomes): Promise<void> {
+  await db.recordReviewOutcomes(outcomes);
+  // 네 집합은 겹칠 수 있다(예: seenIds ⊇ startIds) — dirty 집합은 중복을 제거해 넘긴다.
+  const touched = [...new Set([
+    ...outcomes.seenIds, ...outcomes.startIds, ...outcomes.advanceIds, ...outcomes.resetIds,
+  ])];
+  markWordsDirty(touched);
+  await commit();
+}
+
 // ---- Plan mutations --------------------------------------------------------
 
 // Plan mutations touch `words.assignedDay` on every word in the list, so

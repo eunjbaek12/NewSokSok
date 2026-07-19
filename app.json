@@ -2,7 +2,7 @@
   "expo": {
     "name": "Avocado",
     "slug": "soksok-voca",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "orientation": "portrait",
     "locales": {
       "ko": "./languages/ko.json",
@@ -80,6 +80,13 @@
         {
           "photosPermission": "Avocado imports word list photos from your library.",
           "cameraPermission": "Avocado uses the camera to scan word lists from photos."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/android-icon-monochrome.png",
+          "color": "#488325"
         }
       ]
     ],

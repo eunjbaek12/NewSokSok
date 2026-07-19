@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, Pressable, Platform, Alert, ActivityIndicator, Modal, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Pressable, Platform, Alert, ActivityIndicator, Modal, Image, Dimensions } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -41,9 +41,11 @@ export default function StatsScreen() {
   const today = todayStr();
   const currentMonth = monthPrefix();
   const [month, setMonth] = useState(currentMonth);
-  // 달력 셀의 실측 너비(px). 원형 반경 = 이 값의 절반. Android는 '50%'/과대 고정
-  // 반경을 원으로 클램프하지 못하므로 측정한 픽셀 반경을 직접 부여한다.
-  const [calCellSize, setCalCellSize] = useState(0);
+  // 달력 날짜 원형 크기(px) — 측정 없이 화면 폭에서 결정적으로 계산한다.
+  // 그리드 폭 = 화면폭 − 스크롤 좌우패딩(16*2) − 카드 좌우패딩(10*2). 7등분 후 셀 패딩(3*2) 제외.
+  // 명시적 width===height + borderRadius=절반 → Android에서도 항상 완전한 원.
+  // ('50%' 문자열도 onLayout 실측도 실기기서 네모로 깨졌던 회귀를 이 방식으로 종결.)
+  const dayCircle = Math.max(26, Math.min(46, Math.floor((Dimensions.get('window').width - 52) / 7) - 6));
 
   // 날짜 탭 상세 시트. dayReqRef는 늦게 도착한 이전 날짜 응답이 시트를 덮는 경합 방지.
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -231,13 +233,9 @@ export default function StatsScreen() {
                     onPress={() => openDay(date)}
                   >
                     <View
-                      onLayout={(e) => {
-                        const w = e.nativeEvent.layout.width;
-                        if (w && Math.abs(w - calCellSize) > 0.5) setCalCellSize(w);
-                      }}
                       style={[
                         styles.calDay,
-                        calCellSize ? { borderRadius: calCellSize / 2 } : null,
+                        { width: dayCircle, height: dayCircle, borderRadius: dayCircle / 2 },
                         on && { backgroundColor: colors.primary },
                         isToday && { borderWidth: 2, borderColor: colors.warning },
                       ]}
@@ -440,10 +438,7 @@ const styles = StyleSheet.create({
   calCell: { flex: 1, aspectRatio: 1, padding: 3, alignItems: 'center', justifyContent: 'center' },
   calDow: { fontSize: 10.5, fontFamily: 'Pretendard_600SemiBold' },
   calDay: {
-    flex: 1,
-    alignSelf: 'stretch',
-    // 원형 반경은 onLayout으로 측정한 실제 셀 크기의 절반을 픽셀로 부여한다(위 calCellSize).
-    // 정사각 셀이므로 width/2 = 완전한 원. iOS/Android/태블릿 모두 동일하게 동작.
+    // 크기·반경은 인라인(dayCircle)으로 부여. 명시적 정사각 + borderRadius 절반 = 완전한 원.
     alignItems: 'center',
     justifyContent: 'center',
   },

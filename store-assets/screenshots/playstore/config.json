@@ -1,5 +1,5 @@
 {
-  "target": "Google Play 폰 스크린샷 (1290x2580, 정확히 2:1). Play는 비율 최대 2:1까지만 허용 → iOS 2796 그대로 못 써서 세로만 줄임. Play는 폰 스크린샷 최대 8장이라 iOS 10장 라인업에서 테마 2장(09/10)을 제외한 8장. 캡션은 appstore/와 동일.",
+  "target": "Google Play 폰 스크린샷 (1290x2580, 정확히 2:1). Play는 비율 최대 2:1까지만 허용 → iOS 2796 그대로 못 써서 세로만 줄임. Play 라인업은 iOS 9장에서 테마 2장(08/09)을 제외한 7장. 캡션은 appstore/와 동일.",
   "viewport": { "width": 1290, "height": 2580 },
   "captureStatusBarPx": 80,
   "captureDevice": "안드로이드 실기 (예: 1080x2400). 상단 안드로이드 상태바는 합성 시 9:41 더미로 자동 교체. 하단 네비바(제스처 바)는 폰 목업 하단에서 자연히 잘림.",
@@ -8,9 +8,9 @@
     {
       "id": "01-home",
       "screen": "홈 탭 — app/(tabs)/index.tsx",
-      "captureHint": "단어장 2~3개가 진행 중이고 오늘 진척/달성이 보이는 상태. 라이트 테마. 빈 화면 금지.",
-      "ko": { "caption": "내 단어 공부, 한눈에", "sub": "단어장·진척·오늘 할 일까지" },
-      "en": { "caption": "Your vocabulary, at a glance", "sub": "Word lists, progress, and today's to-dos" }
+      "captureHint": "단어장 2~3개가 진행 중이고 상단에 '오늘의 복습 · N개 준비됨' 배너가 보이는 상태(복습 기능을 홈 한 장이 함께 홍보). 진척/달성도 보이게. 라이트 테마. 빈 화면 금지.",
+      "ko": { "caption": "내 단어 공부, 한눈에", "sub": "단어장·진척·오늘의 복습까지" },
+      "en": { "caption": "Your vocabulary, at a glance", "sub": "Lists, progress, and today's review — all in one" }
     },
     {
       "id": "02-autocomplete",
@@ -41,11 +41,11 @@
       "en": { "caption": "Cards, quizzes, examples, shadowing", "sub": "Flip, solve, and speak it into memory" }
     },
     {
-      "id": "06-review",
-      "screen": "복습(Gentle Review) — 홈 '오늘의 복습' 배너 · app/(tabs)/index.tsx",
-      "captureHint": "홈 상단 '오늘의 복습 · N개 준비됨' 배너가 주인공으로 크게 보이도록 구성(N은 12 등 자연스러운 수). 01-home과 구도가 겹치지 않게 배너를 히어로로. 라이트 테마. (대안: 복습 세션 진행 화면도 가능하나 카드가 05-study와 유사하니 배너 권장.)",
-      "ko": { "caption": "잊을 때쯤, 딱 그때 다시", "sub": "외운 단어를 알아서 다시 꺼내주는 부드러운 복습" },
-      "en": { "caption": "Right before<br>you forget", "sub": "Gentle review brings words back at just the right time" }
+      "id": "06-stats",
+      "screen": "내 학습(통계) — app/stats.tsx",
+      "captureHint": "연속 학습 일수(스트릭)·달력·외운 단어 수가 보이는 '내 학습' 화면. 스트릭 숫자와 달력이 명확히 보이게(며칠치 기록이 있는 계정). 아보카도 캐릭터 포함. 라이트 테마. 홈 상단 통계 스트립을 탭하면 진입.",
+      "ko": { "caption": "하루하루가 쌓이는 재미", "sub": "연속 학습·외운 단어·달력 한눈에" },
+      "en": { "caption": "Watch the days<br>add up", "sub": "Streaks, words learned, and a calendar at a glance" }
     },
     {
       "id": "07-curation",
@@ -53,13 +53,6 @@
       "captureHint": "큐레이션 단어장 카드들이 나열된 상태. NGSL·JLPT·HSK 등 여러 언어 덱이 섞여 보이게. 라이트 테마.",
       "ko": { "caption": "원하는 단어장이, 이미 여기", "sub": "NGSL·JLPT·HSK·TOPIK — 6개 언어 50여 개 단어장" },
       "en": { "caption": "The list you wanted,<br>already here", "sub": "NGSL·JLPT·HSK·TOPIK — 50+ lists, 6 languages" }
-    },
-    {
-      "id": "08-stats",
-      "screen": "내 학습(통계) — app/stats.tsx",
-      "captureHint": "연속 학습 일수(스트릭)·달력·외운 단어 수가 보이는 '내 학습' 화면. 스트릭 숫자와 달력이 명확히 보이게. 아보카도 캐릭터 포함. 라이트 테마.",
-      "ko": { "caption": "하루하루가 쌓이는 재미", "sub": "연속 학습·외운 단어·달력 한눈에" },
-      "en": { "caption": "Watch the days<br>add up", "sub": "Streaks, words learned, and a calendar at a glance" }
     }
   ]
 }

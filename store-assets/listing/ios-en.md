@@ -26,7 +26,7 @@ AI flashcards · K-pop Korean
 ## Promotional Text (max 170 chars, editable without resubmission)
 
 ```
-✨ v1.1 — Type one word, AI builds the flashcard. Snap a photo, get a whole deck. Learn Korean through K-pop, or English from your day. 7-day Pro free trial.
+✨ v1.2 — Gentle Review is here: words come back right when you're about to forget them. No backlog, no red badges — just a soft daily nudge. Track your streak too. 7-day Pro free trial.
 ```
 
 > The only field you can change anytime without going through review. Use it for seasonal pushes / new features.
@@ -34,11 +34,11 @@ AI flashcards · K-pop Korean
 ## Keywords (max 100 chars, comma-separated, no spaces)
 
 ```
-korean,kpop,learnkorean,flashcards,hangul,topik,koreanwords,toeic,jlpt,hsk,vocab,kdrama,esl
+hangul,topik,toeic,jlpt,hsk,vocab,kdrama,esl,memorize,japanese,chinese,review,quiz,pinyin,kanji
 ```
 
-> ⚠️ NO spaces, only commas. Words already in App Name / Subtitle / Category don't need repeating — they index automatically.
-> Current length: 95 chars (under 100 limit). Avoided redundant overlaps ("vocabulary" already in App Name, "koreanvocab" overlaps with korean+koreanwords). Added JP/ZH exam keywords (jlpt, hsk) and entertainment keyword (kdrama, esl).
+> ⚠️ NO spaces, only commas. Words already in App Name / Subtitle / Category (vocabulary, builder, AI, flashcards, kpop, korean) are dropped — they recombine automatically, so repeating them wastes space.
+> Current length: 95 chars (under 100 limit). **Atomic strategy**: single tokens the store recombines into phrases (hangul+topik, japanese+vocab, etc.). Added 1.2.0 term (review = spaced repetition), multi-language exam terms (jlpt/hsk/topik), and script terms (pinyin/kanji).
 > ❌ Do NOT add competitor brand names (duolingo, memrise) — Apple may reject.
 
 ## Description (max 4000 chars)
@@ -59,6 +59,17 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Clear graphs of progress and mastery
 - Words you've nailed and words that trip you up are tracked separately
 - Star a word or revisit only the ones you got wrong
+
+• Gentle Review — right before you forget (NEW)
+- Memorized words quietly resurface right when you're about to forget them
+- Words you know well come back rarely; ones you keep missing come back sooner — spaced repetition that stays kind
+- Each day's review is capped, so nothing piles up even if you skip a few days
+- A soft reminder once a day, only when there's something to review
+
+• Streaks & stats
+- Day streak, calendar, and words learned — all in "My Learning"
+- Watch today's, this week's, and total memorized words add up
+- Share your progress as an image
 
 • Add words by photo or spreadsheet
 - Scan a photo and pull in all the words at once
@@ -113,16 +124,14 @@ Privacy policy: https://eunjbaek12.github.io/NewSokSok/privacy-policy
 ## What's New (max 4000 chars, per-version)
 
 ```
-v1.1 — a smarter, smoother vocabulary experience.
+v1.2 — Review right before you forget.
 
-- Sign in with Apple support
-- AI word auto-analysis: type one word, get pronunciation, meaning, examples, and synonyms
-- AI generation quota expanded: 100/day free + 50 more per rewarded ad
-- New Pro plan: ad-free, 1,000 words/day ($2.99/mo or $27.99/yr, 7-day free trial)
-- Expanded curations for Japanese, Chinese, and Vietnamese learners
-- App Tracking Transparency localized (Korean / English)
-- Improved AI accuracy (auto-blocks hallucinated fake words)
-- Numerous stability improvements
+- Gentle Review: memorized words quietly resurface right when you're about to forget them. No backlog dumped on you, no red badges — spaced repetition that stays kind.
+- Review reminders: only on days you have words to review, once a day. Nothing on empty days, and you set the time.
+- Streaks & stats: see your day streak, calendar, and words learned in "My Learning." Share your progress as an image.
+- Subscription reliability: Pro status is re-checked at launch, fixing the brief "Free" flash near renewal.
+- Expanded in-app Help (FAQ): review, learning stats, Sign in with Apple, and clearer per-screen guidance.
+- Various stability improvements.
 ```
 
 ---

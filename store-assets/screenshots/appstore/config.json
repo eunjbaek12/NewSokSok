@@ -42,21 +42,35 @@
       "en": { "caption": "Cards, quizzes, examples, shadowing", "sub": "Flip, solve, and speak it into memory" }
     },
     {
-      "id": "06-curation",
+      "id": "06-review",
+      "screen": "복습(Gentle Review) — 홈 '오늘의 복습' 배너 · app/(tabs)/index.tsx",
+      "captureHint": "홈 상단 '오늘의 복습 · N개 준비됨' 배너가 주인공으로 크게 보이도록 구성(N은 12 등 자연스러운 수). 01-home과 구도가 겹치지 않게 배너를 히어로로. 라이트 테마. (대안: 복습 세션 진행 화면도 가능하나 카드가 05-study와 유사하니 배너 권장.)",
+      "ko": { "caption": "잊을 때쯤, 딱 그때 다시", "sub": "외운 단어를 알아서 다시 꺼내주는 부드러운 복습" },
+      "en": { "caption": "Right before<br>you forget", "sub": "Gentle review brings words back at just the right time" }
+    },
+    {
+      "id": "07-curation",
       "screen": "단어 모음 — features/curation/screen.tsx",
       "captureHint": "큐레이션 단어장 카드들이 나열된 상태. NGSL·JLPT·HSK 등 여러 언어 덱이 섞여 보이게. 라이트 테마.",
       "ko": { "caption": "원하는 단어장이, 이미 여기", "sub": "NGSL·JLPT·HSK·TOPIK — 6개 언어 50여 개 단어장" },
       "en": { "caption": "The list you wanted,<br>already here", "sub": "NGSL·JLPT·HSK·TOPIK — 50+ lists, 6 languages" }
     },
     {
-      "id": "07-theme1",
+      "id": "08-stats",
+      "screen": "내 학습(통계) — app/stats.tsx",
+      "captureHint": "연속 학습 일수(스트릭)·달력·외운 단어 수가 보이는 '내 학습' 화면. 스트릭 숫자와 달력이 명확히 보이게. 아보카도 캐릭터 포함. 라이트 테마.",
+      "ko": { "caption": "하루하루가 쌓이는 재미", "sub": "연속 학습·외운 단어·달력 한눈에" },
+      "en": { "caption": "Watch the days<br>add up", "sub": "Streaks, words learned, and a calendar at a glance" }
+    },
+    {
+      "id": "09-theme1",
       "screen": "스킨 적용 화면 1 — 설정 → 표시 → 스킨",
       "captureHint": "특정 스킨(예: 다크 고요)이 적용된 실제 홈/학습 화면. 일반 화면과 톤이 확 다르게. 상태바 더미는 자동 색 보정됨.",
       "ko": { "caption": "분위기를 바꿔 외우는 재미", "sub": "클래식 · 다크 고요 · Y2K · 실험실" },
       "en": { "caption": "Switch the mood,<br>keep the streak", "sub": "Classic · Dark Calm · Y2K · Lab" }
     },
     {
-      "id": "07-theme2",
+      "id": "10-theme2",
       "screen": "스킨 적용 화면 2 — 다른 스킨",
       "captureHint": "theme1과 다른 스킨(예: Y2K)이 적용된 화면. 두 장이 서로 대비되게.",
       "ko": { "caption": "취향대로 고르는 학습 테마", "sub": "스킨 하나로 분위기가 확" },

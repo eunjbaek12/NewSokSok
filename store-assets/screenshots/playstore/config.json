@@ -8,9 +8,9 @@
     {
       "id": "01-home",
       "screen": "홈 탭 — app/(tabs)/index.tsx",
-      "captureHint": "단어장 2~3개가 진행 중이고 상단에 '오늘의 복습 · N개 준비됨' 배너가 보이는 상태(복습 기능을 홈 한 장이 함께 홍보). 진척/달성도 보이게. 라이트 테마. 빈 화면 금지.",
-      "ko": { "caption": "내 단어 공부, 한눈에", "sub": "단어장·진척·오늘의 복습까지" },
-      "en": { "caption": "Your vocabulary, at a glance", "sub": "Lists, progress, and today's review — all in one" }
+      "captureHint": "단어장 2~3개가 진행 중이고 오늘 진척/달성이 보이는 상태. 라이트 테마. 빈 화면 금지. (복습 배너는 due 단어가 있어야 떠서 촬영 부담 큼 → 홈은 평범 상태로, 복습은 설명 텍스트로 홍보.)",
+      "ko": { "caption": "내 단어 공부, 한눈에", "sub": "단어장·진척·오늘 할 일까지" },
+      "en": { "caption": "Your vocabulary, at a glance", "sub": "Word lists, progress, and today's to-dos" }
     },
     {
       "id": "02-autocomplete",

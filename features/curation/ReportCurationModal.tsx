@@ -157,7 +157,7 @@ export default function ReportCurationModal({ visible, onClose, themeId, themeTi
 }
 
 const styles = StyleSheet.create({
-  body: { paddingHorizontal: 20, paddingBottom: 8, gap: 8 },
+  body: { paddingBottom: 8, gap: 8 },
   targetLabel: { fontSize: 12, fontFamily: 'Pretendard_400Regular' },
   sectionLabel: { fontSize: 14, fontFamily: 'Pretendard_600SemiBold', marginTop: 4 },
   reasonRow: {

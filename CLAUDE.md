@@ -109,6 +109,37 @@ Edge Function uses operator's GCP Agent Platform service account key (stored in 
 
 Migrations are manually versioned in `lib/db/`. When modifying the local schema, increment the migration version and add a migration step — do not alter existing migration steps.
 
+### UI checklist — run this whenever you add or review a screen/modal/component
+
+These are mistakes that actually shipped in this repo, each from a default that was
+easy to forget. Check them **before** saying a UI change is done — most are invisible
+in code review and only show up on a device.
+
+- **Modal body padding is automatic — don't add it again.** `DialogModal` pads the
+  body by default (`bodyPadding`), matching the header/footer alignment line. Adding
+  `paddingHorizontal` in the caller double-pads it. Only when body items must reach
+  the modal edge (full-width highlight rows, dividers) set `bodyPadding={false}` and
+  pad the inner elements instead. *(Before the default existed, callers hand-rolled
+  it and the magic number `20` spread by copy-paste — three modals shipped 4px off
+  the header, and one shipped with no body padding at all.)*
+- **A modal containing a `TextInput` needs `scrollable={true}`.** `DialogModal` only
+  dismisses the keyboard on background tap when scrollable; with `false` the iOS
+  keyboard traps the user.
+- **Nest modal-over-modal as children, never siblings.** Two sibling RN `Modal`s
+  shown at once leave the second invisible on iOS. Render a picker inside the parent
+  modal's `children`.
+- **Colors come from tokens.** Inline hex is blocked by lint (`no-restricted-syntax`);
+  use `colors.X` from `@/features/theme`.
+- **Circles and squares need explicit px.** `'50%'` or `onLayout`-measured sizing has
+  rendered as a rectangle on Android here. Use an explicit `Dimensions`-derived value.
+- **SVG copied from a design tool needs its leading zeros restored.** Illustrator/Figma
+  export `offset=".2135"`; `react-native-svg` cannot parse that form and **discards the
+  value**. It is not just console noise — 27 gradient stops were being dropped on the
+  avocado character, flattening its gradient. Write `"0.2135"`.
+
+When you find a new instance of "the default made this easy to get wrong", prefer
+fixing the default over adding a rule here.
+
 ### Community Curation
 
 - Google login required to share. Guests see the share button disabled with a login prompt.

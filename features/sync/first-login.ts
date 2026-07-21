@@ -26,8 +26,6 @@ import { supabase } from '@/lib/supabase';
 // Direct (non-barrel) imports break the features/vocab ↔ features/sync require cycle:
 // the vocab barrel re-exports mutations.ts, which imports back into @/features/sync.
 // eslint-disable-next-line no-restricted-imports
-import { fetchAllLists } from '@/features/vocab/queries';
-// eslint-disable-next-line no-restricted-imports
 import { clearAllData } from '@/features/vocab/db';
 import { useSyncStore } from './store';
 
@@ -48,8 +46,7 @@ export interface FirstLoginProbe {
  */
 export async function probeFirstLoginState(): Promise<FirstLoginProbe> {
   const cloudWordCount = await countLiveCloudWords();
-  const localLists = await fetchAllLists();
-  const localWordCount = localLists.reduce((sum, l) => sum + l.words.length, 0);
+  const localWordCount = await countLiveLocalWords();
 
   let state: FirstLoginState = 'both-empty';
   if (cloudWordCount > 0 && localWordCount > 0) state = 'conflict';
@@ -57,6 +54,28 @@ export async function probeFirstLoginState(): Promise<FirstLoginProbe> {
   else if (localWordCount > 0) state = 'local-only';
 
   return { state, cloudWordCount, localWordCount };
+}
+
+/**
+ * 로컬에서 사용자에게 실제로 보이는 단어 수 — 살아있는 부모 리스트에 속한
+ * 살아있는 단어. countLiveCloudWords와 같은 기준이라 두 카운트가 대칭이고,
+ * conflict 프롬프트의 "클라우드 N개 / 이 기기 M개"가 같은 잣대로 세어진다.
+ *
+ * 예전에는 `fetchAllLists()`로 전 리스트+단어를 메모리에 조립한 뒤 `words.length`만
+ * 합산했다. 첫 로그인 경로에서 단어 수만큼 행 변환이 돌고, 곧바로 이어지는
+ * pullChanges가 같은 데이터를 다시 다룬다 — 개수만 필요하니 COUNT 한 방이면 된다.
+ * (JOIN 조건이 예전 조립 결과와 등가다: 부모가 삭제된 고아 단어는 어느 리스트의
+ * `words`에도 담기지 않아 합계에서 빠졌다.)
+ */
+async function countLiveLocalWords(): Promise<number> {
+  const db = await getDb();
+  const row = await db.getFirstAsync<{ n: number }>(
+    `SELECT COUNT(*) AS n
+       FROM words w
+       JOIN lists l ON l.id = w.listId
+      WHERE w.deletedAt IS NULL AND l.deletedAt IS NULL`,
+  );
+  return row?.n ?? 0;
 }
 
 /**

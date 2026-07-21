@@ -3,7 +3,6 @@ import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
-import { PopupTokens } from '@/constants/popup';
 import DialogModal from './DialogModal';
 
 export interface PickerOption {
@@ -96,10 +95,8 @@ const styles = StyleSheet.create({
     scroll: {
         flexShrink: 1,
         maxHeight: 350,
-        paddingHorizontal: PopupTokens.padding.container,
     },
     footerWrap: {
-        paddingHorizontal: PopupTokens.padding.container,
         paddingBottom: 4,
     },
     option: {

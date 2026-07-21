@@ -7,7 +7,7 @@
  * Result: "클라우드에 N개" reported more than the user could actually see (e.g.
  * a phantom 1001). The count must mirror pull — only words under a live list.
  */
-let mockLocalLists: { words: unknown[] }[] = [];
+let mockLocalWordCount = 0;
 
 jest.mock('@react-native-async-storage/async-storage', () => {
   const mem = new Map<string, string>();
@@ -21,11 +21,13 @@ jest.mock('@react-native-async-storage/async-storage', () => {
   };
 });
 
-jest.mock('@/features/vocab/queries', () => ({
-  fetchAllLists: async () => mockLocalLists,
-}));
 jest.mock('@/features/vocab/db', () => ({ clearAllData: async () => {} }));
-jest.mock('@/lib/db', () => ({ getDb: async () => ({}) }));
+// 로컬 카운트는 주입값으로 충분하다 — 이 스위트의 초점은 클라우드 orphan-aware
+// 카운트다. 로컬 쪽 JOIN이 예전 조립 방식과 등가인지는 실제 SQLite를 돌리는
+// first-login-local-count.test.ts가 검증한다.
+jest.mock('@/lib/db', () => ({
+  getDb: async () => ({ getFirstAsync: async () => ({ n: mockLocalWordCount }) }),
+}));
 
 jest.mock('@/lib/supabase', () => {
   const CLOUD_LISTS = [
@@ -69,7 +71,7 @@ import { probeFirstLoginState } from '@/features/sync/first-login';
 
 describe('probeFirstLoginState — orphan-aware cloud count', () => {
   it('counts only words under a live parent list (excludes orphans + deleted)', async () => {
-    mockLocalLists = [{ words: [{}, {}] }]; // 2 local words
+    mockLocalWordCount = 2;
     const probe = await probeFirstLoginState();
     // Live: W1(L1), W2(L2), W3(L2) = 3. Excludes W4/W5 (orphans), W6 (deleted).
     // Old behavior would have returned 5 (every is_deleted=false word).
@@ -79,7 +81,7 @@ describe('probeFirstLoginState — orphan-aware cloud count', () => {
   });
 
   it('treats orphans-only cloud as cloud-only when local is empty', async () => {
-    mockLocalLists = []; // no local words
+    mockLocalWordCount = 0;
     const probe = await probeFirstLoginState();
     expect(probe.cloudWordCount).toBe(3);
     expect(probe.localWordCount).toBe(0);

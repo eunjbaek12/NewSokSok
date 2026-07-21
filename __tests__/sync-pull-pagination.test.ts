@@ -20,6 +20,7 @@ let mockCloudLists: any[] = [];
 let mockCloudWords: any[] = [];
 let mockLocalDirtyWordRows: any[] = [];
 let mockPageRequests = 0; // supabase 쿼리 실행 횟수(페이지 요청 수 검증용)
+let mockInListIdQueries = 0; // by-list 완전성 조회 횟수
 let mockUpsertCalls: { table: string; rows: any[] }[] = [];
 
 jest.mock('react-native', () => ({ Platform: { OS: 'android' } }));
@@ -51,7 +52,13 @@ jest.mock('@/lib/supabase', () => {
       select: () => q,
       gt: (f: string, v: any) => { state.filters.push((r: any) => r[f] > v); return q; },
       eq: (f: string, v: any) => { state.filters.push((r: any) => r[f] === v); return q; },
-      in: (f: string, ids: any[]) => { state.filters.push((r: any) => ids.includes(r[f])); return q; },
+      in: (f: string, ids: any[]) => {
+        // by-list 완전성 조회만이 list_id로 .in()을 건다 — 그 조회가 실제로
+        // 일어났는지 세는 신호로 쓴다.
+        if (f === 'list_id') mockInListIdQueries += 1;
+        state.filters.push((r: any) => ids.includes(r[f]));
+        return q;
+      },
       or: (expr: string) => {
         const m = expr.match(/^updated_at\.gt\.(\d+),and\(updated_at\.eq\.\1,id\.gt\.(.+)\)$/);
         if (!m) throw new Error('unexpected or() expr: ' + expr);
@@ -114,7 +121,9 @@ jest.mock('expo-sqlite', () => {
   return { openDatabaseAsync: async () => conn };
 });
 
-import { pullChanges, flushPush, PULL_PAGE } from '@/features/sync/engine';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { pullChanges, flushPush, PULL_PAGE, WORD_COLUMN_COUNT, WORD_INSERT_CHUNK } from '@/features/sync/engine';
 import { useSyncStore } from '@/features/sync/store';
 
 const fullList = (over: Record<string, any>) => ({
@@ -137,8 +146,21 @@ const fullWord = (over: Record<string, any>) => ({
   ...over,
 });
 
+/**
+ * 단어 INSERT는 여러 행을 한 문장에 싣는다(브리지 왕복 절감). 그래서 params[0]은
+ * 행들이 이어붙은 평탄 배열이다 — WORD_COLUMN_COUNT 간격으로 끊어 각 행의 첫
+ * 컬럼(id)을 뽑는다. 간격이 틀어지면 엉뚱한 값을 id로 읽으므로, 아래 "배치 INSERT
+ * 계약" 스위트가 이 상수와 실제 SQL의 일치를 따로 강제한다.
+ */
 const insertedWordIds = () =>
-  mockRunCalls.filter(c => c.sql.includes('INSERT OR REPLACE INTO words')).map(c => c.params[0][0]);
+  mockRunCalls
+    .filter(c => c.sql.includes('INSERT OR REPLACE INTO words'))
+    .flatMap(c => {
+      const flat = c.params[0] as any[];
+      const ids: any[] = [];
+      for (let i = 0; i < flat.length; i += WORD_COLUMN_COUNT) ids.push(flat[i]);
+      return ids;
+    });
 
 beforeEach(async () => {
   mockRunCalls = [];
@@ -146,6 +168,7 @@ beforeEach(async () => {
   mockCloudWords = [];
   mockLocalDirtyWordRows = [];
   mockPageRequests = 0;
+  mockInListIdQueries = 0;
   mockUpsertCalls = [];
   await useSyncStore.getState().resetAll();
 });
@@ -166,7 +189,7 @@ describe('pullChanges — 키셋 페이지네이션 전량 드레인', () => {
 
     const ids = new Set(insertedWordIds());
     expect(ids.size).toBe(TOTAL); // 한 단어도 잘리지 않았다
-    // 진짜 여러 페이지를 요청했는지 (gt 드레인 3 + by-list 드레인 3 + lists 1 ≥ 5)
+    // 진짜 여러 페이지를 요청했는지 (단어 gt 드레인만 3페이지 + 나머지 테이블)
     expect(mockPageRequests).toBeGreaterThanOrEqual(5);
     // 워터마크 = 배치 max(updated_at) — 전량 수신했으므로 안전하게 전진
     expect(useSyncStore.getState().lastPulledAt).toBe(999_999);
@@ -183,6 +206,70 @@ describe('pullChanges — 키셋 페이지네이션 전량 드레인', () => {
     await pullChanges();
 
     expect(new Set(insertedWordIds()).size).toBe(TOTAL);
+  });
+});
+
+/**
+ * by-list 완전성 조회는 "리스트는 워터마크를 통과했는데 그 단어들은 통과하지 못해
+ * 영원히 갇히는" 비대칭을 메우는 보정이다. 그 비대칭은 워터마크가 0보다 클 때만
+ * 성립한다 — since=0이면 gt(0)이 모든 행을 통과시키므로 갇힐 행 자체가 없다.
+ *
+ * 실측(첫 로그인, 단어 5,605개)에서 이 조회가 2,836행을 다시 받아 전부 중복 제거에서
+ * 버렸다. 2.3초와 그만큼의 트래픽이 순손실이라 첫 동기화에서는 건너뛴다. 이 스위트는
+ * 그 생략이 첫 동기화에**만** 적용되는지를 양쪽으로 고정한다.
+ */
+describe('pullChanges — by-list 완전성 조회의 경계', () => {
+  const seed = () => {
+    mockCloudLists = [fullList({ id: 'L1', updated_at: 3000 })];
+    mockCloudWords = [fullWord({ id: 'W1', list_id: 'L1', updated_at: 2500 })];
+  };
+
+  it('첫 동기화(lastPulledAt=0)에는 건너뛴다 — gt(0)이 이미 전량을 통과시킨다', async () => {
+    seed();
+    await pullChanges();
+    expect(mockInListIdQueries).toBe(0);
+    expect(insertedWordIds()).toContain('W1'); // 그래도 단어는 정상 수신
+  });
+
+  it('증분 동기화(lastPulledAt>0)에서는 여전히 수행한다 — 갇힌 단어를 구제해야 한다', async () => {
+    await useSyncStore.getState().setLastPulledAt(1000);
+    seed();
+    await pullChanges();
+    expect(mockInListIdQueries).toBeGreaterThan(0);
+  });
+});
+
+/**
+ * 단어 쓰기를 행 단위 runAsync에서 다중 VALUES 배치로 바꾼 뒤의 계약.
+ * 상수와 실제 SQL이 어긋나면 문장이 통째로 실패하거나(파라미터 수 불일치)
+ * 테스트 헬퍼가 엉뚱한 값을 id로 읽는다.
+ */
+describe('pullChanges — 배치 INSERT 계약', () => {
+  const engineSrc = readFileSync(join(__dirname, '..', 'features/sync/engine.ts'), 'utf8');
+
+  it('WORD_COLUMN_COUNT가 실제 INSERT 컬럼 수와 일치한다', () => {
+    const m = engineSrc.match(/INSERT OR REPLACE INTO words\s*\(([^)]*)\)/);
+    expect(m).not.toBeNull();
+    const cols = m![1].split(',').map(c => c.trim()).filter(Boolean);
+    expect(cols).toHaveLength(WORD_COLUMN_COUNT);
+  });
+
+  it('한 문장의 파라미터 수가 SQLite 한도(보수적 999)를 넘지 않는다', () => {
+    expect(WORD_COLUMN_COUNT * WORD_INSERT_CHUNK).toBeLessThanOrEqual(999);
+  });
+
+  it('행 수보다 훨씬 적은 문장으로 쓴다 (왕복 절감이 실제로 일어난다)', async () => {
+    const TOTAL = 300;
+    mockCloudLists = [fullList({ id: 'L1', updated_at: 9999 })];
+    mockCloudWords = Array.from({ length: TOTAL }, (_, i) =>
+      fullWord({ id: `W${String(i).padStart(5, '0')}`, list_id: 'L1', updated_at: 1000 + i }),
+    );
+
+    await pullChanges();
+
+    const statements = mockRunCalls.filter(c => c.sql.includes('INSERT OR REPLACE INTO words')).length;
+    expect(new Set(insertedWordIds()).size).toBe(TOTAL); // 손실 없이
+    expect(statements).toBe(Math.ceil(TOTAL / WORD_INSERT_CHUNK)); // 왕복은 1/40로
   });
 });
 

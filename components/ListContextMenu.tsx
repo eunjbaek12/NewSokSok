@@ -547,7 +547,6 @@ const styles = StyleSheet.create({
     marginVertical: 2,
   },
   dialogBody: {
-    paddingHorizontal: PopupTokens.padding.container,
     paddingBottom: 8,
   },
   renameInput: {

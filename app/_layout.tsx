@@ -9,7 +9,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { queryClient } from "@/lib/api/client";
 import { ThemeProvider, useSkinStore } from "@/features/theme";
-import { useVocabBootstrap } from "@/features/vocab";
+import { useVocabBootstrap, useLists } from "@/features/vocab";
 import { useAuth, useAuthStore, isCloudAuthMode } from "@/features/auth";
 import { useSettings, useSettingsStore } from "@/features/settings";
 import { LocaleProvider } from "@/features/locale";
@@ -24,6 +24,7 @@ import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
 import { useAdsAllowed } from "@/components/ads/AppBannerAd";
 import "@/i18n";
 import { useReviewNotificationRouting } from '@/features/study/review/use-review-notification-routing';
+import { useReviewNotificationScheduler } from '@/features/study/review/use-review-notifications';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -69,6 +70,7 @@ export default function RootLayout() {
                   <KeyboardProvider>
                     <GestureHandlerRootView style={{ flex: 1 }}>
                       <AppStack />
+                      <ReviewNotificationScheduler />
                       <GlobalRewardedAdModal />
                       <GlobalProLimitReachedModal />
                     </GestureHandlerRootView>
@@ -115,6 +117,15 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
 function VocabBootstrapper({ children }: { children: React.ReactNode }) {
   useVocabBootstrap();
   return <>{children}</>;
+}
+
+// 복습 알림 재예약을 상시 담당한다(§8). 홈 화면이 아니라 이 루트에 두는 이유:
+// 설정 탭에서 시간을 바꿔도, 시작 탭이 홈이 아니어도 항상 재예약되게 하기 위해서.
+// null만 반환하는 얇은 컴포넌트라 lists 구독의 리렌더가 이 컴포넌트에만 갇힌다
+// (AppStack의 네비게이터가 lists 변화마다 리렌더되는 것을 피한다).
+function ReviewNotificationScheduler() {
+  useReviewNotificationScheduler(useLists());
+  return null;
 }
 
 // quota_exceeded 발생 시 자동으로 띄우는 글로벌 보상형 광고 모달.

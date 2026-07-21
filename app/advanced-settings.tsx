@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
   modalActions: { flexDirection: 'row', gap: 8 },
   modalBtn: { flex: 1, alignItems: 'center', justifyContent: 'center' },
   modalBtnText: { fontFamily: 'Pretendard_600SemiBold' },
-  modalBody: { paddingHorizontal: 24, gap: 10, paddingBottom: 8 },
+  modalBody: { gap: 10, paddingBottom: 8 },
   modalDesc: { fontSize: 13, fontFamily: 'Pretendard_400Regular', lineHeight: 19, marginBottom: 2 },
   apiKeyInputRow: {
     flexDirection: 'row', alignItems: 'center', gap: 4,

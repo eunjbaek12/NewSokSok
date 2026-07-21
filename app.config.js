@@ -98,6 +98,12 @@ module.exports = {
     // expo-notifications의 주입보다 나중에 실행되게 하려면 이 플러그인을 배열의 *맨 앞*
     // (= expo-notifications보다 먼저 등록)에 둬야 한다. 상세: 플러그인 주석.
     './plugins/withNoApsEnvironment',
+    // expo-audio가 라이브러리 매니페스트로 주입하는 포그라운드 서비스 2개(mediaPlayback·
+    // microphone)를 제거한다. Android 15+에서 BOOT_COMPLETED 경로와 만나면 앱이 죽는다
+    // (Play Console "제한된 포그라운드 서비스 유형"). expo-audio는 iOS에서만 호출되므로
+    // 안 쓰는 서비스다. 음성 입력(expo-speech-recognition)과는 무관 — 상세: 플러그인 주석.
+    // 실제 제거는 Gradle manifest merger가 하므로 배열 위치는 무관하다.
+    './plugins/withNoAudioForegroundServices',
     ...expo.plugins,
     [
       'react-native-google-mobile-ads',

@@ -14,6 +14,7 @@ import * as AppleAuthentication from 'expo-apple-authentication';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/features/auth';
+import { resetLoginTiming, endLoginTiming } from '@/lib/login-timing';
 import { hasPreservedCloudData, discardPreservedCloudData } from '@/features/auth/preserved-cloud-data';
 import { useTheme } from '@/features/theme';
 import { Button } from '@/components/ui/Button';
@@ -38,11 +39,13 @@ export default function LoginScreen() {
 
   const handleGoogleLogin = async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    resetLoginTiming(); // TEMP: login-latency instrumentation
     setLoading('google');
     try {
       await signInWithGoogle();
       router.replace('/');
     } catch (error: any) {
+      endLoginTiming(); // TEMP: login failed — end timing session without summary
       if (error.message !== 'GOOGLE_CLIENT_ID_MISSING') {
         console.error(error);
       }

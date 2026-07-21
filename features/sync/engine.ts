@@ -3,6 +3,7 @@ import { getDb, runInTransaction } from '@/lib/db';
 import { supabase } from '@/lib/supabase';
 import { useSyncStore } from './store';
 import { vocaListToCloudRow, wordToCloudRow, dbRowToVocaList, dbRowToWord } from './mapping';
+import { startLoginTimer } from '@/lib/login-timing'; // TEMP: login-latency instrumentation
 
 const DEBOUNCE_MS = 30000;
 
@@ -60,6 +61,7 @@ export async function flushPush(): Promise<void> {
   if (dirtyListIds.size === 0 && dirtyWordIds.size === 0 && dirtyStatDates.size === 0) return;
   if (pushInFlight) return;
 
+  const mark = startLoginTimer('push'); // TEMP: login-latency instrumentation
   pushInFlight = true;
   setIsSyncing(true);
 
@@ -85,6 +87,7 @@ export async function flushPush(): Promise<void> {
       );
       const cloudRows = rows.map(r => vocaListToCloudRow(rowToVocaList(r), { deletedAt: r.deletedAt ?? null }));
       await upsertInChunks('cloud_lists', cloudRows, { onConflict: 'id' });
+      mark(`lists upsert (${cloudRows.length})`); // TEMP
     }
 
     if (wordIds.length > 0) {
@@ -100,6 +103,7 @@ export async function flushPush(): Promise<void> {
         }),
       );
       await upsertInChunks('cloud_words', cloudRows, { onConflict: 'id' });
+      mark(`words upsert (${cloudRows.length}, ${PUSH_CHUNK}행씩)`); // TEMP
     }
 
     // 학습 통계 push. study_days는 merge_study_days RPC(서버 GREATEST 병합) —
@@ -136,6 +140,7 @@ export async function flushPush(): Promise<void> {
       }
     }
 
+    mark(`stats upsert (days ${statDates.length})`); // TEMP
     clearDirtyLists(listIds);
     clearDirtyWords(wordIds);
     clearDirtyStatDates(statDates);
@@ -233,6 +238,7 @@ async function fetchAliveListsByIds(ids: string[]): Promise<any[]> {
 export async function pullChanges(): Promise<void> {
   if (!isCloudAuthed()) return;
 
+  const mark = startLoginTimer('pull'); // TEMP: login-latency instrumentation
   const { lastPulledAt, setLastPulledAt, setIsSyncing } = useSyncStore.getState();
   setIsSyncing(true);
   try {
@@ -242,6 +248,7 @@ export async function pullChanges(): Promise<void> {
       fetchAllSince('cloud_study_days', lastPulledAt),
       fetchAllSince('cloud_memorized_log', lastPulledAt),
     ]);
+    mark(`fetch 4 tables (lists ${lists.length}, words ${words.length}, days ${statDays.length}, log ${statLog.length})`);
 
     // 드레인이 완료됐으므로 배치의 max(updated_at)까지는 전부 수신했음이 보장된다.
     // 빈 배치면 워터마크를 유지한다 — 과거의 Date.now() 점프는 클라이언트 시계가
@@ -284,6 +291,7 @@ export async function pullChanges(): Promise<void> {
         console.warn('[sync] backfilled', extraLists.length, 'parent list(s) for orphaned words');
       }
     }
+    mark(`부모 리스트 백필 (${extraLists.length})`);
 
     // List→word completeness fetch — fixes the inverse asymmetry.
     //
@@ -305,6 +313,10 @@ export async function pullChanges(): Promise<void> {
     const listWords: any[] = aliveListIds.length > 0
       ? await fetchAliveWordsByListIds(aliveListIds)
       : [];
+    // ⚠️ 이 숫자가 "이번에 바뀐 단어 수"보다 훨씬 크면 에코 증폭이다 — 학습으로
+    // 리스트가 dirty→push→다음 pull에 echo로 돌아오면 그 리스트의 전 단어를
+    // 다시 받는다. 개선 후보 ①(측정으로 확인할 대상).
+    mark(`리스트별 단어 완전성 조회 (${listWords.length})`); // TEMP
     // Merge gt-batch words with by-list words, de-duped by id. The by-list set
     // is intentionally excluded from newWatermark (it may predate it) — only
     // the regular gt batch advances the watermark.
@@ -453,6 +465,7 @@ export async function pullChanges(): Promise<void> {
         );
       }
     });
+    mark(`DB 트랜잭션 쓰기 (words ${allWords.length})`); // TEMP
 
     await setLastPulledAt(newWatermark);
   } finally {

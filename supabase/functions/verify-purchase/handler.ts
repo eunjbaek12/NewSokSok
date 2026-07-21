@@ -152,7 +152,10 @@ export function createVerifyHandler(deps: VerifyDeps) {
       play_product_id: productId,
       updated_at: new Date().toISOString(),
     });
-    if (upsertErr) return r(500, { ok: false, error: 'internal_error' });
+    if (upsertErr) {
+      console.error('[verify] upsert failed:', (upsertErr as { message?: string })?.message ?? JSON.stringify(upsertErr));
+      return r(500, { ok: false, error: 'internal_error' });
+    }
 
     return r(200, { ok: true, tier: 'pro', pro_until: expiryTime, product_id: productId });
   };
@@ -175,7 +178,8 @@ async function verifyAndroid(
   let accessToken: string;
   try {
     accessToken = await deps.getAccessToken({ ...cfg, scope: PLAY_SCOPE });
-  } catch {
+  } catch (e) {
+    console.error('[verify] android getAccessToken failed:', (e as Error)?.message ?? String(e));
     return { ok: false, response: r(500, { ok: false, error: 'internal_error' }) };
   }
 
@@ -187,11 +191,14 @@ async function verifyAndroid(
   let playRes: PlayResponse;
   try {
     playRes = await deps.fetchPlay(apiUrl, accessToken);
-  } catch {
+  } catch (e) {
+    console.error('[verify] android fetchPlay threw:', (e as Error)?.message ?? String(e));
     return { ok: false, response: r(500, { ok: false, error: 'upstream_failure' }) };
   }
 
   if (!playRes.ok) {
+    const detail = await playRes.text().catch(() => '');
+    console.error(`[verify] android play API non-ok status=${playRes.status} sa=${cfg.clientEmail} pkg=${cfg.packageName} body=${detail.slice(0, 500)}`);
     if (playRes.status === 404 || playRes.status === 410) {
       return { ok: false, response: r(402, { ok: false, error: 'subscription_invalid', detail: 'not_found' }) };
     }
@@ -219,10 +226,12 @@ async function verifyApple(
   try {
     const decoded = deps.decodeAppleJWS(purchaseToken);
     if (!decoded?.transactionId) {
+      console.error('[verify] ios JWS decode: no transactionId in token');
       return { ok: false, response: r(400, { ok: false, error: 'invalid_request', detail: 'no_transaction_id' }) };
     }
     transactionId = decoded.transactionId;
-  } catch {
+  } catch (e) {
+    console.error('[verify] ios JWS decode threw (malformed_jws):', (e as Error)?.message ?? String(e));
     return { ok: false, response: r(400, { ok: false, error: 'invalid_request', detail: 'malformed_jws' }) };
   }
 
@@ -230,16 +239,19 @@ async function verifyApple(
   let txResult: AppleTransactionResult | null;
   try {
     txResult = await deps.fetchAppleTransaction(transactionId, cfg);
-  } catch {
+  } catch (e) {
+    console.error('[verify] ios fetchAppleTransaction threw:', (e as Error)?.message ?? String(e));
     return { ok: false, response: r(500, { ok: false, error: 'upstream_failure' }) };
   }
   if (!txResult) {
+    console.error(`[verify] ios apple transaction not found (402) txId=${transactionId} bundle=${cfg.bundleId}`);
     return { ok: false, response: r(402, { ok: false, error: 'subscription_invalid', detail: 'not_found' }) };
   }
 
   // 3. 평가
   const evaluation = evaluateAppleSubscription(txResult.payload, productId, cfg.bundleId);
   if (!evaluation.ok) {
+    console.error(`[verify] ios apple eval failed status=${evaluation.status} error=${evaluation.error} detail=${evaluation.detail} env=${txResult.environment} productId=${productId} bundle=${cfg.bundleId}`);
     return { ok: false, response: r(evaluation.status, { ok: false, error: evaluation.error, detail: evaluation.detail }) };
   }
   const originalTransactionId = txResult.payload.originalTransactionId ?? transactionId;

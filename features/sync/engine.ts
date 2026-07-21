@@ -157,6 +157,25 @@ export async function flushPush(): Promise<void> {
 export const PULL_PAGE = 500;
 
 /**
+ * pull이 로컬에 쓰는 단어 INSERT의 컬럼 수. 아래 청크 크기 계산의 입력이므로 컬럼
+ * 목록을 고칠 때 반드시 함께 갱신한다(어긋나면 SQL이 통째로 실패한다).
+ */
+export const WORD_COLUMN_COUNT = 22;
+
+/**
+ * 한 INSERT 문에 실을 단어 행 수.
+ *
+ * 상한은 SQLite의 호스트 파라미터 한도다 — 넘으면 문장이 실패한다. 최신 SQLite는
+ * 32766까지 받지만 expo-sqlite가 어느 빌드를 싣는지에 기대지 않고 구버전 기본값
+ * 999를 기준으로 잡는다: 22컬럼 × 40행 = 880. 왕복이 행 수에서 1/40로 줄어드는
+ * 것만으로 목적은 달성되므로, 한도에 바싹 붙일 이유가 없다.
+ */
+export const WORD_INSERT_CHUNK = 40;
+
+/** DELETE는 행당 파라미터가 id 하나뿐이라 더 크게 묶어도 한도에 여유가 있다. */
+const DELETE_CHUNK = 500;
+
+/**
  * updated_at > since 행 전체를 (updated_at, id) 키셋 페이지네이션으로 드레인.
  *
  * offset(.range) 대신 키셋인 이유: 페이지네이션 도중 어떤 행이 갱신되면 그 행은
@@ -306,11 +325,17 @@ export async function pullChanges(): Promise<void> {
     // Whenever a live list is part of this pull (regular batch OR backfilled
     // parent), fetch ALL its words by list_id, watermark-independent, so the
     // children always travel with the parent.
+    //
+    // 단, lastPulledAt === 0(첫 동기화)에는 건너뛴다. 그때는 gt(0)이 모든 행을
+    // 통과시키므로 "리스트는 왔는데 단어는 워터마크 뒤에 갇힌" 비대칭이 성립할 수
+    // 없다 — 보정할 대상이 구조적으로 존재하지 않는다. 실측(첫 로그인, 단어 5,605개)에서
+    // 이 조회가 2,836행을 다시 받아 전부 중복 제거에서 버렸다: 2.3초와 그만큼의
+    // 트래픽이 순손실이었다.
     const aliveListIds = [...new Set([
       ...lists.filter((l: any) => !l.is_deleted).map((l: any) => l.id as string),
       ...extraLists.map((l: any) => l.id as string),
     ])];
-    const listWords: any[] = aliveListIds.length > 0
+    const listWords: any[] = lastPulledAt > 0 && aliveListIds.length > 0
       ? await fetchAliveWordsByListIds(aliveListIds)
       : [];
     // ⚠️ 이 숫자가 "이번에 바뀐 단어 수"보다 훨씬 크면 에코 증폭이다 — 학습으로
@@ -399,9 +424,17 @@ export async function pullChanges(): Promise<void> {
       );
       const validListIds = new Set(validListRows.map(r => r.id));
 
+      // 쓰기 대상을 먼저 모은 뒤 여러 행씩 묶어 실행한다.
+      //
+      // 왜: 예전엔 단어 하나마다 runAsync를 불렀고, 그 브리지 왕복이 pull의 지배적
+      // 비용이었다 — 첫 로그인 실측에서 5,605행에 10.9초, 전체 로그인 시간의 37%.
+      // 트랜잭션 안이라 디스크 동기화는 어차피 한 번인데 호출 오버헤드만으로 그만큼
+      // 나갔다. 묶어 보내면 왕복이 행 수에서 청크 수로 줄어든다.
+      const deleteIds: string[] = [];
+      const insertRows: any[][] = [];
       for (const w of allWords) {
         if (w.is_deleted) {
-          await db.runAsync('DELETE FROM words WHERE id = ?', w.id);
+          deleteIds.push(w.id);
           continue;
         }
         if (!validListIds.has(w.list_id)) {
@@ -413,28 +446,43 @@ export async function pullChanges(): Promise<void> {
         // Keep the pending local edit; the upcoming push will publish it.
         if (dirtyWordIds.has(w.id)) continue;
         const word = dbRowToWord(w);
-        // ⚠️ INSERT OR REPLACE는 행을 통째로 갈아끼운다 — 여기 빠진 컬럼은 값이
-        // 보존되는 게 아니라 DEFAULT(NULL/0)로 초기화된다. 복습 컬럼을 빠뜨리면
-        // pull이 내려올 때마다 그 단어의 복습 진도가 조용히 지워지고, 클라이언트는
-        // lastReviewedAt이 NULL인 암기 단어를 due로 치지 않으므로 그 단어는 영영
-        // 복습에 안 걸린다. 새 단어 컬럼을 추가할 때 이 목록을 반드시 함께 갱신할 것.
+        insertRows.push([
+          word.id, w.list_id, word.term, word.definition, word.phonetic ?? null, word.pos ?? null,
+          word.exampleEn, word.exampleKr ?? null, word.meaningKr,
+          word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, w.tags ?? null,
+          w.position, word.createdAt, word.updatedAt,
+          word.wrongCount, word.assignedDay ?? null, word.sourceLang, word.targetLang,
+          // null과 0을 구별해서 넣어야 한다: 0은 1970-01-01이라 "즉시 due"가 되고,
+          // null이라야 "학습 이력 없음"(due 아님)으로 읽힌다.
+          word.lastReviewedAt ?? null, word.reviewSuccessCount ?? 0, null,
+        ]);
+      }
+
+      for (let i = 0; i < deleteIds.length; i += DELETE_CHUNK) {
+        const chunk = deleteIds.slice(i, i + DELETE_CHUNK);
+        await db.runAsync(
+          `DELETE FROM words WHERE id IN (${chunk.map(() => '?').join(',')})`,
+          chunk,
+        );
+      }
+
+      // ⚠️ INSERT OR REPLACE는 행을 통째로 갈아끼운다 — 여기 빠진 컬럼은 값이
+      // 보존되는 게 아니라 DEFAULT(NULL/0)로 초기화된다. 복습 컬럼을 빠뜨리면
+      // pull이 내려올 때마다 그 단어의 복습 진도가 조용히 지워지고, 클라이언트는
+      // lastReviewedAt이 NULL인 암기 단어를 due로 치지 않으므로 그 단어는 영영
+      // 복습에 안 걸린다. 새 단어 컬럼을 추가할 때 이 목록과 WORD_COLUMN_COUNT를
+      // 반드시 함께 갱신할 것(개수가 어긋나면 __tests__/sync-word-insert-batch가 잡는다).
+      for (let i = 0; i < insertRows.length; i += WORD_INSERT_CHUNK) {
+        const chunk = insertRows.slice(i, i + WORD_INSERT_CHUNK);
+        const tuple = `(${new Array(WORD_COLUMN_COUNT).fill('?').join(', ')})`;
         await db.runAsync(
           `INSERT OR REPLACE INTO words (
             id, listId, term, definition, phonetic, pos, exampleEn, exampleKr,
             meaningKr, isMemorized, isStarred, tags, position, createdAt, updatedAt,
             wrongCount, assignedDay, sourceLang, targetLang,
             lastReviewedAt, reviewSuccessCount, deletedAt
-          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-          [
-            word.id, w.list_id, word.term, word.definition, word.phonetic ?? null, word.pos ?? null,
-            word.exampleEn, word.exampleKr ?? null, word.meaningKr,
-            word.isMemorized ? 1 : 0, word.isStarred ? 1 : 0, w.tags ?? null,
-            w.position, word.createdAt, word.updatedAt,
-            word.wrongCount, word.assignedDay ?? null, word.sourceLang, word.targetLang,
-            // null과 0을 구별해서 넣어야 한다: 0은 1970-01-01이라 "즉시 due"가 되고,
-            // null이라야 "학습 이력 없음"(due 아님)으로 읽힌다.
-            word.lastReviewedAt ?? null, word.reviewSuccessCount ?? 0, null,
-          ],
+          ) VALUES ${new Array(chunk.length).fill(tuple).join(', ')}`,
+          chunk.flat(),
         );
       }
 

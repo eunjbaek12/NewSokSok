@@ -103,18 +103,44 @@ function configureGoogleSignIn() {
   });
 }
 
-async function buildUser(supabaseUser: SupabaseUser): Promise<GoogleUser> {
-  const { data } = await supabase
+/**
+ * `app_admins` 조회 결과 메모(로그인 세션 1회). buildUser는 로그인 한 번에 두 번
+ * 돈다 — signInWith*가 명시적으로 한 번, 그 안의 signInWithIdToken이 발생시킨
+ * onAuthStateChange('SIGNED_IN')가 한 번 — 여기에 콜드 스타트의 hydrate까지
+ * 더하면 같은 왕복을 세 번 한다. 관리자 여부는 세션 중에 바뀌지 않으므로 첫
+ * 조회만 네트워크를 태운다.
+ *
+ * ⚠️ 실패는 캐시하지 않는다. 네트워크 블립으로 잡은 false를 고착시키면 관리자가
+ * 로그아웃할 때까지 권한을 잃는다(기존 동작도 그 회차엔 false였지만, 다음
+ * 호출에서 회복될 여지는 있었다).
+ */
+let adminCache: { userId: string; isAdmin: boolean } | null = null;
+
+function clearAdminCache(): void {
+  adminCache = null;
+}
+
+async function fetchIsAdmin(userId: string): Promise<boolean> {
+  if (adminCache?.userId === userId) return adminCache.isAdmin;
+  const { data, error } = await supabase
     .from('app_admins')
     .select('user_id')
-    .eq('user_id', supabaseUser.id)
+    .eq('user_id', userId)
     .maybeSingle();
+  if (error) return false;
+  const isAdmin = !!data;
+  adminCache = { userId, isAdmin };
+  return isAdmin;
+}
+
+async function buildUser(supabaseUser: SupabaseUser): Promise<GoogleUser> {
+  const isAdmin = await fetchIsAdmin(supabaseUser.id);
   return {
     id: supabaseUser.id,
     email: supabaseUser.email ?? '',
     displayName: supabaseUser.user_metadata?.full_name ?? null,
     avatarUrl: supabaseUser.user_metadata?.avatar_url ?? null,
-    isAdmin: !!data,
+    isAdmin,
     // Custom nickname is stored under a non-standard key so Google's OAuth
     // claims (full_name/name/avatar_url) re-applied on each signInWithIdToken
     // never clobber it.
@@ -362,6 +388,10 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
     //    mode we're leaving. Pairs with hydrate() treating @soksok_auth as the
     //    source of truth. (The SIGNED_OUT handler's isCloudAuthMode guard then
     //    no-ops, since mode is already 'none'.)
+    //
+    //    관리자 메모도 버린다. 캐시 키가 user id라 계정 전환은 어차피 미스지만,
+    //    권한이 바뀐 같은 계정은 재로그인으로 갱신할 수 있어야 한다.
+    clearAdminCache();
     await persist({ mode: 'none', user: null }, set);
 
     // 4) Sign out of provider + Supabase (best-effort). scope:'local' wipes the
@@ -379,6 +409,8 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
   deleteAccount: async () => {
     const { error } = await supabase.rpc('delete_user');
     if (error) throw error;
+
+    clearAdminCache();
 
     // logout()이 추가한 격리 단계와 동일하게: SQLite + sync watermark +
     // account-scoped settings(닉네임·customStudy·SecureStore BYOK 키)까지

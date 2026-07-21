@@ -17,6 +17,31 @@ function isCloudAuthed(): boolean {
   return isCloudAuthMode(mode) && !!user?.id;
 }
 
+/**
+ * upsert 한 요청에 실을 최대 행 수.
+ *
+ * 첫 로그인의 local-only/merge 분기는 로컬 전체를 dirty로 마킹하므로(first-login.ts)
+ * 이 push 한 번에 수천 행이 실린다. 거대한 JSON 한 방은 느린 회선에서 타임아웃·
+ * 페이로드 한도에 걸리기 쉽고, 걸리면 **전량이** 실패한다 — 게스트 시절 데이터를
+ * 계정에 올리는 바로 그 순간이라 실패 비용이 가장 큰 지점이다. 나눠 보내면 실패해도
+ * 이미 올라간 청크는 서버에 남고, dirty가 그대로라 다음 시도가 다시 올리지만
+ * onConflict 멱등 upsert라 중복이 생기지 않는다.
+ */
+const PUSH_CHUNK = 500;
+
+async function upsertInChunks(
+  table: 'cloud_lists' | 'cloud_words' | 'cloud_memorized_log',
+  rows: any[],
+  options: { onConflict: string; ignoreDuplicates?: boolean },
+): Promise<void> {
+  for (let i = 0; i < rows.length; i += PUSH_CHUNK) {
+    const { error } = await supabase
+      .from(table)
+      .upsert(rows.slice(i, i + PUSH_CHUNK), options);
+    if (error) throw error;
+  }
+}
+
 export function schedulePush(): void {
   if (pushTimer) clearTimeout(pushTimer);
   pushTimer = setTimeout(() => {
@@ -59,10 +84,7 @@ export async function flushPush(): Promise<void> {
         ...listIds,
       );
       const cloudRows = rows.map(r => vocaListToCloudRow(rowToVocaList(r), { deletedAt: r.deletedAt ?? null }));
-      const { error } = await supabase
-        .from('cloud_lists')
-        .upsert(cloudRows, { onConflict: 'id' });
-      if (error) throw error;
+      await upsertInChunks('cloud_lists', cloudRows, { onConflict: 'id' });
     }
 
     if (wordIds.length > 0) {
@@ -77,10 +99,7 @@ export async function flushPush(): Promise<void> {
           position: r.position ?? 0,
         }),
       );
-      const { error: wordError } = await supabase
-        .from('cloud_words')
-        .upsert(cloudRows, { onConflict: 'id' });
-      if (wordError) throw wordError;
+      await upsertInChunks('cloud_words', cloudRows, { onConflict: 'id' });
     }
 
     // 학습 통계 push. study_days는 merge_study_days RPC(서버 GREATEST 병합) —
@@ -109,13 +128,11 @@ export async function flushPush(): Promise<void> {
       if (logRows.length > 0) {
         // user_id는 컬럼 default(auth.uid())가 채운다. ignoreDuplicates =
         // ON CONFLICT DO NOTHING — 이미 있는 (user, date, word) 행은 불변.
-        const { error } = await supabase
-          .from('cloud_memorized_log')
-          .upsert(
-            logRows.map(r => ({ date: r.date, word_id: r.wordId, created_at_ms: r.createdAt ?? 0 })),
-            { onConflict: 'user_id,date,word_id', ignoreDuplicates: true },
-          );
-        if (error) throw error;
+        await upsertInChunks(
+          'cloud_memorized_log',
+          logRows.map(r => ({ date: r.date, word_id: r.wordId, created_at_ms: r.createdAt ?? 0 })),
+          { onConflict: 'user_id,date,word_id', ignoreDuplicates: true },
+        );
       }
     }
 

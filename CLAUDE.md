@@ -132,6 +132,10 @@ in code review and only show up on a device.
   use `colors.X` from `@/features/theme`.
 - **Circles and squares need explicit px.** `'50%'` or `onLayout`-measured sizing has
   rendered as a rectangle on Android here. Use an explicit `Dimensions`-derived value.
+- **SVG copied from a design tool needs its leading zeros restored.** Illustrator/Figma
+  export `offset=".2135"`; `react-native-svg` cannot parse that form and **discards the
+  value**. It is not just console noise — 27 gradient stops were being dropped on the
+  avocado character, flattening its gradient. Write `"0.2135"`.
 
 When you find a new instance of "the default made this easy to get wrong", prefer
 fixing the default over adding a rule here.

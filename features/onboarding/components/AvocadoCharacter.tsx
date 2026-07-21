@@ -106,61 +106,69 @@ export function AvocadoCharacter({ slideIndex, isActive, isStatic = false, size 
     <Animated.View style={animatedStyle}>
       <View style={{ width: size, height: size }}>
         <Svg width={size} height={size} viewBox="0 0 250 250" fill="none">
+          {/*
+            ⚠️ Stop offset은 소수점 앞 0을 반드시 적는다("0.2135", ".2135" 아님).
+            디자인 툴이 내보내는 SVG는 0을 생략하는데(원본 assets/images/Avocado-main
+            character.svg가 그렇다), react-native-svg는 그 형태를 파싱하지 못해
+            `".2135" is not a valid number or percentage string` 경고를 내고 해당 stop을
+            버린다 — 콘솔만 시끄러운 게 아니라 그라데이션이 의도한 색 배치와 다르게
+            렌더된다. 원본 SVG를 다시 컴포넌트로 옮길 때 이 변환을 빠뜨리지 말 것.
+          */}
           <Defs>
             <LinearGradient id="g0" x1="112.8" x2="112.8" y1="8.199" y2="235.2" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#97BC7B" />
-              <Stop offset=".2135" stopColor="#729E56" />
-              <Stop offset=".3491" stopColor="#608C47" />
-              <Stop offset=".6786" stopColor="#527E3D" />
+              <Stop offset="0.2135" stopColor="#729E56" />
+              <Stop offset="0.3491" stopColor="#608C47" />
+              <Stop offset="0.6786" stopColor="#527E3D" />
               <Stop offset="1" stopColor="#3F6932" />
             </LinearGradient>
             <LinearGradient id="g1" x1="32.56" x2="32.56" y1="123.7" y2="176.4" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#97BC7B" />
-              <Stop offset=".2135" stopColor="#729E56" />
-              <Stop offset=".3491" stopColor="#608C47" />
-              <Stop offset=".6786" stopColor="#527E3D" />
+              <Stop offset="0.2135" stopColor="#729E56" />
+              <Stop offset="0.3491" stopColor="#608C47" />
+              <Stop offset="0.6786" stopColor="#527E3D" />
               <Stop offset="1" stopColor="#3F6932" />
             </LinearGradient>
             <LinearGradient id="g2" x1="193" x2="193" y1="117" y2="176.3" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#638E4A" />
-              <Stop offset=".2135" stopColor="#567C3E" />
-              <Stop offset=".3491" stopColor="#4E7238" />
-              <Stop offset=".6786" stopColor="#426430" />
+              <Stop offset="0.2135" stopColor="#567C3E" />
+              <Stop offset="0.3491" stopColor="#4E7238" />
+              <Stop offset="0.6786" stopColor="#426430" />
               <Stop offset="1" stopColor="#2E5022" />
             </LinearGradient>
             <LinearGradient id="g3" x1="130.3" x2="130.3" y1="8.322" y2="37.55" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#97BC7B" />
-              <Stop offset=".2135" stopColor="#729E56" />
-              <Stop offset=".3491" stopColor="#608C47" />
-              <Stop offset=".6786" stopColor="#527E3D" />
+              <Stop offset="0.2135" stopColor="#729E56" />
+              <Stop offset="0.3491" stopColor="#608C47" />
+              <Stop offset="0.6786" stopColor="#527E3D" />
               <Stop offset="1" stopColor="#3F6932" />
             </LinearGradient>
             <LinearGradient id="g4" x1="128.9" x2="128.9" y1="12.51" y2="36.24" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#97BC7B" />
-              <Stop offset=".2135" stopColor="#729E56" />
-              <Stop offset=".3491" stopColor="#608C47" />
-              <Stop offset=".6786" stopColor="#527E3D" />
+              <Stop offset="0.2135" stopColor="#729E56" />
+              <Stop offset="0.3491" stopColor="#608C47" />
+              <Stop offset="0.6786" stopColor="#527E3D" />
               <Stop offset="1" stopColor="#3F6932" />
             </LinearGradient>
             <LinearGradient id="g5" x1="101.6" x2="101.6" y1="19.48" y2="36.7" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#97BC7B" />
-              <Stop offset=".2135" stopColor="#729E56" />
-              <Stop offset=".3491" stopColor="#608C47" />
-              <Stop offset=".6786" stopColor="#527E3D" />
+              <Stop offset="0.2135" stopColor="#729E56" />
+              <Stop offset="0.3491" stopColor="#608C47" />
+              <Stop offset="0.6786" stopColor="#527E3D" />
               <Stop offset="1" stopColor="#3F6932" />
             </LinearGradient>
             <LinearGradient id="g6" x1="138.1" x2="138.1" y1="21.37" y2="37.83" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#97BC7B" />
-              <Stop offset=".2135" stopColor="#729E56" />
-              <Stop offset=".3491" stopColor="#608C47" />
-              <Stop offset=".6786" stopColor="#527E3D" />
+              <Stop offset="0.2135" stopColor="#729E56" />
+              <Stop offset="0.3491" stopColor="#608C47" />
+              <Stop offset="0.6786" stopColor="#527E3D" />
               <Stop offset="1" stopColor="#3F6932" />
             </LinearGradient>
             <LinearGradient id="g7" x1="113" x2="113" y1="37.7" y2="224.9" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#7A9E54" />
-              <Stop offset=".1786" stopColor="#698B49" />
-              <Stop offset=".3491" stopColor="#5D7D40" />
-              <Stop offset=".6786" stopColor="#4E6D36" />
+              <Stop offset="0.1786" stopColor="#698B49" />
+              <Stop offset="0.3491" stopColor="#5D7D40" />
+              <Stop offset="0.6786" stopColor="#4E6D36" />
               <Stop offset="1" stopColor="#335426" />
             </LinearGradient>
             <LinearGradient id="g8" x1="112.8" x2="112.8" y1="46.2" y2="215.1" gradientUnits="userSpaceOnUse">
@@ -173,7 +181,7 @@ export function AvocadoCharacter({ slideIndex, isActive, isStatic = false, size 
             </LinearGradient>
             <RadialGradient id="g10" cx="0" cy="0" r="1" gradientTransform="translate(102.6 150.9) scale(50.93 47.02)" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#D6A083" />
-              <Stop offset=".4971" stopColor="#BE835D" />
+              <Stop offset="0.4971" stopColor="#BE835D" />
               <Stop offset="1" stopColor="#895836" />
             </RadialGradient>
             <RadialGradient id="g11" cx="0" cy="0" r="1" gradientTransform="translate(74.56 117.4) scale(10.57 7.38)" gradientUnits="userSpaceOnUse">
@@ -186,12 +194,12 @@ export function AvocadoCharacter({ slideIndex, isActive, isStatic = false, size 
             </RadialGradient>
             <LinearGradient id="g13" x1="90.57" x2="90.57" y1="93.71" y2="112.2" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#21160E" />
-              <Stop offset=".6342" stopColor="#3A2618" />
+              <Stop offset="0.6342" stopColor="#3A2618" />
               <Stop offset="1" stopColor="#302014" />
             </LinearGradient>
             <LinearGradient id="g14" x1="136.7" x2="136.7" y1="93.71" y2="112.3" gradientUnits="userSpaceOnUse">
               <Stop offset="0" stopColor="#21160E" />
-              <Stop offset=".6342" stopColor="#3A2618" />
+              <Stop offset="0.6342" stopColor="#3A2618" />
               <Stop offset="1" stopColor="#302014" />
             </LinearGradient>
             <LinearGradient id="g15" x1="113.5" x2="113.5" y1="112.3" y2="118" gradientUnits="userSpaceOnUse">

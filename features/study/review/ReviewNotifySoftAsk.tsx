@@ -4,7 +4,6 @@ import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { Radius } from '@/constants/tokens';
-import { PopupTokens } from '@/constants/popup';
 import DialogModal from '@/components/ui/DialogModal';
 import { requestNotificationPermission } from './notifications';
 
@@ -91,29 +90,20 @@ export default function ReviewNotifySoftAsk({
         </View>
       }
     >
+      <Text style={[styles.body, { color: colors.text }]}>{t('reviewNotif.softAskBody')}</Text>
       {/*
-        DialogModal의 body는 좌우 패딩을 주지 않는다 — 헤더·푸터와 세로 정렬선을 맞추려면
-        호출부가 콘텐츠에 직접 container 패딩을 넣어야 한다(ModalPicker·ReportCurationModal 동일).
+        안심 문구는 지킬 수 있는 것만 말한다(§8.2). "밤엔 안 보내요"는 시간을 사용자가
+        고를 수 있게 된 순간 거짓말이 되므로 쓰지 않는다 — 대신 구체적 사실(저녁 8시)과
+        통제권(끄거나 시간을 바꿀 수 있음)만 약속한다.
       */}
-      <View style={styles.bodyWrap}>
-        <Text style={[styles.body, { color: colors.text }]}>{t('reviewNotif.softAskBody')}</Text>
-        {/*
-          안심 문구는 지킬 수 있는 것만 말한다(§8.2). "밤엔 안 보내요"는 시간을 사용자가
-          고를 수 있게 된 순간 거짓말이 되므로 쓰지 않는다 — 대신 구체적 사실(저녁 8시)과
-          통제권(끄거나 시간을 바꿀 수 있음)만 약속한다.
-        */}
-        <Text style={[styles.reassure, { color: colors.textTertiary }]}>
-          {t('reviewNotif.softAskReassure')}
-        </Text>
-      </View>
+      <Text style={[styles.reassure, { color: colors.textTertiary }]}>
+        {t('reviewNotif.softAskReassure')}
+      </Text>
     </DialogModal>
   );
 }
 
 const styles = StyleSheet.create({
-  bodyWrap: {
-    paddingHorizontal: PopupTokens.padding.container,
-  },
   body: {
     fontSize: 15,
     lineHeight: 22,

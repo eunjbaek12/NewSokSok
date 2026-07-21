@@ -859,7 +859,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Pretendard_600SemiBold',
   },
   modalBody: {
-    paddingHorizontal: 20,
     paddingBottom: 8,
     gap: 8,
   },

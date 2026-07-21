@@ -1312,7 +1312,7 @@ export default function CurationScreen() {
                         </Text>
                     </View>
                 ) : (
-                <View style={{ paddingHorizontal: 20, gap: 16, paddingBottom: 8 }}>
+                <View style={{ gap: 16, paddingBottom: 8 }}>
                     <View style={{ gap: 6 }}>
                         <Text style={{ fontSize: 13, fontFamily: 'Pretendard_600SemiBold', color: colors.textSecondary }}>{t('curation.aiTopicLabel')}</Text>
                         <TextInput

@@ -15,7 +15,6 @@ import {
 } from '@/features/sync';
 import { initSeedDataIfEmpty, clearAllData } from './db';
 import { invalidateLists } from './queries';
-import { startLoginTimer, showLoginTimingSummary } from '@/lib/login-timing'; // TEMP: login-latency instrumentation
 
 const LAST_GOOGLE_ID_KEY = '@soksok_last_google_id';
 
@@ -34,14 +33,11 @@ export function useBootstrapLoading(): boolean {
 }
 
 async function loadCloudData(): Promise<void> {
-  const mark = startLoginTimer('sync'); // TEMP: login-latency instrumentation
   const { lastPulledAt } = useSyncStore.getState();
-  mark(lastPulledAt === 0 ? 'loadCloudData 시작(첫 로그인)' : 'loadCloudData 시작(증분)');
 
   try {
     if (lastPulledAt === 0) {
       const { state, cloudWordCount, localWordCount } = await probeFirstLoginState();
-      mark(`probeFirstLoginState → ${state}`);
       if (state === 'conflict') {
         const choice = await new Promise<'merge' | 'cloud'>((resolve) => {
           Alert.alert(
@@ -62,16 +58,13 @@ async function loadCloudData(): Promise<void> {
       // 게스트 시절 학습 통계(스트릭·달력) 업로드 — 단어 probe 분기와 무관하게
       // 모든 첫 로그인에서. cloud-reset 뒤에는 테이블이 비어 있어 no-op.
       await markAllLocalStatsDirty();
-      mark('첫 로그인 병합 처리');
     }
 
     await pullChanges();
-    mark('pullChanges(클라우드 내려받기)');
     if (useSyncStore.getState().dirtyListIds.size > 0 ||
         useSyncStore.getState().dirtyWordIds.size > 0 ||
         useSyncStore.getState().dirtyStatDates.size > 0) {
       await flushPush();
-      mark('flushPush(로컬 변경 올리기)');
     }
   } catch (e: any) {
     console.warn('Cloud data load failed:', e?.message ?? e);
@@ -94,7 +87,6 @@ export function useVocabBootstrap(): void {
     useBootstrapStore.getState().setLoading(true);
 
     const run = async () => {
-      const mark = startLoginTimer('bootstrap'); // TEMP: login-latency instrumentation
       if (isCloudAuthMode(authMode) && user?.id) {
         // Account-switch guard (safety net for paths that bypass logout(): app
         // reinstall, restored session on a different account, etc.). If the
@@ -146,7 +138,6 @@ export function useVocabBootstrap(): void {
         // Restore pending (un-pushed) dirty ids so a delete/edit made just
         // before a reload or crash still reaches the cloud on this launch.
         await useSyncStore.getState().hydrateDirty();
-        mark('계정 가드·닉네임·하이드레이트');
         await loadCloudData();
       } else {
         // Intentionally KEEP @soksok_last_google_id across logout/guest. It is
@@ -170,9 +161,7 @@ export function useVocabBootstrap(): void {
         }
       }
       await invalidateLists();
-      mark('invalidateLists(홈 준비 완료)');
       if (!cancelled) useBootstrapStore.getState().setLoading(false);
-      showLoginTimingSummary(); // TEMP: on-device 요약 Alert (활성 세션 없으면 no-op)
     };
 
     run();

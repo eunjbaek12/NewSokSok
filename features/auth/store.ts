@@ -13,7 +13,6 @@ import {
 } from '@shared/contracts';
 import { persisted } from '@/lib/storage/persisted';
 import { supabase } from '@/lib/supabase';
-import { startLoginTimer } from '@/lib/login-timing'; // TEMP: login-latency instrumentation
 
 const GOOGLE_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID || '';
 // iOS Google Sign-In은 별도 OAuth 클라이언트(iOS type) 필요. 미설정 시 빈 문자열 →
@@ -217,13 +216,10 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
         // Preserve current mode (could be 'apple' from a fresh signInWithApple
         // call). Default to 'google' for backward compatibility with any token
         // refresh that fires before our explicit signIn* set the mode.
-        const mark = startLoginTimer(`auth-event(${event})`); // TEMP: login-latency instrumentation
         const currentMode = useAuthStore.getState().mode;
         const mode: AuthMode = isCloudAuthMode(currentMode) ? currentMode : 'google';
         const user = await buildUser(session.user);
-        mark('buildUser#2(app_admins — 캐시 히트여야 정상)');
         await persist({ mode, user }, set);
-        mark('persist');
       }
     });
   },
@@ -234,21 +230,16 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
 
   signInWithGoogle: async () => {
     if (!GOOGLE_CLIENT_ID) throw new Error('GOOGLE_CLIENT_ID_MISSING');
-    const mark = startLoginTimer('google-auth'); // TEMP: login-latency instrumentation
 
     await GoogleSignin.hasPlayServices();
-    mark('hasPlayServices');
     // Force the account chooser on every sign-in. logout()'s GoogleSignin.signOut()
     // is best-effort (try/catch) and can fail on a network blip — or the app may
     // have been killed mid-logout — leaving the native session cached. signIn()
     // then silently reuses the last account instead of prompting. Clearing right
     // before signIn() guarantees a clean slate so the picker always appears.
     try { await GoogleSignin.signOut(); } catch {}
-    mark('signOut(picker 초기화)');
     await GoogleSignin.signIn();
-    mark('signIn(계정 선택·사용자 시간 포함)');
     const tokens = await GoogleSignin.getTokens();
-    mark('getTokens');
     const idToken = tokens.idToken;
     if (!idToken) throw new Error('NO_ID_TOKEN');
 
@@ -257,12 +248,9 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
       token: idToken,
     });
     if (error) throw error;
-    mark('supabase.signInWithIdToken');
 
     const user = await buildUser(data.user!);
-    mark('buildUser#1(app_admins 조회 — 캐시 미스, 네트워크)');
     await persist({ mode: 'google', user }, set);
-    mark('persist');
   },
 
   signInWithApple: async () => {

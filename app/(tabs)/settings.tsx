@@ -36,7 +36,8 @@ import {
   reviewTimeId,
   parseReviewTimeId,
 } from '@/features/study/review/notify-time';
-import { hasNotificationPermission, requestNotificationPermission } from '@/features/study/review/notifications';
+import { hasNotificationPermission, requestNotificationPermission, syncReviewNotifications } from '@/features/study/review/notifications';
+import { useLists } from '@/features/vocab';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function SettingsScreen() {
@@ -50,6 +51,9 @@ export default function SettingsScreen() {
   const isCloud = isCloudAuthMode(authMode);
   const { locale, setLocale } = useLocale();
   const { profileSettings, updateProfileSettings, apiKey, reviewNotificationSettings, updateReviewNotificationSettings } = useSettings();
+  // 재예약을 위해 현재 단어장 스냅샷을 읽는다 — 상시 스케줄러(app/_layout.tsx)의 1.5초
+  // 디바운스를 기다리지 않고, 설정 변경을 바로 반영하기 위한 명시적 재예약에 쓴다.
+  const lists = useLists();
   const { status: quotaStatus, refresh: refreshQuota } = useQuota();
   const [isDeleting, setIsDeleting] = useState(false);
   const [showLangPicker, setShowLangPicker] = useState(false);
@@ -67,6 +71,8 @@ export default function SettingsScreen() {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     if (!next) {
       await updateReviewNotificationSettings({ enabled: false });
+      // 남은 예약을 지금 바로 취소한다(상시 스케줄러의 디바운스를 기다리지 않고).
+      void syncReviewNotifications(lists, { ...reviewNotificationSettings, enabled: false });
       return;
     }
     const already = await hasNotificationPermission();
@@ -84,6 +90,8 @@ export default function SettingsScreen() {
     }
     // 설정에서 직접 켠 사용자에게 나중에 soft ask 시트를 또 띄우지 않는다.
     await updateReviewNotificationSettings({ enabled: true, softAsked: true });
+    // 켜자마자 바로 예약한다(상시 스케줄러의 디바운스를 기다리지 않고).
+    void syncReviewNotifications(lists, { ...reviewNotificationSettings, enabled: true, softAsked: true });
   };
 
   const [nicknameModalOpen, setNicknameModalOpen] = useState(false);
@@ -671,6 +679,9 @@ export default function SettingsScreen() {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
           const { hour, minute } = parseReviewTimeId(id);
           updateReviewNotificationSettings({ hour, minute });
+          // 바뀐 시각을 지금 바로 반영한다 — 상시 스케줄러의 1.5초 디바운스를 기다리면
+          // 시각 변경 직후 화면을 잠갔을 때 재예약이 다음 포그라운드까지 밀린다.
+          void syncReviewNotifications(lists, { ...reviewNotificationSettings, hour, minute });
           setShowReviewTimePicker(false);
         }}
       />

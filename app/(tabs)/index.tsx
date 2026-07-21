@@ -31,7 +31,7 @@ import type { PlanStatus, VocaList } from '@/lib/types';
 import CustomStudyModal from '@/features/study/components/CustomStudyModal';
 import ReviewBanner from '@/features/study/review/ReviewBanner';
 import ReviewNotifySoftAsk from '@/features/study/review/ReviewNotifySoftAsk';
-import { useReviewNotifications } from '@/features/study/review/use-review-notifications';
+import { useReviewSoftAsk } from '@/features/study/review/use-review-notifications';
 import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
@@ -158,8 +158,9 @@ export default function DashboardScreen() {
   // 바뀔 때까지 개수가 갱신되지 않는다 — 학습을 하면 곧바로 맞춰지므로 수용한다.
   const reviewWords = useMemo(() => selectReviewWords(lists, Date.now()), [lists]);
 
-  // 복습 알림 일정 유지 + 첫 복습이 생긴 날의 권한 soft ask(§8.4).
-  const { softAskVisible, handleSoftAskDecided } = useReviewNotifications(lists, reviewWords.length);
+  // 첫 복습이 생긴 날의 권한 soft ask(§8.4). 일정 유지(재예약)는 앱 루트의
+  // ReviewNotificationScheduler가 상시 담당한다 — 홈 마운트와 무관하게 돌게 하기 위해서.
+  const { softAskVisible, handleSoftAskDecided } = useReviewSoftAsk(reviewWords.length);
 
   const handleReviewStudy = useCallback(() => {
     if (reviewWords.length === 0) return;

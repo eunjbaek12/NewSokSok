@@ -3,6 +3,7 @@ import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
+import { PopupTokens } from '@/constants/popup';
 import DialogModal from './DialogModal';
 
 export interface PickerOption {
@@ -43,6 +44,12 @@ export function ModalPicker({
             title={title}
             scrollable={false}
             avoidKeyboard={false}
+            /*
+             * 선택 하이라이트와 구분선이 모달 가장자리까지 닿아야 하므로 본문 패딩을 끈다.
+             * 대신 행(option)이 직접 컨테이너 패딩을 들고 있어, 라디오·텍스트는 헤더·푸터와
+             * 같은 세로선(24)에 선다.
+             */
+            bodyPadding={false}
             footer={
                 <Pressable
                     onPress={onClose}
@@ -97,6 +104,7 @@ const styles = StyleSheet.create({
         maxHeight: 350,
     },
     footerWrap: {
+        paddingHorizontal: PopupTokens.padding.container,
         paddingBottom: 4,
     },
     option: {
@@ -105,8 +113,9 @@ const styles = StyleSheet.create({
         gap: 12,
         paddingVertical: 14,
         borderBottomWidth: StyleSheet.hairlineWidth,
-        paddingHorizontal: 8,
-        borderRadius: 8,
+        // 헤더·푸터와 같은 정렬선. borderRadius는 두지 않는다 — 전체 폭 행에 모서리를
+        // 주면 구분선 양끝이 깎여 본문이 제목보다 안쪽에서 시작하는 것처럼 보인다.
+        paddingHorizontal: PopupTokens.padding.container,
     },
     optionContent: {
         flex: 1,

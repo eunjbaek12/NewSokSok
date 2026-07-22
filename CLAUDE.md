@@ -130,8 +130,17 @@ in code review and only show up on a device.
   modal's `children`.
 - **Colors come from tokens.** Inline hex is blocked by lint (`no-restricted-syntax`);
   use `colors.X` from `@/features/theme`.
-- **Circles and squares need explicit px.** `'50%'` or `onLayout`-measured sizing has
-  rendered as a rectangle on Android here. Use an explicit `Dimensions`-derived value.
+- **A View with only `backgroundColor` draws square corners on Android.** `borderRadius`
+  is ignored unless the View *also* has a `borderWidth`. Give it one in the same color as
+  the background — invisible, and it switches Android to the rounded-draw path. Sizing
+  still wants explicit px (`'50%'` is unreliable here), but that is not what squares the
+  corners. *(The calendar's memorized-day markers were "fixed" three times — `999` →
+  `'50%'` → `onLayout` → explicit `Dimensions` px — and came out square every time,
+  because all three only changed how the size was computed. Printing the values on-device
+  showed the size had been right from the start (38.0×38.0, exactly the computed value);
+  the bug was one layer down. **Before changing a value, print the value** — and before
+  explaining a difference between two cases, delete the difference and see if the symptom
+  survives. Two wrong root causes were confidently argued here before that was done.)*
 - **SVG copied from a design tool needs its leading zeros restored.** Illustrator/Figma
   export `offset=".2135"`; `react-native-svg` cannot parse that form and **discards the
   value**. It is not just console noise — 27 gradient stops were being dropped on the

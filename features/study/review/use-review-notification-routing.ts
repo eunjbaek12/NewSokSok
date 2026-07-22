@@ -22,6 +22,9 @@ export function useReviewNotificationRouting(): void {
     const data = lastResponse.notification.request.content.data as { kind?: string } | undefined;
     if (data?.kind !== REVIEW_NOTIFICATION_KIND) return;
     if (lastResponse.actionIdentifier !== Notifications.DEFAULT_ACTION_IDENTIFIER) return;
-    router.navigate('/(tabs)');
+    // 그룹 경로('/(tabs)')가 아니라 홈을 명시한다 — 그룹으로 보내면 네비게이터의
+    // initialRouteName(= 사용자의 시작 탭 설정)으로 가버려서, 시작 탭을 "단어장"으로
+    // 바꿔 둔 사용자는 알림을 눌러도 복습 배너가 있는 홈에 닿지 못한다.
+    router.navigate('/(tabs)/index' as any);
   }, [lastResponse]);
 }

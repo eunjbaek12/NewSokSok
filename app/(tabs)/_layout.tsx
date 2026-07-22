@@ -8,7 +8,9 @@ import { useTheme } from "@/features/theme";
 import { useAuth } from "@/features/auth";
 import { useSettings } from "@/features/settings";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useLastNotificationResponse } from "expo-notifications";
 import type { StartupTab } from "@/features/settings";
+import { REVIEW_NOTIFICATION_KIND } from "@/features/study/review/notifications";
 
 function AddWordTabButton() {
   const { colors } = useTheme();
@@ -160,15 +162,24 @@ export default function TabLayout() {
   const { profileSettings, isLoading: settingsLoading } = useSettings();
   const [startupHandled, setStartupHandled] = useState(false);
 
+  // 복습 알림을 눌러 실행된 세션은 시작 탭 설정을 무시하고 홈으로 연다(§8.1) — 복습 배너는
+  // 홈에만 있어서, 시작 탭을 "단어장"으로 바꿔 둔 사용자가 알림을 눌러도 아무 일도 일어나지
+  // 않은 것처럼 보인다. 알림 없이 실행하면 lastResponse가 비어 있어 시작 탭이 그대로 동작하고,
+  // 백그라운드 복귀는 startupHandled가 이미 true라 이 분기를 타지 않는다.
+  const lastResponse = useLastNotificationResponse();
+  const fromReviewNotification =
+    (lastResponse?.notification.request.content.data as { kind?: string } | undefined)?.kind ===
+    REVIEW_NOTIFICATION_KIND;
+
   useEffect(() => {
     if (!settingsLoading && !loading && !startupHandled) {
       const tab = profileSettings.startupTab ?? 'index';
-      if (tab !== 'index') {
+      if (tab !== 'index' && !fromReviewNotification) {
         router.replace(`/(tabs)/${tab}` as any);
       }
       setStartupHandled(true);
     }
-  }, [settingsLoading, loading, startupHandled]);
+  }, [settingsLoading, loading, startupHandled, fromReviewNotification]);
 
   if (loading || settingsLoading) return <View style={{ flex: 1 }} />;
 
@@ -176,7 +187,9 @@ export default function TabLayout() {
     return <Redirect href="/login" />;
   }
 
-  const startupTab = profileSettings.startupTab ?? 'index';
+  // 알림으로 열린 세션은 네비게이터 자체를 홈에서 시작시킨다. 위 replace만으로는
+  // initialRouteName이 이미 다른 탭으로 확정된 뒤라 홈에 닿지 못할 수 있다.
+  const startupTab = fromReviewNotification ? 'index' : (profileSettings.startupTab ?? 'index');
 
   // iOS 26(Liquid Glass)에서 expo-router/unstable-native-tabs 경로는 미검증(개발 환경이
   // Windows라 iOS 로컬 실행 불가)이라 App Store 심사에서 홈 진입 시 크래시했다(반려 2.1a,

@@ -14,6 +14,12 @@ export const COOLDOWN_DAYS = 120;
 export const MAX_ASKS = 3;
 /** 마일스톤이 없어도 자동 요청할 최소 누적 암기 단어 수(열정 신규 사용자 커버용). */
 export const MEMORIZED_THRESHOLD = 20;
+/**
+ * 자동 요청할 최소 세션 정답률(%). 결과 화면이 이 선 아래를 "복습이 필요해요"로
+ * 부르므로(studyResults.needsReviewMessage) 기준을 맞춘다 — 방금 많이 틀린 사람에게
+ * 별점을 물으면 낮은 평점을 얻고, OS 연 3회 한도까지 태운다.
+ */
+export const MIN_ACCURACY_PERCENT = 50;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -21,4 +27,13 @@ export function shouldAsk(state: ReviewState, now: number): boolean {
   if (state.askCount >= MAX_ASKS) return false;
   if (state.lastAskedAt > 0 && now - state.lastAskedAt < COOLDOWN_DAYS * DAY_MS) return false;
   return true;
+}
+
+/**
+ * 마일스톤 없는 세션에서 지금이 물어볼 만한 순간인지 — "충분히 몰입했고(누적 암기),
+ * 이번 세션도 잘 됐는가(정답률)". 쓰로틀(shouldAsk)과 직교하며 그보다 먼저 걸러
+ * 아까운 요청 기회를 나쁜 순간에 쓰지 않게 한다.
+ */
+export function isGoodMoment(accuracyPercent: number, totalMemorized: number): boolean {
+  return accuracyPercent >= MIN_ACCURACY_PERCENT && totalMemorized >= MEMORIZED_THRESHOLD;
 }

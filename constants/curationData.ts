@@ -2,6 +2,2601 @@ import { VocaList } from '@/lib/types';
 
 export const curationPresets: VocaList[] = [
   {
+    "id": "curated-clinic-ko-1",
+    "title": "Korean Clinic Visit 50",
+    "icon": "🤒",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Walk into a Korean clinic with a cold and know what to say — 접수, 몸살, 콧물, 오한, 처방전, 식후 30분 and more across checking in, describing symptoms, the exam, and the pharmacy. Korean→English; meanings & real clinic-visit examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1784689551288,
+    "words": [
+      {
+        "id": "word-clinic-0-1784689551288",
+        "term": "병원",
+        "definition": "hospital; clinic",
+        "meaningKr": "hospital; clinic",
+        "exampleEn": "어느 병원에 오셨어요?",
+        "exampleKr": "Which clinic have you come to?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "byeongwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-1-1784689551288",
+        "term": "내과",
+        "definition": "internal medicine clinic",
+        "meaningKr": "internal medicine clinic",
+        "exampleEn": "감기 때문에 내과에 왔어요.",
+        "exampleKr": "I came to the internal medicine clinic because of a cold.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "naegwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-2-1784689551288",
+        "term": "이비인후과",
+        "definition": "ENT clinic (ear, nose, and throat)",
+        "meaningKr": "ENT clinic (ear, nose, and throat)",
+        "exampleEn": "목이 아파서 이비인후과에 왔습니다.",
+        "exampleKr": "I came to the ENT clinic because my throat hurts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "ibiinhugwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-3-1784689551288",
+        "term": "접수",
+        "definition": "check-in; registration",
+        "meaningKr": "check-in; registration",
+        "exampleEn": "접수 도와드리겠습니다.",
+        "exampleKr": "I will help you check in.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jeopsu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-4-1784689551288",
+        "term": "접수처",
+        "definition": "reception desk; front desk",
+        "meaningKr": "reception desk; front desk",
+        "exampleEn": "접수처에서 먼저 등록해 주세요.",
+        "exampleKr": "Please register at the reception desk first.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jeopsucheo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-5-1784689551288",
+        "term": "신분증",
+        "definition": "photo ID card",
+        "meaningKr": "photo ID card",
+        "exampleEn": "신분증 좀 보여주시겠어요?",
+        "exampleKr": "Could you please show me your ID?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "sinbunjeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-6-1784689551288",
+        "term": "건강보험증",
+        "definition": "national health insurance card",
+        "meaningKr": "national health insurance card",
+        "exampleEn": "건강보험증 있으세요?",
+        "exampleKr": "Do you have your health insurance card?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "geongangboheomjeung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-7-1784689551288",
+        "term": "대기실",
+        "definition": "waiting room",
+        "meaningKr": "waiting room",
+        "exampleEn": "대기실에서 잠시 기다려 주세요.",
+        "exampleKr": "Please wait a moment in the waiting room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "daegisil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-8-1784689551288",
+        "term": "진료",
+        "definition": "medical examination; consultation",
+        "meaningKr": "medical examination; consultation",
+        "exampleEn": "어떤 진료를 받으러 오셨나요?",
+        "exampleKr": "What kind of medical care have you come for?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jillyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-9-1784689551288",
+        "term": "진료비",
+        "definition": "consultation fee; medical bill",
+        "meaningKr": "consultation fee; medical bill",
+        "exampleEn": "진료비는 여기서 결제하시면 됩니다.",
+        "exampleKr": "You can pay the consultation fee here.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jillyobi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-10-1784689551288",
+        "term": "증상",
+        "definition": "symptom",
+        "meaningKr": "symptom",
+        "exampleEn": "어떤 증상이 있으세요?",
+        "exampleKr": "What symptoms do you have?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jeungsang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-11-1784689551288",
+        "term": "감기",
+        "definition": "a cold (illness)",
+        "meaningKr": "a cold (illness)",
+        "exampleEn": "감기에 걸려서 병원에 왔어요.",
+        "exampleKr": "I came to the clinic because I caught a cold.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "gamgi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-12-1784689551288",
+        "term": "독감",
+        "definition": "the flu; influenza",
+        "meaningKr": "the flu; influenza",
+        "exampleEn": "독감 예방 주사 맞으셨어요?",
+        "exampleKr": "Did you get a flu shot?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "dokgam",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-13-1784689551288",
+        "term": "몸살",
+        "definition": "body aches from fatigue; muscle aches",
+        "meaningKr": "body aches from fatigue; muscle aches",
+        "exampleEn": "몸살 기운이 있어서 힘들어요.",
+        "exampleKr": "I feel run down with body aches, so I'm tired.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "momsal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-14-1784689551288",
+        "term": "열이 나다",
+        "definition": "to run a fever",
+        "meaningKr": "to run a fever",
+        "exampleEn": "어제부터 열이 나기 시작했어요.",
+        "exampleKr": "I started running a fever yesterday.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "yeori nada",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-15-1784689551288",
+        "term": "미열",
+        "definition": "a slight fever; low-grade fever",
+        "meaningKr": "a slight fever; low-grade fever",
+        "exampleEn": "지금은 미열만 좀 있습니다.",
+        "exampleKr": "I only have a slight fever right now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "miyeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-16-1784689551288",
+        "term": "오한",
+        "definition": "chills; shivers",
+        "meaningKr": "chills; shivers",
+        "exampleEn": "몸에 오한이 들고 춥습니다.",
+        "exampleKr": "I have chills and feel cold.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "ohan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-17-1784689551288",
+        "term": "기침",
+        "definition": "a cough",
+        "meaningKr": "a cough",
+        "exampleEn": "기침이 계속 나오고 목이 아파요.",
+        "exampleKr": "I keep coughing and my throat hurts.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "gichim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-18-1784689551288",
+        "term": "가래",
+        "definition": "phlegm; sputum",
+        "meaningKr": "phlegm; sputum",
+        "exampleEn": "가래가 계속 나와서 답답해요.",
+        "exampleKr": "I keep having phlegm, and it's annoying.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "garae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-19-1784689551288",
+        "term": "콧물",
+        "definition": "runny nose; nasal discharge",
+        "meaningKr": "runny nose; nasal discharge",
+        "exampleEn": "콧물이 계속 흘러서 불편합니다.",
+        "exampleKr": "My nose keeps running, and it's uncomfortable.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "konmul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-20-1784689551288",
+        "term": "코막힘",
+        "definition": "stuffy nose; nasal congestion",
+        "meaningKr": "stuffy nose; nasal congestion",
+        "exampleEn": "코막힘이 심해서 숨쉬기 어려워요.",
+        "exampleKr": "My nose is very stuffy, so it's hard to breathe.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "komakhim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-21-1784689551288",
+        "term": "재채기",
+        "definition": "a sneeze",
+        "meaningKr": "a sneeze",
+        "exampleEn": "자꾸 재채기가 나와서 괴롭습니다.",
+        "exampleKr": "I keep sneezing, and it's bothering me.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jaechaegi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-22-1784689551288",
+        "term": "목이 아프다",
+        "definition": "to have a sore throat",
+        "meaningKr": "to have a sore throat",
+        "exampleEn": "목이 아파서 침 삼키기가 힘들어요.",
+        "exampleKr": "My throat hurts, so it's hard to swallow.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "mogi apeuda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-23-1784689551288",
+        "term": "두통",
+        "definition": "a headache",
+        "meaningKr": "a headache",
+        "exampleEn": "머리가 아프고 두통이 심해요.",
+        "exampleKr": "My head hurts and I have a bad headache.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "dutong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-24-1784689551288",
+        "term": "어지럽다",
+        "definition": "to feel dizzy; to be light-headed",
+        "meaningKr": "to feel dizzy; to be light-headed",
+        "exampleEn": "몸이 좀 어지럽고 힘이 없어요.",
+        "exampleKr": "I feel a bit dizzy and weak.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "eojireopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-clinic-25-1784689551288",
+        "term": "기운이 없다",
+        "definition": "to have no energy; to feel weak",
+        "meaningKr": "to have no energy; to feel weak",
+        "exampleEn": "요즘 기운이 없어서 병원에 왔어요.",
+        "exampleKr": "I've had no energy lately, so I came to the clinic.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "giuni eopda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-26-1784689551288",
+        "term": "입맛이 없다",
+        "definition": "to have no appetite",
+        "meaningKr": "to have no appetite",
+        "exampleEn": "며칠째 입맛이 없어서 걱정이에요.",
+        "exampleKr": "I haven't had an appetite for days, so I'm worried.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "immasi eopda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-27-1784689551288",
+        "term": "진찰",
+        "definition": "doctor's examination",
+        "meaningKr": "doctor's examination",
+        "exampleEn": "진찰은 저쪽 방에서 받으시면 됩니다.",
+        "exampleKr": "You can receive the examination in that room.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jinchal",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-28-1784689551288",
+        "term": "체온",
+        "definition": "body temperature",
+        "meaningKr": "body temperature",
+        "exampleEn": "먼저 체온을 재고 기다려 주세요.",
+        "exampleKr": "Please take your temperature first and wait.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "che-on",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-29-1784689551288",
+        "term": "열을 재다",
+        "definition": "to take one's temperature",
+        "meaningKr": "to take one's temperature",
+        "exampleEn": "간호사님이 제 열을 재 주셨어요.",
+        "exampleKr": "The nurse took my temperature.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "yeoreul jaeda",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-30-1784689551288",
+        "term": "청진기",
+        "definition": "stethoscope",
+        "meaningKr": "stethoscope",
+        "exampleEn": "의사 선생님이 청진기로 진찰하셨어요.",
+        "exampleKr": "The doctor examined me with a stethoscope.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "cheongjingi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-31-1784689551288",
+        "term": "아 해보세요",
+        "definition": "\"Say ahh\" (doctor's instruction)",
+        "meaningKr": "\"Say ahh\" (doctor's instruction)",
+        "exampleEn": "목을 보려면 아 해보세요.",
+        "exampleKr": "To see your throat, please say ahh.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "a haeboseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-32-1784689551288",
+        "term": "검사",
+        "definition": "a medical test; an examination",
+        "meaningKr": "a medical test; an examination",
+        "exampleEn": "독감 검사를 받아야 할 것 같아요.",
+        "exampleKr": "I think I need to get a flu test.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "geomsa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-33-1784689551288",
+        "term": "주사",
+        "definition": "a shot; an injection",
+        "meaningKr": "a shot; an injection",
+        "exampleEn": "주사를 맞으면 좀 나아질 거예요.",
+        "exampleKr": "You'll feel a bit better if you get a shot.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jusa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-34-1784689551288",
+        "term": "링거",
+        "definition": "an IV drip (infusion)",
+        "meaningKr": "an IV drip (infusion)",
+        "exampleEn": "몸이 안 좋아서 링거를 맞았어요.",
+        "exampleKr": "My body wasn't well, so I got an IV drip.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "ringgeo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-35-1784689551288",
+        "term": "처방전",
+        "definition": "a prescription slip",
+        "meaningKr": "a prescription slip",
+        "exampleEn": "여기 처방전 가지고 약국에 가세요.",
+        "exampleKr": "Please take this prescription to the pharmacy.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "cheobangjeon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-36-1784689551288",
+        "term": "약국",
+        "definition": "a pharmacy",
+        "meaningKr": "a pharmacy",
+        "exampleEn": "병원 옆 약국에서 약을 받으세요.",
+        "exampleKr": "Get your medicine at the pharmacy next to the clinic.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "yakguk",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-37-1784689551288",
+        "term": "약사",
+        "definition": "a pharmacist",
+        "meaningKr": "a pharmacist",
+        "exampleEn": "약사님께 약 복용법을 물어보세요.",
+        "exampleKr": "Ask the pharmacist how to take the medicine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "yaksa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-38-1784689551288",
+        "term": "감기약",
+        "definition": "cold medicine",
+        "meaningKr": "cold medicine",
+        "exampleEn": "감기약을 먹었는데도 열이 안 내려요.",
+        "exampleKr": "I took cold medicine, but my fever isn't going down.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "gamgiyak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-39-1784689551288",
+        "term": "해열제",
+        "definition": "a fever reducer",
+        "meaningKr": "a fever reducer",
+        "exampleEn": "열이 너무 높아서 해열제를 먹었어요.",
+        "exampleKr": "My fever was too high, so I took a fever reducer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "haeyeolje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-40-1784689551288",
+        "term": "진통제",
+        "definition": "a painkiller",
+        "meaningKr": "a painkiller",
+        "exampleEn": "머리가 아파서 진통제를 찾아요.",
+        "exampleKr": "My head hurts, so I'm looking for a painkiller.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "jintongje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-41-1784689551288",
+        "term": "항생제",
+        "definition": "an antibiotic",
+        "meaningKr": "an antibiotic",
+        "exampleEn": "이 약은 항생제니까 꼭 다 드세요.",
+        "exampleKr": "This medicine is an antibiotic, so please take it all.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "hangsaengje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-42-1784689551288",
+        "term": "알약",
+        "definition": "a pill; a tablet",
+        "meaningKr": "a pill; a tablet",
+        "exampleEn": "알약을 삼키기 어려운데 괜찮을까요?",
+        "exampleKr": "I have trouble swallowing pills, is that okay?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "allyak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-43-1784689551288",
+        "term": "가루약",
+        "definition": "powdered medicine",
+        "meaningKr": "powdered medicine",
+        "exampleEn": "아이는 가루약을 물에 타서 먹이세요.",
+        "exampleKr": "For the child, mix the powdered medicine with water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "garuyak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-44-1784689551288",
+        "term": "물약",
+        "definition": "liquid medicine; syrup",
+        "meaningKr": "liquid medicine; syrup",
+        "exampleEn": "이 물약은 하루에 세 번 드세요.",
+        "exampleKr": "Take this liquid medicine three times a day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "mullyak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-45-1784689551288",
+        "term": "식후 30분",
+        "definition": "30 minutes after meals",
+        "meaningKr": "30 minutes after meals",
+        "exampleEn": "약은 식후 30분에 드시면 됩니다.",
+        "exampleKr": "You should take the medicine 30 minutes after meals.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "sikhu samsippun",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-46-1784689551288",
+        "term": "하루 세 번",
+        "definition": "three times a day",
+        "meaningKr": "three times a day",
+        "exampleEn": "이 약은 하루 세 번 드셔야 해요.",
+        "exampleKr": "You need to take this medicine three times a day.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "haru se beon",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-47-1784689551288",
+        "term": "부작용",
+        "definition": "a side effect",
+        "meaningKr": "a side effect",
+        "exampleEn": "약을 먹고 부작용이 생기면 연락 주세요.",
+        "exampleKr": "If you experience side effects from the medicine, please contact us.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "bujagyong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-clinic-48-1784689551288",
+        "term": "푹 쉬세요",
+        "definition": "\"Get plenty of rest\"",
+        "meaningKr": "\"Get plenty of rest\"",
+        "exampleEn": "푹 쉬시고 약 잘 챙겨 드세요.",
+        "exampleKr": "Get plenty of rest and make sure to take your medicine.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "puk swiseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-clinic-49-1784689551288",
+        "term": "낫다",
+        "definition": "to get better; to recover",
+        "meaningKr": "to get better; to recover",
+        "exampleEn": "약 먹고 빨리 낫고 싶어요.",
+        "exampleKr": "I want to take the medicine and get better quickly.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Health",
+          "Daily Life"
+        ],
+        "phonetic": "natda",
+        "pos": "verb"
+      }
+    ]
+  },
+{
+    "id": "curated-hiking-ko-1",
+    "title": "Korean Hiking Trip 50",
+    "icon": "🥾",
+    "isCurated": true,
+    "category": "생활",
+    "level": "intermediate",
+    "description": "Hike a Korean mountain like a local — 등산로, 능선, 약수터, 아이젠, 하산, 야호 and more across terrain, trails & courses, gear, your body on the climb, and trail etiquette & safety. Korean→English; meanings & on-the-trail examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1784689538657,
+    "words": [
+      {
+        "id": "word-hiking-0-1784689538657",
+        "term": "등산",
+        "definition": "hiking; mountain climbing",
+        "meaningKr": "hiking; mountain climbing",
+        "exampleEn": "주말에 같이 등산 갈까요?",
+        "exampleKr": "Shall we go hiking together this weekend?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "deungsan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-1-1784689538657",
+        "term": "산",
+        "definition": "a mountain",
+        "meaningKr": "a mountain",
+        "exampleEn": "이 산은 경치가 참 좋네요.",
+        "exampleKr": "The view from this mountain is really nice.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "san",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-2-1784689538657",
+        "term": "정상",
+        "definition": "the summit; the peak",
+        "meaningKr": "the summit; the peak",
+        "exampleEn": "정상까지 얼마나 더 가야 해요?",
+        "exampleKr": "How much further do we have to go to the summit?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "jeongsang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-3-1784689538657",
+        "term": "봉우리",
+        "definition": "a mountain peak",
+        "meaningKr": "a mountain peak",
+        "exampleEn": "저기 보이는 봉우리가 제일 높아요.",
+        "exampleKr": "That peak over there is the highest one.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "bong-uri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-4-1784689538657",
+        "term": "능선",
+        "definition": "a ridge line",
+        "meaningKr": "a ridge line",
+        "exampleEn": "능선 따라 걷는 길이 정말 멋져요.",
+        "exampleKr": "The path walking along the ridge is truly wonderful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "neungseon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-5-1784689538657",
+        "term": "계곡",
+        "definition": "a valley with a stream",
+        "meaningKr": "a valley with a stream",
+        "exampleEn": "여름에는 계곡에서 발 담그면 시원해요.",
+        "exampleKr": "In summer, it's cool to dip your feet in the valley stream.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "gyegok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-6-1784689538657",
+        "term": "약수터",
+        "definition": "a natural spring spot on a trail",
+        "meaningKr": "a natural spring spot on a trail",
+        "exampleEn": "약수터에서 물 한잔 마시고 갈까요?",
+        "exampleKr": "Shall we drink a glass of water at the spring and go?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "yaksuteo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-7-1784689538657",
+        "term": "전망대",
+        "definition": "an observation deck",
+        "meaningKr": "an observation deck",
+        "exampleEn": "전망대에서 잠시 쉬면서 경치 봐요.",
+        "exampleKr": "Let's rest a bit at the observation deck and enjoy the view.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "jeonmangdae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-8-1784689538657",
+        "term": "쉼터",
+        "definition": "a rest stop; a resting place",
+        "meaningKr": "a rest stop; a resting place",
+        "exampleEn": "저기 쉼터에서 좀 쉬었다 갈까요?",
+        "exampleKr": "Shall we rest a bit at that rest stop over there?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "swimteo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-9-1784689538657",
+        "term": "국립공원",
+        "definition": "a national park",
+        "meaningKr": "a national park",
+        "exampleEn": "설악산은 정말 아름다운 국립공원이에요.",
+        "exampleKr": "Seoraksan is a truly beautiful national park.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "gungnipgongwon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-10-1784689538657",
+        "term": "단풍",
+        "definition": "autumn foliage; fall colors",
+        "meaningKr": "autumn foliage; fall colors",
+        "exampleEn": "가을 단풍이 정말 예쁘게 물들었어요.",
+        "exampleKr": "The autumn foliage has turned really beautifully.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "danpung",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-11-1784689538657",
+        "term": "등산로",
+        "definition": "a hiking trail",
+        "meaningKr": "a hiking trail",
+        "exampleEn": "등산로가 잘 정비되어 있어서 걷기 편해요.",
+        "exampleKr": "The hiking trail is well-maintained, so it's easy to walk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "deungsallo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-12-1784689538657",
+        "term": "산길",
+        "definition": "a mountain path",
+        "meaningKr": "a mountain path",
+        "exampleEn": "이 산길은 좀 미끄러우니 조심하세요.",
+        "exampleKr": "This mountain path is a bit slippery, so be careful.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "sangil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-13-1784689538657",
+        "term": "둘레길",
+        "definition": "a gentle loop trail around a mountain",
+        "meaningKr": "a gentle loop trail around a mountain",
+        "exampleEn": "오늘은 힘들어서 둘레길만 걸었어요.",
+        "exampleKr": "I was tired today, so I only walked the loop trail.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "dullegil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-14-1784689538657",
+        "term": "오르막",
+        "definition": "an uphill path; an ascent",
+        "meaningKr": "an uphill path; an ascent",
+        "exampleEn": "계속 오르막이라 다리가 좀 아프네요.",
+        "exampleKr": "It's all uphill, so my legs are a bit sore.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "oreumak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-15-1784689538657",
+        "term": "내리막",
+        "definition": "a downhill path; a descent",
+        "meaningKr": "a downhill path; a descent",
+        "exampleEn": "이제 내리막이니 조심해서 내려가요.",
+        "exampleKr": "It's downhill now, so let's go down carefully.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "naerimak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-16-1784689538657",
+        "term": "갈림길",
+        "definition": "a fork in the road/trail",
+        "meaningKr": "a fork in the road/trail",
+        "exampleEn": "여기서 갈림길인데, 어느 쪽으로 갈까요?",
+        "exampleKr": "It's a fork in the trail here, which way shall we go?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "gallimgil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-17-1784689538657",
+        "term": "이정표",
+        "definition": "a trail signpost",
+        "meaningKr": "a trail signpost",
+        "exampleEn": "저기 이정표에 정상까지 2km 남았대요.",
+        "exampleKr": "That signpost says 2km left to the summit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "ijeongpyo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-18-1784689538657",
+        "term": "돌계단",
+        "definition": "stone steps on a trail",
+        "meaningKr": "stone steps on a trail",
+        "exampleEn": "돌계단이 많아서 무릎이 좀 아프네요.",
+        "exampleKr": "There are a lot of stone steps, so my knees hurt a bit.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "dolgyedan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-19-1784689538657",
+        "term": "데크길",
+        "definition": "a wooden boardwalk trail",
+        "meaningKr": "a wooden boardwalk trail",
+        "exampleEn": "데크길이라 걷기 정말 편하고 좋네요.",
+        "exampleKr": "It's a boardwalk trail, so it's really comfortable and nice to walk.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "dekeugil",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-20-1784689538657",
+        "term": "코스",
+        "definition": "a route; a course",
+        "meaningKr": "a route; a course",
+        "exampleEn": "우리는 초보자 코스로 등산했어요.",
+        "exampleKr": "We hiked on the beginner's course.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "koseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-21-1784689538657",
+        "term": "배낭",
+        "definition": "a backpack; a rucksack",
+        "meaningKr": "a backpack; a rucksack",
+        "exampleEn": "배낭이 너무 무거워서 어깨가 아파요.",
+        "exampleKr": "My backpack is too heavy, so my shoulders hurt.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "baenang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-22-1784689538657",
+        "term": "등산화",
+        "definition": "hiking boots",
+        "meaningKr": "hiking boots",
+        "exampleEn": "등산화가 편해야 오래 걸을 수 있어요.",
+        "exampleKr": "Hiking boots need to be comfortable to walk for a long time.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "deungsanhwa",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-23-1784689538657",
+        "term": "등산복",
+        "definition": "hiking clothes; hiking gear",
+        "meaningKr": "hiking clothes; hiking gear",
+        "exampleEn": "등산복이 알록달록해서 예쁘네요.",
+        "exampleKr": "Your hiking clothes are colorful and pretty.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "deungsanbok",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-24-1784689538657",
+        "term": "등산 스틱",
+        "definition": "trekking poles",
+        "meaningKr": "trekking poles",
+        "exampleEn": "등산 스틱이 있으면 무릎에 좋아요.",
+        "exampleKr": "Trekking poles are good for your knees.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "deungsan seutik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-25-1784689538657",
+        "term": "아이젠",
+        "definition": "crampons for icy trails",
+        "meaningKr": "crampons for icy trails",
+        "exampleEn": "겨울 등산에는 아이젠이 필수예요.",
+        "exampleKr": "Crampons are essential for winter hiking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "aijen",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-26-1784689538657",
+        "term": "헤드랜턴",
+        "definition": "a headlamp",
+        "meaningKr": "a headlamp",
+        "exampleEn": "일출 보려면 헤드랜턴 꼭 챙겨야 해요.",
+        "exampleKr": "If you want to see the sunrise, you must bring a headlamp.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "hedeuraenteon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-27-1784689538657",
+        "term": "보온병",
+        "definition": "a thermos",
+        "meaningKr": "a thermos",
+        "exampleEn": "따뜻한 물 담아온 보온병이 최고예요.",
+        "exampleKr": "A thermos with hot water is the best.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "bo-onbyeong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-28-1784689538657",
+        "term": "도시락",
+        "definition": "a packed lunch box",
+        "meaningKr": "a packed lunch box",
+        "exampleEn": "정상에서 먹는 도시락이 제일 맛있어요.",
+        "exampleKr": "The lunch box eaten at the summit is the most delicious.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "dosirak",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-29-1784689538657",
+        "term": "김밥",
+        "definition": "Gimbap; Korean seaweed rice rolls",
+        "meaningKr": "Gimbap; Korean seaweed rice rolls",
+        "exampleEn": "등산 도시락으로는 역시 김밥이죠!",
+        "exampleKr": "For a hiking lunch, gimbap is the best, right?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "gimbap",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-30-1784689538657",
+        "term": "우비",
+        "definition": "a rain poncho; rain gear",
+        "meaningKr": "a rain poncho; rain gear",
+        "exampleEn": "비 올 것 같아서 우비 챙겼어요.",
+        "exampleKr": "It looks like it's going to rain, so I brought a poncho.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "ubi",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-31-1784689538657",
+        "term": "산행",
+        "definition": "a mountain trek; a hike",
+        "meaningKr": "a mountain trek; a hike",
+        "exampleEn": "오늘 산행 코스는 좀 힘드네요.",
+        "exampleKr": "Today's hiking course is a bit tough.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "sanhaeng",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-32-1784689538657",
+        "term": "등반",
+        "definition": "climbing (technical mountaineering)",
+        "meaningKr": "climbing (technical mountaineering)",
+        "exampleEn": "저 바위는 등반 장비가 있어야 해요.",
+        "exampleKr": "You need climbing gear for that rock.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "deungban",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-33-1784689538657",
+        "term": "하산",
+        "definition": "descending the mountain; going down",
+        "meaningKr": "descending the mountain; going down",
+        "exampleEn": "이제 슬슬 하산 준비할까요?",
+        "exampleKr": "Shall we start preparing to descend now?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "hasan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-34-1784689538657",
+        "term": "완주",
+        "definition": "finishing the full course",
+        "meaningKr": "finishing the full course",
+        "exampleEn": "오늘 코스 완주 정말 뿌듯해요!",
+        "exampleKr": "Finishing today's course feels really rewarding!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "wanju",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-35-1784689538657",
+        "term": "숨차다",
+        "definition": "to be out of breath; winded",
+        "meaningKr": "to be out of breath; winded",
+        "exampleEn": "오르막길이라서 너무 숨차요.",
+        "exampleKr": "It's an uphill path, so I'm so out of breath.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "sumchada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-hiking-36-1784689538657",
+        "term": "다리가 풀리다",
+        "definition": "one's legs go weak from exhaustion",
+        "meaningKr": "one's legs go weak from exhaustion",
+        "exampleEn": "너무 힘들어서 다리가 풀리는 것 같아요.",
+        "exampleKr": "I'm so tired my legs feel like they're giving out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "dariga pullida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-hiking-37-1784689538657",
+        "term": "미끄럽다",
+        "definition": "slippery",
+        "meaningKr": "slippery",
+        "exampleEn": "낙엽 때문에 길이 좀 미끄러워요.",
+        "exampleKr": "The path is a bit slippery because of the fallen leaves.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "mikkeureopda",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-hiking-38-1784689538657",
+        "term": "발을 헛디디다",
+        "definition": "to lose one's footing; to misstep",
+        "meaningKr": "to lose one's footing; to misstep",
+        "exampleEn": "돌부리에 걸려 발을 헛디딜 뻔했어요.",
+        "exampleKr": "I almost lost my footing on a rock.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "bareul heotdidida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-hiking-39-1784689538657",
+        "term": "준비운동",
+        "definition": "warm-up exercises",
+        "meaningKr": "warm-up exercises",
+        "exampleEn": "산행 전에는 준비운동 꼭 해야죠.",
+        "exampleKr": "You definitely have to warm up before hiking.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "junbiundong",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-40-1784689538657",
+        "term": "쉬어 가다",
+        "definition": "to take a break along the way",
+        "meaningKr": "to take a break along the way",
+        "exampleEn": "잠시 쉬어 갈까요? 물 한잔 해요.",
+        "exampleKr": "Shall we take a short break? Let's have some water.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "swieo gada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-hiking-41-1784689538657",
+        "term": "야호",
+        "definition": "Yahoo! (a shout on a mountain)",
+        "meaningKr": "Yahoo! (a shout on a mountain)",
+        "exampleEn": "정상이다! 야호!",
+        "exampleKr": "We're at the summit! Yahoo!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "yaho",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-hiking-42-1784689538657",
+        "term": "화이팅",
+        "definition": "You got this! Go for it!",
+        "meaningKr": "You got this! Go for it!",
+        "exampleEn": "조금만 더! 화이팅!",
+        "exampleKr": "Just a little more! You got this!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "hwaiting",
+        "pos": "interjection"
+      },
+      {
+        "id": "word-hiking-43-1784689538657",
+        "term": "수고하셨습니다",
+        "definition": "Nice work; you worked hard (greeting)",
+        "meaningKr": "Nice work; you worked hard (greeting)",
+        "exampleEn": "정상까지 수고하셨습니다!",
+        "exampleKr": "Nice work getting to the summit!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "sugohasyeosseumnida",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-hiking-44-1784689538657",
+        "term": "막걸리",
+        "definition": "Makgeolli rice wine",
+        "meaningKr": "Makgeolli rice wine",
+        "exampleEn": "하산 후에는 막걸리 한잔 해야죠!",
+        "exampleKr": "After descending, we should definitely have a glass of makgeolli!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "makgeolli",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-45-1784689538657",
+        "term": "일출",
+        "definition": "sunrise",
+        "meaningKr": "sunrise",
+        "exampleEn": "새해 일출 보러 새벽 등산 왔어요.",
+        "exampleKr": "We came for a dawn hike to see the New Year's sunrise.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "ilchul",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-46-1784689538657",
+        "term": "입산 통제",
+        "definition": "trail closure; restricted mountain entry",
+        "meaningKr": "trail closure; restricted mountain entry",
+        "exampleEn": "산불 때문에 입산 통제 기간이네요.",
+        "exampleKr": "It's a trail closure period due to a forest fire.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "ipsan tongje",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-47-1784689538657",
+        "term": "산불 조심",
+        "definition": "beware of forest fires",
+        "meaningKr": "beware of forest fires",
+        "exampleEn": "입구에 산불 조심 팻말이 있네요.",
+        "exampleKr": "There's a \"beware of forest fires\" sign at the entrance.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "sanbul josim",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-hiking-48-1784689538657",
+        "term": "조난",
+        "definition": "getting stranded or lost in the mountains",
+        "meaningKr": "getting stranded or lost in the mountains",
+        "exampleEn": "날씨가 안 좋으면 조난당할 수 있어요.",
+        "exampleKr": "If the weather is bad, you could get stranded.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "jonan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-hiking-49-1784689538657",
+        "term": "구조 요청",
+        "definition": "calling for rescue when in trouble",
+        "meaningKr": "calling for rescue when in trouble",
+        "exampleEn": "길을 잃으면 구조 요청해야 해요.",
+        "exampleKr": "If you get lost, you need to call for rescue.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Hiking",
+          "Daily Life"
+        ],
+        "phonetic": "gujo yocheong",
+        "pos": "noun"
+      }
+    ]
+  },
+{
+    "id": "curated-market-ko-1",
+    "title": "Korean Market Trip 50",
+    "icon": "🧺",
+    "isCurated": true,
+    "category": "생활",
+    "level": "beginner",
+    "description": "Everything you need to shop a Korean traditional market — 흥정, 덤, 떨이, 한 근, 거스름돈 and more across stalls & shops, haggling & prices, units, produce quality and paying up. Korean→English; meanings & real market-stall examples AI-generated.",
+    "sourceLanguage": "ko",
+    "targetLanguage": "en",
+    "isVisible": true,
+    "createdAt": 1784689516444,
+    "words": [
+      {
+        "id": "word-market-0-1784689516444",
+        "term": "시장",
+        "definition": "a market; a traditional open-air market",
+        "meaningKr": "a market; a traditional open-air market",
+        "exampleEn": "이 시장은 물건이 정말 싸네요.",
+        "exampleKr": "Things are really cheap at this market.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "sijang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-1-1784689516444",
+        "term": "재래시장",
+        "definition": "a traditional market; an old-style local market",
+        "meaningKr": "a traditional market; an old-style local market",
+        "exampleEn": "저는 재래시장에서 장 보는 걸 좋아해요.",
+        "exampleKr": "I like shopping at traditional markets.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "jaeraesijang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-2-1784689516444",
+        "term": "오일장",
+        "definition": "a five-day market that opens every 5 days",
+        "meaningKr": "a five-day market that opens every 5 days",
+        "exampleEn": "다음 오일장은 언제 열려요?",
+        "exampleKr": "When does the next five-day market open?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "oiljang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-3-1784689516444",
+        "term": "새벽시장",
+        "definition": "a dawn market that opens before sunrise",
+        "meaningKr": "a dawn market that opens before sunrise",
+        "exampleEn": "새벽시장에 가면 신선한 해산물이 많아요.",
+        "exampleKr": "If you go to the dawn market, there's lots of fresh seafood.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "saebyeoksijang",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-4-1784689516444",
+        "term": "노점",
+        "definition": "a street stall; a vendor's stand set up on the street",
+        "meaningKr": "a street stall; a vendor's stand set up on the street",
+        "exampleEn": "저 노점에서 떡볶이 먹을까요?",
+        "exampleKr": "Shall we eat tteokbokki at that street stall?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "nojeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-5-1784689516444",
+        "term": "포장마차",
+        "definition": "a tented street food cart with seating, for snacks and drinks",
+        "meaningKr": "a tented street food cart with seating, for snacks and drinks",
+        "exampleEn": "퇴근하고 포장마차에서 한잔할까요?",
+        "exampleKr": "Shall we have a drink at a pojangmacha after work?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "pojangmacha",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-6-1784689516444",
+        "term": "정육점",
+        "definition": "a butcher shop",
+        "meaningKr": "a butcher shop",
+        "exampleEn": "오늘 정육점에서 고기 좀 사야겠어요.",
+        "exampleKr": "I should buy some meat at the butcher shop today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "jeongnyukjeom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-7-1784689516444",
+        "term": "생선가게",
+        "definition": "a fish shop; a fishmonger's stall",
+        "meaningKr": "a fish shop; a fishmonger's stall",
+        "exampleEn": "이 생선가게 생선은 싱싱해요.",
+        "exampleKr": "The fish at this fish shop is fresh.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "saengseongage",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-8-1784689516444",
+        "term": "야채가게",
+        "definition": "a vegetable shop; a greengrocer",
+        "meaningKr": "a vegetable shop; a greengrocer",
+        "exampleEn": "야채가게에서 신선한 채소 샀어요.",
+        "exampleKr": "I bought fresh vegetables at the greengrocer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "yachaegage",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-9-1784689516444",
+        "term": "반찬가게",
+        "definition": "a shop selling ready-made Korean side dishes (banchan)",
+        "meaningKr": "a shop selling ready-made Korean side dishes (banchan)",
+        "exampleEn": "오늘 저녁은 반찬가게에서 사갈까요?",
+        "exampleKr": "Shall we buy dinner from the banchan shop today?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "banchangage",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-10-1784689516444",
+        "term": "방앗간",
+        "definition": "a mill shop that presses sesame oil and pounds rice cakes",
+        "meaningKr": "a mill shop that presses sesame oil and pounds rice cakes",
+        "exampleEn": "방앗간에서 떡볶이 떡 좀 뽑아 주세요.",
+        "exampleKr": "Please pound some tteokbokki rice cakes at the mill.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "bangatgan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-11-1784689516444",
+        "term": "상인",
+        "definition": "a merchant; a market vendor",
+        "meaningKr": "a merchant; a market vendor",
+        "exampleEn": "이 시장 상인들은 다 친절해요.",
+        "exampleKr": "All the vendors in this market are kind.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "sangin",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-12-1784689516444",
+        "term": "사장님",
+        "definition": "boss; the standard polite way to address any shop owner",
+        "meaningKr": "boss; the standard polite way to address any shop owner",
+        "exampleEn": "사장님, 이거 얼마예요?",
+        "exampleKr": "Boss, how much is this?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "sajangnim",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-13-1784689516444",
+        "term": "이모",
+        "definition": "aunt; a friendly way to call a middle-aged female vendor",
+        "meaningKr": "aunt; a friendly way to call a middle-aged female vendor",
+        "exampleEn": "이모, 여기 김치찌개 하나 주세요!",
+        "exampleKr": "Auntie, please give me one kimchi stew here!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "imo",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-14-1784689516444",
+        "term": "단골",
+        "definition": "a regular customer; one's usual go-to shop",
+        "meaningKr": "a regular customer; one's usual go-to shop",
+        "exampleEn": "저는 이 가게 단골이라 서비스 많이 받아요.",
+        "exampleKr": "I'm a regular here, so I get lots of freebies.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "dangol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-15-1784689516444",
+        "term": "얼마예요",
+        "definition": "How much is it?",
+        "meaningKr": "How much is it?",
+        "exampleEn": "이 사과 한 봉지에 얼마예요?",
+        "exampleKr": "How much is one bag of these apples?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "eolmayeyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-16-1784689516444",
+        "term": "깎다",
+        "definition": "to knock the price down; to take something off the price",
+        "meaningKr": "to knock the price down; to take something off the price",
+        "exampleEn": "좀 깎아 주시면 안 될까요?",
+        "exampleKr": "Couldn't you knock the price down a bit?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "kkakda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-market-17-1784689516444",
+        "term": "깎아 주세요",
+        "definition": "Could you give me a discount?",
+        "meaningKr": "Could you give me a discount?",
+        "exampleEn": "사장님, 좀 깎아 주세요!",
+        "exampleKr": "Boss, please give me a discount!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "kkakka juseyo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-18-1784689516444",
+        "term": "흥정하다",
+        "definition": "to haggle; to bargain back and forth over a price",
+        "meaningKr": "to haggle; to bargain back and forth over a price",
+        "exampleEn": "이 시장에서는 흥정하는 재미가 있어요.",
+        "exampleKr": "It's fun to haggle at this market.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "heungjeonghada",
+        "pos": "verb"
+      },
+      {
+        "id": "word-market-19-1784689516444",
+        "term": "에누리",
+        "definition": "a discount off the asking price; wiggle room in the price",
+        "meaningKr": "a discount off the asking price; wiggle room in the price",
+        "exampleEn": "에누리 없이 그냥 이 가격인가요?",
+        "exampleKr": "Is this price fixed, with no wiggle room?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "enuri",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-20-1784689516444",
+        "term": "덤",
+        "definition": "a little extra thrown in for free on top of what you bought",
+        "meaningKr": "a little extra thrown in for free on top of what you bought",
+        "exampleEn": "사장님, 덤으로 좀 더 주세요!",
+        "exampleKr": "Boss, please give me a little extra as a bonus!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "deom",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-21-1784689516444",
+        "term": "서비스",
+        "definition": "something given free of charge; on the house",
+        "meaningKr": "something given free of charge; on the house",
+        "exampleEn": "이건 서비스로 드리는 거예요.",
+        "exampleKr": "This is something I'm giving you for free.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "seobiseu",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-22-1784689516444",
+        "term": "떨이",
+        "definition": "an end-of-the-day clearance sale; leftovers sold cheap",
+        "meaningKr": "an end-of-the-day clearance sale; leftovers sold cheap",
+        "exampleEn": "지금 떨이라서 싸게 팔아요.",
+        "exampleKr": "It's an end-of-day sale now, so I'm selling it cheap.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "tteori",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-23-1784689516444",
+        "term": "바가지",
+        "definition": "a rip-off; being badly overcharged",
+        "meaningKr": "a rip-off; being badly overcharged",
+        "exampleEn": "관광객한테 바가지 씌우지 마세요.",
+        "exampleKr": "Don't rip off tourists.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "bagaji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-24-1784689516444",
+        "term": "싸다",
+        "definition": "cheap; inexpensive",
+        "meaningKr": "cheap; inexpensive",
+        "exampleEn": "여기는 다른 곳보다 물건이 싸요.",
+        "exampleKr": "Things are cheaper here than elsewhere.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "ssada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-market-25-1784689516444",
+        "term": "비싸다",
+        "definition": "expensive; pricey",
+        "meaningKr": "expensive; pricey",
+        "exampleEn": "너무 비싸요. 좀 깎아 주세요.",
+        "exampleKr": "It's too expensive. Please give me a discount.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "bissada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-market-26-1784689516444",
+        "term": "한 근",
+        "definition": "one geun (traditional weight unit, ~600g)",
+        "meaningKr": "one geun (traditional weight unit, ~600g)",
+        "exampleEn": "돼지고기 한 근 주세요.",
+        "exampleKr": "Please give me one geun of pork.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "han geun",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-27-1784689516444",
+        "term": "한 되",
+        "definition": "one doe (traditional volume unit, ~1.8L)",
+        "meaningKr": "one doe (traditional volume unit, ~1.8L)",
+        "exampleEn": "콩 한 되에 얼마예요?",
+        "exampleKr": "How much is one doe of beans?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "han doe",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-28-1784689516444",
+        "term": "한 판",
+        "definition": "one tray (e.g., 30 eggs)",
+        "meaningKr": "one tray (e.g., 30 eggs)",
+        "exampleEn": "달걀 한 판 주세요.",
+        "exampleKr": "Please give me one tray of eggs.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "han pan",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-29-1784689516444",
+        "term": "한 묶음",
+        "definition": "one bundle; a set tied together",
+        "meaningKr": "one bundle; a set tied together",
+        "exampleEn": "이 채소 한 묶음에 얼마예요?",
+        "exampleKr": "How much is one bundle of these vegetables?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "han mukkeum",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-30-1784689516444",
+        "term": "한 다발",
+        "definition": "one bunch (of greens, flowers)",
+        "meaningKr": "one bunch (of greens, flowers)",
+        "exampleEn": "대파 한 다발 주세요.",
+        "exampleKr": "Please give me one bunch of green onions.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "han dabal",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-31-1784689516444",
+        "term": "낱개",
+        "definition": "individual pieces (sold singly)",
+        "meaningKr": "individual pieces (sold singly)",
+        "exampleEn": "낱개로도 살 수 있나요?",
+        "exampleKr": "Can I buy them individually?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "natgae",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-32-1784689516444",
+        "term": "봉지",
+        "definition": "a bag; a bagful",
+        "meaningKr": "a bag; a bagful",
+        "exampleEn": "떡볶이 한 봉지 주세요.",
+        "exampleKr": "Please give me one bag of tteokbokki.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "bongji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-33-1784689516444",
+        "term": "통째로",
+        "definition": "whole; in one piece",
+        "meaningKr": "whole; in one piece",
+        "exampleEn": "생선은 통째로 주세요.",
+        "exampleKr": "Please give me the fish whole.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "tongjjaero",
+        "pos": "adverb"
+      },
+      {
+        "id": "word-market-34-1784689516444",
+        "term": "신선하다",
+        "definition": "fresh",
+        "meaningKr": "fresh",
+        "exampleEn": "채소가 정말 신선하네요!",
+        "exampleKr": "The vegetables are really fresh!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "sinseonhada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-market-35-1784689516444",
+        "term": "싱싱하다",
+        "definition": "fresh and lively-looking (produce, seafood)",
+        "meaningKr": "fresh and lively-looking (produce, seafood)",
+        "exampleEn": "이 생선은 싱싱해 보여요.",
+        "exampleKr": "This fish looks fresh.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "singsinghada",
+        "pos": "adjective"
+      },
+      {
+        "id": "word-market-36-1784689516444",
+        "term": "국산",
+        "definition": "domestically produced; made in Korea",
+        "meaningKr": "domestically produced; made in Korea",
+        "exampleEn": "이거 국산 맞아요?",
+        "exampleKr": "Is this domestically produced?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "guksan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-37-1784689516444",
+        "term": "수입산",
+        "definition": "imported; from abroad",
+        "meaningKr": "imported; from abroad",
+        "exampleEn": "이건 수입산이에요.",
+        "exampleKr": "This is imported.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "suipsan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-38-1784689516444",
+        "term": "원산지",
+        "definition": "place of origin",
+        "meaningKr": "place of origin",
+        "exampleEn": "고기 원산지가 어디예요?",
+        "exampleKr": "Where is the origin of this meat?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "wonsanji",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-39-1784689516444",
+        "term": "유통기한",
+        "definition": "sell-by / expiration date",
+        "meaningKr": "sell-by / expiration date",
+        "exampleEn": "유통기한 언제까지예요?",
+        "exampleKr": "When is the expiration date?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "yutonggihan",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-40-1784689516444",
+        "term": "제철",
+        "definition": "in season",
+        "meaningKr": "in season",
+        "exampleEn": "지금 딸기가 제철이에요.",
+        "exampleKr": "Strawberries are in season now.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "jecheol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-41-1784689516444",
+        "term": "품절",
+        "definition": "sold out; out of stock",
+        "meaningKr": "sold out; out of stock",
+        "exampleEn": "죄송하지만, 그건 품절이에요.",
+        "exampleKr": "Sorry, that's sold out.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "pumjeol",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-42-1784689516444",
+        "term": "시식",
+        "definition": "a free taste; a sample",
+        "meaningKr": "a free taste; a sample",
+        "exampleEn": "시식 한번 해보세요!",
+        "exampleKr": "Please try a sample!",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "sisik",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-43-1784689516444",
+        "term": "골라 담다",
+        "definition": "to pick out and fill (your own bag/basket)",
+        "meaningKr": "to pick out and fill (your own bag/basket)",
+        "exampleEn": "직접 골라 담으시면 돼요.",
+        "exampleKr": "You can pick them out yourself.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "golla damda",
+        "pos": "verb"
+      },
+      {
+        "id": "word-market-44-1784689516444",
+        "term": "현금",
+        "definition": "cash",
+        "meaningKr": "cash",
+        "exampleEn": "현금으로 계산할게요.",
+        "exampleKr": "I'll pay with cash.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "hyeongeum",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-45-1784689516444",
+        "term": "카드 되나요",
+        "definition": "do you take cards?",
+        "meaningKr": "do you take cards?",
+        "exampleEn": "혹시 카드 되나요?",
+        "exampleKr": "Do you happen to take cards?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "kadeu doenayo",
+        "pos": "phrase"
+      },
+      {
+        "id": "word-market-46-1784689516444",
+        "term": "계좌이체",
+        "definition": "a bank transfer",
+        "meaningKr": "a bank transfer",
+        "exampleEn": "계좌이체로 보내 드릴게요.",
+        "exampleKr": "I'll send it via bank transfer.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "gyejwaiche",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-47-1784689516444",
+        "term": "거스름돈",
+        "definition": "change (money)",
+        "meaningKr": "change (money)",
+        "exampleEn": "거스름돈 여기 있습니다.",
+        "exampleKr": "Here's your change.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "geoseureumdon",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-48-1784689516444",
+        "term": "장바구니",
+        "definition": "a shopping basket; reusable bag",
+        "meaningKr": "a shopping basket; reusable bag",
+        "exampleEn": "장바구니 가져오셨어요?",
+        "exampleKr": "Did you bring your shopping bag?",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "jangbaguni",
+        "pos": "noun"
+      },
+      {
+        "id": "word-market-49-1784689516444",
+        "term": "장 보다",
+        "definition": "to do grocery shopping",
+        "meaningKr": "to do grocery shopping",
+        "exampleEn": "오늘 시장에서 장 봤어요.",
+        "exampleKr": "I did my grocery shopping at the market today.",
+        "isMemorized": false,
+        "isStarred": false,
+        "tags": [
+          "Korean",
+          "Market",
+          "Daily Life"
+        ],
+        "phonetic": "jang boda",
+        "pos": "verb"
+      }
+    ]
+  },
+{
     "id": "curated-ko-basic-vi-1",
     "title": "Tiếng Hàn cơ bản 500 (cho người nói tiếng Việt)",
     "icon": "🇰🇷",

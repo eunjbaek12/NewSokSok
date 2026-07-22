@@ -47,7 +47,7 @@ import { fetchDatamuseAutocomplete } from '@/lib/datamuse-api';
 import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
-import { speak } from '@/lib/tts';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import { SUPPORTED_LANGUAGES, getNaverDictUrl, getPlaceholderText, getWordLabel, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
@@ -1023,22 +1023,14 @@ export default function AddWordScreen() {
                                                         blurOnSubmit={false}
                                                     />
                                                     <View style={styles.searchActions}>
-                                                        <Pressable
-                                                            onPress={() => {
-                                                                if (term.trim()) {
-                                                                    Haptics.selectionAsync();
-                                                                    speak(getSpeakableText(term, phonetic, sourceLang).trim(), getTtsLang(sourceLang));
-                                                                }
-                                                            }}
+                                                        <SpeakerButton
+                                                            text={getSpeakableText(term, phonetic, sourceLang)}
+                                                            language={getTtsLang(sourceLang)}
+                                                            size={22}
+                                                            color={colors.textSecondary}
                                                             disabled={!term.trim()}
                                                             style={styles.searchIconButton}
-                                                        >
-                                                            <Ionicons
-                                                                name="volume-medium-outline"
-                                                                size={22}
-                                                                color={term.trim() ? colors.textSecondary : colors.textTertiary}
-                                                            />
-                                                        </Pressable>
+                                                        />
                                                         <Pressable
                                                             onPressIn={() => { suppressBlurRef.current = true; }}
                                                             onPress={handleSearch}

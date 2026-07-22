@@ -22,7 +22,7 @@ import { useSettings } from '@/features/settings';
 import { Button } from '@/components/ui/Button';
 import * as Haptics from 'expo-haptics';
 import { Word } from '@/lib/types';
-import { speak } from '@/lib/tts';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getSpeakableText, getDefinitionLabel, getMeaningLabel, getExampleLabel, getExampleTranslationLabel, getNaverDictUrl, shouldShowExampleTranslation, LanguageCode } from '@/constants/languages';
 
 export type WordModalMode = 'read' | 'edit' | 'add';
@@ -82,13 +82,13 @@ function ReadOnlyView({ word, onClose, colors, t, ttsLang, sourceLang, targetLan
                             {word.term}
                         </Text>
                         {word.term?.trim() ? (
-                            <Pressable
-                                onPress={() => { Haptics.selectionAsync(); speak(getSpeakableText(word.term, word.phonetic, sourceLang).trim(), ttsLang); }}
-                                hitSlop={12}
+                            <SpeakerButton
+                                text={getSpeakableText(word.term, word.phonetic, sourceLang)}
+                                language={ttsLang}
+                                size={20}
+                                color={colors.textSecondary}
                                 style={[styles.roTtsBtn, { backgroundColor: colors.surfaceSecondary }]}
-                            >
-                                <Ionicons name="volume-medium-outline" size={20} color={colors.textSecondary} />
-                            </Pressable>
+                            />
                         ) : null}
                     </View>
 
@@ -409,13 +409,13 @@ export default function WordDetailModal({
                                                 <Text style={[styles.wordInputText, { color: colors.text }]}>{term}</Text>
                                             </Pressable>
                                             {mode === 'read' && term.trim() ? (
-                                                <Pressable
-                                                    onPress={() => { Haptics.selectionAsync(); speak(getSpeakableText(term, phonetic, resolvedSourceLang).trim(), ttsLang); }}
-                                                    hitSlop={12}
+                                                <SpeakerButton
+                                                    text={getSpeakableText(term, phonetic, resolvedSourceLang)}
+                                                    language={ttsLang}
+                                                    size={20}
+                                                    color={colors.textSecondary}
                                                     style={[styles.termActionBtn, { backgroundColor: colors.surfaceSecondary }]}
-                                                >
-                                                    <Ionicons name="volume-medium-outline" size={20} color={colors.textSecondary} />
-                                                </Pressable>
+                                                />
                                             ) : null}
                                             {!readOnly && (
                                                 <Pressable onPress={handleToggleStar} hitSlop={12} style={{ paddingLeft: 4 }}>

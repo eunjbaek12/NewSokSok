@@ -18,8 +18,8 @@ import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
 import { Word, StudyResult } from '@/lib/types';
-import { speak } from '@/lib/tts';
 import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
@@ -351,11 +351,11 @@ export default function QuizScreen() {
 
             <Text style={[styles.questionText, { color: colors.text }]} numberOfLines={4} adjustsFontSizeToFit minimumFontScale={0.5}>{questionContent}</Text>
 
-            <Pressable onPress={() => speak(getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang), ttsLang)} hitSlop={12} style={styles.speakerBtn}>
-              {({ pressed }) => (
-                <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-              )}
-            </Pressable>
+            <SpeakerButton
+              text={getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang)}
+              language={ttsLang}
+              style={styles.speakerBtn}
+            />
           </View>
         </View>
 

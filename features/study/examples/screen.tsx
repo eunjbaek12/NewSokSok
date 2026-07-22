@@ -17,7 +17,7 @@ import { useStudyResultsStore } from '@/features/study';
 import { useAbandonRecord } from '../use-abandon-record';
 import { useSessionCommit, commitSessionResults } from '../use-session-commit';
 import { useSettings } from '@/features/settings';
-import { speak } from '@/lib/tts';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
@@ -396,12 +396,6 @@ export default function ExamplesScreen() {
     router.back();
   }, [commitSession]);
 
-  const handleSpeak = useCallback(() => {
-    if (currentWord?.exampleEn) {
-      speak(stripSenseMarkers(currentWord.exampleEn), getTtsLang(getStudySourceLang(currentWord, list)));
-    }
-  }, [currentWord, list]);
-
   // 모두 예문 없음 + 백그라운드 enrich 진행 중 → 풀스크린 진행 상태.
   // 첫 단어가 완성되면 studyWords.length > 0이 되어 자동으로 학습 화면으로 전환됨.
   if (studyWords.length === 0 && bgEnrich.running) {
@@ -534,11 +528,11 @@ export default function ExamplesScreen() {
                   <Text style={[styles.exampleKrText, { color: colors.textTertiary }]}>{currentWord.exampleKr}</Text>
                 )}
 
-                <Pressable onPress={handleSpeak} hitSlop={12} style={styles.speakerBtn}>
-                  {({ pressed }) => (
-                    <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-                  )}
-                </Pressable>
+                <SpeakerButton
+                  text={stripSenseMarkers(currentWord.exampleEn)}
+                  language={getTtsLang(getStudySourceLang(currentWord, list))}
+                  style={styles.speakerBtn}
+                />
               </View>
             ) : (
               <Text style={[styles.noExample, { color: colors.textTertiary }]}>{t('examples.noExample')}</Text>

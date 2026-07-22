@@ -35,7 +35,7 @@ import {
   copyWords,
   moveWords,
 } from '@/features/vocab';
-import { speak } from '@/lib/tts';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import { getTtsLang, getSpeakableText, getStudySourceLang } from '@/constants/languages';
 import { Word } from '@/lib/types';
 import { computePlanStatus } from '@/features/study/plan/engine';
@@ -74,7 +74,6 @@ export default function ListDetailScreen() {
   const [sortOrder, setSortOrder] = useState<SortOrder>('newest');
   const [editMode, setEditMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [speakingWordId, setSpeakingWordId] = useState<string | null>(null);
 
 
   // Modal State
@@ -173,13 +172,6 @@ export default function ListDetailScreen() {
     await invalidateLists();
     setRefreshing(false);
   }, []);
-
-  const handleSpeak = useCallback(async (word: Word) => {
-    setSpeakingWordId(word.id);
-    const src = getStudySourceLang(word, list);
-    await speak(getSpeakableText(word.term, word.phonetic, src), getTtsLang(src));
-    setSpeakingWordId(null);
-  }, [list?.sourceLanguage]);
 
   const handleEditTitle = useCallback(() => {
     if (!list) return;
@@ -397,7 +389,6 @@ export default function ListDetailScreen() {
 
 
   const renderWordCard = useCallback(({ item }: { item: Word }) => {
-    const isSpeaking = speakingWordId === item.id;
     const isSelected = editMode && selectedIds.has(item.id);
     const borderColor = item.isStarred ? colors.starGold : (item.isMemorized ? colors.border : colors.primary);
     const cardBg = isSelected ? colors.primaryLight : (item.isMemorized ? colors.surfaceSecondary : colors.surface);
@@ -465,20 +456,15 @@ export default function ListDetailScreen() {
           <View style={styles.cardActions}>
 
             {/* 3. 스피커 (단어 바로 다음 우측 부분) */}
-            <Pressable
-              onPress={(e) => {
-                e.stopPropagation();
-                handleSpeak(item);
-              }}
+            <SpeakerButton
+              text={getSpeakableText(item.term, item.phonetic, getStudySourceLang(item, list))}
+              language={getTtsLang(getStudySourceLang(item, list))}
+              size={22}
+              color={colors.textSecondary}
               hitSlop={8}
+              stopPropagation
               style={styles.speakerBtn}
-            >
-              <Ionicons
-                name="volume-medium-outline"
-                size={22}
-                color={isSpeaking ? colors.primary : colors.textSecondary}
-              />
-            </Pressable>
+            />
 
             {/* 4. 학습 상태 (가장 우측) */}
             <TouchableOpacity
@@ -501,7 +487,7 @@ export default function ListDetailScreen() {
         </View>
       </Pressable>
     );
-  }, [speakingWordId, colors, editMode, selectedIds, handleCardPress, handleCardLongPress, handleSpeak, toggleMemorized, toggleStarred, id]);
+  }, [colors, editMode, selectedIds, handleCardPress, handleCardLongPress, toggleMemorized, toggleStarred, id, list]);
 
   const renderFilterHeader = () => {
     if (editMode) {

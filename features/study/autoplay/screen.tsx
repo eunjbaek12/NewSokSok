@@ -24,6 +24,7 @@ import { useSettings } from '@/features/settings';
 import { speak, stopSpeaking } from '@/lib/tts';
 import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import TimerRing from '@/components/ui/TimerRing';
 
@@ -410,15 +411,13 @@ export default function AutoPlayScreen() {
                                 </Text>
                             )}
 
-                            <Pressable
-                                onPress={(e) => { e.stopPropagation(); speak(getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang), ttsLang); }}
-                                hitSlop={12}
+                            <SpeakerButton
+                                text={getSpeakableText(currentWord.term, currentWord.phonetic, sourceLang)}
+                                language={ttsLang}
+                                size={28}
+                                stopPropagation
                                 style={styles.speakerBtn}
-                            >
-                                {({ pressed }) => (
-                                    <Ionicons name="volume-medium-outline" size={28} color={pressed ? colors.primary : colors.textTertiary} />
-                                )}
-                            </Pressable>
+                            />
                             <Animated.View style={tapHintAnimatedStyle}>
                                 <Text style={[styles.tapHintText, { color: colors.textSecondary }]}>{t('autoplay.tapToCheck')}</Text>
                             </Animated.View>

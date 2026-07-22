@@ -33,11 +33,22 @@ function ensureAudioMode(): Promise<void> {
 let voicesPromise: Promise<Speech.Voice[]> | null = null;
 const voiceByLang = new Map<string, string | undefined>();
 
+// 빈 목록은 "이 기기에 음성이 없다"가 아니라 "아직 모른다"일 수 있다. 안드로이드
+// TextToSpeech는 엔진 초기화 전에 voices를 조회하면 예외를 던지고(expo-speech
+// SpeechModule.kt getVoices), 우리는 그걸 []로 폴백한다. 이 []를 영구 캐시하면
+// 앱 시작 직후 첫 speak 한 번으로 그 세션 내내 음성 고정이 죽어버린다(모든 언어가
+// voice=undefined → 안드로이드는 기기 기본 언어로 폴백해 엉뚱한 음색으로 읽음).
+// 그래서 비어 있으면 캐시를 비워 다음 호출에서 다시 조회한다.
 function loadVoices(): Promise<Speech.Voice[]> {
   if (!voicesPromise) {
-    voicesPromise = Speech.getAvailableVoicesAsync()
+    const p: Promise<Speech.Voice[]> = Speech.getAvailableVoicesAsync()
       .then((v) => v ?? [])
-      .catch(() => []); // 조회 실패(웹·엔진 미초기화) → 폴백
+      .catch(() => []) // 조회 실패(웹·엔진 미초기화) → 폴백
+      .then((v) => {
+        if (v.length === 0 && voicesPromise === p) voicesPromise = null;
+        return v;
+      });
+    voicesPromise = p;
   }
   return voicesPromise;
 }
@@ -46,12 +57,30 @@ function loadVoices(): Promise<Speech.Voice[]> {
 // SelectableVoice[]에 구조적 호환이라 그대로 넘긴다.
 async function resolveVoice(language: string): Promise<string | undefined> {
   if (voiceByLang.has(language)) return voiceByLang.get(language);
-  const id = pickVoice(await loadVoices(), language);
-  voiceByLang.set(language, id);
+  const voices = await loadVoices();
+  const id = pickVoice(voices, language);
+  // 목록을 못 받은 상태(빈 배열)에서 나온 undefined는 "이 언어 음성이 없다"가 아니라
+  // "아직 모른다" — 캐시하면 목록이 채워진 뒤에도 폴백이 굳는다. loadVoices와 짝.
+  if (voices.length > 0) voiceByLang.set(language, id);
   return id;
 }
 
-export async function speak(text: string, language: string = 'en-US'): Promise<void> {
+/** 기본 발화 속도. 원어민보다 살짝 느려 학습에 듣기 좋은 값. */
+export const DEFAULT_RATE = 0.9;
+/** 스피커를 길게 눌렀을 때의 속도 — 발음이 어려운 단어를 뜯어 듣는 용도. */
+export const SLOW_RATE = 0.5;
+
+/**
+ * ⚠️ rate는 항상 명시해서 넘긴다(생략 금지). 안드로이드 TextToSpeech의
+ * setSpeechRate는 utterance 단위가 아니라 **엔진 인스턴스 전역 상태**라,
+ * 느리게 한 번 재생한 뒤 rate를 넘기지 않으면 이후 재생이 계속 느린 채로 남는다.
+ */
+export async function speak(
+  text: string,
+  language: string = 'en-US',
+  options: { rate?: number } = {},
+): Promise<void> {
+  const rate = options.rate ?? DEFAULT_RATE;
   await ensureAudioMode();
   const voice = await resolveVoice(language);
   if (isSpeaking) {
@@ -62,7 +91,7 @@ export async function speak(text: string, language: string = 'en-US'): Promise<v
     Speech.speak(text, {
       language,
       voice, // 언어별 고정 음성 (undefined면 language 기준 폴백)
-      rate: 0.9,
+      rate,
       onDone: () => {
         isSpeaking = false;
         resolve();

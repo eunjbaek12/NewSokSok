@@ -34,6 +34,7 @@ import { speak } from '@/lib/tts';
 import { getTtsLang, getSpeakableText, getStudySourceLang, shouldShowExampleTranslation } from '@/constants/languages';
 import { stripSenseMarkers } from '@/lib/senses';
 import { Word, StudyResult } from '@/lib/types';
+import SpeakerButton from '@/components/ui/SpeakerButton';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
@@ -79,11 +80,11 @@ function CardFront({ word, colors, isDark, rotation, onToggleStar, showPos, card
         </View>
       )}
 
-      <Pressable onPress={() => speak(getSpeakableText(word.term, word.phonetic, sourceLang), ttsLang)} hitSlop={12} style={styles.speakerBtn}>
-        {({ pressed }) => (
-          <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-        )}
-      </Pressable>
+      <SpeakerButton
+        text={getSpeakableText(word.term, word.phonetic, sourceLang)}
+        language={ttsLang}
+        style={styles.speakerBtn}
+      />
 
       <Text style={[styles.hintText, { color: colors.textTertiary }]}>{t('flashcards.tapToReveal')}</Text>
     </Animated.View>
@@ -130,11 +131,11 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
           <Text style={[styles.phoneticText, { color: colors.textSecondary, fontSize: 14, marginTop: 4 }]}>/{word.phonetic}/</Text>
         )}
 
-        <Pressable onPress={() => speak(getSpeakableText(word.term, word.phonetic, sourceLang), ttsLang)} hitSlop={12} style={styles.speakerBtn}>
-          {({ pressed }) => (
-            <Ionicons name="volume-medium-outline" size={26} color={pressed ? colors.primary : colors.textTertiary} />
-          )}
-        </Pressable>
+        <SpeakerButton
+          text={getSpeakableText(word.term, word.phonetic, sourceLang)}
+          language={ttsLang}
+          style={styles.speakerBtn}
+        />
       </View>
 
       <LinearGradient
@@ -163,15 +164,14 @@ function CardBack({ word, colors, isDark, rotation, onToggleStar, showMeaning, s
               <Text style={[styles.cardExampleKr, { color: colors.textTertiary }]}>{word.exampleKr}</Text>
             ) : null}
           </ScrollView>
-          <Pressable
-            onPress={() => speak(stripSenseMarkers(word.exampleEn), ttsLang)}
+          <SpeakerButton
+            text={stripSenseMarkers(word.exampleEn)}
+            language={ttsLang}
+            size={18}
+            color={colors.textSecondary}
             hitSlop={8}
             style={[styles.exampleSpeakerBtn, { backgroundColor: colors.surface + 'F2', borderColor: colors.borderLight }]}
-          >
-            {({ pressed }) => (
-              <Ionicons name="volume-medium-outline" size={18} color={pressed ? colors.primary : colors.textSecondary} />
-            )}
-          </Pressable>
+          />
         </View>
       ) : null}
     </Animated.View>

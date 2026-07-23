@@ -237,18 +237,21 @@ export default function StatsScreen() {
                     <View
                       style={[
                         styles.calDay,
-                        // 조건부 스타일은 배열 원소가 아니라 이 객체 안으로 펼친다. 배열에
-                        // `cond && {...}`로 두면 앞 원소가 통째로 유실돼(실기 Android, React
-                        // Compiler 사용) 크기·반경이 적용되지 않았다 — 달력 원형이 네 번 깨진
-                        // 진짜 원인. 새 조건부 스타일도 반드시 이 형태로 추가할 것.
-                        // ⚠️ 배경색 칸에는 borderWidth가 반드시 있어야 원이 된다. Android는
-                        // 테두리 없는 배경을 사각으로 그려 borderRadius를 무시한다(실기 확인:
-                        // 배경만 준 칸은 전부 네모, 같은 색 1px 테두리를 얹으면 전부 원).
-                        // 테두리 색은 배경과 같아 보이지 않는다. 지우면 네모로 되돌아간다.
+                        // ⚠️ 배경색이 있는 칸(on)은 아래 overflow:'hidden'이 없으면 Android에서
+                        // 네모로 그려진다. borderRadius는 스타일에 정상으로 살아있는데도(실측:
+                        // StyleSheet.flatten 결과 borderRadius=19·w=h=38·bg 적용됨) Android(New
+                        // Arch/Fabric)가 배경 View의 borderRadius를 렌더링에서 무시하기 때문이다.
+                        // borderWidth로는 못 고친다(1px·2px 둘 다 네모였다) — overflow:'hidden'이
+                        // 원형 클리핑을 강제한다. 배경 없는 isToday 칸(테두리만)은 이 버그가 없다.
+                        //
+                        // 조건부 스타일은 배열 원소(`[base, cond && {...}]`)가 아니라 이 객체 안
+                        // 스프레드(`...(cond && {...})`)로 둔다 — 배열 조건부는 Android 릴리스+React
+                        // Compiler에서 앞 원소가 유실되는 별개 회귀가 있다(DialogModal 3faf4f1 참조).
                         {
                           width: dayCircle,
                           height: dayCircle,
                           borderRadius: dayCircle / 2,
+                          overflow: 'hidden' as const, // 배경 View의 borderRadius 렌더 버그 우회(위 주석). 지우면 학습한 날이 네모로 되돌아간다.
                           ...(on && {
                             backgroundColor: colors.primary,
                             borderWidth: 1,

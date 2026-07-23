@@ -130,17 +130,19 @@ in code review and only show up on a device.
   modal's `children`.
 - **Colors come from tokens.** Inline hex is blocked by lint (`no-restricted-syntax`);
   use `colors.X` from `@/features/theme`.
-- **A View with only `backgroundColor` draws square corners on Android.** `borderRadius`
-  is ignored unless the View *also* has a `borderWidth`. Give it one in the same color as
-  the background — invisible, and it switches Android to the rounded-draw path. Sizing
-  still wants explicit px (`'50%'` is unreliable here), but that is not what squares the
-  corners. *(The calendar's memorized-day markers were "fixed" three times — `999` →
-  `'50%'` → `onLayout` → explicit `Dimensions` px — and came out square every time,
-  because all three only changed how the size was computed. Printing the values on-device
-  showed the size had been right from the start (38.0×38.0, exactly the computed value);
-  the bug was one layer down. **Before changing a value, print the value** — and before
-  explaining a difference between two cases, delete the difference and see if the symptom
-  survives. Two wrong root causes were confidently argued here before that was done.)*
+- **A View with `backgroundColor` + `borderRadius` can still render square on Android (New
+  Arch/Fabric).** The style is correct — printed on-device with `console.log(StyleSheet.flatten(...))`
+  the value was `borderRadius: 19, w=h=38, bg set`, yet Android drew a square. **`borderWidth`
+  does NOT fix it** (1px and 2px both stayed square — an earlier "fix" that claimed a same-color
+  border switches Android to a rounded path was wrong). The fix is **`overflow: 'hidden'`**,
+  which forces rounded clipping of the background. A same-View border with *no* background
+  (e.g. today's ring) is unaffected — it draws round without help, which is exactly why the
+  two cases diverged. *(The calendar's memorized-day markers were "fixed" FIVE times — `999`
+  → `'50%'` → `onLayout` → explicit `Dimensions` px → `borderWidth` — each confidently wrong,
+  because none of them printed the value; every attempt only changed how the size was
+  computed. The sixth fix landed only after a `flatten` log proved `borderRadius` was already
+  19 and the bug was one layer down in the native renderer. **Before changing a value, print
+  the value.** Check what the value *is* before theorizing about why it's wrong.)*
 - **SVG copied from a design tool needs its leading zeros restored.** Illustrator/Figma
   export `offset=".2135"`; `react-native-svg` cannot parse that form and **discards the
   value**. It is not just console noise — 27 gradient stops were being dropped on the

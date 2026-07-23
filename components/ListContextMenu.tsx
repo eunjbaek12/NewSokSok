@@ -467,6 +467,10 @@ export default function ListContextMenu({
         onClose={handleMergeClose}
         title={t('contextMenu.sendTitle')}
         scrollable={false}
+        // scrollable={false} → Body가 View라 배열 조건부 패딩이 Android 릴리스에서 샜다
+        // (복습 시트 6e98e3d와 같은 회귀). DialogModal 기본 패딩을 끄고 본문(mergeBody)이
+        // 직접 좌우 패딩을 든다 — dialogBody는 rename·share 시트와 공유라 못 건드린다.
+        bodyPadding={false}
         maxHeight="70%"
         footer={
           <View style={styles.actions}>
@@ -486,7 +490,7 @@ export default function ListContextMenu({
           </View>
         }
       >
-        <View style={styles.dialogBody}>
+        <View style={[styles.dialogBody, styles.mergeBody]}>
           <Text style={[styles.mergeSubtitle, { color: colors.textSecondary }]}>
             {t('contextMenu.sendDesc', { name: mergeSourceList?.title })}
           </Text>
@@ -567,6 +571,12 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontFamily: 'Pretendard_600SemiBold',
+  },
+  // Merge 시트는 scrollable={false}+bodyPadding={false}라 좌우 패딩을 본문이 직접 든다.
+  // dialogBody는 rename·share 시트와 공유(그쪽은 Body=ScrollView라 기본 패딩이 정상)라
+  // 거기에 넣으면 그 둘이 이중 패딩이 된다 — 그래서 Merge 전용 스타일로 분리한다.
+  mergeBody: {
+    paddingHorizontal: PopupTokens.padding.container,
   },
   mergeSubtitle: {
     fontSize: 14,

@@ -16,6 +16,7 @@ import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { SkinSelector } from '@/components/SkinSelector';
@@ -593,7 +594,7 @@ export default function SettingsScreen() {
               </View>
               <Text style={[styles.rowTitle, { color: colors.text }]}>{t('settings.version')}</Text>
             </View>
-            <Text style={[styles.rowValue, { color: colors.textSecondary }]}>1.0.0</Text>
+            <Text style={[styles.rowValue, { color: colors.textSecondary }]}>{Constants.expoConfig?.version ?? '—'}</Text>
           </View>
         </View>
 

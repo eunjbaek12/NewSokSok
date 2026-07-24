@@ -22,9 +22,13 @@ export function useReviewNotificationRouting(): void {
     const data = lastResponse.notification.request.content.data as { kind?: string } | undefined;
     if (data?.kind !== REVIEW_NOTIFICATION_KIND) return;
     if (lastResponse.actionIdentifier !== Notifications.DEFAULT_ACTION_IDENTIFIER) return;
-    // 그룹 경로('/(tabs)')가 아니라 홈을 명시한다 — 그룹으로 보내면 네비게이터의
-    // initialRouteName(= 사용자의 시작 탭 설정)으로 가버려서, 시작 탭을 "단어장"으로
-    // 바꿔 둔 사용자는 알림을 눌러도 복습 배너가 있는 홈에 닿지 못한다.
-    router.navigate('/(tabs)/index' as any);
+    // 홈(= (tabs)의 index)으로 보낸다. index 라우트의 유효한 href는 '/'뿐이다 —
+    // '/(tabs)/index'는 expo-router에 존재하지 않는 경로라(생성된 라우트 타입도
+    // `/(tabs)` | `/`만 노출한다) +not-found("페이지를 찾을 수 없어요")로 떨어진다.
+    // 시작 탭을 "단어장"으로 바꿔 둔 사용자가 알림을 눌러도 홈 복습 배너에 닿게 하려는
+    // 것이고, 시작 탭 replace와의 경합은 (tabs)/_layout.tsx가 fromReviewNotification일
+    // 때 initialRouteName을 index로 고정하고 replace를 건너뛰어 이미 막고 있다.
+    // (`as any`를 붙이지 않는다 — 그 캐스팅이 잘못된 경로를 통과시켜 이 버그를 냈다.)
+    router.navigate('/');
   }, [lastResponse]);
 }

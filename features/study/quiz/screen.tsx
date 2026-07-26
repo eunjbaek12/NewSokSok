@@ -23,15 +23,7 @@ import SpeakerButton from '@/components/ui/SpeakerButton';
 import BatchResultOverlay from '@/features/study/components/BatchResultOverlay';
 import StudySettingsModal, { StudySettings } from '@/features/study/components/StudySettingsModal';
 import { useTranslation } from 'react-i18next';
-
-function shuffleArray<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+import { buildChoices, shuffleArray } from '../choices';
 
 export default function QuizScreen() {
   const { id, filter, isStarred: initialIsStarred, quizType: initialQuizType, ids, planDay } = useLocalSearchParams<{
@@ -178,20 +170,22 @@ export default function QuizScreen() {
   const choices = useMemo(() => {
     if (!currentWord) return [];
 
-    // Check if we already generated stable distractors for this exact question ID
-    if (choicesMapRef.current[currentWord.id]) {
+    // 캐시 키에 방향(quizType)을 넣는다 — 선택지에 표시하는 값이 방향에 따라 달라지므로,
+    // 학습 중 방향을 바꾸면 이전 기준으로 만든 선택지를 그대로 쓰면 안 된다.
+    const cacheKey = `${settings.quizType}:${currentWord.id}`;
+    if (choicesMapRef.current[cacheKey]) {
       // Return cached choices, but substitute the currentWord to reflect any recent changes (like isStarred)
-      return choicesMapRef.current[currentWord.id].map(c => c.id === currentWord.id ? currentWord : c);
+      return choicesMapRef.current[cacheKey].map(c => c.id === currentWord.id ? currentWord : c);
     }
 
-    // Generate new distractors
+    // 중복 판정은 화면에 실제로 보이는 라벨 기준 — features/study/choices.ts
+    const labelOf = (w: Word) => (settings.quizType === 'meaning-to-term' ? w.term : w.meaningKr ?? '');
     const allListWords = getWordsForList(id!);
-    const distractors = shuffleArray(allListWords.filter(w => w.id !== currentWord.id)).slice(0, 3);
-    const newChoices = shuffleArray([currentWord, ...distractors]);
+    const newChoices = buildChoices(allListWords, currentWord, labelOf);
 
-    choicesMapRef.current[currentWord.id] = newChoices;
+    choicesMapRef.current[cacheKey] = newChoices;
     return newChoices;
-  }, [currentIndex, currentWord, id, getWordsForList]);
+  }, [currentIndex, currentWord, id, getWordsForList, settings.quizType]);
 
   const handleAnswer = useCallback(async (word: Word) => {
     if (answers[currentIndex]) return;

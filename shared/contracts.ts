@@ -185,6 +185,14 @@ export type Word = z.infer<typeof WordSchema>;
 
 export const PlanFilterSchema = z.enum(['all', 'unmemorized', 'memorized']);
 
+/**
+ * 단어장 이름 입력 상한. VocaListSchema는 타입 추론에만 쓰이고 어디서도 parse되지 않으므로
+ * 아래 title에 .max()를 걸어도 런타임에는 아무것도 검사하지 않는다 — 실제 강제는 이름을
+ * 입력받는 모든 화면에서 이 값으로 한다. 공유 경로에서 검증되는 CurationShareSchema.title(80)
+ * 보다 짧게 잡아, 이름이 길어서 커뮤니티 공유가 실패하는 일이 생기지 않게 한다.
+ */
+export const LIST_TITLE_MAX = 40;
+
 export const VocaListSchema = z.object({
   id: z.string(),
   title: z.string(),

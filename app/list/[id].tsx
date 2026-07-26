@@ -44,6 +44,7 @@ import { BlurView } from 'expo-blur';
 import { ModalPicker, PickerOption } from '@/components/ui/ModalPicker';
 import { Snackbar } from '@/components/ui/Snackbar';
 import FastScrollHandle from '@/components/ui/FastScrollHandle';
+import { LIST_TITLE_MAX } from '@shared/contracts';
 
 type FilterStatus = 'all' | 'learning' | 'memorized';
 type SortOrder = 'newest' | 'az' | 'za';
@@ -173,22 +174,21 @@ export default function ListDetailScreen() {
     setRefreshing(false);
   }, []);
 
+  // OS 다이얼로그(Alert.prompt)·웹 prompt는 입력 길이를 제한할 수 없어, 받은 값을 여기서 자른다.
+  // 다른 이름 입력 화면들은 TextInput의 maxLength로 같은 상한을 건다.
   const handleEditTitle = useCallback(() => {
     if (!list) return;
+    const commit = (newName?: string | null) => {
+      const trimmed = newName?.trim().slice(0, LIST_TITLE_MAX);
+      if (trimmed) renameList(list.id, trimmed);
+    };
     if (Platform.OS === 'web') {
-      const newName = prompt(t('list.renameTitle'), list.title);
-      if (newName && newName.trim()) {
-        renameList(list.id, newName.trim());
-      }
+      commit(prompt(t('list.renameTitle'), list.title));
     } else {
       Alert.prompt(
         t('list.renameTitle'),
         '',
-        (newName) => {
-          if (newName && newName.trim()) {
-            renameList(list.id, newName.trim());
-          }
-        },
+        commit,
         'plain-text',
         list.title
       );

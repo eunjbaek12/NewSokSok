@@ -15,6 +15,7 @@ import * as Haptics from 'expo-haptics';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/features/theme';
 import { VocaList } from '@/lib/types';
+import { LIST_TITLE_MAX } from '@shared/contracts';
 
 interface ManagedList {
   id: string;
@@ -116,6 +117,7 @@ function ManageRowItem({
           onBlur={onFinishRename}
           onSubmitEditing={onFinishRename}
           autoFocus
+          maxLength={LIST_TITLE_MAX}
           returnKeyType="done"
           selectTextOnFocus
         />
@@ -382,6 +384,7 @@ export default function ManageModal({
               value={newListName}
               onChangeText={(t) => { setNewListName(t); if (duplicateError) setDuplicateError(''); }}
               onSubmitEditing={handleManageAdd}
+              maxLength={LIST_TITLE_MAX}
               returnKeyType="done"
             />
             <Pressable

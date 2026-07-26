@@ -48,6 +48,7 @@ import { useSettings } from '@/features/settings';
 import { useQuota } from '@/features/quota';
 import { useAuth, isCloudAuthMode } from '@/features/auth';
 import SpeakerButton from '@/components/ui/SpeakerButton';
+import { LIST_TITLE_MAX } from '@shared/contracts';
 import { SUPPORTED_LANGUAGES, getNaverDictUrl, getPlaceholderText, getWordLabel, getMeaningLabel, getDefinitionLabel, getExampleLabel, getExampleTranslationLabel, getLanguageLabel, getLanguageFlag, getTtsLang, getSpeakableText, deriveDisplayLanguages, LanguageCode } from '@/constants/languages';
 import Animated, {
     FadeIn,
@@ -812,6 +813,47 @@ export default function AddWordScreen() {
 
     const selectedListTitle = lists.find(l => l.id === selectedListId)?.title || t('addWord.selectList');
 
+    // ── 중복 단어 인라인 안내 ────────────────────────────────────────────────
+    // 타이핑이 멈춘 뒤에 판정한다. blur를 쓸 수 없어서다 — 돋보기 버튼은 suppressBlurRef로
+    // blur를 막고 입력창은 blurOnSubmit={false}라, blur 기준이면 AI 자동완성이 이미 quota를
+    // 쓴 뒤에야 뜬다. 자동완성 후보용 300ms 타이머에 얹지 않는 이유는 그쪽이 "영어 + 2글자
+    // 이상 + 자동완성 켬"일 때만 돌아 한국어 단어장에서는 아예 동작하지 않기 때문.
+    const [debouncedTerm, setDebouncedTerm] = useState('');
+    useEffect(() => {
+        // 비우는 건 즉시. 저장 후 필드가 초기화되면 다음 단어를 입력하기 전까지 이전 안내가
+        // 남아 있으면 안 된다.
+        if (!term.trim()) { setDebouncedTerm(''); return; }
+        const id = setTimeout(() => setDebouncedTerm(term), 300);
+        return () => clearTimeout(id);
+    }, [term]);
+
+    // 판정 기준은 유니크 인덱스와 같다: (listId, LOWER(TRIM(term)), sourceLang, targetLang).
+    // 스토어는 삭제되지 않은 단어만 싣고 인덱스도 deletedAt IS NULL 조건이라 양쪽이 어긋나지 않는다.
+    // 같은 단어장이라도 언어쌍이 다르면 별개 단어로 저장되므로(migration 015의 의도) 알리지 않는다.
+    const duplicateInfo = useMemo<{ kind: 'here' } | { kind: 'other'; first: string; more: number } | null>(() => {
+        if (isEditing) return null;
+        const normalized = debouncedTerm.trim().toLowerCase();
+        if (!normalized) return null;
+
+        let blocked = false;
+        const otherTitles: string[] = [];
+        for (const list of lists) {
+            for (const w of list.words) {
+                if (w.term.trim().toLowerCase() !== normalized) continue;
+                if (list.id === selectedListId) {
+                    if (w.sourceLang === sourceLang && w.targetLang === targetLang) blocked = true;
+                } else if (!otherTitles.includes(list.title)) {
+                    otherTitles.push(list.title);
+                }
+            }
+        }
+        if (blocked) return { kind: 'here' };
+        if (otherTitles.length === 0) return null;
+        return { kind: 'other', first: otherTitles[0], more: otherTitles.length - 1 };
+    }, [isEditing, debouncedTerm, lists, selectedListId, sourceLang, targetLang]);
+
+    const saveBlocked = duplicateInfo?.kind === 'here';
+
     const pickerOptions: PickerOption[] = lists.map(l => ({
         id: l.id,
         title: l.title,
@@ -832,6 +874,7 @@ export default function AddWordScreen() {
                 onChangeText={setNewListName}
                 onSubmitEditing={handleCreateNewList}
                 autoFocus
+                maxLength={LIST_TITLE_MAX}
                 returnKeyType="done"
             />
             <Pressable
@@ -934,18 +977,8 @@ export default function AddWordScreen() {
                     keyboardShouldPersistTaps="handled"
                     showsVerticalScrollIndicator={false}
                 >
-                    {!isEditing && (
-                        <Pressable
-                            onPress={handleOpenListPicker}
-                            style={[styles.listSelector, { backgroundColor: colors.surface, borderColor: selectedListId ? colors.border : colors.error }]}
-                        >
-                            <Ionicons name="folder-outline" size={18} color={selectedListId ? colors.textSecondary : colors.error} />
-                            <Text style={[styles.listSelectorText, { color: selectedListId ? colors.text : colors.textTertiary }]} numberOfLines={1}>
-                                {selectedListTitle}
-                            </Text>
-                            <Ionicons name="chevron-down" size={16} color={colors.textTertiary} />
-                        </Pressable>
-                    )}
+                    {/* 단어장 고르기는 저장 버튼 왼쪽 칩으로 내려갔다(하단 fabContainer 참조).
+                        맨 위에 있으면 스크롤과 함께 사라져 어디에 저장되는지 모른 채 저장하게 된다. */}
 
                     {(true) && (
                         <>
@@ -1098,6 +1131,27 @@ export default function AddWordScreen() {
                                                 )}
                                                 </View>
                                                 {errors.term && <Text style={[styles.errorText, { color: colors.error }]}>{t('addWord.enterWordError')}</Text>}
+                                                {/* 이미 있는 단어 안내. 자동완성 후보 목록이 입력창 바로 아래에 겹쳐 뜨므로
+                                                    (suggestionDropdown, 절대 위치) 후보가 열려 있는 동안에는 숨긴다. */}
+                                                {!!duplicateInfo && !(showSuggestions && suggestions.length > 0) && (
+                                                    <View style={styles.dupHintRow}>
+                                                        <Ionicons
+                                                            name={duplicateInfo.kind === 'here' ? 'alert-circle' : 'information-circle'}
+                                                            size={14}
+                                                            color={duplicateInfo.kind === 'here' ? colors.error : colors.warning}
+                                                        />
+                                                        <Text
+                                                            style={[styles.dupHintText, { color: duplicateInfo.kind === 'here' ? colors.error : colors.warning }]}
+                                                            numberOfLines={2}
+                                                        >
+                                                            {duplicateInfo.kind === 'here'
+                                                                ? t('addWord.dupInThisList')
+                                                                : duplicateInfo.more > 0
+                                                                    ? t('addWord.dupInOtherMore', { list: duplicateInfo.first, count: duplicateInfo.more })
+                                                                    : t('addWord.dupInOther', { list: duplicateInfo.first })}
+                                                        </Text>
+                                                    </View>
+                                                )}
                                                 {!!notFoundTerm && (
                                                     <View style={[styles.notFoundBanner, { backgroundColor: colors.warningLight, borderColor: colors.warning + '40' }]}>
                                                         <Ionicons name="alert-circle-outline" size={18} color={colors.warning} style={{ marginTop: 1 }} />
@@ -1293,15 +1347,53 @@ export default function AddWordScreen() {
                             animatedFabStyle,
                             { bottom: currentMode === 'popup' ? 20 : Math.max(insets.bottom, 20) + 20 }
                         ]}>
+                            {/* 단어장 칩 — 폭을 고정한다. 이름 길이에 따라 늘었다 줄었다 하면
+                                단어장을 바꿀 때마다 저장 버튼이 좌우로 움직인다. 편집 모드에는
+                                단어장을 고르는 개념이 없어(이미 그 단어장의 단어다) 띄우지 않는다. */}
+                            {!isEditing && (
+                                <Pressable
+                                    onPress={handleOpenListPicker}
+                                    style={({ pressed }) => [
+                                        styles.listChip,
+                                        {
+                                            width: currentMode === 'popup' ? 104 : 118,
+                                            backgroundColor: saveBlocked ? colors.errorLight : colors.surface,
+                                            borderColor: saveBlocked ? colors.error : (selectedListId ? colors.border : colors.error),
+                                            shadowColor: colors.shadow,
+                                            opacity: pressed ? 0.7 : 1,
+                                        },
+                                    ]}
+                                >
+                                    <Ionicons
+                                        name="folder-outline"
+                                        size={13}
+                                        color={saveBlocked ? colors.error : colors.textSecondary}
+                                    />
+                                    <Text
+                                        style={[styles.listChipText, { color: saveBlocked ? colors.error : colors.textSecondary }]}
+                                        numberOfLines={1}
+                                    >
+                                        {selectedListTitle}
+                                    </Text>
+                                    <Ionicons
+                                        name="chevron-down"
+                                        size={12}
+                                        color={saveBlocked ? colors.error : colors.textTertiary}
+                                    />
+                                </Pressable>
+                            )}
+
+                            {/* 중복이면 흐리게만 하고 누를 수는 있게 둔다 — 완전히 막으면 기존 팝업의
+                                "도착어를 다르게 설정하면 추가할 수 있습니다" 안내가 사라진다. */}
                             <Pressable
                                 onPress={onSave}
                                 disabled={isPendingSave}
                                 style={({ pressed }) => [
                                     styles.fabButton,
                                     {
-                                        backgroundColor: colors.primaryButton,
+                                        backgroundColor: saveBlocked ? colors.borderLight : colors.primaryButton,
                                         opacity: isPendingSave || pressed ? 0.8 : 1,
-                                        shadowColor: colors.primaryButton,
+                                        shadowColor: saveBlocked ? 'transparent' : colors.primaryButton,
                                     }
                                 ]}
                             >
@@ -1309,8 +1401,8 @@ export default function AddWordScreen() {
                                     <ActivityIndicator color={colors.onPrimary} size="small" />
                                 ) : (
                                     <>
-                                        <Ionicons name="checkmark" size={20} color={colors.onPrimary} />
-                                        <Text style={[styles.fabText, { color: colors.onPrimary }]}>{t('common.save')}</Text>
+                                        <Ionicons name="checkmark" size={20} color={saveBlocked ? colors.textTertiary : colors.onPrimary} />
+                                        <Text style={[styles.fabText, { color: saveBlocked ? colors.textTertiary : colors.onPrimary }]}>{t('common.save')}</Text>
                                     </>
                                 )}
                             </Pressable>
@@ -1644,8 +1736,6 @@ const styles = StyleSheet.create({
     placeholderTitle: { fontSize: 18, fontFamily: 'Pretendard_700Bold', textAlign: 'center' },
     placeholderDesc: { fontSize: 14, fontFamily: 'Pretendard_400Regular', textAlign: 'center', lineHeight: 22, marginBottom: 10 },
     scrollContent: { padding: 20, paddingBottom: 40 },
-    listSelector: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, marginBottom: 12, gap: 8 },
-    listSelectorText: { flex: 1, fontSize: 15, fontFamily: 'Pretendard_500Medium' },
     wordSection: { marginBottom: 8 },
     wordLabel: { flex: 1, fontSize: 12, fontFamily: 'Pretendard_600SemiBold', letterSpacing: 0.8 },
     wordInputWrapper: { position: 'relative', flexDirection: 'row', alignItems: 'center' },
@@ -1813,6 +1903,44 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 20,
         zIndex: 100,
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 8,
+    },
+    // 단어장 칩 — 글자는 저장(16px/Bold)보다 작고 연하게 두되(중요도 조절), 높이는 44를
+    // 유지한다. 글자 크기를 줄인다고 여백까지 줄이면 터치 영역이 최소 기준(iOS 44) 아래로
+    // 떨어진다. 폭은 호출부에서 고정값으로 준다(전체 118 / 팝업 104).
+    listChip: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        height: 44,
+        paddingHorizontal: 11,
+        borderRadius: 22,
+        borderWidth: 1,
+        gap: 5,
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.12,
+        shadowRadius: 6,
+        elevation: 3,
+    },
+    listChipText: {
+        flex: 1,
+        fontSize: 11,
+        fontFamily: 'Pretendard_500Medium',
+    },
+    // 중복 안내 줄 — 입력창 바로 아래.
+    dupHintRow: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        gap: 5,
+        marginTop: 6,
+        paddingHorizontal: 2,
+    },
+    dupHintText: {
+        flex: 1,
+        fontSize: 12,
+        fontFamily: 'Pretendard_500Medium',
+        lineHeight: 17,
     },
     fabButton: {
         flexDirection: 'row',

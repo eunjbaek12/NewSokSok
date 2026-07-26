@@ -19,6 +19,7 @@ import { useTheme } from '@/features/theme';
 import { VocaList } from '@/lib/types';
 import { getLanguageFlag, getLanguageLabel } from '@/constants/languages';
 import { PopupTokens } from '@/constants/popup';
+import { LIST_TITLE_MAX } from '@shared/contracts';
 import ModalOverlay from './ui/ModalOverlay';
 import DialogModal from './ui/DialogModal';
 import ConfirmDialog from './ui/ConfirmDialog';
@@ -369,7 +370,7 @@ export default function ListContextMenu({
             onChangeText={setRenameValue}
             onSubmitEditing={handleRenameSubmit}
             autoFocus
-            maxLength={80}
+            maxLength={LIST_TITLE_MAX}
             returnKeyType="done"
             selectTextOnFocus
             placeholder={t('contextMenu.listNameLabel')}

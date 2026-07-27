@@ -35,6 +35,7 @@ import { useReviewSoftAsk } from '@/features/study/review/use-review-notificatio
 import ProgressBar from '@/components/ui/ProgressBar';
 import { StatsStrip } from '@/features/stats';
 import { AppBannerAd, useTabContentBottomInset } from '@/components/ads/AppBannerAd';
+import { useWhatsNew, WhatsNewSheet } from '@/features/whats-new';
 
 function CircularProgress({ percent, memorized, total, colors }: { percent: number; memorized: number; total: number; colors: any }) {
   const size = 148;
@@ -160,6 +161,9 @@ export default function DashboardScreen() {
   // 첫 복습이 생긴 날의 권한 soft ask(§8.4). 일정 유지(재예약)는 앱 루트의
   // ReviewNotificationScheduler가 상시 담당한다 — 홈 마운트와 무관하게 돌게 하기 위해서.
   const { softAskVisible, handleSoftAskDecided } = useReviewSoftAsk(reviewWords.length);
+
+  // 버전이 올라간 첫 실행에만 값이 들어온다(신규 설치·같은 버전은 null).
+  const { announcement: whatsNew, dismiss: dismissWhatsNew } = useWhatsNew();
 
   const handleReviewStudy = useCallback(() => {
     if (reviewWords.length === 0) return;
@@ -805,6 +809,13 @@ export default function DashboardScreen() {
 
       {/* 첫 복습이 준비된 날에만 한 번. "나중에"를 누르면 다시 묻지 않는다(§8.4). */}
       <ReviewNotifySoftAsk visible={softAskVisible} onDecided={handleSoftAskDecided} />
+
+      {/*
+        업데이트 직후 첫 홈 진입에 한 번. 앱 시작 지점이 아니라 여기에 두는 이유는,
+        복습 알림을 눌러 들어온 사람은 목적이 있어서 온 것이고 시작 탭이 단어장인
+        사용자도 있기 때문이다.
+      */}
+      <WhatsNewSheet announcement={whatsNew} onDismiss={dismissWhatsNew} />
 
       <AppBannerAd mode="tab-anchor" />
     </View>

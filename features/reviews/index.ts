@@ -1,4 +1,8 @@
-export { maybeRequestReview, requestManualReview } from './request-review';
+export {
+  maybeRequestReview,
+  requestManualReview,
+  suppressAutoReviewForSession,
+} from './request-review';
 export {
   shouldAsk,
   isGoodMoment,

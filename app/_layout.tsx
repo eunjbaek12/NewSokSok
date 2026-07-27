@@ -18,6 +18,7 @@ import { Jua_400Regular } from "@expo-google-fonts/jua";
 import { useOnboarding, useOnboardingStore } from "@/features/onboarding";
 import { useQuotaStore } from "@/features/quota";
 import { reconcileSubscriptionOnLaunch } from "@/features/billing";
+import { useSupportStore } from "@/features/support";
 import { initAdMob } from "@/lib/ads/admob";
 import { RewardedAdModal } from "@/components/ads/RewardedAdModal";
 import { ProLimitReachedModal } from "@/components/ads/ProLimitReachedModal";
@@ -96,6 +97,10 @@ function AppHydrators({ children }: { children: React.ReactNode }) {
       ]);
       await initAdMob();
     })();
+    // 개발자 답장 확인 — 세션 1회. 게스트도 조회하므로(ticket_key 기반) 로그인
+    // 여부와 무관하게 여기서 한 번 돈다. 실패는 조용히 삼킨다(배지가 안 뜰 뿐이고,
+    // 문의 화면에 들어가면 다시 조회한다).
+    void useSupportStore.getState().refresh();
   }, []);
 
   // 로그인 직후 / 토큰 갱신 직후에 quota 1회 새로고침.

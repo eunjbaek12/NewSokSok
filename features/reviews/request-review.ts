@@ -35,6 +35,19 @@ export async function requestManualReview(): Promise<void> {
   } catch {}
 }
 
+// 이번 세션에는 자동 넛지를 쉰다. 업데이트 소식 시트가 뜬 세션이 그 경우다 —
+// 소식을 보고 곧이어 별점까지 요청받으면 한 세션에 팝업이 둘이 된다. 리뷰가
+// 0개인 지금은 요청 한 번의 질이 횟수보다 중요하다.
+//
+// 수동 "앱 평가하기" 버튼(requestManualReview)에는 적용하지 않는다 — 사용자가
+// 직접 누른 것이므로 억제할 이유가 없다.
+let suppressedThisSession = false;
+
+/** 앱을 다시 켜면 풀린다(모듈 수명 = 세션 수명). */
+export function suppressAutoReviewForSession(): void {
+  suppressedThisSession = true;
+}
+
 /**
  * 자동 넛지 — 몰입 순간에 네이티브 인앱 리뷰 팝업(별점만)을 조용히 1회 시도.
  * 우리 쓰로틀(shouldAsk) 통과 + OS가 표시 가능할 때만. 실패·불가용은 전부 무시.
@@ -42,6 +55,7 @@ export async function requestManualReview(): Promise<void> {
  */
 export async function maybeRequestReview(now: number = Date.now()): Promise<void> {
   try {
+    if (suppressedThisSession) return;
     const state = await loadReviewState();
     if (!shouldAsk(state, now)) return;
     if (!(await StoreReview.hasAction())) return;

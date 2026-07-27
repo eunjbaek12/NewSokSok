@@ -54,9 +54,13 @@ export const usePickStore = create<PickState>((set, get) => ({
 
   rememberCondition: (filters, count) => {
     const key = pickFiltersKey(filters);
-    const entry: RecentPick = { savedAt: Date.now(), count, filters };
     // 같은 조합은 새로 쌓지 않고 맨 위로 올린다.
     const rest = get().recents.filter(r => pickFiltersKey(r.filters) !== key);
+    // savedAt은 이 줄의 신원이기도 하다(목록 key·삭제 대상). 두 저장이 같은
+    // 밀리초에 떨어지면 한 줄을 지울 때 둘 다 사라지므로 앞선 값보다 항상 크게 잡는다.
+    const newest = rest[0]?.savedAt ?? 0;
+    const savedAt = Math.max(Date.now(), newest + 1);
+    const entry: RecentPick = { savedAt, count, filters };
     const recents = [entry, ...rest].slice(0, RECENT_LIMIT);
     set({ recents });
     // 저장 실패는 조용히 넘긴다 — 편의 기능이라 학습 시작을 막을 이유가 없다.

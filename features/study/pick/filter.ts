@@ -41,15 +41,22 @@ export const DEFAULT_PICK_FILTERS: PickFilters = {
   selectedDaysByList: {},
 };
 
+/**
+ * 범위를 정하는 세 필드만. 이 셋이 그대로면 검색 풀도 그대로라, 화면이
+ * 상태·품사·태그 칩 때문에 단어를 다시 수집하지 않게 하려고 좁혀 받는다
+ * (단어 3,000개면 칩을 누를 때마다 3,000개 객체를 새로 만들던 자리다).
+ */
+export type ScopeFilters = Pick<PickFilters, 'useAllLists' | 'selectedListIds' | 'selectedDaysByList'>;
+
 /** 범위(단어장·Day)만 적용해 검색 풀을 만든다. 숨긴 단어장은 호출부에서 이미 빠져 있다. */
-export function collectScopeItems(visibleLists: VocaList[], filters: PickFilters): AllDataItem[] {
-  const sourceLists = filters.useAllLists
+export function collectScopeItems(visibleLists: VocaList[], scope: ScopeFilters): AllDataItem[] {
+  const sourceLists = scope.useAllLists
     ? visibleLists
-    : visibleLists.filter(l => filters.selectedListIds.includes(l.id));
+    : visibleLists.filter(l => scope.selectedListIds.includes(l.id));
 
   const items: AllDataItem[] = [];
   for (const list of sourceLists) {
-    const days = filters.selectedDaysByList[list.id];
+    const days = scope.selectedDaysByList[list.id];
     const useDays = Array.isArray(days) && days.length > 0;
     for (const word of list.words) {
       if (useDays && (word.assignedDay == null || !days.includes(word.assignedDay))) continue;

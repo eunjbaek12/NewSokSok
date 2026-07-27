@@ -5,11 +5,14 @@ import {
   summarizeScope,
   scopeStillExists,
   pickFiltersKey,
+  resultsToWords,
+  shuffleWords,
   DEFAULT_PICK_FILTERS,
   PRESET_LIMIT,
   type PickFilters,
 } from '../features/study/pick/filter';
 import { scopeLabel, conditionLabel } from '../features/study/pick/labels';
+import { applyStudySelection } from '../features/study/store';
 import type { Word, VocaList } from '../lib/types';
 
 // ─── Factories ────────────────────────────────────────────────────────────────
@@ -180,6 +183,59 @@ describe('selectPickResults', () => {
   test('결과를 자르지 않는다 — 세션을 끊는 일은 배치가 한다', () => {
     const pool = items(Array.from({ length: 1240 }, () => word()));
     expect(selectPickResults(pool, '', filters(), true)).toHaveLength(1240);
+  });
+});
+
+// ─── 화면 → 학습 세션 왕복 ────────────────────────────────────────────────────
+
+describe('찾은 수와 학습하는 수는 같다', () => {
+  // 화면이 하는 일을 그대로 재현한다: 결과 → 단어 → 섞기 → id → 학습 화면의 좁히기.
+  // 학습 화면은 `__custom__`을 "보이는 단어장 전부"로 풀어서 받으므로, 좁히기의
+  // 입력은 걸러진 세트가 아니라 전체 단어다.
+  const handoff = (results: ReturnType<typeof selectPickResults>, allWords: Word[]) =>
+    applyStudySelection(allWords, shuffleWords(resultsToWords(results)).map(w => w.id));
+
+  test('137개를 골랐으면 학습 화면도 137개를 받는다', () => {
+    const all = Array.from({ length: 200 }, (_, i) => word({ term: `w${i}`, isMemorized: i % 3 === 0 }));
+    const pool = all.map(w => ({ word: w, listId: 'a', listName: '토익' }));
+
+    const results = selectPickResults(pool, '', filters({ wordFilter: 'learning' }), true);
+    const session = handoff(results, all);
+
+    expect(session).toHaveLength(results.length);
+    expect(new Set(session.map(w => w.id))).toEqual(new Set(results.map(r => r.word.id)));
+  });
+
+  test('1,240개도 잘리지 않고 그대로 건너간다', () => {
+    const all = Array.from({ length: 1240 }, () => word());
+    const pool = all.map(w => ({ word: w, listId: 'a', listName: '토익' }));
+
+    expect(handoff(selectPickResults(pool, '', filters(), true), all)).toHaveLength(1240);
+  });
+
+  test('프리셋 상한도 그대로 건너간다 — 화면이 50개라 했으면 세션도 50개', () => {
+    const all = Array.from({ length: 90 }, (_, i) => word({ wrongCount: i + 1 }));
+    const pool = all.map(w => ({ word: w, listId: 'a', listName: '토익' }));
+
+    const results = selectPickResults(pool, '', filters({ wordFilter: 'wrongCount' }), true);
+    expect(results).toHaveLength(PRESET_LIMIT);
+    expect(handoff(results, all)).toHaveLength(PRESET_LIMIT);
+  });
+
+  test('넘긴 순서가 학습 순서다 — 섞은 결과를 학습 화면이 되돌리지 않는다', () => {
+    const all = Array.from({ length: 20 }, (_, i) => word({ term: `w${i}` }));
+    const ids = [all[7].id, all[2].id, all[15].id];
+    expect(applyStudySelection(all, ids).map(w => w.term)).toEqual(['w7', 'w2', 'w15']);
+  });
+
+  test('고르고 나서 지워진 단어는 세션에서 조용히 빠진다', () => {
+    const all = Array.from({ length: 5 }, (_, i) => word({ term: `w${i}` }));
+    const results = selectPickResults(all.map(w => ({ word: w, listId: 'a', listName: '토익' })), '', filters(), true);
+    const ids = resultsToWords(results).map(w => w.id);
+
+    // 학습으로 넘어가는 사이 두 개가 삭제된 상황
+    const survivors = all.slice(0, 3);
+    expect(applyStudySelection(survivors, ids)).toHaveLength(3);
   });
 });
 

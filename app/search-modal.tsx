@@ -86,7 +86,18 @@ export default function SearchModalScreen() {
 
     // 범위(단어장·Day)까지만 적용한 풀. 품사 칩·태그 칩의 후보도 여기서 뽑는다 —
     // 전체가 아니라 지금 범위에 실제로 있는 것만 보여야 고를 수 있는 칩이 된다.
-    const scopeItems = useMemo(() => collectScopeItems(visibleLists, filters), [visibleLists, filters]);
+    //
+    // 범위 세 필드에만 의존한다. filters 전체를 넣으면 상태·품사·태그 칩을 누를
+    // 때마다 단어를 다시 수집하고, 그 뒤의 topTags·posOptions까지 함께 다시 돈다.
+    const scope = useMemo(
+        () => ({
+            useAllLists: filters.useAllLists,
+            selectedListIds: filters.selectedListIds,
+            selectedDaysByList: filters.selectedDaysByList,
+        }),
+        [filters.useAllLists, filters.selectedListIds, filters.selectedDaysByList],
+    );
+    const scopeItems = useMemo(() => collectScopeItems(visibleLists, scope), [visibleLists, scope]);
 
     const topTags = useMemo(() => getTopTags(scopeItems), [scopeItems]);
     const posOptions = useMemo(() => presentPosCategories(scopeItems.map(d => d.word)), [scopeItems]);

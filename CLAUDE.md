@@ -165,7 +165,7 @@ fixing the default over adding a rule here.
 |---|---|---|---|---|
 | Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300). **First 24h after signup: 300** | Operator (Vertex AI) |
 | BYOK | 0 | Banner only | Unlimited (own key) | User's Gemini |
-| Pro | ₩3,900/month or ₩36,000/year (~23% off vs 12× monthly) | None | 1,000 단어 | Operator (Vertex AI) |
+| Pro | ₩3,900/month · yearly ₩36,000 (Play) / ₩35,900 (App Store) — ~23% off vs 12× monthly | None | 1,000 단어 | Operator (Vertex AI) |
 | Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
 
 **Word-count weighting** (for quota; operator/Edge path only — BYOK is uncharged):

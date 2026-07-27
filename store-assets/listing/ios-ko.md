@@ -141,7 +141,7 @@ AI 영단어장·수능·토익·사진OCR·K-pop
 
 • 합리적인 요금제 — 무료로 충분하게
 - 무료: 하루 100단어 AI 분석 + 광고 보면 +50단어씩 (최대 300단어/일)
-- Pro: 광고 없이 하루 1,000단어 — 월 3,900원 / 연 36,000원 (연 23% 할인)
+- Pro: 광고 없이 하루 1,000단어 — 월 3,900원 / 연 35,900원 (연 23% 할인)
 - BYOK: 본인 Gemini API 키로 무제한 무료 (Google AI Studio에서 무료 발급)
 - 가입 첫 24시간은 하루 300단어로 넉넉하게
 - Pro 구독 시작 시 7일 무료 체험 (체험 중 해지하면 청구 없음)
@@ -185,11 +185,13 @@ v1.2 업데이트 — 잊을 때쯤, 딱 그때 복습.
 | 상품 ID | 종류 | 한국 가격 | 가격 등급 (Tier) | 비고 |
 |---|---|---|---|---|
 | `pro_monthly` | 자동 갱신 구독 | ₩3,900 | **Tier 2 (USD $2.99)** | 7일 무료 체험 포함 |
-| `pro_yearly` | 자동 갱신 구독 | ₩36,000 | **Tier 19~20 사이** (USD $27.99~29.99) | 7일 무료 체험 포함 |
+| `pro_yearly` | 자동 갱신 구독 | ₩35,900 | **Tier 19~20 사이** (USD $27.99~29.99) | 첫 주 무료(7일) |
 
 > ⚠️ **Product ID는 정확히 `pro_monthly`/`pro_yearly`** — 코드와 매칭. 오타 시 verify-purchase에서 402 product_mismatch로 강등.
 > Apple은 KRW 직접 입력 불가, Tier 매핑 사용. Pricing Matrix 확인: App Store Connect → 인앱 결제 → 가격표.
-> 같은 Subscription Group에 두 상품 등록. Group name: "쏙쏙 보카 Pro".
+> 같은 Subscription Group에 두 상품 등록. Group name: **"아보카도 Pro"**.
+> 소개 혜택(무료 체험) 자격은 Apple이 **구독 그룹 단위**로 관리한다 — 월간에서 체험을 쓰면
+> 연간에서 다시 받을 수 없다. Play와 달리 자격 조건을 따로 설정할 필요가 없다.
 
 ## App Privacy (개인정보 보호 설문) — 수집 데이터
 
@@ -227,9 +229,9 @@ v1.2 업데이트 — 잊을 때쯤, 딱 그때 복습.
 
 [인앱 구독 테스트 계정]
 - Sandbox 환경에서 자동 동작.
-- Product ID: pro_monthly (월 ₩3,900), pro_yearly (연 ₩36,000)
-- 7일 무료 체험 → 자동 갱신 (Sandbox는 가속 처리)
-- 구독 그룹: "쏙쏙 보카 Pro"
+- Product ID: pro_monthly (월 ₩3,900), pro_yearly (연 ₩35,900)
+- 소개 혜택 "첫 주 무료"(7일) → 자동 갱신 (Sandbox는 가속 처리). 2026-06-05부터 175개 지역 적용
+- 구독 그룹: "아보카도 Pro"
 
 [AI 기능]
 - Google Vertex AI (Gemini) 호출은 서버측(Supabase Edge Function)에서 처리.

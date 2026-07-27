@@ -411,9 +411,9 @@
     "planCardCurrent": "Current plan",
     "planCardTrial": "Trial · D-{{daysLeft}}",
     "recommendedBadge": "Recommended",
-    "trialBannerTitle": "New here?",
-    "trialBannerBody": "Start now and get 7 days free",
-    "trialBannerNote": "Auto-converts to Free after trial · no auto-charge",
+    "trialBannerTitle": "Try Pro first",
+    "trialBannerBody": "Start with a {{days}}-day free trial",
+    "trialBannerNote": "Cancel during the trial and you won't be charged · manage in the store",
     "freeTitle": "Free",
     "freePrice": "₩0",
     "freeFeat1": "AI auto-complete, generate, photo scan",
@@ -737,7 +737,7 @@
         "items": [
           {
             "q": "What plans are there?",
-            "a": "• Free — all study and management features. AI daily quota: 100 words. A small banner ad is shown at the bottom of the screen.\n• Pro — annual billing saves ~23%. All ads removed + AI daily quota of 1,000 words. See the Plans screen for the exact localized price.\n\nPro offers a 7-day free trial that won't auto-charge after it ends."
+            "a": "• Free — all study and management features. AI daily quota: 100 words (300 for your first 24 hours after signing up). A small banner ad is shown at the bottom of the screen.\n• Pro — annual billing saves ~23%. All ads removed + AI daily quota of 1,000 words. See the Plans screen for the exact localized price.\n\nA free trial may be offered when you start Pro. Whether it applies, and for how long, is shown on the Plans screen and at store checkout."
           },
           {
             "q": "How is the \"word count\" measured?",
@@ -749,7 +749,7 @@
           },
           {
             "q": "How does the Pro free trial work?",
-            "a": "New sign-ups get a 7-day Pro trial — no ads, Pro daily quota — automatically. When the trial ends, your account drops back to Free.\n\nThere's no auto-charge, so a credit card isn't required."
+            "a": "The store applies the free trial when you start a Pro subscription from the Plans screen. Whether it's offered, and for how long, is shown at checkout. During the trial there are no ads and your daily quota is the Pro one.\n\nCancel during the trial and you won't be charged. If you don't cancel, the first payment is taken when the trial ends.\n\nSeparately from any trial, your first 24 hours after signing up come with a larger 300-word AI quota."
           },
           {
             "q": "How do I subscribe to or cancel Pro?",
@@ -760,8 +760,8 @@
             "a": "On the Free tier, a small banner sits at the bottom of the screen, spaced well away from study answer buttons to avoid mis-taps.\n\nIf you want to extend your daily quota, you can opt in to watch a rewarded video ad on demand."
           },
           {
-            "q": "I just signed up and I don't see any ads. Is that normal?",
-            "a": "Yes — new accounts are ad-free for the first 7 days. After that, Free-tier users see a banner ad. Upgrade to Pro to remove ads entirely."
+            "q": "Are there ads during the trial?",
+            "a": "No — a free trial is ad-free, exactly like Pro. Once the trial ends and you're back on Free, the banner ad returns. Staying on Pro removes ads entirely."
           }
         ]
       },

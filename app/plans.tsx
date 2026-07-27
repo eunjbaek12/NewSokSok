@@ -43,8 +43,19 @@ export default function PlansScreen() {
   const proUntilLabel = proMode === 'paid' && status?.pro_until
     ? new Date(status.pro_until).toLocaleDateString()
     : null;
-  // 체험을 한 번도 받지 않은 신규 후보(로그인 + 비Pro + trial_ends_at 부재)에게만 7일 체험 배너 노출
-  const showTrialBanner = isLoggedIn && !isPro && (status?.trial_ends_at == null);
+  // 무료 체험 안내 — 스토어 오퍼에 실제로 체험이 걸려 있을 때만, 아직 Pro가 아닌
+  // 로그인 사용자에게 노출한다. 기간도 스토어 값을 그대로 쓴다.
+  //
+  // 서버 가입 체험을 폐지한 뒤(20260727000000_signup_boost_replaces_trial.sql) 체험
+  // 경로는 스토어 오퍼뿐이다. 오퍼 등록 여부·길이는 앱이 알 수 없으므로 상품 정보에서
+  // 읽는다 — 오퍼가 없으면 안내가 아예 뜨지 않아 "있지도 않은 체험"을 광고하지 않는다.
+  //
+  // 이전 조건은 `isLoggedIn && !isPro && trial_ends_at == null`이었는데 정확히 반대로
+  // 동작했다. 가입 트리거가 trial_ends_at을 즉시 채웠으므로, 로그인 상태에서 이 값이
+  // 비어 있는 사람은 체험 재취득 가드에 걸린 재가입자뿐이었다. 즉 체험을 받을 수 없는
+  // 사용자에게만 "지금 시작하면 7일 무료 체험"이 보였다.
+  const trialDays = flow.trialDaysFor(SKU_PRO_YEARLY) ?? flow.trialDaysFor(SKU_PRO_MONTHLY);
+  const showTrialBanner = isLoggedIn && !isPro && trialDays != null;
 
   useEffect(() => {
     if (isLoggedIn) refresh();
@@ -190,7 +201,7 @@ export default function PlansScreen() {
           </View>
         )}
 
-        {/* 7일 무료 체험 배너 — 신규 사용자 한정 */}
+        {/* 무료 체험 안내 — 스토어 오퍼가 실제로 있을 때만 */}
         {showTrialBanner && (
           <View style={[styles.trialBanner, { backgroundColor: colors.primaryLight, borderColor: colors.primary }]}>
             <View style={[styles.trialIcon, { backgroundColor: colors.surface }]}>
@@ -201,7 +212,7 @@ export default function PlansScreen() {
                 {t('plans.trialBannerTitle')}
               </Text>
               <Text style={[styles.trialBody, { color: colors.text }]}>
-                {t('plans.trialBannerBody')}
+                {t('plans.trialBannerBody', { days: trialDays })}
               </Text>
               <Text style={[styles.trialNote, { color: colors.textSecondary }]}>
                 {t('plans.trialBannerNote')}

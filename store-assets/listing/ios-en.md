@@ -109,7 +109,8 @@ Avocado is a personal vocabulary learning tool for six languages — English, Ko
 - Free: 100 AI word lookups per day + watch an ad for +50 (up to 300/day)
 - Pro: ad-free, 1,000 words per day — $2.99/mo or $27.99/yr (~22% off vs monthly)
 - BYOK: bring your own Gemini API key for unlimited free use (Google AI Studio key is free)
-- 7-day Pro free trial on signup, no auto-charge
+- A larger 300-word quota for your first 24 hours after signing up
+- 7-day free trial when you start Pro (cancel during the trial and you won't be charged)
 
 • Transparent privacy
 - Ads are shown only to non-logged-in and free users (Pro has none)

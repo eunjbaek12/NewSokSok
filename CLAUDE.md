@@ -163,7 +163,7 @@ fixing the default over adding a rule here.
 
 | Tier | Price | Ads | AI quota (per day) | Key |
 |---|---|---|---|---|
-| Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300) | Operator (Vertex AI) |
+| Free | 0 | Banner (all screens) + rewarded on quota exceed | 100 단어 (+50 per ad view, hard cap 300). **First 24h after signup: 300** | Operator (Vertex AI) |
 | BYOK | 0 | Banner only | Unlimited (own key) | User's Gemini |
 | Pro | ₩3,900/month or ₩35,900/year (~23% off vs 12× monthly) | None | 1,000 단어 | Operator (Vertex AI) |
 | Pro Lite (v1.2+) | ₩1,900/month or ₩17,900/year | None | Unlimited (own key) | BYOK |
@@ -173,7 +173,18 @@ fixing the default over adding a rule here.
 - AI word generation = 1 단어 per generated word, charged by requested count (`generate-words`, e.g. 20-word set = 20)
 - Photo scan = 5 단어 extraction overhead per image (`scan-image`) + 1 단어 per enriched word (`enrich-word` mode `photo`, cache hits free)
 
-**Free trial:** 7-day Pro trial on signup, auto-converts to Free (no auto-charge).
+**Free trial:** store offer only (Play/ASC), applied at checkout — **not** granted on signup.
+The server-side 7-day signup trial was removed 2026-07-27
+(`supabase/migrations/20260727000000_signup_boost_replaces_trial.sql`) because it ran on top of the
+store offer (up to 14 free days) and produced 0 paid conversions out of 48 trials. New users instead
+get a **300-word quota for their first 24 hours** — this exists solely to stop first-session photo
+scans from hitting the 100-word wall, which is the one thing the signup trial was actually doing.
+
+Trials granted before that date are untouched and keep Pro until `trial_ends_at` passes; the UI still
+distinguishes trial from paid via `getProMode` (`features/quota/store.ts`). `trial_history` /
+`email_hash()` are retained (unused) so a server trial could be reintroduced without losing the
+re-acquisition guard. **Trial length is never hardcoded in the app** — `trialDaysFor`
+(`features/billing/usePurchaseFlow.ts`) reads it from the store product, so no offer = no trial copy.
 
 **Age/ads policy:** App is targeted at ages 14+ and does not collect age. Ads (banner + rewarded) are shown to all non-Pro users — there is no per-user under-14 ad gating. `initAdMob` deliberately omits `tagForChildDirectedTreatment` / `tagForUnderAgeOfConsent` and sets `maxAdContentRating: PG` (`lib/ads/admob.ts`).
 

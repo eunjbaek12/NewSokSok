@@ -44,3 +44,18 @@ export function savingsPercent(monthly: PriceDetail, yearly: PriceDetail): numbe
   if (ratio <= 0) return null;
   return Math.round(ratio * 100);
 }
+
+/**
+ * ISO 8601 기간(Play의 billingPeriod: "P7D"·"P1W"·"P1M")을 일수로. 파싱 실패 시 null.
+ *
+ * 체험 기간도 가격과 같은 원칙을 따른다 — 스토어 설정이 단일 출처다. "7일"을 앱에
+ * 하드코딩하면 Play/ASC에서 오퍼 길이를 바꾸는 순간 앱 문구가 거짓이 된다.
+ * 월/년은 캘린더 길이가 달라 근사값(30/365)이지만, 무료 체험은 일·주 단위라 실무상 정확하다.
+ */
+export function isoPeriodToDays(period: string): number | null {
+  const m = /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?$/.exec(period.trim());
+  if (!m) return null;
+  const [y, mo, w, d] = [m[1], m[2], m[3], m[4]].map((v) => (v ? Number(v) : 0));
+  const days = y * 365 + mo * 30 + w * 7 + d;
+  return days > 0 ? days : null;
+}

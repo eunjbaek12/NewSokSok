@@ -1076,6 +1076,8 @@
     "startEmpty": "학습할 단어 없음",
     "emptyTitle": "단어나 뜻을 입력해 보세요",
     "emptySubtitle": "위의 칩으로 걸러볼 수도 있어요",
+    "pickEmptyTitle": "위의 칩으로 조건을 골라보세요",
+    "pickEmptySubtitle": "상태·품사·범위·태그로 학습할 단어를 좁힐 수 있어요",
     "recentHeader": "지난번 조건",
     "recentInline": "지난번 조건 — {{condition}}",
     "recentMeta": "{{when}} · {{count}}개"

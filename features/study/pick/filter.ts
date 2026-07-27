@@ -93,9 +93,9 @@ function applyPreset(results: SearchResult[], wordFilter: WordFilter): SearchRes
  * 풀 → 최종 결과. 텍스트 질의의 관련도 정렬은 lib/search가 그대로 담당하고,
  * 이 함수는 그 앞뒤로 품사·프리셋을 붙인다.
  *
- * `browse`는 질의가 비었을 때 전체를 보여줄지 여부다. 조건으로 고르는 자세로
- * 열렸으면(진입 B) 항상 켠다 — 아무것도 안 걸린 상태에서 전체 목록이 보여야
- * "여기서 몇 개를 학습하게 되는지"가 첫 화면에서 읽힌다.
+ * `browse`는 질의가 비었을 때 전체를 보여줄지 여부다. 화면은 필터가 하나라도
+ * 걸렸을 때만 켠다 — 두 자세 모두 아무것도 안 걸린 첫 화면에서는 목록 대신
+ * 안내와 지난번 조건을 보여준다.
  */
 export function selectPickResults(
   pool: AllDataItem[],

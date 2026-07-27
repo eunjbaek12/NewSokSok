@@ -1076,6 +1076,8 @@
     "startEmpty": "No words to study",
     "emptyTitle": "Type a word or meaning",
     "emptySubtitle": "Or narrow it down with the chips above",
+    "pickEmptyTitle": "Pick a condition with the chips above",
+    "pickEmptySubtitle": "Narrow by status, part of speech, scope, or tag",
     "recentHeader": "Last used",
     "recentInline": "Last used — {{condition}}",
     "recentMeta": "{{when}} · {{count}} words"

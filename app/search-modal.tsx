@@ -105,9 +105,10 @@ export default function SearchModalScreen() {
 
     const activeFilterCount = countActiveFilters(filters);
 
-    // 조건으로 고르러 온 자세는 아무것도 안 걸린 상태에서도 전체를 보여준다.
-    // 찾기 자세는 질의나 필터가 있을 때만 — 빈 화면이 지난번 조건의 자리다.
-    const browse = isPick || activeFilterCount > 0;
+    // 질의나 필터가 있을 때만 목록을 띄운다 — 두 자세가 같다. 고르러 온 자세도
+    // 첫 화면은 "무엇으로 좁힐까"를 묻는 자리이고, 그 빈 자리가 지난번 조건의
+    // 자리다. 필터를 하나라도 걸면 그때부터 단어가 나온다.
+    const browse = activeFilterCount > 0;
     const showResults = browse || !!query.trim();
 
     const results = useMemo(
@@ -236,7 +237,9 @@ export default function SearchModalScreen() {
                             </View>
                         ))}
                         {otherTags.map((tag, idx) => (
-                            <Text key={`o${idx}`} style={[styles.smallTag, { color: colors.textTertiary, backgroundColor: colors.background }]}>#{displayTag(tag, t)}</Text>
+                            <View key={`o${idx}`} style={[styles.smallTag, { backgroundColor: colors.background }]}>
+                                <Text style={[styles.smallTagText, { color: colors.textTertiary }]}>#{displayTag(tag, t)}</Text>
+                            </View>
                         ))}
                     </View>
                 )}
@@ -245,7 +248,9 @@ export default function SearchModalScreen() {
                 {!item.isTagMatch && otherTags.length > 0 && (
                     <View style={styles.tagsRow}>
                         {otherTags.map((tag, idx) => (
-                            <Text key={idx} style={[styles.smallTag, { color: colors.textTertiary, backgroundColor: colors.background }]}>#{displayTag(tag, t)}</Text>
+                            <View key={idx} style={[styles.smallTag, { backgroundColor: colors.background }]}>
+                                <Text style={[styles.smallTagText, { color: colors.textTertiary }]}>#{displayTag(tag, t)}</Text>
+                            </View>
                         ))}
                     </View>
                 )}
@@ -524,9 +529,15 @@ export default function SearchModalScreen() {
                     contentContainerStyle={styles.emptyContent}
                     keyboardShouldPersistTaps="handled"
                 >
-                    <Ionicons name="search-outline" size={44} color={colors.border} />
-                    <Text style={[styles.emptyTitle, { color: colors.textSecondary }]}>{t('search.emptyTitle')}</Text>
-                    <Text style={[styles.emptySubtitle, { color: colors.textTertiary }]}>{t('search.emptySubtitle')}</Text>
+                    {/* 고르러 온 자세엔 입력창이 없다 — 돋보기 대신 깔때기를 두고
+                        "입력해 보세요"가 아니라 "칩으로 골라보세요"라고 말한다. */}
+                    <Ionicons name={isPick ? 'funnel-outline' : 'search-outline'} size={44} color={colors.border} />
+                    <Text style={[styles.emptyTitle, { color: colors.textSecondary }]}>
+                        {t(isPick ? 'search.pickEmptyTitle' : 'search.emptyTitle')}
+                    </Text>
+                    <Text style={[styles.emptySubtitle, { color: colors.textTertiary }]}>
+                        {t(isPick ? 'search.pickEmptySubtitle' : 'search.emptySubtitle')}
+                    </Text>
 
                     {showRecents && (
                         <View style={styles.recentSection}>
@@ -559,7 +570,10 @@ export default function SearchModalScreen() {
             {/* 학습 바 — 출력 형식은 필터가 아니므로 칩 줄에 섞지 않고 출발 버튼 옆에 둔다. */}
             <View style={[
                 styles.studyBar,
-                { backgroundColor: colors.surface, borderTopColor: colors.borderLight, paddingBottom: Math.max(insets.bottom, 10) },
+                // 시스템바(제스처 바·홈 인디케이터) 위에 항상 여백이 남게 inset에
+                // 더한다. Math.max(inset, 10)은 inset을 그대로 쓰고 끝이라 버튼이
+                // 시스템바에 붙었다. 다른 하단 바(import-csv·일괄추가)는 16 기준.
+                { backgroundColor: colors.surface, borderTopColor: colors.borderLight, paddingBottom: Math.max(insets.bottom, 6) + 12 },
             ]}>
                 <View style={[styles.segmented, { backgroundColor: colors.surfaceSecondary }]}>
                     {(['flashcard', 'quiz'] as const).map(m => {
@@ -791,11 +805,17 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
         borderRadius: 10,
         gap: 3,
-        maxWidth: 120,
+        maxWidth: 140,
+        // 이름이 상한을 넘겨도 알약 밖으로 새지 않게. 안드로이드에서 둥근 배경이
+        // 네모로 그려지는 것도 이 속성이 막는다(CLAUDE.md UI 체크리스트).
+        overflow: 'hidden',
     },
     listBadgeText: {
         fontSize: 11,
         fontFamily: 'Pretendard_500Medium',
+        // RN은 flexShrink 기본값이 0이라 이게 없으면 Text가 제 폭을 고집하고,
+        // maxWidth에 걸린 알약 밖으로 글자가 튀어나온다(말줄임도 안 걸린다).
+        flexShrink: 1,
     },
     resultMeaning: {
         fontSize: 15,
@@ -803,9 +823,14 @@ const styles = StyleSheet.create({
     },
 
     // 태그
+    // 태그 칩 두 종류(매칭 강조 · 일반)는 같은 뼈대를 쓴다 — View가 알약을 그리고
+    // Text는 lineHeight를 명시한다. 예전엔 일반 태그만 배경 깔린 <Text>라
+    // 안드로이드 includeFontPadding이 위아래를 부풀렸고, 아래 alignItems가
+    // 없어서 한 줄 안의 칩들이 제일 큰 칩 높이로 늘어났다(Yoga 기본값 stretch).
     tagsRow: {
         flexDirection: 'row',
         flexWrap: 'wrap',
+        alignItems: 'center',
         gap: 5,
         marginTop: 2,
     },
@@ -820,15 +845,21 @@ const styles = StyleSheet.create({
     },
     matchedTagText: {
         fontSize: 12,
+        lineHeight: 16,
         fontFamily: 'Pretendard_600SemiBold',
     },
+    // 테두리가 없는 만큼(matchedTag는 1px) 패딩으로 메워 두 칩 높이를 24로 맞춘다.
     smallTag: {
-        fontSize: 12,
-        fontFamily: 'Pretendard_400Regular',
-        paddingHorizontal: 6,
-        paddingVertical: 2,
+        justifyContent: 'center',
+        paddingHorizontal: 7,
+        paddingVertical: 4,
         borderRadius: 8,
         overflow: 'hidden',
+    },
+    smallTagText: {
+        fontSize: 12,
+        lineHeight: 16,
+        fontFamily: 'Pretendard_400Regular',
     },
 
     // 영어 정의 스니펫
@@ -907,7 +938,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         paddingHorizontal: 16,
-        paddingTop: 10,
+        paddingTop: 12,
         borderTopWidth: StyleSheet.hairlineWidth,
     },
     segmented: {
